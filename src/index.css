@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sky: #dbeafe;
+  --cream: #fff7ed;
+  --blue: #3b82f6;
+  --orange: #fb923c;
+  --green: #4ade80;
+  --sun: #fcd34d;
+  --ink: #1f2937;
+}
+
+@layer base {
+  html {
+    font-family: "Fredoka", "Baloo 2", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  body {
+    @apply min-h-screen text-slate-800;
+    background-color: #f0f9ff;
+    background-image:
+      radial-gradient(1200px 500px at 10% -10%, rgba(59, 130, 246, 0.28), transparent),
+      radial-gradient(800px 400px at 90% 0%, rgba(251, 146, 60, 0.22), transparent);
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .tap-highlight-none {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
