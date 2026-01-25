@@ -47,6 +47,11 @@ export default {
           "60%": { transform: "translateX(-4px)" },
           "80%": { transform: "translateX(4px)" },
         },
+        "float-up": {
+          "0%": { transform: "translateY(0) scale(0.8)", opacity: "0" },
+          "15%": { opacity: "1" },
+          "100%": { transform: "translateY(-90px) scale(1.2)", opacity: "0" },
+        },
       },
       animation: {
         "bounce-slow": "bounce-slow 2.6s ease-in-out infinite",
@@ -58,6 +63,7 @@ export default {
         "drift-left": "drift-left 6s ease-in-out infinite",
         "drift-right": "drift-right 7s ease-in-out infinite",
         shake: "shake 0.45s ease-in-out",
+        "float-up": "float-up 1.2s ease-out forwards",
       },
     },
   },
