@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, Cloud, Home, Palette, Volume2, VolumeX } from 'lucide-react';
 
 const THEME = {
@@ -168,14 +168,77 @@ const GERMAN_COLORS = [
   { name: 'Weiß', color: 'white', hex: '#f8fafc' },
 ];
 
+const LETTERS = [
+  { letter: 'A', word: 'Apple', emoji: '🍎' },
+  { letter: 'B', word: 'Ball', emoji: '⚽️' },
+  { letter: 'C', word: 'Cat', emoji: '🐱' },
+  { letter: 'D', word: 'Dog', emoji: '🐶' },
+  { letter: 'E', word: 'Elephant', emoji: '🐘' },
+  { letter: 'F', word: 'Fish', emoji: '🐠' },
+  { letter: 'G', word: 'Giraffe', emoji: '🦒' },
+  { letter: 'H', word: 'Hat', emoji: '🎩' },
+  { letter: 'L', word: 'Lion', emoji: '🦁' },
+  { letter: 'M', word: 'Moon', emoji: '🌙' },
+];
+
+const MEMORY_EMOJIS = ['🐶', '🦊', '🐸', '🐵', '🦄', '🐙'];
+
+const PATTERN_TOKENS = ['🔴', '🔵', '🟡', '🟢', '⭐️', '🌙', '🟣', '🟠'];
+
+const PATTERN_ROUNDS = [
+  { sequence: ['🔴', '🔵', '🔴', '🔵'], answer: '🔴', label: 'Red, Blue pattern' },
+  { sequence: ['🟡', '🟡', '🔵', '🟡', '🟡'], answer: '🔵', label: 'Yellow, Yellow, Blue' },
+  { sequence: ['⭐️', '🌙', '☀️', '⭐️', '🌙'], answer: '☀️', label: 'Star, Moon, Sun' },
+  { sequence: ['🟢', '🟣', '🟢', '🟣', '🟢'], answer: '🟣', label: 'Green, Purple' },
+  { sequence: ['🟠', '🟠', '🔵', '🟠'], answer: '🟠', label: 'Orange, Orange, Blue' },
+  { sequence: ['🔵', '🟢', '🟡', '🔵', '🟢'], answer: '🟡', label: 'Blue, Green, Yellow' },
+  { sequence: ['🌙', '🌙', '⭐️', '🌙', '🌙'], answer: '⭐️', label: 'Moon, Moon, Star' },
+  { sequence: ['🟣', '🟣', '🟣', '🟢'], answer: '🟢', label: 'Purple then Green' },
+];
+
 const buildDinos = () => DINOS.map((dino) => ({ ...dino, hidden: true }));
 const pickRandom = (list) => list[Math.floor(Math.random() * list.length)];
 const shuffle = (list) => list.slice().sort(() => Math.random() - 0.5);
 
+const buildLetterRound = () => {
+  const target = pickRandom(LETTERS);
+  const options = shuffle([
+    target,
+    ...shuffle(LETTERS.filter((item) => item.letter !== target.letter)).slice(0, 3),
+  ]);
+  return { target, options };
+};
+
+const buildMemoryDeck = () =>
+  shuffle(
+    MEMORY_EMOJIS.flatMap((emoji, index) => [
+      { id: `${emoji}-${index}-a`, emoji, flipped: false, matched: false },
+      { id: `${emoji}-${index}-b`, emoji, flipped: false, matched: false },
+    ]),
+  );
+
+const buildParkRound = () => {
+  const target = pickRandom(GERMAN_COLORS);
+  let other = pickRandom(GERMAN_COLORS);
+  while (other.name === target.name) other = pickRandom(GERMAN_COLORS);
+  return { target, options: shuffle([target, other]) };
+};
+
+const buildPatternRound = () => {
+  const round = pickRandom(PATTERN_ROUNDS);
+  const decoys = shuffle(PATTERN_TOKENS.filter((token) => token !== round.answer)).slice(0, 2);
+  return { ...round, options: shuffle([round.answer, ...decoys]) };
+};
+
 const useSfx = (enabled) => {
   const ctxRef = useRef(null);
+  const enabledRef = useRef(enabled);
 
-  const playTone = (ctx, { freq, duration, start = 0, type = 'sine', gain = 0.18 }) => {
+  useEffect(() => {
+    enabledRef.current = enabled;
+  }, [enabled]);
+
+  const playTone = useCallback((ctx, { freq, duration, start = 0, type = 'sine', gain = 0.18 }) => {
     const now = ctx.currentTime;
     const osc = ctx.createOscillator();
     const amp = ctx.createGain();
@@ -192,9 +255,9 @@ const useSfx = (enabled) => {
     amp.gain.exponentialRampToValueAtTime(gain, startAt + 0.02);
     amp.gain.exponentialRampToValueAtTime(0.0001, startAt + duration);
     osc.stop(startAt + duration + 0.02);
-  };
+  }, []);
 
-  const playSweep = (ctx, { from, to, duration, start = 0, type = 'triangle', gain = 0.14 }) => {
+  const playSweep = useCallback((ctx, { from, to, duration, start = 0, type = 'triangle', gain = 0.14 }) => {
     const now = ctx.currentTime;
     const osc = ctx.createOscillator();
     const amp = ctx.createGain();
@@ -212,48 +275,87 @@ const useSfx = (enabled) => {
     amp.gain.exponentialRampToValueAtTime(gain, startAt + 0.02);
     amp.gain.exponentialRampToValueAtTime(0.0001, startAt + duration);
     osc.stop(startAt + duration + 0.02);
-  };
+  }, []);
 
-  return (name) => {
-    if (!enabled) return;
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return;
+  return useCallback(
+    (name) => {
+      if (!enabledRef.current) return;
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
 
-    if (!ctxRef.current) {
-      ctxRef.current = new AudioContext();
-    }
+      if (!ctxRef.current) {
+        ctxRef.current = new AudioContext();
+      }
 
-    const ctx = ctxRef.current;
-    if (ctx.state === 'suspended') ctx.resume();
+      const ctx = ctxRef.current;
+      if (ctx.state === 'suspended') ctx.resume();
 
-    if (name === 'click') {
-      playTone(ctx, { freq: 520, duration: 0.12, gain: 0.12, type: 'triangle' });
-    }
+      if (name === 'click') {
+        playTone(ctx, { freq: 520, duration: 0.12, gain: 0.12, type: 'triangle' });
+      }
 
-    if (name === 'pop') {
-      playTone(ctx, { freq: 880, duration: 0.12, gain: 0.18, type: 'square' });
-      playTone(ctx, { freq: 660, duration: 0.08, gain: 0.12, start: 0.04, type: 'square' });
-    }
+      if (name === 'pop') {
+        playTone(ctx, { freq: 880, duration: 0.12, gain: 0.18, type: 'square' });
+        playTone(ctx, { freq: 660, duration: 0.08, gain: 0.12, start: 0.04, type: 'square' });
+      }
 
-    if (name === 'chime') {
-      playTone(ctx, { freq: 784, duration: 0.18, gain: 0.16 });
-      playTone(ctx, { freq: 1046, duration: 0.18, gain: 0.14, start: 0.12 });
-    }
+      if (name === 'chime') {
+        playTone(ctx, { freq: 784, duration: 0.18, gain: 0.16 });
+        playTone(ctx, { freq: 1046, duration: 0.18, gain: 0.14, start: 0.12 });
+      }
 
-    if (name === 'success') {
-      playTone(ctx, { freq: 523, duration: 0.12, gain: 0.16 });
-      playTone(ctx, { freq: 659, duration: 0.12, gain: 0.16, start: 0.12 });
-      playTone(ctx, { freq: 784, duration: 0.16, gain: 0.16, start: 0.24 });
-    }
+      if (name === 'success') {
+        playTone(ctx, { freq: 523, duration: 0.12, gain: 0.16 });
+        playTone(ctx, { freq: 659, duration: 0.12, gain: 0.16, start: 0.12 });
+        playTone(ctx, { freq: 784, duration: 0.16, gain: 0.16, start: 0.24 });
+      }
 
-    if (name === 'oops') {
-      playTone(ctx, { freq: 220, duration: 0.18, gain: 0.12, type: 'sine' });
-    }
+      if (name === 'oops') {
+        playTone(ctx, { freq: 220, duration: 0.18, gain: 0.12, type: 'sine' });
+      }
 
-    if (name === 'swish') {
-      playSweep(ctx, { from: 900, to: 320, duration: 0.25, gain: 0.14 });
-    }
-  };
+      if (name === 'swish') {
+        playSweep(ctx, { from: 900, to: 320, duration: 0.25, gain: 0.14 });
+      }
+
+      if (name === 'flip') {
+        playTone(ctx, { freq: 620, duration: 0.08, gain: 0.12, type: 'triangle' });
+      }
+
+      if (name === 'sparkle') {
+        playTone(ctx, { freq: 880, duration: 0.12, gain: 0.15, type: 'sine' });
+        playTone(ctx, { freq: 1320, duration: 0.16, gain: 0.12, start: 0.08, type: 'triangle' });
+      }
+
+      if (name === 'launch') {
+        playSweep(ctx, { from: 300, to: 1200, duration: 0.4, gain: 0.2, type: 'sawtooth' });
+        playTone(ctx, { freq: 960, duration: 0.08, gain: 0.1, start: 0.2, type: 'square' });
+      }
+    },
+    [playSweep, playTone],
+  );
+};
+
+const useVoice = (enabled) => {
+  const enabledRef = useRef(enabled);
+
+  useEffect(() => {
+    enabledRef.current = enabled;
+  }, [enabled]);
+
+  return useCallback((text, { lang = 'en-US', rate = 0.9, pitch = 1.05 } = {}) => {
+    if (!enabledRef.current) return;
+    if (!text) return;
+    if (typeof window === 'undefined' || !window.speechSynthesis) return;
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang;
+    utterance.rate = rate;
+    utterance.pitch = pitch;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utterance);
+  }, []);
 };
 
 const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
@@ -266,7 +368,7 @@ const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
   </button>
 );
 
-const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound }) => {
+const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak }) => {
   const [selectedPlanet, setSelectedPlanet] = useState(null);
   const stars = useMemo(
     () =>
@@ -278,6 +380,13 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound }) => {
       })),
     [],
   );
+
+  useEffect(() => {
+    if (!selectedPlanet) return;
+    speak(
+      `${selectedPlanet.name}. ${selectedPlanet.subtitle}. ${selectedPlanet.facts[0]} ${selectedPlanet.facts[1]}`,
+    );
+  }, [selectedPlanet, speak]);
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-900 text-white p-4 relative overflow-hidden">
@@ -360,6 +469,12 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound }) => {
             </ul>
           </div>
           <button
+            onClick={() => speak(`${selectedPlanet.name}. ${selectedPlanet.facts.join(' ')}`)}
+            className="mb-3 text-blue-600 font-semibold"
+          >
+            🔊 Hear it again
+          </button>
+          <button
             onClick={() => setSelectedPlanet(null)}
             className={`${THEME.primary} text-white w-full py-3 rounded-full font-bold text-xl ${THEME.button} hover:bg-blue-600`}
           >
@@ -371,7 +486,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound }) => {
   );
 };
 
-const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound }) => {
+const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak }) => {
   const [dinos, setDinos] = useState(buildDinos);
   const [foundDino, setFoundDino] = useState(null);
   const foundCount = dinos.filter((dino) => !dino.hidden).length;
@@ -391,6 +506,18 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound }) => {
 
   const allFound = dinos.every((dino) => !dino.hidden);
 
+  useEffect(() => {
+    if (foundDino) {
+      speak(`You found ${foundDino.name}. ${foundDino.fact}`);
+    }
+  }, [foundDino, speak]);
+
+  useEffect(() => {
+    if (allFound && !foundDino) {
+      speak('You found everyone! Great searching!');
+    }
+  }, [allFound, foundDino, speak]);
+
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-emerald-200 via-green-200 to-green-300 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -408,7 +535,9 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound }) => {
         </button>
         <div className="text-center">
           <h2 className="text-2xl font-black text-green-900 drop-shadow-sm">Dino Hide & Seek!</h2>
-          <p className="text-green-900/80 font-semibold">Found {foundCount} / {dinos.length}</p>
+          <p className="text-green-900/80 font-semibold">
+            Found {foundCount} / {dinos.length}
+          </p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
@@ -483,10 +612,14 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound }) => {
   );
 };
 
-const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound }) => {
+const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak }) => {
   const canvasRef = useRef(null);
   const [shape, setShape] = useState('Circle');
   const [cleared, setCleared] = useState(false);
+
+  useEffect(() => {
+    speak(`Trace the ${shape}.`);
+  }, [shape, speak]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -632,18 +765,21 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound }) => {
   );
 };
 
-const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound }) => {
+const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak }) => {
   const [mode, setMode] = useState('paint');
   const [targetColor, setTargetColor] = useState(() => pickRandom(GERMAN_COLORS));
   const [painted, setPainted] = useState(false);
   const [feedback, setFeedback] = useState('');
-  const [parkRound, setParkRound] = useState(() => {
-    const target = pickRandom(GERMAN_COLORS);
-    let other = pickRandom(GERMAN_COLORS);
-    while (other.name === target.name) other = pickRandom(GERMAN_COLORS);
-    return { target, options: shuffle([target, other]) };
-  });
+  const [parkRound, setParkRound] = useState(buildParkRound);
   const [parkFeedback, setParkFeedback] = useState('');
+
+  useEffect(() => {
+    if (mode === 'paint') {
+      speak(`Finde ${targetColor.name}`, { lang: 'de-DE', rate: 0.85 });
+    } else {
+      speak(`Parke in ${parkRound.target.name}`, { lang: 'de-DE', rate: 0.85 });
+    }
+  }, [mode, targetColor.name, parkRound.target.name, speak]);
 
   const nextPaint = () => {
     const next = pickRandom(GERMAN_COLORS);
@@ -653,10 +789,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound }) => {
   };
 
   const nextPark = () => {
-    const target = pickRandom(GERMAN_COLORS);
-    let other = pickRandom(GERMAN_COLORS);
-    while (other.name === target.name) other = pickRandom(GERMAN_COLORS);
-    setParkRound({ target, options: shuffle([target, other]) });
+    setParkRound(buildParkRound());
     setParkFeedback('');
   };
 
@@ -817,7 +950,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound }) => {
   );
 };
 
-const MonsterMath = ({ onBack, playSfx, soundOn, onToggleSound }) => {
+const MonsterMath = ({ onBack, playSfx, soundOn, onToggleSound, speak }) => {
   const [problem, setProblem] = useState({ a: 2, b: 2, ans: 4 });
   const [success, setSuccess] = useState(false);
   const [shake, setShake] = useState(false);
@@ -829,6 +962,10 @@ const MonsterMath = ({ onBack, playSfx, soundOn, onToggleSound }) => {
     const b = Math.ceil(Math.random() * 3);
     setProblem({ a, b, ans: a * b });
   };
+
+  useEffect(() => {
+    speak(`What is ${problem.a} times ${problem.b}?`);
+  }, [problem.a, problem.b, speak]);
 
   const options = useMemo(() => {
     const optionsSet = new Set([problem.ans]);
@@ -925,10 +1062,353 @@ const MonsterMath = ({ onBack, playSfx, soundOn, onToggleSound }) => {
   );
 };
 
+const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak }) => {
+  const [round, setRound] = useState(buildLetterRound);
+  const [launching, setLaunching] = useState(false);
+  const [feedback, setFeedback] = useState('');
+  const [stars, setStars] = useState(0);
+
+  const promptText = `${round.target.letter}. ${round.target.letter} is for ${round.target.word}.`;
+
+  const sayPrompt = useCallback(() => {
+    speak(`Find the letter ${promptText}`);
+  }, [promptText, speak]);
+
+  useEffect(() => {
+    sayPrompt();
+  }, [sayPrompt]);
+
+  const nextRound = () => {
+    setRound(buildLetterRound());
+    setLaunching(false);
+    setFeedback('');
+  };
+
+  const handlePick = (option) => {
+    if (option.letter === round.target.letter) {
+      setLaunching(true);
+      setFeedback('Blast off!');
+      setStars((prev) => prev + 1);
+      playSfx('launch');
+      playSfx('success');
+      setTimeout(nextRound, 1400);
+    } else {
+      setFeedback('Try again!');
+      playSfx('oops');
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-sky-200 via-sky-100 to-indigo-100 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-10 left-10 w-44 h-24 bg-white/70 rounded-full blur-2xl animate-drift-left" />
+        <div className="absolute top-24 right-6 w-52 h-28 bg-white/70 rounded-full blur-2xl animate-drift-right" />
+        <div className="absolute bottom-20 left-6 w-64 h-32 bg-white/60 rounded-full blur-3xl" />
+      </div>
+
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button
+          onClick={onBack}
+          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+        >
+          <Home />
+        </button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-sky-700">Letter Launch</h2>
+          <p className="text-sky-700/70 font-semibold">Stars: {stars}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
+        <div className="bg-white/90 p-6 rounded-3xl shadow-xl border-4 border-sky-200 text-center mb-6 w-full max-w-md">
+          <p className="text-slate-500 mb-2 font-bold uppercase tracking-wider">Launch Mission</p>
+          <div className="text-7xl font-black text-sky-700 mb-2">{round.target.letter}</div>
+          <div className="text-2xl font-bold text-slate-700">
+            {round.target.word} {round.target.emoji}
+          </div>
+          <button onClick={sayPrompt} className="mt-4 text-sky-600 font-semibold">
+            🔊 Hear the letter
+          </button>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+          {round.options.map((option) => (
+            <button
+              key={option.letter}
+              onClick={() => handlePick(option)}
+              className="bg-white text-slate-800 text-4xl font-black rounded-3xl py-6 shadow-lg border-4 border-sky-200 hover:-translate-y-1 transition"
+            >
+              {option.letter}
+            </button>
+          ))}
+        </div>
+
+        {feedback && <div className="mt-4 text-xl font-bold text-indigo-500 animate-bounce">{feedback}</div>}
+
+        <div className="relative w-full max-w-md h-40 mt-6">
+          <div className="absolute bottom-0 w-full h-10 bg-sky-300/70 rounded-full" />
+          <div
+            className="absolute bottom-6 left-6 text-6xl transition-transform duration-1000"
+            style={{
+              transform: launching ? 'translate(220px, -120px) rotate(-10deg)' : 'translate(0, 0)',
+            }}
+          >
+            🚀
+          </div>
+          <div
+            className={`absolute bottom-24 right-12 text-3xl transition-opacity duration-500 ${
+              launching ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            ✨✨
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak }) => {
+  const [deck, setDeck] = useState(buildMemoryDeck);
+  const [flipped, setFlipped] = useState([]);
+  const [moves, setMoves] = useState(0);
+  const [locked, setLocked] = useState(false);
+  const [round, setRound] = useState(1);
+
+  const matches = deck.filter((card) => card.matched).length / 2;
+
+  const resetDeck = () => {
+    setDeck(buildMemoryDeck());
+    setFlipped([]);
+    setMoves(0);
+    setLocked(false);
+    setRound((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    speak('Find the matching pairs.');
+  }, [round, speak]);
+
+  useEffect(() => {
+    if (matches === MEMORY_EMOJIS.length) {
+      speak('You matched them all. Fantastic memory!');
+      playSfx('success');
+    }
+  }, [matches, playSfx, speak]);
+
+  const handleFlip = (index) => {
+    if (locked) return;
+    setDeck((prev) => {
+      if (prev[index].flipped || prev[index].matched) return prev;
+      const next = prev.map((card, i) => (i === index ? { ...card, flipped: true } : card));
+      return next;
+    });
+    setFlipped((prev) => (prev.includes(index) ? prev : [...prev, index]));
+    playSfx('flip');
+  };
+
+  useEffect(() => {
+    if (flipped.length !== 2) return;
+    const [first, second] = flipped;
+    setLocked(true);
+    setMoves((prev) => prev + 1);
+
+    if (deck[first].emoji === deck[second].emoji) {
+      setDeck((prev) =>
+        prev.map((card, i) =>
+          i === first || i === second ? { ...card, matched: true } : card,
+        ),
+      );
+      setFlipped([]);
+      setLocked(false);
+      playSfx('sparkle');
+    } else {
+      setTimeout(() => {
+        setDeck((prev) =>
+          prev.map((card, i) =>
+            i === first || i === second ? { ...card, flipped: false } : card,
+          ),
+        );
+        setFlipped([]);
+        setLocked(false);
+        playSfx('oops');
+      }, 700);
+    }
+  }, [deck, flipped, playSfx]);
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-rose-100 via-pink-100 to-rose-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-200/60 rounded-full blur-3xl" />
+      </div>
+
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button
+          onClick={onBack}
+          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+        >
+          <Home />
+        </button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-rose-600">Memory Match</h2>
+          <p className="text-rose-600/70 font-semibold">
+            Matches: {matches} · Moves: {moves}
+          </p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
+        <button onClick={() => speak('Find the matching pairs.')} className="mb-4 text-rose-600 font-semibold">
+          🔊 Hear the mission
+        </button>
+
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 w-full max-w-md">
+          {deck.map((card, index) => {
+            const isFaceUp = card.flipped || card.matched;
+            return (
+              <div key={card.id} style={{ perspective: '900px' }}>
+                <button
+                  onClick={() => handleFlip(index)}
+                  className="relative w-24 h-28 sm:w-24 sm:h-32"
+                >
+                  <div
+                    className="absolute inset-0 transition-transform duration-500"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      transform: isFaceUp ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                    }}
+                  >
+                    <div
+                      className="absolute inset-0 bg-white rounded-2xl border-4 border-rose-200 shadow-lg flex items-center justify-center text-3xl"
+                      style={{ backfaceVisibility: 'hidden' }}
+                    >
+                      🌈
+                    </div>
+                    <div
+                      className="absolute inset-0 bg-rose-500 rounded-2xl border-4 border-rose-200 shadow-lg flex items-center justify-center text-4xl"
+                      style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                    >
+                      {card.emoji}
+                    </div>
+                  </div>
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        {matches === MEMORY_EMOJIS.length && (
+          <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
+            <div className="text-5xl mb-2">🎉</div>
+            <h3 className="text-2xl font-black text-rose-600">You did it!</h3>
+            <button onClick={resetDeck} className="mt-3 text-rose-600 font-semibold">
+              Play again
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak }) => {
+  const [round, setRound] = useState(buildPatternRound);
+  const [feedback, setFeedback] = useState('');
+  const [streak, setStreak] = useState(0);
+  const [shake, setShake] = useState(false);
+
+  const nextRound = () => {
+    setRound(buildPatternRound());
+    setFeedback('');
+  };
+
+  useEffect(() => {
+    speak(`What comes next? ${round.label}`);
+  }, [round.label, speak]);
+
+  const handlePick = (option) => {
+    if (option === round.answer) {
+      setFeedback('Great pattern!');
+      setStreak((prev) => prev + 1);
+      playSfx('sparkle');
+      setTimeout(nextRound, 1400);
+    } else {
+      setFeedback('Try again!');
+      setShake(true);
+      playSfx('oops');
+      setTimeout(() => setShake(false), 450);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-amber-100 via-yellow-100 to-amber-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-10 left-8 w-52 h-32 bg-white/60 rounded-full blur-2xl" />
+        <div className="absolute bottom-0 right-0 w-60 h-60 bg-amber-300/40 rounded-full blur-3xl" />
+      </div>
+
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button
+          onClick={onBack}
+          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+        >
+          <Home />
+        </button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-amber-700">Pattern Parade</h2>
+          <p className="text-amber-700/70 font-semibold">Streak: {streak}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
+        <button onClick={() => speak(`What comes next? ${round.label}`)} className="mb-4 text-amber-700 font-semibold">
+          🔊 Hear the pattern
+        </button>
+
+        <div
+          className={`bg-white/90 rounded-3xl p-6 shadow-xl border-4 border-amber-200 mb-6 ${
+            shake ? 'animate-shake' : ''
+          }`}
+        >
+          <div className="flex items-center gap-4 text-4xl">
+            {round.sequence.map((token, index) => (
+              <div key={`${token}-${index}`} className="w-12 h-12 flex items-center justify-center">
+                {token}
+              </div>
+            ))}
+            <div className="w-12 h-12 rounded-2xl border-4 border-dashed border-amber-300 flex items-center justify-center text-2xl">
+              ?
+            </div>
+          </div>
+        </div>
+
+        <div className="flex gap-6 flex-wrap justify-center">
+          {round.options.map((option) => (
+            <button
+              key={option}
+              onClick={() => handlePick(option)}
+              className="w-20 h-20 bg-white text-4xl rounded-3xl shadow-lg border-4 border-amber-200 hover:-translate-y-1 transition"
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {feedback && <div className="mt-4 text-xl font-bold text-amber-700 animate-bounce">{feedback}</div>}
+      </div>
+    </div>
+  );
+};
+
 export default function App() {
   const [screen, setScreen] = useState('menu');
   const [soundOn, setSoundOn] = useState(true);
   const playSfx = useSfx(soundOn);
+  const speak = useVoice(soundOn);
 
   if (screen !== 'menu') {
     if (screen === 'solar') {
@@ -938,6 +1418,7 @@ export default function App() {
           playSfx={playSfx}
           soundOn={soundOn}
           onToggleSound={() => setSoundOn((prev) => !prev)}
+          speak={speak}
         />
       );
     }
@@ -948,6 +1429,7 @@ export default function App() {
           playSfx={playSfx}
           soundOn={soundOn}
           onToggleSound={() => setSoundOn((prev) => !prev)}
+          speak={speak}
         />
       );
     }
@@ -958,6 +1440,7 @@ export default function App() {
           playSfx={playSfx}
           soundOn={soundOn}
           onToggleSound={() => setSoundOn((prev) => !prev)}
+          speak={speak}
         />
       );
     }
@@ -968,6 +1451,7 @@ export default function App() {
           playSfx={playSfx}
           soundOn={soundOn}
           onToggleSound={() => setSoundOn((prev) => !prev)}
+          speak={speak}
         />
       );
     }
@@ -978,6 +1462,40 @@ export default function App() {
           playSfx={playSfx}
           soundOn={soundOn}
           onToggleSound={() => setSoundOn((prev) => !prev)}
+          speak={speak}
+        />
+      );
+    }
+    if (screen === 'letters') {
+      return (
+        <LetterLaunch
+          onBack={() => setScreen('menu')}
+          playSfx={playSfx}
+          soundOn={soundOn}
+          onToggleSound={() => setSoundOn((prev) => !prev)}
+          speak={speak}
+        />
+      );
+    }
+    if (screen === 'memory') {
+      return (
+        <MemoryMatch
+          onBack={() => setScreen('menu')}
+          playSfx={playSfx}
+          soundOn={soundOn}
+          onToggleSound={() => setSoundOn((prev) => !prev)}
+          speak={speak}
+        />
+      );
+    }
+    if (screen === 'pattern') {
+      return (
+        <PatternParade
+          onBack={() => setScreen('menu')}
+          playSfx={playSfx}
+          soundOn={soundOn}
+          onToggleSound={() => setSoundOn((prev) => !prev)}
+          speak={speak}
         />
       );
     }
@@ -1011,7 +1529,7 @@ export default function App() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl relative z-10">
         <MenuCard
           icon="🦕"
           title="Dino Detective"
@@ -1065,7 +1583,39 @@ export default function App() {
             playSfx('click');
             setScreen('math');
           }}
-          span="md:col-span-2 lg:col-span-1"
+        />
+
+        <MenuCard
+          icon="🚀"
+          title="Letter Launch"
+          desc="Letters and sounds"
+          color="bg-teal-400"
+          onClick={() => {
+            playSfx('click');
+            setScreen('letters');
+          }}
+        />
+
+        <MenuCard
+          icon="🧩"
+          title="Memory Match"
+          desc="Find the pairs"
+          color="bg-rose-400"
+          onClick={() => {
+            playSfx('click');
+            setScreen('memory');
+          }}
+        />
+
+        <MenuCard
+          icon="🔷"
+          title="Pattern Parade"
+          desc="Finish the pattern"
+          color="bg-amber-400"
+          onClick={() => {
+            playSfx('click');
+            setScreen('pattern');
+          }}
         />
       </div>
 
