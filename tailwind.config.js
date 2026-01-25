@@ -32,6 +32,21 @@ export default {
           "0%": { transform: "translateY(100%)" },
           "100%": { transform: "translateY(0)" },
         },
+        "drift-left": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(-30px)" },
+        },
+        "drift-right": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(30px)" },
+        },
+        shake: {
+          "0%, 100%": { transform: "translateX(0)" },
+          "20%": { transform: "translateX(-6px)" },
+          "40%": { transform: "translateX(6px)" },
+          "60%": { transform: "translateX(-4px)" },
+          "80%": { transform: "translateX(4px)" },
+        },
       },
       animation: {
         "bounce-slow": "bounce-slow 2.6s ease-in-out infinite",
@@ -40,6 +55,9 @@ export default {
         wiggle: "wiggle 1s ease-in-out infinite",
         "pop-in": "pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
         "bounce-up": "bounce-up 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+        "drift-left": "drift-left 6s ease-in-out infinite",
+        "drift-right": "drift-right 7s ease-in-out infinite",
+        shake: "shake 0.45s ease-in-out",
       },
     },
   },
