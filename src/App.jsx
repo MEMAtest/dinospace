@@ -25,60 +25,21 @@ const FRIENDLY_VOICE_NAMES = [
   'Zoe',
 ];
 
-const BURST_EMOJIS = ['✨', '⭐️', '🎆', '🎇', '🌟'];
+const GERMAN_PRAISE = ['Super!', 'Gut gemacht!', 'Sehr gut!', 'Toll gemacht!', 'Fantastisch!', 'Klasse!'];
 
-const DINOS = [
-  {
-    id: 't-rex',
-    name: 'T-Rex',
-    emoji: '🦖',
-    fact: 'I have tiny arms but a huge bite! ROAR!',
-    x: 18,
-    y: 42,
-  },
-  {
-    id: 'stego',
-    name: 'Stegosaurus',
-    emoji: '🦕',
-    fact: 'My back plates work like solar panels to warm me up!',
-    x: 68,
-    y: 58,
-  },
-  {
-    id: 'trike',
-    name: 'Triceratops',
-    emoji: '🦏',
-    fact: 'I have three horns to protect my nose!',
-    x: 42,
-    y: 76,
-  },
-  {
-    id: 'ptero',
-    name: 'Pterodactyl',
-    emoji: '🦅',
-    fact: "I'm not a dinosaur, I'm a flying reptile!",
-    x: 82,
-    y: 26,
-  },
-  {
-    id: 'brachio',
-    name: 'Brachiosaurus',
-    emoji: '🦒',
-    fact: 'I eat leaves from the very top of trees!',
-    x: 8,
-    y: 70,
-  },
-];
+const BURST_EMOJIS = ['✨', '⭐️', '🎆', '🎇', '🌟'];
 
 const PLANETS = [
   {
     name: 'Mercury',
-    color: 'bg-gray-400',
+    surface: '#9ca3af',
+    size: 70,
     subtitle: 'The speedy little planet',
     facts: [
       'Smallest planet in our solar system.',
-      'So close to the Sun that it zooms around quickly.',
-      'No air to breathe, so it is very quiet!',
+      'Closest to the Sun and very speedy.',
+      'A day there is longer than a year!',
+      'No air to breathe, so it is quiet.',
     ],
     stats: [
       { label: 'Order', value: '1st from Sun', emoji: '☀️' },
@@ -89,12 +50,14 @@ const PLANETS = [
   },
   {
     name: 'Venus',
-    color: 'bg-yellow-600',
+    surface: '#f59e0b',
+    size: 76,
     subtitle: 'The hottest planet',
     facts: [
+      'Hottest planet in the whole solar system.',
       'Spins backwards compared to most planets.',
-      'Covered in thick, cloudy skies.',
-      'The clouds trap heat like a warm blanket.',
+      'Thick clouds trap heat like a blanket.',
+      'Looks like a bright evening star.',
     ],
     stats: [
       { label: 'Order', value: '2nd from Sun', emoji: '☀️' },
@@ -105,10 +68,12 @@ const PLANETS = [
   },
   {
     name: 'Earth',
-    color: 'bg-blue-500',
+    surface: '#3b82f6',
+    size: 82,
     subtitle: 'Our bright blue home',
     facts: [
-      'Lots of water and air to breathe.',
+      'Home to plants, animals, and you!',
+      'Lots of water makes it look blue.',
       'Only planet we know with life.',
       'One big Moon lights up our night sky.',
     ],
@@ -121,12 +86,14 @@ const PLANETS = [
   },
   {
     name: 'Mars',
-    color: 'bg-red-500',
+    surface: '#ef4444',
+    size: 74,
     subtitle: 'The red explorer',
     facts: [
       'Dusty and rocky with huge volcanoes.',
       'Robots explore Mars for us!',
       'Home to the biggest volcano: Olympus Mons.',
+      'Looks red because of rusty dust.',
     ],
     stats: [
       { label: 'Order', value: '4th from Sun', emoji: '☀️' },
@@ -137,10 +104,12 @@ const PLANETS = [
   },
   {
     name: 'Jupiter',
-    color: 'bg-orange-300',
+    surface: '#fb923c',
+    size: 110,
     subtitle: 'The giant gas planet',
     facts: [
-      'Bigger than all the other planets put together.',
+      'Largest planet in our solar system.',
+      'Bigger than all the other planets combined.',
       'Has a giant storm called the Great Red Spot.',
       'Made of gas, so there is no solid ground.',
     ],
@@ -153,18 +122,211 @@ const PLANETS = [
   },
   {
     name: 'Saturn',
-    color: 'bg-yellow-200',
+    surface: '#fde68a',
+    ring: true,
+    ringColor: '#fef3c7',
+    size: 100,
     subtitle: 'The ringed planet',
     facts: [
       'Rings are made of ice and rock chunks.',
-      'Has dozens of moons to discover.',
-      'Could float in water because it is so light!',
+      'Has lots of moons to discover.',
+      'Could float in water because it is light.',
+      'Spins so fast it looks squished.',
     ],
     stats: [
       { label: 'Order', value: '6th from Sun', emoji: '☀️' },
       { label: 'Day', value: '10.7 hours', emoji: '🕒' },
       { label: 'Year', value: '29 Earth years', emoji: '🗓️' },
       { label: 'Moons', value: '145', emoji: '🌙' },
+    ],
+  },
+  {
+    name: 'Uranus',
+    surface: '#7dd3fc',
+    size: 84,
+    subtitle: 'The sideways spinner',
+    facts: [
+      'Spins on its side like a rolling ball.',
+      'Pale blue-green color from methane gas.',
+      'Very cold and far from the Sun.',
+      'Has faint rings around it.',
+    ],
+    stats: [
+      { label: 'Order', value: '7th from Sun', emoji: '☀️' },
+      { label: 'Day', value: '17 hours', emoji: '🕒' },
+      { label: 'Year', value: '84 Earth years', emoji: '🗓️' },
+      { label: 'Moons', value: '27', emoji: '🌙' },
+    ],
+  },
+  {
+    name: 'Neptune',
+    surface: '#2563eb',
+    size: 84,
+    subtitle: 'The windy blue world',
+    facts: [
+      'Farthest planet from the Sun.',
+      'Super windy with giant storms.',
+      'Deep blue color is very special.',
+      'A year there is very, very long.',
+    ],
+    stats: [
+      { label: 'Order', value: '8th from Sun', emoji: '☀️' },
+      { label: 'Day', value: '16 hours', emoji: '🕒' },
+      { label: 'Year', value: '165 Earth years', emoji: '🗓️' },
+      { label: 'Moons', value: '14', emoji: '🌙' },
+    ],
+  },
+  {
+    name: 'Pluto',
+    surface: '#cbd5f5',
+    size: 60,
+    subtitle: 'The tiny icy dwarf planet',
+    facts: [
+      'Small, icy world far from the Sun.',
+      'Used to be called the 9th planet.',
+      'Has a heart-shaped ice spot.',
+      'Takes 248 years to go around the Sun.',
+    ],
+    stats: [
+      { label: 'Type', value: 'Dwarf planet', emoji: '❄️' },
+      { label: 'Day', value: '6.4 Earth days', emoji: '🕒' },
+      { label: 'Year', value: '248 Earth years', emoji: '🗓️' },
+      { label: 'Moons', value: '5', emoji: '🌙' },
+    ],
+  },
+];
+
+const DINO_SPECIES = {
+  trex: {
+    name: 'T-Rex',
+    emoji: '🦖',
+    fact: 'Tiny arms but a huge bite! ROAR!',
+  },
+  brachio: {
+    name: 'Brachiosaurus',
+    emoji: '🦒',
+    fact: 'Looks like a giraffe dinosaur with a long neck!',
+  },
+  trike: {
+    name: 'Triceratops',
+    emoji: '🦏',
+    fact: 'Three horns help protect my nose.',
+  },
+  stego: {
+    name: 'Stegosaurus',
+    emoji: '🦕',
+    fact: 'Back plates work like solar panels.',
+  },
+  raptor: {
+    name: 'Velociraptor',
+    emoji: '🦖',
+    fact: 'Fast runner with super sharp claws.',
+  },
+  ankyl: {
+    name: 'Ankylosaurus',
+    emoji: '🦖',
+    fact: 'Armored body and a club tail!',
+  },
+  para: {
+    name: 'Parasaurolophus',
+    emoji: '🦕',
+    fact: 'Crest on my head makes sounds.',
+  },
+  spino: {
+    name: 'Spinosaurus',
+    emoji: '🦖',
+    fact: 'Big sail on my back like a fin.',
+  },
+  ptero: {
+    name: 'Pterodactyl',
+    emoji: '🦅',
+    fact: 'Flying reptile, not a dinosaur!',
+  },
+  dillo: {
+    name: 'Dilophosaurus',
+    emoji: '🦖',
+    fact: 'Two crests on my head.',
+  },
+};
+
+const makeDino = (levelId, key, x, y) => ({
+  id: `${levelId}-${key}-${x}-${y}`,
+  ...DINO_SPECIES[key],
+  x,
+  y,
+});
+
+const DINO_LEVELS = [
+  {
+    id: 'jungle',
+    name: 'Jungle Jive',
+    hint: 'Look behind the big leaves!',
+    dinos: [
+      makeDino('jungle', 'trex', 18, 42),
+      makeDino('jungle', 'brachio', 8, 70),
+      makeDino('jungle', 'trike', 45, 78),
+      makeDino('jungle', 'stego', 68, 56),
+      makeDino('jungle', 'ptero', 82, 26),
+    ],
+  },
+  {
+    id: 'volcano',
+    name: 'Volcano Valley',
+    hint: 'Check the steamy bushes!',
+    dinos: [
+      makeDino('volcano', 'spino', 20, 30),
+      makeDino('volcano', 'ankyl', 60, 70),
+      makeDino('volcano', 'raptor', 35, 60),
+      makeDino('volcano', 'trike', 75, 40),
+      makeDino('volcano', 'brachio', 10, 55),
+    ],
+  },
+  {
+    id: 'river',
+    name: 'River Run',
+    hint: 'Follow the splashy path!',
+    dinos: [
+      makeDino('river', 'para', 22, 68),
+      makeDino('river', 'trex', 55, 30),
+      makeDino('river', 'stego', 72, 60),
+      makeDino('river', 'ptero', 80, 18),
+      makeDino('river', 'dillo', 35, 40),
+    ],
+  },
+  {
+    id: 'moonlight',
+    name: 'Moonlight Meadow',
+    hint: 'Look for glowing eyes!',
+    dinos: [
+      makeDino('moonlight', 'brachio', 14, 64),
+      makeDino('moonlight', 'raptor', 55, 65),
+      makeDino('moonlight', 'ankyl', 75, 40),
+      makeDino('moonlight', 'spino', 30, 28),
+      makeDino('moonlight', 'trike', 45, 80),
+    ],
+  },
+  {
+    id: 'desert',
+    name: 'Desert Dash',
+    hint: 'Check the sandy dunes!',
+    dinos: [
+      makeDino('desert', 'stego', 18, 55),
+      makeDino('desert', 'para', 60, 70),
+      makeDino('desert', 'trex', 42, 32),
+      makeDino('desert', 'ptero', 80, 20),
+      makeDino('desert', 'ankyl', 68, 40),
+    ],
+  },
+  {
+    id: 'rainbow',
+    name: 'Rainbow Ridge',
+    hint: 'Look for bright shapes!',
+    dinos: [
+      makeDino('rainbow', 'dillo', 20, 72),
+      makeDino('rainbow', 'brachio', 8, 45),
+      makeDino('rainbow', 'spino', 50, 25),
+      makeDino('rainbow', 'raptor', 72, 62),
+      makeDino('rainbow', 'trike', 40, 80),
     ],
   },
 ];
@@ -191,23 +353,48 @@ const LETTERS = [
   { letter: 'F', word: 'Fish', emoji: '🐠' },
   { letter: 'G', word: 'Giraffe', emoji: '🦒' },
   { letter: 'H', word: 'Hat', emoji: '🎩' },
+  { letter: 'I', word: 'Ice cream', emoji: '🍦' },
+  { letter: 'J', word: 'Juice', emoji: '🧃' },
+  { letter: 'K', word: 'Kite', emoji: '🪁' },
   { letter: 'L', word: 'Lion', emoji: '🦁' },
   { letter: 'M', word: 'Moon', emoji: '🌙' },
+  { letter: 'N', word: 'Nest', emoji: '🪺' },
+  { letter: 'O', word: 'Octopus', emoji: '🐙' },
+  { letter: 'P', word: 'Pizza', emoji: '🍕' },
+  { letter: 'Q', word: 'Queen', emoji: '👑' },
+  { letter: 'R', word: 'Rocket', emoji: '🚀' },
+  { letter: 'S', word: 'Sun', emoji: '☀️' },
+  { letter: 'T', word: 'Tiger', emoji: '🐯' },
+  { letter: 'U', word: 'Umbrella', emoji: '☂️' },
+  { letter: 'V', word: 'Violin', emoji: '🎻' },
+  { letter: 'W', word: 'Whale', emoji: '🐳' },
+  { letter: 'X', word: 'Xylophone', emoji: '🎶' },
+  { letter: 'Y', word: 'Yo-yo', emoji: '🪀' },
+  { letter: 'Z', word: 'Zebra', emoji: '🦓' },
 ];
 
-const TRACE_LETTERS = LETTERS.slice(0, 6);
+const TRACE_LETTERS = LETTERS.map((item) => ({
+  upper: item.letter,
+  lower: item.letter.toLowerCase(),
+  word: item.word,
+  emoji: item.emoji,
+}));
 
 const PHONICS_ITEMS = [
   { letter: 'A', word: 'Apple', emoji: '🍎', sound: 'ah' },
   { letter: 'B', word: 'Ball', emoji: '⚽️', sound: 'buh' },
   { letter: 'C', word: 'Cat', emoji: '🐱', sound: 'kuh' },
   { letter: 'D', word: 'Dog', emoji: '🐶', sound: 'duh' },
+  { letter: 'E', word: 'Elephant', emoji: '🐘', sound: 'eh' },
   { letter: 'F', word: 'Fish', emoji: '🐠', sound: 'fff' },
   { letter: 'G', word: 'Goat', emoji: '🐐', sound: 'guh' },
+  { letter: 'H', word: 'Hat', emoji: '🎩', sound: 'huh' },
   { letter: 'L', word: 'Lion', emoji: '🦁', sound: 'lll' },
   { letter: 'M', word: 'Moon', emoji: '🌙', sound: 'mmm' },
   { letter: 'P', word: 'Pizza', emoji: '🍕', sound: 'puh' },
+  { letter: 'R', word: 'Rocket', emoji: '🚀', sound: 'rrr' },
   { letter: 'S', word: 'Sun', emoji: '☀️', sound: 'sss' },
+  { letter: 'T', word: 'Tiger', emoji: '🐯', sound: 'tuh' },
 ];
 
 const MEMORY_EMOJIS = ['🐶', '🦊', '🐸', '🐵', '🦄', '🐙'];
@@ -225,9 +412,12 @@ const PATTERN_ROUNDS = [
   { sequence: ['🟣', '🟣', '🟣', '🟢'], answer: '🟢', label: 'Purple then Green' },
 ];
 
-const buildDinos = () => DINOS.map((dino) => ({ ...dino, hidden: true }));
+const SHAPES = ['Circle', 'Square', 'Triangle', 'Star', 'Heart', 'Diamond'];
+
 const pickRandom = (list) => list[Math.floor(Math.random() * list.length)];
 const shuffle = (list) => list.slice().sort(() => Math.random() - 0.5);
+
+const getPraise = () => pickRandom(GERMAN_PRAISE);
 
 const createBursts = () =>
   Array.from({ length: 14 }, (_, i) => ({
@@ -238,6 +428,29 @@ const createBursts = () =>
     delay: Math.random() * 0.3,
     size: Math.random() > 0.7 ? 'text-4xl' : 'text-3xl',
   }));
+
+const shadeColor = (hex, percent) => {
+  const num = parseInt(hex.replace('#', ''), 16);
+  const amt = Math.round(2.55 * percent);
+  const r = Math.min(255, Math.max(0, (num >> 16) + amt));
+  const g = Math.min(255, Math.max(0, ((num >> 8) & 0x00ff) + amt));
+  const b = Math.min(255, Math.max(0, (num & 0x0000ff) + amt));
+  return `#${(0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1)}`;
+};
+
+const createPlanetStyle = (planet) => {
+  const base = planet.surface;
+  const highlight = shadeColor(base, 35);
+  const shadow = shadeColor(base, -25);
+  return {
+    width: planet.size,
+    height: planet.size,
+    backgroundImage: `radial-gradient(circle at 30% 25%, ${highlight}, ${base} 45%, ${shadow} 100%)`,
+    boxShadow: 'inset -10px -12px 0 rgba(0,0,0,0.2), 0 12px 25px rgba(0,0,0,0.25)',
+  };
+};
+
+const buildDinos = (level) => level.dinos.map((dino) => ({ ...dino, hidden: true }));
 
 const buildLetterRound = () => {
   const target = pickRandom(LETTERS);
@@ -281,7 +494,9 @@ const buildPhonicsRound = () => {
 const pickFriendlyVoice = (voices, lang) => {
   if (!voices || voices.length === 0) return null;
   const langPrefix = lang?.split('-')[0]?.toLowerCase();
-  const matching = langPrefix ? voices.filter((voice) => voice.lang?.toLowerCase().startsWith(langPrefix)) : voices;
+  const matching = langPrefix
+    ? voices.filter((voice) => voice.lang?.toLowerCase().startsWith(langPrefix))
+    : voices;
   const pool = matching.length ? matching : voices;
   const friendly = pool.find((voice) =>
     FRIENDLY_VOICE_NAMES.some((name) => voice.name.toLowerCase().includes(name.toLowerCase())),
@@ -391,6 +606,10 @@ const useSfx = (enabled) => {
         playSweep(ctx, { from: 300, to: 1200, duration: 0.4, gain: 0.2, type: 'sawtooth' });
         playTone(ctx, { freq: 960, duration: 0.08, gain: 0.1, start: 0.2, type: 'square' });
       }
+
+      if (name === 'whoosh') {
+        playSweep(ctx, { from: 1400, to: 180, duration: 0.5, gain: 0.2, type: 'sine' });
+      }
     },
     [playSweep, playTone],
   );
@@ -452,15 +671,39 @@ const CelebrationOverlay = ({ celebration }) => {
       <div className="relative z-10 bg-white/95 rounded-3xl px-10 py-8 text-center shadow-2xl border-4 border-yellow-200 animate-pop-in">
         <div className="text-5xl mb-2">🎉</div>
         <div className="text-3xl font-black text-amber-600">{celebration.message}</div>
-        <div className="mt-2 text-lg font-semibold text-slate-700">+{celebration.points} stars</div>
-        <div className="text-slate-500 font-bold">Total: {celebration.total}</div>
+        <div className="mt-2 text-lg font-semibold text-slate-700">+{celebration.points} Sterne</div>
+        <div className="text-slate-500 font-bold">Gesamt: {celebration.total}</div>
       </div>
     </div>
   );
 };
 
+const PlanetBall = ({ planet, onClick }) => {
+  const style = createPlanetStyle(planet);
+
+  return (
+    <button
+      onClick={onClick}
+      className="flex flex-col items-center gap-2 group flex-shrink-0 focus:outline-none"
+    >
+      <div className="relative rounded-full overflow-hidden" style={style}>
+        <div className="absolute inset-0 rounded-full" />
+        <div className="absolute top-2 left-4 w-3 h-3 bg-white/60 rounded-full" />
+        {planet.ring && (
+          <div
+            className="absolute inset-[-12px] rounded-full border-4 opacity-70 skew-x-12 scale-x-150"
+            style={{ borderColor: planet.ringColor || 'rgba(255,255,255,0.6)' }}
+          />
+        )}
+      </div>
+      <span className="font-bold text-sm text-white/90 group-hover:text-white">{planet.name}</span>
+    </button>
+  );
+};
+
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
   const [selectedPlanet, setSelectedPlanet] = useState(null);
+  const [activeFact, setActiveFact] = useState(null);
   const stars = useMemo(
     () =>
       Array.from({ length: 36 }, (_, i) => ({
@@ -473,11 +716,20 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   );
 
   useEffect(() => {
-    if (!selectedPlanet) return;
+    if (!selectedPlanet) {
+      setActiveFact(null);
+      return;
+    }
     speak(
       `${selectedPlanet.name}. ${selectedPlanet.subtitle}. ${selectedPlanet.facts[0]} ${selectedPlanet.facts[1]}`,
     );
   }, [selectedPlanet, speak]);
+
+  const handleFact = (fact) => {
+    setActiveFact(fact);
+    playSfx('sparkle');
+    speak(`Fun fact. ${fact}`);
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-900 text-white p-4 relative overflow-hidden">
@@ -517,23 +769,14 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           SUN
         </div>
         {PLANETS.map((planet) => (
-          <button
+          <PlanetBall
             key={planet.name}
+            planet={planet}
             onClick={() => {
               playSfx('chime');
               setSelectedPlanet(planet);
             }}
-            className="flex flex-col items-center gap-2 group flex-shrink-0 focus:outline-none"
-          >
-            <div
-              className={`w-20 h-20 ${planet.color} rounded-full shadow-lg group-hover:scale-110 transition-transform relative`}
-            >
-              {planet.name === 'Saturn' && (
-                <div className="absolute inset-[-10px] border-4 border-white/50 rounded-full skew-x-12 scale-x-150" />
-              )}
-            </div>
-            <span className="font-bold">{planet.name}</span>
-          </button>
+          />
         ))}
       </div>
 
@@ -552,22 +795,30 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               </div>
             ))}
           </div>
-          <div className="bg-indigo-50 rounded-2xl p-4 mb-5">
-            <ul className="text-slate-700 font-medium space-y-2">
-              {selectedPlanet.facts.map((fact) => (
-                <li key={fact}>• {fact}</li>
-              ))}
-            </ul>
+          <div className="text-center text-sm text-slate-500 font-semibold mb-2">
+            Tap a fact to hear it!
           </div>
-          <button
-            onClick={() => speak(`${selectedPlanet.name}. ${selectedPlanet.facts.join(' ')}`)}
-            className="mb-3 text-blue-600 font-semibold"
-          >
-            🔊 Hear it again
-          </button>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {selectedPlanet.facts.map((fact) => (
+              <button
+                key={fact}
+                onClick={() => handleFact(fact)}
+                className={`px-3 py-2 rounded-2xl border-2 text-sm font-semibold transition ${
+                  activeFact === fact
+                    ? 'bg-indigo-100 border-indigo-300 text-indigo-700'
+                    : 'bg-white border-slate-200 text-slate-600'
+                }`}
+              >
+                {fact}
+              </button>
+            ))}
+          </div>
+          {activeFact && (
+            <div className="text-center text-indigo-600 font-bold mb-4">✨ {activeFact}</div>
+          )}
           <button
             onClick={() => {
-              onCelebrate('Space explorer!', 4);
+              onCelebrate(undefined, 4);
               setSelectedPlanet(null);
             }}
             className={`${THEME.primary} text-white w-full py-3 rounded-full font-bold text-xl ${THEME.button} hover:bg-blue-600`}
@@ -581,9 +832,18 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 };
 
 const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
-  const [dinos, setDinos] = useState(buildDinos);
+  const [levelIndex, setLevelIndex] = useState(0);
+  const level = DINO_LEVELS[levelIndex];
+  const [dinos, setDinos] = useState(() => buildDinos(level));
   const [foundDino, setFoundDino] = useState(null);
+  const [showLevelComplete, setShowLevelComplete] = useState(false);
   const foundCount = dinos.filter((dino) => !dino.hidden).length;
+
+  useEffect(() => {
+    setDinos(buildDinos(level));
+    setFoundDino(null);
+    setShowLevelComplete(false);
+  }, [level]);
 
   const handleFind = (index) => {
     setDinos((prev) => {
@@ -591,10 +851,10 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       const next = prev.map((dino, i) => (i === index ? { ...dino, hidden: false } : dino));
       setFoundDino(next[index]);
       playSfx('pop');
-      onCelebrate('Nice find!', 4);
+      onCelebrate(undefined, 4);
       if (next.every((dino) => !dino.hidden)) {
         setTimeout(() => playSfx('success'), 250);
-        setTimeout(() => onCelebrate('Dino champ!', 12), 350);
+        setTimeout(() => onCelebrate(undefined, 10), 350);
       }
       return next;
     });
@@ -610,9 +870,18 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
   useEffect(() => {
     if (allFound && !foundDino) {
-      speak('You found everyone! Great searching!');
+      speak('Du hast alle gefunden. Super!');
+      setShowLevelComplete(true);
     }
   }, [allFound, foundDino, speak]);
+
+  const handleNextLevel = () => {
+    if (levelIndex < DINO_LEVELS.length - 1) {
+      setLevelIndex((prev) => prev + 1);
+    } else {
+      setLevelIndex(0);
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-emerald-200 via-green-200 to-green-300 relative overflow-hidden">
@@ -630,16 +899,16 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
           <Home />
         </button>
         <div className="text-center">
-          <h2 className="text-2xl font-black text-green-900 drop-shadow-sm">Dino Hide & Seek!</h2>
+          <h2 className="text-2xl font-black text-green-900 drop-shadow-sm">{level.name}</h2>
           <p className="text-green-900/80 font-semibold">
-            Found {foundCount} / {dinos.length}
+            Level {levelIndex + 1} / {DINO_LEVELS.length} · Found {foundCount} / {dinos.length}
           </p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
 
       <div className="z-10 text-center mt-2 px-4">
-        <p className="text-green-900 font-medium">Tap the shaking bushes to find friends!</p>
+        <p className="text-green-900 font-medium">{level.hint}</p>
       </div>
 
       <div className="flex-1 relative z-10">
@@ -690,16 +959,17 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         </div>
       )}
 
-      {allFound && !foundDino && (
+      {showLevelComplete && !foundDino && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="bg-white/90 p-8 rounded-3xl text-center shadow-xl animate-bounce pointer-events-auto">
             <div className="text-6xl mb-2">🏆</div>
-            <h2 className="text-3xl font-bold text-green-600">You found everyone!</h2>
+            <h2 className="text-3xl font-bold text-green-600">{getPraise()}</h2>
+            <p className="text-slate-600 font-semibold mt-2">Level geschafft!</p>
             <button
-              onClick={() => setDinos(buildDinos())}
+              onClick={handleNextLevel}
               className="mt-4 text-blue-500 font-bold underline"
             >
-              Play Again
+              {levelIndex < DINO_LEVELS.length - 1 ? 'Next Level' : 'Play Again'}
             </button>
           </div>
         </div>
@@ -710,12 +980,27 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
 const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
   const canvasRef = useRef(null);
-  const [shape, setShape] = useState('Circle');
+  const [shape, setShape] = useState(SHAPES[0]);
   const [cleared, setCleared] = useState(false);
+  const [completedShapes, setCompletedShapes] = useState([]);
 
   useEffect(() => {
     speak(`Trace the ${shape}.`);
   }, [shape, speak]);
+
+  const markComplete = () => {
+    const alreadyDone = completedShapes.includes(shape);
+    const nextCompleted = alreadyDone ? completedShapes : [...completedShapes, shape];
+    setCompletedShapes(nextCompleted);
+    if (!alreadyDone) {
+      onCelebrate(undefined, 4);
+    }
+    if (nextCompleted.length === SHAPES.length) {
+      playSfx('whoosh');
+      speak('Alle Formen geschafft!');
+      onCelebrate(undefined, 12);
+    }
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -728,7 +1013,55 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     let lastY = 0;
     let hue = 0;
 
-    const drawSky = () => {
+    const drawStar = (cx, cy, spikes, outerRadius, innerRadius) => {
+      let rotation = (Math.PI / 2) * 3;
+      let x = cx;
+      let y = cy;
+      const step = Math.PI / spikes;
+
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - outerRadius);
+      for (let i = 0; i < spikes; i += 1) {
+        x = cx + Math.cos(rotation) * outerRadius;
+        y = cy + Math.sin(rotation) * outerRadius;
+        ctx.lineTo(x, y);
+        rotation += step;
+
+        x = cx + Math.cos(rotation) * innerRadius;
+        y = cy + Math.sin(rotation) * innerRadius;
+        ctx.lineTo(x, y);
+        rotation += step;
+      }
+      ctx.lineTo(cx, cy - outerRadius);
+      ctx.closePath();
+    };
+
+    const drawHeart = (cx, cy, size) => {
+      const topCurveHeight = size * 0.3;
+      ctx.beginPath();
+      ctx.moveTo(cx, cy + size * 0.3);
+      ctx.bezierCurveTo(cx, cy, cx - size / 2, cy, cx - size / 2, cy + topCurveHeight);
+      ctx.bezierCurveTo(
+        cx - size / 2,
+        cy + size * 0.8,
+        cx,
+        cy + size,
+        cx,
+        cy + size,
+      );
+      ctx.bezierCurveTo(
+        cx,
+        cy + size,
+        cx + size / 2,
+        cy + size * 0.8,
+        cx + size / 2,
+        cy + topCurveHeight,
+      );
+      ctx.bezierCurveTo(cx + size / 2, cy, cx, cy, cx, cy + size * 0.3);
+      ctx.closePath();
+    };
+
+    const drawGuide = () => {
       ctx.fillStyle = '#bae6fd';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -736,14 +1069,31 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       ctx.lineWidth = 10;
       ctx.setLineDash([20, 15]);
       ctx.beginPath();
-      if (shape === 'Circle') ctx.arc(canvas.width / 2, canvas.height / 2, 110, 0, Math.PI * 2);
-      if (shape === 'Square') ctx.rect(canvas.width / 2 - 110, canvas.height / 2 - 110, 220, 220);
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+
+      if (shape === 'Circle') ctx.arc(cx, cy, 110, 0, Math.PI * 2);
+      if (shape === 'Square') ctx.rect(cx - 110, cy - 110, 220, 220);
       if (shape === 'Triangle') {
-        ctx.moveTo(canvas.width / 2, canvas.height / 2 - 130);
-        ctx.lineTo(canvas.width / 2 + 130, canvas.height / 2 + 90);
-        ctx.lineTo(canvas.width / 2 - 130, canvas.height / 2 + 90);
+        ctx.moveTo(cx, cy - 130);
+        ctx.lineTo(cx + 130, cy + 90);
+        ctx.lineTo(cx - 130, cy + 90);
         ctx.closePath();
       }
+      if (shape === 'Diamond') {
+        ctx.moveTo(cx, cy - 130);
+        ctx.lineTo(cx + 130, cy);
+        ctx.lineTo(cx, cy + 130);
+        ctx.lineTo(cx - 130, cy);
+        ctx.closePath();
+      }
+      if (shape === 'Star') {
+        drawStar(cx, cy, 5, 130, 55);
+      }
+      if (shape === 'Heart') {
+        drawHeart(cx, cy - 60, 180);
+      }
+
       ctx.stroke();
       ctx.setLineDash([]);
     };
@@ -752,7 +1102,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       const parent = canvas.parentElement;
       canvas.width = parent ? parent.clientWidth : window.innerWidth;
       canvas.height = parent ? parent.clientHeight : window.innerHeight - 100;
-      drawSky();
+      drawGuide();
     };
 
     resizeCanvas();
@@ -818,8 +1168,8 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
         <button onClick={onBack} className="bg-white p-2 rounded-full hover:bg-white/80">
           <Home />
         </button>
-        <div className="flex gap-2">
-          {['Circle', 'Square', 'Triangle'].map((option) => (
+        <div className="flex gap-2 flex-wrap">
+          {SHAPES.map((option) => (
             <button
               key={option}
               onClick={() => {
@@ -831,7 +1181,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
                 shape === option ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'
               }`}
             >
-              {option}
+              {completedShapes.includes(option) ? `✓ ${option}` : option}
             </button>
           ))}
         </div>
@@ -847,9 +1197,9 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
           </button>
           <button
             onClick={() => {
-              onCelebrate('Well traced!', 6);
+              markComplete();
               playSfx('sparkle');
-              speak('Well done!');
+              speak('Sehr gut!');
             }}
             className="bg-white text-sky-700 px-3 py-2 rounded-full font-bold shadow-lg"
           >
@@ -860,7 +1210,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       </div>
       <div className="relative flex-1 overflow-hidden">
         <div className="absolute top-4 left-0 w-full text-center text-sky-700 font-bold opacity-70 pointer-events-none">
-          Trace the shape with your finger!
+          Trace the shape with your finger! ({completedShapes.length}/{SHAPES.length} complete)
         </div>
         <div className="absolute top-16 left-4 w-32 h-16 bg-white/70 rounded-full blur-lg animate-drift-left" />
         <div className="absolute top-24 right-10 w-40 h-20 bg-white/70 rounded-full blur-lg animate-drift-right" />
@@ -902,9 +1252,9 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const handlePaint = (colorObj) => {
     if (colorObj.name === targetColor.name) {
       setPainted(true);
-      setFeedback('Sehr gut!');
+      setFeedback(getPraise());
       playSfx('success');
-      onCelebrate('Great color!', 5);
+      onCelebrate(undefined, 5);
       setTimeout(nextPaint, 1600);
     } else {
       setFeedback('Try again!');
@@ -916,7 +1266,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     if (colorObj.name === parkRound.target.name) {
       setParkFeedback('Geparkt!');
       playSfx('success');
-      onCelebrate('Perfect parking!', 6);
+      onCelebrate(undefined, 6);
       setTimeout(nextPark, 1500);
     } else {
       setParkFeedback('Nope, try the other garage!');
@@ -1063,6 +1413,7 @@ const MonsterMath = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [success, setSuccess] = useState(false);
   const [shake, setShake] = useState(false);
   const [streak, setStreak] = useState(0);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const newProblem = () => {
     setSuccess(false);
@@ -1088,10 +1439,12 @@ const MonsterMath = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   const check = (answer) => {
     if (answer === problem.ans) {
+      const praise = getPraise();
+      setSuccessMessage(praise);
       setSuccess(true);
       setStreak((prev) => prev + 1);
       playSfx('success');
-      onCelebrate('Well done!', 6);
+      onCelebrate(praise, 6);
       setTimeout(newProblem, 2000);
     } else {
       setShake(true);
@@ -1164,7 +1517,7 @@ const MonsterMath = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
       {success && (
         <div className="absolute top-1/2 left-0 right-0 text-center text-5xl font-black text-green-500 animate-bounce">
-          WACKADOO!
+          {successMessage}
         </div>
       )}
     </div>
@@ -1195,12 +1548,13 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
   const handlePick = (option) => {
     if (option.letter === round.target.letter) {
+      const praise = getPraise();
       setLaunching(true);
-      setFeedback('Blast off!');
+      setFeedback(praise);
       setStars((prev) => prev + 1);
       playSfx('launch');
       playSfx('success');
-      onCelebrate('Letter found!', 6);
+      onCelebrate(praise, 6);
       setTimeout(nextRound, 1400);
     } else {
       setFeedback('Try again!');
@@ -1302,9 +1656,10 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   useEffect(() => {
     if (matches === MEMORY_EMOJIS.length) {
+      const praise = getPraise();
       speak('You matched them all. Fantastic memory!');
       playSfx('success');
-      onCelebrate('Memory master!', 12);
+      onCelebrate(praise, 12);
     }
   }, [matches, onCelebrate, playSfx, speak]);
 
@@ -1334,7 +1689,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       setFlipped([]);
       setLocked(false);
       playSfx('sparkle');
-      onCelebrate('Match!', 4);
+      onCelebrate(undefined, 4);
     } else {
       setTimeout(() => {
         setDeck((prev) =>
@@ -1373,7 +1728,10 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
-        <button onClick={() => speak('Find the matching pairs.')} className="mb-4 text-rose-600 font-semibold">
+        <button
+          onClick={() => speak('Find the matching pairs.')}
+          className="mb-4 text-rose-600 font-semibold"
+        >
           🔊 Hear the mission
         </button>
 
@@ -1382,10 +1740,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             const isFaceUp = card.flipped || card.matched;
             return (
               <div key={card.id} style={{ perspective: '900px' }}>
-                <button
-                  onClick={() => handleFlip(index)}
-                  className="relative w-24 h-28 sm:w-24 sm:h-32"
-                >
+                <button onClick={() => handleFlip(index)} className="relative w-24 h-28 sm:h-32">
                   <div
                     className="absolute inset-0 transition-transform duration-500"
                     style={{
@@ -1415,7 +1770,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         {matches === MEMORY_EMOJIS.length && (
           <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
             <div className="text-5xl mb-2">🎉</div>
-            <h3 className="text-2xl font-black text-rose-600">You did it!</h3>
+            <h3 className="text-2xl font-black text-rose-600">{getPraise()}</h3>
             <button onClick={resetDeck} className="mt-3 text-rose-600 font-semibold">
               Play again
             </button>
@@ -1443,10 +1798,11 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
   const handlePick = (option) => {
     if (option === round.answer) {
-      setFeedback('Great pattern!');
+      const praise = getPraise();
+      setFeedback(praise);
       setStreak((prev) => prev + 1);
       playSfx('sparkle');
-      onCelebrate('Pattern pro!', 6);
+      onCelebrate(praise, 6);
       setTimeout(nextRound, 1400);
     } else {
       setFeedback('Try again!');
@@ -1523,13 +1879,15 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
   const canvasRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [caseMode, setCaseMode] = useState('upper');
   const [cleared, setCleared] = useState(false);
 
   const current = TRACE_LETTERS[currentIndex];
+  const letterChar = caseMode === 'upper' ? current.upper : current.lower;
 
   useEffect(() => {
-    speak(`Trace the letter ${current.letter}. ${current.word}.`);
-  }, [current.letter, current.word, speak]);
+    speak(`Trace the ${caseMode === 'upper' ? 'big' : 'small'} ${letterChar}. ${current.word}.`);
+  }, [caseMode, letterChar, current.word, speak]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -1550,7 +1908,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       ctx.strokeStyle = 'rgba(59, 130, 246, 0.45)';
       ctx.lineWidth = 12;
       ctx.setLineDash([24, 16]);
-      ctx.strokeText(current.letter, canvas.width / 2, canvas.height / 2 + 20);
+      ctx.strokeText(letterChar, canvas.width / 2, canvas.height / 2 + 20);
       ctx.setLineDash([]);
     };
 
@@ -1615,7 +1973,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       canvas.removeEventListener('touchmove', draw);
       canvas.removeEventListener('touchend', stopDrawing);
     };
-  }, [current.letter, cleared]);
+  }, [letterChar, cleared]);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100">
@@ -1625,16 +1983,18 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-blue-700">Letter Trace</h2>
-          <p className="text-blue-700/70 font-semibold">{current.letter} is for {current.word}</p>
+          <p className="text-blue-700/70 font-semibold">
+            {letterChar} is for {current.word}
+          </p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 py-6">
-        <div className="flex gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-4">
           {TRACE_LETTERS.map((item, index) => (
             <button
-              key={item.letter}
+              key={item.upper}
               onClick={() => {
                 setCurrentIndex(index);
                 setCleared((prev) => !prev);
@@ -1644,16 +2004,41 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                 index === currentIndex ? 'bg-blue-500 text-white' : 'bg-white text-blue-600'
               }`}
             >
-              {item.letter}
+              {caseMode === 'upper' ? item.upper : item.lower}
             </button>
           ))}
+        </div>
+
+        <div className="flex gap-2 mb-3">
+          <button
+            onClick={() => {
+              setCaseMode('upper');
+              setCleared((prev) => !prev);
+            }}
+            className={`px-4 py-2 rounded-full font-bold ${
+              caseMode === 'upper' ? 'bg-blue-500 text-white' : 'bg-white text-blue-600'
+            }`}
+          >
+            ABC
+          </button>
+          <button
+            onClick={() => {
+              setCaseMode('lower');
+              setCleared((prev) => !prev);
+            }}
+            className={`px-4 py-2 rounded-full font-bold ${
+              caseMode === 'lower' ? 'bg-blue-500 text-white' : 'bg-white text-blue-600'
+            }`}
+          >
+            abc
+          </button>
         </div>
 
         <div className="relative w-full max-w-3xl flex-1 bg-white/60 rounded-3xl shadow-inner border-4 border-blue-200 overflow-hidden">
           <canvas ref={canvasRef} className="touch-none cursor-crosshair w-full h-full" />
         </div>
 
-        <div className="flex gap-3 mt-4">
+        <div className="flex gap-3 mt-4 flex-wrap justify-center">
           <button
             onClick={() => {
               setCleared((prev) => !prev);
@@ -1665,9 +2050,10 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </button>
           <button
             onClick={() => {
-              onCelebrate('Well traced!', 8);
+              const praise = getPraise();
+              onCelebrate(praise, 8);
               playSfx('sparkle');
-              speak('Well done!');
+              speak(praise);
             }}
             className="bg-blue-500 text-white font-bold px-6 py-2 rounded-full shadow"
           >
@@ -1710,10 +2096,11 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   const handlePick = (option) => {
     if (option.letter === round.target.letter) {
-      setFeedback('You got it!');
+      const praise = getPraise();
+      setFeedback(praise);
       setScore((prev) => prev + 1);
       playSfx('success');
-      onCelebrate('Great listening!', 6);
+      onCelebrate(praise, 6);
       setTimeout(nextRound, 1400);
     } else {
       setFeedback('Try again!');
@@ -1842,12 +2229,13 @@ export default function App() {
     document.title = 'Amari Discovery';
   }, []);
 
-  const celebrate = useCallback((message = 'Well done!', pointsEarned = 5) => {
+  const celebrate = useCallback((message, pointsEarned = 5) => {
+    const finalMessage = message || getPraise();
     setPoints((prev) => {
       const total = prev + pointsEarned;
       setCelebration({
         id: Date.now(),
-        message,
+        message: finalMessage,
         points: pointsEarned,
         total,
         bursts: createBursts(),
@@ -1901,9 +2289,7 @@ export default function App() {
           <p className="text-slate-600 font-bold text-xl mt-2 bg-white/60 inline-block px-6 py-2 rounded-full">
             Academy for Kids
           </p>
-          <div className="mt-4 text-slate-600 font-semibold">
-            ⭐ Total Stars: {points}
-          </div>
+          <div className="mt-4 text-slate-600 font-semibold">⭐ Total Stars: {points}</div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl relative z-10">
@@ -1998,7 +2384,7 @@ export default function App() {
           <MenuCard
             icon="🖍️"
             title="Letter Trace"
-            desc="Trace big letters"
+            desc="Trace big & small letters"
             color="bg-blue-400"
             onClick={() => {
               playSfx('click');
