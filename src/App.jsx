@@ -527,6 +527,32 @@ const SPOT_LEVELS = [
 
 const PUZZLE_TILES = ['🦕', '🌈', '🚀', '⭐️', '🐯', '🍓', '🧁', '🎈', '🪐'];
 
+const GAME_LABELS = {
+  solar: 'Solar System',
+  dino: 'Dino Detective',
+  jet: 'Sky Shapes',
+  german: 'German Garage',
+  math: 'Monster Math',
+  letters: 'Letter Launch',
+  memory: 'Memory Match',
+  pattern: 'Pattern Parade',
+  trace: 'Letter Trace',
+  phonics: 'Sound Safari',
+  spot: 'Spot the Difference',
+  puzzle: 'Puzzle Pop',
+};
+
+const STICKERS = [
+  { id: 'rocket', name: 'Rocket', emoji: '🚀', points: 10 },
+  { id: 'dino', name: 'Dino', emoji: '🦕', points: 20 },
+  { id: 'star', name: 'Star', emoji: '⭐️', points: 30 },
+  { id: 'truck', name: 'Truck', emoji: '🛻', points: 40 },
+  { id: 'heart', name: 'Heart', emoji: '💖', points: 55 },
+  { id: 'planet', name: 'Planet', emoji: '🪐', points: 75 },
+  { id: 'hero', name: 'Hero', emoji: '🦸‍♀️', points: 95 },
+  { id: 'crown', name: 'Crown', emoji: '👑', points: 120 },
+];
+
 const pickRandom = (list) => list[Math.floor(Math.random() * list.length)];
 const shuffle = (list) => list.slice().sort(() => Math.random() - 0.5);
 
@@ -638,6 +664,8 @@ const pickFriendlyVoice = (voices, lang) => {
   const gentle = pool.find((voice) => /female|child|junior/i.test(voice.name));
   return friendly || gentle || pool[0];
 };
+
+const getUnlockedStickers = (points) => STICKERS.filter((sticker) => points >= sticker.points);
 
 const useSfx = (enabled) => {
   const ctxRef = useRef(null);
@@ -777,6 +805,86 @@ const useVoice = (enabled) => {
   }, []);
 };
 
+const useAmbientMusic = (enabled) => {
+  const ctxRef = useRef(null);
+  const nodesRef = useRef(null);
+
+  useEffect(() => {
+    const stop = () => {
+      if (!nodesRef.current) return;
+      const { nodes, master, filter } = nodesRef.current;
+      nodes.forEach((node) => {
+        try {
+          node.osc.stop();
+          node.lfo.stop();
+        } catch (err) {
+          // ignore
+        }
+        node.osc.disconnect();
+        node.lfo.disconnect();
+        node.gain.disconnect();
+        node.lfoGain.disconnect();
+      });
+      master.disconnect();
+      filter.disconnect();
+      nodesRef.current = null;
+    };
+
+    if (!enabled) {
+      stop();
+      return;
+    }
+
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+
+    if (!ctxRef.current) ctxRef.current = new AudioContext();
+    const ctx = ctxRef.current;
+    if (ctx.state === 'suspended') ctx.resume();
+
+    if (nodesRef.current) return;
+
+    const master = ctx.createGain();
+    master.gain.value = 0.03;
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 700;
+    master.connect(filter);
+    filter.connect(ctx.destination);
+
+    const freqs = [220, 277.18, 329.63];
+    const nodes = freqs.map((freq, index) => {
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+
+      const gain = ctx.createGain();
+      gain.gain.value = 0.08;
+
+      const lfo = ctx.createOscillator();
+      lfo.type = 'sine';
+      lfo.frequency.value = 0.03 + index * 0.015;
+
+      const lfoGain = ctx.createGain();
+      lfoGain.gain.value = 0.02;
+
+      lfo.connect(lfoGain);
+      lfoGain.connect(gain.gain);
+      osc.connect(gain);
+      gain.connect(master);
+
+      osc.start();
+      lfo.start();
+
+      return { osc, gain, lfo, lfoGain };
+    });
+
+    nodesRef.current = { nodes, master, filter };
+
+    return stop;
+  }, [enabled]);
+};
+
 const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
   <button
     onClick={onToggle}
@@ -807,6 +915,81 @@ const CelebrationOverlay = ({ celebration }) => {
         <div className="text-3xl font-black text-amber-600">{celebration.message}</div>
         <div className="mt-2 text-lg font-semibold text-slate-700">+{celebration.points} Sterne</div>
         <div className="text-slate-500 font-bold">Gesamt: {celebration.total}</div>
+      </div>
+    </div>
+  );
+};
+
+const RewardsShelf = ({ points }) => {
+  return (
+    <div className="mt-6 w-full max-w-5xl bg-white/70 rounded-3xl p-4 border-4 border-white shadow-xl">
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-lg font-black text-slate-700">Sticker Shelf</h3>
+        <span className="text-sm font-semibold text-slate-500">Unlock more by earning stars!</span>
+      </div>
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+        {STICKERS.map((sticker) => {
+          const unlocked = points >= sticker.points;
+          return (
+            <div
+              key={sticker.id}
+              className={`rounded-2xl p-3 text-center border-2 transition ${
+                unlocked ? 'bg-amber-50 border-amber-200' : 'bg-slate-100 border-slate-200'
+              }`}
+            >
+              <div className={`text-3xl ${unlocked ? '' : 'opacity-30'}`}>{sticker.emoji}</div>
+              <div className="text-xs font-bold text-slate-600 mt-1">{sticker.name}</div>
+              <div className="text-[10px] text-slate-400">{sticker.points}⭐</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+const PointsSummaryScreen = ({ summary, totalPoints, onDone }) => {
+  const unlockedNow = STICKERS.filter(
+    (sticker) => totalPoints >= sticker.points && totalPoints - summary.points < sticker.points,
+  );
+
+  return (
+    <div className="min-h-screen w-full bg-gradient-to-b from-yellow-100 via-amber-100 to-yellow-200 flex flex-col items-center justify-center px-6 py-10 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-6 right-6 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-200/60 rounded-full blur-3xl" />
+      </div>
+
+      <div className="relative z-10 bg-white/90 rounded-3xl p-8 shadow-2xl border-4 border-amber-200 text-center max-w-lg w-full">
+        <div className="text-5xl mb-2">🎉</div>
+        <h2 className="text-3xl font-black text-amber-700">Gut gemacht!</h2>
+        <p className="text-slate-600 font-semibold mt-2">{GAME_LABELS[summary.gameId]}</p>
+        <div className="mt-4 text-2xl font-black text-amber-600">+{summary.points} Sterne</div>
+        <div className="text-slate-500 font-semibold">Gesamt: {totalPoints}</div>
+
+        {unlockedNow.length > 0 && (
+          <div className="mt-6">
+            <div className="text-sm font-bold text-amber-700">New Stickers!</div>
+            <div className="flex flex-wrap justify-center gap-3 mt-2">
+              {unlockedNow.map((sticker) => (
+                <div
+                  key={sticker.id}
+                  className="bg-amber-50 border-2 border-amber-200 rounded-2xl px-4 py-2"
+                >
+                  <div className="text-3xl">{sticker.emoji}</div>
+                  <div className="text-xs font-bold text-slate-600">{sticker.name}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <button
+          onClick={onDone}
+          className="mt-6 bg-blue-500 text-white text-lg font-bold px-6 py-3 rounded-full shadow-lg hover:bg-blue-600"
+        >
+          Zurueck zum Menu
+        </button>
       </div>
     </div>
   );
@@ -2690,18 +2873,33 @@ export default function App() {
   const [soundOn, setSoundOn] = useState(true);
   const [points, setPoints] = useState(0);
   const [celebration, setCelebration] = useState(null);
+  const [sessionPoints, setSessionPoints] = useState({});
+  const [summary, setSummary] = useState(null);
+  const screenRef = useRef(screen);
   const playSfx = useSfx(soundOn);
   const speak = useVoice(soundOn);
+  useAmbientMusic(soundOn);
 
   useEffect(() => {
     document.title = 'Amari Discovery';
   }, []);
+
+  useEffect(() => {
+    screenRef.current = screen;
+  }, [screen]);
 
   const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0) => {
     const finalMessage = message || getPraise();
     const run = () => {
       setPoints((prev) => {
         const total = prev + pointsEarned;
+        const gameId = screenRef.current;
+        if (gameId && !['menu', 'intro', 'summary'].includes(gameId)) {
+          setSessionPoints((prevSessions) => ({
+            ...prevSessions,
+            [gameId]: (prevSessions[gameId] || 0) + pointsEarned,
+          }));
+        }
         setCelebration({
           id: Date.now(),
           message: finalMessage,
@@ -2724,6 +2922,24 @@ export default function App() {
     const timer = setTimeout(() => setCelebration(null), 1600);
     return () => clearTimeout(timer);
   }, [celebration]);
+
+  const handleBack = (gameId) => {
+    const earned = sessionPoints[gameId] || 0;
+    if (earned > 0) {
+      setSummary({ gameId, points: earned });
+      setScreen('summary');
+    } else {
+      setScreen('menu');
+    }
+  };
+
+  const handleSummaryDone = () => {
+    if (summary?.gameId) {
+      setSessionPoints((prev) => ({ ...prev, [summary.gameId]: 0 }));
+    }
+    setSummary(null);
+    setScreen('menu');
+  };
 
   let content = null;
 
@@ -2905,12 +3121,18 @@ export default function App() {
           <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
           Playful Learning Active
         </div>
+
+        <RewardsShelf points={points} />
       </div>
+    );
+  } else if (screen === 'summary' && summary) {
+    content = (
+      <PointsSummaryScreen summary={summary} totalPoints={points} onDone={handleSummaryDone} />
     );
   } else if (screen === 'solar') {
     content = (
       <SolarSystem
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('solar')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -2921,7 +3143,7 @@ export default function App() {
   } else if (screen === 'dino') {
     content = (
       <DinoDetective
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('dino')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -2932,7 +3154,7 @@ export default function App() {
   } else if (screen === 'jet') {
     content = (
       <JetSkyShapes
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('jet')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -2943,7 +3165,7 @@ export default function App() {
   } else if (screen === 'german') {
     content = (
       <GermanGarage
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('german')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -2954,7 +3176,7 @@ export default function App() {
   } else if (screen === 'math') {
     content = (
       <MonsterMath
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('math')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -2965,7 +3187,7 @@ export default function App() {
   } else if (screen === 'letters') {
     content = (
       <LetterLaunch
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('letters')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -2976,7 +3198,7 @@ export default function App() {
   } else if (screen === 'memory') {
     content = (
       <MemoryMatch
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('memory')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -2987,7 +3209,7 @@ export default function App() {
   } else if (screen === 'pattern') {
     content = (
       <PatternParade
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('pattern')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -2998,7 +3220,7 @@ export default function App() {
   } else if (screen === 'spot') {
     content = (
       <SpotDifference
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('spot')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -3009,7 +3231,7 @@ export default function App() {
   } else if (screen === 'puzzle') {
     content = (
       <PuzzlePlay
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('puzzle')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -3018,10 +3240,9 @@ export default function App() {
       />
     );
   } else if (screen === 'trace') {
-  } else if (screen === 'trace') {
     content = (
       <LetterTrace
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('trace')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
@@ -3032,7 +3253,7 @@ export default function App() {
   } else if (screen === 'phonics') {
     content = (
       <SoundSafari
-        onBack={() => setScreen('menu')}
+        onBack={() => handleBack('phonics')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
