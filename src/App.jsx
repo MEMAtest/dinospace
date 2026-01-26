@@ -344,6 +344,65 @@ const GERMAN_COLORS = [
   { name: 'Weiß', color: 'white', hex: '#f8fafc' },
 ];
 
+const GERMAN_NUMBERS = [
+  { name: 'Eins', emoji: '1️⃣' },
+  { name: 'Zwei', emoji: '2️⃣' },
+  { name: 'Drei', emoji: '3️⃣' },
+  { name: 'Vier', emoji: '4️⃣' },
+  { name: 'Fünf', emoji: '5️⃣' },
+  { name: 'Sechs', emoji: '6️⃣' },
+  { name: 'Sieben', emoji: '7️⃣' },
+  { name: 'Acht', emoji: '8️⃣' },
+  { name: 'Neun', emoji: '9️⃣' },
+  { name: 'Zehn', emoji: '🔟' },
+];
+
+const GERMAN_ANIMALS = [
+  { name: 'Hund', emoji: '🐶' },
+  { name: 'Katze', emoji: '🐱' },
+  { name: 'Vogel', emoji: '🐦' },
+  { name: 'Fisch', emoji: '🐠' },
+  { name: 'Löwe', emoji: '🦁' },
+  { name: 'Pferd', emoji: '🐴' },
+  { name: 'Kuh', emoji: '🐮' },
+  { name: 'Hase', emoji: '🐰' },
+];
+
+const GERMAN_SHAPES = [
+  { name: 'Kreis', emoji: '⚪️' },
+  { name: 'Quadrat', emoji: '🟦' },
+  { name: 'Dreieck', emoji: '🔺' },
+  { name: 'Stern', emoji: '⭐️' },
+  { name: 'Herz', emoji: '❤️' },
+  { name: 'Diamant', emoji: '🔷' },
+];
+
+const GERMAN_FOODS = [
+  { name: 'Apfel', emoji: '🍎' },
+  { name: 'Banane', emoji: '🍌' },
+  { name: 'Brot', emoji: '🍞' },
+  { name: 'Käse', emoji: '🧀' },
+  { name: 'Pizza', emoji: '🍕' },
+  { name: 'Eis', emoji: '🍦' },
+];
+
+const GERMAN_VEHICLES = [
+  { name: 'Auto', emoji: '🚗' },
+  { name: 'Bus', emoji: '🚌' },
+  { name: 'Zug', emoji: '🚆' },
+  { name: 'Flugzeug', emoji: '✈️' },
+  { name: 'Fahrrad', emoji: '🚲' },
+  { name: 'Rakete', emoji: '🚀' },
+];
+
+const GERMAN_MATCH_MODES = [
+  { id: 'numbers', label: 'Zahlen', items: GERMAN_NUMBERS, prompt: 'Finde' },
+  { id: 'animals', label: 'Tiere', items: GERMAN_ANIMALS, prompt: 'Finde' },
+  { id: 'shapes', label: 'Formen', items: GERMAN_SHAPES, prompt: 'Finde' },
+  { id: 'foods', label: 'Essen', items: GERMAN_FOODS, prompt: 'Finde' },
+  { id: 'vehicles', label: 'Fahrzeuge', items: GERMAN_VEHICLES, prompt: 'Finde' },
+];
+
 const LETTERS = [
   { letter: 'A', word: 'Apple', emoji: '🍎' },
   { letter: 'B', word: 'Ball', emoji: '⚽️' },
@@ -397,7 +456,32 @@ const PHONICS_ITEMS = [
   { letter: 'T', word: 'Tiger', emoji: '🐯', sound: 'tuh' },
 ];
 
-const MEMORY_EMOJIS = ['🐶', '🦊', '🐸', '🐵', '🦄', '🐙'];
+const MEMORY_LEVELS = [
+  {
+    id: 'forest',
+    name: 'Forest Friends',
+    emojis: ['🐶', '🦊', '🐸', '🐵', '🦄', '🐙'],
+    columns: 4,
+  },
+  {
+    id: 'ocean',
+    name: 'Ocean Splash',
+    emojis: ['🐳', '🐬', '🦈', '🐢', '🪼', '🦀', '🦑', '🐟'],
+    columns: 4,
+  },
+  {
+    id: 'space',
+    name: 'Space Sparkle',
+    emojis: ['🚀', '🛸', '🌟', '🌙', '🪐', '☄️', '⭐️', '🛰️', '👽', '🌌'],
+    columns: 5,
+  },
+  {
+    id: 'party',
+    name: 'Party Mix',
+    emojis: ['🎈', '🎉', '🥳', '🎂', '🍭', '🍩', '🧁', '🍓', '🍕', '🍟', '🍉', '🍬'],
+    columns: 6,
+  },
+];
 
 const PATTERN_TOKENS = ['🔴', '🔵', '🟡', '🟢', '⭐️', '🌙', '🟣', '🟠', '☀️'];
 
@@ -413,6 +497,35 @@ const PATTERN_ROUNDS = [
 ];
 
 const SHAPES = ['Circle', 'Square', 'Triangle', 'Star', 'Heart', 'Diamond'];
+
+const SPOT_LEVELS = [
+  {
+    id: 'heroes',
+    name: 'Superhero City',
+    hint: 'Find 3 differences!',
+    left: ['🦸‍♂️', '🦸‍♀️', '🏙️', '⚡️', '🦹‍♂️', '🛡️', '🏢', '🚓', '⭐️'],
+    right: ['🦸‍♂️', '🦸', '🏙️', '💥', '🦹‍♂️', '🛡️', '🏢', '🚒', '⭐️'],
+    differences: [1, 3, 7],
+  },
+  {
+    id: 'dinos',
+    name: 'Dino Valley',
+    hint: 'Find 3 differences!',
+    left: ['🦕', '🦖', '🦴', '🌋', '🌿', '🥚', '🪨', '🦕', '🦖'],
+    right: ['🦕', '🦖', '🪵', '🌋', '🌿', '🥚', '🪨', '🦒', '🦎'],
+    differences: [2, 7, 8],
+  },
+  {
+    id: 'trucks',
+    name: 'Monster Trucks',
+    hint: 'Find 3 differences!',
+    left: ['🛻', '🏁', '⛽️', '🛻', '🔧', '🏆', '🚧', '🛞', '🌟'],
+    right: ['🚙', '🏁', '⛽️', '🛻', '🔩', '🏆', '🚧', '🛞', '✨'],
+    differences: [0, 4, 8],
+  },
+];
+
+const PUZZLE_TILES = ['🦕', '🌈', '🚀', '⭐️', '🐯', '🍓', '🧁', '🎈', '🪐'];
 
 const pickRandom = (list) => list[Math.floor(Math.random() * list.length)];
 const shuffle = (list) => list.slice().sort(() => Math.random() - 0.5);
@@ -461,9 +574,9 @@ const buildLetterRound = () => {
   return { target, options };
 };
 
-const buildMemoryDeck = () =>
+const buildMemoryDeck = (level) =>
   shuffle(
-    MEMORY_EMOJIS.flatMap((emoji, index) => [
+    level.emojis.flatMap((emoji, index) => [
       { id: `${emoji}-${index}-a`, emoji, flipped: false, matched: false },
       { id: `${emoji}-${index}-b`, emoji, flipped: false, matched: false },
     ]),
@@ -489,6 +602,27 @@ const buildPhonicsRound = () => {
     ...shuffle(PHONICS_ITEMS.filter((item) => item.letter !== target.letter)).slice(0, 2),
   ]);
   return { target, options };
+};
+
+const buildMatchRound = (items, optionCount = 4) => {
+  const target = pickRandom(items);
+  const options = shuffle([
+    target,
+    ...shuffle(items.filter((item) => item.name !== target.name)).slice(0, optionCount - 1),
+  ]);
+  return { target, options };
+};
+
+const isPuzzleSolved = (tiles) =>
+  tiles.every((tile, index) => tile.emoji === PUZZLE_TILES[index]);
+
+const buildPuzzleTiles = () => {
+  const tiles = PUZZLE_TILES.map((emoji, index) => ({ id: `tile-${index}`, emoji }));
+  let shuffled = shuffle(tiles);
+  while (isPuzzleSolved(shuffled)) {
+    shuffled = shuffle(tiles);
+  }
+  return shuffled;
 };
 
 const pickFriendlyVoice = (voices, lang) => {
@@ -836,12 +970,14 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   const level = DINO_LEVELS[levelIndex];
   const [dinos, setDinos] = useState(() => buildDinos(level));
   const [foundDino, setFoundDino] = useState(null);
+  const [pendingReward, setPendingReward] = useState(null);
   const [showLevelComplete, setShowLevelComplete] = useState(false);
   const foundCount = dinos.filter((dino) => !dino.hidden).length;
 
   useEffect(() => {
     setDinos(buildDinos(level));
     setFoundDino(null);
+    setPendingReward(null);
     setShowLevelComplete(false);
   }, [level]);
 
@@ -850,11 +986,10 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       if (!prev[index].hidden) return prev;
       const next = prev.map((dino, i) => (i === index ? { ...dino, hidden: false } : dino));
       setFoundDino(next[index]);
+      setPendingReward(4);
       playSfx('pop');
-      onCelebrate(undefined, 4);
       if (next.every((dino) => !dino.hidden)) {
         setTimeout(() => playSfx('success'), 250);
-        setTimeout(() => onCelebrate(undefined, 10), 350);
       }
       return next;
     });
@@ -870,12 +1005,13 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
   useEffect(() => {
     if (allFound && !foundDino) {
-      speak('Du hast alle gefunden. Super!');
+      speak('Du hast alle gefunden. Super!', { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
       setShowLevelComplete(true);
     }
   }, [allFound, foundDino, speak]);
 
   const handleNextLevel = () => {
+    onCelebrate(getPraise(), 10, 200);
     if (levelIndex < DINO_LEVELS.length - 1) {
       setLevelIndex((prev) => prev + 1);
     } else {
@@ -950,7 +1086,13 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
               <p className="text-lg text-slate-700 font-medium">"{foundDino.fact}"</p>
             </div>
             <button
-              onClick={() => setFoundDino(null)}
+              onClick={() => {
+                if (pendingReward) {
+                  onCelebrate(getPraise(), pendingReward, 200);
+                }
+                setPendingReward(null);
+                setFoundDino(null);
+              }}
               className="bg-blue-500 text-white w-full py-4 rounded-2xl text-xl font-bold shadow-lg hover:bg-blue-600"
             >
               Got it!
@@ -983,24 +1125,37 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const [shape, setShape] = useState(SHAPES[0]);
   const [cleared, setCleared] = useState(false);
   const [completedShapes, setCompletedShapes] = useState([]);
+  const drawDistanceRef = useRef(0);
+  const autoCompleteRef = useRef(false);
+  const allCompleteRef = useRef(false);
 
   useEffect(() => {
     speak(`Trace the ${shape}.`);
   }, [shape, speak]);
 
-  const markComplete = () => {
-    const alreadyDone = completedShapes.includes(shape);
-    const nextCompleted = alreadyDone ? completedShapes : [...completedShapes, shape];
-    setCompletedShapes(nextCompleted);
-    if (!alreadyDone) {
-      onCelebrate(undefined, 4);
-    }
-    if (nextCompleted.length === SHAPES.length) {
-      playSfx('whoosh');
-      speak('Alle Formen geschafft!');
-      onCelebrate(undefined, 12);
-    }
-  };
+  useEffect(() => {
+    drawDistanceRef.current = 0;
+    autoCompleteRef.current = false;
+  }, [shape, cleared, markComplete, playSfx, speak]);
+
+  const markComplete = useCallback((praise) => {
+    setCompletedShapes((prev) => {
+      if (prev.includes(shape)) return prev;
+      const next = [...prev, shape];
+      const message = praise || getPraise();
+      onCelebrate(message, 4, 200);
+      return next;
+    });
+  }, [onCelebrate, shape]);
+
+  useEffect(() => {
+    if (completedShapes.length !== SHAPES.length) return;
+    if (allCompleteRef.current) return;
+    allCompleteRef.current = true;
+    playSfx('whoosh');
+    speak('Alle Formen geschafft!', { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
+    onCelebrate(getPraise(), 12, 300);
+  }, [completedShapes, onCelebrate, playSfx, speak]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -1118,6 +1273,9 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       const x = clientX - rect.left;
       const y = clientY - rect.top;
 
+      const distance = Math.hypot(x - lastX, y - lastY);
+      drawDistanceRef.current += distance;
+
       ctx.beginPath();
       ctx.moveTo(lastX, lastY);
       ctx.lineTo(x, y);
@@ -1142,6 +1300,13 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
     const stopDrawing = () => {
       isDrawing = false;
+      if (drawDistanceRef.current > 520 && !autoCompleteRef.current) {
+        autoCompleteRef.current = true;
+        const praise = getPraise();
+        markComplete(praise);
+        playSfx('sparkle');
+        speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
+      }
     };
 
     canvas.addEventListener('mousedown', startDrawing);
@@ -1197,9 +1362,10 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
           </button>
           <button
             onClick={() => {
-              markComplete();
+              const praise = getPraise();
+              markComplete(praise);
               playSfx('sparkle');
-              speak('Sehr gut!');
+              speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
             }}
             className="bg-white text-sky-700 px-3 py-2 rounded-full font-bold shadow-lg"
           >
@@ -1228,14 +1394,39 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const [feedback, setFeedback] = useState('');
   const [parkRound, setParkRound] = useState(buildParkRound);
   const [parkFeedback, setParkFeedback] = useState('');
+  const [matchRound, setMatchRound] = useState(() => buildMatchRound(GERMAN_NUMBERS));
+  const [matchFeedback, setMatchFeedback] = useState('');
+
+  const matchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === mode);
+  const modeTabs = [
+    { id: 'paint', label: 'Farben' },
+    { id: 'park', label: 'Garage' },
+    ...GERMAN_MATCH_MODES.map((entry) => ({ id: entry.id, label: entry.label })),
+  ];
 
   useEffect(() => {
     if (mode === 'paint') {
       speak(`Finde ${targetColor.name}`, { lang: 'de-DE', rate: 0.85, pitch: 1.05 });
-    } else {
-      speak(`Parke in ${parkRound.target.name}`, { lang: 'de-DE', rate: 0.85, pitch: 1.05 });
+      return;
     }
-  }, [mode, targetColor.name, parkRound.target.name, speak]);
+    if (mode === 'park') {
+      speak(`Parke in ${parkRound.target.name}`, { lang: 'de-DE', rate: 0.85, pitch: 1.05 });
+      return;
+    }
+    if (matchMode) {
+      speak(`${matchMode.prompt} ${matchRound.target.name}`, {
+        lang: 'de-DE',
+        rate: 0.85,
+        pitch: 1.05,
+      });
+    }
+  }, [mode, targetColor.name, parkRound.target.name, matchMode, matchRound.target?.name, speak]);
+
+  useEffect(() => {
+    if (!matchMode) return;
+    setMatchRound(buildMatchRound(matchMode.items));
+    setMatchFeedback('');
+  }, [matchMode]);
 
   const nextPaint = () => {
     const next = pickRandom(GERMAN_COLORS);
@@ -1249,12 +1440,19 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     setParkFeedback('');
   };
 
+  const nextMatch = () => {
+    if (!matchMode) return;
+    setMatchRound(buildMatchRound(matchMode.items));
+    setMatchFeedback('');
+  };
+
   const handlePaint = (colorObj) => {
     if (colorObj.name === targetColor.name) {
+      const praise = getPraise();
       setPainted(true);
-      setFeedback(getPraise());
+      setFeedback(praise);
       playSfx('success');
-      onCelebrate(undefined, 5);
+      onCelebrate(praise, 5, 200);
       setTimeout(nextPaint, 1600);
     } else {
       setFeedback('Try again!');
@@ -1264,12 +1462,27 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
   const handlePark = (colorObj) => {
     if (colorObj.name === parkRound.target.name) {
-      setParkFeedback('Geparkt!');
+      const praise = getPraise();
+      setParkFeedback(praise);
       playSfx('success');
-      onCelebrate(undefined, 6);
+      onCelebrate(praise, 6, 200);
       setTimeout(nextPark, 1500);
     } else {
       setParkFeedback('Nope, try the other garage!');
+      playSfx('oops');
+    }
+  };
+
+  const handleMatchPick = (option) => {
+    if (!matchMode) return;
+    if (option.name === matchRound.target.name) {
+      const praise = getPraise();
+      setMatchFeedback(praise);
+      playSfx('success');
+      onCelebrate(praise, 5, 200);
+      setTimeout(nextMatch, 1400);
+    } else {
+      setMatchFeedback('Nochmal!');
       playSfx('oops');
     }
   };
@@ -1288,31 +1501,21 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
         >
           <Home />
         </button>
-        <div className="flex gap-2 bg-white/80 p-1 rounded-full shadow-sm">
-          <button
-            onClick={() => {
-              setMode('paint');
-              nextPaint();
-              playSfx('click');
-            }}
-            className={`px-4 py-2 rounded-full text-sm font-bold ${
-              mode === 'paint' ? 'bg-blue-500 text-white' : 'text-slate-600'
-            }`}
-          >
-            Paint
-          </button>
-          <button
-            onClick={() => {
-              setMode('park');
-              nextPark();
-              playSfx('click');
-            }}
-            className={`px-4 py-2 rounded-full text-sm font-bold ${
-              mode === 'park' ? 'bg-blue-500 text-white' : 'text-slate-600'
-            }`}
-          >
-            Park
-          </button>
+        <div className="flex gap-2 bg-white/80 p-1 rounded-full shadow-sm overflow-x-auto no-scrollbar">
+          {modeTabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => {
+                setMode(tab.id);
+                playSfx('click');
+              }}
+              className={`px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap ${
+                mode === tab.id ? 'bg-blue-500 text-white' : 'text-slate-600'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
@@ -1320,19 +1523,28 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       <div className="flex-1 flex flex-col items-center justify-center p-4 relative z-10">
         <div className="bg-white p-6 rounded-3xl shadow-xl border-4 border-slate-200 text-center mb-8 w-full max-w-md">
           <p className="text-slate-500 mb-2 font-bold uppercase tracking-wider">
-            {mode === 'paint' ? 'Mechanic Mission' : 'Garage Mission'}
+            {mode === 'paint' && 'Mechanic Mission'}
+            {mode === 'park' && 'Garage Mission'}
+            {matchMode && `${matchMode.label} Mission`}
           </p>
           <h2 className="text-3xl font-black text-slate-800 mb-2">
-            {mode === 'paint' ? 'Paint the Car...' : 'Park the Car...'}
+            {mode === 'paint' && 'Paint the Car...'}
+            {mode === 'park' && 'Park the Car...'}
+            {matchMode && `Finde ${matchRound.target?.name}`}
           </h2>
-          <div className="text-5xl font-black text-blue-600 mb-2">
-            {mode === 'paint' ? targetColor.name : parkRound.target.name}
+          <div className="text-4xl font-black text-blue-600 mb-2">
+            {mode === 'paint' && targetColor.name}
+            {mode === 'park' && parkRound.target.name}
+            {matchMode && matchRound.target?.emoji}
           </div>
           {mode === 'paint' && feedback && (
             <div className="text-xl font-bold text-green-500 animate-bounce">{feedback}</div>
           )}
           {mode === 'park' && parkFeedback && (
             <div className="text-xl font-bold text-green-500 animate-bounce">{parkFeedback}</div>
+          )}
+          {matchMode && matchFeedback && (
+            <div className="text-xl font-bold text-green-500 animate-bounce">{matchFeedback}</div>
           )}
         </div>
 
@@ -1403,6 +1615,21 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
             </div>
           </div>
         )}
+
+        {matchMode && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full max-w-2xl">
+            {matchRound.options.map((option) => (
+              <button
+                key={`${mode}-${option.name}`}
+                onClick={() => handleMatchPick(option)}
+                className="bg-white rounded-3xl p-4 shadow-lg border-4 border-slate-200 hover:-translate-y-1 transition"
+              >
+                <div className="text-4xl mb-2">{option.emoji}</div>
+                <div className="text-lg font-black text-slate-700">{option.name}</div>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -1444,7 +1671,7 @@ const MonsterMath = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       setSuccess(true);
       setStreak((prev) => prev + 1);
       playSfx('success');
-      onCelebrate(praise, 6);
+      onCelebrate(praise, 6, 250);
       setTimeout(newProblem, 2000);
     } else {
       setShake(true);
@@ -1554,7 +1781,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       setStars((prev) => prev + 1);
       playSfx('launch');
       playSfx('success');
-      onCelebrate(praise, 6);
+      onCelebrate(praise, 6, 250);
       setTimeout(nextRound, 1400);
     } else {
       setFeedback('Try again!');
@@ -1634,34 +1861,37 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 };
 
 const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
-  const [deck, setDeck] = useState(buildMemoryDeck);
+  const [levelIndex, setLevelIndex] = useState(0);
+  const level = MEMORY_LEVELS[levelIndex];
+  const [deck, setDeck] = useState(() => buildMemoryDeck(level));
   const [flipped, setFlipped] = useState([]);
   const [moves, setMoves] = useState(0);
   const [locked, setLocked] = useState(false);
-  const [round, setRound] = useState(1);
+  const [showLevelComplete, setShowLevelComplete] = useState(false);
 
   const matches = deck.filter((card) => card.matched).length / 2;
 
-  const resetDeck = () => {
-    setDeck(buildMemoryDeck());
+  useEffect(() => {
+    setDeck(buildMemoryDeck(level));
     setFlipped([]);
     setMoves(0);
     setLocked(false);
-    setRound((prev) => prev + 1);
-  };
+    setShowLevelComplete(false);
+  }, [level]);
 
   useEffect(() => {
-    speak('Find the matching pairs.');
-  }, [round, speak]);
+    speak(`Memory level ${levelIndex + 1}. ${level.name}.`);
+  }, [levelIndex, level.name, speak]);
 
   useEffect(() => {
-    if (matches === MEMORY_EMOJIS.length) {
+    if (matches === level.emojis.length && !showLevelComplete) {
       const praise = getPraise();
       speak('You matched them all. Fantastic memory!');
       playSfx('success');
-      onCelebrate(praise, 12);
+      setShowLevelComplete(true);
+      onCelebrate(praise, 12, 300);
     }
-  }, [matches, onCelebrate, playSfx, speak]);
+  }, [matches, level.emojis.length, onCelebrate, playSfx, showLevelComplete, speak]);
 
   const handleFlip = (index) => {
     if (locked) return;
@@ -1689,7 +1919,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       setFlipped([]);
       setLocked(false);
       playSfx('sparkle');
-      onCelebrate(undefined, 4);
+      onCelebrate(getPraise(), 4, 200);
     } else {
       setTimeout(() => {
         setDeck((prev) =>
@@ -1703,6 +1933,11 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       }, 700);
     }
   }, [deck, flipped, onCelebrate, playSfx]);
+
+  const handleNextLevel = () => {
+    const nextIndex = levelIndex < MEMORY_LEVELS.length - 1 ? levelIndex + 1 : 0;
+    setLevelIndex(nextIndex);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-rose-100 via-pink-100 to-rose-200 relative overflow-hidden">
@@ -1721,6 +1956,9 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <div className="text-center">
           <h2 className="text-3xl font-black text-rose-600">Memory Match</h2>
           <p className="text-rose-600/70 font-semibold">
+            Level {levelIndex + 1}/{MEMORY_LEVELS.length} · {level.name}
+          </p>
+          <p className="text-rose-600/70 font-semibold">
             Matches: {matches} · Moves: {moves}
           </p>
         </div>
@@ -1735,12 +1973,15 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           🔊 Hear the mission
         </button>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 gap-4 w-full max-w-md">
+        <div
+          className="grid gap-4 w-full max-w-3xl"
+          style={{ gridTemplateColumns: `repeat(${level.columns}, minmax(0, 1fr))` }}
+        >
           {deck.map((card, index) => {
             const isFaceUp = card.flipped || card.matched;
             return (
               <div key={card.id} style={{ perspective: '900px' }}>
-                <button onClick={() => handleFlip(index)} className="relative w-24 h-28 sm:h-32">
+                <button onClick={() => handleFlip(index)} className="relative w-full aspect-square">
                   <div
                     className="absolute inset-0 transition-transform duration-500"
                     style={{
@@ -1767,12 +2008,12 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           })}
         </div>
 
-        {matches === MEMORY_EMOJIS.length && (
+        {showLevelComplete && (
           <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
             <div className="text-5xl mb-2">🎉</div>
             <h3 className="text-2xl font-black text-rose-600">{getPraise()}</h3>
-            <button onClick={resetDeck} className="mt-3 text-rose-600 font-semibold">
-              Play again
+            <button onClick={handleNextLevel} className="mt-3 text-rose-600 font-semibold">
+              {levelIndex < MEMORY_LEVELS.length - 1 ? 'Next level' : 'Play again'}
             </button>
           </div>
         )}
@@ -1802,7 +2043,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       setFeedback(praise);
       setStreak((prev) => prev + 1);
       playSfx('sparkle');
-      onCelebrate(praise, 6);
+      onCelebrate(praise, 6, 250);
       setTimeout(nextRound, 1400);
     } else {
       setFeedback('Try again!');
@@ -1881,6 +2122,8 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [currentIndex, setCurrentIndex] = useState(0);
   const [caseMode, setCaseMode] = useState('upper');
   const [cleared, setCleared] = useState(false);
+  const drawDistanceRef = useRef(0);
+  const autoCompleteRef = useRef(false);
 
   const current = TRACE_LETTERS[currentIndex];
   const letterChar = caseMode === 'upper' ? current.upper : current.lower;
@@ -1888,6 +2131,11 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   useEffect(() => {
     speak(`Trace the ${caseMode === 'upper' ? 'big' : 'small'} ${letterChar}. ${current.word}.`);
   }, [caseMode, letterChar, current.word, speak]);
+
+  useEffect(() => {
+    drawDistanceRef.current = 0;
+    autoCompleteRef.current = false;
+  }, [letterChar, cleared, caseMode]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -1932,6 +2180,9 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       const x = clientX - rect.left;
       const y = clientY - rect.top;
 
+      const distance = Math.hypot(x - lastX, y - lastY);
+      drawDistanceRef.current += distance;
+
       ctx.beginPath();
       ctx.moveTo(lastX, lastY);
       ctx.lineTo(x, y);
@@ -1955,6 +2206,13 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
     const stopDrawing = () => {
       isDrawing = false;
+      if (drawDistanceRef.current > 320 && !autoCompleteRef.current) {
+        autoCompleteRef.current = true;
+        const praise = getPraise();
+        onCelebrate(praise, 8, 300);
+        playSfx('sparkle');
+        speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
+      }
     };
 
     canvas.addEventListener('mousedown', startDrawing);
@@ -1973,7 +2231,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       canvas.removeEventListener('touchmove', draw);
       canvas.removeEventListener('touchend', stopDrawing);
     };
-  }, [letterChar, cleared]);
+  }, [letterChar, cleared, playSfx, speak]);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100">
@@ -2050,10 +2308,12 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </button>
           <button
             onClick={() => {
+              if (autoCompleteRef.current) return;
+              autoCompleteRef.current = true;
               const praise = getPraise();
-              onCelebrate(praise, 8);
+              onCelebrate(praise, 8, 250);
               playSfx('sparkle');
-              speak(praise);
+              speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
             }}
             className="bg-blue-500 text-white font-bold px-6 py-2 rounded-full shadow"
           >
@@ -2100,7 +2360,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       setFeedback(praise);
       setScore((prev) => prev + 1);
       playSfx('success');
-      onCelebrate(praise, 6);
+      onCelebrate(praise, 6, 250);
       setTimeout(nextRound, 1400);
     } else {
       setFeedback('Try again!');
@@ -2159,6 +2419,214 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
 
         {feedback && <div className="mt-4 text-xl font-bold text-emerald-700 animate-bounce">{feedback}</div>}
+      </div>
+    </div>
+  );
+};
+
+const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [levelIndex, setLevelIndex] = useState(0);
+  const level = SPOT_LEVELS[levelIndex];
+  const [found, setFound] = useState([]);
+  const [feedback, setFeedback] = useState('');
+  const [showComplete, setShowComplete] = useState(false);
+
+  useEffect(() => {
+    setFound([]);
+    setFeedback('');
+    setShowComplete(false);
+    speak(`Spot the differences. ${level.name}.`);
+  }, [level, speak]);
+
+  const handleTap = (index) => {
+    if (showComplete) return;
+    if (found.includes(index)) return;
+    if (level.differences.includes(index)) {
+      const nextFound = [...found, index];
+      setFound(nextFound);
+      playSfx('sparkle');
+      setFeedback('Gefunden!');
+      if (nextFound.length === level.differences.length) {
+        const praise = getPraise();
+        setShowComplete(true);
+        onCelebrate(praise, 10, 250);
+        speak(`${praise} Alle Unterschiede gefunden!`, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
+      }
+    } else {
+      setFeedback('Nope!');
+      playSfx('oops');
+    }
+  };
+
+  const handleNext = () => {
+    if (levelIndex < SPOT_LEVELS.length - 1) {
+      setLevelIndex((prev) => prev + 1);
+    } else {
+      setLevelIndex(0);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-indigo-100 via-slate-100 to-indigo-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-6 right-6 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-200/60 rounded-full blur-3xl" />
+      </div>
+
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button
+          onClick={onBack}
+          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+        >
+          <Home />
+        </button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-indigo-700">Spot the Difference</h2>
+          <p className="text-indigo-700/70 font-semibold">
+            {level.name} · Found {found.length}/{level.differences.length}
+          </p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
+        <p className="text-indigo-700 font-semibold mb-4">{level.hint}</p>
+
+        <div className="grid grid-cols-2 gap-6 w-full max-w-3xl">
+          {[level.left, level.right].map((scene, sceneIndex) => (
+            <div
+              key={sceneIndex}
+              className="bg-white/90 rounded-3xl border-4 border-indigo-200 shadow-xl p-4"
+            >
+              <div className="grid grid-cols-3 gap-3">
+                {scene.map((item, index) => {
+                  const isFound = found.includes(index) && sceneIndex === 1;
+                  return (
+                    <button
+                      key={`${sceneIndex}-${index}`}
+                      onClick={() => sceneIndex === 1 && handleTap(index)}
+                      className={`w-20 h-20 rounded-2xl text-3xl flex items-center justify-center border-4 transition ${
+                        isFound ? 'border-green-400 bg-green-50' : 'border-slate-200 bg-white'
+                      }`}
+                    >
+                      {item}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {feedback && <div className="mt-4 text-xl font-bold text-indigo-700 animate-bounce">{feedback}</div>}
+
+        {showComplete && (
+          <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
+            <div className="text-5xl mb-2">🎉</div>
+            <h3 className="text-2xl font-black text-indigo-700">{getPraise()}</h3>
+            <button onClick={handleNext} className="mt-3 text-indigo-600 font-semibold">
+              Next scene
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [tiles, setTiles] = useState(buildPuzzleTiles);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [moves, setMoves] = useState(0);
+  const [solved, setSolved] = useState(false);
+
+  useEffect(() => {
+    speak('Fix the puzzle by swapping tiles.');
+  }, [speak]);
+
+  const resetPuzzle = () => {
+    setTiles(buildPuzzleTiles());
+    setSelectedIndex(null);
+    setMoves(0);
+    setSolved(false);
+  };
+
+  const handleTile = (index) => {
+    if (solved) return;
+    if (selectedIndex === null) {
+      setSelectedIndex(index);
+      playSfx('click');
+      return;
+    }
+    if (selectedIndex === index) {
+      setSelectedIndex(null);
+      return;
+    }
+    setTiles((prev) => {
+      const next = [...prev];
+      [next[selectedIndex], next[index]] = [next[index], next[selectedIndex]];
+      return next;
+    });
+    setSelectedIndex(null);
+    setMoves((prev) => prev + 1);
+    setTimeout(() => {
+      setTiles((prev) => {
+        if (!isPuzzleSolved(prev)) return prev;
+        const praise = getPraise();
+        setSolved(true);
+        playSfx('success');
+        onCelebrate(praise, 12, 300);
+        speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
+        return prev;
+      });
+    }, 50);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-yellow-100 via-orange-100 to-yellow-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-200/60 rounded-full blur-3xl" />
+      </div>
+
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button
+          onClick={onBack}
+          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+        >
+          <Home />
+        </button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-orange-700">Puzzle Pop</h2>
+          <p className="text-orange-700/70 font-semibold">Moves: {moves}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
+        <div className="grid grid-cols-3 gap-4 w-full max-w-md">
+          {tiles.map((tile, index) => (
+            <button
+              key={tile.id}
+              onClick={() => handleTile(index)}
+              className={`w-24 h-24 rounded-3xl text-4xl flex items-center justify-center border-4 transition ${
+                selectedIndex === index ? 'border-orange-500 bg-orange-100' : 'border-white bg-white/80'
+              }`}
+            >
+              {tile.emoji}
+            </button>
+          ))}
+        </div>
+
+        {solved && (
+          <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
+            <div className="text-5xl mb-2">🎉</div>
+            <h3 className="text-2xl font-black text-orange-700">{getPraise()}</h3>
+            <button onClick={resetPuzzle} className="mt-3 text-orange-600 font-semibold">
+              New puzzle
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -2229,19 +2697,26 @@ export default function App() {
     document.title = 'Amari Discovery';
   }, []);
 
-  const celebrate = useCallback((message, pointsEarned = 5) => {
+  const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0) => {
     const finalMessage = message || getPraise();
-    setPoints((prev) => {
-      const total = prev + pointsEarned;
-      setCelebration({
-        id: Date.now(),
-        message: finalMessage,
-        points: pointsEarned,
-        total,
-        bursts: createBursts(),
+    const run = () => {
+      setPoints((prev) => {
+        const total = prev + pointsEarned;
+        setCelebration({
+          id: Date.now(),
+          message: finalMessage,
+          points: pointsEarned,
+          total,
+          bursts: createBursts(),
+        });
+        return total;
       });
-      return total;
-    });
+    };
+    if (delayMs > 0) {
+      setTimeout(run, delayMs);
+    } else {
+      run();
+    }
   }, []);
 
   useEffect(() => {
@@ -2382,6 +2857,28 @@ export default function App() {
           />
 
           <MenuCard
+            icon="🦸‍♂️"
+            title="Spot the Difference"
+            desc="Find what changed"
+            color="bg-indigo-400"
+            onClick={() => {
+              playSfx('click');
+              setScreen('spot');
+            }}
+          />
+
+          <MenuCard
+            icon="🧩"
+            title="Puzzle Pop"
+            desc="Swap tiles to win"
+            color="bg-yellow-400"
+            onClick={() => {
+              playSfx('click');
+              setScreen('puzzle');
+            }}
+          />
+
+          <MenuCard
             icon="🖍️"
             title="Letter Trace"
             desc="Trace big & small letters"
@@ -2498,6 +2995,29 @@ export default function App() {
         onCelebrate={celebrate}
       />
     );
+  } else if (screen === 'spot') {
+    content = (
+      <SpotDifference
+        onBack={() => setScreen('menu')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'puzzle') {
+    content = (
+      <PuzzlePlay
+        onBack={() => setScreen('menu')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'trace') {
   } else if (screen === 'trace') {
     content = (
       <LetterTrace
