@@ -503,25 +503,37 @@ const SPOT_LEVELS = [
     id: 'heroes',
     name: 'Superhero City',
     hint: 'Find 3 differences!',
-    left: ['🦸‍♂️', '🦸‍♀️', '🏙️', '⚡️', '🦹‍♂️', '🛡️', '🏢', '🚓', '⭐️'],
-    right: ['🦸‍♂️', '🦸', '🏙️', '💥', '🦹‍♂️', '🛡️', '🏢', '🚒', '⭐️'],
-    differences: [1, 3, 7],
+    base: ['🦸‍♂️', '🦸‍♀️', '🏙️', '⚡️', '🦹‍♂️', '🛡️', '🏢', '🚓', '⭐️'],
+    badge: '⭐️',
+    diffs: {
+      1: '💥',
+      3: '⚡️',
+      7: '🚒',
+    },
   },
   {
     id: 'dinos',
     name: 'Dino Valley',
     hint: 'Find 3 differences!',
-    left: ['🦕', '🦖', '🦴', '🌋', '🌿', '🥚', '🪨', '🦕', '🦖'],
-    right: ['🦕', '🦖', '🪵', '🌋', '🌿', '🥚', '🪨', '🦒', '🦎'],
-    differences: [2, 7, 8],
+    base: ['🦕', '🦖', '🦴', '🌋', '🌿', '🥚', '🪨', '🦕', '🦖'],
+    badge: '🌿',
+    diffs: {
+      2: '🪵',
+      7: '🦒',
+      8: '🦎',
+    },
   },
   {
     id: 'trucks',
     name: 'Monster Trucks',
     hint: 'Find 3 differences!',
-    left: ['🛻', '🏁', '⛽️', '🛻', '🔧', '🏆', '🚧', '🛞', '🌟'],
-    right: ['🚙', '🏁', '⛽️', '🛻', '🔩', '🏆', '🚧', '🛞', '✨'],
-    differences: [0, 4, 8],
+    base: ['🛻', '🏁', '⛽️', '🛻', '🔧', '🏆', '🚧', '🛞', '🌟'],
+    badge: '⭐️',
+    diffs: {
+      0: '🚙',
+      4: '🔩',
+      8: '✨',
+    },
   },
 ];
 
@@ -2613,6 +2625,10 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const [found, setFound] = useState([]);
   const [feedback, setFeedback] = useState('');
   const [showComplete, setShowComplete] = useState(false);
+  const differenceIndices = useMemo(
+    () => Object.keys(level.diffs).map((key) => Number(key)),
+    [level.diffs],
+  );
 
   useEffect(() => {
     setFound([]);
@@ -2624,12 +2640,12 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const handleTap = (index) => {
     if (showComplete) return;
     if (found.includes(index)) return;
-    if (level.differences.includes(index)) {
+    if (differenceIndices.includes(index)) {
       const nextFound = [...found, index];
       setFound(nextFound);
       playSfx('sparkle');
       setFeedback('Gefunden!');
-      if (nextFound.length === level.differences.length) {
+      if (nextFound.length === differenceIndices.length) {
         const praise = getPraise();
         setShowComplete(true);
         onCelebrate(praise, 10, 250);
@@ -2666,7 +2682,7 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <div className="text-center">
           <h2 className="text-3xl font-black text-indigo-700">Spot the Difference</h2>
           <p className="text-indigo-700/70 font-semibold">
-            {level.name} · Found {found.length}/{level.differences.length}
+            {level.name} · Found {found.length}/{differenceIndices.length}
           </p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
@@ -2676,23 +2692,31 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <p className="text-indigo-700 font-semibold mb-4">{level.hint}</p>
 
         <div className="grid grid-cols-2 gap-6 w-full max-w-3xl">
-          {[level.left, level.right].map((scene, sceneIndex) => (
+          {[0, 1].map((sceneIndex) => (
             <div
               key={sceneIndex}
               className="bg-white/90 rounded-3xl border-4 border-indigo-200 shadow-xl p-4"
             >
               <div className="grid grid-cols-3 gap-3">
-                {scene.map((item, index) => {
+                {level.base.map((item, index) => {
                   const isFound = found.includes(index) && sceneIndex === 1;
+                  const badge =
+                    sceneIndex === 0
+                      ? level.badge
+                      : level.diffs[index] || level.badge;
                   return (
                     <button
                       key={`${sceneIndex}-${index}`}
                       onClick={() => sceneIndex === 1 && handleTap(index)}
+                      disabled={sceneIndex === 0}
                       className={`w-20 h-20 rounded-2xl text-3xl flex items-center justify-center border-4 transition ${
                         isFound ? 'border-green-400 bg-green-50' : 'border-slate-200 bg-white'
                       }`}
                     >
-                      {item}
+                      <span className="relative">
+                        {item}
+                        <span className="absolute -top-2 -right-3 text-xs">{badge}</span>
+                      </span>
                     </button>
                   );
                 })}
@@ -2888,16 +2912,16 @@ export default function App() {
     screenRef.current = screen;
   }, [screen]);
 
-  const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0) => {
+  const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0, gameIdOverride) => {
     const finalMessage = message || getPraise();
+    const gameIdAtCall = gameIdOverride || screenRef.current;
     const run = () => {
       setPoints((prev) => {
         const total = prev + pointsEarned;
-        const gameId = screenRef.current;
-        if (gameId && !['menu', 'intro', 'summary'].includes(gameId)) {
+        if (gameIdAtCall && !['menu', 'intro', 'summary'].includes(gameIdAtCall)) {
           setSessionPoints((prevSessions) => ({
             ...prevSessions,
-            [gameId]: (prevSessions[gameId] || 0) + pointsEarned,
+            [gameIdAtCall]: (prevSessions[gameIdAtCall] || 0) + pointsEarned,
           }));
         }
         setCelebration({
