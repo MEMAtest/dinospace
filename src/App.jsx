@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowRight, Cloud, Home, Palette, Volume2, VolumeX } from 'lucide-react';
+import { ArrowRight, Cloud, Home, Palette, Pause, Play, Volume2, VolumeX } from 'lucide-react';
 
 const THEME = {
   bg: 'bg-gradient-to-b from-sky-100 via-blue-100 to-blue-200',
@@ -579,6 +579,7 @@ const GAME_LABELS = {
   addition: 'Addition Adventure',
   subtraction: 'Subtraction Station',
   astronaut: 'Astronaut Academy',
+  counting: 'Count the Stars',
 };
 
 const ADDITION_LEVELS = [
@@ -599,12 +600,12 @@ const ASTRONAUT_CATEGORIES = [
     name: 'Count the Stars',
     emoji: '🔢',
     items: [
-      { q: 'How many fingers on one hand?', answer: '5', options: ['3', '5', '7', '10'] },
-      { q: 'How many days in a week?', answer: '7', options: ['5', '6', '7', '8'] },
-      { q: 'How many legs does a spider have?', answer: '8', options: ['4', '6', '8', '10'] },
-      { q: 'How many wheels on a car?', answer: '4', options: ['2', '3', '4', '6'] },
-      { q: 'How many months in a year?', answer: '12', options: ['10', '11', '12', '14'] },
-      { q: 'How many eyes do you have?', answer: '2', options: ['1', '2', '3', '4'] },
+      { q: 'How many fingers on one hand?', visual: '🖐️', answer: '5', options: [{ text: '3', visual: '3️⃣' }, { text: '5', visual: '5️⃣' }, { text: '7', visual: '7️⃣' }, { text: '10', visual: '🔟' }] },
+      { q: 'How many days in a week?', visual: '📅', answer: '7', options: [{ text: '5', visual: '5️⃣' }, { text: '6', visual: '6️⃣' }, { text: '7', visual: '7️⃣' }, { text: '8', visual: '8️⃣' }] },
+      { q: 'How many legs does a spider have?', visual: '🕷️', answer: '8', options: [{ text: '4', visual: '4️⃣' }, { text: '6', visual: '6️⃣' }, { text: '8', visual: '8️⃣' }, { text: '10', visual: '🔟' }] },
+      { q: 'How many wheels on a car?', visual: '🚗', answer: '4', options: [{ text: '2', visual: '2️⃣' }, { text: '3', visual: '3️⃣' }, { text: '4', visual: '4️⃣' }, { text: '6', visual: '6️⃣' }] },
+      { q: 'How many months in a year?', visual: '🗓️', answer: '12', options: [{ text: '10', visual: '🔟' }, { text: '11', visual: '1️⃣1️⃣' }, { text: '12', visual: '1️⃣2️⃣' }, { text: '14', visual: '1️⃣4️⃣' }] },
+      { q: 'How many eyes do you have?', visual: '👀', answer: '2', options: [{ text: '1', visual: '1️⃣' }, { text: '2', visual: '2️⃣' }, { text: '3', visual: '3️⃣' }, { text: '4', visual: '4️⃣' }] },
     ],
   },
   {
@@ -612,11 +613,12 @@ const ASTRONAUT_CATEGORIES = [
     name: 'Shape Galaxy',
     emoji: '🔷',
     items: [
-      { q: 'Which shape has 3 sides?', answer: 'Triangle', options: ['Circle', 'Triangle', 'Square', 'Star'] },
-      { q: 'Which shape is round?', answer: 'Circle', options: ['Circle', 'Square', 'Rectangle', 'Diamond'] },
-      { q: 'Which shape has 4 equal sides?', answer: 'Square', options: ['Triangle', 'Circle', 'Square', 'Oval'] },
-      { q: 'A football is shaped like a...', answer: 'Sphere', options: ['Cube', 'Sphere', 'Cone', 'Cylinder'] },
-      { q: 'What shape is a dice?', answer: 'Cube', options: ['Sphere', 'Cube', 'Pyramid', 'Cylinder'] },
+      { q: 'Which shape has 3 sides?', visual: '❓', answer: 'Triangle', options: [{ text: 'Circle', visual: '⚫' }, { text: 'Triangle', visual: '🔺' }, { text: 'Square', visual: '🟧' }, { text: 'Star', visual: '⭐' }] },
+      { q: 'Which shape is round?', visual: '❓', answer: 'Circle', options: [{ text: 'Circle', visual: '⚫' }, { text: 'Square', visual: '🟧' }, { text: 'Rectangle', visual: '🟫' }, { text: 'Diamond', visual: '🔷' }] },
+      { q: 'Which shape has 4 equal sides?', visual: '❓', answer: 'Square', options: [{ text: 'Triangle', visual: '🔺' }, { text: 'Circle', visual: '⚫' }, { text: 'Square', visual: '🟧' }, { text: 'Oval', visual: '🥚' }] },
+      { q: 'A football is shaped like a...', visual: '⚽', answer: 'Sphere', options: [{ text: 'Cube', visual: '🧊' }, { text: 'Sphere', visual: '🔮' }, { text: 'Cone', visual: '🔺' }, { text: 'Cylinder', visual: '🧪' }] },
+      { q: 'What shape is a dice?', visual: '🎲', answer: 'Cube', options: [{ text: 'Sphere', visual: '🔮' }, { text: 'Cube', visual: '🧊' }, { text: 'Pyramid', visual: '🔺' }, { text: 'Cylinder', visual: '🧪' }] },
+      { q: 'Which shape has 5 points?', visual: '❓', answer: 'Star', options: [{ text: 'Heart', visual: '❤️' }, { text: 'Star', visual: '⭐' }, { text: 'Circle', visual: '⚫' }, { text: 'Diamond', visual: '🔷' }] },
     ],
   },
   {
@@ -624,12 +626,13 @@ const ASTRONAUT_CATEGORIES = [
     name: 'Space Zoo',
     emoji: '🦁',
     items: [
-      { q: 'Which animal is the King of the Jungle?', answer: 'Lion', options: ['Tiger', 'Lion', 'Bear', 'Wolf'] },
-      { q: 'Which animal has a trunk?', answer: 'Elephant', options: ['Giraffe', 'Elephant', 'Hippo', 'Rhino'] },
-      { q: 'Which animal says "Moo"?', answer: 'Cow', options: ['Dog', 'Cat', 'Cow', 'Sheep'] },
-      { q: 'Which animal can fly?', answer: 'Eagle', options: ['Fish', 'Snake', 'Eagle', 'Frog'] },
-      { q: 'Which is the tallest animal?', answer: 'Giraffe', options: ['Elephant', 'Giraffe', 'Horse', 'Camel'] },
-      { q: 'Which animal lives in the sea?', answer: 'Dolphin', options: ['Rabbit', 'Dolphin', 'Parrot', 'Monkey'] },
+      { q: 'Which animal is the King of the Jungle?', visual: '👑', answer: 'Lion', options: [{ text: 'Tiger', visual: '🐯' }, { text: 'Lion', visual: '🦁' }, { text: 'Bear', visual: '🐻' }, { text: 'Wolf', visual: '🐺' }] },
+      { q: 'Which animal has a long trunk?', visual: '❓', answer: 'Elephant', options: [{ text: 'Giraffe', visual: '🦒' }, { text: 'Elephant', visual: '🐘' }, { text: 'Hippo', visual: '🦛' }, { text: 'Rhino', visual: '🦏' }] },
+      { q: 'Which animal says "Moo"?', visual: '🔊', answer: 'Cow', options: [{ text: 'Dog', visual: '🐶' }, { text: 'Cat', visual: '🐱' }, { text: 'Cow', visual: '🐄' }, { text: 'Sheep', visual: '🐑' }] },
+      { q: 'Which animal can fly?', visual: '🌤️', answer: 'Eagle', options: [{ text: 'Fish', visual: '🐟' }, { text: 'Snake', visual: '🐍' }, { text: 'Eagle', visual: '🦅' }, { text: 'Frog', visual: '🐸' }] },
+      { q: 'Which is the tallest animal?', visual: '📏', answer: 'Giraffe', options: [{ text: 'Elephant', visual: '🐘' }, { text: 'Giraffe', visual: '🦒' }, { text: 'Horse', visual: '🐴' }, { text: 'Camel', visual: '🐪' }] },
+      { q: 'Which animal lives in the sea?', visual: '🌊', answer: 'Dolphin', options: [{ text: 'Rabbit', visual: '🐰' }, { text: 'Dolphin', visual: '🐬' }, { text: 'Parrot', visual: '🦜' }, { text: 'Monkey', visual: '🐒' }] },
+      { q: 'Which animal is the fastest on land?', visual: '💨', answer: 'Cheetah', options: [{ text: 'Cheetah', visual: '🐆' }, { text: 'Horse', visual: '🐴' }, { text: 'Dog', visual: '🐶' }, { text: 'Rabbit', visual: '🐰' }] },
     ],
   },
   {
@@ -637,11 +640,12 @@ const ASTRONAUT_CATEGORIES = [
     name: 'Body Mission',
     emoji: '🧠',
     items: [
-      { q: 'What organ pumps blood?', answer: 'Heart', options: ['Brain', 'Heart', 'Lungs', 'Stomach'] },
-      { q: 'What do you use to breathe?', answer: 'Lungs', options: ['Heart', 'Lungs', 'Liver', 'Kidneys'] },
-      { q: 'What do you think with?', answer: 'Brain', options: ['Heart', 'Brain', 'Stomach', 'Bones'] },
-      { q: 'How many bones does a grown-up have?', answer: '206', options: ['100', '150', '206', '300'] },
-      { q: 'What covers your whole body?', answer: 'Skin', options: ['Hair', 'Skin', 'Nails', 'Muscles'] },
+      { q: 'What organ pumps blood around your body?', visual: '💓', answer: 'Heart', options: [{ text: 'Brain', visual: '🧠' }, { text: 'Heart', visual: '❤️' }, { text: 'Lungs', visual: '🫁' }, { text: 'Stomach', visual: '🤢' }] },
+      { q: 'What do you use to breathe?', visual: '😤', answer: 'Lungs', options: [{ text: 'Heart', visual: '❤️' }, { text: 'Lungs', visual: '🫁' }, { text: 'Liver', visual: '🫀' }, { text: 'Kidneys', visual: '🫘' }] },
+      { q: 'What do you think with?', visual: '💭', answer: 'Brain', options: [{ text: 'Heart', visual: '❤️' }, { text: 'Brain', visual: '🧠' }, { text: 'Stomach', visual: '🤢' }, { text: 'Bones', visual: '🦴' }] },
+      { q: 'What covers your whole body?', visual: '🤔', answer: 'Skin', options: [{ text: 'Hair', visual: '💇' }, { text: 'Skin', visual: '🖐️' }, { text: 'Nails', visual: '💅' }, { text: 'Muscles', visual: '💪' }] },
+      { q: 'What helps you chew food?', visual: '🍎', answer: 'Teeth', options: [{ text: 'Tongue', visual: '👅' }, { text: 'Teeth', visual: '🦷' }, { text: 'Lips', visual: '👄' }, { text: 'Nose', visual: '👃' }] },
+      { q: 'What do you use to hear sounds?', visual: '🔊', answer: 'Ears', options: [{ text: 'Eyes', visual: '👀' }, { text: 'Ears', visual: '👂' }, { text: 'Nose', visual: '👃' }, { text: 'Mouth', visual: '👄' }] },
     ],
   },
   {
@@ -649,29 +653,103 @@ const ASTRONAUT_CATEGORIES = [
     name: 'Space Facts',
     emoji: '🪐',
     items: [
-      { q: 'What is the closest star to Earth?', answer: 'The Sun', options: ['The Moon', 'The Sun', 'Mars', 'Jupiter'] },
-      { q: 'How many planets in our solar system?', answer: '8', options: ['6', '7', '8', '9'] },
-      { q: 'What planet are we on?', answer: 'Earth', options: ['Mars', 'Earth', 'Venus', 'Mercury'] },
-      { q: 'Which planet has rings?', answer: 'Saturn', options: ['Jupiter', 'Mars', 'Saturn', 'Neptune'] },
-      { q: 'What do astronauts wear?', answer: 'Space suit', options: ['Raincoat', 'Space suit', 'Swimsuit', 'Armour'] },
-      { q: 'Which planet is red?', answer: 'Mars', options: ['Earth', 'Mars', 'Venus', 'Neptune'] },
+      { q: 'What is the closest star to Earth?', visual: '✨', answer: 'The Sun', options: [{ text: 'The Moon', visual: '🌙' }, { text: 'The Sun', visual: '☀️' }, { text: 'Mars', visual: '🔴' }, { text: 'Jupiter', visual: '🟠' }] },
+      { q: 'How many planets in our solar system?', visual: '🌌', answer: '8', options: [{ text: '6', visual: '6️⃣' }, { text: '7', visual: '7️⃣' }, { text: '8', visual: '8️⃣' }, { text: '9', visual: '9️⃣' }] },
+      { q: 'What planet are we on?', visual: '🏠', answer: 'Earth', options: [{ text: 'Mars', visual: '🔴' }, { text: 'Earth', visual: '🌍' }, { text: 'Venus', visual: '🟡' }, { text: 'Mercury', visual: '⚪' }] },
+      { q: 'Which planet has beautiful rings?', visual: '💍', answer: 'Saturn', options: [{ text: 'Jupiter', visual: '🟠' }, { text: 'Mars', visual: '🔴' }, { text: 'Saturn', visual: '🪐' }, { text: 'Neptune', visual: '🔵' }] },
+      { q: 'What do astronauts wear in space?', visual: '👨‍🚀', answer: 'Space suit', options: [{ text: 'Raincoat', visual: '🧥' }, { text: 'Space suit', visual: '🥼' }, { text: 'Swimsuit', visual: '👙' }, { text: 'Armour', visual: '🛡️' }] },
+      { q: 'Which planet is called the Red Planet?', visual: '❓', answer: 'Mars', options: [{ text: 'Earth', visual: '🌍' }, { text: 'Mars', visual: '🔴' }, { text: 'Venus', visual: '🟡' }, { text: 'Neptune', visual: '🔵' }] },
+      { q: 'What pulls things down to the ground?', visual: '🍎⬇️', answer: 'Gravity', options: [{ text: 'Wind', visual: '💨' }, { text: 'Gravity', visual: '⬇️' }, { text: 'Magnets', visual: '🧲' }, { text: 'Rain', visual: '🌧️' }] },
+    ],
+  },
+  {
+    id: 'dinosaurs',
+    name: 'Dino Facts',
+    emoji: '🦕',
+    items: [
+      { q: 'Which dinosaur had tiny arms?', visual: '💪❓', answer: 'T-Rex', options: [{ text: 'T-Rex', visual: '🦖' }, { text: 'Stegosaurus', visual: '🦕' }, { text: 'Triceratops', visual: '🦏' }, { text: 'Brachiosaurus', visual: '🦒' }] },
+      { q: 'Which dinosaur had 3 horns?', visual: '❓', answer: 'Triceratops', options: [{ text: 'T-Rex', visual: '🦖' }, { text: 'Triceratops', visual: '🦏' }, { text: 'Stegosaurus', visual: '🦕' }, { text: 'Raptor', visual: '🦅' }] },
+      { q: 'Which dinosaur had plates on its back?', visual: '❓', answer: 'Stegosaurus', options: [{ text: 'Stegosaurus', visual: '🦕' }, { text: 'T-Rex', visual: '🦖' }, { text: 'Pterodactyl', visual: '🦅' }, { text: 'Raptor', visual: '🐾' }] },
+      { q: 'Which dinosaur could fly?', visual: '🌤️', answer: 'Pterodactyl', options: [{ text: 'T-Rex', visual: '🦖' }, { text: 'Pterodactyl', visual: '🦅' }, { text: 'Triceratops', visual: '🦏' }, { text: 'Stegosaurus', visual: '🦕' }] },
+      { q: 'What did dinosaurs hatch from?', visual: '❓', answer: 'Eggs', options: [{ text: 'Eggs', visual: '🥚' }, { text: 'Rocks', visual: '🪨' }, { text: 'Trees', visual: '🌳' }, { text: 'Clouds', visual: '☁️' }] },
+      { q: 'Are dinosaurs still alive today?', visual: '🤔', answer: 'No', options: [{ text: 'Yes', visual: '✅' }, { text: 'No', visual: '❌' }, { text: 'Maybe', visual: '🤷' }, { text: 'Only small ones', visual: '🐊' }] },
     ],
   },
 ];
 
 const STICKERS = [
-  { id: 'rocket', name: 'Rocket', emoji: '🚀', points: 10 },
-  { id: 'dino', name: 'Dino', emoji: '🦕', points: 20 },
-  { id: 'star', name: 'Star', emoji: '⭐️', points: 30 },
-  { id: 'truck', name: 'Truck', emoji: '🛻', points: 40 },
-  { id: 'heart', name: 'Heart', emoji: '💖', points: 55 },
-  { id: 'planet', name: 'Planet', emoji: '🪐', points: 75 },
-  { id: 'hero', name: 'Hero', emoji: '🦸‍♀️', points: 95 },
-  { id: 'crown', name: 'Crown', emoji: '👑', points: 120 },
+  { id: 'rocket', name: 'Bronze Rocket', emoji: '🚀', points: 10 },
+  { id: 'dino', name: 'Silver Dino', emoji: '🦕', points: 25 },
+  { id: 'star', name: 'Gold Star', emoji: '⭐️', points: 40 },
+  { id: 'truck', name: 'Speed Truck', emoji: '🛻', points: 60 },
+  { id: 'heart', name: 'Super Heart', emoji: '💖', points: 80 },
+  { id: 'planet', name: 'Planet Master', emoji: '🪐', points: 100 },
+  { id: 'hero', name: 'Mega Hero', emoji: '🦸‍♀️', points: 130 },
+  { id: 'trophy', name: 'Trophy Winner', emoji: '🏆', points: 170 },
+  { id: 'diamond', name: 'Diamond Brain', emoji: '💎', points: 220 },
+  { id: 'crown', name: 'Royal Crown', emoji: '👑', points: 280 },
+  { id: 'legend', name: 'Legend Badge', emoji: '🏅', points: 350 },
+  { id: 'galaxy', name: 'Galaxy King', emoji: '🌌', points: 450 },
+];
+
+const PLAYER_RANKS = [
+  { title: 'Space Cadet', emoji: '👶', minPoints: 0 },
+  { title: 'Star Collector', emoji: '⭐', minPoints: 25 },
+  { title: 'Moon Walker', emoji: '🌙', minPoints: 60 },
+  { title: 'Rocket Pilot', emoji: '🚀', minPoints: 100 },
+  { title: 'Planet Explorer', emoji: '🪐', minPoints: 170 },
+  { title: 'Galaxy Ranger', emoji: '🌌', minPoints: 280 },
+  { title: 'Space Commander', emoji: '👨‍🚀', minPoints: 400 },
+  { title: 'Universe Legend', emoji: '🏆', minPoints: 600 },
+];
+
+const getRank = (points) => {
+  for (let i = PLAYER_RANKS.length - 1; i >= 0; i--) {
+    if (points >= PLAYER_RANKS[i].minPoints) return PLAYER_RANKS[i];
+  }
+  return PLAYER_RANKS[0];
+};
+
+const getNextRank = (points) => {
+  for (let i = 0; i < PLAYER_RANKS.length; i++) {
+    if (points < PLAYER_RANKS[i].minPoints) return PLAYER_RANKS[i];
+  }
+  return null;
+};
+
+const DAILY_CHALLENGES = [
+  { id: 'memory3', game: 'memory', desc: 'Complete a Memory Match level', target: 1, emoji: '🧩' },
+  { id: 'math5', game: 'math', desc: 'Solve 5 maths problems', target: 5, emoji: '🛻' },
+  { id: 'addition5', game: 'addition', desc: 'Answer 5 addition questions', target: 5, emoji: '➕' },
+  { id: 'sub5', game: 'subtraction', desc: 'Answer 5 subtraction questions', target: 5, emoji: '➖' },
+  { id: 'dino1', game: 'dino', desc: 'Find all dinos in a level', target: 1, emoji: '🦕' },
+  { id: 'astro3', game: 'astronaut', desc: 'Complete an Astronaut mission', target: 1, emoji: '👨‍🚀' },
+  { id: 'pattern3', game: 'pattern', desc: 'Solve 3 patterns', target: 3, emoji: '🔷' },
+  { id: 'count5', game: 'counting', desc: 'Count 5 groups of stars', target: 5, emoji: '🔢' },
+  { id: 'puzzle1', game: 'puzzle', desc: 'Complete a jigsaw puzzle', target: 1, emoji: '🧩' },
+  { id: 'letters3', game: 'letters', desc: 'Match 3 letters', target: 3, emoji: '🚀' },
+];
+
+const getTodaysChallenge = () => {
+  const dayIndex = Math.floor(Date.now() / 86400000) % DAILY_CHALLENGES.length;
+  return DAILY_CHALLENGES[dayIndex];
+};
+
+const COUNT_LEVELS = [
+  { id: 'easy', name: 'Tiny Stars', max: 5, emoji: '⭐' },
+  { id: 'medium', name: 'Star Cluster', max: 10, emoji: '🌟' },
+  { id: 'hard', name: 'Super Nova', max: 15, emoji: '💫' },
 ];
 
 const pickRandom = (list) => list[Math.floor(Math.random() * list.length)];
-const shuffle = (list) => list.slice().sort(() => Math.random() - 0.5);
+const shuffle = (list) => {
+  const arr = list.slice();
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
 
 const getPraise = () => pickRandom(GERMAN_PRAISE);
 
@@ -889,6 +967,41 @@ const useSfx = (enabled) => {
       if (name === 'whoosh') {
         playSweep(ctx, { from: 1400, to: 180, duration: 0.5, gain: 0.2, type: 'sine' });
       }
+
+      if (name === 'levelup') {
+        playTone(ctx, { freq: 523, duration: 0.1, gain: 0.15 });
+        playTone(ctx, { freq: 659, duration: 0.1, gain: 0.15, start: 0.1 });
+        playTone(ctx, { freq: 784, duration: 0.1, gain: 0.15, start: 0.2 });
+        playTone(ctx, { freq: 1047, duration: 0.25, gain: 0.18, start: 0.3 });
+      }
+
+      if (name === 'streak') {
+        playTone(ctx, { freq: 660, duration: 0.08, gain: 0.12 });
+        playTone(ctx, { freq: 880, duration: 0.08, gain: 0.14, start: 0.06 });
+        playTone(ctx, { freq: 1100, duration: 0.12, gain: 0.16, start: 0.12 });
+        playSweep(ctx, { from: 1100, to: 1400, duration: 0.15, gain: 0.12, start: 0.2 });
+      }
+
+      if (name === 'tap') {
+        playTone(ctx, { freq: 440, duration: 0.06, gain: 0.1, type: 'triangle' });
+      }
+
+      if (name === 'countdown') {
+        playTone(ctx, { freq: 800, duration: 0.15, gain: 0.12, type: 'square' });
+      }
+
+      if (name === 'wrong') {
+        playTone(ctx, { freq: 280, duration: 0.15, gain: 0.12, type: 'sine' });
+        playTone(ctx, { freq: 220, duration: 0.2, gain: 0.1, start: 0.12, type: 'sine' });
+      }
+
+      if (name === 'complete') {
+        playTone(ctx, { freq: 523, duration: 0.12, gain: 0.14 });
+        playTone(ctx, { freq: 659, duration: 0.12, gain: 0.14, start: 0.1 });
+        playTone(ctx, { freq: 784, duration: 0.12, gain: 0.14, start: 0.2 });
+        playTone(ctx, { freq: 1047, duration: 0.3, gain: 0.18, start: 0.3 });
+        playTone(ctx, { freq: 1318, duration: 0.35, gain: 0.16, start: 0.5 });
+      }
     },
     [playSweep, playTone],
   );
@@ -1055,8 +1168,8 @@ const RewardsShelf = ({ points }) => {
               }`}
             >
               <div className={`text-3xl ${unlocked ? '' : 'opacity-30'}`}>{sticker.emoji}</div>
-              <div className="text-xs font-bold text-slate-600 mt-1">{sticker.name}</div>
-              <div className="text-[10px] text-slate-400">{sticker.points}⭐</div>
+              <div className="text-sm font-bold text-slate-600 mt-1">{sticker.name}</div>
+              <div className="text-xs text-slate-400">{sticker.points}⭐</div>
             </div>
           );
         })}
@@ -3241,12 +3354,13 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
     if (question) speak(question.q);
   }, [question, speak]);
 
-  const handlePick = (option) => {
+  const handlePick = (opt) => {
     if (!question) return;
-    if (option === question.answer) {
+    if (opt.text === question.answer) {
       const praise = getPraise();
       setFeedback(praise);
       playSfx('success');
+      speak(praise);
       onCelebrate(praise, 6, 200);
       setScore((prev) => prev + 1);
       setTimeout(() => {
@@ -3254,12 +3368,14 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
         if (qIndex + 1 < cat.items.length) {
           setQIndex(qIndex + 1);
         } else {
+          playSfx('complete');
           setDone(true);
         }
       }, 1500);
     } else {
       setShake(true);
-      playSfx('oops');
+      playSfx('wrong');
+      speak('Try again!');
       setFeedback('Try again!');
       setTimeout(() => { setShake(false); setFeedback(''); }, 800);
     }
@@ -3341,16 +3457,211 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
         <div className={`bg-white/10 backdrop-blur-sm rounded-3xl p-8 max-w-lg w-full text-center ${shake ? 'animate-shake' : ''}`}>
-          <div className="text-5xl mb-4">👨‍🚀</div>
-          <h3 className="text-2xl font-black text-white mb-8">{question.q}</h3>
+          <div className="text-5xl mb-2">{question.visual || '👨‍🚀'}</div>
+          <h3 className="text-2xl font-black text-white mb-6">{question.q}</h3>
           <div className="grid grid-cols-2 gap-4">
             {question.options.map((opt) => (
-              <button key={opt} onClick={() => handlePick(opt)} className="bg-white/20 border-2 border-white/30 text-white text-xl font-bold py-4 rounded-2xl hover:bg-white/30 active:translate-y-1 transition-all">{opt}</button>
+              <button key={opt.text} onClick={() => { playSfx('tap'); handlePick(opt); }} className="bg-white/10 border-2 border-white/20 text-white font-bold py-4 px-3 rounded-2xl hover:bg-white/30 active:translate-y-1 transition-all flex flex-col items-center gap-1">
+                <span className="text-4xl">{opt.visual}</span>
+                <span className="text-base">{opt.text}</span>
+              </button>
             ))}
           </div>
         </div>
         {feedback && <div className="mt-6 text-3xl font-black text-yellow-300 animate-bounce">{feedback}</div>}
       </div>
+    </div>
+  );
+};
+
+const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [levelIndex, setLevelIndex] = useState(0);
+  const level = COUNT_LEVELS[levelIndex];
+  const [items, setItems] = useState([]);
+  const [tapped, setTapped] = useState([]);
+  const [target, setTarget] = useState(0);
+  const [phase, setPhase] = useState('count');
+  const [feedback, setFeedback] = useState('');
+  const [streak, setStreak] = useState(0);
+
+  const generateRound = useCallback(() => {
+    const count = Math.ceil(Math.random() * level.max) + 1;
+    const emojis = ['⭐', '🌟', '💫', '✨', '🌙', '☀️', '🪐', '🔮'];
+    const emoji = pickRandom(emojis);
+    const newItems = Array.from({ length: count }, (_, i) => ({
+      id: i,
+      emoji,
+      x: 10 + Math.random() * 75,
+      y: 10 + Math.random() * 65,
+      size: 0.8 + Math.random() * 0.6,
+    }));
+    setItems(newItems);
+    setTarget(count);
+    setTapped([]);
+    setPhase('count');
+    setFeedback('');
+  }, [level.max]);
+
+  useEffect(() => { generateRound(); }, [generateRound, levelIndex]);
+
+  useEffect(() => {
+    if (phase === 'count') speak('Tap each star to count them!');
+  }, [phase, speak]);
+
+  const handleTapItem = (id) => {
+    if (phase !== 'count' || tapped.includes(id)) return;
+    const next = [...tapped, id];
+    setTapped(next);
+    playSfx('tap');
+    speak(`${next.length}`);
+    if (next.length === target) {
+      setPhase('answer');
+      setTimeout(() => speak(`How many did you count?`), 500);
+    }
+  };
+
+  const options = useMemo(() => {
+    if (phase !== 'answer') return [];
+    const set = new Set([target]);
+    while (set.size < 4) {
+      const delta = Math.ceil(Math.random() * 3);
+      const sign = Math.random() > 0.5 ? 1 : -1;
+      set.add(Math.max(1, target + sign * delta));
+    }
+    return shuffle(Array.from(set));
+  }, [target, phase]);
+
+  const handleAnswer = (ans) => {
+    if (ans === target) {
+      const praise = getPraise();
+      setFeedback(praise);
+      playSfx('success');
+      speak(praise);
+      onCelebrate(praise, 6, 200);
+      setStreak((s) => s + 1);
+      setTimeout(() => {
+        if (streak > 0 && streak % 5 === 4 && levelIndex < COUNT_LEVELS.length - 1) {
+          setLevelIndex((p) => p + 1);
+          playSfx('levelup');
+        } else {
+          generateRound();
+        }
+      }, 1800);
+    } else {
+      playSfx('wrong');
+      speak('Not quite, try again!');
+      setFeedback('Try again!');
+      setTimeout(() => setFeedback(''), 800);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-indigo-900 via-purple-900 to-indigo-900 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 20 }, (_, i) => (
+          <div key={i} className="absolute bg-white rounded-full animate-pulse" style={{ width: Math.random() * 2 + 1, height: Math.random() * 2 + 1, top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 3}s` }} />
+        ))}
+      </div>
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home className="text-white" /></button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-white">Count the Stars</h2>
+          <p className="text-white/60 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <div className="relative w-full max-w-md aspect-square bg-white/5 rounded-3xl border-2 border-white/10 mb-6">
+          {items.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => handleTapItem(item.id)}
+              className={`absolute transition-all duration-300 ${tapped.includes(item.id) ? 'scale-125 opacity-60' : 'hover:scale-110'}`}
+              style={{ left: `${item.x}%`, top: `${item.y}%`, fontSize: `${item.size * 2.5}rem` }}
+            >
+              {item.emoji}
+              {tapped.includes(item.id) && <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-black rounded-full w-6 h-6 flex items-center justify-center">{tapped.indexOf(item.id) + 1}</span>}
+            </button>
+          ))}
+        </div>
+        {phase === 'count' && <p className="text-white/80 text-xl font-semibold">Tap each one! {tapped.length}/{target}</p>}
+        {phase === 'answer' && (
+          <div className="text-center">
+            <p className="text-white text-xl font-bold mb-4">How many did you count?</p>
+            <div className="flex gap-4 justify-center">
+              {options.map((n) => (
+                <button key={n} onClick={() => handleAnswer(n)} className="w-16 h-16 bg-yellow-400 text-black text-2xl font-black rounded-2xl shadow-lg active:translate-y-1 transition-all">{n}</button>
+              ))}
+            </div>
+          </div>
+        )}
+        {feedback && <div className="mt-4 text-3xl font-black text-yellow-300 animate-bounce">{feedback}</div>}
+      </div>
+    </div>
+  );
+};
+
+const PauseOverlay = ({ onResume }) => (
+  <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex flex-col items-center justify-center">
+    <div className="bg-white rounded-3xl p-10 text-center shadow-2xl max-w-sm">
+      <div className="text-6xl mb-4">⏸️</div>
+      <h2 className="text-3xl font-black text-slate-800 mb-2">Game Paused</h2>
+      <p className="text-slate-500 font-semibold mb-6">Take a break if you need one!</p>
+      <button onClick={onResume} className="bg-blue-500 text-white text-xl font-bold px-8 py-4 rounded-full shadow-lg hover:bg-blue-600 active:translate-y-1 transition-all flex items-center gap-2 mx-auto">
+        <Play size={24} /> Resume
+      </button>
+    </div>
+  </div>
+);
+
+const BreakReminder = ({ onDismiss, onTakeBreak }) => (
+  <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center">
+    <div className="bg-white rounded-3xl p-10 text-center shadow-2xl max-w-sm">
+      <div className="text-6xl mb-4">🌙</div>
+      <h2 className="text-3xl font-black text-slate-800 mb-2">Break Time!</h2>
+      <p className="text-slate-500 font-semibold mb-2">You have been playing for 30 minutes.</p>
+      <p className="text-slate-500 font-semibold mb-6">How about a little rest?</p>
+      <div className="flex gap-4 justify-center">
+        <button onClick={onTakeBreak} className="bg-indigo-500 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:bg-indigo-600 transition">Take a Break</button>
+        <button onClick={onDismiss} className="bg-slate-200 text-slate-700 font-bold px-6 py-3 rounded-full shadow-lg hover:bg-slate-300 transition">5 More Minutes</button>
+      </div>
+    </div>
+  </div>
+);
+
+const DailyChallengeBanner = ({ challenge, progress, onGo, completed }) => (
+  <div className={`w-full max-w-6xl mx-auto mb-6 rounded-3xl p-5 border-4 relative z-10 ${completed ? 'bg-green-100 border-green-300' : 'bg-gradient-to-r from-amber-100 to-orange-100 border-amber-300'}`}>
+    <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center gap-3">
+        <div className="text-4xl">{challenge.emoji}</div>
+        <div>
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-black text-amber-700 uppercase">Daily Challenge</span>
+            {completed && <span className="text-green-600 font-black">DONE!</span>}
+          </div>
+          <p className="text-slate-700 font-bold text-lg">{challenge.desc}</p>
+        </div>
+      </div>
+      {!completed && (
+        <button onClick={onGo} className="bg-amber-500 text-white font-bold px-5 py-2 rounded-full shadow-md hover:bg-amber-600 active:translate-y-1 transition-all whitespace-nowrap">
+          Let's Go!
+        </button>
+      )}
+      {completed && <div className="text-4xl">🏆</div>}
+    </div>
+    {!completed && (
+      <div className="mt-3 bg-white/60 rounded-full h-3 overflow-hidden">
+        <div className="bg-amber-500 h-full rounded-full transition-all duration-500" style={{ width: `${Math.min(100, (progress / challenge.target) * 100)}%` }} />
+      </div>
+    )}
+  </div>
+);
+
+const StreakBanner = ({ streak, bonusStars }) => {
+  if (streak < 2) return null;
+  return (
+    <div className="w-full max-w-6xl mx-auto mb-4 bg-gradient-to-r from-orange-400 to-red-400 rounded-2xl p-3 text-center relative z-10">
+      <span className="text-white font-black text-lg">🔥 {streak} Day Streak! +{bonusStars} bonus stars</span>
     </div>
   );
 };
@@ -3408,17 +3719,65 @@ const IntroScreen = ({ onStart, playSfx, soundOn, onToggleSound, speak }) => {
   );
 };
 
+const loadSaved = (key, fallback) => {
+  try { const v = localStorage.getItem(key); return v !== null ? JSON.parse(v) : fallback; } catch { return fallback; }
+};
+
 export default function App() {
   const [screen, setScreen] = useState('intro');
   const [soundOn, setSoundOn] = useState(true);
-  const [points, setPoints] = useState(0);
+  const [points, setPoints] = useState(() => loadSaved('amari_points', 0));
   const [celebration, setCelebration] = useState(null);
   const [sessionPoints, setSessionPoints] = useState({});
   const [summary, setSummary] = useState(null);
+  const [paused, setPaused] = useState(false);
+  const [showBreak, setShowBreak] = useState(false);
+  const [streak, setStreak] = useState(() => loadSaved('amari_streak', 0));
+  const [lastPlayDate, setLastPlayDate] = useState(() => loadSaved('amari_lastplay', ''));
+  const [challengeProgress, setChallengeProgress] = useState(() => loadSaved('amari_challenge_progress', 0));
+  const [challengeCompleted, setChallengeCompleted] = useState(() => loadSaved('amari_challenge_done', false));
+  const [gamesPlayed, setGamesPlayed] = useState(() => loadSaved('amari_games_played', {}));
+  const sessionStartRef = useRef(Date.now());
+  const breakTimerRef = useRef(null);
   const screenRef = useRef(screen);
   const playSfx = useSfx(soundOn);
   const speak = useVoice(soundOn);
   useAmbientMusic(soundOn);
+
+  const todaysChallenge = useMemo(() => getTodaysChallenge(), []);
+  const today = new Date().toISOString().slice(0, 10);
+
+  // Persist points
+  useEffect(() => { localStorage.setItem('amari_points', JSON.stringify(points)); }, [points]);
+  useEffect(() => { localStorage.setItem('amari_streak', JSON.stringify(streak)); }, [streak]);
+  useEffect(() => { localStorage.setItem('amari_lastplay', JSON.stringify(lastPlayDate)); }, [lastPlayDate]);
+  useEffect(() => { localStorage.setItem('amari_challenge_progress', JSON.stringify(challengeProgress)); }, [challengeProgress]);
+  useEffect(() => { localStorage.setItem('amari_challenge_done', JSON.stringify(challengeCompleted)); }, [challengeCompleted]);
+  useEffect(() => { localStorage.setItem('amari_games_played', JSON.stringify(gamesPlayed)); }, [gamesPlayed]);
+
+  // Daily streak check on start
+  useEffect(() => {
+    if (lastPlayDate === today) return;
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    if (lastPlayDate === yesterday) {
+      setStreak((s) => s + 1);
+    } else if (lastPlayDate && lastPlayDate !== today) {
+      setStreak(1);
+    } else {
+      setStreak(1);
+    }
+    setLastPlayDate(today);
+    setChallengeProgress(0);
+    setChallengeCompleted(false);
+  }, [lastPlayDate, today]);
+
+  // Screen time break reminder (30 min)
+  useEffect(() => {
+    breakTimerRef.current = setTimeout(() => {
+      setShowBreak(true);
+    }, 30 * 60 * 1000);
+    return () => clearTimeout(breakTimerRef.current);
+  }, []);
 
   useEffect(() => {
     document.title = 'Amari Discovery';
@@ -3439,6 +3798,19 @@ export default function App() {
             ...prevSessions,
             [gameIdAtCall]: (prevSessions[gameIdAtCall] || 0) + pointsEarned,
           }));
+          // Track daily challenge progress
+          setChallengeProgress((cp) => {
+            const next = cp + 1;
+            if (next >= getTodaysChallenge().target && !challengeCompleted) {
+              setChallengeCompleted(true);
+            }
+            return next;
+          });
+          // Track total games played per game
+          setGamesPlayed((prev) => ({
+            ...prev,
+            [gameIdAtCall]: (prev[gameIdAtCall] || 0) + 1,
+          }));
         }
         setCelebration({
           id: Date.now(),
@@ -3455,7 +3827,7 @@ export default function App() {
     } else {
       run();
     }
-  }, []);
+  }, [challengeCompleted]);
 
   useEffect(() => {
     if (!celebration) return;
@@ -3509,10 +3881,10 @@ export default function App() {
           <SoundToggle soundOn={soundOn} onToggle={() => setSoundOn((prev) => !prev)} />
         </div>
 
-        <div className="text-center mt-8 mb-10 animate-fade-in-down relative z-10">
+        <div className="text-center mt-8 mb-6 animate-fade-in-down relative z-10">
           <div className="flex justify-center gap-4 text-5xl mb-4 animate-bounce-slow">
             <span>🐯</span>
-            <span>🔧</span>
+            <span>🚀</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-slate-800 tracking-tight drop-shadow-sm">
             Amari <span className="text-blue-500">Discovery</span>
@@ -3520,8 +3892,26 @@ export default function App() {
           <p className="text-slate-600 font-bold text-xl mt-2 bg-white/60 inline-block px-6 py-2 rounded-full">
             Academy for Kids
           </p>
-          <div className="mt-4 text-slate-600 font-semibold">⭐ Total Stars: {points}</div>
+          <div className="mt-4 flex items-center justify-center gap-4">
+            <span className="text-slate-600 font-semibold">⭐ {points} Stars</span>
+            <span className="bg-indigo-100 text-indigo-700 font-black text-sm px-3 py-1 rounded-full">
+              {getRank(points).emoji} {getRank(points).title}
+            </span>
+            {getNextRank(points) && (
+              <span className="text-slate-400 text-sm font-semibold">
+                {getNextRank(points).minPoints - points}⭐ to {getNextRank(points).title}
+              </span>
+            )}
+          </div>
         </div>
+
+        <StreakBanner streak={streak} bonusStars={streak * 2} />
+        <DailyChallengeBanner
+          challenge={todaysChallenge}
+          progress={challengeProgress}
+          completed={challengeCompleted}
+          onGo={() => { playSfx('launch'); setScreen(todaysChallenge.game); }}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl relative z-10">
           <MenuCard
@@ -3626,7 +4016,7 @@ export default function App() {
           <MenuCard
             icon="🧩"
             title="Puzzle Pop"
-            desc="Swap tiles to win"
+            desc="Drag pieces to build!"
             color="bg-yellow-400"
             onClick={() => {
               playSfx('click');
@@ -3686,6 +4076,17 @@ export default function App() {
             onClick={() => {
               playSfx('click');
               setScreen('astronaut');
+            }}
+          />
+
+          <MenuCard
+            icon="🔢"
+            title="Count the Stars"
+            desc="Tap and count!"
+            color="bg-indigo-600"
+            onClick={() => {
+              playSfx('click');
+              setScreen('counting');
             }}
           />
         </div>
@@ -3867,12 +4268,36 @@ export default function App() {
         onCelebrate={celebrate}
       />
     );
+  } else if (screen === 'counting') {
+    content = (
+      <CountTheStars
+        onBack={() => handleBack('counting')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
   }
 
   return (
     <>
       {content}
       <CelebrationOverlay celebration={celebration} />
+      {paused && <PauseOverlay onResume={() => setPaused(false)} />}
+      {showBreak && (
+        <BreakReminder
+          onDismiss={() => {
+            setShowBreak(false);
+            breakTimerRef.current = setTimeout(() => setShowBreak(true), 5 * 60 * 1000);
+          }}
+          onTakeBreak={() => {
+            setShowBreak(false);
+            setScreen('intro');
+          }}
+        />
+      )}
     </>
   );
 }
