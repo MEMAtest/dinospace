@@ -481,6 +481,30 @@ const MEMORY_LEVELS = [
     emojis: ['🎈', '🎉', '🥳', '🎂', '🍭', '🍩', '🧁', '🍓', '🍕', '🍟', '🍉', '🍬'],
     columns: 6,
   },
+  {
+    id: 'dinos',
+    name: 'Dino World',
+    emojis: ['🦕', '🦖', '🦴', '🌋', '🥚', '🪨', '🌿'],
+    columns: 4,
+  },
+  {
+    id: 'vehicles',
+    name: 'Vroom Vroom',
+    emojis: ['🚗', '🚀', '✈️', '🚂', '🚁', '🏎️', '🛸', '🚒'],
+    columns: 4,
+  },
+  {
+    id: 'food',
+    name: 'Yummy Feast',
+    emojis: ['🍎', '🍌', '🍇', '🥕', '🧀', '🍪', '🍩', '🥤', '🍕', '🌽'],
+    columns: 5,
+  },
+  {
+    id: 'astronaut',
+    name: 'Astronaut Mission',
+    emojis: ['👨‍🚀', '🌍', '🌙', '🛰️', '🔭', '🪐', '☄️', '🌟', '🛸', '👽', '🚀', '🌌'],
+    columns: 6,
+  },
 ];
 
 const PATTERN_TOKENS = ['🔴', '🔵', '🟡', '🟢', '⭐️', '🌙', '🟣', '🟠', '☀️'];
@@ -552,7 +576,88 @@ const GAME_LABELS = {
   phonics: 'Sound Safari',
   spot: 'Spot the Difference',
   puzzle: 'Puzzle Pop',
+  addition: 'Addition Adventure',
+  subtraction: 'Subtraction Station',
+  astronaut: 'Astronaut Academy',
 };
+
+const ADDITION_LEVELS = [
+  { id: 'easy', name: 'Launch Pad', maxNum: 5, rounds: 8, emoji: '🚀' },
+  { id: 'medium', name: 'Orbit', maxNum: 10, rounds: 10, emoji: '🛸' },
+  { id: 'hard', name: 'Deep Space', maxNum: 20, rounds: 12, emoji: '🌟' },
+];
+
+const SUBTRACTION_LEVELS = [
+  { id: 'easy', name: 'Gentle Glide', maxNum: 5, rounds: 8, emoji: '🪂' },
+  { id: 'medium', name: 'Meteor Dodge', maxNum: 10, rounds: 10, emoji: '☄️' },
+  { id: 'hard', name: 'Black Hole', maxNum: 20, rounds: 12, emoji: '🕳️' },
+];
+
+const ASTRONAUT_CATEGORIES = [
+  {
+    id: 'numbers',
+    name: 'Count the Stars',
+    emoji: '🔢',
+    items: [
+      { q: 'How many fingers on one hand?', answer: '5', options: ['3', '5', '7', '10'] },
+      { q: 'How many days in a week?', answer: '7', options: ['5', '6', '7', '8'] },
+      { q: 'How many legs does a spider have?', answer: '8', options: ['4', '6', '8', '10'] },
+      { q: 'How many wheels on a car?', answer: '4', options: ['2', '3', '4', '6'] },
+      { q: 'How many months in a year?', answer: '12', options: ['10', '11', '12', '14'] },
+      { q: 'How many eyes do you have?', answer: '2', options: ['1', '2', '3', '4'] },
+    ],
+  },
+  {
+    id: 'shapes',
+    name: 'Shape Galaxy',
+    emoji: '🔷',
+    items: [
+      { q: 'Which shape has 3 sides?', answer: 'Triangle', options: ['Circle', 'Triangle', 'Square', 'Star'] },
+      { q: 'Which shape is round?', answer: 'Circle', options: ['Circle', 'Square', 'Rectangle', 'Diamond'] },
+      { q: 'Which shape has 4 equal sides?', answer: 'Square', options: ['Triangle', 'Circle', 'Square', 'Oval'] },
+      { q: 'A football is shaped like a...', answer: 'Sphere', options: ['Cube', 'Sphere', 'Cone', 'Cylinder'] },
+      { q: 'What shape is a dice?', answer: 'Cube', options: ['Sphere', 'Cube', 'Pyramid', 'Cylinder'] },
+    ],
+  },
+  {
+    id: 'animals',
+    name: 'Space Zoo',
+    emoji: '🦁',
+    items: [
+      { q: 'Which animal is the King of the Jungle?', answer: 'Lion', options: ['Tiger', 'Lion', 'Bear', 'Wolf'] },
+      { q: 'Which animal has a trunk?', answer: 'Elephant', options: ['Giraffe', 'Elephant', 'Hippo', 'Rhino'] },
+      { q: 'Which animal says "Moo"?', answer: 'Cow', options: ['Dog', 'Cat', 'Cow', 'Sheep'] },
+      { q: 'Which animal can fly?', answer: 'Eagle', options: ['Fish', 'Snake', 'Eagle', 'Frog'] },
+      { q: 'Which is the tallest animal?', answer: 'Giraffe', options: ['Elephant', 'Giraffe', 'Horse', 'Camel'] },
+      { q: 'Which animal lives in the sea?', answer: 'Dolphin', options: ['Rabbit', 'Dolphin', 'Parrot', 'Monkey'] },
+    ],
+  },
+  {
+    id: 'body',
+    name: 'Body Mission',
+    emoji: '🧠',
+    items: [
+      { q: 'What organ pumps blood?', answer: 'Heart', options: ['Brain', 'Heart', 'Lungs', 'Stomach'] },
+      { q: 'What do you use to breathe?', answer: 'Lungs', options: ['Heart', 'Lungs', 'Liver', 'Kidneys'] },
+      { q: 'What do you think with?', answer: 'Brain', options: ['Heart', 'Brain', 'Stomach', 'Bones'] },
+      { q: 'How many bones does a grown-up have?', answer: '206', options: ['100', '150', '206', '300'] },
+      { q: 'What covers your whole body?', answer: 'Skin', options: ['Hair', 'Skin', 'Nails', 'Muscles'] },
+    ],
+  },
+  {
+    id: 'space',
+    name: 'Space Facts',
+    emoji: '🪐',
+    items: [
+      { q: 'What is the closest star to Earth?', answer: 'The Sun', options: ['The Moon', 'The Sun', 'Mars', 'Jupiter'] },
+      { q: 'How many planets in our solar system?', answer: '8', options: ['6', '7', '8', '9'] },
+      { q: 'What planet are we on?', answer: 'Earth', options: ['Mars', 'Earth', 'Venus', 'Mercury'] },
+      { q: 'Which planet has rings?', answer: 'Saturn', options: ['Jupiter', 'Mars', 'Saturn', 'Neptune'] },
+      { q: 'What do astronauts wear?', answer: 'Space suit', options: ['Raincoat', 'Space suit', 'Swimsuit', 'Armour'] },
+      { q: 'Which planet is red?', answer: 'Mars', options: ['Earth', 'Mars', 'Venus', 'Neptune'] },
+    ],
+  },
+];
 
 const STICKERS = [
   { id: 'rocket', name: 'Rocket', emoji: '🚀', points: 10 },
@@ -2741,52 +2846,107 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   );
 };
 
+const JIGSAW_PUZZLES = [
+  { id: 'dino', name: 'Dino Park', grid: 3, pieces: ['🦕', '🌿', '🦖', '🌋', '🥚', '☀️', '🪨', '🦴', '🌴'] },
+  { id: 'space', name: 'Space Walk', grid: 3, pieces: ['🚀', '🌍', '⭐', '🛸', '🌙', '👨‍🚀', '🪐', '☄️', '🌟'] },
+  { id: 'ocean', name: 'Under the Sea', grid: 3, pieces: ['🐳', '🐠', '🪸', '🦈', '🐙', '🌊', '🐢', '🦀', '🐚'] },
+  { id: 'farm', name: 'Happy Farm', grid: 4, pieces: ['🐄', '🐔', '🐷', '🌻', '🏠', '🐴', '🐑', '🌾', '🚜', '🐶', '🌳', '🐱', '🥕', '🐰', '🌈', '🌞'] },
+  { id: 'city', name: 'Busy City', grid: 4, pieces: ['🏙️', '🚗', '🏫', '🌳', '🚌', '🏪', '🚶', '🌤️', '🚓', '🏗️', '🛻', '🏠', '🚲', '🌺', '⛲', '🏢'] },
+];
+
 const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
-  const [tiles, setTiles] = useState(buildPuzzleTiles);
-  const [selectedIndex, setSelectedIndex] = useState(null);
-  const [moves, setMoves] = useState(0);
+  const [puzzleIndex, setPuzzleIndex] = useState(0);
+  const puzzle = JIGSAW_PUZZLES[puzzleIndex];
+  const total = puzzle.grid * puzzle.grid;
+
+  const initPieces = useCallback(() => {
+    const placed = Array(total).fill(null);
+    const tray = shuffle(puzzle.pieces.slice(0, total).map((emoji, i) => ({ id: `piece-${i}`, emoji, correctSlot: i })));
+    return { placed, tray };
+  }, [puzzle, total]);
+
+  const [state, setState] = useState(initPieces);
+  const [dragging, setDragging] = useState(null);
   const [solved, setSolved] = useState(false);
+  const [moves, setMoves] = useState(0);
 
   useEffect(() => {
-    speak('Fix the puzzle by swapping tiles.');
-  }, [speak]);
-
-  const resetPuzzle = () => {
-    setTiles(buildPuzzleTiles());
-    setSelectedIndex(null);
-    setMoves(0);
+    setState(initPieces());
     setSolved(false);
+    setMoves(0);
+    setDragging(null);
+    speak(`Drag the pieces to build the ${puzzle.name} picture!`);
+  }, [initPieces, puzzle.name, speak]);
+
+  const checkSolved = (placed) => placed.every((p, i) => p && p.correctSlot === i);
+
+  const handleDragStart = (piece, source) => {
+    setDragging({ piece, source });
+    playSfx('click');
   };
 
-  const handleTile = (index) => {
-    if (solved) return;
-    if (selectedIndex === null) {
-      setSelectedIndex(index);
-      playSfx('click');
-      return;
-    }
-    if (selectedIndex === index) {
-      setSelectedIndex(null);
-      return;
-    }
-    setTiles((prev) => {
-      const next = [...prev];
-      [next[selectedIndex], next[index]] = [next[index], next[selectedIndex]];
-      return next;
-    });
-    setSelectedIndex(null);
-    setMoves((prev) => prev + 1);
-    setTimeout(() => {
-      setTiles((prev) => {
-        if (!isPuzzleSolved(prev)) return prev;
-        const praise = getPraise();
+  const handleDrop = (slotIndex) => {
+    if (!dragging) return;
+    setState((prev) => {
+      const next = { placed: [...prev.placed], tray: [...prev.tray] };
+      const existingPiece = next.placed[slotIndex];
+
+      if (dragging.source === 'tray') {
+        next.tray = next.tray.filter((p) => p.id !== dragging.piece.id);
+        if (existingPiece) next.tray.push(existingPiece);
+      } else {
+        next.placed[dragging.source] = existingPiece || null;
+      }
+      next.placed[slotIndex] = dragging.piece;
+
+      if (dragging.piece.correctSlot === slotIndex) playSfx('sparkle');
+      setMoves((m) => m + 1);
+
+      if (checkSolved(next.placed)) {
         setSolved(true);
         playSfx('success');
-        onCelebrate(praise, 12, 300);
-        speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
-        return prev;
-      });
-    }, 50);
+        onCelebrate(getPraise(), 15, 300);
+        speak('Amazing! You finished the puzzle!');
+      }
+      return next;
+    });
+    setDragging(null);
+  };
+
+  const handleDropBack = () => {
+    if (!dragging || dragging.source === 'tray') { setDragging(null); return; }
+    setState((prev) => {
+      const next = { placed: [...prev.placed], tray: [...prev.tray] };
+      next.placed[dragging.source] = null;
+      next.tray.push(dragging.piece);
+      return next;
+    });
+    setDragging(null);
+  };
+
+  const handleTouchStart = (piece, source, e) => {
+    e.preventDefault();
+    handleDragStart(piece, source);
+  };
+
+  const handleSlotClick = (slotIndex) => {
+    if (dragging) {
+      handleDrop(slotIndex);
+    } else if (state.placed[slotIndex]) {
+      handleDragStart(state.placed[slotIndex], slotIndex);
+    }
+  };
+
+  const handleTrayPieceClick = (piece) => {
+    if (dragging && dragging.source === 'tray' && dragging.piece.id === piece.id) {
+      setDragging(null);
+    } else {
+      handleDragStart(piece, 'tray');
+    }
+  };
+
+  const handleNextPuzzle = () => {
+    setPuzzleIndex((prev) => (prev + 1) % JIGSAW_PUZZLES.length);
   };
 
   return (
@@ -2797,43 +2957,399 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
       </div>
 
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button
-          onClick={onBack}
-          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
-        >
-          <Home />
-        </button>
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-orange-700">Puzzle Pop</h2>
-          <p className="text-orange-700/70 font-semibold">Moves: {moves}</p>
+          <p className="text-orange-700/70 font-semibold">{puzzle.name} · Moves: {moves}</p>
+          <p className="text-orange-700/50 text-sm">{puzzleIndex + 1}/{JIGSAW_PUZZLES.length}</p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
 
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
-        <div className="grid grid-cols-3 gap-4 w-full max-w-md">
-          {tiles.map((tile, index) => (
-            <button
-              key={tile.id}
-              onClick={() => handleTile(index)}
-              className={`w-24 h-24 rounded-3xl text-4xl flex items-center justify-center border-4 transition ${
-                selectedIndex === index ? 'border-orange-500 bg-orange-100' : 'border-white bg-white/80'
-              }`}
-            >
-              {tile.emoji}
-            </button>
-          ))}
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-4 relative z-10 gap-6">
+        <p className="text-orange-700/70 font-semibold text-center">
+          {dragging ? '🎯 Tap a slot to place the piece!' : 'Tap a piece, then tap where it goes!'}
+        </p>
+
+        <div className="grid gap-2 w-full max-w-sm mx-auto" style={{ gridTemplateColumns: `repeat(${puzzle.grid}, minmax(0, 1fr))` }}>
+          {state.placed.map((piece, index) => {
+            const isCorrect = piece && piece.correctSlot === index;
+            return (
+              <button
+                key={`slot-${index}`}
+                onClick={() => handleSlotClick(index)}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={() => handleDrop(index)}
+                className={`aspect-square rounded-2xl text-4xl flex items-center justify-center border-4 transition-all ${
+                  piece
+                    ? isCorrect
+                      ? 'border-green-400 bg-green-50 shadow-lg'
+                      : 'border-orange-300 bg-orange-50 shadow-md'
+                    : dragging
+                      ? 'border-dashed border-orange-400 bg-orange-100/50 animate-pulse'
+                      : 'border-dashed border-slate-300 bg-white/60'
+                } ${!piece && dragging ? 'hover:bg-orange-200/60 hover:border-orange-500' : ''}`}
+              >
+                {piece ? piece.emoji : <span className="text-slate-300 text-lg">{index + 1}</span>}
+              </button>
+            );
+          })}
+        </div>
+
+        <div
+          className="bg-white/70 rounded-3xl p-4 w-full max-w-sm mx-auto min-h-[80px]"
+          onDragOver={(e) => e.preventDefault()}
+          onDrop={handleDropBack}
+        >
+          <p className="text-center text-sm font-semibold text-slate-500 mb-2">Pieces Tray</p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            {state.tray.map((piece) => (
+              <button
+                key={piece.id}
+                draggable
+                onDragStart={() => handleDragStart(piece, 'tray')}
+                onTouchStart={(e) => handleTouchStart(piece, 'tray', e)}
+                onClick={() => handleTrayPieceClick(piece)}
+                className={`w-16 h-16 rounded-2xl text-3xl flex items-center justify-center border-4 transition-all cursor-grab active:cursor-grabbing ${
+                  dragging && dragging.piece.id === piece.id
+                    ? 'border-orange-500 bg-orange-200 scale-110 shadow-xl'
+                    : 'border-white bg-white shadow-md hover:shadow-lg hover:-translate-y-1'
+                }`}
+              >
+                {piece.emoji}
+              </button>
+            ))}
+            {state.tray.length === 0 && !solved && <p className="text-slate-400 text-sm">All pieces placed!</p>}
+          </div>
         </div>
 
         {solved && (
-          <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
+          <div className="bg-white/90 p-6 rounded-3xl shadow-xl text-center">
             <div className="text-5xl mb-2">🎉</div>
             <h3 className="text-2xl font-black text-orange-700">{getPraise()}</h3>
-            <button onClick={resetPuzzle} className="mt-3 text-orange-600 font-semibold">
-              New puzzle
-            </button>
+            <div className="flex gap-4 justify-center mt-3">
+              <button onClick={handleNextPuzzle} className="text-orange-600 font-semibold">Next puzzle</button>
+              <button onClick={() => { setPuzzleIndex(puzzleIndex); setState(initPieces()); setSolved(false); setMoves(0); }} className="text-orange-600 font-semibold">Replay</button>
+            </div>
           </div>
         )}
+      </div>
+    </div>
+  );
+};
+
+const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [levelIndex, setLevelIndex] = useState(0);
+  const level = ADDITION_LEVELS[levelIndex];
+  const [round, setRound] = useState(0);
+  const [problem, setProblem] = useState({ a: 1, b: 1 });
+  const [success, setSuccess] = useState(false);
+  const [shake, setShake] = useState(false);
+  const [streak, setStreak] = useState(0);
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const newProblem = useCallback(() => {
+    setSuccess(false);
+    const a = Math.ceil(Math.random() * level.maxNum);
+    const b = Math.ceil(Math.random() * level.maxNum);
+    setProblem({ a, b });
+  }, [level.maxNum]);
+
+  useEffect(() => { newProblem(); }, [newProblem, levelIndex]);
+
+  useEffect(() => {
+    speak(`What is ${problem.a} plus ${problem.b}?`);
+  }, [problem.a, problem.b, speak]);
+
+  const answer = problem.a + problem.b;
+
+  const options = useMemo(() => {
+    const set = new Set([answer]);
+    while (set.size < 4) {
+      const delta = Math.ceil(Math.random() * 4);
+      const sign = Math.random() > 0.5 ? 1 : -1;
+      const candidate = Math.max(0, answer + sign * delta);
+      set.add(candidate);
+    }
+    return shuffle(Array.from(set));
+  }, [answer]);
+
+  const check = (pick) => {
+    if (pick === answer) {
+      const praise = getPraise();
+      setSuccessMessage(praise);
+      setSuccess(true);
+      setStreak((prev) => prev + 1);
+      playSfx('success');
+      onCelebrate(praise, 6, 250);
+      const nextRound = round + 1;
+      if (nextRound >= level.rounds && levelIndex < ADDITION_LEVELS.length - 1) {
+        setTimeout(() => { setLevelIndex((prev) => prev + 1); setRound(0); }, 2000);
+      } else {
+        setRound(nextRound);
+        setTimeout(newProblem, 2000);
+      }
+    } else {
+      setShake(true);
+      playSfx('oops');
+      setTimeout(() => setShake(false), 450);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-green-100 via-emerald-100 to-teal-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-10 left-10 w-40 h-40 bg-white/60 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-green-300/40 rounded-full blur-3xl" />
+      </div>
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg z-20 hover:scale-110 transition-transform"><Home /></button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-emerald-700">Addition Adventure</h2>
+          <p className="text-emerald-700/70 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>
+          <p className="text-emerald-700/50 text-sm font-semibold">Level {levelIndex + 1}/{ADDITION_LEVELS.length}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+      <div className="mt-12 text-center z-10 px-4">
+        <div className={`inline-flex items-center gap-4 text-6xl font-black text-slate-800 mb-10 ${shake ? 'animate-shake' : ''}`}>
+          <div className="bg-white p-4 rounded-2xl shadow-lg border-b-8 border-slate-200">{problem.a}</div>
+          <div className="text-emerald-500">+</div>
+          <div className="bg-white p-4 rounded-2xl shadow-lg border-b-8 border-slate-200">{problem.b}</div>
+          <div>=</div>
+          <div className="w-24 h-24 border-4 border-dashed border-slate-400 rounded-2xl flex items-center justify-center text-slate-400">?</div>
+        </div>
+        <div className="flex justify-center gap-4 flex-wrap">
+          {options.map((option) => (
+            <button key={option} onClick={() => check(option)} className="w-20 h-20 bg-emerald-500 text-white text-3xl font-bold rounded-2xl shadow-[0_6px_0_rgb(5,150,105)] active:shadow-none active:translate-y-2 transition-all hover:bg-emerald-600">{option}</button>
+          ))}
+        </div>
+      </div>
+      <div className={`absolute bottom-14 left-10 text-[80px] transition-transform duration-1000 ${success ? 'translate-x-[500px] -translate-y-[200px] rotate-[360deg]' : 'translate-x-0'}`}>🚀</div>
+      <div className="absolute bottom-0 w-full h-14 bg-emerald-900/20" />
+      {success && <div className="absolute top-1/2 left-0 right-0 text-center text-5xl font-black text-green-500 animate-bounce">{successMessage}</div>}
+    </div>
+  );
+};
+
+const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [levelIndex, setLevelIndex] = useState(0);
+  const level = SUBTRACTION_LEVELS[levelIndex];
+  const [round, setRound] = useState(0);
+  const [problem, setProblem] = useState({ a: 3, b: 1 });
+  const [success, setSuccess] = useState(false);
+  const [shake, setShake] = useState(false);
+  const [streak, setStreak] = useState(0);
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const newProblem = useCallback(() => {
+    setSuccess(false);
+    const a = Math.ceil(Math.random() * level.maxNum) + Math.ceil(Math.random() * 3);
+    const b = Math.ceil(Math.random() * Math.min(a, level.maxNum));
+    setProblem({ a, b });
+  }, [level.maxNum]);
+
+  useEffect(() => { newProblem(); }, [newProblem, levelIndex]);
+
+  useEffect(() => {
+    speak(`What is ${problem.a} minus ${problem.b}?`);
+  }, [problem.a, problem.b, speak]);
+
+  const answer = problem.a - problem.b;
+
+  const options = useMemo(() => {
+    const set = new Set([answer]);
+    while (set.size < 4) {
+      const delta = Math.ceil(Math.random() * 4);
+      const sign = Math.random() > 0.5 ? 1 : -1;
+      const candidate = Math.max(0, answer + sign * delta);
+      set.add(candidate);
+    }
+    return shuffle(Array.from(set));
+  }, [answer]);
+
+  const check = (pick) => {
+    if (pick === answer) {
+      const praise = getPraise();
+      setSuccessMessage(praise);
+      setSuccess(true);
+      setStreak((prev) => prev + 1);
+      playSfx('success');
+      onCelebrate(praise, 6, 250);
+      const nextRound = round + 1;
+      if (nextRound >= level.rounds && levelIndex < SUBTRACTION_LEVELS.length - 1) {
+        setTimeout(() => { setLevelIndex((prev) => prev + 1); setRound(0); }, 2000);
+      } else {
+        setRound(nextRound);
+        setTimeout(newProblem, 2000);
+      }
+    } else {
+      setShake(true);
+      playSfx('oops');
+      setTimeout(() => setShake(false), 450);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-purple-100 via-violet-100 to-purple-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-10 left-10 w-40 h-40 bg-white/60 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-300/40 rounded-full blur-3xl" />
+      </div>
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg z-20 hover:scale-110 transition-transform"><Home /></button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-purple-700">Subtraction Station</h2>
+          <p className="text-purple-700/70 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>
+          <p className="text-purple-700/50 text-sm font-semibold">Level {levelIndex + 1}/{SUBTRACTION_LEVELS.length}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+      <div className="mt-12 text-center z-10 px-4">
+        <div className={`inline-flex items-center gap-4 text-6xl font-black text-slate-800 mb-10 ${shake ? 'animate-shake' : ''}`}>
+          <div className="bg-white p-4 rounded-2xl shadow-lg border-b-8 border-slate-200">{problem.a}</div>
+          <div className="text-purple-500">−</div>
+          <div className="bg-white p-4 rounded-2xl shadow-lg border-b-8 border-slate-200">{problem.b}</div>
+          <div>=</div>
+          <div className="w-24 h-24 border-4 border-dashed border-slate-400 rounded-2xl flex items-center justify-center text-slate-400">?</div>
+        </div>
+        <div className="flex justify-center gap-4 flex-wrap">
+          {options.map((option) => (
+            <button key={option} onClick={() => check(option)} className="w-20 h-20 bg-purple-500 text-white text-3xl font-bold rounded-2xl shadow-[0_6px_0_rgb(126,34,206)] active:shadow-none active:translate-y-2 transition-all hover:bg-purple-600">{option}</button>
+          ))}
+        </div>
+      </div>
+      <div className={`absolute bottom-14 left-10 text-[80px] transition-transform duration-1000 ${success ? 'translate-x-[500px] -translate-y-[200px] rotate-[360deg]' : 'translate-x-0'}`}>🛸</div>
+      <div className="absolute bottom-0 w-full h-14 bg-purple-900/20" />
+      {success && <div className="absolute top-1/2 left-0 right-0 text-center text-5xl font-black text-purple-500 animate-bounce">{successMessage}</div>}
+    </div>
+  );
+};
+
+const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [catIndex, setCatIndex] = useState(null);
+  const [qIndex, setQIndex] = useState(0);
+  const [feedback, setFeedback] = useState('');
+  const [shake, setShake] = useState(false);
+  const [score, setScore] = useState(0);
+  const [done, setDone] = useState(false);
+
+  const cat = catIndex !== null ? ASTRONAUT_CATEGORIES[catIndex] : null;
+  const question = cat ? cat.items[qIndex] : null;
+
+  useEffect(() => {
+    if (question) speak(question.q);
+  }, [question, speak]);
+
+  const handlePick = (option) => {
+    if (!question) return;
+    if (option === question.answer) {
+      const praise = getPraise();
+      setFeedback(praise);
+      playSfx('success');
+      onCelebrate(praise, 6, 200);
+      setScore((prev) => prev + 1);
+      setTimeout(() => {
+        setFeedback('');
+        if (qIndex + 1 < cat.items.length) {
+          setQIndex(qIndex + 1);
+        } else {
+          setDone(true);
+        }
+      }, 1500);
+    } else {
+      setShake(true);
+      playSfx('oops');
+      setFeedback('Try again!');
+      setTimeout(() => { setShake(false); setFeedback(''); }, 800);
+    }
+  };
+
+  const handleReset = () => {
+    setCatIndex(null);
+    setQIndex(0);
+    setScore(0);
+    setDone(false);
+    setFeedback('');
+  };
+
+  if (catIndex === null) {
+    return (
+      <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          {Array.from({ length: 30 }, (_, i) => (
+            <div key={i} className="absolute bg-white rounded-full animate-pulse" style={{ width: Math.random() * 3 + 1, height: Math.random() * 3 + 1, top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 3}s` }} />
+          ))}
+        </div>
+        <div className="flex items-center justify-between px-4 pt-4 z-20">
+          <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home className="text-white" /></button>
+          <h2 className="text-3xl font-black text-white">👨‍🚀 Astronaut Academy</h2>
+          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="text-white" />
+        </div>
+        <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+          <p className="text-white/80 text-xl font-semibold mb-8">Pick a mission, Space Cadet!</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-3xl">
+            {ASTRONAUT_CATEGORIES.map((c, i) => (
+              <button key={c.id} onClick={() => { setCatIndex(i); setQIndex(0); setScore(0); setDone(false); playSfx('click'); }} className="bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-3xl p-6 text-center hover:bg-white/20 transition-all hover:-translate-y-1">
+                <div className="text-5xl mb-3">{c.emoji}</div>
+                <h3 className="text-xl font-black text-white">{c.name}</h3>
+                <p className="text-white/60 text-sm mt-1">{c.items.length} questions</p>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (done) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          {Array.from({ length: 30 }, (_, i) => (
+            <div key={i} className="absolute bg-white rounded-full animate-pulse" style={{ width: Math.random() * 3 + 1, height: Math.random() * 3 + 1, top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 3}s` }} />
+          ))}
+        </div>
+        <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-10 text-center z-10 max-w-md">
+          <div className="text-6xl mb-4">🏆</div>
+          <h2 className="text-3xl font-black text-white mb-2">Mission Complete!</h2>
+          <p className="text-white/80 text-xl mb-1">{cat.name}</p>
+          <p className="text-yellow-300 text-2xl font-black mb-6">{score}/{cat.items.length} correct</p>
+          <div className="flex gap-4 justify-center">
+            <button onClick={handleReset} className="bg-indigo-500 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:bg-indigo-600 transition">New Mission</button>
+            <button onClick={onBack} className="bg-white/20 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:bg-white/30 transition">Home</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        {Array.from({ length: 30 }, (_, i) => (
+          <div key={i} className="absolute bg-white rounded-full animate-pulse" style={{ width: Math.random() * 3 + 1, height: Math.random() * 3 + 1, top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 3}s` }} />
+        ))}
+      </div>
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button onClick={handleReset} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home className="text-white" /></button>
+        <div className="text-center">
+          <h2 className="text-2xl font-black text-white">{cat.emoji} {cat.name}</h2>
+          <p className="text-white/60 font-semibold">Question {qIndex + 1}/{cat.items.length}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <div className={`bg-white/10 backdrop-blur-sm rounded-3xl p-8 max-w-lg w-full text-center ${shake ? 'animate-shake' : ''}`}>
+          <div className="text-5xl mb-4">👨‍🚀</div>
+          <h3 className="text-2xl font-black text-white mb-8">{question.q}</h3>
+          <div className="grid grid-cols-2 gap-4">
+            {question.options.map((opt) => (
+              <button key={opt} onClick={() => handlePick(opt)} className="bg-white/20 border-2 border-white/30 text-white text-xl font-bold py-4 rounded-2xl hover:bg-white/30 active:translate-y-1 transition-all">{opt}</button>
+            ))}
+          </div>
+        </div>
+        {feedback && <div className="mt-6 text-3xl font-black text-yellow-300 animate-bounce">{feedback}</div>}
       </div>
     </div>
   );
@@ -3139,6 +3655,39 @@ export default function App() {
               setScreen('phonics');
             }}
           />
+
+          <MenuCard
+            icon="➕"
+            title="Addition Adventure"
+            desc="Add it up!"
+            color="bg-teal-500"
+            onClick={() => {
+              playSfx('click');
+              setScreen('addition');
+            }}
+          />
+
+          <MenuCard
+            icon="➖"
+            title="Subtraction Station"
+            desc="Take it away!"
+            color="bg-violet-500"
+            onClick={() => {
+              playSfx('click');
+              setScreen('subtraction');
+            }}
+          />
+
+          <MenuCard
+            icon="👨‍🚀"
+            title="Astronaut Academy"
+            desc="Learn cool facts!"
+            color="bg-slate-700"
+            onClick={() => {
+              playSfx('click');
+              setScreen('astronaut');
+            }}
+          />
         </div>
 
         <div className="mt-10 text-slate-500 font-medium text-sm flex gap-2 items-center relative z-10">
@@ -3278,6 +3827,39 @@ export default function App() {
     content = (
       <SoundSafari
         onBack={() => handleBack('phonics')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'addition') {
+    content = (
+      <AdditionAdventure
+        onBack={() => handleBack('addition')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'subtraction') {
+    content = (
+      <SubtractionStation
+        onBack={() => handleBack('subtraction')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'astronaut') {
+    content = (
+      <AstronautAcademy
+        onBack={() => handleBack('astronaut')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
