@@ -329,6 +329,46 @@ const DINO_LEVELS = [
       makeDino('rainbow', 'trike', 40, 80),
     ],
   },
+  {
+    id: 'swamp',
+    name: 'Misty Swamp',
+    hint: 'Check the murky water!',
+    dinos: [
+      makeDino('swamp', 'spino', 15, 60),
+      makeDino('swamp', 'para', 55, 35),
+      makeDino('swamp', 'trex', 75, 70),
+      makeDino('swamp', 'stego', 35, 75),
+      makeDino('swamp', 'ptero', 80, 20),
+      makeDino('swamp', 'ankyl', 25, 40),
+    ],
+  },
+  {
+    id: 'snow',
+    name: 'Ice Age',
+    hint: 'Look under the snowdrifts!',
+    dinos: [
+      makeDino('snow', 'brachio', 12, 50),
+      makeDino('snow', 'trike', 45, 65),
+      makeDino('snow', 'raptor', 70, 35),
+      makeDino('snow', 'dillo', 30, 30),
+      makeDino('snow', 'ankyl', 60, 80),
+      makeDino('snow', 'spino', 85, 55),
+    ],
+  },
+  {
+    id: 'cave',
+    name: 'Crystal Cave',
+    hint: 'Search the glowing crystals!',
+    dinos: [
+      makeDino('cave', 'trex', 20, 45),
+      makeDino('cave', 'para', 50, 70),
+      makeDino('cave', 'stego', 75, 30),
+      makeDino('cave', 'ptero', 40, 20),
+      makeDino('cave', 'raptor', 65, 60),
+      makeDino('cave', 'brachio', 10, 75),
+      makeDino('cave', 'dillo', 85, 50),
+    ],
+  },
 ];
 
 const GERMAN_COLORS = [
@@ -395,12 +435,34 @@ const GERMAN_VEHICLES = [
   { name: 'Rakete', emoji: '🚀' },
 ];
 
+const GERMAN_BODY_PARTS = [
+  { name: 'Kopf', emoji: '🗣️' },
+  { name: 'Hand', emoji: '✋' },
+  { name: 'Fuß', emoji: '🦶' },
+  { name: 'Auge', emoji: '👁️' },
+  { name: 'Nase', emoji: '👃' },
+  { name: 'Ohr', emoji: '👂' },
+  { name: 'Mund', emoji: '👄' },
+  { name: 'Arm', emoji: '💪' },
+];
+
+const GERMAN_GREETINGS = [
+  { name: 'Hallo', emoji: '👋' },
+  { name: 'Tschüss', emoji: '👋' },
+  { name: 'Danke', emoji: '🙏' },
+  { name: 'Bitte', emoji: '😊' },
+  { name: 'Ja', emoji: '✅' },
+  { name: 'Nein', emoji: '❌' },
+];
+
 const GERMAN_MATCH_MODES = [
   { id: 'numbers', label: 'Zahlen', items: GERMAN_NUMBERS, prompt: 'Finde' },
   { id: 'animals', label: 'Tiere', items: GERMAN_ANIMALS, prompt: 'Finde' },
   { id: 'shapes', label: 'Formen', items: GERMAN_SHAPES, prompt: 'Finde' },
   { id: 'foods', label: 'Essen', items: GERMAN_FOODS, prompt: 'Finde' },
   { id: 'vehicles', label: 'Fahrzeuge', items: GERMAN_VEHICLES, prompt: 'Finde' },
+  { id: 'body', label: 'Körper', items: GERMAN_BODY_PARTS, prompt: 'Finde' },
+  { id: 'greetings', label: 'Grüße', items: GERMAN_GREETINGS, prompt: 'Finde' },
 ];
 
 const LETTERS = [
@@ -448,12 +510,37 @@ const PHONICS_ITEMS = [
   { letter: 'F', word: 'Fish', emoji: '🐠', sound: 'fff' },
   { letter: 'G', word: 'Goat', emoji: '🐐', sound: 'guh' },
   { letter: 'H', word: 'Hat', emoji: '🎩', sound: 'huh' },
+  { letter: 'I', word: 'Igloo', emoji: '🏠', sound: 'ih' },
+  { letter: 'J', word: 'Juice', emoji: '🧃', sound: 'juh' },
+  { letter: 'K', word: 'Kite', emoji: '🪁', sound: 'kuh' },
   { letter: 'L', word: 'Lion', emoji: '🦁', sound: 'lll' },
   { letter: 'M', word: 'Moon', emoji: '🌙', sound: 'mmm' },
+  { letter: 'N', word: 'Nest', emoji: '🪺', sound: 'nnn' },
+  { letter: 'O', word: 'Octopus', emoji: '🐙', sound: 'oh' },
   { letter: 'P', word: 'Pizza', emoji: '🍕', sound: 'puh' },
+  { letter: 'Q', word: 'Queen', emoji: '👑', sound: 'kwuh' },
   { letter: 'R', word: 'Rocket', emoji: '🚀', sound: 'rrr' },
   { letter: 'S', word: 'Sun', emoji: '☀️', sound: 'sss' },
   { letter: 'T', word: 'Tiger', emoji: '🐯', sound: 'tuh' },
+  { letter: 'U', word: 'Umbrella', emoji: '☂️', sound: 'uh' },
+  { letter: 'V', word: 'Violin', emoji: '🎻', sound: 'vvv' },
+  { letter: 'W', word: 'Whale', emoji: '🐳', sound: 'wuh' },
+  { letter: 'X', word: 'Xylophone', emoji: '🎶', sound: 'ks' },
+  { letter: 'Y', word: 'Yo-yo', emoji: '🪀', sound: 'yuh' },
+  { letter: 'Z', word: 'Zebra', emoji: '🦓', sound: 'zzz' },
+];
+
+const BLEND_WORDS = [
+  { letters: ['c', 'a', 't'], word: 'Cat', emoji: '🐱' },
+  { letters: ['d', 'o', 'g'], word: 'Dog', emoji: '🐶' },
+  { letters: ['s', 'u', 'n'], word: 'Sun', emoji: '☀️' },
+  { letters: ['h', 'a', 't'], word: 'Hat', emoji: '🎩' },
+  { letters: ['b', 'u', 'g'], word: 'Bug', emoji: '🐛' },
+  { letters: ['c', 'u', 'p'], word: 'Cup', emoji: '🥤' },
+  { letters: ['m', 'a', 'p'], word: 'Map', emoji: '🗺️' },
+  { letters: ['p', 'i', 'g'], word: 'Pig', emoji: '🐷' },
+  { letters: ['r', 'e', 'd'], word: 'Red', emoji: '🔴' },
+  { letters: ['b', 'e', 'd'], word: 'Bed', emoji: '🛏️' },
 ];
 
 const MEMORY_LEVELS = [
@@ -559,9 +646,113 @@ const SPOT_LEVELS = [
       8: '✨',
     },
   },
+  {
+    id: 'ocean',
+    name: 'Ocean Deep',
+    hint: 'Find 4 differences!',
+    base: ['🐳', '🐠', '🪸', '🦈', '🐙', '🌊', '🐢', '🦀', '🐚'],
+    badge: '🌊',
+    diffs: { 0: '🐋', 3: '🐟', 6: '🦑', 8: '🐡' },
+  },
+  {
+    id: 'space',
+    name: 'Space Station',
+    hint: 'Find 4 differences!',
+    base: ['🚀', '🌍', '⭐', '🛸', '🌙', '👨‍🚀', '🪐', '☄️', '🌟'],
+    badge: '⭐',
+    diffs: { 1: '🌎', 4: '🌝', 5: '👩‍🚀', 7: '💫' },
+  },
+  {
+    id: 'farm',
+    name: 'Farm Fun',
+    hint: 'Find 5 differences!',
+    base: ['🐄', '🐔', '🐷', '🌻', '🏠', '🐴', '🐑', '🌾', '🚜'],
+    badge: '🌻',
+    diffs: { 0: '🐮', 2: '🐽', 4: '🏡', 6: '🐐', 8: '🚗' },
+  },
 ];
 
 const PUZZLE_TILES = ['🦕', '🌈', '🚀', '⭐️', '🐯', '🍓', '🧁', '🎈', '🪐'];
+
+const ADVANCED_PATTERN_ROUNDS = [
+  { sequence: ['🔴', '🔵', '🟡', '🔴', '🔵'], answer: '🟡', label: 'Red, Blue, Yellow repeat' },
+  { sequence: ['⭐️', '⭐️', '🌙', '🌙', '⭐️', '⭐️'], answer: '🌙', label: 'Star Star Moon Moon' },
+  { sequence: ['🟢', '🟣', '🟠', '🟢', '🟣'], answer: '🟠', label: 'Green Purple Orange' },
+  { sequence: ['🔵', '🔵', '🟡', '🔵', '🔵', '🟡', '🔵', '🔵'], answer: '🟡', label: 'Blue Blue Yellow' },
+  { sequence: ['🟠', '🟢', '🟠', '🟢', '🟠', '🟠', '🟢'], answer: '🟠', label: 'Tricky orange green' },
+];
+
+const NUMBER_PATTERN_ROUNDS = [
+  { sequence: [2, 4, 6, 8], answer: 10, options: [9, 10, 11, 12], label: 'Count by 2s' },
+  { sequence: [5, 10, 15, 20], answer: 25, options: [22, 24, 25, 30], label: 'Count by 5s' },
+  { sequence: [1, 2, 3, 4, 5], answer: 6, options: [5, 6, 7, 8], label: 'Count up by 1' },
+  { sequence: [10, 8, 6, 4], answer: 2, options: [1, 2, 3, 0], label: 'Count down by 2' },
+  { sequence: [1, 3, 5, 7], answer: 9, options: [8, 9, 10, 11], label: 'Odd numbers' },
+  { sequence: [10, 20, 30, 40], answer: 50, options: [45, 50, 55, 60], label: 'Count by 10s' },
+];
+
+const WORD_BUILDER_WORDS = [
+  { word: 'CAT', emoji: '🐱', hint: 'A furry pet that says meow' },
+  { word: 'DOG', emoji: '🐶', hint: 'A pet that barks and wags its tail' },
+  { word: 'SUN', emoji: '☀️', hint: 'It shines bright in the sky' },
+  { word: 'HAT', emoji: '🎩', hint: 'You wear it on your head' },
+  { word: 'BUG', emoji: '🐛', hint: 'A tiny crawling creature' },
+  { word: 'CUP', emoji: '🥤', hint: 'You drink from it' },
+  { word: 'PIG', emoji: '🐷', hint: 'A pink farm animal' },
+  { word: 'BED', emoji: '🛏️', hint: 'You sleep in it' },
+  { word: 'FOX', emoji: '🦊', hint: 'A clever orange animal' },
+  { word: 'BUS', emoji: '🚌', hint: 'A big yellow vehicle' },
+  { word: 'JAM', emoji: '🫙', hint: 'Sweet and fruity on toast' },
+  { word: 'MAP', emoji: '🗺️', hint: 'Shows you where to go' },
+  { word: 'HEN', emoji: '🐔', hint: 'A chicken that lays eggs' },
+  { word: 'NET', emoji: '🥅', hint: 'Catch things with it' },
+  { word: 'VAN', emoji: '🚐', hint: 'A big car for moving things' },
+];
+
+const COLOR_MIX_ROUNDS = [
+  { color1: '🔴', color2: '🟡', name1: 'Red', name2: 'Yellow', answer: 'Orange', answerEmoji: '🟠', options: ['Orange', 'Green', 'Purple', 'Brown'] },
+  { color1: '🔴', color2: '🔵', name1: 'Red', name2: 'Blue', answer: 'Purple', answerEmoji: '🟣', options: ['Orange', 'Green', 'Purple', 'Pink'] },
+  { color1: '🔵', color2: '🟡', name1: 'Blue', name2: 'Yellow', answer: 'Green', answerEmoji: '🟢', options: ['Orange', 'Green', 'Purple', 'Brown'] },
+  { color1: '🔴', color2: '⬜', name1: 'Red', name2: 'White', answer: 'Pink', answerEmoji: '🩷', options: ['Pink', 'Orange', 'Purple', 'Brown'] },
+  { color1: '🔵', color2: '⬜', name1: 'Blue', name2: 'White', answer: 'Light Blue', answerEmoji: '🩵', options: ['Light Blue', 'Green', 'Purple', 'Grey'] },
+  { color1: '🔴', color2: '🟢', name1: 'Red', name2: 'Green', answer: 'Brown', answerEmoji: '🟤', options: ['Orange', 'Brown', 'Purple', 'Grey'] },
+  { color1: '⬛', color2: '⬜', name1: 'Black', name2: 'White', answer: 'Grey', answerEmoji: '🩶', options: ['Grey', 'Brown', 'Silver', 'Blue'] },
+];
+
+const ODD_ONE_OUT_ROUNDS = [
+  { items: ['🍎', '🍌', '🍇', '🚗'], odd: '🚗', category: 'Fruits', hint: 'Three are fruits!' },
+  { items: ['🐶', '🐱', '🐠', '🌳'], odd: '🌳', category: 'Animals', hint: 'Three are animals!' },
+  { items: ['✈️', '🚂', '🚗', '🍕'], odd: '🍕', category: 'Vehicles', hint: 'Three can move you around!' },
+  { items: ['🔴', '🔵', '🟢', '⭐'], odd: '⭐', category: 'Circles', hint: 'Three are round!' },
+  { items: ['☀️', '🌙', '⭐', '🌊'], odd: '🌊', category: 'Sky', hint: 'Three are in the sky!' },
+  { items: ['👟', '🧦', '🥾', '🎩'], odd: '🎩', category: 'Feet', hint: 'Three go on your feet!' },
+  { items: ['🎹', '🎸', '🥁', '📚'], odd: '📚', category: 'Music', hint: 'Three make music!' },
+  { items: ['🍕', '🍔', '🌭', '🐘'], odd: '🐘', category: 'Food', hint: 'Three are yummy food!' },
+  { items: ['🦁', '🐯', '🐻', '🐟'], odd: '🐟', category: 'Land animals', hint: 'Three walk on land!' },
+  { items: ['2', '4', '6', '7'], odd: '7', category: 'Even numbers', hint: 'Three are even numbers!' },
+  { items: ['🟦', '🟥', '🟢', '⚽'], odd: '⚽', category: 'Shapes', hint: 'Three are flat shapes!' },
+  { items: ['🌧️', '❄️', '🌈', '🪨'], odd: '🪨', category: 'Weather', hint: 'Three come from the sky!' },
+];
+
+const ACHIEVEMENTS = [
+  { id: 'first_game', name: 'First Steps', emoji: '👣', desc: 'Play your first game', check: (g) => Object.values(g).some((v) => v > 0) },
+  { id: 'math_wiz', name: 'Math Wizard', emoji: '🧙', desc: 'Answer 50 maths questions', check: (g) => (g.addition || 0) + (g.subtraction || 0) + (g.math || 0) >= 50 },
+  { id: 'memory_pro', name: 'Memory Pro', emoji: '🧠', desc: 'Play Memory Match 10 times', check: (g) => (g.memory || 0) >= 10 },
+  { id: 'dino_hunter', name: 'Dino Hunter', emoji: '🦖', desc: 'Find 20 dinosaurs', check: (g) => (g.dino || 0) >= 20 },
+  { id: 'word_smith', name: 'Word Smith', emoji: '📝', desc: 'Build 10 words', check: (g) => (g.words || 0) >= 10 },
+  { id: 'explorer', name: 'Explorer', emoji: '🧭', desc: 'Try 8 different games', check: (g) => Object.keys(g).filter((k) => g[k] > 0).length >= 8 },
+  { id: 'star_100', name: 'Star Collector', emoji: '💯', desc: 'Earn 100 stars', check: (_, p) => p >= 100 },
+  { id: 'star_300', name: 'Superstar', emoji: '🌟', desc: 'Earn 300 stars', check: (_, p) => p >= 300 },
+  { id: 'streak_5', name: 'On Fire', emoji: '🔥', desc: 'Get a 5-day streak', check: (_, _p, s) => s >= 5 },
+  { id: 'streak_10', name: 'Unstoppable', emoji: '⚡', desc: 'Get a 10-day streak', check: (_, _p, s) => s >= 10 },
+  { id: 'color_mixer', name: 'Color Scientist', emoji: '🎨', desc: 'Mix 10 colors', check: (g) => (g.colormix || 0) >= 10 },
+  { id: 'odd_master', name: 'Sharp Eye', emoji: '👁️', desc: 'Find 15 odd ones out', check: (g) => (g.oddoneout || 0) >= 15 },
+  { id: 'astro_grad', name: 'Space Graduate', emoji: '🎓', desc: 'Complete all Astronaut missions', check: (g) => (g.astronaut || 0) >= 30 },
+  { id: 'puzzle_king', name: 'Puzzle King', emoji: '👑', desc: 'Complete 10 puzzles', check: (g) => (g.puzzle || 0) >= 10 },
+  { id: 'all_rounder', name: 'All Rounder', emoji: '🏅', desc: 'Try every game', check: (g) => Object.keys(g).filter((k) => g[k] > 0).length >= 14 },
+];
+
+const VISUAL_EMOJIS = ['🍎', '🌟', '🐟', '🦋', '🍪', '🎈', '🌸', '💎', '🍬', '🚀'];
 
 const GAME_LABELS = {
   solar: 'Solar System',
@@ -580,6 +771,12 @@ const GAME_LABELS = {
   subtraction: 'Subtraction Station',
   astronaut: 'Astronaut Academy',
   counting: 'Count the Stars',
+  words: 'Word Builder',
+  colormix: 'Color Mixing Lab',
+  oddoneout: 'Odd One Out',
+  timeteller: 'Time Teller',
+  numberline: 'Number Line Jump',
+  progress: 'Progress Dashboard',
 };
 
 const ADDITION_LEVELS = [
@@ -2281,6 +2478,14 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [moves, setMoves] = useState(0);
   const [locked, setLocked] = useState(false);
   const [showLevelComplete, setShowLevelComplete] = useState(false);
+  const [timer, setTimer] = useState(0);
+  const [bestTimes, setBestTimes] = useState(() => loadSaved('amari_memory_best', {}));
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => setTimer((t) => t + 1), 1000);
+    return () => clearInterval(timerRef.current);
+  }, [levelIndex]);
 
   const matches = deck.filter((card) => card.matched).length / 2;
 
@@ -2290,6 +2495,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setMoves(0);
     setLocked(false);
     setShowLevelComplete(false);
+    setTimer(0);
   }, [level]);
 
   useEffect(() => {
@@ -2298,13 +2504,22 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   useEffect(() => {
     if (matches === level.emojis.length && !showLevelComplete) {
+      clearInterval(timerRef.current);
       const praise = getPraise();
       speak('You matched them all. Fantastic memory!');
       playSfx('success');
       setShowLevelComplete(true);
       onCelebrate(praise, 12, 300);
+      const best = bestTimes[level.id];
+      if (!best || timer < best) {
+        setBestTimes((prev) => {
+          const next = { ...prev, [level.id]: timer };
+          saveSafe('amari_memory_best', next);
+          return next;
+        });
+      }
     }
-  }, [matches, level.emojis.length, onCelebrate, playSfx, showLevelComplete, speak]);
+  }, [matches, level.emojis.length, level.id, onCelebrate, playSfx, showLevelComplete, speak, timer, bestTimes]);
 
   const handleFlip = (index) => {
     if (locked) return;
@@ -2372,7 +2587,8 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             Level {levelIndex + 1}/{MEMORY_LEVELS.length} · {level.name}
           </p>
           <p className="text-rose-600/70 font-semibold">
-            Matches: {matches} · Moves: {moves}
+            Matches: {matches} · Moves: {moves} · ⏱️ {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}
+            {bestTimes[level.id] ? ` · Best: ${Math.floor(bestTimes[level.id] / 60)}:${String(bestTimes[level.id] % 60).padStart(2, '0')}` : ''}
           </p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
@@ -2436,22 +2652,34 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 };
 
 const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [mode, setMode] = useState('emoji');
   const [round, setRound] = useState(buildPatternRound);
+  const [numRound, setNumRound] = useState(() => pickRandom(NUMBER_PATTERN_ROUNDS));
   const [feedback, setFeedback] = useState('');
   const [streak, setStreak] = useState(0);
   const [shake, setShake] = useState(false);
 
   const nextRound = () => {
-    setRound(buildPatternRound());
+    if (mode === 'emoji') {
+      const allPatterns = [...PATTERN_ROUNDS, ...ADVANCED_PATTERN_ROUNDS];
+      const r = pickRandom(allPatterns);
+      const decoys = shuffle(PATTERN_TOKENS.filter((t) => t !== r.answer)).slice(0, 2);
+      setRound({ ...r, options: shuffle([r.answer, ...decoys]) });
+    } else {
+      setNumRound(pickRandom(NUMBER_PATTERN_ROUNDS));
+    }
     setFeedback('');
   };
 
+  const currentLabel = mode === 'emoji' ? round.label : numRound.label;
+
   useEffect(() => {
-    speak(`What comes next? ${round.label}`);
-  }, [round.label, speak]);
+    speak(`What comes next? ${currentLabel}`);
+  }, [currentLabel, speak]);
 
   const handlePick = (option) => {
-    if (option === round.answer) {
+    const correctAnswer = mode === 'emoji' ? round.answer : numRound.answer;
+    if (option === correctAnswer) {
       const praise = getPraise();
       setFeedback(praise);
       setStreak((prev) => prev + 1);
@@ -2466,6 +2694,9 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     }
   };
 
+  const currentOptions = mode === 'emoji' ? round.options : numRound.options;
+  const currentSequence = mode === 'emoji' ? round.sequence : numRound.sequence;
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-amber-100 via-yellow-100 to-amber-200 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -2474,12 +2705,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       </div>
 
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button
-          onClick={onBack}
-          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
-        >
-          <Home />
-        </button>
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-amber-700">Pattern Parade</h2>
           <p className="text-amber-700/70 font-semibold">Streak: {streak}</p>
@@ -2488,39 +2714,28 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
-        <button
-          onClick={() => speak(`What comes next? ${round.label}`)}
-          className="mb-4 text-amber-700 font-semibold"
-        >
-          🔊 Hear the pattern
-        </button>
+        <div className="flex gap-2 mb-4">
+          {[{ id: 'emoji', label: '🔷 Shapes' }, { id: 'number', label: '🔢 Numbers' }].map((m) => (
+            <button key={m.id} onClick={() => { setMode(m.id); nextRound(); playSfx('click'); }}
+              className={`px-4 py-2 rounded-full font-bold text-sm ${mode === m.id ? 'bg-amber-600 text-white' : 'bg-white text-amber-700'}`}>{m.label}</button>
+          ))}
+        </div>
 
-        <div
-          className={`bg-white/90 rounded-3xl p-6 shadow-xl border-4 border-amber-200 mb-6 ${
-            shake ? 'animate-shake' : ''
-          }`}
-        >
-          <div className="flex items-center gap-4 text-4xl">
-            {round.sequence.map((token, index) => (
-              <div key={`${token}-${index}`} className="w-12 h-12 flex items-center justify-center">
-                {token}
-              </div>
+        <button onClick={() => speak(`What comes next? ${currentLabel}`)} className="mb-4 text-amber-700 font-semibold">🔊 Hear the pattern</button>
+
+        <div className={`bg-white/90 rounded-3xl p-6 shadow-xl border-4 border-amber-200 mb-6 ${shake ? 'animate-shake' : ''}`}>
+          <div className="flex items-center gap-4 text-4xl flex-wrap justify-center">
+            {currentSequence.map((token, index) => (
+              <div key={`${token}-${index}`} className="w-12 h-12 flex items-center justify-center font-black">{token}</div>
             ))}
-            <div className="w-12 h-12 rounded-2xl border-4 border-dashed border-amber-300 flex items-center justify-center text-2xl">
-              ?
-            </div>
+            <div className="w-12 h-12 rounded-2xl border-4 border-dashed border-amber-300 flex items-center justify-center text-2xl">?</div>
           </div>
         </div>
 
-        <div className="flex gap-6 flex-wrap justify-center">
-          {round.options.map((option) => (
-            <button
-              key={option}
-              onClick={() => handlePick(option)}
-              className="w-20 h-20 bg-white text-4xl rounded-3xl shadow-lg border-4 border-amber-200 hover:-translate-y-1 transition"
-            >
-              {option}
-            </button>
+        <div className="flex gap-4 flex-wrap justify-center">
+          {currentOptions.map((option) => (
+            <button key={option} onClick={() => handlePick(option)}
+              className="w-20 h-20 bg-white text-4xl font-black rounded-3xl shadow-lg border-4 border-amber-200 hover:-translate-y-1 transition flex items-center justify-center">{option}</button>
           ))}
         </div>
 
@@ -2749,21 +2964,28 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 };
 
 const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [safariMode, setSafariMode] = useState('match');
   const [round, setRound] = useState(buildPhonicsRound);
+  const [blendRound, setBlendRound] = useState(() => pickRandom(BLEND_WORDS));
+  const [blendStep, setBlendStep] = useState(0);
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
 
   const sayPrompt = useCallback(() => {
-    speak(`Which one starts with ${round.target.letter}? ${round.target.letter} says ${round.target.sound}.`);
-  }, [round.target.letter, round.target.sound, speak]);
+    if (safariMode === 'match') {
+      speak(`Which one starts with ${round.target.letter}? ${round.target.letter} says ${round.target.sound}.`);
+    } else {
+      const blendText = blendRound.letters.join(', ');
+      speak(`Blend the sounds: ${blendText}. What word does it make?`);
+    }
+  }, [round.target?.letter, round.target?.sound, blendRound, safariMode, speak]);
 
-  useEffect(() => {
-    sayPrompt();
-  }, [sayPrompt]);
+  useEffect(() => { sayPrompt(); }, [sayPrompt]);
 
   const nextRound = () => {
-    setRound(buildPhonicsRound());
+    if (safariMode === 'match') setRound(buildPhonicsRound());
+    else { setBlendRound(pickRandom(BLEND_WORDS)); setBlendStep(0); }
     setFeedback('');
   };
 
@@ -2783,6 +3005,38 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     }
   };
 
+  const handleBlendLetterTap = (idx) => {
+    if (idx !== blendStep) return;
+    playSfx('tap');
+    speak(blendRound.letters[idx]);
+    setBlendStep(idx + 1);
+    if (idx + 1 >= blendRound.letters.length) {
+      setTimeout(() => speak(`${blendRound.word}!`), 600);
+    }
+  };
+
+  const blendOptions = useMemo(() => {
+    if (safariMode !== 'blend') return [];
+    const decoys = shuffle(BLEND_WORDS.filter((w) => w.word !== blendRound.word)).slice(0, 2);
+    return shuffle([blendRound, ...decoys]);
+  }, [blendRound, safariMode]);
+
+  const handleBlendAnswer = (w) => {
+    if (w.word === blendRound.word) {
+      const praise = getPraise();
+      setFeedback(praise);
+      setScore((prev) => prev + 1);
+      playSfx('success');
+      onCelebrate(praise, 8, 250);
+      setTimeout(nextRound, 1400);
+    } else {
+      setFeedback('Try again!');
+      setShake(true);
+      playSfx('oops');
+      setTimeout(() => setShake(false), 450);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-100 via-lime-100 to-emerald-200 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -2791,12 +3045,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       </div>
 
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button
-          onClick={onBack}
-          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
-        >
-          <Home />
-        </button>
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-emerald-700">Sound Safari</h2>
           <p className="text-emerald-700/70 font-semibold">Score: {score}</p>
@@ -2805,31 +3054,61 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
-        <div
-          className={`bg-white/90 rounded-3xl p-6 shadow-xl border-4 border-emerald-200 mb-6 text-center ${
-            shake ? 'animate-shake' : ''
-          }`}
-        >
-          <div className="text-slate-500 uppercase tracking-wide text-xs font-bold">Listen</div>
-          <div className="text-5xl font-black text-emerald-700 mt-2">{round.target.letter}</div>
-          <div className="text-lg font-semibold text-slate-600">says "{round.target.sound}"</div>
-          <button onClick={sayPrompt} className="mt-3 text-emerald-600 font-semibold">
-            🔊 Hear the sound
-          </button>
-        </div>
-
-        <div className="grid grid-cols-3 gap-4 w-full max-w-lg">
-          {round.options.map((option) => (
-            <button
-              key={option.word}
-              onClick={() => handlePick(option)}
-              className="bg-white rounded-3xl p-4 shadow-lg border-4 border-emerald-200 hover:-translate-y-1 transition"
-            >
-              <div className="text-4xl mb-2">{option.emoji}</div>
-              <div className="text-lg font-black text-emerald-700">{option.word}</div>
-            </button>
+        <div className="flex gap-2 mb-4">
+          {[{ id: 'match', label: '🔤 Letter Match' }, { id: 'blend', label: '🧩 Blend It' }].map((m) => (
+            <button key={m.id} onClick={() => { setSafariMode(m.id); nextRound(); playSfx('click'); }}
+              className={`px-4 py-2 rounded-full font-bold text-sm ${safariMode === m.id ? 'bg-emerald-600 text-white' : 'bg-white text-emerald-700'}`}>{m.label}</button>
           ))}
         </div>
+
+        {safariMode === 'match' && (
+          <>
+            <div className={`bg-white/90 rounded-3xl p-6 shadow-xl border-4 border-emerald-200 mb-6 text-center ${shake ? 'animate-shake' : ''}`}>
+              <div className="text-slate-500 uppercase tracking-wide text-xs font-bold">Listen</div>
+              <div className="text-5xl font-black text-emerald-700 mt-2">{round.target.letter}</div>
+              <div className="text-lg font-semibold text-slate-600">says &quot;{round.target.sound}&quot;</div>
+              <button onClick={sayPrompt} className="mt-3 text-emerald-600 font-semibold">🔊 Hear the sound</button>
+            </div>
+            <div className="grid grid-cols-3 gap-4 w-full max-w-lg">
+              {round.options.map((option) => (
+                <button key={option.word} onClick={() => handlePick(option)} className="bg-white rounded-3xl p-4 shadow-lg border-4 border-emerald-200 hover:-translate-y-1 transition">
+                  <div className="text-4xl mb-2">{option.emoji}</div>
+                  <div className="text-lg font-black text-emerald-700">{option.word}</div>
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+
+        {safariMode === 'blend' && (
+          <>
+            <div className={`bg-white/90 rounded-3xl p-6 shadow-xl border-4 border-emerald-200 mb-6 text-center ${shake ? 'animate-shake' : ''}`}>
+              <div className="text-slate-500 uppercase tracking-wide text-xs font-bold mb-3">Tap each letter to hear it</div>
+              <div className="flex items-center gap-3 justify-center mb-3">
+                {blendRound.letters.map((l, i) => (
+                  <button key={i} onClick={() => handleBlendLetterTap(i)}
+                    className={`w-16 h-16 rounded-2xl text-3xl font-black flex items-center justify-center border-4 transition-all ${
+                      i < blendStep ? 'bg-emerald-500 text-white border-emerald-600 scale-110' : i === blendStep ? 'bg-emerald-100 border-emerald-400 animate-pulse text-emerald-700' : 'bg-white border-slate-200 text-slate-400'
+                    }`}>{l.toUpperCase()}</button>
+                ))}
+              </div>
+              {blendStep >= blendRound.letters.length && (
+                <div className="text-2xl font-black text-emerald-600 mt-2">What word is it? {blendRound.emoji}</div>
+              )}
+              <button onClick={sayPrompt} className="mt-3 text-emerald-600 font-semibold">🔊 Hear the sounds</button>
+            </div>
+            {blendStep >= blendRound.letters.length && (
+              <div className="grid grid-cols-3 gap-4 w-full max-w-lg">
+                {blendOptions.map((w) => (
+                  <button key={w.word} onClick={() => handleBlendAnswer(w)} className="bg-white rounded-3xl p-4 shadow-lg border-4 border-emerald-200 hover:-translate-y-1 transition">
+                    <div className="text-4xl mb-2">{w.emoji}</div>
+                    <div className="text-lg font-black text-emerald-700">{w.word}</div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </>
+        )}
 
         {feedback && <div className="mt-4 text-xl font-bold text-emerald-700 animate-bounce">{feedback}</div>}
       </div>
@@ -2965,6 +3244,7 @@ const JIGSAW_PUZZLES = [
   { id: 'ocean', name: 'Under the Sea', grid: 3, pieces: ['🐳', '🐠', '🪸', '🦈', '🐙', '🌊', '🐢', '🦀', '🐚'] },
   { id: 'farm', name: 'Happy Farm', grid: 4, pieces: ['🐄', '🐔', '🐷', '🌻', '🏠', '🐴', '🐑', '🌾', '🚜', '🐶', '🌳', '🐱', '🥕', '🐰', '🌈', '🌞'] },
   { id: 'city', name: 'Busy City', grid: 4, pieces: ['🏙️', '🚗', '🏫', '🌳', '🚌', '🏪', '🚶', '🌤️', '🚓', '🏗️', '🛻', '🏠', '🚲', '🌺', '⛲', '🏢'] },
+  { id: 'jungle', name: 'Wild Jungle', grid: 5, pieces: ['🦁', '🐵', '🦜', '🌴', '🐍', '🦋', '🌺', '🐘', '🦎', '🌿', '🐆', '🦩', '🍌', '🌸', '🦧', '🪲', '🌻', '🐾', '🦥', '🍃', '🦔', '🌳', '🐢', '🪺', '🌈'] },
 ];
 
 const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
@@ -3136,6 +3416,17 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
           </div>
         </div>
 
+        {!solved && (
+          <button onClick={() => {
+            const emptySlot = state.placed.findIndex((p) => !p || p.correctSlot !== state.placed.indexOf(p));
+            const correctPiece = state.tray.find((p) => p.correctSlot === emptySlot) || state.tray[0];
+            if (correctPiece && emptySlot >= 0) {
+              playSfx('sparkle');
+              speak(`Try putting a piece in slot ${emptySlot + 1}`);
+            }
+          }} className="bg-white/80 text-orange-600 font-bold px-5 py-2 rounded-full shadow-md hover:bg-white transition text-sm">💡 Hint</button>
+        )}
+
         {solved && (
           <div className="bg-white/90 p-6 rounded-3xl shadow-xl text-center">
             <div className="text-5xl mb-2">🎉</div>
@@ -3177,6 +3468,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
   const answer = problem.a + problem.b;
   const addTimeoutRef = useRef(null);
   useEffect(() => () => { if (addTimeoutRef.current) clearTimeout(addTimeoutRef.current); }, []);
+  const visualEmoji = useMemo(() => pickRandom(VISUAL_EMOJIS), [problem.a, problem.b]);
 
   const options = useMemo(() => {
     const set = new Set([answer]);
@@ -3188,7 +3480,6 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
       const candidate = Math.max(0, answer + sign * delta);
       if (candidate !== answer) set.add(candidate);
     }
-    // Fallback if not enough unique options
     for (let f = 1; set.size < 4; f++) { set.add(answer + f); }
     return shuffle(Array.from(set).slice(0, 4));
   }, [answer]);
@@ -3230,8 +3521,19 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
-      <div className="mt-12 text-center z-10 px-4">
-        <div className={`inline-flex items-center gap-4 text-6xl font-black text-slate-800 mb-10 ${shake ? 'animate-shake' : ''}`}>
+      <div className="mt-8 text-center z-10 px-4">
+        {level.maxNum <= 10 && (
+          <div className="flex justify-center items-center gap-3 mb-4 flex-wrap">
+            <div className="bg-white/80 rounded-2xl px-4 py-2 shadow flex gap-1 flex-wrap justify-center">
+              {Array.from({ length: problem.a }, (_, i) => <span key={`a-${i}`} className="text-2xl">{visualEmoji}</span>)}
+            </div>
+            <span className="text-3xl font-black text-emerald-500">+</span>
+            <div className="bg-white/80 rounded-2xl px-4 py-2 shadow flex gap-1 flex-wrap justify-center">
+              {Array.from({ length: problem.b }, (_, i) => <span key={`b-${i}`} className="text-2xl">{visualEmoji}</span>)}
+            </div>
+          </div>
+        )}
+        <div className={`inline-flex items-center gap-4 text-6xl font-black text-slate-800 mb-8 ${shake ? 'animate-shake' : ''}`}>
           <div className="bg-white p-4 rounded-2xl shadow-lg border-b-8 border-slate-200">{problem.a}</div>
           <div className="text-emerald-500">+</div>
           <div className="bg-white p-4 rounded-2xl shadow-lg border-b-8 border-slate-200">{problem.b}</div>
@@ -3277,6 +3579,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
   const answer = problem.a - problem.b;
   const subTimeoutRef = useRef(null);
   useEffect(() => () => { if (subTimeoutRef.current) clearTimeout(subTimeoutRef.current); }, []);
+  const visualEmoji = useMemo(() => pickRandom(VISUAL_EMOJIS), [problem.a, problem.b]);
 
   const options = useMemo(() => {
     const set = new Set([answer]);
@@ -3329,8 +3632,17 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
-      <div className="mt-12 text-center z-10 px-4">
-        <div className={`inline-flex items-center gap-4 text-6xl font-black text-slate-800 mb-10 ${shake ? 'animate-shake' : ''}`}>
+      <div className="mt-8 text-center z-10 px-4">
+        {level.maxNum <= 10 && (
+          <div className="flex justify-center items-center gap-2 mb-4 flex-wrap">
+            <div className="bg-white/80 rounded-2xl px-4 py-2 shadow flex gap-1 flex-wrap justify-center">
+              {Array.from({ length: problem.a }, (_, i) => (
+                <span key={`s-${i}`} className={`text-2xl ${i >= answer ? 'opacity-25 line-through' : ''}`}>{visualEmoji}</span>
+              ))}
+            </div>
+          </div>
+        )}
+        <div className={`inline-flex items-center gap-4 text-6xl font-black text-slate-800 mb-8 ${shake ? 'animate-shake' : ''}`}>
           <div className="bg-white p-4 rounded-2xl shadow-lg border-b-8 border-slate-200">{problem.a}</div>
           <div className="text-purple-500">−</div>
           <div className="bg-white p-4 rounded-2xl shadow-lg border-b-8 border-slate-200">{problem.b}</div>
@@ -3365,11 +3677,14 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
     if (question) speak(question.q);
   }, [question, speak]);
 
+  const [explanation, setExplanation] = useState('');
+
   const handlePick = (opt) => {
     if (!question) return;
     if (opt.text === question.answer) {
       const praise = getPraise();
       setFeedback(praise);
+      setExplanation('');
       playSfx('success');
       speak(praise);
       onCelebrate(praise, 6, 200);
@@ -3386,9 +3701,12 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
     } else {
       setShake(true);
       playSfx('wrong');
-      speak('Try again!');
-      setFeedback('Try again!');
-      setTimeout(() => { setShake(false); setFeedback(''); }, 800);
+      const correctOpt = question.options.find((o) => o.text === question.answer);
+      const explainText = `The answer is ${question.answer}!`;
+      setExplanation(`${correctOpt?.visual || ''} ${explainText}`);
+      speak(explainText);
+      setFeedback('Not quite!');
+      setTimeout(() => { setShake(false); setFeedback(''); setExplanation(''); }, 2500);
     }
   };
 
@@ -3479,7 +3797,8 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
             ))}
           </div>
         </div>
-        {feedback && <div className="mt-6 text-3xl font-black text-yellow-300 animate-bounce">{feedback}</div>}
+        {feedback && <div className="mt-4 text-3xl font-black text-yellow-300 animate-bounce">{feedback}</div>}
+        {explanation && <div className="mt-2 text-xl font-bold text-white/80 bg-white/10 rounded-2xl px-6 py-3">{explanation}</div>}
       </div>
     </div>
   );
@@ -3615,6 +3934,500 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
           </div>
         )}
         {feedback && <div className="mt-4 text-3xl font-black text-yellow-300 animate-bounce">{feedback}</div>}
+      </div>
+    </div>
+  );
+};
+
+const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [typed, setTyped] = useState([]);
+  const [feedback, setFeedback] = useState('');
+  const [shake, setShake] = useState(false);
+  const [score, setScore] = useState(0);
+  const [scrambled, setScrambled] = useState([]);
+  const word = WORD_BUILDER_WORDS[wordIndex];
+
+  useEffect(() => {
+    const letters = word.word.split('').map((l, i) => ({ letter: l, id: `${l}-${i}` }));
+    setScrambled(shuffle(letters));
+    setTyped([]);
+    setFeedback('');
+    speak(`Spell the word: ${word.word}. ${word.hint}`);
+  }, [wordIndex, word, speak]);
+
+  const handleLetterTap = (item) => {
+    const next = [...typed, item];
+    setTyped(next);
+    setScrambled((prev) => prev.filter((s) => s.id !== item.id));
+    playSfx('tap');
+    speak(item.letter);
+    if (next.length === word.word.length) {
+      const spelled = next.map((t) => t.letter).join('');
+      if (spelled === word.word) {
+        const praise = getPraise();
+        setFeedback(praise);
+        setScore((s) => s + 1);
+        playSfx('success');
+        speak(`${word.word}! ${praise}`);
+        onCelebrate(praise, 8, 300);
+        setTimeout(() => setWordIndex((i) => (i + 1) % WORD_BUILDER_WORDS.length), 2000);
+      } else {
+        setShake(true);
+        playSfx('wrong');
+        setFeedback('Oops! Try again');
+        setTimeout(() => {
+          setShake(false);
+          setFeedback('');
+          const letters = word.word.split('').map((l, i) => ({ letter: l, id: `${l}-${i}` }));
+          setScrambled(shuffle(letters));
+          setTyped([]);
+        }, 1200);
+      }
+    }
+  };
+
+  const handleUndo = () => {
+    if (typed.length === 0) return;
+    const last = typed[typed.length - 1];
+    setTyped((prev) => prev.slice(0, -1));
+    setScrambled((prev) => [...prev, last]);
+    playSfx('click');
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-cyan-100 via-sky-100 to-blue-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-200/60 rounded-full blur-3xl" />
+      </div>
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-cyan-700">Word Builder</h2>
+          <p className="text-cyan-700/70 font-semibold">Words: {score}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <div className="text-7xl mb-4">{word.emoji}</div>
+        <p className="text-slate-600 font-semibold mb-2">{word.hint}</p>
+        <button onClick={() => speak(`Spell ${word.word}. ${word.hint}`)} className="mb-4 text-cyan-600 font-semibold">🔊 Hear the word</button>
+        <div className={`flex gap-3 mb-8 ${shake ? 'animate-shake' : ''}`}>
+          {word.word.split('').map((_, i) => (
+            <div key={i} className={`w-16 h-16 rounded-2xl border-4 flex items-center justify-center text-3xl font-black transition-all ${typed[i] ? 'bg-cyan-500 text-white border-cyan-600 scale-110' : 'bg-white border-dashed border-slate-300 text-slate-300'}`}>
+              {typed[i]?.letter || ''}
+            </div>
+          ))}
+        </div>
+        <div className="flex gap-3 flex-wrap justify-center mb-4">
+          {scrambled.map((item) => (
+            <button key={item.id} onClick={() => handleLetterTap(item)}
+              className="w-16 h-16 bg-white text-cyan-700 text-3xl font-black rounded-2xl shadow-lg border-4 border-cyan-200 hover:-translate-y-1 active:translate-y-1 transition-all">{item.letter}</button>
+          ))}
+        </div>
+        {typed.length > 0 && (
+          <button onClick={handleUndo} className="text-cyan-600 font-bold text-sm">↩️ Undo</button>
+        )}
+        {feedback && <div className="mt-4 text-2xl font-black text-cyan-600 animate-bounce">{feedback}</div>}
+      </div>
+    </div>
+  );
+};
+
+const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [roundIndex, setRoundIndex] = useState(0);
+  const [feedback, setFeedback] = useState('');
+  const [shake, setShake] = useState(false);
+  const [score, setScore] = useState(0);
+  const [mixed, setMixed] = useState(false);
+  const round = COLOR_MIX_ROUNDS[roundIndex % COLOR_MIX_ROUNDS.length];
+
+  useEffect(() => {
+    setMixed(false);
+    setFeedback('');
+    speak(`What color do ${round.name1} and ${round.name2} make when mixed together?`);
+  }, [roundIndex, round.name1, round.name2, speak]);
+
+  const handleMix = () => {
+    setMixed(true);
+    playSfx('sparkle');
+    speak('Mix!');
+  };
+
+  const handlePick = (answer) => {
+    if (answer === round.answer) {
+      const praise = getPraise();
+      setFeedback(praise);
+      setScore((s) => s + 1);
+      playSfx('success');
+      speak(`${round.answer}! ${praise}`);
+      onCelebrate(praise, 8, 200);
+      setTimeout(() => setRoundIndex((i) => i + 1), 2000);
+    } else {
+      setShake(true);
+      playSfx('wrong');
+      setFeedback(`Not quite! ${round.name1} + ${round.name2} = ${round.answer}`);
+      speak(`It makes ${round.answer}`);
+      setTimeout(() => { setShake(false); setFeedback(''); }, 2500);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-pink-100 via-fuchsia-100 to-purple-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-8 left-8 w-48 h-48 bg-white/60 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-200/60 rounded-full blur-3xl" />
+      </div>
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-fuchsia-700">Color Mixing Lab</h2>
+          <p className="text-fuchsia-700/70 font-semibold">Mixed: {score}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-24 h-24 rounded-full flex items-center justify-center text-5xl bg-white shadow-xl border-4 border-fuchsia-200">{round.color1}</div>
+          <span className="text-4xl font-black text-fuchsia-500">+</span>
+          <div className="w-24 h-24 rounded-full flex items-center justify-center text-5xl bg-white shadow-xl border-4 border-fuchsia-200">{round.color2}</div>
+          <span className="text-4xl font-black text-fuchsia-500">=</span>
+          <div className={`w-24 h-24 rounded-full flex items-center justify-center text-5xl bg-white shadow-xl border-4 border-fuchsia-200 transition-all duration-700 ${mixed ? 'scale-125' : ''}`}>
+            {mixed ? round.answerEmoji : '❓'}
+          </div>
+        </div>
+        {!mixed && (
+          <button onClick={handleMix} className="bg-fuchsia-500 text-white text-xl font-black px-8 py-4 rounded-full shadow-lg hover:bg-fuchsia-600 active:translate-y-1 transition-all mb-6">
+            🧪 Mix Colors!
+          </button>
+        )}
+        {mixed && (
+          <div className={`${shake ? 'animate-shake' : ''}`}>
+            <p className="text-xl font-bold text-fuchsia-700 mb-4">What color did it make?</p>
+            <div className="flex gap-4 flex-wrap justify-center">
+              {shuffle(round.options).map((opt) => (
+                <button key={opt} onClick={() => handlePick(opt)}
+                  className="bg-white text-fuchsia-700 text-xl font-bold px-6 py-4 rounded-2xl shadow-lg border-4 border-fuchsia-200 hover:-translate-y-1 transition">{opt}</button>
+              ))}
+            </div>
+          </div>
+        )}
+        {feedback && <div className="mt-6 text-2xl font-black text-fuchsia-600 animate-bounce">{feedback}</div>}
+      </div>
+    </div>
+  );
+};
+
+const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [roundIndex, setRoundIndex] = useState(0);
+  const [feedback, setFeedback] = useState('');
+  const [shake, setShake] = useState(false);
+  const [score, setScore] = useState(0);
+  const round = ODD_ONE_OUT_ROUNDS[roundIndex % ODD_ONE_OUT_ROUNDS.length];
+  const shuffledItems = useMemo(() => shuffle(round.items), [round]);
+
+  useEffect(() => {
+    setFeedback('');
+    speak(`Which one does not belong? ${round.hint}`);
+  }, [roundIndex, round.hint, speak]);
+
+  const handlePick = (item) => {
+    if (item === round.odd) {
+      const praise = getPraise();
+      setFeedback(`${praise} ${item} is the odd one out!`);
+      setScore((s) => s + 1);
+      playSfx('success');
+      speak(`${praise} ${item} doesn't belong with the ${round.category}!`);
+      onCelebrate(praise, 8, 200);
+      setTimeout(() => setRoundIndex((i) => i + 1), 2000);
+    } else {
+      setShake(true);
+      playSfx('wrong');
+      setFeedback(`${round.hint}`);
+      setTimeout(() => { setShake(false); setFeedback(''); }, 1200);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-lime-100 via-yellow-100 to-lime-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-lime-200/60 rounded-full blur-3xl" />
+      </div>
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-lime-700">Odd One Out</h2>
+          <p className="text-lime-700/70 font-semibold">Score: {score}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <p className="text-2xl font-bold text-slate-700 mb-2">Which one doesn't belong?</p>
+        <p className="text-slate-500 font-semibold mb-8">{round.hint}</p>
+        <div className={`grid grid-cols-2 gap-6 w-full max-w-sm ${shake ? 'animate-shake' : ''}`}>
+          {shuffledItems.map((item, i) => (
+            <button key={`${item}-${i}`} onClick={() => handlePick(item)}
+              className="aspect-square bg-white rounded-3xl shadow-xl border-4 border-lime-200 flex items-center justify-center text-7xl hover:-translate-y-2 active:translate-y-1 transition-all">{item}</button>
+          ))}
+        </div>
+        {feedback && <div className="mt-6 text-xl font-black text-lime-700 animate-bounce text-center">{feedback}</div>}
+      </div>
+    </div>
+  );
+};
+
+const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [targetHour, setTargetHour] = useState(3);
+  const [feedback, setFeedback] = useState('');
+  const [shake, setShake] = useState(false);
+  const [score, setScore] = useState(0);
+
+  const newRound = useCallback(() => {
+    setTargetHour(Math.ceil(Math.random() * 12));
+    setFeedback('');
+  }, []);
+
+  useEffect(() => {
+    speak(`Show me ${targetHour} o'clock on the clock!`);
+  }, [targetHour, speak]);
+
+  const options = useMemo(() => {
+    const set = new Set([targetHour]);
+    while (set.size < 4) {
+      set.add(Math.ceil(Math.random() * 12));
+    }
+    return shuffle(Array.from(set));
+  }, [targetHour]);
+
+  const handlePick = (h) => {
+    if (h === targetHour) {
+      const praise = getPraise();
+      setFeedback(praise);
+      setScore((s) => s + 1);
+      playSfx('success');
+      speak(`${praise} That's ${targetHour} o'clock!`);
+      onCelebrate(praise, 8, 200);
+      setTimeout(newRound, 2000);
+    } else {
+      setShake(true);
+      playSfx('wrong');
+      setFeedback('Try again!');
+      setTimeout(() => { setShake(false); setFeedback(''); }, 800);
+    }
+  };
+
+  const hourAngle = (targetHour % 12) * 30;
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-indigo-100 to-blue-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-8 left-8 w-48 h-48 bg-white/60 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-indigo-200/60 rounded-full blur-3xl" />
+      </div>
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-indigo-700">Time Teller</h2>
+          <p className="text-indigo-700/70 font-semibold">Score: {score}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <p className="text-2xl font-bold text-slate-700 mb-6">What time is this? 🕐</p>
+        <div className={`relative w-52 h-52 rounded-full bg-white shadow-2xl border-8 border-indigo-200 mb-8 ${shake ? 'animate-shake' : ''}`}>
+          {[...Array(12)].map((_, i) => {
+            const angle = ((i + 1) * 30 - 90) * (Math.PI / 180);
+            const x = 50 + 38 * Math.cos(angle);
+            const y = 50 + 38 * Math.sin(angle);
+            return (
+              <span key={i} className="absolute text-sm font-black text-indigo-700" style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}>{i + 1}</span>
+            );
+          })}
+          <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-indigo-600 rounded-full -translate-x-1/2 -translate-y-1/2 z-10" />
+          <div className="absolute top-1/2 left-1/2 w-2 h-[60px] bg-indigo-600 rounded-full origin-bottom z-[5]"
+            style={{ transform: `translate(-50%, -100%) rotate(${hourAngle}deg)` }} />
+          <div className="absolute top-1/2 left-1/2 w-1 h-[80px] bg-indigo-400 rounded-full origin-bottom"
+            style={{ transform: `translate(-50%, -100%) rotate(0deg)` }} />
+        </div>
+        <div className="flex gap-4 flex-wrap justify-center">
+          {options.map((h) => (
+            <button key={h} onClick={() => handlePick(h)}
+              className="bg-white text-indigo-700 text-xl font-black px-6 py-4 rounded-2xl shadow-lg border-4 border-indigo-200 hover:-translate-y-1 transition">{h} o'clock</button>
+          ))}
+        </div>
+        {feedback && <div className="mt-4 text-2xl font-black text-indigo-600 animate-bounce">{feedback}</div>}
+      </div>
+    </div>
+  );
+};
+
+const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const [problem, setProblem] = useState({ a: 3, b: 2, op: '+' });
+  const [feedback, setFeedback] = useState('');
+  const [shake, setShake] = useState(false);
+  const [score, setScore] = useState(0);
+  const [jumperPos, setJumperPos] = useState(0);
+  const [showAnswer, setShowAnswer] = useState(false);
+
+  const answer = problem.op === '+' ? problem.a + problem.b : problem.a - problem.b;
+  const maxNum = 15;
+
+  const newProblem = useCallback(() => {
+    const op = Math.random() > 0.5 ? '+' : '-';
+    let a, b;
+    if (op === '+') {
+      a = Math.ceil(Math.random() * 8);
+      b = Math.ceil(Math.random() * (maxNum - a));
+    } else {
+      a = Math.ceil(Math.random() * 10) + 2;
+      b = Math.ceil(Math.random() * (a - 1)) + 1;
+    }
+    setProblem({ a, b, op });
+    setJumperPos(op === '+' ? a : a);
+    setShowAnswer(false);
+    setFeedback('');
+  }, []);
+
+  useEffect(() => {
+    setJumperPos(problem.a);
+    speak(`What is ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b}?`);
+  }, [problem, speak]);
+
+  const handleTapNumber = (n) => {
+    if (n === answer) {
+      const praise = getPraise();
+      setFeedback(praise);
+      setScore((s) => s + 1);
+      setShowAnswer(true);
+      setJumperPos(answer);
+      playSfx('success');
+      speak(`${praise} ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b} equals ${answer}!`);
+      onCelebrate(praise, 8, 200);
+      setTimeout(newProblem, 2500);
+    } else {
+      setShake(true);
+      playSfx('wrong');
+      setFeedback('Try again!');
+      setTimeout(() => { setShake(false); setFeedback(''); }, 800);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-orange-100 via-amber-100 to-orange-200 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-200/60 rounded-full blur-3xl" />
+      </div>
+      <div className="flex items-center justify-between px-4 pt-4 z-20">
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <div className="text-center">
+          <h2 className="text-3xl font-black text-orange-700">Number Line Jump</h2>
+          <p className="text-orange-700/70 font-semibold">Score: {score}</p>
+        </div>
+        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+      </div>
+      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <div className={`text-center mb-8 ${shake ? 'animate-shake' : ''}`}>
+          <div className="inline-flex items-center gap-3 text-5xl font-black text-slate-800">
+            <span className="bg-white px-4 py-2 rounded-2xl shadow-lg">{problem.a}</span>
+            <span className="text-orange-500">{problem.op === '+' ? '+' : '−'}</span>
+            <span className="bg-white px-4 py-2 rounded-2xl shadow-lg">{problem.b}</span>
+            <span>=</span>
+            <span className="bg-white px-4 py-2 rounded-2xl shadow-lg text-slate-400">{showAnswer ? answer : '?'}</span>
+          </div>
+        </div>
+        <div className="relative w-full max-w-2xl h-32 mb-6">
+          <div className="absolute bottom-8 left-0 right-0 h-2 bg-orange-300 rounded-full" />
+          {Array.from({ length: maxNum + 1 }, (_, i) => (
+            <button key={i} onClick={() => handleTapNumber(i)}
+              className={`absolute bottom-4 w-8 h-8 rounded-full flex items-center justify-center text-xs font-black transition-all ${
+                i === jumperPos ? 'bg-orange-500 text-white scale-125 shadow-lg' : 'bg-white text-slate-600 shadow border-2 border-orange-200'
+              } ${i === answer && showAnswer ? 'ring-4 ring-green-400' : ''}`}
+              style={{ left: `${(i / maxNum) * 92 + 4}%`, transform: 'translateX(-50%)' }}>{i}</button>
+          ))}
+          <div className="absolute text-3xl transition-all duration-700 ease-in-out" style={{ left: `${(jumperPos / maxNum) * 92 + 4}%`, bottom: '48px', transform: 'translateX(-50%)' }}>🐸</div>
+        </div>
+        <p className="text-slate-500 font-semibold mb-4">Tap the number where the frog should land!</p>
+        {feedback && <div className="mt-2 text-2xl font-black text-orange-600 animate-bounce">{feedback}</div>}
+      </div>
+    </div>
+  );
+};
+
+const ProgressDashboard = ({ points, gamesPlayed, streak, achievements, onBack, playSfx }) => {
+  const unlockedAchievements = ACHIEVEMENTS.filter((a) => a.check(gamesPlayed, points, streak));
+  const totalGames = Object.values(gamesPlayed).reduce((a, b) => a + b, 0);
+  const favoriteGame = Object.entries(gamesPlayed).sort(([, a], [, b]) => b - a)[0];
+
+  return (
+    <div className="min-h-screen w-full bg-gradient-to-b from-indigo-100 via-purple-100 to-indigo-200 flex flex-col items-center p-6 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-8 right-8 w-48 h-48 bg-white/60 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-200/60 rounded-full blur-3xl" />
+      </div>
+      <div className="flex items-center justify-between w-full max-w-4xl mb-6 z-10">
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
+        <h2 className="text-3xl font-black text-indigo-700">My Progress</h2>
+        <div />
+      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mb-8 z-10">
+        <div className="bg-white/90 rounded-2xl p-4 text-center shadow-lg border-2 border-indigo-200">
+          <div className="text-3xl mb-1">⭐</div>
+          <div className="text-2xl font-black text-indigo-700">{points}</div>
+          <div className="text-sm text-slate-500 font-semibold">Total Stars</div>
+        </div>
+        <div className="bg-white/90 rounded-2xl p-4 text-center shadow-lg border-2 border-indigo-200">
+          <div className="text-3xl mb-1">🎮</div>
+          <div className="text-2xl font-black text-indigo-700">{totalGames}</div>
+          <div className="text-sm text-slate-500 font-semibold">Games Played</div>
+        </div>
+        <div className="bg-white/90 rounded-2xl p-4 text-center shadow-lg border-2 border-indigo-200">
+          <div className="text-3xl mb-1">🔥</div>
+          <div className="text-2xl font-black text-indigo-700">{streak}</div>
+          <div className="text-sm text-slate-500 font-semibold">Day Streak</div>
+        </div>
+        <div className="bg-white/90 rounded-2xl p-4 text-center shadow-lg border-2 border-indigo-200">
+          <div className="text-3xl mb-1">{getRank(points).emoji}</div>
+          <div className="text-lg font-black text-indigo-700">{getRank(points).title}</div>
+          <div className="text-sm text-slate-500 font-semibold">Rank</div>
+        </div>
+      </div>
+      {favoriteGame && (
+        <div className="bg-white/80 rounded-2xl p-4 w-full max-w-4xl mb-6 z-10 text-center">
+          <span className="text-slate-500 font-semibold">Favorite Game: </span>
+          <span className="font-black text-indigo-700">{GAME_LABELS[favoriteGame[0]] || favoriteGame[0]} ({favoriteGame[1]} plays)</span>
+        </div>
+      )}
+      <div className="w-full max-w-4xl z-10">
+        <h3 className="text-xl font-black text-indigo-700 mb-4">🏆 Achievements ({unlockedAchievements.length}/{ACHIEVEMENTS.length})</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {ACHIEVEMENTS.map((a) => {
+            const unlocked = a.check(gamesPlayed, points, streak);
+            return (
+              <div key={a.id} className={`rounded-2xl p-4 border-2 transition flex items-center gap-3 ${unlocked ? 'bg-white border-indigo-200 shadow-md' : 'bg-slate-100 border-slate-200 opacity-60'}`}>
+                <div className={`text-3xl ${unlocked ? '' : 'grayscale'}`}>{a.emoji}</div>
+                <div>
+                  <div className="font-black text-slate-700">{a.name}</div>
+                  <div className="text-sm text-slate-500">{a.desc}</div>
+                </div>
+                {unlocked && <span className="ml-auto text-green-500 font-black">✓</span>}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <div className="mt-8 w-full max-w-4xl z-10">
+        <h3 className="text-xl font-black text-indigo-700 mb-4">📊 Games Breakdown</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {Object.entries(gamesPlayed).filter(([, v]) => v > 0).sort(([, a], [, b]) => b - a).map(([game, count]) => (
+            <div key={game} className="bg-white/80 rounded-2xl p-3 text-center border-2 border-indigo-100">
+              <div className="font-bold text-slate-700 text-sm">{GAME_LABELS[game] || game}</div>
+              <div className="text-xl font-black text-indigo-600">{count}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -3777,6 +4590,11 @@ export default function App() {
   useEffect(() => { saveSafe('amari_challenge_progress', challengeProgress); }, [challengeProgress]);
   useEffect(() => { saveSafe('amari_challenge_done', challengeCompleted); }, [challengeCompleted]);
   useEffect(() => { saveSafe('amari_games_played', gamesPlayed); }, [gamesPlayed]);
+
+  const unlockedAchievements = useMemo(
+    () => ACHIEVEMENTS.filter((a) => a.check(gamesPlayed, points, streak)).map((a) => a.id),
+    [gamesPlayed, points, streak],
+  );
 
   // Daily streak check on start (runs once)
   const hasCheckedTodayRef = useRef(false);
@@ -4112,9 +4930,71 @@ export default function App() {
               setScreen('counting');
             }}
           />
+
+          <MenuCard
+            icon="🔤"
+            title="Word Builder"
+            desc="Spell CVC words!"
+            color="bg-pink-500"
+            onClick={() => {
+              playSfx('click');
+              setScreen('words');
+            }}
+          />
+
+          <MenuCard
+            icon="🎨"
+            title="Color Mixing Lab"
+            desc="Mix colors together!"
+            color="bg-fuchsia-500"
+            onClick={() => {
+              playSfx('click');
+              setScreen('colormix');
+            }}
+          />
+
+          <MenuCard
+            icon="🤔"
+            title="Odd One Out"
+            desc="Which one doesn't belong?"
+            color="bg-cyan-500"
+            onClick={() => {
+              playSfx('click');
+              setScreen('oddoneout');
+            }}
+          />
+
+          <MenuCard
+            icon="🕐"
+            title="Time Teller"
+            desc="Read the clock!"
+            color="bg-lime-500"
+            onClick={() => {
+              playSfx('click');
+              setScreen('timeteller');
+            }}
+          />
+
+          <MenuCard
+            icon="🐸"
+            title="Number Line Jump"
+            desc="Hop to the answer!"
+            color="bg-emerald-600"
+            onClick={() => {
+              playSfx('click');
+              setScreen('numberline');
+            }}
+          />
         </div>
 
-        <div className="mt-10 text-slate-500 font-medium text-sm flex gap-2 items-center relative z-10">
+        <button
+          onClick={() => { playSfx('click'); setScreen('progress'); }}
+          className="mt-8 relative z-10 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold text-lg px-8 py-4 rounded-full shadow-[0_6px_0_rgba(0,0,0,0.15)] active:shadow-none active:translate-y-1 transition-all flex items-center gap-3"
+        >
+          📊 My Progress & Achievements
+        </button>
+
+        <div className="mt-6 text-slate-500 font-medium text-sm flex gap-2 items-center relative z-10">
           <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
           Playful Learning Active
         </div>
@@ -4300,6 +5180,72 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'words') {
+    content = (
+      <WordBuilder
+        onBack={() => handleBack('words')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'colormix') {
+    content = (
+      <ColorMixingLab
+        onBack={() => handleBack('colormix')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'oddoneout') {
+    content = (
+      <OddOneOut
+        onBack={() => handleBack('oddoneout')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'timeteller') {
+    content = (
+      <TimeTeller
+        onBack={() => handleBack('timeteller')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'numberline') {
+    content = (
+      <NumberLineJump
+        onBack={() => handleBack('numberline')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'progress') {
+    content = (
+      <ProgressDashboard
+        points={points}
+        gamesPlayed={gamesPlayed}
+        streak={streak}
+        achievements={unlockedAchievements}
+        onBack={() => setScreen('menu')}
+        playSfx={playSfx}
       />
     );
   }
