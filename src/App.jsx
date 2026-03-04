@@ -3142,7 +3142,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
             <h3 className="text-2xl font-black text-orange-700">{getPraise()}</h3>
             <div className="flex gap-4 justify-center mt-3">
               <button onClick={handleNextPuzzle} className="text-orange-600 font-semibold">Next puzzle</button>
-              <button onClick={() => { setPuzzleIndex(puzzleIndex); setState(initPieces()); setSolved(false); setMoves(0); }} className="text-orange-600 font-semibold">Replay</button>
+              <button onClick={() => { setState(initPieces()); setSolved(false); setMoves(0); }} className="text-orange-600 font-semibold">Replay</button>
             </div>
           </div>
         )}
@@ -3175,16 +3175,22 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
   }, [problem.a, problem.b, speak]);
 
   const answer = problem.a + problem.b;
+  const addTimeoutRef = useRef(null);
+  useEffect(() => () => { if (addTimeoutRef.current) clearTimeout(addTimeoutRef.current); }, []);
 
   const options = useMemo(() => {
     const set = new Set([answer]);
-    while (set.size < 4) {
-      const delta = Math.ceil(Math.random() * 4);
+    let attempts = 0;
+    while (set.size < 4 && attempts < 30) {
+      attempts++;
+      const delta = Math.ceil(Math.random() * 5);
       const sign = Math.random() > 0.5 ? 1 : -1;
       const candidate = Math.max(0, answer + sign * delta);
-      set.add(candidate);
+      if (candidate !== answer) set.add(candidate);
     }
-    return shuffle(Array.from(set));
+    // Fallback if not enough unique options
+    for (let f = 1; set.size < 4; f++) { set.add(answer + f); }
+    return shuffle(Array.from(set).slice(0, 4));
   }, [answer]);
 
   const check = (pick) => {
@@ -3197,15 +3203,15 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
       onCelebrate(praise, 6, 250);
       const nextRound = round + 1;
       if (nextRound >= level.rounds && levelIndex < ADDITION_LEVELS.length - 1) {
-        setTimeout(() => { setLevelIndex((prev) => prev + 1); setRound(0); }, 2000);
+        addTimeoutRef.current = setTimeout(() => { setLevelIndex((prev) => prev + 1); setRound(0); }, 2000);
       } else {
         setRound(nextRound);
-        setTimeout(newProblem, 2000);
+        addTimeoutRef.current = setTimeout(newProblem, 2000);
       }
     } else {
       setShake(true);
-      playSfx('oops');
-      setTimeout(() => setShake(false), 450);
+      playSfx('wrong');
+      addTimeoutRef.current = setTimeout(() => setShake(false), 450);
     }
   };
 
@@ -3216,7 +3222,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-green-300/40 rounded-full blur-3xl" />
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg z-20 hover:scale-110 transition-transform"><Home /></button>
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg z-20 hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-emerald-700">Addition Adventure</h2>
           <p className="text-emerald-700/70 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>
@@ -3269,16 +3275,21 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
   }, [problem.a, problem.b, speak]);
 
   const answer = problem.a - problem.b;
+  const subTimeoutRef = useRef(null);
+  useEffect(() => () => { if (subTimeoutRef.current) clearTimeout(subTimeoutRef.current); }, []);
 
   const options = useMemo(() => {
     const set = new Set([answer]);
-    while (set.size < 4) {
-      const delta = Math.ceil(Math.random() * 4);
+    let attempts = 0;
+    while (set.size < 4 && attempts < 30) {
+      attempts++;
+      const delta = Math.ceil(Math.random() * 5);
       const sign = Math.random() > 0.5 ? 1 : -1;
       const candidate = Math.max(0, answer + sign * delta);
-      set.add(candidate);
+      if (candidate !== answer) set.add(candidate);
     }
-    return shuffle(Array.from(set));
+    for (let f = 1; set.size < 4; f++) { set.add(answer + f); }
+    return shuffle(Array.from(set).slice(0, 4));
   }, [answer]);
 
   const check = (pick) => {
@@ -3291,15 +3302,15 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
       onCelebrate(praise, 6, 250);
       const nextRound = round + 1;
       if (nextRound >= level.rounds && levelIndex < SUBTRACTION_LEVELS.length - 1) {
-        setTimeout(() => { setLevelIndex((prev) => prev + 1); setRound(0); }, 2000);
+        subTimeoutRef.current = setTimeout(() => { setLevelIndex((prev) => prev + 1); setRound(0); }, 2000);
       } else {
         setRound(nextRound);
-        setTimeout(newProblem, 2000);
+        subTimeoutRef.current = setTimeout(newProblem, 2000);
       }
     } else {
       setShake(true);
-      playSfx('oops');
-      setTimeout(() => setShake(false), 450);
+      playSfx('wrong');
+      subTimeoutRef.current = setTimeout(() => setShake(false), 450);
     }
   };
 
@@ -3310,7 +3321,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-300/40 rounded-full blur-3xl" />
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg z-20 hover:scale-110 transition-transform"><Home /></button>
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg z-20 hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-purple-700">Subtraction Station</h2>
           <p className="text-purple-700/70 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>
@@ -3483,6 +3494,10 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   const [phase, setPhase] = useState('count');
   const [feedback, setFeedback] = useState('');
   const [streak, setStreak] = useState(0);
+  const [shake, setShake] = useState(false);
+  const timeoutRef = useRef(null);
+
+  useEffect(() => () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }, []);
 
   const generateRound = useCallback(() => {
     const count = Math.ceil(Math.random() * level.max) + 1;
@@ -3538,20 +3553,24 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       playSfx('success');
       speak(praise);
       onCelebrate(praise, 6, 200);
-      setStreak((s) => s + 1);
-      setTimeout(() => {
-        if (streak > 0 && streak % 5 === 4 && levelIndex < COUNT_LEVELS.length - 1) {
-          setLevelIndex((p) => p + 1);
-          playSfx('levelup');
-        } else {
-          generateRound();
-        }
-      }, 1800);
+      setStreak((s) => {
+        const next = s + 1;
+        timeoutRef.current = setTimeout(() => {
+          if (next > 0 && next % 5 === 0 && levelIndex < COUNT_LEVELS.length - 1) {
+            setLevelIndex((p) => p + 1);
+            playSfx('levelup');
+          } else {
+            generateRound();
+          }
+        }, 1800);
+        return next;
+      });
     } else {
+      setShake(true);
       playSfx('wrong');
       speak('Not quite, try again!');
       setFeedback('Try again!');
-      setTimeout(() => setFeedback(''), 800);
+      timeoutRef.current = setTimeout(() => { setFeedback(''); setShake(false); }, 800);
     }
   };
 
@@ -3586,7 +3605,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         </div>
         {phase === 'count' && <p className="text-white/80 text-xl font-semibold">Tap each one! {tapped.length}/{target}</p>}
         {phase === 'answer' && (
-          <div className="text-center">
+          <div className={`text-center ${shake ? 'animate-shake' : ''}`}>
             <p className="text-white text-xl font-bold mb-4">How many did you count?</p>
             <div className="flex gap-4 justify-center">
               {options.map((n) => (
@@ -3723,6 +3742,10 @@ const loadSaved = (key, fallback) => {
   try { const v = localStorage.getItem(key); return v !== null ? JSON.parse(v) : fallback; } catch { return fallback; }
 };
 
+const saveSafe = (key, value) => {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* quota exceeded or private mode */ }
+};
+
 export default function App() {
   const [screen, setScreen] = useState('intro');
   const [soundOn, setSoundOn] = useState(true);
@@ -3747,22 +3770,22 @@ export default function App() {
   const todaysChallenge = useMemo(() => getTodaysChallenge(), []);
   const today = new Date().toISOString().slice(0, 10);
 
-  // Persist points
-  useEffect(() => { localStorage.setItem('amari_points', JSON.stringify(points)); }, [points]);
-  useEffect(() => { localStorage.setItem('amari_streak', JSON.stringify(streak)); }, [streak]);
-  useEffect(() => { localStorage.setItem('amari_lastplay', JSON.stringify(lastPlayDate)); }, [lastPlayDate]);
-  useEffect(() => { localStorage.setItem('amari_challenge_progress', JSON.stringify(challengeProgress)); }, [challengeProgress]);
-  useEffect(() => { localStorage.setItem('amari_challenge_done', JSON.stringify(challengeCompleted)); }, [challengeCompleted]);
-  useEffect(() => { localStorage.setItem('amari_games_played', JSON.stringify(gamesPlayed)); }, [gamesPlayed]);
+  // Persist to localStorage safely
+  useEffect(() => { saveSafe('amari_points', points); }, [points]);
+  useEffect(() => { saveSafe('amari_streak', streak); }, [streak]);
+  useEffect(() => { saveSafe('amari_lastplay', lastPlayDate); }, [lastPlayDate]);
+  useEffect(() => { saveSafe('amari_challenge_progress', challengeProgress); }, [challengeProgress]);
+  useEffect(() => { saveSafe('amari_challenge_done', challengeCompleted); }, [challengeCompleted]);
+  useEffect(() => { saveSafe('amari_games_played', gamesPlayed); }, [gamesPlayed]);
 
-  // Daily streak check on start
+  // Daily streak check on start (runs once)
+  const hasCheckedTodayRef = useRef(false);
   useEffect(() => {
-    if (lastPlayDate === today) return;
+    if (hasCheckedTodayRef.current || lastPlayDate === today) return;
+    hasCheckedTodayRef.current = true;
     const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
     if (lastPlayDate === yesterday) {
       setStreak((s) => s + 1);
-    } else if (lastPlayDate && lastPlayDate !== today) {
-      setStreak(1);
     } else {
       setStreak(1);
     }
@@ -3801,7 +3824,7 @@ export default function App() {
           // Track daily challenge progress
           setChallengeProgress((cp) => {
             const next = cp + 1;
-            if (next >= getTodaysChallenge().target && !challengeCompleted) {
+            if (next >= todaysChallenge.target && !challengeCompleted) {
               setChallengeCompleted(true);
             }
             return next;
@@ -3827,7 +3850,7 @@ export default function App() {
     } else {
       run();
     }
-  }, [challengeCompleted]);
+  }, [challengeCompleted, todaysChallenge]);
 
   useEffect(() => {
     if (!celebration) return;
