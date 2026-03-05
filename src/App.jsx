@@ -747,7 +747,7 @@ const ACHIEVEMENTS = [
   { id: 'streak_10', name: 'Unstoppable', emoji: '⚡', desc: 'Get a 10-day streak', check: (_, _p, s) => s >= 10 },
   { id: 'color_mixer', name: 'Color Scientist', emoji: '🎨', desc: 'Mix 10 colors', check: (g) => (g.colormix || 0) >= 10 },
   { id: 'odd_master', name: 'Sharp Eye', emoji: '👁️', desc: 'Find 15 odd ones out', check: (g) => (g.oddoneout || 0) >= 15 },
-  { id: 'astro_grad', name: 'Space Graduate', emoji: '🎓', desc: 'Complete all Astronaut missions', check: (g) => (g.astronaut || 0) >= 30 },
+  { id: 'astro_grad', name: 'Space Graduate', emoji: '🎓', desc: 'Complete all Astronaut missions', check: (g) => (g.astronaut || 0) >= 38 },
   { id: 'puzzle_king', name: 'Puzzle King', emoji: '👑', desc: 'Complete 10 puzzles', check: (g) => (g.puzzle || 0) >= 10 },
   { id: 'all_rounder', name: 'All Rounder', emoji: '🏅', desc: 'Try every game', check: (g) => Object.keys(g).filter((k) => g[k] > 0).length >= 14 },
 ];
@@ -870,6 +870,21 @@ const ASTRONAUT_CATEGORIES = [
       { q: 'Which dinosaur could fly?', visual: '🌤️', answer: 'Pterodactyl', options: [{ text: 'T-Rex', visual: '🦖' }, { text: 'Pterodactyl', visual: '🦅' }, { text: 'Triceratops', visual: '🦏' }, { text: 'Stegosaurus', visual: '🦕' }] },
       { q: 'What did dinosaurs hatch from?', visual: '❓', answer: 'Eggs', options: [{ text: 'Eggs', visual: '🥚' }, { text: 'Rocks', visual: '🪨' }, { text: 'Trees', visual: '🌳' }, { text: 'Clouds', visual: '☁️' }] },
       { q: 'Are dinosaurs still alive today?', visual: '🤔', answer: 'No', options: [{ text: 'Yes', visual: '✅' }, { text: 'No', visual: '❌' }, { text: 'Maybe', visual: '🤷' }, { text: 'Only small ones', visual: '🐊' }] },
+    ],
+  },
+  {
+    id: 'heroes',
+    name: 'Space Heroes',
+    emoji: '👨‍🚀',
+    items: [
+      { q: 'Who was the first person to walk on the Moon?', visual: '🌕', answer: 'Neil Armstrong', options: [{ text: 'Buzz Aldrin', visual: '🚀' }, { text: 'Neil Armstrong', visual: '🌕' }, { text: 'Yuri Gagarin', visual: '🛰️' }, { text: 'Tim Peake', visual: '🇬🇧' }] },
+      { q: 'Who was the first person ever to go to space?', visual: '🛰️', answer: 'Yuri Gagarin', options: [{ text: 'Neil Armstrong', visual: '🌕' }, { text: 'Mae Jemison', visual: '👩‍🚀' }, { text: 'Yuri Gagarin', visual: '🛰️' }, { text: 'Sally Ride', visual: '🇺🇸' }] },
+      { q: 'Who went to the Moon with Neil Armstrong?', visual: '👯', answer: 'Buzz Aldrin', options: [{ text: 'Buzz Aldrin', visual: '🚀' }, { text: 'Chris Hadfield', visual: '🎸' }, { text: 'Tim Peake', visual: '🇬🇧' }, { text: 'Yuri Gagarin', visual: '🛰️' }] },
+      { q: 'Who was the first Black woman to travel to space?', visual: '👩‍🚀', answer: 'Mae Jemison', options: [{ text: 'Sally Ride', visual: '🇺🇸' }, { text: 'Mae Jemison', visual: '👩‍🚀' }, { text: 'Neil Armstrong', visual: '🌕' }, { text: 'Laika', visual: '🐕' }] },
+      { q: 'Who was the first American woman in space?', visual: '🇺🇸', answer: 'Sally Ride', options: [{ text: 'Mae Jemison', visual: '👩‍🚀' }, { text: 'Sally Ride', visual: '🇺🇸' }, { text: 'Buzz Aldrin', visual: '🚀' }, { text: 'Chris Hadfield', visual: '🎸' }] },
+      { q: 'Which astronaut sang a song from space?', visual: '🎸', answer: 'Chris Hadfield', options: [{ text: 'Tim Peake', visual: '🇬🇧' }, { text: 'Neil Armstrong', visual: '🌕' }, { text: 'Chris Hadfield', visual: '🎸' }, { text: 'Buzz Aldrin', visual: '🚀' }] },
+      { q: 'What was the name of the first dog sent to orbit Earth?', visual: '🐕', answer: 'Laika', options: [{ text: 'Buddy', visual: '🐶' }, { text: 'Rex', visual: '🐕‍🦺' }, { text: 'Laika', visual: '🐕' }, { text: 'Spot', visual: '🐾' }] },
+      { q: 'Which British astronaut ran a marathon in space?', visual: '🏃', answer: 'Tim Peake', options: [{ text: 'Chris Hadfield', visual: '🎸' }, { text: 'Neil Armstrong', visual: '🌕' }, { text: 'Tim Peake', visual: '🇬🇧' }, { text: 'Sally Ride', visual: '🇺🇸' }] },
     ],
   },
 ];
