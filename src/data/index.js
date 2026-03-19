@@ -1033,12 +1033,40 @@ export const CHESS_PIECES = [
   { id: 'pawn', name: 'Pawn', emoji: '♟', white: '♙', desc: 'The little soldier!', move: 'One step forward', moveEmoji: '🪖', color: '#ef4444' },
 ];
 
+// Tiered chess puzzles — 3 difficulty levels
 export const CHESS_PUZZLES = [
-  { piece: 'king', pos: [3, 3], validMoves: [[2,2],[2,3],[2,4],[3,2],[3,4],[4,2],[4,3],[4,4]], q: 'Where can the King go?' },
-  { piece: 'rook', pos: [3, 3], validMoves: [[0,3],[1,3],[2,3],[4,3],[5,3],[3,0],[3,1],[3,2],[3,4],[3,5]], q: 'Where can the Rook go?' },
-  { piece: 'bishop', pos: [3, 3], validMoves: [[0,0],[1,1],[2,2],[4,4],[5,5],[0,6],[1,5],[2,4],[4,2],[5,1]], q: 'Where can the Bishop go?' },
-  { piece: 'knight', pos: [3, 3], validMoves: [[1,2],[1,4],[2,1],[2,5],[4,1],[4,5],[5,2],[5,4]], q: 'Where can the Knight jump?' },
-  { piece: 'pawn', pos: [4, 3], validMoves: [[3,3]], q: 'Where can the Pawn go?' },
-  { piece: 'queen', pos: [3, 3], validMoves: [[0,0],[1,1],[2,2],[4,4],[5,5],[0,6],[1,5],[2,4],[4,2],[5,1],[0,3],[1,3],[2,3],[4,3],[5,3],[3,0],[3,1],[3,2],[3,4],[3,5]], q: 'Where can the Queen go?' },
+  // Level 1 — Beginner (easy pieces, corner/edge = fewer moves)
+  { piece: 'pawn', pos: [4, 2], validMoves: [[3, 2]], q: 'Where can the Pawn go?', level: 1 },
+  { piece: 'king', pos: [0, 0], validMoves: [[0, 1], [1, 0], [1, 1]], q: 'Where can the King go?', level: 1 },
+  { piece: 'rook', pos: [0, 3], validMoves: [[0,0],[0,1],[0,2],[0,4],[0,5],[1,3],[2,3],[3,3],[4,3],[5,3]], q: 'Where can the Rook go?', level: 1 },
+  // Level 2 — Explorer (center positions, moderate)
+  { piece: 'bishop', pos: [3, 3], validMoves: [[0,0],[1,1],[2,2],[4,4],[5,5],[2,4],[1,5],[4,2],[5,1]], q: 'Where can the Bishop go?', level: 2 },
+  { piece: 'knight', pos: [3, 3], validMoves: [[1,2],[1,4],[2,1],[2,5],[4,1],[4,5],[5,2],[5,4]], q: 'Where can the Knight jump?', level: 2 },
+  { piece: 'pawn', pos: [3, 1], validMoves: [[2, 1]], q: 'Where can the Pawn go?', level: 2 },
+  // Level 3 — Champion (hardest, max valid moves)
+  { piece: 'king', pos: [3, 3], validMoves: [[2,2],[2,3],[2,4],[3,2],[3,4],[4,2],[4,3],[4,4]], q: 'Where can the King go?', level: 3 },
+  { piece: 'queen', pos: [3, 3], validMoves: [[0,0],[1,1],[2,2],[4,4],[5,5],[2,4],[1,5],[4,2],[5,1],[0,3],[1,3],[2,3],[4,3],[5,3],[3,0],[3,1],[3,2],[3,4],[3,5]], q: 'Where can the Queen go?', level: 3 },
+  { piece: 'rook', pos: [2, 2], validMoves: [[0,2],[1,2],[3,2],[4,2],[5,2],[2,0],[2,1],[2,3],[2,4],[2,5]], q: 'Where can the Rook go?', level: 3 },
+];
+
+// Demo move paths for animated Learn mode — 3-4 example moves per piece
+export const PIECE_DEMO_MOVES = {
+  king:   [[1, 1], [1, 2], [2, 2], [2, 1]],
+  queen:  [[0, 2], [2, 0], [2, 2], [0, 0]],
+  rook:   [[2, 0], [0, 0], [0, 2], [2, 2]],
+  bishop: [[0, 0], [2, 2], [0, 2], [2, 0]],
+  knight: [[0, 1], [2, 2], [0, 3], [2, 0]],
+  pawn:   [[1, 1], [0, 1]],
+};
+
+export const MOVE_PRAISE = [
+  'Nice move!',
+  'Great job!',
+  'You got it!',
+  'Awesome!',
+  'Way to go!',
+  'Perfect!',
+  'Well done!',
+  'Brilliant!',
 ];
 

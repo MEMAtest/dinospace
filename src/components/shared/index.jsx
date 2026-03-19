@@ -1,4 +1,3 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home, Pause, Play, Volume2, VolumeX } from 'lucide-react';
 import { STICKERS, GAME_LABELS } from '../../data/index.js';
 
@@ -17,11 +16,18 @@ export const CelebrationOverlay = ({ celebration }) => {
 
   const confetti = celebration.confetti || [];
   const reducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+  const isBig = celebration.points >= 8;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
       {/* Screen flash */}
       <div className="absolute inset-0 bg-white/30 animate-fade-out" />
+      {/* Ring-burst shockwave on big celebrations */}
+      {isBig && !reducedMotion && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full border-4 border-yellow-300/60 animate-ring-expand" />
+        </div>
+      )}
       {/* Emoji bursts */}
       {celebration.bursts.map((burst) => (
         <span

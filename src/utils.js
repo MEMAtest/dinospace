@@ -154,3 +154,49 @@ export const saveSafe = (key, value) => {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* quota exceeded or private mode */ }
 };
 
+export const computeValidMoves = (pieceId, [r, c], boardSize) => {
+  const moves = [];
+  const inBounds = (row, col) => row >= 0 && row < boardSize && col >= 0 && col < boardSize;
+
+  if (pieceId === 'king') {
+    for (let dr = -1; dr <= 1; dr++) {
+      for (let dc = -1; dc <= 1; dc++) {
+        if (dr === 0 && dc === 0) continue;
+        if (inBounds(r + dr, c + dc)) moves.push([r + dr, c + dc]);
+      }
+    }
+  }
+
+  if (pieceId === 'queen' || pieceId === 'rook') {
+    // Straight lines
+    for (let i = 0; i < boardSize; i++) {
+      if (i !== r) moves.push([i, c]);
+      if (i !== c) moves.push([r, i]);
+    }
+  }
+
+  if (pieceId === 'queen' || pieceId === 'bishop') {
+    // Diagonals
+    for (let d = 1; d < boardSize; d++) {
+      if (inBounds(r + d, c + d)) moves.push([r + d, c + d]);
+      if (inBounds(r + d, c - d)) moves.push([r + d, c - d]);
+      if (inBounds(r - d, c + d)) moves.push([r - d, c + d]);
+      if (inBounds(r - d, c - d)) moves.push([r - d, c - d]);
+    }
+  }
+
+  if (pieceId === 'knight') {
+    const jumps = [[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]];
+    for (const [dr, dc] of jumps) {
+      if (inBounds(r + dr, c + dc)) moves.push([r + dr, c + dc]);
+    }
+  }
+
+  if (pieceId === 'pawn') {
+    // Pawns move forward (up = decreasing row)
+    if (inBounds(r - 1, c)) moves.push([r - 1, c]);
+  }
+
+  return moves;
+};
+

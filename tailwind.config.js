@@ -76,6 +76,25 @@ export default {
           "0%, 100%": { boxShadow: "0 0 8px rgba(168,85,247,0.3)" },
           "50%": { boxShadow: "0 0 20px rgba(168,85,247,0.6)" },
         },
+        "cell-correct": {
+          "0%": { transform: "scale(0.8)", boxShadow: "0 0 0 rgba(34,197,94,0)" },
+          "50%": { transform: "scale(1.12)", boxShadow: "0 0 16px rgba(34,197,94,0.5)" },
+          "100%": { transform: "scale(1)", boxShadow: "0 0 8px rgba(34,197,94,0.2)" },
+        },
+        "piece-bounce": {
+          "0%": { transform: "scale(1)" },
+          "30%": { transform: "scale(1.3)" },
+          "60%": { transform: "scale(0.95)" },
+          "100%": { transform: "scale(1)" },
+        },
+        "ring-expand": {
+          "0%": { transform: "scale(0.5)", opacity: "0.8" },
+          "100%": { transform: "scale(8)", opacity: "0" },
+        },
+        "cell-pulse": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
       },
       animation: {
         "bounce-slow": "bounce-slow 2.6s ease-in-out infinite",
@@ -94,6 +113,10 @@ export default {
         "fade-out": "fade-out 0.15s ease-out forwards",
         "count-up": "count-up 0.3s ease-out both",
         "glow-pulse": "glow-pulse 2s ease-in-out infinite",
+        "cell-correct": "cell-correct 0.4s ease-out",
+        "piece-bounce": "piece-bounce 0.5s ease-out",
+        "ring-expand": "ring-expand 0.8s ease-out forwards",
+        "cell-pulse": "cell-pulse 1.5s ease-in-out infinite",
       },
     },
   },
