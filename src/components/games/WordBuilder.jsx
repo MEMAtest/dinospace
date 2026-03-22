@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { WORD_BUILDER_WORDS } from '../../data/index.js';
-import { pickRandom, shuffle } from '../../utils.js';
+import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

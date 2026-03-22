@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { BLEND_WORDS } from '../../data/index.js';
-import { pickRandom, shuffle, buildPhonicsRound } from '../../utils.js';
+import { pickRandom, shuffle, buildPhonicsRound, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

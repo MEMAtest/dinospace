@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { JIGSAW_PUZZLES, PUZZLE_TILES } from '../../data/index.js';
-import { isPuzzleSolved, buildPuzzleTiles } from '../../utils.js';
+import { isPuzzleSolved, buildPuzzleTiles, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

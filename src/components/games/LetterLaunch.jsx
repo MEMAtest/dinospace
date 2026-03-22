@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
-import { buildLetterRound } from '../../utils.js';
+import { buildLetterRound, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { SPOT_LEVELS } from '../../data/index.js';
+import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

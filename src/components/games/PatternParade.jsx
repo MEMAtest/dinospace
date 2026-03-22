@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
-import { ADVANCED_PATTERN_ROUNDS, NUMBER_PATTERN_ROUNDS } from '../../data/index.js';
-import { pickRandom, shuffle, buildPatternRound } from '../../utils.js';
+import { ADVANCED_PATTERN_ROUNDS, NUMBER_PATTERN_ROUNDS, PATTERN_ROUNDS, PATTERN_TOKENS } from '../../data/index.js';
+import { pickRandom, shuffle, buildPatternRound, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

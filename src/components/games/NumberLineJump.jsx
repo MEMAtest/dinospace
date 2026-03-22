@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
-import { pickRandom } from '../../utils.js';
+import { pickRandom, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

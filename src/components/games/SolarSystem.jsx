@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home, ArrowRight } from 'lucide-react';
-import { PLANETS } from '../../data/index.js';
+import { PLANETS, THEME } from '../../data/index.js';
 import { pickRandom, shadeColor, createPlanetStyle } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 

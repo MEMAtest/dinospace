@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
-import { pickRandom, shuffle } from '../../utils.js';
+import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const MonsterMath = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { TRACE_LETTERS } from '../../data/index.js';
-import { pickRandom } from '../../utils.js';
+import { pickRandom, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

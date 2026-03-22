@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { SUBTRACTION_LEVELS, VISUAL_EMOJIS } from '../../data/index.js';
-import { pickRandom, shuffle } from '../../utils.js';
+import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {

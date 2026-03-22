@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { ASTRONAUT_PROFILES, ASTRONAUT_CATEGORIES } from '../../data/index.js';
-import { pickRandom, shuffle, findProfile } from '../../utils.js';
+import { pickRandom, shuffle, findProfile, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const AstronautImage = ({ profile, size = 80, className = '' }) => {
