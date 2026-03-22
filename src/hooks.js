@@ -345,48 +345,66 @@ export const useVoice = (enabled) => {
     // Split text into sentences for natural pauses
     const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
 
-    const preferred = voiceRef.current || pickFriendlyVoice(synth.getVoices(), lang);
+    const doSpeak = () => {
+      // Re-check voice — may have loaded since initial mount
+      if (!voiceRef.current) {
+        voiceRef.current = pickFriendlyVoice(synth.getVoices(), lang);
+      }
+      const preferred = voiceRef.current;
 
-    const speakSentence = (index) => {
-      if (index >= sentences.length) return;
+      const speakSentence = (index) => {
+        if (index >= sentences.length) return;
 
-      const utterance = new SpeechSynthesisUtterance(sentences[index].trim());
-      utterance.lang = lang;
-      // Slight random variation per sentence to prevent monotony
-      utterance.rate = rate + (Math.random() * 0.06 - 0.03);
-      utterance.pitch = pitch;
-      utterance.volume = 1;
-      if (preferred) utterance.voice = preferred;
+        const utterance = new SpeechSynthesisUtterance(sentences[index].trim());
+        utterance.lang = lang;
+        // Slight random variation per sentence to prevent monotony
+        utterance.rate = rate + (Math.random() * 0.06 - 0.03);
+        utterance.pitch = pitch;
+        utterance.volume = 1;
+        if (preferred) utterance.voice = preferred;
 
-      utterance.onend = () => {
-        if (index < sentences.length - 1) {
-          // 350ms breathing pause between sentences
-          queueRef.current = setTimeout(() => speakSentence(index + 1), 350);
-        }
+        utterance.onend = () => {
+          if (index < sentences.length - 1) {
+            // 350ms breathing pause between sentences
+            queueRef.current = setTimeout(() => speakSentence(index + 1), 350);
+          }
+        };
+
+        synth.speak(utterance);
       };
 
-      synth.speak(utterance);
+      speakSentence(0);
     };
 
-    speakSentence(0);
+    // If voices haven't loaded yet, wait briefly for them
+    if (!voiceRef.current && synth.getVoices().length === 0) {
+      const onReady = () => {
+        voiceRef.current = pickFriendlyVoice(synth.getVoices(), lang);
+        doSpeak();
+      };
+      synth.addEventListener('voiceschanged', onReady, { once: true });
+      // Fallback — if voiceschanged never fires, speak anyway after 300ms
+      queueRef.current = setTimeout(() => {
+        synth.removeEventListener('voiceschanged', onReady);
+        doSpeak();
+      }, 300);
+    } else {
+      doSpeak();
+    }
   }, []);
 };
 
 export const useAmbientMusic = (enabled) => {
   const ctxRef = useRef(null);
   const nodesRef = useRef(null);
+  const wantsPlayRef = useRef(false);
 
   useEffect(() => {
     const stop = () => {
       if (!nodesRef.current) return;
       const { nodes, master, filter } = nodesRef.current;
       nodes.forEach((node) => {
-        try {
-          node.osc.stop();
-          node.lfo.stop();
-        } catch {
-          // ignore
-        }
+        try { node.osc.stop(); node.lfo.stop(); } catch { /* ignore */ }
         node.osc.disconnect();
         node.lfo.disconnect();
         node.gain.disconnect();
@@ -398,56 +416,74 @@ export const useAmbientMusic = (enabled) => {
     };
 
     if (!enabled) {
+      wantsPlayRef.current = false;
       stop();
       return;
     }
 
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) return;
+    wantsPlayRef.current = true;
 
-    if (!ctxRef.current) ctxRef.current = new AudioContext();
-    const ctx = ctxRef.current;
-    if (ctx.state === 'suspended') ctx.resume();
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
 
-    if (nodesRef.current) return;
+    const startNodes = (ctx) => {
+      if (nodesRef.current) return;
+      const master = ctx.createGain();
+      master.gain.value = 0.03;
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = 700;
+      master.connect(filter);
+      filter.connect(ctx.destination);
 
-    const master = ctx.createGain();
-    master.gain.value = 0.03;
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.value = 700;
-    master.connect(filter);
-    filter.connect(ctx.destination);
+      const freqs = [220, 277.18, 329.63];
+      const nodes = freqs.map((freq, index) => {
+        const osc = ctx.createOscillator();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        const gain = ctx.createGain();
+        gain.gain.value = 0.08;
+        const lfo = ctx.createOscillator();
+        lfo.type = 'sine';
+        lfo.frequency.value = 0.03 + index * 0.015;
+        const lfoGain = ctx.createGain();
+        lfoGain.gain.value = 0.02;
+        lfo.connect(lfoGain);
+        lfoGain.connect(gain.gain);
+        osc.connect(gain);
+        gain.connect(master);
+        osc.start();
+        lfo.start();
+        return { osc, gain, lfo, lfoGain };
+      });
 
-    const freqs = [220, 277.18, 329.63];
-    const nodes = freqs.map((freq, index) => {
-      const osc = ctx.createOscillator();
-      osc.type = 'sine';
-      osc.frequency.value = freq;
+      nodesRef.current = { nodes, master, filter };
+    };
 
-      const gain = ctx.createGain();
-      gain.gain.value = 0.08;
+    // Defer AudioContext creation until a user gesture to avoid browser warnings
+    const startMusic = () => {
+      if (!wantsPlayRef.current) return;
+      if (!ctxRef.current) ctxRef.current = new AudioCtx();
+      const ctx = ctxRef.current;
+      if (ctx.state === 'suspended') ctx.resume();
+      startNodes(ctx);
+      // Remove listener once started
+      document.removeEventListener('pointerdown', startMusic);
+      document.removeEventListener('keydown', startMusic);
+    };
 
-      const lfo = ctx.createOscillator();
-      lfo.type = 'sine';
-      lfo.frequency.value = 0.03 + index * 0.015;
+    // If context already exists (user already interacted), start immediately
+    if (ctxRef.current) {
+      startMusic();
+    } else {
+      document.addEventListener('pointerdown', startMusic, { once: true });
+      document.addEventListener('keydown', startMusic, { once: true });
+    }
 
-      const lfoGain = ctx.createGain();
-      lfoGain.gain.value = 0.02;
-
-      lfo.connect(lfoGain);
-      lfoGain.connect(gain.gain);
-      osc.connect(gain);
-      gain.connect(master);
-
-      osc.start();
-      lfo.start();
-
-      return { osc, gain, lfo, lfoGain };
-    });
-
-    nodesRef.current = { nodes, master, filter };
-
-    return stop;
+    return () => {
+      document.removeEventListener('pointerdown', startMusic);
+      document.removeEventListener('keydown', startMusic);
+      stop();
+    };
   }, [enabled]);
 };

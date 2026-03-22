@@ -1,4 +1,4 @@
-import { Home, Pause, Play, Volume2, VolumeX } from 'lucide-react';
+import { ArrowRight, Home, Pause, Play, Volume2, VolumeX } from 'lucide-react';
 import { STICKERS, GAME_LABELS } from '../../data/index.js';
 
 export const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
