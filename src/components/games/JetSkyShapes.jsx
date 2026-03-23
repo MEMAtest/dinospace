@@ -17,11 +17,6 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     speak(`Trace the ${shape}.`);
   }, [shape, speak]);
 
-  useEffect(() => {
-    drawDistanceRef.current = 0;
-    autoCompleteRef.current = false;
-  }, [shape, cleared, markComplete, playSfx, speak]);
-
   const markComplete = useCallback((praise) => {
     setCompletedShapes((prev) => {
       if (prev.includes(shape)) return prev;
@@ -31,6 +26,11 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       return next;
     });
   }, [onCelebrate, shape]);
+
+  useEffect(() => {
+    drawDistanceRef.current = 0;
+    autoCompleteRef.current = false;
+  }, [shape, cleared, markComplete, playSfx, speak]);
 
   useEffect(() => {
     if (completedShapes.length !== SHAPES.length) return;

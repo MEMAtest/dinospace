@@ -29,6 +29,13 @@ const pickFriendlyVoice = (voices, lang) => {
   return friendly || gentle || pool[0];
 };
 
+let hadUserGesture = false;
+if (typeof window !== 'undefined') {
+  const markGesture = () => { hadUserGesture = true; };
+  window.addEventListener('pointerdown', markGesture, { once: true });
+  window.addEventListener('keydown', markGesture, { once: true });
+}
+
 export const useSfx = (enabled) => {
   const ctxRef = useRef(null);
   const enabledRef = useRef(enabled);
@@ -38,6 +45,7 @@ export const useSfx = (enabled) => {
   }, [enabled]);
 
   const getCtx = useCallback(() => {
+    if (!hadUserGesture) return null;
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     if (!AudioContext) return null;
     if (!ctxRef.current) ctxRef.current = new AudioContext();

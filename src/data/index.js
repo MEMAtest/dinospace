@@ -191,12 +191,12 @@ export const DINO_SPECIES = {
   },
   brachio: {
     name: 'Brachiosaurus',
-    emoji: '🦒',
+    emoji: '🦕',
     fact: 'Looks like a giraffe dinosaur with a long neck!',
   },
   trike: {
     name: 'Triceratops',
-    emoji: '🦏',
+    emoji: '🦕',
     fact: 'Three horns help protect my nose.',
   },
   stego: {
@@ -226,7 +226,7 @@ export const DINO_SPECIES = {
   },
   ptero: {
     name: 'Pterodactyl',
-    emoji: '🦅',
+    emoji: '🦖',
     fact: 'Flying reptile, not a dinosaur!',
   },
   dillo: {

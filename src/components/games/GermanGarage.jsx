@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home, Palette } from 'lucide-react';
-import { GERMAN_COLORS, GERMAN_MATCH_MODES } from '../../data/index.js';
+import { GERMAN_COLORS, GERMAN_MATCH_MODES, GERMAN_NUMBERS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise, buildParkRound, buildMatchRound } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
