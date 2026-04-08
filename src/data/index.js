@@ -238,6 +238,7 @@ export const DINO_SPECIES = {
 
 export const makeDino = (levelId, key, x, y) => ({
   id: `${levelId}-${key}-${x}-${y}`,
+  species: key,
   ...DINO_SPECIES[key],
   x,
   y,

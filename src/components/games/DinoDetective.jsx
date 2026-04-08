@@ -3,6 +3,7 @@ import { Home } from 'lucide-react';
 import { DINO_LEVELS } from '../../data/index.js';
 import { buildDinos, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import DinoIcon from '../shared/DinoIcon.jsx';
 
 const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
   const [levelIndex, setLevelIndex] = useState(0);
@@ -108,8 +109,8 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
                 <span className="absolute inset-0 flex items-center justify-center text-3xl opacity-40">🌿</span>
               </div>
             ) : (
-              <div className="text-6xl animate-pop-in drop-shadow-2xl transform hover:scale-110 transition-transform">
-                {dino.emoji}
+              <div className="animate-pop-in drop-shadow-2xl transform hover:scale-110 transition-transform">
+                <DinoIcon species={dino.species} size={64} />
               </div>
             )}
           </button>
@@ -119,7 +120,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       {foundDino && (
         <div className="absolute inset-0 bg-black/40 z-30 flex items-center justify-center p-4 backdrop-blur-sm">
           <div className="bg-orange-50 rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl border-4 border-orange-200 animate-scale-in">
-            <div className="text-8xl mb-4">{foundDino.emoji}</div>
+            <div className="mb-4 flex justify-center"><DinoIcon species={foundDino.species} size={128} /></div>
             <h3 className="text-3xl font-black text-orange-500 mb-2">{foundDino.name}</h3>
             <div className="bg-white p-4 rounded-xl border-2 border-orange-100 mb-6">
               <p className="text-lg text-slate-700 font-medium">"{foundDino.fact}"</p>
