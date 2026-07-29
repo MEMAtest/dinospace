@@ -30,6 +30,16 @@
   #root {
     @apply min-h-screen;
   }
+
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 4px solid rgba(250, 204, 21, 0.9);
+    outline-offset: 3px;
+  }
 }
 
 @layer utilities {
@@ -44,6 +54,70 @@
 
   .tap-highlight-none {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  .game-icon-button {
+    @apply grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-white/90 text-slate-800 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0;
+  }
+
+  .ttt-option {
+    @apply flex items-center gap-3 rounded-2xl border border-transparent bg-black/20 px-3 py-3 text-left text-white/70 transition hover:bg-white/10 hover:text-white;
+  }
+
+  .ttt-option span {
+    @apply flex min-w-0 flex-col;
+  }
+
+  .ttt-option strong {
+    @apply text-sm font-black;
+  }
+
+  .ttt-option small {
+    @apply text-xs opacity-60;
+  }
+
+  .ttt-option-active {
+    @apply border-cyan-300/60 bg-cyan-300/15 text-white shadow-[0_0_24px_rgba(103,232,249,0.14)];
+  }
+
+  .ttt-cell {
+    @apply relative grid aspect-square place-items-center overflow-hidden rounded-2xl border-2 border-white/15 bg-gradient-to-br from-white/15 to-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_8px_20px_rgba(0,0,0,0.2)] transition duration-200 hover:border-cyan-300/55 hover:bg-white/15 disabled:cursor-default;
+  }
+
+  .ttt-cell:not(:disabled):hover {
+    transform: translateY(-2px) scale(1.015);
+  }
+
+  .ttt-cell-win {
+    @apply border-lime-300 bg-lime-300/20 shadow-[0_0_32px_rgba(190,242,100,0.35),inset_0_0_24px_rgba(190,242,100,0.12)];
+  }
+
+  .ttt-cell-hint {
+    @apply border-amber-300/80 bg-amber-300/10;
+  }
+
+  .ttt-mark {
+    @apply select-none text-5xl sm:text-7xl animate-pop-in;
+    filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.3));
+  }
+
+  .ttt-action {
+    @apply flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 font-black text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-white/15 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+}
+
+.ttt-starfield {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 24%, rgba(103, 232, 249, 0.75) 0 1px, transparent 2px),
+    radial-gradient(circle at 42% 72%, rgba(255, 255, 255, 0.75) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 86% 78%, rgba(190, 242, 100, 0.7) 0 1px, transparent 2px);
+  background-size: 170px 170px, 230px 230px, 310px 310px, 390px 390px;
+}
+
+@media (pointer: coarse) {
+  button {
+    min-height: 44px;
   }
 }
 

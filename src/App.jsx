@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Home } from 'lucide-react';
-import { THEME, GAME_LABELS, ACHIEVEMENTS } from './data/index.js';
-import { pickRandom, createBursts, createConfetti, getPraise, getRank, getNextRank, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
+import { THEME, ACHIEVEMENTS } from './data/index.js';
+import { createBursts, createConfetti, getPraise, getRank, getNextRank, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
 import { useSfx, useVoice, useAmbientMusic } from './hooks.js';
 import {
   SoundToggle, CelebrationOverlay, RewardsShelf, PointsSummaryScreen,
@@ -29,11 +28,41 @@ import OddOneOut from './components/games/OddOneOut.jsx';
 import TimeTeller from './components/games/TimeTeller.jsx';
 import NumberLineJump from './components/games/NumberLineJump.jsx';
 import ChessExplorers from './components/games/ChessExplorers.jsx';
+import TicTacToe from './components/games/TicTacToe.jsx';
 import ProgressDashboard from './components/games/ProgressDashboard.jsx';
 import IntroScreen from './components/games/IntroScreen.jsx';
 
+const GAME_CATEGORIES = ['All', 'Quick Think', 'Maths', 'Words', 'Discover', 'Create'];
+
+const GAME_MENU_ITEMS = [
+  { id: 'tictactoe', icon: '🦖', title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
+  { id: 'dino', icon: '🦕', title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' },
+  { id: 'jet', icon: '✈️', title: 'Sky Shapes', desc: 'Draw with a jet!', color: 'bg-gradient-to-br from-sky-400 to-blue-500', category: 'Create' },
+  { id: 'solar', icon: '🪐', title: 'Solar System', desc: 'Visit the planets', color: 'bg-gradient-to-br from-indigo-500 to-violet-600', category: 'Discover' },
+  { id: 'german', icon: '🎨', title: 'German Garage', desc: 'Learn colours in German', color: 'bg-gradient-to-br from-red-400 to-rose-500', category: 'Words' },
+  { id: 'math', icon: '🛻', title: 'Monster Math', desc: 'Stunt-jump counting', color: 'bg-gradient-to-br from-orange-400 to-red-500', category: 'Maths' },
+  { id: 'letters', icon: '🚀', title: 'Letter Launch', desc: 'Letters and sounds', color: 'bg-gradient-to-br from-teal-400 to-cyan-500', category: 'Words' },
+  { id: 'memory', icon: '🧩', title: 'Memory Match', desc: 'Find the pairs', color: 'bg-gradient-to-br from-rose-400 to-pink-500', category: 'Quick Think' },
+  { id: 'pattern', icon: '🔷', title: 'Pattern Parade', desc: 'Finish the pattern', color: 'bg-gradient-to-br from-amber-400 to-orange-500', category: 'Quick Think' },
+  { id: 'spot', icon: '🦸‍♂️', title: 'Spot the Difference', desc: 'Find what changed', color: 'bg-gradient-to-br from-indigo-400 to-blue-600', category: 'Quick Think' },
+  { id: 'puzzle', icon: '🧩', title: 'Puzzle Pop', desc: 'Build the picture!', color: 'bg-gradient-to-br from-yellow-400 to-amber-500', category: 'Quick Think' },
+  { id: 'trace', icon: '🖍️', title: 'Letter Trace', desc: 'Trace big and small letters', color: 'bg-gradient-to-br from-blue-400 to-indigo-500', category: 'Words' },
+  { id: 'phonics', icon: '🦁', title: 'Sound Safari', desc: 'Match the sounds', color: 'bg-gradient-to-br from-emerald-400 to-green-600', category: 'Words' },
+  { id: 'addition', icon: '➕', title: 'Addition Adventure', desc: 'Add it up!', color: 'bg-gradient-to-br from-teal-500 to-emerald-600', category: 'Maths' },
+  { id: 'subtraction', icon: '➖', title: 'Subtraction Station', desc: 'Take it away!', color: 'bg-gradient-to-br from-violet-500 to-purple-700', category: 'Maths' },
+  { id: 'astronaut', icon: '👨‍🚀', title: 'Astronaut Academy', desc: 'Explore space heroes', color: 'bg-gradient-to-br from-purple-600 to-indigo-800', category: 'Discover' },
+  { id: 'counting', icon: '🔢', title: 'Count the Stars', desc: 'Tap and count!', color: 'bg-gradient-to-br from-indigo-600 to-blue-800', category: 'Maths' },
+  { id: 'words', icon: '🔤', title: 'Word Builder', desc: 'Spell simple words!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' },
+  { id: 'colormix', icon: '🎨', title: 'Colour Mixing Lab', desc: 'Mix colours together!', color: 'bg-gradient-to-br from-fuchsia-500 to-purple-600', category: 'Create' },
+  { id: 'oddoneout', icon: '🤔', title: 'Odd One Out', desc: 'Which one does not belong?', color: 'bg-gradient-to-br from-cyan-500 to-blue-600', category: 'Quick Think' },
+  { id: 'timeteller', icon: '🕐', title: 'Time Teller', desc: 'Read the clock!', color: 'bg-gradient-to-br from-lime-500 to-green-600', category: 'Maths' },
+  { id: 'numberline', icon: '🐸', title: 'Number Line Jump', desc: 'Hop to the answer!', color: 'bg-gradient-to-br from-emerald-600 to-teal-700', category: 'Maths' },
+  { id: 'chess', icon: '♟️', title: 'Chess Explorers', desc: 'Learn chess pieces!', color: 'bg-gradient-to-br from-amber-600 to-yellow-800', category: 'Quick Think' },
+];
+
 export default function App() {
   const [screen, setScreen] = useState('intro');
+  const [menuFilter, setMenuFilter] = useState('All');
   const [soundOn, setSoundOn] = useState(true);
   const [points, setPoints] = useState(() => loadSaved('amari_points', 0));
   const [celebration, setCelebration] = useState(null);
@@ -46,7 +75,6 @@ export default function App() {
   const [challengeProgress, setChallengeProgress] = useState(() => loadSaved('amari_challenge_progress', 0));
   const [challengeCompleted, setChallengeCompleted] = useState(() => loadSaved('amari_challenge_done', false));
   const [gamesPlayed, setGamesPlayed] = useState(() => loadSaved('amari_games_played', {}));
-  const sessionStartRef = useRef(Date.now());
   const breakTimerRef = useRef(null);
   const screenRef = useRef(screen);
   const playSfx = useSfx(soundOn);
@@ -54,6 +82,10 @@ export default function App() {
   useAmbientMusic(soundOn);
 
   const todaysChallenge = useMemo(() => getTodaysChallenge(), []);
+  const filteredGames = useMemo(
+    () => menuFilter === 'All' ? GAME_MENU_ITEMS : GAME_MENU_ITEMS.filter((game) => game.category === menuFilter),
+    [menuFilter],
+  );
   const today = new Date().toISOString().slice(0, 10);
 
   // Persist to localStorage safely
@@ -74,15 +106,18 @@ export default function App() {
   useEffect(() => {
     if (hasCheckedTodayRef.current || lastPlayDate === today) return;
     hasCheckedTodayRef.current = true;
-    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-    if (lastPlayDate === yesterday) {
-      setStreak((s) => s + 1);
-    } else {
-      setStreak(1);
-    }
-    setLastPlayDate(today);
-    setChallengeProgress(0);
-    setChallengeCompleted(false);
+    const timer = setTimeout(() => {
+      const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+      if (lastPlayDate === yesterday) {
+        setStreak((s) => s + 1);
+      } else {
+        setStreak(1);
+      }
+      setLastPlayDate(today);
+      setChallengeProgress(0);
+      setChallengeCompleted(false);
+    }, 0);
+    return () => clearTimeout(timer);
   }, [lastPlayDate, today]);
 
   // Screen time break reminder (30 min)
@@ -112,14 +147,16 @@ export default function App() {
             ...prevSessions,
             [gameIdAtCall]: (prevSessions[gameIdAtCall] || 0) + pointsEarned,
           }));
-          // Track daily challenge progress
-          setChallengeProgress((cp) => {
-            const next = cp + 1;
-            if (next >= todaysChallenge.target && !challengeCompleted) {
-              setChallengeCompleted(true);
-            }
-            return next;
-          });
+          // Only advance the mission while the child is playing the named challenge game.
+          if (gameIdAtCall === todaysChallenge.game) {
+            setChallengeProgress((cp) => {
+              const next = cp + 1;
+              if (next >= todaysChallenge.target && !challengeCompleted) {
+                setChallengeCompleted(true);
+              }
+              return next;
+            });
+          }
           // Track total games played per game
           setGamesPlayed((prev) => ({
             ...prev,
@@ -228,248 +265,53 @@ export default function App() {
           onGo={() => { playSfx('launch'); setScreen(todaysChallenge.game); }}
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl relative z-10">
-          <MenuCard
-            icon="🦕"
-            title="Dino Detective"
-            desc="Find hidden dinosaurs!"
-            color="bg-green-400"
+        <div className="relative z-10 mb-5 flex w-full max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex gap-2 overflow-x-auto rounded-2xl bg-white/60 p-2 shadow-sm backdrop-blur no-scrollbar" aria-label="Game categories">
+            {GAME_CATEGORIES.map((category) => (
+              <button
+                key={category}
+                onClick={() => { setMenuFilter(category); playSfx('click'); }}
+                className={`whitespace-nowrap rounded-xl px-4 py-2 text-sm font-black transition ${
+                  menuFilter === category
+                    ? 'bg-slate-800 text-white shadow-md'
+                    : 'text-slate-600 hover:bg-white/80 hover:text-slate-900'
+                }`}
+                aria-pressed={menuFilter === category}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+          <button
             onClick={() => {
-              playSfx('click');
-              setScreen('dino');
+              const options = filteredGames.length ? filteredGames : GAME_MENU_ITEMS;
+              const game = options[Math.floor(Math.random() * options.length)];
+              playSfx('launch');
+              setScreen(game.id);
             }}
-          />
+            className="rounded-2xl bg-white px-5 py-3 font-black text-indigo-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0"
+          >
+            🎲 Surprise me
+          </button>
+        </div>
 
-          <MenuCard
-            icon="✈️"
-            title="Sky Shapes"
-            desc="Draw with a Jet!"
-            color="bg-sky-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('jet');
-            }}
-          />
-
-          <MenuCard
-            icon="🪐"
-            title="Solar System"
-            desc="Visit the planets"
-            color="bg-indigo-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('solar');
-            }}
-          />
-
-          <MenuCard
-            icon="🎨"
-            title="German Garage"
-            desc="Learn colors in German"
-            color="bg-red-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('german');
-            }}
-          />
-
-          <MenuCard
-            icon="🛻"
-            title="Monster Math"
-            desc="Stunt Jump Counting"
-            color="bg-orange-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('math');
-            }}
-          />
-
-          <MenuCard
-            icon="🚀"
-            title="Letter Launch"
-            desc="Letters and sounds"
-            color="bg-teal-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('letters');
-            }}
-          />
-
-          <MenuCard
-            icon="🧩"
-            title="Memory Match"
-            desc="Find the pairs"
-            color="bg-rose-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('memory');
-            }}
-          />
-
-          <MenuCard
-            icon="🔷"
-            title="Pattern Parade"
-            desc="Finish the pattern"
-            color="bg-amber-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('pattern');
-            }}
-          />
-
-          <MenuCard
-            icon="🦸‍♂️"
-            title="Spot the Difference"
-            desc="Find what changed"
-            color="bg-indigo-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('spot');
-            }}
-          />
-
-          <MenuCard
-            icon="🧩"
-            title="Puzzle Pop"
-            desc="Drag pieces to build!"
-            color="bg-yellow-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('puzzle');
-            }}
-          />
-
-          <MenuCard
-            icon="🖍️"
-            title="Letter Trace"
-            desc="Trace big & small letters"
-            color="bg-blue-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('trace');
-            }}
-          />
-
-          <MenuCard
-            icon="🦁"
-            title="Sound Safari"
-            desc="Match the sounds"
-            color="bg-emerald-400"
-            onClick={() => {
-              playSfx('click');
-              setScreen('phonics');
-            }}
-          />
-
-          <MenuCard
-            icon="➕"
-            title="Addition Adventure"
-            desc="Add it up!"
-            color="bg-teal-500"
-            onClick={() => {
-              playSfx('click');
-              setScreen('addition');
-            }}
-          />
-
-          <MenuCard
-            icon="➖"
-            title="Subtraction Station"
-            desc="Take it away!"
-            color="bg-violet-500"
-            onClick={() => {
-              playSfx('click');
-              setScreen('subtraction');
-            }}
-          />
-
-          <MenuCard
-            icon="👨‍🚀"
-            title="Astronaut Academy"
-            desc="Learn cool facts!"
-            color="bg-gradient-to-br from-purple-600 to-indigo-700"
-            onClick={() => {
-              playSfx('click');
-              setScreen('astronaut');
-            }}
-          />
-
-          <MenuCard
-            icon="🔢"
-            title="Count the Stars"
-            desc="Tap and count!"
-            color="bg-indigo-600"
-            onClick={() => {
-              playSfx('click');
-              setScreen('counting');
-            }}
-          />
-
-          <MenuCard
-            icon="🔤"
-            title="Word Builder"
-            desc="Spell CVC words!"
-            color="bg-pink-500"
-            onClick={() => {
-              playSfx('click');
-              setScreen('words');
-            }}
-          />
-
-          <MenuCard
-            icon="🎨"
-            title="Color Mixing Lab"
-            desc="Mix colors together!"
-            color="bg-fuchsia-500"
-            onClick={() => {
-              playSfx('click');
-              setScreen('colormix');
-            }}
-          />
-
-          <MenuCard
-            icon="🤔"
-            title="Odd One Out"
-            desc="Which one doesn't belong?"
-            color="bg-cyan-500"
-            onClick={() => {
-              playSfx('click');
-              setScreen('oddoneout');
-            }}
-          />
-
-          <MenuCard
-            icon="🕐"
-            title="Time Teller"
-            desc="Read the clock!"
-            color="bg-lime-500"
-            onClick={() => {
-              playSfx('click');
-              setScreen('timeteller');
-            }}
-          />
-
-          <MenuCard
-            icon="🐸"
-            title="Number Line Jump"
-            desc="Hop to the answer!"
-            color="bg-emerald-600"
-            onClick={() => {
-              playSfx('click');
-              setScreen('numberline');
-            }}
-          />
-
-          <MenuCard
-            icon="♟️"
-            title="Chess Explorers"
-            desc="Learn chess pieces!"
-            color="bg-gradient-to-br from-amber-600 to-yellow-700"
-            onClick={() => {
-              playSfx('click');
-              setScreen('chess');
-            }}
-          />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 w-full max-w-6xl relative z-10">
+          {filteredGames.map((game) => (
+            <MenuCard
+              key={game.id}
+              icon={game.icon}
+              title={game.title}
+              desc={game.desc}
+              color={game.color}
+              badge={game.badge}
+              category={game.category}
+              playedCount={gamesPlayed[game.id] || 0}
+              onClick={() => {
+                playSfx('click');
+                setScreen(game.id);
+              }}
+            />
+          ))}
         </div>
 
         <button
@@ -715,6 +557,17 @@ export default function App() {
     content = (
       <NumberLineJump
         onBack={() => handleBack('numberline')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'tictactoe') {
+    content = (
+      <TicTacToe
+        onBack={() => handleBack('tictactoe')}
         playSfx={playSfx}
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}

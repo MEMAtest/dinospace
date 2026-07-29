@@ -737,6 +737,7 @@ export const ACHIEVEMENTS = [
   { id: 'odd_master', name: 'Sharp Eye', emoji: '👁️', desc: 'Find 15 odd ones out', check: (g) => (g.oddoneout || 0) >= 15 },
   { id: 'astro_grad', name: 'Space Graduate', emoji: '🎓', desc: 'Complete all Astronaut missions', check: (g) => (g.astronaut || 0) >= 38 },
   { id: 'puzzle_king', name: 'Puzzle King', emoji: '👑', desc: 'Complete 10 puzzles', check: (g) => (g.puzzle || 0) >= 10 },
+  { id: 'grid_master', name: 'Grid Master', emoji: '⭕', desc: 'Win 5 tic-tac-toe rounds', check: (g) => (g.tictactoe || 0) >= 5 },
   { id: 'all_rounder', name: 'All Rounder', emoji: '🏅', desc: 'Try every game', check: (g) => Object.keys(g).filter((k) => g[k] > 0).length >= 14 },
 ];
 
@@ -765,6 +766,7 @@ export const GAME_LABELS = {
   timeteller: 'Time Teller',
   numberline: 'Number Line Jump',
   chess: 'Chess Explorers',
+  tictactoe: 'Cosmic Tic-Tac-Toe',
   progress: 'Progress Dashboard',
 };
 
@@ -1006,6 +1008,7 @@ export const DAILY_CHALLENGES = [
   { id: 'count5', game: 'counting', desc: 'Count 5 groups of stars', target: 5, emoji: '🔢' },
   { id: 'puzzle1', game: 'puzzle', desc: 'Complete a jigsaw puzzle', target: 1, emoji: '🧩' },
   { id: 'letters3', game: 'letters', desc: 'Match 3 letters', target: 3, emoji: '🚀' },
+  { id: 'grid1', game: 'tictactoe', desc: 'Finish a cosmic tic-tac-toe round', target: 1, emoji: '⭕' },
 ];
 
 export const COUNT_LEVELS = [
@@ -1070,4 +1073,3 @@ export const MOVE_PRAISE = [
   'Well done!',
   'Brilliant!',
 ];
-

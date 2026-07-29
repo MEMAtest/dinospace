@@ -5,7 +5,7 @@ export const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
   <button
     onClick={onToggle}
     className={`bg-white/90 text-slate-700 p-2 rounded-full shadow-lg hover:scale-105 transition ${className}`}
-    aria-label={soundOn ? 'Sound on' : 'Sound off'}
+    aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}
   >
     {soundOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
   </button>
@@ -58,8 +58,8 @@ export const CelebrationOverlay = ({ celebration }) => {
       <div className="relative z-10 bg-white/95 rounded-3xl px-10 py-8 text-center shadow-2xl border-4 border-yellow-200 animate-pop-in">
         <div className="text-5xl mb-2">🎉</div>
         <div className="text-3xl font-black text-amber-600">{celebration.message}</div>
-        <div className="mt-2 text-lg font-semibold text-slate-700">+{celebration.points} Sterne</div>
-        <div className="text-slate-500 font-bold">Gesamt: {celebration.total}</div>
+        <div className="mt-2 text-lg font-semibold text-slate-700">+{celebration.points} stars</div>
+        <div className="text-slate-500 font-bold">Total: {celebration.total}</div>
       </div>
     </div>
   );
@@ -107,10 +107,10 @@ export const PointsSummaryScreen = ({ summary, totalPoints, onDone }) => {
 
       <div className="relative z-10 bg-white/90 rounded-3xl p-8 shadow-2xl border-4 border-amber-200 text-center max-w-lg w-full">
         <div className="text-5xl mb-2">🎉</div>
-        <h2 className="text-3xl font-black text-amber-700">Gut gemacht!</h2>
+        <h2 className="text-3xl font-black text-amber-700">Brilliant work!</h2>
         <p className="text-slate-600 font-semibold mt-2">{GAME_LABELS[summary.gameId]}</p>
-        <div className="mt-4 text-2xl font-black text-amber-600">+{summary.points} Sterne</div>
-        <div className="text-slate-500 font-semibold">Gesamt: {totalPoints}</div>
+        <div className="mt-4 text-2xl font-black text-amber-600">+{summary.points} stars</div>
+        <div className="text-slate-500 font-semibold">Total: {totalPoints}</div>
 
         {unlockedNow.length > 0 && (
           <div className="mt-6">
@@ -133,7 +133,7 @@ export const PointsSummaryScreen = ({ summary, totalPoints, onDone }) => {
           onClick={onDone}
           className="mt-6 bg-blue-500 text-white text-lg font-bold px-6 py-3 rounded-full shadow-lg hover:bg-blue-600"
         >
-          Zurueck zum Menu
+          Back to all games
         </button>
       </div>
     </div>
@@ -205,28 +205,35 @@ export const StreakBanner = ({ streak, bonusStars }) => {
   );
 };
 
-export const MenuCard = ({ icon, title, desc, color, onClick, span = '' }) => (
+export const MenuCard = ({
+  icon, title, desc, color, onClick, span = '', badge, category, playedCount = 0,
+}) => (
   <button
     onClick={onClick}
     className={`
-      ${span} relative group overflow-hidden rounded-[2.5rem] p-8 text-left transition-all duration-300
-      ${color} shadow-[0_10px_0_rgba(0,0,0,0.1)] hover:shadow-[0_15px_0_rgba(0,0,0,0.1)]
+      ${span} relative group min-h-[250px] overflow-hidden rounded-[2.25rem] border-2 border-white/40 p-7 text-left transition-all duration-300
+      ${color} shadow-[0_9px_0_rgba(15,23,42,0.14),0_18px_35px_rgba(15,23,42,0.12)] hover:shadow-[0_13px_0_rgba(15,23,42,0.13),0_24px_44px_rgba(15,23,42,0.18)]
       hover:-translate-y-1 active:translate-y-2 active:shadow-none tap-highlight-none
     `}
   >
-    <div className="absolute top-0 right-0 -mr-8 -mt-8 w-48 h-48 bg-white/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+    <div className="absolute top-0 right-0 -mr-8 -mt-8 w-48 h-48 bg-white/25 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+    <div className="absolute -bottom-14 -left-10 h-28 w-28 rounded-full border-[18px] border-white/10 transition-transform duration-500 group-hover:scale-125" />
+    <div className="absolute left-6 top-5 flex items-center gap-2">
+      {badge && <span className="rounded-full bg-yellow-300 px-3 py-1 text-xs font-black tracking-wide text-slate-900 shadow-md">{badge}</span>}
+      {playedCount > 0 && <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-bold text-white backdrop-blur">✓ Played {playedCount}</span>}
+    </div>
     <div className="relative z-10 flex flex-col h-full justify-between">
-      <div className="text-6xl mb-4 transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300 origin-left">
+      <div className="mt-7 text-6xl mb-4 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 origin-left">
         {icon}
       </div>
       <div>
-        <h2 className="text-3xl font-black text-white leading-tight mb-1 drop-shadow-md">{title}</h2>
-        <p className="text-white/90 font-bold text-lg">{desc}</p>
+        <div className="mb-2 text-xs font-black uppercase tracking-[0.16em] text-white/65">{category}</div>
+        <h2 className="text-2xl font-black text-white leading-tight mb-1 drop-shadow-md">{title}</h2>
+        <p className="text-white/90 font-bold">{desc}</p>
       </div>
-      <div className="absolute bottom-8 right-8 bg-white/30 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-7 right-7 bg-white/25 p-2 rounded-full opacity-70 transition-all group-hover:translate-x-1 group-hover:bg-white/35 group-hover:opacity-100">
         <ArrowRight className="text-white" />
       </div>
     </div>
   </button>
 );
-
