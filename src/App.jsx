@@ -76,6 +76,9 @@ export default function App() {
   const [challengeProgress, setChallengeProgress] = useState(() => loadSaved('amari_challenge_progress', 0));
   const [challengeCompleted, setChallengeCompleted] = useState(() => loadSaved('amari_challenge_done', false));
   const [gamesPlayed, setGamesPlayed] = useState(() => loadSaved('amari_games_played', {}));
+  const pointsRef = useRef(points);
+  const challengeProgressRef = useRef(challengeProgress);
+  const challengeCompletedRef = useRef(challengeCompleted);
   const breakTimerRef = useRef(null);
   const screenRef = useRef(screen);
   const playSfx = useSfx(soundOn);
@@ -90,11 +93,11 @@ export default function App() {
   const today = new Date().toISOString().slice(0, 10);
 
   // Persist to localStorage safely
-  useEffect(() => { saveSafe('amari_points', points); }, [points]);
+  useEffect(() => { pointsRef.current = points; saveSafe('amari_points', points); }, [points]);
   useEffect(() => { saveSafe('amari_streak', streak); }, [streak]);
   useEffect(() => { saveSafe('amari_lastplay', lastPlayDate); }, [lastPlayDate]);
-  useEffect(() => { saveSafe('amari_challenge_progress', challengeProgress); }, [challengeProgress]);
-  useEffect(() => { saveSafe('amari_challenge_done', challengeCompleted); }, [challengeCompleted]);
+  useEffect(() => { challengeProgressRef.current = challengeProgress; saveSafe('amari_challenge_progress', challengeProgress); }, [challengeProgress]);
+  useEffect(() => { challengeCompletedRef.current = challengeCompleted; saveSafe('amari_challenge_done', challengeCompleted); }, [challengeCompleted]);
   useEffect(() => { saveSafe('amari_games_played', gamesPlayed); }, [gamesPlayed]);
 
   const unlockedAchievements = useMemo(
@@ -115,6 +118,8 @@ export default function App() {
         setStreak(1);
       }
       setLastPlayDate(today);
+      challengeProgressRef.current = 0;
+      challengeCompletedRef.current = false;
       setChallengeProgress(0);
       setChallengeCompleted(false);
     }, 0);
@@ -139,44 +144,44 @@ export default function App() {
 
   const recordGameEvent = useCallback((gameId, event, amount = 1) => {
     if (
-      challengeCompleted
+      challengeCompletedRef.current
       || gameId !== todaysChallenge.game
       || event !== todaysChallenge.event
     ) return;
 
-    setChallengeProgress((current) => {
-      const next = Math.min(todaysChallenge.target, current + amount);
-      if (next >= todaysChallenge.target) setChallengeCompleted(true);
-      return next;
-    });
-  }, [challengeCompleted, todaysChallenge]);
+    const next = Math.min(todaysChallenge.target, challengeProgressRef.current + amount);
+    challengeProgressRef.current = next;
+    setChallengeProgress(next);
+    if (next >= todaysChallenge.target) {
+      challengeCompletedRef.current = true;
+      setChallengeCompleted(true);
+    }
+  }, [todaysChallenge]);
 
   const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0, gameIdOverride) => {
     const finalMessage = message || getPraise();
     const gameIdAtCall = gameIdOverride || screenRef.current;
     const run = () => {
-      setPoints((prev) => {
-        const total = prev + pointsEarned;
-        if (gameIdAtCall && !['menu', 'intro', 'summary'].includes(gameIdAtCall)) {
-          setSessionPoints((prevSessions) => ({
-            ...prevSessions,
-            [gameIdAtCall]: (prevSessions[gameIdAtCall] || 0) + pointsEarned,
-          }));
-          // Track total games played per game
-          setGamesPlayed((prev) => ({
-            ...prev,
-            [gameIdAtCall]: (prev[gameIdAtCall] || 0) + 1,
-          }));
-        }
-        setCelebration({
-          id: Date.now(),
-          message: finalMessage,
-          points: pointsEarned,
-          total,
-          bursts: createBursts(),
-          confetti: createConfetti(),
-        });
-        return total;
+      const total = pointsRef.current + pointsEarned;
+      pointsRef.current = total;
+      setPoints(total);
+      if (gameIdAtCall && !['menu', 'intro', 'summary'].includes(gameIdAtCall)) {
+        setSessionPoints((prevSessions) => ({
+          ...prevSessions,
+          [gameIdAtCall]: (prevSessions[gameIdAtCall] || 0) + pointsEarned,
+        }));
+        setGamesPlayed((prev) => ({
+          ...prev,
+          [gameIdAtCall]: (prev[gameIdAtCall] || 0) + 1,
+        }));
+      }
+      setCelebration({
+        id: Date.now(),
+        message: finalMessage,
+        points: pointsEarned,
+        total,
+        bursts: createBursts(),
+        confetti: createConfetti(),
       });
     };
     if (delayMs > 0) {
