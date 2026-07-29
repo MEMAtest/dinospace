@@ -25,7 +25,7 @@ const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
       playSfx('success');
       speak(`${praise} ${item} doesn't belong with the ${round.category}!`);
       onCelebrate(praise, 8, 200);
-      setTimeout(() => setRoundIndex((i) => i + 1), 2000);
+      setTimeout(() => setRoundIndex((i) => i + 1), 1100);
     } else {
       setShake(true);
       playSfx('wrong');

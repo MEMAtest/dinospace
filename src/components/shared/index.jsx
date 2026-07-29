@@ -14,22 +14,37 @@ export const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
 export const CelebrationOverlay = ({ celebration }) => {
   if (!celebration) return null;
 
-  const confetti = celebration.confetti || [];
-  const reducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
   const isBig = celebration.points >= 8;
+
+  if (!isBig) {
+    return (
+      <div
+        className="fixed right-3 top-20 z-50 pointer-events-none animate-quick-reward"
+        role="status"
+        aria-live="polite"
+      >
+        <div className="flex items-center gap-3 rounded-2xl border-2 border-yellow-200 bg-white/95 px-4 py-3 shadow-2xl backdrop-blur">
+          <span className="text-2xl">⭐</span>
+          <div>
+            <div className="font-black leading-tight text-amber-600">{celebration.message}</div>
+            <div className="text-sm font-bold text-slate-500">+{celebration.points} stars · {celebration.total} total</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const confetti = (celebration.confetti || []).slice(0, 12);
+  const reducedMotion = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
-      {/* Screen flash */}
-      <div className="absolute inset-0 bg-white/30 animate-fade-out" />
-      {/* Ring-burst shockwave on big celebrations */}
-      {isBig && !reducedMotion && (
+      {!reducedMotion && (
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-16 h-16 rounded-full border-4 border-yellow-300/60 animate-ring-expand" />
         </div>
       )}
-      {/* Emoji bursts */}
-      {celebration.bursts.map((burst) => (
+      {(celebration.bursts || []).slice(0, 7).map((burst) => (
         <span
           key={burst.id}
           className={`absolute ${burst.size} animate-float-up`}
@@ -38,7 +53,6 @@ export const CelebrationOverlay = ({ celebration }) => {
           {burst.emoji}
         </span>
       ))}
-      {/* Confetti particles */}
       {!reducedMotion && confetti.map((c) => (
         <div
           key={c.id}
@@ -54,12 +68,12 @@ export const CelebrationOverlay = ({ celebration }) => {
           }}
         />
       ))}
-      {/* Central message card */}
-      <div className="relative z-10 bg-white/95 rounded-3xl px-10 py-8 text-center shadow-2xl border-4 border-yellow-200 animate-pop-in">
-        <div className="text-5xl mb-2">🎉</div>
-        <div className="text-3xl font-black text-amber-600">{celebration.message}</div>
-        <div className="mt-2 text-lg font-semibold text-slate-700">+{celebration.points} stars</div>
-        <div className="text-slate-500 font-bold">Total: {celebration.total}</div>
+      <div className="relative z-10 flex items-center gap-4 rounded-3xl border-4 border-yellow-200 bg-white/95 px-7 py-5 text-left shadow-2xl animate-milestone-reward">
+        <div className="text-5xl">🏆</div>
+        <div>
+          <div className="text-2xl font-black text-amber-600">{celebration.message}</div>
+          <div className="font-bold text-slate-600">+{celebration.points} stars · {celebration.total} total</div>
+        </div>
       </div>
     </div>
   );
@@ -195,6 +209,46 @@ export const DailyChallengeBanner = ({ challenge, progress, onGo, completed }) =
     )}
   </div>
 );
+
+export const DailyChallengeTracker = ({ challenge, progress, completed, active }) => {
+  const percentage = Math.min(100, (progress / challenge.target) * 100);
+  return (
+    <div
+      className={`fixed bottom-3 left-1/2 z-40 w-[min(92vw,360px)] -translate-x-1/2 pointer-events-none transition-all ${
+        completed ? 'animate-challenge-complete' : ''
+      }`}
+      role="status"
+      aria-live="polite"
+    >
+      <div className={`rounded-2xl border px-4 py-3 shadow-2xl backdrop-blur-xl ${
+        completed
+          ? 'border-emerald-300 bg-emerald-950/90 text-white'
+          : active
+            ? 'border-amber-300/70 bg-slate-950/90 text-white'
+            : 'border-white/40 bg-white/90 text-slate-700'
+      }`}>
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">{completed ? '🏆' : challenge.emoji}</span>
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center justify-between gap-3 text-xs font-black uppercase tracking-wide">
+              <span>{completed ? 'Daily mission complete' : active ? 'Mission in progress' : 'Today’s mission'}</span>
+              <span key={progress} className="animate-count-up">{Math.min(progress, challenge.target)}/{challenge.target}</span>
+            </div>
+            <p className={`truncate text-sm font-bold ${active || completed ? 'text-white/75' : 'text-slate-500'}`}>
+              {challenge.desc}
+            </p>
+          </div>
+        </div>
+        <div className={`mt-2 h-2 overflow-hidden rounded-full ${active || completed ? 'bg-white/15' : 'bg-slate-200'}`}>
+          <div
+            className={`h-full rounded-full transition-all duration-300 ${completed ? 'bg-emerald-400' : 'bg-amber-400'}`}
+            style={{ width: `${percentage}%` }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export const StreakBanner = ({ streak, bonusStars }) => {
   if (streak < 2) return null;

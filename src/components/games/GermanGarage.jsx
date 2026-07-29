@@ -70,7 +70,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       setFeedback(praise);
       playSfx('success');
       onCelebrate(praise, 5, 200);
-      setTimeout(nextPaint, 1600);
+      setTimeout(nextPaint, 950);
     } else {
       setFeedback('Try again!');
       playSfx('oops');
@@ -83,7 +83,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       setParkFeedback(praise);
       playSfx('success');
       onCelebrate(praise, 6, 200);
-      setTimeout(nextPark, 1500);
+      setTimeout(nextPark, 950);
     } else {
       setParkFeedback('Nope, try the other garage!');
       playSfx('oops');

@@ -36,7 +36,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         playSfx('success');
         speak(`${word.word}! ${praise}`);
         onCelebrate(praise, 8, 300);
-        setTimeout(() => setWordIndex((i) => (i + 1) % WORD_BUILDER_WORDS.length), 2000);
+        setTimeout(() => setWordIndex((i) => (i + 1) % WORD_BUILDER_WORDS.length), 1100);
       } else {
         setShake(true);
         playSfx('wrong');

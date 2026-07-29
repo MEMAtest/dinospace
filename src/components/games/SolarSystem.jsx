@@ -1,161 +1,439 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import { Home, ArrowRight } from 'lucide-react';
-import { PLANETS, THEME } from '../../data/index.js';
-import { pickRandom, shadeColor, createPlanetStyle } from '../../utils.js';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { Home, Pause, Play, Rotate3D, Sparkles, Volume2 } from 'lucide-react';
+import { PLANETS } from '../../data/index.js';
 import { SoundToggle } from '../shared/index.jsx';
 
-const PlanetBall = ({ planet, onClick }) => {
-  const style = createPlanetStyle(planet);
+const PLANET_COLORS = {
+  Mercury: 0x8c8c8c,
+  Venus: 0xd89b44,
+  Earth: 0x2f80ed,
+  Mars: 0xc85237,
+  Jupiter: 0xd7a46d,
+  Saturn: 0xe8cc83,
+  Uranus: 0x86dbe3,
+  Neptune: 0x315be8,
+  Pluto: 0xb8a58d,
+};
 
-  return (
-    <button
-      onClick={onClick}
-      className="flex flex-col items-center gap-2 group flex-shrink-0 focus:outline-none"
-    >
-      <div className="relative rounded-full overflow-hidden" style={style}>
-        <div className="absolute inset-0 rounded-full" />
-        <div className="absolute top-2 left-4 w-3 h-3 bg-white/60 rounded-full" />
-        {planet.ring && (
-          <div
-            className="absolute inset-[-12px] rounded-full border-4 opacity-70 skew-x-12 scale-x-150"
-            style={{ borderColor: planet.ringColor || 'rgba(255,255,255,0.6)' }}
-          />
-        )}
-      </div>
-      <span className="font-bold text-sm text-white/90 group-hover:text-white">{planet.name}</span>
-    </button>
-  );
+const PLANET_SCALES = {
+  Mercury: 0.48,
+  Venus: 0.82,
+  Earth: 0.88,
+  Mars: 0.62,
+  Jupiter: 1.72,
+  Saturn: 1.48,
+  Uranus: 1.08,
+  Neptune: 1.04,
+  Pluto: 0.4,
+};
+
+const makeOrbit = (radius) => {
+  const points = [];
+  for (let index = 0; index <= 128; index += 1) {
+    const angle = (index / 128) * Math.PI * 2;
+    points.push(new THREE.Vector3(Math.cos(angle) * radius, 0, Math.sin(angle) * radius));
+  }
+  const geometry = new THREE.BufferGeometry().setFromPoints(points);
+  const material = new THREE.LineBasicMaterial({
+    color: 0x6b7ca8,
+    transparent: true,
+    opacity: 0.2,
+  });
+  return new THREE.LineLoop(geometry, material);
+};
+
+const addPlanetTexture = (mesh, planetName) => {
+  if (planetName === 'Earth') {
+    const land = new THREE.Mesh(
+      new THREE.SphereGeometry(mesh.geometry.parameters.radius * 1.006, 24, 16, 0.3, 1.1, 0.8, 0.55),
+      new THREE.MeshStandardMaterial({ color: 0x52a95b, roughness: 0.9 }),
+    );
+    land.rotation.z = 0.45;
+    mesh.add(land);
+  }
+
+  if (planetName === 'Jupiter') {
+    [-0.55, -0.18, 0.2, 0.55].forEach((y, index) => {
+      const band = new THREE.Mesh(
+        new THREE.TorusGeometry(mesh.geometry.parameters.radius * Math.sqrt(1 - y * y), 0.045, 8, 64),
+        new THREE.MeshBasicMaterial({ color: index % 2 ? 0x8c5e3c : 0xf1d1a0 }),
+      );
+      band.rotation.x = Math.PI / 2;
+      band.position.y = y * mesh.geometry.parameters.radius;
+      mesh.add(band);
+    });
+  }
+
+  if (planetName === 'Saturn') {
+    const rings = new THREE.Mesh(
+      new THREE.RingGeometry(mesh.geometry.parameters.radius * 1.35, mesh.geometry.parameters.radius * 2.05, 80),
+      new THREE.MeshBasicMaterial({
+        color: 0xf4dfad,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 0.78,
+      }),
+    );
+    rings.rotation.x = Math.PI / 2.35;
+    rings.userData.planetName = planetName;
+    mesh.add(rings);
+  }
+};
+
+const SolarOrrery = ({ onSelect, paused }) => {
+  const mountRef = useRef(null);
+  const onSelectRef = useRef(onSelect);
+  const pausedRef = useRef(paused);
+
+  useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
+  useEffect(() => { pausedRef.current = paused; }, [paused]);
+
+  useEffect(() => {
+    const mount = mountRef.current;
+    if (!mount) return undefined;
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x030712);
+    scene.fog = new THREE.FogExp2(0x030712, 0.012);
+
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
+    camera.position.set(0, 24, 34);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    mount.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+    controls.minDistance = 16;
+    controls.maxDistance = 58;
+    controls.maxPolarAngle = Math.PI / 2.05;
+    controls.target.set(0, 0, 0);
+
+    scene.add(new THREE.AmbientLight(0x8ba8ff, 0.42));
+    const sunlight = new THREE.PointLight(0xffe7a3, 160, 90, 1.6);
+    scene.add(sunlight);
+
+    const sun = new THREE.Mesh(
+      new THREE.SphereGeometry(2.2, 48, 32),
+      new THREE.MeshBasicMaterial({ color: 0xffc928 }),
+    );
+    sun.userData.planetName = 'Sun';
+    scene.add(sun);
+    const sunGlow = new THREE.Mesh(
+      new THREE.SphereGeometry(2.65, 32, 24),
+      new THREE.MeshBasicMaterial({ color: 0xffa928, transparent: true, opacity: 0.14 }),
+    );
+    scene.add(sunGlow);
+
+    const starPositions = [];
+    for (let index = 0; index < 1400; index += 1) {
+      const radius = 55 + ((index * 29) % 65);
+      const theta = index * 2.39996;
+      const phi = Math.acos(1 - 2 * ((index * 47) % 997) / 997);
+      starPositions.push(
+        radius * Math.sin(phi) * Math.cos(theta),
+        radius * Math.cos(phi),
+        radius * Math.sin(phi) * Math.sin(theta),
+      );
+    }
+    const starGeometry = new THREE.BufferGeometry();
+    starGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
+    const starField = new THREE.Points(
+      starGeometry,
+      new THREE.PointsMaterial({ color: 0xffffff, size: 0.22, transparent: true, opacity: 0.8 }),
+    );
+    scene.add(starField);
+
+    const orbitGroups = [];
+    const clickableMeshes = [];
+    PLANETS.forEach((planet, index) => {
+      const radius = 4.2 + index * 2.25;
+      scene.add(makeOrbit(radius));
+
+      const orbitGroup = new THREE.Group();
+      orbitGroup.rotation.y = index * 0.72;
+      const planetRadius = PLANET_SCALES[planet.name];
+      const mesh = new THREE.Mesh(
+        new THREE.SphereGeometry(planetRadius, 40, 28),
+        new THREE.MeshStandardMaterial({
+          color: PLANET_COLORS[planet.name],
+          roughness: planet.name === 'Earth' ? 0.68 : 0.88,
+          metalness: 0.02,
+        }),
+      );
+      mesh.position.x = radius;
+      mesh.rotation.z = planet.name === 'Uranus' ? Math.PI / 2 : 0.12;
+      mesh.userData.planetName = planet.name;
+      addPlanetTexture(mesh, planet.name);
+      orbitGroup.add(mesh);
+      orbitGroup.userData.speed = 0.0007 + (PLANETS.length - index) * 0.00018;
+      orbitGroup.userData.mesh = mesh;
+      scene.add(orbitGroup);
+      orbitGroups.push(orbitGroup);
+      clickableMeshes.push(mesh, ...mesh.children);
+    });
+
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    const handlePointer = (event) => {
+      const bounds = renderer.domElement.getBoundingClientRect();
+      pointer.x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
+      pointer.y = -((event.clientY - bounds.top) / bounds.height) * 2 + 1;
+      raycaster.setFromCamera(pointer, camera);
+      const hit = raycaster.intersectObjects(clickableMeshes, false)[0];
+      const planetName = hit?.object?.userData?.planetName;
+      if (planetName) onSelectRef.current(planetName);
+    };
+    renderer.domElement.addEventListener('pointerup', handlePointer);
+
+    const resize = () => {
+      const width = Math.max(320, mount.clientWidth);
+      const height = Math.max(360, mount.clientHeight);
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    };
+    const resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(mount);
+    resize();
+
+    let frameId;
+    const animate = () => {
+      frameId = requestAnimationFrame(animate);
+      if (!pausedRef.current) {
+        sun.rotation.y += 0.002;
+        starField.rotation.y += 0.00008;
+        orbitGroups.forEach((group) => {
+          group.rotation.y += group.userData.speed;
+          group.userData.mesh.rotation.y += 0.009;
+        });
+      }
+      controls.update();
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      resizeObserver.disconnect();
+      renderer.domElement.removeEventListener('pointerup', handlePointer);
+      controls.dispose();
+      renderer.dispose();
+      scene.traverse((object) => {
+        object.geometry?.dispose?.();
+        if (Array.isArray(object.material)) object.material.forEach((material) => material.dispose());
+        else object.material?.dispose?.();
+      });
+      if (renderer.domElement.parentNode === mount) mount.removeChild(renderer.domElement);
+    };
+  }, []);
+
+  return <div ref={mountRef} className="h-[52vh] min-h-[400px] w-full cursor-grab active:cursor-grabbing lg:h-[calc(100vh-130px)]" />;
 };
 
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
-  const [selectedPlanet, setSelectedPlanet] = useState(null);
-  const [activeFact, setActiveFact] = useState(null);
-  const stars = useMemo(
-    () =>
-      Array.from({ length: 36 }, (_, i) => ({
-        id: i,
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        size: Math.random() > 0.85 ? 3 : 2,
-      })),
-    [],
-  );
+  const [selectedPlanet, setSelectedPlanet] = useState(PLANETS[2]);
+  const [activeFact, setActiveFact] = useState(0);
+  const [discoveredFacts, setDiscoveredFacts] = useState({});
+  const [badges, setBadges] = useState([]);
+  const [quizFeedback, setQuizFeedback] = useState('');
+  const [paused, setPaused] = useState(false);
 
-  useEffect(() => {
-    if (!selectedPlanet) {
-      setActiveFact(null);
-      return;
-    }
-    speak(
-      `${selectedPlanet.name}. ${selectedPlanet.subtitle}. ${selectedPlanet.facts[0]} ${selectedPlanet.facts[1]}`,
-    );
-  }, [selectedPlanet, speak]);
+  const selectPlanet = useCallback((planetName) => {
+    const planet = PLANETS.find((item) => item.name === planetName);
+    if (!planet) return;
+    setSelectedPlanet(planet);
+    setActiveFact(0);
+    setQuizFeedback('');
+    playSfx('chime');
+    speak(`${planet.name}. ${planet.subtitle}. ${planet.mission}`);
+  }, [playSfx, speak]);
 
-  const handleFact = (fact) => {
-    setActiveFact(fact);
+  const handleFact = (index) => {
+    const fact = selectedPlanet.facts[index];
+    const key = `${selectedPlanet.name}-${index}`;
+    setActiveFact(index);
     playSfx('sparkle');
-    speak(`Fun fact. ${fact}`);
+    speak(`Discovery ${index + 1}. ${fact}`);
+
+    if (discoveredFacts[key]) return;
+    setDiscoveredFacts((current) => ({ ...current, [key]: true }));
+    const planetCount = selectedPlanet.facts.reduce(
+      (count, _item, factIndex) => count + (discoveredFacts[`${selectedPlanet.name}-${factIndex}`] ? 1 : 0),
+      0,
+    ) + 1;
+    if (planetCount >= 3 && !badges.includes(selectedPlanet.name)) {
+      setBadges((current) => [...current, selectedPlanet.name]);
+      onCelebrate(`${selectedPlanet.name} badge unlocked!`, 10, 50, 'solar');
+    }
   };
 
+  const handleQuiz = (option) => {
+    if (option === selectedPlanet.quiz.answer) {
+      setQuizFeedback('Correct — mission complete!');
+      playSfx('success');
+      speak(`Correct. ${selectedPlanet.quiz.answer}.`);
+      onCelebrate('Space-smart!', 4, 50, 'solar');
+    } else {
+      setQuizFeedback('Not quite — use the facts and try again.');
+      playSfx('wrong');
+      speak('Not quite. Check the discoveries and try again.');
+    }
+  };
+
+  const discoveredForPlanet = selectedPlanet.facts.filter(
+    (_fact, index) => discoveredFacts[`${selectedPlanet.name}-${index}`],
+  ).length;
+
   return (
-    <div className="flex flex-col min-h-screen bg-slate-900 text-white p-4 relative overflow-hidden">
-      <div className="flex justify-between items-center mb-4 z-10">
-        <button
-          onClick={onBack}
-          className="bg-white/20 p-2 rounded-full hover:bg-white/40 transition"
-        >
-          <Home />
-        </button>
-        <h2 className="text-2xl font-bold text-yellow-300 font-comic">Space Explorer</h2>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="bg-white/20 text-white" />
-      </div>
-
-      <div className="absolute inset-0 opacity-50 pointer-events-none">
-        {stars.map((star) => (
-          <div
-            key={star.id}
-            className="absolute bg-white rounded-full animate-pulse"
-            style={{
-              top: star.top,
-              left: star.left,
-              width: `${star.size * 2}px`,
-              height: `${star.size * 2}px`,
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-10 right-[-20%] w-96 h-96 bg-indigo-500/30 blur-3xl rounded-full" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-blue-400/30 blur-3xl rounded-full" />
-      </div>
-
-      <div className="flex-1 overflow-x-auto flex items-center gap-6 px-8 no-scrollbar z-10 pb-8">
-        <div className="flex-shrink-0 w-32 h-32 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold shadow-[0_0_80px_rgba(250,204,21,0.9)]">
-          SUN
+    <div className="min-h-screen bg-[#030712] text-white">
+      <header className="relative z-30 flex items-center justify-between border-b border-white/10 bg-slate-950/80 px-4 py-3 backdrop-blur-xl">
+        <button onClick={onBack} className="game-icon-button !bg-white/10 !text-white" aria-label="Back to all games"><Home /></button>
+        <div className="text-center">
+          <p className="text-[10px] font-black uppercase tracking-[0.25em] text-cyan-300 sm:text-xs">Interactive 3D mission</p>
+          <h2 className="text-xl font-black text-white sm:text-3xl">Solar System Explorer</h2>
         </div>
-        {PLANETS.map((planet) => (
-          <PlanetBall
-            key={planet.name}
-            planet={planet}
-            onClick={() => {
-              playSfx('chime');
-              setSelectedPlanet(planet);
-            }}
-          />
-        ))}
-      </div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setPaused((current) => !current)}
+            className="game-icon-button !bg-white/10 !text-white"
+            aria-label={paused ? 'Resume planet orbits' : 'Pause planet orbits'}
+          >
+            {paused ? <Play size={19} /> : <Pause size={19} />}
+          </button>
+          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/10 !text-white" />
+        </div>
+      </header>
 
-      {selectedPlanet && (
-        <div className="absolute bottom-0 left-0 right-0 bg-white text-slate-900 p-6 rounded-t-3xl shadow-2xl animate-bounce-up z-20">
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-indigo-600 mb-1">{selectedPlanet.name}</h3>
-            <p className="text-slate-500 font-semibold mb-4">{selectedPlanet.subtitle}</p>
+      <main className="grid lg:grid-cols-[minmax(0,1.5fr)_minmax(340px,0.7fr)]">
+        <section className="relative overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r">
+          <SolarOrrery onSelect={selectPlanet} paused={paused} />
+          <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-3 text-sm text-white/75 backdrop-blur">
+            <div className="flex items-center gap-2 font-black text-white"><Rotate3D size={18} /> Drag to orbit</div>
+            <div>Scroll or pinch to zoom · tap a planet</div>
           </div>
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            {selectedPlanet.stats.map((stat) => (
-              <div key={stat.label} className="bg-slate-50 rounded-2xl p-3 border border-slate-200">
-                <div className="text-xl">{stat.emoji}</div>
-                <div className="text-xs uppercase tracking-wide text-slate-400">{stat.label}</div>
-                <div className="font-bold text-slate-700">{stat.value}</div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center text-sm text-slate-500 font-semibold mb-2">
-            Tap a fact to hear it!
-          </div>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {selectedPlanet.facts.map((fact) => (
+          <div className="absolute bottom-3 left-3 right-3 flex gap-2 overflow-x-auto rounded-2xl border border-white/10 bg-slate-950/75 p-2 backdrop-blur-xl no-scrollbar">
+            {PLANETS.map((planet) => (
               <button
-                key={fact}
-                onClick={() => handleFact(fact)}
-                className={`px-3 py-2 rounded-2xl border-2 text-sm font-semibold transition ${
-                  activeFact === fact
-                    ? 'bg-indigo-100 border-indigo-300 text-indigo-700'
-                    : 'bg-white border-slate-200 text-slate-600'
+                key={planet.name}
+                onClick={() => selectPlanet(planet.name)}
+                className={`whitespace-nowrap rounded-xl px-3 py-2 text-xs font-black transition ${
+                  selectedPlanet.name === planet.name
+                    ? 'bg-cyan-300 text-slate-950'
+                    : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
                 }`}
               >
-                {fact}
+                {badges.includes(planet.name) ? '★ ' : ''}{planet.name}
               </button>
             ))}
           </div>
-          {activeFact && (
-            <div className="text-center text-indigo-600 font-bold mb-4">✨ {activeFact}</div>
-          )}
-          <button
-            onClick={() => {
-              onCelebrate(undefined, 4);
-              setSelectedPlanet(null);
-            }}
-            className={`${THEME.primary} text-white w-full py-3 rounded-full font-bold text-xl ${THEME.button} hover:bg-blue-600`}
-          >
-            Awesome!
-          </button>
-        </div>
-      )}
+        </section>
+
+        <aside className="max-h-none overflow-y-auto bg-gradient-to-b from-slate-900 to-slate-950 p-4 pb-24 lg:max-h-[calc(100vh-73px)] lg:p-6">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">Planet file</p>
+              <h3 className="text-4xl font-black">{selectedPlanet.name}</h3>
+              <p className="font-bold text-white/55">{selectedPlanet.subtitle}</p>
+            </div>
+            <div className="rounded-2xl bg-cyan-300/10 px-3 py-2 text-center">
+              <div className="text-xl font-black text-cyan-300">{discoveredForPlanet}/3</div>
+              <div className="text-[10px] font-black uppercase text-cyan-100/55">for badge</div>
+            </div>
+          </div>
+
+          <div className="mt-5 rounded-2xl border border-violet-300/20 bg-violet-300/10 p-4">
+            <div className="flex items-center gap-2 text-sm font-black text-violet-200"><Sparkles size={17} /> Your mission</div>
+            <p className="mt-1 font-bold text-white/80">{selectedPlanet.mission}</p>
+          </div>
+
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            {selectedPlanet.stats.map((stat) => (
+              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-3">
+                <div className="text-xl">{stat.emoji}</div>
+                <div className="text-[10px] font-black uppercase tracking-wide text-white/35">{stat.label}</div>
+                <div className="font-black text-white/85">{stat.value}</div>
+              </div>
+            ))}
+            <div className="col-span-2 rounded-2xl border border-orange-300/15 bg-orange-300/10 p-3">
+              <div className="text-[10px] font-black uppercase tracking-wide text-orange-200/65">Temperature</div>
+              <div className="font-black text-orange-100">{selectedPlanet.temperature}</div>
+            </div>
+          </div>
+
+          <div className="mt-5">
+            <div className="flex items-center justify-between">
+              <h4 className="font-black">Discovery deck</h4>
+              <button
+                onClick={() => speak(selectedPlanet.facts[activeFact])}
+                className="flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/70"
+              >
+                <Volume2 size={14} /> Listen
+              </button>
+            </div>
+            <div className="mt-2 grid grid-cols-3 gap-2">
+              {selectedPlanet.facts.map((fact, index) => (
+                <button
+                  key={fact}
+                  onClick={() => handleFact(index)}
+                  className={`relative rounded-xl border p-2 text-left text-xs font-black transition ${
+                    activeFact === index
+                      ? 'border-cyan-300 bg-cyan-300 text-slate-950'
+                      : 'border-white/10 bg-white/5 text-white/65 hover:bg-white/10'
+                  }`}
+                  aria-label={`Discovery ${index + 1}: ${fact}`}
+                >
+                  {discoveredFacts[`${selectedPlanet.name}-${index}`] && (
+                    <span className="absolute right-1 top-1 text-[10px]">★</span>
+                  )}
+                  Fact {index + 1}
+                </button>
+              ))}
+            </div>
+            <div className="mt-2 min-h-24 rounded-2xl border border-cyan-300/20 bg-cyan-300/10 p-4">
+              <p className="text-sm font-black text-cyan-200">Did you know?</p>
+              <p className="mt-1 font-bold leading-snug text-white/85">{selectedPlanet.facts[activeFact]}</p>
+            </div>
+            <div className="mt-2 rounded-2xl border border-emerald-300/15 bg-emerald-300/10 p-3">
+              <p className="text-xs font-black uppercase text-emerald-200/70">Compared with Earth</p>
+              <p className="font-bold text-white/80">{selectedPlanet.compare}</p>
+            </div>
+          </div>
+
+          <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
+            <h4 className="font-black">Captain’s challenge</h4>
+            <p className="mt-1 text-sm font-bold text-white/70">{selectedPlanet.quiz.question}</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {selectedPlanet.quiz.options.map((option) => (
+                <button
+                  key={option}
+                  onClick={() => handleQuiz(option)}
+                  className="rounded-xl bg-white/10 px-3 py-2 text-sm font-black text-white/80 transition hover:bg-cyan-300 hover:text-slate-950"
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+            {quizFeedback && (
+              <p className={`mt-3 text-sm font-black ${quizFeedback.startsWith('Correct') ? 'text-emerald-300' : 'text-amber-300'}`}>
+                {quizFeedback}
+              </p>
+            )}
+          </div>
+
+          <div className="mt-5 text-center text-xs font-bold text-white/35">
+            Planet badges collected: {badges.length}/{PLANETS.length}
+          </div>
+        </aside>
+      </main>
     </div>
   );
 };
 
-export { PlanetBall };
+export { SolarOrrery };
 export default SolarSystem;

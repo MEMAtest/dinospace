@@ -34,7 +34,7 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
       playSfx('success');
       speak(`${praise} That's ${targetHour} o'clock!`);
       onCelebrate(praise, 8, 200);
-      setTimeout(newRound, 2000);
+      setTimeout(newRound, 1100);
     } else {
       setShake(true);
       playSfx('wrong');

@@ -4,7 +4,7 @@ import { ADDITION_LEVELS, VISUAL_EMOJIS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
-const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [levelIndex, setLevelIndex] = useState(0);
   const level = ADDITION_LEVELS[levelIndex];
   const [round, setRound] = useState(0);
@@ -56,12 +56,13 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
       playSfx('success');
       if (newStreak >= 3) playSfx('combo');
       onCelebrate(praise, 6, 250);
+      onGameEvent?.('addition', 'answer_correct');
       const nextRound = round + 1;
       if (nextRound >= level.rounds && levelIndex < ADDITION_LEVELS.length - 1) {
-        addTimeoutRef.current = setTimeout(() => { setLevelIndex((prev) => prev + 1); setRound(0); }, 2000);
+        addTimeoutRef.current = setTimeout(() => { setLevelIndex((prev) => prev + 1); setRound(0); }, 1100);
       } else {
         setRound(nextRound);
-        addTimeoutRef.current = setTimeout(newProblem, 2000);
+        addTimeoutRef.current = setTimeout(newProblem, 1100);
       }
     } else {
       setShake(true);

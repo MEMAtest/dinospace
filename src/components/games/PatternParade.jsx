@@ -4,7 +4,7 @@ import { ADVANCED_PATTERN_ROUNDS, NUMBER_PATTERN_ROUNDS, PATTERN_ROUNDS, PATTERN
 import { pickRandom, shuffle, buildPatternRound, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
-const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [mode, setMode] = useState('emoji');
   const [round, setRound] = useState(buildPatternRound);
   const [numRound, setNumRound] = useState(() => pickRandom(NUMBER_PATTERN_ROUNDS));
@@ -40,6 +40,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       playSfx('sparkle');
       if (newStreak >= 3) playSfx('combo');
       onCelebrate(praise, 6, 250);
+      onGameEvent?.('pattern', 'answer_correct');
       setTimeout(nextRound, 1400);
     } else {
       setFeedback('Try again!');

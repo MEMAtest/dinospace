@@ -45,7 +45,7 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       playSfx('success');
       speak(`${praise} ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b} equals ${answer}!`);
       onCelebrate(praise, 8, 200);
-      setTimeout(newProblem, 2500);
+      setTimeout(newProblem, 1300);
     } else {
       setShake(true);
       playSfx('wrong');

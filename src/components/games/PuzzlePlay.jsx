@@ -4,7 +4,7 @@ import { JIGSAW_PUZZLES, PUZZLE_TILES } from '../../data/index.js';
 import { isPuzzleSolved, buildPuzzleTiles, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
-const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [puzzleIndex, setPuzzleIndex] = useState(0);
   const puzzle = JIGSAW_PUZZLES[puzzleIndex];
   const total = puzzle.grid * puzzle.grid;
@@ -56,6 +56,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
         setSolved(true);
         playSfx('success');
         onCelebrate(getPraise(), 15, 300);
+        onGameEvent?.('puzzle', 'level_completed');
         speak('Amazing! You finished the puzzle!');
       }
       return next;

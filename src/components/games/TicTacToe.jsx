@@ -62,7 +62,7 @@ const MARK_DETAILS = {
   O: { icon: '🚀', name: 'Rocket', color: 'text-cyan-300', bg: 'from-cyan-300 to-blue-400' },
 };
 
-const TicTacToe = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const TicTacToe = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [mode, setMode] = useState('bot');
   const [difficulty, setDifficulty] = useState('space-ace');
   const [board, setBoard] = useState(() => Array(9).fill(null));
@@ -140,6 +140,7 @@ const TicTacToe = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
     completedBoardRef.current = boardKey;
 
     const timer = setTimeout(() => {
+      onGameEvent?.('tictactoe', 'round_completed');
       if (result.draw) {
         setScores((current) => ({ ...current, draws: current.draws + 1 }));
         playSfx('chime');
@@ -160,7 +161,7 @@ const TicTacToe = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
     }, 0);
 
     return () => clearTimeout(timer);
-  }, [board, mode, onCelebrate, playSfx, playerName, result, roundOver, speak]);
+  }, [board, mode, onCelebrate, onGameEvent, playSfx, playerName, result, roundOver, speak]);
 
   const showHint = () => {
     if (roundOver || botThinking || (mode === 'bot' && turn === 'O')) return;

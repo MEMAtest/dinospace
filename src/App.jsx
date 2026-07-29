@@ -1,12 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { THEME, ACHIEVEMENTS } from './data/index.js';
 import { createBursts, createConfetti, getPraise, getRank, getNextRank, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
 import { useSfx, useVoice, useAmbientMusic } from './hooks.js';
 import {
   SoundToggle, CelebrationOverlay, RewardsShelf, PointsSummaryScreen,
-  PauseOverlay, BreakReminder, DailyChallengeBanner, StreakBanner, MenuCard,
+  PauseOverlay, BreakReminder, DailyChallengeBanner, DailyChallengeTracker, StreakBanner, MenuCard,
 } from './components/shared/index.jsx';
-import SolarSystem from './components/games/SolarSystem.jsx';
 import DinoDetective from './components/games/DinoDetective.jsx';
 import JetSkyShapes from './components/games/JetSkyShapes.jsx';
 import GermanGarage from './components/games/GermanGarage.jsx';
@@ -31,6 +30,8 @@ import ChessExplorers from './components/games/ChessExplorers.jsx';
 import TicTacToe from './components/games/TicTacToe.jsx';
 import ProgressDashboard from './components/games/ProgressDashboard.jsx';
 import IntroScreen from './components/games/IntroScreen.jsx';
+
+const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 
 const GAME_CATEGORIES = ['All', 'Quick Think', 'Maths', 'Words', 'Discover', 'Create'];
 
@@ -136,6 +137,20 @@ export default function App() {
     screenRef.current = screen;
   }, [screen]);
 
+  const recordGameEvent = useCallback((gameId, event, amount = 1) => {
+    if (
+      challengeCompleted
+      || gameId !== todaysChallenge.game
+      || event !== todaysChallenge.event
+    ) return;
+
+    setChallengeProgress((current) => {
+      const next = Math.min(todaysChallenge.target, current + amount);
+      if (next >= todaysChallenge.target) setChallengeCompleted(true);
+      return next;
+    });
+  }, [challengeCompleted, todaysChallenge]);
+
   const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0, gameIdOverride) => {
     const finalMessage = message || getPraise();
     const gameIdAtCall = gameIdOverride || screenRef.current;
@@ -147,16 +162,6 @@ export default function App() {
             ...prevSessions,
             [gameIdAtCall]: (prevSessions[gameIdAtCall] || 0) + pointsEarned,
           }));
-          // Only advance the mission while the child is playing the named challenge game.
-          if (gameIdAtCall === todaysChallenge.game) {
-            setChallengeProgress((cp) => {
-              const next = cp + 1;
-              if (next >= todaysChallenge.target && !challengeCompleted) {
-                setChallengeCompleted(true);
-              }
-              return next;
-            });
-          }
           // Track total games played per game
           setGamesPlayed((prev) => ({
             ...prev,
@@ -175,15 +180,18 @@ export default function App() {
       });
     };
     if (delayMs > 0) {
-      setTimeout(run, delayMs);
+      setTimeout(run, Math.min(delayMs, 100));
     } else {
       run();
     }
-  }, [challengeCompleted, todaysChallenge]);
+  }, []);
 
   useEffect(() => {
     if (!celebration) return;
-    const timer = setTimeout(() => setCelebration(null), 1600);
+    const timer = setTimeout(
+      () => setCelebration(null),
+      celebration.points >= 8 ? 1050 : 700,
+    );
     return () => clearTimeout(timer);
   }, [celebration]);
 
@@ -353,6 +361,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'jet') {
@@ -386,6 +395,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'letters') {
@@ -397,6 +407,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'memory') {
@@ -408,6 +419,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'pattern') {
@@ -419,6 +431,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'spot') {
@@ -441,6 +454,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'trace') {
@@ -474,6 +488,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'subtraction') {
@@ -485,6 +500,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'astronaut') {
@@ -496,6 +512,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'counting') {
@@ -507,6 +524,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'words') {
@@ -573,6 +591,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'chess') {
@@ -601,8 +620,27 @@ export default function App() {
 
   return (
     <>
-      {content}
+      <Suspense
+        fallback={(
+          <div className="grid min-h-screen place-items-center bg-slate-950 text-white">
+            <div className="text-center">
+              <div className="text-5xl animate-bounce-slow">🪐</div>
+              <p className="mt-3 font-black">Preparing the 3D universe…</p>
+            </div>
+          </div>
+        )}
+      >
+        {content}
+      </Suspense>
       <CelebrationOverlay celebration={celebration} />
+      {!['intro', 'menu', 'summary', 'progress'].includes(screen) && (
+        <DailyChallengeTracker
+          challenge={todaysChallenge}
+          progress={challengeProgress}
+          completed={challengeCompleted}
+          active={screen === todaysChallenge.game}
+        />
+      )}
       {paused && <PauseOverlay onResume={() => setPaused(false)} />}
       {showBreak && (
         <BreakReminder

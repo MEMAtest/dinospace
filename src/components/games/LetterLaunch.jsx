@@ -3,7 +3,7 @@ import { Home } from 'lucide-react';
 import { buildLetterRound, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
-const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [round, setRound] = useState(buildLetterRound);
   const [launching, setLaunching] = useState(false);
   const [feedback, setFeedback] = useState('');
@@ -34,6 +34,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       playSfx('launch');
       playSfx('success');
       onCelebrate(praise, 6, 250);
+      onGameEvent?.('letters', 'answer_correct');
       setTimeout(nextRound, 1400);
     } else {
       setFeedback('Try again!');

@@ -4,7 +4,7 @@ import { COUNT_LEVELS, VISUAL_EMOJIS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
-const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [levelIndex, setLevelIndex] = useState(0);
   const level = COUNT_LEVELS[levelIndex];
   const [items, setItems] = useState([]);
@@ -72,6 +72,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       playSfx('success');
       speak(praise);
       onCelebrate(praise, 6, 200);
+      onGameEvent?.('counting', 'answer_correct');
       setStreak((s) => {
         const next = s + 1;
         timeoutRef.current = setTimeout(() => {
@@ -81,7 +82,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
           } else {
             generateRound();
           }
-        }, 1800);
+        }, 1100);
         return next;
       });
     } else {

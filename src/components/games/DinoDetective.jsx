@@ -5,7 +5,7 @@ import { buildDinos, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import DinoIcon from '../shared/DinoIcon.jsx';
 
-const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [levelIndex, setLevelIndex] = useState(0);
   const level = DINO_LEVELS[levelIndex];
   const [dinos, setDinos] = useState(() => buildDinos(level));
@@ -52,6 +52,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
   const handleNextLevel = () => {
     onCelebrate(getPraise(), 10, 200);
+    onGameEvent?.('dino', 'level_completed');
     if (levelIndex < DINO_LEVELS.length - 1) {
       setLevelIndex((prev) => prev + 1);
     } else {

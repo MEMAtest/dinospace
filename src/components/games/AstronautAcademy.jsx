@@ -158,7 +158,7 @@ const HeroesGallery = ({ onBack, playSfx, speak }) => {
   );
 };
 
-const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [catIndex, setCatIndex] = useState(null);
   const [mode, setMode] = useState(null); // 'quiz' | 'gallery'
   const [qIndex, setQIndex] = useState(0);
@@ -190,6 +190,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       setCombo(newCombo);
       setScore((prev) => prev + 1);
       onCelebrate(praise, 6, 200);
+      onGameEvent?.('astronaut', 'answer_correct');
 
       if (newCombo >= 3) {
         playSfx('combo');

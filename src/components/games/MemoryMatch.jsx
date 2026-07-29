@@ -4,7 +4,7 @@ import { MEMORY_LEVELS } from '../../data/index.js';
 import { buildMemoryDeck, getPraise, loadSaved, saveSafe } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
-const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [levelIndex, setLevelIndex] = useState(0);
   const level = MEMORY_LEVELS[levelIndex];
   const [deck, setDeck] = useState(() => buildMemoryDeck(level));
@@ -44,6 +44,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       playSfx('success');
       setShowLevelComplete(true);
       onCelebrate(praise, 12, 300);
+      onGameEvent?.('memory', 'level_completed');
       const best = bestTimes[level.id];
       if (!best || timer < best) {
         setBestTimes((prev) => {
@@ -53,7 +54,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         });
       }
     }
-  }, [matches, level.emojis.length, level.id, onCelebrate, playSfx, showLevelComplete, speak, timer, bestTimes]);
+  }, [matches, level.emojis.length, level.id, onCelebrate, onGameEvent, playSfx, showLevelComplete, speak, timer, bestTimes]);
 
   const handleFlip = (index) => {
     if (locked) return;
