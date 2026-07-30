@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { Home, Pause, Play, Rotate3D, Sparkles, Volume2 } from 'lucide-react';
+import { Home, Pause, Play, Rotate3D, Sparkles, Volume2, ZoomIn, ZoomOut } from 'lucide-react';
 import { PLANETS } from '../../data/index.js';
 import { SoundToggle } from '../shared/index.jsx';
 
@@ -82,13 +82,36 @@ const addPlanetTexture = (mesh, planetName) => {
   }
 };
 
-const SolarOrrery = ({ onSelect, paused }) => {
+const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
   const mountRef = useRef(null);
   const onSelectRef = useRef(onSelect);
   const pausedRef = useRef(paused);
+  const controlsRef = useRef(null);
+  const cameraRef = useRef(null);
 
   useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
   useEffect(() => { pausedRef.current = paused; }, [paused]);
+
+  const changeZoom = useCallback((scale) => {
+    const controls = controlsRef.current;
+    const camera = cameraRef.current;
+    if (!controls || !camera) return;
+
+    const offset = camera.position.clone().sub(controls.target);
+    const nextDistance = THREE.MathUtils.clamp(
+      offset.length() * scale,
+      controls.minDistance,
+      controls.maxDistance,
+    );
+    offset.setLength(nextDistance);
+    camera.position.copy(controls.target).add(offset);
+    controls.update();
+  }, []);
+
+  useImperativeHandle(ref, () => ({
+    zoomIn: () => changeZoom(0.78),
+    zoomOut: () => changeZoom(1.28),
+  }), [changeZoom]);
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -113,6 +136,8 @@ const SolarOrrery = ({ onSelect, paused }) => {
     controls.maxDistance = 58;
     controls.maxPolarAngle = Math.PI / 2.05;
     controls.target.set(0, 0, 0);
+    controlsRef.current = controls;
+    cameraRef.current = camera;
 
     scene.add(new THREE.AmbientLight(0x8ba8ff, 0.42));
     const sunlight = new THREE.PointLight(0xffe7a3, 160, 90, 1.6);
@@ -223,6 +248,8 @@ const SolarOrrery = ({ onSelect, paused }) => {
       resizeObserver.disconnect();
       renderer.domElement.removeEventListener('pointerup', handlePointer);
       controls.dispose();
+      if (controlsRef.current === controls) controlsRef.current = null;
+      if (cameraRef.current === camera) cameraRef.current = null;
       renderer.dispose();
       scene.traverse((object) => {
         object.geometry?.dispose?.();
@@ -234,9 +261,10 @@ const SolarOrrery = ({ onSelect, paused }) => {
   }, []);
 
   return <div ref={mountRef} className="h-[52vh] min-h-[400px] w-full cursor-grab active:cursor-grabbing lg:h-[calc(100vh-130px)]" />;
-};
+});
 
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const orreryRef = useRef(null);
   const [selectedPlanet, setSelectedPlanet] = useState(PLANETS[2]);
   const [activeFact, setActiveFact] = useState(0);
   const [discoveredFacts, setDiscoveredFacts] = useState({});
@@ -286,6 +314,11 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     }
   };
 
+  const handleZoom = (direction) => {
+    orreryRef.current?.[direction]();
+    playSfx('click');
+  };
+
   const discoveredForPlanet = selectedPlanet.facts.filter(
     (_fact, index) => discoveredFacts[`${selectedPlanet.name}-${index}`],
   ).length;
@@ -312,10 +345,30 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
       <main className="grid lg:grid-cols-[minmax(0,1.5fr)_minmax(340px,0.7fr)]">
         <section className="relative overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r">
-          <SolarOrrery onSelect={selectPlanet} paused={paused} />
+          <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} />
           <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-3 text-sm text-white/75 backdrop-blur">
             <div className="flex items-center gap-2 font-black text-white"><Rotate3D size={18} /> Drag to orbit</div>
-            <div>Scroll or pinch to zoom · tap a planet</div>
+            <div>Use zoom buttons, scroll, or pinch · tap a planet</div>
+          </div>
+          <div className="absolute right-3 top-3 z-10 flex flex-col gap-2" role="group" aria-label="Camera zoom controls">
+            <button
+              type="button"
+              onClick={() => handleZoom('zoomIn')}
+              className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100 shadow-lg backdrop-blur transition hover:bg-cyan-300 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+              aria-label="Zoom in on the Solar System"
+              title="Zoom in"
+            >
+              <ZoomIn size={24} strokeWidth={2.8} />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleZoom('zoomOut')}
+              className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100 shadow-lg backdrop-blur transition hover:bg-cyan-300 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
+              aria-label="Zoom out from the Solar System"
+              title="Zoom out"
+            >
+              <ZoomOut size={24} strokeWidth={2.8} />
+            </button>
           </div>
           <div className="absolute bottom-3 left-3 right-3 flex gap-2 overflow-x-auto rounded-2xl border border-white/10 bg-slate-950/75 p-2 backdrop-blur-xl no-scrollbar">
             {PLANETS.map((planet) => (
