@@ -1,10 +1,11 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { THEME, ACHIEVEMENTS } from './data/index.js';
 import { createBursts, createConfetti, getPraise, getRank, getNextRank, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
-import { useSfx, useVoice, useAmbientMusic } from './hooks.js';
+import { useSfx, useVoice, useAmbientMusic, useInstallPrompt } from './hooks.js';
 import {
   SoundToggle, CelebrationOverlay, RewardsShelf, PointsSummaryScreen,
   PauseOverlay, BreakReminder, DailyChallengeBanner, DailyChallengeTracker, StreakBanner, MenuCard,
+  InstallAppPrompt, VoiceSettings,
 } from './components/shared/index.jsx';
 import DinoDetective from './components/games/DinoDetective.jsx';
 import JetSkyShapes from './components/games/JetSkyShapes.jsx';
@@ -28,6 +29,7 @@ import TimeTeller from './components/games/TimeTeller.jsx';
 import NumberLineJump from './components/games/NumberLineJump.jsx';
 import ChessExplorers from './components/games/ChessExplorers.jsx';
 import TicTacToe from './components/games/TicTacToe.jsx';
+import DinoHangman from './components/games/Hangman.jsx';
 import ProgressDashboard from './components/games/ProgressDashboard.jsx';
 import IntroScreen from './components/games/IntroScreen.jsx';
 
@@ -37,6 +39,7 @@ const GAME_CATEGORIES = ['All', 'Quick Think', 'Maths', 'Words', 'Discover', 'Cr
 
 const GAME_MENU_ITEMS = [
   { id: 'tictactoe', icon: '🦖', title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
+  { id: 'hangman', icon: '🛡️', title: 'Dino Hangman', desc: 'Rescue the secret word!', color: 'bg-gradient-to-br from-fuchsia-500 via-purple-600 to-indigo-700', category: 'Words', badge: 'NEW' },
   { id: 'dino', icon: '🦕', title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' },
   { id: 'jet', icon: '✈️', title: 'Sky Shapes', desc: 'Draw with a jet!', color: 'bg-gradient-to-br from-sky-400 to-blue-500', category: 'Create' },
   { id: 'solar', icon: '🪐', title: 'Solar System', desc: 'Visit the planets', color: 'bg-gradient-to-br from-indigo-500 to-violet-600', category: 'Discover' },
@@ -82,7 +85,8 @@ export default function App() {
   const breakTimerRef = useRef(null);
   const screenRef = useRef(screen);
   const playSfx = useSfx(soundOn);
-  const speak = useVoice(soundOn);
+  const { speak, voiceMode, setVoiceMode, premiumEnabled, premiumStatus } = useVoice(soundOn);
+  const installPrompt = useInstallPrompt();
   useAmbientMusic(soundOn);
 
   const todaysChallenge = useMemo(() => getTodaysChallenge(), []);
@@ -140,6 +144,10 @@ export default function App() {
 
   useEffect(() => {
     screenRef.current = screen;
+  }, [screen]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, [screen]);
 
   const recordGameEvent = useCallback((gameId, event, amount = 1) => {
@@ -333,6 +341,15 @@ export default function App() {
         >
           📊 My Progress & Achievements
         </button>
+
+        <VoiceSettings
+          voiceMode={voiceMode}
+          onVoiceModeChange={setVoiceMode}
+          premiumEnabled={premiumEnabled}
+          premiumStatus={premiumStatus}
+          onPreview={() => speak('Hello explorer! Your next learning adventure is ready.')}
+        />
+        <InstallAppPrompt {...installPrompt} onInstall={installPrompt.install} />
 
         <div className="mt-6 text-slate-500 font-medium text-sm flex gap-2 items-center relative z-10">
           <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse" />
@@ -585,6 +602,18 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+      />
+    );
+  } else if (screen === 'hangman') {
+    content = (
+      <DinoHangman
+        onBack={() => handleBack('hangman')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        speak={speak}
+        onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'tictactoe') {

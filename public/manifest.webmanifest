@@ -1,0 +1,25 @@
+{
+  "name": "Amari Discovery",
+  "short_name": "Amari",
+  "description": "A playful learning arcade for curious kids.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07132f",
+  "theme_color": "#07132f",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/icons/amari-discovery-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/amari-discovery-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

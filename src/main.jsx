@@ -6,6 +6,14 @@ import { inject } from '@vercel/analytics'
 
 inject()
 
+if ('serviceWorker' in navigator && import.meta.env.PROD) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {
+      // The game still works online if a browser blocks service workers.
+    });
+  });
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />

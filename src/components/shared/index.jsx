@@ -1,4 +1,4 @@
-import { ArrowRight, Home, Pause, Play, Volume2, VolumeX } from 'lucide-react';
+import { ArrowRight, Download, Headphones, Home, Pause, Play, Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { STICKERS, GAME_LABELS } from '../../data/index.js';
 
 export const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
@@ -104,6 +104,98 @@ export const RewardsShelf = ({ points }) => {
         })}
       </div>
     </div>
+  );
+};
+
+export const InstallAppPrompt = ({ canInstall, isAppleMobile, isInstalled, isInstalling, onInstall }) => {
+  if (isInstalled) return null;
+
+  return (
+    <section className="mt-6 w-full max-w-5xl rounded-3xl border-4 border-indigo-100 bg-white/80 p-5 shadow-xl backdrop-blur relative z-10">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-start gap-3">
+          <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-indigo-100 text-indigo-700">
+            <Download size={24} />
+          </div>
+          <div>
+            <h3 className="font-black text-slate-800">Install Amari Discovery</h3>
+            <p className="mt-1 text-sm font-semibold text-slate-500">
+              Play full-screen from this device and keep your games ready for offline adventures.
+            </p>
+            {!canInstall && isAppleMobile && (
+              <p className="mt-2 text-sm font-bold text-indigo-700">On iPhone or iPad: tap Share, then Add to Home Screen.</p>
+            )}
+            {!canInstall && !isAppleMobile && (
+              <p className="mt-2 text-sm font-bold text-indigo-700">Look for Install app or Add to Home screen in your browser menu.</p>
+            )}
+          </div>
+        </div>
+        {canInstall && (
+          <button
+            onClick={onInstall}
+            disabled={isInstalling}
+            className="shrink-0 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-indigo-700 active:translate-y-0 disabled:opacity-60"
+          >
+            {isInstalling ? 'Opening install…' : 'Install app'}
+          </button>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export const VoiceSettings = ({ voiceMode, onVoiceModeChange, premiumEnabled, premiumStatus, onPreview }) => {
+  const statusText = premiumStatus === 'ready'
+    ? 'Premium narrator connected'
+    : premiumStatus === 'unavailable'
+      ? 'Using this device voice for now'
+      : premiumEnabled
+        ? 'Premium narrator ready to try'
+        : 'Premium narrator is off until connected';
+
+  return (
+    <section className="mt-6 w-full max-w-5xl rounded-3xl border-4 border-fuchsia-100 bg-white/80 p-5 shadow-xl backdrop-blur relative z-10">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="flex items-start gap-3">
+          <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-fuchsia-100 text-fuchsia-700">
+            <Headphones size={24} />
+          </div>
+          <div>
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="font-black text-slate-800">Narrator voice</h3>
+              <span className={`rounded-full px-2.5 py-1 text-xs font-black ${premiumStatus === 'ready' ? 'bg-emerald-100 text-emerald-700' : 'bg-fuchsia-100 text-fuchsia-700'}`}>
+                <Sparkles className="mr-1 inline" size={13} /> {statusText}
+              </span>
+            </div>
+            <p className="mt-1 text-sm font-semibold text-slate-500">Smart voice gives premium narration a moment to start, then keeps play moving with the device voice if needed.</p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <div className="flex rounded-2xl bg-slate-100 p-1" role="radiogroup" aria-label="Narrator voice preference">
+            {[
+              ['smart', 'Smart'],
+              ['premium', 'Premium'],
+              ['device', 'Device'],
+            ].map(([value, label]) => (
+              <button
+                key={value}
+                onClick={() => onVoiceModeChange(value)}
+                disabled={value === 'premium' && !premiumEnabled}
+                className={`rounded-xl px-3 py-2 text-sm font-black transition disabled:cursor-not-allowed disabled:opacity-40 ${voiceMode === value ? 'bg-white text-fuchsia-700 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
+                role="radio"
+                aria-checked={voiceMode === value}
+                aria-label={value === 'premium' && !premiumEnabled ? 'Premium narrator needs connection first' : undefined}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <button onClick={onPreview} className="rounded-2xl border-2 border-fuchsia-200 px-4 py-2 text-sm font-black text-fuchsia-700 transition hover:bg-fuchsia-50">
+            <Volume2 className="mr-1 inline" size={16} /> Hear it
+          </button>
+        </div>
+      </div>
+    </section>
   );
 };
 

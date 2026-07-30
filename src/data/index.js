@@ -751,6 +751,23 @@ export const WORD_BUILDER_WORDS = [
   { word: 'VAN', emoji: '🚐', hint: 'A big car for moving things' },
 ];
 
+// Short, familiar words for Dino Hangman. Each clue is visual and concrete so
+// children can use meaning as well as letter knowledge to solve the word.
+export const HANGMAN_WORDS = [
+  { word: 'MOON', emoji: '🌙', clue: 'It glows in the night sky.', category: 'Space' },
+  { word: 'STAR', emoji: '⭐', clue: 'It twinkles far away in space.', category: 'Space' },
+  { word: 'ROCKET', emoji: '🚀', clue: 'It blasts into space.', category: 'Space' },
+  { word: 'DINO', emoji: '🦕', clue: 'A giant animal from long ago.', category: 'Dino World' },
+  { word: 'FOSSIL', emoji: '🦴', clue: 'A rock-shaped clue from a living thing long ago.', category: 'Dino World' },
+  { word: 'COMET', emoji: '☄️', clue: 'A speedy icy visitor with a glowing tail.', category: 'Space' },
+  { word: 'TIGER', emoji: '🐯', clue: 'A big cat with orange and black stripes.', category: 'Animals' },
+  { word: 'ZEBRA', emoji: '🦓', clue: 'An animal with black and white stripes.', category: 'Animals' },
+  { word: 'PIZZA', emoji: '🍕', clue: 'A round dinner with tasty toppings.', category: 'Food' },
+  { word: 'RAINBOW', emoji: '🌈', clue: 'Colourful stripes that can appear after rain.', category: 'Weather' },
+  { word: 'CASTLE', emoji: '🏰', clue: 'A tall home with towers and flags.', category: 'Places' },
+  { word: 'PIRATE', emoji: '🏴‍☠️', clue: 'A sea adventurer who might look for treasure.', category: 'Stories' },
+];
+
 export const COLOR_MIX_ROUNDS = [
   { color1: '🔴', color2: '🟡', name1: 'Red', name2: 'Yellow', answer: 'Orange', answerEmoji: '🟠', options: ['Orange', 'Green', 'Purple', 'Brown'] },
   { color1: '🔴', color2: '🔵', name1: 'Red', name2: 'Blue', answer: 'Purple', answerEmoji: '🟣', options: ['Orange', 'Green', 'Purple', 'Pink'] },
@@ -792,6 +809,7 @@ export const ACHIEVEMENTS = [
   { id: 'astro_grad', name: 'Space Graduate', emoji: '🎓', desc: 'Complete all Astronaut missions', check: (g) => (g.astronaut || 0) >= 38 },
   { id: 'puzzle_king', name: 'Puzzle King', emoji: '👑', desc: 'Complete 10 puzzles', check: (g) => (g.puzzle || 0) >= 10 },
   { id: 'grid_master', name: 'Grid Master', emoji: '⭕', desc: 'Win 5 tic-tac-toe rounds', check: (g) => (g.tictactoe || 0) >= 5 },
+  { id: 'word_rescuer', name: 'Word Rescuer', emoji: '🛟', desc: 'Rescue 8 Hangman words', check: (g) => (g.hangman || 0) >= 8 },
   { id: 'all_rounder', name: 'All Rounder', emoji: '🏅', desc: 'Try every game', check: (g) => Object.keys(g).filter((k) => g[k] > 0).length >= 14 },
 ];
 
@@ -821,6 +839,7 @@ export const GAME_LABELS = {
   numberline: 'Number Line Jump',
   chess: 'Chess Explorers',
   tictactoe: 'Cosmic Tic-Tac-Toe',
+  hangman: 'Dino Hangman',
   progress: 'Progress Dashboard',
 };
 

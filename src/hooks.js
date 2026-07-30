@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const FRIENDLY_VOICE_NAMES = [
   'Samantha (Enhanced)',
@@ -312,19 +312,88 @@ export const useSfx = (enabled) => {
   );
 };
 
+const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode';
+const PREMIUM_VOICE_TIMEOUT_MS = 900;
+const MAX_PREMIUM_VOICE_CACHE = 24;
+const PREMIUM_VOICE_ENABLED = import.meta.env.VITE_ELEVENLABS_ENABLED === 'true';
+
+const getStoredVoiceMode = () => {
+  try {
+    const stored = window.localStorage.getItem(VOICE_MODE_STORAGE_KEY);
+    return ['smart', 'premium', 'device'].includes(stored) ? stored : 'smart';
+  } catch {
+    return 'smart';
+  }
+};
+
+const getIsInstalled = () => {
+  if (typeof window === 'undefined') return false;
+  return Boolean(window.matchMedia?.('(display-mode: standalone)')?.matches || window.navigator.standalone);
+};
+
+const getIsAppleMobile = () => {
+  if (typeof window === 'undefined') return false;
+  return /iPad|iPhone|iPod/.test(window.navigator.userAgent || '');
+};
+
 export const useVoice = (enabled) => {
   const enabledRef = useRef(enabled);
   const voiceRef = useRef(null);
-  const queueRef = useRef(null); // tracks pending sentence timeouts
+  const queueRef = useRef(null);
+  const premiumRequestRef = useRef(null);
+  const premiumAudioRef = useRef(null);
+  const premiumAudioUrlRef = useRef(null);
+  const fallbackTimerRef = useRef(null);
+  const premiumCacheRef = useRef(new Map());
+  const voiceModeRef = useRef('smart');
+  const [voiceMode, setVoiceModeState] = useState(getStoredVoiceMode);
+  const [premiumStatus, setPremiumStatus] = useState('unknown');
+
+  const stopPremiumPlayback = useCallback(() => {
+    if (premiumAudioRef.current) {
+      premiumAudioRef.current.pause();
+      premiumAudioRef.current.currentTime = 0;
+      premiumAudioRef.current = null;
+    }
+    if (premiumAudioUrlRef.current) {
+      URL.revokeObjectURL(premiumAudioUrlRef.current);
+      premiumAudioUrlRef.current = null;
+    }
+  }, []);
+
+  const cancelPremiumVoice = useCallback(() => {
+    if (fallbackTimerRef.current) {
+      clearTimeout(fallbackTimerRef.current);
+      fallbackTimerRef.current = null;
+    }
+    if (premiumRequestRef.current) {
+      premiumRequestRef.current.abort();
+      premiumRequestRef.current = null;
+    }
+    stopPremiumPlayback();
+  }, [stopPremiumPlayback]);
 
   useEffect(() => {
     enabledRef.current = enabled;
-  }, [enabled]);
+    if (!enabled) {
+      cancelPremiumVoice();
+      window.speechSynthesis?.cancel();
+    }
+  }, [cancelPremiumVoice, enabled]);
 
-  // Cache voice selection — voices load async on many browsers
+  useEffect(() => {
+    voiceModeRef.current = voiceMode;
+    try {
+      window.localStorage.setItem(VOICE_MODE_STORAGE_KEY, voiceMode);
+    } catch {
+      // Voice preference is optional; private browsing may not allow storage.
+    }
+  }, [voiceMode]);
+
+  // Cache voice selection — voices load async on many browsers.
   useEffect(() => {
     const synth = typeof window !== 'undefined' && window.speechSynthesis;
-    if (!synth) return;
+    if (!synth) return undefined;
 
     const updateVoice = () => {
       const voices = synth.getVoices();
@@ -336,62 +405,56 @@ export const useVoice = (enabled) => {
     return () => synth.removeEventListener('voiceschanged', updateVoice);
   }, []);
 
-  return useCallback((text, { lang = 'en-US', rate = 0.75, pitch = 1.28 } = {}) => {
-    if (!enabledRef.current) return;
-    if (!text) return;
+  useEffect(() => () => {
+    cancelPremiumVoice();
+    window.speechSynthesis?.cancel();
+    if (queueRef.current) clearTimeout(queueRef.current);
+  }, [cancelPremiumVoice]);
+
+  const speakOnDevice = useCallback((text, { lang = 'en-US', rate = 0.75, pitch = 1.28 } = {}) => {
+    if (!enabledRef.current || !text) return;
     if (typeof window === 'undefined' || !window.speechSynthesis) return;
 
     const synth = window.speechSynthesis;
-
-    // Cancel any in-flight speech and pending queued sentences
     synth.cancel();
     if (queueRef.current) {
       clearTimeout(queueRef.current);
       queueRef.current = null;
     }
 
-    // Split text into sentences for natural pauses
     const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
 
     const doSpeak = () => {
-      // Re-check voice — may have loaded since initial mount
       if (!voiceRef.current) {
         voiceRef.current = pickFriendlyVoice(synth.getVoices(), lang);
       }
       const preferred = voiceRef.current;
 
       const speakSentence = (index) => {
-        if (index >= sentences.length) return;
-
+        if (index >= sentences.length || !enabledRef.current) return;
         const utterance = new SpeechSynthesisUtterance(sentences[index].trim());
         utterance.lang = lang;
-        // Slight random variation per sentence to prevent monotony
         utterance.rate = rate + (Math.random() * 0.06 - 0.03);
         utterance.pitch = pitch;
         utterance.volume = 1;
         if (preferred) utterance.voice = preferred;
-
         utterance.onend = () => {
-          if (index < sentences.length - 1) {
-            // 350ms breathing pause between sentences
+          if (index < sentences.length - 1 && enabledRef.current) {
             queueRef.current = setTimeout(() => speakSentence(index + 1), 350);
           }
         };
-
         synth.speak(utterance);
       };
 
       speakSentence(0);
     };
 
-    // If voices haven't loaded yet, wait briefly for them
     if (!voiceRef.current && synth.getVoices().length === 0) {
       const onReady = () => {
         voiceRef.current = pickFriendlyVoice(synth.getVoices(), lang);
         doSpeak();
       };
       synth.addEventListener('voiceschanged', onReady, { once: true });
-      // Fallback — if voiceschanged never fires, speak anyway after 300ms
       queueRef.current = setTimeout(() => {
         synth.removeEventListener('voiceschanged', onReady);
         doSpeak();
@@ -400,6 +463,173 @@ export const useVoice = (enabled) => {
       doSpeak();
     }
   }, []);
+
+  const setVoiceMode = useCallback((nextMode) => {
+    if (!['smart', 'premium', 'device'].includes(nextMode)) return;
+    setVoiceModeState(nextMode);
+  }, []);
+
+  const speak = useCallback((rawText, options = {}) => {
+    if (!enabledRef.current || !rawText) return;
+    const text = String(rawText).replace(/\s+/g, ' ').trim();
+    if (!text) return;
+
+    const { lang = 'en-US', premium = true } = options;
+    cancelPremiumVoice();
+    window.speechSynthesis?.cancel();
+    if (queueRef.current) {
+      clearTimeout(queueRef.current);
+      queueRef.current = null;
+    }
+
+    const canUsePremium = premium
+      && voiceModeRef.current !== 'device'
+      && !import.meta.env.DEV
+      && PREMIUM_VOICE_ENABLED
+      && typeof window !== 'undefined'
+      && typeof window.fetch === 'function'
+      && window.navigator.onLine !== false;
+
+    if (!canUsePremium) {
+      speakOnDevice(text, options);
+      return;
+    }
+
+    let fellBack = false;
+    const fallBackToDevice = () => {
+      if (fellBack) return;
+      fellBack = true;
+      cancelPremiumVoice();
+      speakOnDevice(text, options);
+    };
+
+    const cacheKey = `${lang}:${text}`;
+    const playPremiumAudio = (audioBlob) => {
+      if (fellBack || !enabledRef.current) return;
+      if (fallbackTimerRef.current) {
+        clearTimeout(fallbackTimerRef.current);
+        fallbackTimerRef.current = null;
+      }
+
+      const audioUrl = URL.createObjectURL(audioBlob);
+      const audio = new Audio(audioUrl);
+      premiumAudioRef.current = audio;
+      premiumAudioUrlRef.current = audioUrl;
+      audio.onended = () => {
+        if (premiumAudioRef.current === audio) {
+          premiumAudioRef.current = null;
+          URL.revokeObjectURL(audioUrl);
+          if (premiumAudioUrlRef.current === audioUrl) premiumAudioUrlRef.current = null;
+        }
+      };
+      audio.onerror = fallBackToDevice;
+      const playback = audio.play();
+      if (playback?.catch) playback.catch(fallBackToDevice);
+    };
+
+    fallbackTimerRef.current = setTimeout(
+      fallBackToDevice,
+      voiceModeRef.current === 'premium' ? PREMIUM_VOICE_TIMEOUT_MS + 300 : PREMIUM_VOICE_TIMEOUT_MS,
+    );
+
+    const cachedAudio = premiumCacheRef.current.get(cacheKey);
+    if (cachedAudio) {
+      setPremiumStatus('ready');
+      playPremiumAudio(cachedAudio);
+      return;
+    }
+
+    const controller = new AbortController();
+    premiumRequestRef.current = controller;
+    window.fetch('/api/voice', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text, language: lang.split('-')[0] }),
+      signal: controller.signal,
+    })
+      .then(async (response) => {
+        if (response.status === 204) return null;
+        if (!response.ok) throw new Error(`Voice request failed (${response.status})`);
+        const audioBlob = await response.blob();
+        if (!audioBlob.size) throw new Error('Voice request returned no audio');
+        return audioBlob;
+      })
+      .then((audioBlob) => {
+        if (fellBack || controller.signal.aborted) return;
+        if (!audioBlob) {
+          premiumRequestRef.current = null;
+          setPremiumStatus('unavailable');
+          fallBackToDevice();
+          return;
+        }
+        premiumRequestRef.current = null;
+        setPremiumStatus('ready');
+        if (premiumCacheRef.current.size >= MAX_PREMIUM_VOICE_CACHE) {
+          premiumCacheRef.current.delete(premiumCacheRef.current.keys().next().value);
+        }
+        premiumCacheRef.current.set(cacheKey, audioBlob);
+        playPremiumAudio(audioBlob);
+      })
+      .catch((error) => {
+        if (error?.name === 'AbortError') return;
+        premiumRequestRef.current = null;
+        setPremiumStatus('unavailable');
+        fallBackToDevice();
+      });
+  }, [cancelPremiumVoice, speakOnDevice]);
+
+  return { speak, voiceMode, setVoiceMode, premiumStatus, premiumEnabled: PREMIUM_VOICE_ENABLED };
+};
+
+export const useInstallPrompt = () => {
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
+  const [isInstalled, setIsInstalled] = useState(getIsInstalled);
+  const [isInstalling, setIsInstalling] = useState(false);
+  const [isAppleMobile] = useState(getIsAppleMobile);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return undefined;
+    const displayMode = window.matchMedia?.('(display-mode: standalone)');
+    const syncInstalledState = () => setIsInstalled(getIsInstalled());
+
+    const onBeforeInstallPrompt = (event) => {
+      event.preventDefault();
+      setDeferredPrompt(event);
+    };
+    const onInstalled = () => {
+      setDeferredPrompt(null);
+      setIsInstalled(true);
+      setIsInstalling(false);
+    };
+
+    window.addEventListener('beforeinstallprompt', onBeforeInstallPrompt);
+    window.addEventListener('appinstalled', onInstalled);
+    displayMode?.addEventListener?.('change', syncInstalledState);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', onBeforeInstallPrompt);
+      window.removeEventListener('appinstalled', onInstalled);
+      displayMode?.removeEventListener?.('change', syncInstalledState);
+    };
+  }, []);
+
+  const install = useCallback(async () => {
+    if (!deferredPrompt) return false;
+    setIsInstalling(true);
+    deferredPrompt.prompt();
+    const choice = await deferredPrompt.userChoice;
+    setDeferredPrompt(null);
+    setIsInstalling(false);
+    if (choice?.outcome === 'accepted') setIsInstalled(true);
+    return choice?.outcome === 'accepted';
+  }, [deferredPrompt]);
+
+  return {
+    canInstall: Boolean(deferredPrompt),
+    install,
+    isAppleMobile,
+    isInstalled,
+    isInstalling,
+  };
 };
 
 export const useAmbientMusic = (enabled) => {
