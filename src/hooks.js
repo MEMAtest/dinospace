@@ -352,6 +352,7 @@ export const useVoice = (enabled) => {
   const premiumAudioRef = useRef(null);
   const premiumAudioUrlRef = useRef(null);
   const fallbackTimerRef = useRef(null);
+  const pendingPremiumGestureCleanupRef = useRef(null);
   const premiumCacheRef = useRef(new Map());
   const voiceModeRef = useRef('smart');
   const [voiceMode, setVoiceModeState] = useState(getStoredVoiceMode);
@@ -369,7 +370,13 @@ export const useVoice = (enabled) => {
     }
   }, []);
 
+  const clearPendingPremiumGesture = useCallback(() => {
+    pendingPremiumGestureCleanupRef.current?.();
+    pendingPremiumGestureCleanupRef.current = null;
+  }, []);
+
   const cancelPremiumVoice = useCallback(() => {
+    clearPendingPremiumGesture();
     if (fallbackTimerRef.current) {
       clearTimeout(fallbackTimerRef.current);
       fallbackTimerRef.current = null;
@@ -379,7 +386,7 @@ export const useVoice = (enabled) => {
       premiumRequestRef.current = null;
     }
     stopPremiumPlayback();
-  }, [stopPremiumPlayback]);
+  }, [clearPendingPremiumGesture, stopPremiumPlayback]);
 
   useEffect(() => {
     enabledRef.current = enabled;
@@ -532,7 +539,38 @@ export const useVoice = (enabled) => {
       };
       audio.onerror = fallBackToDevice;
       const playback = audio.play();
-      if (playback?.catch) playback.catch(fallBackToDevice);
+      if (playback?.catch) {
+        playback.catch((error) => {
+          if (error?.name !== 'NotAllowedError') {
+            fallBackToDevice();
+            return;
+          }
+
+          // Mobile browsers can block the automatic welcome narration. Keep
+          // the ElevenLabs audio and retry it on the first real tap/key press
+          // instead of silently switching to the computer voice.
+          audio.onerror = null;
+          audio.pause();
+          if (premiumAudioRef.current === audio) premiumAudioRef.current = null;
+          URL.revokeObjectURL(audioUrl);
+          if (premiumAudioUrlRef.current === audioUrl) premiumAudioUrlRef.current = null;
+          if (fallbackTimerRef.current) {
+            clearTimeout(fallbackTimerRef.current);
+            fallbackTimerRef.current = null;
+          }
+
+          const retry = () => {
+            clearPendingPremiumGesture();
+            playPremiumAudio(audioBlob);
+          };
+          document.addEventListener('pointerdown', retry, { once: true });
+          document.addEventListener('keydown', retry, { once: true });
+          pendingPremiumGestureCleanupRef.current = () => {
+            document.removeEventListener('pointerdown', retry);
+            document.removeEventListener('keydown', retry);
+          };
+        });
+      }
     };
 
     fallbackTimerRef.current = setTimeout(
@@ -584,7 +622,7 @@ export const useVoice = (enabled) => {
         setPremiumStatus('unavailable');
         fallBackToDevice();
       });
-  }, [cancelPremiumVoice, speakOnDevice]);
+  }, [cancelPremiumVoice, clearPendingPremiumGesture, speakOnDevice]);
 
   return { speak, voiceMode, setVoiceMode, premiumStatus, premiumEnabled: PREMIUM_VOICE_ENABLED };
 };
