@@ -519,6 +519,24 @@ export const useVoice = (enabled) => {
     };
 
     const cacheKey = `${lang}:${text}`;
+    const waitForPremiumGesture = (audioBlob) => {
+      clearPendingPremiumGesture();
+      if (fallbackTimerRef.current) {
+        clearTimeout(fallbackTimerRef.current);
+        fallbackTimerRef.current = null;
+      }
+
+      const retry = () => {
+        clearPendingPremiumGesture();
+        playPremiumAudio(audioBlob);
+      };
+      document.addEventListener('pointerdown', retry, { once: true });
+      document.addEventListener('keydown', retry, { once: true });
+      pendingPremiumGestureCleanupRef.current = () => {
+        document.removeEventListener('pointerdown', retry);
+        document.removeEventListener('keydown', retry);
+      };
+    };
     const playPremiumAudio = (audioBlob) => {
       if (fellBack || !enabledRef.current) return;
       if (fallbackTimerRef.current) {
@@ -537,7 +555,18 @@ export const useVoice = (enabled) => {
           if (premiumAudioUrlRef.current === audioUrl) premiumAudioUrlRef.current = null;
         }
       };
-      audio.onerror = fallBackToDevice;
+      audio.onerror = () => {
+        if (!hadUserGesture) {
+          audio.onerror = null;
+          audio.pause();
+          if (premiumAudioRef.current === audio) premiumAudioRef.current = null;
+          URL.revokeObjectURL(audioUrl);
+          if (premiumAudioUrlRef.current === audioUrl) premiumAudioUrlRef.current = null;
+          waitForPremiumGesture(audioBlob);
+        } else {
+          fallBackToDevice();
+        }
+      };
       const playback = audio.play();
       if (playback?.catch) {
         playback.catch((error) => {
@@ -558,17 +587,7 @@ export const useVoice = (enabled) => {
             clearTimeout(fallbackTimerRef.current);
             fallbackTimerRef.current = null;
           }
-
-          const retry = () => {
-            clearPendingPremiumGesture();
-            playPremiumAudio(audioBlob);
-          };
-          document.addEventListener('pointerdown', retry, { once: true });
-          document.addEventListener('keydown', retry, { once: true });
-          pendingPremiumGestureCleanupRef.current = () => {
-            document.removeEventListener('pointerdown', retry);
-            document.removeEventListener('keydown', retry);
-          };
+          waitForPremiumGesture(audioBlob);
         });
       }
     };
