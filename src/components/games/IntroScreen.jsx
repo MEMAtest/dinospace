@@ -1,12 +1,6 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { SoundToggle } from '../shared/index.jsx';
 
 const IntroScreen = ({ onStart, playSfx, soundOn, onToggleSound, speak }) => {
-  useEffect(() => {
-    speak('Welcome Amari! Ready to play?');
-    playSfx('sparkle');
-  }, [playSfx, speak]);
-
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-sky-200 via-blue-100 to-indigo-100 flex flex-col items-center justify-center px-6 py-10 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
