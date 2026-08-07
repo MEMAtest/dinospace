@@ -166,6 +166,11 @@ export default function App() {
     }
   }, [todaysChallenge]);
 
+  const goToTodaysChallenge = useCallback(() => {
+    playSfx('launch');
+    setScreen(todaysChallenge.game);
+  }, [playSfx, todaysChallenge]);
+
   const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0, gameIdOverride) => {
     const finalMessage = message || getPraise();
     const gameIdAtCall = gameIdOverride || screenRef.current;
@@ -283,7 +288,7 @@ export default function App() {
           challenge={todaysChallenge}
           progress={challengeProgress}
           completed={challengeCompleted}
-          onGo={() => { playSfx('launch'); setScreen(todaysChallenge.game); }}
+          onGo={goToTodaysChallenge}
         />
 
         <div className="relative z-10 mb-5 flex w-full max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -673,6 +678,7 @@ export default function App() {
           progress={challengeProgress}
           completed={challengeCompleted}
           active={screen === todaysChallenge.game}
+          onGo={goToTodaysChallenge}
         />
       )}
       {paused && <PauseOverlay onResume={() => setPaused(false)} />}

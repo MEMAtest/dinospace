@@ -167,7 +167,7 @@ export const VoiceSettings = ({ voiceMode, onVoiceModeChange, premiumEnabled, pr
                 <Sparkles className="mr-1 inline" size={13} /> {statusText}
               </span>
             </div>
-            <p className="mt-1 text-sm font-semibold text-slate-500">Smart voice gives premium narration a moment to start, then keeps play moving with the device voice if needed.</p>
+            <p className="mt-1 text-sm font-semibold text-slate-500">Premium uses the ElevenLabs narrator. Smart tries it first, then uses this device voice only if the service is unavailable.</p>
           </div>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -302,15 +302,13 @@ export const DailyChallengeBanner = ({ challenge, progress, onGo, completed }) =
   </div>
 );
 
-export const DailyChallengeTracker = ({ challenge, progress, completed, active }) => {
+export const DailyChallengeTracker = ({ challenge, progress, completed, active, onGo }) => {
   const percentage = Math.min(100, (progress / challenge.target) * 100);
   return (
     <div
-      className={`fixed bottom-3 left-1/2 z-40 w-[min(92vw,360px)] -translate-x-1/2 pointer-events-none transition-all ${
+      className={`fixed bottom-3 left-1/2 z-40 w-[min(92vw,380px)] -translate-x-1/2 pointer-events-auto transition-all ${
         completed ? 'animate-challenge-complete' : ''
       }`}
-      role="status"
-      aria-live="polite"
     >
       <div className={`rounded-2xl border px-4 py-3 shadow-2xl backdrop-blur-xl ${
         completed
@@ -322,14 +320,24 @@ export const DailyChallengeTracker = ({ challenge, progress, completed, active }
         <div className="flex items-center gap-3">
           <span className="text-2xl">{completed ? '🏆' : challenge.emoji}</span>
           <div className="min-w-0 flex-1">
-            <div className="flex items-center justify-between gap-3 text-xs font-black uppercase tracking-wide">
-              <span>{completed ? 'Daily mission complete' : active ? 'Mission in progress' : 'Today’s mission'}</span>
+            <div className="flex items-center justify-between gap-2 text-xs font-black uppercase tracking-wide">
+              <span role="status" aria-live="polite">{completed ? 'Daily mission complete' : active ? 'Mission in progress' : 'Today’s mission'}</span>
               <span key={progress} className="animate-count-up">{Math.min(progress, challenge.target)}/{challenge.target}</span>
             </div>
             <p className={`truncate text-sm font-bold ${active || completed ? 'text-white/75' : 'text-slate-500'}`}>
               {challenge.desc}
             </p>
           </div>
+          {!completed && onGo && (
+            <button
+              type="button"
+              onClick={onGo}
+              className="flex shrink-0 items-center gap-1 rounded-xl bg-amber-400 px-2.5 py-2 text-xs font-black text-slate-950 shadow-md transition hover:bg-amber-300 active:translate-y-0.5"
+              aria-label={`${active ? 'Restart' : 'Play'} today’s mission: ${challenge.desc}`}
+            >
+              {active ? 'Play' : 'Go'} <ArrowRight size={14} strokeWidth={3} />
+            </button>
+          )}
         </div>
         <div className={`mt-2 h-2 overflow-hidden rounded-full ${active || completed ? 'bg-white/15' : 'bg-slate-200'}`}>
           <div

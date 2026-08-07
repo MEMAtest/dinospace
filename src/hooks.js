@@ -312,17 +312,25 @@ export const useSfx = (enabled) => {
   );
 };
 
-const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode';
-const PREMIUM_VOICE_TIMEOUT_MS = 900;
+const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v2';
+const LEGACY_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode';
+const PREMIUM_VOICE_TIMEOUT_MS = 2000;
 const MAX_PREMIUM_VOICE_CACHE = 24;
 const PREMIUM_VOICE_ENABLED = import.meta.env.VITE_ELEVENLABS_ENABLED === 'true';
 
 const getStoredVoiceMode = () => {
   try {
     const stored = window.localStorage.getItem(VOICE_MODE_STORAGE_KEY);
-    return ['smart', 'premium', 'device'].includes(stored) ? stored : 'smart';
+    if (['smart', 'premium', 'device'].includes(stored)) return stored;
+
+    // Migrate the old default to ElevenLabs while preserving an explicit
+    // device-voice choice made before the premium narrator was connected.
+    const legacy = window.localStorage.getItem(LEGACY_VOICE_MODE_STORAGE_KEY);
+    if (legacy === 'device') return 'device';
+    if (legacy === 'premium') return 'premium';
+    return PREMIUM_VOICE_ENABLED ? 'premium' : 'smart';
   } catch {
-    return 'smart';
+    return PREMIUM_VOICE_ENABLED ? 'premium' : 'smart';
   }
 };
 
