@@ -570,7 +570,7 @@ export const useVoice = (enabled) => {
       const playback = audio.play();
       if (playback?.catch) {
         playback.catch((error) => {
-          if (error?.name !== 'NotAllowedError') {
+          if (error?.name !== 'NotAllowedError' && hadUserGesture) {
             fallBackToDevice();
             return;
           }
