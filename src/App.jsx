@@ -3,7 +3,7 @@ import { THEME, ACHIEVEMENTS } from './data/index.js';
 import { createBursts, createConfetti, getPraise, getRank, getNextRank, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
 import { useSfx, useVoice, useAmbientMusic, useInstallPrompt } from './hooks.js';
 import {
-  SoundToggle, CelebrationOverlay, RewardsShelf, PointsSummaryScreen,
+  SoundToggle, CelebrationOverlay, RewardsShelf,
   PauseOverlay, BreakReminder, DailyChallengeBanner, StreakBanner, MenuCard,
   InstallAppPrompt, VoiceSettings,
 } from './components/shared/index.jsx';
@@ -71,8 +71,7 @@ export default function App() {
   const [soundOn, setSoundOn] = useState(true);
   const [points, setPoints] = useState(() => loadSaved('amari_points', 0));
   const [celebration, setCelebration] = useState(null);
-  const [sessionPoints, setSessionPoints] = useState({});
-  const [summary, setSummary] = useState(null);
+  const [, setSessionPoints] = useState({});
   const [paused, setPaused] = useState(false);
   const [showBreak, setShowBreak] = useState(false);
   const [streak, setStreak] = useState(() => loadSaved('amari_streak', 0));
@@ -215,20 +214,7 @@ export default function App() {
   }, [celebration]);
 
   const handleBack = (gameId) => {
-    const earned = sessionPoints[gameId] || 0;
-    if (earned > 0) {
-      setSummary({ gameId, points: earned });
-      setScreen('summary');
-    } else {
-      setScreen('menu');
-    }
-  };
-
-  const handleSummaryDone = () => {
-    if (summary?.gameId) {
-      setSessionPoints((prev) => ({ ...prev, [summary.gameId]: 0 }));
-    }
-    setSummary(null);
+    setSessionPoints((prev) => ({ ...prev, [gameId]: 0 }));
     setScreen('menu');
   };
 
@@ -364,10 +350,6 @@ export default function App() {
 
         <RewardsShelf points={points} />
       </div>
-    );
-  } else if (screen === 'summary' && summary) {
-    content = (
-      <PointsSummaryScreen summary={summary} totalPoints={points} onDone={handleSummaryDone} />
     );
   } else if (screen === 'solar') {
     content = (
