@@ -1,18 +1,33 @@
 import dinoCharacterSheet from '../../assets/dino-character-stickers.png';
+import moreDinoCharacterSheet from '../../assets/more-dino-character-stickers-transparent.png';
 import rewardStickerSheet from '../../assets/reward-stickers.png';
 
 // These are deliberately crops of Amari's supplied character sheet, rather
 // than generated substitutes. The source has transparent space around each
 // character, so the stickers keep their hand-drawn outline on every backdrop.
 const DINO_CROPS = {
-  trex: { name: 'Rex the T-Rex', x: 0.0, y: 0.055, width: 0.18, height: 0.15 },
-  brachio: { name: 'Benny the Brontosaurus', x: 0.18, y: 0.015, width: 0.19, height: 0.19 },
-  trike: { name: 'Trix the Triceratops', x: 0.44, y: 0.035, width: 0.25, height: 0.18 },
-  stego: { name: 'Stego the Stegosaurus', x: 0.7, y: 0.055, width: 0.29, height: 0.15 },
-  raptor: { name: 'Zippy the Velociraptor', x: 0.0, y: 0.27, width: 0.21, height: 0.15 },
-  ptero: { name: 'Sky the Pterodactyl', x: 0.2, y: 0.25, width: 0.27, height: 0.17 },
-  ankyl: { name: 'Rocky the Ankylosaurus', x: 0.46, y: 0.27, width: 0.26, height: 0.15 },
-  spino: { name: 'Spike the Spinosaurus', x: 0.7, y: 0.24, width: 0.3, height: 0.18 },
+  trex: { name: 'Rex the T-Rex', x: 0.0, y: 0.055, width: 0.18, height: 0.15, sheet: dinoCharacterSheet },
+  brachio: { name: 'Benny the Brontosaurus', x: 0.18, y: 0.015, width: 0.19, height: 0.19, sheet: dinoCharacterSheet },
+  trike: { name: 'Trix the Triceratops', x: 0.44, y: 0.035, width: 0.25, height: 0.18, sheet: dinoCharacterSheet },
+  stego: { name: 'Stego the Stegosaurus', x: 0.7, y: 0.055, width: 0.29, height: 0.15, sheet: dinoCharacterSheet },
+  raptor: { name: 'Zippy the Velociraptor', x: 0.0, y: 0.27, width: 0.21, height: 0.15, sheet: dinoCharacterSheet },
+  ptero: { name: 'Sky the Pterodactyl', x: 0.2, y: 0.25, width: 0.27, height: 0.17, sheet: dinoCharacterSheet },
+  ankyl: { name: 'Rocky the Ankylosaurus', x: 0.46, y: 0.27, width: 0.26, height: 0.15, sheet: dinoCharacterSheet },
+  spino: { name: 'Spike the Spinosaurus', x: 0.7, y: 0.24, width: 0.3, height: 0.18, sheet: dinoCharacterSheet },
+  para: { name: 'Sunny the Parasaurolophus', x: 0.0, y: 0.075, width: 0.18, height: 0.205, sheet: moreDinoCharacterSheet },
+  allo: { name: 'Chomp the Allosaurus', x: 0.19, y: 0.075, width: 0.21, height: 0.205, sheet: moreDinoCharacterSheet, blend: true },
+  pachy: { name: 'Pebble the Pachycephalosaurus', x: 0.4, y: 0.09, width: 0.2, height: 0.19, sheet: moreDinoCharacterSheet, blend: true },
+  iguano: { name: 'Nibbles the Iguanodon', x: 0.59, y: 0.08, width: 0.2, height: 0.2, sheet: moreDinoCharacterSheet, blend: true },
+  galli: { name: 'Turbo the Gallimimus', x: 0.79, y: 0.07, width: 0.21, height: 0.21, sheet: moreDinoCharacterSheet, blend: true },
+  carno: { name: 'Rumble the Carnotaurus', x: 0.0, y: 0.37, width: 0.23, height: 0.2, sheet: moreDinoCharacterSheet, blend: true },
+  compy: { name: 'Tiny the Compsognathus', x: 0.25, y: 0.4, width: 0.25, height: 0.17, sheet: moreDinoCharacterSheet, blend: true },
+  dillo: { name: 'Pogo the Dilophosaurus', x: 0.49, y: 0.39, width: 0.22, height: 0.2, sheet: moreDinoCharacterSheet, blend: true },
+  theri: { name: 'Mango the Therizinosaurus', x: 0.7, y: 0.36, width: 0.29, height: 0.22, sheet: moreDinoCharacterSheet, blend: true },
+  elasmo: { name: 'Bubbles the Elasmosaurus', x: 0.0, y: 0.66, width: 0.22, height: 0.22, sheet: moreDinoCharacterSheet, blend: true },
+  mosa: { name: 'Snap the Mosasaurus', x: 0.2, y: 0.68, width: 0.18, height: 0.2, sheet: moreDinoCharacterSheet, blend: true },
+  cory: { name: 'Patches the Corythosaurus', x: 0.39, y: 0.65, width: 0.22, height: 0.22, sheet: moreDinoCharacterSheet, blend: true },
+  sauro: { name: 'Tank the Sauropelta', x: 0.56, y: 0.7, width: 0.25, height: 0.18, sheet: moreDinoCharacterSheet, blend: true },
+  ovira: { name: 'Dash the Oviraptor', x: 0.78, y: 0.68, width: 0.22, height: 0.22, sheet: moreDinoCharacterSheet, blend: true },
 };
 
 const REWARD_CROPS = {
@@ -45,7 +60,7 @@ export const DinoSticker = ({ species = 'trex', size = 64, className = '' }) => 
       aria-label={crop.name}
       className={`inline-block shrink-0 ${className}`}
       role="img"
-      style={{ ...spriteStyle(dinoCharacterSheet, crop), height: size * (crop.height / crop.width), width: size }}
+      style={{ ...spriteStyle(crop.sheet, crop), height: size * (crop.height / crop.width), width: size }}
     />
   );
 };

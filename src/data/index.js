@@ -269,9 +269,9 @@ export const DINO_SPECIES = {
     fact: 'Armored body and a club tail!',
   },
   para: {
-    name: 'Parasaurolophus',
+    name: 'Sunny the Parasaurolophus',
     emoji: '🦕',
-    fact: 'Crest on my head makes sounds.',
+    fact: 'My long hollow crest may have helped me make booming sounds.',
   },
   spino: {
     name: 'Spinosaurus',
@@ -284,9 +284,69 @@ export const DINO_SPECIES = {
     fact: 'Flying reptile, not a dinosaur!',
   },
   dillo: {
-    name: 'Dilophosaurus',
+    name: 'Pogo the Dilophosaurus',
     emoji: '🦖',
-    fact: 'Two crests on my head.',
+    fact: 'I had two crests on my head — not a movie-style neck frill.',
+  },
+  allo: {
+    name: 'Chomp the Allosaurus',
+    emoji: '🦖',
+    fact: 'I was a toothy hunter that lived long before T-Rex.',
+  },
+  pachy: {
+    name: 'Pebble the Pachycephalosaurus',
+    emoji: '🦕',
+    fact: 'My name means thick-headed lizard because of my rounded skull dome.',
+  },
+  iguano: {
+    name: 'Nibbles the Iguanodon',
+    emoji: '🦕',
+    fact: 'I had a big thumb spike that could help protect me.',
+  },
+  galli: {
+    name: 'Turbo the Gallimimus',
+    emoji: '🦕',
+    fact: 'My long legs made me a speedy runner.',
+  },
+  carno: {
+    name: 'Rumble the Carnotaurus',
+    emoji: '🦖',
+    fact: 'I had two little horns above my eyes and a strong tail.',
+  },
+  compy: {
+    name: 'Tiny the Compsognathus',
+    emoji: '🦕',
+    fact: 'I was one of the smallest dinosaurs ever found.',
+  },
+  theri: {
+    name: 'Mango the Therizinosaurus',
+    emoji: '🦕',
+    fact: 'I had enormous claws, but my close relatives ate plants.',
+  },
+  elasmo: {
+    name: 'Bubbles the Elasmosaurus',
+    emoji: '🌊',
+    fact: 'I was a long-necked marine reptile, not a dinosaur.',
+  },
+  mosa: {
+    name: 'Snap the Mosasaurus',
+    emoji: '🌊',
+    fact: 'I was a giant sea reptile, not a dinosaur.',
+  },
+  cory: {
+    name: 'Patches the Corythosaurus',
+    emoji: '🦕',
+    fact: 'My helmet-shaped crest made me easy to recognise.',
+  },
+  sauro: {
+    name: 'Tank the Sauropelta',
+    emoji: '🦕',
+    fact: 'My armour and shoulder spikes helped protect me.',
+  },
+  ovira: {
+    name: 'Dash the Oviraptor',
+    emoji: '🦕',
+    fact: 'I was a bird-like dinosaur with a crest and a beak.',
   },
 };
 
@@ -409,6 +469,42 @@ export const DINO_LEVELS = [
       makeDino('cave', 'raptor', 65, 60),
       makeDino('cave', 'brachio', 10, 75),
       makeDino('cave', 'dillo', 85, 50),
+    ],
+  },
+  {
+    id: 'fern-forest',
+    name: 'Fern Forest Friends',
+    hint: 'Search the leafy clearings!',
+    dinos: [
+      makeDino('fern-forest', 'para', 16, 64),
+      makeDino('fern-forest', 'allo', 45, 38),
+      makeDino('fern-forest', 'pachy', 72, 72),
+      makeDino('fern-forest', 'iguano', 30, 25),
+      makeDino('fern-forest', 'galli', 82, 30),
+    ],
+  },
+  {
+    id: 'claw-cliffs',
+    name: 'Claw Cliffs',
+    hint: 'Check the rocky ledges!',
+    dinos: [
+      makeDino('claw-cliffs', 'carno', 16, 42),
+      makeDino('claw-cliffs', 'compy', 43, 72),
+      makeDino('claw-cliffs', 'dillo', 72, 42),
+      makeDino('claw-cliffs', 'theri', 30, 24),
+      makeDino('claw-cliffs', 'cory', 80, 76),
+    ],
+  },
+  {
+    id: 'ancient-shores',
+    name: 'Ancient Shores',
+    hint: 'Look beside the sparkling water!',
+    dinos: [
+      makeDino('ancient-shores', 'elasmo', 16, 65),
+      makeDino('ancient-shores', 'mosa', 47, 32),
+      makeDino('ancient-shores', 'cory', 78, 67),
+      makeDino('ancient-shores', 'sauro', 35, 75),
+      makeDino('ancient-shores', 'ovira', 80, 22),
     ],
   },
 ];

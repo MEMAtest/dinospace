@@ -35,14 +35,25 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     }
   }, [foundDino, speak]);
 
-  const handleNextLevel = () => {
-    onCelebrate(getPraise(), 10, 200);
-    onGameEvent?.('dino', 'level_completed');
-    const nextIndex = levelIndex < DINO_LEVELS.length - 1 ? levelIndex + 1 : 0;
+  const loadLevel = (nextIndex) => {
     setLevelIndex(nextIndex);
     setDinos(buildDinos(DINO_LEVELS[nextIndex]));
     setFoundDino(null);
     setPendingReward(null);
+  };
+
+  const handleChooseLevel = (event) => {
+    const nextIndex = Number(event.target.value);
+    if (nextIndex === levelIndex) return;
+    loadLevel(nextIndex);
+    speak(`Welcome to ${DINO_LEVELS[nextIndex].name}. ${DINO_LEVELS[nextIndex].hint}`);
+  };
+
+  const handleNextLevel = () => {
+    onCelebrate(getPraise(), 10, 200);
+    onGameEvent?.('dino', 'level_completed');
+    const nextIndex = levelIndex < DINO_LEVELS.length - 1 ? levelIndex + 1 : 0;
+    loadLevel(nextIndex);
   };
 
   return (
@@ -71,6 +82,19 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
       <div className="z-10 text-center mt-2 px-4">
         <p className="text-green-900 font-medium">{level.hint}</p>
+        <label className="mt-3 inline-flex items-center gap-2 rounded-full border-2 border-green-900/10 bg-white/75 px-4 py-2 text-sm font-bold text-green-900 shadow-sm">
+          <span>Choose a dino world</span>
+          <select
+            aria-label="Choose a dinosaur world"
+            className="max-w-40 bg-transparent font-black outline-none"
+            onChange={handleChooseLevel}
+            value={levelIndex}
+          >
+            {DINO_LEVELS.map((world, index) => (
+              <option key={world.id} value={index}>{index + 1}. {world.name}</option>
+            ))}
+          </select>
+        </label>
       </div>
 
       <div className="flex-1 relative z-10">

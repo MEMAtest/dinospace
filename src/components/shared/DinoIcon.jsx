@@ -1,6 +1,10 @@
 import { DinoSticker } from './StickerArt.jsx';
 
-const STICKER_SPECIES = new Set(['trex', 'brachio', 'trike', 'stego', 'raptor', 'ankyl', 'spino', 'ptero']);
+const STICKER_SPECIES = new Set([
+  'trex', 'brachio', 'trike', 'stego', 'raptor', 'ankyl', 'spino', 'ptero',
+  'para', 'allo', 'pachy', 'iguano', 'galli', 'carno', 'compy', 'dillo',
+  'theri', 'elasmo', 'mosa', 'cory', 'sauro', 'ovira',
+]);
 
 const SPECIES = {
   trex: { name: 'Tyrannosaurus rex', primary: '#d9783e', shade: '#963d2b', belly: '#ffd3a6', kind: 'biped', feature: 'trex' },
