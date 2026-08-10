@@ -103,12 +103,12 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
           </span>
         </div>
       )}
-      <div className={`mt-8 text-center z-10 px-4 ${streak >= 3 ? 'shadow-[0_0_40px_rgba(234,179,8,0.2)]' : ''}`}>
+      <main className={`z-10 mx-auto mt-4 w-[calc(100%-2rem)] max-w-5xl rounded-[2.5rem] border-4 border-white/80 bg-white/60 px-6 py-6 text-center shadow-2xl backdrop-blur-sm ${streak >= 3 ? 'shadow-[0_0_40px_rgba(234,179,8,0.2)]' : ''}`}>
         {level.maxNum <= 10 && (
           <div className="flex justify-center items-center gap-2 mb-4 flex-wrap">
-            <div className="bg-white/80 rounded-2xl px-4 py-2 shadow flex gap-1 flex-wrap justify-center">
+            <div className="flex min-h-24 min-w-96 flex-wrap items-center justify-center gap-2 rounded-2xl bg-white/90 px-5 py-3 shadow">
               {Array.from({ length: problem.a }, (_, i) => (
-                <span key={`s-${i}`} className={`text-2xl ${i >= answer ? 'opacity-25 line-through' : ''}`}>{problem.visualEmoji}</span>
+                <span key={`s-${i}`} className={`text-3xl ${i >= answer ? 'opacity-25 line-through' : ''}`}>{problem.visualEmoji}</span>
               ))}
             </div>
           </div>
@@ -122,10 +122,10 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
         </div>
         <div className="flex justify-center gap-4 flex-wrap">
           {problem.options.map((option) => (
-            <button key={option} disabled={locked} onClick={() => check(option)} className="w-20 h-20 bg-purple-500 text-white text-3xl font-bold rounded-2xl shadow-[0_6px_0_rgb(126,34,206)] active:shadow-none active:translate-y-2 transition-all hover:bg-purple-600 disabled:opacity-60">{option}</button>
+            <button key={option} disabled={locked} onClick={() => check(option)} className="h-20 w-28 bg-purple-500 text-white text-3xl font-bold rounded-2xl shadow-[0_6px_0_rgb(126,34,206)] active:shadow-none active:translate-y-2 transition-all hover:bg-purple-600 disabled:opacity-60">{option}</button>
           ))}
         </div>
-      </div>
+      </main>
       <div className={`absolute bottom-14 left-10 text-[80px] transition-transform duration-1000 ${success ? 'translate-x-[500px] -translate-y-[200px] rotate-[360deg]' : 'translate-x-0'}`}>🛸</div>
       <div className="absolute bottom-0 w-full h-14 bg-purple-900/20" />
       {success && <div className="absolute top-1/2 left-0 right-0 text-center text-5xl font-black text-purple-500 animate-bounce">{successMessage}</div>}

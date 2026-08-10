@@ -47,7 +47,7 @@ const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-lime-100 via-yellow-100 to-lime-200 relative overflow-hidden">
+    <div className="h-screen flex flex-col bg-gradient-to-b from-lime-100 via-yellow-100 to-lime-200 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-lime-200/60 rounded-full blur-3xl" />
@@ -60,14 +60,14 @@ const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+      <div className="min-h-0 flex-1 flex flex-col items-center justify-center px-4 pb-4 z-10">
         <PracticeProgress skill="Sort by category and explain why" completed={skillRun} accent="lime" />
         <p className="text-2xl font-bold text-slate-700 mb-2">Which one doesn't belong?</p>
-        <p className="text-slate-500 font-semibold mb-8">{round.hint}</p>
-        <div className={`grid grid-cols-2 gap-6 w-full max-w-sm ${shake ? 'animate-shake' : ''}`}>
+        <p className="text-slate-500 font-semibold mb-4">{round.hint}</p>
+        <div className={`grid w-full max-w-xl grid-cols-2 gap-4 ${shake ? 'animate-shake' : ''}`}>
           {shuffledItems.map((item, i) => (
             <button key={`${item}-${i}`} onClick={() => handlePick(item)} disabled={locked}
-              className="aspect-square bg-white rounded-3xl shadow-xl border-4 border-lime-200 flex items-center justify-center text-7xl hover:-translate-y-2 active:translate-y-1 transition-all">{item}</button>
+              className="aspect-[4/3] bg-white rounded-3xl shadow-xl border-4 border-lime-200 flex items-center justify-center text-8xl hover:-translate-y-2 active:translate-y-1 transition-all">{item}</button>
           ))}
         </div>
         {feedback && <div className="mt-6 text-xl font-black text-lime-700 animate-bounce text-center">{feedback}</div>}

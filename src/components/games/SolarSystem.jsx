@@ -1,7 +1,7 @@
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { Home, Pause, Play, Rotate3D, Sparkles, Volume2, ZoomIn, ZoomOut } from 'lucide-react';
+import { Home, Pause, Play, Rotate3D, RotateCcw, Sparkles, Volume2, ZoomIn, ZoomOut } from 'lucide-react';
 import { PLANETS } from '../../data/index.js';
 import { SoundToggle } from '../shared/index.jsx';
 
@@ -111,6 +111,12 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
   useImperativeHandle(ref, () => ({
     zoomIn: () => changeZoom(0.78),
     zoomOut: () => changeZoom(1.28),
+    resetView: () => {
+      if (!cameraRef.current || !controlsRef.current) return;
+      cameraRef.current.position.set(0, 22, 39);
+      controlsRef.current.target.set(0, 0, 0);
+      controlsRef.current.update();
+    },
   }), [changeZoom]);
 
   useEffect(() => {
@@ -122,7 +128,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     scene.fog = new THREE.FogExp2(0x030712, 0.012);
 
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
-    camera.position.set(0, 24, 34);
+    camera.position.set(0, 22, 39);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
@@ -132,8 +138,8 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
-    controls.minDistance = 16;
-    controls.maxDistance = 58;
+    controls.minDistance = 22;
+    controls.maxDistance = 72;
     controls.maxPolarAngle = Math.PI / 2.05;
     controls.target.set(0, 0, 0);
     controlsRef.current = controls;
@@ -177,7 +183,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     const orbitGroups = [];
     const clickableMeshes = [];
     PLANETS.forEach((planet, index) => {
-      const radius = 4.2 + index * 2.25;
+      const radius = 3.8 + index * 1.75;
       scene.add(makeOrbit(radius));
 
       const orbitGroup = new THREE.Group();
@@ -260,7 +266,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     };
   }, []);
 
-  return <div ref={mountRef} className="h-[52vh] min-h-[400px] w-full cursor-grab active:cursor-grabbing lg:h-[calc(100vh-130px)]" />;
+  return <div ref={mountRef} className="h-[58vh] min-h-[430px] w-full cursor-grab touch-none active:cursor-grabbing lg:h-full lg:min-h-0" />;
 });
 
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
@@ -324,7 +330,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   ).length;
 
   return (
-    <div className="min-h-screen bg-[#030712] text-white">
+    <div className="h-screen overflow-hidden bg-[#030712] text-white">
       <header className="relative z-30 flex items-center justify-between border-b border-white/10 bg-slate-950/80 px-4 py-3 backdrop-blur-xl">
         <button onClick={onBack} className="game-icon-button !bg-white/10 !text-white" aria-label="Back to all games"><Home /></button>
         <div className="text-center">
@@ -343,7 +349,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
       </header>
 
-      <main className="grid lg:grid-cols-[minmax(0,1.5fr)_minmax(340px,0.7fr)]">
+      <main className="grid lg:h-[calc(100vh-77px)] lg:grid-cols-[minmax(0,1.7fr)_minmax(330px,0.78fr)]">
         <section className="relative overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r">
           <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} />
           <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-3 text-sm text-white/75 backdrop-blur">
@@ -369,6 +375,15 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             >
               <ZoomOut size={24} strokeWidth={2.8} />
             </button>
+            <button
+              type="button"
+              onClick={() => handleZoom('resetView')}
+              className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100 shadow-lg backdrop-blur transition hover:bg-cyan-300 hover:text-slate-950"
+              aria-label="Reset the Solar System camera"
+              title="Reset view"
+            >
+              <RotateCcw size={22} strokeWidth={2.8} />
+            </button>
           </div>
           <div className="absolute bottom-3 left-3 right-3 flex gap-2 overflow-x-auto rounded-2xl border border-white/10 bg-slate-950/75 p-2 backdrop-blur-xl no-scrollbar">
             {PLANETS.map((planet) => (
@@ -387,7 +402,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </div>
         </section>
 
-        <aside className="max-h-none overflow-y-auto bg-gradient-to-b from-slate-900 to-slate-950 p-4 pb-24 lg:max-h-[calc(100vh-73px)] lg:p-6">
+        <aside className="max-h-none overflow-y-auto bg-gradient-to-b from-slate-900 to-slate-950 p-4 pb-24 lg:max-h-full lg:pb-16">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">Planet file</p>

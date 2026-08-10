@@ -4,6 +4,7 @@ import { DINO_LEVELS } from '../../data/index.js';
 import { buildDinos, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import DinoIcon from '../shared/DinoIcon.jsx';
+import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 
 const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [levelIndex, setLevelIndex] = useState(0);
@@ -97,11 +98,9 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         </label>
       </div>
 
-      <div className="flex-1 relative z-10">
-        <div className="absolute bottom-0 w-full h-28 bg-emerald-700" />
-        <div className="absolute bottom-12 left-[-10%] w-64 h-32 bg-emerald-600 rounded-full opacity-90" />
-        <div className="absolute bottom-16 right-[-5%] w-72 h-36 bg-emerald-800 rounded-full opacity-90" />
-        <div className="absolute bottom-8 left-1/3 w-52 h-24 bg-emerald-700 rounded-full opacity-90" />
+      <div className="flex-1 relative z-10 mt-3 overflow-hidden border-t-4 border-white/70 shadow-[inset_0_10px_30px_rgba(6,78,59,.2)]">
+        <img src={dinoPark} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-100/5 via-transparent to-emerald-950/20" />
 
         {dinos.map((dino, i) => (
           <button
@@ -111,12 +110,9 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
             style={{ left: `${dino.x}%`, top: `${dino.y}%` }}
           >
             {dino.hidden ? (
-              <div className="relative w-28 h-24 animate-wiggle">
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-28 h-16 bg-emerald-700 rounded-full shadow-lg" />
-                <div className="absolute bottom-6 left-1 w-14 h-12 bg-emerald-600 rounded-full" />
-                <div className="absolute bottom-5 right-1 w-16 h-12 bg-emerald-500 rounded-full" />
-                <div className="absolute bottom-2 left-8 w-10 h-10 bg-emerald-600 rounded-full" />
-                <span className="absolute inset-0 flex items-center justify-center text-3xl opacity-40">🌿</span>
+              <div className="relative grid h-24 w-28 place-items-center animate-wiggle rounded-[50%] border-4 border-emerald-100/70 bg-emerald-700/90 shadow-[0_12px_24px_rgba(6,78,59,.35)] backdrop-blur-sm">
+                <span className="text-6xl drop-shadow-lg" aria-hidden="true">🌿</span>
+                <span className="absolute -right-1 -top-2 grid h-7 w-7 place-items-center rounded-full bg-amber-300 text-sm font-black text-emerald-950 shadow-md">?</span>
               </div>
             ) : (
               <div className="animate-pop-in drop-shadow-2xl transform hover:scale-110 transition-transform">

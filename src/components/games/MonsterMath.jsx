@@ -65,7 +65,8 @@ const MonsterMath = ({
     [problem.a, problem.ans],
   );
 
-  const totalAnimationMs = Math.min(2600, 700 + problem.ans * 130);
+  const stepAnimationMs = 520;
+  const totalAnimationMs = problem.ans * stepAnimationMs;
 
   const check = (answer) => {
     if (locked) return;
@@ -99,10 +100,10 @@ const MonsterMath = ({
         clearInterval(countTimer);
         speak(`${problem.a} times ${problem.b} equals ${problem.ans}.`);
       }
-    }, Math.max(90, totalAnimationMs / problem.ans));
+    }, stepAnimationMs);
     timersRef.current.push(countTimer);
 
-    const nextTimer = setTimeout(newProblem, totalAnimationMs + 650);
+    const nextTimer = setTimeout(newProblem, totalAnimationMs + 1100);
     timersRef.current.push(nextTimer);
   };
 
@@ -123,9 +124,9 @@ const MonsterMath = ({
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
 
-      <main className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 pb-24 pt-5">
-        <section className={`w-full rounded-[2rem] border-4 border-white/70 bg-white/75 p-4 sm:p-6 text-center shadow-xl backdrop-blur ${shake ? 'animate-shake' : ''}`}>
-          <div className="flex flex-wrap items-center justify-center gap-2 text-4xl sm:text-6xl font-black text-slate-800">
+      <main className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 pb-6 pt-2">
+        <section className={`w-full rounded-[2rem] border-4 border-white/70 bg-white/75 p-3 sm:p-4 text-center shadow-xl backdrop-blur ${shake ? 'animate-shake' : ''}`}>
+          <div className="flex flex-wrap items-center justify-center gap-2 text-4xl sm:text-5xl font-black text-slate-800">
             <span className="math-number-card">{problem.a}</span>
             <span className="text-orange-500">×</span>
             <span className="math-number-card">{problem.b}</span>
@@ -134,13 +135,13 @@ const MonsterMath = ({
               {countStep === problem.ans ? problem.ans : '?'}
             </span>
           </div>
-          <p className="mt-3 text-lg font-black text-slate-600">
+          <p className="mt-2 text-base font-black text-slate-600">
             {problem.a} groups · {problem.b} obstacles in each group
           </p>
         </section>
 
-        <section className="mt-5 w-full rounded-[2rem] border-4 border-orange-200 bg-[#764326] p-3 shadow-[inset_0_8px_20px_rgba(0,0,0,0.28)]">
-          <div className="relative min-h-[250px] overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-sky-300 via-sky-200 to-amber-100">
+        <section className="mt-3 w-full rounded-[2rem] border-4 border-orange-200 bg-[#764326] p-3 shadow-[inset_0_8px_20px_rgba(0,0,0,0.28)]">
+          <div className="relative min-h-[225px] overflow-hidden rounded-[1.5rem] bg-gradient-to-b from-sky-300 via-sky-200 to-amber-100">
             <div className="absolute left-8 top-8 h-14 w-14 rounded-full bg-yellow-300 shadow-[0_0_35px_rgba(253,224,71,0.9)]" />
             <div className="absolute bottom-0 left-0 right-0 h-[42%] bg-gradient-to-b from-stone-600 to-stone-800" />
             <div className="absolute bottom-[37%] left-0 right-0 border-t-4 border-dashed border-yellow-300/80" />
@@ -177,15 +178,16 @@ const MonsterMath = ({
             </div>
 
             <div
-              className={success ? 'math-truck-runner' : 'absolute bottom-[31%] left-2'}
-              style={success ? { '--run-duration': `${totalAnimationMs}ms` } : undefined}
+              className="absolute bottom-[31%] z-10 transition-[left] ease-linear"
+              style={{
+                left: success ? `calc(${2 + (countStep / problem.ans) * 86}% - 1.5rem)` : '0.5rem',
+                transitionDuration: success ? `${stepAnimationMs}ms` : '0ms',
+              }}
             >
               <div
-                className={success ? 'math-truck-jumper' : ''}
-                style={success ? {
-                  '--jump-duration': `${Math.max(90, totalAnimationMs / problem.ans)}ms`,
-                  '--jump-count': problem.ans,
-                } : undefined}
+                key={success ? countStep : 'waiting'}
+                className={success && countStep > 0 ? 'math-truck-step-jump' : ''}
+                style={success ? { '--step-duration': `${stepAnimationMs}ms` } : undefined}
               >
                 <span className="block text-6xl drop-shadow-xl" aria-label="monster truck">🛻</span>
               </div>
@@ -202,26 +204,26 @@ const MonsterMath = ({
           </div>
         </section>
 
-        <div className="mt-4 min-h-8 text-center">
+        <div className="mt-2 min-h-7 text-center">
           <p className={`font-black ${success ? 'text-emerald-700' : 'text-orange-800'}`} aria-live="polite">
             {feedback || 'Choose the total, then watch the truck prove it.'}
           </p>
         </div>
 
-        <div className="mt-3 flex flex-wrap justify-center gap-3">
+        <div className="mt-2 flex flex-wrap justify-center gap-3">
           {options.map((option) => (
             <button
               key={option}
               onClick={() => check(option)}
               disabled={locked}
-              className="h-16 w-16 rounded-2xl bg-blue-500 text-2xl font-black text-white shadow-[0_6px_0_rgb(29,78,216)] transition hover:bg-blue-600 active:translate-y-2 active:shadow-none disabled:opacity-45 sm:h-20 sm:w-20 sm:text-3xl"
+              className="h-14 w-16 rounded-2xl bg-blue-500 text-2xl font-black text-white shadow-[0_6px_0_rgb(29,78,216)] transition hover:bg-blue-600 active:translate-y-2 active:shadow-none disabled:opacity-45 sm:h-16 sm:w-20 sm:text-3xl"
             >
               {option}
             </button>
           ))}
           <button
             onClick={newProblem}
-            className="grid h-16 w-16 place-items-center rounded-2xl bg-white text-orange-600 shadow-[0_6px_0_rgba(0,0,0,0.1)] active:translate-y-2 active:shadow-none sm:h-20 sm:w-20"
+            className="grid h-14 w-16 place-items-center rounded-2xl bg-white text-orange-600 shadow-[0_6px_0_rgba(0,0,0,0.1)] active:translate-y-2 active:shadow-none sm:h-16 sm:w-20"
             aria-label="Try a different multiplication problem"
           >
             <RotateCcw />
@@ -230,7 +232,7 @@ const MonsterMath = ({
 
         <button
           onClick={() => speak(`${problem.a} groups of ${problem.b}. Count all ${problem.ans} obstacles.`)}
-          className="mt-4 flex items-center gap-2 rounded-full bg-orange-800/10 px-4 py-2 font-bold text-orange-800"
+          className="mt-3 flex items-center gap-2 rounded-full bg-orange-800/10 px-4 py-2 font-bold text-orange-800"
         >
           <Volume2 size={18} /> Hear the maths
         </button>

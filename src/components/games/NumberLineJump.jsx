@@ -90,16 +90,16 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
             <span className="bg-white px-4 py-2 rounded-2xl shadow-lg text-slate-400">{showAnswer ? answer : '?'}</span>
           </div>
         </div>
-        <div className="relative w-full max-w-2xl h-32 mb-6">
+        <div className="relative mb-6 h-44 w-full max-w-5xl rounded-[2rem] border-4 border-white/80 bg-white/45 px-5 shadow-xl">
           <div className="absolute bottom-8 left-0 right-0 h-2 bg-orange-300 rounded-full" />
           {Array.from({ length: maxNum + 1 }, (_, i) => (
             <button key={i} disabled={locked} onClick={() => handleTapNumber(i)}
-              className={`absolute bottom-4 w-8 h-8 rounded-full flex items-center justify-center text-xs font-black transition-all ${
+              className={`absolute bottom-7 h-10 w-10 rounded-full flex items-center justify-center text-sm font-black transition-all ${
                 i === jumperPos ? 'bg-orange-500 text-white scale-125 shadow-lg' : 'bg-white text-slate-600 shadow border-2 border-orange-200'
               } ${i === answer && showAnswer ? 'ring-4 ring-green-400' : ''}`}
               style={{ left: `${(i / maxNum) * 92 + 4}%`, transform: 'translateX(-50%)' }}>{i}</button>
           ))}
-          <div className="absolute text-3xl transition-all duration-700 ease-in-out" style={{ left: `${(jumperPos / maxNum) * 92 + 4}%`, bottom: '48px', transform: 'translateX(-50%)' }}>🐸</div>
+          <div className="absolute text-5xl transition-all duration-700 ease-in-out" style={{ left: `${(jumperPos / maxNum) * 92 + 4}%`, bottom: '76px', transform: 'translateX(-50%)' }}>🐸</div>
         </div>
         <p className="text-slate-500 font-semibold mb-2">Tap the number where the frog should land!</p>
         {jumpTrail.length > 0 && (

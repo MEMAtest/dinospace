@@ -155,25 +155,13 @@
   animation: challenge-complete 550ms ease-out both;
 }
 
-@keyframes truck-run {
-  from { left: 1%; }
-  to { left: calc(100% - 5rem); }
-}
-
-@keyframes truck-jump {
+@keyframes truck-step-jump {
   0%, 100% { transform: translateY(0) rotate(-2deg); }
-  45% { transform: translateY(-64px) rotate(7deg); }
+  42% { transform: translateY(-68px) rotate(7deg) scale(1.06); }
 }
 
-.math-truck-runner {
-  position: absolute;
-  bottom: 31%;
-  left: 1%;
-  animation: truck-run var(--run-duration) linear both;
-}
-
-.math-truck-jumper {
-  animation: truck-jump var(--jump-duration) ease-in-out var(--jump-count);
+.math-truck-step-jump {
+  animation: truck-step-jump var(--step-duration) ease-in-out both;
 }
 
 @media (pointer: coarse) {

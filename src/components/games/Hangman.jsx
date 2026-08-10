@@ -133,7 +133,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       : `${shieldsLeft} shield${shieldsLeft === 1 ? '' : 's'} left`;
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#07132f] text-white relative">
+    <div className="h-screen overflow-hidden bg-[#07132f] text-white relative">
       <div className="absolute inset-0 ttt-starfield pointer-events-none" />
       <div className="absolute -top-32 right-[-7rem] h-96 w-96 rounded-full bg-fuchsia-500/15 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-28 -left-24 h-[28rem] w-[28rem] rounded-full bg-cyan-400/15 blur-3xl pointer-events-none" />
@@ -149,8 +149,8 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" />
       </header>
 
-      <main className="relative z-10 mx-auto grid max-w-6xl gap-5 px-4 pb-28 pt-5 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.95fr)] lg:items-center">
-        <section className="rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur-xl sm:p-7">
+      <main className="relative z-10 mx-auto grid max-w-6xl gap-4 px-4 pb-3 pt-3 lg:grid-cols-[minmax(0,1.25fr)_minmax(320px,0.95fr)] lg:items-center">
+        <section className="rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur-xl lg:p-5 xl:p-7">
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
               <div className="grid h-14 w-14 place-items-center rounded-2xl bg-fuchsia-400/20 text-3xl">{word.emoji}</div>
@@ -230,7 +230,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </div>
         </section>
 
-        <aside className="rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur-xl sm:p-7">
+        <aside className="rounded-[2rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur-xl lg:p-5 xl:p-7">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-200">Dino shield bay</p>

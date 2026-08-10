@@ -69,7 +69,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
         <PracticeProgress skill="Match a letter to its sound" completed={skillRun} accent="sky" />
-        <div className="bg-white/90 p-6 rounded-3xl shadow-xl border-4 border-sky-200 text-center mb-6 w-full max-w-md">
+        <div className="mb-5 w-full max-w-2xl rounded-[2.5rem] border-4 border-sky-200 bg-white/90 p-7 text-center shadow-xl">
           <p className="text-slate-500 mb-2 font-bold uppercase tracking-wider">Launch Mission</p>
           <div className="text-7xl font-black text-sky-700 mb-2">{round.target.letter}</div>
           <div className="text-2xl font-bold text-slate-700">
@@ -80,12 +80,12 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
           </button>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 w-full max-w-sm">
+        <div className="grid w-full max-w-2xl grid-cols-4 gap-4">
           {round.options.map((option) => (
             <button
               key={option.letter}
               onClick={() => handlePick(option)}
-              className="bg-white text-slate-800 text-4xl font-black rounded-3xl py-6 shadow-lg border-4 border-sky-200 hover:-translate-y-1 transition"
+              className="rounded-3xl border-4 border-sky-200 bg-white py-7 text-4xl font-black text-slate-800 shadow-lg transition hover:-translate-y-1"
             >
               {option.letter}
             </button>
@@ -94,7 +94,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
         {feedback && <div className="mt-4 text-xl font-bold text-indigo-500 animate-bounce">{feedback}</div>}
 
-        <div className="relative w-full max-w-md h-40 mt-6">
+        <div className="relative mt-4 h-32 w-full max-w-2xl">
           <div className="absolute bottom-0 w-full h-10 bg-sky-300/70 rounded-full" />
           <div
             className="absolute bottom-6 left-6 text-6xl transition-transform duration-1000"

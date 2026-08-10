@@ -96,19 +96,19 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
         <button onClick={() => speak(`What comes next? ${currentLabel}`)} className="mb-4 text-amber-700 font-semibold">🔊 Hear the pattern</button>
 
-        <div className={`bg-white/90 rounded-3xl p-6 shadow-xl border-4 border-amber-200 mb-6 ${shake ? 'animate-shake' : ''}`}>
-          <div className="flex items-center gap-4 text-4xl flex-wrap justify-center">
+        <div className={`mb-5 w-full max-w-4xl rounded-[2.5rem] border-4 border-amber-200 bg-white/90 p-8 shadow-xl ${shake ? 'animate-shake' : ''}`}>
+          <div className="flex items-center justify-center gap-5 text-5xl flex-wrap">
             {currentSequence.map((token, index) => (
-              <div key={`${token}-${index}`} className="w-12 h-12 flex items-center justify-center font-black">{token}</div>
+              <div key={`${token}-${index}`} className="flex h-16 w-16 items-center justify-center font-black">{token}</div>
             ))}
-            <div className="w-12 h-12 rounded-2xl border-4 border-dashed border-amber-300 flex items-center justify-center text-2xl">?</div>
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border-4 border-dashed border-amber-300 text-3xl">?</div>
           </div>
         </div>
 
         <div className="flex gap-4 flex-wrap justify-center">
           {currentOptions.map((option) => (
             <button key={option} disabled={locked} onClick={() => handlePick(option)}
-              className="w-20 h-20 bg-white text-4xl font-black rounded-3xl shadow-lg border-4 border-amber-200 hover:-translate-y-1 transition flex items-center justify-center">{option}</button>
+              className="flex h-24 w-28 items-center justify-center rounded-3xl border-4 border-amber-200 bg-white text-5xl font-black shadow-lg transition hover:-translate-y-1">{option}</button>
           ))}
         </div>
 

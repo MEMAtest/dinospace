@@ -129,13 +129,13 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
         <PracticeProgress skill="Count each object once" completed={skillRun} accent="indigo" />
-        <div className="relative w-full max-w-md aspect-square bg-white/5 rounded-3xl border-2 border-white/10 mb-6">
+        <div className="relative mb-4 h-[390px] w-full max-w-3xl rounded-[2.5rem] border-4 border-white/15 bg-white/5 shadow-[inset_0_0_50px_rgba(168,85,247,.18),0_20px_45px_rgba(0,0,0,.25)]">
           {items.map((item) => (
             <button
               key={item.id}
               onClick={() => handleTapItem(item.id)}
               className={`absolute transition-all duration-300 ${tapped.includes(item.id) ? 'scale-125 opacity-60' : 'hover:scale-110'}`}
-              style={{ left: `${item.x}%`, top: `${item.y}%`, fontSize: `${item.size * 2.5}rem` }}
+              style={{ left: `${item.x}%`, top: `${item.y}%`, fontSize: `${item.size * 3.2}rem` }}
             >
               {item.emoji}
               {tapped.includes(item.id) && <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-black rounded-full w-6 h-6 flex items-center justify-center">{tapped.indexOf(item.id) + 1}</span>}

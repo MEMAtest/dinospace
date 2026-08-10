@@ -75,12 +75,12 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
         <PracticeProgress skill="Predict what two colours make" completed={skillRun} accent="fuchsia" />
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-24 h-24 rounded-full flex items-center justify-center text-5xl bg-white shadow-xl border-4 border-fuchsia-200">{round.color1}</div>
+        <div className="mb-6 flex items-center gap-6 rounded-[2.5rem] border-4 border-white/80 bg-white/45 px-10 py-8 shadow-xl">
+          <div className="flex h-36 w-36 items-center justify-center rounded-full border-4 border-fuchsia-200 bg-white text-7xl shadow-xl">{round.color1}</div>
           <span className="text-4xl font-black text-fuchsia-500">+</span>
-          <div className="w-24 h-24 rounded-full flex items-center justify-center text-5xl bg-white shadow-xl border-4 border-fuchsia-200">{round.color2}</div>
+          <div className="flex h-36 w-36 items-center justify-center rounded-full border-4 border-fuchsia-200 bg-white text-7xl shadow-xl">{round.color2}</div>
           <span className="text-4xl font-black text-fuchsia-500">=</span>
-          <div className={`w-24 h-24 rounded-full flex items-center justify-center text-5xl bg-white shadow-xl border-4 border-fuchsia-200 transition-all duration-700 ${mixed ? 'scale-125' : ''}`}>
+          <div className={`flex h-36 w-36 items-center justify-center rounded-full border-4 border-fuchsia-200 bg-white text-7xl shadow-xl transition-all duration-700 ${mixed ? 'scale-110' : ''}`}>
             {mixed ? round.answerEmoji : '❓'}
           </div>
         </div>

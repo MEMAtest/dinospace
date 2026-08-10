@@ -89,12 +89,12 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
         <PracticeProgress skill="Build and read a familiar word" completed={skillRun} accent="cyan" />
-        <div className="text-7xl mb-4">{word.emoji}</div>
-        <p className="text-slate-600 font-semibold mb-2">{word.hint}</p>
+        <div className="mb-3 grid h-36 w-36 place-items-center rounded-full border-4 border-white bg-white/70 text-8xl shadow-xl">{word.emoji}</div>
+        <p className="mb-2 rounded-full bg-white/80 px-8 py-3 text-xl font-bold text-slate-700 shadow-md">{word.hint}</p>
         <button onClick={() => speak(`Spell ${word.word}. ${word.hint}`)} className="mb-4 text-cyan-600 font-semibold">🔊 Hear the word</button>
         <div className={`flex gap-3 mb-8 ${shake ? 'animate-shake' : ''}`}>
           {word.word.split('').map((_, i) => (
-            <div key={i} className={`w-16 h-16 rounded-2xl border-4 flex items-center justify-center text-3xl font-black transition-all ${typed[i] ? 'bg-cyan-500 text-white border-cyan-600 scale-110' : 'bg-white border-dashed border-slate-300 text-slate-300'}`}>
+            <div key={i} className={`flex h-20 w-20 items-center justify-center rounded-2xl border-4 text-4xl font-black transition-all ${typed[i] ? 'bg-cyan-500 text-white border-cyan-600 scale-110' : 'bg-white border-dashed border-slate-300 text-slate-300'}`}>
               {typed[i]?.letter || ''}
             </div>
           ))}
@@ -102,7 +102,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <div className="flex gap-3 flex-wrap justify-center mb-4">
           {scrambled.map((item) => (
             <button key={item.id} disabled={locked} onClick={() => handleLetterTap(item)}
-              className="w-16 h-16 bg-white text-cyan-700 text-3xl font-black rounded-2xl shadow-lg border-4 border-cyan-200 hover:-translate-y-1 active:translate-y-1 transition-all">{item.letter}</button>
+              className="h-20 w-20 bg-white text-cyan-700 text-4xl font-black rounded-2xl shadow-lg border-4 border-cyan-200 hover:-translate-y-1 active:translate-y-1 transition-all">{item.letter}</button>
           ))}
         </div>
         {typed.length > 0 && (

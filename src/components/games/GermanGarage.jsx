@@ -1,11 +1,18 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Home, Star, Volume2 } from 'lucide-react';
 import { GERMAN_COLORS, GERMAN_MATCH_MODES, GERMAN_NUMBERS } from '../../data/index.js';
 import { buildMatchRound } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
-import garageScene from '../../assets/german-garage/paint-car.png';
 import emptyGarage from '../../assets/german-garage/empty-garage.png';
 import friendlyCar from '../../assets/german-garage/friendly-car.png';
+import garageScene from '../../assets/german-garage/scenes/garage.webp';
+import numbersScene from '../../assets/german-garage/scenes/numbers.webp';
+import animalsScene from '../../assets/german-garage/scenes/animals.webp';
+import shapesScene from '../../assets/german-garage/scenes/shapes.webp';
+import foodsScene from '../../assets/german-garage/scenes/foods.webp';
+import vehiclesScene from '../../assets/german-garage/scenes/vehicles.webp';
+import bodyScene from '../../assets/german-garage/scenes/body.webp';
+import greetingsScene from '../../assets/german-garage/scenes/greetings.webp';
 
 const TAB_ICONS = {
   paint: '🎨', park: '🏠', numbers: '🔢', animals: '🐯', shapes: '⭐', foods: '🍎',
@@ -24,7 +31,29 @@ const MODE_COPY = {
   greetings: { mission: 'GRÜSSE-MISSION', instruction: 'Choose the word', helper: 'Listen to the German greeting' },
 };
 
-const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const MODE_SCENES = {
+  park: garageScene,
+  numbers: numbersScene,
+  animals: animalsScene,
+  shapes: shapesScene,
+  foods: foodsScene,
+  vehicles: vehiclesScene,
+  body: bodyScene,
+  greetings: greetingsScene,
+};
+
+const GERMAN_AUDIO_SLUGS = {
+  Rot: 'rot', Blau: 'blau', 'Grün': 'gruen', Gelb: 'gelb', Orange: 'orange', Lila: 'lila', Rosa: 'rosa', Braun: 'braun', Schwarz: 'schwarz', 'Weiß': 'weiss',
+  Eins: 'eins', Zwei: 'zwei', Drei: 'drei', Vier: 'vier', 'Fünf': 'fuenf', Sechs: 'sechs', Sieben: 'sieben', Acht: 'acht', Neun: 'neun', Zehn: 'zehn',
+  Hund: 'hund', Katze: 'katze', Vogel: 'vogel', Fisch: 'fisch', 'Löwe': 'loewe', Pferd: 'pferd', Kuh: 'kuh', Hase: 'hase',
+  Kreis: 'kreis', Quadrat: 'quadrat', Dreieck: 'dreieck', Stern: 'stern', Herz: 'herz', Diamant: 'diamant',
+  Apfel: 'apfel', Banane: 'banane', Brot: 'brot', 'Käse': 'kaese', Pizza: 'pizza', Eis: 'eis',
+  Auto: 'auto', Bus: 'bus', Zug: 'zug', Flugzeug: 'flugzeug', Fahrrad: 'fahrrad', Rakete: 'rakete',
+  Kopf: 'kopf', Hand: 'hand', 'Fuß': 'fuss', Auge: 'auge', Nase: 'nase', Ohr: 'ohr', Mund: 'mund', Arm: 'arm',
+  Hallo: 'hallo', 'Tschüss': 'tschuess', Danke: 'danke', Bitte: 'bitte', Ja: 'ja', Nein: 'nein',
+};
+
+const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) => {
   const [mode, setMode] = useState('paint');
   const [paintRound, setPaintRound] = useState(() => buildMatchRound(GERMAN_COLORS));
   const [parkRound, setParkRound] = useState(() => buildMatchRound(GERMAN_COLORS));
@@ -32,6 +61,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const [feedback, setFeedback] = useState('');
   const [stars, setStars] = useState(0);
   const [paintedColour, setPaintedColour] = useState(null);
+  const germanAudioRef = useRef(null);
 
   const matchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === mode);
   const round = mode === 'paint' ? paintRound : mode === 'park' ? parkRound : matchRound;
@@ -42,16 +72,23 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     ...GERMAN_MATCH_MODES.map(({ id, label }) => ({ id, label })),
   ], []);
 
-  const narration = useMemo(() => {
-    if (!round?.target) return '';
-    if (mode === 'paint') return `Finde die Farbe ${round.target.name}.`;
-    if (mode === 'park') return `Fahre zum Tor mit der Farbe ${round.target.name}.`;
-    return `Zeig mir ${round.target.name}.`;
-  }, [mode, round]);
+  const playGermanTerm = useCallback((term) => {
+    const slug = GERMAN_AUDIO_SLUGS[term];
+    if (!soundOn || !slug) return;
+    germanAudioRef.current?.pause();
+    const audio = new Audio(`/audio/de/${slug}.mp3`);
+    germanAudioRef.current = audio;
+    audio.play().catch(() => {
+      // Browsers may block automatic playback. The visible speaker button
+      // gives the child a user-initiated retry without using computer speech.
+    });
+  }, [soundOn]);
 
   useEffect(() => {
-    if (narration) speak(narration, { lang: 'de-DE', rate: 0.82, pitch: 1 });
-  }, [narration, speak]);
+    if (round?.target?.name) playGermanTerm(round.target.name);
+  }, [mode, playGermanTerm, round?.target?.name]);
+
+  useEffect(() => () => germanAudioRef.current?.pause(), []);
 
   const makeNextRound = () => {
     setFeedback('');
@@ -66,13 +103,13 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     if (option.name !== round.target.name) {
       setFeedback('Noch einmal — try again!');
       playSfx('oops');
-      speak(narration, { lang: 'de-DE', rate: 0.78, pitch: 1 });
+      playGermanTerm(round.target.name);
       return;
     }
     setFeedback('Richtig! Great listening!');
     setStars((value) => Math.min(10, value + 1));
     playSfx('success');
-    speak(`Richtig! ${round.target.name}.`, { lang: 'de-DE', rate: 0.82, pitch: 1 });
+    playGermanTerm(round.target.name);
     onCelebrate('Richtig!', 4, 120);
     window.setTimeout(makeNextRound, 850);
   };
@@ -137,13 +174,13 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
             <p className="text-xl font-black text-slate-800 sm:text-3xl">{copy.instruction}…</p>
             <div className="flex items-center justify-center gap-2">
               <strong className="text-3xl font-black text-blue-600 sm:text-5xl">{round.target.name}</strong>
-              <button onClick={() => speak(narration, { lang: 'de-DE', rate: 0.82, pitch: 1 })} className="rounded-full bg-blue-600 p-3 text-white shadow-md" aria-label={`Hear ${round.target.name} in German`}><Volume2 /></button>
+              <button onClick={() => playGermanTerm(round.target.name)} className="rounded-full bg-blue-600 p-3 text-white shadow-md" aria-label={`Hear ${round.target.name} in German`}><Volume2 /></button>
             </div>
           </div>
         </div>
 
         <section className="relative h-52 w-full overflow-hidden rounded-[2rem] border-4 border-white shadow-xl sm:h-80">
-          <img src={mode === 'paint' ? emptyGarage : garageScene} alt="Bright and welcoming German learning garage" className="h-full w-full object-cover object-center" />
+          <img src={mode === 'paint' ? emptyGarage : MODE_SCENES[mode]} alt={`${copy.mission.toLowerCase()} illustrated learning scene`} className="h-full w-full object-cover object-center" />
           {mode === 'paint' && (
             <div className="absolute inset-0 flex items-center justify-center pt-2" aria-live="polite">
               <div className="relative h-[92%] w-[62%] max-w-[620px]">

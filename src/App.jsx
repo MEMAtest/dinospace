@@ -5,7 +5,7 @@ import { useSfx, useVoice, useAmbientMusic, useInstallPrompt } from './hooks.js'
 import {
   SoundToggle, CelebrationOverlay, RewardsShelf,
   PauseOverlay, BreakReminder, DailyChallengeBanner, StreakBanner, MenuCard,
-  InstallAppPrompt, VoiceSettings,
+  DailyChallengeTracker, InstallAppPrompt, VoiceSettings,
 } from './components/shared/index.jsx';
 import DinoDetective from './components/games/DinoDetective.jsx';
 import JetSkyShapes from './components/games/JetSkyShapes.jsx';
@@ -32,17 +32,18 @@ import TicTacToe from './components/games/TicTacToe.jsx';
 import DinoHangman from './components/games/Hangman.jsx';
 import ProgressDashboard from './components/games/ProgressDashboard.jsx';
 import IntroScreen from './components/games/IntroScreen.jsx';
-import DinoIcon from './components/shared/DinoIcon.jsx';
 import astronautCrew from './assets/landing/amari-astronaut-robot.png';
+import titleTrex from './assets/dinos/title-trex.png';
+import titleTrike from './assets/dinos/title-trike.png';
 
 const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 
 const GAME_CATEGORIES = ['All', 'Quick Think', 'Maths', 'Words', 'Discover', 'Create'];
 
 const GAME_MENU_ITEMS = [
-  { id: 'tictactoe', icon: <DinoIcon species="trex" size={116} className="drop-shadow-2xl" />, title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
-  { id: 'hangman', icon: <DinoIcon species="trex" size={116} className="drop-shadow-2xl" />, title: 'Dino Hangman', desc: 'Rescue dinosaur words!', color: 'bg-gradient-to-br from-fuchsia-500 via-purple-600 to-indigo-700', category: 'Words', badge: 'NEW' },
-  { id: 'dino', icon: <DinoIcon species="trike" size={116} className="drop-shadow-2xl" />, title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' },
+  { id: 'tictactoe', icon: <img src={titleTrex} alt="Rex the complete T-Rex" className="h-full w-full object-contain" />, title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
+  { id: 'hangman', icon: <img src={titleTrex} alt="Rex the complete T-Rex" className="h-full w-full object-contain" />, title: 'Dino Hangman', desc: 'Rescue dinosaur words!', color: 'bg-gradient-to-br from-fuchsia-500 via-purple-600 to-indigo-700', category: 'Words', badge: 'NEW' },
+  { id: 'dino', icon: <img src={titleTrike} alt="Trix the complete Triceratops" className="h-full w-full object-contain" />, title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' },
   { id: 'jet', icon: '✈️', title: 'Sky Shapes', desc: 'Draw with a jet!', color: 'bg-gradient-to-br from-sky-400 to-blue-500', category: 'Create' },
   { id: 'solar', icon: '🪐', title: 'Solar System', desc: 'Visit the planets', color: 'bg-gradient-to-br from-indigo-500 to-violet-600', category: 'Discover' },
   { id: 'german', icon: '🎨', title: 'German Garage', desc: 'Learn colours in German', color: 'bg-gradient-to-br from-red-400 to-rose-500', category: 'Words' },
@@ -668,6 +669,16 @@ export default function App() {
       >
         {content}
       </Suspense>
+      {GAME_MENU_ITEMS.some((game) => game.id === screen) && (
+        <DailyChallengeTracker
+          challenge={todaysChallenge}
+          progress={challengeProgress}
+          completed={challengeCompleted}
+          active={screen === todaysChallenge.game}
+          onGo={goToTodaysChallenge}
+          placement={['solar', 'puzzle'].includes(screen) ? 'top-right' : 'bottom-right'}
+        />
+      )}
       <CelebrationOverlay celebration={celebration} />
       {paused && <PauseOverlay onResume={() => setPaused(false)} />}
       {showBreak && (

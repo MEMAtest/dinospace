@@ -320,7 +320,8 @@ export const useSfx = (enabled) => {
   );
 };
 
-const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v2';
+const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v3';
+const PREVIOUS_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v2';
 const LEGACY_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode';
 const PREMIUM_VOICE_TIMEOUT_MS = 6000;
 const MAX_PREMIUM_VOICE_CACHE = 24;
@@ -332,16 +333,23 @@ const VOICE_API_URL = import.meta.env.VITE_VOICE_API_URL || '/api/voice';
 const getStoredVoiceMode = () => {
   try {
     const stored = window.localStorage.getItem(VOICE_MODE_STORAGE_KEY);
-    if (['smart', 'premium', 'device'].includes(stored)) return stored;
+    if (['premium', 'device'].includes(stored)) return stored;
+
+    // Version 3 removes automatic browser-speech fallback. Preserve only a
+    // parent's explicit Device choice; old Smart installs now migrate to the
+    // verified ElevenLabs narrator.
+    const previous = window.localStorage.getItem(PREVIOUS_VOICE_MODE_STORAGE_KEY);
+    if (previous === 'device') return 'device';
+    if (PREMIUM_VOICE_ENABLED) return 'premium';
 
     // Migrate the old default to ElevenLabs while preserving an explicit
     // device-voice choice made before the premium narrator was connected.
     const legacy = window.localStorage.getItem(LEGACY_VOICE_MODE_STORAGE_KEY);
     if (legacy === 'device') return 'device';
     if (legacy === 'premium') return 'premium';
-    return PREMIUM_VOICE_ENABLED ? 'premium' : 'smart';
+    return 'device';
   } catch {
-    return PREMIUM_VOICE_ENABLED ? 'premium' : 'smart';
+    return PREMIUM_VOICE_ENABLED ? 'premium' : 'device';
   }
 };
 
@@ -365,7 +373,7 @@ export const useVoice = (enabled) => {
   const fallbackTimerRef = useRef(null);
   const pendingPremiumGestureCleanupRef = useRef(null);
   const premiumCacheRef = useRef(new Map());
-  const voiceModeRef = useRef('smart');
+  const voiceModeRef = useRef(PREMIUM_VOICE_ENABLED ? 'premium' : 'device');
   const [voiceMode, setVoiceModeState] = useState(getStoredVoiceMode);
   const [premiumStatus, setPremiumStatus] = useState('unknown');
 
@@ -493,7 +501,7 @@ export const useVoice = (enabled) => {
   }, []);
 
   const setVoiceMode = useCallback((nextMode) => {
-    if (!['smart', 'premium', 'device'].includes(nextMode)) return;
+    if (!['premium', 'device'].includes(nextMode)) return;
     setVoiceModeState(nextMode);
     setPremiumStatus(nextMode === 'device' ? 'device' : 'unknown');
   }, []);
@@ -519,8 +527,15 @@ export const useVoice = (enabled) => {
       && typeof window.fetch === 'function'
       && window.navigator.onLine !== false;
 
-    if (!canUsePremium) {
+    if (voiceModeRef.current === 'device' || !premium) {
       speakOnDevice(text, options);
+      return;
+    }
+    if (!canUsePremium) {
+      // Premium mode is intentionally ElevenLabs-only. Going offline or
+      // losing the API must never make the narrator suddenly sound like the
+      // tablet's computer voice.
+      setPremiumStatus('unavailable');
       return;
     }
 

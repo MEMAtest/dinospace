@@ -1,132 +1,96 @@
-import { useState, useEffect, useMemo } from 'react';
-import { Home } from 'lucide-react';
-import { SPOT_LEVELS } from '../../data/index.js';
+import { useEffect, useState } from 'react';
+import { Check, Home } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import superheroCity from '../../assets/spot-difference/superhero-city.webp';
+
+const DIFFERENCES = [
+  { id: 'tower', label: 'the tower ornament', x: 22.4, y: 8.2, mark: 'bolt' },
+  { id: 'badge', label: 'the standing hero badge', x: 36.6, y: 52.2, mark: 'star' },
+  { id: 'mask', label: 'the flying hero mask', x: 59.6, y: 17.2, mark: 'mask' },
+];
+
+const DifferenceMark = ({ type }) => {
+  if (type === 'mask') return <span className="block h-5 w-12 rounded-[50%] border-2 border-blue-900 bg-blue-500 shadow-sm sm:h-7 sm:w-16" />;
+  if (type === 'star') return <span className="grid h-9 w-9 place-items-center rounded-full bg-purple-600 text-2xl sm:h-12 sm:w-12 sm:text-3xl">⭐</span>;
+  return <span className="grid h-9 w-9 place-items-center rounded-full bg-sky-400 text-2xl sm:h-12 sm:w-12 sm:text-3xl">⚡</span>;
+};
 
 const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [levelIndex, setLevelIndex] = useState(0);
-  const level = SPOT_LEVELS[levelIndex];
   const [found, setFound] = useState([]);
   const [feedback, setFeedback] = useState('');
-  const [showComplete, setShowComplete] = useState(false);
-  const [completionMessage, setCompletionMessage] = useState('');
   const [skillRun, setSkillRun] = useState(0);
-  const differenceIndices = useMemo(
-    () => Object.keys(level.diffs).map((key) => Number(key)),
-    [level.diffs],
-  );
+  const complete = found.length === DIFFERENCES.length;
 
   useEffect(() => {
-    speak(`Spot the differences. ${level.name}.`);
-  }, [level, speak]);
+    speak('Spot the difference. Compare the two superhero city pictures carefully.');
+  }, [speak]);
 
-  const handleTap = (index) => {
-    if (showComplete) return;
-    if (found.includes(index)) return;
-    if (differenceIndices.includes(index)) {
-      const nextFound = [...found, index];
-      setFound(nextFound);
-      playSfx('sparkle');
-      setFeedback('You found one!');
-      if (nextFound.length === differenceIndices.length) {
-        const praise = getPraise();
-        setShowComplete(true);
-        setCompletionMessage(praise);
-        setSkillRun((current) => Math.min(current + 1, 5));
-        onCelebrate(praise, 6, 250);
-        onGameEvent?.('spot', 'level_completed');
-        speak(`${praise} You found every difference!`);
-      }
-    } else {
-      setFeedback('Nope!');
-      playSfx('oops');
+  const findDifference = (difference) => {
+    if (found.includes(difference.id) || complete) return;
+    const nextFound = [...found, difference.id];
+    setFound(nextFound);
+    setFeedback(`Found ${difference.label}!`);
+    playSfx('sparkle');
+    if (nextFound.length === DIFFERENCES.length) {
+      const praise = getPraise();
+      setSkillRun((current) => Math.min(current + 1, 5));
+      onCelebrate(praise, 6, 80);
+      onGameEvent?.('spot', 'level_completed');
+      speak(`${praise} You found all three differences.`);
     }
   };
 
-  const handleNext = () => {
-    const nextLevelIndex = levelIndex < SPOT_LEVELS.length - 1 ? levelIndex + 1 : 0;
-    setLevelIndex(nextLevelIndex);
+  const restart = () => {
     setFound([]);
     setFeedback('');
-    setShowComplete(false);
-    setCompletionMessage('');
-    setSkillRun((current) => current >= 5 ? 0 : current);
+    playSfx('click');
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-indigo-100 via-slate-100 to-indigo-200 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-6 right-6 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-200/60 rounded-full blur-3xl" />
-      </div>
-
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button
-          onClick={onBack}
-          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
-        >
-          <Home />
-        </button>
+    <div className="min-h-screen overflow-hidden bg-gradient-to-b from-indigo-50 via-sky-50 to-indigo-100 text-slate-900">
+      <header className="flex items-center justify-between px-4 pt-4">
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to all games"><Home /></button>
         <div className="text-center">
-          <h2 className="text-3xl font-black text-indigo-700">Spot the Difference</h2>
-          <p className="text-indigo-700/70 font-semibold">
-            {level.name} · Found {found.length}/{differenceIndices.length}
-          </p>
+          <h2 className="text-2xl font-black text-indigo-700 sm:text-4xl">Spot the Difference</h2>
+          <p className="font-bold text-indigo-500">Superhero City · Found {found.length}/3</p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </div>
+      </header>
 
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
+      <main className="mx-auto flex w-full max-w-7xl flex-col items-center px-4 pb-8 pt-3">
         <PracticeProgress skill="Compare details carefully" completed={skillRun} accent="indigo" />
-        <p className="text-indigo-700 font-semibold mb-4">{level.hint}</p>
+        <p className="mb-3 text-center text-lg font-black text-indigo-700">The pictures are aligned. Find exactly three changes.</p>
 
-        <div className="grid grid-cols-2 gap-6 w-full max-w-3xl">
-          {[0, 1].map((sceneIndex) => (
-            <div
-              key={sceneIndex}
-              className="bg-white/90 rounded-3xl border-4 border-indigo-200 shadow-xl p-4"
-            >
-              <div className="grid grid-cols-3 gap-3">
-                {level.base.map((item, index) => {
-                  const isFound = found.includes(index) && sceneIndex === 1;
-                  const badge =
-                    sceneIndex === 0
-                      ? level.badge
-                      : level.diffs[index] || level.badge;
-                  return (
-                    <button
-                      key={`${sceneIndex}-${index}`}
-                      onClick={() => sceneIndex === 1 && handleTap(index)}
-                      disabled={sceneIndex === 0}
-                      className={`w-20 h-20 rounded-2xl text-3xl flex items-center justify-center border-4 transition ${
-                        isFound ? 'border-green-400 bg-green-50' : 'border-slate-200 bg-white'
-                      }`}
-                    >
-                      <span className="relative">
-                        {item}
-                        <span className="absolute -top-2 -right-3 text-xs">{badge}</span>
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
+        <div className="grid w-full grid-cols-2 gap-3 sm:gap-5">
+          {[false, true].map((changed) => (
+            <section key={String(changed)} className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] border-4 border-white bg-white shadow-[0_14px_35px_rgba(67,56,202,.18)] sm:rounded-[2rem]">
+              <img src={superheroCity} alt={changed ? 'Changed superhero city picture' : 'Original superhero city picture'} className="h-full w-full object-cover" draggable="false" />
+              {changed && DIFFERENCES.map((difference) => {
+                const isFound = found.includes(difference.id);
+                return (
+                  <button
+                    key={difference.id}
+                    onClick={() => findDifference(difference)}
+                    className={`absolute grid -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full transition ${isFound ? 'ring-4 ring-emerald-400 ring-offset-2 ring-offset-white' : 'hover:scale-110 focus-visible:ring-4 focus-visible:ring-yellow-300'}`}
+                    style={{ left: `${difference.x}%`, top: `${difference.y}%` }}
+                    aria-label={`Check ${difference.label}`}
+                  >
+                    <DifferenceMark type={difference.mark} />
+                    {isFound && <span className="absolute -right-2 -top-2 grid h-6 w-6 place-items-center rounded-full bg-emerald-500 text-white shadow"><Check size={15} strokeWidth={4} /></span>}
+                  </button>
+                );
+              })}
+              <span className="absolute bottom-3 left-3 rounded-full bg-slate-950/70 px-3 py-1 text-xs font-black text-white">{changed ? 'Picture B' : 'Picture A'}</span>
+            </section>
           ))}
         </div>
 
-        {feedback && <div className="mt-4 text-xl font-bold text-indigo-700 animate-bounce">{feedback}</div>}
-
-        {showComplete && (
-          <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
-            <div className="text-5xl mb-2">🎉</div>
-            <h3 className="text-2xl font-black text-indigo-700">{completionMessage}</h3>
-            <button onClick={handleNext} className="mt-3 text-indigo-600 font-semibold">
-              Next scene
-            </button>
-          </div>
-        )}
-      </div>
+        <div className="mt-4 min-h-12 text-center" aria-live="polite">
+          <p className="text-lg font-black text-indigo-700">{complete ? 'All three found — brilliant looking!' : feedback || 'Tap a change in Picture B.'}</p>
+          {complete && <button onClick={restart} className="mt-2 rounded-full bg-indigo-600 px-6 py-2 font-black text-white shadow-lg">Play again</button>}
+        </div>
+      </main>
     </div>
   );
 };

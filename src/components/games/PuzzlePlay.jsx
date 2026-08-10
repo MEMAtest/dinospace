@@ -1,237 +1,184 @@
-import { useState, useEffect } from 'react';
-import { Eye, Home, Lightbulb } from 'lucide-react';
-import { JIGSAW_PUZZLES, PUZZLE_TILES } from '../../data/index.js';
-import { shuffle, getPraise } from '../../utils.js';
+import { useEffect, useMemo, useState } from 'react';
+import { Eye, Home, Lightbulb, RotateCcw } from 'lucide-react';
+import { getPraise, shuffle } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 
-const makePuzzleState = (puzzle) => {
-  const total = puzzle.grid * puzzle.grid;
+const LEVELS = [
+  { name: 'Dino Park Starter', grid: 2 },
+  { name: 'Dino Park Explorer', grid: 3 },
+  { name: 'Dino Park Champion', grid: 3 },
+];
+
+const makePieces = (grid) => shuffle(
+  Array.from({ length: grid * grid }, (_, correctSlot) => ({ id: `piece-${correctSlot}`, correctSlot })),
+);
+
+const tileStyle = (slot, grid) => {
+  const column = slot % grid;
+  const row = Math.floor(slot / grid);
+  const axis = grid - 1;
   return {
-    placed: Array(total).fill(null),
-    tray: shuffle(puzzle.pieces.slice(0, total).map((emoji, index) => ({ id: `piece-${index}`, emoji, correctSlot: index }))),
+    backgroundImage: `url(${dinoPark})`,
+    backgroundSize: `${grid * 100}% ${grid * 100}%`,
+    backgroundPosition: `${(column / axis) * 100}% ${(row / axis) * 100}%`,
   };
 };
 
 const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [puzzleIndex, setPuzzleIndex] = useState(0);
-  const puzzle = JIGSAW_PUZZLES[puzzleIndex];
-
-  const [state, setState] = useState(() => makePuzzleState(JIGSAW_PUZZLES[0]));
-  const [dragging, setDragging] = useState(null);
-  const [solved, setSolved] = useState(false);
+  const [levelIndex, setLevelIndex] = useState(0);
+  const level = LEVELS[levelIndex];
+  const [tray, setTray] = useState(() => makePieces(LEVELS[0].grid));
+  const [placed, setPlaced] = useState(() => Array(LEVELS[0].grid ** 2).fill(null));
+  const [selected, setSelected] = useState(null);
   const [moves, setMoves] = useState(0);
-  const [completionMessage, setCompletionMessage] = useState('');
+  const [message, setMessage] = useState('Choose a picture piece below.');
+  const solved = placed.every(Boolean);
+
+  const progress = useMemo(() => placed.filter(Boolean).length, [placed]);
 
   useEffect(() => {
-    speak(`Drag the pieces to build the ${puzzle.name} picture!`);
-  }, [puzzle.name, speak]);
+    speak(`Build the dinosaur park picture. Choose a piece, then tap its matching place.`);
+  }, [level.name, speak]);
 
-  const checkSolved = (placed) => placed.every((p, i) => p && p.correctSlot === i);
+  const resetLevel = (nextIndex = levelIndex) => {
+    const nextLevel = LEVELS[nextIndex];
+    setLevelIndex(nextIndex);
+    setTray(makePieces(nextLevel.grid));
+    setPlaced(Array(nextLevel.grid ** 2).fill(null));
+    setSelected(null);
+    setMoves(0);
+    setMessage('Choose a picture piece below.');
+  };
 
-  const handleDragStart = (piece, source) => {
-    setDragging({ piece, source });
+  const choosePiece = (piece) => {
+    setSelected(piece);
+    setMessage(`Piece ${piece.correctSlot + 1} selected — find its place.`);
     playSfx('click');
   };
 
-  const handleDrop = (slotIndex) => {
-    if (!dragging) return;
-    if (dragging.piece.correctSlot !== slotIndex) {
-      setCompletionMessage('That piece has a different picture spot. Try its matching shadow!');
-      playSfx('oops');
-      setDragging(null);
+  const placePiece = (slotIndex) => {
+    if (!selected) {
+      setMessage('Choose a picture piece from the tray first.');
       return;
     }
-    setCompletionMessage('');
-    setState((prev) => {
-      const next = { placed: [...prev.placed], tray: [...prev.tray] };
-      const existingPiece = next.placed[slotIndex];
-
-      if (dragging.source === 'tray') {
-        next.tray = next.tray.filter((p) => p.id !== dragging.piece.id);
-        if (existingPiece) next.tray.push(existingPiece);
-      } else {
-        next.placed[dragging.source] = existingPiece || null;
-      }
-      next.placed[slotIndex] = dragging.piece;
-
-      playSfx('sparkle');
-      setMoves((m) => m + 1);
-
-      if (checkSolved(next.placed)) {
-        const praise = getPraise();
-        setSolved(true);
-        setCompletionMessage(praise);
-        playSfx('success');
-        onCelebrate(praise, 6, 300);
-        onGameEvent?.('puzzle', 'level_completed');
-        speak('Amazing! You finished the puzzle!');
-      }
-      return next;
-    });
-    setDragging(null);
-  };
-
-  const handleDropBack = () => {
-    if (!dragging || dragging.source === 'tray') { setDragging(null); return; }
-    setState((prev) => {
-      const next = { placed: [...prev.placed], tray: [...prev.tray] };
-      next.placed[dragging.source] = null;
-      next.tray.push(dragging.piece);
-      return next;
-    });
-    setDragging(null);
-  };
-
-  const handleTouchStart = (piece, source, e) => {
-    e.preventDefault();
-    handleDragStart(piece, source);
-  };
-
-  const handleSlotClick = (slotIndex) => {
-    if (dragging) {
-      handleDrop(slotIndex);
-    } else if (state.placed[slotIndex]) {
-      handleDragStart(state.placed[slotIndex], slotIndex);
+    setMoves((value) => value + 1);
+    if (selected.correctSlot !== slotIndex) {
+      setMessage(`Not there yet — match the scene edges or use the preview.`);
+      playSfx('oops');
+      return;
     }
-  };
 
-  const handleTrayPieceClick = (piece) => {
-    if (dragging && dragging.source === 'tray' && dragging.piece.id === piece.id) {
-      setDragging(null);
+    const nextPlaced = [...placed];
+    nextPlaced[slotIndex] = selected;
+    const nextTray = tray.filter((piece) => piece.id !== selected.id);
+    setPlaced(nextPlaced);
+    setTray(nextTray);
+    setSelected(null);
+    playSfx('sparkle');
+
+    if (nextPlaced.every(Boolean)) {
+      const praise = getPraise();
+      setMessage(`${praise} The dinosaur park is complete!`);
+      playSfx('success');
+      onCelebrate(praise, 6, 180);
+      onGameEvent?.('puzzle', 'level_completed');
+      speak('Amazing! You built the whole dinosaur park picture.');
     } else {
-      handleDragStart(piece, 'tray');
+      setMessage(`Great fit! ${nextPlaced.filter(Boolean).length} of ${nextPlaced.length} pieces placed.`);
     }
   };
 
-  const startPuzzle = (nextIndex) => {
-    setPuzzleIndex(nextIndex);
-    setState(makePuzzleState(JIGSAW_PUZZLES[nextIndex]));
-    setDragging(null);
-    setSolved(false);
-    setMoves(0);
-    setCompletionMessage('');
-  };
-
-  const handleNextPuzzle = () => {
-    startPuzzle((puzzleIndex + 1) % JIGSAW_PUZZLES.length);
+  const showHint = () => {
+    const nextPiece = selected || tray[0];
+    if (!nextPiece) return;
+    setSelected(nextPiece);
+    setMessage(`Hint: piece ${nextPiece.correctSlot + 1} belongs in the glowing space.`);
+    speak(`Piece ${nextPiece.correctSlot + 1} goes in the glowing space.`);
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-amber-100 via-yellow-50 to-emerald-100 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-200/60 rounded-full blur-3xl" />
-      </div>
-
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
+    <div className="min-h-screen overflow-hidden bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 text-slate-800">
+      <header className="flex items-center justify-between px-4 pt-3">
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to all games"><Home /></button>
         <div className="text-center">
-          <h2 className="text-3xl font-black text-orange-700 drop-shadow-sm">Puzzle Pop</h2>
-          <p className="text-orange-700/70 font-semibold">{puzzle.name} · Moves: {moves}</p>
-          <p className="text-orange-700/50 text-sm">{puzzleIndex + 1}/{JIGSAW_PUZZLES.length}</p>
+          <h2 className="text-3xl font-black text-orange-700">Puzzle Pop</h2>
+          <p className="font-bold text-orange-700/70">{level.name} · Moves {moves} · {progress}/{placed.length}</p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </div>
+      </header>
 
-      <div className="flex-1 grid w-full max-w-6xl mx-auto items-center gap-5 px-4 pb-6 pt-4 relative z-10 lg:grid-cols-[minmax(220px,0.55fr)_minmax(360px,1fr)]">
-        <aside className="rounded-[2rem] border-4 border-white bg-white/80 p-4 shadow-xl backdrop-blur">
-          <div className="mb-3 flex items-center gap-2 font-black text-orange-700"><Eye size={20} /> Picture preview</div>
-          <div className="grid gap-1 rounded-2xl bg-gradient-to-br from-sky-200 via-emerald-100 to-amber-100 p-3" style={{ gridTemplateColumns: `repeat(${puzzle.grid}, minmax(0, 1fr))` }}>
-            {puzzle.pieces.slice(0, puzzle.grid * puzzle.grid).map((emoji, index) => (
-              <div key={`${emoji}-${index}`} className="flex aspect-square items-center justify-center rounded-xl bg-white/55 text-2xl sm:text-3xl">{emoji}</div>
-            ))}
+      <main className="mx-auto grid w-full max-w-6xl gap-4 px-4 pb-4 pt-3 lg:grid-cols-[minmax(250px,.52fr)_minmax(500px,1fr)]">
+        <aside className="rounded-[2rem] border-4 border-white bg-white/80 p-3 shadow-xl backdrop-blur">
+          <div className="mb-2 flex items-center justify-between font-black text-orange-700">
+            <span className="flex items-center gap-2"><Eye size={20} /> Picture preview</span>
+            <span className="rounded-full bg-orange-100 px-3 py-1 text-xs">Look here</span>
           </div>
-          <div className="mt-4 rounded-2xl bg-amber-50 p-3 text-sm font-bold text-amber-900">
-            <p className="text-base font-black">How to play</p>
-            <p>1. Tap a picture piece.</p>
-            <p>2. Find the same pale picture.</p>
-            <p>3. Tap its space to place it.</p>
+          <img src={dinoPark} alt="Completed dinosaur park puzzle preview" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-md" />
+          <div className="mt-3 rounded-2xl bg-amber-50 p-3 text-sm font-bold text-amber-950">
+            <p className="font-black">How to play</p>
+            <p>1. Tap a real picture piece.</p>
+            <p>2. Compare it with the preview.</p>
+            <p>3. Tap where that piece belongs.</p>
           </div>
         </aside>
 
-        <section className="flex min-w-0 flex-col gap-4">
-          <p className="rounded-full bg-white/80 px-4 py-2 text-center font-black text-orange-700 shadow-md">
-            {dragging ? `🎯 Now find the matching ${dragging.piece.emoji} shadow` : 'Tap a piece, then match its picture shadow'}
-          </p>
+        <section className="flex min-w-0 flex-col gap-3">
+          <p className="rounded-full bg-white/90 px-4 py-2 text-center font-black text-orange-700 shadow-md" aria-live="polite">{message}</p>
 
-        <div className="grid gap-2 w-full max-w-md mx-auto rounded-[2rem] border-4 border-white bg-white/60 p-3 shadow-xl" style={{ gridTemplateColumns: `repeat(${puzzle.grid}, minmax(0, 1fr))` }}>
-          {state.placed.map((piece, index) => {
-            const isCorrect = piece && piece.correctSlot === index;
-            return (
-              <button
-                key={`slot-${index}`}
-                onClick={() => handleSlotClick(index)}
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={() => handleDrop(index)}
-                className={`aspect-square rounded-2xl text-4xl flex items-center justify-center border-4 transition-all ${
-                  piece
-                    ? isCorrect
-                      ? 'border-green-400 bg-green-50 shadow-lg'
-                      : 'border-orange-300 bg-orange-50 shadow-md'
-                    : dragging
-                      ? dragging.piece.correctSlot === index
-                        ? 'border-dashed border-orange-500 bg-orange-100 animate-pulse ring-4 ring-orange-200'
-                        : 'border-dashed border-amber-200 bg-white/55'
-                      : 'border-dashed border-amber-300 bg-white/65'
-                } ${!piece && dragging ? 'hover:bg-orange-200/60 hover:border-orange-500' : ''}`}
-              >
-                {piece ? piece.emoji : <span className="text-3xl opacity-20 grayscale sm:text-4xl" aria-hidden="true">{puzzle.pieces[index]}</span>}
-              </button>
-            );
-          })}
-        </div>
-
-        <div
-          className="bg-white/80 rounded-3xl p-4 w-full max-w-xl mx-auto min-h-[112px] border-4 border-white shadow-lg"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={handleDropBack}
-        >
-          <p className="text-center text-sm font-black text-slate-600 mb-2">Pieces tray · choose one</p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {state.tray.map((piece) => (
-              <button
-                key={piece.id}
-                draggable
-                onDragStart={() => handleDragStart(piece, 'tray')}
-                onTouchStart={(e) => handleTouchStart(piece, 'tray', e)}
-                onClick={() => handleTrayPieceClick(piece)}
-                className={`w-16 h-16 rounded-2xl text-3xl flex items-center justify-center border-4 transition-all cursor-grab active:cursor-grabbing ${
-                  dragging && dragging.piece.id === piece.id
-                    ? 'border-orange-500 bg-orange-200 scale-110 shadow-xl'
-                    : 'border-white bg-white shadow-md hover:shadow-lg hover:-translate-y-1'
-                }`}
-              >
-                {piece.emoji}
-              </button>
-            ))}
-            {state.tray.length === 0 && !solved && <p className="text-slate-400 text-sm">All pieces placed!</p>}
+          <div
+            className="grid aspect-[4/3] w-full max-w-[555px] gap-1.5 self-center overflow-hidden rounded-[2rem] border-4 border-white bg-amber-50 p-2 shadow-xl"
+            style={{ gridTemplateColumns: `repeat(${level.grid}, minmax(0, 1fr))` }}
+            aria-label={`${level.grid} by ${level.grid} dinosaur picture puzzle board`}
+          >
+            {placed.map((piece, slotIndex) => {
+              const isHint = selected?.correctSlot === slotIndex;
+              return (
+                <button
+                  key={`slot-${slotIndex}`}
+                  onClick={() => placePiece(slotIndex)}
+                  className={`relative overflow-hidden rounded-xl border-2 transition ${piece ? 'border-white shadow-inner' : isHint ? 'animate-pulse border-orange-500 bg-orange-100 ring-4 ring-orange-200' : 'border-dashed border-amber-300 bg-white/70'}`}
+                  aria-label={piece ? `Picture piece ${slotIndex + 1} placed` : `Empty picture space ${slotIndex + 1}`}
+                >
+                  {piece ? (
+                    <span className="absolute inset-0 bg-cover" style={tileStyle(piece.correctSlot, level.grid)} />
+                  ) : (
+                    <span className="grid h-full place-items-center text-3xl font-black text-amber-300">{slotIndex + 1}</span>
+                  )}
+                </button>
+              );
+            })}
           </div>
-        </div>
 
-        {!solved && (
-          <button onClick={() => {
-            const emptySlot = state.placed.findIndex((p) => !p);
-            const correctPiece = state.tray.find((p) => p.correctSlot === emptySlot) || state.tray[0];
-            if (correctPiece && emptySlot >= 0) {
-              playSfx('sparkle');
-              speak(`Try putting a piece in slot ${emptySlot + 1}`);
-            }
-          }} className="mx-auto flex items-center gap-2 bg-white text-orange-600 font-black px-5 py-2 rounded-full shadow-md hover:bg-orange-50 transition text-sm"><Lightbulb size={17} /> Show me a hint</button>
-        )}
-
-        {solved && (
-          <div className="bg-white/90 p-6 rounded-3xl shadow-xl text-center">
-            <div className="text-5xl mb-2">🎉</div>
-            <h3 className="text-2xl font-black text-orange-700">{completionMessage}</h3>
-            <div className="flex gap-4 justify-center mt-3">
-              <button onClick={handleNextPuzzle} className="text-orange-600 font-semibold">Next puzzle</button>
-              <button onClick={() => startPuzzle(puzzleIndex)} className="text-orange-600 font-semibold">Replay</button>
+          {!solved ? (
+            <div className="rounded-[1.6rem] border-4 border-white bg-white/85 p-3 shadow-lg">
+              <div className="mb-2 flex items-center justify-between">
+                <p className="font-black text-slate-700">Picture pieces</p>
+                <button onClick={showHint} className="flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1.5 text-sm font-black text-orange-700"><Lightbulb size={16} /> Hint</button>
+              </div>
+              <div className={`grid gap-2 ${level.grid === 2 ? 'grid-cols-4' : 'grid-cols-5 sm:grid-cols-9'}`}>
+                {tray.map((piece) => (
+                  <button
+                    key={piece.id}
+                    onClick={() => choosePiece(piece)}
+                    className={`relative aspect-[4/3] overflow-hidden rounded-xl border-4 bg-white shadow-md transition hover:-translate-y-1 ${selected?.id === piece.id ? 'scale-105 border-orange-500 ring-4 ring-orange-200' : 'border-white'}`}
+                    aria-label={`Choose picture piece ${piece.correctSlot + 1}`}
+                  >
+                    <span className="absolute inset-0 bg-cover" style={tileStyle(piece.correctSlot, level.grid)} />
+                    <span className="absolute bottom-0.5 right-0.5 grid h-5 w-5 place-items-center rounded-full bg-slate-900/75 text-[10px] font-black text-white">{piece.correctSlot + 1}</span>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
-        {!solved && completionMessage && <p className="text-center text-sm font-black text-rose-600" aria-live="polite">{completionMessage}</p>}
+          ) : (
+            <div className="flex items-center justify-center gap-3 rounded-3xl bg-white/90 p-4 shadow-xl">
+              <span className="text-4xl">🎉</span>
+              <button onClick={() => resetLevel((levelIndex + 1) % LEVELS.length)} className="rounded-2xl bg-orange-500 px-5 py-3 font-black text-white shadow-lg">Next puzzle</button>
+              <button onClick={() => resetLevel(levelIndex)} className="game-icon-button !text-orange-600" aria-label="Replay this puzzle"><RotateCcw /></button>
+            </div>
+          )}
         </section>
-      </div>
+      </main>
     </div>
   );
 };

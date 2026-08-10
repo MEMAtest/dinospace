@@ -212,14 +212,13 @@ export const VoiceSettings = ({ voiceMode, onVoiceModeChange, premiumEnabled, pr
                 <Sparkles className="mr-1 inline" size={13} /> {statusText}
               </span>
             </div>
-            <p className="mt-1 text-sm font-semibold text-slate-500">Premium is ElevenLabs-only. Smart may use this device voice when ElevenLabs is unavailable.</p>
+            <p className="mt-1 text-sm font-semibold text-slate-500">ElevenLabs is the default narrator. Device speech is used only when a parent chooses it here.</p>
           </div>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
           <div className="flex rounded-2xl bg-slate-100 p-1" role="radiogroup" aria-label="Narrator voice preference">
             {[
-              ['smart', 'Smart'],
-              ['premium', 'Premium'],
+              ['premium', 'ElevenLabs'],
               ['device', 'Device'],
             ].map(([value, label]) => (
               <button
@@ -350,44 +349,39 @@ export const DailyChallengeBanner = ({ challenge, progress, onGo, completed }) =
   </div>
 );
 
-export const DailyChallengeTracker = ({ challenge, progress, completed, active, onGo }) => {
+export const DailyChallengeTracker = ({ challenge, progress, completed, active, onGo, placement = 'bottom-right' }) => {
   const percentage = Math.min(100, (progress / challenge.target) * 100);
   return (
     <div
-      className={`fixed bottom-3 left-1/2 z-40 w-[min(92vw,380px)] -translate-x-1/2 pointer-events-auto transition-all ${
+      className={`fixed right-3 z-40 w-24 pointer-events-auto transition-all ${placement === 'top-right' ? 'top-20' : 'bottom-3'} ${
         completed ? 'animate-challenge-complete' : ''
       }`}
+      title={challenge.desc}
     >
-      <div className={`rounded-2xl border px-4 py-3 shadow-2xl backdrop-blur-xl ${
+      <div className={`rounded-2xl border px-2.5 py-2 shadow-2xl backdrop-blur-xl ${
         completed
           ? 'border-emerald-300 bg-emerald-950/90 text-white'
           : active
             ? 'border-amber-300/70 bg-slate-950/90 text-white'
             : 'border-white/40 bg-white/90 text-slate-700'
       }`}>
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">{completed ? '🏆' : challenge.emoji}</span>
-          <div className="min-w-0 flex-1">
-            <div className="flex items-center justify-between gap-2 text-xs font-black uppercase tracking-wide">
-              <span role="status" aria-live="polite">{completed ? 'Daily mission complete' : active ? 'Mission in progress' : 'Today’s mission'}</span>
-              <span key={progress} className="animate-count-up">{Math.min(progress, challenge.target)}/{challenge.target}</span>
-            </div>
-            <p className={`truncate text-sm font-bold ${active || completed ? 'text-white/75' : 'text-slate-500'}`}>
-              {challenge.desc}
-            </p>
-          </div>
-          {!completed && onGo && (
+        <div className="flex items-center justify-between gap-1.5">
+          <span className="text-xl" aria-hidden="true">{completed ? '🏆' : challenge.emoji}</span>
+          <span key={progress} className="animate-count-up text-sm font-black" role="status" aria-live="polite" aria-label={`${completed ? 'Daily mission complete' : 'Daily mission progress'}: ${Math.min(progress, challenge.target)} of ${challenge.target}`}>
+            {Math.min(progress, challenge.target)}/{challenge.target}
+          </span>
+          {!completed && !active && onGo && (
             <button
               type="button"
               onClick={onGo}
-              className="flex shrink-0 items-center gap-1 rounded-xl bg-amber-400 px-2.5 py-2 text-xs font-black text-slate-950 shadow-md transition hover:bg-amber-300 active:translate-y-0.5"
-              aria-label={`${active ? 'Restart' : 'Play'} today’s mission: ${challenge.desc}`}
+              className="grid h-6 w-6 shrink-0 place-items-center rounded-lg bg-amber-400 text-slate-950 shadow-md transition hover:bg-amber-300 active:translate-y-0.5"
+              aria-label={`Play today’s mission: ${challenge.desc}`}
             >
-              {active ? 'Play' : 'Go'} <ArrowRight size={14} strokeWidth={3} />
+              <ArrowRight size={13} strokeWidth={3} />
             </button>
           )}
         </div>
-        <div className={`mt-2 h-2 overflow-hidden rounded-full ${active || completed ? 'bg-white/15' : 'bg-slate-200'}`}>
+        <div className={`mt-1.5 h-1.5 overflow-hidden rounded-full ${active || completed ? 'bg-white/15' : 'bg-slate-200'}`}>
           <div
             className={`h-full rounded-full transition-all duration-300 ${completed ? 'bg-emerald-400' : 'bg-amber-400'}`}
             style={{ width: `${percentage}%` }}
@@ -424,8 +418,8 @@ export const MenuCard = ({
       {badge && <span className="rounded-full bg-yellow-300 px-3 py-1 text-xs font-black tracking-wide text-slate-900 shadow-md">{badge}</span>}
       {playedCount > 0 && <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-bold text-white backdrop-blur">✓ Played {playedCount}</span>}
     </div>
-    <div className="relative z-10 flex flex-col h-full justify-between">
-      <div className="mt-6 text-5xl mb-3 transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300 origin-left">
+    <div className="relative z-10 flex h-full flex-col justify-between">
+      <div className="mt-6 mb-2 flex h-24 w-full items-center justify-start overflow-visible text-5xl transition-transform duration-300 origin-left group-hover:scale-105">
         {icon}
       </div>
       <div>

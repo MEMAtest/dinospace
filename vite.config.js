@@ -15,16 +15,21 @@ const injectPwaPrecache = () => {
     async closeBundle() {
       const outputDir = resolve(resolvedConfig.root, resolvedConfig.build.outDir)
       const assetsDir = resolve(outputDir, 'assets')
+      const germanAudioDir = resolve(outputDir, 'audio', 'de')
       const serviceWorkerPath = resolve(outputDir, 'sw.js')
       const assetFiles = await readdir(assetsDir)
+      const germanAudioFiles = await readdir(germanAudioDir)
       const appAssets = assetFiles
         .filter((file) => /\.(?:css|js|mjs|png|jpg|jpeg|webp|svg|woff2?)$/i.test(file))
         .map((file) => `/assets/${file}`)
+      const bundledGermanAudio = germanAudioFiles
+        .filter((file) => /\.mp3$/i.test(file))
+        .map((file) => `/audio/de/${file}`)
 
       const serviceWorker = await readFile(serviceWorkerPath, 'utf8')
       const updatedWorker = serviceWorker.replace(
         'const PRECACHE_ASSETS = []; // __PRECACHE_ASSETS__',
-        `const PRECACHE_ASSETS = ${JSON.stringify(appAssets)};`,
+        `const PRECACHE_ASSETS = ${JSON.stringify([...appAssets, ...bundledGermanAudio])};`,
       )
       await writeFile(serviceWorkerPath, updatedWorker)
     },
