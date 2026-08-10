@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Home, Lightbulb, RotateCcw, ShieldCheck, Sparkles, Volume2 } from 'lucide-react';
 import { HANGMAN_WORDS } from '../../data/index.js';
 import { SoundToggle } from '../shared/index.jsx';
+import DinoIcon from '../shared/DinoIcon.jsx';
 
 const MAX_MISTAKES = 6;
 const KEYBOARD_ROWS = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
@@ -235,7 +236,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-200">Dino shield bay</p>
               <h2 className="mt-1 text-2xl font-black">Keep Dino safe!</h2>
             </div>
-            <div className="text-5xl animate-bounce-slow">🦖</div>
+            <DinoIcon species="trex" size={86} className="animate-bounce-slow" />
           </div>
 
           <div className="mt-5 rounded-[1.75rem] border border-white/10 bg-slate-950/35 p-5">

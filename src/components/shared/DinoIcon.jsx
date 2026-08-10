@@ -1,7 +1,7 @@
 const SPECIES = {
-  trex: { name: 'Tyrannosaurus rex', primary: '#4dbd65', shade: '#177a46', belly: '#d9f2a5', kind: 'biped', feature: 'trex' },
+  trex: { name: 'Tyrannosaurus rex', primary: '#d9783e', shade: '#963d2b', belly: '#ffd3a6', kind: 'biped', feature: 'trex' },
   brachio: { name: 'Brachiosaurus', primary: '#43b9b1', shade: '#177d79', belly: '#c6f4df', kind: 'long-neck', feature: 'brachio' },
-  trike: { name: 'Triceratops', primary: '#ef8b45', shade: '#b6492f', belly: '#ffd5a3', kind: 'quad', feature: 'trike' },
+  trike: { name: 'Triceratops', primary: '#cc743d', shade: '#873a2f', belly: '#ffd3a0', kind: 'quad', feature: 'trike' },
   stego: { name: 'Stegosaurus', primary: '#5d83e8', shade: '#304eaf', belly: '#bfd3ff', kind: 'quad', feature: 'stego' },
   raptor: { name: 'Velociraptor', primary: '#ea6661', shade: '#ad3e54', belly: '#ffd0bd', kind: 'biped', feature: 'raptor' },
   ankyl: { name: 'Ankylosaurus', primary: '#b87345', shade: '#754025', belly: '#f3ca93', kind: 'quad', feature: 'ankyl' },
@@ -17,6 +17,37 @@ const Eyes = ({ x, y }) => (
     <circle cx={x + 1.2} cy={y + 0.4} r="2" fill="#15233a" />
     <circle cx={x + 2.1} cy={y - 0.8} r="0.8" fill="#fff" stroke="none" />
   </>
+);
+
+const TrexDino = ({ dino }) => (
+  <g stroke="#183b45" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3.5">
+    <path d="M68 65 C48 75 25 72 6 55 C18 48 37 50 56 57 C58 49 65 43 77 42 L90 65Z" fill={dino.paint} />
+    <path d="M54 63 C57 47 73 39 93 43 C109 47 116 59 111 76 C107 88 96 94 78 91 C61 88 51 79 54 63Z" fill={dino.paint} />
+    <path d="M88 48 C97 29 121 20 146 31 C156 36 155 48 146 56 C135 65 118 66 103 60Z" fill={dino.paint} />
+    <path d="M106 57 C120 54 138 54 150 49 C146 62 132 69 104 62Z" fill={dino.belly} />
+    <path d="M59 67 C69 60 86 59 101 66 C99 80 91 86 79 84 C67 82 60 76 59 67Z" fill={dino.belly} stroke="none" opacity="0.94" />
+    <path d="M72 83 C72 94 68 103 63 108 L52 108 L58 102 L59 83 M91 84 C96 94 101 102 108 105 L99 109 L86 103 L80 84" fill={dino.primary} />
+    <path d="M93 62 L82 72 L76 69 L85 57 M99 65 L90 76 L84 73 L92 61" fill={dino.primary} />
+    <path d="M25 55 L34 62 M37 53 L46 60 M48 54 L55 60" fill="none" stroke={dino.shade} strokeWidth="4.5" />
+    <path d="M113 38 C122 30 134 30 143 34" fill="none" stroke={dino.shade} strokeWidth="5" />
+    <Eyes x={135} y={41} />
+    <path d="M120 58 L125 63 L130 58 L135 63 L140 57" fill="none" stroke="#fff7df" strokeWidth="2.6" />
+  </g>
+);
+
+const TriceratopsDino = ({ dino }) => (
+  <g stroke="#183b45" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3.5">
+    <path d="M37 75 C23 75 12 70 6 63 C18 59 32 61 46 67 C50 56 65 49 87 49 C107 49 119 58 122 72 C118 86 103 92 77 91 C56 90 42 85 37 75Z" fill={dino.paint} />
+    <path d="M44 77 C57 68 76 67 96 70 C108 72 114 78 114 83 C103 89 90 90 75 89 C59 88 49 84 44 77Z" fill={dino.belly} stroke="none" opacity="0.92" />
+    <path d="M48 85 L46 106 L36 106 L39 86 M68 89 L68 106 L58 106 L58 88 M94 88 L97 106 L87 106 L84 87 M110 82 L118 103 L108 103 L101 86" fill={dino.primary} />
+    <path d="M36 74 C22 80 10 76 5 69 C16 66 27 67 42 70" fill="none" stroke={dino.shade} strokeWidth="8" />
+    <path d="M103 63 C107 44 124 38 140 47 C149 52 150 63 143 72 C136 80 123 82 112 76Z" fill={dino.primary} />
+    <path d="M111 59 C121 47 134 48 141 54 L135 68 L117 70Z" fill={dino.shade} />
+    <path d="M122 57 L130 37 L132 59 M132 60 L147 46 L139 65 M136 66 L156 61 L141 73" fill="#fff1d4" />
+    <path d="M107 62 L115 50 L119 64" fill={dino.paint} />
+    <Eyes x={131} y={57} />
+    <path d="M54 56 L61 47 M66 53 L73 44 M79 52 L86 44" fill="none" stroke={dino.shade} strokeWidth="3.5" />
+  </g>
 );
 
 const QuadDino = ({ dino }) => (
@@ -140,9 +171,11 @@ const DinoIcon = ({ species = 'trex', size = 64, className = '' }) => {
         </filter>
       </defs>
       <g filter="url(#dino-shadow)">
-        {dino.kind === 'quad' && <QuadDino dino={drawable} />}
+        {dino.feature === 'trex' && <TrexDino dino={drawable} />}
+        {dino.feature === 'trike' && <TriceratopsDino dino={drawable} />}
+        {dino.kind === 'quad' && dino.feature !== 'trike' && <QuadDino dino={drawable} />}
         {dino.kind === 'long-neck' && <LongNeckDino dino={drawable} />}
-        {dino.kind === 'biped' && <BipedDino dino={drawable} />}
+        {dino.kind === 'biped' && dino.feature !== 'trex' && <BipedDino dino={drawable} />}
         {dino.kind === 'ptero' && <Ptero dino={drawable} />}
       </g>
     </svg>

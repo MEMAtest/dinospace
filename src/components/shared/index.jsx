@@ -183,13 +183,17 @@ export const InstallAppPrompt = ({ canInstall, isAppleMobile, isInstalled, isIns
 };
 
 export const VoiceSettings = ({ voiceMode, onVoiceModeChange, premiumEnabled, premiumStatus, onPreview }) => {
-  const statusText = premiumStatus === 'ready'
-    ? 'Premium narrator connected'
-    : premiumStatus === 'unavailable'
-      ? 'Using this device voice for now'
-      : premiumEnabled
-        ? 'Premium narrator ready to try'
-        : 'Premium narrator is off until connected';
+  const statusText = voiceMode === 'device'
+    ? 'Device voice selected'
+    : premiumStatus === 'ready'
+      ? 'ElevenLabs narrator connected'
+      : premiumStatus === 'loading'
+        ? 'Getting ElevenLabs narrator…'
+        : premiumStatus === 'unavailable'
+          ? 'ElevenLabs unavailable — tap Hear it to retry'
+          : premiumEnabled
+            ? 'ElevenLabs narrator ready to try'
+            : 'Premium narrator is off until connected';
 
   return (
     <section className="mt-6 w-full max-w-5xl rounded-3xl border-4 border-fuchsia-100 bg-white/80 p-5 shadow-xl backdrop-blur relative z-10">
@@ -201,11 +205,11 @@ export const VoiceSettings = ({ voiceMode, onVoiceModeChange, premiumEnabled, pr
           <div>
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="font-black text-slate-800">Narrator voice</h3>
-              <span className={`rounded-full px-2.5 py-1 text-xs font-black ${premiumStatus === 'ready' ? 'bg-emerald-100 text-emerald-700' : 'bg-fuchsia-100 text-fuchsia-700'}`}>
+              <span className={`rounded-full px-2.5 py-1 text-xs font-black ${premiumStatus === 'ready' ? 'bg-emerald-100 text-emerald-700' : premiumStatus === 'unavailable' ? 'bg-rose-100 text-rose-700' : 'bg-fuchsia-100 text-fuchsia-700'}`} aria-live="polite">
                 <Sparkles className="mr-1 inline" size={13} /> {statusText}
               </span>
             </div>
-            <p className="mt-1 text-sm font-semibold text-slate-500">Premium uses the ElevenLabs narrator. Smart tries it first, then uses this device voice only if the service is unavailable.</p>
+            <p className="mt-1 text-sm font-semibold text-slate-500">Premium is ElevenLabs-only. Smart may use this device voice when ElevenLabs is unavailable.</p>
           </div>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">

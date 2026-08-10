@@ -126,6 +126,7 @@ export default async function handler(request, response) {
     response.setHeader('Content-Type', providerResponse.headers.get('content-type') || 'audio/mpeg');
     response.setHeader('Content-Length', String(audio.length));
     response.setHeader('Cache-Control', 'private, no-store');
+    response.setHeader('X-Amari-Voice-Provider', 'elevenlabs');
     response.status(200).send(audio);
   } catch {
     respondJson(response, 502, { error: 'Premium voice is temporarily unavailable' });

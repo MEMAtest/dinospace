@@ -314,7 +314,7 @@ export const useSfx = (enabled) => {
 
 const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v2';
 const LEGACY_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode';
-const PREMIUM_VOICE_TIMEOUT_MS = 2000;
+const PREMIUM_VOICE_TIMEOUT_MS = 6000;
 const MAX_PREMIUM_VOICE_CACHE = 24;
 const PREMIUM_VOICE_ENABLED = import.meta.env.VITE_ELEVENLABS_ENABLED === 'true';
 // The browser build keeps this same-origin. The Android wrapper supplies the
@@ -485,6 +485,7 @@ export const useVoice = (enabled) => {
   const setVoiceMode = useCallback((nextMode) => {
     if (!['smart', 'premium', 'device'].includes(nextMode)) return;
     setVoiceModeState(nextMode);
+    setPremiumStatus(nextMode === 'device' ? 'device' : 'unknown');
   }, []);
 
   const speak = useCallback((rawText, options = {}) => {
@@ -513,12 +514,17 @@ export const useVoice = (enabled) => {
       return;
     }
 
+    const premiumOnly = voiceModeRef.current === 'premium';
     let fellBack = false;
     const fallBackToDevice = () => {
       if (fellBack) return;
       fellBack = true;
       cancelPremiumVoice();
       speakOnDevice(text, options);
+    };
+    const handlePremiumFailure = () => {
+      setPremiumStatus('unavailable');
+      if (!premiumOnly) fallBackToDevice();
     };
 
     const cacheKey = `${lang}:${text}`;
@@ -567,14 +573,14 @@ export const useVoice = (enabled) => {
           if (premiumAudioUrlRef.current === audioUrl) premiumAudioUrlRef.current = null;
           waitForPremiumGesture(audioBlob);
         } else {
-          fallBackToDevice();
+          handlePremiumFailure();
         }
       };
       const playback = audio.play();
       if (playback?.catch) {
         playback.catch((error) => {
           if (error?.name !== 'NotAllowedError' && hadUserGesture) {
-            fallBackToDevice();
+            handlePremiumFailure();
             return;
           }
 
@@ -595,10 +601,11 @@ export const useVoice = (enabled) => {
       }
     };
 
-    fallbackTimerRef.current = setTimeout(
-      fallBackToDevice,
-      voiceModeRef.current === 'premium' ? PREMIUM_VOICE_TIMEOUT_MS + 300 : PREMIUM_VOICE_TIMEOUT_MS,
-    );
+    // An explicit Premium choice must not silently become a device voice
+    // because a mobile connection takes a few seconds to respond.
+    if (!premiumOnly) {
+      fallbackTimerRef.current = setTimeout(fallBackToDevice, PREMIUM_VOICE_TIMEOUT_MS);
+    }
 
     const cachedAudio = premiumCacheRef.current.get(cacheKey);
     if (cachedAudio) {
@@ -607,6 +614,7 @@ export const useVoice = (enabled) => {
       return;
     }
 
+    setPremiumStatus('loading');
     const controller = new AbortController();
     premiumRequestRef.current = controller;
     window.fetch(VOICE_API_URL, {
@@ -617,6 +625,9 @@ export const useVoice = (enabled) => {
     })
       .then(async (response) => {
         if (response.status === 204) return null;
+        if (response.headers.get('x-amari-voice-provider') !== 'elevenlabs') {
+          throw new Error('Voice provider could not be verified');
+        }
         if (!response.ok) throw new Error(`Voice request failed (${response.status})`);
         const audioBlob = await response.blob();
         if (!audioBlob.size) throw new Error('Voice request returned no audio');
@@ -626,8 +637,7 @@ export const useVoice = (enabled) => {
         if (fellBack || controller.signal.aborted) return;
         if (!audioBlob) {
           premiumRequestRef.current = null;
-          setPremiumStatus('unavailable');
-          fallBackToDevice();
+          handlePremiumFailure();
           return;
         }
         premiumRequestRef.current = null;
@@ -641,8 +651,7 @@ export const useVoice = (enabled) => {
       .catch((error) => {
         if (error?.name === 'AbortError') return;
         premiumRequestRef.current = null;
-        setPremiumStatus('unavailable');
-        fallBackToDevice();
+        handlePremiumFailure();
       });
   }, [cancelPremiumVoice, clearPendingPremiumGesture, speakOnDevice]);
 
