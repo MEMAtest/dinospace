@@ -1,0 +1,13 @@
+{
+  "appId": "com.amari.discovery",
+  "appName": "Amari Discovery",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SystemBars": {
+      "insetsHandling": "disable"
+    }
+  }
+}

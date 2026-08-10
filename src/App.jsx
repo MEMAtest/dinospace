@@ -4,7 +4,7 @@ import { createBursts, createConfetti, getPraise, getRank, getNextRank, getToday
 import { useSfx, useVoice, useAmbientMusic, useInstallPrompt } from './hooks.js';
 import {
   SoundToggle, CelebrationOverlay, RewardsShelf, PointsSummaryScreen,
-  PauseOverlay, BreakReminder, DailyChallengeBanner, DailyChallengeTracker, StreakBanner, MenuCard,
+  PauseOverlay, BreakReminder, DailyChallengeBanner, StreakBanner, MenuCard,
   InstallAppPrompt, VoiceSettings,
 } from './components/shared/index.jsx';
 import DinoDetective from './components/games/DinoDetective.jsx';
@@ -32,15 +32,16 @@ import TicTacToe from './components/games/TicTacToe.jsx';
 import DinoHangman from './components/games/Hangman.jsx';
 import ProgressDashboard from './components/games/ProgressDashboard.jsx';
 import IntroScreen from './components/games/IntroScreen.jsx';
+import DinoIcon from './components/shared/DinoIcon.jsx';
 
 const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 
 const GAME_CATEGORIES = ['All', 'Quick Think', 'Maths', 'Words', 'Discover', 'Create'];
 
 const GAME_MENU_ITEMS = [
-  { id: 'tictactoe', icon: '🦖', title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
+  { id: 'tictactoe', icon: <DinoIcon species="trex" size={112} className="drop-shadow-2xl" />, title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
   { id: 'hangman', icon: '🛡️', title: 'Dino Hangman', desc: 'Rescue the secret word!', color: 'bg-gradient-to-br from-fuchsia-500 via-purple-600 to-indigo-700', category: 'Words', badge: 'NEW' },
-  { id: 'dino', icon: '🦕', title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' },
+  { id: 'dino', icon: <DinoIcon species="trike" size={112} className="drop-shadow-2xl" />, title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' },
   { id: 'jet', icon: '✈️', title: 'Sky Shapes', desc: 'Draw with a jet!', color: 'bg-gradient-to-br from-sky-400 to-blue-500', category: 'Create' },
   { id: 'solar', icon: '🪐', title: 'Solar System', desc: 'Visit the planets', color: 'bg-gradient-to-br from-indigo-500 to-violet-600', category: 'Discover' },
   { id: 'german', icon: '🎨', title: 'German Garage', desc: 'Learn colours in German', color: 'bg-gradient-to-br from-red-400 to-rose-500', category: 'Words' },
@@ -208,7 +209,7 @@ export default function App() {
     if (!celebration) return;
     const timer = setTimeout(
       () => setCelebration(null),
-      celebration.points >= 8 ? 1050 : 700,
+      celebration.points >= 8 ? 850 : 560,
     );
     return () => clearTimeout(timer);
   }, [celebration]);
@@ -260,8 +261,8 @@ export default function App() {
         </div>
 
         <div className="text-center mt-8 mb-6 animate-fade-in-down relative z-10">
-          <div className="flex justify-center gap-4 text-5xl mb-4 animate-bounce-slow">
-            <span>🐯</span>
+          <div className="flex items-center justify-center gap-4 text-5xl mb-4 animate-bounce-slow">
+            <DinoIcon species="trex" size={62} className="drop-shadow-xl" />
             <span>🚀</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-slate-800 tracking-tight drop-shadow-sm">
@@ -672,15 +673,6 @@ export default function App() {
         {content}
       </Suspense>
       <CelebrationOverlay celebration={celebration} />
-      {!['intro', 'menu', 'summary', 'progress'].includes(screen) && (
-        <DailyChallengeTracker
-          challenge={todaysChallenge}
-          progress={challengeProgress}
-          completed={challengeCompleted}
-          active={screen === todaysChallenge.game}
-          onGo={goToTodaysChallenge}
-        />
-      )}
       {paused && <PauseOverlay onResume={() => setPaused(false)} />}
       {showBreak && (
         <BreakReminder

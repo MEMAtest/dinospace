@@ -285,6 +285,9 @@ export const DailyChallengeBanner = ({ challenge, progress, onGo, completed }) =
             {completed && <span className="text-green-600 font-black">DONE!</span>}
           </div>
           <p className="text-slate-700 font-bold text-lg">{challenge.desc}</p>
+          <p className={`mt-1 text-sm font-black ${completed ? 'text-emerald-700' : 'text-amber-700'}`} aria-live="polite">
+            {completed ? 'Mission complete — brilliant work!' : `${Math.min(progress, challenge.target)} of ${challenge.target} done`}
+          </p>
         </div>
       </div>
       {!completed && (
@@ -295,8 +298,8 @@ export const DailyChallengeBanner = ({ challenge, progress, onGo, completed }) =
       {completed && <div className="text-4xl">🏆</div>}
     </div>
     {!completed && (
-      <div className="mt-3 bg-white/60 rounded-full h-3 overflow-hidden">
-        <div className="bg-amber-500 h-full rounded-full transition-all duration-500" style={{ width: `${Math.min(100, (progress / challenge.target) * 100)}%` }} />
+      <div className="mt-3 bg-white/60 rounded-full h-3 overflow-hidden" role="progressbar" aria-label="Today's mission progress" aria-valuemin="0" aria-valuemax={challenge.target} aria-valuenow={Math.min(progress, challenge.target)}>
+        <div className="bg-amber-500 h-full rounded-full transition-all duration-300" style={{ width: `${Math.min(100, (progress / challenge.target) * 100)}%` }} />
       </div>
     )}
   </div>

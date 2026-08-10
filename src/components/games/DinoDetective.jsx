@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { DINO_LEVELS } from '../../data/index.js';
 import { buildDinos, getPraise } from '../../utils.js';
@@ -11,15 +11,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   const [dinos, setDinos] = useState(() => buildDinos(level));
   const [foundDino, setFoundDino] = useState(null);
   const [pendingReward, setPendingReward] = useState(null);
-  const [showLevelComplete, setShowLevelComplete] = useState(false);
   const foundCount = dinos.filter((dino) => !dino.hidden).length;
-
-  useEffect(() => {
-    setDinos(buildDinos(level));
-    setFoundDino(null);
-    setPendingReward(null);
-    setShowLevelComplete(false);
-  }, [level]);
 
   const handleFind = (index) => {
     setDinos((prev) => {
@@ -43,21 +35,14 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     }
   }, [foundDino, speak]);
 
-  useEffect(() => {
-    if (allFound && !foundDino) {
-      speak('Du hast alle gefunden. Super!', { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
-      setShowLevelComplete(true);
-    }
-  }, [allFound, foundDino, speak]);
-
   const handleNextLevel = () => {
     onCelebrate(getPraise(), 10, 200);
     onGameEvent?.('dino', 'level_completed');
-    if (levelIndex < DINO_LEVELS.length - 1) {
-      setLevelIndex((prev) => prev + 1);
-    } else {
-      setLevelIndex(0);
-    }
+    const nextIndex = levelIndex < DINO_LEVELS.length - 1 ? levelIndex + 1 : 0;
+    setLevelIndex(nextIndex);
+    setDinos(buildDinos(DINO_LEVELS[nextIndex]));
+    setFoundDino(null);
+    setPendingReward(null);
   };
 
   return (
@@ -121,7 +106,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       {foundDino && (
         <div className="absolute inset-0 bg-black/40 z-30 flex items-center justify-center p-4 backdrop-blur-sm">
           <div className="bg-orange-50 rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl border-4 border-orange-200 animate-scale-in">
-            <div className="mb-4 flex justify-center"><DinoIcon species={foundDino.species} size={128} /></div>
+            <div className="mb-4 flex justify-center"><DinoIcon species={foundDino.species} size={164} /></div>
             <h3 className="text-3xl font-black text-orange-500 mb-2">{foundDino.name}</h3>
             <div className="bg-white p-4 rounded-xl border-2 border-orange-100 mb-6">
               <p className="text-lg text-slate-700 font-medium">"{foundDino.fact}"</p>
@@ -130,6 +115,9 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
               onClick={() => {
                 if (pendingReward) {
                   onCelebrate(getPraise(), pendingReward, 200);
+                }
+                if (allFound) {
+                  speak('Du hast alle gefunden. Super!', { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
                 }
                 setPendingReward(null);
                 setFoundDino(null);
@@ -142,7 +130,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         </div>
       )}
 
-      {showLevelComplete && !foundDino && (
+      {allFound && !foundDino && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="bg-white/90 p-8 rounded-3xl text-center shadow-xl animate-bounce pointer-events-auto">
             <div className="text-6xl mb-2">🏆</div>

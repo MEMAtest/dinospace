@@ -4,7 +4,11 @@ import './index.css'
 import App from './App.jsx'
 import { inject } from '@vercel/analytics'
 
-inject()
+const isHostedWebApp = !['localhost', '127.0.0.1'].includes(window.location.hostname);
+
+if (isHostedWebApp) {
+  inject();
+}
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {

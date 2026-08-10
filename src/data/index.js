@@ -246,22 +246,22 @@ export const DINO_SPECIES = {
   brachio: {
     name: 'Brachiosaurus',
     emoji: '🦕',
-    fact: 'Looks like a giraffe dinosaur with a long neck!',
+    fact: 'A long-necked dinosaur with front legs longer than its back legs.',
   },
   trike: {
     name: 'Triceratops',
     emoji: '🦕',
-    fact: 'Three horns help protect my nose.',
+    fact: 'Three horns and a big bony frill made its head easy to spot.',
   },
   stego: {
     name: 'Stegosaurus',
     emoji: '🦕',
-    fact: 'Back plates work like solar panels.',
+    fact: 'It had bony plates along its back. Scientists are still learning exactly what they were for.',
   },
   raptor: {
     name: 'Velociraptor',
     emoji: '🦖',
-    fact: 'Fast runner with super sharp claws.',
+    fact: 'A small, speedy dinosaur with a curved claw on each foot.',
   },
   ankyl: {
     name: 'Ankylosaurus',
@@ -1022,9 +1022,9 @@ export const ASTRONAUT_CATEGORIES = [
       { q: 'Which dinosaur had tiny arms?', visual: '💪❓', answer: 'T-Rex', options: [{ text: 'T-Rex', visual: '🦖' }, { text: 'Stegosaurus', visual: '🦕' }, { text: 'Triceratops', visual: '🦏' }, { text: 'Brachiosaurus', visual: '🦒' }] },
       { q: 'Which dinosaur had 3 horns?', visual: '❓', answer: 'Triceratops', options: [{ text: 'T-Rex', visual: '🦖' }, { text: 'Triceratops', visual: '🦏' }, { text: 'Stegosaurus', visual: '🦕' }, { text: 'Raptor', visual: '🦅' }] },
       { q: 'Which dinosaur had plates on its back?', visual: '❓', answer: 'Stegosaurus', options: [{ text: 'Stegosaurus', visual: '🦕' }, { text: 'T-Rex', visual: '🦖' }, { text: 'Pterodactyl', visual: '🦅' }, { text: 'Raptor', visual: '🐾' }] },
-      { q: 'Which dinosaur could fly?', visual: '🌤️', answer: 'Pterodactyl', options: [{ text: 'T-Rex', visual: '🦖' }, { text: 'Pterodactyl', visual: '🦅' }, { text: 'Triceratops', visual: '🦏' }, { text: 'Stegosaurus', visual: '🦕' }] },
+      { q: 'Which prehistoric reptile could fly?', visual: '🌤️', answer: 'Pterodactyl', options: [{ text: 'T-Rex', visual: '🦖' }, { text: 'Pterodactyl', visual: '🦅' }, { text: 'Triceratops', visual: '🦏' }, { text: 'Stegosaurus', visual: '🦕' }] },
       { q: 'What did dinosaurs hatch from?', visual: '❓', answer: 'Eggs', options: [{ text: 'Eggs', visual: '🥚' }, { text: 'Rocks', visual: '🪨' }, { text: 'Trees', visual: '🌳' }, { text: 'Clouds', visual: '☁️' }] },
-      { q: 'Are dinosaurs still alive today?', visual: '🤔', answer: 'No', options: [{ text: 'Yes', visual: '✅' }, { text: 'No', visual: '❌' }, { text: 'Maybe', visual: '🤷' }, { text: 'Only small ones', visual: '🐊' }] },
+      { q: 'Are non-bird dinosaurs still alive today?', visual: '🤔', answer: 'No', options: [{ text: 'Yes', visual: '✅' }, { text: 'No', visual: '❌' }, { text: 'Maybe', visual: '🤷' }, { text: 'Only small ones', visual: '🐊' }] },
     ],
   },
   {

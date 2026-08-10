@@ -4,6 +4,24 @@ const MAX_TEXT_LENGTH = 420;
 const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 45;
 const requestBuckets = new Map();
+const ALLOWED_APP_ORIGINS = new Set([
+  'https://dinospace-eight.vercel.app',
+  'https://dinospace-memas-projects-23a0001d.vercel.app',
+  'https://dinospace-git-main-memas-projects-23a0001d.vercel.app',
+  'http://localhost',
+  'https://localhost',
+  'capacitor://localhost',
+]);
+
+const applyCors = (request, response) => {
+  const origin = request.headers.origin;
+  if (origin && ALLOWED_APP_ORIGINS.has(origin)) {
+    response.setHeader('Access-Control-Allow-Origin', origin);
+    response.setHeader('Vary', 'Origin');
+    response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  }
+};
 
 const getClientId = (request) => {
   const forwarded = request.headers['x-forwarded-for'];
@@ -29,6 +47,12 @@ const respondJson = (response, status, body) => {
 };
 
 export default async function handler(request, response) {
+  applyCors(request, response);
+  if (request.method === 'OPTIONS') {
+    response.status(204).end();
+    return;
+  }
+
   if (request.method !== 'POST') {
     response.setHeader('Allow', 'POST');
     respondJson(response, 405, { error: 'Method not allowed' });

@@ -1,4 +1,5 @@
 import { SoundToggle } from '../shared/index.jsx';
+import DinoIcon from '../shared/DinoIcon.jsx';
 
 const IntroScreen = ({ onStart, playSfx, soundOn, onToggleSound, speak }) => {
   return (
@@ -15,7 +16,7 @@ const IntroScreen = ({ onStart, playSfx, soundOn, onToggleSound, speak }) => {
 
       <div className="relative z-10 text-center max-w-lg">
         <div className="flex items-center justify-center gap-4 text-6xl animate-bounce-slow">
-          <span>🐯</span>
+          <DinoIcon species="trex" size={76} className="drop-shadow-xl" />
           <span>🚀</span>
           <span>🌟</span>
         </div>

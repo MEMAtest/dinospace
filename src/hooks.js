@@ -317,6 +317,9 @@ const LEGACY_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode';
 const PREMIUM_VOICE_TIMEOUT_MS = 2000;
 const MAX_PREMIUM_VOICE_CACHE = 24;
 const PREMIUM_VOICE_ENABLED = import.meta.env.VITE_ELEVENLABS_ENABLED === 'true';
+// The browser build keeps this same-origin. The Android wrapper supplies the
+// production URL because its WebView has no local Vercel function server.
+const VOICE_API_URL = import.meta.env.VITE_VOICE_API_URL || '/api/voice';
 
 const getStoredVoiceMode = () => {
   try {
@@ -606,7 +609,7 @@ export const useVoice = (enabled) => {
 
     const controller = new AbortController();
     premiumRequestRef.current = controller;
-    window.fetch('/api/voice', {
+    window.fetch(VOICE_API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text, language: lang.split('-')[0] }),
