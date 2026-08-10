@@ -454,7 +454,9 @@ export const useVoice = (enabled) => {
       if (!voiceRef.current) {
         voiceRef.current = pickFriendlyVoice(synth.getVoices(), lang);
       }
-      const preferred = voiceRef.current;
+      // Always reselect for the requested language. Reusing the cached English
+      // system voice is what made German fallback pronunciation sound wrong.
+      const preferred = pickFriendlyVoice(synth.getVoices(), lang) || voiceRef.current;
 
       const speakSentence = (index) => {
         if (index >= sentences.length || !enabledRef.current) return;

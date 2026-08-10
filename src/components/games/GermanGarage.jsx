@@ -4,6 +4,8 @@ import { GERMAN_COLORS, GERMAN_MATCH_MODES, GERMAN_NUMBERS } from '../../data/in
 import { buildMatchRound } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import garageScene from '../../assets/german-garage/paint-car.png';
+import emptyGarage from '../../assets/german-garage/empty-garage.png';
+import friendlyCar from '../../assets/german-garage/friendly-car.png';
 
 const TAB_ICONS = {
   paint: '🎨', park: '🏠', numbers: '🔢', animals: '🐯', shapes: '⭐', foods: '🍎',
@@ -29,6 +31,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const [matchRound, setMatchRound] = useState(() => buildMatchRound(GERMAN_NUMBERS));
   const [feedback, setFeedback] = useState('');
   const [stars, setStars] = useState(0);
+  const [paintedColour, setPaintedColour] = useState(null);
 
   const matchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === mode);
   const round = mode === 'paint' ? paintRound : mode === 'park' ? parkRound : matchRound;
@@ -52,12 +55,14 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
   const makeNextRound = () => {
     setFeedback('');
+    setPaintedColour(null);
     if (mode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS));
     else if (mode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS));
     else if (matchMode) setMatchRound(buildMatchRound(matchMode.items));
   };
 
   const choose = (option) => {
+    if (mode === 'paint') setPaintedColour(option);
     if (option.name !== round.target.name) {
       setFeedback('Noch einmal — try again!');
       playSfx('oops');
@@ -75,6 +80,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const selectMode = (nextMode) => {
     setMode(nextMode);
     setFeedback('');
+    setPaintedColour(null);
     const nextMatchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === nextMode);
     if (nextMode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS));
     else if (nextMode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS));
@@ -136,8 +142,34 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
           </div>
         </div>
 
-        <section className="relative h-48 w-full overflow-hidden rounded-[2rem] border-4 border-white shadow-xl sm:h-72">
-          <img src={garageScene} alt="Friendly car waiting inside a bright garage" className="h-full w-full object-cover object-center" />
+        <section className="relative h-52 w-full overflow-hidden rounded-[2rem] border-4 border-white shadow-xl sm:h-80">
+          <img src={mode === 'paint' ? emptyGarage : garageScene} alt="Bright and welcoming German learning garage" className="h-full w-full object-cover object-center" />
+          {mode === 'paint' && (
+            <div className="absolute inset-0 flex items-center justify-center pt-2" aria-live="polite">
+              <div className="relative h-[92%] w-[62%] max-w-[620px]">
+                <img src={friendlyCar} alt={paintedColour ? `The car is now ${paintedColour.name}` : 'Friendly white car ready to be painted'} className="absolute inset-0 h-full w-full object-contain drop-shadow-[0_18px_18px_rgba(15,23,42,.32)]" />
+                {paintedColour && (
+                  <div
+                    className="absolute inset-0 transition-all duration-300"
+                    style={{
+                      backgroundColor: paintedColour.hex,
+                      WebkitMaskImage: `url(${friendlyCar})`,
+                      maskImage: `url(${friendlyCar})`,
+                      WebkitMaskRepeat: 'no-repeat',
+                      maskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskPosition: 'center',
+                      WebkitMaskSize: 'contain',
+                      maskSize: 'contain',
+                      mixBlendMode: 'multiply',
+                      opacity: 0.72,
+                    }}
+                  />
+                )}
+              </div>
+              {paintedColour && <span className="absolute right-4 top-4 rounded-full border-2 border-white bg-slate-900/75 px-4 py-2 text-sm font-black text-white shadow-lg">Painted {paintedColour.name}</span>}
+            </div>
+          )}
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/65 to-transparent px-5 pb-4 pt-12 text-center text-sm font-bold text-white sm:text-base">{copy.helper}</div>
         </section>
 

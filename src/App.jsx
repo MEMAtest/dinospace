@@ -33,6 +33,7 @@ import DinoHangman from './components/games/Hangman.jsx';
 import ProgressDashboard from './components/games/ProgressDashboard.jsx';
 import IntroScreen from './components/games/IntroScreen.jsx';
 import DinoIcon from './components/shared/DinoIcon.jsx';
+import astronautCrew from './assets/landing/amari-astronaut-robot.png';
 
 const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 
@@ -233,7 +234,7 @@ export default function App() {
   } else if (screen === 'menu') {
     content = (
       <div
-        className={`min-h-screen w-full ${THEME.bg} ${THEME.font} flex flex-col items-center p-6 relative overflow-hidden`}
+        className={`min-h-screen w-full bg-gradient-to-b from-[#dff3ff] via-[#eef8ff] to-[#f8fbff] ${THEME.font} flex flex-col items-center p-4 sm:p-6 relative overflow-hidden`}
       >
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-24 -left-24 h-64 w-64 rounded-full bg-white/50 blur-3xl" />
@@ -242,33 +243,35 @@ export default function App() {
           <div className="absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-blue-200/70 blur-3xl" />
         </div>
 
-        <div className="absolute top-6 right-6 z-20">
-          <SoundToggle soundOn={soundOn} onToggle={() => setSoundOn((prev) => !prev)} />
-        </div>
+        <header className="relative z-20 flex w-full max-w-7xl items-center justify-between rounded-[1.7rem] border border-white/80 bg-white/75 px-4 py-3 shadow-[0_12px_34px_rgba(30,105,175,.12)] backdrop-blur-xl sm:px-6">
+          <div className="flex items-center gap-3">
+            <div className="rounded-2xl bg-gradient-to-br from-blue-600 to-violet-600 p-2 text-2xl shadow-lg">🚀</div>
+            <div><h1 className="text-xl font-black leading-tight text-slate-900 sm:text-3xl">Amari <span className="text-blue-600">Discovery</span></h1><p className="hidden text-xs font-bold text-slate-500 sm:block">Academy for Kids</p></div>
+          </div>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <span className="hidden rounded-full bg-amber-50 px-4 py-2 text-sm font-black text-amber-700 sm:block">⭐ {points} Stars</span>
+            <span className="hidden rounded-full bg-indigo-50 px-4 py-2 text-sm font-black text-indigo-700 md:block">{getRank(points).emoji} {getRank(points).title}</span>
+            <SoundToggle soundOn={soundOn} onToggle={() => setSoundOn((prev) => !prev)} />
+          </div>
+        </header>
 
-        <div className="text-center mt-8 mb-6 animate-fade-in-down relative z-10">
-          <div className="flex items-center justify-center gap-4 text-5xl mb-4 animate-bounce-slow">
-            <DinoIcon species="trex" size={62} className="drop-shadow-xl" />
-            <span>🚀</span>
+        <section className="relative z-10 mt-5 grid w-full max-w-7xl overflow-hidden rounded-[2.4rem] border-2 border-white/90 bg-gradient-to-br from-sky-100 via-white/80 to-indigo-100 shadow-[0_22px_60px_rgba(38,104,171,.17)] lg:grid-cols-[0.82fr_1.18fr]">
+          <div className="relative flex min-h-64 items-end justify-center overflow-hidden bg-[radial-gradient(circle_at_50%_65%,rgba(96,165,250,.34),transparent_52%)] px-4 pt-5 lg:min-h-[390px]">
+            <div className="absolute left-7 top-8 text-5xl opacity-80">🪐</div><div className="absolute right-8 top-10 text-4xl">✨</div>
+            <img src={astronautCrew} alt="Amari the astronaut with a friendly learning robot" className="max-h-[370px] w-auto max-w-full object-contain drop-shadow-[0_18px_22px_rgba(30,64,175,.22)]" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-slate-800 tracking-tight drop-shadow-sm">
-            Amari <span className="text-blue-500">Discovery</span>
-          </h1>
-          <p className="text-slate-600 font-bold text-xl mt-2 bg-white/60 inline-block px-6 py-2 rounded-full">
-            Academy for Kids
-          </p>
-          <div className="mt-4 flex items-center justify-center gap-4">
-            <span className="text-slate-600 font-semibold">⭐ {points} Stars</span>
-            <span className="bg-indigo-100 text-indigo-700 font-black text-sm px-3 py-1 rounded-full">
-              {getRank(points).emoji} {getRank(points).title}
-            </span>
-            {getNextRank(points) && (
-              <span className="text-slate-400 text-sm font-semibold">
-                {getNextRank(points).minPoints - points}⭐ to {getNextRank(points).title}
-              </span>
-            )}
+          <div className="flex flex-col justify-center p-6 text-center sm:p-9 lg:text-left">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-blue-500">Today’s discovery deck</p>
+            <h2 className="mt-2 text-4xl font-black tracking-tight text-slate-900 sm:text-6xl">Hi Amari!</h2>
+            <p className="mt-2 text-lg font-bold text-slate-600 sm:text-xl">Ready for a new learning adventure?</p>
+            <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="rounded-2xl bg-white/85 p-3 shadow-sm"><div className="text-xl">⭐</div><strong className="block text-slate-900">{points}</strong><span className="text-xs font-bold text-slate-500">Total stars</span></div>
+              <div className="rounded-2xl bg-white/85 p-3 shadow-sm"><div className="text-xl">🔥</div><strong className="block text-slate-900">{streak}</strong><span className="text-xs font-bold text-slate-500">Day streak</span></div>
+              <div className="rounded-2xl bg-white/85 p-3 shadow-sm"><div className="text-xl">🛡️</div><strong className="block text-slate-900">{getRank(points).title}</strong><span className="text-xs font-bold text-slate-500">Current level</span></div>
+            </div>
+            {getNextRank(points) && <p className="mt-4 text-sm font-bold text-slate-500">Only {getNextRank(points).minPoints - points} more stars to become {getNextRank(points).title}.</p>}
           </div>
-        </div>
+        </section>
 
         <StreakBanner streak={streak} bonusStars={streak * 2} />
         <DailyChallengeBanner
@@ -308,7 +311,7 @@ export default function App() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 w-full max-w-6xl relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4 w-full max-w-7xl relative z-10">
           {filteredGames.map((game) => (
             <MenuCard
               key={game.id}
