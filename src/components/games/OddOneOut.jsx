@@ -1,31 +1,43 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Home } from 'lucide-react';
 import { ODD_ONE_OUT_ROUNDS } from '../../data/index.js';
-import { pickRandom, shuffle, getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { shuffle, getPraise } from '../../utils.js';
+import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 
-const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [roundIndex, setRoundIndex] = useState(0);
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
+  const [skillRun, setSkillRun] = useState(0);
+  const [locked, setLocked] = useState(false);
   const round = ODD_ONE_OUT_ROUNDS[roundIndex % ODD_ONE_OUT_ROUNDS.length];
   const shuffledItems = useMemo(() => shuffle(round.items), [round]);
 
   useEffect(() => {
-    setFeedback('');
     speak(`Which one does not belong? ${round.hint}`);
   }, [roundIndex, round.hint, speak]);
 
+  const nextRound = () => {
+    setRoundIndex((index) => (index + 1) % ODD_ONE_OUT_ROUNDS.length);
+    setFeedback('');
+    setLocked(false);
+    setSkillRun((current) => current >= 5 ? 0 : current);
+  };
+
   const handlePick = (item) => {
+    if (locked) return;
     if (item === round.odd) {
       const praise = getPraise();
       setFeedback(`${praise} ${item} is the odd one out!`);
       setScore((s) => s + 1);
+      setSkillRun((current) => Math.min(current + 1, 5));
+      setLocked(true);
       playSfx('success');
       speak(`${praise} ${item} doesn't belong with the ${round.category}!`);
-      onCelebrate(praise, 8, 200);
-      setTimeout(() => setRoundIndex((i) => i + 1), 1100);
+      onCelebrate(praise, 4, 200);
+      onGameEvent?.('oddoneout', 'answer_correct');
+      setTimeout(nextRound, 1100);
     } else {
       setShake(true);
       playSfx('wrong');
@@ -49,11 +61,12 @@ const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <PracticeProgress skill="Sort by category and explain why" completed={skillRun} accent="lime" />
         <p className="text-2xl font-bold text-slate-700 mb-2">Which one doesn't belong?</p>
         <p className="text-slate-500 font-semibold mb-8">{round.hint}</p>
         <div className={`grid grid-cols-2 gap-6 w-full max-w-sm ${shake ? 'animate-shake' : ''}`}>
           {shuffledItems.map((item, i) => (
-            <button key={`${item}-${i}`} onClick={() => handlePick(item)}
+            <button key={`${item}-${i}`} onClick={() => handlePick(item)} disabled={locked}
               className="aspect-square bg-white rounded-3xl shadow-xl border-4 border-lime-200 flex items-center justify-center text-7xl hover:-translate-y-2 active:translate-y-1 transition-all">{item}</button>
           ))}
         </div>

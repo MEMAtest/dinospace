@@ -1,27 +1,38 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { WORD_BUILDER_WORDS } from '../../data/index.js';
-import { pickRandom, shuffle, getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { shuffle, getPraise } from '../../utils.js';
+import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 
-const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const makeTiles = (word) => shuffle(word.split('').map((letter, index) => ({ letter, id: `${letter}-${index}` })));
+
+const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [wordIndex, setWordIndex] = useState(0);
   const [typed, setTyped] = useState([]);
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
-  const [scrambled, setScrambled] = useState([]);
+  const [skillRun, setSkillRun] = useState(0);
+  const [locked, setLocked] = useState(false);
+  const [scrambled, setScrambled] = useState(() => makeTiles(WORD_BUILDER_WORDS[0].word));
   const word = WORD_BUILDER_WORDS[wordIndex];
 
   useEffect(() => {
-    const letters = word.word.split('').map((l, i) => ({ letter: l, id: `${l}-${i}` }));
-    setScrambled(shuffle(letters));
-    setTyped([]);
-    setFeedback('');
     speak(`Spell the word: ${word.word}. ${word.hint}`);
   }, [wordIndex, word, speak]);
 
+  const startWord = (nextIndex) => {
+    const nextWord = WORD_BUILDER_WORDS[nextIndex];
+    setWordIndex(nextIndex);
+    setScrambled(makeTiles(nextWord.word));
+    setTyped([]);
+    setFeedback('');
+    setLocked(false);
+    setSkillRun((current) => current >= 5 ? 0 : current);
+  };
+
   const handleLetterTap = (item) => {
+    if (locked) return;
     const next = [...typed, item];
     setTyped(next);
     setScrambled((prev) => prev.filter((s) => s.id !== item.id));
@@ -33,10 +44,13 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         const praise = getPraise();
         setFeedback(praise);
         setScore((s) => s + 1);
+        setSkillRun((current) => Math.min(current + 1, 5));
+        setLocked(true);
         playSfx('success');
         speak(`${word.word}! ${praise}`);
-        onCelebrate(praise, 8, 300);
-        setTimeout(() => setWordIndex((i) => (i + 1) % WORD_BUILDER_WORDS.length), 1100);
+        onCelebrate(praise, 4, 300);
+        onGameEvent?.('words', 'answer_correct');
+        setTimeout(() => startWord((wordIndex + 1) % WORD_BUILDER_WORDS.length), 1100);
       } else {
         setShake(true);
         playSfx('wrong');
@@ -44,8 +58,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         setTimeout(() => {
           setShake(false);
           setFeedback('');
-          const letters = word.word.split('').map((l, i) => ({ letter: l, id: `${l}-${i}` }));
-          setScrambled(shuffle(letters));
+          setScrambled(makeTiles(word.word));
           setTyped([]);
         }, 1200);
       }
@@ -75,6 +88,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <PracticeProgress skill="Build and read a familiar word" completed={skillRun} accent="cyan" />
         <div className="text-7xl mb-4">{word.emoji}</div>
         <p className="text-slate-600 font-semibold mb-2">{word.hint}</p>
         <button onClick={() => speak(`Spell ${word.word}. ${word.hint}`)} className="mb-4 text-cyan-600 font-semibold">🔊 Hear the word</button>
@@ -87,7 +101,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
         <div className="flex gap-3 flex-wrap justify-center mb-4">
           {scrambled.map((item) => (
-            <button key={item.id} onClick={() => handleLetterTap(item)}
+            <button key={item.id} disabled={locked} onClick={() => handleLetterTap(item)}
               className="w-16 h-16 bg-white text-cyan-700 text-3xl font-black rounded-2xl shadow-lg border-4 border-cyan-200 hover:-translate-y-1 active:translate-y-1 transition-all">{item.letter}</button>
           ))}
         </div>

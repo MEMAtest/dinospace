@@ -1,27 +1,45 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { SUBTRACTION_LEVELS, VISUAL_EMOJIS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
+const makeAnswerOptions = (answer) => {
+  const candidates = [answer];
+  for (let offset = 1; candidates.length < 4; offset += 1) {
+    if (answer - offset >= 0) candidates.push(answer - offset);
+    if (candidates.length < 4) candidates.push(answer + offset);
+  }
+  return shuffle(candidates);
+};
+
+const makeSubtractionRound = (level) => {
+  const a = Math.ceil(Math.random() * level.maxNum) + Math.ceil(Math.random() * 3);
+  const b = Math.ceil(Math.random() * Math.min(a, level.maxNum));
+  return {
+    a,
+    b,
+    visualEmoji: pickRandom(VISUAL_EMOJIS),
+    options: makeAnswerOptions(a - b),
+  };
+};
+
 const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [levelIndex, setLevelIndex] = useState(0);
   const level = SUBTRACTION_LEVELS[levelIndex];
   const [round, setRound] = useState(0);
-  const [problem, setProblem] = useState({ a: 3, b: 1 });
+  const [problem, setProblem] = useState(() => makeSubtractionRound(SUBTRACTION_LEVELS[0]));
   const [success, setSuccess] = useState(false);
   const [shake, setShake] = useState(false);
   const [streak, setStreak] = useState(0);
   const [successMessage, setSuccessMessage] = useState('');
+  const [locked, setLocked] = useState(false);
 
-  const newProblem = useCallback(() => {
+  const newProblem = (nextLevel = level) => {
     setSuccess(false);
-    const a = Math.ceil(Math.random() * level.maxNum) + Math.ceil(Math.random() * 3);
-    const b = Math.ceil(Math.random() * Math.min(a, level.maxNum));
-    setProblem({ a, b });
-  }, [level.maxNum]);
-
-  useEffect(() => { newProblem(); }, [newProblem, levelIndex]);
+    setProblem(makeSubtractionRound(nextLevel));
+    setLocked(false);
+  };
 
   useEffect(() => {
     speak(`What is ${problem.a} minus ${problem.b}?`);
@@ -30,27 +48,13 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
   const answer = problem.a - problem.b;
   const subTimeoutRef = useRef(null);
   useEffect(() => () => { if (subTimeoutRef.current) clearTimeout(subTimeoutRef.current); }, []);
-  const visualEmoji = useMemo(() => pickRandom(VISUAL_EMOJIS), [problem.a, problem.b]);
-
-  const options = useMemo(() => {
-    const set = new Set([answer]);
-    let attempts = 0;
-    while (set.size < 4 && attempts < 30) {
-      attempts++;
-      const delta = Math.ceil(Math.random() * 5);
-      const sign = Math.random() > 0.5 ? 1 : -1;
-      const candidate = Math.max(0, answer + sign * delta);
-      if (candidate !== answer) set.add(candidate);
-    }
-    for (let f = 1; set.size < 4; f++) { set.add(answer + f); }
-    return shuffle(Array.from(set).slice(0, 4));
-  }, [answer]);
-
   const check = (pick) => {
+    if (locked) return;
     if (pick === answer) {
       const praise = getPraise();
       setSuccessMessage(praise);
       setSuccess(true);
+      setLocked(true);
       const newStreak = streak + 1;
       setStreak(newStreak);
       playSfx('success');
@@ -59,7 +63,12 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
       onGameEvent?.('subtraction', 'answer_correct');
       const nextRound = round + 1;
       if (nextRound >= level.rounds && levelIndex < SUBTRACTION_LEVELS.length - 1) {
-        subTimeoutRef.current = setTimeout(() => { setLevelIndex((prev) => prev + 1); setRound(0); }, 1100);
+        const nextLevelIndex = levelIndex + 1;
+        subTimeoutRef.current = setTimeout(() => {
+          setLevelIndex(nextLevelIndex);
+          setRound(0);
+          newProblem(SUBTRACTION_LEVELS[nextLevelIndex]);
+        }, 1100);
       } else {
         setRound(nextRound);
         subTimeoutRef.current = setTimeout(newProblem, 1100);
@@ -99,7 +108,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
           <div className="flex justify-center items-center gap-2 mb-4 flex-wrap">
             <div className="bg-white/80 rounded-2xl px-4 py-2 shadow flex gap-1 flex-wrap justify-center">
               {Array.from({ length: problem.a }, (_, i) => (
-                <span key={`s-${i}`} className={`text-2xl ${i >= answer ? 'opacity-25 line-through' : ''}`}>{visualEmoji}</span>
+                <span key={`s-${i}`} className={`text-2xl ${i >= answer ? 'opacity-25 line-through' : ''}`}>{problem.visualEmoji}</span>
               ))}
             </div>
           </div>
@@ -112,8 +121,8 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
           <div className="w-24 h-24 border-4 border-dashed border-slate-400 rounded-2xl flex items-center justify-center text-slate-400">?</div>
         </div>
         <div className="flex justify-center gap-4 flex-wrap">
-          {options.map((option) => (
-            <button key={option} onClick={() => check(option)} className="w-20 h-20 bg-purple-500 text-white text-3xl font-bold rounded-2xl shadow-[0_6px_0_rgb(126,34,206)] active:shadow-none active:translate-y-2 transition-all hover:bg-purple-600">{option}</button>
+          {problem.options.map((option) => (
+            <button key={option} disabled={locked} onClick={() => check(option)} className="w-20 h-20 bg-purple-500 text-white text-3xl font-bold rounded-2xl shadow-[0_6px_0_rgb(126,34,206)] active:shadow-none active:translate-y-2 transition-all hover:bg-purple-600 disabled:opacity-60">{option}</button>
           ))}
         </div>
       </div>

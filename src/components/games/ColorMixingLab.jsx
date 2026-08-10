@@ -1,22 +1,35 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { COLOR_MIX_ROUNDS } from '../../data/index.js';
-import { pickRandom, shuffle, getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { shuffle, getPraise } from '../../utils.js';
+import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 
-const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const makeOptions = (round) => shuffle(round.options);
+
+const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [roundIndex, setRoundIndex] = useState(0);
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
   const [mixed, setMixed] = useState(false);
   const round = COLOR_MIX_ROUNDS[roundIndex % COLOR_MIX_ROUNDS.length];
+  const [options, setOptions] = useState(() => makeOptions(COLOR_MIX_ROUNDS[0]));
+  const [skillRun, setSkillRun] = useState(0);
+  const [locked, setLocked] = useState(false);
 
   useEffect(() => {
-    setMixed(false);
-    setFeedback('');
     speak(`What color do ${round.name1} and ${round.name2} make when mixed together?`);
   }, [roundIndex, round.name1, round.name2, speak]);
+
+  const nextRound = () => {
+    const nextIndex = (roundIndex + 1) % COLOR_MIX_ROUNDS.length;
+    setRoundIndex(nextIndex);
+    setMixed(false);
+    setFeedback('');
+    setLocked(false);
+    setOptions(makeOptions(COLOR_MIX_ROUNDS[nextIndex]));
+    setSkillRun((current) => current >= 5 ? 0 : current);
+  };
 
   const handleMix = () => {
     setMixed(true);
@@ -25,20 +38,24 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   };
 
   const handlePick = (answer) => {
+    if (locked) return;
     if (answer === round.answer) {
       const praise = getPraise();
       setFeedback(praise);
       setScore((s) => s + 1);
+      setSkillRun((current) => Math.min(current + 1, 5));
+      setLocked(true);
       playSfx('success');
       speak(`${round.answer}! ${praise}`);
-      onCelebrate(praise, 8, 200);
-      setTimeout(() => setRoundIndex((i) => i + 1), 1100);
+      onCelebrate(praise, 4, 200);
+      onGameEvent?.('colormix', 'answer_correct');
+      setTimeout(nextRound, 1100);
     } else {
       setShake(true);
       playSfx('wrong');
       setFeedback(`Not quite! ${round.name1} + ${round.name2} = ${round.answer}`);
       speak(`It makes ${round.answer}`);
-      setTimeout(() => { setShake(false); setFeedback(''); }, 2500);
+      setTimeout(() => { setShake(false); setFeedback(''); }, 1200);
     }
   };
 
@@ -57,6 +74,7 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <PracticeProgress skill="Predict what two colours make" completed={skillRun} accent="fuchsia" />
         <div className="flex items-center gap-4 mb-6">
           <div className="w-24 h-24 rounded-full flex items-center justify-center text-5xl bg-white shadow-xl border-4 border-fuchsia-200">{round.color1}</div>
           <span className="text-4xl font-black text-fuchsia-500">+</span>
@@ -75,8 +93,8 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
           <div className={`${shake ? 'animate-shake' : ''}`}>
             <p className="text-xl font-bold text-fuchsia-700 mb-4">What color did it make?</p>
             <div className="flex gap-4 flex-wrap justify-center">
-              {shuffle(round.options).map((opt) => (
-                <button key={opt} onClick={() => handlePick(opt)}
+              {options.map((opt) => (
+                <button key={opt} disabled={locked} onClick={() => handlePick(opt)}
                   className="bg-white text-fuchsia-700 text-xl font-bold px-6 py-4 rounded-2xl shadow-lg border-4 border-fuchsia-200 hover:-translate-y-1 transition">{opt}</button>
               ))}
             </div>

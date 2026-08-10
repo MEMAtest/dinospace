@@ -1,7 +1,7 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Home, Cloud } from 'lucide-react';
 import { SHAPES } from '../../data/index.js';
-import { pickRandom, shuffle, getPraise } from '../../utils.js';
+import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
@@ -209,7 +209,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       canvas.removeEventListener('touchmove', draw);
       canvas.removeEventListener('touchend', stopDrawing);
     };
-  }, [shape, cleared]);
+  }, [shape, cleared, markComplete, playSfx, speak]);
 
   return (
     <div className="min-h-screen flex flex-col bg-sky-100">

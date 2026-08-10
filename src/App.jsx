@@ -360,6 +360,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'dino') {
@@ -383,6 +384,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'german') {
@@ -394,6 +396,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'math') {
@@ -453,6 +456,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'puzzle') {
@@ -476,6 +480,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'phonics') {
@@ -487,6 +492,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'addition') {
@@ -546,6 +552,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'colormix') {
@@ -557,6 +564,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'oddoneout') {
@@ -568,6 +576,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'timeteller') {
@@ -579,6 +588,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'numberline') {
@@ -590,6 +600,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'hangman') {

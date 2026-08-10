@@ -1,7 +1,7 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Home, Palette } from 'lucide-react';
 import { GERMAN_COLORS, GERMAN_MATCH_MODES, GERMAN_NUMBERS } from '../../data/index.js';
-import { pickRandom, shuffle, getPraise, buildParkRound, buildMatchRound } from '../../utils.js';
+import { pickRandom, getPraise, buildParkRound, buildMatchRound } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
@@ -38,12 +38,6 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       });
     }
   }, [mode, targetColor.name, parkRound.target.name, matchMode, matchRound.target?.name, speak]);
-
-  useEffect(() => {
-    if (!matchMode) return;
-    setMatchRound(buildMatchRound(matchMode.items));
-    setMatchFeedback('');
-  }, [matchMode]);
 
   const nextPaint = () => {
     const next = pickRandom(GERMAN_COLORS);
@@ -104,6 +98,16 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     }
   };
 
+  const selectMode = (nextMode) => {
+    const nextMatchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === nextMode);
+    setMode(nextMode);
+    if (nextMatchMode) {
+      setMatchRound(buildMatchRound(nextMatchMode.items));
+      setMatchFeedback('');
+    }
+    playSfx('click');
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-orange-50 via-slate-100 to-orange-100 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -122,10 +126,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
           {modeTabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => {
-                setMode(tab.id);
-                playSfx('click');
-              }}
+              onClick={() => selectMode(tab.id)}
               className={`px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap ${
                 mode === tab.id ? 'bg-blue-500 text-white' : 'text-slate-600'
               }`}

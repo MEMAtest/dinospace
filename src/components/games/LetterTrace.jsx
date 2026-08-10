@@ -1,7 +1,7 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { TRACE_LETTERS } from '../../data/index.js';
-import { pickRandom, getPraise } from '../../utils.js';
+import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
@@ -118,7 +118,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       canvas.removeEventListener('touchmove', draw);
       canvas.removeEventListener('touchend', stopDrawing);
     };
-  }, [letterChar, cleared, playSfx, speak]);
+  }, [letterChar, cleared, onCelebrate, playSfx, speak]);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100">

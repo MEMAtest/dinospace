@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { MEMORY_LEVELS } from '../../data/index.js';
 import { buildMemoryDeck, getPraise, loadSaved, saveSafe } from '../../utils.js';
@@ -12,6 +12,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [moves, setMoves] = useState(0);
   const [locked, setLocked] = useState(false);
   const [showLevelComplete, setShowLevelComplete] = useState(false);
+  const [completionMessage, setCompletionMessage] = useState('');
   const [timer, setTimer] = useState(0);
   const [bestTimes, setBestTimes] = useState(() => loadSaved('amari_memory_best', {}));
   const timerRef = useRef(null);
@@ -24,70 +25,58 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const matches = deck.filter((card) => card.matched).length / 2;
 
   useEffect(() => {
-    setDeck(buildMemoryDeck(level));
-    setFlipped([]);
-    setMoves(0);
-    setLocked(false);
-    setShowLevelComplete(false);
-    setTimer(0);
-  }, [level]);
-
-  useEffect(() => {
     speak(`Memory level ${levelIndex + 1}. ${level.name}.`);
   }, [levelIndex, level.name, speak]);
 
-  useEffect(() => {
-    if (matches === level.emojis.length && !showLevelComplete) {
-      clearInterval(timerRef.current);
-      const praise = getPraise();
-      speak('You matched them all. Fantastic memory!');
-      playSfx('success');
-      setShowLevelComplete(true);
-      onCelebrate(praise, 12, 300);
-      onGameEvent?.('memory', 'level_completed');
-      const best = bestTimes[level.id];
-      if (!best || timer < best) {
-        setBestTimes((prev) => {
-          const next = { ...prev, [level.id]: timer };
-          saveSafe('amari_memory_best', next);
-          return next;
-        });
-      }
+  const finishLevel = () => {
+    clearInterval(timerRef.current);
+    const praise = getPraise();
+    speak('You matched them all. Fantastic memory!');
+    playSfx('success');
+    setCompletionMessage(praise);
+    setShowLevelComplete(true);
+    onCelebrate(praise, 6, 300);
+    onGameEvent?.('memory', 'level_completed');
+    const best = bestTimes[level.id];
+    if (!best || timer < best) {
+      setBestTimes((prev) => {
+        const next = { ...prev, [level.id]: timer };
+        saveSafe('amari_memory_best', next);
+        return next;
+      });
     }
-  }, [matches, level.emojis.length, level.id, onCelebrate, onGameEvent, playSfx, showLevelComplete, speak, timer, bestTimes]);
+  };
 
   const handleFlip = (index) => {
     if (locked) return;
-    setDeck((prev) => {
-      if (prev[index].flipped || prev[index].matched) return prev;
-      const next = prev.map((card, i) => (i === index ? { ...card, flipped: true } : card));
-      return next;
-    });
-    setFlipped((prev) => (prev.includes(index) ? prev : [...prev, index]));
+    if (deck[index].flipped || deck[index].matched || flipped.includes(index)) return;
+    const nextFlipped = [...flipped, index];
+    setDeck((prev) => prev.map((card, cardIndex) => (cardIndex === index ? { ...card, flipped: true } : card)));
     playSfx('flip');
-  };
+    if (nextFlipped.length < 2) {
+      setFlipped(nextFlipped);
+      return;
+    }
 
-  useEffect(() => {
-    if (flipped.length !== 2) return;
-    const [first, second] = flipped;
+    const [first, second] = nextFlipped;
     setLocked(true);
-    setMoves((prev) => prev + 1);
-
+    setMoves((previous) => previous + 1);
     if (deck[first].emoji === deck[second].emoji) {
       setDeck((prev) =>
-        prev.map((card, i) =>
-          i === first || i === second ? { ...card, matched: true } : card,
+        prev.map((card, cardIndex) =>
+          cardIndex === first || cardIndex === second ? { ...card, matched: true } : card,
         ),
       );
       setFlipped([]);
       setLocked(false);
       playSfx('sparkle');
       onCelebrate(getPraise(), 4, 200);
+      if (matches + 1 === level.emojis.length) finishLevel();
     } else {
       setTimeout(() => {
         setDeck((prev) =>
-          prev.map((card, i) =>
-            i === first || i === second ? { ...card, flipped: false } : card,
+          prev.map((card, cardIndex) =>
+            cardIndex === first || cardIndex === second ? { ...card, flipped: false } : card,
           ),
         );
         setFlipped([]);
@@ -95,11 +84,23 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         playSfx('oops');
       }, 700);
     }
-  }, [deck, flipped, onCelebrate, playSfx]);
+  };
+
+  const startLevel = (nextIndex) => {
+    const nextLevel = MEMORY_LEVELS[nextIndex];
+    setLevelIndex(nextIndex);
+    setDeck(buildMemoryDeck(nextLevel));
+    setFlipped([]);
+    setMoves(0);
+    setLocked(false);
+    setShowLevelComplete(false);
+    setCompletionMessage('');
+    setTimer(0);
+  };
 
   const handleNextLevel = () => {
     const nextIndex = levelIndex < MEMORY_LEVELS.length - 1 ? levelIndex + 1 : 0;
-    setLevelIndex(nextIndex);
+    startLevel(nextIndex);
   };
 
   return (
@@ -175,7 +176,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         {showLevelComplete && (
           <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
             <div className="text-5xl mb-2">🎉</div>
-            <h3 className="text-2xl font-black text-rose-600">{getPraise()}</h3>
+            <h3 className="text-2xl font-black text-rose-600">{completionMessage}</h3>
             <button onClick={handleNextLevel} className="mt-3 text-rose-600 font-semibold">
               {levelIndex < MEMORY_LEVELS.length - 1 ? 'Next level' : 'Play again'}
             </button>

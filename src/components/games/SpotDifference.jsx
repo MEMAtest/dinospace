@@ -1,24 +1,23 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Home } from 'lucide-react';
 import { SPOT_LEVELS } from '../../data/index.js';
 import { getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 
-const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [levelIndex, setLevelIndex] = useState(0);
   const level = SPOT_LEVELS[levelIndex];
   const [found, setFound] = useState([]);
   const [feedback, setFeedback] = useState('');
   const [showComplete, setShowComplete] = useState(false);
+  const [completionMessage, setCompletionMessage] = useState('');
+  const [skillRun, setSkillRun] = useState(0);
   const differenceIndices = useMemo(
     () => Object.keys(level.diffs).map((key) => Number(key)),
     [level.diffs],
   );
 
   useEffect(() => {
-    setFound([]);
-    setFeedback('');
-    setShowComplete(false);
     speak(`Spot the differences. ${level.name}.`);
   }, [level, speak]);
 
@@ -29,12 +28,15 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       const nextFound = [...found, index];
       setFound(nextFound);
       playSfx('sparkle');
-      setFeedback('Gefunden!');
+      setFeedback('You found one!');
       if (nextFound.length === differenceIndices.length) {
         const praise = getPraise();
         setShowComplete(true);
-        onCelebrate(praise, 10, 250);
-        speak(`${praise} Alle Unterschiede gefunden!`, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
+        setCompletionMessage(praise);
+        setSkillRun((current) => Math.min(current + 1, 5));
+        onCelebrate(praise, 6, 250);
+        onGameEvent?.('spot', 'level_completed');
+        speak(`${praise} You found every difference!`);
       }
     } else {
       setFeedback('Nope!');
@@ -43,11 +45,13 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   };
 
   const handleNext = () => {
-    if (levelIndex < SPOT_LEVELS.length - 1) {
-      setLevelIndex((prev) => prev + 1);
-    } else {
-      setLevelIndex(0);
-    }
+    const nextLevelIndex = levelIndex < SPOT_LEVELS.length - 1 ? levelIndex + 1 : 0;
+    setLevelIndex(nextLevelIndex);
+    setFound([]);
+    setFeedback('');
+    setShowComplete(false);
+    setCompletionMessage('');
+    setSkillRun((current) => current >= 5 ? 0 : current);
   };
 
   return (
@@ -74,6 +78,7 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
+        <PracticeProgress skill="Compare details carefully" completed={skillRun} accent="indigo" />
         <p className="text-indigo-700 font-semibold mb-4">{level.hint}</p>
 
         <div className="grid grid-cols-2 gap-6 w-full max-w-3xl">
@@ -115,7 +120,7 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         {showComplete && (
           <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
             <div className="text-5xl mb-2">🎉</div>
-            <h3 className="text-2xl font-black text-indigo-700">{getPraise()}</h3>
+            <h3 className="text-2xl font-black text-indigo-700">{completionMessage}</h3>
             <button onClick={handleNext} className="mt-3 text-indigo-600 font-semibold">
               Next scene
             </button>

@@ -1,8 +1,16 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { ASTRONAUT_PROFILES, ASTRONAUT_CATEGORIES } from '../../data/index.js';
-import { pickRandom, shuffle, findProfile, getPraise } from '../../utils.js';
+import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+
+const SPACE_STARS = Array.from({ length: 30 }, (_, index) => ({
+  id: index,
+  w: 1 + (index % 3),
+  top: `${(index * 29) % 100}%`,
+  left: `${(index * 47) % 100}%`,
+  delay: `${index % 4}s`,
+}));
 
 const AstronautImage = ({ profile, size = 80, className = '' }) => {
   const [failed, setFailed] = useState(false);
@@ -34,15 +42,9 @@ const AstronautImage = ({ profile, size = 80, className = '' }) => {
 };
 
 const SpaceStars = () => {
-  const stars = useMemo(
-    () => Array.from({ length: 30 }, (_, i) => ({
-      id: i, w: Math.random() * 3 + 1, top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, delay: `${Math.random() * 3}s`,
-    })),
-    [],
-  );
   return (
     <div className="absolute inset-0 pointer-events-none">
-      {stars.map((s) => (
+      {SPACE_STARS.map((s) => (
         <div key={s.id} className="absolute bg-white rounded-full animate-pulse" style={{ width: s.w, height: s.w, top: s.top, left: s.left, animationDelay: s.delay }} />
       ))}
     </div>

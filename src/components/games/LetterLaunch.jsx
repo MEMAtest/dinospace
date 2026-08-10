@@ -1,13 +1,14 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { buildLetterRound, getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 
 const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [round, setRound] = useState(buildLetterRound);
   const [launching, setLaunching] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [stars, setStars] = useState(0);
+  const [skillRun, setSkillRun] = useState(0);
 
   const promptText = `${round.target.letter}. ${round.target.letter} is for ${round.target.word}.`;
 
@@ -23,6 +24,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     setRound(buildLetterRound());
     setLaunching(false);
     setFeedback('');
+    setSkillRun((current) => current >= 5 ? 0 : current);
   };
 
   const handlePick = (option) => {
@@ -31,9 +33,10 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       setLaunching(true);
       setFeedback(praise);
       setStars((prev) => prev + 1);
+      setSkillRun((current) => Math.min(current + 1, 5));
       playSfx('launch');
       playSfx('success');
-      onCelebrate(praise, 6, 250);
+      onCelebrate(praise, 4, 250);
       onGameEvent?.('letters', 'answer_correct');
       setTimeout(nextRound, 1400);
     } else {
@@ -65,6 +68,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
+        <PracticeProgress skill="Match a letter to its sound" completed={skillRun} accent="sky" />
         <div className="bg-white/90 p-6 rounded-3xl shadow-xl border-4 border-sky-200 text-center mb-6 w-full max-w-md">
           <p className="text-slate-500 mb-2 font-bold uppercase tracking-wider">Launch Mission</p>
           <div className="text-7xl font-black text-sky-700 mb-2">{round.target.letter}</div>

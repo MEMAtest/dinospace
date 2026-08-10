@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { BLEND_WORDS } from '../../data/index.js';
 import { pickRandom, shuffle, buildPhonicsRound, getPraise } from '../../utils.js';
@@ -20,7 +20,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       const blendText = blendRound.letters.join(', ');
       speak(`Blend the sounds: ${blendText}. What word does it make?`);
     }
-  }, [round.target?.letter, round.target?.sound, blendRound, safariMode, speak]);
+  }, [round.target, blendRound, safariMode, speak]);
 
   useEffect(() => { sayPrompt(); }, [sayPrompt]);
 

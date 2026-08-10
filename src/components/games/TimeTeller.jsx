@@ -1,39 +1,47 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
-import { pickRandom, shuffle, getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { shuffle, getPraise } from '../../utils.js';
+import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 
-const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const buildTimeOptions = (targetHour) => {
+  const wrap = (hour) => ((hour - 1 + 12) % 12) + 1;
+  return shuffle([targetHour, wrap(targetHour + 1), wrap(targetHour + 3), wrap(targetHour - 2)]);
+};
+
+const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [targetHour, setTargetHour] = useState(3);
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
+  const [skillRun, setSkillRun] = useState(0);
+  const [locked, setLocked] = useState(false);
+  const [options, setOptions] = useState(() => buildTimeOptions(3));
 
-  const newRound = useCallback(() => {
-    setTargetHour(Math.ceil(Math.random() * 12));
+  const newRound = () => {
+    const nextHour = targetHour === 12 ? 1 : targetHour + 1;
+    setTargetHour(nextHour);
+    setOptions(buildTimeOptions(nextHour));
     setFeedback('');
-  }, []);
+    setLocked(false);
+    setSkillRun((current) => current >= 5 ? 0 : current);
+  };
 
   useEffect(() => {
     speak(`Show me ${targetHour} o'clock on the clock!`);
   }, [targetHour, speak]);
 
-  const options = useMemo(() => {
-    const set = new Set([targetHour]);
-    while (set.size < 4) {
-      set.add(Math.ceil(Math.random() * 12));
-    }
-    return shuffle(Array.from(set));
-  }, [targetHour]);
-
   const handlePick = (h) => {
+    if (locked) return;
     if (h === targetHour) {
       const praise = getPraise();
       setFeedback(praise);
       setScore((s) => s + 1);
+      setSkillRun((current) => Math.min(current + 1, 5));
+      setLocked(true);
       playSfx('success');
       speak(`${praise} That's ${targetHour} o'clock!`);
-      onCelebrate(praise, 8, 200);
+      onCelebrate(praise, 4, 200);
+      onGameEvent?.('timeteller', 'answer_correct');
       setTimeout(newRound, 1100);
     } else {
       setShake(true);
@@ -60,6 +68,7 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <PracticeProgress skill="Read whole-hour clocks" completed={skillRun} accent="indigo" />
         <p className="text-2xl font-bold text-slate-700 mb-6">What time is this? 🕐</p>
         <div className={`relative w-52 h-52 rounded-full bg-white shadow-2xl border-8 border-indigo-200 mb-8 ${shake ? 'animate-shake' : ''}`}>
           {[...Array(12)].map((_, i) => {
@@ -78,7 +87,7 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
         </div>
         <div className="flex gap-4 flex-wrap justify-center">
           {options.map((h) => (
-            <button key={h} onClick={() => handlePick(h)}
+            <button key={h} onClick={() => handlePick(h)} disabled={locked}
               className="bg-white text-indigo-700 text-xl font-black px-6 py-4 rounded-2xl shadow-lg border-4 border-indigo-200 hover:-translate-y-1 transition">{h} o'clock</button>
           ))}
         </div>

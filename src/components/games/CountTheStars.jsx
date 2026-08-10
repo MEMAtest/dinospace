@@ -1,42 +1,67 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
-import { COUNT_LEVELS, VISUAL_EMOJIS } from '../../data/index.js';
+import { COUNT_LEVELS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+
+const BACKGROUND_STARS = Array.from({ length: 20 }, (_, index) => ({
+  id: `background-star-${index}`,
+  size: 1 + (index % 3),
+  top: `${(index * 37) % 100}%`,
+  left: `${(index * 61) % 100}%`,
+  delay: `${index % 4}s`,
+}));
+
+const makeCountingRound = (level) => {
+  const count = Math.floor(Math.random() * level.max) + 1;
+  const emoji = pickRandom(['⭐', '🌟', '💫', '✨', '🌙', '☀️', '🪐', '🔮']);
+  return {
+    count,
+    items: Array.from({ length: count }, (_, index) => ({
+      id: index,
+      emoji,
+      x: 10 + ((index * 31 + count * 13) % 75),
+      y: 10 + ((index * 17 + count * 19) % 65),
+      size: 0.9 + ((index + count) % 3) * 0.2,
+    })),
+  };
+};
+
+const makeCountOptions = (target) => {
+  const candidates = [target];
+  for (let offset = 1; candidates.length < 4; offset += 1) {
+    if (target - offset >= 1) candidates.push(target - offset);
+    if (candidates.length < 4) candidates.push(target + offset);
+  }
+  return shuffle(candidates);
+};
 
 const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [levelIndex, setLevelIndex] = useState(0);
   const level = COUNT_LEVELS[levelIndex];
-  const [items, setItems] = useState([]);
+  const [round, setRound] = useState(() => makeCountingRound(COUNT_LEVELS[0]));
   const [tapped, setTapped] = useState([]);
-  const [target, setTarget] = useState(0);
   const [phase, setPhase] = useState('count');
+  const [options, setOptions] = useState([]);
   const [feedback, setFeedback] = useState('');
   const [streak, setStreak] = useState(0);
   const [shake, setShake] = useState(false);
+  const [skillRun, setSkillRun] = useState(0);
+  const [locked, setLocked] = useState(false);
   const timeoutRef = useRef(null);
+  const { items, count: target } = round;
 
   useEffect(() => () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }, []);
 
-  const generateRound = useCallback(() => {
-    const count = Math.ceil(Math.random() * level.max) + 1;
-    const emojis = ['⭐', '🌟', '💫', '✨', '🌙', '☀️', '🪐', '🔮'];
-    const emoji = pickRandom(emojis);
-    const newItems = Array.from({ length: count }, (_, i) => ({
-      id: i,
-      emoji,
-      x: 10 + Math.random() * 75,
-      y: 10 + Math.random() * 65,
-      size: 0.8 + Math.random() * 0.6,
-    }));
-    setItems(newItems);
-    setTarget(count);
+  const startRound = (nextLevelIndex = levelIndex) => {
+    setRound(makeCountingRound(COUNT_LEVELS[nextLevelIndex]));
     setTapped([]);
     setPhase('count');
+    setOptions([]);
     setFeedback('');
-  }, [level.max]);
-
-  useEffect(() => { generateRound(); }, [generateRound, levelIndex]);
+    setLocked(false);
+    setSkillRun((current) => current >= 5 ? 0 : current);
+  };
 
   useEffect(() => {
     if (phase === 'count') speak('Tap each star to count them!');
@@ -50,41 +75,34 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     speak(`${next.length}`);
     if (next.length === target) {
       setPhase('answer');
+      setOptions(makeCountOptions(target));
       setTimeout(() => speak(`How many did you count?`), 500);
     }
   };
 
-  const options = useMemo(() => {
-    if (phase !== 'answer') return [];
-    const set = new Set([target]);
-    while (set.size < 4) {
-      const delta = Math.ceil(Math.random() * 3);
-      const sign = Math.random() > 0.5 ? 1 : -1;
-      set.add(Math.max(1, target + sign * delta));
-    }
-    return shuffle(Array.from(set));
-  }, [target, phase]);
-
   const handleAnswer = (ans) => {
+    if (locked) return;
     if (ans === target) {
       const praise = getPraise();
       setFeedback(praise);
+      setLocked(true);
+      const nextStreak = streak + 1;
       playSfx('success');
       speak(praise);
-      onCelebrate(praise, 6, 200);
+      onCelebrate(praise, 4, 200);
       onGameEvent?.('counting', 'answer_correct');
-      setStreak((s) => {
-        const next = s + 1;
-        timeoutRef.current = setTimeout(() => {
-          if (next > 0 && next % 5 === 0 && levelIndex < COUNT_LEVELS.length - 1) {
-            setLevelIndex((p) => p + 1);
-            playSfx('levelup');
-          } else {
-            generateRound();
-          }
-        }, 1100);
-        return next;
-      });
+      setStreak(nextStreak);
+      setSkillRun((current) => Math.min(current + 1, 5));
+      timeoutRef.current = setTimeout(() => {
+        if (nextStreak % 5 === 0 && levelIndex < COUNT_LEVELS.length - 1) {
+          const nextLevelIndex = levelIndex + 1;
+          setLevelIndex(nextLevelIndex);
+          playSfx('levelup');
+          startRound(nextLevelIndex);
+        } else {
+          startRound();
+        }
+      }, 1100);
     } else {
       setShake(true);
       playSfx('wrong');
@@ -97,8 +115,8 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-indigo-900 via-purple-900 to-indigo-900 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 20 }, (_, i) => (
-          <div key={i} className="absolute bg-white rounded-full animate-pulse" style={{ width: Math.random() * 2 + 1, height: Math.random() * 2 + 1, top: `${Math.random() * 100}%`, left: `${Math.random() * 100}%`, animationDelay: `${Math.random() * 3}s` }} />
+        {BACKGROUND_STARS.map((star) => (
+          <div key={star.id} className="absolute bg-white rounded-full animate-pulse" style={{ width: star.size, height: star.size, top: star.top, left: star.left, animationDelay: star.delay }} />
         ))}
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
@@ -110,6 +128,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <PracticeProgress skill="Count each object once" completed={skillRun} accent="indigo" />
         <div className="relative w-full max-w-md aspect-square bg-white/5 rounded-3xl border-2 border-white/10 mb-6">
           {items.map((item) => (
             <button
@@ -129,7 +148,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
             <p className="text-white text-xl font-bold mb-4">How many did you count?</p>
             <div className="flex gap-4 justify-center">
               {options.map((n) => (
-                <button key={n} onClick={() => handleAnswer(n)} className="w-16 h-16 bg-yellow-400 text-black text-2xl font-black rounded-2xl shadow-lg active:translate-y-1 transition-all">{n}</button>
+                <button key={n} disabled={locked} onClick={() => handleAnswer(n)} className="w-16 h-16 bg-yellow-400 text-black text-2xl font-black rounded-2xl shadow-lg active:translate-y-1 transition-all disabled:opacity-60">{n}</button>
               ))}
             </div>
           </div>

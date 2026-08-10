@@ -1,8 +1,8 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { ADVANCED_PATTERN_ROUNDS, NUMBER_PATTERN_ROUNDS, PATTERN_ROUNDS, PATTERN_TOKENS } from '../../data/index.js';
 import { pickRandom, shuffle, buildPatternRound, getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 
 const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [mode, setMode] = useState('emoji');
@@ -11,9 +11,11 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   const [feedback, setFeedback] = useState('');
   const [streak, setStreak] = useState(0);
   const [shake, setShake] = useState(false);
+  const [skillRun, setSkillRun] = useState(0);
+  const [locked, setLocked] = useState(false);
 
-  const nextRound = () => {
-    if (mode === 'emoji') {
+  const nextRound = (nextMode = mode) => {
+    if (nextMode === 'emoji') {
       const allPatterns = [...PATTERN_ROUNDS, ...ADVANCED_PATTERN_ROUNDS];
       const r = pickRandom(allPatterns);
       const decoys = shuffle(PATTERN_TOKENS.filter((t) => t !== r.answer)).slice(0, 2);
@@ -22,6 +24,8 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       setNumRound(pickRandom(NUMBER_PATTERN_ROUNDS));
     }
     setFeedback('');
+    setLocked(false);
+    setSkillRun((current) => current >= 5 ? 0 : current);
   };
 
   const currentLabel = mode === 'emoji' ? round.label : numRound.label;
@@ -31,15 +35,18 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   }, [currentLabel, speak]);
 
   const handlePick = (option) => {
+    if (locked) return;
     const correctAnswer = mode === 'emoji' ? round.answer : numRound.answer;
     if (option === correctAnswer) {
       const praise = getPraise();
       setFeedback(praise);
       const newStreak = streak + 1;
       setStreak(newStreak);
+      setSkillRun((current) => Math.min(current + 1, 5));
+      setLocked(true);
       playSfx('sparkle');
       if (newStreak >= 3) playSfx('combo');
-      onCelebrate(praise, 6, 250);
+      onCelebrate(praise, 4, 250);
       onGameEvent?.('pattern', 'answer_correct');
       setTimeout(nextRound, 1400);
     } else {
@@ -79,9 +86,10 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       )}
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
+        <PracticeProgress skill={mode === 'emoji' ? 'Spot the repeating pattern' : 'Find the number rule'} completed={skillRun} accent="amber" />
         <div className="flex gap-2 mb-4">
           {[{ id: 'emoji', label: '🔷 Shapes' }, { id: 'number', label: '🔢 Numbers' }].map((m) => (
-            <button key={m.id} onClick={() => { setMode(m.id); nextRound(); playSfx('click'); }}
+            <button key={m.id} onClick={() => { setMode(m.id); nextRound(m.id); playSfx('click'); }}
               className={`px-4 py-2 rounded-full font-bold text-sm ${mode === m.id ? 'bg-amber-600 text-white' : 'bg-white text-amber-700'}`}>{m.label}</button>
           ))}
         </div>
@@ -99,7 +107,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
         <div className="flex gap-4 flex-wrap justify-center">
           {currentOptions.map((option) => (
-            <button key={option} onClick={() => handlePick(option)}
+            <button key={option} disabled={locked} onClick={() => handlePick(option)}
               className="w-20 h-20 bg-white text-4xl font-black rounded-3xl shadow-lg border-4 border-amber-200 hover:-translate-y-1 transition flex items-center justify-center">{option}</button>
           ))}
         </div>

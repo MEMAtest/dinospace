@@ -1,15 +1,18 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Home } from 'lucide-react';
-import { pickRandom, getPraise } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { getPraise } from '../../utils.js';
+import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 
-const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [problem, setProblem] = useState({ a: 3, b: 2, op: '+' });
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
   const [jumperPos, setJumperPos] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [jumpTrail, setJumpTrail] = useState([]);
+  const [skillRun, setSkillRun] = useState(0);
+  const [locked, setLocked] = useState(false);
 
   const answer = problem.op === '+' ? problem.a + problem.b : problem.a - problem.b;
   const maxNum = 15;
@@ -28,23 +31,31 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     setJumperPos(op === '+' ? a : a);
     setShowAnswer(false);
     setFeedback('');
+    setJumpTrail([]);
+    setLocked(false);
+    setSkillRun((current) => current >= 5 ? 0 : current);
   }, []);
 
   useEffect(() => {
-    setJumperPos(problem.a);
     speak(`What is ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b}?`);
   }, [problem, speak]);
 
   const handleTapNumber = (n) => {
+    if (locked) return;
     if (n === answer) {
       const praise = getPraise();
       setFeedback(praise);
       setScore((s) => s + 1);
+      setSkillRun((current) => Math.min(current + 1, 5));
+      setLocked(true);
       setShowAnswer(true);
       setJumperPos(answer);
+      const direction = problem.op === '+' ? 1 : -1;
+      setJumpTrail(Array.from({ length: problem.b + 1 }, (_, index) => problem.a + index * direction));
       playSfx('success');
       speak(`${praise} ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b} equals ${answer}!`);
-      onCelebrate(praise, 8, 200);
+      onCelebrate(praise, 4, 200);
+      onGameEvent?.('numberline', 'answer_correct');
       setTimeout(newProblem, 1300);
     } else {
       setShake(true);
@@ -69,6 +80,7 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
+        <PracticeProgress skill="Use jumps to add and subtract" completed={skillRun} accent="orange" />
         <div className={`text-center mb-8 ${shake ? 'animate-shake' : ''}`}>
           <div className="inline-flex items-center gap-3 text-5xl font-black text-slate-800">
             <span className="bg-white px-4 py-2 rounded-2xl shadow-lg">{problem.a}</span>
@@ -81,7 +93,7 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <div className="relative w-full max-w-2xl h-32 mb-6">
           <div className="absolute bottom-8 left-0 right-0 h-2 bg-orange-300 rounded-full" />
           {Array.from({ length: maxNum + 1 }, (_, i) => (
-            <button key={i} onClick={() => handleTapNumber(i)}
+            <button key={i} disabled={locked} onClick={() => handleTapNumber(i)}
               className={`absolute bottom-4 w-8 h-8 rounded-full flex items-center justify-center text-xs font-black transition-all ${
                 i === jumperPos ? 'bg-orange-500 text-white scale-125 shadow-lg' : 'bg-white text-slate-600 shadow border-2 border-orange-200'
               } ${i === answer && showAnswer ? 'ring-4 ring-green-400' : ''}`}
@@ -89,7 +101,12 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
           ))}
           <div className="absolute text-3xl transition-all duration-700 ease-in-out" style={{ left: `${(jumperPos / maxNum) * 92 + 4}%`, bottom: '48px', transform: 'translateX(-50%)' }}>🐸</div>
         </div>
-        <p className="text-slate-500 font-semibold mb-4">Tap the number where the frog should land!</p>
+        <p className="text-slate-500 font-semibold mb-2">Tap the number where the frog should land!</p>
+        {jumpTrail.length > 0 && (
+          <p className="mb-2 rounded-full bg-white/80 px-4 py-2 text-center font-black text-orange-700 shadow-sm" aria-live="polite">
+            {problem.op === '+' ? 'Jump forward' : 'Jump back'} {problem.b} spaces: {jumpTrail.join(' → ')}
+          </p>
+        )}
         {feedback && <div className="mt-2 text-2xl font-black text-orange-600 animate-bounce">{feedback}</div>}
       </div>
     </div>

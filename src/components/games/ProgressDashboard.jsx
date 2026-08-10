@@ -1,9 +1,8 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { ACHIEVEMENTS, GAME_LABELS } from '../../data/index.js';
 import { getRank } from '../../utils.js';
 
-const ProgressDashboard = ({ points, gamesPlayed, streak, achievements, onBack, playSfx }) => {
+const ProgressDashboard = ({ points, gamesPlayed, streak, onBack }) => {
   const unlockedAchievements = ACHIEVEMENTS.filter((a) => a.check(gamesPlayed, points, streak));
   const totalGames = Object.values(gamesPlayed).reduce((a, b) => a + b, 0);
   const favoriteGame = Object.entries(gamesPlayed).sort(([, a], [, b]) => b - a)[0];

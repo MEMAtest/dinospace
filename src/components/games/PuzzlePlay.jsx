@@ -1,32 +1,30 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { JIGSAW_PUZZLES, PUZZLE_TILES } from '../../data/index.js';
-import { isPuzzleSolved, buildPuzzleTiles, shuffle, getPraise } from '../../utils.js';
+import { shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+
+const makePuzzleState = (puzzle) => {
+  const total = puzzle.grid * puzzle.grid;
+  return {
+    placed: Array(total).fill(null),
+    tray: shuffle(puzzle.pieces.slice(0, total).map((emoji, index) => ({ id: `piece-${index}`, emoji, correctSlot: index }))),
+  };
+};
 
 const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [puzzleIndex, setPuzzleIndex] = useState(0);
   const puzzle = JIGSAW_PUZZLES[puzzleIndex];
-  const total = puzzle.grid * puzzle.grid;
 
-  const initPieces = useCallback(() => {
-    const placed = Array(total).fill(null);
-    const tray = shuffle(puzzle.pieces.slice(0, total).map((emoji, i) => ({ id: `piece-${i}`, emoji, correctSlot: i })));
-    return { placed, tray };
-  }, [puzzle, total]);
-
-  const [state, setState] = useState(initPieces);
+  const [state, setState] = useState(() => makePuzzleState(JIGSAW_PUZZLES[0]));
   const [dragging, setDragging] = useState(null);
   const [solved, setSolved] = useState(false);
   const [moves, setMoves] = useState(0);
+  const [completionMessage, setCompletionMessage] = useState('');
 
   useEffect(() => {
-    setState(initPieces());
-    setSolved(false);
-    setMoves(0);
-    setDragging(null);
     speak(`Drag the pieces to build the ${puzzle.name} picture!`);
-  }, [initPieces, puzzle.name, speak]);
+  }, [puzzle.name, speak]);
 
   const checkSolved = (placed) => placed.every((p, i) => p && p.correctSlot === i);
 
@@ -53,9 +51,11 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
       setMoves((m) => m + 1);
 
       if (checkSolved(next.placed)) {
+        const praise = getPraise();
         setSolved(true);
+        setCompletionMessage(praise);
         playSfx('success');
-        onCelebrate(getPraise(), 15, 300);
+        onCelebrate(praise, 6, 300);
         onGameEvent?.('puzzle', 'level_completed');
         speak('Amazing! You finished the puzzle!');
       }
@@ -96,8 +96,17 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
     }
   };
 
+  const startPuzzle = (nextIndex) => {
+    setPuzzleIndex(nextIndex);
+    setState(makePuzzleState(JIGSAW_PUZZLES[nextIndex]));
+    setDragging(null);
+    setSolved(false);
+    setMoves(0);
+    setCompletionMessage('');
+  };
+
   const handleNextPuzzle = () => {
-    setPuzzleIndex((prev) => (prev + 1) % JIGSAW_PUZZLES.length);
+    startPuzzle((puzzleIndex + 1) % JIGSAW_PUZZLES.length);
   };
 
   return (
@@ -188,10 +197,10 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
         {solved && (
           <div className="bg-white/90 p-6 rounded-3xl shadow-xl text-center">
             <div className="text-5xl mb-2">🎉</div>
-            <h3 className="text-2xl font-black text-orange-700">{getPraise()}</h3>
+            <h3 className="text-2xl font-black text-orange-700">{completionMessage}</h3>
             <div className="flex gap-4 justify-center mt-3">
               <button onClick={handleNextPuzzle} className="text-orange-600 font-semibold">Next puzzle</button>
-              <button onClick={() => { setState(initPieces()); setSolved(false); setMoves(0); }} className="text-orange-600 font-semibold">Replay</button>
+              <button onClick={() => startPuzzle(puzzleIndex)} className="text-orange-600 font-semibold">Replay</button>
             </div>
           </div>
         )}

@@ -11,6 +11,44 @@ export const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
   </button>
 );
 
+export const PracticeProgress = ({
+  skill,
+  completed,
+  target = 5,
+  accent = 'indigo',
+  className = '',
+}) => {
+  const safeCompleted = Math.min(Math.max(completed, 0), target);
+  const done = safeCompleted >= target;
+  const palette = {
+    amber: 'bg-amber-500 text-amber-800 border-amber-200',
+    cyan: 'bg-cyan-500 text-cyan-800 border-cyan-200',
+    fuchsia: 'bg-fuchsia-500 text-fuchsia-800 border-fuchsia-200',
+    indigo: 'bg-indigo-500 text-indigo-800 border-indigo-200',
+    lime: 'bg-lime-500 text-lime-800 border-lime-200',
+    orange: 'bg-orange-500 text-orange-800 border-orange-200',
+    sky: 'bg-sky-500 text-sky-800 border-sky-200',
+  }[accent] || 'bg-indigo-500 text-indigo-800 border-indigo-200';
+  const [fill, text, border] = palette.split(' ');
+
+  return (
+    <div className={`mx-auto mt-3 w-full max-w-sm rounded-2xl border-2 bg-white/75 px-4 py-3 shadow-sm backdrop-blur ${border} ${className}`}>
+      <div className="flex items-center justify-between gap-3">
+        <div>
+          <p className={`text-xs font-black uppercase tracking-[0.14em] ${text}`}>Skill run</p>
+          <p className="text-sm font-bold text-slate-600">{skill}</p>
+        </div>
+        <span className={`rounded-full px-2.5 py-1 text-xs font-black ${done ? `${fill} text-white` : `${text} bg-white`}`} aria-live="polite">
+          {done ? 'Complete!' : `${safeCompleted}/${target}`}
+        </span>
+      </div>
+      <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200" role="progressbar" aria-label={`${skill} skill run`} aria-valuemin="0" aria-valuemax={target} aria-valuenow={safeCompleted}>
+        <div className={`h-full rounded-full transition-all duration-300 ${fill}`} style={{ width: `${(safeCompleted / target) * 100}%` }} />
+      </div>
+    </div>
+  );
+};
+
 export const CelebrationOverlay = ({ celebration }) => {
   if (!celebration) return null;
 
