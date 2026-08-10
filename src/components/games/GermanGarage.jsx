@@ -1,254 +1,151 @@
-import { useState, useEffect } from 'react';
-import { Home, Palette } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { Home, Star, Volume2 } from 'lucide-react';
 import { GERMAN_COLORS, GERMAN_MATCH_MODES, GERMAN_NUMBERS } from '../../data/index.js';
-import { pickRandom, getPraise, buildParkRound, buildMatchRound } from '../../utils.js';
+import { buildMatchRound } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import garageScene from '../../assets/german-garage/paint-car.png';
+
+const TAB_ICONS = {
+  paint: '🎨', park: '🏠', numbers: '🔢', animals: '🐯', shapes: '⭐', foods: '🍎',
+  vehicles: '🚙', body: '✋', greetings: '💬',
+};
+
+const MODE_COPY = {
+  paint: { mission: 'FARBEN-MISSION', instruction: 'Find the colour', helper: 'Tap the matching paint colour' },
+  park: { mission: 'GARAGEN-MISSION', instruction: 'Choose the garage', helper: 'Drive to the matching colour door' },
+  numbers: { mission: 'ZAHLEN-MISSION', instruction: 'Find the number', helper: 'Listen, then choose the number' },
+  animals: { mission: 'TIER-MISSION', instruction: 'Find the animal', helper: 'Which animal did you hear?' },
+  shapes: { mission: 'FORMEN-MISSION', instruction: 'Match the shape', helper: 'Choose the matching shape' },
+  foods: { mission: 'ESSEN-MISSION', instruction: 'Pack the snack', helper: 'Choose the named food' },
+  vehicles: { mission: 'FAHRZEUG-MISSION', instruction: 'Choose the vehicle', helper: 'Which vehicle did you hear?' },
+  body: { mission: 'KÖRPER-MISSION', instruction: 'Touch the body part', helper: 'Choose the named body part' },
+  greetings: { mission: 'GRÜSSE-MISSION', instruction: 'Choose the word', helper: 'Listen to the German greeting' },
+};
 
 const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
   const [mode, setMode] = useState('paint');
-  const [targetColor, setTargetColor] = useState(() => pickRandom(GERMAN_COLORS));
-  const [painted, setPainted] = useState(false);
-  const [feedback, setFeedback] = useState('');
-  const [parkRound, setParkRound] = useState(buildParkRound);
-  const [parkFeedback, setParkFeedback] = useState('');
+  const [paintRound, setPaintRound] = useState(() => buildMatchRound(GERMAN_COLORS));
+  const [parkRound, setParkRound] = useState(() => buildMatchRound(GERMAN_COLORS));
   const [matchRound, setMatchRound] = useState(() => buildMatchRound(GERMAN_NUMBERS));
-  const [matchFeedback, setMatchFeedback] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [stars, setStars] = useState(0);
 
   const matchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === mode);
-  const modeTabs = [
+  const round = mode === 'paint' ? paintRound : mode === 'park' ? parkRound : matchRound;
+  const copy = MODE_COPY[mode];
+  const modeTabs = useMemo(() => [
     { id: 'paint', label: 'Farben' },
     { id: 'park', label: 'Garage' },
-    ...GERMAN_MATCH_MODES.map((entry) => ({ id: entry.id, label: entry.label })),
-  ];
+    ...GERMAN_MATCH_MODES.map(({ id, label }) => ({ id, label })),
+  ], []);
+
+  const narration = useMemo(() => {
+    if (!round?.target) return '';
+    if (mode === 'paint') return `Finde die Farbe ${round.target.name}.`;
+    if (mode === 'park') return `Fahre zum Tor mit der Farbe ${round.target.name}.`;
+    return `Zeig mir ${round.target.name}.`;
+  }, [mode, round]);
 
   useEffect(() => {
-    if (mode === 'paint') {
-      speak(`Finde ${targetColor.name}`, { lang: 'de-DE', rate: 0.85, pitch: 1.05 });
-      return;
-    }
-    if (mode === 'park') {
-      speak(`Parke in ${parkRound.target.name}`, { lang: 'de-DE', rate: 0.85, pitch: 1.05 });
-      return;
-    }
-    if (matchMode) {
-      speak(`${matchMode.prompt} ${matchRound.target.name}`, {
-        lang: 'de-DE',
-        rate: 0.85,
-        pitch: 1.05,
-      });
-    }
-  }, [mode, targetColor.name, parkRound.target.name, matchMode, matchRound.target?.name, speak]);
+    if (narration) speak(narration, { lang: 'de-DE', rate: 0.82, pitch: 1 });
+  }, [narration, speak]);
 
-  const nextPaint = () => {
-    const next = pickRandom(GERMAN_COLORS);
-    setTargetColor(next);
-    setPainted(false);
+  const makeNextRound = () => {
     setFeedback('');
+    if (mode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS));
+    else if (mode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS));
+    else if (matchMode) setMatchRound(buildMatchRound(matchMode.items));
   };
 
-  const nextPark = () => {
-    setParkRound(buildParkRound());
-    setParkFeedback('');
-  };
-
-  const nextMatch = () => {
-    if (!matchMode) return;
-    setMatchRound(buildMatchRound(matchMode.items));
-    setMatchFeedback('');
-  };
-
-  const handlePaint = (colorObj) => {
-    if (colorObj.name === targetColor.name) {
-      const praise = getPraise();
-      setPainted(true);
-      setFeedback(praise);
-      playSfx('success');
-      onCelebrate(praise, 5, 200);
-      setTimeout(nextPaint, 950);
-    } else {
-      setFeedback('Try again!');
+  const choose = (option) => {
+    if (option.name !== round.target.name) {
+      setFeedback('Noch einmal — try again!');
       playSfx('oops');
+      speak(narration, { lang: 'de-DE', rate: 0.78, pitch: 1 });
+      return;
     }
-  };
-
-  const handlePark = (colorObj) => {
-    if (colorObj.name === parkRound.target.name) {
-      const praise = getPraise();
-      setParkFeedback(praise);
-      playSfx('success');
-      onCelebrate(praise, 6, 200);
-      setTimeout(nextPark, 950);
-    } else {
-      setParkFeedback('Nope, try the other garage!');
-      playSfx('oops');
-    }
-  };
-
-  const handleMatchPick = (option) => {
-    if (!matchMode) return;
-    if (option.name === matchRound.target.name) {
-      const praise = getPraise();
-      setMatchFeedback(praise);
-      playSfx('success');
-      onCelebrate(praise, 5, 200);
-      setTimeout(nextMatch, 1400);
-    } else {
-      setMatchFeedback('Nochmal!');
-      playSfx('oops');
-    }
+    setFeedback('Richtig! Great listening!');
+    setStars((value) => Math.min(10, value + 1));
+    playSfx('success');
+    speak(`Richtig! ${round.target.name}.`, { lang: 'de-DE', rate: 0.82, pitch: 1 });
+    onCelebrate('Richtig!', 4, 120);
+    window.setTimeout(makeNextRound, 850);
   };
 
   const selectMode = (nextMode) => {
-    const nextMatchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === nextMode);
     setMode(nextMode);
-    if (nextMatchMode) {
-      setMatchRound(buildMatchRound(nextMatchMode.items));
-      setMatchFeedback('');
-    }
+    setFeedback('');
+    const nextMatchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === nextMode);
+    if (nextMode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS));
+    else if (nextMode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS));
+    else if (nextMatchMode) setMatchRound(buildMatchRound(nextMatchMode.items));
     playSfx('click');
   };
 
-  return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-orange-50 via-slate-100 to-orange-100 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-10 right-10 w-52 h-52 bg-orange-200/60 rounded-full blur-3xl" />
-        <div className="absolute bottom-10 left-0 w-60 h-60 bg-blue-200/40 rounded-full blur-3xl" />
-      </div>
+  const renderOption = (option) => {
+    const isColour = mode === 'paint' || mode === 'park';
+    return (
+      <button
+        key={`${mode}-${option.name}`}
+        onClick={() => choose(option)}
+        className="group min-h-28 rounded-[1.6rem] border-4 border-white bg-white p-3 text-center shadow-[0_7px_0_rgba(148,92,20,0.18),0_13px_28px_rgba(148,92,20,0.12)] transition hover:-translate-y-1 active:translate-y-1 active:shadow-none"
+        aria-label={option.name}
+      >
+        {isColour ? (
+          <span className="mx-auto mb-2 block h-14 w-14 rounded-2xl border-4 border-black/5 shadow-inner" style={{ backgroundColor: option.hex }} />
+        ) : (
+          <span className="mb-2 block text-5xl transition-transform group-hover:scale-110">{option.emoji}</span>
+        )}
+        <span className="text-base font-black text-slate-800 sm:text-lg">{option.name}</span>
+      </button>
+    );
+  };
 
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button
-          onClick={onBack}
-          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
-        >
-          <Home />
-        </button>
-        <div className="flex gap-2 bg-white/80 p-1 rounded-full shadow-sm overflow-x-auto no-scrollbar">
+  return (
+    <div className="min-h-screen overflow-hidden bg-[#fff5dc] text-slate-900">
+      <header className="relative z-20 flex items-center gap-3 px-3 pt-3 sm:px-5">
+        <button onClick={onBack} className="game-icon-button !bg-amber-400 !text-white" aria-label="Back to games"><Home /></button>
+        <nav className="flex flex-1 gap-1 overflow-x-auto rounded-[1.7rem] border-2 border-amber-100 bg-white/90 p-1.5 shadow-lg no-scrollbar" aria-label="German Garage lessons">
           {modeTabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => selectMode(tab.id)}
-              className={`px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap ${
-                mode === tab.id ? 'bg-blue-500 text-white' : 'text-slate-600'
-              }`}
+              className={`flex shrink-0 items-center gap-1.5 rounded-2xl px-3 py-2 text-xs font-black transition sm:text-sm ${mode === tab.id ? 'bg-blue-600 text-white shadow-md' : 'text-slate-700 hover:bg-amber-50'}`}
+              aria-pressed={mode === tab.id}
             >
-              {tab.label}
+              <span>{TAB_ICONS[tab.id]}</span>{tab.label}
             </button>
           ))}
-        </div>
+        </nav>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </div>
+      </header>
 
-      <div className="flex-1 flex flex-col items-center justify-center p-4 relative z-10">
-        <div className="bg-white p-6 rounded-3xl shadow-xl border-4 border-slate-200 text-center mb-8 w-full max-w-md">
-          <p className="text-slate-500 mb-2 font-bold uppercase tracking-wider">
-            {mode === 'paint' && 'Mechanic Mission'}
-            {mode === 'park' && 'Garage Mission'}
-            {matchMode && `${matchMode.label} Mission`}
-          </p>
-          <h2 className="text-3xl font-black text-slate-800 mb-2">
-            {mode === 'paint' && 'Paint the Car...'}
-            {mode === 'park' && 'Park the Car...'}
-            {matchMode && `Finde ${matchRound.target?.name}`}
-          </h2>
-          <div className="text-4xl font-black text-blue-600 mb-2">
-            {mode === 'paint' && targetColor.name}
-            {mode === 'park' && parkRound.target.name}
-            {matchMode && matchRound.target?.emoji}
+      <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pb-8 pt-4">
+        <div className="mb-3 flex w-full items-center justify-between gap-3">
+          <div className="rounded-2xl bg-white px-4 py-2 shadow-md">
+            <div className="flex items-center gap-2 font-black text-amber-600"><Star fill="currentColor" size={20} /> {stars} / 10</div>
+            <div className="mt-1 h-2 w-28 overflow-hidden rounded-full bg-amber-100"><div className="h-full rounded-full bg-blue-500 transition-all" style={{ width: `${stars * 10}%` }} /></div>
           </div>
-          {mode === 'paint' && feedback && (
-            <div className="text-xl font-bold text-green-500 animate-bounce">{feedback}</div>
-          )}
-          {mode === 'park' && parkFeedback && (
-            <div className="text-xl font-bold text-green-500 animate-bounce">{parkFeedback}</div>
-          )}
-          {matchMode && matchFeedback && (
-            <div className="text-xl font-bold text-green-500 animate-bounce">{matchFeedback}</div>
-          )}
+          <div className="flex-1 rounded-[2rem] border-4 border-white bg-white/95 px-4 py-3 text-center shadow-xl sm:px-8">
+            <p className="text-xs font-black tracking-[0.18em] text-blue-500">{copy.mission}</p>
+            <p className="text-xl font-black text-slate-800 sm:text-3xl">{copy.instruction}…</p>
+            <div className="flex items-center justify-center gap-2">
+              <strong className="text-3xl font-black text-blue-600 sm:text-5xl">{round.target.name}</strong>
+              <button onClick={() => speak(narration, { lang: 'de-DE', rate: 0.82, pitch: 1 })} className="rounded-full bg-blue-600 p-3 text-white shadow-md" aria-label={`Hear ${round.target.name} in German`}><Volume2 /></button>
+            </div>
+          </div>
         </div>
 
-        {mode === 'paint' && (
-          <>
-            <div className="relative w-72 h-36 mb-10">
-              <div className="absolute inset-0 bg-slate-200 rounded-3xl border-4 border-slate-300 shadow-inner" />
-              <div
-                className="absolute bottom-4 left-6 right-6 h-20 rounded-2xl shadow-lg transition-colors duration-500"
-                style={{ backgroundColor: painted ? targetColor.hex : '#cbd5e1' }}
-              />
-              <div
-                className="absolute bottom-20 left-16 right-16 h-16 rounded-t-full transition-colors duration-500"
-                style={{ backgroundColor: painted ? targetColor.hex : '#cbd5e1' }}
-              />
-              <div className="absolute -bottom-4 left-12 w-12 h-12 bg-slate-800 rounded-full border-4 border-slate-300" />
-              <div className="absolute -bottom-4 right-12 w-12 h-12 bg-slate-800 rounded-full border-4 border-slate-300" />
-              <div className="absolute bottom-16 left-12 text-4xl animate-bounce-slow">🐯</div>
-            </div>
+        <section className="relative h-48 w-full overflow-hidden rounded-[2rem] border-4 border-white shadow-xl sm:h-72">
+          <img src={garageScene} alt="Friendly car waiting inside a bright garage" className="h-full w-full object-cover object-center" />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/65 to-transparent px-5 pb-4 pt-12 text-center text-sm font-bold text-white sm:text-base">{copy.helper}</div>
+        </section>
 
-            <div className="grid grid-cols-5 gap-3 w-full max-w-xl">
-              {GERMAN_COLORS.map((color) => (
-                <button
-                  key={color.name}
-                  onClick={() => handlePaint(color)}
-                  className="flex flex-col items-center gap-2 group focus:outline-none"
-                >
-                  <div
-                    className="w-14 h-20 rounded-xl shadow-md border-b-4 border-black/10 group-active:scale-95 transition-transform relative overflow-hidden group-hover:brightness-110"
-                    style={{ backgroundColor: color.hex }}
-                  >
-                    <div className="absolute top-0 w-full h-4 bg-white/20" />
-                    <div className="absolute bottom-2 right-2 text-white/50">
-                      <Palette size={14} />
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-slate-600">{color.name}</span>
-                </button>
-              ))}
-            </div>
-          </>
-        )}
-
-        {mode === 'park' && (
-          <div className="w-full max-w-3xl flex flex-col items-center gap-6">
-            <div className="text-6xl">🚗</div>
-            <div
-              className="w-60 h-20 rounded-3xl shadow-lg border-4 border-white"
-              style={{ backgroundColor: parkRound.target.hex }}
-            />
-            <div className="grid grid-cols-2 gap-6 w-full">
-              {parkRound.options.map((option) => (
-                <button
-                  key={option.name}
-                  onClick={() => handlePark(option)}
-                  className="group relative bg-white rounded-3xl p-4 shadow-lg border-4 border-slate-200 hover:-translate-y-1 transition"
-                >
-                  <div className="text-sm font-bold text-slate-500 mb-2">Garage</div>
-                  <div className="text-2xl font-black text-slate-700 mb-3">{option.name}</div>
-                  <div className="h-24 rounded-2xl border-4 border-slate-200 overflow-hidden relative">
-                    <div className="absolute inset-0" style={{ backgroundColor: option.hex }} />
-                    <div className="absolute inset-x-4 top-4 h-2 bg-white/30 rounded-full" />
-                    <div className="absolute inset-x-4 top-10 h-2 bg-white/30 rounded-full" />
-                    <div className="absolute inset-x-4 top-16 h-2 bg-white/30 rounded-full" />
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {matchMode && (
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full max-w-2xl">
-            {matchRound.options.map((option) => (
-              <button
-                key={`${mode}-${option.name}`}
-                onClick={() => handleMatchPick(option)}
-                className="bg-white rounded-3xl p-4 shadow-lg border-4 border-slate-200 hover:-translate-y-1 transition"
-              >
-                <div className="text-4xl mb-2">{option.emoji}</div>
-                <div className="text-lg font-black text-slate-700">{option.name}</div>
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
+        <div className="mt-4 grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          {round.options.map(renderOption)}
+        </div>
+        <div className={`mt-4 min-h-8 text-center text-lg font-black ${feedback.startsWith('Richtig') ? 'text-emerald-600' : 'text-rose-600'}`} aria-live="polite">{feedback}</div>
+      </main>
     </div>
   );
 };

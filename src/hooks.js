@@ -196,6 +196,14 @@ export const useSfx = (enabled) => {
         playTone(ctx, { freq: 960, duration: 0.08, gain: 0.1, start: 0.2, type: 'square' });
       }
 
+      if (name === 'welcome') {
+        // A low, warm three-note welcome. Deliberately avoids the sharp
+        // square-wave "ping" used by launch and notification effects.
+        playTone(ctx, { freq: 261.63, duration: 0.34, gain: 0.075, type: 'sine', soft: true });
+        playTone(ctx, { freq: 329.63, duration: 0.34, gain: 0.07, start: 0.12, type: 'sine', soft: true });
+        playTone(ctx, { freq: 392, duration: 0.48, gain: 0.065, start: 0.24, type: 'triangle', soft: true });
+      }
+
       if (name === 'whoosh') {
         playSweep(ctx, { from: 1400, to: 180, duration: 0.5, gain: 0.2, type: 'sine' });
       }

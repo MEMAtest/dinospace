@@ -60,7 +60,10 @@ export default async function handler(request, response) {
   }
 
   const apiKey = process.env.ELEVENLABS_API_KEY;
-  const voiceId = process.env.ELEVENLABS_VOICE_ID;
+  const requestedLanguage = payloadLanguage(request.body);
+  const voiceId = requestedLanguage === 'de'
+    ? (process.env.ELEVENLABS_GERMAN_VOICE_ID || process.env.ELEVENLABS_VOICE_ID)
+    : process.env.ELEVENLABS_VOICE_ID;
   if (!apiKey || !voiceId) {
     response.status(204).end();
     return;
@@ -131,4 +134,12 @@ export default async function handler(request, response) {
   } catch {
     respondJson(response, 502, { error: 'Premium voice is temporarily unavailable' });
   }
+}
+
+function payloadLanguage(rawPayload) {
+  let payload = rawPayload;
+  if (typeof payload === 'string') {
+    try { payload = JSON.parse(payload); } catch { return 'en'; }
+  }
+  return typeof payload?.language === 'string' ? payload.language.toLowerCase().split('-')[0] : 'en';
 }

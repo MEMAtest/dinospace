@@ -28,7 +28,7 @@ const IntroScreen = ({ onStart, playSfx, soundOn, onToggleSound, speak }) => {
         </p>
         <button
           onClick={() => {
-            playSfx('launch');
+            playSfx('welcome');
             onStart();
           }}
           className="mt-8 bg-blue-500 text-white text-2xl font-black px-10 py-4 rounded-full shadow-[0_8px_0_rgba(29,78,216,0.4)] hover:bg-blue-600 active:translate-y-1 active:shadow-none transition"
