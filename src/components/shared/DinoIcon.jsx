@@ -1,3 +1,7 @@
+import { DinoSticker } from './StickerArt.jsx';
+
+const STICKER_SPECIES = new Set(['trex', 'brachio', 'trike', 'stego', 'raptor', 'ankyl', 'spino', 'ptero']);
+
 const SPECIES = {
   trex: { name: 'Tyrannosaurus rex', primary: '#d9783e', shade: '#963d2b', belly: '#ffd3a6', kind: 'biped', feature: 'trex' },
   brachio: { name: 'Brachiosaurus', primary: '#43b9b1', shade: '#177d79', belly: '#c6f4df', kind: 'long-neck', feature: 'brachio' },
@@ -146,6 +150,10 @@ const Ptero = ({ dino }) => (
 );
 
 const DinoIcon = ({ species = 'trex', size = 64, className = '' }) => {
+  if (STICKER_SPECIES.has(species)) {
+    return <DinoSticker species={species} size={size} className={className} />;
+  }
+
   const dino = SPECIES[species] || SPECIES.trex;
   const label = dino.name;
   const gradientId = `dino-main-${species}`;

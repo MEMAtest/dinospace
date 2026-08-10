@@ -1,5 +1,6 @@
 import { ArrowRight, Download, Headphones, Home, Pause, Play, Sparkles, Volume2, VolumeX } from 'lucide-react';
 import { STICKERS, GAME_LABELS } from '../../data/index.js';
+import { RewardSticker } from './StickerArt.jsx';
 
 export const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
   <button
@@ -134,7 +135,9 @@ export const RewardsShelf = ({ points }) => {
                 unlocked ? 'bg-amber-50 border-amber-200' : 'bg-slate-100 border-slate-200'
               }`}
             >
-              <div className={`text-3xl ${unlocked ? '' : 'opacity-30'}`}>{sticker.emoji}</div>
+              <div className="flex h-14 items-center justify-center">
+                <RewardSticker rewardId={sticker.id} size={52} locked={!unlocked} />
+              </div>
               <div className="text-sm font-bold text-slate-600 mt-1">{sticker.name}</div>
               <div className="text-xs text-slate-400">{sticker.points}⭐</div>
             </div>
