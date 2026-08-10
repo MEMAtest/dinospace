@@ -41,6 +41,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
       setDragging(null);
       return;
     }
+    setCompletionMessage('');
     setState((prev) => {
       const next = { placed: [...prev.placed], tray: [...prev.tray] };
       const existingPiece = next.placed[slotIndex];
