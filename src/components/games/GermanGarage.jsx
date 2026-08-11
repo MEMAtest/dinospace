@@ -21,7 +21,7 @@ const TAB_ICONS = {
 
 const MODE_COPY = {
   paint: { mission: 'FARBEN-MISSION', instruction: 'Find the colour', helper: 'Tap the matching paint colour' },
-  park: { mission: 'GARAGEN-MISSION', instruction: 'Choose the garage', helper: 'Drive to the matching colour door' },
+  park: { mission: 'GARAGEN-MISSION', instruction: 'Choose the garage', helper: 'Tap the matching coloured garage door' },
   numbers: { mission: 'ZAHLEN-MISSION', instruction: 'Find the number', helper: 'Listen, then choose the number' },
   animals: { mission: 'TIER-MISSION', instruction: 'Find the animal', helper: 'Which animal did you hear?' },
   shapes: { mission: 'FORMEN-MISSION', instruction: 'Match the shape', helper: 'Choose the matching shape' },
@@ -92,7 +92,6 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) 
 
   const makeNextRound = () => {
     setFeedback('');
-    setPaintedColour(null);
     if (mode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS));
     else if (mode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS));
     else if (matchMode) setMatchRound(buildMatchRound(matchMode.items));
@@ -126,7 +125,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) 
   };
 
   const renderOption = (option) => {
-    const isColour = mode === 'paint' || mode === 'park';
+    const isColour = mode === 'paint';
     return (
       <button
         key={`${mode}-${option.name}`}
@@ -134,7 +133,12 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) 
         className="group min-h-28 rounded-[1.6rem] border-4 border-white bg-white p-3 text-center shadow-[0_7px_0_rgba(148,92,20,0.18),0_13px_28px_rgba(148,92,20,0.12)] transition hover:-translate-y-1 active:translate-y-1 active:shadow-none"
         aria-label={option.name}
       >
-        {isColour ? (
+        {mode === 'park' ? (
+          <span className="mx-auto mb-2 block w-20 overflow-hidden rounded-xl border-4 border-slate-200 bg-amber-50 shadow-md" aria-hidden="true">
+            <span className="block bg-slate-700 py-1 text-lg leading-none">🏠</span>
+            <span className="block h-12 border-t-4 border-white/80" style={{ backgroundColor: option.hex, backgroundImage: 'repeating-linear-gradient(0deg, rgba(255,255,255,.22) 0 3px, transparent 3px 12px)' }} />
+          </span>
+        ) : isColour ? (
           <span className="mx-auto mb-2 block h-14 w-14 rounded-2xl border-4 border-black/5 shadow-inner" style={{ backgroundColor: option.hex }} />
         ) : (
           <span className="mb-2 block text-5xl transition-transform group-hover:scale-110">{option.emoji}</span>

@@ -9,6 +9,8 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [currentIndex, setCurrentIndex] = useState(0);
   const [caseMode, setCaseMode] = useState('upper');
   const [cleared, setCleared] = useState(false);
+  const [traceReady, setTraceReady] = useState(false);
+  const [traceComplete, setTraceComplete] = useState(false);
   const drawDistanceRef = useRef(0);
   const autoCompleteRef = useRef(false);
 
@@ -22,6 +24,8 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   useEffect(() => {
     drawDistanceRef.current = 0;
     autoCompleteRef.current = false;
+    setTraceReady(false);
+    setTraceComplete(false);
   }, [letterChar, cleared, caseMode]);
 
   useEffect(() => {
@@ -69,6 +73,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
       const distance = Math.hypot(x - lastX, y - lastY);
       drawDistanceRef.current += distance;
+      if (drawDistanceRef.current >= 220) setTraceReady(true);
 
       ctx.beginPath();
       ctx.moveTo(lastX, lastY);
@@ -95,6 +100,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       isDrawing = false;
       if (drawDistanceRef.current > 320 && !autoCompleteRef.current) {
         autoCompleteRef.current = true;
+        setTraceComplete(true);
         const praise = getPraise();
         onCelebrate(praise, 8, 300);
         playSfx('sparkle');
@@ -123,7 +129,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100">
       <div className="p-4 bg-white/70 flex justify-between items-center shadow-md z-10">
-        <button onClick={onBack} className="bg-white p-2 rounded-full hover:bg-white/80">
+        <button onClick={onBack} className="bg-white p-2 rounded-full hover:bg-white/80" aria-label="Back to all games">
           <Home />
         </button>
         <div className="text-center">
@@ -195,16 +201,18 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </button>
           <button
             onClick={() => {
-              if (autoCompleteRef.current) return;
+              if (!traceReady || autoCompleteRef.current) return;
               autoCompleteRef.current = true;
+              setTraceComplete(true);
               const praise = getPraise();
               onCelebrate(praise, 8, 250);
               playSfx('sparkle');
               speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
             }}
-            className="bg-blue-500 text-white font-bold px-6 py-2 rounded-full shadow"
+            disabled={!traceReady || traceComplete}
+            className="bg-blue-500 text-white font-bold px-6 py-2 rounded-full shadow disabled:cursor-not-allowed disabled:opacity-45"
           >
-            I did it!
+            {traceComplete ? 'Completed!' : traceReady ? 'Check trace!' : 'Trace first'}
           </button>
           <button
             onClick={() => {

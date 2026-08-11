@@ -69,7 +69,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       </div>
 
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-amber-700">Pattern Parade</h2>
           <p className="text-amber-700/70 font-semibold">Streak: {streak}</p>

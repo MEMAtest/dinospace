@@ -110,7 +110,7 @@ const HeroesGallery = ({ onBack, playSfx, speak }) => {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
       <SpaceStars />
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home className="text-white" /></button>
+        <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home className="text-white" /></button>
         <h2 className="text-2xl font-black text-white">🔭 Space Heroes</h2>
         <div className="w-10" />
       </div>
@@ -280,7 +280,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
         <SpaceStars />
         <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home className="text-white" /></button>
+          <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home className="text-white" /></button>
           <h2 className="text-3xl font-black text-white">👨‍🚀 Astronaut Academy</h2>
           <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="text-white" />
         </div>
@@ -315,7 +315,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
         <SpaceStars />
         <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={handleReset} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home className="text-white" /></button>
+          <button onClick={handleReset} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to Astronaut Academy missions"><Home className="text-white" /></button>
           <h2 className="text-2xl font-black text-white">👨‍🚀 Space Heroes</h2>
           <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="text-white" />
         </div>
@@ -391,7 +391,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
       <SpaceStars />
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={handleReset} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home className="text-white" /></button>
+        <button onClick={handleReset} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to Astronaut Academy missions"><Home className="text-white" /></button>
         <div className="text-center flex-1 mx-2">
           <h2 className="text-xl font-black text-white">{cat.emoji} {cat.name}</h2>
           <RocketProgress current={qIndex} total={cat.items.length} />

@@ -351,9 +351,14 @@ export const DailyChallengeBanner = ({ challenge, progress, onGo, completed }) =
 
 export const DailyChallengeTracker = ({ challenge, progress, completed, active, onGo, placement = 'bottom-right' }) => {
   const percentage = Math.min(100, (progress / challenge.target) * 100);
+  const positionClass = placement === 'top-center'
+    ? 'left-1/2 top-20 -translate-x-1/2'
+    : placement === 'top-right'
+      ? 'right-3 top-20'
+      : 'bottom-3 right-3';
   return (
     <div
-      className={`fixed right-3 z-40 w-24 pointer-events-auto transition-all ${placement === 'top-right' ? 'top-20' : 'bottom-3'} ${
+      className={`fixed z-40 w-24 pointer-events-auto transition-all ${positionClass} ${
         completed ? 'animate-challenge-complete' : ''
       }`}
       title={challenge.desc}
@@ -424,10 +429,10 @@ export const MenuCard = ({
       </div>
       <div>
         <div className="mb-2 text-xs font-black uppercase tracking-[0.16em] text-white/65">{category}</div>
-        <h2 className="text-xl font-black text-white leading-tight mb-1 drop-shadow-md">{title}</h2>
-        <p className="text-sm text-white/90 font-bold">{desc}</p>
+        <h2 className="mb-1 pr-10 text-xl font-black leading-tight text-white drop-shadow-md">{title}</h2>
+        <p className="pr-10 text-sm font-bold text-white/90">{desc}</p>
       </div>
-      <div className="absolute bottom-5 right-5 bg-white/25 p-1.5 rounded-full opacity-70 transition-all group-hover:translate-x-1 group-hover:bg-white/35 group-hover:opacity-100">
+      <div className="absolute bottom-4 right-4 bg-white/25 p-1.5 rounded-full opacity-70 transition-all group-hover:translate-x-1 group-hover:bg-white/35 group-hover:opacity-100">
         <ArrowRight className="text-white" size={19} />
       </div>
     </div>

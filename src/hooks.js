@@ -368,6 +368,7 @@ export const useVoice = (enabled) => {
   const voiceRef = useRef(null);
   const queueRef = useRef(null);
   const premiumRequestRef = useRef(null);
+  const premiumRequestKeyRef = useRef(null);
   const premiumAudioRef = useRef(null);
   const premiumAudioUrlRef = useRef(null);
   const fallbackTimerRef = useRef(null);
@@ -404,6 +405,7 @@ export const useVoice = (enabled) => {
       premiumRequestRef.current.abort();
       premiumRequestRef.current = null;
     }
+    premiumRequestKeyRef.current = null;
     stopPremiumPlayback();
   }, [clearPendingPremiumGesture, stopPremiumPlayback]);
 
@@ -512,6 +514,8 @@ export const useVoice = (enabled) => {
     if (!text) return;
 
     const { lang = 'en-US', premium = true } = options;
+    const requestKey = `${lang}:${text}`;
+    if (premiumRequestRef.current && premiumRequestKeyRef.current === requestKey) return;
     cancelPremiumVoice();
     window.speechSynthesis?.cancel();
     if (queueRef.current) {
@@ -552,7 +556,7 @@ export const useVoice = (enabled) => {
       if (!premiumOnly) fallBackToDevice();
     };
 
-    const cacheKey = `${lang}:${text}`;
+    const cacheKey = requestKey;
     const waitForPremiumGesture = (audioBlob) => {
       clearPendingPremiumGesture();
       if (fallbackTimerRef.current) {
@@ -642,6 +646,7 @@ export const useVoice = (enabled) => {
     setPremiumStatus('loading');
     const controller = new AbortController();
     premiumRequestRef.current = controller;
+    premiumRequestKeyRef.current = requestKey;
     window.fetch(VOICE_API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -662,10 +667,12 @@ export const useVoice = (enabled) => {
         if (fellBack || controller.signal.aborted) return;
         if (!audioBlob) {
           premiumRequestRef.current = null;
+          premiumRequestKeyRef.current = null;
           handlePremiumFailure();
           return;
         }
         premiumRequestRef.current = null;
+        premiumRequestKeyRef.current = null;
         setPremiumStatus('ready');
         if (premiumCacheRef.current.size >= MAX_PREMIUM_VOICE_CACHE) {
           premiumCacheRef.current.delete(premiumCacheRef.current.keys().next().value);
@@ -676,6 +683,7 @@ export const useVoice = (enabled) => {
       .catch((error) => {
         if (error?.name === 'AbortError') return;
         premiumRequestRef.current = null;
+        premiumRequestKeyRef.current = null;
         handlePremiumFailure();
       });
   }, [cancelPremiumVoice, clearPendingPremiumGesture, speakOnDevice]);

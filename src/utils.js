@@ -147,7 +147,23 @@ export const getTodaysChallenge = () => {
 export const getUnlockedStickers = (points) => STICKERS.filter((sticker) => points >= sticker.points);
 
 export const loadSaved = (key, fallback) => {
-  try { const v = localStorage.getItem(key); return v !== null ? JSON.parse(v) : fallback; } catch { return fallback; }
+  try {
+    const value = localStorage.getItem(key);
+    if (value === null) return fallback;
+    const parsed = JSON.parse(value);
+
+    if (fallback === null) return parsed;
+    if (Array.isArray(fallback)) return Array.isArray(parsed) ? parsed : fallback;
+    if (typeof fallback === 'number') return typeof parsed === 'number' && Number.isFinite(parsed) ? parsed : fallback;
+    if (typeof fallback === 'string') return typeof parsed === 'string' ? parsed : fallback;
+    if (typeof fallback === 'boolean') return typeof parsed === 'boolean' ? parsed : fallback;
+    if (typeof fallback === 'object') {
+      return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : fallback;
+    }
+    return typeof parsed === typeof fallback ? parsed : fallback;
+  } catch {
+    return fallback;
+  }
 };
 
 export const saveSafe = (key, value) => {
@@ -199,4 +215,3 @@ export const computeValidMoves = (pieceId, [r, c], boardSize) => {
 
   return moves;
 };
-

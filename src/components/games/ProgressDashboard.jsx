@@ -14,7 +14,7 @@ const ProgressDashboard = ({ points, gamesPlayed, streak, onBack }) => {
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-200/60 rounded-full blur-3xl" />
       </div>
       <div className="flex items-center justify-between w-full max-w-4xl mb-6 z-10">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home /></button>
         <h2 className="text-3xl font-black text-indigo-700">My Progress</h2>
         <div />
       </div>

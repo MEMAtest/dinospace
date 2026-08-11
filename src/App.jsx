@@ -71,14 +71,14 @@ export default function App() {
   const [screen, setScreen] = useState('intro');
   const [menuFilter, setMenuFilter] = useState('All');
   const [soundOn, setSoundOn] = useState(true);
-  const [points, setPoints] = useState(() => loadSaved('amari_points', 0));
+  const [points, setPoints] = useState(() => Math.max(0, loadSaved('amari_points', 0)));
   const [celebration, setCelebration] = useState(null);
   const [, setSessionPoints] = useState({});
   const [paused, setPaused] = useState(false);
   const [showBreak, setShowBreak] = useState(false);
-  const [streak, setStreak] = useState(() => loadSaved('amari_streak', 0));
+  const [streak, setStreak] = useState(() => Math.max(0, loadSaved('amari_streak', 0)));
   const [lastPlayDate, setLastPlayDate] = useState(() => loadSaved('amari_lastplay', ''));
-  const [challengeProgress, setChallengeProgress] = useState(() => loadSaved('amari_challenge_progress', 0));
+  const [challengeProgress, setChallengeProgress] = useState(() => Math.max(0, loadSaved('amari_challenge_progress', 0)));
   const [challengeCompleted, setChallengeCompleted] = useState(() => loadSaved('amari_challenge_done', false));
   const [gamesPlayed, setGamesPlayed] = useState(() => loadSaved('amari_games_played', {}));
   const pointsRef = useRef(points);
@@ -230,6 +230,8 @@ export default function App() {
         soundOn={soundOn}
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
+        premiumEnabled={premiumEnabled}
+        premiumStatus={premiumStatus}
       />
     );
   } else if (screen === 'menu') {
@@ -676,7 +678,7 @@ export default function App() {
           completed={challengeCompleted}
           active={screen === todaysChallenge.game}
           onGo={goToTodaysChallenge}
-          placement={['solar', 'puzzle'].includes(screen) ? 'top-right' : 'bottom-right'}
+          placement={screen === 'solar' ? 'top-center' : screen === 'puzzle' ? 'top-right' : 'bottom-right'}
         />
       )}
       <CelebrationOverlay celebration={celebration} />

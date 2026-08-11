@@ -266,7 +266,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     };
   }, []);
 
-  return <div ref={mountRef} className="h-[58vh] min-h-[430px] w-full cursor-grab touch-none active:cursor-grabbing lg:h-full lg:min-h-0" />;
+  return <div ref={mountRef} className="h-[58vh] min-h-[430px] w-full cursor-grab touch-none active:cursor-grabbing md:h-full md:min-h-0" />;
 });
 
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
@@ -276,6 +276,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [discoveredFacts, setDiscoveredFacts] = useState({});
   const [badges, setBadges] = useState([]);
   const [quizFeedback, setQuizFeedback] = useState('');
+  const [completedQuizzes, setCompletedQuizzes] = useState({});
   const [paused, setPaused] = useState(false);
 
   const selectPlanet = useCallback((planetName) => {
@@ -308,7 +309,9 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   };
 
   const handleQuiz = (option) => {
+    if (completedQuizzes[selectedPlanet.name]) return;
     if (option === selectedPlanet.quiz.answer) {
+      setCompletedQuizzes((current) => ({ ...current, [selectedPlanet.name]: true }));
       setQuizFeedback('Correct — mission complete!');
       playSfx('success');
       speak(`Correct. ${selectedPlanet.quiz.answer}.`);
@@ -330,7 +333,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   ).length;
 
   return (
-    <div className="h-screen overflow-hidden bg-[#030712] text-white">
+    <div className="min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden">
       <header className="relative z-30 flex items-center justify-between border-b border-white/10 bg-slate-950/80 px-4 py-3 backdrop-blur-xl">
         <button onClick={onBack} className="game-icon-button !bg-white/10 !text-white" aria-label="Back to all games"><Home /></button>
         <div className="text-center">
@@ -349,8 +352,8 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
       </header>
 
-      <main className="grid lg:h-[calc(100vh-77px)] lg:grid-cols-[minmax(0,1.7fr)_minmax(330px,0.78fr)]">
-        <section className="relative overflow-hidden border-b border-white/10 lg:border-b-0 lg:border-r">
+      <main className="grid md:h-[calc(100vh-77px)] md:grid-cols-[minmax(0,1.55fr)_minmax(300px,0.82fr)]">
+        <section className="relative overflow-hidden border-b border-white/10 md:border-b-0 md:border-r">
           <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} />
           <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-3 text-sm text-white/75 backdrop-blur">
             <div className="flex items-center gap-2 font-black text-white"><Rotate3D size={18} /> Drag to orbit</div>
@@ -402,12 +405,13 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </div>
         </section>
 
-        <aside className="max-h-none overflow-y-auto bg-gradient-to-b from-slate-900 to-slate-950 p-4 pb-24 lg:max-h-full lg:pb-16">
+        <aside className="max-h-none overflow-y-auto bg-gradient-to-b from-slate-900 to-slate-950 p-4 pb-24 md:max-h-full md:pb-16">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">Planet file</p>
               <h3 className="text-4xl font-black">{selectedPlanet.name}</h3>
               <p className="font-bold text-white/55">{selectedPlanet.subtitle}</p>
+              <p className="mt-1 text-[10px] font-black uppercase tracking-wide text-cyan-200/60">Scroll for facts and challenge ↓</p>
             </div>
             <div className="rounded-2xl bg-cyan-300/10 px-3 py-2 text-center">
               <div className="text-xl font-black text-cyan-300">{discoveredForPlanet}/3</div>
@@ -481,7 +485,8 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                 <button
                   key={option}
                   onClick={() => handleQuiz(option)}
-                  className="rounded-xl bg-white/10 px-3 py-2 text-sm font-black text-white/80 transition hover:bg-cyan-300 hover:text-slate-950"
+                  disabled={Boolean(completedQuizzes[selectedPlanet.name])}
+                  className="rounded-xl bg-white/10 px-3 py-2 text-sm font-black text-white/80 transition hover:bg-cyan-300 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:bg-white/10 disabled:hover:text-white/80"
                 >
                   {option}
                 </button>

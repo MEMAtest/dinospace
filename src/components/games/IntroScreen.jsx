@@ -2,7 +2,9 @@ import { ShieldCheck, Sparkles, Star, Trophy } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import astronautCrew from '../../assets/landing/amari-astronaut-robot.png';
 
-const IntroScreen = ({ onStart, playSfx, soundOn, onToggleSound, speak }) => {
+const IntroScreen = ({
+  onStart, playSfx, soundOn, onToggleSound, speak, premiumEnabled, premiumStatus,
+}) => {
   const startAdventure = () => {
     playSfx('welcome');
     onStart();
@@ -49,10 +51,22 @@ const IntroScreen = ({ onStart, playSfx, soundOn, onToggleSound, speak }) => {
           <div>
             <button
               onClick={() => speak('Welcome Amari! Your next learning adventure is ready.')}
-              className="mt-5 rounded-full px-4 py-2 font-bold text-cyan-200 transition hover:bg-white/10 hover:text-white"
+              disabled={premiumStatus === 'loading'}
+              aria-busy={premiumStatus === 'loading'}
+              aria-describedby="welcome-voice-status"
+              className="mt-5 rounded-full px-4 py-2 font-bold text-cyan-200 transition hover:bg-white/10 hover:text-white disabled:cursor-wait disabled:opacity-70"
             >
-              🔊 Hear the welcome
+              {premiumStatus === 'loading' ? '🎧 Getting the narrator…' : '🔊 Hear the welcome'}
             </button>
+            <p id="welcome-voice-status" className={`mx-auto mt-1 min-h-5 max-w-sm text-xs font-bold lg:mx-0 ${premiumStatus === 'unavailable' ? 'text-amber-200' : 'text-cyan-100/75'}`} role="status" aria-live="polite">
+              {premiumStatus === 'unavailable'
+                ? 'The ElevenLabs narrator could not connect. Check the connection, then tap to retry.'
+                : premiumStatus === 'ready'
+                  ? 'ElevenLabs narrator connected.'
+                  : premiumEnabled
+                    ? 'Uses the ElevenLabs narrator.'
+                    : 'Narrator connection is not configured.'}
+            </p>
           </div>
         </section>
 

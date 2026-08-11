@@ -69,6 +69,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         <button
           onClick={onBack}
           className="bg-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
+          aria-label="Back to all games"
         >
           <Home />
         </button>

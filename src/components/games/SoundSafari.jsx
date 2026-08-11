@@ -86,7 +86,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       </div>
 
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-emerald-700">Sound Safari</h2>
           <p className="text-emerald-700/70 font-semibold">Score: {score}</p>

@@ -114,6 +114,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <button
           onClick={onBack}
           className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+          aria-label="Back to all games"
         >
           <Home />
         </button>

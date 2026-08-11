@@ -130,7 +130,7 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
           <div className="absolute top-8 right-8 w-40 h-40 bg-amber-200/60 rounded-full blur-3xl" />
         </div>
         <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={() => setMode(null)} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
+          <button onClick={() => setMode(null)} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to Chess Explorers menu"><Home /></button>
           <h2 className="text-2xl font-black text-amber-800">♟ Meet the Pieces</h2>
           <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
         </div>
@@ -215,7 +215,7 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-purple-50 via-violet-50 to-purple-100 relative overflow-hidden">
         <ChessBackground />
         <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={() => setMode(null)} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
+          <button onClick={() => setMode(null)} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to Chess Explorers menu"><Home /></button>
           <div className="text-center">
             <h2 className="text-2xl font-black text-purple-800">🏃 Move the {piece.name}!</h2>
             <p className="text-purple-700/60 text-sm font-semibold">{piece.move}</p>
@@ -362,7 +362,7 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 via-teal-50 to-emerald-100 relative overflow-hidden">
         <ChessBackground />
         <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={() => setMode(null)} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
+          <button onClick={() => setMode(null)} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to Chess Explorers menu"><Home /></button>
           <div className="text-center">
             <h2 className="text-2xl font-black text-emerald-800">{pieceData.moveEmoji} {pieceData.name} Moves</h2>
             <p className="text-emerald-700/60 text-sm font-semibold">Puzzle {puzzleIndex + 1}/{CHESS_PUZZLES.length}</p>
@@ -464,7 +464,7 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-200/60 rounded-full blur-3xl" />
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home /></button>
+        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home /></button>
         <h2 className="text-3xl font-black text-amber-800">♟ Chess Explorers</h2>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>

@@ -120,7 +120,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         ))}
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform"><Home className="text-white" /></button>
+        <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home className="text-white" /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-white">Count the Stars</h2>
           <p className="text-white/60 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>

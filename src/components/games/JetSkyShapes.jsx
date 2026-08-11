@@ -9,6 +9,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const [shape, setShape] = useState(SHAPES[0]);
   const [cleared, setCleared] = useState(false);
   const [completedShapes, setCompletedShapes] = useState([]);
+  const [traceReady, setTraceReady] = useState(false);
   const drawDistanceRef = useRef(0);
   const autoCompleteRef = useRef(false);
   const allCompleteRef = useRef(false);
@@ -30,6 +31,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   useEffect(() => {
     drawDistanceRef.current = 0;
     autoCompleteRef.current = false;
+    setTraceReady(false);
   }, [shape, cleared, markComplete, playSfx, speak]);
 
   useEffect(() => {
@@ -159,6 +161,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
       const distance = Math.hypot(x - lastX, y - lastY);
       drawDistanceRef.current += distance;
+      if (drawDistanceRef.current >= 280) setTraceReady(true);
 
       ctx.beginPath();
       ctx.moveTo(lastX, lastY);
@@ -214,7 +217,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   return (
     <div className="min-h-screen flex flex-col bg-sky-100">
       <div className="p-4 bg-sky-200 flex justify-between items-center shadow-md z-10">
-        <button onClick={onBack} className="bg-white p-2 rounded-full hover:bg-white/80">
+        <button onClick={onBack} className="bg-white p-2 rounded-full hover:bg-white/80" aria-label="Back to all games">
           <Home />
         </button>
         <div className="flex gap-2 flex-wrap">
@@ -241,25 +244,29 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
               playSfx('swish');
             }}
             className="bg-red-400 text-white p-2 rounded-full hover:bg-red-500"
+            aria-label="Erase drawing"
           >
             <Cloud />
           </button>
           <button
             onClick={() => {
+              if (!traceReady) return;
               const praise = getPraise();
               markComplete(praise);
               playSfx('sparkle');
               speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
             }}
-            className="bg-white text-sky-700 px-3 py-2 rounded-full font-bold shadow-lg"
+            disabled={!traceReady}
+            aria-describedby="trace-instruction"
+            className="bg-white text-sky-700 px-3 py-2 rounded-full font-bold shadow-lg disabled:cursor-not-allowed disabled:opacity-45"
           >
-            Done!
+            {traceReady ? 'Check trace!' : 'Trace first'}
           </button>
           <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
         </div>
       </div>
       <div className="relative flex-1 overflow-hidden">
-        <div className="absolute top-4 left-0 w-full text-center text-sky-700 font-bold opacity-70 pointer-events-none">
+        <div id="trace-instruction" className="absolute top-4 left-0 w-full text-center text-sky-700 font-bold opacity-70 pointer-events-none">
           Trace the shape with your finger! ({completedShapes.length}/{SHAPES.length} complete)
         </div>
         <div className="absolute top-16 left-4 w-32 h-16 bg-white/70 rounded-full blur-lg animate-drift-left" />

@@ -23,6 +23,18 @@ const applyCors = (request, response) => {
   }
 };
 
+const hasAllowedOrigin = (request) => {
+  const origin = request.headers.origin;
+  if (typeof origin !== 'string') return false;
+  if (ALLOWED_APP_ORIGINS.has(origin)) return true;
+  try {
+    const parsed = new URL(origin);
+    return parsed.protocol === 'http:' && (parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1');
+  } catch {
+    return false;
+  }
+};
+
 const getClientId = (request) => {
   const forwarded = request.headers['x-forwarded-for'];
   if (typeof forwarded === 'string' && forwarded) return forwarded.split(',')[0].trim();
@@ -48,6 +60,10 @@ const respondJson = (response, status, body) => {
 
 export default async function handler(request, response) {
   applyCors(request, response);
+  if (!hasAllowedOrigin(request)) {
+    respondJson(response, 403, { error: 'Voice requests are only available inside Amari Discovery' });
+    return;
+  }
   if (request.method === 'OPTIONS') {
     response.status(204).end();
     return;
