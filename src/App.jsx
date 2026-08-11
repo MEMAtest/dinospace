@@ -41,7 +41,7 @@ const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 const GAME_CATEGORIES = ['All', 'Quick Think', 'Maths', 'Words', 'Discover', 'Create'];
 
 const GAME_MENU_ITEMS = [
-  { id: 'tictactoe', icon: <img src={titleTrex} alt="Rex the complete T-Rex" className="h-full w-full object-contain" />, title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
+  { id: 'tictactoe', icon: <span className="flex items-center gap-2 text-5xl" aria-label="Noughts, crosses and a rocket"><span>⭕</span><span>✕</span><span>🚀</span></span>, title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
   { id: 'hangman', icon: <img src={titleTrex} alt="Rex the complete T-Rex" className="h-full w-full object-contain" />, title: 'Dino Hangman', desc: 'Rescue dinosaur words!', color: 'bg-gradient-to-br from-fuchsia-500 via-purple-600 to-indigo-700', category: 'Words', badge: 'NEW' },
   { id: 'dino', icon: <img src={titleTrike} alt="Trix the complete Triceratops" className="h-full w-full object-contain" />, title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' },
   { id: 'jet', icon: '✈️', title: 'Sky Shapes', desc: 'Draw with a jet!', color: 'bg-gradient-to-br from-sky-400 to-blue-500', category: 'Create' },
@@ -671,14 +671,14 @@ export default function App() {
       >
         {content}
       </Suspense>
-      {GAME_MENU_ITEMS.some((game) => game.id === screen) && (
+      {GAME_MENU_ITEMS.some((game) => game.id === screen) && !['jet', 'spot'].includes(screen) && (
         <DailyChallengeTracker
           challenge={todaysChallenge}
           progress={challengeProgress}
           completed={challengeCompleted}
           active={screen === todaysChallenge.game}
           onGo={goToTodaysChallenge}
-          placement={screen === 'solar' ? 'top-center' : screen === 'puzzle' ? 'top-right' : 'bottom-right'}
+          placement={screen === 'solar' ? 'top-center' : screen === 'puzzle' ? 'top-right' : screen === 'spot' ? 'bottom-edge' : 'bottom-right'}
         />
       )}
       <CelebrationOverlay celebration={celebration} />

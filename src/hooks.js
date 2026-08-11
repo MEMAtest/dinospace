@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { getOfflineVoiceClip } from './data/offlineVoice.js';
 
 const FRIENDLY_VOICE_NAMES = [
   'Samantha (Enhanced)',
@@ -535,14 +536,6 @@ export const useVoice = (enabled) => {
       speakOnDevice(text, options);
       return;
     }
-    if (!canUsePremium) {
-      // Premium mode is intentionally ElevenLabs-only. Going offline or
-      // losing the API must never make the narrator suddenly sound like the
-      // tablet's computer voice.
-      setPremiumStatus('unavailable');
-      return;
-    }
-
     const premiumOnly = voiceModeRef.current === 'premium';
     let fellBack = false;
     const fallBackToDevice = () => {
@@ -629,6 +622,30 @@ export const useVoice = (enabled) => {
         });
       }
     };
+
+    const offlineClipUrl = getOfflineVoiceClip(text, lang);
+    if (offlineClipUrl) {
+      setPremiumStatus('loading');
+      window.fetch(offlineClipUrl)
+        .then((response) => {
+          if (!response.ok) throw new Error(`Bundled voice clip failed (${response.status})`);
+          return response.blob();
+        })
+        .then((audioBlob) => {
+          if (!audioBlob.size) throw new Error('Bundled voice clip was empty');
+          setPremiumStatus('ready');
+          playPremiumAudio(audioBlob);
+        })
+        .catch(handlePremiumFailure);
+      return;
+    }
+
+    if (!canUsePremium) {
+      // Dynamic narration still needs the service. Fixed welcome and game
+      // prompts above remain available from the bundled ElevenLabs clips.
+      setPremiumStatus('unavailable');
+      return;
+    }
 
     // An explicit Premium choice must not silently become a device voice
     // because a mobile connection takes a few seconds to respond.

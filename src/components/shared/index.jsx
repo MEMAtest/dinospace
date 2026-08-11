@@ -355,6 +355,8 @@ export const DailyChallengeTracker = ({ challenge, progress, completed, active, 
     ? 'left-1/2 top-20 -translate-x-1/2'
     : placement === 'top-right'
       ? 'right-3 top-20'
+      : placement === 'bottom-edge'
+        ? 'bottom-0 right-1'
       : 'bottom-3 right-3';
   return (
     <div
