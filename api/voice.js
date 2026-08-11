@@ -3,6 +3,7 @@
 const MAX_TEXT_LENGTH = 420;
 const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 45;
+const DEFAULT_ENGLISH_VOICE_ID = 'XrExE9yKIg1WjnnlVkGX'; // Matilda — warm, friendly narrator
 const requestBuckets = new Map();
 const ALLOWED_APP_ORIGINS = new Set([
   'https://dinospace-eight.vercel.app',
@@ -79,7 +80,7 @@ export default async function handler(request, response) {
   const requestedLanguage = payloadLanguage(request.body);
   const voiceId = requestedLanguage === 'de'
     ? (process.env.ELEVENLABS_GERMAN_VOICE_ID || process.env.ELEVENLABS_VOICE_ID)
-    : process.env.ELEVENLABS_VOICE_ID;
+    : (process.env.ELEVENLABS_ENGLISH_VOICE_ID || DEFAULT_ENGLISH_VOICE_ID);
   if (!apiKey || !voiceId) {
     response.status(204).end();
     return;
@@ -128,6 +129,13 @@ export default async function handler(request, response) {
       body: JSON.stringify({
         text,
         model_id: process.env.ELEVENLABS_MODEL_ID || 'eleven_multilingual_v2',
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.75,
+          style: 0,
+          use_speaker_boost: true,
+          speed: 0.95,
+        },
       }),
     });
 
@@ -146,6 +154,7 @@ export default async function handler(request, response) {
     response.setHeader('Content-Length', String(audio.length));
     response.setHeader('Cache-Control', 'private, no-store');
     response.setHeader('X-Amari-Voice-Provider', 'elevenlabs');
+    response.setHeader('X-Amari-Voice-Profile', requestedLanguage === 'de' ? 'german-native' : 'matilda');
     response.status(200).send(audio);
   } catch {
     respondJson(response, 502, { error: 'Premium voice is temporarily unavailable' });

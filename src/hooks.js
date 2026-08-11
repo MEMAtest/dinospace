@@ -321,8 +321,8 @@ export const useSfx = (enabled) => {
   );
 };
 
-const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v3';
-const PREVIOUS_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v2';
+const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v4';
+const PREVIOUS_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v3';
 const LEGACY_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode';
 const PREMIUM_VOICE_TIMEOUT_MS = 6000;
 const MAX_PREMIUM_VOICE_CACHE = 24;
@@ -336,11 +336,10 @@ const getStoredVoiceMode = () => {
     const stored = window.localStorage.getItem(VOICE_MODE_STORAGE_KEY);
     if (['premium', 'device'].includes(stored)) return stored;
 
-    // Version 3 removes automatic browser-speech fallback. Preserve only a
-    // parent's explicit Device choice; old Smart installs now migrate to the
-    // verified ElevenLabs narrator.
-    const previous = window.localStorage.getItem(PREVIOUS_VOICE_MODE_STORAGE_KEY);
-    if (previous === 'device') return 'device';
+    // Reset older installs to the verified premium narrator. A stale Device
+    // selection was keeping the computer voice alive after ElevenLabs became
+    // the default. A new v4 Device choice is still respected above.
+    window.localStorage.removeItem(PREVIOUS_VOICE_MODE_STORAGE_KEY);
     if (PREMIUM_VOICE_ENABLED) return 'premium';
 
     // Migrate the old default to ElevenLabs while preserving an explicit

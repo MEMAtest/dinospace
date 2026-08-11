@@ -218,7 +218,7 @@ export const VoiceSettings = ({ voiceMode, onVoiceModeChange, premiumEnabled, pr
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
           <div className="flex rounded-2xl bg-slate-100 p-1" role="radiogroup" aria-label="Narrator voice preference">
             {[
-              ['premium', 'ElevenLabs'],
+              ['premium', 'ElevenLabs · Matilda'],
               ['device', 'Device'],
             ].map(([value, label]) => (
               <button
