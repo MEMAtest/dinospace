@@ -41,7 +41,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     const drawGuide = () => {
       ctx.fillStyle = '#e0f2fe';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.font = 'bold 220px "Fredoka", "Baloo 2", sans-serif';
+      ctx.font = 'bold 220px "Arial Rounded MT Bold", "Avenir Next Rounded", sans-serif';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.strokeStyle = 'rgba(59, 130, 246, 0.45)';
