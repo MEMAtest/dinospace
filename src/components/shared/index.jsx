@@ -429,8 +429,8 @@ export const MenuCard = ({
       </div>
       <div>
         <div className="mb-2 text-xs font-black uppercase tracking-[0.16em] text-white/65">{category}</div>
-        <h2 className="mb-1 pr-10 text-xl font-black leading-tight text-white drop-shadow-md">{title}</h2>
-        <p className="pr-10 text-sm font-bold text-white/90">{desc}</p>
+        <h2 className="mb-1 pr-16 text-xl font-black leading-tight text-white drop-shadow-md">{title}</h2>
+        <p className="pr-16 text-sm font-bold text-white/90">{desc}</p>
       </div>
       <div className="absolute bottom-4 right-4 bg-white/25 p-1.5 rounded-full opacity-70 transition-all group-hover:translate-x-1 group-hover:bg-white/35 group-hover:opacity-100">
         <ArrowRight className="text-white" size={19} />

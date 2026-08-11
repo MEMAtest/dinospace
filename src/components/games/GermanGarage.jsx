@@ -156,7 +156,10 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) 
           {modeTabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => selectMode(tab.id)}
+              onClick={(event) => {
+                selectMode(tab.id);
+                event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+              }}
               className={`flex shrink-0 items-center gap-1.5 rounded-2xl px-3 py-2 text-xs font-black transition sm:text-sm ${mode === tab.id ? 'bg-blue-600 text-white shadow-md' : 'text-slate-700 hover:bg-amber-50'}`}
               aria-pressed={mode === tab.id}
             >
