@@ -9,6 +9,7 @@
     "build:android": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice vite build",
     "android:sync": "npm run build:android && npx cap sync android",
     "android:debug": "npm run android:sync && cd android && ./gradlew assembleDebug",
+    "voice:offline": "node scripts/generate-offline-voices.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
