@@ -333,6 +333,16 @@ const VOICE_API_URL = import.meta.env.VITE_VOICE_API_URL || '/api/voice';
 
 const getStoredVoiceMode = () => {
   try {
+    // ElevenLabs is the app narrator. Previous releases allowed a Device
+    // selection which persisted the browser's robotic speech across upgrades.
+    // Clear it so existing installs receive the packaged narrator too.
+    if (PREMIUM_VOICE_ENABLED) {
+      window.localStorage.removeItem(VOICE_MODE_STORAGE_KEY);
+      window.localStorage.removeItem(PREVIOUS_VOICE_MODE_STORAGE_KEY);
+      window.localStorage.removeItem(LEGACY_VOICE_MODE_STORAGE_KEY);
+      return 'premium';
+    }
+
     const stored = window.localStorage.getItem(VOICE_MODE_STORAGE_KEY);
     if (['premium', 'device'].includes(stored)) return stored;
 
@@ -340,8 +350,6 @@ const getStoredVoiceMode = () => {
     // selection was keeping the computer voice alive after ElevenLabs became
     // the default. A new v4 Device choice is still respected above.
     window.localStorage.removeItem(PREVIOUS_VOICE_MODE_STORAGE_KEY);
-    if (PREMIUM_VOICE_ENABLED) return 'premium';
-
     // Migrate the old default to ElevenLabs while preserving an explicit
     // device-voice choice made before the premium narrator was connected.
     const legacy = window.localStorage.getItem(LEGACY_VOICE_MODE_STORAGE_KEY);
@@ -504,6 +512,7 @@ export const useVoice = (enabled) => {
 
   const setVoiceMode = useCallback((nextMode) => {
     if (!['premium', 'device'].includes(nextMode)) return;
+    if (PREMIUM_VOICE_ENABLED && nextMode === 'device') return;
     setVoiceModeState(nextMode);
     setPremiumStatus(nextMode === 'device' ? 'device' : 'unknown');
   }, []);
@@ -625,17 +634,34 @@ export const useVoice = (enabled) => {
     const offlineClipUrl = getOfflineVoiceClip(text, lang);
     if (offlineClipUrl) {
       setPremiumStatus('loading');
-      window.fetch(offlineClipUrl)
-        .then((response) => {
-          if (!response.ok) throw new Error(`Bundled voice clip failed (${response.status})`);
-          return response.blob();
-        })
-        .then((audioBlob) => {
-          if (!audioBlob.size) throw new Error('Bundled voice clip was empty');
-          setPremiumStatus('ready');
-          playPremiumAudio(audioBlob);
-        })
-        .catch(handlePremiumFailure);
+      // Play from the packaged URL during the same tap that requested it.
+      // Fetching into a Blob first can lose mobile/Fire WebView user activation
+      // and leave narration silent until a later, unrelated tap.
+      const audio = new Audio(offlineClipUrl);
+      premiumAudioRef.current = audio;
+      audio.onended = () => {
+        if (premiumAudioRef.current === audio) premiumAudioRef.current = null;
+      };
+      audio.onerror = handlePremiumFailure;
+      const playback = audio.play();
+      playback?.then(() => setPremiumStatus('ready')).catch((error) => {
+        if (error?.name === 'NotAllowedError') {
+          const retry = () => {
+            clearPendingPremiumGesture();
+            audio.play()
+              .then(() => setPremiumStatus('ready'))
+              .catch(handlePremiumFailure);
+          };
+          document.addEventListener('pointerdown', retry, { once: true });
+          document.addEventListener('keydown', retry, { once: true });
+          pendingPremiumGestureCleanupRef.current = () => {
+            document.removeEventListener('pointerdown', retry);
+            document.removeEventListener('keydown', retry);
+          };
+          return;
+        }
+        handlePremiumFailure();
+      });
       return;
     }
 

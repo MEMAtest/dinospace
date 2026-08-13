@@ -185,7 +185,7 @@ export const InstallAppPrompt = ({ canInstall, isAppleMobile, isInstalled, isIns
   );
 };
 
-export const VoiceSettings = ({ voiceMode, onVoiceModeChange, premiumEnabled, premiumStatus, onPreview }) => {
+export const VoiceSettings = ({ voiceMode, premiumEnabled, premiumStatus, onPreview }) => {
   const statusText = voiceMode === 'device'
     ? 'Device voice selected'
     : premiumStatus === 'ready'
@@ -212,27 +212,12 @@ export const VoiceSettings = ({ voiceMode, onVoiceModeChange, premiumEnabled, pr
                 <Sparkles className="mr-1 inline" size={13} /> {statusText}
               </span>
             </div>
-            <p className="mt-1 text-sm font-semibold text-slate-500">ElevenLabs is the default narrator. Device speech is used only when a parent chooses it here.</p>
+            <p className="mt-1 text-sm font-semibold text-slate-500">All narration uses the packaged ElevenLabs voice, including offline play.</p>
           </div>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-          <div className="flex rounded-2xl bg-slate-100 p-1" role="radiogroup" aria-label="Narrator voice preference">
-            {[
-              ['premium', 'ElevenLabs · Matilda'],
-              ['device', 'Device'],
-            ].map(([value, label]) => (
-              <button
-                key={value}
-                onClick={() => onVoiceModeChange(value)}
-                disabled={value === 'premium' && !premiumEnabled}
-                className={`rounded-xl px-3 py-2 text-sm font-black transition disabled:cursor-not-allowed disabled:opacity-40 ${voiceMode === value ? 'bg-white text-fuchsia-700 shadow-sm' : 'text-slate-500 hover:text-slate-800'}`}
-                role="radio"
-                aria-checked={voiceMode === value}
-                aria-label={value === 'premium' && !premiumEnabled ? 'Premium narrator needs connection first' : undefined}
-              >
-                {label}
-              </button>
-            ))}
+          <div className="rounded-2xl bg-fuchsia-50 px-4 py-2 text-sm font-black text-fuchsia-700" aria-label="Selected narrator">
+            ElevenLabs · Matilda
           </div>
           <button onClick={onPreview} className="rounded-2xl border-2 border-fuchsia-200 px-4 py-2 text-sm font-black text-fuchsia-700 transition hover:bg-fuchsia-50">
             <Volume2 className="mr-1 inline" size={16} /> Hear it
