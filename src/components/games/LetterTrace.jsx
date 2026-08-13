@@ -11,7 +11,11 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [cleared, setCleared] = useState(false);
   const [traceReady, setTraceReady] = useState(false);
   const [traceComplete, setTraceComplete] = useState(false);
+  const [traceFeedback, setTraceFeedback] = useState('Start on the dotted letter and follow its shape.');
   const drawDistanceRef = useRef(0);
+  const onGuideDistanceRef = useRef(0);
+  const offGuideDistanceRef = useRef(0);
+  const guideMaskRef = useRef(null);
   const autoCompleteRef = useRef(false);
 
   const current = TRACE_LETTERS[currentIndex];
@@ -24,14 +28,17 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   useEffect(() => {
     drawDistanceRef.current = 0;
     autoCompleteRef.current = false;
+    onGuideDistanceRef.current = 0;
+    offGuideDistanceRef.current = 0;
     setTraceReady(false);
     setTraceComplete(false);
+    setTraceFeedback('Start on the dotted letter and follow its shape.');
   }, [letterChar, cleared, caseMode]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
     if (!ctx) return;
 
     let isDrawing = false;
@@ -49,6 +56,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       ctx.setLineDash([24, 16]);
       ctx.strokeText(letterChar, canvas.width / 2, canvas.height / 2 + 20);
       ctx.setLineDash([]);
+      guideMaskRef.current = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
     };
 
     const resizeCanvas = () => {
@@ -73,7 +81,26 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
       const distance = Math.hypot(x - lastX, y - lastY);
       drawDistanceRef.current += distance;
-      if (drawDistanceRef.current >= 220) setTraceReady(true);
+      const mask = guideMaskRef.current;
+      let nearGuide = false;
+      if (mask) {
+        const centerX = Math.round(x);
+        const centerY = Math.round(y);
+        for (let offsetY = -22; offsetY <= 22 && !nearGuide; offsetY += 6) {
+          for (let offsetX = -22; offsetX <= 22; offsetX += 6) {
+            const sampleX = centerX + offsetX;
+            const sampleY = centerY + offsetY;
+            if (sampleX < 0 || sampleY < 0 || sampleX >= canvas.width || sampleY >= canvas.height) continue;
+            const red = mask[((sampleY * canvas.width) + sampleX) * 4];
+            if (red < 210) { nearGuide = true; break; }
+          }
+        }
+      }
+      if (nearGuide) onGuideDistanceRef.current += distance;
+      else offGuideDistanceRef.current += distance;
+      const enoughGuide = onGuideDistanceRef.current >= 190;
+      const mostlyOnGuide = onGuideDistanceRef.current >= offGuideDistanceRef.current * 1.5;
+      setTraceReady(enoughGuide && mostlyOnGuide);
 
       ctx.beginPath();
       ctx.moveTo(lastX, lastY);
@@ -98,13 +125,9 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
     const stopDrawing = () => {
       isDrawing = false;
-      if (drawDistanceRef.current > 320 && !autoCompleteRef.current) {
-        autoCompleteRef.current = true;
-        setTraceComplete(true);
-        const praise = getPraise();
-        onCelebrate(praise, 8, 300);
-        playSfx('sparkle');
-        speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
+      if (drawDistanceRef.current > 80 && !autoCompleteRef.current) {
+        const mostlyOnGuide = onGuideDistanceRef.current >= offGuideDistanceRef.current * 1.5;
+        setTraceFeedback(mostlyOnGuide ? 'Good path. Keep following the dotted letter.' : 'Stay closer to the dotted letter and try again.');
       }
     };
 
@@ -207,7 +230,8 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               const praise = getPraise();
               onCelebrate(praise, 8, 250);
               playSfx('sparkle');
-              speak(praise, { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
+              setTraceFeedback(`${praise} You followed the letter.`);
+              speak(praise);
             }}
             disabled={!traceReady || traceComplete}
             className="bg-blue-500 text-white font-bold px-6 py-2 rounded-full shadow disabled:cursor-not-allowed disabled:opacity-45"
@@ -225,6 +249,9 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             Next letter
           </button>
         </div>
+        <p className={`mt-3 text-center text-sm font-bold ${traceReady ? 'text-emerald-700' : 'text-blue-700'}`} aria-live="polite">
+          {traceComplete ? traceFeedback : traceReady ? 'The trace follows the letter. Tap Check trace!' : traceFeedback}
+        </p>
       </div>
     </div>
   );

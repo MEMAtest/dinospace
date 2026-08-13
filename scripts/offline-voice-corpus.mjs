@@ -1,7 +1,7 @@
 import {
   ADDITION_LEVELS, ADVANCED_PATTERN_ROUNDS, ASTRONAUT_CATEGORIES, ASTRONAUT_PROFILES,
   BLEND_WORDS, CHESS_PIECES, CHESS_PUZZLES, COLOR_MIX_ROUNDS, DINO_LEVELS,
-  GERMAN_PRAISE, HANGMAN_WORDS, LETTERS, MEMORY_LEVELS, MOVE_PRAISE,
+  ENGLISH_PRAISE, GERMAN_PRAISE, HANGMAN_WORDS, LETTERS, MEMORY_LEVELS, MOVE_PRAISE,
   NUMBER_PATTERN_ROUNDS, ODD_ONE_OUT_ROUNDS, PATTERN_ROUNDS, PHONICS_ITEMS,
   PLANETS, SHAPES, SUBTRACTION_LEVELS, TRACE_LETTERS, WORD_BUILDER_WORDS,
 } from '../src/data/index.js';
@@ -38,12 +38,12 @@ const add = (text, lang = 'en-US') => {
   'All six shapes are complete. You are a sky shape superstar!',
 ].forEach((text) => add(text));
 
-GERMAN_PRAISE.forEach((praise) => {
-  add(praise);
-  add(praise, 'de-DE');
+GERMAN_PRAISE.forEach((praise) => add(praise, 'de-DE'));
+
+ENGLISH_PRAISE.forEach((praise) => add(praise));
+['Super!'].forEach((praise) => {
   SHAPES.forEach((shape) => add(`${praise} You traced the ${shape.toLowerCase()}.`));
   add(`${praise} You found all three differences.`);
-  for (let number = 1; number <= 15; number += 1) add(`${praise}`);
   for (let hour = 1; hour <= 12; hour += 1) add(`${praise} That's ${hour} o'clock!`);
 });
 add('Du hast alle gefunden. Super!', 'de-DE');
@@ -69,7 +69,7 @@ WORD_BUILDER_WORDS.forEach(({ word, hint }) => {
   add(`Spell the word: ${word}. ${hint}`);
   add(`Spell ${word}. ${hint}`);
   [...word].forEach((letter) => add(letter));
-  GERMAN_PRAISE.forEach((praise) => add(`${word}! ${praise}`));
+  add(`${word}! Super!`);
 });
 
 HANGMAN_WORDS.forEach(({ word, clue, category }) => {

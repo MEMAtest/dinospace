@@ -13,6 +13,7 @@ export const THEME = {
 };
 
 export const GERMAN_PRAISE = ['Super!', 'Gut gemacht!', 'Sehr gut!', 'Toll gemacht!', 'Fantastisch!', 'Klasse!'];
+export const ENGLISH_PRAISE = ['Super!', 'Well done!', 'Great job!'];
 
 export const BURST_EMOJIS = ['✨', '⭐️', '🎆', '🎇', '🌟'];
 
@@ -928,7 +929,7 @@ export const GAME_LABELS = {
   subtraction: 'Subtraction Station',
   astronaut: 'Astronaut Academy',
   counting: 'Count the Stars',
-  words: 'Word Builder',
+  words: 'Spelling Studio',
   colormix: 'Color Mixing Lab',
   oddoneout: 'Odd One Out',
   timeteller: 'Time Teller',

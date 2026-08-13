@@ -1,5 +1,5 @@
 import {
-  GERMAN_PRAISE, BURST_EMOJIS, CONFETTI_COLORS,
+  ENGLISH_PRAISE, BURST_EMOJIS, CONFETTI_COLORS,
   LETTERS, PATTERN_ROUNDS, PATTERN_TOKENS, PHONICS_ITEMS,
   GERMAN_COLORS, PUZZLE_TILES, STICKERS,
   PLAYER_RANKS, DAILY_CHALLENGES, ASTRONAUT_PROFILES,
@@ -16,7 +16,7 @@ export const shuffle = (list) => {
   return arr;
 };
 
-export const getPraise = () => pickRandom(GERMAN_PRAISE);
+export const getPraise = () => pickRandom(ENGLISH_PRAISE);
 
 export const createBursts = () =>
   Array.from({ length: 14 }, (_, i) => ({

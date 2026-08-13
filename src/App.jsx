@@ -59,7 +59,7 @@ const GAME_MENU_ITEMS = [
   { id: 'subtraction', icon: '➖', title: 'Subtraction Station', desc: 'Take it away!', color: 'bg-gradient-to-br from-violet-500 to-purple-700', category: 'Maths' },
   { id: 'astronaut', icon: '👨‍🚀', title: 'Astronaut Academy', desc: 'Explore space heroes', color: 'bg-gradient-to-br from-purple-600 to-indigo-800', category: 'Discover' },
   { id: 'counting', icon: '🔢', title: 'Count the Stars', desc: 'Tap and count!', color: 'bg-gradient-to-br from-indigo-600 to-blue-800', category: 'Maths' },
-  { id: 'words', icon: '🔤', title: 'Word Builder', desc: 'Spell simple words!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' },
+  { id: 'words', icon: '🔤', title: 'Spelling Studio', desc: 'Learn sounds and spell!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' },
   { id: 'colormix', icon: '🎨', title: 'Colour Mixing Lab', desc: 'Mix colours together!', color: 'bg-gradient-to-br from-fuchsia-500 to-purple-600', category: 'Create' },
   { id: 'oddoneout', icon: '🤔', title: 'Odd One Out', desc: 'Which one does not belong?', color: 'bg-gradient-to-br from-cyan-500 to-blue-600', category: 'Quick Think' },
   { id: 'timeteller', icon: '🕐', title: 'Time Teller', desc: 'Read the clock!', color: 'bg-gradient-to-br from-lime-500 to-green-600', category: 'Maths' },
