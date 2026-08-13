@@ -3,11 +3,13 @@ import { Home } from 'lucide-react';
 import { DINO_LEVELS } from '../../data/index.js';
 import { buildDinos, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import DinoIcon from '../shared/DinoIcon.jsx';
 import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 
 const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [levelIndex, setLevelIndex] = useState(0);
+  const difficulty = useGameDifficulty('dino');
+  const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = DINO_LEVELS[levelIndex];
   const [dinos, setDinos] = useState(() => buildDinos(level));
   const [foundDino, setFoundDino] = useState(null);
@@ -42,6 +44,11 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     setFoundDino(null);
     setPendingReward(null);
   };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadLevel(getDifficultyIndex(difficulty));
+  }, [difficulty]);
 
   const handleChooseLevel = (event) => {
     const nextIndex = Number(event.target.value);

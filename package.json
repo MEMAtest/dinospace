@@ -10,6 +10,7 @@
     "android:sync": "npm run build:android && npx cap sync android",
     "android:debug": "npm run android:sync && cd android && ./gradlew assembleDebug",
     "voice:offline": "node scripts/generate-offline-voices.mjs",
+    "test": "node --test test/*.test.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

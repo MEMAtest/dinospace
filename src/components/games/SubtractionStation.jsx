@@ -3,6 +3,7 @@ import { Home } from 'lucide-react';
 import { SUBTRACTION_LEVELS, VISUAL_EMOJIS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
 const makeAnswerOptions = (answer) => {
   const candidates = [answer];
@@ -25,7 +26,8 @@ const makeSubtractionRound = (level) => {
 };
 
 const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [levelIndex, setLevelIndex] = useState(0);
+  const difficulty = useGameDifficulty('subtraction');
+  const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = SUBTRACTION_LEVELS[levelIndex];
   const [round, setRound] = useState(0);
   const [problem, setProblem] = useState(() => makeSubtractionRound(SUBTRACTION_LEVELS[0]));
@@ -34,11 +36,24 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
   const [streak, setStreak] = useState(0);
   const [successMessage, setSuccessMessage] = useState('');
   const [locked, setLocked] = useState(false);
+  const [hadMistake, setHadMistake] = useState(false);
+
+  useEffect(() => {
+    const nextLevelIndex = getDifficultyIndex(difficulty);
+    // Difficulty changes are an external parent-setting subscription.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setLevelIndex(nextLevelIndex);
+    setRound(0);
+    setProblem(makeSubtractionRound(SUBTRACTION_LEVELS[nextLevelIndex]));
+    setLocked(false);
+    setHadMistake(false);
+  }, [difficulty]);
 
   const newProblem = (nextLevel = level) => {
     setSuccess(false);
     setProblem(makeSubtractionRound(nextLevel));
     setLocked(false);
+    setHadMistake(false);
   };
 
   useEffect(() => {
@@ -60,7 +75,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
       playSfx('success');
       if (newStreak >= 3) playSfx('combo');
       onCelebrate(praise, 6, 250);
-      onGameEvent?.('subtraction', 'answer_correct');
+      onGameEvent?.('subtraction', 'answer_correct', { skill: 'subtraction', item: `${problem.a}-${problem.b}`, response: pick, expected: answer, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
       const nextRound = round + 1;
       if (nextRound >= level.rounds && levelIndex < SUBTRACTION_LEVELS.length - 1) {
         const nextLevelIndex = levelIndex + 1;
@@ -74,6 +89,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
         subTimeoutRef.current = setTimeout(newProblem, 1100);
       }
     } else {
+      setHadMistake(true);
       setShake(true);
       setStreak(0);
       playSfx('wrong');

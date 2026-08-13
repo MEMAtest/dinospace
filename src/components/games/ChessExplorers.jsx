@@ -2,7 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { CHESS_PIECES, CHESS_PUZZLES, PIECE_DEMO_MOVES, MOVE_PRAISE } from '../../data/index.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { getPraise, pickRandom, computeValidMoves } from '../../utils.js';
+import { makeLearningEvent } from '../../data/literacy.js';
 
 // Floating chess background decoration — deterministic positions seeded by index
 const FLOAT_PIECES = ['♔', '♕', '♖', '♗', '♘', '♙', '♚', '♛', '♜', '♝', '♞', '♟'];
@@ -96,7 +98,8 @@ const MoveDemo = ({ piece }) => {
   );
 };
 
-const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+  const difficulty = useGameDifficulty('chess');
   const [mode, setMode] = useState(null); // 'learn' | 'puzzle' | 'practice'
   const [pieceIndex, setPieceIndex] = useState(0);
   const [puzzleIndex, setPuzzleIndex] = useState(0);
@@ -105,12 +108,20 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const [wrongCells, setWrongCells] = useState({});
   const [correctCells, setCorrectCells] = useState({});
   const [puzzleDone, setPuzzleDone] = useState(false);
+  const [puzzleHadMistake, setPuzzleHadMistake] = useState(false);
   const [streak, setStreak] = useState(0);
 
   // Practice mode state
   const [practicePos, setPracticePos] = useState([3, 3]);
   const [practiceMoves, setPracticeMoves] = useState(0);
   const [practiceDone, setPracticeDone] = useState(false);
+
+  useEffect(() => {
+    const targetLevel = getDifficultyIndex(difficulty) + 1;
+    const nextPuzzleIndex = CHESS_PUZZLES.findIndex((entry) => entry.level === targetLevel);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPuzzleIndex(Math.max(0, nextPuzzleIndex));
+  }, [difficulty]);
 
   const piece = CHESS_PIECES[pieceIndex];
   const puzzle = CHESS_PUZZLES[puzzleIndex];
@@ -201,6 +212,11 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         playSfx('levelup-big');
         speak('Amazing! You made five moves!');
         onCelebrate('Amazing!', 10, 300);
+        onGameEvent?.('chess', 'answer_correct');
+        onGameEvent?.('chess', 'learning_attempt', makeLearningEvent({
+          skill: 'chess-movement', item: piece.name, response: 'five valid moves',
+          correct: true, firstTry: true, difficulty,
+        }));
       }
     };
 
@@ -337,8 +353,14 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
           playSfx('levelup-big');
           speak(`You found all the moves! The ${pieceData.name} is happy!`);
           onCelebrate('Amazing!', 10, 300);
+          onGameEvent?.('chess', 'answer_correct');
+          onGameEvent?.('chess', 'learning_attempt', makeLearningEvent({
+            skill: 'chess-movement', item: pieceData.name, response: 'all valid moves',
+            correct: true, firstTry: !puzzleHadMistake, difficulty,
+          }));
         }
       } else {
+        setPuzzleHadMistake(true);
         setWrongCells((prev) => ({ ...prev, [key]: true }));
         setStreak(0);
         playSfx('oops');
@@ -353,6 +375,7 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       setWrongCells({});
       setCorrectCells({});
       setPuzzleDone(false);
+      setPuzzleHadMistake(false);
       const nextP = CHESS_PUZZLES[(puzzleIndex + 1) % CHESS_PUZZLES.length];
       const nextPiece = CHESS_PIECES.find((p) => p.id === nextP.piece);
       speak(`${nextPiece.name}! ${nextP.q}`);

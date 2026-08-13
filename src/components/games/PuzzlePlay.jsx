@@ -2,12 +2,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { Eye, Home, Lightbulb, RotateCcw } from 'lucide-react';
 import { getPraise, shuffle } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 
 const LEVELS = [
   { name: 'Dino Park Starter', grid: 2 },
   { name: 'Dino Park Explorer', grid: 3 },
-  { name: 'Dino Park Champion', grid: 3 },
+  { name: 'Dino Park Champion', grid: 4 },
 ];
 
 const makePieces = (grid) => shuffle(
@@ -26,7 +27,8 @@ const tileStyle = (slot, grid) => {
 };
 
 const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [levelIndex, setLevelIndex] = useState(0);
+  const difficulty = useGameDifficulty('puzzle');
+  const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = LEVELS[levelIndex];
   const [tray, setTray] = useState(() => makePieces(LEVELS[0].grid));
   const [placed, setPlaced] = useState(() => Array(LEVELS[0].grid ** 2).fill(null));
@@ -50,6 +52,11 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
     setMoves(0);
     setMessage('Choose a picture piece below.');
   };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    resetLevel(getDifficultyIndex(difficulty));
+  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const choosePiece = (piece) => {
     setSelected(piece);

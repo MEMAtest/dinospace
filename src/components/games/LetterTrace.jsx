@@ -3,8 +3,11 @@ import { Home } from 'lucide-react';
 import { TRACE_LETTERS } from '../../data/index.js';
 import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
-const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+  const difficulty = useGameDifficulty('trace');
   const canvasRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [caseMode, setCaseMode] = useState('upper');
@@ -17,6 +20,12 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const offGuideDistanceRef = useRef(0);
   const guideMaskRef = useRef(null);
   const autoCompleteRef = useRef(false);
+  const startedOnGuideRef = useRef(false);
+  const [taughtOnly, setTaughtOnly] = useState(true);
+
+  const visibleLetters = taughtOnly
+    ? TRACE_LETTERS.filter((item) => getTaughtGraphemes().has(item.lower))
+    : TRACE_LETTERS;
 
   const current = TRACE_LETTERS[currentIndex];
   const letterChar = caseMode === 'upper' ? current.upper : current.lower;
@@ -25,7 +34,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     speak(`Trace the ${caseMode === 'upper' ? 'big' : 'small'} ${letterChar}. ${current.word}.`);
   }, [caseMode, letterChar, current.word, speak]);
 
-  useEffect(() => {
+  const resetTrace = () => {
     drawDistanceRef.current = 0;
     autoCompleteRef.current = false;
     onGuideDistanceRef.current = 0;
@@ -33,7 +42,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setTraceReady(false);
     setTraceComplete(false);
     setTraceFeedback('Start on the dotted letter and follow its shape.');
-  }, [letterChar, cleared, caseMode]);
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -98,8 +107,10 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       }
       if (nearGuide) onGuideDistanceRef.current += distance;
       else offGuideDistanceRef.current += distance;
-      const enoughGuide = onGuideDistanceRef.current >= 190;
-      const mostlyOnGuide = onGuideDistanceRef.current >= offGuideDistanceRef.current * 1.5;
+      const requiredGuideDistance = difficulty === 'starter' ? 150 : difficulty === 'challenge' ? 260 : 190;
+      const guideRatio = difficulty === 'starter' ? 1.2 : difficulty === 'challenge' ? 2 : 1.5;
+      const enoughGuide = onGuideDistanceRef.current >= requiredGuideDistance;
+      const mostlyOnGuide = onGuideDistanceRef.current >= offGuideDistanceRef.current * guideRatio;
       setTraceReady(enoughGuide && mostlyOnGuide);
 
       ctx.beginPath();
@@ -115,18 +126,34 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     };
 
     const startDrawing = (event) => {
-      isDrawing = true;
       event.preventDefault();
       const rect = canvas.getBoundingClientRect();
       const clientX = event.touches ? event.touches[0].clientX : event.clientX;
       const clientY = event.touches ? event.touches[0].clientY : event.clientY;
       [lastX, lastY] = [clientX - rect.left, clientY - rect.top];
+      const mask = guideMaskRef.current;
+      const sampleX = Math.round(lastX);
+      const sampleY = Math.round(lastY);
+      let onGuide = false;
+      if (mask) {
+        for (let offsetY = -28; offsetY <= 28 && !onGuide; offsetY += 7) {
+          for (let offsetX = -28; offsetX <= 28; offsetX += 7) {
+            const x = sampleX + offsetX;
+            const y = sampleY + offsetY;
+            if (x >= 0 && y >= 0 && x < canvas.width && y < canvas.height && mask[((y * canvas.width) + x) * 4] < 210) { onGuide = true; break; }
+          }
+        }
+      }
+      startedOnGuideRef.current = onGuide;
+      isDrawing = onGuide;
+      if (!onGuide) setTraceFeedback('Start on the dotted letter.');
     };
 
     const stopDrawing = () => {
       isDrawing = false;
       if (drawDistanceRef.current > 80 && !autoCompleteRef.current) {
-        const mostlyOnGuide = onGuideDistanceRef.current >= offGuideDistanceRef.current * 1.5;
+        const guideRatio = difficulty === 'starter' ? 1.2 : difficulty === 'challenge' ? 2 : 1.5;
+        const mostlyOnGuide = startedOnGuideRef.current && onGuideDistanceRef.current >= offGuideDistanceRef.current * guideRatio;
         setTraceFeedback(mostlyOnGuide ? 'Good path. Keep following the dotted letter.' : 'Stay closer to the dotted letter and try again.');
       }
     };
@@ -147,7 +174,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       canvas.removeEventListener('touchmove', draw);
       canvas.removeEventListener('touchend', stopDrawing);
     };
-  }, [letterChar, cleared, onCelebrate, playSfx, speak]);
+  }, [letterChar, cleared, difficulty, onCelebrate, playSfx, speak]);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100">
@@ -166,10 +193,13 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 py-6">
         <div className="flex flex-wrap gap-2 mb-4">
-          {TRACE_LETTERS.map((item, index) => (
+          {visibleLetters.map((item) => {
+            const index = TRACE_LETTERS.findIndex((letter) => letter.upper === item.upper);
+            return (
             <button
               key={item.upper}
               onClick={() => {
+                resetTrace();
                 setCurrentIndex(index);
                 setCleared((prev) => !prev);
                 playSfx('swish');
@@ -180,12 +210,17 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             >
               {caseMode === 'upper' ? item.upper : item.lower}
             </button>
-          ))}
+          )})}
         </div>
+
+        <button onClick={() => setTaughtOnly((value) => !value)} className="mb-3 rounded-full bg-white px-4 py-2 text-sm font-black text-blue-700 shadow">
+          {taughtOnly ? 'Showing school sounds · Show all' : 'Showing all letters · School sounds only'}
+        </button>
 
         <div className="flex gap-2 mb-3">
           <button
             onClick={() => {
+              resetTrace();
               setCaseMode('upper');
               setCleared((prev) => !prev);
             }}
@@ -197,6 +232,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </button>
           <button
             onClick={() => {
+              resetTrace();
               setCaseMode('lower');
               setCleared((prev) => !prev);
             }}
@@ -215,6 +251,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <div className="flex gap-3 mt-4 flex-wrap justify-center">
           <button
             onClick={() => {
+              resetTrace();
               setCleared((prev) => !prev);
               playSfx('swish');
             }}
@@ -232,6 +269,8 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               playSfx('sparkle');
               setTraceFeedback(`${praise} You followed the letter.`);
               speak(praise);
+              onGameEvent?.('trace', 'answer_correct');
+              onGameEvent?.('trace', 'learning_attempt', makeLearningEvent({ skill: 'letter-formation', item: letterChar, response: 'guide-trace', correct: true, firstTry: offGuideDistanceRef.current === 0, difficulty: caseMode === 'upper' ? 'starter' : 'growing', extra: { onGuideDistance: Math.round(onGuideDistanceRef.current), offGuideDistance: Math.round(offGuideDistanceRef.current) } }));
             }}
             disabled={!traceReady || traceComplete}
             className="bg-blue-500 text-white font-bold px-6 py-2 rounded-full shadow disabled:cursor-not-allowed disabled:opacity-45"
@@ -240,6 +279,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </button>
           <button
             onClick={() => {
+              resetTrace();
               setCurrentIndex((prev) => (prev + 1) % TRACE_LETTERS.length);
               setCleared((prev) => !prev);
               playSfx('click');

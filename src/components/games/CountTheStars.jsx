@@ -3,6 +3,7 @@ import { Home } from 'lucide-react';
 import { COUNT_LEVELS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
 const BACKGROUND_STARS = Array.from({ length: 20 }, (_, index) => ({
   id: `background-star-${index}`,
@@ -37,7 +38,8 @@ const makeCountOptions = (target) => {
 };
 
 const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [levelIndex, setLevelIndex] = useState(0);
+  const difficulty = useGameDifficulty('counting');
+  const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = COUNT_LEVELS[levelIndex];
   const [round, setRound] = useState(() => makeCountingRound(COUNT_LEVELS[0]));
   const [tapped, setTapped] = useState([]);
@@ -49,6 +51,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
   const timeoutRef = useRef(null);
+  const [hadMistake, setHadMistake] = useState(false);
   const { items, count: target } = round;
 
   useEffect(() => () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }, []);
@@ -60,8 +63,16 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     setOptions([]);
     setFeedback('');
     setLocked(false);
+    setHadMistake(false);
     setSkillRun((current) => current >= 5 ? 0 : current);
   };
+
+  useEffect(() => {
+    const nextLevelIndex = getDifficultyIndex(difficulty);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setLevelIndex(nextLevelIndex);
+    startRound(nextLevelIndex);
+  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (phase === 'count') speak('Tap each star to count them!');
@@ -90,7 +101,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       playSfx('success');
       speak(praise);
       onCelebrate(praise, 4, 200);
-      onGameEvent?.('counting', 'answer_correct');
+      onGameEvent?.('counting', 'answer_correct', { skill: 'counting', item: target, response: ans, expected: target, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
       setStreak(nextStreak);
       setSkillRun((current) => Math.min(current + 1, 5));
       timeoutRef.current = setTimeout(() => {
@@ -104,6 +115,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         }
       }, 1100);
     } else {
+      setHadMistake(true);
       setShake(true);
       playSfx('wrong');
       speak('Not quite, try again!');

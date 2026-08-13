@@ -5,6 +5,7 @@ import {
   NUMBER_PATTERN_ROUNDS, ODD_ONE_OUT_ROUNDS, PATTERN_ROUNDS, PHONICS_ITEMS,
   PLANETS, SHAPES, SUBTRACTION_LEVELS, TRACE_LETTERS, WORD_BUILDER_WORDS,
 } from '../src/data/index.js';
+import { DECODABLE_CAPTIONS, PHASE_WORDS, TRICKY_WORDS } from '../src/data/literacy.js';
 import { normalizeVoiceText, voiceClipKey } from '../src/data/voiceKey.js';
 
 const corpus = new Map();
@@ -58,7 +59,8 @@ TRACE_LETTERS.forEach(({ upper, lower, word }) => {
   add(`Trace the big ${upper}. ${word}.`);
   add(`Trace the small ${lower}. ${word}.`);
 });
-PHONICS_ITEMS.forEach(({ letter, sound }) => add(`Which one starts with ${letter}? ${letter} says ${sound}.`));
+PHONICS_ITEMS.forEach(({ word }) => add(`Listen to ${word}. Which picture starts with the same sound as ${word}?`));
+add('Say each sound, then blend the word. What word does this make?');
 BLEND_WORDS.forEach(({ letters, word }) => {
   add(`Blend the sounds: ${letters.join(' - ')}. What word does it make?`);
   letters.forEach((letter) => add(letter));
@@ -70,6 +72,25 @@ WORD_BUILDER_WORDS.forEach(({ word, hint }) => {
   add(`Spell ${word}. ${hint}`);
   [...word].forEach((letter) => add(letter));
   add(`${word}! Super!`);
+});
+
+PHASE_WORDS.forEach(({ word, hint, family }) => {
+  add(`Spell the word: ${word}. ${hint}`);
+  add(`Spell ${word}. ${hint}`);
+  add(`${word}! Super!`);
+  add(`Dino Hangman. ${family} word family. ${hint}`);
+  add(`Great rescue! The word is ${word}.`);
+  add(`Perfect rescue! The word is ${word}.`);
+  add(`That was a tricky one. The word was ${word}. Let us try another!`);
+  [...new Set(word)].forEach((letter) => add(`Yes! ${letter} is in the word.`));
+});
+TRICKY_WORDS.forEach(({ word }) => {
+  add(`Spell the word: ${word}. A tricky word to remember by heart`);
+  add(`Spell ${word}. A tricky word to remember by heart`);
+  add(`${word}! Super!`);
+});
+DECODABLE_CAPTIONS.forEach(({ text }) => {
+  add(`Read and copy: ${text}`);
 });
 
 HANGMAN_WORDS.forEach(({ word, clue, category }) => {

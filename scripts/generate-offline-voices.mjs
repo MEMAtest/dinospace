@@ -1,6 +1,7 @@
 import { copyFile, mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { OFFLINE_VOICE_CORPUS } from './offline-voice-corpus.mjs';
+import { OFFLINE_VOICE_MANIFEST as existingManifest } from '../src/data/offlineVoiceManifest.js';
 
 const root = resolve(import.meta.dirname, '..');
 const audioRoot = resolve(root, 'public', 'audio');
@@ -43,20 +44,29 @@ await mkdir(resolve(audioRoot, 'de'), { recursive: true });
 
 let generated = 0;
 let reused = 0;
+// Preserve only clips that are physically present. This prevents interrupted
+// generation runs from leaving manifest entries that point at missing audio.
 const manifest = {};
+for (const [key, publicPath] of Object.entries(existingManifest)) {
+  if (await exists(resolve(root, 'public', publicPath.replace(/^\//, '')))) manifest[key] = publicPath;
+}
 
 const generateItem = async (item, index) => {
   const language = item.lang.toLowerCase().startsWith('de') ? 'de' : 'en';
   const fileName = `${item.key}-${language === 'de' ? 'german' : 'matilda'}.mp3`;
   const output = resolve(audioRoot, language, fileName);
-  manifest[item.key] = `/audio/${language}/${fileName}`;
-  if (await exists(output) && !(language === 'de' && refreshGerman)) { reused += 1; return; }
+  if (await exists(output) && !(language === 'de' && refreshGerman)) {
+    manifest[item.key] = `/audio/${language}/${fileName}`;
+    reused += 1;
+    return;
+  }
 
   const oldName = legacy.get(`${language}:${item.text.toLowerCase()}`);
   if (oldName) {
     const oldPath = resolve(audioRoot, language, oldName);
     if (await exists(oldPath)) {
       await copyFile(oldPath, output);
+      manifest[item.key] = `/audio/${language}/${fileName}`;
       reused += 1;
       return;
     }
@@ -89,6 +99,7 @@ const generateItem = async (item, index) => {
   const bytes = Buffer.from(await response.arrayBuffer());
   if (bytes.length < 1000) throw new Error(`ElevenLabs returned a short clip for ${item.key}`);
   await writeFile(output, bytes);
+  manifest[item.key] = `/audio/${language}/${fileName}`;
   generated += 1;
   if ((index + 1) % 25 === 0) console.log(`${index + 1}/${OFFLINE_VOICE_CORPUS.length}`);
 };

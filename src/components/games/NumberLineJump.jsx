@@ -2,8 +2,11 @@ import { useState, useEffect, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { NUMBER_LINE_LIMITS } from '../../data/gameDifficulty.js';
 
 const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+  const difficulty = useGameDifficulty('numberline');
   const [problem, setProblem] = useState({ a: 3, b: 2, op: '+' });
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
@@ -13,18 +16,19 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const [jumpTrail, setJumpTrail] = useState([]);
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
+  const [hadMistake, setHadMistake] = useState(false);
 
   const answer = problem.op === '+' ? problem.a + problem.b : problem.a - problem.b;
-  const maxNum = 15;
+  const maxNum = NUMBER_LINE_LIMITS[difficulty] || 10;
 
   const newProblem = useCallback(() => {
-    const op = Math.random() > 0.5 ? '+' : '-';
+    const op = difficulty === 'starter' ? '+' : Math.random() > 0.5 ? '+' : '-';
     let a, b;
     if (op === '+') {
-      a = Math.ceil(Math.random() * 8);
+      a = Math.ceil(Math.random() * Math.max(2, Math.floor(maxNum * 0.55)));
       b = Math.ceil(Math.random() * (maxNum - a));
     } else {
-      a = Math.ceil(Math.random() * 10) + 2;
+      a = Math.ceil(Math.random() * (maxNum - 2)) + 2;
       b = Math.ceil(Math.random() * (a - 1)) + 1;
     }
     setProblem({ a, b, op });
@@ -33,8 +37,14 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     setFeedback('');
     setJumpTrail([]);
     setLocked(false);
+    setHadMistake(false);
     setSkillRun((current) => current >= 5 ? 0 : current);
-  }, []);
+  }, [difficulty, maxNum]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    newProblem();
+  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     speak(`What is ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b}?`);
@@ -55,9 +65,10 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       playSfx('success');
       speak(`${praise} ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b} equals ${answer}!`);
       onCelebrate(praise, 4, 200);
-      onGameEvent?.('numberline', 'answer_correct');
+      onGameEvent?.('numberline', 'answer_correct', { skill: 'number-line', item: `${problem.a}${problem.op}${problem.b}`, response: n, expected: answer, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
       setTimeout(newProblem, 1300);
     } else {
+      setHadMistake(true);
       setShake(true);
       playSfx('wrong');
       setFeedback('Try again!');

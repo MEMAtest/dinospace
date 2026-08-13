@@ -3,15 +3,19 @@ import { Home } from 'lucide-react';
 import { ODD_ONE_OUT_ROUNDS } from '../../data/index.js';
 import { shuffle, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { oddOneOutRoundIndexes } from '../../data/gameDifficulty.js';
 
 const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+  const difficulty = useGameDifficulty('oddoneout');
   const [roundIndex, setRoundIndex] = useState(0);
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
-  const round = ODD_ONE_OUT_ROUNDS[roundIndex % ODD_ONE_OUT_ROUNDS.length];
+  const bandIndexes = oddOneOutRoundIndexes(difficulty);
+  const round = ODD_ONE_OUT_ROUNDS[bandIndexes[roundIndex % bandIndexes.length]];
   const shuffledItems = useMemo(() => shuffle(round.items), [round]);
 
   useEffect(() => {
@@ -19,7 +23,7 @@ const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
   }, [roundIndex, round.hint, speak]);
 
   const nextRound = () => {
-    setRoundIndex((index) => (index + 1) % ODD_ONE_OUT_ROUNDS.length);
+    setRoundIndex((index) => (index + 1) % bandIndexes.length);
     setFeedback('');
     setLocked(false);
     setSkillRun((current) => current >= 5 ? 0 : current);

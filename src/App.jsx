@@ -35,10 +35,10 @@ import IntroScreen from './components/games/IntroScreen.jsx';
 import astronautCrew from './assets/landing/amari-astronaut-robot.png';
 import titleTrex from './assets/dinos/title-trex.png';
 import titleTrike from './assets/dinos/title-trike.png';
+import { recordLegacyGameEvent } from './data/learningProgress.js';
+import { BONUS_GAME_IDS as BONUS_GAME_ID_LIST, LEARNING_WORLDS, PRACTICE_GAME_IDS } from './data/learningWorlds.js';
 
 const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
-
-const GAME_CATEGORIES = ['All', 'Quick Think', 'Maths', 'Words', 'Discover', 'Create'];
 
 const GAME_MENU_ITEMS = [
   { id: 'tictactoe', icon: <span className="flex items-center gap-2 text-5xl" aria-label="Noughts, crosses and a rocket"><span>⭕</span><span>✕</span><span>🚀</span></span>, title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
@@ -67,9 +67,14 @@ const GAME_MENU_ITEMS = [
   { id: 'chess', icon: '♟️', title: 'Chess Explorers', desc: 'Learn chess pieces!', color: 'bg-gradient-to-br from-amber-600 to-yellow-800', category: 'Quick Think' },
 ];
 
+const BONUS_GAME_IDS = new Set(BONUS_GAME_ID_LIST);
+const MAX_RECENT_GAMES = 4;
+
 export default function App() {
   const [screen, setScreen] = useState('intro');
-  const [menuFilter, setMenuFilter] = useState('All');
+  const [selectedWorld, setSelectedWorld] = useState(null);
+  const [favouriteGames, setFavouriteGames] = useState(() => loadSaved('amari_favourite_games', []));
+  const [recentGames, setRecentGames] = useState(() => loadSaved('amari_recent_games', []));
   const [soundOn, setSoundOn] = useState(true);
   const [points, setPoints] = useState(() => Math.max(0, loadSaved('amari_points', 0)));
   const [celebration, setCelebration] = useState(null);
@@ -92,10 +97,27 @@ export default function App() {
   useAmbientMusic(soundOn);
 
   const todaysChallenge = useMemo(() => getTodaysChallenge(), []);
-  const filteredGames = useMemo(
-    () => menuFilter === 'All' ? GAME_MENU_ITEMS : GAME_MENU_ITEMS.filter((game) => game.category === menuFilter),
-    [menuFilter],
+  const activeWorld = useMemo(
+    () => LEARNING_WORLDS.find((world) => world.id === selectedWorld) || null,
+    [selectedWorld],
   );
+  const activeWorldGames = useMemo(
+    () => activeWorld
+      ? activeWorld.gameIds.map((id) => GAME_MENU_ITEMS.find((game) => game.id === id)).filter(Boolean)
+      : [],
+    [activeWorld],
+  );
+  const quickGames = useMemo(() => {
+    const ids = [...favouriteGames, ...recentGames].filter((id, index, all) => all.indexOf(id) === index);
+    return ids.map((id) => GAME_MENU_ITEMS.find((game) => game.id === id)).filter(Boolean).slice(0, 6);
+  }, [favouriteGames, recentGames]);
+  const practiceGames = useMemo(() => {
+    const seed = Math.floor(new Date().setHours(0, 0, 0, 0) / 86400000);
+    return Array.from({ length: 3 }, (_, offset) => {
+      const id = PRACTICE_GAME_IDS[(seed + offset * 3) % PRACTICE_GAME_IDS.length];
+      return GAME_MENU_ITEMS.find((game) => game.id === id);
+    }).filter(Boolean);
+  }, []);
   const today = new Date().toISOString().slice(0, 10);
 
   // Persist to localStorage safely
@@ -105,6 +127,8 @@ export default function App() {
   useEffect(() => { challengeProgressRef.current = challengeProgress; saveSafe('amari_challenge_progress', challengeProgress); }, [challengeProgress]);
   useEffect(() => { challengeCompletedRef.current = challengeCompleted; saveSafe('amari_challenge_done', challengeCompleted); }, [challengeCompleted]);
   useEffect(() => { saveSafe('amari_games_played', gamesPlayed); }, [gamesPlayed]);
+  useEffect(() => { saveSafe('amari_favourite_games', favouriteGames); }, [favouriteGames]);
+  useEffect(() => { saveSafe('amari_recent_games', recentGames); }, [recentGames]);
 
   const unlockedAchievements = useMemo(
     () => ACHIEVEMENTS.filter((a) => a.check(gamesPlayed, points, streak)).map((a) => a.id),
@@ -153,13 +177,15 @@ export default function App() {
   }, [screen]);
 
   const recordGameEvent = useCallback((gameId, event, amount = 1) => {
+    recordLegacyGameEvent(gameId, event, amount);
     if (
       challengeCompletedRef.current
       || gameId !== todaysChallenge.game
       || event !== todaysChallenge.event
     ) return;
 
-    const next = Math.min(todaysChallenge.target, challengeProgressRef.current + amount);
+    const challengeAmount = typeof amount === 'number' && Number.isFinite(amount) ? amount : 1;
+    const next = Math.min(todaysChallenge.target, challengeProgressRef.current + challengeAmount);
     challengeProgressRef.current = next;
     setChallengeProgress(next);
     if (next >= todaysChallenge.target) {
@@ -168,10 +194,22 @@ export default function App() {
     }
   }, [todaysChallenge]);
 
+  const launchGame = useCallback((gameId, sfx = 'click') => {
+    playSfx(sfx);
+    setRecentGames((current) => [gameId, ...current.filter((id) => id !== gameId)].slice(0, MAX_RECENT_GAMES));
+    setScreen(gameId);
+  }, [playSfx]);
+
+  const toggleFavourite = useCallback((gameId) => {
+    playSfx('click');
+    setFavouriteGames((current) => current.includes(gameId)
+      ? current.filter((id) => id !== gameId)
+      : [gameId, ...current]);
+  }, [playSfx]);
+
   const goToTodaysChallenge = useCallback(() => {
-    playSfx('launch');
-    setScreen(todaysChallenge.game);
-  }, [playSfx, todaysChallenge]);
+    launchGame(todaysChallenge.game, 'launch');
+  }, [launchGame, todaysChallenge]);
 
   const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0, gameIdOverride) => {
     const finalMessage = message || getPraise();
@@ -219,6 +257,32 @@ export default function App() {
     setSessionPoints((prev) => ({ ...prev, [gameId]: 0 }));
     setScreen('menu');
   };
+
+  const renderGameCard = (game) => (
+    <div key={game.id} className="relative">
+      <MenuCard
+        icon={game.icon}
+        title={game.title}
+        desc={game.desc}
+        color={game.color}
+        badge={BONUS_GAME_IDS.has(game.id) ? 'PRACTICE' : game.badge}
+        category={BONUS_GAME_IDS.has(game.id) ? 'Bonus play' : game.category}
+        playedCount={gamesPlayed[game.id] || 0}
+        onClick={() => launchGame(game.id)}
+      />
+      <button
+        type="button"
+        onClick={() => toggleFavourite(game.id)}
+        className={`absolute right-4 top-4 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/50 text-xl shadow-md backdrop-blur transition hover:scale-105 active:scale-95 ${
+          favouriteGames.includes(game.id) ? 'bg-amber-300 text-amber-900' : 'bg-white/25 text-white'
+        }`}
+        aria-label={`${favouriteGames.includes(game.id) ? 'Remove' : 'Add'} ${game.title} ${favouriteGames.includes(game.id) ? 'from' : 'to'} favourites`}
+        aria-pressed={favouriteGames.includes(game.id)}
+      >
+        {favouriteGames.includes(game.id) ? '★' : '☆'}
+      </button>
+    </div>
+  );
 
   let content = null;
 
@@ -284,54 +348,107 @@ export default function App() {
           onGo={goToTodaysChallenge}
         />
 
-        <div className="relative z-10 mb-5 flex w-full max-w-6xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex gap-2 overflow-x-auto rounded-2xl bg-white/60 p-2 shadow-sm backdrop-blur no-scrollbar" aria-label="Game categories">
-            {GAME_CATEGORIES.map((category) => (
+        <section className="relative z-10 mb-6 w-full max-w-7xl rounded-[2rem] border border-white/90 bg-white/75 p-4 shadow-[0_14px_40px_rgba(30,105,175,.12)] backdrop-blur-xl sm:p-6" aria-labelledby="practice-heading">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div className="text-left">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-orange-500">Optional • about 8 minutes</p>
+              <h2 id="practice-heading" className="text-2xl font-black text-slate-900 sm:text-3xl">Today’s Practice</h2>
+              <p className="text-sm font-bold text-slate-500">Try these three, or choose any world below.</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => launchGame(practiceGames[0].id, 'launch')}
+              className="rounded-2xl bg-gradient-to-r from-orange-500 to-amber-400 px-5 py-3 font-black text-white shadow-lg transition hover:-translate-y-0.5 active:translate-y-0"
+            >
+              ▶ Start practice
+            </button>
+          </div>
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            {practiceGames.map((game, index) => (
               <button
-                key={category}
-                onClick={() => { setMenuFilter(category); playSfx('click'); }}
-                className={`whitespace-nowrap rounded-xl px-4 py-2 text-sm font-black transition ${
-                  menuFilter === category
-                    ? 'bg-slate-800 text-white shadow-md'
-                    : 'text-slate-600 hover:bg-white/80 hover:text-slate-900'
-                }`}
-                aria-pressed={menuFilter === category}
+                key={game.id}
+                type="button"
+                onClick={() => launchGame(game.id)}
+                className="flex min-h-20 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
               >
-                {category}
+                <span className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-sky-50 text-3xl">{game.icon}</span>
+                <span><span className="block text-xs font-black uppercase tracking-wide text-orange-500">Step {index + 1}</span><strong className="text-base text-slate-900">{game.title}</strong></span>
               </button>
             ))}
           </div>
-          <button
-            onClick={() => {
-              const options = filteredGames.length ? filteredGames : GAME_MENU_ITEMS;
-              const game = options[Math.floor(Math.random() * options.length)];
-              playSfx('launch');
-              setScreen(game.id);
-            }}
-            className="rounded-2xl bg-white px-5 py-3 font-black text-indigo-700 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0"
-          >
-            🎲 Surprise me
-          </button>
-        </div>
+        </section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-4 w-full max-w-7xl relative z-10">
-          {filteredGames.map((game) => (
-            <MenuCard
-              key={game.id}
-              icon={game.icon}
-              title={game.title}
-              desc={game.desc}
-              color={game.color}
-              badge={game.badge}
-              category={game.category}
-              playedCount={gamesPlayed[game.id] || 0}
-              onClick={() => {
-                playSfx('click');
-                setScreen(game.id);
-              }}
-            />
-          ))}
-        </div>
+        {quickGames.length > 0 && (
+          <section className="relative z-10 mb-6 w-full max-w-7xl" aria-labelledby="quick-heading">
+            <div className="mb-3 flex items-center justify-between">
+              <h2 id="quick-heading" className="text-left text-xl font-black text-slate-900">Quick re-entry</h2>
+              <span className="text-xs font-bold text-slate-500">★ Favourites first</span>
+            </div>
+            <div className="flex gap-3 overflow-x-auto pb-2 no-scrollbar">
+              {quickGames.map((game) => (
+                <button
+                  key={game.id}
+                  type="button"
+                  onClick={() => launchGame(game.id)}
+                  className="flex min-w-48 items-center gap-3 rounded-2xl border border-white bg-white/85 p-3 text-left shadow-md transition hover:-translate-y-0.5 active:translate-y-0"
+                >
+                  <span className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-indigo-50 text-3xl">{game.icon}</span>
+                  <span><strong className="block text-sm text-slate-900">{game.title}</strong><span className="text-xs font-bold text-slate-500">{favouriteGames.includes(game.id) ? '★ Favourite' : '↺ Recent'}</span></span>
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <section className="relative z-10 w-full max-w-7xl" aria-labelledby="worlds-heading">
+          <div className="mb-4 text-left">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-500">Every game stays open</p>
+            <h2 id="worlds-heading" className="text-3xl font-black text-slate-900 sm:text-4xl">Choose a learning world</h2>
+            <p className="mt-1 font-bold text-slate-500">Pick a world, then choose the game you want.</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {LEARNING_WORLDS.map((world) => (
+              <button
+                key={world.id}
+                type="button"
+                onClick={() => { playSfx('click'); setSelectedWorld(world.id); }}
+                aria-pressed={selectedWorld === world.id}
+                className={`group relative min-h-52 overflow-hidden rounded-[1.8rem] bg-gradient-to-br ${world.color} p-5 text-left text-white shadow-[0_8px_0_rgba(15,23,42,.13),0_16px_30px_rgba(30,64,175,.16)] transition hover:-translate-y-1 active:translate-y-1 active:shadow-none ${selectedWorld === world.id ? 'ring-4 ring-white ring-offset-4 ring-offset-sky-100' : ''}`}
+              >
+                <span className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/20" />
+                <span className="relative text-5xl transition group-hover:scale-110">{world.icon}</span>
+                <strong className="relative mt-5 block text-xl font-black leading-tight">{world.title}</strong>
+                <span className="relative mt-2 block text-sm font-bold text-white/90">{world.desc}</span>
+                <span className="relative mt-4 inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-black backdrop-blur">{world.gameIds.length} games →</span>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {activeWorld && (
+          <section className="relative z-10 mt-7 w-full max-w-7xl rounded-[2rem] border border-white/90 bg-white/65 p-4 shadow-[0_16px_45px_rgba(30,105,175,.13)] backdrop-blur-xl sm:p-6" aria-labelledby="world-games-heading">
+            <div className="mb-5 flex flex-col gap-3 text-left sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-500">{activeWorld.icon} World open</p>
+                <h2 id="world-games-heading" className="text-3xl font-black text-slate-900">{activeWorld.title}</h2>
+                <p className="font-bold text-slate-500">Choose any game. Nothing is locked.</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  const game = activeWorldGames[Math.floor(Math.random() * activeWorldGames.length)];
+                  launchGame(game.id, 'launch');
+                }}
+                className="rounded-2xl bg-slate-900 px-5 py-3 font-black text-white shadow-lg transition hover:-translate-y-0.5 active:translate-y-0"
+              >
+                🎲 Surprise me in this world
+              </button>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {activeWorldGames.map(renderGameCard)}
+            </div>
+          </section>
+        )}
 
         <button
           onClick={() => { playSfx('click'); setScreen('progress'); }}
@@ -642,6 +759,7 @@ export default function App() {
         onToggleSound={() => setSoundOn((prev) => !prev)}
         speak={speak}
         onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
       />
     );
   } else if (screen === 'progress') {

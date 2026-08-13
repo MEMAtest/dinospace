@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Home, RotateCcw, Sparkles } from 'lucide-react';
 import { SHAPES } from '../../data/index.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
 const SHAPE_ICONS = {
   Circle: '●',
@@ -76,7 +77,8 @@ const buildGuidePoints = (shape, width, height) => {
   });
 };
 
-const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+  const difficulty = useGameDifficulty('jet');
   const canvasRef = useRef(null);
   const jetRef = useRef(null);
   const guidePointsRef = useRef([]);
@@ -86,7 +88,8 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const [completedShapes, setCompletedShapes] = useState([]);
   const [traceProgress, setTraceProgress] = useState(0);
   const allCompleteRef = useRef(false);
-  const traceReady = traceProgress >= 72;
+  const requiredCoverage = difficulty === 'starter' ? 62 : difficulty === 'growing' ? 74 : 86;
+  const traceReady = traceProgress >= requiredCoverage;
   const alreadyComplete = completedShapes.includes(shape);
 
   useEffect(() => {
@@ -99,11 +102,16 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       const next = [...previous, shape];
       const praise = SKY_PRAISE[next.length % SKY_PRAISE.length];
       onCelebrate(praise, 4, 200);
+      onGameEvent?.('jet', 'answer_correct');
+      onGameEvent?.('jet', 'learning_attempt', {
+        skill: 'shape-formation', item: shape, response: `${Math.round(traceProgress)}% guide coverage`,
+        correct: true, firstAttempt: true, independent: true, hints: 0, difficulty,
+      });
       playSfx('sparkle');
       speak(`${praise} You traced the ${shape}.`);
       return next;
     });
-  }, [onCelebrate, playSfx, shape, speak]);
+  }, [difficulty, onCelebrate, onGameEvent, playSfx, shape, speak, traceProgress]);
 
   useEffect(() => {
     visitedPointsRef.current = new Set();
@@ -323,7 +331,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
           disabled={!traceReady || alreadyComplete}
           className="absolute bottom-4 left-1/2 z-20 flex min-w-44 -translate-x-1/2 items-center justify-center gap-2 rounded-2xl bg-sky-700 px-5 py-3 font-black text-white shadow-[0_7px_0_#075985] transition active:translate-y-1 active:shadow-none disabled:cursor-not-allowed disabled:bg-slate-500 disabled:shadow-none"
         >
-          <Sparkles size={18} /> {alreadyComplete ? 'Shape complete!' : traceReady ? 'Finish flight!' : 'Follow the path'}
+          <Sparkles size={18} /> {alreadyComplete ? 'Shape complete!' : traceReady ? 'Finish flight!' : `Follow ${requiredCoverage}% of the path`}
         </button>
       </main>
     </div>

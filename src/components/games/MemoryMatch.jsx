@@ -3,9 +3,11 @@ import { Home } from 'lucide-react';
 import { MEMORY_LEVELS } from '../../data/index.js';
 import { buildMemoryDeck, getPraise, loadSaved, saveSafe } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
 const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [levelIndex, setLevelIndex] = useState(0);
+  const difficulty = useGameDifficulty('memory');
+  const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = MEMORY_LEVELS[levelIndex];
   const [deck, setDeck] = useState(() => buildMemoryDeck(level));
   const [flipped, setFlipped] = useState([]);
@@ -97,6 +99,11 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setCompletionMessage('');
     setTimer(0);
   };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    startLevel(getDifficultyIndex(difficulty));
+  }, [difficulty]);
 
   const handleNextLevel = () => {
     const nextIndex = levelIndex < MEMORY_LEVELS.length - 1 ? levelIndex + 1 : 0;

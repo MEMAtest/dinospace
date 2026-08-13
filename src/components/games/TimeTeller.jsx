@@ -2,48 +2,57 @@ import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { shuffle, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
-const buildTimeOptions = (targetHour) => {
+const timeLabel = ({ hour, minute }) => minute === 0 ? `${hour} o'clock` : minute === 30 ? `half past ${hour}` : minute === 15 ? `quarter past ${hour}` : `quarter to ${hour === 12 ? 1 : hour + 1}`;
+
+const buildTimeOptions = (target) => {
   const wrap = (hour) => ((hour - 1 + 12) % 12) + 1;
-  return shuffle([targetHour, wrap(targetHour + 1), wrap(targetHour + 3), wrap(targetHour - 2)]);
+  return shuffle([target, { ...target, hour: wrap(target.hour + 1) }, { ...target, hour: wrap(target.hour + 3) }, { ...target, hour: wrap(target.hour - 2) }]);
 };
 
 const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [targetHour, setTargetHour] = useState(3);
+  const difficulty = useGameDifficulty('timeteller');
+  const [target, setTarget] = useState({ hour: 3, minute: 0 });
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
-  const [options, setOptions] = useState(() => buildTimeOptions(3));
+  const [options, setOptions] = useState(() => buildTimeOptions({ hour: 3, minute: 0 }));
+  const [hadMistake, setHadMistake] = useState(false);
 
   const newRound = () => {
-    const nextHour = targetHour === 12 ? 1 : targetHour + 1;
-    setTargetHour(nextHour);
-    setOptions(buildTimeOptions(nextHour));
+    const nextHour = target.hour === 12 ? 1 : target.hour + 1;
+    const minutePool = difficulty === 'starter' ? [0] : difficulty === 'growing' ? [0, 30] : [0, 15, 30, 45];
+    const nextTarget = { hour: nextHour, minute: minutePool[(nextHour + score) % minutePool.length] };
+    setTarget(nextTarget);
+    setOptions(buildTimeOptions(nextTarget));
     setFeedback('');
     setLocked(false);
+    setHadMistake(false);
     setSkillRun((current) => current >= 5 ? 0 : current);
   };
 
   useEffect(() => {
-    speak(`Show me ${targetHour} o'clock on the clock!`);
-  }, [targetHour, speak]);
+    speak(`What time is shown? ${timeLabel(target)}.`);
+  }, [target, speak]);
 
   const handlePick = (h) => {
     if (locked) return;
-    if (h === targetHour) {
+    if (h.hour === target.hour && h.minute === target.minute) {
       const praise = getPraise();
       setFeedback(praise);
       setScore((s) => s + 1);
       setSkillRun((current) => Math.min(current + 1, 5));
       setLocked(true);
       playSfx('success');
-      speak(`${praise} That's ${targetHour} o'clock!`);
+      speak(`${praise} That's ${timeLabel(target)}!`);
       onCelebrate(praise, 4, 200);
-      onGameEvent?.('timeteller', 'answer_correct');
+      onGameEvent?.('timeteller', 'answer_correct', { skill: 'telling-time', item: timeLabel(target), response: timeLabel(h), expected: timeLabel(target), correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
       setTimeout(newRound, 1100);
     } else {
+      setHadMistake(true);
       setShake(true);
       playSfx('wrong');
       setFeedback('Try again!');
@@ -51,7 +60,8 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
     }
   };
 
-  const hourAngle = (targetHour % 12) * 30;
+  const hourAngle = (target.hour % 12) * 30 + target.minute * 0.5;
+  const minuteAngle = target.minute * 6;
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-indigo-100 to-blue-200 relative overflow-hidden">
@@ -83,12 +93,12 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
           <div className="absolute top-1/2 left-1/2 w-3 h-[92px] bg-indigo-600 rounded-full origin-bottom z-[5]"
             style={{ transform: `translate(-50%, -100%) rotate(${hourAngle}deg)` }} />
           <div className="absolute top-1/2 left-1/2 w-2 h-[120px] bg-indigo-400 rounded-full origin-bottom"
-            style={{ transform: `translate(-50%, -100%) rotate(0deg)` }} />
+            style={{ transform: `translate(-50%, -100%) rotate(${minuteAngle}deg)` }} />
         </div>
         <div className="flex gap-4 flex-wrap justify-center">
           {options.map((h) => (
-            <button key={h} onClick={() => handlePick(h)} disabled={locked}
-              className="min-w-44 bg-white text-indigo-700 text-xl font-black px-7 py-4 rounded-2xl shadow-lg border-4 border-indigo-200 hover:-translate-y-1 transition">{h} o'clock</button>
+            <button key={`${h.hour}-${h.minute}`} onClick={() => handlePick(h)} disabled={locked}
+              className="min-w-44 bg-white text-indigo-700 text-xl font-black px-7 py-4 rounded-2xl shadow-lg border-4 border-indigo-200 hover:-translate-y-1 transition">{timeLabel(h)}</button>
           ))}
         </div>
         {feedback && <div className="mt-4 text-2xl font-black text-indigo-600 animate-bounce">{feedback}</div>}

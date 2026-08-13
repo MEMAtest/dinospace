@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { Home, Pause, Play, Rotate3D, RotateCcw, Sparkles, Volume2, ZoomIn, ZoomOut } from 'lucide-react';
 import { PLANETS } from '../../data/index.js';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { SoundToggle } from '../shared/index.jsx';
 
 const PLANET_COLORS = {
@@ -270,6 +271,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
 });
 
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+  const difficulty = useGameDifficulty('solar');
   const orreryRef = useRef(null);
   const [selectedPlanet, setSelectedPlanet] = useState(PLANETS[2]);
   const [activeFact, setActiveFact] = useState(0);
@@ -331,6 +333,9 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const discoveredForPlanet = selectedPlanet.facts.filter(
     (_fact, index) => discoveredFacts[`${selectedPlanet.name}-${index}`],
   ).length;
+  const quizOptions = difficulty === 'starter'
+    ? [selectedPlanet.quiz.answer, selectedPlanet.quiz.options.find((option) => option !== selectedPlanet.quiz.answer)].filter(Boolean)
+    : selectedPlanet.quiz.options;
 
   return (
     <div className="min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden">
@@ -478,10 +483,13 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </div>
 
           <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
-            <h4 className="font-black">Captain’s challenge</h4>
+            <div className="flex items-center justify-between gap-3">
+              <h4 className="font-black">Captain’s challenge</h4>
+              <span className="rounded-full bg-cyan-300/15 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-cyan-200">{difficulty}</span>
+            </div>
             <p className="mt-1 text-sm font-bold text-white/70">{selectedPlanet.quiz.question}</p>
             <div className="mt-3 flex flex-wrap gap-2">
-              {selectedPlanet.quiz.options.map((option) => (
+              {quizOptions.map((option) => (
                 <button
                   key={option}
                   onClick={() => handleQuiz(option)}

@@ -1,31 +1,35 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Check, Home, RotateCcw, Volume2 } from 'lucide-react';
-import { WORD_BUILDER_WORDS } from '../../data/index.js';
 import { getPraise, loadSaved, saveSafe, shuffle } from '../../utils.js';
+import { DECODABLE_CAPTIONS, getAvailableTrickyWords, getAvailableWords, getTaughtGraphemes, makeLearningEvent, WRITING_SAMPLES_KEY } from '../../data/literacy.js';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 
 const PROGRESS_KEY = 'amari_spelling_progress_v1';
-const LETTER_BANK = 'SATPINMDGOCKEURHBLF';
+const LETTER_BANK = ['s', 'a', 't', 'p', 'i', 'n', 'm', 'd', 'g', 'o', 'c', 'k', 'e', 'u', 'r', 'h', 'b', 'f', 'l', 'sh', 'ch', 'th', 'ai', 'ee', 'oa', 'oo'];
 
 const MODES = [
-  { id: 'copy', label: 'Learn it', short: 'See and build', count: 6, icon: '👀' },
-  { id: 'missing', label: 'Sound gap', short: 'Find one sound', count: 10, icon: '👂' },
-  { id: 'spell', label: 'Spell it', short: 'Hear and build', count: WORD_BUILDER_WORDS.length, icon: '✍️' },
+  { id: 'copy', label: 'Learn it', short: 'See and build', icon: '👀' },
+  { id: 'missing', label: 'Sound gap', short: 'Find one sound', icon: '👂' },
+  { id: 'spell', label: 'Spell it', short: 'Hear and build', icon: '✍️' },
+  { id: 'tricky', label: 'Tricky words', short: 'Remember by heart', icon: '⭐' },
+  { id: 'caption', label: 'Write it', short: 'Copy a caption', icon: '📝' },
 ];
 
-const makeTiles = (word, distractors = 0) => {
-  const extras = shuffle([...new Set(LETTER_BANK)].filter((letter) => !word.includes(letter))).slice(0, distractors);
-  return shuffle([...word.split(''), ...extras].map((letter, index) => ({ letter, id: `${letter}-${index}` })));
+const makeTiles = (graphemes, distractors = 0) => {
+  const extras = shuffle(LETTER_BANK.filter((letter) => !graphemes.includes(letter))).slice(0, distractors);
+  return shuffle([...graphemes, ...extras].map((letter, index) => ({ letter, id: `${letter}-${index}` })));
 };
 
-const makeMissingOptions = (word, missingIndex) => {
-  const answer = word[missingIndex];
-  const decoys = shuffle([...new Set(LETTER_BANK)].filter((letter) => letter !== answer)).slice(0, 3);
+const makeMissingOptions = (graphemes, missingIndex) => {
+  const answer = graphemes[missingIndex];
+  const decoys = shuffle(LETTER_BANK.filter((letter) => letter !== answer)).slice(0, 3);
   return shuffle([answer, ...decoys]);
 };
 
 const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [mode, setMode] = useState('copy');
+  const difficulty = useGameDifficulty('words');
+  const [mode, setMode] = useState(() => difficulty === 'challenge' ? 'spell' : difficulty === 'growing' ? 'missing' : 'copy');
   const [wordIndex, setWordIndex] = useState(0);
   const [typed, setTyped] = useState([]);
   const [feedback, setFeedback] = useState('');
@@ -35,32 +39,43 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [hadMistake, setHadMistake] = useState(false);
   const [progress, setProgress] = useState(() => loadSaved(PROGRESS_KEY, {}));
 
-  const activeMode = MODES.find((item) => item.id === mode) || MODES[0];
-  const words = WORD_BUILDER_WORDS.slice(0, activeMode.count);
+  const regularWords = useMemo(() => getAvailableWords(), []);
+  const trickyWords = useMemo(() => getAvailableTrickyWords(), []);
+  const words = mode === 'tricky' ? trickyWords : regularWords;
   const word = words[wordIndex % words.length];
-  const missingIndex = wordIndex % word.word.length;
-  const [tiles, setTiles] = useState(() => makeTiles(WORD_BUILDER_WORDS[0].word));
+  const missingIndex = wordIndex % word.graphemes.length;
+  const [tiles, setTiles] = useState(() => makeTiles(getAvailableWords()[0].graphemes));
+  const [captionText, setCaptionText] = useState('');
+  const [captionSaved, setCaptionSaved] = useState(false);
+  const captions = useMemo(() => {
+    const taught = getTaughtGraphemes();
+    const eligible = DECODABLE_CAPTIONS.filter((caption) => caption.needs.every((sound) => taught.has(sound)));
+    return eligible.length ? eligible : DECODABLE_CAPTIONS.slice(0, 1);
+  }, []);
+  const caption = captions[wordIndex % captions.length];
   const missingOptions = useMemo(
-    () => makeMissingOptions(word.word, missingIndex),
-    [word.word, missingIndex],
+    () => makeMissingOptions(word.graphemes, missingIndex),
+    [word.graphemes, missingIndex],
   );
 
   const masteredWords = Object.values(progress).filter((item) => item?.independentDays?.length >= 2).length;
 
   useEffect(() => {
-    speak(`Spell the word: ${word.word}. ${word.hint}`);
-  }, [word.word, word.hint, speak]);
+    if (mode === 'caption') speak(`Read and copy: ${caption.text}`);
+    else speak(`Spell the word: ${word.word}. ${word.hint}`);
+  }, [caption.text, mode, word.word, word.hint, speak]);
 
   const resetRound = (nextIndex = wordIndex, nextMode = mode) => {
-    const selectedMode = MODES.find((item) => item.id === nextMode) || MODES[0];
-    const selectedWords = WORD_BUILDER_WORDS.slice(0, selectedMode.count);
+    const selectedWords = nextMode === 'tricky' ? trickyWords : regularWords;
     const nextWord = selectedWords[nextIndex % selectedWords.length];
     setWordIndex(nextIndex % selectedWords.length);
     setTyped([]);
     setFeedback('');
     setLocked(false);
     setHadMistake(false);
-    setTiles(makeTiles(nextWord.word, nextMode === 'spell' ? 3 : 0));
+    setCaptionText('');
+    setCaptionSaved(false);
+    setTiles(makeTiles(nextWord.graphemes, ['spell', 'tricky'].includes(nextMode) ? 3 : 0));
   };
 
   const chooseMode = (nextMode) => {
@@ -73,7 +88,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   const recordSuccess = () => {
     const praise = getPraise();
-    const independent = mode === 'spell' && !hadMistake;
+    const independent = ['spell', 'tricky'].includes(mode) && !hadMistake;
     const previous = progress[word.word] || { attempts: 0, independentFirstTry: 0, independentDays: [], needsPractice: 0 };
     const today = new Date().toISOString().slice(0, 10);
     const independentDays = independent && !previous.independentDays?.includes(today)
@@ -100,11 +115,20 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     speak(`${word.word}! Super!`);
     onCelebrate(praise, independent ? 5 : 4, 300);
     onGameEvent?.('words', 'answer_correct');
+    onGameEvent?.('words', 'learning_attempt', makeLearningEvent({
+      skill: mode === 'missing' ? 'phoneme-gap' : mode === 'copy' ? 'supported-spelling' : mode === 'tricky' ? 'tricky-word-spelling' : 'independent-spelling',
+      item: word.word,
+      response: word.word,
+      correct: true,
+      firstTry: !hadMistake,
+      difficulty: mode === 'copy' ? 'starter' : mode === 'missing' ? 'growing' : 'challenge',
+      extra: { family: word.family, phase: word.phase },
+    }));
   };
 
   const handleLetterTap = (item) => {
     if (locked) return;
-    const expected = word.word[typed.length];
+    const expected = word.graphemes[typed.length];
     if (item.letter !== expected) {
       setHadMistake(true);
       setFeedback(mode === 'copy' ? `The next letter is ${expected}` : 'Say the word slowly and listen for the next sound.');
@@ -118,13 +142,12 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setTiles((previous) => previous.filter((tile) => tile.id !== item.id));
     setFeedback('');
     playSfx('tap');
-    speak(item.letter);
-    if (next.length === word.word.length) recordSuccess();
+    if (next.length === word.graphemes.length) recordSuccess();
   };
 
   const handleMissingSound = (letter) => {
     if (locked) return;
-    if (letter !== word.word[missingIndex]) {
+    if (letter !== word.graphemes[missingIndex]) {
       setHadMistake(true);
       setFeedback('Say the word slowly and listen again.');
       playSfx('wrong');
@@ -132,7 +155,6 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       return;
     }
     playSfx('tap');
-    speak(letter);
     recordSuccess();
   };
 
@@ -146,6 +168,25 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   const nextWord = () => resetRound((wordIndex + 1) % words.length);
 
+  const saveWritingSample = () => {
+    const response = captionText.trim();
+    if (!response) {
+      setFeedback('Write something first. It does not need to be perfect.');
+      return;
+    }
+    const samples = loadSaved(WRITING_SAMPLES_KEY, []);
+    const sample = { prompt: caption.text, response, savedAt: new Date().toISOString(), reviewed: false };
+    saveSafe(WRITING_SAMPLES_KEY, [...samples.slice(-19), sample]);
+    setCaptionSaved(true);
+    setFeedback('Saved for your grown-up to see!');
+    playSfx('success');
+    onCelebrate('Writing saved!', 3, 200);
+    onGameEvent?.('words', 'learning_attempt', makeLearningEvent({
+      skill: 'caption-writing', item: caption.text, response, correct: null, firstTry: true,
+      difficulty: caption.phase === 2 ? 'growing' : 'challenge', extra: { savedForReview: true },
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-cyan-100 via-sky-100 to-blue-200 text-slate-800">
       <header className="relative z-20 flex items-center justify-between gap-3 px-4 pt-4">
@@ -158,7 +199,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       </header>
 
       <main className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-3 pb-8">
-        <div className="mt-3 grid w-full max-w-xl grid-cols-3 gap-2 rounded-2xl bg-white/70 p-2 shadow-sm" aria-label="Spelling level">
+        <div className="mt-3 grid w-full max-w-3xl grid-cols-2 gap-2 rounded-2xl bg-white/70 p-2 shadow-sm sm:grid-cols-5" aria-label="Spelling level">
           {MODES.map((item) => (
             <button
               key={item.id}
@@ -173,13 +214,23 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
 
         <PracticeProgress
-          skill={mode === 'copy' ? 'Build a word with support' : mode === 'missing' ? 'Hear the missing sound' : 'Spell independently'}
+          skill={mode === 'copy' ? 'Build a word with support' : mode === 'missing' ? 'Hear the missing sound' : mode === 'tricky' ? 'Remember a tricky word' : mode === 'caption' ? 'Read and copy a caption' : 'Spell independently'}
           completed={skillRun}
           accent="cyan"
           className="max-w-xl"
         />
 
         <section className="mt-3 w-full max-w-2xl rounded-3xl border-4 border-white bg-white/75 p-4 text-center shadow-xl sm:p-6">
+          {mode === 'caption' ? (
+            <>
+              <p className="text-xs font-black uppercase tracking-widest text-cyan-700">Read it, say it, write it</p>
+              <p className="mt-3 rounded-2xl bg-cyan-50 p-4 text-2xl font-black text-cyan-900">{caption.text}</p>
+              <button onClick={() => speak(`Read and copy: ${caption.text}`)} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full bg-cyan-100 px-4 font-black text-cyan-800"><Volume2 size={19} /> Hear the caption</button>
+              <textarea value={captionText} onChange={(event) => { setCaptionText(event.target.value); setCaptionSaved(false); }} rows={3} placeholder="Type or copy the caption here" className="mt-5 w-full rounded-2xl border-4 border-cyan-200 bg-white p-4 text-xl font-black uppercase text-slate-800 outline-none focus:border-cyan-500" aria-label="Writing sample" />
+              <p className="mt-2 text-xs font-bold text-slate-500">This is saved as a writing sample for a grown-up to review. The app does not pretend to grade handwriting.</p>
+              <button onClick={saveWritingSample} disabled={captionSaved} className="mt-4 min-h-12 rounded-xl bg-emerald-500 px-6 font-black text-white shadow-lg disabled:opacity-60">{captionSaved ? 'Saved!' : 'Save my writing'}</button>
+            </>
+          ) : <>
           <div className="mx-auto grid h-24 w-24 place-items-center rounded-3xl bg-cyan-50 text-6xl shadow-inner" aria-label={word.hint}>{word.emoji}</div>
           <p className="mt-3 text-lg font-bold text-slate-700">{word.hint}</p>
           <button onClick={() => speak(`Spell ${word.word}. ${word.hint}`)} className="mt-2 inline-flex min-h-11 items-center gap-2 rounded-full bg-cyan-100 px-4 font-black text-cyan-800">
@@ -194,7 +245,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           )}
 
           <div className="mt-5 flex justify-center gap-2 sm:gap-3" aria-label="Word spaces">
-            {word.word.split('').map((letter, index) => {
+            {word.graphemes.map((letter, index) => {
               const shown = mode === 'missing' ? (index === missingIndex ? (locked ? letter : '') : letter) : typed[index]?.letter;
               return (
                 <div key={`${letter}-${index}`} className={`grid h-14 w-14 place-items-center rounded-xl border-4 text-2xl font-black sm:h-16 sm:w-16 sm:text-3xl ${shown ? 'border-cyan-600 bg-cyan-500 text-white' : 'border-dashed border-cyan-200 bg-white text-cyan-200'}`}>
@@ -234,6 +285,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               <button onClick={nextWord} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-500 px-6 font-black text-white shadow-lg transition hover:bg-emerald-600"><Check size={20} /> Next word</button>
             )}
           </div>
+          </>}
         </section>
 
         <p className="mt-3 max-w-xl text-center text-xs font-bold text-cyan-800/70">

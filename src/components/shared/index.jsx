@@ -186,17 +186,16 @@ export const InstallAppPrompt = ({ canInstall, isAppleMobile, isInstalled, isIns
 };
 
 export const VoiceSettings = ({ voiceMode, premiumEnabled, premiumStatus, onPreview }) => {
-  const statusText = voiceMode === 'device'
-    ? 'Device voice selected'
-    : premiumStatus === 'ready'
+  const usingPackagedNarrator = premiumEnabled || voiceMode !== 'device';
+  const statusText = usingPackagedNarrator && premiumStatus === 'ready'
       ? 'ElevenLabs narrator connected'
       : premiumStatus === 'loading'
         ? 'Getting ElevenLabs narrator…'
         : premiumStatus === 'unavailable'
           ? 'ElevenLabs unavailable — tap Hear it to retry'
-          : premiumEnabled
+          : usingPackagedNarrator
             ? 'ElevenLabs narrator ready to try'
-            : 'Premium narrator is off until connected';
+            : 'Packaged narrator is not enabled in this build';
 
   return (
     <section className="mt-6 w-full max-w-5xl rounded-3xl border-4 border-fuchsia-100 bg-white/80 p-5 shadow-xl backdrop-blur relative z-10">
@@ -212,7 +211,7 @@ export const VoiceSettings = ({ voiceMode, premiumEnabled, premiumStatus, onPrev
                 <Sparkles className="mr-1 inline" size={13} /> {statusText}
               </span>
             </div>
-            <p className="mt-1 text-sm font-semibold text-slate-500">All narration uses the packaged ElevenLabs voice, including offline play.</p>
+            <p className="mt-1 text-sm font-semibold text-slate-500">Packaged narration works offline. New literacy clips are added only after voice review.</p>
           </div>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center">

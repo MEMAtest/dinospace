@@ -3,6 +3,7 @@ import { Home } from 'lucide-react';
 import { ADDITION_LEVELS, VISUAL_EMOJIS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
 const makeAnswerOptions = (answer) => {
   const candidates = [answer];
@@ -25,7 +26,8 @@ const makeAdditionRound = (level) => {
 };
 
 const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [levelIndex, setLevelIndex] = useState(0);
+  const difficulty = useGameDifficulty('addition');
+  const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = ADDITION_LEVELS[levelIndex];
   const [round, setRound] = useState(0);
   const [problem, setProblem] = useState(() => makeAdditionRound(ADDITION_LEVELS[0]));
@@ -34,11 +36,24 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
   const [streak, setStreak] = useState(0);
   const [successMessage, setSuccessMessage] = useState('');
   const [locked, setLocked] = useState(false);
+  const [hadMistake, setHadMistake] = useState(false);
+
+  useEffect(() => {
+    const nextLevelIndex = getDifficultyIndex(difficulty);
+    // Difficulty changes are an external parent-setting subscription.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setLevelIndex(nextLevelIndex);
+    setRound(0);
+    setProblem(makeAdditionRound(ADDITION_LEVELS[nextLevelIndex]));
+    setLocked(false);
+    setHadMistake(false);
+  }, [difficulty]);
 
   const newProblem = (nextLevel = level) => {
     setSuccess(false);
     setProblem(makeAdditionRound(nextLevel));
     setLocked(false);
+    setHadMistake(false);
   };
 
   useEffect(() => {
@@ -60,7 +75,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
       playSfx('success');
       if (newStreak >= 3) playSfx('combo');
       onCelebrate(praise, 6, 250);
-      onGameEvent?.('addition', 'answer_correct');
+      onGameEvent?.('addition', 'answer_correct', { skill: 'addition', item: `${problem.a}+${problem.b}`, response: pick, expected: answer, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
       const nextRound = round + 1;
       if (nextRound >= level.rounds && levelIndex < ADDITION_LEVELS.length - 1) {
         const nextLevelIndex = levelIndex + 1;
@@ -74,6 +89,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
         addTimeoutRef.current = setTimeout(newProblem, 1100);
       }
     } else {
+      setHadMistake(true);
       setShake(true);
       setStreak(0);
       playSfx('wrong');

@@ -3,6 +3,7 @@ import { Home } from 'lucide-react';
 import { ASTRONAUT_PROFILES, ASTRONAUT_CATEGORIES } from '../../data/index.js';
 import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
 const SPACE_STARS = Array.from({ length: 30 }, (_, index) => ({
   id: index,
@@ -161,6 +162,7 @@ const HeroesGallery = ({ onBack, playSfx, speak }) => {
 };
 
 const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+  const difficulty = useGameDifficulty('astronaut');
   const [catIndex, setCatIndex] = useState(null);
   const [mode, setMode] = useState(null); // 'quiz' | 'gallery'
   const [qIndex, setQIndex] = useState(0);
@@ -172,6 +174,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
   const [didYouKnow, setDidYouKnow] = useState(null);
   const [combo, setCombo] = useState(0);
   const [correctProfiles, setCorrectProfiles] = useState([]);
+  const [hadMistake, setHadMistake] = useState(false);
 
   const cat = catIndex !== null ? ASTRONAUT_CATEGORIES[catIndex] : null;
   const question = cat ? cat.items[qIndex] : null;
@@ -192,7 +195,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       setCombo(newCombo);
       setScore((prev) => prev + 1);
       onCelebrate(praise, 6, 200);
-      onGameEvent?.('astronaut', 'answer_correct');
+      onGameEvent?.('astronaut', 'answer_correct', { skill: `astronaut-${cat.id}`, item: question.q, response: opt.text, expected: question.answer, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
 
       if (newCombo >= 3) {
         playSfx('combo');
@@ -222,6 +225,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
         }, 1500);
       }
     } else {
+      setHadMistake(true);
       setShake(true);
       setCombo(0);
       playSfx('wrong');
@@ -255,6 +259,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
     setDidYouKnow(null);
     setCombo(0);
     setCorrectProfiles([]);
+    setHadMistake(false);
   };
 
   const handleSelectCategory = (index) => {
@@ -299,7 +304,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
               >
                 <div className="text-5xl mb-3">{c.emoji}</div>
                 <h3 className="text-xl font-black text-white">{c.name}</h3>
-                <p className="text-white/60 text-sm mt-1">{c.items.length} questions</p>
+                <p className="text-white/60 text-sm mt-1">{c.items.length} questions · {difficulty}</p>
                 {c.id === 'heroes' && <span className="inline-block mt-2 bg-yellow-400 text-yellow-900 text-xs font-black px-2 py-0.5 rounded-full">✨ NEW</span>}
               </button>
             ))}
@@ -418,7 +423,9 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
           </div>
           <h3 className="text-2xl font-black text-white mb-6">{question.q}</h3>
           <div className="grid grid-cols-2 gap-4">
-            {question.options.map((opt, index) => (
+            {(difficulty === 'starter'
+              ? question.options.filter((opt) => opt.text === question.answer).concat(question.options.filter((opt) => opt.text !== question.answer).slice(0, 2))
+              : question.options).map((opt, index) => (
               <button
                 key={opt.text}
                 onClick={() => { playSfx('tap'); handlePick(opt); }}

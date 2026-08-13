@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
-import { ADVANCED_PATTERN_ROUNDS, NUMBER_PATTERN_ROUNDS, PATTERN_ROUNDS, PATTERN_TOKENS } from '../../data/index.js';
+import { NUMBER_PATTERN_ROUNDS, PATTERN_TOKENS } from '../../data/index.js';
 import { pickRandom, shuffle, buildPatternRound, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { patternPoolForDifficulty } from '../../data/gameDifficulty.js';
 
 const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+  const difficulty = useGameDifficulty('pattern');
   const [mode, setMode] = useState('emoji');
   const [round, setRound] = useState(buildPatternRound);
   const [numRound, setNumRound] = useState(() => pickRandom(NUMBER_PATTERN_ROUNDS));
@@ -16,7 +19,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
   const nextRound = (nextMode = mode) => {
     if (nextMode === 'emoji') {
-      const allPatterns = [...PATTERN_ROUNDS, ...ADVANCED_PATTERN_ROUNDS];
+      const allPatterns = patternPoolForDifficulty(difficulty);
       const r = pickRandom(allPatterns);
       const decoys = shuffle(PATTERN_TOKENS.filter((t) => t !== r.answer)).slice(0, 2);
       setRound({ ...r, options: shuffle([r.answer, ...decoys]) });

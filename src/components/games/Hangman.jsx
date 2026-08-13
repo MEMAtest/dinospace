@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Home, Lightbulb, RotateCcw, ShieldCheck, Sparkles, Volume2 } from 'lucide-react';
-import { HANGMAN_WORDS } from '../../data/index.js';
 import { SoundToggle } from '../shared/index.jsx';
 import DinoIcon from '../shared/DinoIcon.jsx';
+import { getAvailableWords, makeLearningEvent } from '../../data/literacy.js';
+import { loadSaved, shuffle } from '../../utils.js';
 
 const MAX_MISTAKES = 6;
-const KEYBOARD_ROWS = ['QWERTYUIOP', 'ASDFGHJKL', 'ZXCVBNM'];
+const SPELLING_PROGRESS_KEY = 'amari_spelling_progress_v1';
 
 const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [wordIndex, setWordIndex] = useState(0);
@@ -16,7 +17,14 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const completedWordRef = useRef('');
   const nextRoundTimerRef = useRef(null);
 
-  const word = HANGMAN_WORDS[wordIndex];
+  const practiceWords = useMemo(() => {
+    const available = getAvailableWords();
+    const progress = loadSaved(SPELLING_PROGRESS_KEY, {});
+    const practised = available.filter((item) => progress[item.word]?.attempts > 0);
+    const pool = practised.length >= 3 ? practised : available.slice(0, 6);
+    return pool.map((item) => ({ ...item, clue: item.hint, category: `${item.family} word family` }));
+  }, []);
+  const word = practiceWords[wordIndex % practiceWords.length];
   const wordLetters = useMemo(() => [...new Set(word.word.split(''))], [word.word]);
   const wrongLetters = useMemo(
     () => guessedLetters.filter((letter) => !word.word.includes(letter)),
@@ -24,6 +32,11 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   );
   const shieldsLeft = MAX_MISTAKES - wrongLetters.length;
   const isRoundOver = roundState !== 'playing';
+  const keyboardLetters = useMemo(() => {
+    const answerLetters = [...new Set(word.word)];
+    const decoys = shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').filter((letter) => !answerLetters.includes(letter))).slice(0, Math.max(5, 12 - answerLetters.length));
+    return shuffle([...answerLetters, ...decoys]);
+  }, [word.word]);
 
   const startNextRound = useCallback((withSound = true) => {
     if (nextRoundTimerRef.current) {
@@ -34,9 +47,9 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setGuessedLetters([]);
     setHintsUsed(0);
     setRoundState('playing');
-    setWordIndex((index) => (index + 1) % HANGMAN_WORDS.length);
+    setWordIndex((index) => (index + 1) % practiceWords.length);
     if (withSound) playSfx('swish');
-  }, [playSfx]);
+  }, [playSfx, practiceWords.length]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -62,6 +75,11 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         ? `Great rescue! The word is ${word.word}.`
         : `Perfect rescue! The word is ${word.word}.`);
       onGameEvent?.('hangman', 'word_completed');
+      onGameEvent?.('hangman', 'learning_attempt', makeLearningEvent({
+        skill: 'known-word-consolidation', item: word.word, response: word.word, correct: true,
+        firstTry: wrongLetters.length === 0, hints: usedHint ? 1 : 0, difficulty: 'practice',
+        extra: { masteryEligible: false, family: word.family },
+      }));
       onCelebrate(usedHint ? 'Word rescued!' : 'Perfect word rescue!', stars, 0, 'hangman');
     } else {
       playSfx('oops');
@@ -69,7 +87,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     }
 
     nextRoundTimerRef.current = setTimeout(() => startNextRound(false), 1350);
-  }, [onCelebrate, onGameEvent, playSfx, speak, startNextRound, word.word]);
+  }, [onCelebrate, onGameEvent, playSfx, speak, startNextRound, word.family, word.word, wrongLetters.length]);
 
   const chooseLetter = useCallback((letter, { fromHint = false } = {}) => {
     if (roundState !== 'playing' || guessedLetters.includes(letter)) return;
@@ -102,14 +120,14 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     const onKeyDown = (event) => {
       if (event.metaKey || event.ctrlKey || event.altKey) return;
       const letter = event.key.toUpperCase();
-      if (/^[A-Z]$/.test(letter)) {
+      if (/^[A-Z]$/.test(letter) && keyboardLetters.includes(letter)) {
         event.preventDefault();
         chooseLetter(letter);
       }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [chooseLetter]);
+  }, [chooseLetter, keyboardLetters]);
 
   const useHint = () => {
     if (roundState !== 'playing' || hintsUsed >= 1) return;
@@ -200,10 +218,10 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             </button>
           </div>
 
-          <div className="mt-6 space-y-2" role="group" aria-label="Letter keyboard">
-            {KEYBOARD_ROWS.map((row) => (
-              <div key={row} className="flex justify-center gap-1.5 sm:gap-2">
-                {row.split('').map((letter) => {
+          <div className="mt-6" role="group" aria-label="Helpful letter choices">
+            <p className="mb-3 text-center text-sm font-bold text-cyan-100">Choose from these helpful letters</p>
+              <div className="mx-auto grid max-w-2xl grid-cols-6 gap-2">
+                {keyboardLetters.map((letter) => {
                   const guessed = guessedLetters.includes(letter);
                   const correct = guessed && word.word.includes(letter);
                   const wrong = guessed && !correct;
@@ -212,7 +230,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                       key={letter}
                       onClick={() => chooseLetter(letter)}
                       disabled={guessed || isRoundOver}
-                      className={`grid h-10 w-7 place-items-center rounded-lg border text-sm font-black transition sm:h-12 sm:w-11 sm:text-base ${
+                      className={`grid min-h-12 place-items-center rounded-xl border text-lg font-black transition sm:min-h-14 sm:text-xl ${
                         correct
                           ? 'border-emerald-300 bg-emerald-400 text-emerald-950'
                           : wrong
@@ -226,7 +244,6 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                   );
                 })}
               </div>
-            ))}
           </div>
         </section>
 

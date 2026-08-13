@@ -2,10 +2,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Home, RotateCcw, Volume2 } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { MULTIPLICATION_LIMITS } from '../../data/gameDifficulty.js';
 
-const makeProblem = () => {
-  const groups = Math.ceil(Math.random() * 4) + 1;
-  const inEachGroup = Math.ceil(Math.random() * 3) + 1;
+const makeProblem = (difficulty = 'starter') => {
+  const [maxGroups, maxGroupSize] = MULTIPLICATION_LIMITS[difficulty] || MULTIPLICATION_LIMITS.starter;
+  const groups = Math.ceil(Math.random() * maxGroups);
+  const inEachGroup = Math.ceil(Math.random() * maxGroupSize);
   return { a: groups, b: inEachGroup, ans: groups * inEachGroup };
 };
 
@@ -27,6 +30,7 @@ const makeOptions = (answer, groups) => {
 const MonsterMath = ({
   onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent,
 }) => {
+  const difficulty = useGameDifficulty('math');
   const [problem, setProblem] = useState({ a: 3, b: 2, ans: 6 });
   const [success, setSuccess] = useState(false);
   const [shake, setShake] = useState(false);
@@ -34,6 +38,7 @@ const MonsterMath = ({
   const [feedback, setFeedback] = useState('');
   const [countStep, setCountStep] = useState(0);
   const [locked, setLocked] = useState(false);
+  const [hadMistake, setHadMistake] = useState(false);
   const timersRef = useRef([]);
 
   const clearTimers = useCallback(() => {
@@ -48,13 +53,19 @@ const MonsterMath = ({
 
   const newProblem = useCallback(() => {
     clearTimers();
-    setProblem(makeProblem());
+    setProblem(makeProblem(difficulty));
     setSuccess(false);
     setShake(false);
     setFeedback('');
     setCountStep(0);
     setLocked(false);
-  }, [clearTimers]);
+    setHadMistake(false);
+  }, [clearTimers, difficulty]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    newProblem();
+  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     speak(`What is ${problem.a} groups of ${problem.b}? Count every obstacle.`);
@@ -71,6 +82,7 @@ const MonsterMath = ({
   const check = (answer) => {
     if (locked) return;
     if (answer !== problem.ans) {
+      setHadMistake(true);
       setShake(true);
       setStreak(0);
       setFeedback(`Look carefully: ${problem.a} groups with ${problem.b} in each group.`);
@@ -89,7 +101,7 @@ const MonsterMath = ({
     playSfx('success');
     speak(`${problem.a} groups of ${problem.b}. Let us jump and count to ${problem.ans}.`);
     onCelebrate(praise, 6, 50);
-    onGameEvent?.('math', 'answer_correct');
+    onGameEvent?.('math', 'answer_correct', { skill: 'multiplication', item: `${problem.a}x${problem.b}`, response: answer, expected: problem.ans, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
 
     let count = 0;
     const countTimer = setInterval(() => {

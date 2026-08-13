@@ -13,6 +13,7 @@ import foodsScene from '../../assets/german-garage/scenes/foods.webp';
 import vehiclesScene from '../../assets/german-garage/scenes/vehicles.webp';
 import bodyScene from '../../assets/german-garage/scenes/body.webp';
 import greetingsScene from '../../assets/german-garage/scenes/greetings.webp';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
 const TAB_ICONS = {
   paint: '🎨', park: '🏠', numbers: '🔢', animals: '🐯', shapes: '⭐', foods: '🍎',
@@ -53,7 +54,9 @@ const GERMAN_AUDIO_SLUGS = {
   Hallo: 'hallo', 'Tschüss': 'tschuess', Danke: 'danke', Bitte: 'bitte', Ja: 'ja', Nein: 'nein',
 };
 
-const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) => {
+const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
+  const difficulty = useGameDifficulty('german');
+  const optionCount = difficulty === 'starter' ? 3 : difficulty === 'growing' ? 4 : 6;
   const [mode, setMode] = useState('paint');
   const [paintRound, setPaintRound] = useState(() => buildMatchRound(GERMAN_COLORS));
   const [parkRound, setParkRound] = useState(() => buildMatchRound(GERMAN_COLORS));
@@ -62,6 +65,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) 
   const [stars, setStars] = useState(0);
   const [paintedColour, setPaintedColour] = useState(null);
   const germanAudioRef = useRef(null);
+  const hadMistakeRef = useRef(false);
 
   const matchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === mode);
   const round = mode === 'paint' ? paintRound : mode === 'park' ? parkRound : matchRound;
@@ -92,14 +96,16 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) 
 
   const makeNextRound = () => {
     setFeedback('');
-    if (mode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS));
-    else if (mode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS));
-    else if (matchMode) setMatchRound(buildMatchRound(matchMode.items));
+    hadMistakeRef.current = false;
+    if (mode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS, optionCount));
+    else if (mode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS, optionCount));
+    else if (matchMode) setMatchRound(buildMatchRound(matchMode.items, optionCount));
   };
 
   const choose = (option) => {
     if (mode === 'paint') setPaintedColour(option);
     if (option.name !== round.target.name) {
+      hadMistakeRef.current = true;
       setFeedback('Noch einmal — try again!');
       playSfx('oops');
       playGermanTerm(round.target.name);
@@ -110,6 +116,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) 
     playSfx('success');
     playGermanTerm(round.target.name);
     onCelebrate('Richtig!', 4, 120);
+    onGameEvent?.('german', 'answer_correct', { skill: `german-${mode}`, item: round.target.name, response: option.name, expected: round.target.name, correct: true, firstAttempt: !hadMistakeRef.current, independent: true, difficulty });
     window.setTimeout(makeNextRound, 850);
   };
 
@@ -118,9 +125,10 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) 
     setFeedback('');
     setPaintedColour(null);
     const nextMatchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === nextMode);
-    if (nextMode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS));
-    else if (nextMode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS));
-    else if (nextMatchMode) setMatchRound(buildMatchRound(nextMatchMode.items));
+    hadMistakeRef.current = false;
+    if (nextMode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS, optionCount));
+    else if (nextMode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS, optionCount));
+    else if (nextMatchMode) setMatchRound(buildMatchRound(nextMatchMode.items, optionCount));
     playSfx('click');
   };
 

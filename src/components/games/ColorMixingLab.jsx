@@ -3,16 +3,20 @@ import { Home } from 'lucide-react';
 import { COLOR_MIX_ROUNDS } from '../../data/index.js';
 import { shuffle, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { colourRoundIndexes } from '../../data/gameDifficulty.js';
 
 const makeOptions = (round) => shuffle(round.options);
 
 const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+  const difficulty = useGameDifficulty('colormix');
   const [roundIndex, setRoundIndex] = useState(0);
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
   const [mixed, setMixed] = useState(false);
-  const round = COLOR_MIX_ROUNDS[roundIndex % COLOR_MIX_ROUNDS.length];
+  const bandIndexes = colourRoundIndexes(difficulty);
+  const round = COLOR_MIX_ROUNDS[bandIndexes[roundIndex % bandIndexes.length]];
   const [options, setOptions] = useState(() => makeOptions(COLOR_MIX_ROUNDS[0]));
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
@@ -22,12 +26,12 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   }, [roundIndex, round.name1, round.name2, speak]);
 
   const nextRound = () => {
-    const nextIndex = (roundIndex + 1) % COLOR_MIX_ROUNDS.length;
+    const nextIndex = (roundIndex + 1) % bandIndexes.length;
     setRoundIndex(nextIndex);
     setMixed(false);
     setFeedback('');
     setLocked(false);
-    setOptions(makeOptions(COLOR_MIX_ROUNDS[nextIndex]));
+    setOptions(makeOptions(COLOR_MIX_ROUNDS[bandIndexes[nextIndex]]));
     setSkillRun((current) => current >= 5 ? 0 : current);
   };
 
@@ -81,7 +85,7 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
           <div className="flex h-36 w-36 items-center justify-center rounded-full border-4 border-fuchsia-200 bg-white text-7xl shadow-xl">{round.color2}</div>
           <span className="text-4xl font-black text-fuchsia-500">=</span>
           <div className={`flex h-36 w-36 items-center justify-center rounded-full border-4 border-fuchsia-200 bg-white text-7xl shadow-xl transition-all duration-700 ${mixed ? 'scale-110' : ''}`}>
-            {mixed ? round.answerEmoji : '❓'}
+            {mixed && difficulty === 'starter' ? round.answerEmoji : '❓'}
           </div>
         </div>
         {!mixed && (

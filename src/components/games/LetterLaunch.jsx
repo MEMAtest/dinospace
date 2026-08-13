@@ -2,15 +2,28 @@ import { useState, useEffect, useCallback } from 'react';
 import { Home } from 'lucide-react';
 import { buildLetterRound, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
+import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+
+const buildTaughtLetterRound = () => {
+  const taught = getTaughtGraphemes();
+  let candidate = buildLetterRound();
+  for (let count = 0; count < 30 && !taught.has(candidate.target.letter.toLowerCase()); count += 1) candidate = buildLetterRound();
+  return candidate;
+};
 
 const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const [round, setRound] = useState(buildLetterRound);
+  const difficulty = useGameDifficulty('letters');
+  const [round, setRound] = useState(buildTaughtLetterRound);
   const [launching, setLaunching] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [stars, setStars] = useState(0);
   const [skillRun, setSkillRun] = useState(0);
+  const [hadMistake, setHadMistake] = useState(false);
 
   const promptText = `${round.target.letter}. ${round.target.letter} is for ${round.target.word}.`;
+  const optionCount = difficulty === 'starter' ? 2 : difficulty === 'growing' ? 3 : 4;
+  const visibleOptions = [round.target, ...round.options.filter((option) => option.letter !== round.target.letter)].slice(0, optionCount);
 
   const sayPrompt = useCallback(() => {
     speak(`Find the letter ${promptText}`);
@@ -21,9 +34,10 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   }, [sayPrompt]);
 
   const nextRound = () => {
-    setRound(buildLetterRound());
+    setRound(buildTaughtLetterRound());
     setLaunching(false);
     setFeedback('');
+    setHadMistake(false);
     setSkillRun((current) => current >= 5 ? 0 : current);
   };
 
@@ -38,8 +52,10 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       playSfx('success');
       onCelebrate(praise, 4, 250);
       onGameEvent?.('letters', 'answer_correct');
+      onGameEvent?.('letters', 'learning_attempt', makeLearningEvent({ skill: 'grapheme-recognition', item: round.target.letter.toLowerCase(), response: option.letter.toLowerCase(), correct: true, firstTry: !hadMistake }));
       setTimeout(nextRound, 1400);
     } else {
+      setHadMistake(true);
       setFeedback('Try again!');
       playSfx('oops');
     }
@@ -81,8 +97,8 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
           </button>
         </div>
 
-        <div className="grid w-full max-w-2xl grid-cols-4 gap-4">
-          {round.options.map((option) => (
+        <div className={`grid w-full max-w-2xl gap-4 ${optionCount === 2 ? 'grid-cols-2' : optionCount === 3 ? 'grid-cols-3' : 'grid-cols-4'}`}>
+          {visibleOptions.map((option) => (
             <button
               key={option.letter}
               onClick={() => handlePick(option)}
