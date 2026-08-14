@@ -100,7 +100,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       const nextStreak = streak + 1;
       playSfx('success');
       speak(praise);
-      onCelebrate(praise, 4, 200);
+      onCelebrate(nextStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, nextStreak === 5 ? 14 : 4, 200);
       onGameEvent?.('counting', 'answer_correct', { skill: 'counting', item: target, response: ans, expected: target, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
       setStreak(nextStreak);
       setSkillRun((current) => Math.min(current + 1, 5));

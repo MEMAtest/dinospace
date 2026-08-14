@@ -91,6 +91,7 @@ export default function App() {
   const challengeCompletedRef = useRef(challengeCompleted);
   const breakTimerRef = useRef(null);
   const screenRef = useRef(screen);
+  const worldGamesRef = useRef(null);
   const playSfx = useSfx(soundOn);
   const { speak, voiceMode, setVoiceMode, premiumEnabled, premiumStatus } = useVoice(soundOn);
   const installPrompt = useInstallPrompt();
@@ -175,6 +176,18 @@ export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [screen]);
+
+  useEffect(() => {
+    if (!selectedWorld || screen !== 'menu') return undefined;
+    const frame = window.requestAnimationFrame(() => {
+      worldGamesRef.current?.scrollIntoView({
+        behavior: window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ? 'auto' : 'smooth',
+        block: 'start',
+      });
+      worldGamesRef.current?.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [screen, selectedWorld]);
 
   const recordGameEvent = useCallback((gameId, event, amount = 1) => {
     recordLegacyGameEvent(gameId, event, amount);
@@ -426,7 +439,12 @@ export default function App() {
         </section>
 
         {activeWorld && (
-          <section className="relative z-10 mt-7 w-full max-w-7xl rounded-[2rem] border border-white/90 bg-white/65 p-4 shadow-[0_16px_45px_rgba(30,105,175,.13)] backdrop-blur-xl sm:p-6" aria-labelledby="world-games-heading">
+          <section
+            ref={worldGamesRef}
+            tabIndex={-1}
+            className="relative z-10 mt-7 w-full max-w-7xl scroll-mt-4 rounded-[2rem] border border-white/90 bg-white/65 p-4 shadow-[0_16px_45px_rgba(30,105,175,.13)] outline-none backdrop-blur-xl sm:p-6"
+            aria-labelledby="world-games-heading"
+          >
             <div className="mb-5 flex flex-col gap-3 text-left sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-500">{activeWorld.icon} World open</p>

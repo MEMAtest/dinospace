@@ -49,7 +49,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       setLocked(true);
       playSfx('sparkle');
       if (newStreak >= 3) playSfx('combo');
-      onCelebrate(praise, 4, 250);
+      onCelebrate(newStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, newStreak === 5 ? 14 : 4, 250);
       onGameEvent?.('pattern', 'answer_correct');
       setTimeout(nextRound, 1400);
     } else {

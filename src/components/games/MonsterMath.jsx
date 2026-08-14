@@ -97,10 +97,11 @@ const MonsterMath = ({
     setLocked(true);
     setSuccess(true);
     setFeedback(`${problem.a} groups of ${problem.b} make ${problem.ans}!`);
-    setStreak((current) => current + 1);
+    const nextStreak = streak + 1;
+    setStreak(nextStreak);
     playSfx('success');
     speak(`${problem.a} groups of ${problem.b}. Let us jump and count to ${problem.ans}.`);
-    onCelebrate(praise, 6, 50);
+    onCelebrate(nextStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, nextStreak === 5 ? 16 : 6, 50);
     onGameEvent?.('math', 'answer_correct', { skill: 'multiplication', item: `${problem.a}x${problem.b}`, response: answer, expected: problem.ans, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
 
     let count = 0;

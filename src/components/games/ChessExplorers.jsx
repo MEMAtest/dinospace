@@ -342,7 +342,7 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         setStreak(newStreak);
         playSfx('chess-move');
         if (newStreak >= 3) playSfx('combo');
-        onCelebrate(getPraise(), 4, 200);
+        onCelebrate(newStreak === 5 ? 'Five in a row — Super Star bonus!' : getPraise(), newStreak === 5 ? 14 : 4, 200);
 
         // Clear correct animation after a short time
         setTimeout(() => setCorrectCells((prev) => { const next = { ...prev }; delete next[key]; return next; }), 500);

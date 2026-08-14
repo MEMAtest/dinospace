@@ -74,7 +74,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
       setStreak(newStreak);
       playSfx('success');
       if (newStreak >= 3) playSfx('combo');
-      onCelebrate(praise, 6, 250);
+      onCelebrate(newStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, newStreak === 5 ? 16 : 6, 250);
       onGameEvent?.('subtraction', 'answer_correct', { skill: 'subtraction', item: `${problem.a}-${problem.b}`, response: pick, expected: answer, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
       const nextRound = round + 1;
       if (nextRound >= level.rounds && levelIndex < SUBTRACTION_LEVELS.length - 1) {

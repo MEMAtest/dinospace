@@ -74,7 +74,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
       setStreak(newStreak);
       playSfx('success');
       if (newStreak >= 3) playSfx('combo');
-      onCelebrate(praise, 6, 250);
+      onCelebrate(newStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, newStreak === 5 ? 16 : 6, 250);
       onGameEvent?.('addition', 'answer_correct', { skill: 'addition', item: `${problem.a}+${problem.b}`, response: pick, expected: answer, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
       const nextRound = round + 1;
       if (nextRound >= level.rounds && levelIndex < ADDITION_LEVELS.length - 1) {

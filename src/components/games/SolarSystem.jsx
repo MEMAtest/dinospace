@@ -45,7 +45,7 @@ const makeOrbit = (radius) => {
   return new THREE.LineLoop(geometry, material);
 };
 
-const addPlanetTexture = (mesh, planetName) => {
+const addPlanetTexture = (mesh, planetName, planetAnchor = mesh) => {
   if (planetName === 'Earth') {
     const land = new THREE.Mesh(
       new THREE.SphereGeometry(mesh.geometry.parameters.radius * 1.006, 24, 16, 0.3, 1.1, 0.8, 0.55),
@@ -68,7 +68,12 @@ const addPlanetTexture = (mesh, planetName) => {
   }
 
   if (planetName === 'Saturn') {
-    const rings = new THREE.Mesh(
+    const rings = new THREE.Group();
+    rings.rotation.x = Math.PI / 2.35;
+    rings.rotation.z = -0.16;
+    rings.userData.planetName = planetName;
+
+    const ringDisc = new THREE.Mesh(
       new THREE.RingGeometry(mesh.geometry.parameters.radius * 1.35, mesh.geometry.parameters.radius * 2.05, 80),
       new THREE.MeshBasicMaterial({
         color: 0xf4dfad,
@@ -77,10 +82,25 @@ const addPlanetTexture = (mesh, planetName) => {
         opacity: 0.78,
       }),
     );
-    rings.rotation.x = Math.PI / 2.35;
-    rings.userData.planetName = planetName;
-    mesh.add(rings);
+    ringDisc.userData.planetName = planetName;
+    rings.add(ringDisc);
+
+    [1.42, 1.58, 1.78, 1.97].forEach((scale, index) => {
+      const band = new THREE.Mesh(
+        new THREE.TorusGeometry(mesh.geometry.parameters.radius * scale, 0.035 + index * 0.008, 8, 96),
+        new THREE.MeshBasicMaterial({
+          color: index % 2 ? 0xc8a968 : 0xffe7b5,
+          transparent: true,
+          opacity: 0.92,
+        }),
+      );
+      band.userData.planetName = planetName;
+      rings.add(band);
+    });
+    planetAnchor.add(rings);
+    return rings;
   }
+  return null;
 };
 
 const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
@@ -132,7 +152,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     camera.position.set(0, 22, 39);
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     mount.appendChild(renderer.domElement);
 
@@ -190,6 +210,8 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
       const orbitGroup = new THREE.Group();
       orbitGroup.rotation.y = index * 0.72;
       const planetRadius = PLANET_SCALES[planet.name];
+      const planetAnchor = new THREE.Group();
+      planetAnchor.position.x = radius;
       const mesh = new THREE.Mesh(
         new THREE.SphereGeometry(planetRadius, 40, 28),
         new THREE.MeshStandardMaterial({
@@ -198,16 +220,16 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
           metalness: 0.02,
         }),
       );
-      mesh.position.x = radius;
       mesh.rotation.z = planet.name === 'Uranus' ? Math.PI / 2 : 0.12;
       mesh.userData.planetName = planet.name;
-      addPlanetTexture(mesh, planet.name);
-      orbitGroup.add(mesh);
+      planetAnchor.add(mesh);
+      const rings = addPlanetTexture(mesh, planet.name, planetAnchor);
+      orbitGroup.add(planetAnchor);
       orbitGroup.userData.speed = 0.0007 + (PLANETS.length - index) * 0.00018;
       orbitGroup.userData.mesh = mesh;
       scene.add(orbitGroup);
       orbitGroups.push(orbitGroup);
-      clickableMeshes.push(mesh, ...mesh.children);
+      clickableMeshes.push(mesh, ...mesh.children, ...(rings?.children || []));
     });
 
     const raycaster = new THREE.Raycaster();
