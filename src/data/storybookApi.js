@@ -15,8 +15,8 @@ const request = async (path, body, options = {}) => {
   return response;
 };
 
-export const createStorySession = async (parentPin, signal) => {
-  const response = await request('session', { parentPin }, { signal });
+export const createStorySession = async (signal) => {
+  const response = await request('session', {}, { signal });
   const body = await response.json();
   if (!body.session) throw new Error('Parent session could not be created');
   return body.session;

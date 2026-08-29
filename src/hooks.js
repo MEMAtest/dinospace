@@ -326,38 +326,24 @@ const PREVIOUS_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v3';
 const LEGACY_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode';
 const PREMIUM_VOICE_TIMEOUT_MS = 6000;
 const MAX_PREMIUM_VOICE_CACHE = 24;
-const PREMIUM_VOICE_ENABLED = import.meta.env.VITE_ELEVENLABS_ENABLED === 'true';
+// Packaged ElevenLabs clips are part of every web and Android build. The env
+// flag controls only generation of a clip that is not already bundled.
+const DYNAMIC_VOICE_ENABLED = import.meta.env.VITE_ELEVENLABS_ENABLED === 'true';
+const PACKAGED_NARRATOR_ENABLED = true;
 // The browser build keeps this same-origin. The Android wrapper supplies the
 // production URL because its WebView has no local Vercel function server.
 const VOICE_API_URL = import.meta.env.VITE_VOICE_API_URL || '/api/voice';
 
 const getStoredVoiceMode = () => {
   try {
-    // ElevenLabs is the app narrator. Previous releases allowed a Device
-    // selection which persisted the browser's robotic speech across upgrades.
-    // Clear it so existing installs receive the packaged narrator too.
-    if (PREMIUM_VOICE_ENABLED) {
-      window.localStorage.removeItem(VOICE_MODE_STORAGE_KEY);
-      window.localStorage.removeItem(PREVIOUS_VOICE_MODE_STORAGE_KEY);
-      window.localStorage.removeItem(LEGACY_VOICE_MODE_STORAGE_KEY);
-      return 'premium';
-    }
-
-    const stored = window.localStorage.getItem(VOICE_MODE_STORAGE_KEY);
-    if (['premium', 'device'].includes(stored)) return stored;
-
-    // Reset older installs to the verified premium narrator. A stale Device
-    // selection was keeping the computer voice alive after ElevenLabs became
-    // the default. A new v4 Device choice is still respected above.
+    // The packaged narrator is mandatory. Clear every historic Device choice
+    // so an upgraded Android/PWA install cannot keep the robotic system voice.
+    window.localStorage.removeItem(VOICE_MODE_STORAGE_KEY);
     window.localStorage.removeItem(PREVIOUS_VOICE_MODE_STORAGE_KEY);
-    // Migrate the old default to ElevenLabs while preserving an explicit
-    // device-voice choice made before the premium narrator was connected.
-    const legacy = window.localStorage.getItem(LEGACY_VOICE_MODE_STORAGE_KEY);
-    if (legacy === 'device') return 'device';
-    if (legacy === 'premium') return 'premium';
-    return 'device';
+    window.localStorage.removeItem(LEGACY_VOICE_MODE_STORAGE_KEY);
+    return 'premium';
   } catch {
-    return PREMIUM_VOICE_ENABLED ? 'premium' : 'device';
+    return 'premium';
   }
 };
 
@@ -382,7 +368,7 @@ export const useVoice = (enabled) => {
   const fallbackTimerRef = useRef(null);
   const pendingPremiumGestureCleanupRef = useRef(null);
   const premiumCacheRef = useRef(new Map());
-  const voiceModeRef = useRef(PREMIUM_VOICE_ENABLED ? 'premium' : 'device');
+  const voiceModeRef = useRef('premium');
   const [voiceMode, setVoiceModeState] = useState(getStoredVoiceMode);
   const [premiumStatus, setPremiumStatus] = useState('unknown');
 
@@ -511,10 +497,9 @@ export const useVoice = (enabled) => {
   }, []);
 
   const setVoiceMode = useCallback((nextMode) => {
-    if (!['premium', 'device'].includes(nextMode)) return;
-    if (PREMIUM_VOICE_ENABLED && nextMode === 'device') return;
-    setVoiceModeState(nextMode);
-    setPremiumStatus(nextMode === 'device' ? 'device' : 'unknown');
+    if (nextMode !== 'premium') return;
+    setVoiceModeState('premium');
+    setPremiumStatus('unknown');
   }, []);
 
   const speak = useCallback((rawText, options = {}) => {
@@ -535,15 +520,11 @@ export const useVoice = (enabled) => {
     const canUsePremium = premium
       && voiceModeRef.current !== 'device'
       && !import.meta.env.DEV
-      && PREMIUM_VOICE_ENABLED
+      && DYNAMIC_VOICE_ENABLED
       && typeof window !== 'undefined'
       && typeof window.fetch === 'function'
       && window.navigator.onLine !== false;
 
-    if (voiceModeRef.current === 'device' || !premium) {
-      speakOnDevice(text, options);
-      return;
-    }
     const premiumOnly = voiceModeRef.current === 'premium';
     let fellBack = false;
     const fallBackToDevice = () => {
@@ -665,6 +646,13 @@ export const useVoice = (enabled) => {
       return;
     }
 
+    // Never substitute Android/browser speech synthesis. A prompt is either a
+    // reviewed packaged ElevenLabs clip or a verified ElevenLabs API response.
+    if (!premium) {
+      setPremiumStatus('unavailable');
+      return;
+    }
+
     if (!canUsePremium) {
       // Dynamic narration still needs the service. Fixed welcome and game
       // prompts above remain available from the bundled ElevenLabs clips.
@@ -730,7 +718,7 @@ export const useVoice = (enabled) => {
       });
   }, [cancelPremiumVoice, clearPendingPremiumGesture, speakOnDevice]);
 
-  return { speak, voiceMode, setVoiceMode, premiumStatus, premiumEnabled: PREMIUM_VOICE_ENABLED };
+  return { speak, voiceMode, setVoiceMode, premiumStatus, premiumEnabled: PACKAGED_NARRATOR_ENABLED };
 };
 
 export const useInstallPrompt = () => {

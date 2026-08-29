@@ -70,10 +70,9 @@ export const allowRequest = (id) => {
 const sessionSecret = () => process.env.STORYBOOK_SESSION_SECRET || '';
 const encode = (value) => Buffer.from(value).toString('base64url');
 
-export const issueStorySession = (parentPin) => {
-  const configuredPin = process.env.STORYBOOK_PARENT_PIN || '';
+export const issueStorySession = () => {
   const secret = sessionSecret();
-  if (!configuredPin || !secret || typeof parentPin !== 'string' || parentPin !== configuredPin) return null;
+  if (!secret) return null;
   const payload = encode(JSON.stringify({ exp: Date.now() + SESSION_TTL_MS, nonce: randomBytes(12).toString('hex') }));
   const signature = createHmac('sha256', secret).update(payload).digest('base64url');
   return `${payload}.${signature}`;

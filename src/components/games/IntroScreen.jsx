@@ -60,12 +60,12 @@ const IntroScreen = ({
             </button>
             <p id="welcome-voice-status" className={`mx-auto mt-1 min-h-5 max-w-sm text-xs font-bold lg:mx-0 ${premiumStatus === 'unavailable' ? 'text-amber-200' : 'text-cyan-100/75'}`} role="status" aria-live="polite">
               {premiumStatus === 'unavailable'
-                ? 'The ElevenLabs narrator could not connect. Check the connection, then tap to retry.'
+                ? 'This narration clip is not available yet.'
                 : premiumStatus === 'ready'
                   ? 'ElevenLabs narrator connected.'
                   : premiumEnabled
                     ? 'Uses the ElevenLabs narrator.'
-                    : 'Narrator connection is not configured.'}
+                    : 'Uses the packaged ElevenLabs narrator.'}
             </p>
           </div>
         </section>

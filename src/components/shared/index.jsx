@@ -192,7 +192,7 @@ export const VoiceSettings = ({ voiceMode, premiumEnabled, premiumStatus, onPrev
       : premiumStatus === 'loading'
         ? 'Getting ElevenLabs narrator…'
         : premiumStatus === 'unavailable'
-          ? 'ElevenLabs unavailable — tap Hear it to retry'
+          ? 'This narration clip is not available yet'
           : usingPackagedNarrator
             ? 'ElevenLabs narrator ready to try'
             : 'Packaged narrator is not enabled in this build';

@@ -150,7 +150,6 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
   const screenNumber = pageIndex + 2;
 
   useEffect(() => {
-    try { storySessionRef.current = window.sessionStorage.getItem('amari_storybook_parent_session'); } catch { /* storage is optional */ }
     let cancelled = false;
     Promise.all([Promise.all(STORYBOOK_CATALOG.map((book) => loadStoryBookManifest(book))), getStoryBooks(), getChildProfiles(), getStorySeries()])
       .then(([books, records, loadedProfiles, loadedSeries]) => {
@@ -407,16 +406,17 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     setCreatorBusy(true);
     setCreatorError('');
     try {
-      if (!storySessionRef.current) throw new Error('Please open the parent area first.');
+      const session = await createStorySession();
+      storySessionRef.current = session;
       const selectedSeries = series.find((item) => item.id === input.seriesId) || null;
-      const outline = await createStoryOutline({ ...input, seriesContext: selectedSeries || undefined }, storySessionRef.current);
+      const outline = await createStoryOutline({ ...input, seriesContext: selectedSeries || undefined }, session);
       incrementDailyCreations();
       setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT);
       const record = makeCustomBook(outline, input, selectedSeries);
       await saveStoryBook(record);
       setCustomRecords((records) => [record, ...records]);
       setShowCreator(false);
-      await runCustomGeneration(record);
+      await runCustomGeneration(record, session);
     } catch (error) {
       setCreatorError(error?.message || 'Story outline could not be created. Please try again.');
     } finally {
@@ -424,29 +424,26 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     }
   }, [creatorBusy, customRecords.length, runCustomGeneration, series]);
 
-  const unlockParentArea = useCallback(async (parentPin) => {
-    storySessionRef.current = await createStorySession(parentPin);
-    try { window.sessionStorage.setItem('amari_storybook_parent_session', storySessionRef.current); } catch { /* storage is optional */ }
-  }, []);
-
   const resumeCustomStory = useCallback(async (book) => {
     if (creatorBusy || generationAbortRef.current) return;
-    if (!storySessionRef.current) {
-      setCreatorError('A parent session is needed to resume this story. Open the creator to unlock it.');
-      setShowCreator(true);
-      return;
-    }
     const record = await getStoryBookRecord(book.id);
     if (!record) return;
     setCreatorBusy(true);
-    await runCustomGeneration(record);
+    try {
+      const session = await createStorySession();
+      storySessionRef.current = session;
+      await runCustomGeneration(record, session);
+    } catch (error) {
+      setCreatorError(error?.message || 'Story generation could not resume. Please try again.');
+    }
     setCreatorBusy(false);
   }, [creatorBusy, runCustomGeneration]);
 
   const generateSeriesReference = useCallback(async (draft) => {
-    if (!storySessionRef.current) throw new Error('Unlock the parent story maker first to generate a reference.');
+    const session = await createStorySession();
+    storySessionRef.current = session;
     const prompt = `Create one polished child-friendly character reference portrait for a storybook series. Appearance: ${draft.appearance}. Personality: ${draft.personality || 'friendly and curious'}. Friends/world: ${draft.friendsWorld || 'a bright welcoming world'}. Style: ${draft.visualStyle}. Show the complete character on a clean simple background, consistent silhouette, no words, no logos, no watermark.`;
-    const blob = await createStoryImage({ prompt }, storySessionRef.current);
+    const blob = await createStoryImage({ prompt }, session);
     return blobToDataUrl(blob);
   }, []);
 
@@ -526,9 +523,9 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           </section>
           <p className="mt-7 flex items-center justify-center gap-2 text-center text-sm font-bold text-cyan-100"><Headphones size={17} /> Narration uses bundled ElevenLabs audio. No device voice fallback.</p>
         </div>
-        {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); } }} onUnlock={unlockParentArea} parentUnlocked={Boolean(storySessionRef.current)} onCreate={createCustomStory} seriesOptions={series} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
+        {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); } }} onCreate={createCustomStory} seriesOptions={series} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
         {showProfiles && <StorybookProfiles profiles={profiles} activeId={activeChild.id} onSelect={selectChild} onSave={saveProfile} onDelete={removeProfile} onClose={() => setShowProfiles(false)} />}
-        {showSeries && <StorybookSeriesLibrary series={series} onSave={saveSeries} onUnlock={unlockParentArea} parentUnlocked={Boolean(storySessionRef.current)} onGenerateReference={generateSeriesReference} onUse={(item) => { setInitialSeriesId(item.id); setShowSeries(false); setShowCreator(true); }} onClose={() => setShowSeries(false)} />}
+        {showSeries && <StorybookSeriesLibrary series={series} onSave={saveSeries} onGenerateReference={generateSeriesReference} onUse={(item) => { setInitialSeriesId(item.id); setShowSeries(false); setShowCreator(true); }} onClose={() => setShowSeries(false)} />}
       </main>
     );
   }
