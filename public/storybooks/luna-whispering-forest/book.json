@@ -1,0 +1,107 @@
+{
+  "id": "luna-whispering-forest",
+  "title": "Luna and the Whispering Forest",
+  "ageBand": "5–6",
+  "style": "beautiful hand-painted 2D children's storybook illustration, watercolour and gouache textures, expressive animals, delicate natural details",
+  "summary": "Luna the fox hears a mysterious whisper in the woods. She meets Barnaby the badger and Pip the robin, and together they find a trapped wind sprite. By working as a team, they free it, and the sprite rewards them by making the whole forest bloom and glow. They return home tired but happy, having made the woods a better place.",
+  "characters": [
+    {
+      "name": "Luna",
+      "visualDescription": "A small, curious red fox with a fluffy white-tipped tail, bright amber eyes, and a little black nose."
+    },
+    {
+      "name": "Barnaby",
+      "visualDescription": "A round, grey badger with a striped black-and-white face, a waddling walk, and a tiny blue waistcoat."
+    },
+    {
+      "name": "Pip",
+      "visualDescription": "A tiny, plump robin with a bright orange-red breast, brown wings, and a cheerful, bobbing head."
+    }
+  ],
+  "coverPrompt": "A moonlit British woodland clearing. A small red fox with a white-tipped tail sits listening, ears perked. A grey badger in a blue waistcoat and a robin with an orange breast peek from behind a mossy oak tree. Soft blue light glows between the trees. No text.",
+  "cover": {
+    "image": "cover.webp",
+    "audio": "audio-cover.mp3",
+    "narration": "Luna and the Whispering Forest"
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "text": "One evening, Luna the fox heard a whisper. It floated through the trees like a falling leaf. “Who’s there?” she asked. But only the wind answered. Her whiskers twitched with curiosity.",
+      "image": "page-01.webp",
+      "audio": "audio-page-01.mp3",
+      "imagePrompt": "A small red fox with a white-tipped tail stands alone in a dense, green British woodland at dusk. She tilts her head, ears high, as if listening. Her amber eyes are wide and curious. Ferns and bluebells surround her paws. No text."
+    },
+    {
+      "pageNumber": 2,
+      "text": "Luna padded along the winding path. The whisper grew louder. “This way,” it seemed to say. She followed it past gnarled oaks and soft mossy stones, her heart beating fast with excitement.",
+      "image": "page-02.webp",
+      "audio": "audio-page-02.mp3",
+      "imagePrompt": "The same red fox walks slowly along a winding dirt path through tall oak trees. She looks over her shoulder, following the sound. Her white-tipped tail is low. In the background, a grey badger in a blue waistcoat watches from a bush. No text."
+    },
+    {
+      "pageNumber": 3,
+      "text": "In a clearing, Luna met Barnaby the badger. “Did you hear it too?” he asked, holding up his lantern. Pip the robin fluttered down. “It woke me from my nap!” he chirped. They all listened together.",
+      "image": "page-03.webp",
+      "audio": "audio-page-03.mp3",
+      "imagePrompt": "The red fox meets a round grey badger wearing a tiny blue waistcoat. They stand face to face in a small clearing. The badger holds a tiny lantern. The robin with an orange breast perches on a low branch above them. No text."
+    },
+    {
+      "pageNumber": 4,
+      "text": "The whisper led them to an ancient hollow tree. A soft, blue light glowed from its roots. “It’s coming from in there,” whispered Luna. Barnaby’s eyes grew wide. Pip hid behind his ear.",
+      "image": "page-04.webp",
+      "audio": "audio-page-04.mp3",
+      "imagePrompt": "The fox, badger, and robin stand together at the edge of a dark, ancient hollow tree. A soft, glowing blue light comes from inside the tree’s roots. The fox leans forward, ears perked. The badger holds his lantern high. The robin sits on the badger’s shoulder. No text."
+    },
+    {
+      "pageNumber": 5,
+      "text": "Inside, they found a tiny whirlwind of blue light. It was trapped beneath a heavy branch. “Oh dear,” said Barnaby. “It’s a wind sprite. It’s stuck!” The sprite shimmered weakly, its whisper now a sad sigh.",
+      "image": "page-05.webp",
+      "audio": "audio-page-05.mp3",
+      "imagePrompt": "Inside the hollow tree, the fox, badger, and robin look at a tiny, shimmering whirlwind of blue light trapped under a fallen branch. The whirlwind has no face, just gentle sparkles. The badger’s lantern lights the scene. No text."
+    },
+    {
+      "pageNumber": 6,
+      "text": "“We must help it,” said Luna. Barnaby pushed with his strong back. Luna pulled with her teeth. Pip flapped his wings and chirped, “Heave-ho!” The branch began to move, inch by inch.",
+      "image": "page-06.webp",
+      "audio": "audio-page-06.mp3",
+      "imagePrompt": "The grey badger in the blue waistcoat pushes against the heavy branch with his strong back. The red fox pulls with her teeth on a smaller stick. The robin flaps his wings, chirping encouragement. The blue wind sprite glows brighter underneath. No text."
+    },
+    {
+      "pageNumber": 7,
+      "text": "With one final push, the branch rolled away. The wind sprite shot up, spinning and sparkling. It danced around their heads, leaving trails of glittering dust. “Thank you,” it whispered, now clear and joyful.",
+      "image": "page-07.webp",
+      "audio": "audio-page-07.mp3",
+      "imagePrompt": "The heavy branch rolls away. The tiny blue wind sprite rises up, spinning freely. It sparkles brightly. The fox, badger, and robin stand together, watching with happy faces. The robin is mid-air, the badger is clapping his paws, the fox’s tail is wagging. No text."
+    },
+    {
+      "pageNumber": 8,
+      "text": "The sprite swooped through the trees. Wherever it went, flowers bloomed and leaves shimmered. The whole forest glowed with gentle light. “It’s making the woods happy,” breathed Luna. Pip sang a little tune.",
+      "image": "page-08.webp",
+      "audio": "audio-page-08.mp3",
+      "imagePrompt": "The wind sprite flies through the forest, and as it passes, every flower blooms and every leaf glows softly. The fox, badger, and robin walk beneath it, looking up in wonder. The forest is filled with soft blue light and gentle sparkles. No text."
+    },
+    {
+      "pageNumber": 9,
+      "text": "The sprite paused before them and bowed. Luna bowed back. Barnaby tipped his waistcoat. Pip did a little dance. Then the sprite floated up, up, up, and vanished into the starry night.",
+      "image": "page-09.webp",
+      "audio": "audio-page-09.mp3",
+      "imagePrompt": "The wind sprite hovers in front of the fox, badger, and robin. It bows slightly. The fox bows her head back. The badger tips his waistcoat. The robin does a little dance. The sprite then floats away toward the moonlit sky. No text."
+    },
+    {
+      "pageNumber": 10,
+      "text": "As they walked home, the forest felt peaceful. “We made a new friend,” said Luna, yawning. “And saved the woods,” added Barnaby. Pip was already asleep on Luna’s back. And the whisper was gone, replaced by a gentle, happy hum.",
+      "image": "page-10.webp",
+      "audio": "audio-page-10.mp3",
+      "imagePrompt": "The fox, badger, and robin walk home together through the now peaceful, moonlit forest. They are tired but happy. The fox yawns. The badger carries his lantern. The robin sleeps on the fox’s back. The forest is calm and quiet. No text."
+    }
+  ],
+  "generation": {
+    "storyModel": "deepseek/deepseek-v4-flash-0731",
+    "imageModel": "bytedance-seed/seedream-5-0-lite",
+    "imageFallbackModel": "qwen/qwen-image-3",
+    "narrationModel": "eleven_v3",
+    "narrator": "Alice",
+    "generatedAt": "2026-08-29T10:25:31.051Z"
+  }
+}

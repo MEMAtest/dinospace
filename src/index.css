@@ -110,6 +110,14 @@
   .math-answer-card {
     @apply grid h-16 min-w-16 place-items-center rounded-2xl border-4 border-dashed border-slate-300 bg-white/70 px-3 text-slate-400 transition sm:h-20 sm:min-w-20;
   }
+
+  .storybook-icon-button {
+    @apply grid h-12 w-12 shrink-0 place-items-center rounded-2xl border border-white/30 bg-white/15 text-white shadow-lg backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25 active:translate-y-0;
+  }
+
+  .storybook-nav-button {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/15 px-4 py-3 text-sm font-black text-white shadow-lg backdrop-blur transition hover:-translate-y-0.5 hover:bg-white/25 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-40;
+  }
 }
 
 .ttt-starfield {

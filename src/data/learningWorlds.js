@@ -1,5 +1,5 @@
 export const LEARNING_WORLDS = Object.freeze([
-  { id: 'read-write', title: 'Read & Write', desc: 'Sounds, spelling and handwriting', icon: '📚', color: 'from-fuchsia-500 via-pink-500 to-rose-500', gameIds: ['letters', 'phonics', 'words', 'trace', 'hangman'] },
+  { id: 'read-write', title: 'Read & Write', desc: 'Sounds, spelling, stories and handwriting', icon: '📚', color: 'from-fuchsia-500 via-pink-500 to-rose-500', gameIds: ['letters', 'phonics', 'words', 'trace', 'hangman', 'storybooks'] },
   { id: 'maths', title: 'Maths Missions', desc: 'Numbers, jumps and clever problems', icon: '🚀', color: 'from-orange-400 via-amber-500 to-yellow-500', gameIds: ['counting', 'addition', 'subtraction', 'math', 'numberline', 'timeteller'] },
   { id: 'explore', title: 'Explore & Languages', desc: 'Space, dinosaurs and German words', icon: '🪐', color: 'from-indigo-600 via-blue-600 to-cyan-500', gameIds: ['solar', 'astronaut', 'dino', 'german'] },
   { id: 'creative', title: 'Creative Lab', desc: 'Draw, mix and build pictures', icon: '🎨', color: 'from-violet-500 via-purple-500 to-indigo-500', gameIds: ['jet', 'colormix', 'puzzle'] },

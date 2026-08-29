@@ -1,4 +1,4 @@
-const CACHE_NAME = 'amari-discovery-v8';
+const CACHE_NAME = 'amari-discovery-v9';
 const PRECACHE_ASSETS = []; // __PRECACHE_ASSETS__
 const APP_SHELL = [
   '/',
@@ -48,6 +48,7 @@ self.addEventListener('fetch', (event) => {
 
   const isAppAsset = url.pathname.startsWith('/assets/')
     || url.pathname.startsWith('/audio/')
+    || url.pathname.startsWith('/storybooks/')
     || url.pathname.startsWith('/icons/')
     || url.pathname === '/manifest.webmanifest';
   if (!isAppAsset) return;

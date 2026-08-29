@@ -1,0 +1,115 @@
+{
+  "id": "nia-great-river-journey",
+  "title": "Nia’s Great River Journey",
+  "ageBand": "5–6",
+  "style": "warm realistic wildlife storybook photography look, natural African light, anatomically believable animals, gentle child-friendly emotion, cinematic but not frightening",
+  "summary": "Young elephant Nia travels with her herd along a winding river, meets hippos, kingfishers and buffalo, helps move litter to safety for park rangers, and learns that clean water keeps every living thing alive.",
+  "characters": [
+    {
+      "name": "Nia",
+      "visualDescription": "A young African elephant calf with soft dusty-grey skin, large fan-shaped ears edged with pale pink, small white tusks just beginning to show, and a bright green leaf tucked behind her left ear. She walks on four sturdy legs with a short tufted tail."
+    },
+    {
+      "name": "Aunt Amara",
+      "visualDescription": "A tall adult African elephant with deep grey wrinkled skin, wide ears with grey edges, long curved ivory tusks, and a calm, watchful expression. She walks at the front of the herd, trunk gently curled."
+    },
+    {
+      "name": "Kito",
+      "visualDescription": "A hippopotamus with a round barrel-shaped body, pinkish-brown skin, short stubby legs, small rounded ears, wide yawning mouth, and short tail. He rests half-submerged in river shallows."
+    },
+    {
+      "name": "Zuri",
+      "visualDescription": "A malachite kingfisher with a bright blue back, orange chest, small red beak, tiny pink legs, and a short tail. She perches on reeds or low branches beside the river."
+    },
+    {
+      "name": "Grandmother Buffalo",
+      "visualDescription": "An African buffalo with dark charcoal horns curving down and inward, weathered grey-brown hide, sturdy legs, and a long tufted tail. She stands calmly at the edge of a grassy clearing."
+    }
+  ],
+  "coverPrompt": "A wide savannah river scene at golden morning light. Nia, a young African elephant calf with soft dusty-grey skin, large fan-shaped ears edged with pale pink, small white tusks just beginning to show, and a bright green leaf tucked behind her left ear, stands at the water's edge on four sturdy legs, trunk raised happily. Behind her, Aunt Amara, a tall adult African elephant with deep grey wrinkled skin, wide grey-edged ears, long curved ivory tusks, and a calm watchful expression, walks with trunk gently curled. A malachite kingfisher with bright blue back, orange chest, small red beak, tiny pink legs and short tail perches on a reed nearby. Complete characters fully in frame, warm storybook watercolour style, no text.",
+  "cover": {
+    "image": "cover.webp",
+    "audio": "audio-cover.mp3",
+    "narration": "Nia’s Great River Journey"
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "text": "Nia the young elephant woke early, her ears pink in the morning sun. Today her herd would follow the great river. She tucked a green leaf behind her ear and trumpeted, \"Let's go!\"",
+      "image": "page-01.webp",
+      "audio": "audio-page-01.mp3",
+      "imagePrompt": "Golden morning savannah. Nia, a young African elephant calf with soft dusty-grey skin, large fan-shaped ears edged with pale pink, small white tusks just beginning to show, and a bright green leaf tucked behind her left ear, stands on four sturdy legs with short tufted tail, trunk raised joyfully. Behind her, Aunt Amara, a tall adult African elephant with deep grey wrinkled skin, wide grey-edged ears, long curved ivory tusks, calm watchful expression, walks forward with trunk gently curled. A winding river glitters in the background. Warm storybook watercolour style, complete characters in frame, no text."
+    },
+    {
+      "pageNumber": 2,
+      "text": "The elephants walked in a gentle line beside the sparkling water. Nia splashed with her trunk, spraying silver drops into the air. Aunt Amara smiled. \"The river will show us many friends today,\" she said.",
+      "image": "page-02.webp",
+      "audio": "audio-page-02.mp3",
+      "imagePrompt": "The elephant herd walks in a gentle line along a sparkling riverbank. Nia, the young calf with dusty-grey skin, pale pink-edged ears, small white tusks and green leaf behind her left ear, sprays silver water drops with her trunk. Aunt Amara, tall with deep grey wrinkled skin, grey-edged ears, long curved ivory tusks and calm expression, walks beside her smiling. Full characters visible including feet and tails, warm storybook watercolour style, no text."
+    },
+    {
+      "pageNumber": 3,
+      "text": "In the shallows, Kito the hippopotamus yawned a wide, bubbly yawn. \"Good morning!\" he spluttered. \"My river is lovely and cool. Would you like a drink?\" Nia sipped carefully. The water tasted fresh and sweet.",
+      "image": "page-03.webp",
+      "audio": "audio-page-03.mp3",
+      "imagePrompt": "River shallows. Kito, a hippopotamus with round barrel-shaped body, pinkish-brown skin, short stubby legs, small rounded ears, wide yawning mouth and short tail, rests half-submerged facing Nia. Nia, the young elephant calf with dusty-grey skin, pale pink-edged ears, small white tusks and green leaf behind her left ear, drinks from the river with curled trunk. Warm storybook watercolour style, complete characters in frame, no text."
+    },
+    {
+      "pageNumber": 4,
+      "text": "On a swaying reed sat Zuri the kingfisher, bright as a blue jewel. \"I fish here every day,\" she chirped. \"Clear water helps me see my supper!\" Nia watched her dive, quick as a wink.",
+      "image": "page-04.webp",
+      "audio": "audio-page-04.mp3",
+      "imagePrompt": "A swaying reed beside the river. Zuri, a malachite kingfisher with bright blue back, orange chest, small red beak, tiny pink legs and short tail, perches on the reed then dives toward the water in a small arc. Below, Nia, the young elephant calf with dusty-grey skin, pale pink-edged ears, small white tusks and green leaf behind her left ear, watches with trunk lifted, Aunt Amara standing calmly behind her. Warm storybook watercolour style, complete characters in frame, no text."
+    },
+    {
+      "pageNumber": 5,
+      "text": "Farther along, Nia noticed colourful rubbish caught among the reeds. An old sack and empty bottles floated at the water’s edge. \"That does not belong in the river,\" she said.",
+      "image": "page-05.webp",
+      "audio": "audio-page-05.mp3",
+      "imagePrompt": "A realistic, warm wildlife scene beside the river. An old woven sack and several empty plastic bottles are caught among reeds at the water’s edge. Nia, the young elephant calf with dusty-grey skin, pale pink-edged ears, small white tusks and green leaf behind her left ear, stands at the bank looking concerned. Aunt Amara, tall with deep grey wrinkled skin, grey-edged ears, long curved ivory tusks and calm expression, stands close behind her. Complete anatomically believable animals in frame, no text."
+    },
+    {
+      "pageNumber": 6,
+      "text": "Aunt Amara looked carefully. \"Litter can dirty water or trap an animal. We shall lift it onto dry ground, where the park rangers can collect it safely.\" Nia nodded.",
+      "image": "page-06.webp",
+      "audio": "audio-page-06.mp3",
+      "imagePrompt": "A realistic, warm wildlife scene close to litter caught among the river reeds. Aunt Amara, a tall adult African elephant with deep grey wrinkled skin, wide grey-edged ears, long curved ivory tusks and calm watchful expression, studies it carefully. Nia, the young calf with dusty-grey skin, pale pink-edged ears, small white tusks and green leaf behind her left ear, nods beside her. A park ranger vehicle is visible far away on a dry track. Complete animals in frame, no text."
+    },
+    {
+      "pageNumber": 7,
+      "text": "Kito nudged a floating bottle towards the bank. Zuri called directions from above. Nia carefully lifted the old sack with her trunk and placed it on dry ground.",
+      "image": "page-07.webp",
+      "audio": "audio-page-07.mp3",
+      "imagePrompt": "A realistic, warm wildlife teamwork scene at the river bank. Kito, the hippopotamus with round barrel-shaped body and pinkish-brown skin, nudges a floating plastic bottle towards the bank. Zuri, the malachite kingfisher with bright blue back and orange chest, points the way from above. Nia, the young elephant calf with dusty-grey skin, pale pink-edged ears, small white tusks and green leaf behind her left ear, carefully lifts an old woven sack with her trunk onto dry ground. Complete anatomically believable animals in frame, no text."
+    },
+    {
+      "pageNumber": 8,
+      "text": "Soon the litter rested in a neat pile on dry ground, ready for the rangers. Fish flicked their tails in the clear shallows, while Zuri swooped happily above the water.",
+      "image": "page-08.webp",
+      "audio": "audio-page-08.mp3",
+      "imagePrompt": "A realistic, warm wildlife scene beside clear river shallows. A neat pile of recovered sacks and bottles rests safely on dry ground beside the reeds, ready for distant park rangers. Zuri, the malachite kingfisher with bright blue back and orange chest, swoops low while small silver fish flick beneath the surface. Nia, the young elephant calf with dusty-grey skin, pale pink-edged ears, small white tusks and green leaf behind her left ear, raises her trunk happily. Complete anatomically believable animals in frame, no text."
+    },
+    {
+      "pageNumber": 9,
+      "text": "In a grassy clearing stood Grandmother Buffalo. \"Thank you, kind elephants,\" she rumbled. \"My herd drinks downstream. Clean water keeps us all strong.\" Nia stood tall. She felt proud, helpful, and very, very thirsty!",
+      "image": "page-09.webp",
+      "audio": "audio-page-09.mp3",
+      "imagePrompt": "A grassy clearing beside the river. Grandmother Buffalo, an African buffalo with dark charcoal horns curving down and inward, weathered grey-brown hide, sturdy legs and long tufted tail, stands calmly facing Nia. Nia, the young elephant calf with dusty-grey skin, pale pink-edged ears, small white tusks and green leaf behind her left ear, stands tall and proud. Aunt Amara stands gently behind Nia. Warm storybook watercolour style, complete characters in frame, no text."
+    },
+    {
+      "pageNumber": 10,
+      "text": "That evening, the herd bathed in the calm, clean river. Nia floated happily, her leaf still tucked behind her ear. \"One river,\" she murmured, \"for hippos, kingfishers, buffalo and elephants. Water for everyone.\" The stars twinkled goodnight.",
+      "image": "page-10.webp",
+      "audio": "audio-page-10.mp3",
+      "imagePrompt": "Twilight scene at a calm, clean river under a sky of early stars. Nia, the young elephant calf with dusty-grey skin, pale pink-edged ears, small white tusks and green leaf still tucked behind her left ear, floats happily in the water, trunk curled. Aunt Amara, tall with deep grey wrinkled skin, grey-edged ears, long curved ivory tusks and calm expression, bathes nearby. Kito, the hippopotamus with pinkish-brown skin, rests half-submerged at the edge. Warm storybook watercolour style, complete characters in frame, no text."
+    }
+  ],
+  "generation": {
+    "storyModel": "z-ai/glm-5.3-flash",
+    "imageModel": "bytedance-seed/seedream-5-0-lite",
+    "imageFallbackModel": "qwen/qwen-image-3",
+    "narrationModel": "eleven_v3",
+    "narrator": "Alice",
+    "generatedAt": "2026-08-29T10:25:31.052Z"
+  }
+}

@@ -30,6 +30,7 @@ import NumberLineJump from './components/games/NumberLineJump.jsx';
 import ChessExplorers from './components/games/ChessExplorers.jsx';
 import TicTacToe from './components/games/TicTacToe.jsx';
 import DinoHangman from './components/games/Hangman.jsx';
+import StorybookStudio from './components/games/StorybookStudio.jsx';
 import ProgressDashboard from './components/games/ProgressDashboard.jsx';
 import IntroScreen from './components/games/IntroScreen.jsx';
 import astronautCrew from './assets/landing/amari-astronaut-robot.png';
@@ -60,6 +61,7 @@ const GAME_MENU_ITEMS = [
   { id: 'astronaut', icon: '👨‍🚀', title: 'Astronaut Academy', desc: 'Explore space heroes', color: 'bg-gradient-to-br from-purple-600 to-indigo-800', category: 'Discover' },
   { id: 'counting', icon: '🔢', title: 'Count the Stars', desc: 'Tap and count!', color: 'bg-gradient-to-br from-indigo-600 to-blue-800', category: 'Maths' },
   { id: 'words', icon: '🔤', title: 'Spelling Studio', desc: 'Learn sounds and spell!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' },
+  { id: 'storybooks', icon: '📚', title: 'Storybook Studio', desc: 'Read, listen and explore!', color: 'bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600', category: 'Words', badge: 'NEW' },
   { id: 'colormix', icon: '🎨', title: 'Colour Mixing Lab', desc: 'Mix colours together!', color: 'bg-gradient-to-br from-fuchsia-500 to-purple-600', category: 'Create' },
   { id: 'oddoneout', icon: '🤔', title: 'Odd One Out', desc: 'Which one does not belong?', color: 'bg-gradient-to-br from-cyan-500 to-blue-600', category: 'Quick Think' },
   { id: 'timeteller', icon: '🕐', title: 'Time Teller', desc: 'Read the clock!', color: 'bg-gradient-to-br from-lime-500 to-green-600', category: 'Maths' },
@@ -696,6 +698,16 @@ export default function App() {
         onGameEvent={recordGameEvent}
       />
     );
+  } else if (screen === 'storybooks') {
+    content = (
+      <StorybookStudio
+        onBack={() => handleBack('storybooks')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        onCelebrate={celebrate}
+      />
+    );
   } else if (screen === 'colormix') {
     content = (
       <ColorMixingLab
@@ -807,7 +819,7 @@ export default function App() {
       >
         {content}
       </Suspense>
-      {GAME_MENU_ITEMS.some((game) => game.id === screen) && !['jet', 'spot'].includes(screen) && (
+      {GAME_MENU_ITEMS.some((game) => game.id === screen) && !['jet', 'spot', 'storybooks'].includes(screen) && (
         <DailyChallengeTracker
           challenge={todaysChallenge}
           progress={challengeProgress}
