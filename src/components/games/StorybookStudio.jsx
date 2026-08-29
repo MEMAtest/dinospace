@@ -103,6 +103,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
   const [showCreator, setShowCreator] = useState(false);
   const [creatorBusy, setCreatorBusy] = useState(false);
   const [creatorError, setCreatorError] = useState('');
+  const [creatorProgress, setCreatorProgress] = useState(null);
   const [dailyLimitReached, setDailyLimitReached] = useState(false);
   const [profiles, setProfiles] = useState([]);
   const [activeChildId, setActiveChildId] = useState(() => readActiveChildId());
@@ -347,6 +348,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     const update = async (patch) => {
       record = { ...record, ...patch, generation: { ...record.generation, completed, ...patch.generation } };
       await persistCustom(record);
+      setCreatorProgress({ ...record.generation, title: record.title });
     };
     try {
       let coverBlob = await getStoryAsset(record.coverAssetKey);
@@ -389,9 +391,11 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
         }
       }
       await update({ status: 'ready', generation: { stage: 'complete', currentPage: 10, error: null } });
+      return true;
     } catch (error) {
       if (error?.name === 'AbortError') return;
       await update({ status: 'error', generation: { stage: 'error', error: error?.message || 'Generation failed' } });
+      return false;
     } finally {
       generationAbortRef.current = null;
     }
@@ -405,18 +409,26 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     }
     setCreatorBusy(true);
     setCreatorError('');
+    setCreatorProgress({ stage: 'connecting', completed: 0, total: 22, currentPage: 0 });
     try {
       const session = await createStorySession();
       storySessionRef.current = session;
       const selectedSeries = series.find((item) => item.id === input.seriesId) || null;
+      setCreatorProgress({ stage: 'planning', completed: 0, total: 22, currentPage: 0 });
       const outline = await createStoryOutline({ ...input, seriesContext: selectedSeries || undefined }, session);
       incrementDailyCreations();
       setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT);
       const record = makeCustomBook(outline, input, selectedSeries);
       await saveStoryBook(record);
       setCustomRecords((records) => [record, ...records]);
-      setShowCreator(false);
-      await runCustomGeneration(record, session);
+      setCreatorProgress({ ...record.generation, title: record.title });
+      const complete = await runCustomGeneration(record, session);
+      if (complete) {
+        window.setTimeout(() => {
+          setShowCreator(false);
+          setCreatorProgress(null);
+        }, 900);
+      }
     } catch (error) {
       setCreatorError(error?.message || 'Story outline could not be created. Please try again.');
     } finally {
@@ -490,7 +502,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
             <div className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-gradient-to-br from-amber-300 to-orange-500 text-5xl shadow-lg">📚</div>
             <h2 className="mt-4 text-2xl font-black sm:text-4xl">Choose a story to explore</h2>
             <p className="mx-auto mt-2 max-w-2xl font-semibold text-blue-100">Every story has a picture, a short page to read and a real ElevenLabs narration. Downloaded story assets keep reading ready when you are offline.</p>
-            <button type="button" onClick={() => { setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT); setCreatorError(''); setShowCreator(true); }} className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-amber-300 px-5 py-3 font-black text-slate-950 shadow-lg transition hover:-translate-y-0.5 disabled:opacity-50" disabled={customRecords.length >= LIBRARY_LIMIT}>
+            <button type="button" onClick={() => { setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT); setCreatorError(''); setCreatorProgress(null); setShowCreator(true); }} className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-amber-300 px-5 py-3 font-black text-slate-950 shadow-lg transition hover:-translate-y-0.5 disabled:opacity-50" disabled={customRecords.length >= LIBRARY_LIMIT}>
               ✨ Create a new story
             </button>
             {customRecords.length >= LIBRARY_LIMIT && <p className="mt-2 text-xs font-bold text-amber-100">You can keep up to twenty saved storybooks on this device.</p>}
@@ -523,7 +535,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           </section>
           <p className="mt-7 flex items-center justify-center gap-2 text-center text-sm font-bold text-cyan-100"><Headphones size={17} /> Narration uses bundled ElevenLabs audio. No device voice fallback.</p>
         </div>
-        {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); } }} onCreate={createCustomStory} seriesOptions={series} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
+        {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); setCreatorProgress(null); } }} onCreate={createCustomStory} seriesOptions={series} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} progress={creatorProgress} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
         {showProfiles && <StorybookProfiles profiles={profiles} activeId={activeChild.id} onSelect={selectChild} onSave={saveProfile} onDelete={removeProfile} onClose={() => setShowProfiles(false)} />}
         {showSeries && <StorybookSeriesLibrary series={series} onSave={saveSeries} onGenerateReference={generateSeriesReference} onUse={(item) => { setInitialSeriesId(item.id); setShowSeries(false); setShowCreator(true); }} onClose={() => setShowSeries(false)} />}
       </main>
