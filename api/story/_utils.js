@@ -8,6 +8,10 @@ const MAX_REQUESTS = 30;
 const SESSION_TTL_MS = 30 * 60 * 1000;
 const buckets = new Map();
 const ALLOWED_ORIGINS = new Set([
+  // Some Android WebView/Capacitor installations expose their bundled app as
+  // the opaque `null` origin. Allow it so the POST following a preflight can
+  // reach the signed, rate-limited story endpoints.
+  'null',
   'https://dinospace-eight.vercel.app',
   'https://dinospace-memas-projects-23a0001d.vercel.app',
   'https://dinospace-git-main-memas-projects-23a0001d.vercel.app',

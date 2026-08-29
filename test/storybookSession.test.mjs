@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { hasStorySession, issueStorySession } from '../api/story/_utils.js';
+import { hasStorySession, isAllowedOrigin, issueStorySession } from '../api/story/_utils.js';
 
 test('storybook sessions require no PIN, remain signed and reject tampering', () => {
   const previousSecret = process.env.STORYBOOK_SESSION_SECRET;
@@ -14,4 +14,9 @@ test('storybook sessions require no PIN, remain signed and reject tampering', ()
     if (previousSecret === undefined) delete process.env.STORYBOOK_SESSION_SECRET;
     else process.env.STORYBOOK_SESSION_SECRET = previousSecret;
   }
+});
+
+test('storybook service accepts the opaque Android WebView origin but rejects arbitrary sites', () => {
+  assert.equal(isAllowedOrigin({ headers: { origin: 'null' } }), true);
+  assert.equal(isAllowedOrigin({ headers: { origin: 'https://untrusted.example' } }), false);
 });
