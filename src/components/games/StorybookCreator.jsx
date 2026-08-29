@@ -4,14 +4,15 @@ import { STORYBOOK_AGE_BANDS, STORYBOOK_STYLES, MAX_STORY_TOPIC_LENGTH } from '.
 
 const styleLabels = { '3d': 'Colourful 3D animation', 'painted-2d': 'Hand-painted 2D', realistic: 'Warm realistic' };
 
-const StorybookCreator = ({ onClose, onCreate, onUnlock, busy = false, error = '', dailyLimitReached = false }) => {
-  const [gateOpen, setGateOpen] = useState(true);
+const StorybookCreator = ({ onClose, onCreate, onUnlock, seriesOptions = [], selectedChild, initialSeriesId = '', parentUnlocked = false, busy = false, error = '', dailyLimitReached = false }) => {
+  const [gateOpen, setGateOpen] = useState(!parentUnlocked);
   const [gateAnswer, setGateAnswer] = useState('');
   const [gateError, setGateError] = useState('');
   const [gateBusy, setGateBusy] = useState(false);
   const [topic, setTopic] = useState('');
-  const [ageBand, setAgeBand] = useState('5-6');
+  const [ageBand, setAgeBand] = useState(selectedChild?.ageBand || '5-6');
   const [style, setStyle] = useState('3d');
+  const [seriesId, setSeriesId] = useState(initialSeriesId);
 
   const unlock = async (event) => {
     event.preventDefault();
@@ -31,7 +32,7 @@ const StorybookCreator = ({ onClose, onCreate, onUnlock, busy = false, error = '
   const submit = (event) => {
     event.preventDefault();
     if (!topic.trim() || dailyLimitReached || busy) return;
-    onCreate({ topic: topic.trim(), ageBand, style });
+    onCreate({ topic: topic.trim(), ageBand, style, seriesId, childId: selectedChild?.id || 'amari' });
   };
 
   return (
@@ -54,7 +55,8 @@ const StorybookCreator = ({ onClose, onCreate, onUnlock, busy = false, error = '
             <label htmlFor="storybook-topic" className="mt-6 block text-sm font-black text-slate-700">What should the story be about?</label>
             <textarea id="storybook-topic" value={topic} onChange={(event) => setTopic(event.target.value.slice(0, MAX_STORY_TOPIC_LENGTH))} maxLength={MAX_STORY_TOPIC_LENGTH} rows={4} placeholder="For example: a kind dinosaur who learns to share a telescope" className="mt-2 w-full resize-none rounded-2xl border-2 border-indigo-200 bg-white px-4 py-3 font-semibold outline-none focus:border-indigo-500" required />
             <div className="mt-1 text-right text-xs font-bold text-slate-500">{topic.length}/{MAX_STORY_TOPIC_LENGTH}</div>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2"><label className="text-sm font-black text-slate-700">Reading age<select value={ageBand} onChange={(event) => setAgeBand(event.target.value)} className="mt-2 w-full rounded-xl border-2 border-indigo-100 bg-white px-3 py-3 font-black">{STORYBOOK_AGE_BANDS.map((band) => <option key={band} value={band}>Ages {band.replace('-', '–')}</option>)}</select></label><label className="text-sm font-black text-slate-700">Picture style<select value={style} onChange={(event) => setStyle(event.target.value)} className="mt-2 w-full rounded-xl border-2 border-indigo-100 bg-white px-3 py-3 font-black">{STORYBOOK_STYLES.map((value) => <option key={value} value={value}>{styleLabels[value]}</option>)}</select></label></div>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2"><label className="text-sm font-black text-slate-700">Reading age<select value={ageBand} onChange={(event) => setAgeBand(event.target.value)} className="mt-2 w-full rounded-xl border-2 border-indigo-100 bg-white px-3 py-3 font-black">{STORYBOOK_AGE_BANDS.map((band) => <option key={band} value={band}>Ages {band.replace('-', '–')}</option>)}</select><span className="mt-1 block text-xs font-bold text-slate-500">Suggested for {selectedChild?.displayName || 'this reader'}: {selectedChild?.ageBand || '5-6'}</span></label><label className="text-sm font-black text-slate-700">Picture style<select value={style} onChange={(event) => setStyle(event.target.value)} className="mt-2 w-full rounded-xl border-2 border-indigo-100 bg-white px-3 py-3 font-black">{STORYBOOK_STYLES.map((value) => <option key={value} value={value}>{styleLabels[value]}</option>)}</select></label></div>
+            {seriesOptions.length > 0 && <label className="mt-4 block text-sm font-black text-slate-700">Series continuity<select value={seriesId} onChange={(event) => { const next = event.target.value; setSeriesId(next); const selected = seriesOptions.find((item) => item.id === next); if (selected?.visualStyle) setStyle(selected.visualStyle); }} className="mt-2 w-full rounded-xl border-2 border-indigo-100 bg-white px-3 py-3 font-black"><option value="">A brand-new story</option>{seriesOptions.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select><span className="mt-1 block text-xs font-bold text-slate-500">A selected series keeps its approved character look and world.</span></label>}
             <p className="mt-4 rounded-xl bg-amber-50 px-3 py-2 text-xs font-bold text-amber-800"><BookOpen className="mr-1 inline" size={15} /> Ten pages, one illustration and one ElevenLabs narration per page. Generation needs internet.</p>
             {(error || dailyLimitReached) && <p className="mt-3 rounded-xl bg-rose-50 px-3 py-2 text-sm font-bold text-rose-700" role="alert">{dailyLimitReached ? 'Today’s story-making limit has been reached. Please try again tomorrow.' : error}</p>}
             <div className="mt-5 flex gap-3"><button type="button" onClick={onClose} className="flex-1 rounded-2xl border-2 border-slate-200 px-4 py-3 font-black text-slate-600">Cancel</button><button type="submit" disabled={!topic.trim() || busy || dailyLimitReached} className="flex-[1.5] inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-fuchsia-600 px-4 py-3 font-black text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50">{busy ? 'Creating…' : <><Sparkles size={18} /> Create story</>}</button></div>

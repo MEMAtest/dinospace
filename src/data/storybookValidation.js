@@ -27,10 +27,20 @@ export const validateStoryOutline = (outline, { ageBand = '5-6', expectedPageCou
   return outline;
 };
 
-export const validateStoryRequest = ({ topic, ageBand, style }) => {
+export const validateStoryRequest = ({ topic, ageBand, style, seriesContext = null }) => {
   if (typeof topic !== 'string' || !topic.trim() || topic.length > MAX_STORY_TOPIC_LENGTH) throw new Error('Topic must be between 1 and 500 characters');
   if (!STORYBOOK_AGE_BANDS.includes(ageBand)) throw new Error('Age band is invalid');
   if (!STORYBOOK_STYLES.includes(style)) throw new Error('Visual style is invalid');
-  return { topic: topic.trim(), ageBand, style };
+  let safeSeries = null;
+  if (seriesContext && typeof seriesContext === 'object') {
+    safeSeries = {
+      name: String(seriesContext.name || '').trim().slice(0, 80),
+      appearance: String(seriesContext.appearance || '').trim().slice(0, 600),
+      personality: String(seriesContext.personality || '').trim().slice(0, 400),
+      visualStyle: STORYBOOK_STYLES.includes(seriesContext.visualStyle) ? seriesContext.visualStyle : style,
+      friendsWorld: String(seriesContext.friendsWorld || '').trim().slice(0, 600),
+    };
+    if (!safeSeries.name || !safeSeries.appearance) throw new Error('Series continuity is invalid');
+  }
+  return { topic: topic.trim(), ageBand, style, ...(safeSeries ? { seriesContext: safeSeries } : {}) };
 };
-
