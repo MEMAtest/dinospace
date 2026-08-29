@@ -2,12 +2,12 @@ import { validateStoryOutline, validateStoryRequest } from './storybookValidatio
 
 const HOSTED_STORY_API = 'https://dinospace-eight.vercel.app/api/story';
 
-export const resolveStoryApiBase = (configuredBase, locationLike) => {
+export const resolveStoryApiBase = (configuredBase) => {
   if (configuredBase) return configuredBase.replace(/\/$/, '');
-  const origin = locationLike?.origin || '';
-  const protocol = locationLike?.protocol || '';
-  const packagedApp = protocol === 'capacitor:' || origin === 'http://localhost' || origin === 'https://localhost';
-  return packagedApp ? HOSTED_STORY_API : '/api/story';
+  // Keep this endpoint explicit for every build.  A relative `/api/story` URL
+  // is correct in a fresh web tab but resolves to an unavailable local server
+  // in some installed/PWA shells and can leave a stale client reporting 404.
+  return HOSTED_STORY_API;
 };
 
 export const STORY_API_BASE = resolveStoryApiBase(

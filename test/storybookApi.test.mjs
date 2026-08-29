@@ -2,28 +2,28 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { resolveStoryApiBase } from '../src/data/storybookApi.js';
 
-test('storybook API uses the hosted endpoint inside packaged Android shells', () => {
+test('storybook API uses the hosted endpoint when no explicit route is provided', () => {
   assert.equal(
-    resolveStoryApiBase('', { origin: 'http://localhost', protocol: 'http:' }),
+    resolveStoryApiBase(''),
     'https://dinospace-eight.vercel.app/api/story',
   );
   assert.equal(
-    resolveStoryApiBase('', { origin: 'https://localhost', protocol: 'https:' }),
+    resolveStoryApiBase(''),
     'https://dinospace-eight.vercel.app/api/story',
   );
   assert.equal(
-    resolveStoryApiBase('', { origin: 'capacitor://localhost', protocol: 'capacitor:' }),
+    resolveStoryApiBase(''),
     'https://dinospace-eight.vercel.app/api/story',
   );
 });
 
-test('storybook API remains same-origin on the web and honours explicit configuration', () => {
+test('storybook API honours explicit configuration', () => {
   assert.equal(
-    resolveStoryApiBase('', { origin: 'https://dinospace-eight.vercel.app', protocol: 'https:' }),
-    '/api/story',
+    resolveStoryApiBase(''),
+    'https://dinospace-eight.vercel.app/api/story',
   );
   assert.equal(
-    resolveStoryApiBase('https://example.test/api/story/', { origin: 'http://localhost', protocol: 'http:' }),
+    resolveStoryApiBase('https://example.test/api/story/'),
     'https://example.test/api/story',
   );
 });
