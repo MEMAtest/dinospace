@@ -241,6 +241,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     setPageIndex(-1);
     setStarted(false);
     setAudioError(false);
+    window.requestAnimationFrame(() => window.scrollTo(0, 0));
   };
 
   const closeBook = () => {
@@ -248,6 +249,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     stopAudio();
     setSelectedSlug(null);
     setStarted(false);
+    window.requestAnimationFrame(() => window.scrollTo(0, 0));
   };
 
   const startReading = async () => {

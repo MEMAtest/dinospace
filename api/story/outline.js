@@ -41,7 +41,7 @@ const requestStory = async (model, input, apiKey) => {
       model, temperature: 0.45, max_tokens: 9000,
       messages: [
         { role: 'system', content: 'You are a careful UK children’s picture-book writer and visual continuity editor. Follow the JSON schema exactly.' },
-        { role: 'user', content: `Write an original, safe picture book for age ${input.ageBand} about this topic: ${input.topic}. Use British English and exactly ten pages. Each page must contain ${range} words. Build a warm beginning, discovery, gentle challenge, cooperative solution and satisfying ending. Visual style: ${STYLE_PROMPTS[input.style]}. Define recurring characters and write a visual prompt for every page. Do not include brands, copyrighted characters, frightening peril, violence, adult content, personal data, text or lettering inside images.` },
+        { role: 'user', content: `Write an original, safe picture book for age ${input.ageBand} about this topic: ${input.topic}. Use British English and exactly ten pages. Write a concise 25-to-40-word summary. Each page must contain ${range} words. Build a warm beginning, discovery, gentle challenge, cooperative solution and satisfying ending. Visual style: ${STYLE_PROMPTS[input.style]}. Define recurring characters and write a visually distinct, situation-specific prompt for every page, varying action, setting and camera while keeping character identity consistent. Do not include brands, copyrighted characters, frightening peril, violence, adult content, personal data, text or lettering inside images.` },
       ],
       response_format: { type: 'json_schema', json_schema: { name: 'amari_custom_storybook', strict: true, schema } },
       provider: { require_parameters: true, allow_fallbacks: true },
