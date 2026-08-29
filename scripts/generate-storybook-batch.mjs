@@ -15,6 +15,7 @@ const STORY_VOICE_ID = process.env.ELEVENLABS_STORY_VOICE_ID || 'Xb7hH8MSUJpSbSD
 const ELEVENLABS_MODEL = process.env.ELEVENLABS_STORY_MODEL_ID || 'eleven_v3';
 const OUTPUT_ROOT = path.resolve('public/storybooks');
 const REQUEST_DELAY_MS = Number(process.env.STORYBOOK_REQUEST_DELAY_MS || 400);
+const ONLY_BOOK_ID = process.env.STORYBOOK_ONLY || '';
 
 const books = [
   {
@@ -269,7 +270,8 @@ function pageVisualPrompt(book, story, page) {
   const realismGuard = book.id === 'nia-great-river-journey'
     ? 'Use naturalistic, photorealistic wildlife imagery with believable anatomy, fur and skin texture, depth of field, and warm cinematic African light. Do not use illustration, painting, watercolour, gouache, cartoon, toy, or 3D-animation styling.'
     : '';
-  return `${book.style}. Colour palette: ${book.palette}. Recurring character bible: ${characterBible(story)}. Scene: ${page.imagePrompt}. ${realismGuard} Preserve the exact designs, proportions, colours, clothing, and props from the supplied cover reference. Premium family picture-book composition, clear focal point, complete uncropped characters, safe and welcoming. No words, letters, numbers, captions, logos, watermark, border, collage, split panel, or UI.`;
+  const sequenceGuard = 'Use the supplied cover only as a character-design reference. Do not copy its pose, camera angle, framing, background, character arrangement, or facial expression. Stage the exact action and location described for this page. Make this page visibly distinct from a cover portrait and from adjacent pages, using purposeful storytelling, environmental detail, and a situation-appropriate wide, close, overhead, low, or action camera angle.';
+  return `${book.style}. Colour palette: ${book.palette}. Recurring character bible: ${characterBible(story)}. Scene: ${page.imagePrompt}. ${realismGuard} ${sequenceGuard} Preserve the exact character identity, proportions, colours, clothing, and props from the supplied cover reference. Premium family picture-book composition, clear focal point, complete uncropped characters, safe and welcoming. No words, letters, numbers, captions, logos, watermark, border, collage, split panel, or UI.`;
 }
 
 async function generateBook(book) {
@@ -373,7 +375,9 @@ async function generateBook(book) {
 async function main() {
   assertSecrets();
   await mkdir(OUTPUT_ROOT, { recursive: true });
-  for (const book of books) await generateBook(book);
+  const selectedBooks = ONLY_BOOK_ID ? books.filter((book) => book.id === ONLY_BOOK_ID) : books;
+  if (!selectedBooks.length) throw new Error(`Unknown STORYBOOK_ONLY id: ${ONLY_BOOK_ID}`);
+  for (const book of selectedBooks) await generateBook(book);
   console.log('Storybook batch complete');
 }
 

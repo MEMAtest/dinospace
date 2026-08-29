@@ -4,6 +4,9 @@ import {
   Volume2, VolumeX,
 } from 'lucide-react';
 import { loadStoryBookManifest, STORYBOOK_CATALOG } from '../../data/storybooks.js';
+import StorybookCreator from './StorybookCreator.jsx';
+import { createStoryImage, createStoryNarration, createStoryOutline, createStorySession } from '../../data/storybookApi.js';
+import { getStoryAsset, getStoryBookRecord, getStoryBooks, saveStoryAsset, saveStoryBook } from '../../data/storybookStorage.js';
 
 const completionKey = (slug) => `amari_storybook_complete_${slug}`;
 
@@ -25,8 +28,71 @@ const saveCompletion = (slug) => {
 
 const assetLabel = (book) => `${book.title}, ${book.style}, ages ${book.ageBand}`;
 
+const DAILY_LIMIT = 3;
+const dailyKey = () => `amari_storybook_daily_${new Date().toISOString().slice(0, 10)}`;
+const countDailyCreations = () => {
+  try { return Number(window.localStorage.getItem(dailyKey()) || 0); } catch { return 0; }
+};
+const incrementDailyCreations = () => {
+  try { window.localStorage.setItem(dailyKey(), String(countDailyCreations() + 1)); } catch { /* optional control */ }
+};
+const blobToDataUrl = async (blob) => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.onload = () => resolve(reader.result);
+  reader.onerror = reject;
+  reader.readAsDataURL(blob);
+});
+const styleAccent = { '3d': 'from-indigo-700 via-violet-700 to-fuchsia-700', 'painted-2d': 'from-emerald-700 via-teal-700 to-cyan-700', realistic: 'from-amber-700 via-orange-600 to-rose-600' };
+
+const newStoryId = () => `custom-${globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`}`;
+
+const makeCustomBook = (outline, input) => {
+  const id = newStoryId();
+  const pageCount = 10;
+  return {
+    id,
+    slug: id,
+    custom: true,
+    title: outline.title,
+    subtitle: `A ${input.style === '3d' ? 'colourful' : input.style === 'painted-2d' ? 'hand-painted' : 'warm'} ten-page adventure`,
+    summary: outline.summary,
+    ageBand: input.ageBand,
+    style: input.style,
+    accent: styleAccent[input.style] || styleAccent['3d'],
+    emoji: '✨',
+    status: 'generating',
+    generation: { stage: 'cover', completed: 0, total: 2 + pageCount * 2, currentPage: 0, error: null },
+    characters: outline.characters,
+    coverPrompt: outline.coverPrompt,
+    coverAssetKey: `${id}:cover`,
+    coverAudioAssetKey: `${id}:cover-audio`,
+    cover: null,
+    coverAudio: null,
+    pages: outline.pages.map((page, index) => ({
+      id: `${id}:page-${index + 1}`,
+      number: index + 1,
+      title: `Page ${index + 1}`,
+      text: page.text,
+      imagePrompt: page.imagePrompt,
+      imageAssetKey: `${id}:page-${index + 1}:image`,
+      audioAssetKey: `${id}:page-${index + 1}:audio`,
+      image: null,
+      audio: null,
+    })),
+  };
+};
+
+const continuityPrompt = (book) => book.characters.map((character) => `${character.name}: ${character.visualDescription}`).join('; ');
+
 const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) => {
   const [library, setLibrary] = useState(STORYBOOK_CATALOG);
+  const [bundledBooks, setBundledBooks] = useState(STORYBOOK_CATALOG);
+  const [customRecords, setCustomRecords] = useState([]);
+  const [showCreator, setShowCreator] = useState(false);
+  const [creatorBusy, setCreatorBusy] = useState(false);
+  const [creatorError, setCreatorError] = useState('');
+  const [dailyLimitReached, setDailyLimitReached] = useState(false);
+  const storySessionRef = useRef(null);
   const [selectedSlug, setSelectedSlug] = useState(null);
   const [pageIndex, setPageIndex] = useState(-1);
   const [started, setStarted] = useState(false);
@@ -36,6 +102,8 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
   const [imageErrors, setImageErrors] = useState({});
   const audioRef = useRef(null);
   const advanceTimerRef = useRef(null);
+  const generationAbortRef = useRef(null);
+  const objectUrlsRef = useRef([]);
 
   const selectedBook = useMemo(
     () => library.find((book) => book.slug === selectedSlug) || null,
@@ -50,13 +118,57 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
   const screenNumber = pageIndex + 2;
 
   useEffect(() => {
+    try { storySessionRef.current = window.sessionStorage.getItem('amari_storybook_parent_session'); } catch { /* storage is optional */ }
     let cancelled = false;
-    Promise.all(STORYBOOK_CATALOG.map((book) => loadStoryBookManifest(book)))
-      .then((books) => {
-        if (!cancelled) setLibrary(books.filter(Boolean));
+    Promise.all([Promise.all(STORYBOOK_CATALOG.map((book) => loadStoryBookManifest(book))), getStoryBooks()])
+      .then(([books, records]) => {
+        if (!cancelled) {
+          const loadedBooks = books.filter(Boolean);
+          setBundledBooks(loadedBooks);
+          setCustomRecords(records || []);
+          if (!records?.length) setLibrary(loadedBooks);
+        }
       });
-    return () => { cancelled = true; };
+    return () => { cancelled = true; generationAbortRef.current?.abort(); objectUrlsRef.current.forEach((url) => URL.revokeObjectURL(url)); objectUrlsRef.current = []; };
   }, []);
+
+  useEffect(() => {
+    if (!customRecords.length) return;
+    let cancelled = false;
+    const runUrls = [];
+    const rememberUrl = (blob) => {
+      if (!blob) return null;
+      const url = URL.createObjectURL(blob);
+      runUrls.push(url);
+      return url;
+    };
+    Promise.all(customRecords.map(async (record) => {
+      const coverBlob = await getStoryAsset(record.coverAssetKey);
+      const cover = rememberUrl(coverBlob);
+      const coverAudio = await getStoryAsset(record.coverAudioAssetKey);
+      const coverAudioUrl = rememberUrl(coverAudio);
+      const pages = await Promise.all((record.pages || []).map(async (page) => {
+        const imageBlob = await getStoryAsset(page.imageAssetKey);
+        const audioBlob = await getStoryAsset(page.audioAssetKey);
+        const image = rememberUrl(imageBlob);
+        const audio = rememberUrl(audioBlob);
+        return { ...page, image, audio };
+      }));
+      return { ...record, accent: styleAccent[record.style] || styleAccent['3d'], emoji: '✨', cover, coverAudio: coverAudioUrl, pages };
+    })).then((books) => {
+      if (cancelled) {
+        runUrls.forEach((url) => URL.revokeObjectURL(url));
+        return;
+      }
+      objectUrlsRef.current.forEach((url) => URL.revokeObjectURL(url));
+      objectUrlsRef.current = runUrls;
+      setLibrary([...bundledBooks, ...books]);
+    });
+    return () => {
+      cancelled = true;
+      if (runUrls.length) runUrls.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [bundledBooks, customRecords]);
 
   const stopAudio = useCallback(() => {
     if (advanceTimerRef.current) {
@@ -169,6 +281,122 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     }, 420);
   };
 
+  const persistCustom = useCallback(async (record) => {
+    await saveStoryBook(record);
+    setCustomRecords((records) => records.some((item) => item.id === record.id)
+      ? records.map((item) => (item.id === record.id ? record : item))
+      : [record, ...records]);
+  }, []);
+
+  const runCustomGeneration = useCallback(async (sourceRecord, session = storySessionRef.current) => {
+    if (!session) return;
+    if (generationAbortRef.current) return;
+    const controller = new AbortController();
+    generationAbortRef.current = controller;
+    let record = {
+      ...sourceRecord,
+      status: 'generating',
+      generation: { ...(sourceRecord.generation || {}), stage: 'cover', error: null, total: 22 },
+      pages: (sourceRecord.pages || []).map((page) => ({ ...page })),
+    };
+    let completed = Number(record.generation.completed || 0);
+    const update = async (patch) => {
+      record = { ...record, ...patch, generation: { ...record.generation, completed, ...patch.generation } };
+      await persistCustom(record);
+    };
+    try {
+      let coverBlob = await getStoryAsset(record.coverAssetKey);
+      if (!coverBlob) {
+        const coverPrompt = `${record.coverPrompt}. Style: ${record.style}. Character continuity guide: ${continuityPrompt(record)}. Make a polished children’s picture-book cover with the complete main character visible, clear margins, strong focal composition, no cropping, no words, no letters, no logos, no watermark.`;
+        coverBlob = await createStoryImage({ prompt: coverPrompt }, session, controller.signal);
+        await saveStoryAsset(record.coverAssetKey, coverBlob);
+        completed += 1;
+        await update({ generation: { stage: 'cover', currentPage: 0 } });
+      }
+      const coverReference = await blobToDataUrl(coverBlob);
+
+      let coverAudio = await getStoryAsset(record.coverAudioAssetKey);
+      if (!coverAudio) {
+        coverAudio = await createStoryNarration({ text: `${record.title}. ${record.summary}`.slice(0, 420) }, session, controller.signal);
+        await saveStoryAsset(record.coverAudioAssetKey, coverAudio);
+        completed += 1;
+        await update({ generation: { stage: 'narration', currentPage: 0 } });
+      }
+
+      for (let index = 0; index < record.pages.length; index += 1) {
+        const page = record.pages[index];
+        let imageBlob = await getStoryAsset(page.imageAssetKey);
+        if (!imageBlob) {
+          const prompt = `${page.imagePrompt}. Style: ${record.style}. Character continuity guide: ${continuityPrompt(record)}. This is page ${page.number} of 10. Show a clear child-friendly action with the full characters visible, varied camera angle, no cropping, no words, no letters, no logos, no watermark.`;
+          imageBlob = await createStoryImage({ prompt, referenceImage: coverReference }, session, controller.signal);
+          await saveStoryAsset(page.imageAssetKey, imageBlob);
+          completed += 1;
+          await update({ generation: { stage: 'image', currentPage: page.number } });
+        }
+        if (!await getStoryAsset(page.audioAssetKey)) {
+          const narration = await createStoryNarration({
+            text: page.text,
+            previousText: record.pages[index - 1]?.text,
+            nextText: record.pages[index + 1]?.text,
+          }, session, controller.signal);
+          await saveStoryAsset(page.audioAssetKey, narration);
+          completed += 1;
+          await update({ generation: { stage: 'narration', currentPage: page.number } });
+        }
+      }
+      await update({ status: 'ready', generation: { stage: 'complete', currentPage: 10, error: null } });
+    } catch (error) {
+      if (error?.name === 'AbortError') return;
+      await update({ status: 'error', generation: { stage: 'error', error: error?.message || 'Generation failed' } });
+    } finally {
+      generationAbortRef.current = null;
+    }
+  }, [persistCustom]);
+
+  const createCustomStory = useCallback(async (input) => {
+    if (creatorBusy || countDailyCreations() >= DAILY_LIMIT || customRecords.length >= 5) return;
+    if (typeof navigator !== 'undefined' && navigator.onLine === false) {
+      setCreatorError('Connect to the internet to create a story, then you can read it offline.');
+      return;
+    }
+    setCreatorBusy(true);
+    setCreatorError('');
+    try {
+      if (!storySessionRef.current) throw new Error('Please open the parent area first.');
+      const outline = await createStoryOutline(input, storySessionRef.current);
+      incrementDailyCreations();
+      setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT);
+      const record = makeCustomBook(outline, input);
+      await saveStoryBook(record);
+      setCustomRecords((records) => [record, ...records]);
+      setShowCreator(false);
+      await runCustomGeneration(record);
+    } catch (error) {
+      setCreatorError(error?.message || 'Story outline could not be created. Please try again.');
+    } finally {
+      setCreatorBusy(false);
+    }
+  }, [creatorBusy, customRecords.length, runCustomGeneration]);
+
+  const unlockParentArea = useCallback(async (parentPin) => {
+    storySessionRef.current = await createStorySession(parentPin);
+    try { window.sessionStorage.setItem('amari_storybook_parent_session', storySessionRef.current); } catch { /* storage is optional */ }
+  }, []);
+
+  const resumeCustomStory = useCallback(async (book) => {
+    if (creatorBusy || generationAbortRef.current) return;
+    if (!storySessionRef.current) {
+      setCreatorError('A parent session is needed to resume this story. Open the creator to unlock it.');
+      setShowCreator(true);
+      return;
+    }
+    const record = await getStoryBookRecord(book.id);
+    if (!record) return;
+    setCreatorBusy(true);
+    await runCustomGeneration(record);
+    setCreatorBusy(false);
+  }, [creatorBusy, runCustomGeneration]);
+
   const onImageError = (key) => setImageErrors((errors) => ({ ...errors, [key]: true }));
 
   if (!selectedBook) {
@@ -184,23 +412,35 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
             <div className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-gradient-to-br from-amber-300 to-orange-500 text-5xl shadow-lg">📚</div>
             <h2 className="mt-4 text-2xl font-black sm:text-4xl">Choose a story to explore</h2>
             <p className="mx-auto mt-2 max-w-2xl font-semibold text-blue-100">Every story has a picture, a short page to read and a real ElevenLabs narration. Downloaded story assets keep reading ready when you are offline.</p>
+            <button type="button" onClick={() => { setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT); setCreatorError(''); setShowCreator(true); }} className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-amber-300 px-5 py-3 font-black text-slate-950 shadow-lg transition hover:-translate-y-0.5 disabled:opacity-50" disabled={customRecords.length >= 5}>
+              ✨ Create a new story
+            </button>
+            {customRecords.length >= 5 && <p className="mt-2 text-xs font-bold text-amber-100">You can keep up to five saved storybooks on this device.</p>}
           </section>
           <section className="mt-6 grid gap-5 md:grid-cols-3" aria-label="Storybook library">
             {library.map((book) => (
               <article key={book.slug} className="group overflow-hidden rounded-[2rem] border border-white/25 bg-white/95 text-slate-900 shadow-[0_18px_45px_rgba(0,0,0,.22)] transition hover:-translate-y-1">
-                <button type="button" onClick={() => openBook(book)} className="block w-full text-left" aria-label={`Open ${assetLabel(book)}`}>
-                  <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br ${book.accent}`}>
-                    {!imageErrors[`${book.slug}-cover`] && <img src={book.cover} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" onError={() => onImageError(`${book.slug}-cover`)} />}
-                    {imageErrors[`${book.slug}-cover`] && <span className="text-7xl" aria-hidden="true">{book.emoji}</span>}
-                    <span className="absolute left-3 top-3 rounded-full bg-slate-950/65 px-3 py-1 text-xs font-black text-white backdrop-blur">Ages {book.ageBand}</span>
+                {book.custom && book.status !== 'ready' ? (
+                  <div>
+                    <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br ${book.accent}`}><span className="text-7xl" aria-hidden="true">✨</span><span className="absolute left-3 top-3 rounded-full bg-slate-950/65 px-3 py-1 text-xs font-black text-white backdrop-blur">Ages {book.ageBand}</span></div>
+                    <div className="p-5"><h3 className="text-xl font-black leading-tight">{book.title}</h3><p className="mt-2 text-sm font-bold text-slate-500">{book.status === 'error' ? 'Needs a retry' : 'Creating your story…'}</p><div className="mt-3 h-3 overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-indigo-600 transition-all" style={{ width: `${Math.round(((book.generation?.completed || 0) / (book.generation?.total || 22)) * 100)}%` }} /></div><p className="mt-2 text-xs font-bold text-slate-500">{book.status === 'error' ? book.generation?.error : `${book.generation?.completed || 0} of ${book.generation?.total || 22} assets ready`}</p><button type="button" onClick={() => resumeCustomStory(book)} disabled={creatorBusy} className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-black text-white shadow-md disabled:opacity-50">{book.status === 'error' ? <><RotateCcw size={16} /> Retry</> : <><RotateCcw size={16} /> Resume</>}</button></div>
                   </div>
-                  <div className="p-5"><h3 className="text-xl font-black leading-tight">{book.title}</h3><p className="mt-2 text-sm font-bold text-slate-500">{book.subtitle}</p><span className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-black text-white shadow-md">Read story <ArrowRight size={17} /></span></div>
-                </button>
+                ) : (
+                  <button type="button" onClick={() => openBook(book)} className="block w-full text-left" aria-label={`Open ${assetLabel(book)}`}>
+                    <div className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-gradient-to-br ${book.accent}`}>
+                      {!imageErrors[`${book.slug}-cover`] && book.cover && <img src={book.cover} alt="" className="h-full w-full object-cover transition duration-500 group-hover:scale-105" onError={() => onImageError(`${book.slug}-cover`)} />}
+                      {(imageErrors[`${book.slug}-cover`] || !book.cover) && <span className="text-7xl" aria-hidden="true">{book.emoji}</span>}
+                      <span className="absolute left-3 top-3 rounded-full bg-slate-950/65 px-3 py-1 text-xs font-black text-white backdrop-blur">Ages {book.ageBand}</span>
+                    </div>
+                    <div className="p-5"><h3 className="text-xl font-black leading-tight">{book.title}</h3><p className="mt-2 text-sm font-bold text-slate-500">{book.subtitle}</p><span className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-black text-white shadow-md">Read story <ArrowRight size={17} /></span></div>
+                  </button>
+                )}
               </article>
             ))}
           </section>
           <p className="mt-7 flex items-center justify-center gap-2 text-center text-sm font-bold text-cyan-100"><Headphones size={17} /> Narration uses bundled ElevenLabs audio. No device voice fallback.</p>
         </div>
+        {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) setShowCreator(false); }} onUnlock={unlockParentArea} onCreate={createCustomStory} busy={creatorBusy} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= 5} />}
       </main>
     );
   }
@@ -221,8 +461,8 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
         </div>
         <section className="mt-4 grid flex-1 gap-4 lg:grid-cols-[1.35fr_.65fr] lg:items-center">
           <div className="relative flex min-h-[45vh] items-center justify-center overflow-hidden rounded-[2rem] border-4 border-white/35 bg-white/10 p-2 shadow-2xl backdrop-blur-sm sm:p-4">
-            {!imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`] && <img src={currentImage} alt={isCover ? `${selectedBook.title} cover` : `${selectedBook.title}, ${currentPage?.title || ''}`} className="h-full max-h-[64vh] w-full rounded-[1.5rem] object-cover" onError={() => onImageError(`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`)} />}
-            {imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`] && <div className="grid h-full min-h-[40vh] w-full place-items-center rounded-[1.5rem] bg-slate-950/20 text-8xl" aria-label="Illustration unavailable">{selectedBook.emoji}</div>}
+            {currentImage && !imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`] && <img src={currentImage} alt={isCover ? `${selectedBook.title} cover` : `${selectedBook.title}, ${currentPage?.title || ''}`} className="h-full max-h-[64vh] w-full rounded-[1.5rem] object-cover" onError={() => onImageError(`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`)} />}
+            {(!currentImage || imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`]) && <div className="grid h-full min-h-[40vh] w-full place-items-center rounded-[1.5rem] bg-slate-950/20 text-8xl" aria-label="Illustration unavailable">{selectedBook.emoji}</div>}
             <span className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-slate-950/60 px-4 py-2 text-xs font-black text-white backdrop-blur">{isCover ? 'Tap Start Reading' : `Illustration ${pageIndex + 1} of ${pages.length}`}</span>
           </div>
           <div className="flex flex-col rounded-[2rem] border-2 border-white/25 bg-slate-950/25 p-5 shadow-2xl backdrop-blur-md sm:p-7">
