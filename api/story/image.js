@@ -19,7 +19,7 @@ const imageWithModel = async (model, provider, prompt, referenceImage, apiKey) =
 export default async function handler(request, response) {
   applyCors(request, response);
   if (!isAllowedOrigin(request)) return respondJson(response, 403, { error: 'Story images are only available inside Amari Discovery' });
-  if (request.method === 'OPTIONS') return response.status(204).end();
+  if (request.method === 'OPTIONS') return response.status(200).end();
   if (!hasStorySession(request)) return respondJson(response, 401, { error: 'A parent session is required' });
   if (request.method !== 'POST') { response.setHeader('Allow', 'POST'); return respondJson(response, 405, { error: 'Method not allowed' }); }
   if (!allowRequest(clientId(request))) return respondJson(response, 429, { error: 'Please try story creation again shortly' });

@@ -46,12 +46,15 @@ export const isAllowedOrigin = (request) => {
 
 export const applyCors = (request, response) => {
   const origin = request.headers.origin;
-  if (origin && (ALLOWED_ORIGINS.has(origin) || /^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?$/.test(origin))) {
+  const permitted = Boolean(origin && (ALLOWED_ORIGINS.has(origin) || /^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?$/.test(origin)));
+  if (permitted) {
     response.setHeader('Access-Control-Allow-Origin', origin);
     response.setHeader('Vary', 'Origin');
     response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     response.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Amari-Story-Session');
+    response.setHeader('Access-Control-Max-Age', '600');
   }
+  if (request.method === 'OPTIONS') console.info('Story CORS preflight', { origin: origin || 'missing', permitted });
 };
 
 export const respondJson = (response, status, body) => {
