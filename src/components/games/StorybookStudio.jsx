@@ -448,6 +448,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
   }
 
   const progress = totalScreens > 0 ? ((pageIndex + 1) / totalScreens) * 100 : 0;
+  const IllustrationFrame = isCover ? 'button' : 'div';
   return (
     <main className={`storybook-reader min-h-screen w-full overflow-hidden bg-gradient-to-br ${selectedBook.accent} px-3 py-4 text-white sm:px-6 sm:py-6`}>
       <div className="mx-auto flex min-h-[calc(100vh-2rem)] max-w-7xl flex-col">
@@ -462,11 +463,11 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           <span className="text-sm font-black text-white/85">{screenNumber}/{totalScreens}</span>
         </div>
         <section className="mt-4 grid flex-1 gap-4 lg:grid-cols-[1.35fr_.65fr] lg:items-center">
-          <div className="relative flex min-h-[45vh] items-center justify-center overflow-hidden rounded-[2rem] border-4 border-white/35 bg-white/10 p-2 shadow-2xl backdrop-blur-sm sm:p-4">
+          <IllustrationFrame type={isCover ? 'button' : undefined} onClick={isCover ? startReading : undefined} aria-label={isCover ? `Start reading ${selectedBook.title}` : undefined} className={`relative flex min-h-[45vh] items-center justify-center overflow-hidden rounded-[2rem] border-4 border-white/35 bg-white/10 p-2 shadow-2xl backdrop-blur-sm sm:p-4 ${isCover ? 'w-full cursor-pointer text-left transition active:scale-[.99]' : ''}`}>
             {currentImage && !imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`] && <img src={currentImage} alt={isCover ? `${selectedBook.title} cover` : `${selectedBook.title}, ${currentPage?.title || ''}`} className="h-full max-h-[64vh] w-full rounded-[1.5rem] object-cover" onError={() => onImageError(`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`)} />}
             {(!currentImage || imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`]) && <div className="grid h-full min-h-[40vh] w-full place-items-center rounded-[1.5rem] bg-slate-950/20 text-8xl" aria-label="Illustration unavailable">{selectedBook.emoji}</div>}
-            <span className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-slate-950/60 px-4 py-2 text-xs font-black text-white backdrop-blur">{isCover ? 'Tap Start Reading' : `Illustration ${pageIndex + 1} of ${pages.length}`}</span>
-          </div>
+            <span className="absolute bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-slate-950/70 px-4 py-2 text-xs font-black text-white backdrop-blur">{isCover && <Play size={14} fill="currentColor" />}{isCover ? 'Tap to Start Reading' : `Illustration ${pageIndex + 1} of ${pages.length}`}</span>
+          </IllustrationFrame>
           <div className="flex flex-col rounded-[2rem] border-2 border-white/25 bg-slate-950/25 p-5 shadow-2xl backdrop-blur-md sm:p-7">
             {isCover ? (
               <>
