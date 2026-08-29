@@ -1,7 +1,19 @@
 import { validateStoryOutline, validateStoryRequest } from './storybookValidation.js';
 
-const configuredBase = import.meta.env.VITE_STORY_API_URL || '/api/story';
-export const STORY_API_BASE = configuredBase.replace(/\/$/, '');
+const HOSTED_STORY_API = 'https://dinospace-eight.vercel.app/api/story';
+
+export const resolveStoryApiBase = (configuredBase, locationLike) => {
+  if (configuredBase) return configuredBase.replace(/\/$/, '');
+  const origin = locationLike?.origin || '';
+  const protocol = locationLike?.protocol || '';
+  const packagedApp = protocol === 'capacitor:' || origin === 'http://localhost' || origin === 'https://localhost';
+  return packagedApp ? HOSTED_STORY_API : '/api/story';
+};
+
+export const STORY_API_BASE = resolveStoryApiBase(
+  import.meta.env?.VITE_STORY_API_URL,
+  typeof window === 'undefined' ? undefined : window.location,
+);
 
 const request = async (path, body, options = {}) => {
   const response = await fetch(`${STORY_API_BASE}/${path}`, {

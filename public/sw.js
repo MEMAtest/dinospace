@@ -1,4 +1,4 @@
-const CACHE_NAME = 'amari-discovery-v9';
+const CACHE_NAME = 'amari-discovery-v10';
 const PRECACHE_ASSETS = []; // __PRECACHE_ASSETS__
 const APP_SHELL = [
   '/',
