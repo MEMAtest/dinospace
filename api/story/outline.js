@@ -29,7 +29,7 @@ const schema = {
   },
 };
 
-const requestStory = async (model, input, apiKey) => {
+const requestStory = async (model, input, apiKey, timeoutMs = 60_000) => {
   const range = input.ageBand === '3-4' ? '12 to 28' : input.ageBand === '7-8' ? '35 to 60' : '20 to 40';
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
@@ -46,9 +46,13 @@ const requestStory = async (model, input, apiKey) => {
       response_format: { type: 'json_schema', json_schema: { name: 'amari_custom_storybook', strict: true, schema } },
       provider: { require_parameters: true, allow_fallbacks: true },
     }),
-    signal: AbortSignal.timeout(60_000),
+    signal: AbortSignal.timeout(timeoutMs),
   });
-  if (!response.ok) throw new Error(`Story provider returned ${response.status}`);
+  if (!response.ok) {
+    const error = new Error(`Story provider returned ${response.status}`);
+    if (response.status === 408 || response.status === 429 || response.status >= 500) error.code = 'PROVIDER_RETRYABLE';
+    throw error;
+  }
   const result = await response.json();
   const content = result.choices?.[0]?.message?.content;
   if (typeof content !== 'string') {
@@ -84,8 +88,11 @@ export default async function handler(request, response) {
     const preferred = process.env.OPENROUTER_STORY_MODEL || DEFAULT_MODEL;
     let outline;
     try { outline = await requestStory(preferred, input, apiKey); } catch (error) {
-      if (error?.code !== 'OUTLINE_SCHEMA') throw error;
-      outline = await requestStory(process.env.OPENROUTER_STORY_FALLBACK_MODEL || FALLBACK_MODEL, input, apiKey);
+      const retryable = error?.code === 'OUTLINE_SCHEMA' || error?.code === 'PROVIDER_RETRYABLE' || error?.name === 'TimeoutError' || error?.name === 'AbortError';
+      if (!retryable) throw error;
+      const fallback = process.env.OPENROUTER_STORY_FALLBACK_MODEL || FALLBACK_MODEL;
+      console.warn('Story outline primary failed; using configured fallback', { primary: preferred, fallback, reason: error?.code || error?.name || 'unknown' });
+      outline = await requestStory(fallback, input, apiKey, 90_000);
     }
     return respondJson(response, 200, outline);
   } catch { return respondJson(response, 502, { error: 'Story outline could not be created. Please try again.' }); }
