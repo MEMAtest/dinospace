@@ -36,7 +36,9 @@ const assetLabel = (book) => `${book.title}, ${book.style}, ages ${book.ageBand}
 
 const DAILY_LIMIT = 3;
 const LIBRARY_LIMIT = 20;
-const dailyKey = () => `amari_storybook_daily_${new Date().toISOString().slice(0, 10)}`;
+// v2 deliberately starts a clean quota: failed early creator attempts in the
+// first release must never use up a family's three completed-story allowance.
+const dailyKey = () => `amari_storybook_daily_v2_${new Date().toISOString().slice(0, 10)}`;
 const countDailyCreations = () => {
   try { return Number(window.localStorage.getItem(dailyKey()) || 0); } catch { return 0; }
 };
@@ -48,6 +50,31 @@ const blobToDataUrl = async (blob) => new Promise((resolve, reject) => {
   reader.onload = () => resolve(reader.result);
   reader.onerror = reject;
   reader.readAsDataURL(blob);
+});
+// A generated cover can be several megabytes.  Sending that untouched as the
+// reference for every page is unreliable on mobile browsers and can exceed an
+// edge-function request limit.  The small copy below still carries the
+// character's appearance, but keeps each page request comfortably sized.
+const compactReferenceImage = async (blob) => new Promise((resolve) => {
+  const url = URL.createObjectURL(blob);
+  const image = new Image();
+  image.onload = () => {
+    try {
+      const longestSide = 512;
+      const scale = Math.min(1, longestSide / Math.max(image.naturalWidth, image.naturalHeight));
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+      canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+      canvas.getContext('2d')?.drawImage(image, 0, 0, canvas.width, canvas.height);
+      resolve(canvas.toDataURL('image/jpeg', 0.78));
+    } catch {
+      resolve(undefined);
+    } finally {
+      URL.revokeObjectURL(url);
+    }
+  };
+  image.onerror = () => { URL.revokeObjectURL(url); resolve(undefined); };
+  image.src = url;
 });
 const styleAccent = { '3d': 'from-indigo-700 via-violet-700 to-fuchsia-700', 'painted-2d': 'from-emerald-700 via-teal-700 to-cyan-700', realistic: 'from-amber-700 via-orange-600 to-rose-600' };
 
@@ -73,7 +100,7 @@ const makeCustomBook = (outline, input, selectedSeries = null) => {
     accent: styleAccent[input.style] || styleAccent['3d'],
     emoji: '✨',
     status: 'generating',
-    generation: { stage: 'cover', completed: 0, total: 2 + pageCount * 2, currentPage: 0, error: null },
+    generation: { stage: 'cover', completed: 0, total: 2 + pageCount * 2, currentPage: 0, error: null, startedAt: Date.now() },
     characters: outline.characters,
     coverPrompt: outline.coverPrompt,
     coverAssetKey: `${id}:cover`,
@@ -327,21 +354,22 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
   };
 
   const persistCustom = useCallback(async (record) => {
-    await saveStoryBook(record);
+    const saved = await saveStoryBook(record);
+    if (!saved) throw new Error('This device could not save the story yet. Please check available storage, then try again.');
     setCustomRecords((records) => records.some((item) => item.id === record.id)
       ? records.map((item) => (item.id === record.id ? record : item))
       : [record, ...records]);
   }, []);
 
   const runCustomGeneration = useCallback(async (sourceRecord, session = storySessionRef.current) => {
-    if (!session) return;
-    if (generationAbortRef.current) return;
+    if (!session) return { ok: false, error: 'The story connection expired. Please try again.' };
+    if (generationAbortRef.current) return { ok: false, error: 'Another story is already being made.' };
     const controller = new AbortController();
     generationAbortRef.current = controller;
     let record = {
       ...sourceRecord,
       status: 'generating',
-      generation: { ...(sourceRecord.generation || {}), stage: 'cover', error: null, total: 22 },
+      generation: { ...(sourceRecord.generation || {}), stage: 'cover', error: null, total: 22, startedAt: sourceRecord.generation?.startedAt || Date.now() },
       pages: (sourceRecord.pages || []).map((page) => ({ ...page })),
     };
     let completed = Number(record.generation.completed || 0);
@@ -350,21 +378,26 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
       await persistCustom(record);
       setCreatorProgress({ ...record.generation, title: record.title });
     };
+    const saveAsset = async (key, blob) => {
+      if (!await saveStoryAsset(key, blob)) {
+        throw new Error('This device could not save a story page. Please check available storage, then try again.');
+      }
+    };
     try {
       let coverBlob = await getStoryAsset(record.coverAssetKey);
       if (!coverBlob) {
         const coverPrompt = `${record.coverPrompt}. Style: ${record.style}. ${record.seriesBible ? `Approved series bible: ${record.seriesBible.name}; appearance: ${record.seriesBible.appearance}; personality: ${record.seriesBible.personality}; friends/world: ${record.seriesBible.friendsWorld}.` : ''} Character continuity guide: ${continuityPrompt(record)}. Make a polished children’s picture-book cover with the complete main character visible, clear margins, strong focal composition, no cropping, no words, no letters, no logos, no watermark.`;
         coverBlob = await createStoryImage({ prompt: coverPrompt, referenceImage: record.referenceImage || undefined }, session, controller.signal);
-        await saveStoryAsset(record.coverAssetKey, coverBlob);
+        await saveAsset(record.coverAssetKey, coverBlob);
         completed += 1;
         await update({ generation: { stage: 'cover', currentPage: 0 } });
       }
-      const coverReference = await blobToDataUrl(coverBlob);
+      const coverReference = await compactReferenceImage(coverBlob);
 
       let coverAudio = await getStoryAsset(record.coverAudioAssetKey);
       if (!coverAudio) {
         coverAudio = await createStoryNarration({ text: `${record.title}. ${record.summary}`.slice(0, 420) }, session, controller.signal);
-        await saveStoryAsset(record.coverAudioAssetKey, coverAudio);
+        await saveAsset(record.coverAudioAssetKey, coverAudio);
         completed += 1;
         await update({ generation: { stage: 'narration', currentPage: 0 } });
       }
@@ -375,7 +408,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
         if (!imageBlob) {
           const prompt = `${page.imagePrompt}. Style: ${record.style}. Character continuity guide: ${continuityPrompt(record)}. This is page ${page.number} of 10. Show a clear child-friendly action with the full characters visible, varied camera angle, no cropping, no words, no letters, no logos, no watermark.`;
           imageBlob = await createStoryImage({ prompt, referenceImage: record.referenceImage || coverReference }, session, controller.signal);
-          await saveStoryAsset(page.imageAssetKey, imageBlob);
+          await saveAsset(page.imageAssetKey, imageBlob);
           completed += 1;
           await update({ generation: { stage: 'image', currentPage: page.number } });
         }
@@ -385,17 +418,24 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
             previousText: record.pages[index - 1]?.text,
             nextText: record.pages[index + 1]?.text,
           }, session, controller.signal);
-          await saveStoryAsset(page.audioAssetKey, narration);
+          await saveAsset(page.audioAssetKey, narration);
           completed += 1;
           await update({ generation: { stage: 'narration', currentPage: page.number } });
         }
       }
       await update({ status: 'ready', generation: { stage: 'complete', currentPage: 10, error: null } });
-      return true;
+      return { ok: true };
     } catch (error) {
-      if (error?.name === 'AbortError') return;
-      await update({ status: 'error', generation: { stage: 'error', error: error?.message || 'Generation failed' } });
-      return false;
+      if (error?.name === 'AbortError') return { ok: false, error: 'Story creation was paused.' };
+      const message = error?.message || 'Story generation failed';
+      console.error('Storybook generation stopped', { stage: record.generation?.stage, message });
+      try {
+        await update({ status: 'error', generation: { stage: 'error', error: message } });
+      } catch (saveError) {
+        console.error('Storybook error could not be saved', saveError);
+        setCreatorProgress({ ...record.generation, stage: 'error', error: message, title: record.title });
+      }
+      return { ok: false, error: message };
     } finally {
       generationAbortRef.current = null;
     }
@@ -409,26 +449,28 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     }
     setCreatorBusy(true);
     setCreatorError('');
-    setCreatorProgress({ stage: 'connecting', completed: 0, total: 22, currentPage: 0 });
+    const startedAt = Date.now();
+    setCreatorProgress({ stage: 'connecting', completed: 0, total: 22, currentPage: 0, startedAt });
     try {
       const session = await createStorySession();
       storySessionRef.current = session;
       const selectedSeries = series.find((item) => item.id === input.seriesId) || null;
-      setCreatorProgress({ stage: 'planning', completed: 0, total: 22, currentPage: 0 });
+      setCreatorProgress({ stage: 'planning', completed: 0, total: 22, currentPage: 0, startedAt });
       const outline = await createStoryOutline({ ...input, seriesContext: selectedSeries || undefined }, session);
-      incrementDailyCreations();
-      setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT);
       const record = makeCustomBook(outline, input, selectedSeries);
-      await saveStoryBook(record);
+      const saved = await saveStoryBook(record);
+      if (!saved) throw new Error('This device could not save the new story. Please check available storage, then try again.');
       setCustomRecords((records) => [record, ...records]);
       setCreatorProgress({ ...record.generation, title: record.title });
-      const complete = await runCustomGeneration(record, session);
-      if (complete) {
+      const outcome = await runCustomGeneration(record, session);
+      if (outcome.ok) {
+        incrementDailyCreations();
+        setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT);
         window.setTimeout(() => {
           setShowCreator(false);
           setCreatorProgress(null);
         }, 900);
-      }
+      } else setCreatorError(`${outcome.error} Your completed pages are saved; use Resume on the book card to continue.`);
     } catch (error) {
       setCreatorError(error?.message || 'Story outline could not be created. Please try again.');
     } finally {

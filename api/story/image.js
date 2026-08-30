@@ -9,7 +9,14 @@ const imageWithModel = async (model, provider, prompt, referenceImage, apiKey) =
     method: 'POST', headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://dinospace-eight.vercel.app', 'X-Title': 'Amari Discovery Storybook Studio' },
     body: JSON.stringify(payload), signal: AbortSignal.timeout(120_000),
   });
-  if (!result.ok) throw new Error('Image provider failed');
+  if (!result.ok) {
+    // Keep provider details on the server: the child-facing UI receives a
+    // friendly retry message, while production logs retain the actionable
+    // status for a failed model/provider pairing.
+    const detail = (await result.text()).slice(0, 500);
+    console.warn('Story image provider request failed', { model, provider, status: result.status, detail });
+    throw new Error(`Image provider failed (${result.status})`);
+  }
   const body = await result.json();
   const encoded = body.data?.[0]?.b64_json;
   if (!encoded) throw new Error('Image provider returned no image');
@@ -32,7 +39,11 @@ export default async function handler(request, response) {
   try {
     const primary = process.env.OPENROUTER_IMAGE_MODEL || 'bytedance-seed/seedream-5-0-lite';
     let image;
-    try { image = await imageWithModel(primary, 'seed', prompt, referenceImage, apiKey); } catch {
+    // Provider tags differ across Seedream generations. OpenRouter reports
+    // `seed` for the configured Seedream 5 Lite endpoint, while older 4.x
+    // models use `bytedance`; choose the documented endpoint tag by model.
+    const primaryProvider = /seedream-5/i.test(primary) ? 'seed' : 'bytedance';
+    try { image = await imageWithModel(primary, primaryProvider, prompt, referenceImage, apiKey); } catch {
       image = await imageWithModel(process.env.OPENROUTER_IMAGE_FALLBACK_MODEL || 'qwen/qwen-image-3', 'alibaba', prompt, referenceImage, apiKey);
     }
     response.setHeader('Cache-Control', 'private, no-store');

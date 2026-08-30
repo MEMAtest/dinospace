@@ -18,6 +18,7 @@ test('storybook sessions require no PIN, remain signed and reject tampering', ()
 
 test('storybook service accepts the opaque Android WebView origin but rejects arbitrary sites', () => {
   assert.equal(isAllowedOrigin({ headers: { origin: 'null' } }), true);
+  assert.equal(isAllowedOrigin({ headers: { origin: 'https://dinospace.netlify.app' } }), true);
   assert.equal(isAllowedOrigin({ headers: { origin: 'https://untrusted.example' } }), false);
 });
 
@@ -30,4 +31,6 @@ test('opaque Android WebView preflight receives the required CORS headers', () =
   assert.equal(headers.get('Access-Control-Allow-Origin'), 'null');
   assert.match(headers.get('Access-Control-Allow-Methods'), /POST/);
   assert.match(headers.get('Access-Control-Allow-Headers'), /X-Amari-Story-Session/);
+  assert.match(headers.get('Access-Control-Expose-Headers'), /X-Amari-Image-Provider/);
+  assert.match(headers.get('Access-Control-Expose-Headers'), /X-Amari-Voice-Provider/);
 });

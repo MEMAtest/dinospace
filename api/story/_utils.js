@@ -13,6 +13,9 @@ const ALLOWED_ORIGINS = new Set([
   // reach the signed, rate-limited story endpoints.
   'null',
   'https://dinospace-eight.vercel.app',
+  // The installed/web app is served from this production Netlify origin and
+  // calls the hosted Vercel story service with a signed, short-lived session.
+  'https://dinospace.netlify.app',
   'https://dinospace-memas-projects-23a0001d.vercel.app',
   'https://dinospace-git-main-memas-projects-23a0001d.vercel.app',
   'http://localhost',
@@ -52,6 +55,10 @@ export const applyCors = (request, response) => {
     response.setHeader('Vary', 'Origin');
     response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     response.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-Amari-Story-Session');
+    // The client deliberately verifies that media came from the approved
+    // provider.  Cross-origin browsers hide non-safelisted response headers
+    // unless we expose them explicitly.
+    response.setHeader('Access-Control-Expose-Headers', 'X-Amari-Image-Provider, X-Amari-Image-Model, X-Amari-Voice-Provider, X-Amari-Voice-Model');
     response.setHeader('Access-Control-Max-Age', '600');
   }
   if (request.method === 'OPTIONS') console.info('Story CORS preflight', { origin: origin || 'missing', permitted });

@@ -45,6 +45,9 @@ const requestStory = async (model, input, apiKey, timeoutMs = 60_000) => {
       ],
       response_format: { type: 'json_schema', json_schema: { name: 'amari_custom_storybook', strict: true, schema } },
       provider: { require_parameters: true, allow_fallbacks: true },
+      // A story outline is short structured output. Prevent DeepSeek from
+      // spending the completion in an optional reasoning-only response.
+      ...(model.startsWith('deepseek/') ? { reasoning: { enabled: false } } : {}),
     }),
     signal: AbortSignal.timeout(timeoutMs),
   });
@@ -54,8 +57,19 @@ const requestStory = async (model, input, apiKey, timeoutMs = 60_000) => {
     throw error;
   }
   const result = await response.json();
-  const content = result.choices?.[0]?.message?.content;
-  if (typeof content !== 'string') {
+  const message = result.choices?.[0]?.message || {};
+  const content = typeof message.content === 'string'
+    ? message.content
+    : Array.isArray(message.content)
+      ? message.content.map((part) => part?.text || part?.content || '').join('')
+      : '';
+  if (!content.trim()) {
+    console.warn('Story outline provider returned no usable content', {
+      model,
+      finishReason: result.choices?.[0]?.finish_reason || null,
+      messageKeys: Object.keys(message),
+      usage: result.usage || null,
+    });
     const error = new Error('Story provider returned no outline');
     error.code = 'OUTLINE_SCHEMA';
     throw error;
@@ -95,5 +109,10 @@ export default async function handler(request, response) {
       outline = await requestStory(fallback, input, apiKey, 90_000);
     }
     return respondJson(response, 200, outline);
-  } catch { return respondJson(response, 502, { error: 'Story outline could not be created. Please try again.' }); }
+  } catch (error) {
+    // This deliberately excludes prompts and credentials, but preserves the
+    // model/validation reason required to diagnose an otherwise opaque 502.
+    console.error('Story outline generation failed', { reason: error?.code || error?.name || 'unknown', message: error?.message || 'no message' });
+    return respondJson(response, 502, { error: 'Story outline could not be created. Please try again.' });
+  }
 }
