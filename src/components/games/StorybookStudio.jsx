@@ -160,7 +160,21 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
 
   const activeChild = profiles.find((profile) => profile.id === activeChildId) || profiles[0] || { id: 'amari', displayName: 'Amari', ageBand: '5-6' };
   const decoratedLibrary = useMemo(() => library.map(decorateStoryBook), [library]);
-  const availableSeries = useMemo(() => [...new Map(decoratedLibrary.filter((book) => book.seriesId).map((book) => [book.seriesId, { id: book.seriesId, name: book.seriesName }])).values(), ...series].reduce((items, item) => items.some((current) => current.id === item.id) ? items : [...items, item], []), [decoratedLibrary, series]);
+  const availableSeries = useMemo(() => {
+    // Bundled books also act as reusable starting points.  They provide a
+    // description-only bible; a saved series with an approved reference image
+    // takes precedence when the family has created one.
+    const bundled = [...new Map(decoratedLibrary.filter((book) => book.seriesId).map((book) => [book.seriesId, {
+      id: book.seriesId,
+      name: book.seriesName,
+      appearance: book.characters?.map((character) => `${character.name}: ${character.visualDescription}`).join('; ') || `The main character from ${book.title}`,
+      personality: 'Curious, kind and brave',
+      friendsWorld: book.summary,
+      visualStyle: book.style === 'hand-painted 2D storybook' ? 'painted-2d' : book.style === 'realistic but warm wildlife imagery' ? 'realistic' : '3d',
+      approved: false,
+    }])).values()];
+    return [...series, ...bundled].reduce((items, item) => items.some((current) => current.id === item.id) ? items : [...items, item], []);
+  }, [decoratedLibrary, series]);
   const visibleBooks = useMemo(() => filterStoryBooks(decoratedLibrary, {
     shelf, ageBand: ageFilter, seriesId: seriesFilter,
     childId: activeChild.id,
@@ -467,12 +481,12 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     setCreatorBusy(true);
     setCreatorError('');
     const startedAt = Date.now();
-    setCreatorProgress({ stage: 'connecting', completed: 0, total: 22, currentPage: 0, startedAt });
+    const plannedPageCount = pagesForAgeBand(input.ageBand);
+    setCreatorProgress({ stage: 'connecting', completed: 0, total: 2 + plannedPageCount * 2, pageCount: plannedPageCount, currentPage: 0, startedAt });
     try {
       const session = await createStorySession();
       storySessionRef.current = session;
-      const selectedSeries = series.find((item) => item.id === input.seriesId) || null;
-      const plannedPageCount = pagesForAgeBand(input.ageBand);
+      const selectedSeries = availableSeries.find((item) => item.id === input.seriesId) || null;
       setCreatorProgress({ stage: 'planning', completed: 0, total: 2 + plannedPageCount * 2, pageCount: plannedPageCount, currentPage: 0, startedAt });
       const outline = await createStoryOutline({ ...input, seriesContext: selectedSeries || undefined }, session);
       const record = makeCustomBook(outline, input, selectedSeries);
@@ -494,7 +508,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     } finally {
       setCreatorBusy(false);
     }
-  }, [creatorBusy, customRecords.length, runCustomGeneration, series]);
+  }, [availableSeries, creatorBusy, customRecords.length, runCustomGeneration]);
 
   const resumeCustomStory = useCallback(async (book) => {
     if (creatorBusy || generationAbortRef.current) return;
@@ -604,7 +618,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           </section>
           <p className="mt-7 flex items-center justify-center gap-2 text-center text-sm font-bold text-cyan-100"><Headphones size={17} /> Narration uses bundled ElevenLabs audio. No device voice fallback.</p>
         </div>
-        {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); setCreatorProgress(null); } }} onCreate={createCustomStory} seriesOptions={series} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} progress={creatorProgress} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
+        {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); setCreatorProgress(null); } }} onCreate={createCustomStory} seriesOptions={availableSeries} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} progress={creatorProgress} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
         {showProfiles && <StorybookProfiles profiles={profiles} activeId={activeChild.id} onSelect={selectChild} onSave={saveProfile} onDelete={removeProfile} onClose={() => setShowProfiles(false)} />}
         {showSeries && <StorybookSeriesLibrary series={series} onSave={saveSeries} onGenerateReference={generateSeriesReference} onUse={(item) => { setInitialSeriesId(item.id); setShowSeries(false); setShowCreator(true); }} onClose={() => setShowSeries(false)} />}
       </main>
@@ -635,7 +649,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           <div className="flex flex-col rounded-[2rem] border-2 border-white/25 bg-slate-950/25 p-5 shadow-2xl backdrop-blur-md sm:p-7">
             {isCover ? (
               <>
-                <div className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">A ten-page adventure</div>
+                <div className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">A {pages.length === 6 ? 'six-page' : 'ten-page'} adventure</div>
                 <h2 className="mt-2 text-3xl font-black leading-tight sm:text-5xl">{selectedBook.title}</h2>
                 <p className="mt-3 text-base font-bold leading-relaxed text-white/85 sm:text-lg">{selectedBook.summary}</p>
                 <button type="button" onClick={startReading} className="mt-7 inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-amber-300 px-6 py-4 text-lg font-black text-slate-950 shadow-[0_6px_0_rgba(120,53,15,.4)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none"><Play fill="currentColor" /> Start Reading</button>
