@@ -10,7 +10,9 @@ export const wordsForAgeBand = (ageBand) => ({
   '7-8': { min: 35, max: 60 },
 }[ageBand] || { min: 20, max: 40 });
 
-export const validateStoryOutline = (outline, { ageBand = '5-6', expectedPageCount = 10 } = {}) => {
+export const pagesForAgeBand = (ageBand) => ageBand === '3-4' ? 6 : 10;
+
+export const validateStoryOutline = (outline, { ageBand = '5-6', expectedPageCount = pagesForAgeBand(ageBand) } = {}) => {
   if (!outline || typeof outline !== 'object') throw new Error('Story outline must be an object');
   if (typeof outline.title !== 'string' || !outline.title.trim() || outline.title.length > 120) throw new Error('Story title is invalid');
   if (typeof outline.summary !== 'string' || !outline.summary.trim() || outline.summary.length > 600) throw new Error('Story summary is invalid');

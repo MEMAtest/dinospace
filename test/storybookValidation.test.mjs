@@ -4,6 +4,7 @@ import {
   validateStoryOutline,
   validateStoryRequest,
   wordCount,
+  pagesForAgeBand,
 } from '../src/data/storybookValidation.js';
 
 const pageText = (count) => Array.from({ length: count }, (_, index) => `Word${index + 1}`).join(' ');
@@ -12,7 +13,7 @@ const outline = (ageBand = '5-6') => ({
   title: 'A Small Adventure',
   summary: 'A gentle story about friends solving a problem together.',
   characters: [{ name: 'Mia', visualDescription: 'A cheerful child explorer with a yellow satchel.' }],
-  pages: Array.from({ length: 10 }, (_, index) => ({
+  pages: Array.from({ length: pagesForAgeBand(ageBand) }, (_, index) => ({
     pageNumber: index + 1,
     text: pageText(ageBand === '3-4' ? 12 : ageBand === '7-8' ? 35 : 20),
     imagePrompt: 'A bright, child-friendly scene with the recurring character fully visible.',
@@ -28,7 +29,7 @@ test('storybook requests only permit the supported age bands and styles', () => 
   assert.throws(() => validateStoryRequest({ topic: 'x'.repeat(501), ageBand: '5-6', style: '3d' }), /Topic/);
 });
 
-test('outline validation enforces ten pages and age-appropriate word ranges', () => {
+test('outline validation enforces age-appropriate page counts and word ranges', () => {
   assert.equal(wordCount(pageText(20)), 20);
   assert.deepEqual(validateStoryOutline(outline()), outline());
   assert.throws(() => validateStoryOutline({ ...outline(), pages: outline().pages.slice(0, 9) }), /exactly 10/);

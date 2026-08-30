@@ -1,4 +1,4 @@
-import { validateStoryOutline, validateStoryRequest } from './storybookValidation.js';
+import { pagesForAgeBand, validateStoryOutline, validateStoryRequest } from './storybookValidation.js';
 
 const HOSTED_STORY_API = 'https://dinospace-eight.vercel.app/api/story';
 
@@ -38,7 +38,7 @@ export const createStoryOutline = async (input, session, signal) => {
   const validated = validateStoryRequest(input);
   const response = await request('outline', validated, { session, signal });
   const outline = await response.json();
-  return validateStoryOutline(outline, { ageBand: validated.ageBand });
+  return validateStoryOutline(outline, { ageBand: validated.ageBand, expectedPageCount: pagesForAgeBand(validated.ageBand) });
 };
 
 export const createStoryImage = async ({ prompt, referenceImage }, session, signal) => {

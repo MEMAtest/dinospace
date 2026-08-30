@@ -9,6 +9,7 @@ import StorybookProfiles from './StorybookProfiles.jsx';
 import StorybookSeriesLibrary from './StorybookSeriesLibrary.jsx';
 import { createStoryImage, createStoryNarration, createStoryOutline, createStorySession } from '../../data/storybookApi.js';
 import { getStoryAsset, getStoryBookRecord, getStoryBooks, getChildProfiles, saveChildProfile, deleteChildProfile, getStorySeries, saveStorySeries, saveStoryAsset, saveStoryBook } from '../../data/storybookStorage.js';
+import { pagesForAgeBand } from '../../data/storybookValidation.js';
 import { getBookProgress, readActiveChildId, readStoryProgress, saveActiveChildId, updateStoryProgress } from '../../data/storybookProfiles.js';
 import { decorateStoryBook, filterStoryBooks, STORYBOOK_SHELVES } from '../../data/storybookLibrary.js';
 
@@ -82,7 +83,7 @@ const newStoryId = () => `custom-${globalThis.crypto?.randomUUID?.() || `${Date.
 
 const makeCustomBook = (outline, input, selectedSeries = null) => {
   const id = newStoryId();
-  const pageCount = 10;
+  const pageCount = pagesForAgeBand(input.ageBand);
   return {
     id,
     slug: id,
@@ -100,7 +101,7 @@ const makeCustomBook = (outline, input, selectedSeries = null) => {
     accent: styleAccent[input.style] || styleAccent['3d'],
     emoji: '✨',
     status: 'generating',
-    generation: { stage: 'cover', completed: 0, total: 2 + pageCount * 2, currentPage: 0, error: null, startedAt: Date.now() },
+    generation: { stage: 'cover', completed: 0, total: 2 + pageCount * 2, pageCount, currentPage: 0, error: null, startedAt: Date.now() },
     characters: outline.characters,
     coverPrompt: outline.coverPrompt,
     coverAssetKey: `${id}:cover`,
@@ -189,7 +190,9 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           setSeries(loadedSeries || []);
           const loadedActive = loadedProfiles?.find((profile) => profile.id === activeChildIdRef.current) || loadedProfiles?.[0];
           if (loadedActive) {
-            setAgeFilter(loadedActive.ageBand);
+            // Keep the catalogue inclusive by default; the age selector is an
+            // explicit parent filter rather than an automatic restriction.
+            setAgeFilter('all');
             if (loadedActive.id !== activeChildIdRef.current) { activeChildIdRef.current = loadedActive.id; setActiveChildId(loadedActive.id); saveActiveChildId(loadedActive.id); }
           }
           if (!records?.length) setLibrary(loadedBooks);
@@ -369,7 +372,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     let record = {
       ...sourceRecord,
       status: 'generating',
-      generation: { ...(sourceRecord.generation || {}), stage: 'cover', error: null, total: 22, startedAt: sourceRecord.generation?.startedAt || Date.now() },
+      generation: { ...(sourceRecord.generation || {}), stage: 'cover', error: null, total: 2 + (sourceRecord.pages || []).length * 2, pageCount: (sourceRecord.pages || []).length, startedAt: sourceRecord.generation?.startedAt || Date.now() },
       pages: (sourceRecord.pages || []).map((page) => ({ ...page })),
     };
     let completed = Number(record.generation.completed || 0);
@@ -402,28 +405,34 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
         await update({ generation: { stage: 'narration', currentPage: 0 } });
       }
 
-      for (let index = 0; index < record.pages.length; index += 1) {
-        const page = record.pages[index];
-        let imageBlob = await getStoryAsset(page.imageAssetKey);
-        if (!imageBlob) {
-          const prompt = `${page.imagePrompt}. Style: ${record.style}. Character continuity guide: ${continuityPrompt(record)}. This is page ${page.number} of 10. Show a clear child-friendly action with the full characters visible, varied camera angle, no cropping, no words, no letters, no logos, no watermark.`;
-          imageBlob = await createStoryImage({ prompt, referenceImage: record.referenceImage || coverReference }, session, controller.signal);
-          await saveAsset(page.imageAssetKey, imageBlob);
-          completed += 1;
-          await update({ generation: { stage: 'image', currentPage: page.number } });
+      // Three workers keep the mobile flow quick while retaining a strict
+      // cap on in-flight provider calls. Each worker completes an image then
+      // its matching narration, so checkpoints remain resumable.
+      const workerCount = Math.min(3, record.pages.length);
+      let nextIndex = 0;
+      const workPage = async () => {
+        while (nextIndex < record.pages.length) {
+          const index = nextIndex;
+          nextIndex += 1;
+          const page = record.pages[index];
+          let imageBlob = await getStoryAsset(page.imageAssetKey);
+          if (!imageBlob) {
+            const prompt = `${page.imagePrompt}. Style: ${record.style}. Character continuity guide: ${continuityPrompt(record)}. This is page ${page.number} of ${record.pages.length}. Show a clear child-friendly action with the full characters visible, varied camera angle, no cropping, no words, no letters, no logos, no watermark.`;
+            imageBlob = await createStoryImage({ prompt, referenceImage: record.referenceImage || coverReference }, session, controller.signal);
+            await saveAsset(page.imageAssetKey, imageBlob);
+            completed += 1;
+            await update({ generation: { stage: 'image', currentPage: page.number } });
+          }
+          if (!await getStoryAsset(page.audioAssetKey)) {
+            const narration = await createStoryNarration({ text: page.text, previousText: record.pages[index - 1]?.text, nextText: record.pages[index + 1]?.text }, session, controller.signal);
+            await saveAsset(page.audioAssetKey, narration);
+            completed += 1;
+            await update({ generation: { stage: 'narration', currentPage: page.number } });
+          }
         }
-        if (!await getStoryAsset(page.audioAssetKey)) {
-          const narration = await createStoryNarration({
-            text: page.text,
-            previousText: record.pages[index - 1]?.text,
-            nextText: record.pages[index + 1]?.text,
-          }, session, controller.signal);
-          await saveAsset(page.audioAssetKey, narration);
-          completed += 1;
-          await update({ generation: { stage: 'narration', currentPage: page.number } });
-        }
-      }
-      await update({ status: 'ready', generation: { stage: 'complete', currentPage: 10, error: null } });
+      };
+      await Promise.all(Array.from({ length: workerCount }, () => workPage()));
+      await update({ status: 'ready', generation: { stage: 'complete', currentPage: record.pages.length, error: null } });
       return { ok: true };
     } catch (error) {
       if (error?.name === 'AbortError') return { ok: false, error: 'Story creation was paused.' };
@@ -521,13 +530,22 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     }
   }, [activeChildId, profiles]);
 
-  const selectChild = useCallback((id, selectedAgeBand) => { activeChildIdRef.current = id; setActiveChildId(id); saveActiveChildId(id); setAgeFilter(selectedAgeBand || profiles.find((profile) => profile.id === id)?.ageBand || 'all'); setShowProfiles(false); }, [profiles]);
+  const selectChild = useCallback((id) => { activeChildIdRef.current = id; setActiveChildId(id); saveActiveChildId(id); setAgeFilter('all'); setShowProfiles(false); }, []);
 
   const toggleBookFavourite = useCallback((book) => {
     const current = getBookProgress(progressByChild, activeChild.id, book.slug);
     const next = updateStoryProgress(activeChild.id, book.slug, { favourite: !current.favourite });
     setProgressByChild((all) => ({ ...all, [activeChild.id]: { ...(all[activeChild.id] || {}), [book.slug]: next } }));
   }, [activeChild.id, progressByChild]);
+
+  const startSeriesStory = useCallback((book) => {
+    if (!book?.seriesId) return;
+    setInitialSeriesId(book.seriesId);
+    setCreatorError('');
+    setCreatorProgress(null);
+    setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT);
+    setShowCreator(true);
+  }, []);
 
   const onImageError = (key) => setImageErrors((errors) => ({ ...errors, [key]: true }));
 
@@ -568,7 +586,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
                       {(imageErrors[`${book.slug}-cover`] || !book.cover) && <span className="text-7xl" aria-hidden="true">{book.emoji}</span>}
                       <div className="absolute left-3 top-3 flex flex-wrap gap-1"><span className="rounded-full bg-slate-950/65 px-3 py-1 text-xs font-black text-white backdrop-blur">Ages {book.ageBand}</span><span className="rounded-full bg-indigo-700/80 px-3 py-1 text-xs font-black text-white backdrop-blur">{book.custom ? 'For' : 'Reading as'} {book.custom ? profiles.find((profile) => profile.id === book.childId)?.displayName || activeChild.displayName : activeChild.displayName}</span></div>
                     </div>
-                    <div className="p-5"><div className="flex items-start justify-between gap-2"><div><h3 className="text-xl font-black leading-tight">{book.title}</h3><p className="mt-2 text-sm font-bold text-slate-500">{book.subtitle}</p></div><button type="button" onClick={(event) => { event.stopPropagation(); toggleBookFavourite(book); }} className="rounded-xl px-2 text-2xl text-amber-500" aria-label={`${getBookProgress(progressByChild, activeChild.id, book.slug).favourite ? 'Remove' : 'Add'} favourite`} aria-pressed={Boolean(getBookProgress(progressByChild, activeChild.id, book.slug).favourite)}>{getBookProgress(progressByChild, activeChild.id, book.slug).favourite ? '★' : '☆'}</button></div><div className="mt-3 flex flex-wrap gap-2"><span className="rounded-full bg-indigo-50 px-2 py-1 text-xs font-black text-indigo-700">{book.seriesName}</span>{readCompletion(book.slug, activeChild.id) && <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-black text-emerald-700">Completed</span>}</div><span className="mt-4 inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-black text-white shadow-md">Read story <ArrowRight size={17} /></span></div>
+                    <div className="p-5"><div className="flex items-start justify-between gap-2"><div><h3 className="text-xl font-black leading-tight">{book.title}</h3><p className="mt-2 text-sm font-bold text-slate-500">{book.subtitle}</p></div><button type="button" onClick={(event) => { event.stopPropagation(); toggleBookFavourite(book); }} className="rounded-xl px-2 text-2xl text-amber-500" aria-label={`${getBookProgress(progressByChild, activeChild.id, book.slug).favourite ? 'Remove' : 'Add'} favourite`} aria-pressed={Boolean(getBookProgress(progressByChild, activeChild.id, book.slug).favourite)}>{getBookProgress(progressByChild, activeChild.id, book.slug).favourite ? '★' : '☆'}</button></div><div className="mt-3 flex flex-wrap gap-2"><span className="rounded-full bg-indigo-50 px-2 py-1 text-xs font-black text-indigo-700">{book.seriesName}</span>{readCompletion(book.slug, activeChild.id) && <span className="rounded-full bg-emerald-50 px-2 py-1 text-xs font-black text-emerald-700">Completed</span>}</div><div className="mt-4 flex flex-wrap gap-2"><span className="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-4 py-2 text-sm font-black text-white shadow-md">Read story <ArrowRight size={17} /></span>{book.seriesId && <button type="button" onClick={(event) => { event.stopPropagation(); startSeriesStory(book); }} className="rounded-2xl border-2 border-indigo-200 px-3 py-2 text-xs font-black text-indigo-700">New story with {book.seriesName}</button>}</div></div>
                   </div>
                 )}
               </article>
