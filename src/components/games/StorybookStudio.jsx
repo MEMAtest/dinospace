@@ -84,12 +84,13 @@ const newStoryId = () => `custom-${globalThis.crypto?.randomUUID?.() || `${Date.
 const makeCustomBook = (outline, input, selectedSeries = null) => {
   const id = newStoryId();
   const pageCount = pagesForAgeBand(input.ageBand);
+  const pageLabel = pageCount === 6 ? 'six-page' : 'ten-page';
   return {
     id,
     slug: id,
     custom: true,
     title: outline.title,
-    subtitle: `A ${input.style === '3d' ? 'colourful' : input.style === 'painted-2d' ? 'hand-painted' : 'warm'} ten-page adventure`,
+    subtitle: `A ${input.style === '3d' ? 'colourful' : input.style === 'painted-2d' ? 'hand-painted' : 'warm'} ${pageLabel} adventure`,
     summary: outline.summary,
     ageBand: input.ageBand,
     style: input.style,
@@ -471,7 +472,8 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
       const session = await createStorySession();
       storySessionRef.current = session;
       const selectedSeries = series.find((item) => item.id === input.seriesId) || null;
-      setCreatorProgress({ stage: 'planning', completed: 0, total: 22, currentPage: 0, startedAt });
+      const plannedPageCount = pagesForAgeBand(input.ageBand);
+      setCreatorProgress({ stage: 'planning', completed: 0, total: 2 + plannedPageCount * 2, pageCount: plannedPageCount, currentPage: 0, startedAt });
       const outline = await createStoryOutline({ ...input, seriesContext: selectedSeries || undefined }, session);
       const record = makeCustomBook(outline, input, selectedSeries);
       const saved = await saveStoryBook(record);

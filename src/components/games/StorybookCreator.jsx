@@ -6,7 +6,7 @@ const styleLabels = { '3d': 'Colourful 3D animation', 'painted-2d': 'Hand-painte
 
 const stageCopy = {
   connecting: { title: 'Getting the story maker ready', detail: 'Connecting to the story studio…' },
-  planning: { title: 'Writing your ten-page adventure', detail: 'Choosing a beginning, middle and happy ending…' },
+  planning: { title: 'Writing your adventure', detail: 'Choosing a beginning, middle and happy ending…' },
   cover: { title: 'Painting the cover', detail: 'Making the first picture for your book…' },
   image: { title: 'Illustrating each page', detail: 'Creating a new picture for this part of the adventure…' },
   narration: { title: 'Recording the narration', detail: 'Adding a warm ElevenLabs voice for each page…' },
