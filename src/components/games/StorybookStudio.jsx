@@ -223,7 +223,14 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
         const audio = rememberUrl(audioBlob);
         return { ...page, image, audio };
       }));
-      return { ...record, accent: styleAccent[record.style] || styleAccent['3d'], emoji: '✨', cover, coverAudio: coverAudioUrl, pages };
+      const missingAssetCount = [coverBlob, coverAudio, ...pages.flatMap((page) => [page.image, page.audio])].filter((asset) => !asset).length;
+      const hydratedStatus = record.status === 'ready' && missingAssetCount > 0 ? 'error' : record.status;
+      return {
+        ...record,
+        status: hydratedStatus,
+        generation: { ...record.generation, ...(missingAssetCount ? { error: `${missingAssetCount} offline asset${missingAssetCount === 1 ? '' : 's'} missing; retry to restore this book.` } : {}) },
+        accent: styleAccent[record.style] || styleAccent['3d'], emoji: '✨', cover, coverAudio: coverAudioUrl, pages,
+      };
     })).then((books) => {
       if (cancelled) {
         runUrls.forEach((url) => URL.revokeObjectURL(url));
