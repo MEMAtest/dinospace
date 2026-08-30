@@ -1,7 +1,6 @@
 /* global Buffer, process */
 
 import { createHmac, randomBytes, timingSafeEqual } from 'node:crypto';
-import { validateStoryOutline, validateStoryRequest } from '../../src/data/storybookValidation.js';
 
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const MAX_REQUESTS = 30;
@@ -112,4 +111,4 @@ export const validImageReference = (value) => (
   && value.length <= 12 * 1024 * 1024
 );
 
-export { validateStoryOutline, validateStoryRequest };
+export { pagesForAgeBand, validateStoryOutline, validateStoryRequest } from '../../src/data/storybookValidation.js';
