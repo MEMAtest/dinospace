@@ -43,7 +43,7 @@ const StorybookCreator = ({ onClose, onCreate, seriesOptions = [], selectedChild
           const percent = Math.min(100, Math.round((completed / total) * 100));
           const page = Number(progress?.currentPage || 0);
           const elapsedSeconds = progress?.startedAt ? Math.max(0, Math.round((now - progress.startedAt) / 1000)) : 0;
-          const estimatedTotalSeconds = 300;
+          const estimatedTotalSeconds = 510;
           const estimatedRemaining = completed > 0
             ? Math.max(20, Math.round(((elapsedSeconds / completed) * (total - completed))))
             : estimatedTotalSeconds;
@@ -54,7 +54,7 @@ const StorybookCreator = ({ onClose, onCreate, seriesOptions = [], selectedChild
           return <div className="pt-5" aria-live="polite" aria-atomic="true">
             <div className="flex items-center gap-3"><div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white"><WandSparkles size={28} /></div><div><p className="text-xs font-black uppercase tracking-[0.18em] text-indigo-600">Story maker</p><h2 id="storybook-creator-title" className="text-2xl font-black">Making your story</h2></div></div>
             <div className="mt-6 rounded-3xl border-2 border-indigo-100 bg-white p-5 shadow-sm"><p className="text-lg font-black text-slate-900">{current.title}</p><p className="mt-1 text-sm font-bold leading-relaxed text-slate-600">{current.detail}</p><div className="mt-5 h-4 overflow-hidden rounded-full bg-indigo-100" aria-label={`${percent}% complete`}><div className="h-full rounded-full bg-gradient-to-r from-indigo-600 to-fuchsia-500 transition-all duration-500" style={{ width: `${Math.max(3, percent)}%` }} /></div><p className="mt-2 text-right text-xs font-black text-indigo-700">{completed} of {total} story pieces ready</p></div>
-            <div className="mt-4 grid gap-2 rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold leading-relaxed text-amber-900 sm:grid-cols-2"><p><strong>Usually:</strong> 3–6 minutes</p><p><strong>Time left:</strong> about {asMinutes(estimatedRemaining)}</p><p className="sm:col-span-2 text-xs text-amber-800">Ten different pictures and eleven ElevenLabs recordings are being made one at a time. Keep this screen open; your completed pages are saved as they finish.</p></div>
+            <div className="mt-4 grid gap-2 rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold leading-relaxed text-amber-900 sm:grid-cols-2"><p><strong>Usually:</strong> 7–10 minutes</p><p><strong>Time left:</strong> about {asMinutes(estimatedRemaining)}</p><p className="sm:col-span-2 text-xs text-amber-800">Ten different pictures and eleven ElevenLabs recordings are made one at a time. Keep this screen open; completed pages are saved as they finish, and a retry continues where it stopped.</p></div>
             <ol className="mt-4 space-y-1 text-sm font-black"><Step stage="planning">Plan the adventure</Step><Step stage="cover">Create the cover picture</Step><Step stage="image">Illustrate {page ? `page ${page} of 10` : 'all ten pages'}</Step><Step stage="narration">Record each page with ElevenLabs</Step><Step stage="complete">Save the book for offline reading</Step></ol>
           </div>;
         })() : <form onSubmit={submit} className="pt-5">
