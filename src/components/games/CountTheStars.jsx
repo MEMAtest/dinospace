@@ -16,13 +16,18 @@ const BACKGROUND_STARS = Array.from({ length: 20 }, (_, index) => ({
 const makeCountingRound = (level) => {
   const count = Math.floor(Math.random() * level.max) + 1;
   const emoji = pickRandom(['⭐', '🌟', '💫', '✨', '🌙', '☀️', '🪐', '🔮']);
+  // Use a loose grid instead of independent random coordinates. This keeps
+  // the targets distinct on a phone as well as on a tablet, while the small
+  // jitter stops every round feeling identical.
+  const columns = Math.min(5, Math.max(2, Math.ceil(Math.sqrt(count * 1.35))));
+  const rows = Math.ceil(count / columns);
   return {
     count,
     items: Array.from({ length: count }, (_, index) => ({
       id: index,
       emoji,
-      x: 10 + ((index * 31 + count * 13) % 75),
-      y: 10 + ((index * 17 + count * 19) % 65),
+      x: 12 + ((index % columns) * (76 / Math.max(columns - 1, 1))) + ((index * 7) % 5 - 2),
+      y: 16 + (Math.floor(index / columns) * (60 / Math.max(rows - 1, 1))) + ((index * 11) % 5 - 2),
       size: 0.9 + ((index + count) % 3) * 0.2,
     })),
   };
@@ -141,12 +146,16 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
         <PracticeProgress skill="Count each object once" completed={skillRun} accent="indigo" />
-        <div className="relative mb-4 h-[390px] w-full max-w-3xl rounded-[2.5rem] border-4 border-white/15 bg-white/5 shadow-[inset_0_0_50px_rgba(168,85,247,.18),0_20px_45px_rgba(0,0,0,.25)]">
+        <p className="mb-3 rounded-full bg-white/10 px-4 py-2 text-sm font-bold text-white/75" aria-live="polite">
+          {target <= 5 ? 'Look for a small group, then count each one.' : 'Count each star once. The number badges help you keep your place.'}
+        </p>
+        <div className="relative mb-4 h-[390px] w-full max-w-3xl rounded-[2.5rem] border-4 border-white/15 bg-white/5 shadow-[inset_0_0_50px_rgba(168,85,247,.18),0_20px_45px_rgba(0,0,0,.25)]" aria-label={`Counting board with ${target} objects`}>
           {items.map((item) => (
             <button
               key={item.id}
               onClick={() => handleTapItem(item.id)}
-              className={`absolute transition-all duration-300 ${tapped.includes(item.id) ? 'scale-125 opacity-60' : 'hover:scale-110'}`}
+              aria-label={`Object ${item.id + 1}${tapped.includes(item.id) ? `, counted ${tapped.indexOf(item.id) + 1}` : ''}`}
+              className={`absolute flex min-h-14 min-w-14 items-center justify-center rounded-full transition-all duration-300 ${tapped.includes(item.id) ? 'scale-125 opacity-60' : 'hover:scale-110 active:scale-95'}`}
               style={{ left: `${item.x}%`, top: `${item.y}%`, fontSize: `${item.size * 3.2}rem` }}
             >
               {item.emoji}

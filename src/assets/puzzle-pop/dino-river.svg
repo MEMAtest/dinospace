@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Dinosaur river valley</title>
+  <desc id="desc">A friendly green dinosaur beside a sparkling river in a sunny valley.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y2="1"><stop stop-color="#65c7ff"/><stop offset="1" stop-color="#d8f7ff"/></linearGradient>
+    <linearGradient id="hill" x1="0" x2="0" y2="1"><stop stop-color="#8bd15a"/><stop offset="1" stop-color="#398f58"/></linearGradient>
+    <linearGradient id="water" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7ce6ff"/><stop offset="1" stop-color="#2692d0"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sky)"/>
+  <circle cx="110" cy="105" r="52" fill="#ffe36e"/>
+  <g fill="#fff" opacity=".85"><ellipse cx="205" cy="125" rx="70" ry="24"/><ellipse cx="255" cy="118" rx="45" ry="28"/><ellipse cx="680" cy="145" rx="82" ry="25"/><ellipse cx="730" cy="136" rx="48" ry="28"/></g>
+  <path d="M0 310 Q150 170 305 305 T610 280 T800 305 V600 H0Z" fill="url(#hill)"/>
+  <path d="M0 390 Q170 285 325 410 T610 380 T800 400 V600 H0Z" fill="#70b957"/>
+  <path d="M500 600 C430 515 485 456 545 402 C575 374 602 350 623 304 C671 354 674 418 630 463 C589 505 603 545 680 600Z" fill="url(#water)"/>
+  <g fill="#26794a"><path d="M58 390 l35-130 35 130z"/><path d="M92 390 l-46-90h91z"/><path d="M710 370 l35-126 35 126z"/><path d="M745 370 l-46-92h91z"/></g>
+  <g transform="translate(160 258)"><ellipse cx="152" cy="176" rx="112" ry="72" fill="#50a94a" stroke="#1e6040" stroke-width="8"/><path d="M214 141 C238 51 243 15 205 7 C170 0 153 28 158 82 L170 155Z" fill="#50a94a" stroke="#1e6040" stroke-width="8"/><ellipse cx="203" cy="22" rx="45" ry="35" fill="#65c65b" stroke="#1e6040" stroke-width="8"/><circle cx="218" cy="15" r="9" fill="#172d46"/><circle cx="222" cy="11" r="3" fill="#fff"/><path d="M232 37 Q211 51 190 38" fill="none" stroke="#1e6040" stroke-width="7" stroke-linecap="round"/><path d="M97 166 Q35 104 15 121 Q6 136 66 199" fill="#50a94a" stroke="#1e6040" stroke-width="8"/><path d="M110 222 l-14 59 M171 228 l12 53" stroke="#1e6040" stroke-width="12" stroke-linecap="round"/><path d="M83 281h46 M163 281h45" stroke="#1e6040" stroke-width="9" stroke-linecap="round"/><circle cx="139" cy="145" r="10" fill="#a4e85b"/><circle cx="169" cy="160" r="10" fill="#a4e85b"/><circle cx="116" cy="178" r="10" fill="#a4e85b"/></g>
+  <g fill="#fff" opacity=".7" stroke="#219bd1" stroke-width="4"><path d="M545 520q32-18 65 0"/><path d="M555 550q32-18 65 0"/></g>
+</svg>

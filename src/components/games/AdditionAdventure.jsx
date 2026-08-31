@@ -25,6 +25,19 @@ const makeAdditionRound = (level) => {
   };
 };
 
+const CounterFrame = ({ count, emoji, label }) => (
+  <div role="group" aria-label={`${label}: ${count} counters`} className="rounded-2xl bg-white/90 px-3 py-2 shadow">
+    <p className="mb-1 text-xs font-black uppercase tracking-wide text-emerald-700">{label}</p>
+    <div className="grid grid-cols-5 gap-1" aria-hidden="true">
+      {Array.from({ length: Math.max(10, count) }, (_, index) => (
+        <span key={index} className={`flex h-8 w-8 items-center justify-center rounded-md border text-lg ${index < count ? 'border-emerald-200 bg-emerald-50' : 'border-dashed border-slate-200 bg-slate-50'}`}>
+          {index < count ? emoji : ''}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const difficulty = useGameDifficulty('addition');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
@@ -35,6 +48,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
   const [shake, setShake] = useState(false);
   const [streak, setStreak] = useState(0);
   const [successMessage, setSuccessMessage] = useState('');
+  const [feedback, setFeedback] = useState('');
   const [locked, setLocked] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
 
@@ -51,6 +65,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
 
   const newProblem = (nextLevel = level) => {
     setSuccess(false);
+    setFeedback('');
     setProblem(makeAdditionRound(nextLevel));
     setLocked(false);
     setHadMistake(false);
@@ -68,6 +83,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
     if (pick === answer) {
       const praise = getPraise();
       setSuccessMessage(praise);
+      setFeedback('');
       setSuccess(true);
       setLocked(true);
       const newStreak = streak + 1;
@@ -93,6 +109,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
       setShake(true);
       setStreak(0);
       playSfx('wrong');
+      setFeedback('Keep counting both groups.');
       addTimeoutRef.current = setTimeout(() => setShake(false), 450);
     }
   };
@@ -121,14 +138,10 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
       )}
       <main className={`z-10 mx-auto mt-4 w-[calc(100%-2rem)] max-w-5xl rounded-[2.5rem] border-4 border-white/80 bg-white/60 px-6 py-6 text-center shadow-2xl backdrop-blur-sm ${streak >= 3 ? 'shadow-[0_0_40px_rgba(234,179,8,0.2)]' : ''}`}>
         {level.maxNum <= 10 && (
-          <div className="flex justify-center items-center gap-3 mb-4 flex-wrap">
-            <div className="flex min-h-20 min-w-48 flex-wrap items-center justify-center gap-2 rounded-2xl bg-white/90 px-5 py-3 shadow">
-              {Array.from({ length: problem.a }, (_, i) => <span key={`a-${i}`} className="text-3xl">{problem.visualEmoji}</span>)}
-            </div>
+          <div className="mb-4 flex flex-wrap items-center justify-center gap-3">
+            <CounterFrame count={problem.a} emoji={problem.visualEmoji} label="Group one" />
             <span className="text-3xl font-black text-emerald-500">+</span>
-            <div className="flex min-h-20 min-w-48 flex-wrap items-center justify-center gap-2 rounded-2xl bg-white/90 px-5 py-3 shadow">
-              {Array.from({ length: problem.b }, (_, i) => <span key={`b-${i}`} className="text-3xl">{problem.visualEmoji}</span>)}
-            </div>
+            <CounterFrame count={problem.b} emoji={problem.visualEmoji} label="Group two" />
           </div>
         )}
         <div className={`inline-flex items-center gap-4 text-6xl font-black text-slate-800 mb-8 ${shake ? 'animate-shake' : ''}`}>
@@ -143,6 +156,7 @@ const AdditionAdventure = ({ onBack, playSfx, soundOn, onToggleSound, speak, onC
             <button key={option} disabled={locked} onClick={() => check(option)} className="h-20 w-28 bg-emerald-500 text-white text-3xl font-bold rounded-2xl shadow-[0_6px_0_rgb(5,150,105)] active:shadow-none active:translate-y-2 transition-all hover:bg-emerald-600 disabled:opacity-60">{option}</button>
           ))}
         </div>
+        {feedback && <p className="mt-4 text-lg font-black text-emerald-700" role="status">{feedback}</p>}
       </main>
       <div className={`absolute bottom-14 left-10 text-[80px] transition-transform duration-1000 ${success ? 'translate-x-[500px] -translate-y-[200px] rotate-[360deg]' : 'translate-x-0'}`}>🚀</div>
       <div className="absolute bottom-0 w-full h-14 bg-emerald-900/20" />

@@ -83,13 +83,18 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const jetRef = useRef(null);
   const guidePointsRef = useRef([]);
   const visitedPointsRef = useRef(new Set());
+  const guideCursorRef = useRef(-1);
+  const routeStartedRef = useRef(false);
+  const routeFinishedRef = useRef(false);
   const [shape, setShape] = useState(SHAPES[0]);
   const [resetKey, setResetKey] = useState(0);
   const [completedShapes, setCompletedShapes] = useState([]);
   const [traceProgress, setTraceProgress] = useState(0);
+  const [flightFeedback, setFlightFeedback] = useState('Start at the green dot and follow the arrows.');
+  const [routeFinished, setRouteFinished] = useState(false);
   const allCompleteRef = useRef(false);
   const requiredCoverage = difficulty === 'starter' ? 62 : difficulty === 'growing' ? 74 : 86;
-  const traceReady = traceProgress >= requiredCoverage;
+  const traceReady = routeFinished && traceProgress >= requiredCoverage;
   const alreadyComplete = completedShapes.includes(shape);
 
   useEffect(() => {
@@ -115,6 +120,9 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
   useEffect(() => {
     visitedPointsRef.current = new Set();
+    guideCursorRef.current = -1;
+    routeStartedRef.current = false;
+    routeFinishedRef.current = false;
     if (jetRef.current) {
       jetRef.current.style.opacity = '0';
     }
@@ -135,8 +143,25 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     if (!context) return undefined;
 
     let drawing = false;
+    let activePointerId = null;
     let lastPoint = null;
     let hue = 205;
+
+    const drawArrow = (from, to) => {
+      const angle = Math.atan2(to.y - from.y, to.x - from.x);
+      const size = 12;
+      context.save();
+      context.translate(to.x, to.y);
+      context.rotate(angle);
+      context.beginPath();
+      context.moveTo(0, 0);
+      context.lineTo(-size, -size * 0.6);
+      context.lineTo(-size, size * 0.6);
+      context.closePath();
+      context.fillStyle = '#f59e0b';
+      context.fill();
+      context.restore();
+    };
 
     const paintScene = () => {
       const gradient = context.createLinearGradient(0, 0, 0, canvas.height);
@@ -174,7 +199,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       context.setLineDash([]);
       context.shadowBlur = 0;
 
-      points.filter((_, index) => index % 8 === 0).forEach((point) => {
+      points.filter((_, index) => index % 8 === 0).forEach((point, markerIndex) => {
         context.beginPath();
         context.arc(point.x, point.y, 7, 0, Math.PI * 2);
         context.fillStyle = '#fef08a';
@@ -182,7 +207,29 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
         context.strokeStyle = '#f59e0b';
         context.lineWidth = 3;
         context.stroke();
+        if (markerIndex < points.length / 8 - 1) drawArrow(point, points[Math.min(points.length - 1, (markerIndex * 8) + 3)]);
       });
+
+      const start = points[0];
+      const finish = points[points.length - 1];
+      context.beginPath();
+      context.arc(start.x, start.y, 18, 0, Math.PI * 2);
+      context.fillStyle = '#16a34a';
+      context.fill();
+      context.lineWidth = 4;
+      context.strokeStyle = '#ffffff';
+      context.stroke();
+      context.fillStyle = '#ffffff';
+      context.font = 'bold 14px sans-serif';
+      context.textAlign = 'center';
+      context.textBaseline = 'middle';
+      context.fillText('1', start.x, start.y + 1);
+      context.beginPath();
+      context.arc(finish.x, finish.y, 11, 0, Math.PI * 2);
+      context.fillStyle = '#ef4444';
+      context.fill();
+      context.strokeStyle = '#ffffff';
+      context.stroke();
     };
 
     // Keep one CSS pixel equal to one drawing coordinate. The game favours
@@ -200,8 +247,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
     const eventPoint = (event) => {
       const rect = canvas.getBoundingClientRect();
-      const source = event.touches?.[0] || event.changedTouches?.[0] || event;
-      return { x: source.clientX - rect.left, y: source.clientY - rect.top };
+      return { x: event.clientX - rect.left, y: event.clientY - rect.top };
     };
 
     const moveJet = ({ x, y }) => {
@@ -210,32 +256,72 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       jetRef.current.style.transform = `translate3d(${x - 22}px, ${y - 22}px, 0) rotate(-14deg)`;
     };
 
+    const nearestGuidePoint = (point) => {
+      const points = guidePointsRef.current;
+      const cursor = guideCursorRef.current;
+      let nearest = { index: Math.max(0, cursor), distance: Number.POSITIVE_INFINITY };
+      for (let index = Math.max(0, cursor - 3); index < points.length; index += 1) {
+        const distance = Math.hypot(point.x - points[index].x, point.y - points[index].y);
+        if (distance < nearest.distance) nearest = { index, distance };
+      }
+      return nearest;
+    };
+
     const recordGuideProgress = (point) => {
-      guidePointsRef.current.forEach((guidePoint, index) => {
-        if (Math.hypot(point.x - guidePoint.x, point.y - guidePoint.y) <= 38) {
-          visitedPointsRef.current.add(index);
-        }
-      });
-      const progress = Math.round((visitedPointsRef.current.size / guidePointsRef.current.length) * 100);
+      const points = guidePointsRef.current;
+      if (!points.length) return false;
+      const nearest = nearestGuidePoint(point);
+      const cursor = guideCursorRef.current;
+      if (nearest.distance > 52 || nearest.index < cursor - 3) return false;
+
+      // Cap the amount of route covered by one pointer event. This prevents a
+      // tap-and-jump from completing an entire shape without actually tracing
+      // it, while still tolerating less frequent touch events on tablets.
+      const nextIndex = Math.min(nearest.index, Math.max(0, cursor) + 10);
+      for (let index = Math.max(0, cursor + 1); index <= nextIndex; index += 1) visitedPointsRef.current.add(index);
+      guideCursorRef.current = Math.max(cursor, nextIndex);
+      const progress = Math.round((visitedPointsRef.current.size / points.length) * 100);
       setTraceProgress((previous) => (progress > previous ? progress : previous));
+      if (guideCursorRef.current >= points.length - 1 && nearest.distance <= 54) {
+        routeFinishedRef.current = true;
+        setRouteFinished(true);
+        setFlightFeedback('You reached the red finish dot! Tap Finish flight.');
+      } else if (progress >= 25) {
+        setFlightFeedback('Great flying! Keep following the arrows to the red dot.');
+      }
+      return true;
     };
 
     const startDrawing = (event) => {
+      if ((event.pointerType === 'mouse' && event.button !== 0) || routeFinishedRef.current) return;
       event.preventDefault();
+      const point = eventPoint(event);
+      const points = guidePointsRef.current;
+      const cursor = guideCursorRef.current;
+      const anchor = points[Math.max(0, cursor)];
+      const requiredDistance = cursor < 1 ? Math.hypot(point.x - points[0].x, point.y - points[0].y) : Math.hypot(point.x - anchor.x, point.y - anchor.y);
+      if (requiredDistance > 60) {
+        setFlightFeedback(cursor < 1 ? 'Start at the green 1, then follow the arrows.' : 'Continue near the last glowing dot.');
+        return;
+      }
+      activePointerId = event.pointerId;
+      canvas.setPointerCapture?.(event.pointerId);
       drawing = true;
-      lastPoint = eventPoint(event);
+      routeStartedRef.current = true;
+      lastPoint = point;
       moveJet(lastPoint);
       recordGuideProgress(lastPoint);
     };
 
     const draw = (event) => {
-      if (!drawing) return;
+      if (!drawing || event.pointerId !== activePointerId || !lastPoint) return;
       event.preventDefault();
       const point = eventPoint(event);
+      const onRoute = recordGuideProgress(point);
       context.beginPath();
       context.moveTo(lastPoint.x, lastPoint.y);
       context.lineTo(point.x, point.y);
-      context.strokeStyle = `hsl(${hue}, 92%, 55%)`;
+      context.strokeStyle = onRoute ? `hsl(${hue}, 92%, 55%)` : '#f97316';
       context.lineWidth = 18;
       context.lineCap = 'round';
       context.lineJoin = 'round';
@@ -246,10 +332,17 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       lastPoint = point;
       hue = (hue + 2) % 360;
       moveJet(point);
-      recordGuideProgress(point);
     };
 
-    const stopDrawing = () => { drawing = false; };
+    const stopDrawing = (event) => {
+      if (event && event.pointerId !== activePointerId) return;
+      drawing = false;
+      if (event) canvas.releasePointerCapture?.(event.pointerId);
+      activePointerId = null;
+      lastPoint = null;
+      if (routeFinishedRef.current) setFlightFeedback('You reached the red finish dot! Tap Finish flight.');
+      else if (routeStartedRef.current) setFlightFeedback('Nice start. Pick up near the last glowing dot and continue.');
+    };
 
     sizeCanvas();
     window.addEventListener('resize', sizeCanvas);
@@ -257,7 +350,6 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     canvas.addEventListener('pointermove', draw);
     canvas.addEventListener('pointerup', stopDrawing);
     canvas.addEventListener('pointercancel', stopDrawing);
-    canvas.addEventListener('pointerleave', stopDrawing);
 
     return () => {
       window.removeEventListener('resize', sizeCanvas);
@@ -265,13 +357,22 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       canvas.removeEventListener('pointermove', draw);
       canvas.removeEventListener('pointerup', stopDrawing);
       canvas.removeEventListener('pointercancel', stopDrawing);
-      canvas.removeEventListener('pointerleave', stopDrawing);
     };
   }, [shape, resetKey]);
 
   const chooseShape = (option) => {
     setTraceProgress(0);
+    setFlightFeedback('Start at the green dot and follow the arrows.');
+    setRouteFinished(false);
     setShape(option);
+    setResetKey((value) => value + 1);
+    playSfx('swish');
+  };
+
+  const resetFlight = () => {
+    setTraceProgress(0);
+    setFlightFeedback('Start at the green dot and follow the arrows.');
+    setRouteFinished(false);
     setResetKey((value) => value + 1);
     playSfx('swish');
   };
@@ -289,7 +390,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
             <div className="mb-1 flex justify-between text-xs font-black text-slate-600"><span>Shape flight</span><span>{completedShapes.length}/{SHAPES.length}</span></div>
             <div className="h-2.5 overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-gradient-to-r from-sky-500 to-violet-500 transition-all" style={{ width: `${(completedShapes.length / SHAPES.length) * 100}%` }} /></div>
           </div>
-          <button onClick={() => { setTraceProgress(0); setResetKey((value) => value + 1); playSfx('swish'); }} className="game-icon-button shrink-0 !bg-rose-100 !text-rose-600" aria-label="Clear flight path"><RotateCcw /></button>
+          <button onClick={resetFlight} className="game-icon-button shrink-0 !bg-rose-100 !text-rose-600" aria-label="Clear flight path"><RotateCcw /></button>
           <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
         </div>
 
@@ -317,12 +418,13 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
         <div className="pointer-events-none absolute left-1/2 top-3 z-10 w-[calc(100%-1.5rem)] max-w-lg -translate-x-1/2 rounded-2xl border-2 border-white/80 bg-slate-950/72 px-4 py-2 text-center text-white shadow-xl backdrop-blur">
           <div className="flex items-center justify-center gap-2">
             <span className="text-xl text-amber-300">{SHAPE_ICONS[shape]}</span>
-            <strong>Fly along the glowing {shape.toLowerCase()}</strong>
+            <strong>Start at green 1. Fly the {shape.toLowerCase()} to red.</strong>
           </div>
           <div className="mt-1.5 flex items-center gap-2">
             <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-gradient-to-r from-yellow-300 to-emerald-400 transition-all" style={{ width: `${traceProgress}%` }} /></div>
             <span className="w-10 text-right text-xs font-black">{traceProgress}%</span>
           </div>
+          <p className="mt-1 text-xs font-bold text-sky-100" aria-live="polite">{flightFeedback}</p>
         </div>
 
         <button

@@ -25,6 +25,23 @@ const makeSubtractionRound = (level) => {
   };
 };
 
+const CounterFrame = ({ count, removed, emoji }) => (
+  <div role="group" aria-label={`${count} counters, ${removed} taken away`} className="rounded-2xl bg-white/90 px-3 py-2 shadow">
+    <p className="mb-1 text-xs font-black uppercase tracking-wide text-purple-700">Count what is left</p>
+    <div className="grid grid-cols-5 gap-1" aria-hidden="true">
+      {Array.from({ length: Math.max(10, count) }, (_, index) => {
+        const taken = index >= count - removed && index < count;
+        return (
+          <span key={index} className={`relative flex h-8 w-8 items-center justify-center rounded-md border text-lg ${taken ? 'border-rose-200 bg-rose-50 opacity-60' : index < count ? 'border-purple-200 bg-purple-50' : 'border-dashed border-slate-200 bg-slate-50'}`}>
+            {index < count ? emoji : ''}
+            {taken && <span className="absolute inset-0 flex items-center justify-center text-base font-black text-rose-600">×</span>}
+          </span>
+        );
+      })}
+    </div>
+  </div>
+);
+
 const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const difficulty = useGameDifficulty('subtraction');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
@@ -35,6 +52,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
   const [shake, setShake] = useState(false);
   const [streak, setStreak] = useState(0);
   const [successMessage, setSuccessMessage] = useState('');
+  const [feedback, setFeedback] = useState('');
   const [locked, setLocked] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
 
@@ -51,6 +69,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
 
   const newProblem = (nextLevel = level) => {
     setSuccess(false);
+    setFeedback('');
     setProblem(makeSubtractionRound(nextLevel));
     setLocked(false);
     setHadMistake(false);
@@ -68,6 +87,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
     if (pick === answer) {
       const praise = getPraise();
       setSuccessMessage(praise);
+      setFeedback('');
       setSuccess(true);
       setLocked(true);
       const newStreak = streak + 1;
@@ -93,6 +113,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
       setShake(true);
       setStreak(0);
       playSfx('wrong');
+      setFeedback('Try taking away the crossed-out counters.');
       subTimeoutRef.current = setTimeout(() => setShake(false), 450);
     }
   };
@@ -121,12 +142,8 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
       )}
       <main className={`z-10 mx-auto mt-4 w-[calc(100%-2rem)] max-w-5xl rounded-[2.5rem] border-4 border-white/80 bg-white/60 px-6 py-6 text-center shadow-2xl backdrop-blur-sm ${streak >= 3 ? 'shadow-[0_0_40px_rgba(234,179,8,0.2)]' : ''}`}>
         {level.maxNum <= 10 && (
-          <div className="flex justify-center items-center gap-2 mb-4 flex-wrap">
-            <div className="flex min-h-24 min-w-96 flex-wrap items-center justify-center gap-2 rounded-2xl bg-white/90 px-5 py-3 shadow">
-              {Array.from({ length: problem.a }, (_, i) => (
-                <span key={`s-${i}`} className={`text-3xl ${i >= answer ? 'opacity-25 line-through' : ''}`}>{problem.visualEmoji}</span>
-              ))}
-            </div>
+          <div className="mb-4 flex justify-center">
+            <CounterFrame count={problem.a} removed={problem.b} emoji={problem.visualEmoji} />
           </div>
         )}
         <div className={`inline-flex items-center gap-4 text-6xl font-black text-slate-800 mb-8 ${shake ? 'animate-shake' : ''}`}>
@@ -141,6 +158,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
             <button key={option} disabled={locked} onClick={() => check(option)} className="h-20 w-28 bg-purple-500 text-white text-3xl font-bold rounded-2xl shadow-[0_6px_0_rgb(126,34,206)] active:shadow-none active:translate-y-2 transition-all hover:bg-purple-600 disabled:opacity-60">{option}</button>
           ))}
         </div>
+        {feedback && <p className="mt-4 text-lg font-black text-purple-700" role="status">{feedback}</p>}
       </main>
       <div className={`absolute bottom-14 left-10 text-[80px] transition-transform duration-1000 ${success ? 'translate-x-[500px] -translate-y-[200px] rotate-[360deg]' : 'translate-x-0'}`}>🛸</div>
       <div className="absolute bottom-0 w-full h-14 bg-purple-900/20" />

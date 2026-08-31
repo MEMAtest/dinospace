@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-labelledby="title desc">
+  <title id="title">Dinosaur moon camp</title>
+  <desc id="desc">A friendly dinosaur explores a purple moon landscape under stars.</desc>
+  <defs>
+    <linearGradient id="space" x1="0" x2="0" y2="1"><stop stop-color="#17134b"/><stop offset="1" stop-color="#6743a3"/></linearGradient>
+    <linearGradient id="ground" x1="0" x2="0" y2="1"><stop stop-color="#9c70c4"/><stop offset="1" stop-color="#39255f"/></linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#space)"/>
+  <g fill="#fff8a5"><circle cx="95" cy="102" r="6"/><circle cx="170" cy="185" r="4"/><circle cx="280" cy="82" r="6"/><circle cx="435" cy="140" r="4"/><circle cx="685" cy="90" r="6"/><circle cx="735" cy="225" r="4"/><path d="M568 56l7 18 18 7-18 7-7 18-7-18-18-7 18-7z"/></g>
+  <circle cx="660" cy="146" r="68" fill="#ffe5a2"/><circle cx="630" cy="126" r="11" fill="#e1b87e"/><circle cx="685" cy="171" r="17" fill="#e1b87e" opacity=".7"/>
+  <path d="M0 420 Q150 340 280 420 T540 410 T800 390 V600 H0Z" fill="url(#ground)"/>
+  <g fill="#c294dc" opacity=".65"><ellipse cx="90" cy="520" rx="37" ry="16"/><ellipse cx="730" cy="475" rx="47" ry="20"/><circle cx="280" cy="512" r="25"/></g>
+  <g transform="translate(225 270)"><ellipse cx="170" cy="185" rx="118" ry="75" fill="#70d1cc" stroke="#243b75" stroke-width="9"/><path d="M228 156 C254 64 255 24 216 17 C183 12 163 39 168 94 L185 168Z" fill="#70d1cc" stroke="#243b75" stroke-width="9"/><ellipse cx="216" cy="30" rx="46" ry="38" fill="#83e0d3" stroke="#243b75" stroke-width="9"/><circle cx="230" cy="22" r="10" fill="#1c2251"/><circle cx="234" cy="18" r="3" fill="#fff"/><path d="M246 46 Q221 61 198 45" fill="none" stroke="#243b75" stroke-width="7" stroke-linecap="round"/><path d="M111 178 Q37 106 13 130 Q4 145 77 212" fill="#70d1cc" stroke="#243b75" stroke-width="9"/><path d="M119 231 l-13 60 M185 233 l11 58" stroke="#243b75" stroke-width="13" stroke-linecap="round"/><path d="M92 293h50 M177 291h51" stroke="#243b75" stroke-width="9" stroke-linecap="round"/><path d="M135 123l12-22 12 22 M165 123l12-22 12 22" fill="#f8d870" stroke="#243b75" stroke-width="7"/></g>
+  <path d="M84 385h74v6H84z" fill="#f6cf6e"/><path d="M88 369q30-28 60 0" fill="none" stroke="#f6cf6e" stroke-width="7"/>
+</svg>

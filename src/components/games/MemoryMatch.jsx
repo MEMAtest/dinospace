@@ -5,6 +5,23 @@ import { buildMemoryDeck, getPraise, loadSaved, saveSafe } from '../../utils.js'
 import { SoundToggle } from '../shared/index.jsx';
 import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
+const CARD_NAMES = {
+  '🐶': 'dog', '🦊': 'fox', '🐸': 'frog', '🐵': 'monkey', '🦄': 'unicorn', '🐙': 'octopus',
+  '🐳': 'whale', '🐬': 'dolphin', '🦈': 'shark', '🐢': 'turtle', '🪼': 'jellyfish', '🦀': 'crab',
+  '🦑': 'squid', '🐟': 'fish', '🚀': 'rocket', '🛸': 'flying saucer', '🌟': 'glowing star',
+  '🌙': 'moon', '🪐': 'ringed planet', '☄️': 'comet', '⭐️': 'star', '🛰️': 'satellite',
+  '👽': 'alien', '🌌': 'galaxy', '🎈': 'balloon', '🎉': 'party popper', '🥳': 'party face',
+  '🎂': 'cake', '🍭': 'lolly', '🍩': 'doughnut', '🧁': 'cupcake', '🍓': 'strawberry',
+  '🍕': 'pizza', '🍟': 'chips', '🍉': 'watermelon', '🍬': 'sweet', '🦕': 'long-neck dinosaur',
+  '🦖': 'T-rex', '🦴': 'bone', '🌋': 'volcano', '🥚': 'egg', '🪨': 'rock', '🌿': 'leaf',
+  '🚗': 'car', '✈️': 'aeroplane', '🚂': 'train', '🚁': 'helicopter', '🏎️': 'racing car',
+  '🚒': 'fire engine', '🍎': 'apple', '🍌': 'banana', '🍇': 'grapes', '🥕': 'carrot',
+  '🧀': 'cheese', '🍪': 'biscuit', '🥤': 'drink', '🌽': 'corn', '👨‍🚀': 'astronaut',
+  '🌍': 'Earth', '🔭': 'telescope',
+};
+
+const cardName = (emoji) => CARD_NAMES[emoji] || 'picture';
+
 const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const difficulty = useGameDifficulty('memory');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
@@ -38,7 +55,17 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setCompletionMessage(praise);
     setShowLevelComplete(true);
     onCelebrate(praise, 6, 300);
-    onGameEvent?.('memory', 'level_completed');
+    onGameEvent?.('memory', 'level_completed', {
+      skill: 'working-memory',
+      item: level.id,
+      response: `${matches}/${level.emojis.length}`,
+      correct: true,
+      firstAttempt: true,
+      independent: true,
+      difficulty,
+      moves,
+      seconds: timer,
+    });
     const best = bestTimes[level.id];
     if (!best || timer < best) {
       setBestTimes((prev) => {
@@ -57,6 +84,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     playSfx('flip');
     if (nextFlipped.length < 2) {
       setFlipped(nextFlipped);
+      speak(`You found a ${cardName(deck[index].emoji)}. Remember where it is.`);
       return;
     }
 
@@ -72,6 +100,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       setFlipped([]);
       setLocked(false);
       playSfx('sparkle');
+      speak(`A pair of ${cardName(deck[first].emoji)}s!`);
       onCelebrate(getPraise(), 4, 200);
       if (matches + 1 === level.emojis.length) finishLevel();
     } else {
@@ -84,6 +113,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         setFlipped([]);
         setLocked(false);
         playSfx('oops');
+        speak('Those pictures are different. Try to remember where each one is.');
       }, 700);
     }
   };
@@ -145,6 +175,9 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         >
           🔊 Hear the mission
         </button>
+        <p className="mb-4 max-w-xl rounded-full bg-white/70 px-5 py-2 text-center text-sm font-bold text-rose-700" role="status">
+          Flip two cards, remember their places, and find each friendly pair.
+        </p>
 
         <div
           className="grid gap-4 w-full max-w-3xl"
@@ -154,7 +187,12 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             const isFaceUp = card.flipped || card.matched;
             return (
               <div key={card.id} style={{ perspective: '900px' }}>
-                <button onClick={() => handleFlip(index)} className="relative w-full aspect-square">
+                <button
+                  type="button"
+                  onClick={() => handleFlip(index)}
+                  aria-label={isFaceUp ? `${cardName(card.emoji)} card` : `Face-down memory card ${index + 1}`}
+                  className="relative w-full aspect-square"
+                >
                   <div
                     className="absolute inset-0 transition-transform duration-500"
                     style={{
@@ -166,7 +204,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                       className="absolute inset-0 bg-white rounded-2xl border-4 border-rose-200 shadow-lg flex items-center justify-center text-3xl"
                       style={{ backfaceVisibility: 'hidden' }}
                     >
-                      🌈
+                      🧠
                     </div>
                     <div
                       className="absolute inset-0 bg-rose-500 rounded-2xl border-4 border-rose-200 shadow-lg flex items-center justify-center text-4xl"

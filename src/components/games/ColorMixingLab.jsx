@@ -8,6 +8,22 @@ import { colourRoundIndexes } from '../../data/gameDifficulty.js';
 
 const makeOptions = (round) => shuffle(round.options);
 
+const COLOUR_HEX = {
+  Red: '#ef4444', Yellow: '#facc15', Blue: '#3b82f6', White: '#f8fafc',
+  Black: '#0f172a', Orange: '#f97316', Purple: '#a855f7', Green: '#22c55e',
+  Pink: '#f472b6', 'Light Blue': '#67e8f9', Brown: '#92400e', Grey: '#94a3b8',
+};
+
+const ColourSwatch = ({ name, size = 'h-36 w-36' }) => (
+  <div
+    className={`relative flex ${size} items-center justify-center rounded-full border-4 border-white shadow-[inset_-10px_-12px_18px_rgba(15,23,42,.16),0_12px_20px_rgba(15,23,42,.16)]`}
+    style={{ backgroundColor: COLOUR_HEX[name] || '#cbd5e1' }}
+    aria-label={`${name} paint`}
+  >
+    <span className="absolute left-[22%] top-[18%] h-5 w-10 rotate-[-25deg] rounded-full bg-white/45 blur-[1px]" aria-hidden="true" />
+  </div>
+);
+
 const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const difficulty = useGameDifficulty('colormix');
   const [roundIndex, setRoundIndex] = useState(0);
@@ -79,13 +95,14 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
         <PracticeProgress skill="Predict what two colours make" completed={skillRun} accent="fuchsia" />
-        <div className="mb-6 flex items-center gap-6 rounded-[2.5rem] border-4 border-white/80 bg-white/45 px-10 py-8 shadow-xl">
-          <div className="flex h-36 w-36 items-center justify-center rounded-full border-4 border-fuchsia-200 bg-white text-7xl shadow-xl">{round.color1}</div>
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-4 rounded-[2.5rem] border-4 border-white/80 bg-white/45 px-5 py-8 shadow-xl sm:gap-6 sm:px-10">
+          <ColourSwatch name={round.name1} />
           <span className="text-4xl font-black text-fuchsia-500">+</span>
-          <div className="flex h-36 w-36 items-center justify-center rounded-full border-4 border-fuchsia-200 bg-white text-7xl shadow-xl">{round.color2}</div>
+          <ColourSwatch name={round.name2} />
           <span className="text-4xl font-black text-fuchsia-500">=</span>
-          <div className={`flex h-36 w-36 items-center justify-center rounded-full border-4 border-fuchsia-200 bg-white text-7xl shadow-xl transition-all duration-700 ${mixed ? 'scale-110' : ''}`}>
-            {mixed && difficulty === 'starter' ? round.answerEmoji : '❓'}
+          <div className={`relative transition-all duration-700 ${mixed ? 'scale-110 rotate-3' : ''}`}>
+            {mixed ? <ColourSwatch name={round.answer} /> : <div className="flex h-36 w-36 items-center justify-center rounded-full border-4 border-dashed border-fuchsia-300 bg-white text-6xl text-fuchsia-300 shadow-xl">?</div>}
+            {mixed && <span className="pointer-events-none absolute -right-2 -top-2 animate-ping text-2xl" aria-hidden="true">✨</span>}
           </div>
         </div>
         {!mixed && (

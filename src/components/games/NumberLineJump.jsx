@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
@@ -17,11 +17,16 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
+  const [animating, setAnimating] = useState(false);
+  const animationTimerRef = useRef(null);
+  const nextRoundTimerRef = useRef(null);
 
   const answer = problem.op === '+' ? problem.a + problem.b : problem.a - problem.b;
   const maxNum = NUMBER_LINE_LIMITS[difficulty] || 10;
 
   const newProblem = useCallback(() => {
+    clearTimeout(animationTimerRef.current);
+    clearTimeout(nextRoundTimerRef.current);
     const op = difficulty === 'starter' ? '+' : Math.random() > 0.5 ? '+' : '-';
     let a, b;
     if (op === '+') {
@@ -38,6 +43,7 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     setJumpTrail([]);
     setLocked(false);
     setHadMistake(false);
+    setAnimating(false);
     setSkillRun((current) => current >= 5 ? 0 : current);
   }, [difficulty, maxNum]);
 
@@ -45,6 +51,11 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     // eslint-disable-next-line react-hooks/set-state-in-effect
     newProblem();
   }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => () => {
+    clearTimeout(animationTimerRef.current);
+    clearTimeout(nextRoundTimerRef.current);
+  }, []);
 
   useEffect(() => {
     speak(`What is ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b}?`);
@@ -58,15 +69,25 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       setScore((s) => s + 1);
       setSkillRun((current) => Math.min(current + 1, 5));
       setLocked(true);
-      setShowAnswer(true);
-      setJumperPos(answer);
       const direction = problem.op === '+' ? 1 : -1;
-      setJumpTrail(Array.from({ length: problem.b + 1 }, (_, index) => problem.a + index * direction));
+      const trail = Array.from({ length: problem.b + 1 }, (_, index) => problem.a + index * direction);
+      setJumpTrail(trail);
+      setAnimating(true);
       playSfx('success');
-      speak(`${praise} ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b} equals ${answer}!`);
       onCelebrate(praise, 4, 200);
       onGameEvent?.('numberline', 'answer_correct', { skill: 'number-line', item: `${problem.a}${problem.op}${problem.b}`, response: n, expected: answer, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
-      setTimeout(newProblem, 1300);
+      const animateJump = (step) => {
+        setJumperPos(trail[step]);
+        if (step < trail.length - 1) {
+          animationTimerRef.current = setTimeout(() => animateJump(step + 1), 260);
+        } else {
+          setShowAnswer(true);
+          setAnimating(false);
+          speak(`${praise} ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b} equals ${answer}!`);
+          nextRoundTimerRef.current = setTimeout(newProblem, 900);
+        }
+      };
+      animationTimerRef.current = setTimeout(() => animateJump(1), 220);
     } else {
       setHadMistake(true);
       setShake(true);
@@ -110,9 +131,9 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
               } ${i === answer && showAnswer ? 'ring-4 ring-green-400' : ''}`}
               style={{ left: `${(i / maxNum) * 92 + 4}%`, transform: 'translateX(-50%)' }}>{i}</button>
           ))}
-          <div className="absolute text-5xl transition-all duration-700 ease-in-out" style={{ left: `${(jumperPos / maxNum) * 92 + 4}%`, bottom: '76px', transform: 'translateX(-50%)' }}>🐸</div>
+          <div className="absolute text-5xl transition-all duration-[250ms] ease-in-out" aria-label={`Frog at ${jumperPos}`} style={{ left: `${(jumperPos / maxNum) * 92 + 4}%`, bottom: '76px', transform: 'translateX(-50%)' }}>🐸</div>
         </div>
-        <p className="text-slate-500 font-semibold mb-2">Tap the number where the frog should land!</p>
+        <p className="text-slate-500 font-semibold mb-2">{animating ? 'Watch the frog make each jump!' : 'Tap the number where the frog should land!'}</p>
         {jumpTrail.length > 0 && (
           <p className="mb-2 rounded-full bg-white/80 px-4 py-2 text-center font-black text-orange-700 shadow-sm" aria-live="polite">
             {problem.op === '+' ? 'Jump forward' : 'Jump back'} {problem.b} spaces: {jumpTrail.join(' → ')}

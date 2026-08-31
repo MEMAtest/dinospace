@@ -7,7 +7,7 @@ import {
   oddOneOutRoundIndexes,
   patternPoolForDifficulty,
 } from '../src/data/gameDifficulty.js';
-import { ADVANCED_PATTERN_ROUNDS, PATTERN_ROUNDS } from '../src/data/index.js';
+import { ADVANCED_PATTERN_ROUNDS, MEMORY_LEVELS, PATTERN_ROUNDS } from '../src/data/index.js';
 
 test('math bands increase real number ranges', () => {
   assert.deepEqual(MULTIPLICATION_LIMITS.starter, [2, 3]);
@@ -26,4 +26,10 @@ test('thinking bands select progressively harder content', () => {
 test('colour mixing challenge removes primary-only rounds', () => {
   assert.deepEqual(colourRoundIndexes('starter'), [0, 1, 2]);
   assert.deepEqual(colourRoundIndexes('challenge'), [3, 4, 5, 6]);
+});
+
+test('memory starter is a manageable four-pair board', () => {
+  assert.equal(MEMORY_LEVELS[0].id, 'forest');
+  assert.equal(MEMORY_LEVELS[0].emojis.length, 4);
+  assert.equal(MEMORY_LEVELS[0].emojis.length * 2, 8);
 });

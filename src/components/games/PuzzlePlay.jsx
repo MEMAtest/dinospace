@@ -4,23 +4,25 @@ import { getPraise, shuffle } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
+import dinoRiver from '../../assets/puzzle-pop/dino-river.svg';
+import dinoMoon from '../../assets/puzzle-pop/dino-moon.svg';
 
 const LEVELS = [
-  { name: 'Dino Park Starter', grid: 2 },
-  { name: 'Dino Park Explorer', grid: 3 },
-  { name: 'Dino Park Champion', grid: 4 },
+  { name: 'Dino Park Starter', grid: 2, scene: { title: 'Dino Park', image: dinoPark, alt: 'Friendly dinosaurs in a sunny park', helper: 'Match the big, easy picture pieces.' } },
+  { name: 'River Valley Explorer', grid: 3, scene: { title: 'River Valley', image: dinoRiver, alt: 'A friendly dinosaur beside a sparkling river', helper: 'Look for the river, hills and dinosaur details.' } },
+  { name: 'Moon Camp Champion', grid: 4, scene: { title: 'Moon Camp', image: dinoMoon, alt: 'A friendly dinosaur exploring a moon camp', helper: 'Use edges and tiny details to solve this tricky scene.' } },
 ];
 
 const makePieces = (grid) => shuffle(
   Array.from({ length: grid * grid }, (_, correctSlot) => ({ id: `piece-${correctSlot}`, correctSlot })),
 );
 
-const tileStyle = (slot, grid) => {
+const tileStyle = (slot, grid, image) => {
   const column = slot % grid;
   const row = Math.floor(slot / grid);
   const axis = grid - 1;
   return {
-    backgroundImage: `url(${dinoPark})`,
+    backgroundImage: `url(${image})`,
     backgroundSize: `${grid * 100}% ${grid * 100}%`,
     backgroundPosition: `${(column / axis) * 100}% ${(row / axis) * 100}%`,
   };
@@ -35,13 +37,15 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
   const [selected, setSelected] = useState(null);
   const [moves, setMoves] = useState(0);
   const [message, setMessage] = useState('Choose a picture piece below.');
+  const [wrongSlot, setWrongSlot] = useState(null);
+  const [wrongPiece, setWrongPiece] = useState(null);
   const solved = placed.every(Boolean);
 
   const progress = useMemo(() => placed.filter(Boolean).length, [placed]);
 
   useEffect(() => {
-    speak(`Build the dinosaur park picture. Choose a piece, then tap its matching place.`);
-  }, [level.name, speak]);
+    speak(`Build the ${level.scene.title} picture. Choose a piece, then tap its matching place.`);
+  }, [level.name, level.scene.title, speak]);
 
   const resetLevel = (nextIndex = levelIndex) => {
     const nextLevel = LEVELS[nextIndex];
@@ -50,6 +54,8 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
     setPlaced(Array(nextLevel.grid ** 2).fill(null));
     setSelected(null);
     setMoves(0);
+    setWrongSlot(null);
+    setWrongPiece(null);
     setMessage('Choose a picture piece below.');
   };
 
@@ -60,7 +66,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
 
   const choosePiece = (piece) => {
     setSelected(piece);
-    setMessage(`Piece ${piece.correctSlot + 1} selected — find its place.`);
+    setMessage('Piece selected — find its matching space.');
     playSfx('click');
   };
 
@@ -71,8 +77,14 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
     }
     setMoves((value) => value + 1);
     if (selected.correctSlot !== slotIndex) {
-      setMessage(`Not there yet — match the scene edges or use the preview.`);
+      setWrongSlot(slotIndex);
+      setWrongPiece(selected.id);
+      setMessage(`Not there yet — compare the edges with the ${level.scene.title} preview.`);
       playSfx('oops');
+      window.setTimeout(() => {
+        setWrongSlot(null);
+        setWrongPiece(null);
+      }, 500);
       return;
     }
 
@@ -86,11 +98,11 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
 
     if (nextPlaced.every(Boolean)) {
       const praise = getPraise();
-      setMessage(`${praise} The dinosaur park is complete!`);
+      setMessage(`${praise} The ${level.scene.title} is complete!`);
       playSfx('success');
       onCelebrate(praise, 6, 180);
       onGameEvent?.('puzzle', 'level_completed');
-      speak('Amazing! You built the whole dinosaur park picture.');
+      speak(`Amazing! You built the whole ${level.scene.title} picture.`);
     } else {
       setMessage(`Great fit! ${nextPlaced.filter(Boolean).length} of ${nextPlaced.length} pieces placed.`);
     }
@@ -121,7 +133,8 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
             <span className="flex items-center gap-2"><Eye size={20} /> Picture preview</span>
             <span className="rounded-full bg-orange-100 px-3 py-1 text-xs">Look here</span>
           </div>
-          <img src={dinoPark} alt="Completed dinosaur park puzzle preview" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-md" />
+          <img src={level.scene.image} alt={`Completed ${level.scene.alt} picture preview`} className="aspect-[4/3] w-full rounded-2xl object-cover shadow-md" />
+          <div className="mt-2 rounded-xl bg-emerald-50 px-3 py-2 text-center text-sm font-black text-emerald-800">{level.scene.helper}</div>
           <div className="mt-3 rounded-2xl bg-amber-50 p-3 text-sm font-bold text-amber-950">
             <p className="font-black">How to play</p>
             <p>1. Tap a real picture piece.</p>
@@ -144,11 +157,11 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
                 <button
                   key={`slot-${slotIndex}`}
                   onClick={() => placePiece(slotIndex)}
-                  className={`relative overflow-hidden rounded-xl border-2 transition ${piece ? 'border-white shadow-inner' : isHint ? 'animate-pulse border-orange-500 bg-orange-100 ring-4 ring-orange-200' : 'border-dashed border-amber-300 bg-white/70'}`}
+                  className={`relative overflow-hidden rounded-xl border-2 transition ${wrongSlot === slotIndex ? 'animate-shake border-red-500 bg-red-100 ring-4 ring-red-200' : piece ? 'border-white shadow-inner' : isHint ? 'animate-pulse border-orange-500 bg-orange-100 ring-4 ring-orange-200' : 'border-dashed border-amber-300 bg-white/70'}`}
                   aria-label={piece ? `Picture piece ${slotIndex + 1} placed` : `Empty picture space ${slotIndex + 1}`}
                 >
                   {piece ? (
-                    <span className="absolute inset-0 bg-cover" style={tileStyle(piece.correctSlot, level.grid)} />
+                    <span className="absolute inset-0 bg-cover" style={tileStyle(piece.correctSlot, level.grid, level.scene.image)} />
                   ) : (
                     <span className="grid h-full place-items-center text-3xl font-black text-amber-300">{slotIndex + 1}</span>
                   )}
@@ -171,8 +184,8 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
                     className={`relative aspect-[4/3] overflow-hidden rounded-xl border-4 bg-white shadow-md transition hover:-translate-y-1 ${selected?.id === piece.id ? 'scale-105 border-orange-500 ring-4 ring-orange-200' : 'border-white'}`}
                     aria-label={`Choose picture piece ${piece.correctSlot + 1}`}
                   >
-                    <span className="absolute inset-0 bg-cover" style={tileStyle(piece.correctSlot, level.grid)} />
-                    <span className="absolute bottom-0.5 right-0.5 grid h-5 w-5 place-items-center rounded-full bg-slate-900/75 text-[10px] font-black text-white">{piece.correctSlot + 1}</span>
+                    <span className="absolute inset-0 bg-cover" style={tileStyle(piece.correctSlot, level.grid, level.scene.image)} />
+                    <span className="sr-only">{wrongPiece === piece.id ? 'Try comparing this piece with the preview.' : ''}</span>
                   </button>
                 ))}
               </div>

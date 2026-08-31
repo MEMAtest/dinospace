@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { shuffle, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
@@ -21,6 +21,7 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
   const [locked, setLocked] = useState(false);
   const [options, setOptions] = useState(() => buildTimeOptions({ hour: 3, minute: 0 }));
   const [hadMistake, setHadMistake] = useState(false);
+  const timeoutRef = useRef(null);
 
   const newRound = () => {
     const nextHour = target.hour === 12 ? 1 : target.hour + 1;
@@ -34,8 +35,11 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
     setSkillRun((current) => current >= 5 ? 0 : current);
   };
 
+  useEffect(() => () => clearTimeout(timeoutRef.current), []);
+
   useEffect(() => {
-    speak(`What time is shown? ${timeLabel(target)}.`);
+    // Keep the answer hidden until the child has studied the hands.
+    speak('Look carefully at the clock. What time is shown?');
   }, [target, speak]);
 
   const handlePick = (h) => {
@@ -50,13 +54,13 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
       speak(`${praise} That's ${timeLabel(target)}!`);
       onCelebrate(praise, 4, 200);
       onGameEvent?.('timeteller', 'answer_correct', { skill: 'telling-time', item: timeLabel(target), response: timeLabel(h), expected: timeLabel(target), correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
-      setTimeout(newRound, 1100);
+      timeoutRef.current = setTimeout(newRound, 1100);
     } else {
       setHadMistake(true);
       setShake(true);
       playSfx('wrong');
-      setFeedback('Try again!');
-      setTimeout(() => { setShake(false); setFeedback(''); }, 800);
+      setFeedback('Look at the short hand and the long hand.');
+      timeoutRef.current = setTimeout(() => { setShake(false); setFeedback(''); }, 800);
     }
   };
 
@@ -78,9 +82,15 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-        <PracticeProgress skill="Read whole-hour clocks" completed={skillRun} accent="indigo" />
-        <p className="mb-3 text-3xl font-black text-slate-700">What time is this? 🕐</p>
-        <div className={`relative mb-5 h-80 w-80 rounded-full border-[12px] border-indigo-300 bg-white shadow-[0_20px_45px_rgba(67,56,202,.25),inset_0_0_35px_rgba(99,102,241,.08)] ${shake ? 'animate-shake' : ''}`}>
+        <PracticeProgress skill={difficulty === 'starter' ? 'Read whole-hour clocks' : difficulty === 'growing' ? 'Read half-hour clocks' : 'Read quarter-hour clocks'} completed={skillRun} accent="indigo" />
+        <p className="mb-1 text-3xl font-black text-slate-700">What time is this? 🕐</p>
+        <p className="mb-3 text-sm font-bold text-indigo-700/70">Short hand = hour · long hand = minutes</p>
+        <button
+          type="button"
+          onClick={() => speak(`The clock shows ${timeLabel(target)}.`)}
+          aria-label="Hear a time clue"
+          className={`relative mb-5 h-80 w-80 rounded-full border-[12px] border-indigo-300 bg-white shadow-[0_20px_45px_rgba(67,56,202,.25),inset_0_0_35px_rgba(99,102,241,.08)] ${shake ? 'animate-shake' : ''}`}
+        >
           {[...Array(12)].map((_, i) => {
             const angle = ((i + 1) * 30 - 90) * (Math.PI / 180);
             const x = 50 + 38 * Math.cos(angle);
@@ -94,7 +104,8 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
             style={{ transform: `translate(-50%, -100%) rotate(${hourAngle}deg)` }} />
           <div className="absolute top-1/2 left-1/2 w-2 h-[120px] bg-indigo-400 rounded-full origin-bottom"
             style={{ transform: `translate(-50%, -100%) rotate(${minuteAngle}deg)` }} />
-        </div>
+          <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-indigo-50 px-3 py-1 text-xs font-black text-indigo-600">Tap for a clue</span>
+        </button>
         <div className="flex gap-4 flex-wrap justify-center">
           {options.map((h) => (
             <button key={`${h.hour}-${h.minute}`} onClick={() => handlePick(h)} disabled={locked}

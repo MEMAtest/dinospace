@@ -686,7 +686,9 @@ export const MEMORY_LEVELS = [
   {
     id: 'forest',
     name: 'Forest Friends',
-    emojis: ['🐶', '🦊', '🐸', '🐵', '🦄', '🐙'],
+    // Four pairs make the starter board manageable for a five-year-old.
+    // Later themes deliberately add more pairs as memory improves.
+    emojis: ['🐶', '🦊', '🐸', '🐵'],
     columns: 4,
   },
   {
@@ -736,14 +738,14 @@ export const MEMORY_LEVELS = [
 export const PATTERN_TOKENS = ['🔴', '🔵', '🟡', '🟢', '⭐️', '🌙', '🟣', '🟠', '☀️'];
 
 export const PATTERN_ROUNDS = [
-  { sequence: ['🔴', '🔵', '🔴', '🔵'], answer: '🔴', label: 'Red, Blue pattern' },
-  { sequence: ['🟡', '🟡', '🔵', '🟡', '🟡'], answer: '🔵', label: 'Yellow, Yellow, Blue' },
-  { sequence: ['⭐️', '🌙', '☀️', '⭐️', '🌙'], answer: '☀️', label: 'Star, Moon, Sun' },
-  { sequence: ['🟢', '🟣', '🟢', '🟣', '🟢'], answer: '🟣', label: 'Green, Purple' },
-  { sequence: ['🟠', '🟠', '🔵', '🟠'], answer: '🟠', label: 'Orange, Orange, Blue' },
-  { sequence: ['🔵', '🟢', '🟡', '🔵', '🟢'], answer: '🟡', label: 'Blue, Green, Yellow' },
-  { sequence: ['🌙', '🌙', '⭐️', '🌙', '🌙'], answer: '⭐️', label: 'Moon, Moon, Star' },
-  { sequence: ['🟣', '🟣', '🟣', '🟢'], answer: '🟢', label: 'Purple then Green' },
+  { sequence: ['🔴', '🔵', '🔴', '🔵'], answer: '🔴', label: 'Red, Blue pattern', rule: 'Repeat red, blue.' },
+  { sequence: ['🟡', '🟡', '🔵', '🟡', '🟡'], answer: '🔵', label: 'Yellow, Yellow, Blue', rule: 'Repeat yellow, yellow, blue.' },
+  { sequence: ['⭐️', '🌙', '☀️', '⭐️', '🌙'], answer: '☀️', label: 'Star, Moon, Sun', rule: 'Repeat star, moon, sun.' },
+  { sequence: ['🟢', '🟣', '🟢', '🟣', '🟢'], answer: '🟣', label: 'Green, Purple', rule: 'Repeat green, purple.' },
+  { sequence: ['🟠', '🟠', '🔵', '🟠'], answer: '🟠', label: 'Orange, Orange, Blue', rule: 'Repeat orange, orange, blue.' },
+  { sequence: ['🔵', '🟢', '🟡', '🔵', '🟢'], answer: '🟡', label: 'Blue, Green, Yellow', rule: 'Repeat blue, green, yellow.' },
+  { sequence: ['🌙', '🌙', '⭐️', '🌙', '🌙'], answer: '⭐️', label: 'Moon, Moon, Star', rule: 'Repeat moon, moon, star.' },
+  { sequence: ['🟣', '🟣', '🟣', '🟢'], answer: '🟢', label: 'Purple then Green', rule: 'Repeat three purple, then green.' },
 ];
 
 export const SHAPES = ['Circle', 'Square', 'Triangle', 'Star', 'Heart', 'Diamond'];
@@ -814,20 +816,28 @@ export const SPOT_LEVELS = [
 export const PUZZLE_TILES = ['🦕', '🌈', '🚀', '⭐️', '🐯', '🍓', '🧁', '🎈', '🪐'];
 
 export const ADVANCED_PATTERN_ROUNDS = [
-  { sequence: ['🔴', '🔵', '🟡', '🔴', '🔵'], answer: '🟡', label: 'Red, Blue, Yellow repeat' },
-  { sequence: ['⭐️', '⭐️', '🌙', '🌙', '⭐️', '⭐️'], answer: '🌙', label: 'Star Star Moon Moon' },
-  { sequence: ['🟢', '🟣', '🟠', '🟢', '🟣'], answer: '🟠', label: 'Green Purple Orange' },
-  { sequence: ['🔵', '🔵', '🟡', '🔵', '🔵', '🟡', '🔵', '🔵'], answer: '🟡', label: 'Blue Blue Yellow' },
-  { sequence: ['🟠', '🟢', '🟠', '🟢', '🟠', '🟠', '🟢'], answer: '🟠', label: 'Tricky orange green' },
+  { sequence: ['🔴', '🔵', '🟡', '🔴', '🔵'], answer: '🟡', label: 'Red, Blue, Yellow repeat', rule: 'Repeat red, blue, yellow.' },
+  { sequence: ['⭐️', '⭐️', '🌙', '🌙', '⭐️', '⭐️'], answer: '🌙', label: 'Star Star Moon Moon', rule: 'Repeat two stars, then two moons.' },
+  { sequence: ['🟢', '🟣', '🟠', '🟢', '🟣'], answer: '🟠', label: 'Green Purple Orange', rule: 'Repeat green, purple, orange.' },
+  { sequence: ['🔵', '🔵', '🟡', '🔵', '🔵', '🟡', '🔵', '🔵'], answer: '🟡', label: 'Blue Blue Yellow', rule: 'Repeat two blues, then yellow.' },
+  { sequence: ['🟠', '🟢', '🟠', '🟢', '🟠', '🟠', '🟢'], answer: '🟠', label: 'Tricky orange green', rule: 'Repeat orange, green, orange, then orange, green.' },
 ];
 
 export const NUMBER_PATTERN_ROUNDS = [
-  { sequence: [2, 4, 6, 8], answer: 10, options: [9, 10, 11, 12], label: 'Count by 2s' },
-  { sequence: [5, 10, 15, 20], answer: 25, options: [22, 24, 25, 30], label: 'Count by 5s' },
-  { sequence: [1, 2, 3, 4, 5], answer: 6, options: [5, 6, 7, 8], label: 'Count up by 1' },
-  { sequence: [10, 8, 6, 4], answer: 2, options: [1, 2, 3, 0], label: 'Count down by 2' },
-  { sequence: [1, 3, 5, 7], answer: 9, options: [8, 9, 10, 11], label: 'Odd numbers' },
-  { sequence: [10, 20, 30, 40], answer: 50, options: [45, 50, 55, 60], label: 'Count by 10s' },
+  { sequence: [1, 2, 3, 4, 5], answer: 6, options: [5, 6, 7, 8], label: 'Count up by 1', rule: 'Add 1 each time.' },
+  { sequence: [2, 4, 6, 8], answer: 10, options: [9, 10, 11, 12], label: 'Count by 2s', rule: 'Add 2 each time.' },
+  { sequence: [10, 8, 6, 4], answer: 2, options: [1, 2, 3, 0], label: 'Count down by 2', rule: 'Take away 2 each time.' },
+  { sequence: [5, 10, 15, 20], answer: 25, options: [22, 24, 25, 30], label: 'Count by 5s', rule: 'Add 5 each time.' },
+  { sequence: [1, 3, 5, 7], answer: 9, options: [8, 9, 10, 11], label: 'Odd numbers', rule: 'Add 2 each time to make odd numbers.' },
+  { sequence: [10, 20, 30, 40], answer: 50, options: [45, 50, 55, 60], label: 'Count by 10s', rule: 'Add 10 each time.' },
+];
+
+export const ADVANCED_NUMBER_PATTERN_ROUNDS = [
+  { sequence: [3, 6, 9, 12], answer: 15, options: [14, 15, 16, 18], label: 'Count by 3s', rule: 'Add 3 each time.' },
+  { sequence: [20, 18, 16, 14], answer: 12, options: [10, 11, 12, 13], label: 'Count down by 2', rule: 'Take away 2 each time.' },
+  { sequence: [2, 4, 8, 16], answer: 32, options: [20, 24, 30, 32], label: 'Double each number', rule: 'Double the number each time.' },
+  { sequence: [1, 4, 7, 10], answer: 13, options: [11, 12, 13, 14], label: 'Count by 3s', rule: 'Add 3 each time.' },
+  { sequence: [50, 40, 30, 20], answer: 10, options: [5, 10, 15, 30], label: 'Count down by 10s', rule: 'Take away 10 each time.' },
 ];
 
 export const WORD_BUILDER_WORDS = [

@@ -1,16 +1,23 @@
 import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
-import { NUMBER_PATTERN_ROUNDS, PATTERN_TOKENS } from '../../data/index.js';
-import { pickRandom, shuffle, buildPatternRound, getPraise } from '../../utils.js';
+import { PATTERN_TOKENS } from '../../data/index.js';
+import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-import { patternPoolForDifficulty } from '../../data/gameDifficulty.js';
+import { numberPatternPoolForDifficulty, patternPoolForDifficulty } from '../../data/gameDifficulty.js';
+
+const makeEmojiRound = (difficulty) => {
+  const allPatterns = patternPoolForDifficulty(difficulty);
+  const pattern = pickRandom(allPatterns);
+  const decoys = shuffle(PATTERN_TOKENS.filter((token) => token !== pattern.answer)).slice(0, 2);
+  return { ...pattern, options: shuffle([pattern.answer, ...decoys]) };
+};
 
 const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const difficulty = useGameDifficulty('pattern');
   const [mode, setMode] = useState('emoji');
-  const [round, setRound] = useState(buildPatternRound);
-  const [numRound, setNumRound] = useState(() => pickRandom(NUMBER_PATTERN_ROUNDS));
+  const [round, setRound] = useState(() => makeEmojiRound(difficulty));
+  const [numRound, setNumRound] = useState(() => pickRandom(numberPatternPoolForDifficulty(difficulty)));
   const [feedback, setFeedback] = useState('');
   const [streak, setStreak] = useState(0);
   const [shake, setShake] = useState(false);
@@ -19,17 +26,21 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
   const nextRound = (nextMode = mode) => {
     if (nextMode === 'emoji') {
-      const allPatterns = patternPoolForDifficulty(difficulty);
-      const r = pickRandom(allPatterns);
-      const decoys = shuffle(PATTERN_TOKENS.filter((t) => t !== r.answer)).slice(0, 2);
-      setRound({ ...r, options: shuffle([r.answer, ...decoys]) });
+      setRound(makeEmojiRound(difficulty));
     } else {
-      setNumRound(pickRandom(NUMBER_PATTERN_ROUNDS));
+      setNumRound(pickRandom(numberPatternPoolForDifficulty(difficulty)));
     }
     setFeedback('');
     setLocked(false);
     setSkillRun((current) => current >= 5 ? 0 : current);
   };
+
+  useEffect(() => {
+    // Reset the current round when the adaptive band changes so advanced
+    // patterns cannot leak into a starter round (or vice versa).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    nextRound(mode);
+  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const currentLabel = mode === 'emoji' ? round.label : numRound.label;
 
@@ -42,7 +53,8 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     const correctAnswer = mode === 'emoji' ? round.answer : numRound.answer;
     if (option === correctAnswer) {
       const praise = getPraise();
-      setFeedback(praise);
+      const rule = mode === 'emoji' ? round.rule : numRound.rule;
+      setFeedback(`${praise} Rule: ${rule}`);
       const newStreak = streak + 1;
       setStreak(newStreak);
       setSkillRun((current) => Math.min(current + 1, 5));
@@ -51,7 +63,8 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       if (newStreak >= 3) playSfx('combo');
       onCelebrate(newStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, newStreak === 5 ? 14 : 4, 250);
       onGameEvent?.('pattern', 'answer_correct');
-      setTimeout(nextRound, 1400);
+      speak(`Correct. ${rule}`);
+      setTimeout(nextRound, 2200);
     } else {
       setFeedback('Try again!');
       setShake(true);
@@ -115,7 +128,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
           ))}
         </div>
 
-        {feedback && <div className="mt-4 text-xl font-bold text-amber-700 animate-bounce">{feedback}</div>}
+        {feedback && <div className="mt-4 max-w-xl rounded-2xl bg-white/90 px-5 py-3 text-center text-xl font-bold text-amber-700 shadow-md" aria-live="polite">{feedback}</div>}
       </div>
     </div>
   );

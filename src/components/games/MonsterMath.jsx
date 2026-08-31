@@ -76,7 +76,10 @@ const MonsterMath = ({
     [problem.a, problem.ans],
   );
 
-  const stepAnimationMs = 520;
+  // Keep every obstacle visible while the truck proves the multiplication,
+  // but avoid the old 500ms-per-item pause that made a small problem linger
+  // for 15+ seconds on a tablet.
+  const stepAnimationMs = 240;
   const totalAnimationMs = problem.ans * stepAnimationMs;
 
   const check = (answer) => {

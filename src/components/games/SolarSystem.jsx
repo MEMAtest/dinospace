@@ -109,6 +109,8 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
   const pausedRef = useRef(paused);
   const controlsRef = useRef(null);
   const cameraRef = useRef(null);
+  const planetAnchorsRef = useRef(new Map());
+  const [webglUnavailable, setWebglUnavailable] = useState(false);
 
   useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
   useEffect(() => { pausedRef.current = paused; }, [paused]);
@@ -138,11 +140,28 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
       controlsRef.current.target.set(0, 0, 0);
       controlsRef.current.update();
     },
+    focusPlanet: (planetName) => {
+      const anchor = planetAnchorsRef.current.get(planetName);
+      const camera = cameraRef.current;
+      const controls = controlsRef.current;
+      if (!anchor || !camera || !controls) return;
+      anchor.updateWorldMatrix(true, false);
+      const target = new THREE.Vector3();
+      anchor.getWorldPosition(target);
+      const offset = camera.position.clone().sub(controls.target);
+      const distance = THREE.MathUtils.clamp(offset.length() * 0.72, 18, controls.maxDistance);
+      if (offset.length() < 0.01) offset.set(0, 8, 24);
+      offset.setLength(distance);
+      controls.target.copy(target);
+      camera.position.copy(target).add(offset);
+      controls.update();
+    },
   }), [changeZoom]);
 
   useEffect(() => {
     const mount = mountRef.current;
     if (!mount) return undefined;
+    const planetAnchors = planetAnchorsRef.current;
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x030712);
@@ -151,7 +170,16 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
     camera.position.set(0, 22, 39);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+    } catch {
+      // Some low-end Android/WebView devices cannot create WebGL. Keep the
+      // lesson usable through the planet list and fact panel instead of
+      // leaving a blank screen.
+      window.setTimeout(() => setWebglUnavailable(true), 0);
+      return undefined;
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     mount.appendChild(renderer.domElement);
@@ -203,6 +231,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
 
     const orbitGroups = [];
     const clickableMeshes = [];
+    planetAnchors.clear();
     PLANETS.forEach((planet, index) => {
       const radius = 3.8 + index * 1.75;
       scene.add(makeOrbit(radius));
@@ -212,10 +241,17 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
       const planetRadius = PLANET_SCALES[planet.name];
       const planetAnchor = new THREE.Group();
       planetAnchor.position.x = radius;
+      planetAnchor.userData.planetName = planet.name;
       const mesh = new THREE.Mesh(
         new THREE.SphereGeometry(planetRadius, 40, 28),
         new THREE.MeshStandardMaterial({
           color: PLANET_COLORS[planet.name],
+          // The lighting is intentionally gentle for touch devices. A small
+          // self-lit contribution keeps the night-facing side readable (and
+          // prevents Saturn disappearing behind its ring plane) without
+          // flattening the 3D shading.
+          emissive: PLANET_COLORS[planet.name],
+          emissiveIntensity: planet.name === 'Saturn' ? 0.34 : 0.1,
           roughness: planet.name === 'Earth' ? 0.68 : 0.88,
           metalness: 0.02,
         }),
@@ -224,17 +260,33 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
       mesh.userData.planetName = planet.name;
       planetAnchor.add(mesh);
       const rings = addPlanetTexture(mesh, planet.name, planetAnchor);
+      // Give small planets and ringed worlds a generous, invisible touch
+      // target. The visible sphere should never be the only way to select it.
+      const hitMesh = new THREE.Mesh(
+        new THREE.SphereGeometry(Math.max(planetRadius * 2.2, 1.05), 12, 8),
+        new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false }),
+      );
+      hitMesh.userData.planetName = planet.name;
+      planetAnchor.add(hitMesh);
       orbitGroup.add(planetAnchor);
       orbitGroup.userData.speed = 0.0007 + (PLANETS.length - index) * 0.00018;
       orbitGroup.userData.mesh = mesh;
       scene.add(orbitGroup);
       orbitGroups.push(orbitGroup);
-      clickableMeshes.push(mesh, ...mesh.children, ...(rings?.children || []));
+      clickableMeshes.push(hitMesh, mesh, ...mesh.children, ...(rings?.children || []));
+      planetAnchors.set(planet.name, planetAnchor);
     });
 
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
+    let pointerDown = null;
+    const handlePointerDown = (event) => { pointerDown = { x: event.clientX, y: event.clientY }; };
     const handlePointer = (event) => {
+      if (pointerDown && Math.hypot(event.clientX - pointerDown.x, event.clientY - pointerDown.y) > 12) {
+        pointerDown = null;
+        return;
+      }
+      pointerDown = null;
       const bounds = renderer.domElement.getBoundingClientRect();
       pointer.x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
       pointer.y = -((event.clientY - bounds.top) / bounds.height) * 2 + 1;
@@ -243,6 +295,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
       const planetName = hit?.object?.userData?.planetName;
       if (planetName) onSelectRef.current(planetName);
     };
+    renderer.domElement.addEventListener('pointerdown', handlePointerDown);
     renderer.domElement.addEventListener('pointerup', handlePointer);
 
     const resize = () => {
@@ -275,6 +328,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     return () => {
       cancelAnimationFrame(frameId);
       resizeObserver.disconnect();
+      renderer.domElement.removeEventListener('pointerdown', handlePointerDown);
       renderer.domElement.removeEventListener('pointerup', handlePointer);
       controls.dispose();
       if (controlsRef.current === controls) controlsRef.current = null;
@@ -286,8 +340,21 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
         else object.material?.dispose?.();
       });
       if (renderer.domElement.parentNode === mount) mount.removeChild(renderer.domElement);
+      planetAnchors.clear();
     };
   }, []);
+
+  if (webglUnavailable) {
+    return (
+      <div className="grid h-full min-h-[360px] place-items-center bg-[radial-gradient(circle_at_center,#172554,#030712_72%)] p-6 text-center text-white">
+        <div className="max-w-sm rounded-3xl border border-cyan-200/30 bg-slate-950/80 p-6 shadow-2xl">
+          <div className="text-6xl" aria-hidden="true">🪐</div>
+          <h3 className="mt-3 text-xl font-black text-cyan-200">3D view unavailable</h3>
+          <p className="mt-2 text-sm font-bold text-white/70">Choose a planet below to explore its facts and challenge.</p>
+        </div>
+      </div>
+    );
+  }
 
   return <div ref={mountRef} className="h-[58vh] min-h-[430px] w-full cursor-grab touch-none active:cursor-grabbing md:h-full md:min-h-0" />;
 });
@@ -311,6 +378,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setQuizFeedback('');
     playSfx('chime');
     speak(`${planet.name}. ${planet.subtitle}. ${planet.mission}`);
+    orreryRef.current?.focusPlanet(planet.name);
   }, [playSfx, speak]);
 
   const handleFact = (index) => {

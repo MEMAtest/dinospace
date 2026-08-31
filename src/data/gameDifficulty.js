@@ -1,8 +1,19 @@
-import { ADVANCED_PATTERN_ROUNDS, PATTERN_ROUNDS } from './index.js';
+import {
+  ADVANCED_NUMBER_PATTERN_ROUNDS,
+  ADVANCED_PATTERN_ROUNDS,
+  NUMBER_PATTERN_ROUNDS,
+  PATTERN_ROUNDS,
+} from './index.js';
 
 export const patternPoolForDifficulty = (difficulty) => difficulty === 'starter'
   ? PATTERN_ROUNDS
   : difficulty === 'challenge' ? ADVANCED_PATTERN_ROUNDS : [...PATTERN_ROUNDS, ...ADVANCED_PATTERN_ROUNDS];
+
+export const numberPatternPoolForDifficulty = (difficulty) => difficulty === 'starter'
+  ? NUMBER_PATTERN_ROUNDS.slice(0, 3)
+  : difficulty === 'challenge'
+    ? ADVANCED_NUMBER_PATTERN_ROUNDS
+    : NUMBER_PATTERN_ROUNDS;
 
 export const oddOneOutRoundIndexes = (difficulty) => difficulty === 'starter'
   ? [0, 1, 2, 3] : difficulty === 'growing' ? [4, 5, 6, 7] : [8, 9, 10, 11];
