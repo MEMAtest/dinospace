@@ -20,10 +20,13 @@ export const decorateStoryBook = (book) => ({
   bedtime: typeof book.bedtime === 'boolean' ? book.bedtime : Boolean(BUILT_IN_META[book.slug]?.bedtime),
 });
 
-export const filterStoryBooks = (books, { shelf = 'all', ageBand = 'all', seriesId = 'all', childId = '', favourites = {} } = {}) => books.filter((book) => {
+export const filterStoryBooks = (books, { shelf = 'all', ageBand = 'all', seriesId = 'all', favourites = {} } = {}) => books.filter((book) => {
   const decorated = decorateStoryBook(book);
   const shelfMatch = shelf === 'all'
-    || (shelf === 'my-stories' && decorated.custom && (!childId || decorated.childId === childId))
+    // Generated books belong to the device library, not to one child. Keep
+    // reading progress and favourites per child, but let every child see the
+    // same shared shelf.
+    || (shelf === 'my-stories' && decorated.custom)
     || (shelf === 'learning' && decorated.tags.includes('learning'))
     || (shelf === 'bedtime' && decorated.bedtime)
     || (shelf === 'favourites' && favourites[decorated.slug]?.favourite === true);

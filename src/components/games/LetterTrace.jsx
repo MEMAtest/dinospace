@@ -14,14 +14,17 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [cleared, setCleared] = useState(false);
   const [traceReady, setTraceReady] = useState(false);
   const [traceComplete, setTraceComplete] = useState(false);
+  const [traceProgress, setTraceProgress] = useState(0);
   const [traceFeedback, setTraceFeedback] = useState('Start on the dotted letter and follow its shape.');
   const drawDistanceRef = useRef(0);
   const onGuideDistanceRef = useRef(0);
   const offGuideDistanceRef = useRef(0);
+  const guideCoverageRef = useRef(new Set());
   const guideMaskRef = useRef(null);
   const autoCompleteRef = useRef(false);
   const startedOnGuideRef = useRef(false);
   const [taughtOnly, setTaughtOnly] = useState(true);
+  const requiredGuideDistance = difficulty === 'starter' ? 150 : difficulty === 'challenge' ? 260 : 190;
 
   const visibleLetters = taughtOnly
     ? TRACE_LETTERS.filter((item) => getTaughtGraphemes().has(item.lower))
@@ -39,6 +42,8 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     autoCompleteRef.current = false;
     onGuideDistanceRef.current = 0;
     offGuideDistanceRef.current = 0;
+    guideCoverageRef.current = new Set();
+    setTraceProgress(0);
     setTraceReady(false);
     setTraceComplete(false);
     setTraceFeedback('Start on the dotted letter and follow its shape.');
@@ -105,13 +110,22 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           }
         }
       }
-      if (nearGuide) onGuideDistanceRef.current += distance;
+      if (nearGuide) {
+        onGuideDistanceRef.current += distance;
+        // A trace must travel across the shape, not just scribble in one
+        // small spot. Coarse cells make this robust on touch screens while
+        // keeping the check forgiving for young learners.
+        guideCoverageRef.current.add(`${Math.floor(x / 28)}:${Math.floor(y / 28)}`);
+      }
       else offGuideDistanceRef.current += distance;
-      const requiredGuideDistance = difficulty === 'starter' ? 150 : difficulty === 'challenge' ? 260 : 190;
       const guideRatio = difficulty === 'starter' ? 1.2 : difficulty === 'challenge' ? 2 : 1.5;
+      const requiredCoverage = difficulty === 'starter' ? 7 : difficulty === 'challenge' ? 14 : 10;
       const enoughGuide = onGuideDistanceRef.current >= requiredGuideDistance;
       const mostlyOnGuide = onGuideDistanceRef.current >= offGuideDistanceRef.current * guideRatio;
-      setTraceReady(enoughGuide && mostlyOnGuide);
+      const coverage = guideCoverageRef.current.size;
+      const enoughCoverage = coverage >= requiredCoverage;
+      setTraceProgress(Math.min(100, Math.round(Math.min(onGuideDistanceRef.current / requiredGuideDistance, coverage / requiredCoverage) * 100)));
+      setTraceReady(enoughGuide && mostlyOnGuide && enoughCoverage);
 
       ctx.beginPath();
       ctx.moveTo(lastX, lastY);
@@ -154,7 +168,9 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       if (drawDistanceRef.current > 80 && !autoCompleteRef.current) {
         const guideRatio = difficulty === 'starter' ? 1.2 : difficulty === 'challenge' ? 2 : 1.5;
         const mostlyOnGuide = startedOnGuideRef.current && onGuideDistanceRef.current >= offGuideDistanceRef.current * guideRatio;
-        setTraceFeedback(mostlyOnGuide ? 'Good path. Keep following the dotted letter.' : 'Stay closer to the dotted letter and try again.');
+        const requiredCoverage = difficulty === 'starter' ? 7 : difficulty === 'challenge' ? 14 : 10;
+        const enoughCoverage = guideCoverageRef.current.size >= requiredCoverage;
+        setTraceFeedback(mostlyOnGuide && enoughCoverage ? 'Good path. Keep following the dotted letter.' : 'Follow more of the dotted letter, from one end to the other.');
       }
     };
 
@@ -174,7 +190,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       canvas.removeEventListener('touchmove', draw);
       canvas.removeEventListener('touchend', stopDrawing);
     };
-  }, [letterChar, cleared, difficulty, onCelebrate, playSfx, speak]);
+  }, [letterChar, cleared, difficulty, onCelebrate, playSfx, requiredGuideDistance, speak]);
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100">
@@ -242,6 +258,17 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           >
             abc
           </button>
+        </div>
+
+        <div className="mb-3 w-full max-w-3xl rounded-2xl border-2 border-white/80 bg-white/75 px-4 py-3 shadow-sm">
+          <div className="flex items-center justify-between gap-3 text-sm font-black text-blue-800">
+            <span>Follow the dotted line</span>
+            <span aria-live="polite">{traceProgress}% traced</span>
+          </div>
+          <div className="mt-2 h-3 overflow-hidden rounded-full bg-blue-100" role="progressbar" aria-label="Letter trace progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={traceProgress}>
+            <div className="h-full rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-600 transition-all duration-200" style={{ width: `${traceProgress}%` }} />
+          </div>
+          <p className="mt-1 text-center text-xs font-bold text-blue-700/75">Start on any dotted stroke, then keep your pencil close.</p>
         </div>
 
         <div className="relative w-full max-w-3xl flex-1 bg-white/60 rounded-3xl shadow-inner border-4 border-blue-200 overflow-hidden">

@@ -9,7 +9,7 @@ const books = [
 
 test('storybook shelves preserve access while filtering by shelf, age and series', () => {
   assert.deepEqual(filterStoryBooks(books, { shelf: 'my-stories', childId: 'child-1' }).map((book) => book.slug), ['b']);
-  assert.deepEqual(filterStoryBooks(books, { shelf: 'my-stories', childId: 'child-2' }).map((book) => book.slug), []);
+  assert.deepEqual(filterStoryBooks(books, { shelf: 'my-stories', childId: 'child-2' }).map((book) => book.slug), ['b']);
   assert.deepEqual(filterStoryBooks(books, { shelf: 'learning', ageBand: '5-6', seriesId: 'moon' }).map((book) => book.slug), ['a']);
   assert.deepEqual(filterStoryBooks(books, { shelf: 'favourites', favourites: { b: { favourite: true } } }).map((book) => book.slug), ['b']);
   assert.deepEqual(filterStoryBooks(books, { shelf: 'favourites', favourites: { b: { favourite: false } } }).map((book) => book.slug), []);
