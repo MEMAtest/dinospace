@@ -9,7 +9,7 @@ import {
 } from './components/shared/index.jsx';
 import {
   AudioLines, BookOpen, Brain, CarFront, Clock3, Crown, Gamepad2, Grid3X3, Hash, Minus,
-  Palette, PenLine, Plus, Puzzle, Rocket, ScanSearch, Search, Shapes, Sun, Truck, Type,
+  Palette, PenLine, Plus, Puzzle, Rocket, ScanSearch, Search, Shapes, Sparkles, Sun, Truck, Type,
 } from 'lucide-react';
 import DinoDetective from './components/games/DinoDetective.jsx';
 import JetSkyShapes from './components/games/JetSkyShapes.jsx';
@@ -52,6 +52,19 @@ const GameIcon = ({ Icon: IconComponent, image, alt, tone = 'text-indigo-600', l
 );
 
 const icon = (Icon, tone, label) => <GameIcon Icon={Icon} tone={tone} label={label} />;
+
+const WORLD_ICON_CONFIG = {
+  'read-write': [BookOpen, 'text-fuchsia-600'],
+  maths: [Rocket, 'text-orange-600'],
+  explore: [Sun, 'text-indigo-600'],
+  creative: [Palette, 'text-violet-600'],
+  thinking: [Brain, 'text-emerald-600'],
+};
+
+const WorldIcon = ({ world, compact = false }) => {
+  const [IconComponent, tone] = WORLD_ICON_CONFIG[world.id] || [Sparkles, 'text-indigo-600'];
+  return <span className={`inline-grid place-items-center border-2 border-white/70 bg-white/85 shadow-[0_5px_0_rgba(15,23,42,.14),0_9px_16px_rgba(15,23,42,.14)] ${compact ? 'h-7 w-7 rounded-lg' : 'h-16 w-20 rounded-3xl'}`} aria-label={`${world.title} icon`}>{createElement(IconComponent, { size: compact ? 17 : 38, strokeWidth: 2.6, className: tone, 'aria-hidden': true })}</span>;
+};
 
 const GAME_MENU_ITEMS = [
   { id: 'tictactoe', icon: icon(Grid3X3, 'text-cyan-600', 'Cosmic noughts and crosses'), title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
@@ -443,7 +456,7 @@ export default function App() {
                 className={`group relative min-h-52 overflow-hidden rounded-[1.8rem] bg-gradient-to-br ${world.color} p-5 text-left text-white shadow-[0_8px_0_rgba(15,23,42,.13),0_16px_30px_rgba(30,64,175,.16)] transition hover:-translate-y-1 active:translate-y-1 active:shadow-none ${selectedWorld === world.id ? 'ring-4 ring-white ring-offset-4 ring-offset-sky-100' : ''}`}
               >
                 <span className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/20" />
-                <span className="relative text-5xl transition group-hover:scale-110">{world.icon}</span>
+                <span className="relative transition group-hover:scale-110"><WorldIcon world={world} /></span>
                 <strong className="relative mt-5 block text-xl font-black leading-tight">{world.title}</strong>
                 <span className="relative mt-2 block text-sm font-bold text-white/90">{world.desc}</span>
                 <span className="relative mt-4 inline-flex rounded-full bg-white/20 px-3 py-1 text-xs font-black backdrop-blur">{world.gameIds.length} games →</span>
@@ -461,7 +474,7 @@ export default function App() {
           >
             <div className="mb-5 flex flex-col gap-3 text-left sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-500">{activeWorld.icon} World open</p>
+                <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.18em] text-blue-500"><WorldIcon world={activeWorld} compact /> World open</p>
                 <h2 id="world-games-heading" className="text-3xl font-black text-slate-900">{activeWorld.title}</h2>
                 <p className="font-bold text-slate-500">Choose any game. Nothing is locked.</p>
               </div>
