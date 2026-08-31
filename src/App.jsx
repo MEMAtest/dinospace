@@ -1,7 +1,7 @@
 import { createElement, lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { THEME, ACHIEVEMENTS } from './data/index.js';
 import { createBursts, createConfetti, getPraise, getRank, getNextRank, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
-import { useSfx, useVoice, useAmbientMusic, useInstallPrompt } from './hooks.js';
+import { useSfx, useVoice, useInstallPrompt } from './hooks.js';
 import {
   SoundToggle, CelebrationOverlay, RewardsShelf,
   PauseOverlay, BreakReminder, DailyChallengeBanner, StreakBanner, MenuCard,
@@ -122,7 +122,6 @@ export default function App() {
   const playSfx = useSfx(soundOn);
   const { speak, voiceMode, setVoiceMode, premiumEnabled, premiumStatus } = useVoice(soundOn);
   const installPrompt = useInstallPrompt();
-  useAmbientMusic(soundOn);
 
   const todaysChallenge = useMemo(() => getTodaysChallenge(), []);
   const activeWorld = useMemo(
