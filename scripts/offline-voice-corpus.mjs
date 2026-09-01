@@ -142,6 +142,9 @@ add('Find the matching pairs.');
 
 COLOR_MIX_ROUNDS.forEach((round) => {
   add(`What color do ${round.name1} and ${round.name2} make when mixed together?`);
+  // Keep both branches packageable: correct answers include a full stop,
+  // while the immediate wrong-answer hint remains the shorter phrase.
+  add(`It makes ${round.answer}.`);
   add(`It makes ${round.answer}`);
 });
 ODD_ONE_OUT_ROUNDS.forEach((round) => {

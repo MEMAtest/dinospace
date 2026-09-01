@@ -3315,5 +3315,12 @@ export const OFFLINE_VOICE_MANIFEST = {
   "fb6d6cd2": "/audio/en/fb6d6cd2-matilda.mp3",
   "fc715042": "/audio/en/fc715042-matilda.mp3",
   "fecec241": "/audio/en/fecec241-matilda.mp3",
-  "fb71ea00": "/audio/en/fb71ea00-matilda.mp3"
+  "fb71ea00": "/audio/en/fb71ea00-matilda.mp3",
+  "26a4559d": "/audio/en/26a4559d-matilda.mp3",
+  "3ae7223a": "/audio/en/3ae7223a-matilda.mp3",
+  "08dde6a8": "/audio/en/08dde6a8-matilda.mp3",
+  "78cb104d": "/audio/en/78cb104d-matilda.mp3",
+  "a15d77de": "/audio/en/a15d77de-matilda.mp3",
+  "a983f1c4": "/audio/en/a983f1c4-matilda.mp3",
+  "c5e997a4": "/audio/en/c5e997a4-matilda.mp3"
 };
