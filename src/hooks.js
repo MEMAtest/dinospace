@@ -1,35 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getOfflineVoiceClip } from './data/offlineVoice.js';
 
-const FRIENDLY_VOICE_NAMES = [
-  'Samantha (Enhanced)',
-  'Ava (Premium)',
-  'Ava (Enhanced)',
-  'Samantha',
-  'Ava',
-  'Victoria',
-  'Google UK English Female',
-  'Google US English',
-  'Karen',
-  'Moira',
-  'Zoe',
-  'Allison',
-];
-
-const pickFriendlyVoice = (voices, lang) => {
-  if (!voices || voices.length === 0) return null;
-  const langPrefix = lang?.split('-')[0]?.toLowerCase();
-  const matching = langPrefix
-    ? voices.filter((voice) => voice.lang?.toLowerCase().startsWith(langPrefix))
-    : voices;
-  const pool = matching.length ? matching : voices;
-  const friendly = pool.find((voice) =>
-    FRIENDLY_VOICE_NAMES.some((name) => voice.name.toLowerCase().includes(name.toLowerCase())),
-  );
-  const gentle = pool.find((voice) => /female|child|junior/i.test(voice.name));
-  return friendly || gentle || pool[0];
-};
-
 let hadUserGesture = false;
 if (typeof window !== 'undefined') {
   const markGesture = () => { hadUserGesture = true; };
@@ -324,7 +295,6 @@ export const useSfx = (enabled) => {
 const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v4';
 const PREVIOUS_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v3';
 const LEGACY_VOICE_MODE_STORAGE_KEY = 'amari_voice_mode';
-const PREMIUM_VOICE_TIMEOUT_MS = 6000;
 const MAX_PREMIUM_VOICE_CACHE = 24;
 // Packaged ElevenLabs clips are part of every web and Android build. The env
 // flag controls only generation of a clip that is not already bundled.
@@ -359,13 +329,11 @@ const getIsAppleMobile = () => {
 
 export const useVoice = (enabled) => {
   const enabledRef = useRef(enabled);
-  const voiceRef = useRef(null);
   const queueRef = useRef(null);
   const premiumRequestRef = useRef(null);
   const premiumRequestKeyRef = useRef(null);
   const premiumAudioRef = useRef(null);
   const premiumAudioUrlRef = useRef(null);
-  const fallbackTimerRef = useRef(null);
   const pendingPremiumGestureCleanupRef = useRef(null);
   const premiumCacheRef = useRef(new Map());
   const voiceModeRef = useRef('premium');
@@ -391,10 +359,6 @@ export const useVoice = (enabled) => {
 
   const cancelPremiumVoice = useCallback(() => {
     clearPendingPremiumGesture();
-    if (fallbackTimerRef.current) {
-      clearTimeout(fallbackTimerRef.current);
-      fallbackTimerRef.current = null;
-    }
     if (premiumRequestRef.current) {
       premiumRequestRef.current.abort();
       premiumRequestRef.current = null;
@@ -407,7 +371,6 @@ export const useVoice = (enabled) => {
     enabledRef.current = enabled;
     if (!enabled) {
       cancelPremiumVoice();
-      window.speechSynthesis?.cancel();
     }
   }, [cancelPremiumVoice, enabled]);
 
@@ -420,32 +383,10 @@ export const useVoice = (enabled) => {
     }
   }, [voiceMode]);
 
-  // Cache voice selection — voices load async on many browsers.
-  useEffect(() => {
-    const synth = typeof window !== 'undefined' && window.speechSynthesis;
-    if (!synth) return undefined;
-
-    const updateVoice = () => {
-      const voices = synth.getVoices();
-      voiceRef.current = pickFriendlyVoice(voices, 'en-US');
-    };
-
-    updateVoice();
-    synth.addEventListener('voiceschanged', updateVoice);
-    return () => synth.removeEventListener('voiceschanged', updateVoice);
-  }, []);
-
   useEffect(() => () => {
     cancelPremiumVoice();
-    window.speechSynthesis?.cancel();
     if (queueRef.current) clearTimeout(queueRef.current);
   }, [cancelPremiumVoice]);
-
-  // Device speech is deliberately disabled. Every prompt must use a reviewed
-  // packaged ElevenLabs clip or a verified ElevenLabs response; a system voice
-  // would make Android/Fire pronunciation inconsistent and violates the app's
-  // offline narration contract.
-  const speakOnDevice = useCallback(() => {}, []);
 
   const setVoiceMode = useCallback((nextMode) => {
     if (nextMode !== 'premium') return;
@@ -462,7 +403,6 @@ export const useVoice = (enabled) => {
     const requestKey = `${lang}:${text}`;
     if (premiumRequestRef.current && premiumRequestKeyRef.current === requestKey) return;
     cancelPremiumVoice();
-    window.speechSynthesis?.cancel();
     if (queueRef.current) {
       clearTimeout(queueRef.current);
       queueRef.current = null;
@@ -476,26 +416,13 @@ export const useVoice = (enabled) => {
       && typeof window.fetch === 'function'
       && window.navigator.onLine !== false;
 
-    const premiumOnly = voiceModeRef.current === 'premium';
-    let fellBack = false;
-    const fallBackToDevice = () => {
-      if (fellBack) return;
-      fellBack = true;
-      cancelPremiumVoice();
-      speakOnDevice(text, options);
-    };
     const handlePremiumFailure = () => {
       setPremiumStatus('unavailable');
-      if (!premiumOnly) fallBackToDevice();
     };
 
     const cacheKey = requestKey;
     const waitForPremiumGesture = (audioBlob) => {
       clearPendingPremiumGesture();
-      if (fallbackTimerRef.current) {
-        clearTimeout(fallbackTimerRef.current);
-        fallbackTimerRef.current = null;
-      }
 
       const retry = () => {
         clearPendingPremiumGesture();
@@ -509,11 +436,7 @@ export const useVoice = (enabled) => {
       };
     };
     const playPremiumAudio = (audioBlob) => {
-      if (fellBack || !enabledRef.current) return;
-      if (fallbackTimerRef.current) {
-        clearTimeout(fallbackTimerRef.current);
-        fallbackTimerRef.current = null;
-      }
+      if (!enabledRef.current) return;
 
       const audioUrl = URL.createObjectURL(audioBlob);
       const audio = new Audio(audioUrl);
@@ -546,18 +469,13 @@ export const useVoice = (enabled) => {
             return;
           }
 
-          // Mobile browsers can block the automatic welcome narration. Keep
-          // the ElevenLabs audio and retry it on the first real tap/key press
-          // instead of silently switching to the computer voice.
+          // Mobile browsers can block automatic playback. Keep the ElevenLabs
+          // audio and retry it on the first real tap/key press.
           audio.onerror = null;
           audio.pause();
           if (premiumAudioRef.current === audio) premiumAudioRef.current = null;
           URL.revokeObjectURL(audioUrl);
           if (premiumAudioUrlRef.current === audioUrl) premiumAudioUrlRef.current = null;
-          if (fallbackTimerRef.current) {
-            clearTimeout(fallbackTimerRef.current);
-            fallbackTimerRef.current = null;
-          }
           waitForPremiumGesture(audioBlob);
         });
       }
@@ -597,8 +515,6 @@ export const useVoice = (enabled) => {
       return;
     }
 
-    // Never substitute Android/browser speech synthesis. A prompt is either a
-    // reviewed packaged ElevenLabs clip or a verified ElevenLabs API response.
     if (!premium) {
       setPremiumStatus('unavailable');
       return;
@@ -609,12 +525,6 @@ export const useVoice = (enabled) => {
       // prompts above remain available from the bundled ElevenLabs clips.
       setPremiumStatus('unavailable');
       return;
-    }
-
-    // An explicit Premium choice must not silently become a device voice
-    // because a mobile connection takes a few seconds to respond.
-    if (!premiumOnly) {
-      fallbackTimerRef.current = setTimeout(fallBackToDevice, PREMIUM_VOICE_TIMEOUT_MS);
     }
 
     const cachedAudio = premiumCacheRef.current.get(cacheKey);
@@ -645,7 +555,7 @@ export const useVoice = (enabled) => {
         return audioBlob;
       })
       .then((audioBlob) => {
-        if (fellBack || controller.signal.aborted) return;
+        if (controller.signal.aborted) return;
         if (!audioBlob) {
           premiumRequestRef.current = null;
           premiumRequestKeyRef.current = null;
@@ -667,7 +577,7 @@ export const useVoice = (enabled) => {
         premiumRequestKeyRef.current = null;
         handlePremiumFailure();
       });
-  }, [cancelPremiumVoice, clearPendingPremiumGesture, speakOnDevice]);
+  }, [cancelPremiumVoice, clearPendingPremiumGesture]);
 
   return { speak, voiceMode, setVoiceMode, premiumStatus, premiumEnabled: PACKAGED_NARRATOR_ENABLED };
 };
