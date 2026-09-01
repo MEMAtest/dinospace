@@ -83,7 +83,10 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         } else {
           setShowAnswer(true);
           setAnimating(false);
-          speak(`${praise} ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b} equals ${answer}!`);
+          // Keep the spoken feedback short and fully packageable offline. The
+          // animated number line already demonstrates each jump; narration
+          // only needs to confirm the result after the animation.
+          speak(`The answer is ${answer}.`);
           nextRoundTimerRef.current = setTimeout(newProblem, 900);
         }
       };

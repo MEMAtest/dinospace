@@ -1,11 +1,12 @@
 import {
-  ADDITION_LEVELS, ADVANCED_PATTERN_ROUNDS, ASTRONAUT_CATEGORIES, ASTRONAUT_PROFILES,
+  ADDITION_LEVELS, ADVANCED_NUMBER_PATTERN_ROUNDS, ADVANCED_PATTERN_ROUNDS, ASTRONAUT_CATEGORIES, ASTRONAUT_PROFILES,
   BLEND_WORDS, CHESS_PIECES, CHESS_PUZZLES, COLOR_MIX_ROUNDS, DINO_LEVELS,
   ENGLISH_PRAISE, GERMAN_PRAISE, HANGMAN_WORDS, LETTERS, MEMORY_LEVELS, MOVE_PRAISE,
   NUMBER_PATTERN_ROUNDS, ODD_ONE_OUT_ROUNDS, PATTERN_ROUNDS, PHONICS_ITEMS,
   PLANETS, SHAPES, SUBTRACTION_LEVELS, TRACE_LETTERS, WORD_BUILDER_WORDS,
 } from '../src/data/index.js';
 import { DECODABLE_CAPTIONS, PHASE_WORDS, TRICKY_WORDS } from '../src/data/literacy.js';
+import { SPOT_DIFFERENCE_ROUNDS } from '../src/data/spotDifference.js';
 import { normalizeVoiceText, voiceClipKey } from '../src/data/voiceKey.js';
 
 const corpus = new Map();
@@ -49,9 +50,13 @@ ENGLISH_PRAISE.forEach((praise) => add(praise));
 });
 add('Du hast alle gefunden. Super!', 'de-DE');
 
+Object.values(SPOT_DIFFERENCE_ROUNDS).forEach((round) => {
+  add(`Spot the difference. Compare the two ${round.title} pictures carefully. Find ${round.differences.length} changes.`);
+});
+
 SHAPES.forEach((shape) => add(`Trace the ${shape.toLowerCase()}. Follow the glowing flight path.`));
 skyPraise.forEach((praise) => SHAPES.forEach((shape) => add(`${praise} You traced the ${shape}.`)));
-for (let piece = 1; piece <= 9; piece += 1) add(`Piece ${piece} goes in the glowing space.`);
+for (let piece = 1; piece <= 16; piece += 1) add(`Piece ${piece} goes in the glowing space.`);
 for (let number = 1; number <= 15; number += 1) add(`${number}`);
 
 LETTERS.forEach(({ letter, word }) => add(`Find the letter ${letter}. ${letter} is for ${word}.`));
@@ -103,18 +108,44 @@ HANGMAN_WORDS.forEach(({ word, clue, category }) => {
 });
 for (let shields = 1; shields <= 5; shields += 1) add(`Not this time. You have ${shields} shields left.`);
 
-MEMORY_LEVELS.forEach((level, index) => add(`Memory level ${index + 1}. ${level.name}.`));
-[...PATTERN_ROUNDS, ...ADVANCED_PATTERN_ROUNDS, ...NUMBER_PATTERN_ROUNDS]
-  .forEach(({ label }) => add(`What comes next? ${label}`));
+const MEMORY_CARD_NAMES = {
+  '🐶': 'dog', '🦊': 'fox', '🐸': 'frog', '🐵': 'monkey', '🦄': 'unicorn', '🐙': 'octopus',
+  '🐳': 'whale', '🐬': 'dolphin', '🦈': 'shark', '🐢': 'turtle', '🪼': 'jellyfish', '🦀': 'crab',
+  '🦑': 'squid', '🐟': 'fish', '🚀': 'rocket', '🛸': 'flying saucer', '🌟': 'glowing star',
+  '🌙': 'moon', '🪐': 'ringed planet', '☄️': 'comet', '⭐️': 'star', '🛰️': 'satellite',
+  '👽': 'alien', '🌌': 'galaxy', '🎈': 'balloon', '🎉': 'party popper', '🥳': 'party face',
+  '🎂': 'cake', '🍭': 'lolly', '🍩': 'doughnut', '🧁': 'cupcake', '🍓': 'strawberry',
+  '🍕': 'pizza', '🍟': 'chips', '🍉': 'watermelon', '🍬': 'sweet', '🦕': 'long-neck dinosaur',
+  '🦖': 'T-rex', '🦴': 'bone', '🌋': 'volcano', '🥚': 'egg', '🪨': 'rock', '🌿': 'leaf',
+  '🚗': 'car', '✈️': 'aeroplane', '🚂': 'train', '🚁': 'helicopter', '🏎️': 'racing car',
+  '🚒': 'fire engine', '🍎': 'apple', '🍌': 'banana', '🍇': 'grapes', '🥕': 'carrot',
+  '🧀': 'cheese', '🍪': 'biscuit', '🥤': 'drink', '🌽': 'corn', '👨‍🚀': 'astronaut',
+  '🌍': 'Earth', '🔭': 'telescope',
+};
+
+MEMORY_LEVELS.forEach((level, index) => {
+  add(`Memory level ${index + 1}. ${level.name}.`);
+  level.emojis.forEach((emoji) => {
+    const name = MEMORY_CARD_NAMES[emoji] || 'picture';
+    add(`You found a ${name}. Remember where it is.`);
+    add(`A pair of ${name}s!`);
+  });
+});
+add('Those pictures are different. Try to remember where each one is.');
+add('Find the matching pairs.');
+
+[...PATTERN_ROUNDS, ...ADVANCED_PATTERN_ROUNDS, ...NUMBER_PATTERN_ROUNDS, ...ADVANCED_NUMBER_PATTERN_ROUNDS]
+  .forEach(({ label, rule }) => {
+    add(`What comes next? ${label}`);
+    add(`The rule is ${rule}`);
+  });
 
 COLOR_MIX_ROUNDS.forEach((round) => {
   add(`What color do ${round.name1} and ${round.name2} make when mixed together?`);
   add(`It makes ${round.answer}`);
-  GERMAN_PRAISE.forEach((praise) => add(`${round.answer}! ${praise}`));
 });
 ODD_ONE_OUT_ROUNDS.forEach((round) => {
   add(`Which one does not belong? ${round.hint}`);
-  GERMAN_PRAISE.forEach((praise) => add(`${praise} ${round.odd} doesn't belong with the ${round.category}!`));
 });
 
 const maxAddition = Math.max(...ADDITION_LEVELS.map((level) => level.maxNum));
@@ -138,16 +169,28 @@ for (let a = 2; a <= 5; a += 1) {
 for (let a = 1; a <= 15; a += 1) {
   for (let b = 1; b <= 15 - a; b += 1) {
     add(`What is ${a} plus ${b}?`);
-    GERMAN_PRAISE.forEach((praise) => add(`${praise} ${a} plus ${b} equals ${a + b}!`));
   }
 }
-for (let a = 3; a <= 12; a += 1) {
-  for (let b = 2; b <= a; b += 1) {
-    add(`What is ${a} minus ${b}?`);
-    GERMAN_PRAISE.forEach((praise) => add(`${praise} ${a} minus ${b} equals ${a - b}!`));
-  }
+for (let answer = 0; answer <= maxAddition * 2; answer += 1) add(`The answer is ${answer}.`);
+for (let hour = 1; hour <= 12; hour += 1) {
+  add(`Show me ${hour} o'clock on the clock!`);
+  add(`The clock shows ${hour} o'clock.`);
+  [0, 15, 30, 45].forEach((minute) => {
+    const label = minute === 0
+      ? `${hour} o'clock`
+      : minute === 30
+        ? `half past ${hour}`
+        : minute === 15
+          ? `quarter past ${hour}`
+          : `quarter to ${hour === 12 ? 1 : hour + 1}`;
+    add(`The clock shows ${label}.`);
+    add(`The time is ${label}.`);
+  });
 }
-for (let hour = 1; hour <= 12; hour += 1) add(`Show me ${hour} o'clock on the clock!`);
+
+['Dino Park', 'River Valley', 'Moon Camp'].forEach((scene) => {
+  add(`Build the ${scene} picture. Choose a piece, then tap its matching place.`);
+});
 
 DINO_LEVELS.forEach((level) => add(`Welcome to ${level.name}. ${level.hint}`));
 Object.values(Object.fromEntries(DINO_LEVELS.flatMap((level) => level.dinos.map((dino) => [dino.name, dino]))))

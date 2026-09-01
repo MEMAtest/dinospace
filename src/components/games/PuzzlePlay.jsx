@@ -102,7 +102,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
       playSfx('success');
       onCelebrate(praise, 6, 180);
       onGameEvent?.('puzzle', 'level_completed');
-      speak(`Amazing! You built the whole ${level.scene.title} picture.`);
+      speak(praise);
     } else {
       setMessage(`Great fit! ${nextPlaced.filter(Boolean).length} of ${nextPlaced.length} pieces placed.`);
     }

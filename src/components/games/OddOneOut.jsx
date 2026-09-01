@@ -63,7 +63,7 @@ const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
     setScore((s) => s + 1);
     setSkillRun((current) => Math.min(current + 1, 5));
     playSfx('success');
-    speak(`${praise} ${round.hint}`);
+    speak(praise);
     onCelebrate(praise, 4, 200);
     onGameEvent?.('oddoneout', 'answer_correct', { skill: 'classification-and-reasoning', item: round.odd, response: reason, expected: round.hint, correct: true, firstAttempt: true, independent: true });
     setTimeout(nextRound, 1250);

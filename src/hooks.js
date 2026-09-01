@@ -441,60 +441,11 @@ export const useVoice = (enabled) => {
     if (queueRef.current) clearTimeout(queueRef.current);
   }, [cancelPremiumVoice]);
 
-  const speakOnDevice = useCallback((text, { lang = 'en-US', rate = 0.75, pitch = 1.28 } = {}) => {
-    if (!enabledRef.current || !text) return;
-    if (typeof window === 'undefined' || !window.speechSynthesis) return;
-
-    const synth = window.speechSynthesis;
-    synth.cancel();
-    if (queueRef.current) {
-      clearTimeout(queueRef.current);
-      queueRef.current = null;
-    }
-
-    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
-
-    const doSpeak = () => {
-      if (!voiceRef.current) {
-        voiceRef.current = pickFriendlyVoice(synth.getVoices(), lang);
-      }
-      // Always reselect for the requested language. Reusing the cached English
-      // system voice is what made German fallback pronunciation sound wrong.
-      const preferred = pickFriendlyVoice(synth.getVoices(), lang) || voiceRef.current;
-
-      const speakSentence = (index) => {
-        if (index >= sentences.length || !enabledRef.current) return;
-        const utterance = new SpeechSynthesisUtterance(sentences[index].trim());
-        utterance.lang = lang;
-        utterance.rate = rate + (Math.random() * 0.06 - 0.03);
-        utterance.pitch = pitch;
-        utterance.volume = 1;
-        if (preferred) utterance.voice = preferred;
-        utterance.onend = () => {
-          if (index < sentences.length - 1 && enabledRef.current) {
-            queueRef.current = setTimeout(() => speakSentence(index + 1), 350);
-          }
-        };
-        synth.speak(utterance);
-      };
-
-      speakSentence(0);
-    };
-
-    if (!voiceRef.current && synth.getVoices().length === 0) {
-      const onReady = () => {
-        voiceRef.current = pickFriendlyVoice(synth.getVoices(), lang);
-        doSpeak();
-      };
-      synth.addEventListener('voiceschanged', onReady, { once: true });
-      queueRef.current = setTimeout(() => {
-        synth.removeEventListener('voiceschanged', onReady);
-        doSpeak();
-      }, 300);
-    } else {
-      doSpeak();
-    }
-  }, []);
+  // Device speech is deliberately disabled. Every prompt must use a reviewed
+  // packaged ElevenLabs clip or a verified ElevenLabs response; a system voice
+  // would make Android/Fire pronunciation inconsistent and violates the app's
+  // offline narration contract.
+  const speakOnDevice = useCallback(() => {}, []);
 
   const setVoiceMode = useCallback((nextMode) => {
     if (nextMode !== 'premium') return;

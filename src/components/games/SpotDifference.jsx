@@ -52,7 +52,7 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       setSkillRun((current) => Math.min(current + 1, 5));
       onCelebrate(praise, 6, 80);
       onGameEvent?.('spot', 'level_completed');
-      speak(`${praise} You found all ${round.differences.length} differences.`);
+      speak(praise);
     }
   };
 

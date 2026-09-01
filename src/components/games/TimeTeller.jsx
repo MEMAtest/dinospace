@@ -51,7 +51,7 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
       setSkillRun((current) => Math.min(current + 1, 5));
       setLocked(true);
       playSfx('success');
-      speak(`${praise} That's ${timeLabel(target)}!`);
+      speak(`The time is ${timeLabel(target)}.`);
       onCelebrate(praise, 4, 200);
       onGameEvent?.('timeteller', 'answer_correct', { skill: 'telling-time', item: timeLabel(target), response: timeLabel(h), expected: timeLabel(target), correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
       timeoutRef.current = setTimeout(newRound, 1100);

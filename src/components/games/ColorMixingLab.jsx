@@ -66,7 +66,7 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       setSkillRun((current) => Math.min(current + 1, 5));
       setLocked(true);
       playSfx('success');
-      speak(`${round.answer}! ${praise}`);
+      speak(`It makes ${round.answer}.`);
       onCelebrate(praise, 4, 200);
       onGameEvent?.('colormix', 'answer_correct');
       setTimeout(nextRound, 1100);

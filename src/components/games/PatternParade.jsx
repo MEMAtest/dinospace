@@ -63,7 +63,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       if (newStreak >= 3) playSfx('combo');
       onCelebrate(newStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, newStreak === 5 ? 14 : 4, 250);
       onGameEvent?.('pattern', 'answer_correct');
-      speak(`Correct. ${rule}`);
+      speak(`The rule is ${rule}`);
       setTimeout(nextRound, 2200);
     } else {
       setFeedback('Try again!');
