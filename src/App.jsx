@@ -1,4 +1,4 @@
-import { createElement, lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { THEME, ACHIEVEMENTS } from './data/index.js';
 import { createBursts, createConfetti, getPraise, getRank, getNextRank, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
 import { useSfx, useVoice, useInstallPrompt } from './hooks.js';
@@ -40,18 +40,17 @@ import IntroScreen from './components/games/IntroScreen.jsx';
 import astronautCrew from './assets/landing/amari-astronaut-robot.png';
 import titleTrex from './assets/dinos/title-trex.png';
 import titleTrike from './assets/dinos/title-trike.png';
+import KidPopIcon from './components/shared/KidPopIcon.jsx';
 import { recordLegacyGameEvent } from './data/learningProgress.js';
 import { BONUS_GAME_IDS as BONUS_GAME_ID_LIST, LEARNING_WORLDS, PRACTICE_GAME_IDS } from './data/learningWorlds.js';
 
 const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 
-const GameIcon = ({ Icon: IconComponent, image, alt, tone = 'text-indigo-600', label }) => (
-  <span className="grid h-20 w-24 place-items-center rounded-3xl border-2 border-white/70 bg-white/85 p-2 shadow-[0_6px_0_rgba(15,23,42,.14),0_10px_20px_rgba(15,23,42,.16)]" aria-label={label}>
-    {image ? <img src={image} alt={alt} className="h-full w-full object-contain drop-shadow-[0_5px_3px_rgba(15,23,42,.25)]" /> : createElement(IconComponent, { size: 48, strokeWidth: 2.6, className: tone, 'aria-hidden': true })}
-  </span>
+const GameIcon = ({ Icon: IconComponent, image, alt, label, kind = 'default' }) => (
+  <KidPopIcon Icon={IconComponent} image={image} alt={alt} label={label} kind={kind} />
 );
 
-const icon = (Icon, tone, label) => <GameIcon Icon={Icon} tone={tone} label={label} />;
+const icon = (Icon, tone, label, kind = 'default') => <GameIcon Icon={Icon} tone={tone} label={label} kind={kind} />;
 
 const WORLD_ICON_CONFIG = {
   'read-write': [BookOpen, 'text-fuchsia-600'],
@@ -62,36 +61,36 @@ const WORLD_ICON_CONFIG = {
 };
 
 const WorldIcon = ({ world, compact = false }) => {
-  const [IconComponent, tone] = WORLD_ICON_CONFIG[world.id] || [Sparkles, 'text-indigo-600'];
-  return <span className={`inline-grid place-items-center border-2 border-white/70 bg-white/85 shadow-[0_5px_0_rgba(15,23,42,.14),0_9px_16px_rgba(15,23,42,.14)] ${compact ? 'h-7 w-7 rounded-lg' : 'h-16 w-20 rounded-3xl'}`} aria-label={`${world.title} icon`}>{createElement(IconComponent, { size: compact ? 17 : 38, strokeWidth: 2.6, className: tone, 'aria-hidden': true })}</span>;
+  const [IconComponent] = WORLD_ICON_CONFIG[world.id] || [Sparkles, 'text-indigo-600'];
+  return <KidPopIcon Icon={IconComponent} label={`${world.title} icon`} kind={`world-${world.id}`} compact={compact} world />;
 };
 
 const GAME_MENU_ITEMS = [
-  { id: 'tictactoe', icon: icon(Grid3X3, 'text-cyan-600', 'Cosmic noughts and crosses'), title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
-  { id: 'hangman', icon: <GameIcon image={titleTrex} alt="Rex the complete T-Rex" label="Rex the dinosaur" />, title: 'Dino Hangman', desc: 'Rescue dinosaur words!', color: 'bg-gradient-to-br from-fuchsia-500 via-purple-600 to-indigo-700', category: 'Words', badge: 'NEW' },
-  { id: 'dino', icon: <GameIcon image={titleTrike} alt="Trix the complete Triceratops" label="Trix the triceratops" />, title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' },
-  { id: 'jet', icon: icon(Rocket, 'text-sky-600', 'Rocket drawing shapes'), title: 'Sky Shapes', desc: 'Draw with a jet!', color: 'bg-gradient-to-br from-sky-400 to-blue-500', category: 'Create' },
-  { id: 'solar', icon: icon(Sun, 'text-amber-500', 'The solar system'), title: 'Solar System', desc: 'Visit the planets', color: 'bg-gradient-to-br from-indigo-500 to-violet-600', category: 'Discover' },
-  { id: 'german', icon: icon(CarFront, 'text-red-600', 'German garage car'), title: 'German Garage', desc: 'Learn colours in German', color: 'bg-gradient-to-br from-red-400 to-rose-500', category: 'Words' },
-  { id: 'math', icon: icon(Truck, 'text-orange-600', 'Monster math truck'), title: 'Monster Math', desc: 'Stunt-jump counting', color: 'bg-gradient-to-br from-orange-400 to-red-500', category: 'Maths' },
-  { id: 'letters', icon: icon(Rocket, 'text-teal-600', 'Letter launch rocket'), title: 'Letter Launch', desc: 'Letters and sounds', color: 'bg-gradient-to-br from-teal-400 to-cyan-500', category: 'Words' },
-  { id: 'memory', icon: icon(Brain, 'text-rose-600', 'Memory match brain'), title: 'Memory Match', desc: 'Find the pairs', color: 'bg-gradient-to-br from-rose-400 to-pink-500', category: 'Quick Think' },
-  { id: 'pattern', icon: icon(Shapes, 'text-amber-600', 'Pattern shapes'), title: 'Pattern Parade', desc: 'Finish the pattern', color: 'bg-gradient-to-br from-amber-400 to-orange-500', category: 'Quick Think' },
-  { id: 'spot', icon: icon(ScanSearch, 'text-indigo-700', 'Find the difference'), title: 'Spot the Difference', desc: 'Find what changed', color: 'bg-gradient-to-br from-indigo-400 to-blue-600', category: 'Quick Think' },
-  { id: 'puzzle', icon: icon(Puzzle, 'text-amber-600', 'Picture puzzle'), title: 'Puzzle Pop', desc: 'Build the picture!', color: 'bg-gradient-to-br from-yellow-400 to-amber-500', category: 'Quick Think' },
-  { id: 'trace', icon: icon(PenLine, 'text-blue-700', 'Letter tracing pencil'), title: 'Letter Trace', desc: 'Trace big and small letters', color: 'bg-gradient-to-br from-blue-400 to-indigo-500', category: 'Words' },
-  { id: 'phonics', icon: icon(AudioLines, 'text-emerald-700', 'Hear the sounds'), title: 'Sound Safari', desc: 'Match the sounds', color: 'bg-gradient-to-br from-emerald-400 to-green-600', category: 'Words' },
-  { id: 'addition', icon: icon(Plus, 'text-teal-700', 'Addition plus'), title: 'Addition Adventure', desc: 'Add it up!', color: 'bg-gradient-to-br from-teal-500 to-emerald-600', category: 'Maths' },
-  { id: 'subtraction', icon: icon(Minus, 'text-violet-700', 'Subtraction minus'), title: 'Subtraction Station', desc: 'Take it away!', color: 'bg-gradient-to-br from-violet-500 to-purple-700', category: 'Maths' },
-  { id: 'astronaut', icon: icon(Gamepad2, 'text-purple-700', 'Astronaut mission'), title: 'Astronaut Academy', desc: 'Explore space heroes', color: 'bg-gradient-to-br from-purple-600 to-indigo-800', category: 'Discover' },
-  { id: 'counting', icon: icon(Hash, 'text-indigo-700', 'Count the stars'), title: 'Count the Stars', desc: 'Tap and count!', color: 'bg-gradient-to-br from-indigo-600 to-blue-800', category: 'Maths' },
-  { id: 'words', icon: icon(Type, 'text-pink-700', 'Spelling letters'), title: 'Spelling Studio', desc: 'Learn sounds and spell!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' },
-  { id: 'storybooks', icon: icon(BookOpen, 'text-indigo-700', 'Storybook library'), title: 'Storybook Studio', desc: 'Read, listen and explore!', color: 'bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600', category: 'Words', badge: 'NEW' },
-  { id: 'colormix', icon: icon(Palette, 'text-fuchsia-700', 'Colour mixing palette'), title: 'Colour Mixing Lab', desc: 'Mix colours together!', color: 'bg-gradient-to-br from-fuchsia-500 to-purple-600', category: 'Create' },
-  { id: 'oddoneout', icon: icon(Search, 'text-cyan-700', 'Find the odd one out'), title: 'Odd One Out', desc: 'Which one does not belong?', color: 'bg-gradient-to-br from-cyan-500 to-blue-600', category: 'Quick Think' },
-  { id: 'timeteller', icon: icon(Clock3, 'text-lime-700', 'Learning clock'), title: 'Time Teller', desc: 'Read the clock!', color: 'bg-gradient-to-br from-lime-500 to-green-600', category: 'Maths' },
-  { id: 'numberline', icon: icon(Truck, 'text-emerald-700', 'Number line jumper'), title: 'Number Line Jump', desc: 'Hop to the answer!', color: 'bg-gradient-to-br from-emerald-600 to-teal-700', category: 'Maths' },
-  { id: 'chess', icon: icon(Crown, 'text-amber-700', 'Chess crown'), title: 'Chess Explorers', desc: 'Learn chess pieces!', color: 'bg-gradient-to-br from-amber-600 to-yellow-800', category: 'Quick Think' },
+  { id: 'tictactoe', icon: icon(Grid3X3, 'text-cyan-600', 'Cosmic noughts and crosses', 'tictactoe'), title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' },
+  { id: 'hangman', icon: <GameIcon image={titleTrex} alt="Rex the complete T-Rex" label="Rex the dinosaur" kind="hangman" />, title: 'Dino Hangman', desc: 'Rescue dinosaur words!', color: 'bg-gradient-to-br from-fuchsia-500 via-purple-600 to-indigo-700', category: 'Words', badge: 'NEW' },
+  { id: 'dino', icon: <GameIcon image={titleTrike} alt="Trix the complete Triceratops" label="Trix the triceratops" kind="dino" />, title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' },
+  { id: 'jet', icon: icon(Rocket, 'text-sky-600', 'Rocket drawing shapes', 'jet'), title: 'Sky Shapes', desc: 'Draw with a jet!', color: 'bg-gradient-to-br from-sky-400 to-blue-500', category: 'Create' },
+  { id: 'solar', icon: icon(Sun, 'text-amber-500', 'The solar system', 'solar'), title: 'Solar System', desc: 'Visit the planets', color: 'bg-gradient-to-br from-indigo-500 to-violet-600', category: 'Discover' },
+  { id: 'german', icon: icon(CarFront, 'text-red-600', 'German garage car', 'german'), title: 'German Garage', desc: 'Learn colours in German', color: 'bg-gradient-to-br from-red-400 to-rose-500', category: 'Words' },
+  { id: 'math', icon: icon(Truck, 'text-orange-600', 'Monster math truck', 'math'), title: 'Monster Math', desc: 'Stunt-jump counting', color: 'bg-gradient-to-br from-orange-400 to-red-500', category: 'Maths' },
+  { id: 'letters', icon: icon(Rocket, 'text-teal-600', 'Letter launch rocket', 'letters'), title: 'Letter Launch', desc: 'Letters and sounds', color: 'bg-gradient-to-br from-teal-400 to-cyan-500', category: 'Words' },
+  { id: 'memory', icon: icon(Brain, 'text-rose-600', 'Memory match brain', 'memory'), title: 'Memory Match', desc: 'Find the pairs', color: 'bg-gradient-to-br from-rose-400 to-pink-500', category: 'Quick Think' },
+  { id: 'pattern', icon: icon(Shapes, 'text-amber-600', 'Pattern shapes', 'pattern'), title: 'Pattern Parade', desc: 'Finish the pattern', color: 'bg-gradient-to-br from-amber-400 to-orange-500', category: 'Quick Think' },
+  { id: 'spot', icon: icon(ScanSearch, 'text-indigo-700', 'Find the difference', 'spot'), title: 'Spot the Difference', desc: 'Find what changed', color: 'bg-gradient-to-br from-indigo-400 to-blue-600', category: 'Quick Think' },
+  { id: 'puzzle', icon: icon(Puzzle, 'text-amber-600', 'Picture puzzle', 'puzzle'), title: 'Puzzle Pop', desc: 'Build the picture!', color: 'bg-gradient-to-br from-yellow-400 to-amber-500', category: 'Quick Think' },
+  { id: 'trace', icon: icon(PenLine, 'text-blue-700', 'Letter tracing pencil', 'trace'), title: 'Letter Trace', desc: 'Trace big and small letters', color: 'bg-gradient-to-br from-blue-400 to-indigo-500', category: 'Words' },
+  { id: 'phonics', icon: icon(AudioLines, 'text-emerald-700', 'Hear the sounds', 'phonics'), title: 'Sound Safari', desc: 'Match the sounds', color: 'bg-gradient-to-br from-emerald-400 to-green-600', category: 'Words' },
+  { id: 'addition', icon: icon(Plus, 'text-teal-700', 'Addition plus', 'addition'), title: 'Addition Adventure', desc: 'Add it up!', color: 'bg-gradient-to-br from-teal-500 to-emerald-600', category: 'Maths' },
+  { id: 'subtraction', icon: icon(Minus, 'text-violet-700', 'Subtraction minus', 'subtraction'), title: 'Subtraction Station', desc: 'Take it away!', color: 'bg-gradient-to-br from-violet-500 to-purple-700', category: 'Maths' },
+  { id: 'astronaut', icon: icon(Gamepad2, 'text-purple-700', 'Astronaut mission', 'astronaut'), title: 'Astronaut Academy', desc: 'Explore space heroes', color: 'bg-gradient-to-br from-purple-600 to-indigo-800', category: 'Discover' },
+  { id: 'counting', icon: icon(Hash, 'text-indigo-700', 'Count the stars', 'counting'), title: 'Count the Stars', desc: 'Tap and count!', color: 'bg-gradient-to-br from-indigo-600 to-blue-800', category: 'Maths' },
+  { id: 'words', icon: icon(Type, 'text-pink-700', 'Spelling letters', 'words'), title: 'Spelling Studio', desc: 'Learn sounds and spell!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' },
+  { id: 'storybooks', icon: icon(BookOpen, 'text-indigo-700', 'Storybook library', 'storybooks'), title: 'Storybook Studio', desc: 'Read, listen and explore!', color: 'bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600', category: 'Words', badge: 'NEW' },
+  { id: 'colormix', icon: icon(Palette, 'text-fuchsia-700', 'Colour mixing palette', 'colormix'), title: 'Colour Mixing Lab', desc: 'Mix colours together!', color: 'bg-gradient-to-br from-fuchsia-500 to-purple-600', category: 'Create' },
+  { id: 'oddoneout', icon: icon(Search, 'text-cyan-700', 'Find the odd one out', 'oddoneout'), title: 'Odd One Out', desc: 'Which one does not belong?', color: 'bg-gradient-to-br from-cyan-500 to-blue-600', category: 'Quick Think' },
+  { id: 'timeteller', icon: icon(Clock3, 'text-lime-700', 'Learning clock', 'timeteller'), title: 'Time Teller', desc: 'Read the clock!', color: 'bg-gradient-to-br from-lime-500 to-green-600', category: 'Maths' },
+  { id: 'numberline', icon: icon(Truck, 'text-emerald-700', 'Number line jumper', 'numberline'), title: 'Number Line Jump', desc: 'Hop to the answer!', color: 'bg-gradient-to-br from-emerald-600 to-teal-700', category: 'Maths' },
+  { id: 'chess', icon: icon(Crown, 'text-amber-700', 'Chess crown', 'chess'), title: 'Chess Explorers', desc: 'Learn chess pieces!', color: 'bg-gradient-to-br from-amber-600 to-yellow-800', category: 'Quick Think' },
 ];
 
 const BONUS_GAME_IDS = new Set(BONUS_GAME_ID_LIST);
@@ -410,7 +409,7 @@ export default function App() {
                 onClick={() => launchGame(game.id)}
                 className="flex min-h-20 items-center gap-3 rounded-2xl border border-slate-100 bg-white p-3 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
               >
-                <span className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-sky-50 text-3xl">{game.icon}</span>
+                <span className="grid h-12 w-12 shrink-0 place-items-center overflow-visible rounded-xl bg-sky-50 text-3xl"><span className="block origin-center scale-[.58]">{game.icon}</span></span>
                 <span><span className="block text-xs font-black uppercase tracking-wide text-orange-500">Step {index + 1}</span><strong className="text-base text-slate-900">{game.title}</strong></span>
               </button>
             ))}
@@ -431,7 +430,7 @@ export default function App() {
                   onClick={() => launchGame(game.id)}
                   className="flex min-w-48 items-center gap-3 rounded-2xl border border-white bg-white/85 p-3 text-left shadow-md transition hover:-translate-y-0.5 active:translate-y-0"
                 >
-                  <span className="grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-xl bg-indigo-50 text-3xl">{game.icon}</span>
+                  <span className="grid h-12 w-12 shrink-0 place-items-center overflow-visible rounded-xl bg-indigo-50 text-3xl"><span className="block origin-center scale-[.58]">{game.icon}</span></span>
                   <span><strong className="block text-sm text-slate-900">{game.title}</strong><span className="text-xs font-bold text-slate-500">{favouriteGames.includes(game.id) ? '★ Favourite' : '↺ Recent'}</span></span>
                 </button>
               ))}

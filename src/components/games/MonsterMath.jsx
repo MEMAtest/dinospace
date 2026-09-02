@@ -7,8 +7,10 @@ import { MULTIPLICATION_LIMITS } from '../../data/gameDifficulty.js';
 
 const makeProblem = (difficulty = 'starter') => {
   const [maxGroups, maxGroupSize] = MULTIPLICATION_LIMITS[difficulty] || MULTIPLICATION_LIMITS.starter;
-  const groups = Math.ceil(Math.random() * maxGroups);
-  const inEachGroup = Math.ceil(Math.random() * maxGroupSize);
+  // One-group and one-item questions are counting practice, not multiplication
+  // facts. Keep the visual model meaningful even in the starter band.
+  const groups = Math.max(2, Math.ceil(Math.random() * maxGroups));
+  const inEachGroup = Math.max(2, Math.ceil(Math.random() * maxGroupSize));
   return { a: groups, b: inEachGroup, ans: groups * inEachGroup };
 };
 
@@ -39,7 +41,26 @@ const MonsterMath = ({
   const [countStep, setCountStep] = useState(0);
   const [locked, setLocked] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
+  const [showTable, setShowTable] = useState(false);
+  const [tableFactor, setTableFactor] = useState(2);
+  const [tableQuizIndex, setTableQuizIndex] = useState(null);
+  const [tableQuizFeedback, setTableQuizFeedback] = useState('');
   const timersRef = useRef([]);
+
+  const tableFacts = useMemo(() => [2, 3, 4].map((multiple) => ({
+    multiple,
+    answer: tableFactor * multiple,
+    prompt: `${tableFactor} groups of ${multiple}. Let us jump and count to ${tableFactor * multiple}.`,
+  })), [tableFactor]);
+
+  const tableQuizOptions = useMemo(() => {
+    if (tableQuizIndex === null) return [];
+    const answer = tableFacts[tableQuizIndex]?.answer;
+    if (!Number.isFinite(answer)) return [];
+    return [...new Set([answer, Math.max(1, answer - tableFactor), answer + tableFactor, answer + 1])]
+      .slice(0, 4)
+      .sort((left, right) => ((left * 13) % 17) - ((right * 13) % 17));
+  }, [tableFacts, tableFactor, tableQuizIndex]);
 
   const clearTimers = useCallback(() => {
     timersRef.current.forEach((timer) => {
@@ -61,6 +82,42 @@ const MonsterMath = ({
     setLocked(false);
     setHadMistake(false);
   }, [clearTimers, difficulty]);
+
+  const startTableRecall = () => {
+    setShowTable(true);
+    setTableQuizIndex(0);
+    setTableQuizFeedback('Think first. You can hear the fact, then hide it and answer.');
+  };
+
+  const answerTableRecall = (answer) => {
+    if (tableQuizIndex === null) return;
+    const fact = tableFacts[tableQuizIndex];
+    if (!fact) return;
+    if (answer !== fact.answer) {
+      setTableQuizFeedback('Not yet. Hear the fact once, then try it again.');
+      speak(fact.prompt);
+      return;
+    }
+    const nextIndex = tableQuizIndex + 1;
+    playSfx('sparkle');
+    onGameEvent?.('math', 'table_recall_correct', {
+      skill: 'multiplication-recall',
+      item: `${tableFactor}x${fact.multiple}`,
+      response: answer,
+      expected: fact.answer,
+      correct: true,
+      firstAttempt: true,
+      independent: true,
+      difficulty,
+    });
+    if (nextIndex >= tableFacts.length) {
+      setTableQuizIndex(null);
+      setTableQuizFeedback(`Great recall — you practised the ${tableFactor}s.`);
+    } else {
+      setTableQuizIndex(nextIndex);
+      setTableQuizFeedback('Nice. Try the next fact from memory.');
+    }
+  };
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -141,6 +198,45 @@ const MonsterMath = ({
       </header>
 
       <main className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 pb-6 pt-2">
+        <section className="mb-3 w-full rounded-[1.7rem] border-4 border-white/80 bg-white/75 p-3 shadow-lg backdrop-blur" aria-labelledby="table-practice-heading">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 id="table-practice-heading" className="text-base font-black text-orange-900 sm:text-lg">Practise a table</h3>
+              <p className="text-xs font-bold text-orange-900/65">Hear each fact, then try it from memory.</p>
+            </div>
+            <div className="flex flex-wrap items-center justify-end gap-2">
+              <button type="button" onClick={startTableRecall} className="rounded-xl border-2 border-orange-300 bg-white px-3 py-2 text-sm font-black text-orange-800 shadow-sm active:translate-y-0.5">
+                Recall quiz
+              </button>
+              <button type="button" onClick={() => setShowTable((value) => !value)} className="rounded-xl bg-orange-500 px-3 py-2 text-sm font-black text-white shadow-md active:translate-y-0.5" aria-expanded={showTable}>
+              {showTable ? 'Hide table' : 'Show table'}
+              </button>
+            </div>
+          </div>
+          {showTable && (
+            <div className="mt-3 rounded-2xl bg-orange-50 p-3">
+              <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Choose a multiplication table">
+                {[2, 3, 4, 5].map((factor) => <button type="button" key={factor} onClick={() => setTableFactor(factor)} className={`rounded-full px-3 py-1.5 text-sm font-black ${tableFactor === factor ? 'bg-orange-600 text-white' : 'bg-white text-orange-800'}`} aria-pressed={tableFactor === factor}>{factor}s</button>)}
+              </div>
+              {tableQuizIndex === null ? (
+                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                  {tableFacts.map((fact) => <button type="button" key={fact.multiple} onClick={() => speak(fact.prompt)} className="rounded-xl border-2 border-orange-200 bg-white px-2 py-2 text-left shadow-sm transition hover:-translate-y-0.5 active:translate-y-0" aria-label={`Hear ${tableFactor} times ${fact.multiple}`}><span className="block text-xs font-black text-orange-500">Tap to hear</span><strong className="text-base text-slate-800">{tableFactor} × {fact.multiple} = {fact.answer}</strong></button>)}
+                </div>
+              ) : (
+                <div className="mt-3 rounded-2xl border-2 border-orange-200 bg-white p-3 text-center">
+                  <p className="text-xs font-black uppercase tracking-wide text-orange-500">Recall {tableQuizIndex + 1} of {tableFacts.length}</p>
+                  <p className="mt-1 text-2xl font-black text-slate-800">{tableFactor} × {tableFacts[tableQuizIndex].multiple} = ?</p>
+                  <div className="mt-2 flex flex-wrap justify-center gap-2">
+                    {tableQuizOptions.map((answer) => <button type="button" key={answer} onClick={() => answerTableRecall(answer)} className="min-w-16 rounded-xl border-2 border-orange-200 bg-orange-50 px-3 py-2 text-lg font-black text-orange-900 active:translate-y-0.5">{answer}</button>)}
+                  </div>
+                  <button type="button" onClick={() => speak(tableFacts[tableQuizIndex].prompt)} className="mt-2 text-sm font-black text-orange-700 underline">Hear this fact</button>
+                </div>
+              )}
+              {tableQuizFeedback && <p className="mt-2 text-xs font-bold text-orange-900/70" role="status">{tableQuizFeedback}</p>}
+              <p className="mt-2 text-xs font-bold text-orange-900/65">Listen once, hide the answer, recall it, then check. Revisit missed facts later instead of tapping until right.</p>
+            </div>
+          )}
+        </section>
         <section className={`w-full rounded-[2rem] border-4 border-white/70 bg-white/75 p-3 sm:p-4 text-center shadow-xl backdrop-blur ${shake ? 'animate-shake' : ''}`}>
           <div className="flex flex-wrap items-center justify-center gap-2 text-4xl sm:text-5xl font-black text-slate-800">
             <span className="math-number-card">{problem.a}</span>

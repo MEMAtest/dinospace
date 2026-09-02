@@ -23,8 +23,12 @@ const readEnvValue = async (name) => {
 const apiKey = await readEnvValue('ELEVENLABS_API_KEY');
 if (!apiKey && !voiceProxyUrl) throw new Error('ELEVENLABS_API_KEY or VOICE_PROXY_URL is required');
 const englishVoice = await readEnvValue('ELEVENLABS_VOICE_ID') || 'XrExE9yKIg1WjnnlVkGX';
-const germanVoice = await readEnvValue('ELEVENLABS_GERMAN_VOICE_ID') || englishVoice;
+const germanVoice = await readEnvValue('ELEVENLABS_GERMAN_VOICE_ID');
 const model = await readEnvValue('ELEVENLABS_MODEL_ID') || 'eleven_multilingual_v2';
+
+if (refreshGerman && !germanVoice) {
+  throw new Error('ELEVENLABS_GERMAN_VOICE_ID is required when refreshing German clips');
+}
 
 const legacy = new Map([
   ['en:welcome amari! your next learning adventure is ready.', 'welcome-amari-matilda.mp3'],

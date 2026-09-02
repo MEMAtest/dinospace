@@ -21,5 +21,8 @@ export const oddOneOutRoundIndexes = (difficulty) => difficulty === 'starter'
 export const colourRoundIndexes = (difficulty) => difficulty === 'starter'
   ? [0, 1, 2] : difficulty === 'growing' ? [0, 1, 2, 3, 4] : [3, 4, 5, 6];
 
-export const MULTIPLICATION_LIMITS = Object.freeze({ starter: [2, 3], growing: [4, 4], challenge: [6, 5] });
+// Keep the numerical bands inside the packaged ElevenLabs corpus. Challenge
+// is still a meaningful step up, but it must never produce a silent fact
+// offline.
+export const MULTIPLICATION_LIMITS = Object.freeze({ starter: [2, 3], growing: [4, 4], challenge: [5, 4] });
 export const NUMBER_LINE_LIMITS = Object.freeze({ starter: 10, growing: 15, challenge: 20 });

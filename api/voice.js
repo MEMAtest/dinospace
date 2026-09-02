@@ -7,6 +7,7 @@ const DEFAULT_ENGLISH_VOICE_ID = 'XrExE9yKIg1WjnnlVkGX'; // Matilda — warm, fr
 const requestBuckets = new Map();
 const ALLOWED_APP_ORIGINS = new Set([
   'https://dinospace-eight.vercel.app',
+  'https://dinospace.netlify.app',
   'https://dinospace-memas-projects-23a0001d.vercel.app',
   'https://dinospace-git-main-memas-projects-23a0001d.vercel.app',
   'http://localhost',
@@ -21,6 +22,9 @@ const applyCors = (request, response) => {
     response.setHeader('Vary', 'Origin');
     response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    // The browser verifies that dynamic audio came from ElevenLabs. Expose
+    // the provenance headers to cross-origin web and Android clients.
+    response.setHeader('Access-Control-Expose-Headers', 'X-Amari-Voice-Provider, X-Amari-Voice-Model, X-Amari-Voice-Profile');
   }
 };
 
@@ -78,8 +82,12 @@ export default async function handler(request, response) {
 
   const apiKey = process.env.ELEVENLABS_API_KEY;
   const requestedLanguage = payloadLanguage(request.body);
+  // German must use an explicitly selected German ElevenLabs voice. Falling
+  // back to the English narrator produces an accent/pronunciation mismatch,
+  // which is worse than declining the dynamic request. The offline German
+  // word pack remains available regardless of this optional API setting.
   const voiceId = requestedLanguage === 'de'
-    ? (process.env.ELEVENLABS_GERMAN_VOICE_ID || process.env.ELEVENLABS_VOICE_ID)
+    ? process.env.ELEVENLABS_GERMAN_VOICE_ID
     : (process.env.ELEVENLABS_ENGLISH_VOICE_ID || DEFAULT_ENGLISH_VOICE_ID);
   if (!apiKey || !voiceId) {
     response.status(204).end();
