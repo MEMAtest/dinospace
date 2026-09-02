@@ -110,7 +110,12 @@ const MonsterMath = ({
     setTableQuizIndex(null);
     setTableHadMistake(false);
     setTableQuizFeedback('Listen to each fact. The answers will hide when the recall round starts.');
-    tableFacts.forEach((fact, index) => {
+    // Start the first local clip directly inside the button gesture. This is
+    // important on Fire/Android, where a delayed Audio.play() can be blocked.
+    setTableQuizIndex(0);
+    speak(tableFacts[0].prompt);
+    tableFacts.slice(1).forEach((fact, offset) => {
+      const index = offset + 1;
       const timer = setTimeout(() => {
         setTableQuizIndex(index);
         speak(fact.prompt);
