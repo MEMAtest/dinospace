@@ -5,7 +5,7 @@ import { BONUS_GAME_IDS, LEARNING_WORLDS, PRACTICE_GAME_IDS } from '../src/data/
 const EXPECTED_GAME_IDS = [
   'tictactoe', 'hangman', 'dino', 'jet', 'solar', 'german', 'math', 'letters',
   'memory', 'pattern', 'spot', 'puzzle', 'trace', 'phonics', 'addition', 'subtraction',
-  'astronaut', 'counting', 'words', 'storybooks', 'colormix', 'oddoneout', 'timeteller', 'numberline', 'chess',
+  'astronaut', 'worldmap', 'counting', 'words', 'storybooks', 'colormix', 'oddoneout', 'timeteller', 'numberline', 'chess',
 ];
 
 test('five worlds map every game exactly once', () => {

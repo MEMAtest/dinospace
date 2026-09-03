@@ -8,7 +8,7 @@ import {
   DailyChallengeTracker, InstallAppPrompt, VoiceSettings,
 } from './components/shared/index.jsx';
 import {
-  AudioLines, BookOpen, Brain, CarFront, Clock3, Crown, Gamepad2, Grid3X3, Hash, Minus,
+  AudioLines, BookOpen, Brain, CarFront, Clock3, Crown, Gamepad2, Globe2, Grid3X3, Hash, Minus,
   Palette, PenLine, Plus, Puzzle, Rocket, ScanSearch, Search, Shapes, Sparkles, Sun, Truck, Type,
 } from 'lucide-react';
 import DinoDetective from './components/games/DinoDetective.jsx';
@@ -33,6 +33,7 @@ import TimeTeller from './components/games/TimeTeller.jsx';
 import NumberLineJump from './components/games/NumberLineJump.jsx';
 import ChessExplorers from './components/games/ChessExplorers.jsx';
 import TicTacToe from './components/games/TicTacToe.jsx';
+import CurriculumQuest from './components/games/CurriculumQuest.jsx';
 import DinoHangman from './components/games/Hangman.jsx';
 import StorybookStudio from './components/games/StorybookStudio.jsx';
 import ProgressDashboard from './components/games/ProgressDashboard.jsx';
@@ -83,6 +84,7 @@ const GAME_MENU_ITEMS = [
   { id: 'addition', icon: icon(Plus, 'text-teal-700', 'Addition plus', 'addition'), title: 'Addition Adventure', desc: 'Add it up!', color: 'bg-gradient-to-br from-teal-500 to-emerald-600', category: 'Maths' },
   { id: 'subtraction', icon: icon(Minus, 'text-violet-700', 'Subtraction minus', 'subtraction'), title: 'Subtraction Station', desc: 'Take it away!', color: 'bg-gradient-to-br from-violet-500 to-purple-700', category: 'Maths' },
   { id: 'astronaut', icon: icon(Gamepad2, 'text-purple-700', 'Astronaut mission', 'astronaut'), title: 'Astronaut Academy', desc: 'Explore space heroes', color: 'bg-gradient-to-br from-purple-600 to-indigo-800', category: 'Discover' },
+  { id: 'worldmap', icon: icon(Globe2, 'text-sky-700', 'Curriculum Quest world map', 'worldmap'), title: 'Curriculum Quest', desc: 'Geography, history and science', color: 'bg-gradient-to-br from-sky-500 to-indigo-600', category: 'Discover', badge: 'NEW' },
   { id: 'counting', icon: icon(Hash, 'text-indigo-700', 'Count the stars', 'counting'), title: 'Count the Stars', desc: 'Tap and count!', color: 'bg-gradient-to-br from-indigo-600 to-blue-800', category: 'Maths' },
   { id: 'words', icon: icon(Type, 'text-pink-700', 'Spelling letters', 'words'), title: 'Spelling Studio', desc: 'Learn sounds and spell!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' },
   { id: 'storybooks', icon: icon(BookOpen, 'text-indigo-700', 'Storybook library', 'storybooks'), title: 'Storybook Studio', desc: 'Read, listen and explore!', color: 'bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600', category: 'Words', badge: 'NEW' },
@@ -697,6 +699,17 @@ export default function App() {
         onGameEvent={recordGameEvent}
       />
     );
+  } else if (screen === 'worldmap') {
+    content = (
+      <CurriculumQuest
+        onBack={() => handleBack('worldmap')}
+        playSfx={playSfx}
+        soundOn={soundOn}
+        onToggleSound={() => setSoundOn((prev) => !prev)}
+        onCelebrate={celebrate}
+        onGameEvent={recordGameEvent}
+      />
+    );
   } else if (screen === 'counting') {
     content = (
       <CountTheStars
@@ -842,7 +855,7 @@ export default function App() {
       >
         {content}
       </Suspense>
-      {GAME_MENU_ITEMS.some((game) => game.id === screen) && !['jet', 'spot', 'storybooks'].includes(screen) && (
+      {GAME_MENU_ITEMS.some((game) => game.id === screen) && !['jet', 'spot', 'storybooks', 'worldmap'].includes(screen) && (
         <DailyChallengeTracker
           challenge={todaysChallenge}
           progress={challengeProgress}
