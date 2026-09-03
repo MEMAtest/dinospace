@@ -1,22 +1,39 @@
 // Bump this whenever the app shell changes.  It prevents an installed tablet
 // from continuing to serve an older JavaScript bundle after a production UI
 // release (for example, the story-maker progress screen).
-const CACHE_NAME = 'amari-discovery-v11';
+const CACHE_NAME = 'amari-discovery-v12';
 const PRECACHE_ASSETS = []; // __PRECACHE_ASSETS__
-const APP_SHELL = [
+const CORE_APP_SHELL = [
   '/',
   '/index.html',
   '/manifest.webmanifest',
   '/icons/amari-discovery-180.png',
   '/icons/amari-discovery-192.png',
   '/icons/amari-discovery-512.png',
-  ...PRECACHE_ASSETS,
 ];
+
+// Thousands of narration files must not be requested in one cache.addAll()
+// call: Android/Chrome can exhaust its concurrent request pool and reject the
+// whole service-worker install. Small sequential batches keep the install
+// reliable while still packaging the complete offline library.
+const cacheInBatches = async (cache, assets, batchSize = 24) => {
+  for (let index = 0; index < assets.length; index += batchSize) {
+    const batch = assets.slice(index, index + batchSize);
+    await Promise.all(batch.map(async (asset) => {
+      const response = await fetch(asset);
+      if (!response.ok) throw new Error(`Could not cache ${asset}: ${response.status}`);
+      await cache.put(asset, response);
+    }));
+  }
+};
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(APP_SHELL))
+      .then(async (cache) => {
+        await cache.addAll(CORE_APP_SHELL);
+        await cacheInBatches(cache, PRECACHE_ASSETS);
+      })
       .then(() => self.skipWaiting()),
   );
 });
