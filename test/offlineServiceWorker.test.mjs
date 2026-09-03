@@ -8,5 +8,8 @@ test('the offline library installs in bounded batches', async () => {
   assert.match(worker, /const CACHE_NAME = 'amari-discovery-v12'/);
   assert.match(worker, /cacheInBatches\(cache, PRECACHE_ASSETS\)/);
   assert.match(worker, /batchSize = 24/);
+  assert.match(worker, /cache\.match\(asset\)/);
+  assert.match(worker, /maxAttempts = 3/);
+  assert.match(worker, /cacheAsset\(cache, asset\)/);
   assert.doesNotMatch(worker, /cache\.addAll\(APP_SHELL\)/);
 });

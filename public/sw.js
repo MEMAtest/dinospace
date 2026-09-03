@@ -16,14 +16,31 @@ const CORE_APP_SHELL = [
 // call: Android/Chrome can exhaust its concurrent request pool and reject the
 // whole service-worker install. Small sequential batches keep the install
 // reliable while still packaging the complete offline library.
-const cacheInBatches = async (cache, assets, batchSize = 24) => {
-  for (let index = 0; index < assets.length; index += batchSize) {
-    const batch = assets.slice(index, index + batchSize);
-    await Promise.all(batch.map(async (asset) => {
+const cacheAsset = async (cache, asset, maxAttempts = 3) => {
+  if (await cache.match(asset)) return;
+
+  let lastError;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
       const response = await fetch(asset);
       if (!response.ok) throw new Error(`Could not cache ${asset}: ${response.status}`);
       await cache.put(asset, response);
-    }));
+      return;
+    } catch (error) {
+      lastError = error;
+      if (attempt < maxAttempts) {
+        await new Promise((resolve) => setTimeout(resolve, attempt * 300));
+      }
+    }
+  }
+
+  throw lastError;
+};
+
+const cacheInBatches = async (cache, assets, batchSize = 24) => {
+  for (let index = 0; index < assets.length; index += batchSize) {
+    const batch = assets.slice(index, index + batchSize);
+    await Promise.all(batch.map((asset) => cacheAsset(cache, asset)));
   }
 };
 
