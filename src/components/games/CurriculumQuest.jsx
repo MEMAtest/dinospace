@@ -13,6 +13,28 @@ const ACCENT_BADGE_CLASSES = {
   emerald: 'bg-emerald-100 text-emerald-800',
 };
 
+const ROUND_HELP = Object.freeze({
+  continent: 'Tap the labelled continent where the place is.',
+  country: 'Tap the labelled continent where this country belongs.',
+  ocean: 'Tap the labelled ocean that matches the clue.',
+  sequence: 'Tap the clues in order, starting with the oldest.',
+  route: 'Use the N, E, S and W buttons to move the boat one square at a time.',
+  investigation: 'Make a prediction, then compare it with the observation.',
+  default: 'Look at each choice, then tap the answer that best fits the clue.',
+});
+
+const roundHelpFor = (round) => ROUND_HELP[round.type] || ROUND_HELP.default;
+
+const shuffledIndexes = (length, avoidIndex = -1) => {
+  const indexes = Array.from({ length }, (_, index) => index);
+  for (let index = indexes.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [indexes[index], indexes[swapIndex]] = [indexes[swapIndex], indexes[index]];
+  }
+  if (indexes.length > 1 && indexes[0] === avoidIndex) [indexes[0], indexes[1]] = [indexes[1], indexes[0]];
+  return indexes;
+};
+
 const skillForRound = (module, round) => {
   if (module.id === 'continents') {
     if (round.type === 'ocean') return 'geography:ocean-names';
@@ -67,10 +89,19 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
   const isOceanRound = round.type === 'ocean';
   return (
     <>
-      <div className="relative mx-auto h-[20rem] w-full max-w-3xl overflow-hidden rounded-[2rem] border-4 border-sky-200 bg-gradient-to-b from-sky-400 via-cyan-300 to-sky-500 shadow-inner" aria-label="A playful world map, not to scale">
-        <svg viewBox="0 0 800 360" className="absolute inset-0 h-full w-full opacity-80" aria-hidden="true">
-          <path d="M70 95c38-44 95-40 137-18l-16 36-39 10-20 33-45-13-29-26Zm156 79 33-14 30 23-19 43-18 58-25 7-16-55 18-31Zm170-122 49-21 43 14 8 35-46 17-23 30-39-19 9-26Zm97 2 65-29 72 18 48 31-7 45-61 8-23 37-47-26-37-43Zm28 105 73-4 55 25-8 37-61 14-51-25Zm125 55 70 13 42 33-15 28-61-6-50-29Zm-263 26 62-7 29 25-10 43-49 11-41-29Z" fill="#71ad65" stroke="#3f7f5b" strokeWidth="5" strokeLinejoin="round" />
-          <path d="M0 286c120-22 233-25 346-6s223 12 454-11v91H0Z" fill="#93c5fd" opacity=".8" />
+      <div className="relative mx-auto h-[22rem] w-full max-w-3xl overflow-hidden rounded-[2rem] border-4 border-sky-200 bg-[#38bde4] shadow-inner" aria-label="A simplified labelled world map, not to scale">
+        <svg viewBox="0 0 900 440" className="absolute inset-0 h-full w-full" aria-hidden="true">
+          <g fill="none" stroke="#bae6fd" strokeWidth="2" strokeDasharray="8 10" opacity=".7">
+            <path d="M0 110H900M0 220H900M0 330H900M150 0V440M300 0V440M450 0V440M600 0V440M750 0V440" />
+          </g>
+          <path d="M82 101c18-35 62-46 104-39l40 26 30 3 17 27-29 27-22 33-46-6-32 23-35-27-34-12-12-28Z" fill="#78b968" stroke="#3d8059" strokeWidth="5" strokeLinejoin="round" />
+          <path d="M266 226l31-19 29 18 14 34-15 35-13 58-24 29-20-43-11-48-18-19 11-29Z" fill="#f49a5b" stroke="#3d8059" strokeWidth="5" strokeLinejoin="round" />
+          <path d="M438 91l26-17 25 7 15 19-20 23-29 9-20-17Z" fill="#66a9ed" stroke="#3d8059" strokeWidth="5" strokeLinejoin="round" />
+          <path d="M450 148l34-18 35 19 19 43-12 50-24 40-31-14-27-44-5-40Z" fill="#fb923c" stroke="#3d8059" strokeWidth="5" strokeLinejoin="round" />
+          <path d="M513 81l50-25 63 5 43 19 55 4 54 34-15 44-56 2-35 21-42-8-29 20-43-27-20-32Z" fill="#a78bfa" stroke="#3d8059" strokeWidth="5" strokeLinejoin="round" />
+          <path d="M686 260l51-9 62 28 38 30-27 30-59-6-40-22-35-5Z" fill="#facc15" stroke="#3d8059" strokeWidth="5" strokeLinejoin="round" />
+          <path d="M305 378c82-17 183-17 284 0l-18 25-90 10-107-7Z" fill="#bfdbfe" stroke="#3d8059" strokeWidth="5" strokeLinejoin="round" />
+          <path d="M0 411H900" stroke="#e0f2fe" strokeWidth="5" opacity=".9" />
         </svg>
         <div className="absolute inset-0">
           {CONTINENTS.map((continent) => (
@@ -80,11 +111,11 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
               disabled={disabled || isOceanRound}
               onClick={() => onPick(continent.id)}
               aria-label={`Choose ${continent.name}`}
-              className={`absolute flex min-h-14 min-w-16 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-2xl border-2 px-1 py-1 text-center text-[11px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 disabled:hover:scale-100 ${selected === continent.id ? 'border-white bg-slate-900 text-white ring-4 ring-white/60' : 'border-white/80 bg-white/85 text-slate-800'}`}
+              className={`absolute flex min-h-12 min-w-[4.8rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-xl border-2 px-1 py-1 text-center text-[10px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 disabled:hover:scale-100 ${selected === continent.id ? 'border-white bg-slate-950 text-white ring-4 ring-white/70' : 'border-slate-700/30 bg-white/95 text-slate-800'}`}
               style={{ left: continent.position.left, top: continent.position.top }}
             >
-              <span className="text-xl leading-none">{continent.emoji}</span>
-              <span className={showLabels ? 'max-w-20 leading-tight' : 'sr-only'}>{continent.name}</span>
+              <span className="text-base leading-none" aria-hidden="true">{continent.emoji}</span>
+              <span className="max-w-[5.4rem] leading-tight">{continent.name}</span>
             </button>
           ))}
           {isOceanRound && OCEANS.map((ocean) => (
@@ -94,16 +125,16 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
               onClick={() => onPick(ocean.id)}
               disabled={disabled}
               aria-label={`Choose ${ocean.name}`}
-              className={`absolute flex min-h-12 min-w-20 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-xl border-2 px-1 py-1 text-center text-[10px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 ${selected === ocean.id ? 'border-white bg-slate-900 text-white ring-4 ring-white/60' : 'border-white/80 bg-white/80 text-slate-800'}`}
+              className={`absolute flex min-h-11 min-w-[5.8rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-xl border-2 px-1 py-1 text-center text-[9px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 ${selected === ocean.id ? 'border-white bg-slate-950 text-white ring-4 ring-white/70' : 'border-white/70 bg-sky-950/80 text-white'}`}
               style={{ left: ocean.position.left, top: ocean.position.top }}
             >
-              <span className="text-lg leading-none">{ocean.emoji}</span>
-              <span className="sr-only">{ocean.name}</span>
+              <span className="text-base leading-none" aria-hidden="true">{ocean.emoji}</span>
+              <span className="max-w-[6.2rem] leading-tight">{ocean.name}</span>
             </button>
           ))}
         </div>
         <span className="absolute left-3 top-3 rounded-xl bg-white/85 px-2 py-1 text-xs font-black text-sky-900" aria-label="North arrow">↑ N</span>
-        <span className="absolute bottom-2 right-3 rounded-full bg-white/70 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-sky-900">Simplified · not to scale</span>
+        <span className="absolute bottom-2 right-3 rounded-full bg-white/90 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-sky-900">Land shapes · not to scale</span>
       </div>
       {!isOceanRound && round.type === 'country' && (
         <p className="mx-auto mt-3 max-w-2xl rounded-2xl bg-sky-50 px-4 py-3 text-center text-sm font-bold text-sky-900">Tap the continent where this country belongs.</p>
@@ -217,6 +248,8 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
   const difficultyGameId = `worldmap-${moduleId}`;
   const difficulty = useGameDifficulty(difficultyGameId);
   const [roundIndex, setRoundIndex] = useState(0);
+  const [roundOrder, setRoundOrder] = useState([]);
+  const [roundCursor, setRoundCursor] = useState(0);
   const [mistakes, setMistakes] = useState(0);
   const [sequence, setSequence] = useState([]);
   const [selected, setSelected] = useState('');
@@ -247,13 +280,25 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
 
   useEffect(() => {
     // Difficulty is derived from recent learning evidence, not play counters.
+    const nextOrder = shuffledIndexes(rounds.length);
+    setRoundOrder(nextOrder);
+    setRoundCursor(0);
     setSkillRun(0);
-    resetRound(0, true);
-  }, [difficulty, moduleId, resetRound]);
+    resetRound(nextOrder[0] ?? 0, true);
+  }, [difficulty, moduleId, rounds.length, resetRound]);
 
   const advance = () => {
+    let nextOrder = roundOrder;
+    let nextCursor = roundCursor + 1;
+    if (!nextOrder.length || nextCursor >= nextOrder.length) {
+      nextOrder = shuffledIndexes(rounds.length, roundIndex);
+      nextCursor = 0;
+      setRoundOrder(nextOrder);
+    }
+    const nextIndex = nextOrder[nextCursor] ?? 0;
+    setRoundCursor(nextCursor);
     setSkillRun((current) => current >= 5 ? 0 : Math.min(current + 1, 5));
-    setTimeout(() => resetRound((roundIndex + 1) % rounds.length), 850);
+    setTimeout(() => resetRound(nextIndex), 850);
   };
 
   const completeRound = (answerId, response) => {
@@ -389,7 +434,7 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
           <div className="flex flex-wrap items-center justify-between gap-3"><span className={`rounded-full px-3 py-1 text-xs font-black uppercase tracking-wide ${ACCENT_BADGE_CLASSES[accent]}`}>Year 1 discovery</span><button type="button" onClick={() => resetRound(roundIndex)} className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-2 text-xs font-black text-slate-600 shadow-sm"><RotateCcw size={15} /> Try this round again</button></div>
           <PracticeProgress skill={skillForRound(activeModule, round)} completed={skillRun} accent={accent} />
           <div className="mt-5 flex flex-wrap items-center justify-center gap-2"><h2 id="quest-prompt" className="text-center text-2xl font-black text-slate-900 sm:text-3xl">{round.prompt}</h2><PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} /></div>
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-2 text-center text-sm font-bold text-slate-600"><span>Round {roundIndex + 1} · Learn first, then try it independently.</span><PackagedAudioButton text="Learn first, then try it independently." label="Hear instructions" soundOn={soundOn} /></div>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-2 text-center text-sm font-bold text-slate-600"><span>Round {roundCursor + 1} of {rounds.length} · Learn first, then try it independently.</span><PackagedAudioButton text="Learn first, then try it independently." label="Hear instructions" soundOn={soundOn} /></div>
 
           {lessonOpen ? (
             <div className="mx-auto mt-5 max-w-2xl rounded-3xl border-2 border-indigo-100 bg-indigo-50/80 p-5 text-center">
@@ -403,6 +448,7 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
             </div>
           ) : (
             <div className="mt-5">
+              <p className="mx-auto mb-4 max-w-2xl rounded-2xl bg-white/80 px-4 py-3 text-center text-sm font-black text-slate-700">{roundHelpFor(round)}</p>
               {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked} soundOn={soundOn} />}
               {choiceRound && <ChoiceRound round={choiceRound} onPick={handlePick} disabled={locked} soundOn={soundOn} />}
               {round.type === 'sequence' && <SequenceRound round={round} sequence={sequence} onPick={handlePick} disabled={locked} soundOn={soundOn} />}

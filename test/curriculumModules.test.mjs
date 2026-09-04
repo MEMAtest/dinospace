@@ -41,6 +41,15 @@ test('Curriculum Quest round answers refer to available choices', () => {
   assert.equal(getCurriculumModule('missing').id, 'continents');
 });
 
+test('starter rounds give a full varied run before cycling', () => {
+  CURRICULUM_MODULES.forEach((module) => {
+    const starter = module.rounds.starter;
+    assert.ok(starter.length >= 4, `${module.id} has enough starter variety`);
+    assert.equal(new Set(starter.map((round) => round.id)).size, starter.length, `${module.id} starter ids are unique`);
+    assert.equal(new Set(starter.map((round) => round.prompt)).size, starter.length, `${module.id} starter prompts are unique`);
+  });
+});
+
 test('geography grows from place spotting into map enquiry and weather comparisons', () => {
   const geography = getCurriculumModule('continents');
   assert.equal(UK_SURROUNDING_SEAS.length, 4);
