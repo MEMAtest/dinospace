@@ -149,11 +149,11 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
   );
 };
 
-const ChoiceRound = ({ round, onPick, disabled, soundOn }) => (
+const ChoiceRound = ({ round, onPick, disabled, selected, soundOn }) => (
   <div className="mx-auto grid w-full max-w-3xl gap-3 sm:grid-cols-3" aria-label="Answer choices">
     {(round.options || []).map((option) => (
-      <div key={option.id} className="flex flex-col items-center gap-2 rounded-3xl border-4 border-amber-200 bg-white p-2 shadow-lg">
-        <button type="button" onClick={() => onPick(option.id)} disabled={disabled} className="min-h-20 w-full rounded-2xl px-2 py-2 text-center transition hover:-translate-y-1 active:translate-y-0 disabled:opacity-70">
+      <div key={option.id} className={`flex flex-col items-center gap-2 rounded-3xl border-4 p-2 shadow-lg ${disabled && selected === option.id ? 'border-emerald-400 bg-emerald-50' : selected === option.id ? 'border-rose-300 bg-rose-50' : 'border-amber-200 bg-white'}`}>
+        <button type="button" onClick={() => onPick(option.id)} disabled={disabled} aria-pressed={selected === option.id} className="min-h-20 w-full rounded-2xl px-2 py-2 text-center transition hover:-translate-y-1 active:translate-y-0 disabled:opacity-70">
           <span className="block text-4xl">{option.emoji}</span>
           <strong className="mt-1 block text-sm font-black text-slate-800">{option.label}</strong>
         </button>
@@ -227,7 +227,7 @@ const RouteRound = ({ round, step, onMove, disabled }) => {
   );
 };
 
-const InvestigationRound = ({ round, prediction, onPredict, onConclude, disabled, soundOn }) => (
+const InvestigationRound = ({ round, prediction, onPredict, onConclude, disabled, selected, soundOn }) => (
   <div className="mx-auto w-full max-w-3xl">
     {!prediction ? (
       <div className="grid gap-3 sm:grid-cols-2">
@@ -237,7 +237,7 @@ const InvestigationRound = ({ round, prediction, onPredict, onConclude, disabled
       <>
         <div className="rounded-3xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="text-xs font-black uppercase tracking-wider text-emerald-700">Observation</p><p className="mt-2 font-bold text-slate-700">{round.observation}</p><div className="mt-3"><PackagedAudioButton text={round.observation} label="Hear observation" soundOn={soundOn} /></div></div>
         <h3 className="my-4 text-center text-xl font-black text-slate-900">What does the observation tell us?</h3>
-        <ChoiceRound round={round} onPick={onConclude} disabled={disabled} soundOn={soundOn} />
+        <ChoiceRound round={round} onPick={onConclude} disabled={disabled} selected={selected} soundOn={soundOn} />
       </>
     )}
   </div>
@@ -298,7 +298,7 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
     const nextIndex = nextOrder[nextCursor] ?? 0;
     setRoundCursor(nextCursor);
     setSkillRun((current) => current >= 5 ? 0 : Math.min(current + 1, 5));
-    setTimeout(() => resetRound(nextIndex), 850);
+    setTimeout(() => resetRound(nextIndex), 1250);
   };
 
   const completeRound = (answerId, response) => {
@@ -401,6 +401,7 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
     if (answerId !== round.answer) {
       recordIncorrect(answerId, round.answer);
       setMistakes((current) => current + 1);
+      setSelected(answerId);
       setFeedback(round.wrongFeedback);
       setFeedbackVoice(round.wrongFeedback);
       playSfx('wrong');
@@ -450,13 +451,13 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
             <div className="mt-5">
               <p className="mx-auto mb-4 max-w-2xl rounded-2xl bg-white/80 px-4 py-3 text-center text-sm font-black text-slate-700">{roundHelpFor(round)}</p>
               {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked} soundOn={soundOn} />}
-              {choiceRound && <ChoiceRound round={choiceRound} onPick={handlePick} disabled={locked} soundOn={soundOn} />}
+              {choiceRound && <ChoiceRound round={choiceRound} onPick={handlePick} disabled={locked} selected={selected} soundOn={soundOn} />}
               {round.type === 'sequence' && <SequenceRound round={round} sequence={sequence} onPick={handlePick} disabled={locked} soundOn={soundOn} />}
               {round.type === 'route' && <RouteRound round={round} step={routeStep} onMove={handleRouteMove} disabled={locked} />}
-              {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={locked} soundOn={soundOn} />}
+              {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={locked} selected={selected} soundOn={soundOn} />}
             </div>
           )}
-          <div className="mt-5 min-h-14 text-center" aria-live="polite">{feedback && <div className={`mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-black ${locked ? 'bg-emerald-100 text-emerald-900' : 'bg-amber-100 text-amber-900'}`}><p><Sparkles className="mr-1 inline" size={17} />{feedback}</p><PackagedAudioButton text={feedbackVoice} label={locked ? 'Hear praise' : 'Hear feedback'} soundOn={soundOn} />{locked && <PackagedAudioButton text={round.explanation} label="Hear why" soundOn={soundOn} />}</div>}</div>
+          <div className="mt-5 min-h-14 text-center" aria-live="polite">{feedback && <div className={`mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-black ${locked ? 'bg-emerald-100 text-emerald-900' : 'bg-amber-100 text-amber-900'}`}><p><Sparkles className="mr-1 inline" size={17} /><span className="mr-1 rounded-full bg-white/75 px-2 py-1 text-xs uppercase tracking-wide">{locked ? 'Correct' : 'Try again'}</span>{feedback}</p><PackagedAudioButton text={feedbackVoice} label={locked ? 'Hear praise' : 'Hear feedback'} soundOn={soundOn} />{locked && <PackagedAudioButton text={round.explanation} label="Hear why" soundOn={soundOn} />}</div>}</div>
           <div className="mt-3 flex items-center justify-center gap-2 text-xs font-black text-slate-500"><Map size={15} /> Learn by exploring, sorting and spotting useful clues.</div>
         </section>
       </main>

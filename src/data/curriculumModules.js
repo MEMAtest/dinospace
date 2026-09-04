@@ -13,12 +13,12 @@ export const YEAR_ONE_JOURNEY = freeze([
 ]);
 
 export const CONTINENTS = freeze([
-  { id: 'africa', name: 'Africa', emoji: '🌍', position: { left: '49%', top: '47%' }, colour: '#fb923c', examples: ['Kenya', 'Egypt'], clue: 'A continent with hot deserts, grasslands and many different animals.' },
+  { id: 'africa', name: 'Africa', emoji: '🦒', position: { left: '49%', top: '47%' }, colour: '#fb923c', examples: ['Kenya', 'Egypt'], clue: 'A continent with hot deserts, grasslands and many different animals.' },
   { id: 'antarctica', name: 'Antarctica', emoji: '🐧', position: { left: '51%', top: '83%' }, colour: '#bfdbfe', examples: ['No countries'], clue: 'A very cold continent at the bottom of our map.' },
-  { id: 'asia', name: 'Asia', emoji: '🐼', position: { left: '70%', top: '29%' }, colour: '#a78bfa', examples: ['Japan', 'India'], clue: 'The largest continent, with countries such as Japan and India.' },
-  { id: 'europe', name: 'Europe', emoji: '🏰', position: { left: '51%', top: '24%' }, colour: '#60a5fa', examples: ['United Kingdom', 'France'], clue: 'A continent where we can find the United Kingdom and France.' },
+  { id: 'asia', name: 'Asia', emoji: '🐼', position: { left: '76%', top: '29%' }, colour: '#a78bfa', examples: ['Japan', 'India'], clue: 'The largest continent, with countries such as Japan and India.' },
+  { id: 'europe', name: 'Europe', emoji: '🏰', position: { left: '47%', top: '24%' }, colour: '#60a5fa', examples: ['United Kingdom', 'France'], clue: 'A continent where we can find the United Kingdom and France.' },
   { id: 'north-america', name: 'North America', emoji: '🦅', position: { left: '19%', top: '27%' }, colour: '#34d399', examples: ['Canada', 'Mexico'], clue: 'A continent that includes Canada, the United States and Mexico.' },
-  { id: 'south-america', name: 'South America', emoji: '🦙', position: { left: '31%', top: '57%' }, colour: '#f472b6', examples: ['Brazil', 'Peru'], clue: 'A continent that includes Brazil and the Amazon rainforest.' },
+  { id: 'south-america', name: 'South America', emoji: '🦙', position: { left: '28%', top: '63%' }, colour: '#f472b6', examples: ['Brazil', 'Peru'], clue: 'A continent that includes Brazil and the Amazon rainforest.' },
   { id: 'australia', name: 'Australia', emoji: '🦘', position: { left: '80%', top: '61%' }, colour: '#facc15', examples: ['Australia', 'New Zealand'], clue: 'The continent of Australia. Oceania is a wider region that includes Australia, New Zealand and Pacific islands.' },
 ]);
 
