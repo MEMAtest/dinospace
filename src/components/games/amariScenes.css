@@ -1,0 +1,87 @@
+.amari-scene {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  background-color: #183568;
+  background-image: var(--scene-image);
+  background-position: center;
+  background-size: cover;
+}
+
+.amari-scene::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: '';
+  background: linear-gradient(180deg, rgb(5 21 73 / 68%) 0%, rgb(7 34 87 / 28%) 22%, rgb(7 34 87 / 12%) 58%, rgb(5 21 73 / 48%) 100%);
+}
+
+.amari-scene-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  padding: .75rem;
+}
+
+.amari-scene-title {
+  padding: .42rem .9rem;
+  border: 2px solid rgb(255 255 255 / 76%);
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #0752c6, #06337a);
+  box-shadow: 0 5px 0 #062660, 0 8px 22px rgb(3 17 56 / 34%);
+  text-align: center;
+  line-height: 1.1;
+  font-weight: 900;
+  text-shadow: 0 2px 2px rgb(1 23 77 / 42%);
+}
+
+.amari-scene-card {
+  border: 3px solid rgb(255 255 255 / 88%);
+  border-radius: 1.75rem;
+  background: rgb(255 255 255 / 93%);
+  box-shadow: 0 9px 0 rgb(17 68 145 / 30%), 0 17px 36px rgb(9 27 83 / 27%);
+}
+
+.amari-scene-prompt {
+  border: 3px solid #81d9ff;
+  border-radius: 1.5rem;
+  background: #fff;
+  color: #071d63;
+  box-shadow: 0 5px 0 #1474d1, 0 10px 25px rgb(7 35 96 / 25%);
+  font-weight: 900;
+}
+
+.amari-choice {
+  border: 3px solid #91dfff;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #fff, #e9f5ff);
+  color: #052c7e;
+  box-shadow: 0 5px 0 #2985d2, 0 11px 21px rgb(4 30 94 / 30%);
+  font-weight: 900;
+  transition: transform .15s, box-shadow .15s;
+}
+
+.amari-choice:hover:not(:disabled) { transform: translateY(-3px); }
+.amari-choice:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 2px 0 #2985d2; }
+.amari-choice:disabled { cursor: default; }
+
+@media (min-width: 700px) {
+  .amari-scene-header { padding: 1rem 1.5rem; }
+}
+
+@media (min-width: 950px) {
+  .amari-scene::after {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+    left: 0;
+    width: min(25vw, 310px);
+    height: min(48vh, 350px);
+    content: '';
+    pointer-events: none;
+    background: url('../../assets/landing/amari-astronaut-robot.png') center bottom / contain no-repeat;
+    filter: drop-shadow(0 12px 15px rgb(5 25 65 / 32%));
+  }
+}

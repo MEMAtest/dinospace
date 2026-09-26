@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-import { Home } from 'lucide-react';
+import { ArrowLeft, Volume2 } from 'lucide-react';
 import { PATTERN_TOKENS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { numberPatternPoolForDifficulty, patternPoolForDifficulty } from '../../data/gameDifficulty.js';
+import paradeScene from '../../assets/game-scenes/pattern-parade.webp';
+import './amariScenes.css';
 
 const makeEmojiRound = (difficulty) => {
   const allPatterns = patternPoolForDifficulty(difficulty);
@@ -91,17 +93,13 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   const currentSequence = mode === 'emoji' ? round.sequence : numRound.sequence;
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-amber-100 via-yellow-100 to-amber-200 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 left-8 w-52 h-32 bg-white/60 rounded-full blur-2xl" />
-        <div className="absolute bottom-0 right-0 w-60 h-60 bg-amber-300/40 rounded-full blur-3xl" />
-      </div>
+    <div className={`min-h-screen flex flex-col relative overflow-hidden ${littleMode ? 'bg-gradient-to-b from-amber-100 via-yellow-100 to-amber-200' : 'amari-scene'}`} style={littleMode ? undefined : { '--scene-image': `url("${paradeScene}")` }}>
 
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
-        <div className="text-center">
-          <h2 className="text-3xl font-black text-amber-700">Pattern Parade</h2>
-          {!littleMode && <p className="text-amber-700/70 font-semibold">Streak: {streak}</p>}
+      <div className="amari-scene-header z-20">
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><ArrowLeft /></button>
+        <div className={littleMode ? 'text-center' : 'amari-scene-title'}>
+          <h2 className={littleMode ? 'text-3xl font-black text-amber-700' : 'text-lg sm:text-2xl'}>⭐ Pattern Parade</h2>
+          {!littleMode && <p className="text-xs text-sky-100">Streak: {streak}</p>}
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
@@ -114,34 +112,34 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         </div>
       )}
 
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
-        {!littleMode && <PracticeProgress skill={mode === 'emoji' ? 'Spot the repeating pattern' : 'Find the number rule'} completed={skillRun} accent="amber" />}
+      <div className="flex-1 flex flex-col items-center justify-center px-3 pb-6 relative z-10">
+        {!littleMode && <div className="rounded-full bg-white/90 px-3 shadow-lg"><PracticeProgress skill={mode === 'emoji' ? 'Spot the repeating pattern' : 'Find the number rule'} completed={skillRun} accent="amber" /></div>}
         <div className={`mb-4 flex gap-2 ${littleMode ? 'hidden' : ''}`}>
           {[{ id: 'emoji', label: '🔷 Shapes' }, { id: 'number', label: '🔢 Numbers' }].map((m) => (
             <button key={m.id} onClick={() => { modeRef.current = m.id; setMode(m.id); nextRound(m.id); playSfx('click'); }}
-              className={`px-4 py-2 rounded-full font-bold text-sm ${mode === m.id ? 'bg-amber-600 text-white' : 'bg-white text-amber-700'}`}>{m.label}</button>
+              className={`min-h-11 rounded-full border-2 border-white px-4 py-2 text-sm font-black shadow-lg ${mode === m.id ? 'bg-amber-600 text-white' : 'bg-white text-amber-700'}`}>{m.label}</button>
           ))}
         </div>
 
-        <button onClick={() => speak(`What comes next? ${currentLabel}`)} className="mb-4 text-amber-700 font-semibold">🔊 Hear the pattern</button>
+        <button onClick={() => speak(`What comes next? ${currentLabel}`)} className="amari-scene-prompt mb-4 inline-flex min-h-14 items-center gap-2 px-5 text-xl"><Volume2 size={22} /> What comes next?</button>
 
-        <div className={`mb-5 w-full max-w-4xl rounded-[2.5rem] border-4 border-amber-200 bg-white/90 p-8 shadow-xl ${shake ? 'animate-shake' : ''}`}>
-          <div className="flex items-center justify-center gap-5 text-5xl flex-wrap">
+        <div className={`amari-scene-card mb-5 w-full max-w-4xl p-3 sm:p-7 ${shake ? 'animate-shake' : ''}`}>
+          <div className="flex items-center justify-center gap-1.5 text-4xl sm:gap-3 sm:text-5xl flex-wrap">
             {currentSequence.map((token, index) => (
-              <div key={`${token}-${index}`} className="flex h-16 w-16 items-center justify-center font-black">{token}</div>
+              <div key={`${token}-${index}`} className="amari-choice flex h-14 w-14 items-center justify-center font-black sm:h-20 sm:w-20">{token}</div>
             ))}
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border-4 border-dashed border-amber-300 text-3xl">?</div>
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border-4 border-dashed border-amber-400 bg-yellow-50 text-4xl font-black text-purple-600 sm:h-20 sm:w-20">?</div>
           </div>
         </div>
 
         <div className="flex gap-4 flex-wrap justify-center">
           {currentOptions.map((option) => (
             <button key={option} disabled={locked} onClick={() => handlePick(option)}
-              className="flex h-24 w-28 items-center justify-center rounded-3xl border-4 border-amber-200 bg-white text-5xl font-black shadow-lg transition hover:-translate-y-1">{option}</button>
+              className="amari-choice flex h-20 w-24 items-center justify-center text-5xl sm:h-24 sm:w-28">{option}</button>
           ))}
         </div>
 
-        {feedback && <div className="mt-4 max-w-xl rounded-2xl bg-white/90 px-5 py-3 text-center text-xl font-bold text-amber-700 shadow-md" aria-live="polite">{feedback}</div>}
+        {feedback && <div className="amari-scene-card mt-4 max-w-xl px-5 py-3 text-center text-lg font-black text-blue-900" aria-live="polite">{feedback}</div>}
       </div>
     </div>
   );

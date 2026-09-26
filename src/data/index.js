@@ -649,7 +649,7 @@ export const PHONICS_ITEMS = [
   { letter: 'F', word: 'Fish', emoji: '🐠', sound: 'f' },
   { letter: 'G', word: 'Goat', emoji: '🐐', sound: 'g' },
   { letter: 'H', word: 'Hat', emoji: '🎩', sound: 'h' },
-  { letter: 'I', word: 'Igloo', emoji: '🏠', sound: 'i' },
+  { letter: 'I', word: 'Insect', emoji: '🐜', sound: 'i' },
   { letter: 'J', word: 'Juice', emoji: '🧃', sound: 'j' },
   { letter: 'K', word: 'Kite', emoji: '🪁', sound: 'k' },
   { letter: 'L', word: 'Lion', emoji: '🦁', sound: 'l' },

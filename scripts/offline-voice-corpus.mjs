@@ -9,6 +9,7 @@ import { DECODABLE_CAPTIONS, PHASE_WORDS, TRICKY_WORDS } from '../src/data/liter
 import { SPOT_DIFFERENCE_ROUNDS } from '../src/data/spotDifference.js';
 import { normalizeVoiceText, voiceClipKey } from '../src/data/voiceKey.js';
 import { LITTLE_VOICE_LINES } from '../src/data/littleGames.js';
+import { firstSoundPrompt } from '../src/data/phonicsPrompts.js';
 
 const corpus = new Map();
 const skyPraise = ['Brilliant flying!', 'Beautiful shape!', 'Fantastic tracing!', 'You nailed it!'];
@@ -239,6 +240,8 @@ export const OFFLINE_VOICE_CORPUS = [...corpus.values()].sort((a, b) => a.key.lo
 const PENDING_LINES = [
   ...LITTLE_VOICE_LINES,
   'Look carefully at the clock. What time is shown?',
+  'The short red hand shows the hour. The long blue hand shows the minutes.',
+  ...PHONICS_ITEMS.filter(({ letter }) => letter !== 'X').map(({ sound }) => firstSoundPrompt(sound)),
   'FISH!',
   'Amazing! You found all the dinosaurs.',
   'Which one does not belong?',
