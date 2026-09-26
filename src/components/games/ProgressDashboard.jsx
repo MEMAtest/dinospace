@@ -1,4 +1,5 @@
-import { Home, RotateCcw, Settings2 } from 'lucide-react';
+import { RotateCcw, Settings2 } from 'lucide-react';
+import { PageHeader } from '../shared/Navigation.jsx';
 import { ACHIEVEMENTS, GAME_LABELS } from '../../data/index.js';
 import { BONUS_GAME_IDS, DIFFICULTY_BANDS, PHASE_SOUNDS } from '../../data/learningProgress.js';
 import { WRITING_SAMPLES_KEY } from '../../data/literacy.js';
@@ -8,7 +9,9 @@ import { getRank, loadSaved } from '../../utils.js';
 const LEARNING_GAMES = Object.entries(GAME_LABELS).filter(([id]) => id !== 'progress' && !BONUS_GAME_IDS.includes(id));
 const BAND_LABELS = { starter: 'Starter', growing: 'Growing', challenge: 'Challenge' };
 
-const ProgressDashboard = ({ points, gamesPlayed, streak, onBack }) => {
+const ProgressDashboard = ({
+  points, gamesPlayed, streak, onBack, playerName, showLearningSettings = true, children,
+}) => {
   const { profile, mastery, outcomes, setPhase, toggleSound, setDifficulty } = useLearningProgress();
   const unlockedAchievements = ACHIEVEMENTS.filter((a) => a.check(gamesPlayed, points, streak));
   const totalGames = Object.values(gamesPlayed).reduce((a, b) => a + b, 0);
@@ -23,10 +26,8 @@ const ProgressDashboard = ({ points, gamesPlayed, streak, onBack }) => {
         <div className="absolute top-8 right-8 w-48 h-48 bg-white/60 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-200/60 rounded-full blur-3xl" />
       </div>
-      <div className="flex items-center justify-between w-full max-w-4xl mb-6 z-10">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home /></button>
-        <h2 className="text-3xl font-black text-indigo-700">My Progress</h2>
-        <div />
+      <div className="mb-6 w-full max-w-4xl z-10">
+        <PageHeader title={playerName ? `${playerName}’s progress` : 'Progress'} subtitle="For grown-ups" onBack={onBack} backLabel="Back to home" />
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mb-8 z-10">
         <div className="bg-white/90 rounded-2xl p-4 text-center shadow-lg border-2 border-indigo-200">
@@ -72,7 +73,7 @@ const ProgressDashboard = ({ points, gamesPlayed, streak, onBack }) => {
         </ul>
       </section>
 
-      <details className="mb-7 w-full max-w-4xl rounded-3xl border-2 border-indigo-200 bg-white/90 shadow-lg z-10">
+      {showLearningSettings && <details className="mb-7 w-full max-w-4xl rounded-3xl border-2 border-indigo-200 bg-white/90 shadow-lg z-10">
         <summary className="flex min-h-16 cursor-pointer list-none items-center gap-3 px-5 font-black text-indigo-800">
           <Settings2 aria-hidden="true" /> Grown-up learning settings
           <span className="ml-auto rounded-full bg-indigo-50 px-3 py-1 text-xs">Phase {profile.activePhase} · age {profile.ageBand}</span>
@@ -116,7 +117,7 @@ const ProgressDashboard = ({ points, gamesPlayed, streak, onBack }) => {
             )}
           </div>
         </div>
-      </details>
+      </details>}
       {writingSamples.length > 0 && (
         <section className="mb-7 w-full max-w-4xl rounded-3xl border-2 border-cyan-200 bg-white/90 p-5 shadow-lg z-10" aria-labelledby="writing-samples-title">
           <h3 id="writing-samples-title" className="text-xl font-black text-cyan-800">📝 Recent writing samples</h3>
@@ -162,6 +163,7 @@ const ProgressDashboard = ({ points, gamesPlayed, streak, onBack }) => {
           ))}
         </div>
       </div>
+      <div className="z-10 mt-8 flex w-full max-w-4xl flex-col items-center">{children}</div>
     </div>
   );
 };

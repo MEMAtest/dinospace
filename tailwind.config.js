@@ -95,6 +95,23 @@ export default {
           "0%, 100%": { opacity: "0.4" },
           "50%": { opacity: "0.8" },
         },
+        "pulse-soft": {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.06)" },
+        },
+        flicker: {
+          "0%, 100%": { rotate: "-3deg", scale: "1 1" },
+          "33%": { rotate: "2deg", scale: "0.96 1.05" },
+          "66%": { rotate: "-1deg", scale: "1.03 0.97" },
+        },
+        water: {
+          "0%": { strokeDashoffset: "0" },
+          "100%": { strokeDashoffset: "-10" },
+        },
+        siren: {
+          "0%, 100%": { opacity: "0.15" },
+          "50%": { opacity: "0.7" },
+        },
       },
       animation: {
         "bounce-slow": "bounce-slow 2.6s ease-in-out infinite",
@@ -117,6 +134,10 @@ export default {
         "piece-bounce": "piece-bounce 0.5s ease-out",
         "ring-expand": "ring-expand 0.8s ease-out forwards",
         "cell-pulse": "cell-pulse 1.5s ease-in-out infinite",
+        "pulse-soft": "pulse-soft 1.6s ease-in-out infinite",
+        flicker: "flicker 0.5s ease-in-out infinite",
+        water: "water 0.3s linear infinite",
+        siren: "siren 0.8s ease-in-out infinite",
       },
     },
   },

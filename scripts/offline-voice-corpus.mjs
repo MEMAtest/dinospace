@@ -8,6 +8,7 @@ import {
 import { DECODABLE_CAPTIONS, PHASE_WORDS, TRICKY_WORDS } from '../src/data/literacy.js';
 import { SPOT_DIFFERENCE_ROUNDS } from '../src/data/spotDifference.js';
 import { normalizeVoiceText, voiceClipKey } from '../src/data/voiceKey.js';
+import { LITTLE_VOICE_LINES } from '../src/data/littleGames.js';
 
 const corpus = new Map();
 const skyPraise = ['Brilliant flying!', 'Beautiful shape!', 'Fantastic tracing!', 'You nailed it!'];
@@ -230,4 +231,14 @@ CHESS_PUZZLES.forEach((puzzle) => {
 });
 MOVE_PRAISE.forEach((praise) => add(praise));
 
+
 export const OFFLINE_VOICE_CORPUS = [...corpus.values()].sort((a, b) => a.key.localeCompare(b.key));
+
+// Little-explorer games (Askia's games) and the two-player welcome. Kept as
+// a separate list until their clips are generated with
+// `npm run voice:offline`; the Android build fetches them online meanwhile.
+const existingKeys = new Set(OFFLINE_VOICE_CORPUS.map((item) => item.key));
+export const LITTLE_VOICE_CORPUS = [...new Map(LITTLE_VOICE_LINES.map((line) => {
+  const text = normalizeVoiceText(line);
+  return [voiceClipKey(text, 'en-US'), { text, lang: 'en-US', key: voiceClipKey(text, 'en-US') }];
+})).values()].filter((item) => !existingKeys.has(item.key));
