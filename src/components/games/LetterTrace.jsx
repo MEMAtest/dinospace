@@ -41,6 +41,7 @@ const UPPER_STROKES = {
 
 const LOWER_STROKES = {
   a: [[[.68,.48],[.56,.38],[.4,.4],[.3,.54],[.3,.7],[.4,.82],[.56,.82],[.68,.7],[.68,.38]], [[.68,.38],[.68,.86]]],
+  b: [[[.3,.12],[.3,.86]], [[.3,.54],[.42,.4],[.58,.4],[.7,.54],[.7,.7],[.58,.82],[.42,.82],[.3,.74]]],
   c: [[[.7,.48],[.58,.4],[.42,.4],[.3,.54],[.3,.7],[.42,.82],[.58,.82],[.7,.74]]],
   d: [[[.68,.38],[.56,.4],[.4,.4],[.3,.54],[.3,.7],[.4,.82],[.56,.82],[.68,.7],[.68,.12]],],
   e: [[[.3,.62],[.7,.62],[.66,.48],[.54,.4],[.4,.4],[.3,.54],[.3,.7],[.42,.82],[.6,.82],[.7,.74]]],
@@ -74,6 +75,10 @@ const getLetterStrokes = (letter, width, height) => {
   const top = (height - scale) / 2 + 8;
   return source.map((stroke) => stroke.map(([x, y]) => ({ x: left + x * scale, y: top + y * scale })));
 };
+
+// A stroke whose points all sit on (nearly) the same spot is a dot, such as
+// the dot of i or j. It is completed by a tap rather than a traced path.
+const isDotStroke = (stroke) => stroke.length <= 1 || stroke.every((point) => Math.hypot(point.x - stroke[0].x, point.y - stroke[0].y) < 4);
 
 const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const difficulty = useGameDifficulty('trace');
@@ -307,7 +312,8 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       // A dot (for example the dot of i or j) is a deliberate one-tap stroke.
       // It has no length for pointermove to traverse, so complete it as soon
       // as the child starts on its green marker.
-      if (stroke.length <= 1) {
+      if (isDotStroke(stroke)) {
+        strokeCursorsRef.current[strokeIndex] = stroke.length - 1;
         completedStrokeRef.current += 1;
         isDrawing = false;
         setTraceFeedback(completedStrokeRef.current < guideStrokesRef.current.length
@@ -348,7 +354,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100">
       <div className="p-4 bg-white/70 flex justify-between items-center shadow-md z-10">
-        <button onClick={onBack} className="bg-white p-2 rounded-full hover:bg-white/80" aria-label="Back to all games">
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home">
           <Home />
         </button>
         <div className="text-center">
@@ -456,7 +462,10 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           <button
             onClick={() => {
               resetTrace();
-              setCurrentIndex((prev) => (prev + 1) % TRACE_LETTERS.length);
+              const cycle = visibleLetters.length ? visibleLetters : TRACE_LETTERS;
+              const position = cycle.findIndex((letter) => letter.upper === current.upper);
+              const next = cycle[(position + 1) % cycle.length];
+              setCurrentIndex(TRACE_LETTERS.findIndex((letter) => letter.upper === next.upper));
               playSfx('click');
             }}
             className="bg-white text-blue-600 font-bold px-5 py-2 rounded-full shadow"

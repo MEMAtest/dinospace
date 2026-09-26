@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Eye, Home, Lightbulb, RotateCcw } from 'lucide-react';
 import { getPraise, shuffle } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
@@ -32,13 +32,16 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
   const difficulty = useGameDifficulty('puzzle');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = LEVELS[levelIndex];
-  const [tray, setTray] = useState(() => makePieces(LEVELS[0].grid));
-  const [placed, setPlaced] = useState(() => Array(LEVELS[0].grid ** 2).fill(null));
+  const [tray, setTray] = useState(() => makePieces(LEVELS[getDifficultyIndex(difficulty)].grid));
+  const [placed, setPlaced] = useState(() => Array(LEVELS[getDifficultyIndex(difficulty)].grid ** 2).fill(null));
   const [selected, setSelected] = useState(null);
   const [moves, setMoves] = useState(0);
   const [message, setMessage] = useState('Choose a picture piece below.');
   const [wrongSlot, setWrongSlot] = useState(null);
   const [wrongPiece, setWrongPiece] = useState(null);
+  const [hadMistake, setHadMistake] = useState(false);
+  const [hintsUsed, setHintsUsed] = useState(0);
+  const wrongTimeoutRef = useRef(null);
   const solved = placed.every(Boolean);
 
   const progress = useMemo(() => placed.filter(Boolean).length, [placed]);
@@ -56,8 +59,12 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
     setMoves(0);
     setWrongSlot(null);
     setWrongPiece(null);
+    setHadMistake(false);
+    setHintsUsed(0);
     setMessage('Choose a picture piece below.');
   };
+
+  useEffect(() => () => { if (wrongTimeoutRef.current) clearTimeout(wrongTimeoutRef.current); }, []);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -79,9 +86,11 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
     if (selected.correctSlot !== slotIndex) {
       setWrongSlot(slotIndex);
       setWrongPiece(selected.id);
+      setHadMistake(true);
       setMessage(`Not there yet — compare the edges with the ${level.scene.title} preview.`);
       playSfx('oops');
-      window.setTimeout(() => {
+      if (wrongTimeoutRef.current) clearTimeout(wrongTimeoutRef.current);
+      wrongTimeoutRef.current = window.setTimeout(() => {
         setWrongSlot(null);
         setWrongPiece(null);
       }, 500);
@@ -101,7 +110,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
       setMessage(`${praise} The ${level.scene.title} is complete!`);
       playSfx('success');
       onCelebrate(praise, 6, 180);
-      onGameEvent?.('puzzle', 'level_completed');
+      onGameEvent?.('puzzle', 'level_completed', { skill: 'puzzle', item: level.name, correct: true, firstAttempt: !hadMistake, independent: !hadMistake && hintsUsed === 0, hints: hintsUsed, difficulty });
       speak(praise);
     } else {
       setMessage(`Great fit! ${nextPlaced.filter(Boolean).length} of ${nextPlaced.length} pieces placed.`);
@@ -112,6 +121,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
     const nextPiece = selected || tray[0];
     if (!nextPiece) return;
     setSelected(nextPiece);
+    setHintsUsed((value) => value + 1);
     setMessage(`Hint: piece ${nextPiece.correctSlot + 1} belongs in the glowing space.`);
     speak(`Piece ${nextPiece.correctSlot + 1} goes in the glowing space.`);
   };
@@ -119,7 +129,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
   return (
     <div className="min-h-screen overflow-hidden bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 text-slate-800">
       <header className="flex items-center justify-between px-4 pt-3">
-        <button onClick={onBack} className="game-icon-button" aria-label="Back to all games"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-orange-700">Puzzle Pop</h2>
           <p className="font-bold text-orange-700/70">{level.name} · Moves {moves} · {progress}/{placed.length}</p>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { buildLetterRound, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
@@ -20,10 +20,17 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const [stars, setStars] = useState(0);
   const [skillRun, setSkillRun] = useState(0);
   const [hadMistake, setHadMistake] = useState(false);
+  const answeredRef = useRef(false);
+  const nextRoundTimerRef = useRef(null);
 
   const promptText = `${round.target.letter}. ${round.target.letter} is for ${round.target.word}.`;
   const optionCount = difficulty === 'starter' ? 2 : difficulty === 'growing' ? 3 : 4;
-  const visibleOptions = [round.target, ...round.options.filter((option) => option.letter !== round.target.letter)].slice(0, optionCount);
+  // Keep the target plus distractors, but in the round's shuffled order so the
+  // right answer is not always in the first slot.
+  const chosenLetters = new Set([round.target, ...round.options.filter((option) => option.letter !== round.target.letter)].slice(0, optionCount).map((option) => option.letter));
+  const visibleOptions = round.options.some((option) => option.letter === round.target.letter)
+    ? round.options.filter((option) => chosenLetters.has(option.letter))
+    : [round.target, ...round.options.filter((option) => chosenLetters.has(option.letter) && option.letter !== round.target.letter)];
 
   const sayPrompt = useCallback(() => {
     speak(`Find the letter ${promptText}`);
@@ -33,7 +40,11 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     sayPrompt();
   }, [sayPrompt]);
 
+  useEffect(() => () => clearTimeout(nextRoundTimerRef.current), []);
+
   const nextRound = () => {
+    nextRoundTimerRef.current = null;
+    answeredRef.current = false;
     setRound(buildTaughtLetterRound());
     setLaunching(false);
     setFeedback('');
@@ -42,7 +53,9 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   };
 
   const handlePick = (option) => {
+    if (answeredRef.current) return;
     if (option.letter === round.target.letter) {
+      answeredRef.current = true;
       const praise = getPraise();
       setLaunching(true);
       setFeedback(praise);
@@ -53,7 +66,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       onCelebrate(praise, 4, 250);
       onGameEvent?.('letters', 'answer_correct');
       onGameEvent?.('letters', 'learning_attempt', makeLearningEvent({ skill: 'grapheme-recognition', item: round.target.letter.toLowerCase(), response: option.letter.toLowerCase(), correct: true, firstTry: !hadMistake }));
-      setTimeout(nextRound, 1400);
+      nextRoundTimerRef.current = setTimeout(nextRound, 1400);
     } else {
       setHadMistake(true);
       setFeedback('Try again!');
@@ -72,8 +85,8 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       <div className="flex items-center justify-between px-4 pt-4 z-20">
         <button
           onClick={onBack}
-          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
-          aria-label="Back to all games"
+          className="game-icon-button"
+          aria-label="Back to home"
         >
           <Home />
         </button>

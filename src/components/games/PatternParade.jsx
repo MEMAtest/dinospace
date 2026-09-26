@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { PATTERN_TOKENS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
@@ -23,8 +23,17 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   const [shake, setShake] = useState(false);
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
+  const [hadMistake, setHadMistake] = useState(false);
+  const modeRef = useRef(mode);
+  const roundTimerRef = useRef(null);
+
+  useEffect(() => () => { if (roundTimerRef.current) clearTimeout(roundTimerRef.current); }, []);
 
   const nextRound = (nextMode = mode) => {
+    if (roundTimerRef.current) {
+      clearTimeout(roundTimerRef.current);
+      roundTimerRef.current = null;
+    }
     if (nextMode === 'emoji') {
       setRound(makeEmojiRound(difficulty));
     } else {
@@ -32,6 +41,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     }
     setFeedback('');
     setLocked(false);
+    setHadMistake(false);
     setSkillRun((current) => current >= 5 ? 0 : current);
   };
 
@@ -51,6 +61,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   const handlePick = (option) => {
     if (locked) return;
     const correctAnswer = mode === 'emoji' ? round.answer : numRound.answer;
+    const attempt = { skill: 'pattern', item: currentLabel, response: option, expected: correctAnswer, firstAttempt: !hadMistake, independent: !hadMistake, hints: 0, difficulty };
     if (option === correctAnswer) {
       const praise = getPraise();
       const rule = mode === 'emoji' ? round.rule : numRound.rule;
@@ -62,10 +73,12 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       playSfx('sparkle');
       if (newStreak >= 3) playSfx('combo');
       onCelebrate(newStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, newStreak === 5 ? 14 : 4, 250);
-      onGameEvent?.('pattern', 'answer_correct');
+      onGameEvent?.('pattern', 'answer_correct', { ...attempt, correct: true });
       speak(`The rule is ${rule}`);
-      setTimeout(nextRound, 2200);
+      roundTimerRef.current = setTimeout(() => nextRound(modeRef.current), 2200);
     } else {
+      onGameEvent?.('pattern', 'answer_wrong', { ...attempt, correct: false });
+      setHadMistake(true);
       setFeedback('Try again!');
       setShake(true);
       setStreak(0);
@@ -85,7 +98,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       </div>
 
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-amber-700">Pattern Parade</h2>
           <p className="text-amber-700/70 font-semibold">Streak: {streak}</p>
@@ -105,7 +118,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         <PracticeProgress skill={mode === 'emoji' ? 'Spot the repeating pattern' : 'Find the number rule'} completed={skillRun} accent="amber" />
         <div className="flex gap-2 mb-4">
           {[{ id: 'emoji', label: '🔷 Shapes' }, { id: 'number', label: '🔢 Numbers' }].map((m) => (
-            <button key={m.id} onClick={() => { setMode(m.id); nextRound(m.id); playSfx('click'); }}
+            <button key={m.id} onClick={() => { modeRef.current = m.id; setMode(m.id); nextRound(m.id); playSfx('click'); }}
               className={`px-4 py-2 rounded-full font-bold text-sm ${mode === m.id ? 'bg-amber-600 text-white' : 'bg-white text-amber-700'}`}>{m.label}</button>
           ))}
         </div>

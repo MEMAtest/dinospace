@@ -6,9 +6,33 @@ import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
 const timeLabel = ({ hour, minute }) => minute === 0 ? `${hour} o'clock` : minute === 30 ? `half past ${hour}` : minute === 15 ? `quarter past ${hour}` : `quarter to ${hour === 12 ? 1 : hour + 1}`;
 
-const buildTimeOptions = (target) => {
+const minutePoolFor = (difficulty) => difficulty === 'starter' ? [0] : difficulty === 'growing' ? [0, 30] : [0, 15, 30, 45];
+
+// Distractors vary the hour and, when the band has more than one minute value,
+// the minute too, so the child has to read both hands.
+const buildTimeOptions = (target, minutePool = [target.minute]) => {
   const wrap = (hour) => ((hour - 1 + 12) % 12) + 1;
-  return shuffle([target, { ...target, hour: wrap(target.hour + 1) }, { ...target, hour: wrap(target.hour + 3) }, { ...target, hour: wrap(target.hour - 2) }]);
+  const options = [target];
+  const seen = new Set([timeLabel(target)]);
+  const add = (option) => {
+    if (options.length >= 4 || seen.has(timeLabel(option))) return;
+    seen.add(timeLabel(option));
+    options.push(option);
+  };
+  const otherMinutes = shuffle(minutePool.filter((minute) => minute !== target.minute));
+  if (otherMinutes.length) add({ hour: target.hour, minute: otherMinutes[0] });
+  [1, 3, -2, 2, -1, 4, -3, 5].forEach((offset) => {
+    add({ hour: wrap(target.hour + offset), minute: shuffle(minutePool)[0] });
+  });
+  return shuffle(options);
+};
+
+const pickNextTarget = (previous, minutePool) => {
+  let next = previous;
+  for (let attempt = 0; attempt < 20 && next.hour === previous.hour; attempt += 1) {
+    next = { hour: 1 + Math.floor(Math.random() * 12), minute: shuffle(minutePool)[0] };
+  }
+  return next;
 };
 
 const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
@@ -19,16 +43,15 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
   const [score, setScore] = useState(0);
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
-  const [options, setOptions] = useState(() => buildTimeOptions({ hour: 3, minute: 0 }));
+  const [options, setOptions] = useState(() => buildTimeOptions({ hour: 3, minute: 0 }, minutePoolFor(difficulty)));
   const [hadMistake, setHadMistake] = useState(false);
   const timeoutRef = useRef(null);
 
   const newRound = () => {
-    const nextHour = target.hour === 12 ? 1 : target.hour + 1;
-    const minutePool = difficulty === 'starter' ? [0] : difficulty === 'growing' ? [0, 30] : [0, 15, 30, 45];
-    const nextTarget = { hour: nextHour, minute: minutePool[(nextHour + score) % minutePool.length] };
+    const minutePool = minutePoolFor(difficulty);
+    const nextTarget = pickNextTarget(target, minutePool);
     setTarget(nextTarget);
-    setOptions(buildTimeOptions(nextTarget));
+    setOptions(buildTimeOptions(nextTarget, minutePool));
     setFeedback('');
     setLocked(false);
     setHadMistake(false);
@@ -74,7 +97,7 @@ const TimeTeller = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-indigo-200/60 rounded-full blur-3xl" />
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-indigo-700">Time Teller</h2>
           <p className="text-indigo-700/70 font-semibold">Score: {score}</p>

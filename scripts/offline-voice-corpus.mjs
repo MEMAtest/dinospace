@@ -242,6 +242,8 @@ const PENDING_LINES = [
   ...LITTLE_VOICE_LINES,
   'Look carefully at the clock. What time is shown?',
   'FISH!',
+  'Amazing! You found all the dinosaurs.',
+  'Which one does not belong?',
 ];
 const existingKeys = new Set(OFFLINE_VOICE_CORPUS.map((item) => item.key));
 export const PENDING_VOICE_CORPUS = [...new Map(PENDING_LINES.map((line) => {

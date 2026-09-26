@@ -26,6 +26,7 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const [feedback, setFeedback] = useState('');
   const [skillRun, setSkillRun] = useState(0);
   const [wrongTap, setWrongTap] = useState(false);
+  const [hadMistake, setHadMistake] = useState(false);
   const complete = found.length === round.differences.length;
 
   useEffect(() => {
@@ -35,6 +36,7 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     setFound([]);
     setFeedback('');
     setWrongTap(false);
+    setHadMistake(false);
   }, [difficulty]);
 
   useEffect(() => {
@@ -51,7 +53,7 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       const praise = getPraise();
       setSkillRun((current) => Math.min(current + 1, 5));
       onCelebrate(praise, 6, 80);
-      onGameEvent?.('spot', 'level_completed');
+      onGameEvent?.('spot', 'level_completed', { skill: 'spot', item: round.title, correct: true, firstAttempt: !hadMistake, independent: !hadMistake, hints: 0, difficulty });
       speak(praise);
     }
   };
@@ -71,6 +73,7 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     }
     setFeedback('Not quite — compare that area with Picture A.');
     setWrongTap(true);
+    setHadMistake(true);
     playSfx('oops');
     window.setTimeout(() => setWrongTap(false), 400);
   };
@@ -79,13 +82,14 @@ const SpotDifference = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     setFound([]);
     setFeedback('');
     setWrongTap(false);
+    setHadMistake(false);
     playSfx('click');
   };
 
   return (
     <div className="min-h-screen overflow-y-auto bg-gradient-to-b from-indigo-50 via-sky-50 to-indigo-100 text-slate-900">
       <header className="flex items-center justify-between px-4 pt-4">
-        <button onClick={onBack} className="game-icon-button" aria-label="Back to all games"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-2xl font-black text-indigo-700 sm:text-4xl">Spot the Difference</h2>
           <p className="font-bold text-indigo-500">{round.title} · Found {found.length}/{round.differences.length}</p>

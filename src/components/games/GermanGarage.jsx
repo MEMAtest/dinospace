@@ -48,16 +48,17 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
   const difficulty = useGameDifficulty('german');
   const optionCount = difficulty === 'starter' ? 3 : difficulty === 'growing' ? 4 : 6;
   const [mode, setMode] = useState('paint');
-  const [paintRound, setPaintRound] = useState(() => buildMatchRound(GERMAN_COLORS));
-  const [parkRound, setParkRound] = useState(() => buildMatchRound(GERMAN_COLORS));
-  const [matchRound, setMatchRound] = useState(() => buildMatchRound(GERMAN_NUMBERS));
+  const [paintRound, setPaintRound] = useState(() => buildMatchRound(GERMAN_COLORS, optionCount));
+  const [parkRound, setParkRound] = useState(() => buildMatchRound(GERMAN_COLORS, optionCount));
+  const [matchRound, setMatchRound] = useState(() => buildMatchRound(GERMAN_NUMBERS, optionCount));
   const [feedback, setFeedback] = useState('');
   const [stars, setStars] = useState(0);
   const [paintedColour, setPaintedColour] = useState(null);
   const germanAudioRef = useRef(null);
   const hadMistakeRef = useRef(false);
+  const answeredRef = useRef(false);
+  const nextRoundTimerRef = useRef(null);
 
-  const matchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === mode);
   const round = mode === 'paint' ? paintRound : mode === 'park' ? parkRound : matchRound;
   const copy = MODE_COPY[mode];
   const modeTabs = useMemo(() => [
@@ -82,17 +83,24 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
     if (round?.target?.name) playGermanTerm(round.target.name);
   }, [mode, playGermanTerm, round?.target?.name]);
 
-  useEffect(() => () => germanAudioRef.current?.pause(), []);
+  useEffect(() => () => {
+    germanAudioRef.current?.pause();
+    window.clearTimeout(nextRoundTimerRef.current);
+  }, []);
 
-  const makeNextRound = () => {
+  const makeNextRound = (roundMode) => {
+    nextRoundTimerRef.current = null;
+    answeredRef.current = false;
     setFeedback('');
     hadMistakeRef.current = false;
-    if (mode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS, optionCount));
-    else if (mode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS, optionCount));
-    else if (matchMode) setMatchRound(buildMatchRound(matchMode.items, optionCount));
+    const roundMatchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === roundMode);
+    if (roundMode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS, optionCount));
+    else if (roundMode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS, optionCount));
+    else if (roundMatchMode) setMatchRound(buildMatchRound(roundMatchMode.items, optionCount));
   };
 
   const choose = (option) => {
+    if (answeredRef.current) return;
     if (mode === 'paint') setPaintedColour(option);
     if (option.name !== round.target.name) {
       hadMistakeRef.current = true;
@@ -101,16 +109,21 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
       playGermanTerm(round.target.name);
       return;
     }
+    answeredRef.current = true;
     setFeedback('Richtig! Great listening!');
     setStars((value) => Math.min(10, value + 1));
     playSfx('success');
     playGermanTerm(round.target.name);
     onCelebrate('Richtig!', 4, 120);
     onGameEvent?.('german', 'answer_correct', { skill: `german-${mode}`, item: round.target.name, response: option.name, expected: round.target.name, correct: true, firstAttempt: !hadMistakeRef.current, independent: true, difficulty });
-    window.setTimeout(makeNextRound, 850);
+    const roundMode = mode;
+    nextRoundTimerRef.current = window.setTimeout(() => makeNextRound(roundMode), 850);
   };
 
   const selectMode = (nextMode) => {
+    window.clearTimeout(nextRoundTimerRef.current);
+    nextRoundTimerRef.current = null;
+    answeredRef.current = false;
     setMode(nextMode);
     setFeedback('');
     setPaintedColour(null);
@@ -149,7 +162,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
   return (
     <div className="min-h-screen overflow-hidden bg-[#fff5dc] text-slate-900">
       <header className="relative z-20 flex items-center gap-3 px-3 pt-3 sm:px-5">
-        <button onClick={onBack} className="game-icon-button !bg-amber-400 !text-white" aria-label="Back to games"><Home /></button>
+        <button onClick={onBack} className="game-icon-button !bg-amber-400 !text-white" aria-label="Back to home"><Home /></button>
         <nav className="flex flex-1 gap-1 overflow-x-auto rounded-[1.7rem] border-2 border-amber-100 bg-white/90 p-1.5 shadow-lg no-scrollbar" aria-label="German Garage lessons">
           {modeTabs.map((tab) => (
             <button

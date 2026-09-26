@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { COLOR_MIX_ROUNDS } from '../../data/index.js';
 import { shuffle, getPraise } from '../../utils.js';
@@ -12,12 +12,20 @@ const COLOUR_HEX = {
   Red: '#ef4444', Yellow: '#facc15', Blue: '#3b82f6', White: '#f8fafc',
   Black: '#0f172a', Orange: '#f97316', Purple: '#a855f7', Green: '#22c55e',
   Pink: '#f472b6', 'Light Blue': '#67e8f9', Brown: '#92400e', Grey: '#94a3b8',
+  Silver: '#c0c0c0',
 };
+
+const FALLBACK_HEX = '#cbd5e1';
+
+// Options must be exactly the current round's set; anything else is stale.
+const optionsMatchRound = (options, round) => (
+  options.length === round.options.length && round.options.every((option) => options.includes(option))
+);
 
 const ColourSwatch = ({ name, size = 'h-36 w-36' }) => (
   <div
     className={`relative flex ${size} items-center justify-center rounded-full border-4 border-white shadow-[inset_-10px_-12px_18px_rgba(15,23,42,.16),0_12px_20px_rgba(15,23,42,.16)]`}
-    style={{ backgroundColor: COLOUR_HEX[name] || '#cbd5e1' }}
+    style={{ backgroundColor: COLOUR_HEX[name] || FALLBACK_HEX }}
     aria-label={`${name} paint`}
   >
     <span className="absolute left-[22%] top-[18%] h-5 w-10 rotate-[-25deg] rounded-full bg-white/45 blur-[1px]" aria-hidden="true" />
@@ -33,9 +41,26 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const [mixed, setMixed] = useState(false);
   const bandIndexes = colourRoundIndexes(difficulty);
   const round = COLOR_MIX_ROUNDS[bandIndexes[roundIndex % bandIndexes.length]];
-  const [options, setOptions] = useState(() => makeOptions(COLOR_MIX_ROUNDS[0]));
+  const [options, setOptions] = useState(() => makeOptions(COLOR_MIX_ROUNDS[colourRoundIndexes(difficulty)[0]]));
+  const visibleOptions = optionsMatchRound(options, round) ? options : round.options;
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
+  const [hadMistake, setHadMistake] = useState(false);
+  const roundTimerRef = useRef(null);
+
+  useEffect(() => () => { if (roundTimerRef.current) clearTimeout(roundTimerRef.current); }, []);
+
+  useEffect(() => {
+    // Restart from the new band's first round when the adaptive band changes.
+    if (roundTimerRef.current) clearTimeout(roundTimerRef.current);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setRoundIndex(0);
+    setOptions(makeOptions(COLOR_MIX_ROUNDS[colourRoundIndexes(difficulty)[0]]));
+    setMixed(false);
+    setFeedback('');
+    setLocked(false);
+    setHadMistake(false);
+  }, [difficulty]);
 
   useEffect(() => {
     speak(`What color do ${round.name1} and ${round.name2} make when mixed together?`);
@@ -47,6 +72,7 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     setMixed(false);
     setFeedback('');
     setLocked(false);
+    setHadMistake(false);
     setOptions(makeOptions(COLOR_MIX_ROUNDS[bandIndexes[nextIndex]]));
     setSkillRun((current) => current >= 5 ? 0 : current);
   };
@@ -59,6 +85,7 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
 
   const handlePick = (answer) => {
     if (locked) return;
+    const attempt = { skill: 'colormix', item: `${round.name1}+${round.name2}`, response: answer, expected: round.answer, firstAttempt: !hadMistake, independent: !hadMistake, hints: 0, difficulty };
     if (answer === round.answer) {
       const praise = getPraise();
       setFeedback(praise);
@@ -68,9 +95,11 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       playSfx('success');
       speak(`It makes ${round.answer}.`);
       onCelebrate(praise, 4, 200);
-      onGameEvent?.('colormix', 'answer_correct');
-      setTimeout(nextRound, 1100);
+      onGameEvent?.('colormix', 'answer_correct', { ...attempt, correct: true });
+      roundTimerRef.current = setTimeout(nextRound, 1100);
     } else {
+      onGameEvent?.('colormix', 'answer_wrong', { ...attempt, correct: false });
+      setHadMistake(true);
       setShake(true);
       playSfx('wrong');
       setFeedback(`Not quite! ${round.name1} + ${round.name2} = ${round.answer}`);
@@ -86,7 +115,7 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-purple-200/60 rounded-full blur-3xl" />
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-fuchsia-700">Color Mixing Lab</h2>
           <p className="text-fuchsia-700/70 font-semibold">Mixed: {score}</p>
@@ -114,9 +143,12 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
           <div className={`${shake ? 'animate-shake' : ''}`}>
             <p className="text-xl font-bold text-fuchsia-700 mb-4">What color did it make?</p>
             <div className="flex gap-4 flex-wrap justify-center">
-              {options.map((opt) => (
+              {visibleOptions.map((opt) => (
                 <button key={opt} disabled={locked} onClick={() => handlePick(opt)}
-                  className="bg-white text-fuchsia-700 text-xl font-bold px-6 py-4 rounded-2xl shadow-lg border-4 border-fuchsia-200 hover:-translate-y-1 transition">{opt}</button>
+                  className="flex items-center gap-3 bg-white text-fuchsia-700 text-xl font-bold px-6 py-4 rounded-2xl shadow-lg border-4 border-fuchsia-200 hover:-translate-y-1 transition">
+                  <span className="h-8 w-8 shrink-0 rounded-full border-2 border-slate-200 shadow-inner" style={{ backgroundColor: COLOUR_HEX[opt] || FALLBACK_HEX }} aria-hidden="true" />
+                  {opt}
+                </button>
               ))}
             </div>
           </div>

@@ -21,8 +21,9 @@ const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
   const shuffledItems = useMemo(() => shuffle(round.items), [round]);
 
   useEffect(() => {
-    speak(`Which one does not belong? ${round.hint}`);
-  }, [roundIndex, round.hint, speak]);
+    // The category hint would give the answer away, so only ask the question.
+    speak('Which one does not belong?');
+  }, [roundIndex, speak]);
 
   const nextRound = () => {
     setRoundIndex((index) => (index + 1) % bandIndexes.length);
@@ -70,13 +71,13 @@ const OddOneOut = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
   };
 
   return (
-    <div className="h-screen flex flex-col bg-gradient-to-b from-lime-100 via-yellow-100 to-lime-200 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-lime-100 via-yellow-100 to-lime-200 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-lime-200/60 rounded-full blur-3xl" />
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-lime-700">Odd One Out</h2>
           <p className="text-lime-700/70 font-semibold">Score: {score}</p>
