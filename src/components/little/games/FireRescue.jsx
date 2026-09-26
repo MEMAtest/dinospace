@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import LittleGameShell from '../LittleGameShell.jsx';
 import HandHint from '../HandHint.jsx';
-import { FireTruck, Flame, Smoke } from '../VehicleArt.jsx';
+import { Smoke } from '../VehicleArt.jsx';
 import { artUrl } from '../littleArt.js';
 import { useRoundHint } from '../useRoundHint.js';
 import { shuffled } from '../littleKit.js';
@@ -11,15 +11,20 @@ import { LITTLE_LINES } from '../../../data/littleGames.js';
 // the truck on the left, so the hose sprays across the scene.
 const FIRE_SPOTS = [
   { x: 52, y: 44 }, { x: 70, y: 44 }, { x: 88, y: 44 },
-  { x: 52, y: 66 }, { x: 88, y: 66 }, { x: 70, y: 17 },
+  { x: 52, y: 66 }, { x: 88, y: 66 }, { x: 70, y: 24 },
 ];
-const NOZZLE = { x: 27, y: 74 };
+const NOZZLE = { x: 28, y: 83 };
 const HOUSE_COLOURS = ['#fca5a5', '#fde68a', '#bfdbfe', '#c4b5fd', '#bbf7d0'];
 const HIT_RADIUS = 11;
 // Holding the water on a fire for this long puts it out; a quick tap only
 // sprays briefly, so the child learns to press and hold.
 const SPRAY_MS = 1200;
 const TAP_SPRAY_MS = 350;
+const RESCUE_TRUCK = artUrl('rescue-firetruck');
+const RESCUE_FLAME = artUrl('rescue-flame');
+
+const RescueTruck = ({ className = '' }) => <img src={RESCUE_TRUCK} alt="Fire truck" className={`object-contain ${className}`} draggable={false} />;
+const RescueFlame = ({ className = '', style }) => <img src={RESCUE_FLAME} alt="" className={`object-contain ${className}`} style={style} draggable={false} />;
 
 const FireRound = ({ count, houseColour, complete, speak, playSfx, firstRound }) => {
   const hint = useRoundHint({ demo: firstRound });
@@ -37,6 +42,7 @@ const FireRound = ({ count, houseColour, complete, speak, playSfx, firstRound })
   useEffect(() => { latest.current = { complete, speak, playSfx }; });
 
   const allOut = fires.every((fire) => fire.health <= 0);
+  const firesLeft = fires.filter((fire) => fire.health > 0).length;
 
   useEffect(() => {
     speak?.(firstRound ? LITTLE_LINES.fireIntro : LITTLE_LINES.fireStart);
@@ -46,7 +52,7 @@ const FireRound = ({ count, houseColour, complete, speak, playSfx, firstRound })
     if (!allOut) return undefined;
     const timer = setTimeout(() => {
       latest.current.speak?.(LITTLE_LINES.fireDone);
-      latest.current.complete({ praise: false, delay: 1800, art: <FireTruck className="mx-auto w-full max-w-xs" /> });
+      latest.current.complete({ praise: false, delay: 1800, art: <RescueTruck className="mx-auto w-full max-w-xs" /> });
     }, 500);
     return () => clearTimeout(timer);
   }, [allOut]);
@@ -114,7 +120,7 @@ const FireRound = ({ count, houseColour, complete, speak, playSfx, firstRound })
   const stopSpray = () => { holdingRef.current = false; };
 
   return (
-    <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-3 pb-4">
+    <div className="absolute inset-0 overflow-hidden">
       <div
         ref={sceneRef}
         onPointerDown={startSpray}
@@ -123,11 +129,11 @@ const FireRound = ({ count, houseColour, complete, speak, playSfx, firstRound })
         onPointerCancel={stopSpray}
         role="application"
         aria-label="Tap and hold on the fires to spray water"
-        className="relative mx-auto w-full touch-none overflow-hidden rounded-[2rem] border-[6px] border-white bg-gradient-to-b from-sky-300 to-sky-100 shadow-2xl"
-        style={{ aspectRatio: '4 / 5', maxWidth: 'calc((100dvh - 7.5rem) * 0.8)' }}
+        className="relative mx-auto h-full touch-none overflow-hidden bg-gradient-to-b from-sky-300 to-sky-100 shadow-2xl"
+        style={{ width: 'min(100vw, 56.25dvh)' }}
       >
         {artUrl('fire-house') ? (
-          <img src={artUrl('fire-house')} alt="" className="pointer-events-none absolute inset-0 h-full w-full object-cover" draggable={false} />
+          <img src={artUrl('fire-house')} alt="" className="pointer-events-none absolute inset-0 h-full w-full object-fill" draggable={false} />
         ) : (
         <>
         <div className="absolute inset-x-0 bottom-0 h-[16%] bg-gradient-to-b from-lime-400 to-green-600" />
@@ -141,16 +147,23 @@ const FireRound = ({ count, houseColour, complete, speak, playSfx, firstRound })
         </>
         )}
 
+        <button type="button" onPointerDown={(event) => event.stopPropagation()} onClick={() => speak?.(LITTLE_LINES.fireStart)} className="absolute left-[3%] top-[11%] z-20 rounded-[1.4rem] border-4 border-white bg-white/95 px-4 py-2 text-lg font-black text-blue-950 shadow-xl sm:text-xl" aria-label="Hear again: spray the fire">
+          Spray the fire! 🔊
+        </button>
+        <div className="pointer-events-none absolute right-[3%] top-[11%] z-20 rounded-full border-4 border-white bg-white/95 px-3 py-2 text-lg font-black text-orange-600 shadow-xl" role="status" aria-label={`${firesLeft} ${firesLeft === 1 ? 'fire' : 'fires'} left`}>
+          🔥 {firesLeft}
+        </div>
+
         {fires.map((fire) => (
           <div key={fire.id} data-fire={fire.health > 0 ? 'burning' : 'out'} className="pointer-events-none absolute -translate-x-1/2 -translate-y-[70%]" style={{ left: `${fire.x}%`, top: `${fire.y}%`, width: '19%' }}>
             {fire.health > 0
-              ? <Flame className="w-full animate-flicker" style={{ transform: `scale(${0.35 + fire.health * 0.65})`, transformOrigin: '50% 90%' }} />
+              ? <RescueFlame className="w-full animate-flicker" style={{ transform: `scale(${0.35 + fire.health * 0.65})`, transformOrigin: '50% 90%' }} />
               : <Smoke className="w-full animate-float-up" />}
           </div>
         ))}
 
-        <div className="pointer-events-none absolute bottom-[3%] left-[1%] w-[44%]">
-          <FireTruck className="w-full" title="Fire truck" />
+        <div className="pointer-events-none absolute bottom-[3%] left-[1%] w-[50%]">
+          <RescueTruck className="w-full" />
         </div>
 
         {aim && (
@@ -188,10 +201,12 @@ const FireRescue = (props) => {
       title="Fire Truck Rescue"
       intro={LITTLE_LINES.fireIntro}
       background="from-rose-400 via-orange-300 to-amber-200"
-      startArt={<FireTruck className="mx-auto w-full max-w-sm" title="Fire truck" />}
+      backgroundArtName="fire-house"
+      playFullBleed
+      startArt={<RescueTruck className="mx-auto w-full max-w-sm" />}
       renderUnlock={(config) => (
         <div className="flex h-full w-full items-end justify-center">
-          {Array.from({ length: Math.max(...config.fires) }, (_, index) => <Flame key={index} className="h-10 w-6" />)}
+          {Array.from({ length: Math.max(...config.fires) }, (_, index) => <RescueFlame key={index} className="h-10 w-6" />)}
         </div>
       )}
     >

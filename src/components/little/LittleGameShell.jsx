@@ -62,6 +62,9 @@ const LittleGameShell = ({
   intro,
   startArt,
   renderUnlock,
+  backgroundArtName,
+  backgroundArtPortrait,
+  playFullBleed = false,
   background = 'from-sky-300 via-sky-200 to-emerald-200',
   playerId,
   playerName,
@@ -167,13 +170,19 @@ const LittleGameShell = ({
     return () => clearTimeout(timer);
   }, [newStickers.length, result?.levelUp, speak]);
 
-  const backgroundArt = artUrl(`bg-${gameId}`);
+  const backgroundArt = artUrl(backgroundArtName || `bg-${gameId}`);
 
   return (
     <div
       className={`relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b ${background} bg-cover bg-center font-sans text-slate-800 select-none`}
-      style={backgroundArt ? { backgroundImage: `url(${backgroundArt})` } : undefined}
+      style={backgroundArt && !backgroundArtPortrait ? { backgroundImage: `url(${backgroundArt})` } : undefined}
     >
+      {backgroundArt && backgroundArtPortrait && (
+        <picture className="pointer-events-none absolute inset-0">
+          <source media="(max-aspect-ratio: 3/4)" srcSet={backgroundArtPortrait} />
+          <img src={backgroundArt} alt="" className="h-full w-full object-cover" />
+        </picture>
+      )}
       <header className="relative z-30 flex items-center gap-2 px-3 pb-2 pt-3 sm:gap-4 sm:px-6 sm:pt-4">
         <BigRoundButton onClick={onBack} label="Go home">
           <Home size={30} strokeWidth={2.6} />
@@ -205,7 +214,7 @@ const LittleGameShell = ({
       )}
 
       {phase === 'play' && (
-        <main key={playId} className="relative z-10 flex flex-1 flex-col">
+        <main key={playId} className={playFullBleed ? 'absolute inset-0 z-10' : 'relative z-10 flex flex-1 flex-col'}>
           <RoundSlot
             render={children}
             round={round}
