@@ -59,12 +59,7 @@ What I verified with Playwright at a 412×915 phone viewport, not on a real devi
 
 ## Known gaps and follow-ups
 
-1. **Narration clips.** 75 new spoken lines have no packaged clip yet. The container could not reach ElevenLabs or the Vercel voice proxy.
-   - The lines are in `PENDING_VOICE_CORPUS` (`scripts/offline-voice-corpus.mjs`).
-   - `test/offlineVoice.test.mjs` reports them as a TODO rather than a failure.
-   - Fix: `npm run voice:offline -- --env=.env.local` with `ELEVENLABS_API_KEY`, or with `VOICE_PROXY_URL` set.
-   - Once they're generated, you can move the lines into the main corpus so the strict release gate covers them.
-   - Until then, the online Android build fetches them through the proxy, and offline they're silent.
+1. **Narration clips.** The 80 previously missing little-explorer and shared prompts now have packaged Matilda clips. `test/offlineVoice.test.mjs` fails if any clip goes missing. New lines still need to be added to `LITTLE_VOICE_LINES` and generated with `npm run voice:offline` using `ELEVENLABS_API_KEY` or `VOICE_PROXY_URL`.
 2. **Artwork.** Waiting on the owner's images (`docs/image-brief.md`). Once added, check that `dino-*` images have clean transparent edges, because Shadow Match silhouettes are made from them with `filter: brightness(0)`.
 3. **Old sessions count only progress events.** Several older games don't report wrong answers, so their session stars depend on `firstAttempt` in the `answer_correct` payload. Where a game doesn't send it, every answer counts as a first try.
 4. **Parent gate** is a 3-second hold. That's fine for a 3-year-old, but not strong security.

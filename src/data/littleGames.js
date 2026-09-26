@@ -41,6 +41,13 @@ export const RESCUE_ANIMALS = Object.freeze([
 // level lists what it unlocks, shown on the finish screen when reached.
 const ALL_PARTS = ['nose', 'window', 'fins', 'flame'];
 export const LITTLE_LEVELS = Object.freeze({
+  dino: [
+    { rounds: 3, spots: 2, trail: 'bright' },
+    { rounds: 3, spots: 3, trail: 'bright', unlock: 'search' },
+    { rounds: 4, spots: 3, trail: 'marks', unlock: 'dino' },
+    { rounds: 4, spots: 3, trail: 'marks', unlock: 'dino' },
+    { rounds: 5, spots: 3, trail: 'faint', unlock: 'challenge' },
+  ],
   dinojigsaw: [
     { grids: [[2, 1], [2, 1], [2, 2]], scenes: 2 },
     { grids: [[2, 1], [2, 2], [2, 2], [2, 2]], scenes: 3, unlock: 'picture' },
@@ -106,6 +113,11 @@ export const NUMBER_NAMES = Object.freeze(['zero', 'one', 'two', 'three', 'four'
 
 export const LITTLE_LINES = Object.freeze({
   welcome: 'Welcome Amari or Askia! Who is playing today?',
+  dinoIntro: 'Dino Detective! Tap the footprint, then follow the trail to find the hidden dinosaur.',
+  dinoPrompt: 'Tap the footprint to see where the dinosaur went!',
+  dinoTrail: 'Follow the footprints. Which leaves are hiding the dinosaur?',
+  dinoWrong: 'Not here. Look where the footprints lead!',
+  dinoFound: 'You found the dinosaur! Well done!',
   jigsawIntro: 'Dino Jigsaw! Drag the pieces to build the picture.',
   jigsawWrong: 'Try another spot!',
   shadowIntro: 'Shadow Match! Drag the dinosaur to its shadow.',

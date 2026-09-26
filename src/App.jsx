@@ -17,6 +17,7 @@ import LittleHome from './components/home/LittleHome.jsx';
 import WorldPage from './components/home/WorldPage.jsx';
 import LittleStickerAlbum from './components/home/LittleStickerAlbum.jsx';
 import GameSession from './components/shared/GameSession.jsx';
+import LittleDinoDetective from './components/little/games/LittleDinoDetective.jsx';
 import { GAME_SESSIONS } from './data/gameSessions.js';
 import { recordLegacyGameEvent } from './data/learningProgress.js';
 import {
@@ -214,10 +215,10 @@ const PlayerSession = ({
   let content;
 
   if (route.name === 'game' && currentGame) {
-    const GameComponent = currentGame.component;
+    const GameComponent = little && currentGame.id === 'dino' ? LittleDinoDetective : currentGame.component;
     const nextId = nextGameAfter(currentGame.id);
     const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
-    const sessionRule = currentGame.little ? null : GAME_SESSIONS[currentGame.id];
+    const sessionRule = currentGame.little || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
       onBack: () => back(),
       playSfx,
@@ -459,4 +460,3 @@ export default function App() {
     />
   );
 }
-

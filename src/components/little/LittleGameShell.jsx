@@ -140,12 +140,12 @@ const LittleGameShell = ({
     setPhase('done');
   }, [bigKid, finishLine, gameId, onCelebrate, onGameEvent, playSfx, playerId, speak]);
 
-  const complete = useCallback(({ praise = true, delay = 1400, art } = {}) => {
+  const complete = useCallback(({ praise = true, delay = 1400, art, firstAttempt = true, independent = true, hints = 0 } = {}) => {
     if (completedRoundRef.current === round) return;
     completedRoundRef.current = round;
     if (art) setFinishArt(art);
     playSfx?.('success');
-    onGameEvent?.(gameId, 'answer_correct', { correct: true, firstAttempt: true, independent: true, skill: gameId, item: `round-${round + 1}`, difficulty: 'starter', masteryEligible: false });
+    onGameEvent?.(gameId, 'answer_correct', { correct: true, firstAttempt, independent, hints, skill: gameId, item: `round-${round + 1}`, difficulty: 'starter', masteryEligible: false });
     if (praise) speak?.(getPraise());
     advanceTimer.current = setTimeout(() => {
       if (round + 1 >= rounds) {
@@ -194,7 +194,7 @@ const LittleGameShell = ({
             type="button"
             onClick={start}
             aria-label={`Play ${title}`}
-            className="grid h-32 w-32 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_10px_0_#166534,0_20px_40px_rgba(22,101,52,.35)] transition hover:scale-105 active:translate-y-2 active:shadow-none animate-pulse-soft sm:h-40 sm:w-40"
+            className="grid h-32 w-32 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_10px_0_#166534,0_20px_40px_rgba(22,101,52,.35)] transition hover:scale-105 active:translate-y-2 active:shadow-none sm:h-40 sm:w-40"
           >
             <Play size={72} fill="currentColor" className="ml-2" />
           </button>

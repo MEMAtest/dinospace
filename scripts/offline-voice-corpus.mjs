@@ -234,10 +234,8 @@ MOVE_PRAISE.forEach((praise) => add(praise));
 
 export const OFFLINE_VOICE_CORPUS = [...corpus.values()].sort((a, b) => a.key.localeCompare(b.key));
 
-// Lines that still need clips: the little-explorer games (Askia's games),
-// the two-player welcome, and two prompts existing games already speak.
-// Kept separate until `npm run voice:offline` has generated them; the
-// Android build fetches them online meanwhile.
+// Additional little-explorer and shared prompts. The generated manifest must
+// include local clips for all of these lines; test/offlineVoice.test.mjs gates it.
 const PENDING_LINES = [
   ...LITTLE_VOICE_LINES,
   'Look carefully at the clock. What time is shown?',

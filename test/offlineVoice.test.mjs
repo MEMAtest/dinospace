@@ -24,8 +24,7 @@ const missingLittleClips = PENDING_VOICE_CORPUS.filter(({ key }) => {
   return !clip || !existsSync(`public${clip}`);
 });
 
-// Reported as a TODO (not a failure) until `npm run voice:offline` has been
-// run with the ElevenLabs key; online Android builds fetch these meanwhile.
-test('pending narration (new games and two older prompts) has packaged clips', { todo: missingLittleClips.length ? `${missingLittleClips.length} clips to generate` : false }, () => {
+// Keep Askia's game prompts offline even when the optional voice API is down.
+test('little-explorer and older prompts have packaged ElevenLabs clips', () => {
   assert.equal(missingLittleClips.length, 0);
 });
