@@ -157,7 +157,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       <div className="absolute -bottom-28 -left-24 h-[28rem] w-[28rem] rounded-full bg-cyan-400/15 blur-3xl pointer-events-none" />
 
       <header className="relative z-20 flex items-center justify-between gap-3 px-4 sm:px-7 pt-4">
-        <button onClick={onBack} className="game-icon-button" aria-label="Back to all games">
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home">
           <Home />
         </button>
         <div className="min-w-0 text-center">

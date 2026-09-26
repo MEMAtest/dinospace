@@ -55,7 +55,7 @@
   }
 
   .game-icon-button {
-    @apply grid h-11 w-11 place-items-center rounded-full border border-white/30 bg-white/90 text-slate-800 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0;
+    @apply grid h-12 w-12 shrink-0 place-items-center rounded-full border border-white/30 bg-white/90 text-slate-800 shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0;
   }
 
   .ttt-option {

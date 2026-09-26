@@ -430,7 +430,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   return (
     <div className="min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden">
       <header className="relative z-30 flex items-center justify-between border-b border-white/10 bg-slate-950/80 px-4 py-3 backdrop-blur-xl">
-        <button onClick={onBack} className="game-icon-button !bg-white/10 !text-white" aria-label="Back to all games"><Home /></button>
+        <button onClick={onBack} className="game-icon-button !bg-white/10 !text-white" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <p className="text-[10px] font-black uppercase tracking-[0.25em] text-cyan-300 sm:text-xs">Interactive 3D mission</p>
           <h2 className="text-xl font-black text-white sm:text-3xl">Solar System Explorer</h2>

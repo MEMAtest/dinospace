@@ -1,6 +1,6 @@
 import { copyFile, mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { LITTLE_VOICE_CORPUS, OFFLINE_VOICE_CORPUS } from './offline-voice-corpus.mjs';
+import { PENDING_VOICE_CORPUS, OFFLINE_VOICE_CORPUS } from './offline-voice-corpus.mjs';
 import { CURRICULUM_VOICE_CORPUS } from '../src/data/curriculumVoice.js';
 import { OFFLINE_VOICE_MANIFEST as existingManifest } from '../src/data/offlineVoiceManifest.js';
 
@@ -26,7 +26,7 @@ if (!apiKey && !voiceProxyUrl) throw new Error('ELEVENLABS_API_KEY or VOICE_PROX
 const englishVoice = await readEnvValue('ELEVENLABS_VOICE_ID') || 'XrExE9yKIg1WjnnlVkGX';
 const germanVoice = await readEnvValue('ELEVENLABS_GERMAN_VOICE_ID');
 const model = await readEnvValue('ELEVENLABS_MODEL_ID') || 'eleven_multilingual_v2';
-const voiceCorpus = [...new Map([...OFFLINE_VOICE_CORPUS, ...LITTLE_VOICE_CORPUS, ...CURRICULUM_VOICE_CORPUS].map((item) => [item.key, item])).values()];
+const voiceCorpus = [...new Map([...OFFLINE_VOICE_CORPUS, ...PENDING_VOICE_CORPUS, ...CURRICULUM_VOICE_CORPUS].map((item) => [item.key, item])).values()];
 
 if (refreshGerman && !germanVoice) {
   throw new Error('ELEVENLABS_GERMAN_VOICE_ID is required when refreshing German clips');

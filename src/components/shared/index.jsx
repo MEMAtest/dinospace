@@ -6,10 +6,11 @@ import { RewardSticker } from './StickerArt.jsx';
 export const SoundToggle = ({ soundOn, onToggle, className = '' }) => (
   <button
     onClick={onToggle}
-    className={`bg-white/90 text-slate-700 p-2 rounded-full shadow-lg hover:scale-105 transition ${className}`}
+    type="button"
+    className={`grid h-12 w-12 shrink-0 place-items-center rounded-full bg-white/90 text-slate-700 shadow-lg transition hover:scale-105 ${className}`}
     aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}
   >
-    {soundOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
+    {soundOn ? <Volume2 size={22} /> : <VolumeX size={22} />}
   </button>
 );
 

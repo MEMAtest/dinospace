@@ -34,6 +34,7 @@ const WorldPage = ({
         return (
           <div key={game.id} className="relative">
             <MenuCard
+              span="w-full"
               icon={game.icon}
               title={game.title}
               desc={game.desc}

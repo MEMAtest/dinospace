@@ -417,7 +417,7 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
   return (
     <div className={`min-h-screen w-full bg-gradient-to-b ${activeModule.id === 'continents' ? 'from-sky-100 via-cyan-50 to-indigo-100' : activeModule.id === 'time-detectives' ? 'from-amber-100 via-orange-50 to-yellow-100' : 'from-emerald-100 via-lime-50 to-teal-100'} px-4 pb-8`}>
       <header className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3 py-4">
-        <button type="button" onClick={onBack} className="rounded-full bg-white p-3 shadow-lg transition hover:scale-105" aria-label="Back to all games"><Home /></button>
+        <button type="button" onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center"><p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Curriculum Quest · Module {moduleNumber}</p><h1 className="text-2xl font-black text-slate-900 sm:text-4xl">{activeModule.icon} {activeModule.title}</h1><p className="text-sm font-bold text-slate-600">{DIFFICULTY_LABELS[difficulty]} · {activeModule.subtitle}</p></div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>

@@ -234,11 +234,17 @@ MOVE_PRAISE.forEach((praise) => add(praise));
 
 export const OFFLINE_VOICE_CORPUS = [...corpus.values()].sort((a, b) => a.key.localeCompare(b.key));
 
-// Little-explorer games (Askia's games) and the two-player welcome. Kept as
-// a separate list until their clips are generated with
-// `npm run voice:offline`; the Android build fetches them online meanwhile.
+// Lines that still need clips: the little-explorer games (Askia's games),
+// the two-player welcome, and two prompts existing games already speak.
+// Kept separate until `npm run voice:offline` has generated them; the
+// Android build fetches them online meanwhile.
+const PENDING_LINES = [
+  ...LITTLE_VOICE_LINES,
+  'Look carefully at the clock. What time is shown?',
+  'FISH!',
+];
 const existingKeys = new Set(OFFLINE_VOICE_CORPUS.map((item) => item.key));
-export const LITTLE_VOICE_CORPUS = [...new Map(LITTLE_VOICE_LINES.map((line) => {
+export const PENDING_VOICE_CORPUS = [...new Map(PENDING_LINES.map((line) => {
   const text = normalizeVoiceText(line);
   return [voiceClipKey(text, 'en-US'), { text, lang: 'en-US', key: voiceClipKey(text, 'en-US') }];
 })).values()].filter((item) => !existingKeys.has(item.key));

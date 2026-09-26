@@ -21,7 +21,7 @@ export const PageHeader = ({ title, subtitle, onBack, backLabel = 'Back', right,
       {subtitle && <p className={`truncate text-sm font-bold ${tone === 'dark' ? 'text-white/70' : 'text-slate-500'}`}>{subtitle}</p>}
     </div>
     {right}
-    {onToggleSound && <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!h-12 !w-12 grid place-items-center" />}
+    {onToggleSound && <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />}
   </header>
 );
 

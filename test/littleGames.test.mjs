@@ -4,13 +4,13 @@ import {
   DINO_NAMES, FIRE_COUNTS, FUEL_NUMBERS, JIGSAW_GRIDS, JIGSAW_SCENES, LADDER_FLOORS, LITTLE_VOICE_LINES,
   RESCUE_ANIMALS, ROCKET_BUILD_ROUNDS, SHADOW_CHOICES, fuelPrompt, rescuePrompt,
 } from '../src/data/littleGames.js';
-import { LITTLE_VOICE_CORPUS, OFFLINE_VOICE_CORPUS } from '../scripts/offline-voice-corpus.mjs';
+import { PENDING_VOICE_CORPUS, OFFLINE_VOICE_CORPUS } from '../scripts/offline-voice-corpus.mjs';
 import { voiceClipKey, normalizeVoiceText } from '../src/data/voiceKey.js';
 import { PLAYERS, getPlayer, isLittleExplorer, playerStorageKey } from '../src/data/players.js';
 import { parentRoute, parseRoute, routeHash } from '../src/navigation.js';
 
 test('every little-explorer line is queued for narration', () => {
-  const keys = new Set([...OFFLINE_VOICE_CORPUS, ...LITTLE_VOICE_CORPUS].map((item) => item.key));
+  const keys = new Set([...OFFLINE_VOICE_CORPUS, ...PENDING_VOICE_CORPUS].map((item) => item.key));
   LITTLE_VOICE_LINES.forEach((line) => {
     assert.ok(keys.has(voiceClipKey(normalizeVoiceText(line), 'en-US')), line);
   });
@@ -32,7 +32,7 @@ test('little rounds stay gentle and big rounds step up', () => {
   JIGSAW_SCENES.forEach((scene) => assert.ok(DINO_NAMES[scene.dino], scene.id));
 });
 
-test('each child keeps separate progress, and Amari's original keys are kept', () => {
+test("each child keeps separate progress, and Amari's original keys are kept", () => {
   assert.deepEqual(PLAYERS.map((p) => p.id), ['amari', 'askia']);
   assert.equal(playerStorageKey('amari', 'points'), 'amari_points');
   assert.equal(playerStorageKey('askia', 'points'), 'askia_points');
