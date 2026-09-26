@@ -21,7 +21,7 @@ export const GAME_SESSIONS = Object.freeze({
   jet: { event: 'answer_correct', target: 3, how: 'Fly the jet around the shape.' },
   hangman: { event: 'word_completed', target: 5, how: 'Guess the letters to rescue the word.' },
   tictactoe: { event: 'round_completed', target: 3, how: 'Get three in a row to win the round.' },
-  memory: { event: 'level_completed', target: 1, how: 'Flip cards and find the pairs.' },
+  memory: { event: 'level_completed', target: 1, little: 3, how: 'Flip cards and find the pairs.' },
   dino: { event: 'level_completed', target: 1, how: 'Tap the leaves to find the hidden dinosaurs.' },
   puzzle: { event: 'level_completed', target: 1, how: 'Put the picture pieces in place.' },
   spot: { event: 'level_completed', target: 1, how: 'Find what changed in the second picture.' },

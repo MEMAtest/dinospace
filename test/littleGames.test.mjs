@@ -86,7 +86,9 @@ test('older games get short sessions that end, with honest stars', async () => {
   Object.entries(GAME_SESSIONS).forEach(([id, rule]) => {
     assert.ok(allGames.has(id), id);
     assert.ok(rule.target >= 1 && rule.how, id);
-    assert.ok(sessionTarget(rule, true) <= rule.target, id);
+    // Askia's Memory Match now has three boards that grow from 3 to 5 pairs.
+    if (id === 'memory') assert.equal(sessionTarget(rule, true), 3);
+    else assert.ok(sessionTarget(rule, true) <= rule.target, id);
   });
   ['solar', 'astronaut', 'worldmap', 'storybooks', 'chess'].forEach((id) => assert.equal(GAME_SESSIONS[id], undefined, id));
   assert.equal(sessionStars(8, 8), 3);
