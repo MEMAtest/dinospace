@@ -1,12 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Home, Play, RotateCcw, SkipForward, Volume2, VolumeX } from 'lucide-react';
 import { getPraise } from '../../utils.js';
+import { STICKERS } from '../../data/index.js';
+import { LITTLE_LEVELS, LITTLE_LINES, levelRounds, starsForMistakes } from '../../data/littleGames.js';
+import { getLittleLevel, recordLittleResult } from '../../data/littleProgress.js';
+import { RewardSticker } from '../shared/StickerArt.jsx';
+import { artUrl } from './littleArt.js';
 
 // One predictable flow for every little-explorer game:
-//   start card (big ▶, instructions spoken)  →  N rounds with a rocket track
-//   →  finish card (stars, then Play again / Next game / Home).
-// Games only render a round and call `complete()` when it is solved; there
-// is no failing and no timer.
+//   start card (big ▶, level dots, instructions spoken)
+//   → rounds on a star track (the game reports mistakes; there is no failing)
+//   → finish card: 1–3 stars, level up with what it unlocked, any new
+//     sticker, then Again / Next game / Home.
+// The child's level is saved per game, so the games grow with them.
 
 export const BigRoundButton = ({ onClick, label, children, tone = 'bg-white text-slate-800', size = 'h-16 w-16', className = '' }) => (
   <button
@@ -39,6 +45,15 @@ const RoundTrack = ({ total, done }) => (
   </div>
 );
 
+// Level shown as filled dots, so a non-reader can see it grow.
+export const LevelDots = ({ level, total, className = '' }) => (
+  <div className={`flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-2 shadow ${className}`} aria-label={`Level ${level + 1} of ${total}`}>
+    {Array.from({ length: total }, (_, index) => (
+      <span key={index} className={`h-4 w-4 rounded-full border-2 border-amber-500 ${index <= level ? 'bg-amber-400' : 'bg-white'}`} />
+    ))}
+  </div>
+);
+
 const RoundSlot = ({ render, ...roundProps }) => render(roundProps);
 
 const LittleGameShell = ({
@@ -46,9 +61,12 @@ const LittleGameShell = ({
   title,
   intro,
   startArt,
+  renderUnlock,
   background = 'from-sky-300 via-sky-200 to-emerald-200',
-  rounds = 5,
+  playerId,
   playerName,
+  bigKid,
+  points = 0,
   speak,
   playSfx,
   soundOn,
@@ -57,18 +75,33 @@ const LittleGameShell = ({
   onCelebrate,
   onGameEvent,
   onNextGame,
-  finishLine = 'Hooray! You did it!',
+  onPhaseChange,
+  finishLine = LITTLE_LINES.finish,
   children,
 }) => {
+  const levels = LITTLE_LEVELS[gameId];
+  const [level, setLevel] = useState(() => getLittleLevel(playerId, gameId, bigKid));
+  const config = levels[level];
+  const rounds = levelRounds(gameId, config);
   const [phase, setPhase] = useState('start');
   const [round, setRound] = useState(0);
   const [playId, setPlayId] = useState(0);
+  const [result, setResult] = useState(null);
+  const [startPoints, setStartPoints] = useState(points);
+  const [finishArt, setFinishArt] = useState(null);
   const advanceTimer = useRef(null);
+  const speechTimers = useRef([]);
+  const mistakesRef = useRef(0);
   // Rounds may report completion more than once (re-renders, double taps);
   // only the first report for a round counts.
   const completedRoundRef = useRef(-1);
 
-  useEffect(() => () => clearTimeout(advanceTimer.current), []);
+  useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
+
+  useEffect(() => () => {
+    clearTimeout(advanceTimer.current);
+    speechTimers.current.forEach(clearTimeout);
+  }, []);
 
   useEffect(() => {
     if (phase === 'start' && intro) {
@@ -81,34 +114,66 @@ const LittleGameShell = ({
   const start = () => {
     playSfx?.('launch');
     clearTimeout(advanceTimer.current);
+    speechTimers.current.forEach(clearTimeout);
     completedRoundRef.current = -1;
+    mistakesRef.current = 0;
+    setStartPoints(points);
+    setResult(null);
+    setFinishArt(null);
     setRound(0);
     setPlayId((id) => id + 1);
     setPhase('play');
   };
 
-  const complete = useCallback(({ praise = true, delay = 1400 } = {}) => {
+  const mistake = useCallback(() => { mistakesRef.current += 1; }, []);
+
+  const finish = useCallback(() => {
+    const stars = starsForMistakes(mistakesRef.current);
+    const saved = recordLittleResult(playerId, gameId, bigKid, stars);
+    setResult({ stars, ...saved });
+    setLevel(saved.level);
+    playSfx?.(saved.levelUp ? 'levelup-big' : 'complete');
+    onGameEvent?.(gameId, 'level_completed');
+    onCelebrate?.(finishLine, stars * 2 + 2, 0, gameId);
+    speak?.(finishLine);
+    if (saved.levelUp) speechTimers.current.push(setTimeout(() => speak?.(LITTLE_LINES.levelUp), 2200));
+    setPhase('done');
+  }, [bigKid, finishLine, gameId, onCelebrate, onGameEvent, playSfx, playerId, speak]);
+
+  const complete = useCallback(({ praise = true, delay = 1400, art } = {}) => {
     if (completedRoundRef.current === round) return;
     completedRoundRef.current = round;
+    if (art) setFinishArt(art);
     playSfx?.('success');
     onGameEvent?.(gameId, 'answer_correct', { correct: true, firstAttempt: true, independent: true, skill: gameId, item: `round-${round + 1}`, difficulty: 'starter', masteryEligible: false });
     if (praise) speak?.(getPraise());
     advanceTimer.current = setTimeout(() => {
       if (round + 1 >= rounds) {
-        playSfx?.('complete');
-        onGameEvent?.(gameId, 'level_completed');
-        onCelebrate?.(finishLine, 10, 0, gameId);
-        speak?.(finishLine);
-        setPhase('done');
+        finish();
       } else {
-        onCelebrate?.(null, 2, 0, gameId, { quiet: true });
+        onCelebrate?.(null, 1, 0, gameId, { quiet: true });
         setRound((value) => value + 1);
       }
     }, delay);
-  }, [finishLine, gameId, onCelebrate, onGameEvent, playSfx, round, rounds, speak]);
+  }, [finish, gameId, onCelebrate, onGameEvent, playSfx, round, rounds, speak]);
+
+  const newStickers = phase === 'done'
+    ? STICKERS.filter((sticker) => sticker.points > startPoints && sticker.points <= points).slice(-1)
+    : [];
+
+  useEffect(() => {
+    if (!newStickers.length) return undefined;
+    const timer = setTimeout(() => speak?.(LITTLE_LINES.newSticker), result?.levelUp ? 4600 : 2200);
+    return () => clearTimeout(timer);
+  }, [newStickers.length, result?.levelUp, speak]);
+
+  const backgroundArt = artUrl(`bg-${gameId}`);
 
   return (
-    <div className={`relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b ${background} font-sans text-slate-800 select-none`}>
+    <div
+      className={`relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b ${background} bg-cover bg-center font-sans text-slate-800 select-none`}
+      style={backgroundArt ? { backgroundImage: `url(${backgroundArt})` } : undefined}
+    >
       <header className="relative z-30 flex items-center gap-2 px-3 pb-2 pt-3 sm:gap-4 sm:px-6 sm:pt-4">
         <BigRoundButton onClick={onBack} label="Go home">
           <Home size={30} strokeWidth={2.6} />
@@ -124,6 +189,7 @@ const LittleGameShell = ({
       {phase === 'start' && (
         <main className="relative z-10 flex flex-1 flex-col items-center justify-center gap-5 px-4 pb-8 text-center">
           <div className="w-full max-w-md animate-bounce-slow">{startArt}</div>
+          <LevelDots level={level} total={levels.length} />
           <button
             type="button"
             onClick={start}
@@ -140,20 +206,51 @@ const LittleGameShell = ({
 
       {phase === 'play' && (
         <main key={playId} className="relative z-10 flex flex-1 flex-col">
-          <RoundSlot render={children} round={round} rounds={rounds} complete={complete} playId={playId} />
+          <RoundSlot
+            render={children}
+            round={round}
+            rounds={rounds}
+            complete={complete}
+            mistake={mistake}
+            playId={playId}
+            level={level}
+            config={config}
+            firstRound={round === 0}
+          />
         </main>
       )}
 
-      {phase === 'done' && (
-        <main className="relative z-10 flex flex-1 flex-col items-center justify-center gap-6 px-4 pb-10 text-center">
-          <div className="flex gap-2 text-6xl sm:text-7xl" aria-hidden="true">
-            {Array.from({ length: 3 }, (_, index) => <span key={index} className="animate-pop-in" style={{ animationDelay: `${index * 180}ms` }}>⭐</span>)}
+      {phase === 'done' && result && (
+        <main className="relative z-10 flex flex-1 flex-col items-center justify-center gap-4 px-4 pb-10 text-center">
+          <div className="flex gap-2 text-6xl sm:text-7xl" aria-label={`${result.stars} of 3 stars`}>
+            {Array.from({ length: 3 }, (_, index) => (
+              <span key={index} className={`animate-pop-in ${index < result.stars ? '' : 'opacity-25 grayscale'}`} style={{ animationDelay: `${index * 250}ms` }} aria-hidden="true">⭐</span>
+            ))}
           </div>
-          <div className="w-full max-w-xs">{startArt}</div>
+          <div className={`w-full ${result.levelUp || newStickers.length ? 'max-w-[12rem]' : 'max-w-xs'}`}>{finishArt || startArt}</div>
           <h2 className="text-4xl font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)] sm:text-5xl">
             {playerName ? `Well done, ${playerName}!` : 'Well done!'}
           </h2>
-          <div className="flex items-end gap-5">
+          {(result.levelUp || newStickers.length > 0) && (
+            <div className="flex flex-wrap items-stretch justify-center gap-3">
+              {result.levelUp && (
+                <div className="flex items-center gap-3 rounded-[1.6rem] border-4 border-amber-300 bg-white/90 px-4 py-3 shadow-xl animate-pop-in" style={{ animationDelay: '700ms' }}>
+                  <div className="text-left">
+                    <p className="text-2xl font-black text-amber-600">Level up!</p>
+                    <LevelDots level={result.level} total={levels.length} className="mt-1 !px-0 !py-0 !shadow-none" />
+                  </div>
+                  {renderUnlock && <div className="h-20 w-24">{renderUnlock(levels[result.level], levels[result.previous])}</div>}
+                </div>
+              )}
+              {newStickers.map((sticker) => (
+                <div key={sticker.id} className="flex items-center gap-3 rounded-[1.6rem] border-4 border-fuchsia-300 bg-white/90 px-4 py-3 shadow-xl animate-pop-in" style={{ animationDelay: '1100ms' }}>
+                  <RewardSticker rewardId={sticker.id} size={72} />
+                  <p className="text-xl font-black text-fuchsia-600">New sticker!</p>
+                </div>
+              ))}
+            </div>
+          )}
+          <div className="mt-2 flex items-end gap-5">
             <div className="flex flex-col items-center gap-1">
               <BigRoundButton onClick={start} label="Play again" size="h-24 w-24" tone="bg-gradient-to-b from-sky-400 to-blue-600 text-white">
                 <RotateCcw size={46} strokeWidth={2.8} />

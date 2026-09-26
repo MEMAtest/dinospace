@@ -29,3 +29,19 @@ export const shuffledOutOfOrder = (list) => {
 };
 
 export const NUMBER_WORDS = Object.freeze(['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']);
+
+// Deterministic shuffle: the same seed always gives the same order, so a
+// round's content can be derived during render without changing mid-round.
+export const seededShuffle = (list, seed) => {
+  const copy = list.slice();
+  let state = (Math.abs(Math.floor(seed)) * 2654435761 + 1013904223) >>> 0;
+  const next = () => {
+    state = (state * 1664525 + 1013904223) >>> 0;
+    return state / 4294967296;
+  };
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(next() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+};

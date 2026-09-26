@@ -15,6 +15,9 @@ import IntroScreen from './components/games/IntroScreen.jsx';
 import ExplorerHome from './components/home/ExplorerHome.jsx';
 import LittleHome from './components/home/LittleHome.jsx';
 import WorldPage from './components/home/WorldPage.jsx';
+import LittleStickerAlbum from './components/home/LittleStickerAlbum.jsx';
+import GameSession from './components/shared/GameSession.jsx';
+import { GAME_SESSIONS } from './data/gameSessions.js';
 import { recordLegacyGameEvent } from './data/learningProgress.js';
 import {
   BONUS_GAME_IDS as BONUS_GAME_ID_LIST, LEARNING_WORLDS, LITTLE_EXPLORER_GAME_IDS, PRACTICE_GAME_IDS,
@@ -60,6 +63,14 @@ const PlayerSession = ({
   const [challengeCompleted, setChallengeCompleted] = useState(() => loadPlayerValue(player.id, 'challenge_done', false));
   const [gamesPlayed, setGamesPlayed] = useState(() => loadPlayerValue(player.id, 'games_played', {}));
   const [leaveDialog, setLeaveDialog] = useState(false);
+  const [sessionPhase, setSessionPhase] = useState('play');
+  // Games with a start/finish flow report their phase; leaving from the start
+  // or finish screen needs no "are you sure?".
+  const gamePhaseRef = useRef(null);
+  const handlePhaseChange = useCallback((phase) => {
+    gamePhaseRef.current = phase;
+    setSessionPhase(phase);
+  }, []);
   const pointsRef = useRef(points);
   const challengeProgressRef = useRef(challengeProgress);
   const challengeCompletedRef = useRef(challengeCompleted);
@@ -108,6 +119,7 @@ const PlayerSession = ({
   useEffect(() => {
     setLeaveGuard((from) => {
       if (from.name !== 'game') return false;
+      if (gamePhaseRef.current && gamePhaseRef.current !== 'play') return false;
       if (Date.now() - gameOpenedAtRef.current < CONFIRM_LEAVE_AFTER_MS) return false;
       setLeaveDialog(true);
       return true;
@@ -142,6 +154,9 @@ const PlayerSession = ({
 
   const launchGame = useCallback((gameId, sfx = 'click', { replace = false } = {}) => {
     playSfx(sfx);
+    // Reset before the next game mounts; games with a start screen report
+    // their own phase as they appear.
+    gamePhaseRef.current = null;
     setRecentGames((current) => [gameId, ...current.filter((id) => id !== gameId)].slice(0, MAX_RECENT_GAMES));
     navigate({ name: 'game', id: gameId }, { replace });
   }, [navigate, playSfx]);
@@ -167,6 +182,11 @@ const PlayerSession = ({
     if (delayMs > 0) setTimeout(run, Math.min(delayMs, 100));
     else run();
   }, []);
+
+  const scaledCelebrate = useCallback(
+    (message, pointsEarned = 5, ...rest) => celebrate(message, Math.max(1, Math.round(pointsEarned / 4)), ...rest),
+    [celebrate],
+  );
 
   useEffect(() => {
     if (!celebration) return undefined;
@@ -196,21 +216,48 @@ const PlayerSession = ({
   if (route.name === 'game' && currentGame) {
     const GameComponent = currentGame.component;
     const nextId = nextGameAfter(currentGame.id);
+    const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
+    const sessionRule = currentGame.little ? null : GAME_SESSIONS[currentGame.id];
+    const gameProps = {
+      onBack: () => back(),
+      playSfx,
+      speak,
+      // The older games award 4–14 stars per answer, which emptied the
+      // sticker shelf within days; scale them to match the newer games.
+      onCelebrate: currentGame.little ? celebrate : scaledCelebrate,
+      onGameEvent: recordGameEvent,
+      playerName: player.name,
+      playerId: player.id,
+      points,
+      bigKid: !little,
+      littleMode: little,
+      onNextGame,
+      onPhaseChange: handlePhaseChange,
+      ...soundProps,
+    };
     content = (
       <ForcedDifficultyContext.Provider value={little ? 'starter' : null}>
         <Suspense fallback={<GameLoading />}>
-          <GameComponent
-            key={currentGame.id}
-            onBack={() => back()}
-            playSfx={playSfx}
-            speak={speak}
-            onCelebrate={celebrate}
-            onGameEvent={recordGameEvent}
-            playerName={player.name}
-            bigKid={!little}
-            onNextGame={nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined}
-            {...soundProps}
-          />
+          {sessionRule ? (
+            <GameSession
+              key={currentGame.id}
+              game={currentGame}
+              rule={sessionRule}
+              little={little}
+              playerName={player.name}
+              points={points}
+              onGameEvent={recordGameEvent}
+              onCelebrate={celebrate}
+              onBack={() => back()}
+              onNextGame={onNextGame}
+              onPhaseChange={handlePhaseChange}
+              playSfx={playSfx}
+            >
+              {({ run, onGameEvent }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} onGameEvent={onGameEvent} />}
+            </GameSession>
+          ) : (
+            <GameComponent key={currentGame.id} {...gameProps} />
+          )}
         </Suspense>
       </ForcedDifficultyContext.Provider>
     );
@@ -229,6 +276,8 @@ const PlayerSession = ({
         {...soundProps}
       />
     );
+  } else if (route.name === 'stickers' && little) {
+    content = <LittleStickerAlbum points={points} onBack={() => back()} playSfx={playSfx} />;
   } else if (route.name === 'stickers') {
     content = (
       <div className={`flex min-h-[100dvh] w-full flex-col items-center gap-2 bg-gradient-to-b p-3 sm:p-6 ${little ? 'from-amber-200 to-sky-200' : 'from-amber-100 via-white to-sky-100'}`}>
@@ -296,7 +345,7 @@ const PlayerSession = ({
   return (
     <>
       {content}
-      {currentGame && !little && !currentGame.little && !NO_CHALLENGE_TRACKER.has(currentGame.id) && (
+      {currentGame && !little && !currentGame.little && !NO_CHALLENGE_TRACKER.has(currentGame.id) && (!GAME_SESSIONS[currentGame.id] || sessionPhase === 'play') && (
         <DailyChallengeTracker
           challenge={todaysChallenge}
           progress={challengeProgress}

@@ -1,4 +1,6 @@
-// Rockets, fire trucks and flames for the little-explorer games.
+// Rockets, fire trucks and flames for the little-explorer games. Each piece
+// can be replaced by a drop-in image (see littleArt.js).
+import { artUrl, hueFilterFor } from './littleArt.js';
 
 const OUTLINE = '#1e293b';
 
@@ -12,7 +14,16 @@ export const ROCKET_PARTS = Object.freeze([
   { id: 'flame', label: 'engine flame', box: [66, 214, 68, 84] },
 ]);
 
+const RasterPart = ({ part, url, colour, ghost }) => {
+  const [x, y, w, h] = ROCKET_PARTS.find((p) => p.id === part).box;
+  const tint = part === 'nose' || part === 'fins' ? hueFilterFor(colour) : '';
+  const style = ghost ? { filter: 'grayscale(1) brightness(1.7)', opacity: 0.4 } : tint ? { filter: tint } : undefined;
+  return <image href={url} x={x} y={y} width={w} height={h} preserveAspectRatio="xMidYMid meet" style={style} />;
+};
+
 export const RocketPart = ({ part, colour = '#ef4444', ghost = false }) => {
+  const raster = artUrl(`rocket-${part}`);
+  if (raster) return <RasterPart part={part} url={raster} colour={colour} ghost={ghost} />;
   const stroke = ghost ? '#94a3b8' : OUTLINE;
   const dash = ghost ? '8 7' : undefined;
   const fill = (value) => (ghost ? 'rgba(255,255,255,.35)' : value);
@@ -93,35 +104,46 @@ const FuelCanShape = () => (
   </g>
 );
 
+const FuelCanArt = () => {
+  const raster = artUrl('fuel-can');
+  return raster ? <image href={raster} width="60" height="70" preserveAspectRatio="xMidYMid meet" /> : <FuelCanShape />;
+};
+
 export const FuelCan = ({ className = 'pointer-events-none h-full w-full' }) => (
-  <svg viewBox="0 0 60 70" className={className} aria-hidden="true"><FuelCanShape /></svg>
+  <svg viewBox="0 0 60 70" className={className} aria-hidden="true"><FuelCanArt /></svg>
 );
 
 // Icon for Fuel Up: a rocket with a fuel can beside it.
 export const FuelUpIcon = ({ className = '' }) => (
   <svg viewBox="0 0 300 310" className={className} aria-hidden="true" overflow="visible">
     {ROCKET_PARTS.map((part) => <RocketPart key={part.id} part={part.id} colour="#f97316" />)}
-    <g transform="translate(196 176) scale(1.7)"><FuelCanShape /></g>
+    <g transform="translate(196 176) scale(1.7)"><FuelCanArt /></g>
   </svg>
 );
 
-export const Flame = ({ className = '', style }) => (
+const RasterImg = ({ url, className, style, title }) => (
+  <img src={url} alt={title || ''} aria-hidden={title ? undefined : true} className={`object-contain ${className}`} style={style} draggable={false} />
+);
+
+export const Flame = ({ className = '', style }) => (artUrl('fire') ? <RasterImg url={artUrl('fire')} className={className} style={style} /> : (
   <svg viewBox="0 0 100 120" className={className} style={style} aria-hidden="true">
     <path d="M50 4 Q20 40 14 70 Q10 112 50 116 Q90 112 86 70 Q84 50 70 34 Q68 54 58 58 Q64 30 50 4 Z" fill="#f97316" stroke="#9a3412" strokeWidth="5" strokeLinejoin="round" />
     <path d="M50 44 Q30 70 32 88 Q34 108 50 108 Q68 108 68 88 Q68 72 56 60 Q56 74 48 76 Q52 60 50 44 Z" fill="#fde047" />
   </svg>
-);
+));
 
-export const Smoke = ({ className = '' }) => (
+export const Smoke = ({ className = '' }) => (artUrl('smoke') ? <RasterImg url={artUrl('smoke')} className={className} /> : (
   <svg viewBox="0 0 100 60" className={className} aria-hidden="true">
     <g fill="#cbd5e1" opacity=".85">
       <circle cx="26" cy="36" r="18" /><circle cx="50" cy="26" r="22" /><circle cx="74" cy="36" r="18" />
     </g>
   </svg>
-);
+));
 
 // A side-on fire truck facing right. `ladderAngle` tilts the roof ladder.
-export const FireTruck = ({ className = '', title, lightsOn = true, showLadder = true }) => (
+export const FireTruck = ({ className = '', title, lightsOn = true, showLadder = true }) => (artUrl(showLadder ? 'firetruck' : 'firetruck-no-ladder') || artUrl('firetruck')
+  ? <RasterImg url={artUrl(showLadder ? 'firetruck' : 'firetruck-no-ladder') || artUrl('firetruck')} className={className} title={title} />
+  : (
   <svg viewBox="0 0 320 170" className={className} role={title ? 'img' : undefined} aria-label={title} aria-hidden={title ? undefined : true} overflow="visible">
     <g stroke={OUTLINE} strokeWidth="5" strokeLinejoin="round">
       <rect x="10" y="56" width="206" height="80" rx="10" fill="#ef4444" />
@@ -150,10 +172,10 @@ export const FireTruck = ({ className = '', title, lightsOn = true, showLadder =
     ))}
     {lightsOn && <circle cx="267" cy="18" r="16" fill="#60a5fa" opacity=".35" className="animate-siren" />}
   </svg>
-);
+));
 
 // Askia's buddy avatar: a baby T-rex wearing a firefighter helmet.
-export const AskiaBuddy = ({ className = '', title = 'Askia’s dino buddy in a fire helmet' }) => (
+export const AskiaBuddy = ({ className = '', title = 'Askia’s dino buddy in a fire helmet' }) => (artUrl('askia-buddy') ? <RasterImg url={artUrl('askia-buddy')} className={className} title={title} /> : (
   <svg viewBox="0 0 200 200" className={className} role="img" aria-label={title}>
     <g stroke={OUTLINE} strokeWidth="6" strokeLinejoin="round">
       <path d="M62 150 Q24 150 12 124 Q40 138 70 132 Z" fill="#4ade80" />
@@ -179,4 +201,4 @@ export const AskiaBuddy = ({ className = '', title = 'Askia’s dino buddy in a 
     <circle cx="72" cy="114" r="7" fill="#fda4af" opacity=".8" />
     <circle cx="142" cy="114" r="7" fill="#fda4af" opacity=".8" />
   </svg>
-);
+));

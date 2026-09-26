@@ -1,6 +1,7 @@
 import { Volume2, VolumeX } from 'lucide-react';
 import { AskiaBuddy } from '../little/VehicleArt.jsx';
 import { RewardSticker } from '../shared/StickerArt.jsx';
+import { artUrl } from '../little/littleArt.js';
 
 // Askia's home: no reading needed. Every game is a big picture tile, the
 // name is spoken when a game starts, and there are only three other buttons
@@ -51,7 +52,7 @@ const LittleHome = ({ player, points, games, onLaunch, onOpenPage, onSwitchPlaye
           className={`group relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-[2rem] border-4 border-white/80 ${game.color} p-2 shadow-[0_8px_0_rgba(15,23,42,.15),0_16px_30px_rgba(15,23,42,.14)] transition hover:-translate-y-1 active:translate-y-2 active:shadow-none`}
         >
           <span className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-white/25" />
-          <span className="relative flex flex-1 items-center justify-center transition group-hover:scale-110 [&_.kid-pop-icon]:h-[7.5rem] [&_.kid-pop-icon]:w-[8.5rem] sm:[&_.kid-pop-icon]:h-36 sm:[&_.kid-pop-icon]:w-40">{game.icon}</span>
+          <span className="relative flex flex-1 items-center justify-center transition group-hover:scale-110 [&_.kid-pop-icon]:h-[7.5rem] [&_.kid-pop-icon]:w-[8.5rem] sm:[&_.kid-pop-icon]:h-36 sm:[&_.kid-pop-icon]:w-40">{artUrl(`tile-${game.id}`) ? <img src={artUrl(`tile-${game.id}`)} alt="" className="h-[7.5rem] w-auto object-contain sm:h-36" draggable={false} /> : game.icon}</span>
           <span className="relative w-full truncate rounded-full bg-black/15 px-2 py-1 text-center text-base font-black text-white sm:text-lg">{game.title}</span>
         </button>
       ))}

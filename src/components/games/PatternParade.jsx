@@ -13,7 +13,7 @@ const makeEmojiRound = (difficulty) => {
   return { ...pattern, options: shuffle([pattern.answer, ...decoys]) };
 };
 
-const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false }) => {
   const difficulty = useGameDifficulty('pattern');
   const [mode, setMode] = useState('emoji');
   const [round, setRound] = useState(() => makeEmojiRound(difficulty));
@@ -101,7 +101,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-amber-700">Pattern Parade</h2>
-          <p className="text-amber-700/70 font-semibold">Streak: {streak}</p>
+          {!littleMode && <p className="text-amber-700/70 font-semibold">Streak: {streak}</p>}
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
@@ -115,8 +115,8 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       )}
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
-        <PracticeProgress skill={mode === 'emoji' ? 'Spot the repeating pattern' : 'Find the number rule'} completed={skillRun} accent="amber" />
-        <div className="flex gap-2 mb-4">
+        {!littleMode && <PracticeProgress skill={mode === 'emoji' ? 'Spot the repeating pattern' : 'Find the number rule'} completed={skillRun} accent="amber" />}
+        <div className={`mb-4 flex gap-2 ${littleMode ? 'hidden' : ''}`}>
           {[{ id: 'emoji', label: '🔷 Shapes' }, { id: 'number', label: '🔢 Numbers' }].map((m) => (
             <button key={m.id} onClick={() => { modeRef.current = m.id; setMode(m.id); nextRound(m.id); playSfx('click'); }}
               className={`px-4 py-2 rounded-full font-bold text-sm ${mode === m.id ? 'bg-amber-600 text-white' : 'bg-white text-amber-700'}`}>{m.label}</button>

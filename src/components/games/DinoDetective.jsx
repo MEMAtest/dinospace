@@ -7,7 +7,7 @@ import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDiffic
 import DinoIcon from '../shared/DinoIcon.jsx';
 import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 
-const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false }) => {
   const difficulty = useGameDifficulty('dino');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = DINO_LEVELS[levelIndex];
@@ -90,13 +90,13 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         <div className="text-center">
           <h2 className="text-2xl font-black text-green-900 drop-shadow-sm">{level.name}</h2>
           <p className="text-green-900/80 font-semibold">
-            Level {levelIndex + 1} / {DINO_LEVELS.length} · Found {foundCount} / {dinos.length}
+            {littleMode ? `🦕 ${foundCount} / ${dinos.length}` : `Level ${levelIndex + 1} / ${DINO_LEVELS.length} · Found ${foundCount} / ${dinos.length}`}
           </p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
 
-      <div className="z-10 text-center mt-2 px-4">
+      {!littleMode && <div className="z-10 text-center mt-2 px-4">
         <p className="text-green-900 font-medium">{level.hint}</p>
         <label className="mt-3 inline-flex items-center gap-2 rounded-full border-2 border-green-900/10 bg-white/75 px-4 py-2 text-sm font-bold text-green-900 shadow-sm">
           <span>Choose a dino world</span>
@@ -111,7 +111,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
             ))}
           </select>
         </label>
-      </div>
+      </div>}
 
       <div className="flex-1 relative z-10 mt-3 overflow-hidden border-t-4 border-white/70 shadow-[inset_0_10px_30px_rgba(6,78,59,.2)]">
         <img src={dinoPark} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />

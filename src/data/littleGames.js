@@ -19,17 +19,6 @@ export const JIGSAW_SCENES = Object.freeze([
   { id: 'eggs', dino: 'ankylo', prompt: 'Let’s build the Ankylosaurus picture!' },
 ]);
 
-// [columns, rows] per round. Little explorers start with two big halves.
-export const JIGSAW_GRIDS = Object.freeze({
-  little: [[2, 1], [2, 2], [2, 2], [3, 2], [3, 2]],
-  big: [[2, 2], [3, 2], [3, 3], [3, 3], [4, 3]],
-});
-
-export const SHADOW_CHOICES = Object.freeze({
-  little: [2, 2, 3, 3, 3],
-  big: [3, 3, 4, 4, 4],
-});
-
 export const ROCKET_COLOURS = Object.freeze([
   { id: 'red', hex: '#ef4444', name: 'red' },
   { id: 'purple', hex: '#8b5cf6', name: 'purple' },
@@ -37,22 +26,6 @@ export const ROCKET_COLOURS = Object.freeze([
   { id: 'blue', hex: '#3b82f6', name: 'blue' },
   { id: 'orange', hex: '#f97316', name: 'orange' },
 ]);
-
-// Parts the child adds each round; everything else starts already built.
-export const ROCKET_BUILD_ROUNDS = Object.freeze({
-  little: [['nose', 'fins'], ['nose', 'window', 'fins'], ['nose', 'window', 'fins', 'flame']],
-  big: [['nose', 'window', 'fins', 'flame'], ['body', 'nose', 'window', 'fins', 'flame'], ['body', 'nose', 'window', 'fins', 'flame']],
-});
-
-export const FUEL_NUMBERS = Object.freeze({
-  little: [1, 2, 3, 4, 5],
-  big: [3, 4, 5, 6, 7, 8, 9, 10],
-});
-
-export const FIRE_COUNTS = Object.freeze({
-  little: [1, 2, 2, 3, 3],
-  big: [3, 3, 4, 5, 6],
-});
 
 export const RESCUE_ANIMALS = Object.freeze([
   { id: 'kitten', emoji: '🐱', name: 'kitten' },
@@ -62,7 +35,72 @@ export const RESCUE_ANIMALS = Object.freeze([
   { id: 'panda', emoji: '🐼', name: 'panda' },
 ]);
 
-export const LADDER_FLOORS = Object.freeze({ little: 3, big: 5 });
+
+// Five levels per game. A child moves up a level after a three-star game and
+// back down after a one-star game, never below their starting level. Each
+// level lists what it unlocks, shown on the finish screen when reached.
+const ALL_PARTS = ['nose', 'window', 'fins', 'flame'];
+export const LITTLE_LEVELS = Object.freeze({
+  dinojigsaw: [
+    { grids: [[2, 1], [2, 1], [2, 2]], scenes: 2 },
+    { grids: [[2, 1], [2, 2], [2, 2], [2, 2]], scenes: 3, unlock: 'picture' },
+    { grids: [[2, 2], [2, 2], [3, 2], [3, 2]], scenes: 4, unlock: 'picture' },
+    { grids: [[2, 2], [3, 2], [3, 2], [3, 3]], scenes: 5, unlock: 'picture' },
+    { grids: [[3, 2], [3, 3], [3, 3], [4, 3]], scenes: 6, unlock: 'picture' },
+  ],
+  shadowmatch: [
+    { choices: [2, 2, 2, 2], kinds: 3 },
+    { choices: [2, 2, 3, 3], kinds: 4, unlock: 'dino' },
+    { choices: [3, 3, 3, 3, 3], kinds: 5, unlock: 'dino' },
+    { choices: [3, 3, 4, 4, 4], kinds: 6, unlock: 'dino' },
+    // Top level mirrors the shadows, so the child must really look at shapes.
+    { choices: [4, 4, 4, 4, 4], kinds: 6, mirror: true, unlock: 'challenge' },
+  ],
+  rocketbuilder: [
+    { rounds: [['nose'], ['nose', 'fins']], colours: 2 },
+    { rounds: [['nose', 'fins'], ['nose', 'window', 'fins']], colours: 3, unlock: 'colour' },
+    { rounds: [['nose', 'window', 'fins'], ALL_PARTS, ALL_PARTS], colours: 4, unlock: 'colour' },
+    { rounds: [ALL_PARTS, ALL_PARTS, ['body', ...ALL_PARTS]], colours: 5, unlock: 'colour' },
+    { rounds: [['body', ...ALL_PARTS], ['body', ...ALL_PARTS], ['body', ...ALL_PARTS]], colours: 5, unlock: 'challenge' },
+  ],
+  fuelup: [
+    { numbers: [1, 2, 3], rounds: 3 },
+    { numbers: [1, 2, 3, 4], rounds: 4, unlock: 'number' },
+    { numbers: [2, 3, 4, 5], rounds: 5, unlock: 'number' },
+    { numbers: [3, 4, 5, 6, 7], rounds: 5, unlock: 'number' },
+    { numbers: [5, 6, 7, 8, 9, 10], rounds: 5, unlock: 'number' },
+  ],
+  firerescue: [
+    { fires: [1, 1, 2] },
+    { fires: [1, 2, 2, 3], unlock: 'fire' },
+    { fires: [2, 2, 3, 3, 3], unlock: 'fire' },
+    { fires: [3, 3, 4, 4, 5], unlock: 'fire' },
+    { fires: [4, 4, 5, 5, 6], unlock: 'fire' },
+  ],
+  ladder: [
+    { floors: 2, rounds: 3 },
+    { floors: 3, rounds: 4, unlock: 'floor' },
+    { floors: 3, rounds: 5, numbers: true, unlock: 'numbers' },
+    { floors: 4, rounds: 5, numbers: true, unlock: 'floor' },
+    { floors: 5, rounds: 5, numbers: true, unlock: 'floor' },
+  ],
+});
+
+export const LITTLE_START_LEVEL = Object.freeze({ little: 0, big: 2 });
+
+export const levelRounds = (gameId, config) => {
+  switch (gameId) {
+    case 'dinojigsaw': return config.grids.length;
+    case 'shadowmatch': return config.choices.length;
+    case 'rocketbuilder': return config.rounds.length;
+    case 'firerescue': return config.fires.length;
+    default: return config.rounds;
+  }
+};
+
+// Mistakes in a whole game → 1–3 stars. Generous on purpose: small children
+// should nearly always see two or three stars.
+export const starsForMistakes = (mistakes) => (mistakes <= 1 ? 3 : mistakes <= 4 ? 2 : 1);
 
 export const NUMBER_NAMES = Object.freeze(['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']);
 
@@ -76,12 +114,15 @@ export const LITTLE_LINES = Object.freeze({
   countdown: ['Three!', 'Two!', 'One!', 'Blast off!'],
   fuelIntro: 'Fuel Up! Count the fuel into the rocket.',
   fuelFull: 'The tank is full! Blast off!',
+  fuelRecount: 'Oops! Let’s count again.',
   fireIntro: 'Fire Truck Rescue! Spray water on the fires.',
   fireStart: 'Oh no, fire! Spray the water!',
   fireDone: 'All the fires are out! Hooray!',
   ladderIntro: 'Ladder Rescue! Tap the window to save the animal.',
   ladderWrong: 'Not that one. Listen again!',
   finish: 'Hooray! You did it!',
+  levelUp: 'Level up! Something new is waiting!',
+  newSticker: 'You got a new sticker!',
 });
 
 export const fuelPrompt = (n) => `Put ${NUMBER_NAMES[n]} fuel ${n === 1 ? 'can' : 'cans'} in the rocket.`;

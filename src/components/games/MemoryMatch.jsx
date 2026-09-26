@@ -22,7 +22,7 @@ const CARD_NAMES = {
 
 const cardName = (emoji) => CARD_NAMES[emoji] || 'picture';
 
-const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false }) => {
   const difficulty = useGameDifficulty('memory');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = MEMORY_LEVELS[levelIndex];
@@ -168,10 +168,10 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-rose-600">Memory Match</h2>
-          <p className="text-rose-600/70 font-semibold">
+          {!littleMode && <p className="text-rose-600/70 font-semibold">
             Level {levelIndex + 1}/{MEMORY_LEVELS.length} · {level.name}
-          </p>
-          <p className="text-rose-600/70 font-semibold">
+          </p>}
+          <p className={`text-rose-600/70 font-semibold ${littleMode ? 'hidden' : ''}`}>
             Matches: {matches} · Moves: {moves} · ⏱️ {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}
             {bestTimes[level.id] ? ` · Best: ${Math.floor(bestTimes[level.id] / 60)}:${String(bestTimes[level.id] % 60).padStart(2, '0')}` : ''}
           </p>
@@ -186,7 +186,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         >
           🔊 Hear the mission
         </button>
-        <p className="mb-4 max-w-xl rounded-full bg-white/70 px-5 py-2 text-center text-sm font-bold text-rose-700" role="status">
+        <p className={`mb-4 max-w-xl rounded-full bg-white/70 px-5 py-2 text-center text-sm font-bold text-rose-700 ${littleMode ? 'hidden' : ''}`} role="status">
           Flip two cards, remember their places, and find each friendly pair.
         </p>
 

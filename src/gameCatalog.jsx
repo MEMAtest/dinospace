@@ -77,12 +77,12 @@ export const GAME_MENU_ITEMS = [
 // Games built for little explorers (ages 3–5). They are also open to older
 // players, who get more pieces, bigger numbers and more floors.
 export const LITTLE_GAME_ITEMS = [
-  { id: 'dinojigsaw', icon: <ArtIcon label="Dino jigsaw"><Dino kind="trex" /></ArtIcon>, title: 'Dino Jigsaw', desc: 'Drag the pieces!', color: 'bg-gradient-to-br from-lime-400 to-green-600', category: 'Dino puzzles', component: DinoJigsaw, little: true },
-  { id: 'shadowmatch', icon: <ArtIcon label="Dino shadow"><Dino kind="stego" silhouette /></ArtIcon>, title: 'Shadow Match', desc: 'Whose shadow is it?', color: 'bg-gradient-to-br from-violet-500 to-indigo-600', category: 'Dino puzzles', component: ShadowMatch, little: true },
-  { id: 'rocketbuilder', icon: <ArtIcon label="Half-built rocket"><RocketBlueprint colour="#ef4444" /></ArtIcon>, title: 'Rocket Builder', desc: 'Build it, then blast off!', color: 'bg-gradient-to-br from-indigo-600 to-sky-500', category: 'Rockets', component: RocketBuilder, little: true },
-  { id: 'fuelup', icon: <ArtIcon label="Rocket and fuel"><FuelUpIcon /></ArtIcon>, title: 'Fuel Up', desc: 'Count the fuel cans', color: 'bg-gradient-to-br from-sky-500 to-violet-600', category: 'Rockets', component: FuelUp, little: true },
-  { id: 'firerescue', icon: <ArtIcon label="Fire"><Flame /></ArtIcon>, title: 'Fire Truck Rescue', desc: 'Spray out the fires!', color: 'bg-gradient-to-br from-red-500 to-orange-500', category: 'Fire trucks', component: FireRescue, little: true },
-  { id: 'ladder', icon: <ArtIcon label="Fire truck"><FireTruck /></ArtIcon>, title: 'Ladder Rescue', desc: 'Save the animals!', color: 'bg-gradient-to-br from-rose-500 to-red-600', category: 'Fire trucks', component: LadderRescue, little: true },
+  { id: 'dinojigsaw', icon: <ArtIcon gameId="dinojigsaw" label="Dino jigsaw"><Dino kind="trex" /></ArtIcon>, title: 'Dino Jigsaw', desc: 'Drag the pieces!', color: 'bg-gradient-to-br from-lime-400 to-green-600', category: 'Dino puzzles', component: DinoJigsaw, little: true },
+  { id: 'shadowmatch', icon: <ArtIcon gameId="shadowmatch" label="Dino shadow"><Dino kind="stego" silhouette /></ArtIcon>, title: 'Shadow Match', desc: 'Whose shadow is it?', color: 'bg-gradient-to-br from-violet-500 to-indigo-600', category: 'Dino puzzles', component: ShadowMatch, little: true },
+  { id: 'rocketbuilder', icon: <ArtIcon gameId="rocketbuilder" label="Half-built rocket"><RocketBlueprint colour="#ef4444" /></ArtIcon>, title: 'Rocket Builder', desc: 'Build it, then blast off!', color: 'bg-gradient-to-br from-indigo-600 to-sky-500', category: 'Rockets', component: RocketBuilder, little: true },
+  { id: 'fuelup', icon: <ArtIcon gameId="fuelup" label="Rocket and fuel"><FuelUpIcon /></ArtIcon>, title: 'Fuel Up', desc: 'Count the fuel cans', color: 'bg-gradient-to-br from-sky-500 to-violet-600', category: 'Rockets', component: FuelUp, little: true },
+  { id: 'firerescue', icon: <ArtIcon gameId="firerescue" label="Fire"><Flame /></ArtIcon>, title: 'Fire Truck Rescue', desc: 'Spray out the fires!', color: 'bg-gradient-to-br from-red-500 to-orange-500', category: 'Fire trucks', component: FireRescue, little: true },
+  { id: 'ladder', icon: <ArtIcon gameId="ladder" label="Fire truck"><FireTruck /></ArtIcon>, title: 'Ladder Rescue', desc: 'Save the animals!', color: 'bg-gradient-to-br from-rose-500 to-red-600', category: 'Fire trucks', component: LadderRescue, little: true },
 ];
 
 export const ALL_GAMES = [...LITTLE_GAME_ITEMS, ...GAME_MENU_ITEMS];

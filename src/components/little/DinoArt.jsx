@@ -1,4 +1,5 @@
 import { useId } from 'react';
+import { artUrl } from './littleArt.js';
 
 // Cartoon dinosaurs drawn as layered SVG. Every dino is described once as a
 // list of shapes; the shapes are painted twice — first as a thick outline
@@ -168,6 +169,21 @@ const DEFAULT_COLOURS = {
 export const Dino = ({
   kind = 'trex', colours, silhouette = false, className = '', title, flip = false, x, y, width, height,
 }) => {
+  const raster = artUrl(`dino-${kind}`);
+  if (raster) {
+    return (
+      <svg viewBox="0 0 200 160" className={className} x={x} y={y} width={width} height={height} role={title ? 'img' : undefined} aria-label={title} aria-hidden={title ? undefined : true} overflow="visible">
+        <image
+          href={raster}
+          width="200"
+          height="160"
+          preserveAspectRatio="xMidYMid meet"
+          transform={flip ? 'translate(200 0) scale(-1 1)' : undefined}
+          style={silhouette ? { filter: 'brightness(0)', opacity: 0.82 } : undefined}
+        />
+      </svg>
+    );
+  }
   const palette = { ...DEFAULT_COLOURS[kind], ...colours };
   const { shapes, details } = (DINO_SHAPES[kind] || DINO_SHAPES.trex)(palette);
   const outlineShapes = shapes.map((shape) => ({ ...shape, props: { ...shape.props, fill: silhouette ? SILHOUETTE : OUTLINE } }));
@@ -307,6 +323,7 @@ export const SCENE_IDS = Object.freeze(Object.keys(SCENES));
 
 export const DinoScene = ({ scene = 'volcano', viewBox = '0 0 400 300', className = '', title, preserveAspectRatio }) => {
   const id = useId().replace(/:/g, '');
+  const raster = artUrl(`scene-${scene}`);
   return (
     <svg
       viewBox={viewBox}
@@ -316,7 +333,9 @@ export const DinoScene = ({ scene = 'volcano', viewBox = '0 0 400 300', classNam
       aria-hidden={title ? undefined : true}
       preserveAspectRatio={preserveAspectRatio}
     >
-      {(SCENES[scene] || SCENES.volcano)(id)}
+      {raster
+        ? <image href={raster} width="400" height="300" preserveAspectRatio="xMidYMid slice" />
+        : (SCENES[scene] || SCENES.volcano)(id)}
     </svg>
   );
 };
