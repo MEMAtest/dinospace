@@ -22,7 +22,7 @@ const CARD_NAMES = {
 
 const cardName = (emoji) => CARD_NAMES[emoji] || 'picture';
 
-const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false }) => {
   const difficulty = useGameDifficulty('memory');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = MEMORY_LEVELS[levelIndex];
@@ -34,12 +34,20 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [completionMessage, setCompletionMessage] = useState('');
   const [timer, setTimer] = useState(0);
   const [bestTimes, setBestTimes] = useState(() => loadSaved('amari_memory_best', {}));
+  const [runId, setRunId] = useState(0);
   const timerRef = useRef(null);
+  const completePanelRef = useRef(null);
 
+  // One timer per play-through: restarts on every startLevel (runId) and stops once the level is complete.
   useEffect(() => {
+    if (showLevelComplete) return undefined;
     timerRef.current = setInterval(() => setTimer((t) => t + 1), 1000);
     return () => clearInterval(timerRef.current);
-  }, [levelIndex]);
+  }, [runId, showLevelComplete]);
+
+  useEffect(() => {
+    if (showLevelComplete) completePanelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, [showLevelComplete]);
 
   const matches = deck.filter((card) => card.matched).length / 2;
 
@@ -47,7 +55,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     speak(`Memory level ${levelIndex + 1}. ${level.name}.`);
   }, [levelIndex, level.name, speak]);
 
-  const finishLevel = () => {
+  const finishLevel = (finalMatches, finalMoves) => {
     clearInterval(timerRef.current);
     const praise = getPraise();
     speak('You matched them all. Fantastic memory!');
@@ -55,15 +63,17 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setCompletionMessage(praise);
     setShowLevelComplete(true);
     onCelebrate(praise, 6, 300);
+    // Near-perfect recall: perfect-memory play averages ~1.6 moves per pair, so allow up to 2 per pair.
+    const efficient = finalMoves <= level.emojis.length * 2;
     onGameEvent?.('memory', 'level_completed', {
       skill: 'working-memory',
       item: level.id,
-      response: `${matches}/${level.emojis.length}`,
+      response: `${finalMatches}/${level.emojis.length}`,
       correct: true,
-      firstAttempt: true,
-      independent: true,
+      firstAttempt: efficient,
+      independent: efficient,
       difficulty,
-      moves,
+      moves: finalMoves,
       seconds: timer,
     });
     const best = bestTimes[level.id];
@@ -102,7 +112,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       playSfx('sparkle');
       speak(`A pair of ${cardName(deck[first].emoji)}s!`);
       onCelebrate(getPraise(), 4, 200);
-      if (matches + 1 === level.emojis.length) finishLevel();
+      if (matches + 1 === level.emojis.length) finishLevel(matches + 1, moves + 1);
     } else {
       setTimeout(() => {
         setDeck((prev) =>
@@ -128,6 +138,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setShowLevelComplete(false);
     setCompletionMessage('');
     setTimer(0);
+    setRunId((value) => value + 1);
   };
 
   useEffect(() => {
@@ -150,17 +161,17 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       <div className="flex items-center justify-between px-4 pt-4 z-20">
         <button
           onClick={onBack}
-          className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
-          aria-label="Back to all games"
+          className="game-icon-button"
+          aria-label="Back to home"
         >
           <Home />
         </button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-rose-600">Memory Match</h2>
-          <p className="text-rose-600/70 font-semibold">
+          {!littleMode && <p className="text-rose-600/70 font-semibold">
             Level {levelIndex + 1}/{MEMORY_LEVELS.length} · {level.name}
-          </p>
-          <p className="text-rose-600/70 font-semibold">
+          </p>}
+          <p className={`text-rose-600/70 font-semibold ${littleMode ? 'hidden' : ''}`}>
             Matches: {matches} · Moves: {moves} · ⏱️ {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}
             {bestTimes[level.id] ? ` · Best: ${Math.floor(bestTimes[level.id] / 60)}:${String(bestTimes[level.id] % 60).padStart(2, '0')}` : ''}
           </p>
@@ -175,7 +186,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         >
           🔊 Hear the mission
         </button>
-        <p className="mb-4 max-w-xl rounded-full bg-white/70 px-5 py-2 text-center text-sm font-bold text-rose-700" role="status">
+        <p className={`mb-4 max-w-xl rounded-full bg-white/70 px-5 py-2 text-center text-sm font-bold text-rose-700 ${littleMode ? 'hidden' : ''}`} role="status">
           Flip two cards, remember their places, and find each friendly pair.
         </p>
 
@@ -220,10 +231,10 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
 
         {showLevelComplete && (
-          <div className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
+          <div ref={completePanelRef} className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
             <div className="text-5xl mb-2">🎉</div>
             <h3 className="text-2xl font-black text-rose-600">{completionMessage}</h3>
-            <button onClick={handleNextLevel} className="mt-3 text-rose-600 font-semibold">
+            <button onClick={handleNextLevel} className="mt-4 min-h-14 w-full rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-4 text-2xl font-black text-white shadow-lg transition hover:scale-105 active:scale-95">
               {levelIndex < MEMORY_LEVELS.length - 1 ? 'Next level' : 'Play again'}
             </button>
           </div>

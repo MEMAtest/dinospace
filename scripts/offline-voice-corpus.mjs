@@ -8,6 +8,7 @@ import {
 import { DECODABLE_CAPTIONS, PHASE_WORDS, TRICKY_WORDS } from '../src/data/literacy.js';
 import { SPOT_DIFFERENCE_ROUNDS } from '../src/data/spotDifference.js';
 import { normalizeVoiceText, voiceClipKey } from '../src/data/voiceKey.js';
+import { LITTLE_VOICE_LINES } from '../src/data/littleGames.js';
 
 const corpus = new Map();
 const skyPraise = ['Brilliant flying!', 'Beautiful shape!', 'Fantastic tracing!', 'You nailed it!'];
@@ -230,4 +231,22 @@ CHESS_PUZZLES.forEach((puzzle) => {
 });
 MOVE_PRAISE.forEach((praise) => add(praise));
 
+
 export const OFFLINE_VOICE_CORPUS = [...corpus.values()].sort((a, b) => a.key.localeCompare(b.key));
+
+// Lines that still need clips: the little-explorer games (Askia's games),
+// the two-player welcome, and two prompts existing games already speak.
+// Kept separate until `npm run voice:offline` has generated them; the
+// Android build fetches them online meanwhile.
+const PENDING_LINES = [
+  ...LITTLE_VOICE_LINES,
+  'Look carefully at the clock. What time is shown?',
+  'FISH!',
+  'Amazing! You found all the dinosaurs.',
+  'Which one does not belong?',
+];
+const existingKeys = new Set(OFFLINE_VOICE_CORPUS.map((item) => item.key));
+export const PENDING_VOICE_CORPUS = [...new Map(PENDING_LINES.map((line) => {
+  const text = normalizeVoiceText(line);
+  return [voiceClipKey(text, 'en-US'), { text, lang: 'en-US', key: voiceClipKey(text, 'en-US') }];
+})).values()].filter((item) => !existingKeys.has(item.key));

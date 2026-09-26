@@ -64,7 +64,7 @@ const MARK_DETAILS = {
 
 const TicTacToe = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const [mode, setMode] = useState('bot');
-  const [difficulty, setDifficulty] = useState('space-ace');
+  const [difficulty, setDifficulty] = useState('rookie');
   const [board, setBoard] = useState(() => Array(9).fill(null));
   const [turn, setTurn] = useState('X');
   const [scores, setScores] = useState({ X: 0, O: 0, draws: 0 });
@@ -191,7 +191,7 @@ const TicTacToe = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate
         <button
           onClick={onBack}
           className="game-icon-button"
-          aria-label="Back to all games"
+          aria-label="Back to home"
         >
           <Home />
         </button>

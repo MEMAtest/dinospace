@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { DINO_LEVELS } from '../../data/index.js';
 import { buildDinos, getPraise } from '../../utils.js';
@@ -7,27 +7,34 @@ import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDiffic
 import DinoIcon from '../shared/DinoIcon.jsx';
 import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 
-const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false }) => {
   const difficulty = useGameDifficulty('dino');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = DINO_LEVELS[levelIndex];
   const [dinos, setDinos] = useState(() => buildDinos(level));
   const [foundDino, setFoundDino] = useState(null);
   const [pendingReward, setPendingReward] = useState(null);
+  const [levelPraise, setLevelPraise] = useState('');
+  const levelAwardedRef = useRef(false);
   const foundCount = dinos.filter((dino) => !dino.hidden).length;
 
   const handleFind = (index) => {
-    setDinos((prev) => {
-      if (!prev[index].hidden) return prev;
-      const next = prev.map((dino, i) => (i === index ? { ...dino, hidden: false } : dino));
-      setFoundDino(next[index]);
-      setPendingReward(4);
-      playSfx('pop');
-      if (next.every((dino) => !dino.hidden)) {
-        setTimeout(() => playSfx('success'), 250);
-      }
-      return next;
-    });
+    if (!dinos[index].hidden) return;
+    const next = dinos.map((dino, i) => (i === index ? { ...dino, hidden: false } : dino));
+    setDinos(next);
+    setFoundDino(next[index]);
+    setPendingReward(4);
+    playSfx('pop');
+    if (next.every((dino) => !dino.hidden) && !levelAwardedRef.current) {
+      // Award level stars once, as soon as the last dinosaur is found.
+      levelAwardedRef.current = true;
+      const praise = getPraise();
+      setLevelPraise(praise);
+      setTimeout(() => playSfx('success'), 250);
+      onCelebrate(praise, 10, 200);
+      // Every hidden spot is a dinosaur and there are no hints, so a finished level is an independent success.
+      onGameEvent?.('dino', 'level_completed', { skill: 'dino', item: level.id, correct: true, firstAttempt: true, independent: true, hints: 0, difficulty });
+    }
   };
 
   const allFound = dinos.every((dino) => !dino.hidden);
@@ -43,6 +50,8 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     setDinos(buildDinos(DINO_LEVELS[nextIndex]));
     setFoundDino(null);
     setPendingReward(null);
+    setLevelPraise('');
+    levelAwardedRef.current = false;
   };
 
   useEffect(() => {
@@ -58,8 +67,6 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   };
 
   const handleNextLevel = () => {
-    onCelebrate(getPraise(), 10, 200);
-    onGameEvent?.('dino', 'level_completed');
     const nextIndex = levelIndex < DINO_LEVELS.length - 1 ? levelIndex + 1 : 0;
     loadLevel(nextIndex);
   };
@@ -75,21 +82,21 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       <div className="flex items-center justify-between px-4 pt-4 z-20">
         <button
           onClick={onBack}
-          className="bg-white p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
-          aria-label="Back to all games"
+          className="game-icon-button"
+          aria-label="Back to home"
         >
           <Home />
         </button>
         <div className="text-center">
           <h2 className="text-2xl font-black text-green-900 drop-shadow-sm">{level.name}</h2>
           <p className="text-green-900/80 font-semibold">
-            Level {levelIndex + 1} / {DINO_LEVELS.length} · Found {foundCount} / {dinos.length}
+            {littleMode ? `🦕 ${foundCount} / ${dinos.length}` : `Level ${levelIndex + 1} / ${DINO_LEVELS.length} · Found ${foundCount} / ${dinos.length}`}
           </p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
 
-      <div className="z-10 text-center mt-2 px-4">
+      {!littleMode && <div className="z-10 text-center mt-2 px-4">
         <p className="text-green-900 font-medium">{level.hint}</p>
         <label className="mt-3 inline-flex items-center gap-2 rounded-full border-2 border-green-900/10 bg-white/75 px-4 py-2 text-sm font-bold text-green-900 shadow-sm">
           <span>Choose a dino world</span>
@@ -104,7 +111,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
             ))}
           </select>
         </label>
-      </div>
+      </div>}
 
       <div className="flex-1 relative z-10 mt-3 overflow-hidden border-t-4 border-white/70 shadow-[inset_0_10px_30px_rgba(6,78,59,.2)]">
         <img src={dinoPark} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
@@ -145,7 +152,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
                   onCelebrate(getPraise(), pendingReward, 200);
                 }
                 if (allFound) {
-                  speak('Du hast alle gefunden. Super!', { lang: 'de-DE', rate: 0.9, pitch: 1.05 });
+                  speak('Amazing! You found all the dinosaurs.');
                 }
                 setPendingReward(null);
                 setFoundDino(null);
@@ -160,13 +167,13 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
 
       {allFound && !foundDino && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-white/90 p-8 rounded-3xl text-center shadow-xl animate-bounce pointer-events-auto">
+          <div className="bg-white/90 p-8 rounded-3xl text-center shadow-xl animate-pop-in pointer-events-auto">
             <div className="text-6xl mb-2">🏆</div>
-            <h2 className="text-3xl font-bold text-green-600">{getPraise()}</h2>
-            <p className="text-slate-600 font-semibold mt-2">Level geschafft!</p>
+            <h2 className="text-3xl font-bold text-green-600">{levelPraise}</h2>
+            <p className="text-slate-600 font-semibold mt-2">Level complete!</p>
             <button
               onClick={handleNextLevel}
-              className="mt-4 text-blue-500 font-bold underline"
+              className="mt-5 min-h-14 w-full rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-8 py-4 text-2xl font-black text-white shadow-lg transition hover:scale-105 active:scale-95"
             >
               {levelIndex < DINO_LEVELS.length - 1 ? 'Next Level' : 'Play Again'}
             </button>

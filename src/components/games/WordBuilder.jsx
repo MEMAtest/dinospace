@@ -190,7 +190,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   return (
     <div className="min-h-screen bg-gradient-to-b from-cyan-100 via-sky-100 to-blue-200 text-slate-800">
       <header className="relative z-20 flex items-center justify-between gap-3 px-4 pt-4">
-        <button onClick={onBack} className="rounded-full bg-white p-3 shadow-lg transition hover:scale-105" aria-label="Back to all games"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-2xl font-black text-cyan-800 sm:text-3xl">Spelling Studio</h2>
           <p className="text-sm font-bold text-cyan-700">{masteredWords} words secure · {score} today</p>

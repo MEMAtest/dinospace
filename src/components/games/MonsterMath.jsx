@@ -252,7 +252,7 @@ const MonsterMath = ({
       </div>
 
       <header className="relative z-20 flex items-center justify-between px-4 pt-4">
-        <button onClick={onBack} className="game-icon-button" aria-label="Back to all games"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <p className="text-xs font-black uppercase tracking-[0.2em] text-orange-500">See the maths happen</p>
           <h2 className="text-2xl sm:text-3xl font-black text-orange-800">Stunt Jump Math</h2>

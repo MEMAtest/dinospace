@@ -5,13 +5,27 @@ import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { NUMBER_LINE_LIMITS } from '../../data/gameDifficulty.js';
 
+const makeProblem = (difficulty, maxNum) => {
+  const op = difficulty === 'starter' ? '+' : Math.random() > 0.5 ? '+' : '-';
+  let a, b;
+  if (op === '+') {
+    a = Math.ceil(Math.random() * Math.max(2, Math.floor(maxNum * 0.55)));
+    b = Math.ceil(Math.random() * (maxNum - a));
+  } else {
+    a = Math.ceil(Math.random() * (maxNum - 2)) + 2;
+    b = Math.ceil(Math.random() * (a - 1)) + 1;
+  }
+  return { a, b, op };
+};
+
 const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const difficulty = useGameDifficulty('numberline');
-  const [problem, setProblem] = useState({ a: 3, b: 2, op: '+' });
+  const maxNum = NUMBER_LINE_LIMITS[difficulty] || 10;
+  const [problem, setProblem] = useState(() => makeProblem(difficulty, maxNum));
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
-  const [jumperPos, setJumperPos] = useState(0);
+  const [jumperPos, setJumperPos] = useState(() => problem.a);
   const [showAnswer, setShowAnswer] = useState(false);
   const [jumpTrail, setJumpTrail] = useState([]);
   const [skillRun, setSkillRun] = useState(0);
@@ -20,24 +34,16 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const [animating, setAnimating] = useState(false);
   const animationTimerRef = useRef(null);
   const nextRoundTimerRef = useRef(null);
+  const problemDifficultyRef = useRef(difficulty);
 
   const answer = problem.op === '+' ? problem.a + problem.b : problem.a - problem.b;
-  const maxNum = NUMBER_LINE_LIMITS[difficulty] || 10;
 
   const newProblem = useCallback(() => {
     clearTimeout(animationTimerRef.current);
     clearTimeout(nextRoundTimerRef.current);
-    const op = difficulty === 'starter' ? '+' : Math.random() > 0.5 ? '+' : '-';
-    let a, b;
-    if (op === '+') {
-      a = Math.ceil(Math.random() * Math.max(2, Math.floor(maxNum * 0.55)));
-      b = Math.ceil(Math.random() * (maxNum - a));
-    } else {
-      a = Math.ceil(Math.random() * (maxNum - 2)) + 2;
-      b = Math.ceil(Math.random() * (a - 1)) + 1;
-    }
-    setProblem({ a, b, op });
-    setJumperPos(op === '+' ? a : a);
+    const next = makeProblem(difficulty, maxNum);
+    setProblem(next);
+    setJumperPos(next.a);
     setShowAnswer(false);
     setFeedback('');
     setJumpTrail([]);
@@ -48,6 +54,10 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   }, [difficulty, maxNum]);
 
   useEffect(() => {
+    // The first problem comes from the lazy initialiser; only rebuild when the
+    // difficulty actually changes so the child hears a single prompt.
+    if (problemDifficultyRef.current === difficulty) return;
+    problemDifficultyRef.current = difficulty;
     // eslint-disable-next-line react-hooks/set-state-in-effect
     newProblem();
   }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -107,7 +117,7 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-200/60 rounded-full blur-3xl" />
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-orange-700">Number Line Jump</h2>
           <p className="text-orange-700/70 font-semibold">Score: {score}</p>
@@ -125,16 +135,18 @@ const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
             <span className="bg-white px-4 py-2 rounded-2xl shadow-lg text-slate-400">{showAnswer ? answer : '?'}</span>
           </div>
         </div>
-        <div className="relative mb-6 h-44 w-full max-w-5xl rounded-[2rem] border-4 border-white/80 bg-white/45 px-5 shadow-xl">
-          <div className="absolute bottom-8 left-0 right-0 h-2 bg-orange-300 rounded-full" />
-          {Array.from({ length: maxNum + 1 }, (_, i) => (
-            <button key={i} disabled={locked} onClick={() => handleTapNumber(i)}
-              className={`absolute bottom-7 h-10 w-10 rounded-full flex items-center justify-center text-sm font-black transition-all ${
-                i === jumperPos ? 'bg-orange-500 text-white scale-125 shadow-lg' : 'bg-white text-slate-600 shadow border-2 border-orange-200'
-              } ${i === answer && showAnswer ? 'ring-4 ring-green-400' : ''}`}
-              style={{ left: `${(i / maxNum) * 92 + 4}%`, transform: 'translateX(-50%)' }}>{i}</button>
-          ))}
-          <div className="absolute text-5xl transition-all duration-[250ms] ease-in-out" aria-label={`Frog at ${jumperPos}`} style={{ left: `${(jumperPos / maxNum) * 92 + 4}%`, bottom: '76px', transform: 'translateX(-50%)' }}>🐸</div>
+        <div className="mb-6 w-full max-w-5xl overflow-x-auto rounded-[2rem] border-4 border-white/80 bg-white/45 shadow-xl">
+          <div className="relative h-44 px-5" style={{ minWidth: `${(maxNum + 1) * 56}px` }}>
+            <div className="absolute bottom-8 left-0 right-0 h-2 bg-orange-300 rounded-full" />
+            {Array.from({ length: maxNum + 1 }, (_, i) => (
+              <button key={i} disabled={locked} onClick={() => handleTapNumber(i)}
+                className={`absolute bottom-7 h-11 w-11 rounded-full flex items-center justify-center text-sm font-black transition-all ${
+                  i === jumperPos ? 'bg-orange-500 text-white scale-125 shadow-lg' : 'bg-white text-slate-600 shadow border-2 border-orange-200'
+                } ${i === answer && showAnswer ? 'ring-4 ring-green-400' : ''}`}
+                style={{ left: `${(i / maxNum) * 92 + 4}%`, transform: 'translateX(-50%)' }}>{i}</button>
+            ))}
+            <div className="absolute text-5xl transition-all duration-[250ms] ease-in-out" aria-label={`Frog at ${jumperPos}`} style={{ left: `${(jumperPos / maxNum) * 92 + 4}%`, bottom: '76px', transform: 'translateX(-50%)' }}>🐸</div>
+          </div>
         </div>
         <p className="text-slate-500 font-semibold mb-2">{animating ? 'Watch the frog make each jump!' : 'Tap the number where the frog should land!'}</p>
         {jumpTrail.length > 0 && (

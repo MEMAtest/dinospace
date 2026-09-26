@@ -42,7 +42,7 @@ const makeCountOptions = (target) => {
   return shuffle(candidates);
 };
 
-const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false }) => {
   const difficulty = useGameDifficulty('counting');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = COUNT_LEVELS[levelIndex];
@@ -121,6 +121,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       }, 1100);
     } else {
       setHadMistake(true);
+      setStreak(0);
       setShake(true);
       playSfx('wrong');
       speak('Not quite, try again!');
@@ -137,19 +138,19 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         ))}
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home className="text-white" /></button>
+        <button onClick={onBack} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to home"><Home className="text-white" /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-white">Count the Stars</h2>
-          <p className="text-white/60 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>
+          {!littleMode && <p className="text-white/60 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>}
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-        <PracticeProgress skill="Count each object once" completed={skillRun} accent="indigo" />
-        <p className="mb-3 rounded-full bg-white/10 px-4 py-2 text-sm font-bold text-white/75" aria-live="polite">
+        {!littleMode && <PracticeProgress skill="Count each object once" completed={skillRun} accent="indigo" />}
+        <p className={`${littleMode ? 'hidden' : ''} mb-3 rounded-full bg-white/10 px-4 py-2 text-sm font-bold text-white/75`} aria-live="polite">
           {target <= 5 ? 'Look for a small group, then count each one.' : 'Count each star once. The number badges help you keep your place.'}
         </p>
-        <div className="relative mb-4 h-[390px] w-full max-w-3xl rounded-[2.5rem] border-4 border-white/15 bg-white/5 shadow-[inset_0_0_50px_rgba(168,85,247,.18),0_20px_45px_rgba(0,0,0,.25)]" aria-label={`Counting board with ${target} objects`}>
+        <div className="relative mb-4 h-[390px] w-full max-w-3xl rounded-[2.5rem] border-4 border-white/15 bg-white/5 shadow-[inset_0_0_50px_rgba(168,85,247,.18),0_20px_45px_rgba(0,0,0,.25)]" aria-label="Counting board. Tap each object once to count it.">
           {items.map((item) => (
             <button
               key={item.id}
@@ -163,7 +164,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
             </button>
           ))}
         </div>
-        {phase === 'count' && <p className="text-white/80 text-xl font-semibold">Tap each one! {tapped.length}/{target}</p>}
+        {phase === 'count' && <p className="text-white/80 text-xl font-semibold">Tap each one! Tapped: {tapped.length}</p>}
         {phase === 'answer' && (
           <div className={`text-center ${shake ? 'animate-shake' : ''}`}>
             <p className="text-white text-xl font-bold mb-4">How many did you count?</p>

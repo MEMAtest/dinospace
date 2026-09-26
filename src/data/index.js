@@ -952,6 +952,12 @@ export const GAME_LABELS = {
   tictactoe: 'Cosmic Tic-Tac-Toe',
   hangman: 'Dino Hangman',
   progress: 'Progress Dashboard',
+  dinojigsaw: 'Dino Jigsaw',
+  shadowmatch: 'Shadow Match',
+  rocketbuilder: 'Rocket Builder',
+  fuelup: 'Fuel Up',
+  firerescue: 'Fire Truck Rescue',
+  ladder: 'Ladder Rescue',
 };
 
 export const ADDITION_LEVELS = [

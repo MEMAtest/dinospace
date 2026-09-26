@@ -125,7 +125,7 @@ const SubtractionStation = ({ onBack, playSfx, soundOn, onToggleSound, speak, on
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-purple-300/40 rounded-full blur-3xl" />
       </div>
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg z-20 hover:scale-110 transition-transform" aria-label="Go back to menu"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-purple-700">Subtraction Station</h2>
           <p className="text-purple-700/70 font-semibold">{level.emoji} {level.name} · Streak: {streak}</p>

@@ -92,6 +92,8 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const [traceProgress, setTraceProgress] = useState(0);
   const [flightFeedback, setFlightFeedback] = useState('Start at the green dot and follow the arrows.');
   const [routeFinished, setRouteFinished] = useState(false);
+  // True once the child throws away a started flight for this shape (reset after tracing, or a finished route with too little coverage).
+  const [hadRetry, setHadRetry] = useState(false);
   const allCompleteRef = useRef(false);
   const requiredCoverage = difficulty === 'starter' ? 62 : difficulty === 'growing' ? 74 : 86;
   const traceReady = routeFinished && traceProgress >= requiredCoverage;
@@ -110,13 +112,13 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       onGameEvent?.('jet', 'answer_correct');
       onGameEvent?.('jet', 'learning_attempt', {
         skill: 'shape-formation', item: shape, response: `${Math.round(traceProgress)}% guide coverage`,
-        correct: true, firstAttempt: true, independent: true, hints: 0, difficulty,
+        correct: true, firstAttempt: !hadRetry, independent: true, hints: 0, difficulty,
       });
       playSfx('sparkle');
       speak(`${praise} You traced the ${shape}.`);
       return next;
     });
-  }, [difficulty, onCelebrate, onGameEvent, playSfx, shape, speak, traceProgress]);
+  }, [difficulty, hadRetry, onCelebrate, onGameEvent, playSfx, shape, speak, traceProgress]);
 
   useEffect(() => {
     visitedPointsRef.current = new Set();
@@ -364,12 +366,14 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     setTraceProgress(0);
     setFlightFeedback('Start at the green dot and follow the arrows.');
     setRouteFinished(false);
+    setHadRetry(option === shape ? hadRetry || (traceProgress > 0 && !alreadyComplete) : false);
     setShape(option);
     setResetKey((value) => value + 1);
     playSfx('swish');
   };
 
   const resetFlight = () => {
+    if (traceProgress > 0 && !alreadyComplete) setHadRetry(true);
     setTraceProgress(0);
     setFlightFeedback('Start at the green dot and follow the arrows.');
     setRouteFinished(false);
@@ -381,7 +385,7 @@ const JetSkyShapes = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     <div className="flex min-h-screen flex-col overflow-hidden bg-gradient-to-b from-sky-500 via-sky-200 to-lime-100 text-slate-900">
       <header className="relative z-20 px-3 pt-3 sm:px-5 sm:pt-4">
         <div className="flex items-center gap-3 rounded-[1.7rem] border-2 border-white/70 bg-white/90 p-2.5 shadow-xl backdrop-blur sm:p-3">
-          <button onClick={onBack} className="game-icon-button shrink-0 !bg-sky-600 !text-white" aria-label="Back to all games"><Home /></button>
+          <button onClick={onBack} className="game-icon-button shrink-0 !bg-sky-600 !text-white" aria-label="Back to home"><Home /></button>
           <div className="min-w-0 flex-1">
             <p className="text-[10px] font-black uppercase tracking-[0.18em] text-sky-600 sm:text-xs">Pilot mission</p>
             <h1 className="truncate text-lg font-black text-slate-800 sm:text-2xl">Sky Shapes</h1>

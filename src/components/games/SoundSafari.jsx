@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { Home } from 'lucide-react';
 import { PHONICS_ITEMS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
@@ -27,6 +27,9 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
   const [hadMistake, setHadMistake] = useState(false);
+  const answeredRef = useRef(false);
+  const nextRoundTimerRef = useRef(null);
+  const timersRef = useRef([]);
 
   const sayPrompt = useCallback(() => {
     if (safariMode === 'match') {
@@ -38,15 +41,34 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   useEffect(() => { sayPrompt(); }, [sayPrompt]);
 
-  const nextRound = () => {
-    if (safariMode === 'match') setRound(buildMatchRound());
+  useEffect(() => () => {
+    clearTimeout(nextRoundTimerRef.current);
+    timersRef.current.forEach((id) => clearTimeout(id));
+  }, []);
+
+  const later = (callback, delay) => {
+    timersRef.current.push(setTimeout(callback, delay));
+  };
+
+  const scheduleNextRound = () => {
+    const roundMode = safariMode;
+    nextRoundTimerRef.current = setTimeout(() => nextRound(roundMode), 1400);
+  };
+
+  const nextRound = (mode = safariMode) => {
+    clearTimeout(nextRoundTimerRef.current);
+    nextRoundTimerRef.current = null;
+    answeredRef.current = false;
+    if (mode === 'match') setRound(buildMatchRound());
     else { setBlendRound(pickRandom(blendWords)); setBlendStep(0); }
     setFeedback('');
     setHadMistake(false);
   };
 
   const handlePick = (option) => {
+    if (answeredRef.current) return;
     if (option.letter === round.target.letter) {
+      answeredRef.current = true;
       const praise = getPraise();
       setFeedback(praise);
       setScore((prev) => prev + 1);
@@ -54,13 +76,13 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       onCelebrate(praise, 6, 250);
       onGameEvent?.('phonics', 'answer_correct');
       onGameEvent?.('phonics', 'learning_attempt', makeLearningEvent({ skill: 'phoneme-recognition', item: round.target.sound, response: option.word, correct: true, firstTry: !hadMistake }));
-      setTimeout(nextRound, 1400);
+      scheduleNextRound();
     } else {
       setHadMistake(true);
       setFeedback('Try again!');
       setShake(true);
       playSfx('oops');
-      setTimeout(() => setShake(false), 450);
+      later(() => setShake(false), 450);
     }
   };
 
@@ -69,7 +91,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     playSfx('tap');
     setBlendStep(idx + 1);
     if (idx + 1 >= blendRound.letters.length) {
-      setTimeout(() => speak(`${blendRound.word}!`), 600);
+      later(() => speak(`${blendRound.word}!`), 600);
     }
   };
 
@@ -80,7 +102,9 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   }, [blendRound, blendWords, safariMode]);
 
   const handleBlendAnswer = (w) => {
+    if (answeredRef.current) return;
     if (w.word === blendRound.word) {
+      answeredRef.current = true;
       const praise = getPraise();
       setFeedback(praise);
       setScore((prev) => prev + 1);
@@ -88,13 +112,13 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       onCelebrate(praise, 8, 250);
       onGameEvent?.('phonics', 'answer_correct');
       onGameEvent?.('phonics', 'learning_attempt', makeLearningEvent({ skill: 'oral-blending', item: blendRound.word, response: w.word, correct: true, firstTry: !hadMistake, difficulty: blendRound.phase === 3 ? 'growing' : 'starter' }));
-      setTimeout(nextRound, 1400);
+      scheduleNextRound();
     } else {
       setHadMistake(true);
       setFeedback('Try again!');
       setShake(true);
       playSfx('oops');
-      setTimeout(() => setShake(false), 450);
+      later(() => setShake(false), 450);
     }
   };
 
@@ -106,7 +130,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       </div>
 
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home /></button>
+        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-emerald-700">Sound Safari</h2>
           <p className="text-emerald-700/70 font-semibold">Score: {score}</p>
@@ -117,7 +141,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
         <div className="flex gap-2 mb-4">
           {[{ id: 'match', label: '🔤 Letter Match' }, { id: 'blend', label: '🧩 Blend It' }].map((m) => (
-            <button key={m.id} onClick={() => { setSafariMode(m.id); nextRound(); playSfx('click'); }}
+            <button key={m.id} onClick={() => { setSafariMode(m.id); nextRound(m.id); playSfx('click'); }}
               className={`px-4 py-2 rounded-full font-bold text-sm ${safariMode === m.id ? 'bg-emerald-600 text-white' : 'bg-white text-emerald-700'}`}>{m.label}</button>
           ))}
         </div>

@@ -176,6 +176,18 @@ export const useSfx = (enabled) => {
         playTone(ctx, { freq: 392, duration: 0.48, gain: 0.065, start: 0.24, type: 'triangle', soft: true });
       }
 
+      if (name === 'roar') {
+        // A friendly cartoon roar: low, rumbling sweeps rather than a scary growl.
+        playSweep(ctx, { from: 180, to: 95, duration: 0.7, gain: 0.2, type: 'sawtooth' });
+        playSweep(ctx, { from: 240, to: 120, duration: 0.6, gain: 0.1, start: 0.05, type: 'square' });
+        playSweep(ctx, { from: 120, to: 70, duration: 0.5, gain: 0.12, start: 0.25, type: 'triangle' });
+      }
+
+      if (name === 'splash') {
+        playSweep(ctx, { from: 2200, to: 400, duration: 0.3, gain: 0.08, type: 'triangle' });
+        playTone(ctx, { freq: 180, duration: 0.12, gain: 0.06, start: 0.05, type: 'sine', soft: true });
+      }
+
       if (name === 'whoosh') {
         playSweep(ctx, { from: 1400, to: 180, duration: 0.5, gain: 0.2, type: 'sine' });
       }

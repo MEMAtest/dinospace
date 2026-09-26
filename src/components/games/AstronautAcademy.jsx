@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from 'react';
-import { Home } from 'lucide-react';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { Home, ArrowLeft } from 'lucide-react';
 import { ASTRONAUT_PROFILES, ASTRONAUT_CATEGORIES } from '../../data/index.js';
-import { getPraise } from '../../utils.js';
+import { getPraise, shuffle } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
@@ -68,18 +68,36 @@ const RocketProgress = ({ current, total }) => {
   );
 };
 
+// Starter mode shows the answer plus two others. Shuffle once when the
+// question is set so the answer is not always first and does not jump around
+// on re-render.
+const buildQuestionOptions = (question, difficulty) => {
+  if (!question) return [];
+  if (difficulty !== 'starter') return question.options;
+  const others = shuffle(question.options.filter((opt) => opt.text !== question.answer)).slice(0, 2);
+  return shuffle(question.options.filter((opt) => opt.text === question.answer).concat(others));
+};
+
 const DidYouKnowOverlay = ({ profile, onDone, speak }) => {
+  const doneRef = useRef(false);
+
+  const finish = useCallback(() => {
+    if (doneRef.current) return;
+    doneRef.current = true;
+    onDone();
+  }, [onDone]);
+
   useEffect(() => {
     if (!profile) return;
     speak(`Did you know? ${profile.funFact}`);
-    const timer = setTimeout(onDone, 3500);
+    const timer = setTimeout(finish, 6000);
     return () => clearTimeout(timer);
-  }, [profile, speak, onDone]);
+  }, [profile, speak, finish]);
 
   if (!profile) return null;
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={finish}>
       <div className="bg-gradient-to-b from-indigo-700 to-purple-800 rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl animate-scale-in mx-4">
         <div className="flex justify-center mb-3">
           <AstronautImage profile={profile} size={120} className="border-yellow-300 shadow-xl" />
@@ -87,12 +105,13 @@ const DidYouKnowOverlay = ({ profile, onDone, speak }) => {
         <p className="text-yellow-300 font-bold text-lg mb-1">Did you know?</p>
         <p className="text-white font-bold text-base mb-2">{profile.name} {profile.flag}</p>
         <p className="text-white/80 text-sm">{profile.funFact}</p>
+        <button type="button" onClick={finish} className="mt-4 rounded-full bg-white/20 px-5 py-2 text-sm font-bold text-white">Tap to continue</button>
       </div>
     </div>
   );
 };
 
-const HeroesGallery = ({ onBack, playSfx, speak }) => {
+const HeroesGallery = ({ onBack, playSfx, speak, soundOn, onToggleSound }) => {
   const [flippedCards, setFlippedCards] = useState({});
 
   const handleFlip = (profileId) => {
@@ -111,9 +130,9 @@ const HeroesGallery = ({ onBack, playSfx, speak }) => {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
       <SpaceStars />
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home className="text-white" /></button>
+        <button onClick={onBack} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to Astronaut Academy missions"><ArrowLeft strokeWidth={3} /></button>
         <h2 className="text-2xl font-black text-white">🔭 Space Heroes</h2>
-        <div className="w-10" />
+        {onToggleSound ? <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/20 !text-white" /> : <div className="w-12" />}
       </div>
       <div className="flex-1 flex flex-col items-center px-4 pb-8 z-10 overflow-y-auto">
         <p className="text-white/70 text-sm font-semibold mt-2 mb-4">Tap a card to learn!</p>
@@ -175,6 +194,8 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
   const [combo, setCombo] = useState(0);
   const [correctProfiles, setCorrectProfiles] = useState([]);
   const [hadMistake, setHadMistake] = useState(false);
+  const [questionOptions, setQuestionOptions] = useState([]);
+  const timersRef = useRef([]);
 
   const cat = catIndex !== null ? ASTRONAUT_CATEGORIES[catIndex] : null;
   const question = cat ? cat.items[qIndex] : null;
@@ -183,6 +204,14 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
   useEffect(() => {
     if (question) speak(question.q);
   }, [question, speak]);
+
+  useEffect(() => () => timersRef.current.forEach((id) => clearTimeout(id)), []);
+
+  const goToQuestion = useCallback((category, index) => {
+    setQIndex(index);
+    setHadMistake(false);
+    setQuestionOptions(buildQuestionOptions(category.items[index], difficulty));
+  }, [difficulty]);
 
   const handlePick = (opt) => {
     if (!question || feedback) return;
@@ -208,21 +237,21 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
 
       if (profile) {
         setCorrectProfiles((prev) => prev.includes(profile.id) ? prev : [...prev, profile.id]);
-        setTimeout(() => {
+        timersRef.current.push(setTimeout(() => {
           setFeedback('');
           setDidYouKnow(profile);
-        }, 800);
+        }, 800));
       } else {
         speak(praise);
-        setTimeout(() => {
+        timersRef.current.push(setTimeout(() => {
           setFeedback('');
           if (qIndex + 1 < cat.items.length) {
-            setQIndex(qIndex + 1);
+            goToQuestion(cat, qIndex + 1);
           } else {
             playSfx('levelup-big');
             setDone(true);
           }
-        }, 1500);
+        }, 1500));
       }
     } else {
       setHadMistake(true);
@@ -234,19 +263,19 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       setExplanation(`${correctOpt?.visual || ''} ${explainText}`);
       speak(explainText);
       setFeedback('Not quite!');
-      setTimeout(() => { setShake(false); setFeedback(''); setExplanation(''); }, 2500);
+      timersRef.current.push(setTimeout(() => { setShake(false); setFeedback(''); setExplanation(''); }, 2500));
     }
   };
 
   const handleDidYouKnowDone = useCallback(() => {
     setDidYouKnow(null);
     if (cat && qIndex + 1 < cat.items.length) {
-      setQIndex((prev) => prev + 1);
+      goToQuestion(cat, qIndex + 1);
     } else {
       playSfx('levelup-big');
       setDone(true);
     }
-  }, [cat, qIndex, playSfx]);
+  }, [cat, qIndex, playSfx, goToQuestion]);
 
   const handleReset = () => {
     setCatIndex(null);
@@ -271,7 +300,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       setCatIndex(index);
       setMode('quiz');
     }
-    setQIndex(0);
+    goToQuestion(selectedCat, 0);
     setScore(0);
     setDone(false);
     setCombo(0);
@@ -285,9 +314,9 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
         <SpaceStars />
         <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={onBack} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to all games"><Home className="text-white" /></button>
+          <button onClick={onBack} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to home"><Home className="text-white" /></button>
           <h2 className="text-3xl font-black text-white">👨‍🚀 Astronaut Academy</h2>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="text-white" />
+          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/20 !text-white" />
         </div>
         <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
           <p className="text-white/80 text-xl font-semibold mb-8">Pick a mission!</p>
@@ -320,9 +349,9 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
         <SpaceStars />
         <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={handleReset} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to Astronaut Academy missions"><Home className="text-white" /></button>
+          <button onClick={handleReset} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to Astronaut Academy missions"><ArrowLeft strokeWidth={3} /></button>
           <h2 className="text-2xl font-black text-white">👨‍🚀 Space Heroes</h2>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="text-white" />
+          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/20 !text-white" />
         </div>
         <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10 gap-6">
           <p className="text-white/80 text-lg font-semibold">Quiz or Explore?</p>
@@ -351,7 +380,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
 
   // Gallery mode
   if (mode === 'gallery') {
-    return <HeroesGallery onBack={handleReset} playSfx={playSfx} speak={speak} />;
+    return <HeroesGallery onBack={handleReset} playSfx={playSfx} speak={speak} soundOn={soundOn} onToggleSound={onToggleSound} />;
   }
 
   // Completion screen
@@ -396,7 +425,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
       <SpaceStars />
       <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={handleReset} className="bg-white/20 p-3 rounded-full shadow-lg hover:scale-110 transition-transform" aria-label="Back to Astronaut Academy missions"><Home className="text-white" /></button>
+        <button onClick={handleReset} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to Astronaut Academy missions"><ArrowLeft strokeWidth={3} /></button>
         <div className="text-center flex-1 mx-2">
           <h2 className="text-xl font-black text-white">{cat.emoji} {cat.name}</h2>
           <RocketProgress current={qIndex} total={cat.items.length} />
@@ -423,9 +452,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
           </div>
           <h3 className="text-2xl font-black text-white mb-6">{question.q}</h3>
           <div className="grid grid-cols-2 gap-4">
-            {(difficulty === 'starter'
-              ? question.options.filter((opt) => opt.text === question.answer).concat(question.options.filter((opt) => opt.text !== question.answer).slice(0, 2))
-              : question.options).map((opt, index) => (
+            {questionOptions.map((opt, index) => (
               <button
                 key={opt.text}
                 onClick={() => { playSfx('tap'); handlePick(opt); }}
