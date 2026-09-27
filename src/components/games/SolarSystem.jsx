@@ -19,26 +19,132 @@ const PLANET_COLORS = {
 };
 
 const PLANET_SCALES = {
-  Mercury: 0.48,
-  Venus: 0.82,
-  Earth: 0.88,
-  Mars: 0.62,
+  Mercury: 0.58,
+  Venus: 0.84,
+  Earth: 0.92,
+  Mars: 0.66,
   Jupiter: 1.72,
   Saturn: 1.48,
   Uranus: 1.08,
   Neptune: 1.04,
-  Pluto: 0.4,
+  Pluto: 0.5,
 };
 
-const makeOrbit = (radius) => {
+const PLANET_TEXTURE_PALETTES = {
+  Mercury: ['#a7a9ad', '#666b75', '#d7d9dc'],
+  Venus: ['#f6c66f', '#c77a35', '#ffe2a3'],
+  Earth: ['#1478b8', '#0b426d', '#5ba85b'],
+  Mars: ['#b74735', '#6b2526', '#e27c4d'],
+  Jupiter: ['#d9a879', '#80533f', '#f0d2a8'],
+  Saturn: ['#d7b779', '#866849', '#f5e4bd'],
+  Uranus: ['#67c9d5', '#2f8b9b', '#baf5ef'],
+  Neptune: ['#315be8', '#17328e', '#6aa4ff'],
+  Pluto: ['#bd9c8e', '#675462', '#e5c8b3'],
+};
+
+const seededNoise = (seed) => {
+  let value = seed;
+  return () => {
+    value = (value * 9301 + 49297) % 233280;
+    return value / 233280;
+  };
+};
+
+const makePlanetTexture = (planetName) => {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 256;
+  const context = canvas.getContext('2d');
+  if (!context) return null;
+  const [base, deep, light] = PLANET_TEXTURE_PALETTES[planetName] || ['#64748b', '#1e293b', '#cbd5e1'];
+  const gradient = context.createLinearGradient(0, 0, 0, canvas.height);
+  gradient.addColorStop(0, light);
+  gradient.addColorStop(0.48, base);
+  gradient.addColorStop(1, deep);
+  context.fillStyle = gradient;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  const random = seededNoise(planetName.length * 71 + planetName.charCodeAt(0));
+  if (['Jupiter', 'Saturn', 'Uranus', 'Neptune'].includes(planetName)) {
+    const bandColours = [light, base, deep, base, light];
+    bandColours.forEach((colour, index) => {
+      context.fillStyle = colour;
+      context.globalAlpha = index % 2 ? 0.64 : 0.38;
+      context.fillRect(0, 18 + index * 45, canvas.width, 24 + (index % 2) * 14);
+    });
+    context.globalAlpha = 0.18;
+    for (let index = 0; index < 46; index += 1) {
+      context.strokeStyle = index % 2 ? light : deep;
+      context.lineWidth = 1 + random() * 4;
+      context.beginPath();
+      context.moveTo(0, 10 + index * 5.2);
+      context.bezierCurveTo(150, 4 + index * 5.2, 330, 20 + index * 5.2, 512, 8 + index * 5.2);
+      context.stroke();
+    }
+    if (planetName === 'Jupiter') {
+      context.globalAlpha = 0.9;
+      context.fillStyle = '#b84f43';
+      context.beginPath();
+      context.ellipse(382, 158, 40, 17, -0.1, 0, Math.PI * 2);
+      context.fill();
+    }
+  } else if (planetName === 'Earth') {
+    context.globalAlpha = 0.96;
+    context.fillStyle = '#4e9e5f';
+    [[88, 92, 56, 32], [155, 139, 26, 66], [277, 70, 68, 24], [328, 118, 46, 54], [422, 166, 52, 29]].forEach(([x, y, width, height]) => {
+      context.beginPath();
+      context.ellipse(x, y, width, height, random() * 0.7, 0, Math.PI * 2);
+      context.fill();
+    });
+    context.fillStyle = '#f8fafc';
+    context.globalAlpha = 0.55;
+    [[120, 45, 50, 7], [242, 154, 72, 9], [391, 74, 45, 6], [444, 194, 32, 6]].forEach(([x, y, width, height]) => {
+      context.beginPath();
+      context.ellipse(x, y, width, height, -0.15, 0, Math.PI * 2);
+      context.fill();
+    });
+  } else {
+    context.globalAlpha = planetName === 'Mercury' || planetName === 'Mars' ? 0.46 : 0.24;
+    const craterColour = planetName === 'Mercury' ? deep : '#3f1d2a';
+    context.fillStyle = craterColour;
+    for (let index = 0; index < 26; index += 1) {
+      const x = random() * canvas.width;
+      const y = random() * canvas.height;
+      const radius = 2 + random() * (planetName === 'Mars' ? 8 : 13);
+      context.beginPath();
+      context.arc(x, y, radius, 0, Math.PI * 2);
+      context.fill();
+      context.strokeStyle = light;
+      context.lineWidth = 1;
+      context.stroke();
+    }
+    if (planetName === 'Venus') {
+      context.globalAlpha = 0.25;
+      context.strokeStyle = '#fff0bd';
+      context.lineWidth = 12;
+      for (let index = -1; index < 7; index += 1) {
+        context.beginPath();
+        context.arc(130 + index * 58, 118, 120, Math.PI * 1.08, Math.PI * 1.92);
+        context.stroke();
+      }
+    }
+  }
+  context.globalAlpha = 1;
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.needsUpdate = true;
+  return texture;
+};
+
+const makeOrbit = (radius, colour = 0x6b7ca8) => {
   const points = [];
   for (let index = 0; index <= 128; index += 1) {
     const angle = (index / 128) * Math.PI * 2;
-    points.push(new THREE.Vector3(Math.cos(angle) * radius, 0, Math.sin(angle) * radius));
+    points.push(new THREE.Vector3(Math.cos(angle) * radius, Math.sin(angle) * radius, 0));
   }
   const geometry = new THREE.BufferGeometry().setFromPoints(points);
   const material = new THREE.LineBasicMaterial({
-    color: 0x6b7ca8,
+    color: colour,
     transparent: true,
     opacity: 0.2,
   });
@@ -53,18 +159,6 @@ const addPlanetTexture = (mesh, planetName, planetAnchor = mesh) => {
     );
     land.rotation.z = 0.45;
     mesh.add(land);
-  }
-
-  if (planetName === 'Jupiter') {
-    [-0.55, -0.18, 0.2, 0.55].forEach((y, index) => {
-      const band = new THREE.Mesh(
-        new THREE.TorusGeometry(mesh.geometry.parameters.radius * Math.sqrt(1 - y * y), 0.045, 8, 64),
-        new THREE.MeshBasicMaterial({ color: index % 2 ? 0x8c5e3c : 0xf1d1a0 }),
-      );
-      band.rotation.x = Math.PI / 2;
-      band.position.y = y * mesh.geometry.parameters.radius;
-      mesh.add(band);
-    });
   }
 
   if (planetName === 'Saturn') {
@@ -103,17 +197,20 @@ const addPlanetTexture = (mesh, planetName, planetAnchor = mesh) => {
   return null;
 };
 
-const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
+const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selectedPlanet }, ref) {
   const mountRef = useRef(null);
   const onSelectRef = useRef(onSelect);
   const pausedRef = useRef(paused);
   const controlsRef = useRef(null);
   const cameraRef = useRef(null);
+  const fitDistanceRef = useRef(40);
   const planetAnchorsRef = useRef(new Map());
+  const selectedPlanetRef = useRef(selectedPlanet?.name || 'Earth');
   const [webglUnavailable, setWebglUnavailable] = useState(false);
 
   useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
   useEffect(() => { pausedRef.current = paused; }, [paused]);
+  useEffect(() => { selectedPlanetRef.current = selectedPlanet?.name || 'Earth'; }, [selectedPlanet]);
 
   const changeZoom = useCallback((scale) => {
     const controls = controlsRef.current;
@@ -136,7 +233,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     zoomOut: () => changeZoom(1.28),
     resetView: () => {
       if (!cameraRef.current || !controlsRef.current) return;
-      cameraRef.current.position.set(0, 22, 39);
+      cameraRef.current.position.set(0, 0, fitDistanceRef.current);
       controlsRef.current.target.set(0, 0, 0);
       controlsRef.current.update();
     },
@@ -149,8 +246,10 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
       const target = new THREE.Vector3();
       anchor.getWorldPosition(target);
       const offset = camera.position.clone().sub(controls.target);
-      const distance = THREE.MathUtils.clamp(offset.length() * 0.72, 18, controls.maxDistance);
-      if (offset.length() < 0.01) offset.set(0, 8, 24);
+      const minFocusDistance = window.innerWidth < 640 ? 22 : 19;
+      const planetRadius = anchor.userData.planetRadius || 1;
+      const distance = THREE.MathUtils.clamp(Math.max(planetRadius * 8.5, minFocusDistance), controls.minDistance, controls.maxDistance);
+      if (offset.length() < 0.01) offset.set(0, 0, 24);
       offset.setLength(distance);
       controls.target.copy(target);
       camera.position.copy(target).add(offset);
@@ -164,11 +263,11 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     const planetAnchors = planetAnchorsRef.current;
 
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x030712);
-    scene.fog = new THREE.FogExp2(0x030712, 0.012);
+    scene.background = new THREE.Color(0x020617);
+    scene.fog = new THREE.FogExp2(0x020617, 0.005);
 
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
-    camera.position.set(0, 22, 39);
+    camera.position.set(0, 0, 40);
 
     let renderer;
     try {
@@ -182,33 +281,46 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.18;
     mount.appendChild(renderer.domElement);
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
-    controls.minDistance = 22;
+    controls.minDistance = 10;
     controls.maxDistance = 72;
-    controls.maxPolarAngle = Math.PI / 2.05;
+    controls.minPolarAngle = Math.PI * 0.22;
+    controls.maxPolarAngle = Math.PI * 0.78;
     controls.target.set(0, 0, 0);
     controlsRef.current = controls;
     cameraRef.current = camera;
 
-    scene.add(new THREE.AmbientLight(0x8ba8ff, 0.42));
-    const sunlight = new THREE.PointLight(0xffe7a3, 160, 90, 1.6);
+    scene.add(new THREE.HemisphereLight(0xb8d9ff, 0x14203e, 1.05));
+    scene.add(new THREE.AmbientLight(0x91b7ff, 0.32));
+    const sunlight = new THREE.PointLight(0xffe7a3, 250, 100, 1.5);
     scene.add(sunlight);
 
+    const sunGroup = new THREE.Group();
     const sun = new THREE.Mesh(
       new THREE.SphereGeometry(2.2, 48, 32),
-      new THREE.MeshBasicMaterial({ color: 0xffc928 }),
+      new THREE.MeshBasicMaterial({ color: 0xffd45a }),
     );
     sun.userData.planetName = 'Sun';
-    scene.add(sun);
+    sunGroup.add(sun);
     const sunGlow = new THREE.Mesh(
       new THREE.SphereGeometry(2.65, 32, 24),
-      new THREE.MeshBasicMaterial({ color: 0xffa928, transparent: true, opacity: 0.14 }),
+      new THREE.MeshBasicMaterial({ color: 0xff9f1a, transparent: true, opacity: 0.2, blending: THREE.AdditiveBlending, depthWrite: false }),
     );
-    scene.add(sunGlow);
+    sunGroup.add(sunGlow);
+    [2.95, 3.35].forEach((radius, index) => {
+      const corona = new THREE.Mesh(
+        new THREE.RingGeometry(radius, radius + 0.055, 64),
+        new THREE.MeshBasicMaterial({ color: index ? 0xffd36e : 0xffa928, transparent: true, opacity: index ? 0.28 : 0.4, side: THREE.DoubleSide, blending: THREE.AdditiveBlending, depthWrite: false }),
+      );
+      sunGroup.add(corona);
+    });
+    scene.add(sunGroup);
 
     const starPositions = [];
     for (let index = 0; index < 1400; index += 1) {
@@ -231,27 +343,31 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
 
     const orbitGroups = [];
     const clickableMeshes = [];
+    const selectionRings = new Map();
     planetAnchors.clear();
     PLANETS.forEach((planet, index) => {
       const radius = 3.8 + index * 1.75;
-      scene.add(makeOrbit(radius));
+      scene.add(makeOrbit(radius, PLANET_COLORS[planet.name]));
 
       const orbitGroup = new THREE.Group();
-      orbitGroup.rotation.y = index * 0.72;
+      orbitGroup.rotation.z = index * (Math.PI * 2 / PLANETS.length);
       const planetRadius = PLANET_SCALES[planet.name];
       const planetAnchor = new THREE.Group();
       planetAnchor.position.x = radius;
       planetAnchor.userData.planetName = planet.name;
+      planetAnchor.userData.planetRadius = planetRadius;
+      const texture = makePlanetTexture(planet.name);
       const mesh = new THREE.Mesh(
         new THREE.SphereGeometry(planetRadius, 40, 28),
         new THREE.MeshStandardMaterial({
-          color: PLANET_COLORS[planet.name],
+          color: 0xffffff,
+          map: texture,
           // The lighting is intentionally gentle for touch devices. A small
           // self-lit contribution keeps the night-facing side readable (and
           // prevents Saturn disappearing behind its ring plane) without
           // flattening the 3D shading.
           emissive: PLANET_COLORS[planet.name],
-          emissiveIntensity: planet.name === 'Saturn' ? 0.34 : 0.1,
+          emissiveIntensity: planet.name === 'Saturn' ? 0.16 : 0.1,
           roughness: planet.name === 'Earth' ? 0.68 : 0.88,
           metalness: 0.02,
         }),
@@ -260,6 +376,21 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
       mesh.userData.planetName = planet.name;
       planetAnchor.add(mesh);
       const rings = addPlanetTexture(mesh, planet.name, planetAnchor);
+      if (['Earth', 'Venus', 'Uranus', 'Neptune'].includes(planet.name)) {
+        const atmosphere = new THREE.Mesh(
+          new THREE.SphereGeometry(planetRadius * 1.08, 32, 20),
+          new THREE.MeshBasicMaterial({ color: PLANET_COLORS[planet.name], transparent: true, opacity: planet.name === 'Earth' ? 0.14 : 0.1, side: THREE.BackSide, blending: THREE.AdditiveBlending, depthWrite: false }),
+        );
+        planetAnchor.add(atmosphere);
+      }
+      const selectionRing = new THREE.Mesh(
+        new THREE.RingGeometry(planetRadius * 1.45, planetRadius * 1.6, 64),
+        new THREE.MeshBasicMaterial({ color: 0x67e8f9, transparent: true, opacity: 0.9, side: THREE.DoubleSide, blending: THREE.AdditiveBlending, depthWrite: false }),
+      );
+      selectionRing.userData.planetName = planet.name;
+      selectionRing.visible = planet.name === selectedPlanetRef.current;
+      planetAnchor.add(selectionRing);
+      selectionRings.set(planet.name, selectionRing);
       // Give small planets and ringed worlds a generous, invisible touch
       // target. The visible sphere should never be the only way to select it.
       const hitMesh = new THREE.Mesh(
@@ -269,13 +400,26 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
       hitMesh.userData.planetName = planet.name;
       planetAnchor.add(hitMesh);
       orbitGroup.add(planetAnchor);
-      orbitGroup.userData.speed = 0.0007 + (PLANETS.length - index) * 0.00018;
+      orbitGroup.userData.speed = 0.000025 + (PLANETS.length - index) * 0.000003;
       orbitGroup.userData.mesh = mesh;
       scene.add(orbitGroup);
       orbitGroups.push(orbitGroup);
       clickableMeshes.push(hitMesh, mesh, ...mesh.children, ...(rings?.children || []));
       planetAnchors.set(planet.name, planetAnchor);
     });
+
+    const asteroidPositions = [];
+    const asteroidRandom = seededNoise(411);
+    for (let index = 0; index < 220; index += 1) {
+      const angle = asteroidRandom() * Math.PI * 2;
+      const radius = 9.45 + asteroidRandom() * 0.65;
+      asteroidPositions.push(Math.cos(angle) * radius, Math.sin(angle) * radius, (asteroidRandom() - 0.5) * 0.28);
+    }
+    const asteroidGeometry = new THREE.BufferGeometry();
+    asteroidGeometry.setAttribute('position', new THREE.Float32BufferAttribute(asteroidPositions, 3));
+    const asteroidBelt = new THREE.Points(asteroidGeometry, new THREE.PointsMaterial({ color: 0xe3b873, size: 0.075, transparent: true, opacity: 0.72 }));
+    asteroidBelt.rotation.x = 0.08;
+    scene.add(asteroidBelt);
 
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2();
@@ -301,9 +445,20 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     const resize = () => {
       const width = Math.max(320, mount.clientWidth);
       const height = Math.max(360, mount.clientHeight);
+      const compact = width < 640;
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
+      camera.fov = compact ? 52 : 48;
       camera.updateProjectionMatrix();
+      const outerOrbit = 3.8 + (PLANETS.length - 1) * 1.75;
+      fitDistanceRef.current = (outerOrbit + 1.1) / (Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * Math.min(1, camera.aspect)) * 1.08;
+      if (compact && controls.target.length() < 0.01) {
+        camera.position.set(0, 0, fitDistanceRef.current);
+        controls.minDistance = 10;
+      } else if (!compact && controls.target.length() < 0.01) {
+        camera.position.set(0, 0, fitDistanceRef.current);
+        controls.minDistance = 10;
+      }
     };
     const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(mount);
@@ -313,11 +468,16 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     const animate = () => {
       frameId = requestAnimationFrame(animate);
       if (!pausedRef.current) {
-        sun.rotation.y += 0.002;
+        sunGroup.rotation.z += 0.002;
         starField.rotation.y += 0.00008;
+        asteroidBelt.rotation.z += 0.0004;
+        selectionRings.forEach((ring, planetName) => {
+          ring.visible = planetName === selectedPlanetRef.current;
+          if (ring.visible) ring.scale.setScalar(1 + Math.sin(performance.now() / 260) * 0.08);
+        });
         orbitGroups.forEach((group) => {
-          group.rotation.y += group.userData.speed;
-          group.userData.mesh.rotation.y += 0.009;
+          group.rotation.z += group.userData.speed;
+          group.userData.mesh.rotation.z += 0.009;
         });
       }
       controls.update();
@@ -336,8 +496,8 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
       renderer.dispose();
       scene.traverse((object) => {
         object.geometry?.dispose?.();
-        if (Array.isArray(object.material)) object.material.forEach((material) => material.dispose());
-        else object.material?.dispose?.();
+        if (Array.isArray(object.material)) object.material.forEach((material) => { material.map?.dispose?.(); material.dispose(); });
+        else if (object.material) { object.material.map?.dispose?.(); object.material.dispose(); }
       });
       if (renderer.domElement.parentNode === mount) mount.removeChild(renderer.domElement);
       planetAnchors.clear();
@@ -356,7 +516,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
     );
   }
 
-  return <div ref={mountRef} className="h-[58vh] min-h-[430px] w-full cursor-grab touch-none active:cursor-grabbing md:h-full md:min-h-0" />;
+  return <div ref={mountRef} className="h-[min(54svh,470px)] min-h-[360px] w-full cursor-grab touch-none active:cursor-grabbing md:h-full md:min-h-0" />;
 });
 
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
@@ -370,7 +530,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [completedQuizzes, setCompletedQuizzes] = useState({});
   const [paused, setPaused] = useState(false);
 
-  const selectPlanet = useCallback((planetName) => {
+  const selectPlanet = useCallback((planetName, focus = true) => {
     const planet = PLANETS.find((item) => item.name === planetName);
     if (!planet) return;
     setSelectedPlanet(planet);
@@ -378,7 +538,8 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setQuizFeedback('');
     playSfx('chime');
     speak(`${planet.name}. ${planet.subtitle}. ${planet.mission}`);
-    orreryRef.current?.focusPlanet(planet.name);
+    if (focus) orreryRef.current?.focusPlanet(planet.name);
+    else orreryRef.current?.resetView();
   }, [playSfx, speak]);
 
   const handleFact = (index) => {
@@ -429,31 +590,32 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   return (
     <div className="min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden">
-      <header className="relative z-30 flex items-center justify-between border-b border-white/10 bg-slate-950/80 px-4 py-3 backdrop-blur-xl">
-        <button onClick={onBack} className="game-icon-button !bg-white/10 !text-white" aria-label="Back to home"><Home /></button>
+      <header className="relative z-30 flex items-center justify-between gap-2 border-b border-white/10 bg-slate-950/80 px-3 py-3 backdrop-blur-xl sm:px-4">
+        <button onClick={onBack} className="game-icon-button !h-10 !w-10 shrink-0 !bg-white/10 !text-white sm:!h-12 sm:!w-12" aria-label="Back to home"><Home /></button>
         <div className="text-center">
-          <p className="text-[10px] font-black uppercase tracking-[0.25em] text-cyan-300 sm:text-xs">Interactive 3D mission</p>
-          <h2 className="text-xl font-black text-white sm:text-3xl">Solar System Explorer</h2>
+          <p className="text-[9px] font-black uppercase tracking-[0.18em] text-cyan-300 sm:text-xs sm:tracking-[0.25em]">Interactive 3D mission</p>
+          <h2 className="whitespace-nowrap text-base font-black text-white sm:text-3xl">Solar System Explorer</h2>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1 sm:gap-2">
           <button
             onClick={() => setPaused((current) => !current)}
-            className="game-icon-button !bg-white/10 !text-white"
+            className="game-icon-button !h-10 !w-10 !bg-white/10 !text-white sm:!h-12 sm:!w-12"
             aria-label={paused ? 'Resume planet orbits' : 'Pause planet orbits'}
           >
             {paused ? <Play size={19} /> : <Pause size={19} />}
           </button>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/10 !text-white" />
+          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!h-10 !w-10 !bg-white/10 !text-white sm:!h-12 sm:!w-12" />
         </div>
       </header>
 
-      <main className="grid md:h-[calc(100vh-77px)] md:grid-cols-[minmax(0,1.55fr)_minmax(300px,0.82fr)]">
-        <section className="relative overflow-hidden border-b border-white/10 md:border-b-0 md:border-r">
-          <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} />
-          <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-3 text-sm text-white/75 backdrop-blur">
-            <div className="flex items-center gap-2 font-black text-white"><Rotate3D size={18} /> Drag to orbit</div>
-            <div>Use zoom buttons, scroll, or pinch · tap a world</div>
+      <main className="grid md:h-[calc(100vh-77px)] md:grid-cols-[minmax(0,1.62fr)_minmax(320px,0.78fr)]">
+        <section className="relative overflow-hidden border-b border-cyan-100/10 bg-[#020617] md:border-b-0 md:border-r">
+          <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
+          <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-cyan-100/20 bg-slate-950/70 px-4 py-3 text-sm text-white/75 shadow-xl backdrop-blur">
+            <div className="flex items-center gap-2 font-black text-white"><Rotate3D size={18} className="text-cyan-300" /> Pilot the orrery</div>
+            <div>Drag to orbit · tap a world to investigate</div>
           </div>
+          <div className="pointer-events-none absolute bottom-[4.65rem] left-4 hidden items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/40 sm:flex"><span className="h-2 w-2 rounded-full bg-cyan-300" /> Selected world is ringed in cyan</div>
           <div className="absolute right-3 top-3 z-10 flex flex-col gap-2" role="group" aria-label="Camera zoom controls">
             <button
               type="button"
@@ -483,12 +645,14 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               <RotateCcw size={22} strokeWidth={2.8} />
             </button>
           </div>
-          <div className="absolute bottom-3 left-3 right-3 flex gap-2 overflow-x-auto rounded-2xl border border-white/10 bg-slate-950/75 p-2 backdrop-blur-xl no-scrollbar">
+          <div className="absolute bottom-3 left-3 right-3 flex snap-x gap-2 overflow-x-auto rounded-2xl border border-white/10 bg-slate-950/85 p-2 pr-6 backdrop-blur-xl no-scrollbar" role="tablist" aria-label="Choose a planet">
             {PLANETS.map((planet) => (
               <button
                 key={planet.name}
-                onClick={() => selectPlanet(planet.name)}
-                className={`whitespace-nowrap rounded-xl px-3 py-2 text-xs font-black transition ${
+                role="tab"
+                aria-selected={selectedPlanet.name === planet.name}
+                onClick={() => selectPlanet(planet.name, false)}
+                className={`flex-none snap-start whitespace-nowrap rounded-xl px-3 py-2 text-xs font-black transition ${
                   selectedPlanet.name === planet.name
                     ? 'bg-cyan-300 text-slate-950'
                     : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
@@ -500,22 +664,31 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </div>
         </section>
 
-        <aside className="max-h-none overflow-y-auto bg-gradient-to-b from-slate-900 to-slate-950 p-4 pb-24 md:max-h-full md:pb-16">
+        <aside className="max-h-none overflow-y-auto bg-gradient-to-b from-[#0a1830] via-[#081326] to-[#050b18] p-4 pb-24 md:max-h-full md:pb-16">
           <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">World file</p>
-              <h3 className="text-4xl font-black">{selectedPlanet.name}</h3>
-              <p className="font-bold text-white/55">{selectedPlanet.subtitle}</p>
-              <p className="mt-1 text-[10px] font-black uppercase tracking-wide text-cyan-200/60">Scroll for facts and challenge ↓</p>
+            <div className="flex items-center gap-3">
+              <div className="relative grid h-14 w-14 shrink-0 place-items-center rounded-full border-4 border-white/15 shadow-lg" style={{ backgroundColor: selectedPlanet.surface }} aria-hidden="true">
+                <span className="h-5 w-5 rounded-full bg-white/25" />
+                {selectedPlanet.ring && <span className="absolute h-5 w-12 rotate-[-18deg] rounded-full border-2 border-white/70" />}
+              </div>
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-300">Mission control</p>
+                <h3 className="text-3xl font-black">{selectedPlanet.name}</h3>
+              </div>
             </div>
-            <div className="rounded-2xl bg-cyan-300/10 px-3 py-2 text-center">
+            <div className="rounded-2xl border border-cyan-200/15 bg-cyan-300/10 px-3 py-2 text-center">
               <div className="text-xl font-black text-cyan-300">{discoveredForPlanet}/3</div>
-              <div className="text-[10px] font-black uppercase text-cyan-100/55">for badge</div>
+              <div className="text-[10px] font-black uppercase text-cyan-100/55">badge</div>
             </div>
           </div>
+          <p className="mt-2 pl-[4.25rem] font-bold text-white/55">{selectedPlanet.subtitle}</p>
+          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10" aria-label={`${discoveredForPlanet} of 3 discoveries found`}>
+            <div className="h-full rounded-full bg-gradient-to-r from-cyan-300 to-violet-300 transition-all" style={{ width: `${Math.max(8, (discoveredForPlanet / 3) * 100)}%` }} />
+          </div>
+          <p className="mt-1 text-right text-[10px] font-black uppercase tracking-wide text-cyan-100/45">Find 3 discoveries to earn the badge</p>
 
-          <div className="mt-5 rounded-2xl border border-violet-300/20 bg-violet-300/10 p-4">
-            <div className="flex items-center gap-2 text-sm font-black text-violet-200"><Sparkles size={17} /> Your mission</div>
+          <div className="mt-5 rounded-2xl border border-violet-200/20 bg-gradient-to-br from-violet-300/15 to-cyan-300/5 p-4 shadow-lg">
+            <div className="flex items-center gap-2 text-sm font-black text-violet-200"><Sparkles size={17} /> Current mission</div>
             <p className="mt-1 font-bold text-white/80">{selectedPlanet.mission}</p>
           </div>
 
