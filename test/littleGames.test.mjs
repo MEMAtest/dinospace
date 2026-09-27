@@ -53,8 +53,7 @@ test('stars and levels move with how the game went', () => {
   assert.equal(recordLittleResult('askia', 'fuelup', false, 3, storage).levelUp, true);
   assert.equal(getLittleLevel('askia', 'fuelup', false, storage), 1);
   assert.equal(recordLittleResult('askia', 'fuelup', false, 2, storage).level, 1);
-  assert.equal(recordLittleResult('askia', 'fuelup', false, 1, storage).level, 0);
-  assert.equal(recordLittleResult('askia', 'fuelup', false, 1, storage).level, 0, 'never below the start level');
+  assert.equal(recordLittleResult('askia', 'fuelup', false, 1, storage).level, 1, 'a hard round never removes an unlocked level');
   assert.equal(getLittleLevel('amari', 'fuelup', true, storage), 2, 'older child starts at level 3');
   for (let i = 0; i < 8; i += 1) recordLittleResult('askia', 'ladder', false, 3, storage);
   assert.equal(getLittleLevel('askia', 'ladder', false, storage), 4, 'capped at the top level');
@@ -79,18 +78,31 @@ test('hash routes round-trip and back always has somewhere to go', () => {
   assert.equal(parentRoute({ name: 'welcome' }), null);
 });
 
-test('older games get short sessions that end, with honest stars', async () => {
+test('older games have distinct levels with saved child-specific progress', async () => {
   const { GAME_SESSIONS, sessionStars, sessionTarget } = await import('../src/data/gameSessions.js');
+  const { SESSION_LEVELS, ASKIA_PATTERN_INDEXES, levelsForSession, getGameLevel, saveGameLevel } = await import('../src/data/sessionLevels.js');
   const { LEARNING_WORLDS } = await import('../src/data/learningWorlds.js');
   const allGames = new Set(LEARNING_WORLDS.flatMap((world) => world.gameIds));
   Object.entries(GAME_SESSIONS).forEach(([id, rule]) => {
     assert.ok(allGames.has(id), id);
     assert.ok(rule.target >= 1 && rule.how, id);
-    // Askia's Memory Match now has three boards that grow from 3 to 5 pairs.
-    if (id === 'memory') assert.equal(sessionTarget(rule, true), 3);
-    else assert.ok(sessionTarget(rule, true) <= rule.target, id);
+    assert.ok(sessionTarget(rule, true) <= rule.target, id);
+    assert.ok(levelsForSession(id, false).length >= 2, `${id} needs more than one level`);
   });
-  ['solar', 'astronaut', 'worldmap', 'storybooks', 'chess'].forEach((id) => assert.equal(GAME_SESSIONS[id], undefined, id));
+  ['solar', 'astronaut', 'worldmap', 'storybooks', 'chess', 'memory', 'puzzle'].forEach((id) => assert.equal(GAME_SESSIONS[id], undefined, id));
+  assert.deepEqual(levelsForSession('timeteller', false).map((level) => level.name), ['O’clock', 'Half past', 'Quarter hours']);
+  assert.deepEqual(levelsForSession('counting', true).map((level) => level.countMax), [3, 5, 7]);
+  assert.equal(new Set(ASKIA_PATTERN_INDEXES.flat()).size, ASKIA_PATTERN_INDEXES.flat().length, 'Askia patterns change between levels');
+  Object.entries(SESSION_LEVELS).forEach(([id, levels]) => {
+    assert.equal(new Set(levels.map((level) => level.name)).size, levels.length, `${id} level names must differ`);
+    if (levels.every((level) => level.band)) assert.equal(new Set(levels.map((level) => level.band)).size, levels.length, `${id} levels must change question band`);
+  });
+  assert.equal(levelsForSession('timeteller', true).length, 0, 'Askia has no clock game');
+  const data = new Map();
+  const storage = { getItem: (key) => data.get(key) ?? null, setItem: (key, value) => data.set(key, value) };
+  saveGameLevel('amari', 'timeteller', 1, 1, storage);
+  assert.deepEqual(getGameLevel('amari', 'timeteller', 3, storage), { current: 1, unlocked: 1 });
+  assert.deepEqual(getGameLevel('askia', 'timeteller', 3, storage), { current: 0, unlocked: 0 });
   assert.equal(sessionStars(8, 8), 3);
   assert.equal(sessionStars(5, 8), 2);
   assert.equal(sessionStars(2, 8), 1);

@@ -42,11 +42,12 @@ const makeCountOptions = (target) => {
   return shuffle(candidates);
 };
 
-const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false }) => {
+const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false, sessionLevel = 0 }) => {
   const difficulty = useGameDifficulty('counting');
   const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
   const level = COUNT_LEVELS[levelIndex];
-  const [round, setRound] = useState(() => makeCountingRound(COUNT_LEVELS[0]));
+  const littleMax = [3, 5, 7][sessionLevel] || 3;
+  const [round, setRound] = useState(() => makeCountingRound(littleMode ? { max: littleMax } : COUNT_LEVELS[getDifficultyIndex(difficulty)]));
   const [tapped, setTapped] = useState([]);
   const [phase, setPhase] = useState('count');
   const [options, setOptions] = useState([]);
@@ -62,7 +63,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   useEffect(() => () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }, []);
 
   const startRound = (nextLevelIndex = levelIndex) => {
-    setRound(makeCountingRound(COUNT_LEVELS[nextLevelIndex]));
+    setRound(makeCountingRound(littleMode ? { max: littleMax } : COUNT_LEVELS[nextLevelIndex]));
     setTapped([]);
     setPhase('count');
     setOptions([]);
@@ -77,7 +78,7 @@ const CountTheStars = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLevelIndex(nextLevelIndex);
     startRound(nextLevelIndex);
-  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [difficulty, littleMode, sessionLevel]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (phase === 'count') speak('Tap each star to count them!');

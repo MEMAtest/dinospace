@@ -218,7 +218,8 @@ const PlayerSession = ({
     const GameComponent = little && currentGame.id === 'dino' ? LittleDinoDetective : currentGame.component;
     const nextId = nextGameAfter(currentGame.id);
     const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
-    const sessionRule = currentGame.little || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
+    // Memory and picture puzzles already own their multi-board progression.
+    const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
       onBack: () => back(),
       playSfx,
@@ -245,6 +246,7 @@ const PlayerSession = ({
               game={currentGame}
               rule={sessionRule}
               little={little}
+              playerId={player.id}
               playerName={player.name}
               points={points}
               onGameEvent={recordGameEvent}
@@ -254,7 +256,7 @@ const PlayerSession = ({
               onPhaseChange={handlePhaseChange}
               playSfx={playSfx}
             >
-              {({ run, onGameEvent }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} onGameEvent={onGameEvent} />}
+              {({ run, onGameEvent, sessionLevel }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} sessionLevel={sessionLevel} onGameEvent={onGameEvent} />}
             </GameSession>
           ) : (
             <GameComponent key={currentGame.id} {...gameProps} />

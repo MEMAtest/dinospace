@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Home, Play, RotateCcw, SkipForward, Volume2, VolumeX } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { STICKERS } from '../../data/index.js';
-import { LITTLE_LEVELS, LITTLE_LINES, levelRounds, starsForMistakes } from '../../data/littleGames.js';
+import { LITTLE_LEVELS, LITTLE_LEVEL_GOALS, LITTLE_LINES, levelRounds, starsForMistakes } from '../../data/littleGames.js';
 import { getLittleLevel, recordLittleResult } from '../../data/littleProgress.js';
 import { RewardSticker } from '../shared/StickerArt.jsx';
 import { artUrl } from './littleArt.js';
@@ -199,6 +199,7 @@ const LittleGameShell = ({
         <main className="relative z-10 flex flex-1 flex-col items-center justify-center gap-5 px-4 pb-8 text-center">
           <div className="w-full max-w-md animate-bounce-slow">{startArt}</div>
           <LevelDots level={level} total={levels.length} />
+          <p className="max-w-md rounded-2xl bg-white/90 px-5 py-2 text-lg font-black text-slate-800 shadow-lg">Level {level + 1} of {levels.length}: {LITTLE_LEVEL_GOALS[gameId]?.[level]}</p>
           <button
             type="button"
             onClick={start}
@@ -246,6 +247,7 @@ const LittleGameShell = ({
                 <div className="flex items-center gap-3 rounded-[1.6rem] border-4 border-amber-300 bg-white/90 px-4 py-3 shadow-xl animate-pop-in" style={{ animationDelay: '700ms' }}>
                   <div className="text-left">
                     <p className="text-2xl font-black text-amber-600">Level up!</p>
+                    <p className="max-w-48 text-sm font-bold text-slate-700">Level {result.level + 1}: {LITTLE_LEVEL_GOALS[gameId]?.[result.level]}</p>
                     <LevelDots level={result.level} total={levels.length} className="mt-1 !px-0 !py-0 !shadow-none" />
                   </div>
                   {renderUnlock && <div className="h-20 w-24">{renderUnlock(levels[result.level], levels[result.previous])}</div>}
@@ -261,14 +263,14 @@ const LittleGameShell = ({
           )}
           <div className="mt-2 flex items-end gap-5">
             <div className="flex flex-col items-center gap-1">
-              <BigRoundButton onClick={start} label="Play again" size="h-24 w-24" tone="bg-gradient-to-b from-sky-400 to-blue-600 text-white">
-                <RotateCcw size={46} strokeWidth={2.8} />
+              <BigRoundButton onClick={start} label={result.levelUp ? 'Next level' : 'Try level again'} size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600 text-white">
+                {result.levelUp ? <SkipForward size={50} strokeWidth={2.8} fill="currentColor" /> : <RotateCcw size={46} strokeWidth={2.8} />}
               </BigRoundButton>
-              <span className="text-sm font-black text-slate-700">Again</span>
+              <span className="text-sm font-black text-slate-700">{result.levelUp ? 'Next level' : 'Try again'}</span>
             </div>
             {onNextGame && (
               <div className="flex flex-col items-center gap-1">
-                <BigRoundButton onClick={onNextGame} label="Next game" size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600 text-white">
+                <BigRoundButton onClick={onNextGame} label="Next game" size="h-24 w-24" tone="bg-gradient-to-b from-sky-400 to-blue-600 text-white">
                   <SkipForward size={54} strokeWidth={2.8} fill="currentColor" />
                 </BigRoundButton>
                 <span className="text-sm font-black text-slate-700">Next game</span>

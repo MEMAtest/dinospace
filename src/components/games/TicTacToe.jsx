@@ -62,9 +62,9 @@ const MARK_DETAILS = {
   O: { icon: '🚀', name: 'Rocket', color: 'text-cyan-300', bg: 'from-cyan-300 to-blue-400' },
 };
 
-const TicTacToe = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const TicTacToe = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, sessionLevel = 0 }) => {
   const [mode, setMode] = useState('bot');
-  const [difficulty, setDifficulty] = useState('rookie');
+  const [difficulty, setDifficulty] = useState(sessionLevel > 0 ? 'space-ace' : 'rookie');
   const [board, setBoard] = useState(() => Array(9).fill(null));
   const [turn, setTurn] = useState('X');
   const [scores, setScores] = useState({ X: 0, O: 0, draws: 0 });

@@ -8,7 +8,7 @@ import { loadSaved, shuffle } from '../../utils.js';
 const MAX_MISTAKES = 6;
 const SPELLING_PROGRESS_KEY = 'amari_spelling_progress_v1';
 
-const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, sessionLevel = 0 }) => {
   const [wordIndex, setWordIndex] = useState(0);
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [roundState, setRoundState] = useState('playing');
@@ -21,9 +21,11 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     const available = getAvailableWords();
     const progress = loadSaved(SPELLING_PROGRESS_KEY, {});
     const practised = available.filter((item) => progress[item.word]?.attempts > 0);
-    const pool = practised.length >= 3 ? practised : available.slice(0, 6);
+    const pool = sessionLevel === 0
+      ? (practised.length >= 3 ? practised : available).slice(0, 4)
+      : sessionLevel === 1 ? available.slice(0, 8) : available;
     return pool.map((item) => ({ ...item, clue: item.hint, category: `${item.family} word family` }));
-  }, []);
+  }, [sessionLevel]);
   const word = practiceWords[wordIndex % practiceWords.length];
   const wordLetters = useMemo(() => [...new Set(word.word.split(''))], [word.word]);
   const wrongLetters = useMemo(

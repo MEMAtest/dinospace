@@ -93,6 +93,18 @@ export const LITTLE_LEVELS = Object.freeze({
   ],
 });
 
+// Spoken instructions stay short; these visible labels tell the grown-up and
+// older child exactly what changes at the next level.
+export const LITTLE_LEVEL_GOALS = Object.freeze({
+  dino: ['Find a bright trail with two hiding places', 'Search three leafy hiding places', 'Follow footprint marks to a new dinosaur', 'Follow longer trails to more dinosaurs', 'Find faint tracks in the jungle'],
+  dinojigsaw: ['Build pictures from two big pieces', 'Build a four-piece picture', 'Try a six-piece picture', 'Explore a nine-piece scene', 'Build a twelve-piece dinosaur scene'],
+  shadowmatch: ['Match one of two dinosaur shadows', 'Compare three dinosaur shapes', 'Meet more dinosaurs and their shadows', 'Choose among four shadows', 'Match mirrored dinosaur shadows'],
+  rocketbuilder: ['Fit the nose and fins', 'Add a window and choose a colour', 'Build a complete rocket', 'Add a new rocket body', 'Build the whole colourful rocket'],
+  fuelup: ['Count one to three fuel cans', 'Count up to four cans', 'Count up to five cans', 'Count up to seven cans', 'Count up to ten cans'],
+  firerescue: ['Spray one or two fires', 'Rescue a scene with three fires', 'Find all the fires', 'Put out five fires', 'Put out six fires'],
+  ladder: ['Rescue from two floors', 'Explore a three-floor building', 'Listen for a floor number', 'Rescue from four floors', 'Rescue from five floors'],
+});
+
 export const LITTLE_START_LEVEL = Object.freeze({ little: 0, big: 2 });
 
 export const levelRounds = (gameId, config) => {

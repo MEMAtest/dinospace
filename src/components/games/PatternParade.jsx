@@ -1,24 +1,29 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Volume2 } from 'lucide-react';
-import { PATTERN_TOKENS } from '../../data/index.js';
+import { PATTERN_ROUNDS, PATTERN_TOKENS } from '../../data/index.js';
 import { pickRandom, shuffle, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { numberPatternPoolForDifficulty, patternPoolForDifficulty } from '../../data/gameDifficulty.js';
+import { ASKIA_PATTERN_INDEXES } from '../../data/sessionLevels.js';
 import paradeScene from '../../assets/game-scenes/pattern-parade.webp';
 import './amariScenes.css';
 
-const makeEmojiRound = (difficulty) => {
-  const allPatterns = patternPoolForDifficulty(difficulty);
+const makeEmojiRound = (difficulty, littleMode = false, sessionLevel = 0) => {
+  // Askia's three levels change the repeating rule, while staying with
+  // familiar pictures and spoken prompts.
+  const allPatterns = littleMode
+    ? ASKIA_PATTERN_INDEXES[sessionLevel % ASKIA_PATTERN_INDEXES.length].map((index) => PATTERN_ROUNDS[index])
+    : patternPoolForDifficulty(difficulty);
   const pattern = pickRandom(allPatterns);
   const decoys = shuffle(PATTERN_TOKENS.filter((token) => token !== pattern.answer)).slice(0, 2);
   return { ...pattern, options: shuffle([pattern.answer, ...decoys]) };
 };
 
-const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false }) => {
+const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false, sessionLevel = 0 }) => {
   const difficulty = useGameDifficulty('pattern');
   const [mode, setMode] = useState('emoji');
-  const [round, setRound] = useState(() => makeEmojiRound(difficulty));
+  const [round, setRound] = useState(() => makeEmojiRound(difficulty, littleMode, sessionLevel));
   const [numRound, setNumRound] = useState(() => pickRandom(numberPatternPoolForDifficulty(difficulty)));
   const [feedback, setFeedback] = useState('');
   const [streak, setStreak] = useState(0);
@@ -37,7 +42,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       roundTimerRef.current = null;
     }
     if (nextMode === 'emoji') {
-      setRound(makeEmojiRound(difficulty));
+      setRound(makeEmojiRound(difficulty, littleMode, sessionLevel));
     } else {
       setNumRound(pickRandom(numberPatternPoolForDifficulty(difficulty)));
     }
@@ -52,7 +57,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
     // patterns cannot leak into a starter round (or vice versa).
     // eslint-disable-next-line react-hooks/set-state-in-effect
     nextRound(mode);
-  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [difficulty, littleMode, sessionLevel]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const currentLabel = mode === 'emoji' ? round.label : numRound.label;
 

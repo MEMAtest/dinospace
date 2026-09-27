@@ -2,6 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Home, Play, RotateCcw, SkipForward } from 'lucide-react';
 import { STICKERS } from '../../data/index.js';
 import { sessionStars, sessionTarget } from '../../data/gameSessions.js';
+import { getGameLevel, levelsForSession, saveGameLevel } from '../../data/sessionLevels.js';
+import { getLearningProfile } from '../../data/learningProgress.js';
+import { ForcedDifficultyContext } from '../../hooks/useGameDifficulty.js';
 import { RewardSticker } from './StickerArt.jsx';
 
 const RoundButton = ({ onClick, label, tone, size = 'h-24 w-24', children }) => (
@@ -15,13 +18,18 @@ const RoundButton = ({ onClick, label, tone, size = 'h-24 w-24', children }) => 
 
 const SessionSlot = ({ render, ...props }) => render(props);
 
-// Wraps an older game in a short session: start card → the game with a
-// progress bar → results screen with Again / Next game / Home. The game is
-// untouched apart from its events being counted on the way through.
+// Each older game plays one named level at a time. Its saved level changes the
+// actual question pool or play mechanic through the difficulty context.
 const GameSession = ({
-  game, rule, little, playerName, points = 0, onGameEvent, onCelebrate, onBack, onNextGame, onPhaseChange, playSfx, children,
+  game, rule, little, playerId, playerName, points = 0, onGameEvent, onCelebrate, onBack, onNextGame, onPhaseChange, playSfx, children,
 }) => {
-  const target = sessionTarget(rule, little);
+  const levels = levelsForSession(game.id, little);
+  const [levelState, setLevelState] = useState(() => getGameLevel(playerId, game.id, levels.length));
+  const [levelIndex, setLevelIndex] = useState(levelState.current);
+  const level = levels[levelIndex];
+  const target = level?.target || sessionTarget(rule, little);
+  const manualBand = !little && getLearningProfile().difficultyOverrides[game.id];
+  const levelBand = little ? 'starter' : manualBand || level?.band || null;
   const [phase, setPhase] = useState('start');
   const [run, setRun] = useState(0);
   const [progress, setProgress] = useState({ done: 0, firstTries: 0 });
@@ -33,12 +41,14 @@ const GameSession = ({
   useEffect(() => () => clearTimeout(finishTimer.current), []);
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
 
-  const start = () => {
+  const start = (nextLevel = levelIndex) => {
     playSfx?.('launch');
     clearTimeout(finishTimer.current);
     progressRef.current = { done: 0, firstTries: 0 };
     setProgress(progressRef.current);
     setStartPoints(points);
+    setLevelIndex(nextLevel);
+    saveGameLevel(playerId, game.id, nextLevel, levelState.unlocked);
     setRun((value) => value + 1);
     setPhase('play');
   };
@@ -55,12 +65,16 @@ const GameSession = ({
       finishTimer.current = setTimeout(() => {
         const earned = sessionStars(next.firstTries, next.done);
         setStars(earned);
+        const unlocked = Math.max(levelState.unlocked, Math.min(levels.length - 1, levelIndex + 1));
+        const saved = { current: Math.min(levelIndex + 1, levels.length - 1), unlocked };
+        saveGameLevel(playerId, game.id, saved.current, saved.unlocked);
+        setLevelState(saved);
         playSfx?.('complete');
-        onCelebrate?.('Session complete!', earned * 2, 0, game.id);
+        onCelebrate?.('Level complete!', earned * 2, 0, game.id);
         setPhase('done');
       }, rule.event === 'level_completed' ? 2600 : 1500);
     }
-  }, [game.id, onCelebrate, onGameEvent, playSfx, rule.event, target]);
+  }, [game.id, levelIndex, levelState.unlocked, levels.length, onCelebrate, onGameEvent, playSfx, playerId, rule.event, target]);
 
   if (phase === 'play') {
     return (
@@ -68,7 +82,9 @@ const GameSession = ({
         <div className="pointer-events-none fixed inset-x-0 top-0 z-[45] h-2 bg-black/10" role="progressbar" aria-label="Session progress" aria-valuemin={0} aria-valuemax={target} aria-valuenow={progress.done}>
           <div className="h-full rounded-r-full bg-gradient-to-r from-amber-300 to-orange-500 transition-all duration-500" style={{ width: `${(progress.done / target) * 100}%` }} />
         </div>
-        <SessionSlot render={children} run={run} onGameEvent={handleEvent} />
+        <ForcedDifficultyContext.Provider value={levelBand}>
+          <SessionSlot render={children} run={run} onGameEvent={handleEvent} sessionLevel={levelIndex} />
+        </ForcedDifficultyContext.Provider>
       </>
     );
   }
@@ -88,11 +104,21 @@ const GameSession = ({
           <>
             <div className="grid h-32 place-items-center [&_.kid-pop-icon]:h-32 [&_.kid-pop-icon]:w-40">{game.icon}</div>
             <h1 className="text-3xl font-black text-slate-900">{game.title}</h1>
-            {!little && <p className="font-bold text-slate-600">{rule.how}</p>}
+            <p className="rounded-full bg-sky-100 px-4 py-1 font-black text-sky-900">Level {levelIndex + 1} of {levels.length}: {level?.name}</p>
+            <p className="font-bold text-slate-600">{level?.description || rule.how}</p>
+            {levelState.unlocked > 0 && (
+              <div className="flex flex-wrap justify-center gap-2" aria-label="Unlocked levels">
+                {levels.map((entry, index) => (
+                  <button key={entry.name} type="button" disabled={index > levelState.unlocked} onClick={() => { setLevelIndex(index); saveGameLevel(playerId, game.id, index, levelState.unlocked); }}
+                    aria-label={`Level ${index + 1}: ${entry.name}${index > levelState.unlocked ? ', locked' : ''}`}
+                    className={`grid h-11 w-11 place-items-center rounded-full border-2 font-black ${index === levelIndex ? 'border-blue-700 bg-blue-500 text-white' : index > levelState.unlocked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-amber-300 bg-amber-100 text-amber-900'}`}>{index + 1}</button>
+                ))}
+              </div>
+            )}
             <div className="flex items-center gap-1.5" aria-label={`${target} to finish`}>
               {Array.from({ length: target }, (_, index) => <span key={index} className="h-3 w-3 rounded-full bg-amber-300" />)}
             </div>
-            <button type="button" onClick={start} aria-label={`Play ${game.title}`} className="mt-2 grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_8px_0_#166534] animate-pulse-soft active:translate-y-2 active:shadow-none">
+            <button type="button" onClick={() => start()} aria-label={`Play ${game.title} level ${levelIndex + 1}`} className="mt-2 grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_8px_0_#166534] animate-pulse-soft active:translate-y-2 active:shadow-none">
               <Play size={60} fill="currentColor" className="ml-1.5" />
             </button>
           </>
@@ -102,6 +128,7 @@ const GameSession = ({
               {Array.from({ length: 3 }, (_, index) => <span key={index} className={`animate-pop-in ${index < stars ? '' : 'opacity-25 grayscale'}`} style={{ animationDelay: `${index * 200}ms` }} aria-hidden="true">⭐</span>)}
             </div>
             <h1 className="text-3xl font-black text-slate-900">{playerName ? `Well done, ${playerName}!` : 'Well done!'}</h1>
+            <p className="text-lg font-black text-sky-800">Level {levelIndex + 1} complete: {level?.name}</p>
             {!little && rule.event !== 'level_completed' && (
               <p className="text-lg font-bold text-slate-600">{progress.firstTries} of {progress.done} right first time</p>
             )}
@@ -112,8 +139,10 @@ const GameSession = ({
               </div>
             ))}
             <div className="mt-2 flex items-end gap-4">
-              <RoundButton onClick={start} label="Again" tone="bg-gradient-to-b from-sky-400 to-blue-600"><RotateCcw size={42} strokeWidth={2.8} /></RoundButton>
-              {onNextGame && <RoundButton onClick={onNextGame} label="Next game" size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600"><SkipForward size={50} strokeWidth={2.8} fill="currentColor" /></RoundButton>}
+              <RoundButton onClick={() => start(levelIndex)} label="Replay level" tone="bg-gradient-to-b from-sky-400 to-blue-600"><RotateCcw size={42} strokeWidth={2.8} /></RoundButton>
+              {levelIndex < levels.length - 1
+                ? <RoundButton onClick={() => start(levelIndex + 1)} label="Next level" size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600"><SkipForward size={50} strokeWidth={2.8} fill="currentColor" /></RoundButton>
+                : onNextGame && <RoundButton onClick={onNextGame} label="Next game" size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600"><SkipForward size={50} strokeWidth={2.8} fill="currentColor" /></RoundButton>}
               <RoundButton onClick={onBack} label="Home" tone="bg-gradient-to-b from-amber-300 to-orange-500"><Home size={42} strokeWidth={2.8} /></RoundButton>
             </div>
           </>

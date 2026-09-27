@@ -138,6 +138,9 @@
 
 .memory-little-progress { gap: 5px; }
 .memory-little-progress svg { width: 25px; height: 25px; color: #92c9ec; stroke-width: 2.5px; }
+.memory-little-progress button { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgb(255 255 255 / 80%); cursor: pointer; }
+.memory-little-progress button[aria-current='step'] { outline: 3px solid #ffcb13; }
+.memory-little-progress button:disabled { opacity: .45; cursor: default; }
 .memory-little-progress .earned { color: #ffcb13; filter: drop-shadow(0 1px 1px #a95c00); }
 
 .memory-little-grid {

@@ -3,7 +3,7 @@ import { ArrowLeft, Home, Star, Volume2 } from 'lucide-react';
 import { MEMORY_LEVELS } from '../../data/index.js';
 import { buildMemoryDeck, getPraise, loadSaved, saveSafe } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
-import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { getGameLevel, saveGameLevel } from '../../data/sessionLevels.js';
 import askiaScene from '../../assets/game-scenes/askia-memory-treehouse.webp';
 import askiaArt from '../../assets/little/askia-detective.webp';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
@@ -14,7 +14,9 @@ import './memoryMatch.css';
 const ASKIA_MEMORY_LEVELS = [
   { id: 'askia-friends', name: 'Meet the Friends', emojis: ['🦕', '🚀', '🚒'], columns: 3 },
   { id: 'askia-stars', name: 'Star Pairs', emojis: ['🦕', '🚀', '🚒', '⭐️'], columns: 4 },
-  { id: 'askia-dino', name: 'Dino Challenge', emojis: ['🦕', '🚀', '🚒', '⭐️', '🦖'], columns: 5 },
+  { id: 'askia-nature', name: 'Nature Friends', emojis: ['🌿', '🥚', '🦕', '⭐️'], columns: 4 },
+  { id: 'askia-rescue', name: 'Rescue Pairs', emojis: ['🚒', '🐶', '🐱', '🚀', '🦕'], columns: 5 },
+  { id: 'askia-dino', name: 'Dino Challenge', emojis: ['🦕', '🚀', '🚒', '⭐️', '🦖', '🥚'], columns: 4 },
 ];
 
 const ASKIA_CARD_ART = {
@@ -41,10 +43,10 @@ const CARD_NAMES = {
 
 const cardName = (emoji) => CARD_NAMES[emoji] || 'picture';
 
-const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false }) => {
-  const difficulty = useGameDifficulty('memory');
+const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, playerId, littleMode = false }) => {
   const levels = littleMode ? ASKIA_MEMORY_LEVELS : MEMORY_LEVELS;
-  const [levelIndex, setLevelIndex] = useState(() => littleMode ? 0 : getDifficultyIndex(difficulty));
+  const [levelIndex, setLevelIndex] = useState(() => getGameLevel(playerId, 'memory', levels.length).current);
+  const difficulty = littleMode ? 'starter' : ['starter', 'growing', 'challenge'][Math.min(levelIndex, 2)];
   const level = levels[levelIndex];
   const [deck, setDeck] = useState(() => buildMemoryDeck(level));
   const [flipped, setFlipped] = useState([]);
@@ -85,6 +87,9 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     playSfx('success');
     setCompletionMessage(praise);
     setShowLevelComplete(true);
+    const nextIndex = Math.min(levelIndex + 1, levels.length - 1);
+    const saved = getGameLevel(playerId, 'memory', levels.length);
+    saveGameLevel(playerId, 'memory', nextIndex, Math.max(saved.unlocked, nextIndex));
     onCelebrate(praise, 6, 300);
     // Near-perfect recall: perfect-memory play averages ~1.6 moves per pair, so allow up to 2 per pair.
     const efficient = finalMoves <= level.emojis.length * 2;
@@ -155,6 +160,8 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     clearTimeout(mismatchRef.current);
     const nextLevel = levels[nextIndex];
     setLevelIndex(nextIndex);
+    const saved = getGameLevel(playerId, 'memory', levels.length);
+    saveGameLevel(playerId, 'memory', nextIndex, saved.unlocked);
     setDeck(buildMemoryDeck(nextLevel));
     setFlipped([]);
     setMoves(0);
@@ -164,11 +171,6 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     setTimer(0);
     setRunId((value) => value + 1);
   };
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    startLevel(littleMode ? 0 : getDifficultyIndex(difficulty));
-  }, [difficulty, littleMode]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleNextLevel = () => {
     const nextIndex = levelIndex < levels.length - 1 ? levelIndex + 1 : 0;
@@ -235,7 +237,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <div className="memory-little-panel">
           <div className="memory-little-status">
             <div className="memory-little-progress" aria-label={`Board ${levelIndex + 1} of ${levels.length}`}>
-              {levels.map((entry, index) => <Star key={entry.id} fill={index <= levelIndex ? 'currentColor' : 'none'} className={index <= levelIndex ? 'earned' : ''} aria-hidden="true" />)}
+              {levels.map((entry, index) => <button type="button" key={entry.id} disabled={index > getGameLevel(playerId, 'memory', levels.length).unlocked} onClick={() => startLevel(index)} aria-label={`Board ${index + 1}: ${entry.name}`} aria-current={index === levelIndex ? 'step' : undefined}><Star fill={index <= levelIndex ? 'currentColor' : 'none'} className={index <= levelIndex ? 'earned' : ''} aria-hidden="true" /></button>)}
             </div>
             <div className="memory-little-count" role="status">{matches} / {level.emojis.length} pairs</div>
           </div>
@@ -275,7 +277,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <div className="text-center">
           <h2 className="text-3xl font-black text-rose-600">Memory Match</h2>
           {!littleMode && <p className="text-rose-600/70 font-semibold">
-            Level {levelIndex + 1}/{MEMORY_LEVELS.length} · {level.name}
+            Level {levelIndex + 1}/{levels.length} · {level.name}
           </p>}
           <p className={`text-rose-600/70 font-semibold ${littleMode ? 'hidden' : ''}`}>
             Matches: {matches} · Moves: {moves} · ⏱️ {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}
@@ -295,6 +297,9 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <p className={`mb-4 max-w-xl rounded-full bg-white/70 px-5 py-2 text-center text-sm font-bold text-rose-700 ${littleMode ? 'hidden' : ''}`} role="status">
           Flip two cards, remember their places, and find each friendly pair.
         </p>
+        <div className="mb-4 flex flex-wrap justify-center gap-2" aria-label="Memory levels">
+          {levels.map((entry, index) => <button type="button" key={entry.id} disabled={index > getGameLevel(playerId, 'memory', levels.length).unlocked} onClick={() => startLevel(index)} aria-label={`Level ${index + 1}: ${entry.name}`} aria-current={index === levelIndex ? 'step' : undefined} className={`grid h-11 w-11 place-items-center rounded-full border-2 font-black ${index === levelIndex ? 'border-rose-700 bg-rose-500 text-white' : index > getGameLevel(playerId, 'memory', levels.length).unlocked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-amber-300 bg-white text-rose-700'}`}>{index + 1}</button>)}
+        </div>
 
         <div
           className="grid gap-4 w-full max-w-3xl"
@@ -308,7 +313,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             <div className="text-5xl mb-2">🎉</div>
             <h3 className="text-2xl font-black text-rose-600">{completionMessage}</h3>
             <button onClick={handleNextLevel} className="mt-4 min-h-14 w-full rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-4 text-2xl font-black text-white shadow-lg transition hover:scale-105 active:scale-95">
-              {levelIndex < MEMORY_LEVELS.length - 1 ? 'Next level' : 'Play again'}
+              {levelIndex < levels.length - 1 ? `Next level: ${levels[levelIndex + 1].name}` : 'Play again'}
             </button>
           </div>
         )}

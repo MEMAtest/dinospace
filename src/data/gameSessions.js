@@ -1,8 +1,5 @@
-// Turns the older, endless games into short sessions with a clear end.
-// `event` is the game event that counts as progress; `target` is how many
-// make a session (Askia's little sessions are shorter). Games with their own
-// menus and endings (Solar System, Astronaut Academy, Curriculum Quest,
-// Storybooks, Chess) are left as they are.
+// Defines the event that completes a named level. Games with their own board
+// progression (Memory Match, Puzzle Pop) and menus stay outside this wrapper.
 export const GAME_SESSIONS = Object.freeze({
   addition: { event: 'answer_correct', target: 8, how: 'Add the two groups together.' },
   subtraction: { event: 'answer_correct', target: 8, how: 'Take some away. How many are left?' },
@@ -21,9 +18,7 @@ export const GAME_SESSIONS = Object.freeze({
   jet: { event: 'answer_correct', target: 3, how: 'Fly the jet around the shape.' },
   hangman: { event: 'word_completed', target: 5, how: 'Guess the letters to rescue the word.' },
   tictactoe: { event: 'round_completed', target: 3, how: 'Get three in a row to win the round.' },
-  memory: { event: 'level_completed', target: 1, little: 3, how: 'Flip cards and find the pairs.' },
   dino: { event: 'level_completed', target: 1, how: 'Tap the leaves to find the hidden dinosaurs.' },
-  puzzle: { event: 'level_completed', target: 1, how: 'Put the picture pieces in place.' },
   spot: { event: 'level_completed', target: 1, how: 'Find what changed in the second picture.' },
 });
 

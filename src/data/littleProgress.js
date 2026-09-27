@@ -27,13 +27,13 @@ export const getLittleLevel = (playerId, gameId, bigKid, storage = canUseStorage
   return clampLevel(gameId, read(storage, playerId)[gameId]?.level ?? floor, floor);
 };
 
-// Three stars moves up a level, one star moves back down (never below the
-// child's starting level), two stars stays put.
+// Three stars opens the next level. A difficult play never erases a level the
+// child has already reached; they can practise and try again.
 export const recordLittleResult = (playerId, gameId, bigKid, stars, storage = canUseStorage()) => {
   const floor = startLevelFor(bigKid);
   const all = read(storage, playerId);
   const current = clampLevel(gameId, all[gameId]?.level ?? floor, floor);
-  const next = clampLevel(gameId, stars >= 3 ? current + 1 : stars <= 1 ? current - 1 : current, floor);
+  const next = clampLevel(gameId, stars >= 3 ? current + 1 : current, floor);
   const entry = { level: next, plays: (all[gameId]?.plays || 0) + 1, best: Math.max(all[gameId]?.best || 0, stars) };
   try {
     storage?.setItem(storageKey(playerId), JSON.stringify({ ...all, [gameId]: entry }));

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Eye, Home, Lightbulb, RotateCcw } from 'lucide-react';
 import { getPraise, shuffle } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
-import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { getGameLevel, saveGameLevel } from '../../data/sessionLevels.js';
 import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 import dinoRiver from '../../assets/puzzle-pop/dino-river.svg';
 import dinoMoon from '../../assets/puzzle-pop/dino-moon.svg';
@@ -28,12 +28,12 @@ const tileStyle = (slot, grid, image) => {
   };
 };
 
-const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const difficulty = useGameDifficulty('puzzle');
-  const [levelIndex, setLevelIndex] = useState(() => getDifficultyIndex(difficulty));
+const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, playerId }) => {
+  const [levelIndex, setLevelIndex] = useState(() => getGameLevel(playerId, 'puzzle', LEVELS.length).current);
+  const difficulty = ['starter', 'growing', 'challenge'][levelIndex];
   const level = LEVELS[levelIndex];
-  const [tray, setTray] = useState(() => makePieces(LEVELS[getDifficultyIndex(difficulty)].grid));
-  const [placed, setPlaced] = useState(() => Array(LEVELS[getDifficultyIndex(difficulty)].grid ** 2).fill(null));
+  const [tray, setTray] = useState(() => makePieces(level.grid));
+  const [placed, setPlaced] = useState(() => Array(level.grid ** 2).fill(null));
   const [selected, setSelected] = useState(null);
   const [moves, setMoves] = useState(0);
   const [message, setMessage] = useState('Choose a picture piece below.');
@@ -53,6 +53,8 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
   const resetLevel = (nextIndex = levelIndex) => {
     const nextLevel = LEVELS[nextIndex];
     setLevelIndex(nextIndex);
+    const saved = getGameLevel(playerId, 'puzzle', LEVELS.length);
+    saveGameLevel(playerId, 'puzzle', nextIndex, saved.unlocked);
     setTray(makePieces(nextLevel.grid));
     setPlaced(Array(nextLevel.grid ** 2).fill(null));
     setSelected(null);
@@ -65,11 +67,6 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
   };
 
   useEffect(() => () => { if (wrongTimeoutRef.current) clearTimeout(wrongTimeoutRef.current); }, []);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    resetLevel(getDifficultyIndex(difficulty));
-  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const choosePiece = (piece) => {
     setSelected(piece);
@@ -111,6 +108,9 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
       playSfx('success');
       onCelebrate(praise, 6, 180);
       onGameEvent?.('puzzle', 'level_completed', { skill: 'puzzle', item: level.name, correct: true, firstAttempt: !hadMistake, independent: !hadMistake && hintsUsed === 0, hints: hintsUsed, difficulty });
+      const nextIndex = Math.min(levelIndex + 1, LEVELS.length - 1);
+      const saved = getGameLevel(playerId, 'puzzle', LEVELS.length);
+      saveGameLevel(playerId, 'puzzle', nextIndex, Math.max(saved.unlocked, nextIndex));
       speak(praise);
     } else {
       setMessage(`Great fit! ${nextPlaced.filter(Boolean).length} of ${nextPlaced.length} pieces placed.`);
@@ -150,6 +150,9 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
             <p>1. Tap a real picture piece.</p>
             <p>2. Compare it with the preview.</p>
             <p>3. Tap where that piece belongs.</p>
+          </div>
+          <div className="mt-3 flex justify-center gap-2" aria-label="Picture puzzle levels">
+            {LEVELS.map((entry, index) => <button type="button" key={entry.name} disabled={index > getGameLevel(playerId, 'puzzle', LEVELS.length).unlocked} onClick={() => resetLevel(index)} aria-label={`Level ${index + 1}: ${entry.name}`} aria-current={index === levelIndex ? 'step' : undefined} className={`grid h-11 w-11 place-items-center rounded-full border-2 font-black ${index === levelIndex ? 'border-orange-700 bg-orange-500 text-white' : index > getGameLevel(playerId, 'puzzle', LEVELS.length).unlocked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-amber-300 bg-white text-orange-700'}`}>{index + 1}</button>)}
           </div>
         </aside>
 
@@ -203,7 +206,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
           ) : (
             <div className="flex items-center justify-center gap-3 rounded-3xl bg-white/90 p-4 shadow-xl">
               <span className="text-4xl">🎉</span>
-              <button onClick={() => resetLevel((levelIndex + 1) % LEVELS.length)} className="rounded-2xl bg-orange-500 px-5 py-3 font-black text-white shadow-lg">Next puzzle</button>
+              <button onClick={() => resetLevel((levelIndex + 1) % LEVELS.length)} className="rounded-2xl bg-orange-500 px-5 py-3 font-black text-white shadow-lg">{levelIndex < LEVELS.length - 1 ? `Next level: ${LEVELS[levelIndex + 1].scene.title}` : 'Play again'}</button>
               <button onClick={() => resetLevel(levelIndex)} className="game-icon-button !text-orange-600" aria-label="Replay this puzzle"><RotateCcw /></button>
             </div>
           )}

@@ -4,9 +4,11 @@ import { ACHIEVEMENTS, GAME_LABELS } from '../../data/index.js';
 import { BONUS_GAME_IDS, DIFFICULTY_BANDS, PHASE_SOUNDS } from '../../data/learningProgress.js';
 import { WRITING_SAMPLES_KEY } from '../../data/literacy.js';
 import { useLearningProgress } from '../../hooks/useLearningProgress.js';
+import { SESSION_LEVELS } from '../../data/sessionLevels.js';
 import { getRank, loadSaved } from '../../utils.js';
 
-const LEARNING_GAMES = Object.entries(GAME_LABELS).filter(([id]) => id !== 'progress' && !BONUS_GAME_IDS.includes(id));
+const LEARNING_GAMES = Object.entries(GAME_LABELS).filter(([id]) =>
+  !BONUS_GAME_IDS.includes(id) && (SESSION_LEVELS[id]?.some((level) => level.band) || ['solar', 'astronaut', 'worldmap', 'chess'].includes(id)));
 const BAND_LABELS = { starter: 'Starter', growing: 'Growing', challenge: 'Challenge' };
 
 const ProgressDashboard = ({
@@ -100,7 +102,7 @@ const ProgressDashboard = ({
 
           <div className="mt-6 border-t border-slate-100 pt-5">
             <h3 className="font-black text-slate-800">Game difficulty</h3>
-            <p className="mt-1 text-sm font-semibold text-slate-500">Leave games on Auto, or choose a fixed band. This changes the game challenge, never access.</p>
+            <p className="mt-1 text-sm font-semibold text-slate-500">On Auto, named levels introduce new challenges. A fixed band keeps a game at your chosen difficulty. Picture boards and little-explorer games use their own saved levels.</p>
             <div className="mt-3 grid gap-2 sm:grid-cols-2">
               {LEARNING_GAMES.map(([gameId, label]) => (
                 <label key={gameId} className="flex min-h-12 items-center gap-3 rounded-xl bg-indigo-50/70 px-3 text-sm font-bold text-slate-700">
