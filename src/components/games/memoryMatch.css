@@ -249,6 +249,11 @@
   .memory-little-count { font-size: .85rem; }
 }
 
+@media (max-width: 380px) {
+  .memory-little-status { flex-direction: column; }
+  .memory-little-progress { padding: 4px 8px; }
+}
+
 @media (max-height: 820px) and (min-width: 700px) {
   .memory-little-main { flex-direction: row; align-items: center; justify-content: center; gap: 16px; padding-top: 20px; }
   .memory-little-guide { flex: 0 0 220px; flex-direction: column; }
