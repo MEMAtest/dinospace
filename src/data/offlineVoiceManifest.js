@@ -44,6 +44,7 @@ export const OFFLINE_VOICE_MANIFEST = {
   "59326989": "/audio/en/59326989-matilda.mp3",
   "60597385": "/audio/en/60597385-matilda.mp3",
   "61707385": "/audio/en/61707385-matilda.mp3",
+  "61921397": "/audio/en/61921397-matilda.mp3",
   "62101306": "/audio/en/62101306-matilda.mp3",
   "62795477": "/audio/en/62795477-matilda.mp3",
   "65927997": "/audio/en/65927997-matilda.mp3",
@@ -3868,5 +3869,15 @@ export const OFFLINE_VOICE_MANIFEST = {
   "e4150ea3": "/audio/en/e4150ea3-matilda.mp3",
   "e444bd17": "/audio/en/e444bd17-matilda.mp3",
   "02fb35ce": "/audio/en/02fb35ce-matilda.mp3",
-  "0d00023f": "/audio/en/0d00023f-matilda.mp3"
+  "0d00023f": "/audio/en/0d00023f-matilda.mp3",
+  "a86e0ed1": "/audio/en/a86e0ed1-matilda.mp3",
+  "a1d609ad": "/audio/en/a1d609ad-matilda.mp3",
+  "3a0a6edf": "/audio/en/3a0a6edf-matilda.mp3",
+  "56a468a9": "/audio/en/56a468a9-matilda.mp3",
+  "12cd2ba9": "/audio/en/12cd2ba9-matilda.mp3",
+  "bfc48842": "/audio/en/bfc48842-matilda.mp3",
+  "8bf01134": "/audio/en/8bf01134-matilda.mp3",
+  "b3f5996a": "/audio/en/b3f5996a-matilda.mp3",
+  "87d3bbb7": "/audio/en/87d3bbb7-matilda.mp3",
+  "db3a83ea": "/audio/en/db3a83ea-matilda.mp3"
 };

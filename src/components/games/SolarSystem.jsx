@@ -350,7 +350,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused }, ref) {
         <div className="max-w-sm rounded-3xl border border-cyan-200/30 bg-slate-950/80 p-6 shadow-2xl">
           <div className="text-6xl" aria-hidden="true">🪐</div>
           <h3 className="mt-3 text-xl font-black text-cyan-200">3D view unavailable</h3>
-          <p className="mt-2 text-sm font-bold text-white/70">Choose a planet below to explore its facts and challenge.</p>
+          <p className="mt-2 text-sm font-bold text-white/70">Choose a world below to explore its facts and challenge.</p>
         </div>
       </div>
     );
@@ -452,7 +452,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} />
           <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-white/15 bg-slate-950/70 px-4 py-3 text-sm text-white/75 backdrop-blur">
             <div className="flex items-center gap-2 font-black text-white"><Rotate3D size={18} /> Drag to orbit</div>
-            <div>Use zoom buttons, scroll, or pinch · tap a planet</div>
+            <div>Use zoom buttons, scroll, or pinch · tap a world</div>
           </div>
           <div className="absolute right-3 top-3 z-10 flex flex-col gap-2" role="group" aria-label="Camera zoom controls">
             <button
@@ -503,7 +503,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         <aside className="max-h-none overflow-y-auto bg-gradient-to-b from-slate-900 to-slate-950 p-4 pb-24 md:max-h-full md:pb-16">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">Planet file</p>
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-cyan-300">World file</p>
               <h3 className="text-4xl font-black">{selectedPlanet.name}</h3>
               <p className="font-bold text-white/55">{selectedPlanet.subtitle}</p>
               <p className="mt-1 text-[10px] font-black uppercase tracking-wide text-cyan-200/60">Scroll for facts and challenge ↓</p>
@@ -598,7 +598,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </div>
 
           <div className="mt-5 text-center text-xs font-bold text-white/35">
-            Planet badges collected: {badges.length}/{PLANETS.length}
+            World badges collected: {badges.length}/{PLANETS.length}
           </div>
         </aside>
       </main>

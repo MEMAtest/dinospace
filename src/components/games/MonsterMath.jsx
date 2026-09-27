@@ -186,6 +186,7 @@ const MonsterMath = ({
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     newProblem();
+    setShowTable(false);
   }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -255,14 +256,14 @@ const MonsterMath = ({
         <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
           <p className="text-xs font-black uppercase tracking-[0.2em] text-orange-500">See the maths happen</p>
-          <h2 className="text-2xl sm:text-3xl font-black text-orange-800">Stunt Jump Math</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-orange-800">Monster Math</h2>
           <p className="font-bold text-orange-700/65">🔥 Streak {streak}</p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
 
       <main className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 pb-6 pt-2">
-        <section className="mb-3 w-full rounded-[1.7rem] border-4 border-white/80 bg-white/75 p-3 shadow-lg backdrop-blur" aria-labelledby="table-practice-heading">
+        {difficulty !== 'starter' && <section className="mb-3 w-full rounded-[1.7rem] border-4 border-white/80 bg-white/75 p-3 shadow-lg backdrop-blur" aria-labelledby="table-practice-heading">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div>
               <h3 id="table-practice-heading" className="text-base font-black text-orange-900 sm:text-lg">Practise a table</h3>
@@ -310,10 +311,10 @@ const MonsterMath = ({
                 </div>
               )}
               {tableQuizFeedback && <p className="mt-2 text-xs font-bold text-orange-900/70" role="status">{tableQuizFeedback}</p>}
-              <p className="mt-2 text-xs font-bold text-orange-900/65">This offline strip covers ×2, ×3 and ×4. Listen once, hide the answer, recall it, then check. More factors will only appear after their ElevenLabs clips are packaged.</p>
+              <p className="mt-2 text-xs font-bold text-orange-900/65">Listen to the 2, 3 or 4 times table, then see what you can remember.</p>
             </div>
           )}
-        </section>
+        </section>}
         <section className={`w-full rounded-[2rem] border-4 border-white/70 bg-white/75 p-3 sm:p-4 text-center shadow-xl backdrop-blur ${shake ? 'animate-shake' : ''}`}>
           <div className="flex flex-wrap items-center justify-center gap-2 text-4xl sm:text-5xl font-black text-slate-800">
             <span className="math-number-card">{problem.a}</span>

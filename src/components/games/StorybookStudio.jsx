@@ -584,7 +584,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           <section className="mt-7 rounded-[2rem] border border-white/20 bg-white/10 p-5 text-center shadow-2xl backdrop-blur-xl sm:p-8">
             <div className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-gradient-to-br from-amber-300 to-orange-500 text-5xl shadow-lg">📚</div>
             <h2 className="mt-4 text-2xl font-black sm:text-4xl">Choose a story to explore</h2>
-            <p className="mx-auto mt-2 max-w-2xl font-semibold text-blue-100">Every story has a picture, a short page to read and a real ElevenLabs narration. Downloaded story assets keep reading ready when you are offline.</p>
+            <p className="mx-auto mt-2 max-w-2xl font-semibold text-blue-100">Every story has pictures, short pages and a voice to read along with. Saved stories are ready to enjoy offline.</p>
             <button type="button" onClick={() => { setDailyLimitReached(countDailyCreations() >= DAILY_LIMIT); setCreatorError(''); setCreatorProgress(null); setShowCreator(true); }} className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-amber-300 px-5 py-3 font-black text-slate-950 shadow-lg transition hover:-translate-y-0.5 disabled:opacity-50" disabled={customRecords.length >= LIBRARY_LIMIT}>
               ✨ Create a new story
             </button>
@@ -592,7 +592,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           </section>
           <section className="mt-4 rounded-2xl border border-white/20 bg-white/10 p-4" aria-label="Storybook filters">
             <div className="flex flex-wrap items-center gap-2"><label className="text-xs font-black uppercase tracking-wide text-cyan-100">Reading progress for<select value={activeChild.id} onChange={(event) => selectChild(event.target.value)} className="ml-2 rounded-xl border-0 bg-white px-3 py-2 text-sm font-black text-slate-800">{profiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.displayName} · {profile.ageBand}</option>)}</select></label><button type="button" onClick={() => setShowProfiles(true)} className="rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Edit children</button><button type="button" onClick={() => setShowSeries(true)} className="rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Characters &amp; series</button></div>
-            <p className="mt-2 text-xs font-bold text-cyan-100/80">All generated books are shared on this device. The reader selector only keeps each child’s progress and favourites separate.</p>
+            <p className="mt-2 text-xs font-bold text-cyan-100/80">Stories on this device are shared. Each reader has their own place and favourites.</p>
             <div className="mt-3 flex flex-wrap gap-2">{STORYBOOK_SHELVES.map((item) => <button key={item.id} type="button" onClick={() => setShelf(item.id)} className={`rounded-full px-3 py-2 text-xs font-black ${shelf === item.id ? 'bg-amber-300 text-slate-900' : 'bg-white/15 text-white'}`} aria-pressed={shelf === item.id}>{item.label}</button>)}<select value={ageFilter} onChange={(event) => setAgeFilter(event.target.value)} className="rounded-full border-0 bg-white px-3 py-2 text-xs font-black text-slate-800" aria-label="Filter by age band"><option value="all">All ages</option><option value="3-4">Ages 3–4</option><option value="5-6">Ages 5–6</option><option value="7-8">Ages 7–8</option></select>{availableSeries.length > 0 && <select value={seriesFilter} onChange={(event) => setSeriesFilter(event.target.value)} className="rounded-full border-0 bg-white px-3 py-2 text-xs font-black text-slate-800" aria-label="Filter by series"><option value="all">All series</option>{availableSeries.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select>}</div>
           </section>
           <section className="mt-6 grid gap-5 md:grid-cols-3" aria-label="Storybook library">
@@ -617,7 +617,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
             ))}
             {!visibleBooks.length && <p className="rounded-2xl bg-white/10 p-6 text-center font-bold text-cyan-100 md:col-span-3">No stories match this shelf yet. Try another filter—every story stays available.</p>}
           </section>
-          <p className="mt-7 flex items-center justify-center gap-2 text-center text-sm font-bold text-cyan-100"><Headphones size={17} /> Narration uses bundled ElevenLabs audio. No device voice fallback.</p>
+          <p className="mt-7 flex items-center justify-center gap-2 text-center text-sm font-bold text-cyan-100"><Headphones size={17} /> Saved stories can be read aloud offline.</p>
         </div>
         {showCreator && <StorybookCreator onClose={() => { if (!creatorBusy) { setShowCreator(false); setInitialSeriesId(''); setCreatorProgress(null); } }} onCreate={createCustomStory} seriesOptions={availableSeries} selectedChild={activeChild} initialSeriesId={initialSeriesId} busy={creatorBusy} progress={creatorProgress} error={creatorError} dailyLimitReached={dailyLimitReached || customRecords.length >= LIBRARY_LIMIT} />}
         {showProfiles && <StorybookProfiles profiles={profiles} activeId={activeChild.id} onSelect={selectChild} onSave={saveProfile} onDelete={removeProfile} onClose={() => setShowProfiles(false)} />}
@@ -661,7 +661,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">{currentPage.title}</p>
                 <p className="mt-5 text-xl font-black leading-relaxed text-white sm:text-3xl">{currentPage.text}</p>
                 <div className="mt-6 flex flex-wrap gap-2"><button type="button" onClick={togglePlayback} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-slate-900 shadow-lg" aria-label={playing ? 'Pause narration' : 'Play narration'}>{playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />} {playing ? 'Pause' : 'Hear page'}</button><button type="button" onClick={() => { audioRef.current?.load(); playCurrentAudio(); }} className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-4 py-3 font-black hover:bg-white/10"><RotateCcw size={17} /> Replay</button></div>
-                <div className="mt-5 flex items-center gap-2 text-sm font-bold text-white/75"><Headphones size={17} /> {audioError ? 'Narration unavailable offline for this page.' : 'ElevenLabs narration'}</div>
+                <div className="mt-5 flex items-center gap-2 text-sm font-bold text-white/75"><Headphones size={17} /> {audioError ? 'Read-aloud is unavailable for this page.' : 'Read-aloud story'}</div>
               </>
             )}
           </div>

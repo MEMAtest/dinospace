@@ -15,6 +15,7 @@ import { getOfflineVoiceClip } from '../src/data/offlineVoice.js';
 
 test('math bands increase real number ranges', () => {
   assert.deepEqual(MULTIPLICATION_LIMITS.starter, [2, 3]);
+  assert.deepEqual(MULTIPLICATION_FACTS_BY_DIFFICULTY.starter.map(({ a, b }) => [a, b]), [[2, 2], [2, 3]]);
   assert.ok(MULTIPLICATION_LIMITS.challenge[0] > MULTIPLICATION_LIMITS.growing[0]);
   assert.ok(NUMBER_LINE_LIMITS.starter < NUMBER_LINE_LIMITS.growing);
   assert.ok(NUMBER_LINE_LIMITS.growing < NUMBER_LINE_LIMITS.challenge);

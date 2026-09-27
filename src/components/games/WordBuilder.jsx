@@ -293,7 +293,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </section>
 
         <p className="mt-3 max-w-xl rounded-xl bg-white/90 p-2 text-center text-xs font-bold text-cyan-900">
-          A word becomes secure after independent first-try spelling on two different days. Supported practice still helps, but does not count as mastery.
+          Keep practising! Try spelling the word again another day.
         </p>
       </main>
     </div>

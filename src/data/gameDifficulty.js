@@ -34,7 +34,7 @@ const multiplicationFacts = (tables, factors) => Object.freeze(
 // narration. A harder question that becomes silent offline is not a useful
 // difficulty upgrade when device speech is disabled.
 export const MULTIPLICATION_FACTS_BY_DIFFICULTY = Object.freeze({
-  starter: multiplicationFacts([2, 3], [2, 3]),
+  starter: multiplicationFacts([2], [2, 3]),
   growing: multiplicationFacts([2, 3, 4], [2, 3, 4]),
   challenge: multiplicationFacts([2, 3, 4, 5], [2, 3, 4]),
 });

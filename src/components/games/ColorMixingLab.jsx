@@ -63,7 +63,7 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   }, [difficulty]);
 
   useEffect(() => {
-    speak(`What color do ${round.name1} and ${round.name2} make when mixed together?`);
+    speak(`What colour do ${round.name1} and ${round.name2} make when mixed together?`);
   }, [roundIndex, round.name1, round.name2, speak]);
 
   const nextRound = () => {
@@ -117,7 +117,7 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
       <div className="flex items-center justify-between px-4 pt-4 z-20">
         <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
         <div className="text-center">
-          <h2 className="text-3xl font-black text-fuchsia-700">Color Mixing Lab</h2>
+          <h2 className="text-3xl font-black text-fuchsia-700">Colour Mixing Lab</h2>
           <p className="text-fuchsia-700/70 font-semibold">Mixed: {score}</p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
@@ -136,12 +136,12 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         </div>
         {!mixed && (
           <button onClick={handleMix} className="bg-fuchsia-500 text-white text-xl font-black px-8 py-4 rounded-full shadow-lg hover:bg-fuchsia-600 active:translate-y-1 transition-all mb-6">
-            🧪 Mix Colors!
+            🧪 Mix Colours!
           </button>
         )}
         {mixed && (
           <div className={`${shake ? 'animate-shake' : ''}`}>
-            <p className="text-xl font-bold text-fuchsia-700 mb-4">What color did it make?</p>
+            <p className="text-xl font-bold text-fuchsia-700 mb-4">What colour did it make?</p>
             <div className="flex gap-4 flex-wrap justify-center">
               {visibleOptions.map((opt) => (
                 <button key={opt} disabled={locked} onClick={() => handlePick(opt)}
