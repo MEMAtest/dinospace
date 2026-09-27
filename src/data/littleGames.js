@@ -45,8 +45,8 @@ export const LITTLE_LEVELS = Object.freeze({
     { rounds: 3, spots: 2, trail: 'bright' },
     { rounds: 3, spots: 3, trail: 'bright', unlock: 'search' },
     { rounds: 4, spots: 3, trail: 'marks', unlock: 'dino' },
-    { rounds: 4, spots: 3, trail: 'marks', unlock: 'dino' },
-    { rounds: 5, spots: 3, trail: 'faint', unlock: 'challenge' },
+    { rounds: 4, spots: 3, trail: 'short', unlock: 'dino' },
+    { rounds: 5, spots: 3, trail: 'faint-short', unlock: 'challenge' },
   ],
   dinojigsaw: [
     { grids: [[2, 1], [2, 1], [2, 2]], scenes: 2 },
@@ -96,7 +96,7 @@ export const LITTLE_LEVELS = Object.freeze({
 // Spoken instructions stay short; these visible labels tell the grown-up and
 // older child exactly what changes at the next level.
 export const LITTLE_LEVEL_GOALS = Object.freeze({
-  dino: ['Find a bright trail with two hiding places', 'Search three leafy hiding places', 'Follow footprint marks to a new dinosaur', 'Follow longer trails to more dinosaurs', 'Find faint tracks in the jungle'],
+  dino: ['Find a bright trail with two hiding places', 'Search three leafy hiding places', 'Follow footprint marks to a new dinosaur', 'Follow fewer tracks through the leaves', 'Find faint tracks in the jungle'],
   dinojigsaw: ['Build pictures from two big pieces', 'Build a four-piece picture', 'Try a six-piece picture', 'Explore a nine-piece scene', 'Build a twelve-piece dinosaur scene'],
   shadowmatch: ['Match one of two dinosaur shadows', 'Compare three dinosaur shapes', 'Meet more dinosaurs and their shadows', 'Choose among four shadows', 'Match mirrored dinosaur shadows'],
   rocketbuilder: ['Fit the nose and fins', 'Add a window and choose a colour', 'Build a complete rocket', 'Add a new rocket body', 'Build the whole colourful rocket'],

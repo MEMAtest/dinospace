@@ -40,6 +40,7 @@ test('every little game has five levels that get harder and never exceed its con
   LITTLE_LEVELS.ladder.forEach((config) => assert.ok(config.floors <= RESCUE_ANIMALS.length));
   assert.equal(LITTLE_LEVELS.dino[0].spots, 2, 'Askia starts with two hiding places');
   assert.equal(LITTLE_LEVELS.dino.at(-1).spots, 3, 'later searches have more hiding places');
+  assert.equal(new Set(LITTLE_LEVELS.dino.map(({ rounds, spots, trail }) => `${rounds}-${spots}-${trail}`)).size, 5, 'each Dino Detective level changes the search');
   assert.ok(levelRounds('dino', LITTLE_LEVELS.dino.at(-1)) > levelRounds('dino', LITTLE_LEVELS.dino[0]));
 });
 

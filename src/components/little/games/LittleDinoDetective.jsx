@@ -25,13 +25,13 @@ const Footprint = ({ className = '', style }) => (
 
 const Trail = ({ spot, strength }) => (
   <div className="pointer-events-none absolute inset-0 z-10" aria-hidden="true">
-    {[0, 1, 2].map((step) => {
+    {(strength.includes('short') ? [1, 2] : [0, 1, 2]).map((step) => {
       const t = (step + 1) / 4;
       return (
         <Footprint
           key={step}
           className={`absolute h-10 w-10 -translate-x-1/2 -translate-y-1/2 -rotate-12 text-amber-300 drop-shadow-[0_2px_3px_rgba(83,48,0,.9)] sm:h-14 sm:w-14 ${strength === 'bright' ? 'animate-pulse' : ''}`}
-          style={{ left: `${50 + (spot.x - 50) * t}%`, top: `${84 + (spot.y - 84) * t}%`, opacity: strength === 'faint' ? 0.72 : 1 }}
+          style={{ left: `${50 + (spot.x - 50) * t}%`, top: `${84 + (spot.y - 84) * t}%`, opacity: strength.startsWith('faint') ? 0.72 : 1 }}
         />
       );
     })}
