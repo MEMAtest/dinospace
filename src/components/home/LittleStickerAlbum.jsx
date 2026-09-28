@@ -22,9 +22,9 @@ const Sticker = ({ sticker, locked, size }) => {
 // when tapped; the next sticker to earn shows a star bar filling up.
 const LittleStickerAlbum = ({ points, earnedStickerIds = [], onBack, playSfx }) => {
   const [popped, setPopped] = useState(null);
-  const next = STICKERS.find((sticker) => points < sticker.points);
-  const previousThreshold = [...STICKERS].reverse().find((sticker) => points >= sticker.points)?.points || 0;
-  const progress = next ? (points - previousThreshold) / (next.points - previousThreshold) : 1;
+  const next = STICKERS.find((sticker) => !earnedStickerIds.includes(sticker.id) && points < sticker.points);
+  const previousThreshold = [...STICKERS].reverse().find((sticker) => earnedStickerIds.includes(sticker.id) || points >= sticker.points)?.points || 0;
+  const progress = next ? Math.max(0, (points - previousThreshold) / (next.points - previousThreshold)) : 1;
 
   return (
     <div className="flex min-h-[100dvh] w-full flex-col items-center gap-4 bg-gradient-to-b from-amber-200 via-orange-100 to-sky-200 p-3 sm:p-6">
