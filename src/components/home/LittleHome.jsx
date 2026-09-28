@@ -14,6 +14,21 @@ const WORLDS = [
   { id: 'thinkers', title: 'Little Thinkers', gameIds: ['memory', 'pattern'], scene: memoryScene, art: 'detective-ankylo', tone: 'purple' },
 ];
 const TODAY_GAMES = ['fuelup', 'dino', 'memory'];
+const GAME_ART = {
+  dinojigsaw: 'detective-ankylo', shadowmatch: 'detective-stego', dino: 'askia-detective',
+  rocketbuilder: 'fuel-rocket', fuelup: 'fuel-can', firerescue: 'rescue-firetruck', ladder: 'fire-house',
+};
+
+const GameSymbol = ({ id }) => {
+  if (id === 'memory') return <span aria-hidden="true" className="relative block h-9 w-9 shrink-0">
+    <span className="absolute left-0 top-1 grid h-7 w-6 -rotate-12 place-items-center rounded-md border-2 border-white bg-sky-500 text-sm text-white shadow-sm">♥</span>
+    <span className="absolute right-0 top-0 grid h-7 w-6 rotate-12 place-items-center rounded-md border-2 border-white bg-pink-500 text-sm text-white shadow-sm">★</span>
+  </span>;
+  if (id === 'pattern') return <span aria-hidden="true" className="flex h-9 w-9 shrink-0 items-center justify-center gap-0.5">
+    <span className="h-3 w-3 rounded-full bg-blue-500 shadow-sm" /><span className="h-3 w-3 rounded-sm bg-red-500 shadow-sm" /><span className="h-0 w-0 border-b-[14px] border-l-[7px] border-r-[7px] border-b-yellow-400 border-l-transparent border-r-transparent" />
+  </span>;
+  return <span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center text-2xl">⭐</span>;
+};
 
 const LittleHome = ({ player, points, games, onLaunch, onOpenPage, onSwitchPlayer, soundOn, onToggleSound }) => {
   const gameById = Object.fromEntries(games.map((game) => [game.id, game]));
@@ -48,7 +63,8 @@ const LittleHome = ({ player, points, games, onLaunch, onOpenPage, onSwitchPlaye
             <h3 id={`${world.id}-title`} className="text-center text-2xl font-black text-white drop-shadow-[0_3px_1px_#15314766] sm:text-3xl">{world.title}</h3>
             <div className="mt-3 grid gap-2">
               {world.gameIds.map((id) => <button key={id} type="button" onClick={() => launch(id)} className="askia-world__game flex min-h-12 items-center justify-between gap-2 rounded-full border-2 border-white/70 bg-white/90 px-3 text-left font-black text-slate-800 shadow-sm transition hover:scale-[1.02] active:scale-[.98] sm:min-h-14" aria-label={`Play ${gameById[id]?.title || id}`}>
-                <span className="truncate">{gameById[id]?.title || id}</span><ArrowRight size={20} className="shrink-0" />
+                {GAME_ART[id] ? <img src={artUrl(GAME_ART[id])} alt="" className="h-9 w-9 shrink-0 object-contain" /> : <GameSymbol id={id} />}
+                <span className="flex-1 truncate">{gameById[id]?.title || id}</span><ArrowRight size={20} className="shrink-0" />
               </button>)}
             </div>
           </div>

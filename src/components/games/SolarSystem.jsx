@@ -612,8 +612,9 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         {PLANETS.map((planet) => (
           <button key={planet.name} type="button" aria-current={selectedPlanet.name === planet.name ? 'true' : undefined}
             onClick={() => selectPlanet(planet.name)}
-            className={`flex min-w-[94px] flex-none snap-start flex-col items-center gap-1 rounded-2xl border-2 px-3 py-2 text-sm font-black transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200 ${selectedPlanet.name === planet.name ? 'border-cyan-300 bg-cyan-300/20 text-white shadow-[0_0_15px_#30d5ff80]' : 'border-white/15 bg-white/5 text-cyan-100 hover:bg-white/15'}`}>
-            <span className="relative block h-11 w-11 rounded-full border border-white/35 shadow-[inset_-9px_-7px_12px_#00103299,0_4px_9px_#0008]" style={{ backgroundImage: `radial-gradient(circle at 29% 24%,#ffffffaa,transparent 34%),url(${planetThumbnails[planet.name]})`, backgroundSize: '100% 100%' }} aria-hidden="true">
+            className={`flex min-w-[108px] flex-none snap-start flex-col items-center gap-1 rounded-2xl border-2 px-3 py-2 text-sm font-black transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200 ${selectedPlanet.name === planet.name ? 'border-cyan-300 text-white shadow-[0_0_15px_#30d5ff80]' : 'border-white/25 text-cyan-100 hover:brightness-125'}`}
+            style={{ background: `linear-gradient(145deg, ${planet.surface}bb, #142c77 52%, #081747)` }}>
+            <span className="relative block h-14 w-14 rounded-full border border-white/35 shadow-[inset_-9px_-7px_12px_#00103299,0_4px_9px_#0008]" style={{ backgroundImage: `radial-gradient(circle at 29% 24%,#ffffffaa,transparent 34%),url(${planetThumbnails[planet.name]})`, backgroundSize: '100% 100%' }} aria-hidden="true">
               {planet.ring && <span className="absolute left-[-12px] top-[15px] h-4 w-[68px] -rotate-[18deg] rounded-full border-[3px] border-amber-100/75" />}
             </span>
             {planet.name}{badges.includes(planet.name) ? ' ★' : ''}
