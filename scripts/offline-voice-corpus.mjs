@@ -126,7 +126,6 @@ const MEMORY_CARD_NAMES = {
 };
 
 MEMORY_LEVELS.forEach((level, index) => {
-  add(`Memory level ${index + 1}. ${level.name}.`);
   level.emojis.forEach((emoji) => {
     const name = MEMORY_CARD_NAMES[emoji] || 'picture';
     add(`You found a ${name}. Remember where it is.`);

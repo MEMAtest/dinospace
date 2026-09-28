@@ -56,6 +56,10 @@ export const levelsForSession = (gameId, little) => little
   ? ASKIA_SESSION_LEVELS[gameId] || []
   : SESSION_LEVELS[gameId] || [];
 
+// Completing the final level keeps the child on it. Replays are an explicit
+// choice, so progress never appears to reset when a level sequence ends.
+export const nextGameLevelIndex = (current, total) => Math.min(total - 1, Math.max(0, current + 1));
+
 const keyFor = (playerId) => `${playerId || 'amari'}_game_levels_v1`;
 const read = (playerId, storage) => {
   try {

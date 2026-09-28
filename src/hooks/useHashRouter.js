@@ -20,6 +20,15 @@ export const useHashRouter = () => {
 
   useEffect(() => { routeRef.current = route; }, [route]);
 
+  // Native history restoration can put a returning player back at a deep
+  // scroll offset, hiding the world's back and game controls on mobile.
+  // Each app route starts at the top; keep browser back/forward consistent.
+  useEffect(() => {
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = 'manual';
+    return () => { window.history.scrollRestoration = previous; };
+  }, []);
+
   useEffect(() => {
     const onPopState = () => {
       const next = parseRoute(window.location.hash);

@@ -118,7 +118,7 @@ const GameSession = ({
             <div className="flex items-center gap-1.5" aria-label={`${target} to finish`}>
               {Array.from({ length: target }, (_, index) => <span key={index} className="h-3 w-3 rounded-full bg-amber-300" />)}
             </div>
-            <button type="button" onClick={() => start()} aria-label={`Play ${game.title} level ${levelIndex + 1}`} className="mt-2 grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_8px_0_#166534] animate-pulse-soft active:translate-y-2 active:shadow-none">
+            <button type="button" onClick={() => start()} aria-label={`Play ${game.title} level ${levelIndex + 1}`} className="mt-2 grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_8px_0_#166534] transition-transform hover:scale-105 active:translate-y-2 active:shadow-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-indigo-700">
               <Play size={60} fill="currentColor" className="ml-1.5" />
             </button>
           </>
