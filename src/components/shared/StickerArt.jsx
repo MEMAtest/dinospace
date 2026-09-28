@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import dinoCharacterSheet from '../../assets/dino-character-stickers.png';
 import moreDinoCharacterSheet from '../../assets/more-dino-character-stickers-transparent.png';
 import rewardStickerSheet from '../../assets/reward-stickers.png';
@@ -52,6 +53,21 @@ const spriteStyle = (sheet, crop) => ({
 
 export const DinoSticker = ({ species = 'trex', size = 64, className = '' }) => {
   const crop = DINO_CROPS[species] || DINO_CROPS.trex;
+  const [sheetReady, setSheetReady] = useState(true);
+
+  useEffect(() => {
+    const asset = new Image();
+    asset.onload = () => setSheetReady(true);
+    asset.onerror = () => setSheetReady(false);
+    asset.src = crop.sheet;
+    return () => { asset.onload = null; asset.onerror = null; };
+  }, [crop.sheet]);
+
+  if (!sheetReady) return (
+    <span role="img" aria-label={crop.name} className={`inline-grid shrink-0 place-items-center rounded-full bg-gradient-to-br from-lime-200 to-emerald-400 ${className}`} style={{ width: size, height: size, fontSize: size * .65 }}>
+      {species === 'trex' || species === 'raptor' ? '🦖' : '🦕'}
+    </span>
+  );
 
   return (
     <span

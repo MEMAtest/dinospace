@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Home, Star, Volume2 } from 'lucide-react';
+import { ArrowLeft, CarFront, Star, Volume2, Wrench } from 'lucide-react';
 import { GERMAN_COLORS, GERMAN_MATCH_MODES, GERMAN_NUMBERS } from '../../data/index.js';
 import { getGermanAudioPath } from '../../data/germanAudio.js';
 import { buildMatchRound } from '../../utils.js';
@@ -54,6 +54,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
   const [feedback, setFeedback] = useState('');
   const [stars, setStars] = useState(0);
   const [paintedColour, setPaintedColour] = useState(null);
+  const [failedImages, setFailedImages] = useState([]);
   const germanAudioRef = useRef(null);
   const hadMistakeRef = useRef(false);
   const answeredRef = useRef(false);
@@ -61,6 +62,9 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
 
   const round = mode === 'paint' ? paintRound : mode === 'park' ? parkRound : matchRound;
   const copy = MODE_COPY[mode];
+  const sceneImage = mode === 'paint' ? emptyGarage : MODE_SCENES[mode];
+  const imageFailed = (src) => failedImages.includes(src);
+  const markImageFailed = (src) => setFailedImages((current) => current.includes(src) ? current : [...current, src]);
   const modeTabs = useMemo(() => [
     { id: 'paint', label: 'Farben' },
     { id: 'park', label: 'Garage' },
@@ -162,7 +166,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
   return (
     <div className="min-h-screen overflow-hidden bg-[#fff5dc] text-slate-900">
       <header className="relative z-20 flex items-center gap-3 px-3 pt-3 sm:px-5">
-        <button onClick={onBack} className="game-icon-button !bg-amber-400 !text-white" aria-label="Back to home"><Home /></button>
+        <button onClick={onBack} className="game-icon-button !bg-amber-400 !text-white" aria-label="Back to learning world"><ArrowLeft /></button>
         <nav className="flex flex-1 gap-1 overflow-x-auto rounded-[1.7rem] border-2 border-amber-100 bg-white/90 p-1.5 shadow-lg no-scrollbar" aria-label="German Garage lessons">
           {modeTabs.map((tab) => (
             <button
@@ -198,12 +202,16 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
         </div>
 
         <section className="relative h-52 w-full overflow-hidden rounded-[2rem] border-4 border-white shadow-xl sm:h-80">
-          <img src={mode === 'paint' ? emptyGarage : MODE_SCENES[mode]} alt={`${copy.mission.toLowerCase()} illustrated learning scene`} className="h-full w-full object-cover object-center" />
+          {imageFailed(sceneImage)
+            ? <div role="img" aria-label={`${copy.mission.toLowerCase()} illustrated learning scene`} className="flex h-full w-full items-center justify-around bg-gradient-to-b from-sky-200 via-amber-100 to-orange-200 text-blue-700"><Wrench size={64} /><span className="text-6xl" aria-hidden="true">🏠</span><CarFront size={92} /></div>
+            : <img src={sceneImage} onError={() => markImageFailed(sceneImage)} alt={`${copy.mission.toLowerCase()} illustrated learning scene`} className="h-full w-full object-cover object-center" />}
           {mode === 'paint' && (
             <div className="absolute inset-0 flex items-center justify-center pt-2" aria-live="polite">
               <div className="relative h-[92%] w-[62%] max-w-[620px]">
-                <img src={friendlyCar} alt={paintedColour ? `The car is now ${paintedColour.name}` : 'Friendly white car ready to be painted'} className="absolute inset-0 h-full w-full object-contain drop-shadow-[0_18px_18px_rgba(15,23,42,.32)]" />
-                {paintedColour && (
+                {imageFailed(friendlyCar)
+                  ? <div role="img" aria-label={paintedColour ? `The car is now ${paintedColour.name}` : 'Friendly white car ready to be painted'} className="absolute inset-0 grid place-items-center text-slate-700 drop-shadow-xl"><CarFront size={150} fill={paintedColour?.hex || '#fff'} strokeWidth={2.5} /></div>
+                  : <img src={friendlyCar} onError={() => markImageFailed(friendlyCar)} alt={paintedColour ? `The car is now ${paintedColour.name}` : 'Friendly white car ready to be painted'} className="absolute inset-0 h-full w-full object-contain drop-shadow-[0_18px_18px_rgba(15,23,42,.32)]" />}
+                {paintedColour && !imageFailed(friendlyCar) && (
                   <div
                     className="absolute inset-0 transition-all duration-300"
                     style={{

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Home } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { DINO_LEVELS } from '../../data/index.js';
 import { buildDinos, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
@@ -83,9 +83,9 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         <button
           onClick={onBack}
           className="game-icon-button"
-          aria-label="Back to home"
+          aria-label="Back to learning world"
         >
-          <Home />
+          <ArrowLeft />
         </button>
         <div className="text-center">
           <h2 className="text-2xl font-black text-green-900 drop-shadow-sm">{level.name}</h2>
