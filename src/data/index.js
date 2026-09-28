@@ -1165,7 +1165,7 @@ export const STICKERS = [
   { id: 'rocket', name: 'Bronze Rocket', emoji: '🚀', points: 10 },
   { id: 'dino', name: 'Silver Dino', emoji: '🦕', points: 25 },
   { id: 'star', name: 'Gold Star', emoji: '⭐️', points: 40 },
-  { id: 'truck', name: 'Speed Truck', emoji: '🛻', points: 60 },
+  { id: 'truck', name: 'Rescue Truck', emoji: '🚒', points: 60 },
   { id: 'heart', name: 'Super Heart', emoji: '💖', points: 80 },
   { id: 'planet', name: 'Planet Master', emoji: '🪐', points: 100 },
   { id: 'hero', name: 'Mega Hero', emoji: '🦸‍♀️', points: 130 },
@@ -1177,7 +1177,7 @@ export const STICKERS = [
 ];
 
 export const PLAYER_RANKS = [
-  { title: 'Space Cadet', emoji: '👶', minPoints: 0 },
+  { title: 'Space Cadet', emoji: '🧑‍🚀', minPoints: 0 },
   { title: 'Star Collector', emoji: '⭐', minPoints: 25 },
   { title: 'Moon Walker', emoji: '🌙', minPoints: 60 },
   { title: 'Rocket Pilot', emoji: '🚀', minPoints: 100 },

@@ -20,7 +20,7 @@ const Sticker = ({ sticker, locked, size }) => {
 
 // Askia's sticker album: pictures only. Earned stickers are bright and bounce
 // when tapped; the next sticker to earn shows a star bar filling up.
-const LittleStickerAlbum = ({ points, onBack, playSfx }) => {
+const LittleStickerAlbum = ({ points, earnedStickerIds = [], onBack, playSfx }) => {
   const [popped, setPopped] = useState(null);
   const next = STICKERS.find((sticker) => points < sticker.points);
   const previousThreshold = [...STICKERS].reverse().find((sticker) => points >= sticker.points)?.points || 0;
@@ -46,7 +46,7 @@ const LittleStickerAlbum = ({ points, onBack, playSfx }) => {
 
       <main className="grid w-full max-w-4xl grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {STICKERS.map((sticker) => {
-          const locked = points < sticker.points;
+          const locked = !earnedStickerIds.includes(sticker.id) && points < sticker.points;
           return (
             <button
               key={sticker.id}

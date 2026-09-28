@@ -5,6 +5,7 @@ import WorldIcon from '../shared/WorldIcon.jsx';
 import astronautCrew from '../../assets/landing/amari-astronaut-robot.png';
 import { LEARNING_WORLDS } from '../../data/learningWorlds.js';
 import { getNextRank, getRank } from '../../utils.js';
+import './discoveryVisuals.css';
 
 const PlayerChip = ({ player, onClick }) => (
   <button
@@ -45,18 +46,18 @@ const ExplorerHome = ({
         </div>
       </header>
 
-      <section className="relative z-10 grid w-full max-w-7xl items-center gap-4 overflow-hidden rounded-[2.2rem] border-2 border-white/90 bg-gradient-to-br from-sky-100 via-white/80 to-indigo-100 p-4 shadow-[0_22px_60px_rgba(38,104,171,.17)] sm:grid-cols-[auto_1fr] sm:p-6">
+      <section className="relative z-10 grid w-full min-w-0 max-w-7xl items-center gap-4 overflow-hidden rounded-[2.2rem] border-2 border-white/90 bg-gradient-to-br from-sky-100 via-white/80 to-indigo-100 p-4 shadow-[0_22px_60px_rgba(38,104,171,.17)] sm:grid-cols-[auto_1fr] sm:p-6">
         <img src={astronautCrew} alt="Amari the astronaut with a friendly learning robot" className="mx-auto h-32 w-auto object-contain drop-shadow-[0_18px_22px_rgba(30,64,175,.22)] sm:h-48" />
-        <div className="text-center sm:text-left">
+        <div className="min-w-0 text-center sm:text-left">
           <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-5xl">Hi {player.name}!</h2>
-          <p className="mt-1 font-bold text-slate-600">
+          <p className="mx-auto mt-1 max-w-full break-words text-sm font-bold text-slate-600 sm:mx-0 sm:text-base">
             {rank.emoji} {rank.title}{nextRank ? ` · ${nextRank.minPoints - points} stars to ${nextRank.title}` : ''}
           </p>
           <div className={`mt-4 flex items-center gap-3 rounded-2xl border-2 p-3 text-left ${challengeCompleted ? 'border-emerald-200 bg-emerald-50' : 'border-amber-200 bg-amber-50'}`}>
             <span className="text-3xl" aria-hidden="true">{challengeCompleted ? '🏆' : challenge.emoji}</span>
             <div className="min-w-0 flex-1">
               <p className="text-xs font-black uppercase tracking-wide text-amber-700">Daily challenge</p>
-              <p className="truncate font-black text-slate-800">{challenge.desc}</p>
+              <p className="break-words font-black leading-tight text-slate-800">{challenge.desc}</p>
               <div className="mt-1 h-2 overflow-hidden rounded-full bg-white" role="progressbar" aria-label="Daily challenge progress" aria-valuemin={0} aria-valuemax={challenge.target} aria-valuenow={Math.min(challengeProgress, challenge.target)}>
                 <div className={`h-full rounded-full ${challengeCompleted ? 'bg-emerald-500' : 'bg-amber-500'}`} style={{ width: `${Math.min(100, (challengeProgress / challenge.target) * 100)}%` }} />
               </div>
@@ -78,12 +79,13 @@ const ExplorerHome = ({
               key={world.id}
               type="button"
               onClick={() => onOpenWorld(world.id)}
-              className={`group relative flex min-h-44 flex-col overflow-hidden rounded-[1.8rem] bg-gradient-to-br ${world.color} p-4 text-left text-white shadow-[0_8px_0_rgba(15,23,42,.13),0_16px_30px_rgba(30,64,175,.16)] transition hover:-translate-y-1 active:translate-y-1 active:shadow-none last:col-span-2 lg:last:col-span-1`}
+              className={`discovery-world-card group relative flex min-h-[14rem] flex-col overflow-hidden rounded-[1.8rem] bg-gradient-to-br ${world.color} p-3 text-left text-white active:translate-y-1 active:shadow-none sm:min-h-[15rem] sm:p-4 last:col-span-2 lg:last:col-span-1`}
             >
-              <span className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/20" />
-              <span className="relative -ml-2 origin-left scale-75 transition group-hover:scale-90"><WorldIcon world={world} /></span>
-              <strong className="relative mt-auto block text-lg font-black leading-tight sm:text-xl">{world.title}</strong>
-              <span className="relative mt-1 inline-flex w-max rounded-full bg-white/20 px-3 py-1 text-xs font-black backdrop-blur">{world.gameIds.length} games →</span>
+              <span className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/20" />
+              <span className="pointer-events-none absolute -bottom-12 -left-10 h-28 w-28 rounded-full border-[18px] border-white/10" />
+              <span className="discovery-art-stage relative -ml-1 grid h-[8.5rem] w-full place-items-center rounded-[1.2rem] sm:h-[9.5rem]"><span className="discovery-world-card__art w-full"><WorldIcon world={world} /></span></span>
+              <strong className="relative mt-auto block pt-2 text-base font-black leading-tight drop-shadow-sm sm:text-xl">{world.title}</strong>
+              <span className="relative mt-2 inline-flex w-max items-center gap-1 rounded-full border border-white/25 bg-white/20 px-2.5 py-1 text-[.68rem] font-black backdrop-blur sm:px-3 sm:text-xs">{world.gameIds.length} games <span aria-hidden="true">→</span></span>
             </button>
           ))}
         </div>

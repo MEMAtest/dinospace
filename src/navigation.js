@@ -9,6 +9,8 @@
 //   #/stickers         sticker shelf
 //   #/grownups         progress and settings (behind the grown-up gate)
 
+import { LEARNING_WORLDS } from './data/learningWorlds.js';
+
 const PAGES = new Set(['home', 'stickers', 'grownups']);
 
 export const parseRoute = (hash = '') => {
@@ -39,6 +41,10 @@ export const parentRoute = (route) => {
   switch (route?.name) {
     case 'welcome': return null;
     case 'home': return { name: 'welcome' };
+    case 'game': {
+      const world = LEARNING_WORLDS.find((item) => item.gameIds.includes(route.id));
+      return world ? { name: 'world', id: world.id } : { name: 'home' };
+    }
     default: return { name: 'home' };
   }
 };
