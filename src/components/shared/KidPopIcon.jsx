@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 /* One clear, colourful SVG badge per game.  Keeping the art in SVG avoids
    platform-dependent emoji and stops thin UI glyphs being layered with a
    second, unrelated symbol. */
@@ -11,7 +13,7 @@ const PALETTES = {
   spot: ['#e0e7ff', '#6366f1', '#3730a3'], puzzle: ['#fef9c3', '#eab308', '#854d0e'], trace: ['#dbeafe', '#3b82f6', '#1e40af'],
   phonics: ['#dcfce7', '#22c55e', '#166534'], addition: ['#ccfbf1', '#14b8a6', '#115e59'], subtraction: ['#ede9fe', '#8b5cf6', '#5b21b6'],
   astronaut: ['#e0e7ff', '#8b5cf6', '#4338ca'], counting: ['#dbeafe', '#3b82f6', '#1e3a8a'], words: ['#ffe4ef', '#ec4899', '#9d174d'],
-  storybooks: ['#e0e7ff', '#6366f1', '#4338ca'], colormix: ['#fae8ff', '#d946ef', '#86198f'], oddoneout: ['#cffafe', '#06b6d4', '#155e75'],
+  storybooks: ['#e0e7ff', '#6366f1', '#4338ca'], worldmap: ['#dff7ff', '#0ea5e9', '#075985'], colormix: ['#fae8ff', '#d946ef', '#86198f'], oddoneout: ['#cffafe', '#06b6d4', '#155e75'],
   timeteller: ['#ecfccb', '#84cc16', '#3f6212'], numberline: ['#d1fae5', '#10b981', '#065f46'], chess: ['#fef3c7', '#d97706', '#92400e'],
   default: ['#e0e7ff', '#6366f1', '#4338ca'],
 };
@@ -20,7 +22,7 @@ const ART = {
   'world-read-write': 'book', 'world-maths': 'math', 'world-explore': 'orbit', 'world-creative': 'palette', 'world-thinking': 'brain',
   tictactoe: 'grid', hangman: 'star', dino: 'dino', jet: 'plane', solar: 'orbit', german: 'garage', math: 'truck', letters: 'letter',
   memory: 'cards', pattern: 'pattern', spot: 'magnify', puzzle: 'puzzle', trace: 'pencil', phonics: 'sound', addition: 'plus',
-  subtraction: 'minus', astronaut: 'helmet', counting: 'count', words: 'abc', storybooks: 'book', colormix: 'palette', oddoneout: 'odd',
+  subtraction: 'minus', astronaut: 'helmet', counting: 'count', words: 'abc', storybooks: 'book', worldmap: 'globe', colormix: 'palette', oddoneout: 'odd',
   timeteller: 'clock', numberline: 'hop', chess: 'chess', default: 'spark',
 };
 
@@ -38,6 +40,7 @@ const Glyph = ({ type, accent, dark }) => {
     case 'book': return <g><path d="M23 28Q40 19 56 29Q72 19 89 28V68Q72 59 56 69Q40 59 23 68Z" fill={pink} stroke={dark} strokeWidth="3" /><path d="M28 31Q42 26 54 34V62Q41 55 28 61ZM58 34Q70 26 84 31V61Q70 55 58 62Z" fill={cream} stroke={dark} strokeWidth="2" /><path d="M56 30v38M34 39h13M34 47h13M64 39h13M64 47h13" stroke={accent} strokeWidth="3" strokeLinecap="round" /><path d="m55 23 7 7-7 4Z" fill={yellow} stroke={dark} strokeWidth="2" /></g>;
     case 'math': return <g><rect x="25" y="25" width="62" height="40" rx="11" fill={blue} stroke={dark} strokeWidth="3" /><rect x="31" y="30" width="50" height="15" rx="5" fill={cream} /><text x="56" y="42" textAnchor="middle" fill={dark} fontSize="15" fontWeight="900">2 × 3</text><circle cx="37" cy="56" r="5" fill={yellow} /><circle cx="56" cy="56" r="5" fill={pink} /><circle cx="75" cy="56" r="5" fill={green} /><path d="M34 72h44" stroke={dark} strokeWidth="4" strokeLinecap="round" /></g>;
     case 'orbit': return <g><ellipse cx="56" cy="46" rx="39" ry="17" fill="none" stroke={cream} strokeWidth="5" transform="rotate(-18 56 46)" /><circle cx="56" cy="46" r="17" fill={yellow} stroke={dark} strokeWidth="3" /><circle cx="50" cy="42" r="3" fill={ink} /><circle cx="62" cy="42" r="3" fill={ink} /><path d="M49 50q7 7 14 0" fill="none" stroke={ink} strokeWidth="3" strokeLinecap="round" /><circle cx="86" cy="29" r="7" fill={blue} stroke={dark} strokeWidth="2" /><path d="M84 27h4" stroke={cream} strokeWidth="2" strokeLinecap="round" /></g>;
+    case 'globe': return <g><circle cx="56" cy="46" r="26" fill={blue} stroke={dark} strokeWidth="3" /><path d="M37 34q7-5 12-2l4 7-5 6-8-2-4 9-5-5q0-8 6-13Zm24-11q10 2 15 9l-9 5-4 10-8-4 2-9-4-7Zm7 28 11-4q-1 13-11 21l-7-5 1-8Z" fill={green} stroke={dark} strokeWidth="1.5" /><path d="M31 46h50M56 20q-14 26 0 52M56 20q14 26 0 52" fill="none" stroke={cream} strokeOpacity=".7" strokeWidth="2" /><path d="M43 74h26" stroke={dark} strokeWidth="4" strokeLinecap="round" /></g>;
     case 'palette': return <g><path d="M24 49C21 29 39 20 59 22c18 1 31 12 27 26-2 8-11 7-17 9-7 3-3 11-13 11-13 0-30-7-32-19Z" fill={pink} stroke={dark} strokeWidth="3" /><circle cx="39" cy="38" r="5" fill={yellow} /><circle cx="52" cy="31" r="5" fill={blue} /><circle cx="66" cy="35" r="5" fill={green} /><circle cx="74" cy="47" r="5" fill={cream} /><circle cx="46" cy="51" r="4" fill={dark} /><path d="M28 55q16 13 31 9" stroke={cream} strokeWidth="3" fill="none" strokeLinecap="round" /></g>;
     case 'brain': return <g><path d="M45 67c-9 0-14-7-11-14-8-7-3-19 6-19 2-11 16-13 22-5 7-8 21-5 22 6 9 0 13 12 6 18 3 8-3 14-12 14Z" fill={pink} stroke={dark} strokeWidth="3" /><Line d="M56 29v36M43 38q8 3 8 11M69 38q-8 3-8 11M42 54q8-3 10 5M70 54q-8-3-10 5" stroke={cream} width="3" /><circle cx="42" cy="28" r="3" fill={yellow} /><circle cx="73" cy="26" r="3" fill={blue} /></g>;
     case 'grid': return <g><rect x="25" y="23" width="62" height="49" rx="10" fill={blue} stroke={dark} strokeWidth="3" />{[0, 1, 2].map((row) => [0, 1, 2].map((col) => <rect key={`${row}-${col}`} x={31 + col * 17} y={29 + row * 14} width="12" height="10" rx="3" fill={(row + col) % 2 ? pink : cream} stroke={dark} strokeWidth="1.5" />))}<path d="M36 34l3 3 5-6M70 48a4 4 0 1 0 0 8 4 4 0 1 0 0-8" fill="none" stroke={dark} strokeWidth="2.5" strokeLinecap="round" /></g>;
@@ -61,11 +64,20 @@ const Glyph = ({ type, accent, dark }) => {
     case 'dino': return <g><path d="M31 60c-8-13 1-30 17-30 7-8 23-5 27 5 11 0 14 15 5 22H45l-6 8Z" fill={green} stroke={dark} strokeWidth="3" /><circle cx="68" cy="39" r="4" fill={cream} stroke={dark} strokeWidth="2" /><circle cx="68" cy="39" r="1.5" fill={ink} /><path d="M71 51q7 6 13 0M32 58l-8 9" stroke={pink} strokeWidth="4" strokeLinecap="round" /><path d="M45 31l4-7 5 6 6-7 4 8" fill="none" stroke={yellow} strokeWidth="4" strokeLinecap="round" /></g>;
     case 'plane': return <g><path d="m26 51 62-28-26 62-11-25Z" fill={blue} stroke={dark} strokeWidth="3" /><path d="m51 61 11 24M37 49l22 7" stroke={yellow} strokeWidth="5" strokeLinecap="round" /><circle cx="58" cy="44" r="6" fill={cream} stroke={dark} strokeWidth="2" /><path d="M31 59 22 68" stroke={pink} strokeWidth="5" strokeLinecap="round" /></g>;
     case 'star': return <g><path d="m56 21 8 16 18 2-14 12 4 18-16-9-16 9 4-18-14-12 18-2Z" fill={yellow} stroke={dark} strokeWidth="3" /><circle cx="49" cy="45" r="3" fill={ink} /><circle cx="63" cy="45" r="3" fill={ink} /><path d="M49 53q7 6 14 0" fill="none" stroke={pink} strokeWidth="3" strokeLinecap="round" /><circle cx="39" cy="30" r="3" fill={blue} /><circle cx="74" cy="29" r="3" fill={pink} /></g>;
-    case 'spark': default: return <g><Spark x="56" y="44" fill="#fff" /><circle cx="56" cy="44" r="17" fill="none" stroke={accent} strokeWidth="4" /></g>;
+    case 'spark': default: return <g><Spark x={56} y={44} fill="#fff" /><circle cx="56" cy="44" r="17" fill="none" stroke={accent} strokeWidth="4" /></g>;
   }
 };
 
 const KidPopIcon = ({ image, label, kind = 'default', compact = false, world = false }) => {
+  const [imageReady, setImageReady] = useState(false);
+  useEffect(() => {
+    if (!image) return;
+    const asset = new Image();
+    asset.onload = () => setImageReady(true);
+    asset.onerror = () => setImageReady(false);
+    asset.src = image;
+    return () => { asset.onload = null; asset.onerror = null; };
+  }, [image]);
   const [paleTone, accent, dark] = PALETTES[kind] || PALETTES.default;
   const type = ART[kind] || ART.default;
   const gradientId = `kid-pop-${kind.replace(/[^a-z0-9]/gi, '-')}-${compact ? 'compact' : 'full'}`;
@@ -75,7 +87,7 @@ const KidPopIcon = ({ image, label, kind = 'default', compact = false, world = f
         <defs><linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#fff" /><stop offset=".45" stopColor={paleTone} /><stop offset="1" stopColor={accent} /></linearGradient><filter id={`${gradientId}-shadow`} x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="2.5" floodColor="#0f172a" floodOpacity=".22" /></filter></defs>
         <path d="M18 24C20 10 39 4 56 10 74 3 98 13 96 31c12 12 2 35-16 37-10 14-37 15-48 1C12 68 7 43 18 24Z" fill={`url(#${gradientId})`} stroke="#fff" strokeWidth="4" filter={`url(#${gradientId}-shadow)`} />
         <Spark x={18} y={17} fill="#fff" /><Spark x={94} y={20} fill="#facc15" />
-        {image ? <image href={image} x="8" y="1" width="96" height="84" preserveAspectRatio="xMidYMid meet" /> : <><circle cx="56" cy="45" r="29" fill={paleTone} fillOpacity=".62" stroke="#fff" strokeWidth="2" /><Glyph type={type} accent={accent} dark={dark} /></>}
+        {imageReady ? <image href={image} x="8" y="1" width="96" height="84" preserveAspectRatio="xMidYMid meet" /> : <><circle cx="56" cy="45" r="29" fill={paleTone} fillOpacity=".62" stroke="#fff" strokeWidth="2" /><Glyph type={type} accent={accent} dark={dark} /></>}
       </svg>
     </span>
   );
