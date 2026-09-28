@@ -25,6 +25,7 @@ export const PracticeProgress = ({
   const done = safeCompleted >= target;
   const palette = {
     amber: 'bg-amber-500 text-amber-800 border-amber-200',
+    emerald: 'bg-emerald-500 text-emerald-800 border-emerald-200',
     cyan: 'bg-cyan-500 text-cyan-800 border-cyan-200',
     fuchsia: 'bg-fuchsia-500 text-fuchsia-800 border-fuchsia-200',
     indigo: 'bg-indigo-500 text-indigo-800 border-indigo-200',
