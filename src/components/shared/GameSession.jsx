@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Home, Play, RotateCcw, SkipForward } from 'lucide-react';
+import { ArrowLeft, Home, Play, RotateCcw, SkipForward } from 'lucide-react';
 import { STICKERS } from '../../data/index.js';
 import { sessionStars, sessionTarget } from '../../data/gameSessions.js';
 import { getGameLevel, levelsForSession, saveGameLevel } from '../../data/sessionLevels.js';
@@ -95,8 +95,8 @@ const GameSession = ({
   return (
     <div className={`relative flex min-h-[100dvh] w-full flex-col items-center justify-center gap-5 p-4 text-center ${game.color}`}>
       <div className="absolute left-4 top-4">
-        <button type="button" onClick={onBack} aria-label="Back to home" className="grid h-14 w-14 place-items-center rounded-full border-4 border-white/80 bg-white text-slate-800 shadow-lg">
-          <Home size={28} />
+        <button type="button" onClick={onBack} aria-label={little ? 'Back to home' : 'Back to learning world'} className="grid h-14 w-14 place-items-center rounded-full border-4 border-white/80 bg-white text-slate-800 shadow-lg">
+          {little ? <Home size={28} /> : <ArrowLeft size={28} />}
         </button>
       </div>
       <div className="grid w-full max-w-md place-items-center gap-4 rounded-[2.4rem] border-4 border-white/70 bg-white/90 p-6 shadow-2xl">
@@ -143,7 +143,7 @@ const GameSession = ({
               {levelIndex < levels.length - 1
                 ? <RoundButton onClick={() => start(levelIndex + 1)} label="Next level" size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600"><SkipForward size={50} strokeWidth={2.8} fill="currentColor" /></RoundButton>
                 : onNextGame && <RoundButton onClick={onNextGame} label="Next game" size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600"><SkipForward size={50} strokeWidth={2.8} fill="currentColor" /></RoundButton>}
-              <RoundButton onClick={onBack} label="Home" tone="bg-gradient-to-b from-amber-300 to-orange-500"><Home size={42} strokeWidth={2.8} /></RoundButton>
+              <RoundButton onClick={onBack} label={little ? 'Home' : 'World'} tone="bg-gradient-to-b from-amber-300 to-orange-500">{little ? <Home size={42} strokeWidth={2.8} /> : <ArrowLeft size={42} strokeWidth={2.8} />}</RoundButton>
             </div>
           </>
         )}

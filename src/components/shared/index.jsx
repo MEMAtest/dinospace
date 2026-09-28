@@ -122,13 +122,13 @@ export const CelebrationOverlay = ({ celebration }) => {
   );
 };
 
-export const RewardsShelf = ({ points }) => {
+export const RewardsShelf = ({ points, earnedStickerIds = [] }) => {
   const [selectedSticker, setSelectedSticker] = useState(null);
   const details = {
     rocket: 'A speedy rocket for launching into new learning missions.',
     dino: 'A friendly dino pal for curious explorers.',
     star: 'A bright star for a growing collection of clever moments.',
-    truck: 'A turbo truck for keeping your learning moving.',
+    truck: 'A rescue truck for helping in learning missions.',
     heart: 'A kindness heart for helping, sharing and trying again.',
     planet: 'A planet badge for exploring big ideas.',
     hero: 'A hero shield for brave, independent attempts.',
@@ -146,7 +146,7 @@ export const RewardsShelf = ({ points }) => {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
         {STICKERS.map((sticker) => {
-          const unlocked = points >= sticker.points;
+          const unlocked = earnedStickerIds.includes(sticker.id) || points >= sticker.points;
           return (
             <button
               key={sticker.id}
@@ -168,7 +168,7 @@ export const RewardsShelf = ({ points }) => {
         })}
       </div>
       {selectedSticker && (() => {
-        const unlocked = points >= selectedSticker.points;
+        const unlocked = earnedStickerIds.includes(selectedSticker.id) || points >= selectedSticker.points;
         const remaining = Math.max(0, selectedSticker.points - points);
         return <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/45 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="sticker-detail-title" onClick={() => setSelectedSticker(null)}>
           <section className="relative w-full max-w-sm rounded-[2rem] border-4 border-white bg-gradient-to-br from-amber-50 via-white to-fuchsia-50 p-6 text-center shadow-2xl" onClick={(event) => event.stopPropagation()}>

@@ -15,7 +15,7 @@ export const SESSION_LEVELS = Object.freeze({
   timeteller: three(['O’clock', 'Half past', 'Quarter hours'], ['Find whole hours.', 'Find half hours.', 'Find quarter past and quarter to.']),
   math: three(['Two times', 'More tables', 'Table explorer'], ['Practice the two times table.', 'Try more times tables.', 'Mix the harder table facts.']),
   oddoneout: three(['Spot the difference', 'Look for the rule', 'Tricky groups'], ['Find the obvious odd one.', 'Compare a new set of objects.', 'Work out the trickier rule.']),
-  letters: three(['First letters', 'More letter choices', 'Letter expert'], ['Choose from two letters.', 'Choose from three letters.', 'Choose from four letters.']),
+  letters: three(['Listen and launch', 'First sound detective', 'Big and little letters'], ['Hear a letter and choose from two.', 'Hear a word and find its first letter from three.', 'Match a lowercase letter to its capital among four.']),
   phonics: three(['Listen for sounds', 'Sound families', 'Blend the sounds'], ['Match simple sounds.', 'Explore more sound matches.', 'Listen for blended sounds.']),
   german: three(['First German words', 'More choices', 'German explorer'], ['Choose from three pictures.', 'Choose from four pictures.', 'Choose from six pictures.']),
   colormix: three(['First colour mixes', 'More colours', 'Colour challenge'], ['Mix familiar colours.', 'Explore more colour pairs.', 'Solve the trickier mixes.']),

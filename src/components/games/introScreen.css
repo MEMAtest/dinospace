@@ -1,0 +1,23 @@
+.discovery-intro{isolation:isolate;background:radial-gradient(circle at 15% 24%,#185cbb 0,transparent 28%),radial-gradient(circle at 83% 18%,#564fbc 0,transparent 34%),linear-gradient(145deg,#06174d,#082467 55%,#080a39)}
+.discovery-intro-planet{position:absolute;z-index:0;border-radius:50%;pointer-events:none}
+.discovery-intro-planet--earth{top:12%;left:-9%;width:clamp(170px,27vw,370px);aspect-ratio:1;background:radial-gradient(circle at 29% 25%,#9aeaff,#1a9bdb 38%,#163f9c 70%,#081945);box-shadow:0 0 50px #32bbfa99,inset -22px -20px 32px #07165a}
+.discovery-intro-planet--earth:after{content:"";position:absolute;inset:17%;border-radius:50%;background:radial-gradient(ellipse at 30% 45%,#63d984 0 23%,transparent 25%),radial-gradient(ellipse at 74% 58%,#a2df7a 0 17%,transparent 19%);transform:rotate(-27deg)}
+.discovery-intro-planet--saturn{right:-7%;top:15%;width:clamp(150px,23vw,290px);aspect-ratio:1;background:radial-gradient(circle at 25% 23%,#ffedb2,#daa268 46%,#956ba1 78%);box-shadow:0 0 55px #a6aaff99,inset -20px -17px 30px #61406f}
+.discovery-intro-planet--saturn:after{content:"";position:absolute;inset:25% -28%;border:clamp(11px,2vw,26px) solid #d9c0ae;border-radius:50%;transform:rotate(-23deg);box-shadow:0 0 0 5px #836babaa}
+.discovery-intro-logo{display:grid;justify-items:center;line-height:.9;filter:drop-shadow(0 6px 0 #07104d)}
+.discovery-intro-logo span{font-size:clamp(3rem,6.4vw,6.2rem);font-weight:1000;letter-spacing:-.065em;color:#83eaff;-webkit-text-stroke:2px #d8ffff;text-shadow:0 4px 0 #1766dd,0 9px 18px #000a43}
+.discovery-intro-logo strong{font-size:clamp(1.7rem,3.7vw,3.4rem);font-weight:1000;letter-spacing:-.05em;color:#fff;-webkit-text-stroke:1px #d2edff;text-shadow:0 4px 0 #1c43b9}
+.discovery-intro-question{border:2px solid #b1ecff;background:#fff;color:#0b3c91;box-shadow:0 5px 0 #1571d2,0 11px 20px #00083b55}
+.discovery-intro-card{min-height:clamp(300px,39vw,465px);justify-content:flex-end;box-shadow:0 10px 0 #061b67,0 22px 40px #00083b88}
+.discovery-intro-card--amari{background:radial-gradient(circle at 68% 25%,#8be8ff 0,transparent 45%),linear-gradient(150deg,#0783ea,#0753a7 70%,#081f79)}
+.discovery-intro-card--askia{background:radial-gradient(circle at 60% 19%,#fff4a1 0,transparent 45%),linear-gradient(150deg,#ffdc53,#f9a328 65%,#d76a19)}
+.discovery-intro-age{position:absolute;left:15px;top:15px;z-index:2;border:2px solid #ffffffaa;border-radius:999px;background:#0e51b3cc;padding:5px 12px;font-size:.85rem;font-weight:900;box-shadow:0 4px 10px #0005}
+.discovery-intro-card--askia .discovery-intro-age{background:#e27312dd}
+.discovery-intro-art{display:grid;place-items:center;width:100%;height:70%;filter:drop-shadow(0 15px 17px #12275977)}
+.discovery-intro-character{height:100%;width:auto;max-width:100%;object-fit:contain}
+.discovery-intro-card-label{z-index:1;display:grid;width:100%;justify-items:center;border:2px solid #ffffffaa;border-radius:24px;background:linear-gradient(#299ff1ed,#0754bdf2);padding:8px 10px 12px;box-shadow:0 6px 15px #06256366}
+.discovery-intro-card--askia .discovery-intro-card-label{background:linear-gradient(#ffc827f2,#e87a10f2)}
+.discovery-intro-card-label strong{font-size:clamp(2rem,3.5vw,3rem);font-weight:1000;line-height:1;text-shadow:0 3px 0 #073d96}
+.discovery-intro-card-label span{margin-top:5px;font-size:clamp(.85rem,1.4vw,1rem);font-weight:800}
+@media(max-width:640px){.discovery-intro-logo span{font-size:3rem}.discovery-intro-logo strong{font-size:1.75rem}.discovery-intro-card{min-height:285px;max-height:330px}.discovery-intro-art{height:70%}.discovery-intro-card-label{padding:5px 8px 8px}.discovery-intro-card-label strong{font-size:2rem}.discovery-intro-card-label span{font-size:.84rem}.discovery-intro-planet--earth{left:-28%}.discovery-intro-planet--saturn{right:-18%}}
+@media(prefers-reduced-motion:reduce){.discovery-intro-card,.discovery-intro-art{transition:none}}

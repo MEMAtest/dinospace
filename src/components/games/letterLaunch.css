@@ -1,0 +1,6 @@
+.letter-launch:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 72% 14%,#bad4ff 1px,transparent 3px),radial-gradient(circle at 24% 37%,#fff 1px,transparent 3px),radial-gradient(circle at 46% 10%,#fff 2px,transparent 4px);background-size:110px 95px,148px 125px,210px 160px;opacity:.75}
+.letter-launch-panel{box-shadow:0 9px 0 #1a80c7,0 20px 34px #09165a77}
+.letter-launch-clue{display:grid;place-items:center;min-height:112px;margin:.35rem auto .6rem;font-size:clamp(4.5rem,13vw,7rem);font-weight:1000;line-height:1;color:#0569bf;filter:drop-shadow(0 6px 3px #7dd3fc99)}
+.letter-launch-choice{box-shadow:0 7px 0 #2596d1,0 14px 22px #07165055}
+.letter-launch-choice:active{transform:translateY(5px);box-shadow:0 2px 0 #2596d1}
+@media(prefers-reduced-motion:reduce){.letter-launch-choice{transition:none}}

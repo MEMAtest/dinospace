@@ -33,7 +33,7 @@ export const MiniIcon = ({ icon, className = 'h-14 w-14 bg-sky-50' }) => (
   </span>
 );
 
-export const LeaveGameDialog = ({ onStay, onLeave }) => (
+export const LeaveGameDialog = ({ onStay, onLeave, destination = 'Home' }) => (
   <div className="fixed inset-0 z-[60] grid place-items-center bg-slate-950/55 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="leave-title">
     <section className="w-full max-w-sm rounded-[2rem] border-4 border-white bg-gradient-to-b from-sky-50 to-white p-6 text-center shadow-2xl animate-scale-in">
       <h2 id="leave-title" className="text-3xl font-black text-slate-800">Leave the game?</h2>
@@ -45,10 +45,10 @@ export const LeaveGameDialog = ({ onStay, onLeave }) => (
           <span className="text-sm font-black text-slate-600">Keep playing</span>
         </div>
         <div className="flex flex-col items-center gap-1">
-          <button type="button" onClick={onLeave} aria-label="Go home" className="grid h-20 w-20 place-items-center rounded-full border-4 border-white bg-gradient-to-b from-amber-300 to-orange-500 text-white shadow-[0_6px_0_#9a3412] active:translate-y-1 active:shadow-none">
-            <Home size={38} strokeWidth={2.8} />
+          <button type="button" onClick={onLeave} aria-label={`Back to ${destination.toLowerCase()}`} className="grid h-20 w-20 place-items-center rounded-full border-4 border-white bg-gradient-to-b from-amber-300 to-orange-500 text-white shadow-[0_6px_0_#9a3412] active:translate-y-1 active:shadow-none">
+            {destination === 'Home' ? <Home size={38} strokeWidth={2.8} /> : <ArrowLeft size={38} strokeWidth={2.8} />}
           </button>
-          <span className="text-sm font-black text-slate-600">Home</span>
+          <span className="text-sm font-black text-slate-600">{destination}</span>
         </div>
       </div>
     </section>

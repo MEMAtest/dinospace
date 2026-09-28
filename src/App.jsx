@@ -1,7 +1,7 @@
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
-import { ACHIEVEMENTS } from './data/index.js';
+import { ACHIEVEMENTS, STICKERS } from './data/index.js';
 import { createBursts, createConfetti, getPraise, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
 import { useSfx, useVoice, useInstallPrompt } from './hooks.js';
 import { useHashRouter } from './hooks/useHashRouter.js';
@@ -57,6 +57,11 @@ const PlayerSession = ({
   const [favouriteGames, setFavouriteGames] = useState(() => loadPlayerValue(player.id, 'favourite_games', []));
   const [recentGames, setRecentGames] = useState(() => loadPlayerValue(player.id, 'recent_games', []));
   const [points, setPoints] = useState(() => Math.max(0, loadPlayerValue(player.id, 'points', 0)));
+  const [earnedStickerIds, setEarnedStickerIds] = useState(() => {
+    const savedPoints = Math.max(0, loadPlayerValue(player.id, 'points', 0));
+    const saved = loadPlayerValue(player.id, 'earned_sticker_ids_v1', []);
+    return [...new Set([...saved, ...STICKERS.filter((sticker) => savedPoints >= sticker.points).map((sticker) => sticker.id)])];
+  });
   const [celebration, setCelebration] = useState(null);
   const [streak, setStreak] = useState(() => Math.max(0, loadPlayerValue(player.id, 'streak', 0)));
   const [lastPlayDate, setLastPlayDate] = useState(() => loadPlayerValue(player.id, 'lastplay', ''));
@@ -84,6 +89,7 @@ const PlayerSession = ({
 
   const save = useCallback((key, value) => saveSafe(playerStorageKey(player.id, key), value), [player.id]);
   useEffect(() => { pointsRef.current = points; save('points', points); }, [points, save]);
+  useEffect(() => { save('earned_sticker_ids_v1', earnedStickerIds); }, [earnedStickerIds, save]);
   useEffect(() => { save('streak', streak); }, [save, streak]);
   useEffect(() => { save('lastplay', lastPlayDate); }, [lastPlayDate, save]);
   useEffect(() => { challengeProgressRef.current = challengeProgress; save('challenge_progress', challengeProgress); }, [challengeProgress, save]);
@@ -130,8 +136,8 @@ const PlayerSession = ({
 
   const leaveGame = useCallback(() => {
     setLeaveDialog(false);
-    back({ force: true });
-  }, [back]);
+    back({ force: true, toParent: !little });
+  }, [back, little]);
 
   const unlockedAchievements = useMemo(
     () => ACHIEVEMENTS.filter((a) => a.check(gamesPlayed, points, streak)).map((a) => a.id),
@@ -174,6 +180,7 @@ const PlayerSession = ({
       const total = pointsRef.current + pointsEarned;
       pointsRef.current = total;
       setPoints(total);
+      setEarnedStickerIds((current) => [...new Set([...current, ...STICKERS.filter((sticker) => total >= sticker.points).map((sticker) => sticker.id)])]);
       if (gameIdAtCall) setGamesPlayed((prev) => ({ ...prev, [gameIdAtCall]: (prev[gameIdAtCall] || 0) + 1 }));
       if (quiet) return;
       setCelebration({
@@ -221,7 +228,7 @@ const PlayerSession = ({
     // Memory and picture puzzles already own their multi-board progression.
     const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
-      onBack: () => back(),
+      onBack: () => back({ toParent: !little }),
       playSfx,
       speak,
       // The older games award 4–14 stars per answer, which emptied the
@@ -251,7 +258,7 @@ const PlayerSession = ({
               points={points}
               onGameEvent={recordGameEvent}
               onCelebrate={celebrate}
-              onBack={() => back()}
+              onBack={() => back({ toParent: !little })}
               onNextGame={onNextGame}
               onPhaseChange={handlePhaseChange}
               playSfx={playSfx}
@@ -280,12 +287,12 @@ const PlayerSession = ({
       />
     );
   } else if (route.name === 'stickers' && little) {
-    content = <LittleStickerAlbum points={points} onBack={() => back()} playSfx={playSfx} />;
+    content = <LittleStickerAlbum points={points} earnedStickerIds={earnedStickerIds} onBack={() => back()} playSfx={playSfx} />;
   } else if (route.name === 'stickers') {
     content = (
       <div className={`flex min-h-[100dvh] w-full flex-col items-center gap-2 bg-gradient-to-b p-3 sm:p-6 ${little ? 'from-amber-200 to-sky-200' : 'from-amber-100 via-white to-sky-100'}`}>
         <PageHeader title={`${player.name}’s stickers`} subtitle={`⭐ ${points} stars`} onBack={() => back()} backLabel="Back to home" {...soundProps} />
-        <RewardsShelf points={points} />
+        <RewardsShelf points={points} earnedStickerIds={earnedStickerIds} />
       </div>
     );
   } else if (route.name === 'grownups') {
@@ -359,7 +366,7 @@ const PlayerSession = ({
         />
       )}
       <CelebrationOverlay celebration={celebration} />
-      {leaveDialog && <LeaveGameDialog onStay={() => setLeaveDialog(false)} onLeave={leaveGame} />}
+      {leaveDialog && <LeaveGameDialog onStay={() => setLeaveDialog(false)} onLeave={leaveGame} destination={little ? 'Home' : 'World'} />}
       <BreakWatcher onBreak={onBreakRequested} />
     </>
   );

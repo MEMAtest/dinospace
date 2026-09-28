@@ -1,0 +1,214 @@
+.discovery-world-card {
+  isolation: isolate;
+  box-shadow: 0 4px 0 rgba(20, 37, 78, .16), 0 15px 30px rgba(35, 68, 120, .15);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+.discovery-world-card::before {
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: inherit;
+  content: '';
+  pointer-events: none;
+}
+
+.discovery-world-card:hover {
+  box-shadow: 0 7px 0 rgba(20, 37, 78, .12), 0 22px 36px rgba(35, 68, 120, .2);
+  filter: saturate(1.06);
+}
+
+.discovery-world-card__art {
+  filter: drop-shadow(0 10px 9px rgba(23, 37, 84, .24));
+  transform-origin: center;
+  animation: discovery-world-drift 6s ease-in-out infinite;
+}
+
+.discovery-world-card:nth-child(2n) .discovery-world-card__art { animation-delay: -1.4s; }
+.discovery-world-card:nth-child(3n) .discovery-world-card__art { animation-delay: -2.8s; }
+
+.discovery-art-stage {
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 78%, rgba(255,255,255,.5), rgba(255,255,255,.02) 63%),
+    linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,0));
+}
+
+.discovery-art-stage::after {
+  position: absolute;
+  inset: 8% 10%;
+  z-index: -1;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 45% 55% 40% 60%;
+  content: '';
+  transform: rotate(-7deg);
+}
+
+.discovery-world-icon {
+  display: block;
+  width: 100%;
+  max-width: 13rem;
+  margin-inline: auto;
+}
+
+.discovery-world-icon svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 8px 6px rgba(18, 35, 75, .22));
+}
+
+.discovery-world-icon--compact {
+  width: 3.5rem;
+  height: 2.6rem;
+}
+
+.discovery-world-page-card {
+  border-radius: 1.8rem;
+  filter: drop-shadow(0 10px 16px rgba(21, 43, 86, .1));
+}
+
+@media (max-width: 380px) {
+  .discovery-world-page > header h1 { font-size: 1.1rem; }
+  .discovery-world-page > header p { font-size: .68rem; }
+}
+
+.askia-home:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 3% 15%,#fff9,transparent 18%),radial-gradient(circle at 94% 10%,#fff8,transparent 16%),radial-gradient(circle at 13% 78%,#83c47788,transparent 24%)}
+.askia-hero{background:radial-gradient(circle at 75% 15%,#fffecb,transparent 47%),linear-gradient(120deg,#b1e0a1,#f9f4c3 75%)}
+.askia-hero__character{filter:drop-shadow(0 9px 8px #2c774788)}
+.askia-world{box-shadow:0 7px 0 #37624744,0 17px 25px #36445144}
+.askia-world--green{background:linear-gradient(#70c43c,#248b36)}
+.askia-world--blue{background:linear-gradient(#429bea,#2437a8)}
+.askia-world--red{background:linear-gradient(#ff8672,#d72529)}
+.askia-world--purple{background:linear-gradient(#d880ed,#8d29ba)}
+.askia-world__scene:after{content:"";position:absolute;inset:0;border-bottom:4px solid #ffffffb5;pointer-events:none}
+.askia-world__art{animation:discovery-world-drift 5s ease-in-out infinite}
+.askia-world__game{color:#19375d}
+.askia-world__game:hover{background:#fff}
+.askia-today--fuelup{background:linear-gradient(125deg,#49d99f,#0dab75)}
+.askia-today--dino{background:linear-gradient(125deg,#99d951,#32ae63)}
+.askia-today--memory{background:linear-gradient(125deg,#ff8abc,#d93d9d)}
+.askia-nav-item{display:grid;min-width:0;min-height:3.25rem;flex:1;place-items:center;align-content:center;gap:1px;border-radius:1rem;font-size:.7rem;font-weight:900}
+.askia-nav-item[aria-current="page"]{background:#fff1d5}
+.askia-nav-item span[aria-hidden="true"]{font-size:1.35rem;line-height:1}
+@media(min-width:640px){.askia-nav-item{display:flex;justify-content:center;gap:.45rem;font-size:.9rem}}
+@media(prefers-reduced-motion:reduce){.askia-world__art{animation:none}}
+
+.discovery-little-tile {
+  box-shadow: 0 5px 0 rgba(33, 45, 69, .12), 0 14px 24px rgba(43, 60, 91, .13);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.discovery-little-tile:active {
+  box-shadow: 0 1px 0 rgba(33, 45, 69, .12), 0 4px 8px rgba(43, 60, 91, .12);
+}
+
+.discovery-little-art {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  max-width: min(94%, 11rem);
+  max-height: clamp(6rem, 36vw, 10.5rem);
+  object-fit: contain;
+  filter: drop-shadow(0 11px 8px rgba(35, 47, 71, .2));
+  transition: transform 220ms ease;
+}
+
+.discovery-little-stage {
+  isolation: isolate;
+  background: radial-gradient(ellipse at 50% 79%, rgba(255,255,255,.42), transparent 67%);
+}
+
+.discovery-little-stage::after {
+  position: absolute;
+  right: 15%;
+  bottom: 5%;
+  left: 15%;
+  z-index: -1;
+  height: 12%;
+  border-radius: 50%;
+  background: rgba(30, 41, 59, .17);
+  content: '';
+  filter: blur(8px);
+}
+
+.discovery-memory-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  border-radius: 1.2rem;
+  background-image: linear-gradient(rgba(255,255,255,.36), rgba(255,255,255,.52)), var(--memory-scene);
+  background-position: center;
+  background-size: cover;
+  opacity: .8;
+}
+
+.discovery-shadow-dino {
+  position: absolute;
+  left: 2%;
+  bottom: 9%;
+  max-width: 58%;
+  max-height: 78%;
+  opacity: .65;
+  filter: brightness(.48) saturate(.7) drop-shadow(0 6px 5px rgba(24, 29, 53, .24));
+  transform: rotate(-8deg) scale(.88);
+}
+
+.discovery-front-dino { margin-left: 20%; transform: rotate(5deg); }
+.discovery-tile-prop { position: absolute; width: 34%; max-height: 48%; object-fit: contain; }
+.discovery-tile-prop--fuelup { right: 1%; bottom: 6%; }
+.discovery-tile-prop--firerescue { left: 2%; bottom: 5%; width: 28%; }
+.discovery-little-art--ladder { width: 100%; max-width: 100%; height: 100%; max-height: 100%; border-radius: 1rem; object-fit: cover; }
+.discovery-count-token {
+  position: absolute;
+  right: 2%;
+  top: 9%;
+  z-index: 2;
+  border: 2px solid rgba(255,255,255,.9);
+  border-radius: 999px;
+  background: linear-gradient(145deg, #ffdf65, #ff9b38);
+  padding: .25rem .5rem;
+  color: #7c351b;
+  font-size: .76rem;
+  font-weight: 1000;
+  box-shadow: 0 3px 0 rgba(128, 56, 29, .2), 0 6px 10px rgba(31, 41, 55, .18);
+}
+
+.discovery-pattern-dots { position: absolute; top: 9%; right: 4%; display: flex; gap: 3px; }
+.discovery-pattern-dots i { width: .55rem; height: .55rem; border: 1px solid white; border-radius: 50%; background: #facc15; box-shadow: 0 2px 4px #33415555; }
+.discovery-pattern-dots i:nth-child(2) { background: #38bdf8; transform: translateY(5px); }
+.discovery-pattern-dots i:nth-child(3) { background: #fb7185; }
+.discovery-puzzle-spark { position: absolute; top: 8%; right: 8%; z-index: 2; color: #fff6a7; font-size: 1.75rem; text-shadow: 0 2px 5px #883a37; }
+
+.group:hover .discovery-little-art { transform: translateY(-4px) scale(1.035); }
+
+@keyframes discovery-world-drift {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-4px) rotate(1deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discovery-world-card, .discovery-world-card__art, .discovery-little-tile,
+  .discovery-little-art { animation: none !important; transition: none !important; }
+}
+
+@media (max-width: 380px) {
+  .discovery-little-header { gap: .35rem; }
+  .discovery-little-header .discovery-header-control { width: 2.75rem; height: 2.75rem; }
+  .discovery-little-header .discovery-player-buddy { width: 2.75rem; height: 2.75rem; }
+  .discovery-little-header .discovery-stars { padding-inline: .65rem; font-size: 1.15rem; }
+  .discovery-little-tile { border-radius: 1.35rem; }
+  .discovery-world-icon { max-width: 11rem; }
+  .discovery-world-card__art { animation-duration: 7s; }
+  .discovery-little-title {
+    display: -webkit-box;
+    min-height: 2.25rem;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
+  }
+}

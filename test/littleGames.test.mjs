@@ -74,7 +74,7 @@ test('hash routes round-trip and back always has somewhere to go', () => {
   });
   assert.deepEqual(parseRoute(''), { name: 'welcome' });
   assert.deepEqual(parseRoute('#/nonsense'), { name: 'home' });
-  assert.deepEqual(parentRoute({ name: 'game', id: 'math' }), { name: 'home' });
+  assert.deepEqual(parentRoute({ name: 'game', id: 'math' }), { name: 'world', id: 'maths' });
   assert.deepEqual(parentRoute({ name: 'home' }), { name: 'welcome' });
   assert.equal(parentRoute({ name: 'welcome' }), null);
 });

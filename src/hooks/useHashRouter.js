@@ -47,11 +47,13 @@ export const useHashRouter = () => {
     setRoute(parsed);
   }, []);
 
-  const back = useCallback(({ force = false } = {}) => {
+  const back = useCallback(({ force = false, toParent = false } = {}) => {
     const from = routeRef.current;
     const parent = parentRoute(from);
     if (!force && guardRef.current?.(from, parent)) return;
-    if (currentDepth() > 0) {
+    if (toParent && parent) {
+      navigate(parent, { replace: true });
+    } else if (currentDepth() > 0) {
       bypassGuardRef.current = true;
       window.history.back();
     } else if (parent) {

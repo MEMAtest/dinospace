@@ -1,7 +1,7 @@
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { Home, Pause, Play, Rotate3D, RotateCcw, Sparkles, Volume2, ZoomIn, ZoomOut } from 'lucide-react';
+import { ArrowLeft, Pause, Play, Rotate3D, RotateCcw, Sparkles, Volume2, ZoomIn, ZoomOut } from 'lucide-react';
 import { PLANETS } from '../../data/index.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { SoundToggle } from '../shared/index.jsx';
@@ -521,6 +521,12 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
 
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
   const difficulty = useGameDifficulty('solar');
+  const planetThumbnails = useMemo(() => Object.fromEntries(PLANETS.map((planet) => {
+    const texture = makePlanetTexture(planet.name);
+    const url = texture?.image?.toDataURL() || '';
+    texture?.dispose();
+    return [planet.name, url];
+  })), []);
   const orreryRef = useRef(null);
   const [selectedPlanet, setSelectedPlanet] = useState(PLANETS[2]);
   const [activeFact, setActiveFact] = useState(0);
@@ -529,6 +535,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [quizFeedback, setQuizFeedback] = useState('');
   const [completedQuizzes, setCompletedQuizzes] = useState({});
   const [paused, setPaused] = useState(false);
+  const [showViewControls, setShowViewControls] = useState(false);
 
   const selectPlanet = useCallback((planetName, focus = true) => {
     const planet = PLANETS.find((item) => item.name === planetName);
@@ -591,32 +598,40 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   return (
     <div className="min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden">
       <header className="relative z-30 flex items-center justify-between gap-2 border-b border-white/10 bg-slate-950/80 px-3 py-3 backdrop-blur-xl sm:px-4">
-        <button onClick={onBack} className="game-icon-button !h-10 !w-10 shrink-0 !bg-white/10 !text-white sm:!h-12 sm:!w-12" aria-label="Back to home"><Home /></button>
+        <button onClick={onBack} className="game-icon-button !h-10 !w-10 shrink-0 !bg-white/10 !text-white sm:!h-12 sm:!w-12" aria-label="Back to Explore and Languages"><ArrowLeft /></button>
         <div className="text-center">
           <p className="text-[9px] font-black uppercase tracking-[0.18em] text-cyan-300 sm:text-xs sm:tracking-[0.25em]">Interactive 3D mission</p>
           <h2 className="whitespace-nowrap text-base font-black text-white sm:text-3xl">Solar System Explorer</h2>
         </div>
         <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-          <button
-            onClick={() => setPaused((current) => !current)}
-            className="game-icon-button !h-10 !w-10 !bg-white/10 !text-white sm:!h-12 sm:!w-12"
-            aria-label={paused ? 'Resume planet orbits' : 'Pause planet orbits'}
-          >
-            {paused ? <Play size={19} /> : <Pause size={19} />}
-          </button>
           <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!h-10 !w-10 !bg-white/10 !text-white sm:!h-12 sm:!w-12" />
         </div>
       </header>
 
-      <main className="grid md:h-[calc(100vh-77px)] md:grid-cols-[minmax(0,1.62fr)_minmax(320px,0.78fr)]">
+      <nav className="flex snap-x gap-2 overflow-x-auto border-b border-cyan-200/15 bg-[#061642] px-3 py-3 no-scrollbar" aria-label="Choose a planet">
+        {PLANETS.map((planet) => (
+          <button key={planet.name} type="button" aria-current={selectedPlanet.name === planet.name ? 'true' : undefined}
+            onClick={() => selectPlanet(planet.name)}
+            className={`flex min-w-[94px] flex-none snap-start flex-col items-center gap-1 rounded-2xl border-2 px-3 py-2 text-sm font-black transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200 ${selectedPlanet.name === planet.name ? 'border-cyan-300 bg-cyan-300/20 text-white shadow-[0_0_15px_#30d5ff80]' : 'border-white/15 bg-white/5 text-cyan-100 hover:bg-white/15'}`}>
+            <span className="relative block h-11 w-11 rounded-full border border-white/35 shadow-[inset_-9px_-7px_12px_#00103299,0_4px_9px_#0008]" style={{ backgroundImage: `radial-gradient(circle at 29% 24%,#ffffffaa,transparent 34%),url(${planetThumbnails[planet.name]})`, backgroundSize: '100% 100%' }} aria-hidden="true">
+              {planet.ring && <span className="absolute left-[-12px] top-[15px] h-4 w-[68px] -rotate-[18deg] rounded-full border-[3px] border-amber-100/75" />}
+            </span>
+            {planet.name}{badges.includes(planet.name) ? ' ★' : ''}
+          </button>
+        ))}
+      </nav>
+
+      <main className="grid md:h-[calc(100vh-197px)] md:grid-cols-[minmax(0,1.62fr)_minmax(320px,0.78fr)]">
         <section className="relative overflow-hidden border-b border-cyan-100/10 bg-[#020617] md:border-b-0 md:border-r">
           <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
-          <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-cyan-100/20 bg-slate-950/70 px-4 py-3 text-sm text-white/75 shadow-xl backdrop-blur">
-            <div className="flex items-center gap-2 font-black text-white"><Rotate3D size={18} className="text-cyan-300" /> Pilot the orrery</div>
-            <div>Drag to orbit · tap a world to investigate</div>
+          <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-cyan-100/20 bg-slate-950/70 px-3 py-2 text-xs font-bold text-white/85 shadow-xl backdrop-blur sm:text-sm">
+            Drag to turn · tap a planet
           </div>
           <div className="pointer-events-none absolute bottom-[4.65rem] left-4 hidden items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/40 sm:flex"><span className="h-2 w-2 rounded-full bg-cyan-300" /> Selected world is ringed in cyan</div>
-          <div className="absolute right-3 top-3 z-10 flex flex-col gap-2" role="group" aria-label="Camera zoom controls">
+          <div className="absolute right-3 top-3 z-10 flex flex-col items-end gap-2" role="group" aria-label="Solar System view controls">
+            <button type="button" onClick={() => setShowViewControls((current) => !current)} aria-expanded={showViewControls} className="rounded-full border border-cyan-200/35 bg-slate-950/85 px-3 py-2 text-xs font-black text-cyan-100 shadow-lg backdrop-blur"><Rotate3D size={16} className="mr-1 inline" /> View controls</button>
+            {showViewControls && <>
+            <button type="button" onClick={() => setPaused((current) => !current)} className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100" aria-label={paused ? 'Resume planet orbits' : 'Pause planet orbits'}>{paused ? <Play size={19} /> : <Pause size={19} />}</button>
             <button
               type="button"
               onClick={() => handleZoom('zoomIn')}
@@ -644,23 +659,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             >
               <RotateCcw size={22} strokeWidth={2.8} />
             </button>
-          </div>
-          <div className="absolute bottom-3 left-3 right-3 flex snap-x gap-2 overflow-x-auto rounded-2xl border border-white/10 bg-slate-950/85 p-2 pr-6 backdrop-blur-xl no-scrollbar" role="tablist" aria-label="Choose a planet">
-            {PLANETS.map((planet) => (
-              <button
-                key={planet.name}
-                role="tab"
-                aria-selected={selectedPlanet.name === planet.name}
-                onClick={() => selectPlanet(planet.name, false)}
-                className={`flex-none snap-start whitespace-nowrap rounded-xl px-3 py-2 text-xs font-black transition ${
-                  selectedPlanet.name === planet.name
-                    ? 'bg-cyan-300 text-slate-950'
-                    : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                {badges.includes(planet.name) ? '★ ' : ''}{planet.name}
-              </button>
-            ))}
+            </>}
           </div>
         </section>
 

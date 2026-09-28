@@ -1,9 +1,11 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { Home } from 'lucide-react';
+import { ArrowLeft, Volume2 } from 'lucide-react';
 import { buildLetterRound, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import rocketArt from '../../assets/little/fuel-rocket.webp';
+import './letterLaunch.css';
 
 const buildTaughtLetterRound = () => {
   const taught = getTaughtGraphemes();
@@ -12,7 +14,7 @@ const buildTaughtLetterRound = () => {
   return candidate;
 };
 
-const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, sessionLevel = 0 }) => {
   const difficulty = useGameDifficulty('letters');
   const [round, setRound] = useState(buildTaughtLetterRound);
   const [launching, setLaunching] = useState(false);
@@ -23,7 +25,11 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const answeredRef = useRef(false);
   const nextRoundTimerRef = useRef(null);
 
-  const promptText = `${round.target.letter}. ${round.target.letter} is for ${round.target.word}.`;
+  const promptText = sessionLevel === 0
+    ? `Find the letter ${round.target.letter}. ${round.target.letter} is for ${round.target.word}.`
+    : sessionLevel === 1
+      ? `Which letter starts the word ${round.target.word}? Listen: ${round.target.word}.`
+      : `Find the capital letter that matches little ${round.target.letter.toLowerCase()}.`;
   const optionCount = difficulty === 'starter' ? 2 : difficulty === 'growing' ? 3 : 4;
   // Keep the target plus distractors, but in the round's shuffled order so the
   // right answer is not always in the first slot.
@@ -33,7 +39,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     : [round.target, ...round.options.filter((option) => chosenLetters.has(option.letter) && option.letter !== round.target.letter)];
 
   const sayPrompt = useCallback(() => {
-    speak(`Find the letter ${promptText}`);
+    speak(promptText);
   }, [promptText, speak]);
 
   useEffect(() => {
@@ -75,7 +81,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-sky-200 via-sky-100 to-indigo-100 relative overflow-hidden">
+    <div className="letter-launch min-h-screen flex flex-col bg-gradient-to-b from-[#060e46] via-[#153e9c] to-[#8ddcff] relative overflow-hidden text-white">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 left-10 w-44 h-24 bg-white/70 rounded-full blur-2xl animate-drift-left" />
         <div className="absolute top-24 right-6 w-52 h-28 bg-white/70 rounded-full blur-2xl animate-drift-right" />
@@ -86,27 +92,27 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
         <button
           onClick={onBack}
           className="game-icon-button"
-          aria-label="Back to home"
+          aria-label="Back to learning world"
         >
-          <Home />
+          <ArrowLeft />
         </button>
         <div className="text-center">
-          <h2 className="text-3xl font-black text-sky-700">Letter Launch</h2>
-          <p className="text-sky-700/70 font-semibold">Stars: {stars}</p>
+          <h2 className="text-2xl font-black text-white sm:text-3xl">Letter Launch</h2>
+          <p className="font-semibold text-cyan-100">⭐ {stars} · Level {sessionLevel + 1}</p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
 
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
-        <PracticeProgress skill="Match a letter to its sound" completed={skillRun} accent="sky" />
-        <div className="mb-5 w-full max-w-2xl rounded-[2.5rem] border-4 border-sky-200 bg-white/90 p-7 text-center shadow-xl">
-          <p className="text-slate-500 mb-2 font-bold uppercase tracking-wider">Launch Mission</p>
-          <div className="text-7xl font-black text-sky-700 mb-2">{round.target.letter}</div>
-          <div className="text-2xl font-bold text-slate-700">
-            {round.target.word} {round.target.emoji}
+        <PracticeProgress skill={['Hear the letter', 'Find the first sound', 'Match big and little letters'][sessionLevel] || 'Letter mission'} completed={skillRun} accent="sky" />
+        <div className="letter-launch-panel mb-5 w-full max-w-2xl rounded-[2.5rem] border-4 border-cyan-200 bg-white/95 p-5 text-center text-slate-900 shadow-xl sm:p-7">
+          <p className="mb-2 font-black uppercase tracking-wider text-blue-600">{['Listen and choose', 'What sound starts this?', 'Match the big letter'][sessionLevel] || 'Launch mission'}</p>
+          <div className="letter-launch-clue" aria-label={sessionLevel === 2 ? `Little letter ${round.target.letter.toLowerCase()}` : round.target.word}>
+            {sessionLevel === 2 ? round.target.letter.toLowerCase() : round.target.emoji}
           </div>
-          <button onClick={sayPrompt} className="mt-4 text-sky-600 font-semibold">
-            🔊 Hear the letter
+          <p className="mb-1 text-lg font-bold text-slate-700">{sessionLevel === 0 ? 'Listen for the letter' : sessionLevel === 1 ? 'Listen to the word, then choose its first letter' : 'Choose its capital letter'}</p>
+          <button onClick={sayPrompt} className="mt-2 inline-flex min-h-12 items-center gap-2 rounded-full bg-blue-600 px-5 font-black text-white shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300">
+            <Volume2 size={22} /> Hear the clue again
           </button>
         </div>
 
@@ -115,7 +121,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
             <button
               key={option.letter}
               onClick={() => handlePick(option)}
-              className="rounded-3xl border-4 border-sky-200 bg-white py-7 text-4xl font-black text-slate-800 shadow-lg transition hover:-translate-y-1"
+              className="letter-launch-choice rounded-3xl border-4 border-cyan-200 bg-white py-6 text-4xl font-black text-blue-800 shadow-lg transition hover:-translate-y-1 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300"
             >
               {option.letter}
             </button>
@@ -126,14 +132,14 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
         <div className="relative mt-4 h-32 w-full max-w-2xl">
           <div className="absolute bottom-0 w-full h-10 bg-sky-300/70 rounded-full" />
-          <div
-            className="absolute bottom-6 left-6 text-6xl transition-transform duration-1000"
+          <img
+            src={rocketArt}
+            alt=""
+            className="absolute bottom-6 left-6 h-24 w-24 object-contain transition-transform duration-1000"
             style={{
               transform: launching ? 'translate(220px, -120px) rotate(-10deg)' : 'translate(0, 0)',
             }}
-          >
-            🚀
-          </div>
+          />
           <div
             className={`absolute bottom-24 right-12 text-3xl transition-opacity duration-500 ${
               launching ? 'opacity-100' : 'opacity-0'

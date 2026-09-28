@@ -1,13 +1,14 @@
 import { MenuCard } from '../shared/index.jsx';
 import { PageHeader } from '../shared/Navigation.jsx';
 import WorldIcon from '../shared/WorldIcon.jsx';
+import './discoveryVisuals.css';
 
 // One learning world on its own page, so opening a world never leaves the
 // games hidden below the fold.
 const WorldPage = ({
   world, games, bonusGameIds, favouriteGames, gamesPlayed, onLaunch, onToggleFavourite, onBack, soundOn, onToggleSound,
 }) => (
-  <div className={`relative flex min-h-[100dvh] w-full flex-col items-center gap-5 bg-gradient-to-b ${world.color} p-3 pb-10 sm:p-6`}>
+  <div className={`discovery-world-page relative flex min-h-[100dvh] w-full flex-col items-center gap-5 bg-gradient-to-b ${world.color} p-3 pb-10 sm:p-6`}>
     <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/10 via-white/60 to-white/90" />
     <PageHeader
       title={world.title}
@@ -32,7 +33,7 @@ const WorldPage = ({
         const favourite = favouriteGames.includes(game.id);
         const bonus = bonusGameIds.has(game.id);
         return (
-          <div key={game.id} className="relative">
+          <div key={game.id} className="discovery-world-page-card relative">
             <MenuCard
               span="w-full"
               icon={game.icon}

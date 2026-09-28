@@ -1,6 +1,7 @@
 import dinoCharacterSheet from '../../assets/dino-character-stickers.png';
 import moreDinoCharacterSheet from '../../assets/more-dino-character-stickers-transparent.png';
 import rewardStickerSheet from '../../assets/reward-stickers.png';
+import rescueTruck from '../../assets/little/rescue-firetruck.webp';
 
 // These are deliberately crops of Amari's supplied character sheet, rather
 // than generated substitutes. The source has transparent space around each
@@ -34,15 +35,12 @@ const REWARD_CROPS = {
   rocket: { label: 'Rocket Star', x: 0.235, y: 0.35, width: 0.16, height: 0.2 },
   dino: { label: 'Dino Egg Prize', x: 0.02, y: 0.56, width: 0.19, height: 0.2 },
   star: { label: 'Super Star', x: 0.6, y: 0.08, width: 0.16, height: 0.2 },
-  truck: { label: 'Confetti Burst', x: 0.4, y: 0.56, width: 0.2, height: 0.2 },
   heart: { label: 'Heart of Awesome', x: 0.61, y: 0.56, width: 0.18, height: 0.2 },
-  planet: { label: 'Rainbow Gem', x: 0.39, y: 0.35, width: 0.19, height: 0.2 },
   hero: { label: 'Brave and Strong Shield', x: 0.61, y: 0.35, width: 0.17, height: 0.2 },
   trophy: { label: 'Gold Winner Trophy', x: 0.02, y: 0.08, width: 0.18, height: 0.2 },
   diamond: { label: 'Rainbow Gem', x: 0.39, y: 0.35, width: 0.19, height: 0.2 },
   crown: { label: 'Crown of Greatness', x: 0.02, y: 0.35, width: 0.18, height: 0.2 },
   legend: { label: 'Awesome Medal', x: 0.21, y: 0.08, width: 0.18, height: 0.2 },
-  galaxy: { label: 'Magic Maker', x: 0.21, y: 0.56, width: 0.18, height: 0.2 },
 };
 
 const spriteStyle = (sheet, crop) => ({
@@ -66,6 +64,8 @@ export const DinoSticker = ({ species = 'trex', size = 64, className = '' }) => 
 };
 
 export const RewardSticker = ({ rewardId, size = 52, locked = false, className = '' }) => {
+  if (rewardId === 'truck') return <img src={rescueTruck} alt="Rescue Truck" draggable={false} width={size} height={size} className={`inline-block shrink-0 object-contain transition ${locked ? 'grayscale opacity-30' : ''} ${className}`} />;
+  if (rewardId === 'planet' || rewardId === 'galaxy') return <span role="img" aria-label={rewardId === 'planet' ? 'Planet Master' : 'Galaxy King'} className={`inline-grid shrink-0 place-items-center rounded-full bg-gradient-to-br from-indigo-100 to-blue-200 text-center shadow-inner transition ${locked ? 'grayscale opacity-30' : ''} ${className}`} style={{ width: size, height: size, fontSize: size * .68 }}>{rewardId === 'planet' ? '🪐' : '🌌'}</span>;
   const crop = REWARD_CROPS[rewardId] || REWARD_CROPS.star;
 
   return (
