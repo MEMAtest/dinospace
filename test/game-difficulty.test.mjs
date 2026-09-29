@@ -12,6 +12,7 @@ import {
 } from '../src/data/gameDifficulty.js';
 import { ADVANCED_PATTERN_ROUNDS, MEMORY_LEVELS, PATTERN_ROUNDS } from '../src/data/index.js';
 import { getOfflineVoiceClip } from '../src/data/offlineVoice.js';
+import { nextGameLevelIndex } from '../src/data/sessionLevels.js';
 
 test('math bands increase real number ranges', () => {
   assert.deepEqual(MULTIPLICATION_LIMITS.starter, [2, 3]);
@@ -48,4 +49,23 @@ test('memory starter is a manageable four-pair board', () => {
   assert.equal(MEMORY_LEVELS[0].id, 'forest');
   assert.equal(MEMORY_LEVELS[0].emojis.length, 4);
   assert.equal(MEMORY_LEVELS[0].emojis.length * 2, 8);
+});
+
+test('memory boards keep saved indexes stable, never regress, and use fresh pictures', () => {
+  assert.equal(MEMORY_LEVELS.length, 10);
+  assert.deepEqual(MEMORY_LEVELS.slice(0, 8).map(({ id }) => id), [
+    'forest', 'ocean', 'space', 'party', 'dinos', 'vehicles', 'food', 'astronaut',
+  ]);
+  assert.deepEqual(MEMORY_LEVELS.map(({ emojis }) => emojis.length), [4, 8, 10, 12, 13, 14, 15, 16, 17, 18]);
+  for (let index = 0; index < MEMORY_LEVELS.length; index += 1) {
+    const board = MEMORY_LEVELS[index];
+    assert.equal(new Set(board.emojis).size, board.emojis.length, `${board.name} repeats a picture`);
+    if (index > 0) {
+      assert.ok(board.emojis.length >= MEMORY_LEVELS[index - 1].emojis.length, `${board.name} should not be easier than ${MEMORY_LEVELS[index - 1].name}`);
+    }
+  }
+});
+
+test('finishing the last custom level does not silently wrap to level one', () => {
+  assert.deepEqual(Array.from({ length: 4 }, (_, current) => nextGameLevelIndex(current, 4)), [1, 2, 3, 3]);
 });

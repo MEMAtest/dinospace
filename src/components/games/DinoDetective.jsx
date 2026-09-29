@@ -4,6 +4,7 @@ import { DINO_LEVELS } from '../../data/index.js';
 import { buildDinos, getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { nextGameLevelIndex } from '../../data/sessionLevels.js';
 import DinoIcon from '../shared/DinoIcon.jsx';
 import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 
@@ -67,8 +68,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   };
 
   const handleNextLevel = () => {
-    const nextIndex = levelIndex < DINO_LEVELS.length - 1 ? levelIndex + 1 : 0;
-    loadLevel(nextIndex);
+    loadLevel(nextGameLevelIndex(levelIndex, DINO_LEVELS.length));
   };
 
   return (
@@ -175,7 +175,7 @@ const DinoDetective = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
               onClick={handleNextLevel}
               className="mt-5 min-h-14 w-full rounded-2xl bg-gradient-to-r from-green-500 to-emerald-600 px-8 py-4 text-2xl font-black text-white shadow-lg transition hover:scale-105 active:scale-95"
             >
-              {levelIndex < DINO_LEVELS.length - 1 ? 'Next Level' : 'Play Again'}
+              {levelIndex < DINO_LEVELS.length - 1 ? 'Next Level' : 'Replay this world'}
             </button>
           </div>
         </div>

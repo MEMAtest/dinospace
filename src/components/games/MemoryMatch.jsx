@@ -3,7 +3,7 @@ import { ArrowLeft, Home, Star, Volume2 } from 'lucide-react';
 import { MEMORY_LEVELS } from '../../data/index.js';
 import { buildMemoryDeck, getPraise, loadSaved, saveSafe } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
-import { getGameLevel, saveGameLevel } from '../../data/sessionLevels.js';
+import { getGameLevel, nextGameLevelIndex, saveGameLevel } from '../../data/sessionLevels.js';
 import askiaScene from '../../assets/game-scenes/askia-memory-treehouse.webp';
 import askiaArt from '../../assets/little/askia-detective.webp';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
@@ -77,7 +77,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const matches = deck.filter((card) => card.matched).length / 2;
 
   useEffect(() => {
-    speak(littleMode ? 'Find the matching pairs.' : `Memory level ${levelIndex + 1}. ${level.name}.`);
+    speak('Find the matching pairs.');
   }, [levelIndex, level.name, littleMode, speak]);
 
   const finishLevel = (finalMatches, finalMoves) => {
@@ -173,8 +173,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   };
 
   const handleNextLevel = () => {
-    const nextIndex = levelIndex < levels.length - 1 ? levelIndex + 1 : 0;
-    startLevel(nextIndex);
+    startLevel(nextGameLevelIndex(levelIndex, levels.length));
   };
 
   const renderCard = (card, index) => {
@@ -252,7 +251,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             <Star fill="currentColor" aria-hidden="true" />
             <h3>{completionMessage}</h3>
             <p>You found every pair!</p>
-            <button onClick={handleNextLevel}>{levelIndex < levels.length - 1 ? 'Next board' : 'Play again'} →</button>
+            <button onClick={handleNextLevel}>{levelIndex < levels.length - 1 ? 'Next board' : 'Replay this board'} →</button>
           </div>
         )}
       </main>
@@ -301,10 +300,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           {levels.map((entry, index) => <button type="button" key={entry.id} disabled={index > getGameLevel(playerId, 'memory', levels.length).unlocked} onClick={() => startLevel(index)} aria-label={`Level ${index + 1}: ${entry.name}`} aria-current={index === levelIndex ? 'step' : undefined} className={`grid h-11 w-11 place-items-center rounded-full border-2 font-black ${index === levelIndex ? 'border-rose-700 bg-rose-500 text-white' : index > getGameLevel(playerId, 'memory', levels.length).unlocked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-amber-300 bg-white text-rose-700'}`}>{index + 1}</button>)}
         </div>
 
-        <div
-          className="grid gap-4 w-full max-w-3xl"
-          style={{ gridTemplateColumns: `repeat(${level.columns}, minmax(0, 1fr))` }}
-        >
+        <div className="memory-board grid gap-4 w-full max-w-3xl" style={{ '--memory-columns': level.columns }}>
           {deck.map(renderCard)}
         </div>
 
@@ -313,7 +309,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             <div className="text-5xl mb-2">🎉</div>
             <h3 className="text-2xl font-black text-rose-600">{completionMessage}</h3>
             <button onClick={handleNextLevel} className="mt-4 min-h-14 w-full rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-4 text-2xl font-black text-white shadow-lg transition hover:scale-105 active:scale-95">
-              {levelIndex < levels.length - 1 ? `Next level: ${levels[levelIndex + 1].name}` : 'Play again'}
+              {levelIndex < levels.length - 1 ? `Next level: ${levels[levelIndex + 1].name}` : 'Replay this level'}
             </button>
           </div>
         )}

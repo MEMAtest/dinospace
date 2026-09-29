@@ -687,7 +687,7 @@ export const MEMORY_LEVELS = [
     id: 'forest',
     name: 'Forest Friends',
     // Four pairs make the starter board manageable for a five-year-old.
-    // Later themes deliberately add more pairs as memory improves.
+    // Board positions remain stable so saved progress keeps its meaning.
     emojis: ['🐶', '🦊', '🐸', '🐵'],
     columns: 4,
   },
@@ -707,30 +707,42 @@ export const MEMORY_LEVELS = [
     id: 'party',
     name: 'Party Mix',
     emojis: ['🎈', '🎉', '🥳', '🎂', '🍭', '🍩', '🧁', '🍓', '🍕', '🍟', '🍉', '🍬'],
-    columns: 6,
+    columns: 5,
   },
   {
     id: 'dinos',
-    name: 'Dino World',
-    emojis: ['🦕', '🦖', '🦴', '🌋', '🥚', '🪨', '🌿'],
-    columns: 4,
+    name: 'Dino & Space Friends',
+    emojis: ['🦕', '🦖', '🦴', '🌋', '🥚', '🪨', '🌿', '🚀', '🛸', '🌟', '🌙', '🪐', '☄️'],
+    columns: 5,
   },
   {
     id: 'vehicles',
-    name: 'Vroom Vroom',
-    emojis: ['🚗', '🚀', '✈️', '🚂', '🚁', '🏎️', '🛸', '🚒'],
-    columns: 4,
+    name: 'Vehicles & Explorers',
+    emojis: ['🚗', '🚀', '✈️', '🚂', '🚁', '🏎️', '🛸', '🚒', '🛰️', '👨‍🚀', '🌍', '🔭', '🌙', '🪐'],
+    columns: 5,
   },
   {
     id: 'food',
     name: 'Yummy Feast',
-    emojis: ['🍎', '🍌', '🍇', '🥕', '🧀', '🍪', '🍩', '🥤', '🍕', '🌽'],
+    emojis: ['🍎', '🍌', '🍇', '🥕', '🧀', '🍪', '🍩', '🥤', '🍕', '🌽', '🍭', '🧁', '🍓', '🍟', '🍉'],
     columns: 5,
   },
   {
     id: 'astronaut',
     name: 'Astronaut Mission',
-    emojis: ['👨‍🚀', '🌍', '🌙', '🛰️', '🔭', '🪐', '☄️', '🌟', '🛸', '👽', '🚀', '🌌'],
+    emojis: ['👨‍🚀', '🌍', '🌙', '🛰️', '🔭', '🪐', '☄️', '🌟', '🛸', '👽', '🚀', '🌌', '⭐️', '🐬', '🐳', '🦈'],
+    columns: 6,
+  },
+  {
+    id: 'garden',
+    name: 'Garden & Pond',
+    emojis: ['🌿', '🐸', '🐵', '🐶', '🦊', '🐢', '🐳', '🐬', '🦈', '🪼', '🦀', '🦑', '🐟', '🦕', '🦖', '🥚', '🪨'],
+    columns: 6,
+  },
+  {
+    id: 'cosmic-challenge',
+    name: 'Galaxy Carnival',
+    emojis: ['🌍', '🌙', '🛰️', '🔭', '🪐', '☄️', '🌟', '🛸', '👽', '🚀', '🌌', '👨‍🚀', '⭐️', '🐬', '🐳', '🦈', '🎈', '🎉'],
     columns: 6,
   },
 ];

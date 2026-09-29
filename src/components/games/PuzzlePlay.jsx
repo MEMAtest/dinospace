@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Eye, Home, Lightbulb, RotateCcw } from 'lucide-react';
 import { getPraise, shuffle } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
-import { getGameLevel, saveGameLevel } from '../../data/sessionLevels.js';
+import { getGameLevel, nextGameLevelIndex, saveGameLevel } from '../../data/sessionLevels.js';
 import dinoPark from '../../assets/puzzle-pop/dino-park.jpg';
 import dinoRiver from '../../assets/puzzle-pop/dino-river.svg';
 import dinoMoon from '../../assets/puzzle-pop/dino-moon.svg';
@@ -206,7 +206,7 @@ const PuzzlePlay = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrat
           ) : (
             <div className="flex items-center justify-center gap-3 rounded-3xl bg-white/90 p-4 shadow-xl">
               <span className="text-4xl">🎉</span>
-              <button onClick={() => resetLevel((levelIndex + 1) % LEVELS.length)} className="rounded-2xl bg-orange-500 px-5 py-3 font-black text-white shadow-lg">{levelIndex < LEVELS.length - 1 ? `Next level: ${LEVELS[levelIndex + 1].scene.title}` : 'Play again'}</button>
+              <button onClick={() => resetLevel(nextGameLevelIndex(levelIndex, LEVELS.length))} className="rounded-2xl bg-orange-500 px-5 py-3 font-black text-white shadow-lg">{levelIndex < LEVELS.length - 1 ? `Next level: ${LEVELS[levelIndex + 1].scene.title}` : 'Replay this puzzle'}</button>
               <button onClick={() => resetLevel(levelIndex)} className="game-icon-button !text-orange-600" aria-label="Replay this puzzle"><RotateCcw /></button>
             </div>
           )}

@@ -152,6 +152,8 @@
   margin: 0 auto;
 }
 
+.memory-board { grid-template-columns: repeat(var(--memory-columns), minmax(0, 1fr)); }
+
 .memory-little-card {
   position: relative;
   display: block;
@@ -237,6 +239,7 @@
 .memory-little-complete button { min-height: 54px; min-width: 190px; padding: 10px 18px; border: 3px solid #fff; border-radius: 18px; background: linear-gradient(#20e860, #04a340); box-shadow: 0 4px 0 #138b3a; color: #fff; font-size: 1.2rem; font-weight: 1000; }
 
 @media (max-width: 520px) {
+  .memory-board { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
   .memory-little-header { padding: 11px 10px 0; grid-template-columns: 48px minmax(0, 1fr) 48px; gap: 4px; }
   .memory-little-heading { padding: 7px 9px; border-radius: 16px; }
   .memory-little-main { min-height: calc(100dvh - 75px); padding: 7vh 10px 22px; }

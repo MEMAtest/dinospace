@@ -36,10 +36,15 @@ export const clientId = (request) => {
   return request.socket?.remoteAddress || 'unknown';
 };
 
+const isAllowedPreviewOrigin = (origin) => (
+  typeof origin === 'string'
+  && /^https:\/\/dinospace-git-[a-z0-9-]+-memas-projects-23a0001d\.vercel\.app$/.test(origin)
+);
+
 export const isAllowedOrigin = (request) => {
   const origin = request.headers.origin;
   if (typeof origin !== 'string') return false;
-  if (ALLOWED_ORIGINS.has(origin)) return true;
+  if (ALLOWED_ORIGINS.has(origin) || isAllowedPreviewOrigin(origin)) return true;
   try {
     const parsed = new URL(origin);
     return parsed.protocol === 'http:' && (parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1');
@@ -48,7 +53,7 @@ export const isAllowedOrigin = (request) => {
 
 export const applyCors = (request, response) => {
   const origin = request.headers.origin;
-  const permitted = Boolean(origin && (ALLOWED_ORIGINS.has(origin) || /^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?$/.test(origin)));
+  const permitted = Boolean(origin && (isAllowedOrigin(request) || /^https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?$/.test(origin)));
   if (permitted) {
     response.setHeader('Access-Control-Allow-Origin', origin);
     response.setHeader('Vary', 'Origin');
