@@ -19,6 +19,8 @@ test('storybook sessions require no PIN, remain signed and reject tampering', ()
 test('storybook service accepts the opaque Android WebView origin but rejects arbitrary sites', () => {
   assert.equal(isAllowedOrigin({ headers: { origin: 'null' } }), true);
   assert.equal(isAllowedOrigin({ headers: { origin: 'https://dinospace.netlify.app' } }), true);
+  assert.equal(isAllowedOrigin({ headers: { origin: 'https://dinospace-git-codex-game-progres-2b0bbc-memas-projects-23a0001d.vercel.app' } }), true);
+  assert.equal(isAllowedOrigin({ headers: { origin: 'https://dinospace-git-untrusted-example.vercel.app' } }), false);
   assert.equal(isAllowedOrigin({ headers: { origin: 'https://untrusted.example' } }), false);
 });
 
@@ -33,4 +35,15 @@ test('opaque Android WebView preflight receives the required CORS headers', () =
   assert.match(headers.get('Access-Control-Allow-Headers'), /X-Amari-Story-Session/);
   assert.match(headers.get('Access-Control-Expose-Headers'), /X-Amari-Image-Provider/);
   assert.match(headers.get('Access-Control-Expose-Headers'), /X-Amari-Voice-Provider/);
+});
+
+test('Vercel preview preflight receives the required CORS headers', () => {
+  const origin = 'https://dinospace-git-codex-game-progres-2b0bbc-memas-projects-23a0001d.vercel.app';
+  const headers = new Map();
+  applyCors(
+    { method: 'OPTIONS', headers: { origin } },
+    { setHeader: (key, value) => headers.set(key, value) },
+  );
+  assert.equal(headers.get('Access-Control-Allow-Origin'), origin);
+  assert.match(headers.get('Access-Control-Allow-Methods'), /POST/);
 });
