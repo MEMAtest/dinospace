@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { Headphones, Home, Map, RotateCcw, Sparkles, Compass, ArrowRight } from 'lucide-react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Headphones, Home, Map, RotateCcw, Sparkles, Compass, ArrowRight, Clock3 } from 'lucide-react';
 import { CONTINENTS, CURRICULUM_MODULES, getCurriculumModule, OCEANS, YEAR_ONE_JOURNEY } from '../../data/curriculumModules.js';
 import { CURRICULUM_LESSON_COPY, getCurriculumVoiceClip } from '../../data/curriculumVoice.js';
-import { getPraise } from '../../utils.js';
+import { getPraise, shuffle } from '../../utils.js';
+import { getRecommendedDifficulty } from '../../data/learningProgress.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
-import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import geographyWorld from '../../assets/curriculum/geography-world.webp';
 import historyWorld from '../../assets/curriculum/history-world.webp';
 import natureWorld from '../../assets/curriculum/nature-world.webp';
@@ -261,10 +261,13 @@ const LessonVisual = ({ module, round, soundOn }) => {
 
 const ExplorerWords = ({ module, soundOn }) => <aside className="quest-words"><p className="quest-small-label">Learn &amp; explore</p><h3>Your explorer words</h3><div className="quest-word-list">{module.vocabulary.slice(0, 4).map((word) => <div key={word} className="quest-word"><strong>{word}</strong><PackagedAudioButton text={word} label="Hear word" soundOn={soundOn} /></div>)}</div><p className="quest-lesson-copy">{CURRICULUM_LESSON_COPY[module.id]}</p><div className="quest-topic-list" aria-label="Related Year 1 school topics">{YEAR_ONE_JOURNEY.filter((entry) => module.schoolTopics.includes(entry.unit)).map((entry) => <span key={entry.term}>{entry.term} · {entry.unit}</span>)}</div></aside>;
 
-const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
+const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
   const [moduleId, setModuleId] = useState('continents');
   const difficultyGameId = `worldmap-${moduleId}`;
-  const difficulty = useGameDifficulty(difficultyGameId);
+  // Keep one difficulty band for the whole module run. Learning evidence may
+  // recommend a harder band after a few answers, but switching bands mid-run
+  // must not send the learner back to the first question.
+  const [difficulty, setDifficulty] = useState(() => getRecommendedDifficulty(difficultyGameId));
   const [roundIndex, setRoundIndex] = useState(0);
   const [roundOrder, setRoundOrder] = useState([]);
   const [roundCursor, setRoundCursor] = useState(0);
@@ -278,10 +281,11 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
   const [lessonOpen, setLessonOpen] = useState(true);
   const [routeStep, setRouteStep] = useState(0);
   const [prediction, setPrediction] = useState('');
-  const advanceTimerRef = useRef(null);
   const activeModule = getCurriculumModule(moduleId);
   const rounds = activeModule.rounds[difficulty] || activeModule.rounds.starter;
   const round = rounds[roundIndex % rounds.length];
+  // Keep answer positions stable on a retry, but shuffle them for each new question.
+  const shuffledOptions = useMemo(() => round.options ? shuffle(round.options) : [], [round]);
   const moduleNumber = CURRICULUM_MODULES.findIndex((item) => item.id === activeModule.id) + 1;
 
   const resetRound = useCallback((nextIndex = 0, showLesson = false) => {
@@ -306,7 +310,6 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
     setRoundCursor(0);
     setSkillRun(0);
     resetRound(nextOrder[0] ?? 0, true);
-    return () => clearTimeout(advanceTimerRef.current);
   }, [difficulty, moduleId, rounds, resetRound]);
 
   const advance = () => {
@@ -319,7 +322,8 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
     }
     const nextIndex = nextOrder[nextCursor] ?? 0;
     setSkillRun((current) => current >= 5 ? 0 : Math.min(current + 1, 5));
-    advanceTimerRef.current = setTimeout(() => { setRoundCursor(nextCursor); resetRound(nextIndex); }, 1250);
+    setRoundCursor(nextCursor);
+    resetRound(nextIndex);
   };
 
   const completeRound = (answerId, response) => {
@@ -344,7 +348,6 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
       difficulty,
       module: activeModule.id,
     });
-    advance();
   };
 
   const recordIncorrect = (answerId, expected = round.answer) => {
@@ -448,34 +451,34 @@ const CurriculumQuest = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate,
       <main className="quest-main">
         <nav className="quest-modules" aria-label="Curriculum modules">
           {CURRICULUM_MODULES.map((module) => (
-            <button key={module.id} type="button" onClick={(event) => { playSfx('click'); setModuleId(module.id); event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); }} aria-pressed={module.id === activeModule.id} className="quest-module-tab">
+            <button key={module.id} type="button" onClick={(event) => { playSfx('click'); setDifficulty(getRecommendedDifficulty(`worldmap-${module.id}`)); setModuleId(module.id); event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); }} aria-pressed={module.id === activeModule.id} className="quest-module-tab">
               <span className="quest-module-icon" aria-hidden="true">{module.icon}</span><span><strong>{module.title}</strong><small>{module.subtitle}</small></span><ArrowRight className="quest-tab-arrow" size={18} />
             </button>
           ))}
         </nav>
 
         <section className="quest-paper" aria-labelledby="quest-prompt">
-          <div className="quest-status-row"><span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>Year 1 discovery</span><PracticeProgress skill={skillForRound(activeModule, round)} completed={skillRun} accent={accent} className="quest-progress" /><button type="button" onClick={() => { clearTimeout(advanceTimerRef.current); resetRound(roundIndex); }} className="quest-retry"><RotateCcw size={16} /> Try this round again</button></div>
+          <div className="quest-status-row"><span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>Year 1 discovery</span><PracticeProgress skill={skillForRound(activeModule, round)} completed={skillRun} accent={accent} className="quest-progress" /><button type="button" onClick={() => resetRound(roundIndex)} className="quest-retry"><RotateCcw size={16} /> Try this round again</button></div>
           <div className="quest-prompt-row"><h2 id="quest-prompt">{round.prompt}</h2><PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} /></div>
           <div className="quest-round-note"><span>Round {roundCursor + 1} of {rounds.length} · Learn first, then try it independently.</span><PackagedAudioButton text="Learn first, then try it independently." label="Hear instructions" soundOn={soundOn} /></div>
 
           {lessonOpen ? (
             <div className="quest-lesson">
               <div className="quest-lesson-grid"><LessonVisual module={activeModule} round={round} soundOn={soundOn} /><ExplorerWords module={activeModule} soundOn={soundOn} /></div>
-              <div className="quest-actions"><PackagedAudioButton text={CURRICULUM_LESSON_COPY[activeModule.id]} label="Hear lesson" soundOn={soundOn} /><button type="button" onClick={() => setLessonOpen(false)} className="quest-start"><Sparkles size={19} /> Start this round <ArrowRight size={18} /></button></div>
+              <div className="quest-actions"><PackagedAudioButton text={CURRICULUM_LESSON_COPY[activeModule.id]} label="Hear lesson" soundOn={soundOn} />{activeModule.id === 'time-detectives' && onLaunchGame && <button type="button" onClick={() => onLaunchGame('timeteller')} className="quest-related-game"><Clock3 size={17} /> Practise telling the time</button>}<button type="button" onClick={() => setLessonOpen(false)} className="quest-start"><Sparkles size={19} /> Start this round <ArrowRight size={18} /></button></div>
             </div>
           ) : (
             <div className="quest-play-area">
               <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>
               {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked} soundOn={soundOn} />}
-              {choiceRound && <ChoiceRound round={choiceRound} onPick={handlePick} disabled={locked} selected={selected} soundOn={soundOn} />}
+              {choiceRound && <ChoiceRound round={{ ...choiceRound, options: shuffledOptions }} onPick={handlePick} disabled={locked} selected={selected} soundOn={soundOn} />}
               {round.type === 'sequence' && <SequenceRound round={round} sequence={sequence} onPick={handlePick} disabled={locked} soundOn={soundOn} />}
               {round.type === 'route' && <RouteRound round={round} step={routeStep} onMove={handleRouteMove} disabled={locked} />}
               {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={locked} selected={selected} soundOn={soundOn} />}
               <ExplorerWords module={activeModule} soundOn={soundOn} />
             </div>
           )}
-          <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : 'is-retry'}`}><p><Sparkles className="mr-1 inline" size={17} /><span className="mr-2 rounded-full bg-white/75 px-2 py-1 text-xs uppercase tracking-wide">{locked ? 'Correct' : 'Try again'}</span>{feedback}</p><PackagedAudioButton text={feedbackVoice} label={locked ? 'Hear praise' : 'Hear feedback'} soundOn={soundOn} />{locked && <PackagedAudioButton text={round.explanation} label="Hear why" soundOn={soundOn} />}</div>}</div>
+          <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : 'is-retry'}`}><p><Sparkles className="mr-1 inline" size={17} /><span className="mr-2 rounded-full bg-white/75 px-2 py-1 text-xs uppercase tracking-wide">{locked ? 'Correct' : 'Try again'}</span>{feedback}</p><PackagedAudioButton text={feedbackVoice} label={locked ? 'Hear praise' : 'Hear feedback'} soundOn={soundOn} />{locked && <><PackagedAudioButton text={round.explanation} label="Hear why" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">Next question <ArrowRight size={16} /></button></>}</div>}</div>
         </section>
       </main>
     </div>

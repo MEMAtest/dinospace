@@ -229,6 +229,7 @@ const PlayerSession = ({
     const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
       onBack: () => back({ toParent: !little }),
+      onLaunchGame: launchGame,
       playSfx,
       speak,
       // The older games award 4–14 stars per answer, which emptied the
