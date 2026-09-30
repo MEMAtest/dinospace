@@ -25,3 +25,6 @@ dist-ssr
 .vercel
 .playwright-cli/
 output/
+/tmp/storybook-curated-media/
+/tmp/storybook-curated-request-state.json
+/tmp/

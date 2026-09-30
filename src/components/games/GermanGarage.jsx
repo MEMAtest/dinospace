@@ -136,6 +136,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
     if (answeredRef.current || pendingRound) return;
     if (mode === 'paint') setPaintedColour(option);
     if (option.name !== round.target.name) {
+      onGameEvent?.('german', 'answer_attempt', { level: sessionLevel, round: roundCount, firstAttempt: !hadMistakeRef.current });
       hadMistakeRef.current = true;
       setFeedback('Not quite. Hear the word again, then choose the matching picture.');
       playSfx('oops');
@@ -144,8 +145,9 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
     }
     answeredRef.current = true;
     const translation = germanTranslation(mode, round.target.name);
-    const nextCount = roundCount + 1;
-    const isFinalRound = nextCount >= levelTarget;
+    const extraPractice = !coreTabs.some((tab) => tab.id === mode);
+    const nextCount = roundCount + (extraPractice ? 0 : 1);
+    const isFinalRound = !extraPractice && nextCount >= levelTarget;
     const answerEvent = {
       skill: `german-${mode}`,
       item: round.target.name,
@@ -155,6 +157,8 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
       firstAttempt: !hadMistakeRef.current,
       independent: !hadMistakeRef.current,
       difficulty,
+      level: sessionLevel,
+      round: roundCount,
       deferFinish: isFinalRound,
     };
     setRoundCount(nextCount);
@@ -163,7 +167,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
     playSfx('success');
     playGermanTerm(round.target.name);
     onCelebrate(`Richtig! ${translation}.`, 4, 120);
-    onGameEvent?.('german', 'answer_correct', answerEvent);
+    onGameEvent?.('german', extraPractice ? 'practice_correct' : 'answer_correct', answerEvent);
   };
 
   const advanceAfterReview = () => {
@@ -228,9 +232,9 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
 
   return (
     <div className="min-h-screen overflow-hidden bg-[#fff5dc] text-slate-900">
-      <header className="relative z-20 flex items-center gap-3 px-3 pt-3 sm:px-5">
+      <header className="relative z-20 flex flex-wrap items-center justify-between gap-3 px-3 pt-3 sm:px-5">
         <button onClick={onBack} className="game-icon-button !bg-amber-400 !text-white" aria-label="Back to learning world"><ArrowLeft /></button>
-        <nav className="flex flex-1 gap-1 overflow-x-auto rounded-[1.7rem] border-2 border-amber-100 bg-white/90 p-1.5 shadow-lg no-scrollbar" aria-label="German Garage lessons">
+        <nav className={`order-last grid w-full ${modeTabs.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} gap-1 rounded-[1.7rem] border-2 border-amber-100 bg-white/90 p-1.5 shadow-lg sm:order-none sm:flex sm:w-auto sm:flex-1 sm:flex-wrap`} aria-label="German Garage lessons">
           {modeTabs.map((tab) => (
             <button
               key={tab.id}
@@ -239,18 +243,19 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
                 selectMode(tab.id);
                 event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
               }}
-              className={`flex shrink-0 items-center gap-1.5 rounded-2xl px-3 py-2 text-xs font-black transition disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm ${mode === tab.id ? 'bg-blue-600 text-white shadow-md' : 'text-slate-700 hover:bg-amber-50'}`}
+              className={`flex min-h-12 shrink-0 items-center justify-center gap-1.5 rounded-2xl px-3 py-2 text-xs font-black transition disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm ${mode === tab.id ? 'bg-blue-600 text-white shadow-md' : 'text-slate-700 hover:bg-amber-50'}`}
               aria-pressed={mode === tab.id}
             >
               <span>{TAB_ICONS[tab.id]}</span>{tab.label}
             </button>
           ))}
         </nav>
-        <button type="button" onClick={() => setShowMorePractice((open) => !open)} disabled={Boolean(pendingRound)} aria-expanded={showMorePractice} className="min-h-11 shrink-0 rounded-full border-2 border-amber-200 bg-white px-3 text-xs font-black text-slate-700 disabled:opacity-50 sm:text-sm">{showMorePractice ? 'Less' : 'More practice'}</button>
+        <button type="button" onClick={() => setShowMorePractice((open) => !open)} disabled={Boolean(pendingRound)} aria-expanded={showMorePractice} className="min-h-12 shrink-0 rounded-full border-2 border-amber-200 bg-white px-3 text-xs font-black text-slate-700 disabled:opacity-50 sm:text-sm">{showMorePractice ? 'Less' : 'More practice'}</button>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
 
       <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pb-8 pt-4">
+        {!coreTabs.some((tab) => tab.id === mode) && <p className="mb-3 rounded-full bg-amber-100 px-4 py-2 font-bold text-amber-900">Extra practice · your level stays where you left it.</p>}
         <div className="mb-3 flex w-full items-center justify-between gap-3">
           <div className="rounded-2xl bg-white px-4 py-2 shadow-md" aria-label={`Level ${sessionLevel + 1}, round ${Math.min(roundCount + 1, levelTarget)} of ${levelTarget}`}>
             <div className="flex items-center gap-2 font-black text-amber-600"><span aria-hidden="true">⭐</span> Level {sessionLevel + 1} · {Math.min(roundCount + 1, levelTarget)} / {levelTarget}</div>

@@ -381,7 +381,7 @@ export const DailyChallengeTracker = ({ challenge, progress, completed, active, 
       : 'bottom-3 right-3';
   return (
     <div
-      className={`fixed z-40 w-24 pointer-events-auto transition-all ${positionClass} ${
+      className={`fixed z-40 min-w-[8.5rem] pointer-events-auto transition-all ${positionClass} ${
         completed ? 'animate-challenge-complete' : ''
       }`}
       title={challenge.desc}
@@ -402,10 +402,10 @@ export const DailyChallengeTracker = ({ challenge, progress, completed, active, 
             <button
               type="button"
               onClick={onGo}
-              className="grid h-6 w-6 shrink-0 place-items-center rounded-lg bg-amber-400 text-slate-950 shadow-md transition hover:bg-amber-300 active:translate-y-0.5"
+              className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-amber-400 text-slate-950 shadow-md transition hover:bg-amber-300 active:translate-y-0.5"
               aria-label={`Play today’s mission: ${challenge.desc}`}
             >
-              <ArrowRight size={13} strokeWidth={3} />
+              <ArrowRight size={22} strokeWidth={3} />
             </button>
           )}
         </div>
