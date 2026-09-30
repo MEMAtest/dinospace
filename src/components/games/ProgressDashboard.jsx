@@ -1,4 +1,4 @@
-import { RotateCcw, Settings2 } from 'lucide-react';
+import { Download, RotateCcw, Settings2 } from 'lucide-react';
 import { PageHeader } from '../shared/Navigation.jsx';
 import { ACHIEVEMENTS, GAME_LABELS } from '../../data/index.js';
 import { BONUS_GAME_IDS, DIFFICULTY_BANDS, PHASE_SOUNDS } from '../../data/learningProgress.js';
@@ -6,6 +6,7 @@ import { WRITING_SAMPLES_KEY } from '../../data/literacy.js';
 import { useLearningProgress } from '../../hooks/useLearningProgress.js';
 import { SESSION_LEVELS } from '../../data/sessionLevels.js';
 import { getRank, loadSaved } from '../../utils.js';
+import { GAME_DIAGNOSTICS_KEY } from '../../data/gameDiagnostics.js';
 
 const LEARNING_GAMES = Object.entries(GAME_LABELS).filter(([id]) =>
   !BONUS_GAME_IDS.includes(id) && (SESSION_LEVELS[id]?.some((level) => level.band) || ['solar', 'astronaut', 'worldmap', 'chess'].includes(id)));
@@ -21,6 +22,15 @@ const ProgressDashboard = ({
   const secureSkills = Object.values(mastery).filter((item) => item.status === 'secure').length;
   const practisingSkills = Object.values(mastery).filter((item) => item.status === 'practising').length;
   const writingSamples = loadSaved(WRITING_SAMPLES_KEY, []).slice(-3).reverse();
+  const downloadDiagnostics = () => {
+    const entries = loadSaved(GAME_DIAGNOSTICS_KEY, []);
+    const url = URL.createObjectURL(new Blob([JSON.stringify({ version: 1, events: Array.isArray(entries) ? entries : [] }, null, 2)], { type: 'application/json' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'amari-game-diagnostics.json';
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-indigo-100 via-purple-100 to-indigo-200 flex flex-col items-center p-6 relative overflow-hidden">
@@ -59,6 +69,11 @@ const ProgressDashboard = ({
           <span className="font-black text-indigo-700">{GAME_LABELS[favoriteGame[0]] || favoriteGame[0]} ({favoriteGame[1]} plays)</span>
         </div>
       )}
+      <details className="mb-6 w-full max-w-4xl rounded-2xl border-2 border-indigo-200 bg-white/90 p-4 z-10">
+        <summary className="flex min-h-12 cursor-pointer items-center font-black text-indigo-800">Game troubleshooting</summary>
+        <p className="mt-2 text-sm font-semibold text-slate-600">This device keeps the latest 300 game events to help investigate progression problems. The log contains game identifiers and outcomes, without names or story text.</p>
+        <button type="button" onClick={downloadDiagnostics} className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-xl bg-indigo-600 px-4 font-black text-white"><Download size={18} /> Download game log</button>
+      </details>
       <section className="mb-6 w-full max-w-4xl rounded-3xl border-2 border-emerald-200 bg-white/90 p-5 shadow-lg z-10" aria-labelledby="learning-outcomes-title">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>

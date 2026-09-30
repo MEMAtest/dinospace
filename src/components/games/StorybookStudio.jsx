@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ArrowLeft, ArrowRight, Check, Headphones, Home, Pause, Play, RotateCcw,
+  ArrowLeft, ArrowRight, Check, Download, Headphones, Home, Pause, Play, RotateCcw, Upload,
   Volume2, VolumeX,
 } from 'lucide-react';
 import { loadStoryBookManifest, STORYBOOK_CATALOG } from '../../data/storybooks.js';
@@ -8,10 +8,12 @@ import StorybookCreator from './StorybookCreator.jsx';
 import StorybookProfiles from './StorybookProfiles.jsx';
 import StorybookSeriesLibrary from './StorybookSeriesLibrary.jsx';
 import { createStoryImage, createStoryNarration, createStoryOutline, createStorySession } from '../../data/storybookApi.js';
-import { getStoryAsset, getStoryBookRecord, getStoryBooks, getChildProfiles, saveChildProfile, deleteChildProfile, getStorySeries, saveStorySeries, saveStoryAsset, saveStoryBook } from '../../data/storybookStorage.js';
+import { getStoryAsset, getStoryBookRecord, getStoryBooks, getChildProfiles, saveChildProfile, deleteChildProfile, getStorySeries, saveStorySeries, saveStoryAsset, saveStoryBook, importStorybookRecords } from '../../data/storybookStorage.js';
 import { pagesForAgeBand } from '../../data/storybookValidation.js';
 import { getBookProgress, readActiveChildId, readStoryProgress, saveActiveChildId, updateStoryProgress } from '../../data/storybookProfiles.js';
 import { decorateStoryBook, filterStoryBooks, STORYBOOK_SHELVES } from '../../data/storybookLibrary.js';
+import { createStorybookBackup, readStorybookBackup } from '../../data/storybookBackup.js';
+import { shuffledComprehension, STORYBOOK_WORD_HELP } from '../../data/storybookLearning.js';
 
 const completionKey = (slug) => `amari_storybook_complete_${slug}`;
 
@@ -125,7 +127,7 @@ const makeCustomBook = (outline, input, selectedSeries = null) => {
 
 const continuityPrompt = (book) => book.characters.map((character) => `${character.name}: ${character.visualDescription}`).join('; ');
 
-const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate }) => {
+const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
   const [library, setLibrary] = useState(STORYBOOK_CATALOG);
   const [bundledBooks, setBundledBooks] = useState(STORYBOOK_CATALOG);
   const [customRecords, setCustomRecords] = useState([]);
@@ -140,6 +142,14 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
   const [series, setSeries] = useState([]);
   const [showProfiles, setShowProfiles] = useState(false);
   const [showSeries, setShowSeries] = useState(false);
+  const [backupMessage, setBackupMessage] = useState('');
+  const [backupBusy, setBackupBusy] = useState(false);
+  const backupInputRef = useRef(null);
+  const [comprehension, setComprehension] = useState([]);
+  const [comprehensionStep, setComprehensionStep] = useState(0);
+  const [comprehensionChoice, setComprehensionChoice] = useState('');
+  const [comprehensionHadMistake, setComprehensionHadMistake] = useState(false);
+  const [comprehensionActive, setComprehensionActive] = useState(false);
   const [initialSeriesId, setInitialSeriesId] = useState('');
   const [shelf, setShelf] = useState('all');
   const [ageFilter, setAgeFilter] = useState('all');
@@ -331,10 +341,18 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     playSfx?.('click');
     stopAudio();
     setSelectedSlug(book.slug);
-    setPageIndex(-1);
+    setComprehension(shuffledComprehension(book.slug));
+    setComprehensionStep(0);
+    setComprehensionChoice('');
+    setComprehensionHadMistake(false);
+    setComprehensionActive(false);
+    const saved = getBookProgress(progressByChild, activeChild.id, book.slug);
+    const resumeIndex = readCompletion(book.slug, activeChild.id) ? -1
+      : Number.isInteger(saved.pageIndex) ? Math.max(-1, Math.min(book.pages.length - 1, saved.pageIndex)) : -1;
+    setPageIndex(resumeIndex);
     setStarted(false);
     setAudioError(false);
-    const nextProgress = updateStoryProgress(activeChild.id, book.slug, { lastReadAt: new Date().toISOString(), pageIndex: -1 });
+    const nextProgress = updateStoryProgress(activeChild.id, book.slug, { lastReadAt: new Date().toISOString(), pageIndex: resumeIndex });
     setProgressByChild((all) => ({ ...all, [activeChild.id]: { ...(all[activeChild.id] || {}), [book.slug]: nextProgress } }));
     window.requestAnimationFrame(() => window.scrollTo(0, 0));
   };
@@ -352,6 +370,20 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
     setAudioError(false);
     // Start in the same click handler so mobile WebViews preserve activation.
     await playCurrentAudio();
+  };
+
+  const chooseComprehensionAnswer = (choice) => {
+    if (!choice || comprehensionChoice === (comprehension[comprehensionStep]?.answer)) return;
+    const question = comprehension[comprehensionStep];
+    setComprehensionChoice(choice);
+    if (choice === question.answer) {
+      onGameEvent?.('storybooks', 'comprehension_question_complete', { round: comprehensionStep + 1, firstAttempt: !comprehensionHadMistake });
+      speak(question.why);
+    } else {
+      setComprehensionHadMistake(true);
+      onGameEvent?.('storybooks', 'comprehension_answer_wrong', { round: comprehensionStep + 1 });
+      speak(question.clue);
+    }
   };
 
   const togglePlayback = async () => {
@@ -555,6 +587,46 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
 
   const selectChild = useCallback((id) => { activeChildIdRef.current = id; setActiveChildId(id); saveActiveChildId(id); setAgeFilter('all'); setShowProfiles(false); }, []);
 
+  const exportStories = useCallback(async () => {
+    setBackupBusy(true); setBackupMessage('');
+    try {
+      const readyBooks = customRecords.filter((book) => book.status === 'ready');
+      const keys = [...new Set(readyBooks.flatMap((book) => [book.coverAssetKey, book.coverAudioAssetKey, ...(book.pages || []).flatMap((page) => [page.imageAssetKey, page.audioAssetKey])]).filter(Boolean))];
+      const assets = await Promise.all(keys.map(async (key) => ({ key, blob: await getStoryAsset(key) })));
+      const serialized = await createStorybookBackup({ books: readyBooks, assets, progress: progressByChild });
+      const url = URL.createObjectURL(new Blob([serialized], { type: 'application/json' }));
+      const link = document.createElement('a'); link.href = url; link.download = `amari-storybooks-${new Date().toISOString().slice(0, 10)}.json`; link.click();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+      setBackupMessage('Story backup downloaded. Keep it somewhere safe.');
+    } catch (error) { setBackupMessage(error.message || 'Could not create the story backup.'); }
+    finally { setBackupBusy(false); }
+  }, [customRecords, progressByChild]);
+
+  const importStories = useCallback(async (event) => {
+    const file = event.target.files?.[0]; event.target.value = '';
+    if (!file) return;
+    setBackupBusy(true); setBackupMessage('');
+    try {
+      if (file.size > 120 * 1024 * 1024) throw new Error('This story backup is too large or is not a valid backup file.');
+      const backup = readStorybookBackup(await file.text());
+      const result = await importStorybookRecords(backup);
+      const profileIds = new Set(profiles.map((profile) => profile.id));
+      const merged = { ...progressByChild };
+      for (const [childId, entries] of Object.entries(backup.progress)) {
+        if (!profileIds.has(childId)) continue;
+        merged[childId] = { ...(merged[childId] || {}) };
+        for (const [slug, value] of Object.entries(entries)) {
+          if (!Object.hasOwn(merged[childId], slug)) merged[childId][slug] = value;
+        }
+      }
+      try { window.localStorage.setItem('amari_storybook_progress_v1', JSON.stringify(merged)); } catch { /* restore remains useful without progress storage */ }
+      setProgressByChild(merged);
+      const records = await getStoryBooks(); setCustomRecords(records);
+      setBackupMessage(`Restored ${result.added} ${result.added === 1 ? 'story' : 'stories'}${result.skipped ? `; kept ${result.skipped} existing ${result.skipped === 1 ? 'story' : 'stories'}` : ''}.`);
+    } catch (error) { setBackupMessage(error.message || 'Could not restore this story backup.'); }
+    finally { setBackupBusy(false); }
+  }, [profiles, progressByChild]);
+
   const toggleBookFavourite = useCallback((book) => {
     const current = getBookProgress(progressByChild, activeChild.id, book.slug);
     const next = updateStoryProgress(activeChild.id, book.slug, { favourite: !current.favourite });
@@ -571,6 +643,22 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
   }, []);
 
   const onImageError = (key) => setImageErrors((errors) => ({ ...errors, [key]: true }));
+
+  if (selectedBook && comprehensionActive) {
+    const question = comprehension[comprehensionStep];
+    const answerIsCorrect = comprehensionChoice === question?.answer;
+    return (
+      <main className={`storybook-reader min-h-screen w-full bg-gradient-to-br ${selectedBook.accent} px-4 py-6 text-white`}>
+        <div className="mx-auto flex min-h-[80vh] max-w-3xl flex-col justify-center rounded-[2rem] border border-white/25 bg-slate-950/25 p-6 shadow-2xl sm:p-10">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">Story Detective · {comprehensionStep + 1} of {comprehension.length}</p>
+          <div className="mt-3 flex items-center gap-3"><h1 className="text-3xl font-black sm:text-4xl">{question?.prompt}</h1><button type="button" onClick={() => speak(question.prompt)} className="storybook-icon-button shrink-0" aria-label="Hear question again"><Volume2 /></button></div>
+          <div className="mt-6 grid gap-3">{question?.choices.map((choice) => <button key={choice} type="button" onClick={() => chooseComprehensionAnswer(choice)} disabled={answerIsCorrect} aria-pressed={comprehensionChoice === choice} className={`min-h-14 rounded-2xl border-2 px-5 py-4 text-left text-lg font-black disabled:cursor-default ${comprehensionChoice === choice ? (answerIsCorrect ? 'border-emerald-300 bg-emerald-300 text-slate-950' : 'border-amber-300 bg-amber-300 text-slate-950') : 'border-white/40 bg-white/10 hover:bg-white/20'}`}>{choice}</button>)}</div>
+          {comprehensionChoice && <div role="status" className="mt-5 flex items-start gap-3 rounded-2xl bg-white/10 p-4 text-base font-bold"><p className="flex-1">{answerIsCorrect ? question.why : question.clue}</p><button type="button" onClick={() => speak(answerIsCorrect ? question.why : question.clue)} className="storybook-icon-button shrink-0" aria-label={answerIsCorrect ? 'Hear why the answer is right' : 'Hear the clue again'}><Volume2 /></button></div>}
+          <div className="mt-6 flex justify-between gap-3"><button type="button" onClick={() => { setComprehensionActive(false); closeBook(); }} className="storybook-nav-button">Back to stories</button>{comprehensionChoice && <button type="button" onClick={() => { if (!answerIsCorrect) { setComprehensionChoice(''); return; } if (comprehensionStep + 1 >= comprehension.length) { onGameEvent?.('storybooks', 'comprehension_complete', { round: comprehension.length }); setComprehensionActive(false); closeBook(); return; } setComprehensionStep((step) => step + 1); setComprehensionChoice(''); setComprehensionHadMistake(false); }} className="storybook-nav-button">{answerIsCorrect ? (comprehensionStep + 1 >= comprehension.length ? 'Finish' : 'Next clue') : 'Try again'} <ArrowRight /></button>}</div>
+        </div>
+      </main>
+    );
+  }
 
   if (!selectedBook) {
     return (
@@ -592,6 +680,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           </section>
           <section className="mt-4 rounded-2xl border border-white/20 bg-white/10 p-4" aria-label="Storybook filters">
             <div className="flex flex-wrap items-center gap-2"><label className="text-xs font-black uppercase tracking-wide text-cyan-100">Reading progress for<select value={activeChild.id} onChange={(event) => selectChild(event.target.value)} className="ml-2 rounded-xl border-0 bg-white px-3 py-2 text-sm font-black text-slate-800">{profiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.displayName} · {profile.ageBand}</option>)}</select></label><button type="button" onClick={() => setShowProfiles(true)} className="rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Edit children</button><button type="button" onClick={() => setShowSeries(true)} className="rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white">Characters &amp; series</button></div>
+            <div className="mt-3 flex flex-wrap gap-2"><button type="button" disabled={backupBusy || !customRecords.length} onClick={exportStories} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-3 py-2 text-xs font-black text-indigo-900 disabled:opacity-50"><Download size={16} /> Back up saved stories</button><button type="button" disabled={backupBusy} onClick={() => backupInputRef.current?.click()} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 py-2 text-xs font-black text-white disabled:opacity-50"><Upload size={16} /> Restore a story backup</button><input ref={backupInputRef} type="file" accept="application/json,.json" onChange={importStories} className="hidden" aria-label="Choose a story backup file" />{backupMessage && <p role="status" className="self-center text-xs font-bold text-amber-100">{backupMessage}</p>}</div>
             <p className="mt-2 text-xs font-bold text-cyan-100/80">Stories on this device are shared. Each reader has their own place and favourites.</p>
             <div className="mt-3 flex flex-wrap gap-2">{STORYBOOK_SHELVES.map((item) => <button key={item.id} type="button" onClick={() => setShelf(item.id)} className={`rounded-full px-3 py-2 text-xs font-black ${shelf === item.id ? 'bg-amber-300 text-slate-900' : 'bg-white/15 text-white'}`} aria-pressed={shelf === item.id}>{item.label}</button>)}<select value={ageFilter} onChange={(event) => setAgeFilter(event.target.value)} className="rounded-full border-0 bg-white px-3 py-2 text-xs font-black text-slate-800" aria-label="Filter by age band"><option value="all">All ages</option><option value="3-4">Ages 3–4</option><option value="5-6">Ages 5–6</option><option value="7-8">Ages 7–8</option></select>{availableSeries.length > 0 && <select value={seriesFilter} onChange={(event) => setSeriesFilter(event.target.value)} className="rounded-full border-0 bg-white px-3 py-2 text-xs font-black text-slate-800" aria-label="Filter by series"><option value="all">All series</option>{availableSeries.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select>}</div>
           </section>
@@ -645,15 +734,15 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
           <IllustrationFrame type={isCover ? 'button' : undefined} onClick={isCover ? startReading : undefined} aria-label={isCover ? `Start reading ${selectedBook.title}` : undefined} className={`relative flex min-h-[45vh] items-center justify-center overflow-hidden rounded-[2rem] border-4 border-white/35 bg-white/10 p-2 shadow-2xl backdrop-blur-sm sm:p-4 ${isCover ? 'w-full cursor-pointer text-left transition active:scale-[.99]' : ''}`}>
             {currentImage && !imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`] && <img src={currentImage} alt={isCover ? `${selectedBook.title} cover` : `${selectedBook.title}, ${currentPage?.title || ''}`} className="h-full max-h-[64vh] w-full rounded-[1.5rem] object-cover" onError={() => onImageError(`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`)} />}
             {(!currentImage || imageErrors[`${selectedBook.slug}-${isCover ? 'cover' : pageIndex}`]) && <div className="grid h-full min-h-[40vh] w-full place-items-center rounded-[1.5rem] bg-slate-950/20 text-8xl" aria-label="Illustration unavailable">{selectedBook.emoji}</div>}
-            <span className="absolute bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-slate-950/70 px-4 py-2 text-xs font-black text-white backdrop-blur">{isCover && <Play size={14} fill="currentColor" />}{isCover ? 'Tap to Start Reading' : `Illustration ${pageIndex + 1} of ${pages.length}`}</span>
+            <span className="absolute bottom-5 left-1/2 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-slate-950/70 px-4 py-2 text-xs font-black text-white backdrop-blur">{isCover && <Play size={14} fill="currentColor" />}{isCover ? (readCompletion(selectedBook.slug, activeChild.id) ? 'Tap to Start Again' : 'Tap to Start Reading') : `Illustration ${pageIndex + 1} of ${pages.length}`}</span>
           </IllustrationFrame>
           <div className="flex flex-col rounded-[2rem] border-2 border-white/25 bg-slate-950/25 p-5 shadow-2xl backdrop-blur-md sm:p-7">
             {isCover ? (
               <>
-                <div className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">A {pages.length === 6 ? 'six-page' : 'ten-page'} adventure</div>
+                <div className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">A {pages.length}-page adventure</div>
                 <h2 className="mt-2 text-3xl font-black leading-tight sm:text-5xl">{selectedBook.title}</h2>
                 <p className="mt-3 text-base font-bold leading-relaxed text-white/85 sm:text-lg">{selectedBook.summary}</p>
-                <button type="button" onClick={startReading} className="mt-7 inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-amber-300 px-6 py-4 text-lg font-black text-slate-950 shadow-[0_6px_0_rgba(120,53,15,.4)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none"><Play fill="currentColor" /> Start Reading</button>
+                <button type="button" onClick={startReading} className="mt-7 inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-amber-300 px-6 py-4 text-lg font-black text-slate-950 shadow-[0_6px_0_rgba(120,53,15,.4)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none"><Play fill="currentColor" /> {readCompletion(selectedBook.slug, activeChild.id) ? 'Start Again' : 'Start Reading'}</button>
                 <button type="button" onClick={() => setAutoRead((value) => !value)} className="mt-3 inline-flex items-center justify-center gap-2 rounded-xl border border-white/25 px-4 py-3 text-sm font-black text-white/90 hover:bg-white/10" aria-pressed={autoRead}>{autoRead ? <Check size={17} /> : <span className="h-4 w-4 rounded border border-white/70" />} Auto-turn pages after narration</button>
               </>
             ) : (
@@ -662,6 +751,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
                 <p className="mt-5 text-xl font-black leading-relaxed text-white sm:text-3xl">{currentPage.text}</p>
                 <div className="mt-6 flex flex-wrap gap-2"><button type="button" onClick={togglePlayback} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-slate-900 shadow-lg" aria-label={playing ? 'Pause narration' : 'Play narration'}>{playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />} {playing ? 'Pause' : 'Hear page'}</button><button type="button" onClick={() => { audioRef.current?.load(); playCurrentAudio(); }} className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-4 py-3 font-black hover:bg-white/10"><RotateCcw size={17} /> Replay</button></div>
                 <div className="mt-5 flex items-center gap-2 text-sm font-bold text-white/75"><Headphones size={17} /> {audioError ? 'Read-aloud is unavailable for this page.' : 'Read-aloud story'}</div>
+                {STORYBOOK_WORD_HELP[selectedBook.slug]?.length > 0 && <details className="mt-5 rounded-xl border border-white/25 bg-white/10 p-3"><summary className="cursor-pointer font-black">Word help</summary><dl className="mt-3 space-y-2">{STORYBOOK_WORD_HELP[selectedBook.slug].map(([word, meaning]) => <div key={word} className="flex items-start gap-2"><div className="flex-1"><dt className="font-black text-amber-200">{word}</dt><dd className="text-sm font-semibold text-white/90">{meaning}</dd></div><button type="button" onClick={() => speak(meaning)} className="storybook-icon-button shrink-0" aria-label={`Hear meaning of ${word}`}><Volume2 /></button></div>)}</dl></details>}
               </>
             )}
           </div>
@@ -669,7 +759,7 @@ const StorybookStudio = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate 
         <footer className="mt-4 flex items-center justify-between gap-3">
           <button type="button" onClick={() => goToScreen(pageIndex - 1, { shouldPlay: false })} disabled={isCover} className="storybook-nav-button" aria-label="Previous page"><ArrowLeft /> <span className="hidden sm:inline">Previous</span></button>
           <div className="flex gap-1.5" aria-hidden="true">{[...Array(totalScreens)].map((_, index) => <span key={index} className={`h-2.5 w-2.5 rounded-full ${index === pageIndex + 1 ? 'bg-amber-300' : index < pageIndex + 1 ? 'bg-white/80' : 'bg-white/25'}`} />)}</div>
-          <button type="button" onClick={() => { if (pageIndex >= pages.length - 1) { finishBook(); closeBook(); } else goToScreen(pageIndex + 1, { shouldPlay: started && autoRead }); }} className="storybook-nav-button" aria-label={pageIndex >= pages.length - 1 ? 'Finish story' : 'Next page'}><span className="hidden sm:inline">{pageIndex >= pages.length - 1 ? 'Finish' : 'Next'}</span> <ArrowRight /></button>
+          <button type="button" onClick={() => { if (pageIndex >= pages.length - 1) { finishBook(); if (comprehension.length) { stopAudio(); onGameEvent?.('storybooks', 'comprehension_started', { round: 1 }); setComprehensionActive(true); } else closeBook(); } else goToScreen(pageIndex + 1, { shouldPlay: started && autoRead }); }} className="storybook-nav-button" aria-label={pageIndex >= pages.length - 1 ? 'Start story questions' : 'Next page'}><span className="hidden sm:inline">{pageIndex >= pages.length - 1 ? 'Story Detective' : 'Next'}</span> <ArrowRight /></button>
         </footer>
         <audio ref={audioRef} src={currentAudio || undefined} preload="auto" onEnded={onEnded} onError={() => { setAudioError(true); setPlaying(false); }} aria-label="Story narration" />
       </div>

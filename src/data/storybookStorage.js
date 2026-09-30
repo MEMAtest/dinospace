@@ -58,6 +58,48 @@ export const saveStoryAsset = async (key, blob) => {
   return result !== null;
 };
 
+// Restore adds only stories whose ids are not already on this device. A single
+// IndexedDB transaction keeps each imported story and all of its assets together.
+export const importStorybookRecords = async ({ books = [], assets = [] }) => {
+  const database = await openDatabase();
+  if (!database) throw new Error('Story storage is unavailable in this browser.');
+  return new Promise((resolve, reject) => {
+    const tx = database.transaction([BOOKS_STORE, ASSETS_STORE], 'readwrite');
+    const bookStore = tx.objectStore(BOOKS_STORE);
+    const assetStore = tx.objectStore(ASSETS_STORE);
+    const existingRequest = bookStore.getAll();
+    let added = 0;
+    let skipped = 0;
+    existingRequest.onsuccess = () => {
+      const existingIds = new Set((existingRequest.result || []).map((book) => book.id));
+      const incoming = books.filter((book) => {
+        if (existingIds.has(book.id)) { skipped += 1; return false; }
+        existingIds.add(book.id);
+        return true;
+      });
+      const currentCount = (existingRequest.result || []).length;
+      if (currentCount + incoming.length > 20) {
+        tx.abort();
+        reject(new Error(`This device can store up to 20 saved stories. There is room for ${Math.max(0, 20 - currentCount)} more.`));
+        return;
+      }
+      const acceptedIds = new Set(incoming.map((book) => book.id));
+      incoming.forEach((book) => bookStore.add(book));
+      assets.filter((asset) => acceptedIds.has(asset.key.slice(0, asset.key.indexOf(':'))))
+        .forEach((asset) => assetStore.put({ key: asset.key, blob: asset.blob, type: asset.blob.type || 'application/octet-stream' }));
+      added = incoming.length;
+    };
+    existingRequest.onerror = () => {
+      const error = existingRequest.error || new Error('Could not check the stories already saved on this device.');
+      try { tx.abort(); } catch { /* transaction already ended */ }
+      reject(error);
+    };
+    tx.oncomplete = () => resolve({ added, skipped });
+    tx.onerror = () => reject(tx.error || new Error('Could not restore the story backup.'));
+    tx.onabort = () => reject(tx.error || new Error('Story restore was cancelled because storage could not save the full backup.'));
+  });
+};
+
 export const getStoryAsset = async (key) => {
   if (!key) return null;
   const result = await transaction(ASSETS_STORE, 'readonly', (store) => requestResult(store.get(key))).catch(() => null);

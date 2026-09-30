@@ -6,6 +6,7 @@ import { getGameLevel, levelsForSession, saveGameLevel } from '../../data/sessio
 import { getLearningProfile } from '../../data/learningProgress.js';
 import { ForcedDifficultyContext } from '../../hooks/useGameDifficulty.js';
 import { RewardSticker } from './StickerArt.jsx';
+import { recordGameDiagnostic } from '../../data/gameDiagnostics.js';
 
 const RoundButton = ({ onClick, label, tone, size = 'h-24 w-24', children }) => (
   <div className="flex flex-col items-center gap-1">
@@ -37,13 +38,16 @@ const GameSession = ({
   const [stars, setStars] = useState(3);
   const progressRef = useRef({ done: 0, firstTries: 0 });
   const finishTimer = useRef(null);
+  const pendingFinishRef = useRef(null);
 
   useEffect(() => () => clearTimeout(finishTimer.current), []);
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
 
   const start = (nextLevel = levelIndex) => {
+    recordGameDiagnostic(game.id, run ? 'replay' : 'level_start', { level: nextLevel, difficulty: levels[nextLevel]?.band });
     playSfx?.('launch');
     clearTimeout(finishTimer.current);
+    pendingFinishRef.current = null;
     progressRef.current = { done: 0, firstTries: 0 };
     setProgress(progressRef.current);
     setStartPoints(points);
@@ -53,6 +57,26 @@ const GameSession = ({
     setPhase('play');
   };
 
+  const finishLevel = useCallback(({ next, completedLevel, unlockedBefore }) => {
+    recordGameDiagnostic(game.id, 'level_complete', { level: completedLevel });
+    const earned = sessionStars(next.firstTries, next.done);
+    setStars(earned);
+    const unlocked = Math.max(unlockedBefore, Math.min(levels.length - 1, completedLevel + 1));
+    const saved = { current: Math.min(completedLevel + 1, levels.length - 1), unlocked };
+    saveGameLevel(playerId, game.id, saved.current, saved.unlocked);
+    setLevelState(saved);
+    playSfx?.('complete');
+    onCelebrate?.('Level complete!', earned * 2, 0, game.id);
+    setPhase('done');
+  }, [game.id, levels.length, onCelebrate, playSfx, playerId]);
+
+  const acknowledgeFinalAnswer = useCallback(() => {
+    const pending = pendingFinishRef.current;
+    if (!pending) return;
+    pendingFinishRef.current = null;
+    finishTimer.current = setTimeout(() => finishLevel(pending), 300);
+  }, [finishLevel]);
+
   const handleEvent = useCallback((gameId, event, payload) => {
     onGameEvent?.(gameId, event, payload);
     if (event !== rule.event || progressRef.current.done >= target) return;
@@ -61,20 +85,17 @@ const GameSession = ({
     progressRef.current = next;
     setProgress(next);
     if (next.done >= target) {
+      const completion = { next, completedLevel: levelIndex, unlockedBefore: levelState.unlocked };
+      if (payload?.deferFinish === true) {
+        // Some games show an explanation after the last answer. Keep that
+        // explanation available until the child confirms they are ready.
+        pendingFinishRef.current = completion;
+        return;
+      }
       // Let the game's own celebration play before the results screen.
-      finishTimer.current = setTimeout(() => {
-        const earned = sessionStars(next.firstTries, next.done);
-        setStars(earned);
-        const unlocked = Math.max(levelState.unlocked, Math.min(levels.length - 1, levelIndex + 1));
-        const saved = { current: Math.min(levelIndex + 1, levels.length - 1), unlocked };
-        saveGameLevel(playerId, game.id, saved.current, saved.unlocked);
-        setLevelState(saved);
-        playSfx?.('complete');
-        onCelebrate?.('Level complete!', earned * 2, 0, game.id);
-        setPhase('done');
-      }, rule.event === 'level_completed' ? 2600 : 1500);
+      finishTimer.current = setTimeout(() => finishLevel(completion), rule.event === 'level_completed' ? 2600 : 1500);
     }
-  }, [game.id, levelIndex, levelState.unlocked, levels.length, onCelebrate, onGameEvent, playSfx, playerId, rule.event, target]);
+  }, [finishLevel, levelIndex, levelState.unlocked, onGameEvent, rule.event, target]);
 
   if (phase === 'play') {
     return (
@@ -83,7 +104,7 @@ const GameSession = ({
           <div className="h-full rounded-r-full bg-gradient-to-r from-amber-300 to-orange-500 transition-all duration-500" style={{ width: `${(progress.done / target) * 100}%` }} />
         </div>
         <ForcedDifficultyContext.Provider value={levelBand}>
-          <SessionSlot render={children} run={run} onGameEvent={handleEvent} sessionLevel={levelIndex} />
+          <SessionSlot render={children} run={run} onGameEvent={handleEvent} onReviewComplete={acknowledgeFinalAnswer} sessionLevel={levelIndex} />
         </ForcedDifficultyContext.Provider>
       </>
     );
@@ -111,7 +132,7 @@ const GameSession = ({
                 {levels.map((entry, index) => (
                   <button key={entry.name} type="button" disabled={index > levelState.unlocked} onClick={() => { setLevelIndex(index); saveGameLevel(playerId, game.id, index, levelState.unlocked); }}
                     aria-label={`Level ${index + 1}: ${entry.name}${index > levelState.unlocked ? ', locked' : ''}`}
-                    className={`grid h-11 w-11 place-items-center rounded-full border-2 font-black ${index === levelIndex ? 'border-blue-700 bg-blue-500 text-white' : index > levelState.unlocked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-amber-300 bg-amber-100 text-amber-900'}`}>{index + 1}</button>
+                    className={`grid h-12 w-12 place-items-center rounded-full border-2 font-black ${index === levelIndex ? 'border-blue-700 bg-blue-500 text-white' : index > levelState.unlocked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-amber-300 bg-amber-100 text-amber-900'}`}>{index + 1}</button>
                 ))}
               </div>
             )}

@@ -20,6 +20,7 @@ import GameSession from './components/shared/GameSession.jsx';
 import LittleDinoDetective from './components/little/games/LittleDinoDetective.jsx';
 import { GAME_SESSIONS } from './data/gameSessions.js';
 import { recordLegacyGameEvent } from './data/learningProgress.js';
+import { recordGameDiagnostic } from './data/gameDiagnostics.js';
 import {
   BONUS_GAME_IDS as BONUS_GAME_ID_LIST, LEARNING_WORLDS, LITTLE_EXPLORER_GAME_IDS, PRACTICE_GAME_IDS,
 } from './data/learningWorlds.js';
@@ -145,6 +146,7 @@ const PlayerSession = ({
   );
 
   const recordGameEvent = useCallback((gameId, event, amount = 1) => {
+    recordGameDiagnostic(gameId, event, amount);
     // Learning evidence drives Amari's adaptive difficulty; Askia's games all
     // run at the starter level, so his play is not mixed into that record.
     if (!little) recordLegacyGameEvent(gameId, event, amount);
@@ -264,7 +266,7 @@ const PlayerSession = ({
               onPhaseChange={handlePhaseChange}
               playSfx={playSfx}
             >
-              {({ run, onGameEvent, sessionLevel }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} sessionLevel={sessionLevel} onGameEvent={onGameEvent} />}
+              {({ run, onGameEvent, onReviewComplete, sessionLevel }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} sessionLevel={sessionLevel} onGameEvent={onGameEvent} onReviewComplete={onReviewComplete} />}
             </GameSession>
           ) : (
             <GameComponent key={currentGame.id} {...gameProps} />

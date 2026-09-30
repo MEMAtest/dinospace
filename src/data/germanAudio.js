@@ -10,6 +10,8 @@ export const GERMAN_AUDIO_SLUGS = Object.freeze({
   Auto: 'auto', Bus: 'bus', Zug: 'zug', Flugzeug: 'flugzeug', Fahrrad: 'fahrrad', Rakete: 'rakete',
   Kopf: 'kopf', Hand: 'hand', Fuß: 'fuss', Auge: 'auge', Nase: 'nase', Ohr: 'ohr', Mund: 'mund', Arm: 'arm',
   Hallo: 'hallo', Tschüss: 'tschuess', Danke: 'danke', Bitte: 'bitte', Ja: 'ja', Nein: 'nein',
+  Rad: 'rad', Tür: 'tuer', Lenkrad: 'lenkrad', Licht: 'licht', Sitz: 'sitz', Reifen: 'reifen',
+  Links: 'links', Rechts: 'rechts', Geradeaus: 'geradeaus', Halt: 'halt', Langsam: 'langsam', Zurück: 'zurueck',
 });
 
 export const getGermanAudioPath = (term) => {

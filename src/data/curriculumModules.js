@@ -19,7 +19,7 @@ export const CONTINENTS = freeze([
   { id: 'europe', name: 'Europe', emoji: '🏰', position: { left: '47%', top: '24%' }, colour: '#60a5fa', examples: ['United Kingdom', 'France'], clue: 'A continent where we can find the United Kingdom and France.' },
   { id: 'north-america', name: 'North America', emoji: '🦅', position: { left: '19%', top: '27%' }, colour: '#34d399', examples: ['Canada', 'Mexico'], clue: 'A continent that includes Canada, the United States and Mexico.' },
   { id: 'south-america', name: 'South America', emoji: '🦙', position: { left: '28%', top: '63%' }, colour: '#f472b6', examples: ['Brazil', 'Peru'], clue: 'A continent that includes Brazil and the Amazon rainforest.' },
-  { id: 'australia', name: 'Australia', emoji: '🦘', position: { left: '80%', top: '61%' }, colour: '#facc15', examples: ['Australia', 'New Zealand'], clue: 'The continent of Australia. Oceania is a wider region that includes Australia, New Zealand and Pacific islands.' },
+  { id: 'australia', name: 'Australia', emoji: '🦘', position: { left: '80%', top: '61%' }, colour: '#facc15', examples: ['Australia'], clue: 'The continent of Australia. Oceania is a wider region that includes Australia, New Zealand and Pacific islands.' },
 ]);
 
 export const OCEANS = freeze([

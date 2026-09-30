@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import {
   getStoryBook,
   loadStoryBookManifest,
@@ -53,4 +54,11 @@ test('missing generated manifest preserves bundled acceptance copy', async () =>
   const seed = getStoryBook('luna-whispering-forest');
   const loaded = await loadStoryBookManifest(seed, async () => ({ ok: false, json: async () => ({}) }));
   assert.equal(loaded, seed);
+});
+
+test('fallback story copy matches the narrated bundled manifests', () => {
+  for (const book of STORYBOOK_CATALOG) {
+    const recorded = JSON.parse(readFileSync(`public/storybooks/${book.slug}/book.json`, 'utf8'));
+    assert.deepEqual(book.pages.map(({ text }) => text), recorded.pages.map(({ text }) => text));
+  }
 });

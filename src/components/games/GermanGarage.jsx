@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, CarFront, Star, Volume2, Wrench } from 'lucide-react';
-import { GERMAN_COLORS, GERMAN_MATCH_MODES, GERMAN_NUMBERS } from '../../data/index.js';
+import { ArrowLeft, CarFront, Volume2, Wrench } from 'lucide-react';
+import { GERMAN_MATCH_MODES } from '../../data/index.js';
 import { getGermanAudioPath } from '../../data/germanAudio.js';
-import { buildMatchRound } from '../../utils.js';
+import { buildGermanModeRound, GERMAN_MODE_ITEMS, germanTranslation } from '../../data/germanLearning.js';
 import { SoundToggle } from '../shared/index.jsx';
 import emptyGarage from '../../assets/german-garage/empty-garage.png';
 import friendlyCar from '../../assets/german-garage/friendly-car.png';
@@ -18,7 +18,7 @@ import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 
 const TAB_ICONS = {
   paint: '🎨', park: '🏠', numbers: '🔢', animals: '🐯', shapes: '⭐', foods: '🍎',
-  vehicles: '🚙', body: '✋', greetings: '💬',
+  vehicles: '🚙', parts: '🛠️', directions: '🧭', body: '✋', greetings: '💬',
 };
 
 const MODE_COPY = {
@@ -29,6 +29,8 @@ const MODE_COPY = {
   shapes: { mission: 'FORMEN-MISSION', instruction: 'Match the shape', helper: 'Choose the matching shape' },
   foods: { mission: 'ESSEN-MISSION', instruction: 'Pack the snack', helper: 'Choose the named food' },
   vehicles: { mission: 'FAHRZEUG-MISSION', instruction: 'Choose the vehicle', helper: 'Which vehicle did you hear?' },
+  parts: { mission: 'AUTOTEILE-MISSION', instruction: 'Find the car part', helper: 'Listen, then choose the matching car part.' },
+  directions: { mission: 'RICHTUNGS-MISSION', instruction: 'Guide the car', helper: 'Listen to the German direction and choose its meaning.' },
   body: { mission: 'KÖRPER-MISSION', instruction: 'Touch the body part', helper: 'Choose the named body part' },
   greetings: { mission: 'GRÜSSE-MISSION', instruction: 'Choose the word', helper: 'Listen to the German greeting' },
 };
@@ -40,36 +42,57 @@ const MODE_SCENES = {
   shapes: shapesScene,
   foods: foodsScene,
   vehicles: vehiclesScene,
+  parts: vehiclesScene,
+  directions: garageScene,
   body: bodyScene,
   greetings: greetingsScene,
 };
 
-const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
+const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, onReviewComplete, sessionLevel = 0 }) => {
   const difficulty = useGameDifficulty('german');
   const optionCount = difficulty === 'starter' ? 3 : difficulty === 'growing' ? 4 : 6;
-  const [mode, setMode] = useState('paint');
-  const [paintRound, setPaintRound] = useState(() => buildMatchRound(GERMAN_COLORS, optionCount));
-  const [parkRound, setParkRound] = useState(() => buildMatchRound(GERMAN_COLORS, optionCount));
-  const [matchRound, setMatchRound] = useState(() => buildMatchRound(GERMAN_NUMBERS, optionCount));
+  const levelTarget = [5, 6, 7][sessionLevel] || 5;
+  const [initialRounds] = useState(() => {
+    const history = {};
+    const create = (roundMode) => {
+      const round = buildGermanModeRound(roundMode, [], optionCount);
+      history[roundMode] = [round.target.name];
+      return round;
+    };
+    const practiceMode = sessionLevel === 1 ? 'vehicles' : sessionLevel === 2 ? 'directions' : 'numbers';
+    return { history, paint: create('paint'), park: create('park'), match: create(practiceMode) };
+  });
+  const recentTargetsRef = useRef(initialRounds.history);
+  const [mode, setMode] = useState(sessionLevel === 1 ? 'vehicles' : sessionLevel === 2 ? 'directions' : 'paint');
+  const [paintRound, setPaintRound] = useState(initialRounds.paint);
+  const [parkRound, setParkRound] = useState(initialRounds.park);
+  const [matchRound, setMatchRound] = useState(initialRounds.match);
   const [feedback, setFeedback] = useState('');
-  const [stars, setStars] = useState(0);
+  const [roundCount, setRoundCount] = useState(0);
+  const [pendingRound, setPendingRound] = useState(null);
+  const [showMorePractice, setShowMorePractice] = useState(false);
   const [paintedColour, setPaintedColour] = useState(null);
   const [failedImages, setFailedImages] = useState([]);
   const germanAudioRef = useRef(null);
   const hadMistakeRef = useRef(false);
   const answeredRef = useRef(false);
-  const nextRoundTimerRef = useRef(null);
 
   const round = mode === 'paint' ? paintRound : mode === 'park' ? parkRound : matchRound;
   const copy = MODE_COPY[mode];
   const sceneImage = mode === 'paint' ? emptyGarage : MODE_SCENES[mode];
   const imageFailed = (src) => failedImages.includes(src);
   const markImageFailed = (src) => setFailedImages((current) => current.includes(src) ? current : [...current, src]);
-  const modeTabs = useMemo(() => [
-    { id: 'paint', label: 'Farben' },
-    { id: 'park', label: 'Garage' },
+  const coreTabs = useMemo(() => {
+    if (sessionLevel === 1) return [{ id: 'vehicles', label: 'Fahrzeuge' }, { id: 'parts', label: 'Autoteile' }];
+    if (sessionLevel === 2) return [{ id: 'directions', label: 'Richtungen' }];
+    return [{ id: 'paint', label: 'Farben' }, { id: 'park', label: 'Garage' }];
+  }, [sessionLevel]);
+  const moreTabs = useMemo(() => [
+    { id: 'parts', label: 'Autoteile' }, { id: 'directions', label: 'Richtungen' },
     ...GERMAN_MATCH_MODES.map(({ id, label }) => ({ id, label })),
-  ], []);
+    { id: 'paint', label: 'Farben' }, { id: 'park', label: 'Garage' },
+  ].filter((tab) => !coreTabs.some((core) => core.id === tab.id)), [coreTabs]);
+  const modeTabs = [...coreTabs, ...(showMorePractice ? moreTabs : [])];
 
   const playGermanTerm = useCallback((term) => {
     const audioPath = getGermanAudioPath(term);
@@ -89,53 +112,92 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
 
   useEffect(() => () => {
     germanAudioRef.current?.pause();
-    window.clearTimeout(nextRoundTimerRef.current);
   }, []);
 
   const makeNextRound = (roundMode) => {
-    nextRoundTimerRef.current = null;
+    const recent = recentTargetsRef.current[roundMode] || [];
+    const next = buildGermanModeRound(roundMode, recent, optionCount);
+    const poolSize = GERMAN_MODE_ITEMS[roundMode]?.length || 0;
+    recentTargetsRef.current = {
+      ...recentTargetsRef.current,
+      [roundMode]: [...recent, next.target.name].slice(-(poolSize - 1)),
+    };
     answeredRef.current = false;
     setFeedback('');
     hadMistakeRef.current = false;
-    const roundMatchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === roundMode);
-    if (roundMode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS, optionCount));
-    else if (roundMode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS, optionCount));
-    else if (roundMatchMode) setMatchRound(buildMatchRound(roundMatchMode.items, optionCount));
+    setPendingRound(null);
+    setPaintedColour(null);
+    if (roundMode === 'paint') setPaintRound(next);
+    else if (roundMode === 'park') setParkRound(next);
+    else setMatchRound(next);
   };
 
   const choose = (option) => {
-    if (answeredRef.current) return;
+    if (answeredRef.current || pendingRound) return;
     if (mode === 'paint') setPaintedColour(option);
     if (option.name !== round.target.name) {
       hadMistakeRef.current = true;
-      setFeedback('Noch einmal — try again!');
+      setFeedback('Not quite. Hear the word again, then choose the matching picture.');
       playSfx('oops');
       playGermanTerm(round.target.name);
       return;
     }
     answeredRef.current = true;
-    setFeedback('Richtig! Great listening!');
-    setStars((value) => Math.min(10, value + 1));
+    const translation = germanTranslation(mode, round.target.name);
+    const nextCount = roundCount + 1;
+    const isFinalRound = nextCount >= levelTarget;
+    const answerEvent = {
+      skill: `german-${mode}`,
+      item: round.target.name,
+      response: option.name,
+      expected: round.target.name,
+      correct: true,
+      firstAttempt: !hadMistakeRef.current,
+      independent: !hadMistakeRef.current,
+      difficulty,
+      deferFinish: isFinalRound,
+    };
+    setRoundCount(nextCount);
+    setPendingRound({ mode, final: isFinalRound });
+    setFeedback(`Richtig! ${round.target.name} means ${translation}.`);
     playSfx('success');
     playGermanTerm(round.target.name);
-    onCelebrate('Richtig!', 4, 120);
-    onGameEvent?.('german', 'answer_correct', { skill: `german-${mode}`, item: round.target.name, response: option.name, expected: round.target.name, correct: true, firstAttempt: !hadMistakeRef.current, independent: true, difficulty });
-    const roundMode = mode;
-    nextRoundTimerRef.current = window.setTimeout(() => makeNextRound(roundMode), 850);
+    onCelebrate(`Richtig! ${translation}.`, 4, 120);
+    onGameEvent?.('german', 'answer_correct', answerEvent);
+  };
+
+  const advanceAfterReview = () => {
+    if (!pendingRound) return;
+    playSfx('click');
+    if (pendingRound.final) {
+      onReviewComplete?.();
+      return;
+    }
+    const coreModes = sessionLevel === 0 ? ['paint', 'park'] : sessionLevel === 1 ? ['vehicles', 'parts'] : ['directions'];
+    const nextMode = coreModes.includes(pendingRound.mode)
+      ? coreModes[(coreModes.indexOf(pendingRound.mode) + 1) % coreModes.length]
+      : coreModes[roundCount % coreModes.length];
+    setMode(nextMode);
+    makeNextRound(nextMode);
   };
 
   const selectMode = (nextMode) => {
-    window.clearTimeout(nextRoundTimerRef.current);
-    nextRoundTimerRef.current = null;
+    if (pendingRound) return;
     answeredRef.current = false;
     setMode(nextMode);
     setFeedback('');
     setPaintedColour(null);
-    const nextMatchMode = GERMAN_MATCH_MODES.find((entry) => entry.id === nextMode);
     hadMistakeRef.current = false;
-    if (nextMode === 'paint') setPaintRound(buildMatchRound(GERMAN_COLORS, optionCount));
-    else if (nextMode === 'park') setParkRound(buildMatchRound(GERMAN_COLORS, optionCount));
-    else if (nextMatchMode) setMatchRound(buildMatchRound(nextMatchMode.items, optionCount));
+    const recent = recentTargetsRef.current[nextMode] || [];
+    const next = buildGermanModeRound(nextMode, recent, optionCount);
+    const poolSize = GERMAN_MODE_ITEMS[nextMode]?.length || 0;
+    recentTargetsRef.current = {
+      ...recentTargetsRef.current,
+      [nextMode]: [...recent, next.target.name].slice(-(poolSize - 1)),
+    };
+    if (nextMode === 'paint') setPaintRound(next);
+    else if (nextMode === 'park') setParkRound(next);
+    else setMatchRound(next);
     playSfx('click');
   };
 
@@ -145,8 +207,9 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
       <button
         key={`${mode}-${option.name}`}
         onClick={() => choose(option)}
+        disabled={Boolean(pendingRound)}
         className="group min-h-28 rounded-[1.6rem] border-4 border-white bg-white p-3 text-center shadow-[0_7px_0_rgba(148,92,20,0.18),0_13px_28px_rgba(148,92,20,0.12)] transition hover:-translate-y-1 active:translate-y-1 active:shadow-none"
-        aria-label={option.name}
+        aria-label={germanTranslation(mode, option.name)}
       >
         {mode === 'park' ? (
           <span className="mx-auto mb-2 block w-20 overflow-hidden rounded-xl border-4 border-slate-200 bg-amber-50 shadow-md" aria-hidden="true">
@@ -158,7 +221,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
         ) : (
           <span className="mb-2 block text-5xl transition-transform group-hover:scale-110">{option.emoji}</span>
         )}
-        <span className="text-base font-black text-slate-800 sm:text-lg">{option.name}</span>
+        <span className="text-base font-black text-slate-800 sm:text-lg">{germanTranslation(mode, option.name)}</span>
       </button>
     );
   };
@@ -171,33 +234,35 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
           {modeTabs.map((tab) => (
             <button
               key={tab.id}
+              disabled={Boolean(pendingRound)}
               onClick={(event) => {
                 selectMode(tab.id);
                 event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
               }}
-              className={`flex shrink-0 items-center gap-1.5 rounded-2xl px-3 py-2 text-xs font-black transition sm:text-sm ${mode === tab.id ? 'bg-blue-600 text-white shadow-md' : 'text-slate-700 hover:bg-amber-50'}`}
+              className={`flex shrink-0 items-center gap-1.5 rounded-2xl px-3 py-2 text-xs font-black transition disabled:cursor-not-allowed disabled:opacity-60 sm:text-sm ${mode === tab.id ? 'bg-blue-600 text-white shadow-md' : 'text-slate-700 hover:bg-amber-50'}`}
               aria-pressed={mode === tab.id}
             >
               <span>{TAB_ICONS[tab.id]}</span>{tab.label}
             </button>
           ))}
         </nav>
+        <button type="button" onClick={() => setShowMorePractice((open) => !open)} disabled={Boolean(pendingRound)} aria-expanded={showMorePractice} className="min-h-11 shrink-0 rounded-full border-2 border-amber-200 bg-white px-3 text-xs font-black text-slate-700 disabled:opacity-50 sm:text-sm">{showMorePractice ? 'Less' : 'More practice'}</button>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
 
       <main className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-4 pb-8 pt-4">
         <div className="mb-3 flex w-full items-center justify-between gap-3">
-          <div className="rounded-2xl bg-white px-4 py-2 shadow-md">
-            <div className="flex items-center gap-2 font-black text-amber-600"><Star fill="currentColor" size={20} /> {stars} / 10</div>
-            <div className="mt-1 h-2 w-28 overflow-hidden rounded-full bg-amber-100"><div className="h-full rounded-full bg-blue-500 transition-all" style={{ width: `${stars * 10}%` }} /></div>
+          <div className="rounded-2xl bg-white px-4 py-2 shadow-md" aria-label={`Level ${sessionLevel + 1}, round ${Math.min(roundCount + 1, levelTarget)} of ${levelTarget}`}>
+            <div className="flex items-center gap-2 font-black text-amber-600"><span aria-hidden="true">⭐</span> Level {sessionLevel + 1} · {Math.min(roundCount + 1, levelTarget)} / {levelTarget}</div>
+            <div className="mt-1 h-2 w-28 overflow-hidden rounded-full bg-amber-100"><div className="h-full rounded-full bg-blue-500 transition-all" style={{ width: `${(roundCount / levelTarget) * 100}%` }} /></div>
           </div>
           <div className="flex-1 rounded-[2rem] border-4 border-white bg-white/95 px-4 py-3 text-center shadow-xl sm:px-8">
             <p className="text-xs font-black tracking-[0.18em] text-blue-500">{copy.mission}</p>
             <p className="text-xl font-black text-slate-800 sm:text-3xl">{copy.instruction}…</p>
             <div className="flex items-center justify-center gap-2">
-              <strong className="text-3xl font-black text-blue-600 sm:text-5xl">{round.target.name}</strong>
-              <button onClick={() => playGermanTerm(round.target.name)} className="rounded-full bg-blue-600 p-3 text-white shadow-md" aria-label={`Hear ${round.target.name} in German`}><Volume2 /></button>
-            </div>
+                <strong className="text-xl font-black text-blue-600 sm:text-2xl">Listen to the German clue</strong>
+                <button onClick={() => playGermanTerm(round.target.name)} className="rounded-full bg-blue-600 p-3 text-white shadow-md" aria-label="Replay the German clue"><Volume2 /></button>
+              </div>
           </div>
         </div>
 
@@ -239,7 +304,11 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
         <div className="mt-4 grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {round.options.map(renderOption)}
         </div>
-        <div className={`mt-4 min-h-8 text-center text-lg font-black ${feedback.startsWith('Richtig') ? 'text-emerald-600' : 'text-rose-600'}`} aria-live="polite">{feedback}</div>
+        <div className={`mt-4 min-h-8 text-center text-lg font-black ${feedback.startsWith('Richtig') ? 'text-emerald-700' : 'text-rose-700'}`} aria-live="polite">{feedback}</div>
+        {pendingRound && <div className="mt-2 flex w-full max-w-md flex-col items-center gap-2 rounded-2xl border-2 border-emerald-200 bg-white/95 p-4 text-center shadow-lg" role="status">
+          <p className="font-bold text-slate-700">{round.target.name} means <strong>{round.translation || germanTranslation(mode, round.target.name)}</strong> in English.</p>
+          <button type="button" onClick={advanceAfterReview} className="min-h-12 rounded-full bg-emerald-600 px-6 font-black text-white shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300">{pendingRound.final ? 'Finish level' : 'Next word'}</button>
+        </div>}
       </main>
     </div>
   );

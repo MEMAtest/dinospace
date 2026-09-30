@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Headphones, Home, Map, RotateCcw, Sparkles, Compass, ArrowRight, Clock3 } from 'lucide-react';
+import { Headphones, ArrowLeft, Map, RotateCcw, Sparkles, Compass, ArrowRight, Clock3 } from 'lucide-react';
 import { CONTINENTS, CURRICULUM_MODULES, getCurriculumModule, OCEANS, YEAR_ONE_JOURNEY } from '../../data/curriculumModules.js';
 import { CURRICULUM_LESSON_COPY, getCurriculumVoiceClip } from '../../data/curriculumVoice.js';
-import { getPraise, shuffle } from '../../utils.js';
+import { getPraise } from '../../utils.js';
 import { getRecommendedDifficulty } from '../../data/learningProgress.js';
+import { createCurriculumQueue, makeCurriculumSeed, shuffleCurriculumAnswers } from '../../data/curriculumQueue.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 import geographyWorld from '../../assets/curriculum/geography-world.webp';
 import historyWorld from '../../assets/curriculum/history-world.webp';
@@ -23,8 +24,8 @@ const ACCENT_BADGE_CLASSES = {
 };
 
 const ROUND_HELP = Object.freeze({
-  continent: 'Tap the labelled continent where the place is.',
-  country: 'Tap the labelled continent where this country belongs.',
+  continent: 'Tap the map pin where this continent is.',
+  country: 'Tap the map pin for the continent where this country belongs.',
   ocean: 'Tap the labelled ocean that matches the clue.',
   sequence: 'Tap the clues in order, starting with the oldest.',
   route: 'Use the N, E, S and W buttons to move the boat one square at a time.',
@@ -34,14 +35,15 @@ const ROUND_HELP = Object.freeze({
 
 const roundHelpFor = (round) => ROUND_HELP[round.type] || ROUND_HELP.default;
 
-const shuffledIndexes = (length, avoidIndex = -1) => {
-  const indexes = Array.from({ length }, (_, index) => index);
-  for (let index = indexes.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [indexes[index], indexes[swapIndex]] = [indexes[swapIndex], indexes[index]];
-  }
-  if (indexes.length > 1 && indexes[0] === avoidIndex) [indexes[0], indexes[1]] = [indexes[1], indexes[0]];
-  return indexes;
+const queueHistoryKey = (playerId, moduleId, difficulty) => `${playerId || 'amari'}_curriculum_recent_v1_${moduleId}_${difficulty}`;
+const loadQueueHistory = (playerId, moduleId, difficulty) => {
+  try {
+    const history = JSON.parse(window.localStorage.getItem(queueHistoryKey(playerId, moduleId, difficulty)) || '[]');
+    return Array.isArray(history) ? history.filter((id) => typeof id === 'string').slice(-8) : [];
+  } catch { return []; }
+};
+const saveQueueHistory = (playerId, moduleId, difficulty, history) => {
+  try { window.localStorage.setItem(queueHistoryKey(playerId, moduleId, difficulty), JSON.stringify(history.slice(-8))); } catch { /* progress storage is optional */ }
 };
 
 const skillForRound = (module, round) => {
@@ -69,7 +71,10 @@ const answerItemsForRound = (round) => {
 };
 
 const wrongFeedbackFor = (round) => round.wrongFeedback
-  || (round.type === 'country' ? 'A country is a place inside a continent. Look at the map positions and try again.' : 'Good detective work. Look closely and try another answer.');
+  || (round.type === 'country' ? 'A country is a place inside a continent. Look at where it sits on the world map, then try again.'
+    : round.type === 'continent' ? 'Use the outlines and position of each land shape on the world map. Which one is the clue asking for?'
+      : round.type === 'ocean' ? 'Look at where the ocean sits around the continents, then try again.'
+        : 'Good detective work. Look closely and try another answer.');
 
 const ChoiceArt = ({ item }) => {
   if (item.id === 'robin') return <img className="quest-choice-art" src={robinArt} alt="" aria-hidden="true" />;
@@ -97,7 +102,7 @@ const PackagedAudioButton = ({ text, label = 'Hear', soundOn }) => {
     setPlaying(true);
     audio.play().catch(() => setPlaying(false));
   };
-  return <button type="button" onClick={play} disabled={!soundOn} className="inline-flex min-h-11 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-3 py-2 text-xs font-black text-indigo-700 shadow-sm disabled:cursor-not-allowed disabled:opacity-50" aria-label={`${label}: ${text}`}><Headphones size={16} className={playing ? 'animate-pulse' : ''} />{playing ? 'Playing' : label}</button>;
+  return <button type="button" onClick={play} disabled={!soundOn} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-3 py-2 text-xs font-black text-indigo-700 shadow-sm disabled:cursor-not-allowed disabled:opacity-50" aria-label={`${label}: ${text}`}><Headphones size={16} className={playing ? 'animate-pulse' : ''} />{playing ? 'Playing' : label}</button>;
 };
 
 const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabels = false, soundOn }) => {
@@ -118,8 +123,7 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
               className={`absolute flex min-h-12 min-w-[4.8rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-xl border-2 px-1 py-1 text-center text-[10px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 disabled:hover:scale-100 ${selected === continent.id ? 'border-white bg-slate-950 text-white ring-4 ring-white/70' : 'border-slate-700/30 bg-white/95 text-slate-800'}`}
               style={{ left: continent.position.left, top: continent.position.top }}
             >
-              <span className="text-base leading-none" aria-hidden="true">{continent.emoji}</span>
-              <span className="max-w-[5.4rem] leading-tight">{continent.name}</span>
+              {showLabels ? <><span className="text-base leading-none" aria-hidden="true">{continent.emoji}</span><span className="max-w-[5.4rem] leading-tight">{continent.name}</span></> : <span className="text-lg leading-none" aria-hidden="true">📍</span>}
             </button>
           ))}
           {isOceanRound && OCEANS.map((ocean) => (
@@ -132,8 +136,7 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
               className={`absolute flex min-h-11 min-w-[5.8rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-xl border-2 px-1 py-1 text-center text-[9px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 ${selected === ocean.id ? 'border-white bg-slate-950 text-white ring-4 ring-white/70' : 'border-white/70 bg-sky-950/80 text-white'}`}
               style={{ left: ocean.position.left, top: ocean.position.top }}
             >
-              <span className="text-base leading-none" aria-hidden="true">{ocean.emoji}</span>
-              <span className="max-w-[6.2rem] leading-tight">{ocean.name}</span>
+              {showLabels ? <><span className="text-base leading-none" aria-hidden="true">{ocean.emoji}</span><span className="max-w-[6.2rem] leading-tight">{ocean.name}</span></> : <span className="text-lg leading-none" aria-hidden="true">🌊</span>}
             </button>
           ))}
         </div>
@@ -261,7 +264,7 @@ const LessonVisual = ({ module, round, soundOn }) => {
 
 const ExplorerWords = ({ module, soundOn }) => <aside className="quest-words"><p className="quest-small-label">Learn &amp; explore</p><h3>Your explorer words</h3><div className="quest-word-list">{module.vocabulary.slice(0, 4).map((word) => <div key={word} className="quest-word"><strong>{word}</strong><PackagedAudioButton text={word} label="Hear word" soundOn={soundOn} /></div>)}</div><p className="quest-lesson-copy">{CURRICULUM_LESSON_COPY[module.id]}</p><div className="quest-topic-list" aria-label="Related Year 1 school topics">{YEAR_ONE_JOURNEY.filter((entry) => module.schoolTopics.includes(entry.unit)).map((entry) => <span key={entry.term}>{entry.term} · {entry.unit}</span>)}</div></aside>;
 
-const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
+const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, playerId }) => {
   const [moduleId, setModuleId] = useState('continents');
   const difficultyGameId = `worldmap-${moduleId}`;
   // Keep one difficulty band for the whole module run. Learning evidence may
@@ -271,6 +274,9 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   const [roundIndex, setRoundIndex] = useState(0);
   const [roundOrder, setRoundOrder] = useState([]);
   const [roundCursor, setRoundCursor] = useState(0);
+  const [queueSeed, setQueueSeed] = useState(0);
+  const [queueComplete, setQueueComplete] = useState(false);
+  const recentRoundIds = useRef([]);
   const [mistakes, setMistakes] = useState(0);
   const [sequence, setSequence] = useState([]);
   const [selected, setSelected] = useState('');
@@ -285,7 +291,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   const rounds = activeModule.rounds[difficulty] || activeModule.rounds.starter;
   const round = rounds[roundIndex % rounds.length];
   // Keep answer positions stable on a retry, but shuffle them for each new question.
-  const shuffledOptions = useMemo(() => round.options ? shuffle(round.options) : [], [round]);
+  const shuffledOptions = useMemo(() => round.options ? shuffleCurriculumAnswers(round.options, queueSeed, roundCursor) : [], [round, roundCursor, queueSeed]);
   const moduleNumber = CURRICULUM_MODULES.findIndex((item) => item.id === activeModule.id) + 1;
 
   const resetRound = useCallback((nextIndex = 0, showLesson = false) => {
@@ -303,33 +309,66 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
 
   useEffect(() => {
     // Difficulty is derived from recent learning evidence, not play counters.
-    const nextOrder = shuffledIndexes(rounds.length);
-    const firstRound = moduleId === 'time-detectives' ? rounds.findIndex((item) => item.id === 'history-communication') : moduleId === 'nature-lab' ? rounds.findIndex((item) => item.id === 'science-animal-bird') : rounds.findIndex((item) => item.id === 'continent-africa');
-    if (firstRound >= 0) { const position = nextOrder.indexOf(firstRound); [nextOrder[0], nextOrder[position]] = [nextOrder[position], nextOrder[0]]; }
+    const seed = makeCurriculumSeed();
+    recentRoundIds.current = loadQueueHistory(playerId, moduleId, difficulty);
+    const nextOrder = createCurriculumQueue(rounds, moduleId, seed, recentRoundIds.current, true);
+    setQueueSeed(seed);
     setRoundOrder(nextOrder);
     setRoundCursor(0);
+    setQueueComplete(false);
     setSkillRun(0);
     resetRound(nextOrder[0] ?? 0, true);
-  }, [difficulty, moduleId, rounds, resetRound]);
+  }, [difficulty, moduleId, playerId, rounds, resetRound]);
 
   const advance = () => {
-    let nextOrder = roundOrder;
+    if (!locked) return;
+    const history = [...recentRoundIds.current, round.id].slice(-8);
+    recentRoundIds.current = history;
+    saveQueueHistory(playerId, moduleId, difficulty, history);
     let nextCursor = roundCursor + 1;
-    if (!nextOrder.length || nextCursor >= nextOrder.length) {
-      nextOrder = shuffledIndexes(rounds.length, roundIndex);
-      nextCursor = 0;
-      setRoundOrder(nextOrder);
+    if (nextCursor >= roundOrder.length) {
+      setQueueComplete(true);
+      onGameEvent?.(difficultyGameId, 'level_complete', {
+        module: moduleId,
+        difficulty,
+        seed: queueSeed,
+        round: roundCursor,
+        rounds: roundOrder.length,
+      });
+      return;
     }
-    const nextIndex = nextOrder[nextCursor] ?? 0;
-    setSkillRun((current) => current >= 5 ? 0 : Math.min(current + 1, 5));
+    const nextIndex = roundOrder[nextCursor] ?? 0;
     setRoundCursor(nextCursor);
     resetRound(nextIndex);
+  };
+
+  const replayQueue = () => {
+    const seed = makeCurriculumSeed();
+    const nextOrder = createCurriculumQueue(rounds, moduleId, seed, recentRoundIds.current);
+    setQueueSeed(seed);
+    setRoundOrder(nextOrder);
+    setRoundCursor(0);
+    setQueueComplete(false);
+    setSkillRun(0);
+    resetRound(nextOrder[0] ?? 0, true);
+    onGameEvent?.(difficultyGameId, 'replay', { module: moduleId, difficulty, seed, round: 0 });
+  };
+
+  const startQuestion = () => {
+    setLessonOpen(false);
+    onGameEvent?.(difficultyGameId, 'start', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
+    onGameEvent?.(difficultyGameId, 'question', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
+  };
+  const retryQuestion = () => {
+    onGameEvent?.(difficultyGameId, 'replay', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
+    resetRound(roundIndex);
   };
 
   const completeRound = (answerId, response) => {
     if (locked) return;
     setLocked(true);
     setSelected(answerId);
+    setSkillRun(Math.min(roundCursor + 1, rounds.length));
     const item = answerItemsForRound(round).find((candidate) => candidate.id === answerId);
     const praise = getPraise();
     setFeedback(`${praise} ${round.explanation}`);
@@ -347,6 +386,8 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
       independent: mistakes === 0,
       difficulty,
       module: activeModule.id,
+      seed: queueSeed,
+      round: roundCursor,
     });
   };
 
@@ -362,6 +403,8 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
       independent: false,
       difficulty,
       module: activeModule.id,
+      seed: queueSeed,
+      round: roundCursor,
     });
   };
 
@@ -443,7 +486,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   return (
     <div className={`curriculum-quest quest-${activeModule.id}`} style={{ '--quest-world': `url(${worldArt})` }}>
       <header className="quest-header">
-        <button type="button" onClick={onBack} className="quest-round-button" aria-label="Back to home"><Home size={23} /></button>
+        <button type="button" onClick={() => { onGameEvent?.(difficultyGameId, 'leave', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor }); onBack(); }} className="quest-round-button" aria-label="Back to learning world"><ArrowLeft size={23} /></button>
         <div className="quest-heading"><p>Curriculum Quest · Module {moduleNumber}</p><h1><span aria-hidden="true">{activeModule.icon}</span> {activeModule.title}</h1><span>{activeModule.subtitle}</span></div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="quest-round-button" />
       </header>
@@ -457,15 +500,30 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
           ))}
         </nav>
 
+        {queueComplete ? (
+          <section className="quest-paper text-center" aria-labelledby="quest-complete">
+            <span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>{DIFFICULTY_LABELS[difficulty]} path complete</span>
+            <h2 id="quest-complete" className="mt-4 text-3xl font-black text-slate-900">You finished this discovery run!</h2>
+            <p className="mx-auto mt-2 max-w-xl text-lg font-bold text-slate-700">You explored {roundOrder.length} questions in {activeModule.title}. Choose a level to practise it again.</p>
+            <div className="mt-5 flex flex-wrap justify-center gap-3" aria-label="Choose a curriculum level">
+              {Object.keys(DIFFICULTY_LABELS).map((band) => <button key={band} type="button" onClick={() => { if (band === difficulty) replayQueue(); else setDifficulty(band); }} aria-pressed={band === difficulty} className={`min-h-12 rounded-full border-2 px-5 font-black ${band === difficulty ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-indigo-200 bg-white text-indigo-800'}`}>{DIFFICULTY_LABELS[band]}</button>)}
+            </div>
+            <button type="button" onClick={replayQueue} className="quest-start mt-6"><RotateCcw size={18} /> Restart this level</button>
+          </section>
+        ) : (
         <section className="quest-paper" aria-labelledby="quest-prompt">
-          <div className="quest-status-row"><span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>Year 1 discovery</span><PracticeProgress skill={skillForRound(activeModule, round)} completed={skillRun} accent={accent} className="quest-progress" /><button type="button" onClick={() => resetRound(roundIndex)} className="quest-retry"><RotateCcw size={16} /> Try this round again</button></div>
+          <div className="quest-status-row"><span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>Year 1 discovery</span><PracticeProgress skill={skillForRound(activeModule, round)} completed={skillRun} target={Math.min(5, rounds.length)} accent={accent} className="quest-progress" /><button type="button" onClick={retryQuestion} className="quest-retry"><RotateCcw size={16} /> Try this round again</button></div>
           <div className="quest-prompt-row"><h2 id="quest-prompt">{round.prompt}</h2><PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} /></div>
-          <div className="quest-round-note"><span>Round {roundCursor + 1} of {rounds.length} · Learn first, then try it independently.</span><PackagedAudioButton text="Learn first, then try it independently." label="Hear instructions" soundOn={soundOn} /></div>
+          <div className="quest-round-note"><span>Round {roundCursor + 1} of {roundOrder.length || Math.min(5, rounds.length)} · Learn first, then try it independently.</span><PackagedAudioButton text="Learn first, then try it independently." label="Hear instructions" soundOn={soundOn} /></div>
 
           {lessonOpen ? (
             <div className="quest-lesson">
+              <div className="mb-4 flex flex-wrap items-center justify-center gap-2" aria-label="Choose a curriculum level">
+                <span className="font-black text-slate-700">Choose a level:</span>
+                {Object.entries(DIFFICULTY_LABELS).map(([band, label]) => <button key={band} type="button" onClick={() => setDifficulty(band)} aria-pressed={band === difficulty} className={`min-h-12 rounded-full border-2 px-4 font-black ${band === difficulty ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-indigo-200 bg-white text-indigo-800'}`}>{label}</button>)}
+              </div>
               <div className="quest-lesson-grid"><LessonVisual module={activeModule} round={round} soundOn={soundOn} /><ExplorerWords module={activeModule} soundOn={soundOn} /></div>
-              <div className="quest-actions"><PackagedAudioButton text={CURRICULUM_LESSON_COPY[activeModule.id]} label="Hear lesson" soundOn={soundOn} />{activeModule.id === 'time-detectives' && onLaunchGame && <button type="button" onClick={() => onLaunchGame('timeteller')} className="quest-related-game"><Clock3 size={17} /> Practise telling the time</button>}<button type="button" onClick={() => setLessonOpen(false)} className="quest-start"><Sparkles size={19} /> Start this round <ArrowRight size={18} /></button></div>
+              <div className="quest-actions"><PackagedAudioButton text={CURRICULUM_LESSON_COPY[activeModule.id]} label="Hear lesson" soundOn={soundOn} />{activeModule.id === 'time-detectives' && onLaunchGame && <button type="button" onClick={() => onLaunchGame('timeteller')} className="quest-related-game"><Clock3 size={17} /> Practise telling the time</button>}<button type="button" onClick={startQuestion} className="quest-start"><Sparkles size={19} /> Start this round <ArrowRight size={18} /></button></div>
             </div>
           ) : (
             <div className="quest-play-area">
@@ -480,6 +538,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
           )}
           <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : 'is-retry'}`}><p><Sparkles className="mr-1 inline" size={17} /><span className="mr-2 rounded-full bg-white/75 px-2 py-1 text-xs uppercase tracking-wide">{locked ? 'Correct' : 'Try again'}</span>{feedback}</p><PackagedAudioButton text={feedbackVoice} label={locked ? 'Hear praise' : 'Hear feedback'} soundOn={soundOn} />{locked && <><PackagedAudioButton text={round.explanation} label="Hear why" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">Next question <ArrowRight size={16} /></button></>}</div>}</div>
         </section>
+        )}
       </main>
     </div>
   );

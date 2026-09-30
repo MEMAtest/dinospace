@@ -96,7 +96,11 @@ test('older games have distinct levels with saved child-specific progress', asyn
   assert.equal(new Set(ASKIA_PATTERN_INDEXES.flat()).size, ASKIA_PATTERN_INDEXES.flat().length, 'Askia patterns change between levels');
   Object.entries(SESSION_LEVELS).forEach(([id, levels]) => {
     assert.equal(new Set(levels.map((level) => level.name)).size, levels.length, `${id} level names must differ`);
-    if (levels.every((level) => level.band)) assert.equal(new Set(levels.map((level) => level.band)).size, levels.length, `${id} levels must change question band`);
+    if (levels.every((level) => level.band)) {
+      const bands = levels.map((level) => level.band);
+      assert.ok(bands.every((band, index) => index === 0 || ['starter', 'growing', 'challenge'].indexOf(band) >= ['starter', 'growing', 'challenge'].indexOf(bands[index - 1])), `${id} difficulty bands must not regress`);
+      if (id !== 'letters') assert.equal(new Set(bands).size, levels.length, `${id} levels must change question band`);
+    }
   });
   assert.equal(levelsForSession('timeteller', true).length, 0, 'Askia has no clock game');
   const data = new Map();
