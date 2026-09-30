@@ -16,7 +16,7 @@ export const SESSION_LEVELS = Object.freeze({
   math: three(['Two times', 'More tables', 'Table explorer'], ['Practice the two times table.', 'Try more times tables.', 'Mix the harder table facts.']),
   oddoneout: three(['Spot the difference', 'Look for the rule', 'Tricky groups'], ['Find the obvious odd one.', 'Compare a new set of objects.', 'Work out the trickier rule.']),
   letters: [
-    { name: 'Letter sounds', description: 'Listen to a word and find the letter at its start.', band: 'starter', target: 5 },
+    { name: 'Letter sounds', description: 'Listen to a word and find the letter at its start.', band: 'starter', target: 6 },
     { name: 'First sound explorer', description: 'Find the first sound in a new decodable word.', band: 'growing', target: 6 },
     { name: 'Big and little letters', description: 'Match a lowercase letter to its capital.', band: 'challenge', target: 7 },
     { name: 'Blend a word', description: 'Put three taught sounds together to build a word.', band: 'challenge', target: 8 },

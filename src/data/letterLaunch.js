@@ -10,6 +10,18 @@ const shuffleWith = (items, random) => {
   return result;
 };
 
+// Derive each round from the run seed and cursor. Re-rendering never consumes
+// random state or changes the question that is already on screen.
+export const letterLaunchRandomFor = (seed, cursor = 0) => {
+  let state = (Number(seed) + Math.imul(Number(cursor) + 1, 0x9e3779b9)) >>> 0;
+  return () => {
+    state += 0x6d2b79f5;
+    let value = Math.imul(state ^ (state >>> 15), 1 | state);
+    value ^= value + Math.imul(value ^ (value >>> 7), 61 | value);
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
 const chooseFresh = (items, history, random) => {
   const seen = new Set(history);
   const fresh = items.filter((item) => !seen.has(item.key));
@@ -121,4 +133,4 @@ export const LETTER_LAUNCH_PROMPT_CORPUS = Object.freeze([
   'Build the word for this picture. Listen to each sound.',
 ]);
 
-export const letterLaunchSessionTarget = (level = 0) => [5, 6, 7, 8][level] || 5;
+export const letterLaunchSessionTarget = (level = 0) => [6, 6, 7, 8][level] || 6;

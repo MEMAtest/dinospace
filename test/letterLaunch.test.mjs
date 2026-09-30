@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildLetterLaunchRound, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, LETTER_LAUNCH_PROMPT_CORPUS } from '../src/data/letterLaunch.js';
+import { buildLetterLaunchRound, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchRandomFor, LETTER_LAUNCH_PROMPT_CORPUS } from '../src/data/letterLaunch.js';
 import { getTaughtGraphemes, LITERACY_PROFILE_KEY } from '../src/data/literacy.js';
+import { SESSION_LEVELS } from '../src/data/sessionLevels.js';
 
 test('Letter Launch has four distinct bands with age-appropriate round targets', () => {
-  assert.deepEqual([0, 1, 2, 3].map(letterLaunchSessionTarget), [5, 6, 7, 8]);
+  assert.deepEqual([0, 1, 2, 3].map(letterLaunchSessionTarget), [6, 6, 7, 8]);
+  assert.deepEqual(SESSION_LEVELS.letters.map(({ target }) => target), [0, 1, 2, 3].map(letterLaunchSessionTarget));
   assert.deepEqual([0, 1, 2, 3].map((level) => buildLetterLaunchRound(level).kind), ['letter-sound', 'first-sound', 'case-match', 'build-word']);
 });
 
@@ -14,6 +16,25 @@ test('Letter Launch distractors are unique and contain the valid answer', () => 
     assert.ok(round.options.some((option) => option.letter.toLowerCase() === round.target.letter.toLowerCase()));
     assert.equal(new Set(round.options.map((option) => option.letter)).size, round.options.length);
   });
+});
+
+test('seeded Letter Launch runs reproduce questions and choices without recent repeats', () => {
+  const run = (seed, level) => {
+    let history = [];
+    const rounds = [];
+    for (let cursor = 0; cursor < letterLaunchSessionTarget(level); cursor += 1) {
+      const round = buildLetterLaunchRound(level, history, letterLaunchRandomFor(seed, cursor));
+      assert.ok(!history.includes(round.key));
+      history = [...history, round.key].slice(-8);
+      rounds.push(round);
+    }
+    return rounds;
+  };
+  for (let level = 0; level < 4; level += 1) {
+    assert.deepEqual(run(1729, level), run(1729, level));
+    const signatures = new Set(Array.from({ length: 10 }, (_, seed) => JSON.stringify(run(seed, level))));
+    assert.equal(signatures.size, 10, `level ${level} should have distinct seeded runs`);
+  }
 });
 
 test('Letter Launch uses taught sounds and assembles fully decodable CVC words', () => {

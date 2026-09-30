@@ -1,0 +1,8 @@
+tmp/**
+output/**
+.playwright-cli/**
+.git/**
+node_modules/**
+.env
+.env.*
+*.local

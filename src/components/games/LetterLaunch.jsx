@@ -4,7 +4,7 @@ import { getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 import { makeLearningEvent } from '../../data/literacy.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-import { buildLetterLaunchRound, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget } from '../../data/letterLaunch.js';
+import { buildLetterLaunchRound, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchRandomFor } from '../../data/letterLaunch.js';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
 import './letterLaunch.css';
 
@@ -21,8 +21,9 @@ const saveRecentKeys = (playerId, level, values) => {
 
 const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, onReviewComplete, playerId, sessionLevel = 0 }) => {
   const difficulty = useGameDifficulty('letters');
+  const [runSeed] = useState(() => Math.floor(Math.random() * 4294967296));
   const [recentKeys, setRecentKeys] = useState(() => loadRecentKeys(playerId, sessionLevel));
-  const [round, setRound] = useState(() => buildLetterLaunchRound(sessionLevel, loadRecentKeys(playerId, sessionLevel)));
+  const [round, setRound] = useState(() => buildLetterLaunchRound(sessionLevel, loadRecentKeys(playerId, sessionLevel), letterLaunchRandomFor(runSeed)));
   const [launching, setLaunching] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [roundCount, setRoundCount] = useState(0);
@@ -31,6 +32,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const [hadMistake, setHadMistake] = useState(false);
   const [pendingAdvance, setPendingAdvance] = useState(false);
   const answeredRef = useRef(false);
+  const loggedRoundRef = useRef(null);
   const levelTarget = letterLaunchSessionTarget(sessionLevel);
   const promptText = round.kind === 'unavailable' ? '' : letterLaunchPromptFor(round);
   const optionCount = round.kind === 'build-word' ? round.tiles.length : round.options.length;
@@ -43,6 +45,13 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   useEffect(() => {
     sayPrompt();
   }, [sayPrompt]);
+
+  useEffect(() => {
+    if (loggedRoundRef.current === round) return;
+    loggedRoundRef.current = round;
+    if (roundCount === 0) onGameEvent?.('letters', 'start', { level: sessionLevel, round: 0, seed: runSeed });
+    onGameEvent?.('letters', 'question', { level: sessionLevel, round: roundCount, seed: runSeed });
+  }, [round, roundCount, onGameEvent, sessionLevel, runSeed]);
 
   const acceptAnswer = (response) => {
     if (answeredRef.current) return;
@@ -71,6 +80,9 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       firstAttempt: !hadMistake,
       independent: !hadMistake,
       difficulty,
+      level: sessionLevel,
+      round: roundCount,
+      seed: runSeed,
       deferFinish: finalRound,
     });
     onGameEvent?.('letters', 'learning_attempt', makeLearningEvent({ skill, item: round.key, response, correct: true, firstTry: !hadMistake, difficulty }));
@@ -81,6 +93,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     if (round.kind === 'build-word') {
       const expected = round.target.graphemes[selectedLetters.length];
       if (option.grapheme !== expected) {
+        onGameEvent?.('letters', 'answer_attempt', { level: sessionLevel, round: roundCount, seed: runSeed, firstAttempt: !hadMistake });
         setHadMistake(true);
         setFeedback(`Listen for /${expected}/, the next sound in ${round.target.word.toLowerCase()}. Try again.`);
         playSfx('oops');
@@ -98,6 +111,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     if (option.letter.toLowerCase() === round.target.letter.toLowerCase()) {
       acceptAnswer(option.letter.toLowerCase());
     } else {
+      onGameEvent?.('letters', 'answer_attempt', { level: sessionLevel, round: roundCount, seed: runSeed, firstAttempt: !hadMistake });
       setHadMistake(true);
       setFeedback(round.kind === 'case-match'
         ? `Look at little ${round.target.letter.toLowerCase()} again. Which capital letter matches its shape?`
@@ -117,7 +131,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
       onReviewComplete?.();
       return;
     }
-    setRound(buildLetterLaunchRound(sessionLevel, nextRecentKeys));
+    setRound(buildLetterLaunchRound(sessionLevel, nextRecentKeys, letterLaunchRandomFor(runSeed, roundCount)));
     answeredRef.current = false;
     setLaunching(false);
     setFeedback('');
@@ -190,14 +204,14 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
         {feedback && <div className="mt-4 w-full max-w-2xl rounded-2xl border-2 border-cyan-200 bg-white/95 p-4 text-center text-lg font-bold text-indigo-700 shadow-md" aria-live="polite">{feedback}</div>}
         {pendingAdvance && <button type="button" onClick={advance} className="mt-3 min-h-14 rounded-full bg-amber-400 px-8 font-black text-slate-950 shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue-700">{roundCount >= levelTarget ? 'Finish level' : 'Next mission'}</button>}
 
-        <div className="relative mt-4 h-32 w-full max-w-2xl">
+        <div className="pointer-events-none relative mt-4 h-48 w-full max-w-2xl overflow-hidden" aria-hidden="true">
           <div className="absolute bottom-0 w-full h-10 bg-sky-300/70 rounded-full" />
           <img
             src={rocketArt}
             alt=""
             className="absolute bottom-6 left-6 h-24 w-24 object-contain transition-transform duration-1000"
             style={{
-              transform: launching ? 'translate(220px, -120px) rotate(-10deg)' : 'translate(0, 0)',
+              transform: launching ? 'translate(160px, -64px) rotate(-10deg)' : 'translate(0, 0)',
             }}
           />
           <div
