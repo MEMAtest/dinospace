@@ -31,3 +31,5 @@ These logs are bounded and browser-local. Story backups require the browser that
 ## Release identity
 
 Populate after deployment: commit, immutable deployment URL, canonical alias and independent live acceptance results. Do not label this batch verified 4.5 until all remaining roadmap checks pass.
+
+The initial attempt for `094ab31` was blocked by Vercel because the workstation's automatic Git author email was not associated with a project member. The authenticated GitHub and Vercel accounts are MEMAtest; the established repository author email was verified against GitHub's author association on `52c9c0e`. Repository-local Git attribution was corrected, without rewriting the already-pushed commit. The replacement release commit records this correction and excludes local QA output from source/deploy uploads.
