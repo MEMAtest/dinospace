@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ArrowLeft, ArrowRight, Check, Download, Headphones, Home, Pause, Play, RotateCcw, Upload,
+  ArrowLeft, ArrowRight, Check, Download, Headphones, Pause, Play, RotateCcw, Upload,
   Volume2, VolumeX,
 } from 'lucide-react';
 import { loadStoryBookManifest, STORYBOOK_CATALOG } from '../../data/storybooks.js';
@@ -665,7 +665,7 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
       <main className="storybook-shell min-h-screen w-full overflow-hidden bg-gradient-to-br from-[#10154d] via-[#223a91] to-[#0d7491] px-4 py-5 text-white sm:px-7 sm:py-8">
         <div className="mx-auto max-w-7xl">
           <header className="flex items-center justify-between gap-4">
-            <button type="button" onClick={onBack} className="storybook-icon-button" aria-label="Back to home"><ArrowLeft /></button>
+            <button type="button" onClick={onBack} className="storybook-icon-button" aria-label="Back to learning world"><ArrowLeft /></button>
             <div className="text-center"><p className="text-xs font-black uppercase tracking-[0.22em] text-cyan-200">Read &amp; Write</p><h1 className="text-3xl font-black sm:text-5xl">Storybook Studio</h1></div>
             <button type="button" onClick={onToggleSound} className="storybook-icon-button" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}>{soundOn ? <Volume2 /> : <VolumeX />}</button>
           </header>
@@ -723,7 +723,7 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
         <header className="flex items-center justify-between gap-3">
           <button type="button" onClick={closeBook} className="storybook-icon-button" aria-label="Back to storybooks"><ArrowLeft /></button>
           <div className="min-w-0 text-center"><p className="truncate text-xs font-black uppercase tracking-[0.18em] text-white/70">{selectedBook.emoji} {selectedBook.style}</p><h1 className="truncate text-xl font-black sm:text-3xl">{selectedBook.title}</h1></div>
-          <div className="flex items-center gap-2"><button type="button" onClick={onToggleSound} className="storybook-icon-button" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}>{soundOn ? <Volume2 /> : <VolumeX />}</button><button type="button" onClick={onBack} className="storybook-icon-button" aria-label="Back to home"><Home /></button></div>
+          <div className="flex items-center gap-2"><button type="button" onClick={onToggleSound} className="storybook-icon-button" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}>{soundOn ? <Volume2 /> : <VolumeX />}</button><button type="button" onClick={onBack} className="storybook-icon-button" aria-label="Back to learning world"><ArrowLeft /></button></div>
         </header>
         <div className="mt-4 flex items-center gap-3" aria-label={`Page ${Math.max(1, screenNumber)} of ${totalScreens}`}>
           <span className="text-sm font-black text-white/85">{isCover ? 'Cover' : `Page ${pageIndex + 1}`}</span>
