@@ -80,7 +80,7 @@ Each page is a concrete beat for a 6–10-page illustrated read-aloud. Target 20
 - Produce one cover image and ten page images per title. Keep character appearance, clothes, palette, and setting consistent across pages; compose for a readable child-sized book page, with no embedded text, lettering, or answer clues that spoil later comprehension.
 - Produce one cover narration clip and ten page narration clips per title. Narration must match the checked-in page text exactly, use a warm clear voice and natural pauses, and be validated for presence, decodability, duration, and MIME type before a book is called complete.
 - Add three or four shuffled comprehension prompts per title, each with one defensible answer, plausible short choices, a page-grounded clue, and a brief explanation. Add three child-friendly word-help entries drawn from each story.
-- Confirm the catalog and service worker include all 44 new assets per title (cover image/audio plus ten image/audio pairs), and test an offline read, page replay, reload/resume, and the comprehension path before marking the expansion complete.
+- Confirm the catalog and service worker include all 22 new assets per title (cover image/audio plus ten image/audio pairs), and test an offline read, page replay, reload/resume, and the comprehension path before marking the expansion complete.
 
 ## Implementation file plan
 
