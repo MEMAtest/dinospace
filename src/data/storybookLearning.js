@@ -38,6 +38,28 @@ export const STORYBOOK_WORD_HELP = {
   ])),
 };
 
+export const createComprehensionSeed = () => {
+  try {
+    if (globalThis.crypto?.getRandomValues) {
+      return globalThis.crypto.getRandomValues(new Uint32Array(1))[0];
+    }
+  } catch {
+    // Use the standard pseudorandom source in older or restricted browsers.
+  }
+  return Math.floor(Math.random() * 0x100000000);
+};
+
+export const createComprehensionRandom = (seed) => {
+  let state = Number(seed) >>> 0;
+  return () => {
+    state = (state + 0x6D2B79F5) >>> 0;
+    let value = state;
+    value = Math.imul(value ^ (value >>> 15), value | 1);
+    value ^= value + Math.imul(value ^ (value >>> 7), value | 61);
+    return ((value ^ (value >>> 14)) >>> 0) / 0x100000000;
+  };
+};
+
 export const shuffledComprehension = (slug, random = Math.random) => {
   const questions = (STORYBOOK_COMPREHENSION[slug] || []).map((item) => {
     const choices = [...item.choices];

@@ -13,7 +13,7 @@ import { pagesForAgeBand } from '../../data/storybookValidation.js';
 import { getBookProgress, readActiveChildId, readStoryProgress, saveActiveChildId, updateStoryProgress } from '../../data/storybookProfiles.js';
 import { decorateStoryBook, filterStoryBooks, STORYBOOK_SHELVES } from '../../data/storybookLibrary.js';
 import { createStorybookBackup, readStorybookBackup } from '../../data/storybookBackup.js';
-import { shuffledComprehension, STORYBOOK_WORD_HELP } from '../../data/storybookLearning.js';
+import { createComprehensionRandom, createComprehensionSeed, shuffledComprehension, STORYBOOK_WORD_HELP } from '../../data/storybookLearning.js';
 
 const completionKey = (slug) => `amari_storybook_complete_${slug}`;
 
@@ -146,6 +146,7 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
   const [backupBusy, setBackupBusy] = useState(false);
   const backupInputRef = useRef(null);
   const [comprehension, setComprehension] = useState([]);
+  const [comprehensionSeed, setComprehensionSeed] = useState(0);
   const [comprehensionStep, setComprehensionStep] = useState(0);
   const [comprehensionChoice, setComprehensionChoice] = useState('');
   const [comprehensionHadMistake, setComprehensionHadMistake] = useState(false);
@@ -341,7 +342,9 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
     playSfx?.('click');
     stopAudio();
     setSelectedSlug(book.slug);
-    setComprehension(shuffledComprehension(book.slug));
+    const quizSeed = createComprehensionSeed();
+    setComprehensionSeed(quizSeed);
+    setComprehension(shuffledComprehension(book.slug, createComprehensionRandom(quizSeed)));
     setComprehensionStep(0);
     setComprehensionChoice('');
     setComprehensionHadMistake(false);
@@ -384,11 +387,11 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
     const question = comprehension[comprehensionStep];
     setComprehensionChoice(choice);
     if (choice === question.answer) {
-      onGameEvent?.('storybooks', 'comprehension_question_complete', { round: comprehensionStep + 1, firstAttempt: !comprehensionHadMistake });
+      onGameEvent?.('storybooks', 'comprehension_question_complete', { round: comprehensionStep + 1, firstAttempt: !comprehensionHadMistake, seed: comprehensionSeed });
       speak(question.why);
     } else {
       setComprehensionHadMistake(true);
-      onGameEvent?.('storybooks', 'comprehension_answer_wrong', { round: comprehensionStep + 1 });
+      onGameEvent?.('storybooks', 'comprehension_answer_wrong', { round: comprehensionStep + 1, seed: comprehensionSeed });
       speak(question.clue);
     }
   };
@@ -661,7 +664,7 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
           <div className="mt-3 flex items-center gap-3"><h1 className="text-3xl font-black sm:text-4xl">{question?.prompt}</h1><button type="button" onClick={() => speak(question.prompt)} className="storybook-icon-button shrink-0" aria-label="Hear question again"><Volume2 /></button></div>
           <div className="mt-6 grid gap-3">{question?.choices.map((choice) => <button key={choice} type="button" onClick={() => chooseComprehensionAnswer(choice)} disabled={answerIsCorrect} aria-pressed={comprehensionChoice === choice} className={`min-h-14 rounded-2xl border-2 px-5 py-4 text-left text-lg font-black disabled:cursor-default ${comprehensionChoice === choice ? (answerIsCorrect ? 'border-emerald-300 bg-emerald-300 text-slate-950' : 'border-amber-300 bg-amber-300 text-slate-950') : 'border-white/40 bg-white/10 hover:bg-white/20'}`}>{choice}</button>)}</div>
           {comprehensionChoice && <div role="status" className="mt-5 flex items-start gap-3 rounded-2xl bg-white/10 p-4 text-base font-bold"><p className="flex-1">{answerIsCorrect ? question.why : question.clue}</p><button type="button" onClick={() => speak(answerIsCorrect ? question.why : question.clue)} className="storybook-icon-button shrink-0" aria-label={answerIsCorrect ? 'Hear why the answer is right' : 'Hear the clue again'}><Volume2 /></button></div>}
-          <div className="mt-6 flex justify-between gap-3"><button type="button" onClick={() => { setComprehensionActive(false); closeBook(); }} className="storybook-nav-button">Back to stories</button>{comprehensionChoice && <button type="button" onClick={() => { if (!answerIsCorrect) { setComprehensionChoice(''); return; } if (comprehensionStep + 1 >= comprehension.length) { onGameEvent?.('storybooks', 'comprehension_complete', { round: comprehension.length }); setComprehensionActive(false); closeBook(); return; } setComprehensionStep((step) => step + 1); setComprehensionChoice(''); setComprehensionHadMistake(false); }} className="storybook-nav-button">{answerIsCorrect ? (comprehensionStep + 1 >= comprehension.length ? 'Finish' : 'Next clue') : 'Try again'} <ArrowRight /></button>}</div>
+          <div className="mt-6 flex justify-between gap-3"><button type="button" onClick={() => { setComprehensionActive(false); closeBook(); }} className="storybook-nav-button">Back to stories</button>{comprehensionChoice && <button type="button" onClick={() => { if (!answerIsCorrect) { setComprehensionChoice(''); return; } if (comprehensionStep + 1 >= comprehension.length) { onGameEvent?.('storybooks', 'comprehension_complete', { round: comprehension.length, seed: comprehensionSeed }); setComprehensionActive(false); closeBook(); return; } setComprehensionStep((step) => step + 1); setComprehensionChoice(''); setComprehensionHadMistake(false); }} className="storybook-nav-button">{answerIsCorrect ? (comprehensionStep + 1 >= comprehension.length ? 'Finish' : 'Next clue') : 'Try again'} <ArrowRight /></button>}</div>
         </div>
       </main>
     );
@@ -766,7 +769,7 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
         <footer className="mt-4 flex items-center justify-between gap-3">
           <button type="button" onClick={() => goToScreen(pageIndex - 1, { shouldPlay: false })} disabled={isCover} className="storybook-nav-button" aria-label="Previous page"><ArrowLeft /> <span className="hidden sm:inline">Previous</span></button>
           <div className="flex gap-1.5" aria-hidden="true">{[...Array(totalScreens)].map((_, index) => <span key={index} className={`h-2.5 w-2.5 rounded-full ${index === pageIndex + 1 ? 'bg-amber-300' : index < pageIndex + 1 ? 'bg-white/80' : 'bg-white/25'}`} />)}</div>
-          <button type="button" onClick={() => { if (pageIndex >= pages.length - 1) { finishBook(); if (comprehension.length) { stopAudio(); onGameEvent?.('storybooks', 'comprehension_started', { round: 1 }); setComprehensionActive(true); } else closeBook(); } else goToScreen(pageIndex + 1, { shouldPlay: started && autoRead }); }} className="storybook-nav-button" aria-label={pageIndex >= pages.length - 1 ? 'Start story questions' : 'Next page'}><span className="hidden sm:inline">{pageIndex >= pages.length - 1 ? 'Story Detective' : 'Next'}</span> <ArrowRight /></button>
+          <button type="button" onClick={() => { if (pageIndex >= pages.length - 1) { finishBook(); if (comprehension.length) { stopAudio(); onGameEvent?.('storybooks', 'comprehension_started', { round: 1, seed: comprehensionSeed }); setComprehensionActive(true); } else closeBook(); } else goToScreen(pageIndex + 1, { shouldPlay: started && autoRead }); }} className="storybook-nav-button" aria-label={pageIndex >= pages.length - 1 ? 'Start story questions' : 'Next page'}><span className="hidden sm:inline">{pageIndex >= pages.length - 1 ? 'Story Detective' : 'Next'}</span> <ArrowRight /></button>
         </footer>
         <audio ref={audioRef} src={currentAudio || undefined} preload="auto" onEnded={onEnded} onError={() => { setAudioError(true); setPlaying(false); }} aria-label="Story narration" />
       </div>
