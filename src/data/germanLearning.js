@@ -75,7 +75,7 @@ export const buildSeededGermanRound = (mode, recent, count, runSeed, cursor) => 
 export const germanHistoryMode = (mode) => ['paint', 'park'].includes(mode) ? 'colours' : mode;
 export const rememberGermanTarget = (history, mode, name) => {
   const key = germanHistoryMode(mode);
-  const limit = Math.min(8, (GERMAN_MODE_ITEMS[mode]?.length || 1) - 1);
+  const limit = (GERMAN_MODE_ITEMS[mode]?.length || 1) - 1;
   return { ...history, [key]: [...(history[key] || []).filter((word) => word !== name), name].slice(-limit) };
 };
 
@@ -85,11 +85,11 @@ export const loadGermanTargetHistory = (playerId, storage = globalThis.localStor
     const saved = JSON.parse(storage?.getItem(historyKey(playerId)) || '{}');
     const result = Object.fromEntries(Object.entries(GERMAN_MODE_ITEMS).map(([mode, items]) => [
       mode, Array.isArray(saved?.[mode])
-        ? saved[mode].filter((name) => items.some((item) => item.name === name)).slice(-Math.min(8, items.length - 1))
+        ? saved[mode].filter((name) => items.some((item) => item.name === name)).slice(-(items.length - 1))
         : [],
     ]));
     const colours = Array.isArray(saved?.colours) ? saved.colours : [...(result.paint || []), ...(result.park || [])];
-    result.colours = [...new Set(colours.filter((name) => GERMAN_MODE_ITEMS.paint.some((item) => item.name === name)))].slice(-8);
+    result.colours = [...new Set(colours.filter((name) => GERMAN_MODE_ITEMS.paint.some((item) => item.name === name)))].slice(-(GERMAN_MODE_ITEMS.paint.length - 1));
     delete result.paint;
     delete result.park;
     return result;

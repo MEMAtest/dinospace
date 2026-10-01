@@ -74,7 +74,7 @@ test('alternating paint and parking avoid recent shared colours across reloads',
   for (let seed = 0; seed < 30; seed += 1) {
     let history = {};
     const seen = new Set();
-    for (let cursor = 0; cursor < 8; cursor += 1) {
+    for (let cursor = 0; cursor < GERMAN_MODE_ITEMS.paint.length; cursor += 1) {
       const mode = cursor % 2 ? 'park' : 'paint';
       const round = buildSeededGermanRound(mode, history[germanHistoryMode(mode)] || [], 3, seed, cursor);
       assert.ok(!seen.has(round.target.name), `seed ${seed} repeated ${round.target.name} across colour scenes`);
