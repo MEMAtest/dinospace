@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { getOfflineVoiceClip } from './data/offlineVoice.js';
+import { getGameSoundCue, selectGameSoundCue } from './data/gameSounds.js';
 
 let hadUserGesture = false;
 if (typeof window !== 'undefined') {
@@ -10,298 +11,136 @@ if (typeof window !== 'undefined') {
 
 export const useSfx = (enabled) => {
   const ctxRef = useRef(null);
+  const masterGainRef = useRef(null);
+  const voicesRef = useRef(new Set());
+  const pendingCuesRef = useRef([]);
+  const pendingFlushRef = useRef(false);
+  const cueQueueVersionRef = useRef(0);
+  const activeCueRef = useRef(null);
+  const lastCueRef = useRef({ name: null, at: -Infinity });
   const enabledRef = useRef(enabled);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     enabledRef.current = enabled;
+    const ctx = ctxRef.current;
+    const master = masterGainRef.current;
+    if (!ctx || !master) return;
+    const now = ctx.currentTime;
+    master.gain.cancelScheduledValues(now);
+    master.gain.setValueAtTime(enabled ? 0.55 : 0, now);
+    if (!enabled) {
+      cueQueueVersionRef.current += 1;
+      pendingCuesRef.current = [];
+      pendingFlushRef.current = false;
+      voicesRef.current.forEach((voice) => {
+        try { voice.stop(now); } catch { /* already ended */ }
+      });
+      voicesRef.current.clear();
+      activeCueRef.current = null;
+    }
   }, [enabled]);
 
   const getCtx = useCallback(() => {
-    if (!hadUserGesture) return null;
+    if (!enabledRef.current || !hadUserGesture) return null;
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     if (!AudioContext) return null;
-    if (!ctxRef.current) ctxRef.current = new AudioContext();
+    if (!ctxRef.current) {
+      const ctx = new AudioContext();
+      const master = ctx.createGain();
+      const compressor = ctx.createDynamicsCompressor();
+      master.gain.value = 0.55;
+      compressor.threshold.value = -20;
+      compressor.knee.value = 16;
+      compressor.ratio.value = 4;
+      compressor.attack.value = 0.004;
+      compressor.release.value = 0.16;
+      master.connect(compressor);
+      compressor.connect(ctx.destination);
+      ctxRef.current = ctx;
+      masterGainRef.current = master;
+    }
     const ctx = ctxRef.current;
-    if (ctx.state === 'suspended') ctx.resume();
+    if (ctx.state === 'suspended') void ctx.resume().catch(() => {});
     return ctx;
   }, []);
 
-  const playTone = useCallback((ctx, { freq, duration, start = 0, type = 'sine', gain = 0.18, soft = false }) => {
-    const now = ctx.currentTime;
-    const osc = ctx.createOscillator();
-    const amp = ctx.createGain();
-
-    osc.type = type;
-    osc.frequency.value = freq;
-    amp.gain.value = 0.0001;
-
-    osc.connect(amp);
-    amp.connect(ctx.destination);
-
-    const startAt = now + start;
-    const attack = soft ? 0.05 : 0.02;
-    osc.start(startAt);
-    amp.gain.exponentialRampToValueAtTime(gain, startAt + attack);
-    // Natural release tail instead of abrupt cutoff
-    amp.gain.exponentialRampToValueAtTime(gain * 0.3, startAt + duration);
-    amp.gain.exponentialRampToValueAtTime(0.0001, startAt + duration + 0.1);
-    osc.stop(startAt + duration + 0.12);
-  }, []);
-
-  const playSweep = useCallback((ctx, { from, to, duration, start = 0, type = 'triangle', gain = 0.14 }) => {
-    const now = ctx.currentTime;
-    const osc = ctx.createOscillator();
-    const amp = ctx.createGain();
-
-    osc.type = type;
-    osc.frequency.setValueAtTime(from, now + start);
-    osc.frequency.exponentialRampToValueAtTime(to, now + start + duration);
-
-    amp.gain.value = 0.0001;
-    osc.connect(amp);
-    amp.connect(ctx.destination);
-
-    const startAt = now + start;
-    osc.start(startAt);
-    amp.gain.exponentialRampToValueAtTime(gain, startAt + 0.02);
-    amp.gain.exponentialRampToValueAtTime(gain * 0.3, startAt + duration);
-    amp.gain.exponentialRampToValueAtTime(0.0001, startAt + duration + 0.1);
-    osc.stop(startAt + duration + 0.12);
-  }, []);
-
-  // Procedural reverb for big celebrations
-  const createReverb = useCallback((ctx, wetAmount = 0.2) => {
-    const sampleRate = ctx.sampleRate;
-    const length = sampleRate * 0.4;
-    const impulse = ctx.createBuffer(2, length, sampleRate);
-    for (let ch = 0; ch < 2; ch++) {
-      const data = impulse.getChannelData(ch);
-      for (let i = 0; i < length; i++) {
-        data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, 2.5);
-      }
+  const scheduleNote = useCallback((ctx, note) => {
+    const oscillator = ctx.createOscillator();
+    const envelope = ctx.createGain();
+    const startAt = ctx.currentTime + note.start;
+    oscillator.type = note.waveform;
+    if (note.kind === 'sweep') {
+      oscillator.frequency.setValueAtTime(note.from, startAt);
+      oscillator.frequency.exponentialRampToValueAtTime(note.to, startAt + note.duration);
+    } else {
+      oscillator.frequency.value = note.frequency;
     }
-    const convolver = ctx.createConvolver();
-    convolver.buffer = impulse;
-    const wet = ctx.createGain();
-    wet.gain.value = wetAmount;
-    const dry = ctx.createGain();
-    dry.gain.value = 1;
-    convolver.connect(wet);
-    wet.connect(ctx.destination);
-    dry.connect(ctx.destination);
-    return { input: dry, reverbInput: convolver };
+    envelope.gain.setValueAtTime(0.0001, startAt);
+    envelope.gain.exponentialRampToValueAtTime(note.gain, startAt + 0.018);
+    envelope.gain.exponentialRampToValueAtTime(note.gain * 0.24, startAt + note.duration);
+    envelope.gain.exponentialRampToValueAtTime(0.0001, startAt + note.duration + 0.075);
+    oscillator.connect(envelope);
+    envelope.connect(masterGainRef.current);
+    oscillator.start(startAt);
+    oscillator.stop(startAt + note.duration + 0.09);
+    voicesRef.current.add(oscillator);
+    oscillator.addEventListener('ended', () => {
+      voicesRef.current.delete(oscillator);
+      oscillator.disconnect();
+      envelope.disconnect();
+    }, { once: true });
   }, []);
 
-  const playToneThrough = useCallback((ctx, dest, { freq, duration, start = 0, type = 'sine', gain = 0.18, soft = false }) => {
-    const now = ctx.currentTime;
-    const osc = ctx.createOscillator();
-    const amp = ctx.createGain();
-
-    osc.type = type;
-    osc.frequency.value = freq;
-    amp.gain.value = 0.0001;
-
-    osc.connect(amp);
-    amp.connect(dest);
-
-    const startAt = now + start;
-    const attack = soft ? 0.05 : 0.02;
-    osc.start(startAt);
-    amp.gain.exponentialRampToValueAtTime(gain, startAt + attack);
-    amp.gain.exponentialRampToValueAtTime(gain * 0.3, startAt + duration);
-    amp.gain.exponentialRampToValueAtTime(0.0001, startAt + duration + 0.1);
-    osc.stop(startAt + duration + 0.12);
+  useEffect(() => () => {
+    enabledRef.current = false;
+    cueQueueVersionRef.current += 1;
+    pendingFlushRef.current = false;
+    activeCueRef.current = null;
+    const ctx = ctxRef.current;
+    voicesRef.current.forEach((voice) => {
+      try { voice.stop(); } catch { /* already ended */ }
+    });
+    voicesRef.current.clear();
+    pendingCuesRef.current = [];
+    ctxRef.current = null;
+    masterGainRef.current = null;
+    if (ctx && ctx.state !== 'closed') void ctx.close().catch(() => {});
   }, []);
 
-  return useCallback(
-    (name) => {
+  return useCallback((name) => {
+    if (!getGameSoundCue(name)) return;
+    pendingCuesRef.current.push(name);
+    if (pendingFlushRef.current) return;
+    pendingFlushRef.current = true;
+    const queueVersion = cueQueueVersionRef.current;
+    queueMicrotask(() => {
+      if (queueVersion !== cueQueueVersionRef.current) return;
+      pendingFlushRef.current = false;
+      const names = pendingCuesRef.current;
+      pendingCuesRef.current = [];
       if (!enabledRef.current) return;
+      const selectedName = selectGameSoundCue(names);
+      const selectedCue = getGameSoundCue(selectedName);
+      if (!selectedCue) return;
       const ctx = getCtx();
       if (!ctx) return;
-
-      if (name === 'click') {
-        playTone(ctx, { freq: 520, duration: 0.12, gain: 0.12, type: 'triangle' });
+      const now = ctx.currentTime;
+      const activeCue = activeCueRef.current;
+      if (activeCue && now < activeCue.until) {
+        if (selectedCue.priority <= activeCue.priority) return;
+        voicesRef.current.forEach((voice) => {
+          try { voice.stop(now); } catch { /* already ended */ }
+        });
+        voicesRef.current.clear();
       }
-
-      if (name === 'pop') {
-        playTone(ctx, { freq: 880, duration: 0.12, gain: 0.18, type: 'square' });
-        playTone(ctx, { freq: 660, duration: 0.08, gain: 0.12, start: 0.04, type: 'square' });
-      }
-
-      if (name === 'chime') {
-        playTone(ctx, { freq: 784, duration: 0.18, gain: 0.16, soft: true });
-        playTone(ctx, { freq: 1046, duration: 0.18, gain: 0.14, start: 0.12, soft: true });
-      }
-
-      if (name === 'success') {
-        // Root notes with sub-octave for fullness
-        playTone(ctx, { freq: 523, duration: 0.15, gain: 0.14, soft: true });
-        playTone(ctx, { freq: 261, duration: 0.15, gain: 0.06, soft: true }); // sub-octave
-        playTone(ctx, { freq: 526, duration: 0.15, gain: 0.07, soft: true }); // detuned copy
-        playTone(ctx, { freq: 659, duration: 0.15, gain: 0.14, start: 0.12, soft: true });
-        playTone(ctx, { freq: 663, duration: 0.15, gain: 0.07, start: 0.12, soft: true }); // detuned
-        playTone(ctx, { freq: 784, duration: 0.2, gain: 0.16, start: 0.24, soft: true });
-        playTone(ctx, { freq: 788, duration: 0.2, gain: 0.08, start: 0.24, soft: true }); // detuned
-        // Shimmer at end
-        playTone(ctx, { freq: 1568, duration: 0.12, gain: 0.06, start: 0.36, type: 'triangle', soft: true });
-      }
-
-      if (name === 'oops') {
-        playTone(ctx, { freq: 220, duration: 0.18, gain: 0.12, type: 'sine', soft: true });
-      }
-
-      if (name === 'swish') {
-        playSweep(ctx, { from: 900, to: 320, duration: 0.25, gain: 0.14 });
-      }
-
-      if (name === 'flip') {
-        playTone(ctx, { freq: 620, duration: 0.08, gain: 0.12, type: 'triangle' });
-      }
-
-      if (name === 'sparkle') {
-        playTone(ctx, { freq: 880, duration: 0.12, gain: 0.15, type: 'sine', soft: true });
-        playTone(ctx, { freq: 1320, duration: 0.16, gain: 0.12, start: 0.08, type: 'triangle', soft: true });
-      }
-
-      if (name === 'launch') {
-        playSweep(ctx, { from: 300, to: 1200, duration: 0.4, gain: 0.2, type: 'sawtooth' });
-        playTone(ctx, { freq: 960, duration: 0.08, gain: 0.1, start: 0.2, type: 'square' });
-      }
-
-      if (name === 'welcome') {
-        // A low, warm three-note welcome. Deliberately avoids the sharp
-        // square-wave "ping" used by launch and notification effects.
-        playTone(ctx, { freq: 261.63, duration: 0.34, gain: 0.075, type: 'sine', soft: true });
-        playTone(ctx, { freq: 329.63, duration: 0.34, gain: 0.07, start: 0.12, type: 'sine', soft: true });
-        playTone(ctx, { freq: 392, duration: 0.48, gain: 0.065, start: 0.24, type: 'triangle', soft: true });
-      }
-
-      if (name === 'roar') {
-        // A friendly cartoon roar: low, rumbling sweeps rather than a scary growl.
-        playSweep(ctx, { from: 180, to: 95, duration: 0.7, gain: 0.2, type: 'sawtooth' });
-        playSweep(ctx, { from: 240, to: 120, duration: 0.6, gain: 0.1, start: 0.05, type: 'square' });
-        playSweep(ctx, { from: 120, to: 70, duration: 0.5, gain: 0.12, start: 0.25, type: 'triangle' });
-      }
-
-      if (name === 'splash') {
-        playSweep(ctx, { from: 2200, to: 400, duration: 0.3, gain: 0.08, type: 'triangle' });
-        playTone(ctx, { freq: 180, duration: 0.12, gain: 0.06, start: 0.05, type: 'sine', soft: true });
-      }
-
-      if (name === 'whoosh') {
-        playSweep(ctx, { from: 1400, to: 180, duration: 0.5, gain: 0.2, type: 'sine' });
-      }
-
-      if (name === 'levelup') {
-        // Detuned unison for warmth
-        playTone(ctx, { freq: 523, duration: 0.1, gain: 0.15, soft: true });
-        playTone(ctx, { freq: 527, duration: 0.1, gain: 0.07, soft: true });
-        playTone(ctx, { freq: 659, duration: 0.1, gain: 0.15, start: 0.1, soft: true });
-        playTone(ctx, { freq: 663, duration: 0.1, gain: 0.07, start: 0.1, soft: true });
-        playTone(ctx, { freq: 784, duration: 0.1, gain: 0.15, start: 0.2, soft: true });
-        playTone(ctx, { freq: 788, duration: 0.1, gain: 0.07, start: 0.2, soft: true });
-        playTone(ctx, { freq: 1047, duration: 0.25, gain: 0.18, start: 0.3, soft: true });
-        playTone(ctx, { freq: 1051, duration: 0.25, gain: 0.09, start: 0.3, soft: true });
-      }
-
-      if (name === 'streak') {
-        playTone(ctx, { freq: 660, duration: 0.08, gain: 0.12 });
-        playTone(ctx, { freq: 880, duration: 0.08, gain: 0.14, start: 0.06 });
-        playTone(ctx, { freq: 1100, duration: 0.12, gain: 0.16, start: 0.12 });
-        playSweep(ctx, { from: 1100, to: 1400, duration: 0.15, gain: 0.12, start: 0.2 });
-      }
-
-      if (name === 'tap') {
-        playTone(ctx, { freq: 440, duration: 0.06, gain: 0.1, type: 'triangle' });
-      }
-
-      if (name === 'countdown') {
-        playTone(ctx, { freq: 800, duration: 0.15, gain: 0.12, type: 'square' });
-      }
-
-      if (name === 'wrong') {
-        playTone(ctx, { freq: 280, duration: 0.15, gain: 0.12, type: 'sine', soft: true });
-        playTone(ctx, { freq: 220, duration: 0.2, gain: 0.1, start: 0.12, type: 'sine', soft: true });
-      }
-
-      if (name === 'complete') {
-        // Rich complete sound with sub-octave and detuned copies + reverb
-        try {
-          const reverb = createReverb(ctx, 0.2);
-          playToneThrough(ctx, reverb.input, { freq: 523, duration: 0.12, gain: 0.14, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 523, duration: 0.12, gain: 0.14, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 261, duration: 0.12, gain: 0.06, soft: true }); // sub
-          playToneThrough(ctx, reverb.input, { freq: 659, duration: 0.12, gain: 0.14, start: 0.1, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 659, duration: 0.12, gain: 0.14, start: 0.1, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 784, duration: 0.12, gain: 0.14, start: 0.2, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 784, duration: 0.12, gain: 0.14, start: 0.2, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 1047, duration: 0.3, gain: 0.18, start: 0.3, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 1047, duration: 0.3, gain: 0.18, start: 0.3, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 1318, duration: 0.35, gain: 0.16, start: 0.5, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 1318, duration: 0.35, gain: 0.16, start: 0.5, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 659, duration: 0.35, gain: 0.05, start: 0.5, soft: true }); // sub
-        } catch {
-          // Fallback without reverb
-          playTone(ctx, { freq: 523, duration: 0.12, gain: 0.14, soft: true });
-          playTone(ctx, { freq: 659, duration: 0.12, gain: 0.14, start: 0.1, soft: true });
-          playTone(ctx, { freq: 784, duration: 0.12, gain: 0.14, start: 0.2, soft: true });
-          playTone(ctx, { freq: 1047, duration: 0.3, gain: 0.18, start: 0.3, soft: true });
-          playTone(ctx, { freq: 1318, duration: 0.35, gain: 0.16, start: 0.5, soft: true });
-        }
-      }
-
-      if (name === 'confetti') {
-        playSweep(ctx, { from: 600, to: 1400, duration: 0.3, gain: 0.12, type: 'triangle' });
-        playTone(ctx, { freq: 1200, duration: 0.1, gain: 0.1, start: 0.15, type: 'sine', soft: true });
-        playTone(ctx, { freq: 1500, duration: 0.08, gain: 0.08, start: 0.22, type: 'sine', soft: true });
-      }
-
-      if (name === 'levelup-big') {
-        // Big level-up with reverb and detuned unison
-        try {
-          const reverb = createReverb(ctx, 0.2);
-          playToneThrough(ctx, reverb.input, { freq: 523, duration: 0.1, gain: 0.15, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 523, duration: 0.1, gain: 0.15, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 527, duration: 0.1, gain: 0.07, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 659, duration: 0.1, gain: 0.15, start: 0.08, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 659, duration: 0.1, gain: 0.15, start: 0.08, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 784, duration: 0.1, gain: 0.15, start: 0.16, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 784, duration: 0.1, gain: 0.15, start: 0.16, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 1047, duration: 0.12, gain: 0.16, start: 0.24, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 1047, duration: 0.12, gain: 0.16, start: 0.24, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 1318, duration: 0.15, gain: 0.17, start: 0.34, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 1318, duration: 0.15, gain: 0.17, start: 0.34, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 1568, duration: 0.3, gain: 0.2, start: 0.46, soft: true });
-          playToneThrough(ctx, reverb.reverbInput, { freq: 1568, duration: 0.3, gain: 0.2, start: 0.46, soft: true });
-          playToneThrough(ctx, reverb.input, { freq: 1572, duration: 0.3, gain: 0.1, start: 0.46, soft: true });
-        } catch {
-          playTone(ctx, { freq: 523, duration: 0.1, gain: 0.15, soft: true });
-          playTone(ctx, { freq: 659, duration: 0.1, gain: 0.15, start: 0.08, soft: true });
-          playTone(ctx, { freq: 784, duration: 0.1, gain: 0.15, start: 0.16, soft: true });
-          playTone(ctx, { freq: 1047, duration: 0.12, gain: 0.16, start: 0.24, soft: true });
-          playTone(ctx, { freq: 1318, duration: 0.15, gain: 0.17, start: 0.34, soft: true });
-          playTone(ctx, { freq: 1568, duration: 0.3, gain: 0.2, start: 0.46, soft: true });
-        }
-      }
-
-      if (name === 'card-flip') {
-        playTone(ctx, { freq: 700, duration: 0.06, gain: 0.1, type: 'triangle' });
-        playTone(ctx, { freq: 900, duration: 0.06, gain: 0.08, start: 0.04, type: 'triangle' });
-      }
-
-      if (name === 'combo') {
-        playSweep(ctx, { from: 800, to: 1600, duration: 0.2, gain: 0.14, type: 'triangle' });
-        playTone(ctx, { freq: 1600, duration: 0.15, gain: 0.12, start: 0.15, type: 'sine', soft: true });
-      }
-
-      // Chess piece placement — short wooden thunk
-      if (name === 'chess-move') {
-        playTone(ctx, { freq: 180, duration: 0.06, gain: 0.15, type: 'sine' });
-        playTone(ctx, { freq: 120, duration: 0.08, gain: 0.10, type: 'triangle', start: 0.01 });
-      }
-    },
-    [getCtx, playSweep, playTone, createReverb, playToneThrough],
-  );
+      const lastCue = lastCueRef.current;
+      if (lastCue.name === selectedName && now - lastCue.at < 0.075) return;
+      lastCueRef.current = { name: selectedName, at: now };
+      const endAfter = Math.max(...selectedCue.notes.map(({ start, duration }) => start + duration + 0.09));
+      activeCueRef.current = { name: selectedName, priority: selectedCue.priority, until: now + endAfter };
+      selectedCue.notes.forEach((note) => scheduleNote(ctx, note));
+    });
+  }, [getCtx, scheduleNote]);
 };
 
 const VOICE_MODE_STORAGE_KEY = 'amari_voice_mode_v4';
