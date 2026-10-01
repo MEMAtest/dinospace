@@ -45,3 +45,9 @@
 
 .quest-feedback-card>p{flex:1 1 100%;text-align:left}.quest-fact-heading{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:950;text-transform:uppercase;letter-spacing:.09em;color:#146245;margin-bottom:8px}.is-retry .quest-fact-heading{color:#8c5517}.quest-fact-copy{display:block;font-size:18px;line-height:1.5}.quest-feedback-card.is-correct{border-color:#a8e9c7}.quest-feedback-card.is-retry{border-color:#ffdca1}
 @media(max-width:640px){.quest-fact-copy{font-size:16px}.quest-fact-heading{font-size:11px}}
+
+/* Reserve the guide column after the shared visual padding rules. */
+@media(min-width:1051px){
+  .quest-lesson-visual.quest-timeline-lesson,.quest-lesson-visual.quest-nature-lesson{padding-left:195px}
+  .quest-guide-character{left:12px;width:165px;height:165px}
+}
