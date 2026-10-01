@@ -17,7 +17,7 @@ const sourceFiles = async (directory) => {
 test('every statically called playSfx cue has a procedural definition', async () => {
   const files = await sourceFiles(new URL('../src', import.meta.url).pathname);
   const contents = await Promise.all(files.map((file) => readFile(file, 'utf8')));
-  const calledNames = new Set(contents.flatMap((text) => [...text.matchAll(/playSfx\??\(\s*['"]([^'"]+)['"]\s*\)/g)].map((match) => match[1])));
+  const calledNames = new Set(contents.flatMap((text) => [...text.matchAll(/playSfx(?:\?\.)?\(\s*['"]([^'"]+)['"]\s*\)/g)].map((match) => match[1])));
 
   assert.ok(calledNames.size > 0);
   for (const name of calledNames) assert.ok(getGameSoundCue(name), `missing cue definition for ${name}`);
