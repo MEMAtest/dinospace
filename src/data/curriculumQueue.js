@@ -34,7 +34,20 @@ export const createCurriculumQueue = (rounds, moduleId, seed, recentIds = [], us
   // remaining new questions merely because they cannot fill the entire run.
   if (candidates.length < targetCount) {
     const revisits = rounds.map((_, index) => index).filter((index) => recent.has(rounds[index].id));
-    revisits.sort((a, b) => recentIds.lastIndexOf(rounds[a].id) - recentIds.lastIndexOf(rounds[b].id));
+    if (candidates.length === 0) {
+      // A completed short band should replay in a new seeded order, rather
+      // than reproducing its previous oldest-to-newest queue indefinitely.
+      for (let index = revisits.length - 1; index > 0; index -= 1) {
+        const other = Math.floor(random() * (index + 1));
+        [revisits[index], revisits[other]] = [revisits[other], revisits[index]];
+      }
+      const lastId = recentIds.at(-1);
+      if (revisits.length > 1 && rounds[revisits[0]].id === lastId) {
+        [revisits[0], revisits[1]] = [revisits[1], revisits[0]];
+      }
+    } else {
+      revisits.sort((a, b) => recentIds.lastIndexOf(rounds[a].id) - recentIds.lastIndexOf(rounds[b].id));
+    }
     candidates.push(...revisits);
   }
   const preferredId = moduleId === 'time-detectives' ? 'history-communication'

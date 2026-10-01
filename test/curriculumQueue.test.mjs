@@ -39,3 +39,18 @@ test('each Curriculum band has enough distinct prompts for a five-question disco
     }
   }
 });
+
+
+test('an exhausted short curriculum pool replays in varied seeded orders without an immediate repeat', () => {
+  const rounds = getCurriculumModule('time-detectives').rounds.starter;
+  const recent = rounds.map(({ id }) => id);
+  const orders = new Set();
+  for (let seed = 1; seed <= 20; seed += 1) {
+    const order = createCurriculumQueue(rounds, 'time-detectives', seed, recent, true);
+    assert.deepEqual(order, createCurriculumQueue(rounds, 'time-detectives', seed, recent, true));
+    assert.equal(new Set(order).size, 5);
+    assert.notEqual(rounds[order[0]].id, recent.at(-1));
+    orders.add(order.join(','));
+  }
+  assert.ok(orders.size > 5, 'replays must not reproduce one fixed oldest-first sequence');
+});
