@@ -106,6 +106,13 @@ export const letterLaunchExplanation = (round) => {
   return `${round.target.word} starts with the ${sound} sound.`;
 };
 
+// SAT is an action, so a chair by itself is an ambiguous picture clue. Keep
+// this clarification local to Letter Launch rather than changing shared book
+// and literacy content.
+export const letterLaunchClueCaption = (round) => round?.target?.word === 'SAT'
+  ? 'She sat down on the chair.'
+  : '';
+
 export const letterLaunchPromptFor = (round) => round.kind === 'case-match'
   ? `Find the capital letter that matches little ${round.target.letter.toLowerCase()}.`
   : round.kind === 'build-word'

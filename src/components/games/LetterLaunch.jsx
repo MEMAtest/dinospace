@@ -4,7 +4,7 @@ import { getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 import { makeLearningEvent } from '../../data/literacy.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-import { buildLetterLaunchRound, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchRandomFor } from '../../data/letterLaunch.js';
+import { buildLetterLaunchRound, letterLaunchClueCaption, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchRandomFor } from '../../data/letterLaunch.js';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
 import launchWorld from '../../assets/little/bg-fuelup.webp';
 import './letterLaunch.css';
@@ -42,6 +42,23 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   const sayPrompt = useCallback(() => {
     speak(promptText);
   }, [promptText, speak]);
+
+  const replayClue = () => {
+    onGameEvent?.('letters', 'hint', { level: sessionLevel, round: roundCount, seed: runSeed, hintType: 'replay_clue' });
+    sayPrompt();
+  };
+
+  const hearNextSound = () => {
+    const grapheme = round.target.graphemes[selectedLetters.length];
+    if (!grapheme) return;
+    onGameEvent?.('letters', 'hint', { level: sessionLevel, round: roundCount, seed: runSeed, hintType: 'audio_help' });
+    speak(letterLaunchNextSoundPrompt(grapheme));
+  };
+
+  const leaveGame = () => {
+    onGameEvent?.('letters', 'leave', { level: sessionLevel, round: roundCount, seed: runSeed });
+    onBack?.();
+  };
 
   useEffect(() => {
     sayPrompt();
@@ -145,7 +162,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
     <div className="letter-launch min-h-screen flex flex-col items-center justify-center gap-5 bg-gradient-to-b from-[#060e46] via-[#153e9c] to-[#8ddcff] px-5 text-center text-white">
       <h1 className="text-3xl font-black">This letter level needs a taught single letter sound.</h1>
       <p className="max-w-lg text-lg font-semibold">Choose at least one taught sound in the Phonics learning profile, then come back to Letter Launch.</p>
-      <button type="button" onClick={onBack} className="min-h-14 rounded-full bg-amber-400 px-8 font-black text-slate-950">Back to learning world</button>
+      <button type="button" onClick={leaveGame} className="min-h-14 rounded-full bg-amber-400 px-8 font-black text-slate-950">Back to learning world</button>
     </div>
   );
 
@@ -159,7 +176,7 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
 
       <div className="flex items-center justify-between px-4 pt-4 z-20">
         <button
-          onClick={onBack}
+          onClick={leaveGame}
           className="game-icon-button"
           aria-label="Back to learning world"
         >
@@ -179,15 +196,26 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
           <div className="letter-launch-clue" aria-label={round.kind === 'case-match' ? `Little letter ${round.target.letter.toLowerCase()}` : round.kind === 'letter-sound' ? 'Listen for the sound' : `Picture clue for ${round.target.word}`}>
             {round.kind === 'case-match' ? round.target.letter.toLowerCase() : round.kind === 'letter-sound' ? '👂' : round.target.emoji}
           </div>
+          {letterLaunchClueCaption(round) && <p className="-mt-2 mb-2 text-base font-black text-indigo-800" aria-label="Picture clue caption">{letterLaunchClueCaption(round)}</p>}
           <p className="mb-1 text-lg font-bold text-slate-700">{round.kind === 'build-word' ? 'Choose the sounds in order to build the word' : round.kind === 'case-match' ? 'Choose its capital letter' : sessionLevel === 0 ? 'Listen to the word and find its first letter' : 'Listen for the first sound, then choose its letter'}</p>
-          <button onClick={sayPrompt} className="mt-2 inline-flex min-h-12 items-center gap-2 rounded-full bg-blue-600 px-5 font-black text-white shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300">
+          <button onClick={replayClue} className="mt-2 inline-flex min-h-12 items-center gap-2 rounded-full bg-blue-600 px-5 font-black text-white shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300">
             <Volume2 size={22} /> Hear the clue again
           </button>
+          <div className={`letter-launch-stage pointer-events-none relative mx-auto mt-3 h-[88px] w-full max-w-xl overflow-hidden rounded-2xl ${launching ? 'is-launching' : ''}`} aria-hidden="true">
+            <div className="absolute bottom-0 w-full h-5 bg-sky-300/70 rounded-full" />
+            <img
+              src={rocketArt}
+              alt=""
+              className="letter-launch-rocket absolute bottom-2 left-3 h-16 w-16 object-contain sm:h-20 sm:w-20"
+            />
+            <div className="letter-launch-flame absolute bottom-1 left-7 text-xl" aria-hidden="true">🔥</div>
+            <div className="letter-launch-sparks absolute bottom-3 left-24 text-2xl" aria-hidden="true">✨ ✨</div>
+          </div>
         </div>
 
         {round.kind === 'build-word' && <div className="mb-4 flex flex-wrap items-center justify-center gap-2" aria-label={`${selectedLetters.length} of ${round.target.graphemes.length} sounds placed`}>
           {round.target.graphemes.map((_, index) => <span key={`${round.key}-slot-${index}`} className="grid h-14 w-14 place-items-center rounded-2xl border-2 border-dashed border-blue-400 bg-sky-50 text-3xl font-black text-blue-800">{selectedLetters[index]?.toUpperCase() || '·'}</span>)}
-          <button type="button" onClick={() => speak(letterLaunchNextSoundPrompt(round.target.graphemes[selectedLetters.length]))} disabled={selectedLetters.length >= round.target.graphemes.length} className="ml-2 inline-flex min-h-12 items-center gap-2 rounded-full bg-blue-600 px-4 font-black text-white disabled:opacity-50"><Volume2 size={20} /> Hear next sound</button>
+          <button type="button" onClick={hearNextSound} disabled={selectedLetters.length >= round.target.graphemes.length} className="ml-2 inline-flex min-h-12 items-center gap-2 rounded-full bg-blue-600 px-4 font-black text-white disabled:opacity-50"><Volume2 size={20} /> Hear next sound</button>
         </div>}
         <div className={`grid w-full max-w-2xl gap-4 ${optionColumns}`}>
           {(round.kind === 'build-word' ? round.tiles : round.options).map((option) => {
@@ -205,24 +233,6 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
         {feedback && <div className="mt-4 w-full max-w-2xl rounded-2xl border-2 border-cyan-200 bg-white/95 p-4 text-center text-lg font-bold text-indigo-700 shadow-md" aria-live="polite">{feedback}</div>}
         {pendingAdvance && <button type="button" onClick={advance} className="mt-3 min-h-14 rounded-full bg-amber-400 px-8 font-black text-slate-950 shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue-700">{roundCount >= levelTarget ? 'Finish level' : 'Next mission'}</button>}
 
-        <div className="pointer-events-none relative mt-4 h-48 w-full max-w-2xl overflow-hidden" aria-hidden="true">
-          <div className="absolute bottom-0 w-full h-10 bg-sky-300/70 rounded-full" />
-          <img
-            src={rocketArt}
-            alt=""
-            className="absolute bottom-6 left-6 h-24 w-24 object-contain transition-transform duration-1000"
-            style={{
-              transform: launching ? 'translate(160px, -64px) rotate(-10deg)' : 'translate(0, 0)',
-            }}
-          />
-          <div
-            className={`absolute bottom-24 right-12 text-3xl transition-opacity duration-500 ${
-              launching ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            ✨✨
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { Headphones, ArrowLeft, Map, RotateCcw, Sparkles, Compass, ArrowRight, Clock3 } from 'lucide-react';
 import { CONTINENTS, CURRICULUM_MODULES, getCurriculumModule, OCEANS, YEAR_ONE_JOURNEY } from '../../data/curriculumModules.js';
 import { CURRICULUM_LESSON_COPY, getCurriculumVoiceClip } from '../../data/curriculumVoice.js';
@@ -36,6 +36,8 @@ const ROUND_HELP = Object.freeze({
 });
 
 const roundHelpFor = (round) => ROUND_HELP[round.type] || ROUND_HELP.default;
+
+const CurriculumHintContext = createContext(() => {});
 
 const queueHistoryKey = (playerId, moduleId, difficulty) => `${playerId || 'amari'}_curriculum_recent_v1_${moduleId}_${difficulty}`;
 const loadQueueHistory = (playerId, moduleId, difficulty) => {
@@ -88,6 +90,7 @@ const ChoiceArt = ({ item }) => {
 // Deliberately resolves only reviewed, packaged ElevenLabs clips. Missing
 // entries render no control; there is no browser/device speech fallback.
 const PackagedAudioButton = ({ text, label = 'Hear', soundOn }) => {
+  const logHint = useContext(CurriculumHintContext);
   const clip = getCurriculumVoiceClip(text);
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
@@ -95,6 +98,15 @@ const PackagedAudioButton = ({ text, label = 'Hear', soundOn }) => {
   if (!clip) return null;
   const play = () => {
     if (!soundOn) return;
+    const hintType = label === 'Hear why' ? 'explanation'
+      : label === 'Hear prompt' ? 'prompt'
+        : label === 'Hear lesson' ? 'lesson'
+          : label === 'Hear instructions' ? 'instructions'
+            : label === 'Hear feedback' || label === 'Hear praise' ? 'feedback'
+              : label === 'Hear observation' ? 'observation'
+                : label === 'Hear word' ? 'vocabulary'
+                  : 'audio_help';
+    logHint(hintType);
     audioRef.current?.pause();
     const audio = new Audio(clip);
     audio.preload = 'auto';
@@ -344,6 +356,12 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     const nextIndex = roundOrder[nextCursor] ?? 0;
     setRoundCursor(nextCursor);
     resetRound(nextIndex);
+    onGameEvent?.(difficultyGameId, 'question', {
+      module: moduleId,
+      difficulty,
+      seed: queueSeed,
+      round: nextCursor,
+    });
   };
 
   const replayQueue = () => {
@@ -366,7 +384,18 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   const retryQuestion = () => {
     onGameEvent?.(difficultyGameId, 'replay', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
     resetRound(roundIndex);
+    onGameEvent?.(difficultyGameId, 'question', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
   };
+
+  const logAudioHint = useCallback((hintType) => {
+    onGameEvent?.(difficultyGameId, 'hint', {
+      module: moduleId,
+      difficulty,
+      seed: queueSeed,
+      round: roundCursor,
+      hintType,
+    });
+  }, [difficulty, difficultyGameId, moduleId, onGameEvent, queueSeed, roundCursor]);
 
   const completeRound = (answerId, response) => {
     if (locked) return;
@@ -488,6 +517,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   const worldArt = activeModule.id === 'continents' ? geographyWorld : activeModule.id === 'time-detectives' ? historyWorld : natureWorld;
 
   return (
+    <CurriculumHintContext.Provider value={logAudioHint}>
     <div className={`curriculum-quest quest-${activeModule.id}`} style={{ '--quest-world': `url(${worldArt})` }}>
       <header className="quest-header">
         <button type="button" onClick={() => { onGameEvent?.(difficultyGameId, 'leave', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor }); onBack(); }} className="quest-round-button" aria-label="Back to learning world"><ArrowLeft size={23} /></button>
@@ -547,6 +577,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
         <CurriculumBadgeCollection playerId={playerId} module={moduleId} earned={earnedBadges} />
       </main>
     </div>
+    </CurriculumHintContext.Provider>
   );
 };
 

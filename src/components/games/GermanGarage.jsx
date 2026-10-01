@@ -243,7 +243,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
   return (
     <div className="min-h-screen overflow-hidden bg-[#fff5dc] text-slate-900">
       <header className="relative z-20 flex flex-wrap items-center justify-between gap-3 px-3 pt-3 sm:px-5">
-        <button onClick={onBack} className="game-icon-button !bg-amber-400 !text-white" aria-label="Back to learning world"><ArrowLeft /></button>
+        <button onClick={() => { onGameEvent?.('german', 'leave', { level: sessionLevel, round: roundCount, seed: round?.seed, difficulty }); onBack(); }} className="game-icon-button !bg-amber-400 !text-white" aria-label="Back to learning world"><ArrowLeft /></button>
         <nav className={`order-last grid w-full ${modeTabs.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} gap-1 rounded-[1.7rem] border-2 border-amber-100 bg-white/90 p-1.5 shadow-lg sm:order-none sm:flex sm:w-auto sm:flex-1 sm:flex-wrap`} aria-label="German Garage lessons">
           {modeTabs.map((tab) => (
             <button
@@ -276,7 +276,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
             <p className="text-xl font-black text-slate-800 sm:text-3xl">{copy.instruction}…</p>
             <div className="flex items-center justify-center gap-2">
                 <strong className="text-xl font-black text-blue-600 sm:text-2xl">Listen to the German clue</strong>
-                <button onClick={() => playGermanTerm(round.target.name)} className="rounded-full bg-blue-600 p-3 text-white shadow-md" aria-label="Replay the German clue"><Volume2 /></button>
+                <button onClick={() => { onGameEvent?.('german', 'hint', { level: sessionLevel, round: roundCount, seed: round.seed, difficulty, hintType: 'replay_clue' }); playGermanTerm(round.target.name); }} className="rounded-full bg-blue-600 p-3 text-white shadow-md" aria-label="Replay the German clue"><Volume2 /></button>
               </div>
           </div>
         </div>

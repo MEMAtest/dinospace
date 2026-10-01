@@ -20,6 +20,7 @@ const RoundButton = ({ onClick, label, tone, size = 'h-24 w-24', children }) => 
 );
 
 const SessionSlot = ({ render, ...props }) => render(props);
+const hasSeededRunTelemetry = (gameId) => gameId === 'letters' || gameId === 'german';
 
 // Each older game plays one named level at a time. Its saved level changes the
 // actual question pool or play mechanic through the difficulty context.
@@ -44,12 +45,26 @@ const GameSession = ({
   const progressRef = useRef({ done: 0, firstTries: 0 });
   const finishTimer = useRef(null);
   const pendingFinishRef = useRef(null);
+  const seedMetadataRef = useRef(null);
+  const pendingReplayRef = useRef(null);
+  const lastStartedLevelRef = useRef(null);
 
   useEffect(() => () => clearTimeout(finishTimer.current), []);
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
 
   const start = (nextLevel = levelIndex) => {
-    recordGameDiagnostic(game.id, run ? 'replay' : 'level_start', { level: nextLevel, difficulty: levels[nextLevel]?.band });
+    const tracksSeededRun = hasSeededRunTelemetry(game.id);
+    const explicitReplay = tracksSeededRun && run > 0 && nextLevel === lastStartedLevelRef.current;
+    if (tracksSeededRun) {
+      pendingReplayRef.current = explicitReplay
+        ? { level: nextLevel, difficulty: levels[nextLevel]?.band }
+        : null;
+      seedMetadataRef.current = null;
+      lastStartedLevelRef.current = nextLevel;
+      if (!explicitReplay) recordGameDiagnostic(game.id, 'level_start', { level: nextLevel, difficulty: levels[nextLevel]?.band });
+    } else {
+      recordGameDiagnostic(game.id, run ? 'replay' : 'level_start', { level: nextLevel, difficulty: levels[nextLevel]?.band });
+    }
     playSfx?.('launch');
     clearTimeout(finishTimer.current);
     pendingFinishRef.current = null;
@@ -65,7 +80,12 @@ const GameSession = ({
   };
 
   const finishLevel = useCallback(({ next, completedLevel, unlockedBefore }) => {
-    recordGameDiagnostic(game.id, 'level_complete', { level: completedLevel });
+    const runMetadata = hasSeededRunTelemetry(game.id) ? seedMetadataRef.current : null;
+    recordGameDiagnostic(game.id, 'level_complete', {
+      level: completedLevel,
+      ...(Number.isSafeInteger(runMetadata?.round) ? { round: runMetadata.round } : {}),
+      ...(Number.isSafeInteger(runMetadata?.seed) ? { seed: runMetadata.seed } : {}),
+    });
     if (game.id === 'letters') {
       const reward = awardChapterBadge(playerId, game.id, completedLevel);
       if (reward) {
@@ -93,6 +113,24 @@ const GameSession = ({
   }, [finishLevel]);
 
   const handleEvent = useCallback((gameId, event, payload) => {
+    if (hasSeededRunTelemetry(gameId) && payload && typeof payload === 'object') {
+      const known = seedMetadataRef.current || {};
+      const nextMetadata = { ...known };
+      for (const key of ['level', 'round', 'seed']) {
+        if (Number.isSafeInteger(payload[key]) && payload[key] >= 0) nextMetadata[key] = payload[key];
+      }
+      seedMetadataRef.current = nextMetadata;
+      if (event === 'start' && pendingReplayRef.current && Number.isSafeInteger(payload.seed) && payload.seed >= 0) {
+        const pending = pendingReplayRef.current;
+        pendingReplayRef.current = null;
+        recordGameDiagnostic(gameId, 'replay', {
+          level: pending.level,
+          round: Number.isSafeInteger(payload.round) ? payload.round : 0,
+          seed: payload.seed,
+          difficulty: pending.difficulty,
+        });
+      }
+    }
     onGameEvent?.(gameId, event, payload);
     if (event !== rule.event || progressRef.current.done >= target) return;
     const firstTry = !(payload && typeof payload === 'object' && payload.firstAttempt === false);
@@ -111,6 +149,18 @@ const GameSession = ({
       finishTimer.current = setTimeout(() => finishLevel(completion), rule.event === 'level_completed' ? 2600 : 1500);
     }
   }, [finishLevel, levelIndex, levelState.unlocked, onGameEvent, rule.event, target]);
+
+  const handleSessionBack = () => {
+    const metadata = seedMetadataRef.current;
+    if (hasSeededRunTelemetry(game.id) && Number.isSafeInteger(metadata?.seed)) {
+      recordGameDiagnostic(game.id, 'leave', {
+        level: Number.isSafeInteger(metadata.level) ? metadata.level : levelIndex,
+        round: Number.isSafeInteger(metadata.round) ? metadata.round : 0,
+        seed: metadata.seed,
+      });
+    }
+    onBack?.();
+  };
 
   if (phase === 'play') {
     return (
@@ -131,7 +181,7 @@ const GameSession = ({
   return (
     <div className={`relative flex min-h-[100dvh] w-full flex-col items-center justify-center gap-5 p-4 text-center ${game.color}`}>
       <div className="absolute left-4 top-4">
-        <button type="button" onClick={onBack} aria-label={little ? 'Back to home' : 'Back to learning world'} className="grid h-14 w-14 place-items-center rounded-full border-4 border-white/80 bg-white text-slate-800 shadow-lg">
+        <button type="button" onClick={handleSessionBack} aria-label={little ? 'Back to home' : 'Back to learning world'} className="grid h-14 w-14 place-items-center rounded-full border-4 border-white/80 bg-white text-slate-800 shadow-lg">
           {little ? <Home size={28} /> : <ArrowLeft size={28} />}
         </button>
       </div>
@@ -187,7 +237,7 @@ const GameSession = ({
               {levelIndex < levels.length - 1
                 ? <RoundButton onClick={() => start(levelIndex + 1)} label="Next level" size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600"><SkipForward size={50} strokeWidth={2.8} fill="currentColor" /></RoundButton>
                 : onNextGame && <RoundButton onClick={onNextGame} label="Next game" size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600"><SkipForward size={50} strokeWidth={2.8} fill="currentColor" /></RoundButton>}
-              <RoundButton onClick={onBack} label={little ? 'Home' : 'World'} tone="bg-gradient-to-b from-amber-300 to-orange-500">{little ? <Home size={42} strokeWidth={2.8} /> : <ArrowLeft size={42} strokeWidth={2.8} />}</RoundButton>
+              <RoundButton onClick={handleSessionBack} label={little ? 'Home' : 'World'} tone="bg-gradient-to-b from-amber-300 to-orange-500">{little ? <Home size={42} strokeWidth={2.8} /> : <ArrowLeft size={42} strokeWidth={2.8} />}</RoundButton>
             </div>
           </>
         )}

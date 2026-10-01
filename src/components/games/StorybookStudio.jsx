@@ -157,6 +157,7 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
   const [seriesFilter, setSeriesFilter] = useState('all');
   const storySessionRef = useRef(null);
   const activeChildIdRef = useRef(activeChildId);
+  const completedRunSeedRef = useRef(null);
   const [selectedSlug, setSelectedSlug] = useState(null);
   const [pageIndex, setPageIndex] = useState(-1);
   const [started, setStarted] = useState(false);
@@ -288,20 +289,30 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
   useEffect(() => () => stopAudio(), [stopAudio]);
 
   const finishBook = useCallback(() => {
-    if (!selectedBook || readCompletion(selectedBook.slug, activeChild.id)) return;
+    if (!selectedBook) return;
+    if (!comprehension.length && completedRunSeedRef.current !== comprehensionSeed) {
+      completedRunSeedRef.current = comprehensionSeed;
+      onGameEvent?.('storybooks', 'level_complete', { seed: comprehensionSeed, round: pages.length, pageIndex });
+    }
+    if (readCompletion(selectedBook.slug, activeChild.id)) return;
     saveCompletion(selectedBook.slug, activeChild.id);
     onCelebrate?.('Story complete!', 5, 0, 'storybooks');
-  }, [activeChild.id, onCelebrate, selectedBook]);
+  }, [activeChild.id, comprehension.length, comprehensionSeed, onCelebrate, onGameEvent, pageIndex, pages.length, selectedBook]);
 
   const goToScreen = useCallback((nextIndex, { shouldPlay = autoRead } = {}) => {
     if (!selectedBook) return;
     const clamped = Math.max(-1, Math.min(pages.length - 1, nextIndex));
     setPageIndex(clamped);
+    onGameEvent?.('storybooks', 'scene', {
+      seed: comprehensionSeed,
+      round: Math.max(0, clamped + 1),
+      pageIndex: clamped,
+    });
     const nextProgress = updateStoryProgress(activeChild.id, selectedBook.slug, { pageIndex: clamped });
     setProgressByChild((all) => ({ ...all, [activeChild.id]: { ...(all[activeChild.id] || {}), [selectedBook.slug]: nextProgress } }));
     setAudioError(false);
     setPlaying(Boolean(shouldPlay && started));
-  }, [activeChild.id, autoRead, pages.length, selectedBook, started]);
+  }, [activeChild.id, autoRead, comprehensionSeed, onGameEvent, pages.length, selectedBook, started]);
 
   const playCurrentAudio = useCallback(async () => {
     const audio = audioRef.current;
@@ -352,6 +363,9 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
     const saved = getBookProgress(progressByChild, activeChild.id, book.slug);
     const resumeIndex = readCompletion(book.slug, activeChild.id) ? -1
       : Number.isInteger(saved.pageIndex) ? Math.max(-1, Math.min(book.pages.length - 1, saved.pageIndex)) : -1;
+    completedRunSeedRef.current = null;
+    onGameEvent?.('storybooks', 'start', { seed: quizSeed, round: Math.max(0, resumeIndex + 1), pageIndex: resumeIndex });
+    onGameEvent?.('storybooks', 'scene', { seed: quizSeed, round: Math.max(0, resumeIndex + 1), pageIndex: resumeIndex });
     setPageIndex(resumeIndex);
     setStarted(false);
     setAudioError(false);
@@ -362,6 +376,11 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
 
   const closeBook = () => {
     playSfx?.('click');
+    if (selectedBook) onGameEvent?.('storybooks', 'leave', {
+      seed: comprehensionSeed,
+      round: comprehensionActive ? comprehensionStep + 1 : Math.max(0, pageIndex + 1),
+      pageIndex,
+    });
     stopAudio();
     setSelectedSlug(null);
     setStarted(false);
@@ -369,6 +388,9 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
   };
 
   const startReading = async () => {
+    if (isCover && selectedBook && readCompletion(selectedBook.slug, activeChild.id)) {
+      onGameEvent?.('storybooks', 'replay', { seed: comprehensionSeed, round: 0, pageIndex });
+    }
     setStarted(true);
     setAudioError(false);
     if (isCover && !autoRead) {
@@ -387,13 +409,36 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
     const question = comprehension[comprehensionStep];
     setComprehensionChoice(choice);
     if (choice === question.answer) {
+      onGameEvent?.('storybooks', 'answer_correct', { round: comprehensionStep + 1, firstAttempt: !comprehensionHadMistake, seed: comprehensionSeed, pageIndex });
       onGameEvent?.('storybooks', 'comprehension_question_complete', { round: comprehensionStep + 1, firstAttempt: !comprehensionHadMistake, seed: comprehensionSeed });
       speak(question.why);
     } else {
       setComprehensionHadMistake(true);
+      onGameEvent?.('storybooks', 'answer_attempt', { round: comprehensionStep + 1, firstAttempt: !comprehensionHadMistake, seed: comprehensionSeed, pageIndex });
       onGameEvent?.('storybooks', 'comprehension_answer_wrong', { round: comprehensionStep + 1, seed: comprehensionSeed });
       speak(question.clue);
     }
+  };
+
+  const leaveToWorld = () => {
+    if (selectedBook) onGameEvent?.('storybooks', 'leave', {
+      seed: comprehensionSeed,
+      round: comprehensionActive ? comprehensionStep + 1 : Math.max(0, pageIndex + 1),
+      pageIndex,
+    });
+    stopAudio();
+    onBack();
+  };
+
+  const hearComprehensionAudio = (text, hintType) => {
+    onGameEvent?.('storybooks', 'hint', { seed: comprehensionSeed, round: comprehensionStep + 1, pageIndex, hintType });
+    speak(text);
+  };
+
+  const replayNarration = () => {
+    onGameEvent?.('storybooks', 'replay', { seed: comprehensionSeed, round: Math.max(0, pageIndex + 1), pageIndex });
+    audioRef.current?.load();
+    playCurrentAudio();
   };
 
   const togglePlayback = async () => {
@@ -661,10 +706,10 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
       <main className={`storybook-reader min-h-screen w-full bg-gradient-to-br ${selectedBook.accent} px-4 py-6 text-white`}>
         <div className="mx-auto flex min-h-[80vh] max-w-3xl flex-col justify-center rounded-[2rem] border border-white/25 bg-slate-950/25 p-6 shadow-2xl sm:p-10">
           <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">Story Detective · {comprehensionStep + 1} of {comprehension.length}</p>
-          <div className="mt-3 flex items-center gap-3"><h1 className="text-3xl font-black sm:text-4xl">{question?.prompt}</h1><button type="button" onClick={() => speak(question.prompt)} className="storybook-icon-button shrink-0" aria-label="Hear question again"><Volume2 /></button></div>
+          <div className="mt-3 flex items-center gap-3"><h1 className="text-3xl font-black sm:text-4xl">{question?.prompt}</h1><button type="button" onClick={() => hearComprehensionAudio(question.prompt, 'question')} className="storybook-icon-button shrink-0" aria-label="Hear question again"><Volume2 /></button></div>
           <div className="mt-6 grid gap-3">{question?.choices.map((choice) => <button key={choice} type="button" onClick={() => chooseComprehensionAnswer(choice)} disabled={answerIsCorrect} aria-pressed={comprehensionChoice === choice} className={`min-h-14 rounded-2xl border-2 px-5 py-4 text-left text-lg font-black disabled:cursor-default ${comprehensionChoice === choice ? (answerIsCorrect ? 'border-emerald-300 bg-emerald-300 text-slate-950' : 'border-amber-300 bg-amber-300 text-slate-950') : 'border-white/40 bg-white/10 hover:bg-white/20'}`}>{choice}</button>)}</div>
-          {comprehensionChoice && <div role="status" className="mt-5 flex items-start gap-3 rounded-2xl bg-white/10 p-4 text-base font-bold"><p className="flex-1">{answerIsCorrect ? question.why : question.clue}</p><button type="button" onClick={() => speak(answerIsCorrect ? question.why : question.clue)} className="storybook-icon-button shrink-0" aria-label={answerIsCorrect ? 'Hear why the answer is right' : 'Hear the clue again'}><Volume2 /></button></div>}
-          <div className="mt-6 flex justify-between gap-3"><button type="button" onClick={() => { setComprehensionActive(false); closeBook(); }} className="storybook-nav-button">Back to stories</button>{comprehensionChoice && <button type="button" onClick={() => { if (!answerIsCorrect) { setComprehensionChoice(''); return; } if (comprehensionStep + 1 >= comprehension.length) { onGameEvent?.('storybooks', 'comprehension_complete', { round: comprehension.length, seed: comprehensionSeed }); setComprehensionActive(false); closeBook(); return; } setComprehensionStep((step) => step + 1); setComprehensionChoice(''); setComprehensionHadMistake(false); }} className="storybook-nav-button">{answerIsCorrect ? (comprehensionStep + 1 >= comprehension.length ? 'Finish' : 'Next clue') : 'Try again'} <ArrowRight /></button>}</div>
+          {comprehensionChoice && <div role="status" className="mt-5 flex items-start gap-3 rounded-2xl bg-white/10 p-4 text-base font-bold"><p className="flex-1">{answerIsCorrect ? question.why : question.clue}</p><button type="button" onClick={() => hearComprehensionAudio(answerIsCorrect ? question.why : question.clue, answerIsCorrect ? 'explanation' : 'clue')} className="storybook-icon-button shrink-0" aria-label={answerIsCorrect ? 'Hear why the answer is right' : 'Hear the clue again'}><Volume2 /></button></div>}
+          <div className="mt-6 flex justify-between gap-3"><button type="button" onClick={() => { setComprehensionActive(false); closeBook(); }} className="storybook-nav-button">Back to stories</button>{comprehensionChoice && <button type="button" onClick={() => { if (!answerIsCorrect) { setComprehensionChoice(''); return; } if (comprehensionStep + 1 >= comprehension.length) { if (completedRunSeedRef.current !== comprehensionSeed) { completedRunSeedRef.current = comprehensionSeed; onGameEvent?.('storybooks', 'level_complete', { round: comprehension.length, seed: comprehensionSeed, pageIndex }); } onGameEvent?.('storybooks', 'comprehension_complete', { round: comprehension.length, seed: comprehensionSeed }); setComprehensionActive(false); closeBook(); return; } const nextStep = comprehensionStep + 1; setComprehensionStep(nextStep); setComprehensionChoice(''); setComprehensionHadMistake(false); onGameEvent?.('storybooks', 'question', { round: nextStep + 1, seed: comprehensionSeed, pageIndex }); }} className="storybook-nav-button">{answerIsCorrect ? (comprehensionStep + 1 >= comprehension.length ? 'Finish' : 'Next clue') : 'Try again'} <ArrowRight /></button>}</div>
         </div>
       </main>
     );
@@ -733,7 +778,7 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
         <header className="flex items-center justify-between gap-3">
           <button type="button" onClick={closeBook} className="storybook-icon-button" aria-label="Back to storybooks"><ArrowLeft /></button>
           <div className="min-w-0 text-center"><p className="truncate text-xs font-black uppercase tracking-[0.18em] text-white/70">{selectedBook.emoji} {selectedBook.style}</p><h1 className="truncate text-xl font-black sm:text-3xl">{selectedBook.title}</h1></div>
-          <div className="flex items-center gap-2"><button type="button" onClick={onToggleSound} className="storybook-icon-button" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}>{soundOn ? <Volume2 /> : <VolumeX />}</button><button type="button" onClick={onBack} className="storybook-icon-button" aria-label="Back to learning world"><ArrowLeft /></button></div>
+          <div className="flex items-center gap-2"><button type="button" onClick={onToggleSound} className="storybook-icon-button" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}>{soundOn ? <Volume2 /> : <VolumeX />}</button><button type="button" onClick={leaveToWorld} className="storybook-icon-button" aria-label="Back to learning world"><ArrowLeft /></button></div>
         </header>
         <div className="mt-4 flex items-center gap-3" aria-label={`Page ${Math.max(1, screenNumber)} of ${totalScreens}`}>
           <span className="text-sm font-black text-white/85">{isCover ? 'Cover' : `Page ${pageIndex + 1}`}</span>
@@ -759,9 +804,9 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
               <>
                 <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-200">{currentPage.title}</p>
                 <p className="mt-5 text-xl font-black leading-relaxed text-white sm:text-3xl">{currentPage.text}</p>
-                <div className="mt-6 flex flex-wrap gap-2"><button type="button" onClick={togglePlayback} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-slate-900 shadow-lg" aria-label={playing ? 'Pause narration' : 'Play narration'}>{playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />} {playing ? 'Pause' : 'Hear page'}</button><button type="button" onClick={() => { audioRef.current?.load(); playCurrentAudio(); }} className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-4 py-3 font-black hover:bg-white/10"><RotateCcw size={17} /> Replay</button></div>
+                <div className="mt-6 flex flex-wrap gap-2"><button type="button" onClick={togglePlayback} className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-3 font-black text-slate-900 shadow-lg" aria-label={playing ? 'Pause narration' : 'Play narration'}>{playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />} {playing ? 'Pause' : 'Hear page'}</button><button type="button" onClick={replayNarration} className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-4 py-3 font-black hover:bg-white/10"><RotateCcw size={17} /> Replay</button></div>
                 <div className="mt-5 flex items-center gap-2 text-sm font-bold text-white/75"><Headphones size={17} /> {audioError ? 'Read-aloud is unavailable for this page.' : 'Read-aloud story'}</div>
-                {STORYBOOK_WORD_HELP[selectedBook.slug]?.length > 0 && <details className="mt-5 rounded-xl border border-white/25 bg-white/10 p-3"><summary className="cursor-pointer font-black">Word help</summary><dl className="mt-3 space-y-2">{STORYBOOK_WORD_HELP[selectedBook.slug].map(([word, meaning]) => <div key={word} className="flex items-start gap-2"><div className="flex-1"><dt className="font-black text-amber-200">{word}</dt><dd className="text-sm font-semibold text-white/90">{meaning}</dd></div><button type="button" onClick={() => speak(meaning)} className="storybook-icon-button shrink-0" aria-label={`Hear meaning of ${word}`}><Volume2 /></button></div>)}</dl></details>}
+                {STORYBOOK_WORD_HELP[selectedBook.slug]?.length > 0 && <details className="mt-5 rounded-xl border border-white/25 bg-white/10 p-3"><summary className="cursor-pointer font-black">Word help</summary><dl className="mt-3 space-y-2">{STORYBOOK_WORD_HELP[selectedBook.slug].map(([word, meaning]) => <div key={word} className="flex items-start gap-2"><div className="flex-1"><dt className="font-black text-amber-200">{word}</dt><dd className="text-sm font-semibold text-white/90">{meaning}</dd></div><button type="button" onClick={() => { onGameEvent?.('storybooks', 'hint', { seed: comprehensionSeed, round: Math.max(0, pageIndex + 1), pageIndex, hintType: 'word_help' }); speak(meaning); }} className="storybook-icon-button shrink-0" aria-label={`Hear meaning of ${word}`}><Volume2 /></button></div>)}</dl></details>}
               </>
             )}
           </div>
@@ -769,7 +814,7 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
         <footer className="mt-4 flex items-center justify-between gap-3">
           <button type="button" onClick={() => goToScreen(pageIndex - 1, { shouldPlay: false })} disabled={isCover} className="storybook-nav-button" aria-label="Previous page"><ArrowLeft /> <span className="hidden sm:inline">Previous</span></button>
           <div className="flex gap-1.5" aria-hidden="true">{[...Array(totalScreens)].map((_, index) => <span key={index} className={`h-2.5 w-2.5 rounded-full ${index === pageIndex + 1 ? 'bg-amber-300' : index < pageIndex + 1 ? 'bg-white/80' : 'bg-white/25'}`} />)}</div>
-          <button type="button" onClick={() => { if (pageIndex >= pages.length - 1) { finishBook(); if (comprehension.length) { stopAudio(); onGameEvent?.('storybooks', 'comprehension_started', { round: 1, seed: comprehensionSeed }); setComprehensionActive(true); } else closeBook(); } else goToScreen(pageIndex + 1, { shouldPlay: started && autoRead }); }} className="storybook-nav-button" aria-label={pageIndex >= pages.length - 1 ? 'Start story questions' : 'Next page'}><span className="hidden sm:inline">{pageIndex >= pages.length - 1 ? 'Story Detective' : 'Next'}</span> <ArrowRight /></button>
+          <button type="button" onClick={() => { if (pageIndex >= pages.length - 1) { finishBook(); if (comprehension.length) { stopAudio(); onGameEvent?.('storybooks', 'comprehension_started', { round: 1, seed: comprehensionSeed }); onGameEvent?.('storybooks', 'question', { round: 1, seed: comprehensionSeed, pageIndex }); setComprehensionActive(true); } else closeBook(); } else goToScreen(pageIndex + 1, { shouldPlay: started && autoRead }); }} className="storybook-nav-button" aria-label={pageIndex >= pages.length - 1 ? 'Start story questions' : 'Next page'}><span className="hidden sm:inline">{pageIndex >= pages.length - 1 ? 'Story Detective' : 'Next'}</span> <ArrowRight /></button>
         </footer>
         <audio ref={audioRef} src={currentAudio || undefined} preload="auto" onEnded={onEnded} onError={() => { setAudioError(true); setPlaying(false); }} aria-label="Story narration" />
       </div>
