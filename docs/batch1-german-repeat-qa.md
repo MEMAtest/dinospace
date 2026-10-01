@@ -1,9 +1,13 @@
 # German Garage repeat live QA
 
-Date: 2026-10-01 (Europe/London)  
-Tester: isolated Playwright session `luna_german_repeat_qa`  
-Canonical URL: https://dinospace-eight.vercel.app  
-Tested browser document: deployment `dpl_2EZ4WnumfgsGXC22WYWtVQq7Ak1X`, source SHA `665bcd2d7edf231c70d9f64a8cf9661a8533ed3d`  
+Date: 2026-10-01 (Europe/London)
+
+Tester: isolated Playwright session `luna_german_repeat_qa`
+
+Canonical URL: https://dinospace-eight.vercel.app
+
+Tested browser document: deployment `dpl_2EZ4WnumfgsGXC22WYWtVQq7Ak1X`, source SHA `665bcd2d7edf231c70d9f64a8cf9661a8533ed3d`
+
 Loaded app assets: `assets/index-BQjGggG1.js` and `assets/index-rDO19aDV.css`
 
 The canonical alias moved to a later Storybook-only deployment (`dpl_CZVgq9aXeCXnKKjHHbBnHLN9b7Cj`, SHA `3e97df50a9e035023821065dee4c3371cebaf96f`) during QA. I kept the already loaded SHA665 browser document intact. No result below is attributed to SHA3e97.

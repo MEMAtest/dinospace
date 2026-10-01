@@ -1,8 +1,11 @@
 # Letter Launch final production QA
 
-Date: 1 October 2026  
-Canonical: `https://dinospace-eight.vercel.app`  
-Release identity: SHA `86e3ecf08d658591c51dc1e394ba7ff32e53fbb1`, deployment `dpl_2azaKnhES6wXXjwPsHxhmwsnu9iQ`; JavaScript `assets/index-Bjt4H7n4.js`, CSS `assets/index-BjKMFMwR.css`.  
+Date: 1 October 2026
+
+Canonical: `https://dinospace-eight.vercel.app`
+
+Release identity: SHA `86e3ecf08d658591c51dc1e394ba7ff32e53fbb1`, deployment `dpl_2azaKnhES6wXXjwPsHxhmwsnu9iQ`; JavaScript `assets/index-Bjt4H7n4.js`, CSS `assets/index-BjKMFMwR.css`.
+
 Browser: isolated Playwright session `luna_letter_final_prod`; profile records were created only in this isolated browser. All play, answer, retry, replay, and navigation actions used the rendered UI.
 
 ## Completed runs

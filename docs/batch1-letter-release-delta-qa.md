@@ -1,8 +1,11 @@
 # Letter Launch release-delta QA
 
-Date: 1 October 2026  
-Canonical: `https://dinospace-eight.vercel.app`  
-Release identity: SHA `7d9d96166f4bd4d2b283b761dcfbaae5dd3b0256`, deployment `dpl_7guvWUZ3ocswiVGXcLbVrewzaEq8`; JavaScript `assets/index-C0jdAtV8.js`, CSS `assets/index-BH3dde_v.css`.  
+Date: 1 October 2026
+
+Canonical: `https://dinospace-eight.vercel.app`
+
+Release identity: SHA `7d9d96166f4bd4d2b283b761dcfbaae5dd3b0256`, deployment `dpl_7guvWUZ3ocswiVGXcLbVrewzaEq8`; JavaScript `assets/index-C0jdAtV8.js`, CSS `assets/index-BH3dde_v.css`.
+
 Browser: isolated Playwright session `letter-release-delta`; gameplay/profile data stayed in that session. All interactions below used visible app controls.
 
 ## Scope and outcome

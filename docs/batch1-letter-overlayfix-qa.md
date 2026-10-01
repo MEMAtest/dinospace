@@ -1,8 +1,11 @@
 # Letter Launch challenge-tracker overlay fix QA
 
-Date: 1 October 2026  
-Canonical: `https://dinospace-eight.vercel.app`  
-Release identity: SHA `b6360bbf82cb32643be8a880900f13553c7300af`, deployment `dpl_9rxV9wXYUJrmUH22Z5BTFsCaAJ4s`; JavaScript `assets/index-BCMFohwQ.js`, CSS `assets/index-BH3dde_v.css`.  
+Date: 1 October 2026
+
+Canonical: `https://dinospace-eight.vercel.app`
+
+Release identity: SHA `b6360bbf82cb32643be8a880900f13553c7300af`, deployment `dpl_9rxV9wXYUJrmUH22Z5BTFsCaAJ4s`; JavaScript `assets/index-BCMFohwQ.js`, CSS `assets/index-BH3dde_v.css`.
+
 Browser: isolated Playwright session `letter-overlayfix`; all gameplay and navigation used visible app controls.
 
 ## Scope
