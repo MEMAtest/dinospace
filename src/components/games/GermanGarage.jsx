@@ -145,7 +145,6 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
 
   const choose = (option) => {
     if (answeredRef.current || pendingRound) return;
-    if (mode === 'paint') setPaintedColour(option);
     if (option.name !== round.target.name) {
       onGameEvent?.('german', 'answer_attempt', { level: sessionLevel, round: roundCount, seed: round.seed, firstAttempt: !hadMistakeRef.current });
       hadMistakeRef.current = true;
@@ -155,6 +154,7 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
       return;
     }
     answeredRef.current = true;
+    if (mode === 'paint') setPaintedColour(option);
     const translation = germanTranslation(mode, round.target.name);
     const extraPractice = !coreTabs.some((tab) => tab.id === mode);
     const nextCount = roundCount + (extraPractice ? 0 : 1);
