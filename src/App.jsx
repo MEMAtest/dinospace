@@ -1,3 +1,6 @@
+import LetterLaunchBadgeCollection from './components/shared/LetterLaunchBadgeCollection.jsx';
+import { getEarnedChapterBadgeIds } from './data/chapterBadges.js';
+import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.jsx';
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
@@ -295,6 +298,8 @@ const PlayerSession = ({
     content = (
       <div className={`flex min-h-[100dvh] w-full flex-col items-center gap-2 bg-gradient-to-b p-3 sm:p-6 ${little ? 'from-amber-200 to-sky-200' : 'from-amber-100 via-white to-sky-100'}`}>
         <PageHeader title={`${player.name}’s stickers`} subtitle={`⭐ ${points} stars`} onBack={() => back()} backLabel="Back to home" {...soundProps} />
+        <LetterLaunchBadgeCollection earnedBadgeIds={getEarnedChapterBadgeIds(player.id, 'letters')} />
+        <CurriculumBadgeCollection playerId={player.id} />
         <RewardsShelf points={points} earnedStickerIds={earnedStickerIds} />
       </div>
     );

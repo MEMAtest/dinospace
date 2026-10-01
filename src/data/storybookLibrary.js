@@ -10,6 +10,10 @@ const BUILT_IN_META = {
   'rex-missing-moon-map': { seriesId: 'moon-explorers', seriesName: 'Moon Explorers', tags: ['learning'], bedtime: false },
   'luna-whispering-forest': { seriesId: 'forest-friends', seriesName: 'Forest Friends', tags: ['learning', 'bedtime'], bedtime: true },
   'nia-great-river-journey': { seriesId: 'river-keepers', seriesName: 'River Keepers', tags: ['learning', 'bedtime'], bedtime: true },
+  'bo-busy-bee-garden': { seriesId: 'garden-discoveries', seriesName: 'Garden Discoveries', tags: ['learning'], bedtime: false },
+  'sami-night-light-parade': { seriesId: 'gentle-evenings', seriesName: 'Gentle Evenings', tags: ['learning', 'bedtime'], bedtime: true },
+  'mina-mountain-seed': { seriesId: 'mountain-seed-stories', seriesName: 'Mountain Seed Stories', tags: ['learning'], bedtime: false },
+  'kai-lost-library-book': { seriesId: 'neighbourhood-clues', seriesName: 'Neighbourhood Clues', tags: ['learning'], bedtime: false },
 };
 
 export const decorateStoryBook = (book) => ({

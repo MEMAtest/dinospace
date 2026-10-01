@@ -1,0 +1,99 @@
+{
+  "id": "mina-mountain-seed",
+  "title": "Mina’s Mountain Seed",
+  "subtitle": "A patient little seedling at the mountain hut",
+  "ageBand": "5-6",
+  "summary": "Mina, Piko and their guide care for a native alpine seedling in a sheltered pot and learn that growth takes time.",
+  "cover": {
+    "image": "cover.webp",
+    "audio": "audio-cover.mp3",
+    "narration": "Mina’s Mountain Seed"
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "title": "A Seed Packet",
+      "text": "At the mountain hut, Guide Leni showed Mina and Piko a packet of native alpine flower seeds for the porch garden. Mina chose one small seed to plant.",
+      "image": "page-01.webp",
+      "audio": "audio-page-01.mp3",
+      "imagePrompt": "On the mountain hut porch, Guide Leni shows Mina and Piko a small plain seed packet and one seed in an open palm. Alpine mountains and a tidy porch garden are visible. No readable text on the packet."
+    },
+    {
+      "pageNumber": 2,
+      "title": "A Little Pot",
+      "text": "Leni filled a little pot with clean soil. Mina placed the seed inside, and Piko covered it gently. They set the pot where the porch was sunny and sheltered.",
+      "image": "page-02.webp",
+      "audio": "audio-page-02.mp3",
+      "imagePrompt": "Close garden action: Leni fills a small clay pot with clean soil, Mina places one seed, and Piko gently covers it. The porch is bright and protected from wind; keep all characters’ tools safe and simple."
+    },
+    {
+      "pageNumber": 3,
+      "title": "A Careful Water",
+      "text": "Mina poured a little water onto the soil. “Seeds need water, air and warmth to begin growing,” Leni explained. The friends placed the pot beside the sunny window.",
+      "image": "page-03.webp",
+      "audio": "audio-page-03.mp3",
+      "imagePrompt": "Mina pours a small amount of water from a child-sized cup onto the soil while Leni explains and Piko watches. A sunny window and sheltered porch show warmth. No seed is visible above the soil."
+    },
+    {
+      "pageNumber": 4,
+      "title": "No Change Yet",
+      "text": "The next morning, the pot looked just the same. Mina drooped her ears. “Maybe I did it wrong,” she said. Piko sat beside her and waited for Leni’s answer.",
+      "image": "page-04.webp",
+      "audio": "audio-page-04.mp3",
+      "imagePrompt": "Morning on the porch. Mina looks disappointed at the unchanged pot while Piko sits supportively nearby. Guide Leni approaches with a kind, reassuring expression. Soft mountain morning light, no sprout yet."
+    },
+    {
+      "pageNumber": 5,
+      "title": "Seeds Take Time",
+      "text": "“You cared for it well,” said Leni. “A seed can take many days to sprout. After it grows, the young plant needs light and water.” Mina felt hopeful again.",
+      "image": "page-05.webp",
+      "audio": "audio-page-05.mp3",
+      "imagePrompt": "Leni kneels beside Mina and the pot, explaining gently. Piko listens with a small smile. Show the soil surface still unchanged, with warm sunlight touching the porch."
+    },
+    {
+      "pageNumber": 6,
+      "title": "One Day at a Time",
+      "text": "Each day, Mina checked the soil and watered it only when it felt dry. Piko kept the pot away from the windy edge. They cared for it patiently.",
+      "image": "page-06.webp",
+      "audio": "audio-page-06.mp3",
+      "imagePrompt": "A gentle passage-of-time scene on the same porch: Mina checks soil with one hoof held back from the seed, Piko moves the pot safely inward, and Leni supervises. Show changing daylight without panels or text."
+    },
+    {
+      "pageNumber": 7,
+      "title": "A Green Shoot",
+      "text": "One morning, a tiny green shoot poked through the soil. Mina called Piko and Leni. They smiled, then measured the shoot beside a small twig without touching it.",
+      "image": "page-07.webp",
+      "audio": "audio-page-07.mp3",
+      "imagePrompt": "Close view of a tiny fresh green shoot emerging from the soil. Mina, Piko and Leni look on happily. A small twig stands beside the shoot as a measuring marker, with no marks or labels."
+    },
+    {
+      "pageNumber": 8,
+      "title": "New Leaves",
+      "text": "More days passed, and two small leaves opened. The shoot stood taller in the light. Mina drew its shape in a garden notebook while Piko watched the page.",
+      "image": "page-08.webp",
+      "audio": "audio-page-08.mp3",
+      "imagePrompt": "The seedling now has two small leaves and stands taller in the same pot. Mina draws it in an open blank notebook while Piko observes. Guide Leni waters another plant nearby."
+    },
+    {
+      "pageNumber": 9,
+      "title": "A Garden Note",
+      "text": "Mina added the date beside her drawing. “It grew a little since last time,” she said. Piko compared the picture with the plant, and Leni praised their careful watching.",
+      "image": "page-09.webp",
+      "audio": "audio-page-09.mp3",
+      "imagePrompt": "Mina and Piko compare the small seedling with an earlier simple drawing in a blank notebook while Leni smiles. Show the plant only slightly taller, with a few healthy leaves; no legible writing."
+    },
+    {
+      "pageNumber": 10,
+      "title": "For the Next Hikers",
+      "text": "Mina left the growing plant on the hut porch for everyone to enjoy. She had learned that seeds need care and time. The mountains still had many patient stories.",
+      "image": "page-10.webp",
+      "audio": "audio-page-10.mp3",
+      "imagePrompt": "Mina, Piko and Leni stand beside the potted alpine seedling on the hut porch. A couple of hikers admire it from the path without touching. Wide mountain view and a peaceful ending."
+    }
+  ],
+  "generation": {
+    "source": "reviewed-curated-manuscript",
+    "sourcePath": "docs/storybook-curated-manuscripts.json",
+    "sourceHash": "6a4c84b8138e9af8659cc8e33945f614ecc5accf5027ce7289ffb025cd61ce33"
+  }
+}

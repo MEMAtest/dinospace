@@ -1,0 +1,99 @@
+{
+  "id": "sami-night-light-parade",
+  "title": "Sami and the Night-Light Parade",
+  "subtitle": "A calm evening of lanterns, fireflies and stars",
+  "ageBand": "5-6",
+  "summary": "With Dad close by, Sami follows a family lantern parade and notices the changing sky, moving shadows and a blinking firefly.",
+  "cover": {
+    "image": "cover.webp",
+    "audio": "audio-cover.mp3",
+    "narration": "Sami and the Night-Light Parade"
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "title": "Paper Lanterns",
+      "text": "Sami helped Dad prepare a paper lantern for the family’s evening parade. They checked its little battery together, then carried it carefully to the garden gate.",
+      "image": "page-01.webp",
+      "audio": "audio-page-01.mp3",
+      "imagePrompt": "Early evening at home. Sami and Dad check a small safe battery lantern together at a garden table. Several relatives wait near the gate with paper lanterns. The sky is still blue, and the mood feels calm and expectant."
+    },
+    {
+      "pageNumber": 2,
+      "title": "A Dim Light",
+      "text": "As the sun slipped lower, Sami’s lantern grew dim. “The parade is ruined,” Sami worried. Dad crouched beside the lantern and promised they would check it together.",
+      "image": "page-02.webp",
+      "audio": "audio-page-02.mp3",
+      "imagePrompt": "At the garden gate during sunset, Sami holds a dim paper lantern and looks worried. Dad crouches nearby with a calm, reassuring expression. Family members wait patiently in the background; keep the scene gentle."
+    },
+    {
+      "pageNumber": 3,
+      "title": "Dad Checks",
+      "text": "Dad opened the battery cover and saw that one battery had slipped out of place. He fixed it carefully. Sami watched from beside him, learning how the lantern made light.",
+      "image": "page-03.webp",
+      "audio": "audio-page-03.mp3",
+      "imagePrompt": "Close view of Dad safely correcting a loose battery in the lantern while Sami watches beside him. The lantern is switched off during the repair. Show the small battery cover clearly without text, labels or tiny readable writing."
+    },
+    {
+      "pageNumber": 4,
+      "title": "First Star",
+      "text": "While Dad finished, Sami looked up. The sky had changed from blue to purple, and one bright star appeared. A tiny moving light blinked above the grass.",
+      "image": "page-04.webp",
+      "audio": "audio-page-04.mp3",
+      "imagePrompt": "Sami looks up from the repaired lantern toward a purple twilight sky with one bright star. A tiny warm point of light blinks above the grass in the foreground. Dad remains nearby, in frame and attentive."
+    },
+    {
+      "pageNumber": 5,
+      "title": "Meet Tavi",
+      "text": "“May I look closer?” Sami asked. Dad stayed beside Sami as they watched a firefly blink above the grass. Its small light appeared, paused, then appeared again.",
+      "image": "page-05.webp",
+      "audio": "audio-page-05.mp3",
+      "imagePrompt": "Sami and Dad stand together on the path, watching a tiny firefly hover above grass at a respectful distance. Show the soft glow with a brief visual suggestion of its blink, without adding graphic symbols or motion text."
+    },
+    {
+      "pageNumber": 6,
+      "title": "A Gentle Blink",
+      "text": "The firefly’s name was Tavi. Sami did not try to catch it. Tavi blinked again, then flew over the flowers while Sami and Dad watched from the path.",
+      "image": "page-06.webp",
+      "audio": "audio-page-06.mp3",
+      "imagePrompt": "Tavi flies freely from the grass toward flowers. Sami keeps hands by their sides and watches beside Dad from the path. Show a calm family presence and the firefly’s natural small scale."
+    },
+    {
+      "pageNumber": 7,
+      "title": "Parade Time",
+      "text": "Dad’s lantern glowed again, and the family began walking together. Sami carried the lantern with both hands. Tavi blinked once more before disappearing among the garden plants.",
+      "image": "page-07.webp",
+      "audio": "audio-page-07.mp3",
+      "imagePrompt": "The family parade starts along a safe garden path. Sami carries the now glowing paper lantern with both hands and Dad walks beside them. Tavi’s tiny glow is visible among flowers behind the group."
+    },
+    {
+      "pageNumber": 8,
+      "title": "Long Shadows",
+      "text": "The lantern light made long shadows stretch across the path. Sami took slow steps and watched the shadows move whenever the lantern moved. Dad walked close beside Sami.",
+      "image": "page-08.webp",
+      "audio": "audio-page-08.mp3",
+      "imagePrompt": "Low angle along the path: the lantern casts long, soft shadows of the walking family across the ground. Sami notices the moving shapes while Dad stays at their side. Preserve the calm parade."
+    },
+    {
+      "pageNumber": 9,
+      "title": "More Stars",
+      "text": "At the hill, the sky looked darker and more stars appeared. Sami looked back at the lantern parade below. Its warm lights made a bright, winding line.",
+      "image": "page-09.webp",
+      "audio": "audio-page-09.mp3",
+      "imagePrompt": "View from a gentle grassy hill with Sami and Dad in the foreground looking down at the family lantern parade. The sky is deepening with several visible stars. Keep the hill safe and not steep."
+    },
+    {
+      "pageNumber": 10,
+      "title": "Bedtime Sequence",
+      "text": "On the way home, Sami named the evening in order: sunset, lanterns, stars, then bedtime. Dad smiled. Sami felt calm, ready for a cosy night’s sleep.",
+      "image": "page-10.webp",
+      "audio": "audio-page-10.mp3",
+      "imagePrompt": "At home after the parade, Sami sits beside Dad in a cosy bedroom, placing the lantern on a safe table. Through the window the night sky shows stars. Warm, reassuring bedtime ending."
+    }
+  ],
+  "generation": {
+    "source": "reviewed-curated-manuscript",
+    "sourcePath": "docs/storybook-curated-manuscripts.json",
+    "sourceHash": "6bbde1b392ca1371a296e704ad82333c758a31823554dd186345bb5d08bbbee7"
+  }
+}

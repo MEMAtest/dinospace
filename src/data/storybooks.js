@@ -7,6 +7,8 @@
  * build hook still precaches the finished files for offline reading.
  */
 
+import { CURATED_STORYBOOK_BATCH1 } from './storybookCuratedBatch1.js';
+
 const makePages = (slug, pages) => pages.map((page, index) => ({
   id: `${slug}-page-${index + 1}`,
   number: index + 1,
@@ -90,7 +92,19 @@ const STORYBOOK_SEEDS = [
   pages: makePages(book.slug, book.pages),
 }));
 
-export const STORYBOOK_CATALOG = Object.freeze(STORYBOOK_SEEDS);
+const CURATED_STORYBOOK_SEEDS = CURATED_STORYBOOK_BATCH1.map((book) => ({
+  ...book,
+  accent: book.slug === 'bo-busy-bee-garden' ? 'from-amber-500 via-yellow-500 to-lime-500' : 'from-indigo-700 via-violet-600 to-sky-500',
+  emoji: book.slug === 'bo-busy-bee-garden' ? '🐝' : book.slug === 'sami-night-light-parade' ? '🏮' : book.slug === 'kai-lost-library-book' ? '📚' : '🌱',
+  ageBand: '5-6',
+  basePath: `/storybooks/${book.slug}`,
+  cover: `/storybooks/${book.slug}/cover.webp`,
+  coverAudio: `/storybooks/${book.slug}/audio-cover.mp3`,
+  pageCount: 10,
+  pages: makePages(book.slug, book.pages),
+}));
+
+export const STORYBOOK_CATALOG = Object.freeze([...STORYBOOK_SEEDS, ...CURATED_STORYBOOK_SEEDS]);
 
 export const getStoryBook = (slug) => STORYBOOK_CATALOG.find((book) => book.slug === slug) || null;
 

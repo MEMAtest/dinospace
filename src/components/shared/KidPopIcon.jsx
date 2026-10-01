@@ -20,7 +20,7 @@ const PALETTES = {
 
 const ART = {
   'world-read-write': 'book', 'world-maths': 'math', 'world-explore': 'orbit', 'world-creative': 'palette', 'world-thinking': 'brain',
-  tictactoe: 'grid', hangman: 'star', dino: 'dino', jet: 'plane', solar: 'orbit', german: 'garage', math: 'truck', letters: 'letter',
+  tictactoe: 'grid', hangman: 'star', dino: 'dino', jet: 'plane', solar: 'orbit', german: 'garage', math: 'truck', letters: 'rocket',
   memory: 'cards', pattern: 'pattern', spot: 'magnify', puzzle: 'puzzle', trace: 'pencil', phonics: 'sound', addition: 'plus',
   subtraction: 'minus', astronaut: 'helmet', counting: 'count', words: 'abc', storybooks: 'book', worldmap: 'globe', colormix: 'palette', oddoneout: 'odd',
   timeteller: 'clock', numberline: 'hop', chess: 'chess', default: 'spark',
@@ -37,6 +37,7 @@ const Glyph = ({ type, accent, dark }) => {
   const green = '#84cc16';
   const yellow = '#facc15';
   switch (type) {
+    case 'rocket': return <g transform="rotate(24 56 45)"><path d="M45 58L42 74L56 68L70 74L67 58" fill={pink} stroke={dark} strokeWidth="3" /><path d="M42 50Q40 30 56 16Q72 30 70 50L64 63H48Z" fill={cream} stroke={dark} strokeWidth="3" /><path d="M46 30Q49 21 56 16Q63 21 66 30Z" fill={pink} /><circle cx="56" cy="42" r="9" fill={blue} stroke={accent} strokeWidth="3" /><path d="M51 64L56 81L61 64" fill={yellow} stroke="#fb923c" strokeWidth="3" /></g>;
     case 'book': return <g><path d="M23 28Q40 19 56 29Q72 19 89 28V68Q72 59 56 69Q40 59 23 68Z" fill={pink} stroke={dark} strokeWidth="3" /><path d="M28 31Q42 26 54 34V62Q41 55 28 61ZM58 34Q70 26 84 31V61Q70 55 58 62Z" fill={cream} stroke={dark} strokeWidth="2" /><path d="M56 30v38M34 39h13M34 47h13M64 39h13M64 47h13" stroke={accent} strokeWidth="3" strokeLinecap="round" /><path d="m55 23 7 7-7 4Z" fill={yellow} stroke={dark} strokeWidth="2" /></g>;
     case 'math': return <g><rect x="25" y="25" width="62" height="40" rx="11" fill={blue} stroke={dark} strokeWidth="3" /><rect x="31" y="30" width="50" height="15" rx="5" fill={cream} /><text x="56" y="42" textAnchor="middle" fill={dark} fontSize="15" fontWeight="900">2 × 3</text><circle cx="37" cy="56" r="5" fill={yellow} /><circle cx="56" cy="56" r="5" fill={pink} /><circle cx="75" cy="56" r="5" fill={green} /><path d="M34 72h44" stroke={dark} strokeWidth="4" strokeLinecap="round" /></g>;
     case 'orbit': return <g><ellipse cx="56" cy="46" rx="39" ry="17" fill="none" stroke={cream} strokeWidth="5" transform="rotate(-18 56 46)" /><circle cx="56" cy="46" r="17" fill={yellow} stroke={dark} strokeWidth="3" /><circle cx="50" cy="42" r="3" fill={ink} /><circle cx="62" cy="42" r="3" fill={ink} /><path d="M49 50q7 7 14 0" fill="none" stroke={ink} strokeWidth="3" strokeLinecap="round" /><circle cx="86" cy="29" r="7" fill={blue} stroke={dark} strokeWidth="2" /><path d="M84 27h4" stroke={cream} strokeWidth="2" strokeLinecap="round" /></g>;

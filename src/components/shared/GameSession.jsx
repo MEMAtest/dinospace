@@ -7,6 +7,8 @@ import { getLearningProfile } from '../../data/learningProgress.js';
 import { ForcedDifficultyContext } from '../../hooks/useGameDifficulty.js';
 import { RewardSticker } from './StickerArt.jsx';
 import { recordGameDiagnostic } from '../../data/gameDiagnostics.js';
+import { awardChapterBadge, getEarnedChapterBadgeIds } from '../../data/chapterBadges.js';
+import LetterLaunchBadgeCollection from './LetterLaunchBadgeCollection.jsx';
 
 const RoundButton = ({ onClick, label, tone, size = 'h-24 w-24', children }) => (
   <div className="flex flex-col items-center gap-1">
@@ -36,6 +38,9 @@ const GameSession = ({
   const [progress, setProgress] = useState({ done: 0, firstTries: 0 });
   const [startPoints, setStartPoints] = useState(points);
   const [stars, setStars] = useState(3);
+  const [earnedChapterBadgeIds, setEarnedChapterBadgeIds] = useState(() => getEarnedChapterBadgeIds(playerId, game.id));
+  const [completionChapterBadgeId, setCompletionChapterBadgeId] = useState(null);
+  const [completionBadgeIsNew, setCompletionBadgeIsNew] = useState(false);
   const progressRef = useRef({ done: 0, firstTries: 0 });
   const finishTimer = useRef(null);
   const pendingFinishRef = useRef(null);
@@ -52,6 +57,8 @@ const GameSession = ({
     setProgress(progressRef.current);
     setStartPoints(points);
     setLevelIndex(nextLevel);
+    setCompletionChapterBadgeId(null);
+    setCompletionBadgeIsNew(false);
     saveGameLevel(playerId, game.id, nextLevel, levelState.unlocked);
     setRun((value) => value + 1);
     setPhase('play');
@@ -59,6 +66,14 @@ const GameSession = ({
 
   const finishLevel = useCallback(({ next, completedLevel, unlockedBefore }) => {
     recordGameDiagnostic(game.id, 'level_complete', { level: completedLevel });
+    if (game.id === 'letters') {
+      const reward = awardChapterBadge(playerId, game.id, completedLevel);
+      if (reward) {
+        setEarnedChapterBadgeIds(reward.earnedChapterIds);
+        setCompletionChapterBadgeId(reward.badge.id);
+        setCompletionBadgeIsNew(reward.newlyEarned);
+      }
+    }
     const earned = sessionStars(next.firstTries, next.done);
     setStars(earned);
     const unlocked = Math.max(unlockedBefore, Math.min(levels.length - 1, completedLevel + 1));
@@ -127,6 +142,7 @@ const GameSession = ({
             <h1 className="text-3xl font-black text-slate-900">{game.title}</h1>
             <p className="rounded-full bg-sky-100 px-4 py-1 font-black text-sky-900">Level {levelIndex + 1} of {levels.length}: {level?.name}</p>
             <p className="font-bold text-slate-600">{level?.description || rule.how}</p>
+            {game.id === 'letters' && <LetterLaunchBadgeCollection earnedBadgeIds={earnedChapterBadgeIds} />}
             {levelState.unlocked > 0 && (
               <div className="flex flex-wrap justify-center gap-2" aria-label="Unlocked levels">
                 {levels.map((entry, index) => (
@@ -159,6 +175,13 @@ const GameSession = ({
                 <span className="text-lg font-black text-fuchsia-700">New sticker!</span>
               </div>
             ))}
+            {game.id === 'letters' && (
+              <LetterLaunchBadgeCollection
+                earnedBadgeIds={earnedChapterBadgeIds}
+                rewardBadgeId={completionChapterBadgeId}
+                rewardIsNew={completionBadgeIsNew}
+              />
+            )}
             <div className="mt-2 flex items-end gap-4">
               <RoundButton onClick={() => start(levelIndex)} label="Replay level" tone="bg-gradient-to-b from-sky-400 to-blue-600"><RotateCcw size={42} strokeWidth={2.8} /></RoundButton>
               {levelIndex < levels.length - 1

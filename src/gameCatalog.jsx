@@ -1,3 +1,4 @@
+import letterRocketArt from './assets/little/fuel-rocket.webp';
 import { lazy } from 'react';
 import {
   AudioLines, BookOpen, Brain, CarFront, Clock3, Crown, Gamepad2, Globe2, Grid3X3, Hash, Minus,
@@ -42,7 +43,7 @@ import { ArtIcon, GameIcon } from './components/shared/GameIcons.jsx';
 
 const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 
-const icon = (Icon, tone, label, kind = 'default') => <GameIcon Icon={Icon} tone={tone} label={label} kind={kind} />;
+const icon = (Icon, tone, label, kind = 'default') => <GameIcon Icon={Icon} tone={tone} label={label} kind={kind} image={kind === 'letters' ? letterRocketArt : undefined} />;
 
 export const GAME_MENU_ITEMS = [
   { id: 'tictactoe', icon: icon(Grid3X3, 'text-cyan-600', 'Cosmic noughts and crosses', 'tictactoe'), title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' , component: TicTacToe },

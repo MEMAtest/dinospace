@@ -1,0 +1,232 @@
+{
+  "slug": "bo-busy-bee-garden",
+  "reviewedAt": "2026-09-30T23:10:24.465Z",
+  "sourceHash": "b49fdc1ba0d0cae6ac5794d19144be6e71ff09ebeadd15c5b70b632750250ae7",
+  "style": "painted-2d",
+  "replacements": [
+    {
+      "file": "page-01.webp",
+      "reason": "Replace repetitive cover-like composition with a distinct page action while retaining the approved painted-2d style and character bible.",
+      "archivedSha256": "23e063948b8ec807f3dbfcd4fa490010d1abdb7978b1ac6a01e97cb9ebd54562",
+      "replacementSha256": "2190279a512d9450a246c887f14e958379da4affa42021fffff2bf61e194fe5a"
+    },
+    {
+      "file": "page-02.webp",
+      "reason": "Replace repetitive cover-like composition with a distinct page action while retaining the approved painted-2d style and character bible.",
+      "archivedSha256": "0034b9d5a4c847f4902ee1a290bb2f32d9949d5d06a6a4e58df0fa7c3348260d",
+      "replacementSha256": "3e8d757ce4301cbe46385fa2b0760abbbacf05cc6ec2215ab9c2376c84db47a6"
+    },
+    {
+      "file": "page-03.webp",
+      "reason": "Replace repetitive cover-like composition with a distinct page action while retaining the approved painted-2d style and character bible.",
+      "archivedSha256": "f141132db89c4d599b8c86607555a98f1dacad7df5b4e31021ba28f7867e77e2",
+      "replacementSha256": "a0a9ce03efcbc28b8596a1ca4cc97d6778b739edf33ef55b0e2fc59d63382c2b"
+    },
+    {
+      "file": "page-04.webp",
+      "reason": "Replace repetitive cover-like composition with a distinct page action while retaining the approved painted-2d style and character bible.",
+      "archivedSha256": "6e69a1606396fe98561a6925bfb78deb653767c84c7dc46977b12a5ed58137d4",
+      "replacementSha256": "c80a730498d91f98722de55eab229a0c542ee415ba14d27a2e0534b6b4d5da66"
+    },
+    {
+      "file": "page-05.webp",
+      "reason": "Replace repetitive cover-like composition with a distinct page action while retaining the approved painted-2d style and character bible.",
+      "archivedSha256": "57b1238a4c2e10493231fdddb51f371bf19507f0095dbe0c722508d11e80cdcc",
+      "replacementSha256": "4b161be416a3d8a3f4d2eda14f20fda4201bc41fb5b0051036b3911f12843ecd"
+    },
+    {
+      "file": "page-06.webp",
+      "reason": "Replace repetitive cover-like composition with a distinct page action while retaining the approved painted-2d style and character bible.",
+      "archivedSha256": "35329f38567537ca400da56e801a55e88f04e00cb7fc4bb422000a924f870530",
+      "replacementSha256": "cfeb4a7460e1533d55bc49179003a707a1d51c98c0662c266eab1e049a71b9cf"
+    },
+    {
+      "file": "page-10.webp",
+      "reason": "Replace repetitive cover-like composition with a distinct page action while retaining the approved painted-2d style and character bible.",
+      "archivedSha256": "b50fdd60590620b089f42d02ed3120776824ae24c12042335aea09f5364e885d",
+      "replacementSha256": "6800bc61facdab1fc72743723c62fb433463628498f85edf51994d86a40577b0"
+    }
+  ],
+  "archive": "tmp/storybook-curated-originals/bo-busy-bee-garden-pre-2d-revision",
+  "validation": "22 files and exact manifest validated against reviewed manuscript SHA-256 after replacements",
+  "additionalEdits": [
+    {
+      "slug": "sami-night-light-parade",
+      "style": "painted-2d",
+      "reviewedAt": "2026-09-30T23:20:17.311Z",
+      "replacements": [
+        {
+          "file": "page-03.webp",
+          "reason": "Localized approved edit removes inconsistent facial hair while preserving the hand-painted scene and narrated action.",
+          "archivedSha256": "104895bb8bae14064e5e315125f12424df5465a5566381f6936d4ece1509d420",
+          "replacementSha256": "5c102528e83432889784fed99e1509756384993ffab0229bebeab4b91302762a",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-9c22cc03-2d18-46aa-9acb-877b71c8e9e0.png"
+        },
+        {
+          "file": "page-04.webp",
+          "reason": "Localized approved edit removes inconsistent facial hair while preserving the hand-painted scene and narrated action.",
+          "archivedSha256": "b70382f0fd156494a26bdbd47b38145fcaab288b4483a5e5faf00365327a5c97",
+          "replacementSha256": "7ea5a9a90ece6870d554ba62debf069f0cafc1163f963cde18fa23352a65cbfb",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-7163ab9a-23c2-48c8-9ea0-7665c60f8966.png"
+        }
+      ],
+      "archive": "tmp/storybook-curated-originals/sami-night-light-parade-clean-shaven-edits",
+      "validation": "Edited images inspected and converted to valid WebP; book remains staged until all assets and character consistency are accepted."
+    },
+    {
+      "slug": "mina-mountain-seed",
+      "style": "painted-2d",
+      "sourceHash": "6a4c84b8138e9af8659cc8e33945f614ecc5accf5027ce7289ffb025cd61ce33",
+      "reviewedAt": "2026-10-01T00:16:44.281Z",
+      "replacements": [
+        {
+          "file": "page-03.webp",
+          "reason": "Localized character-continuity edit restores Guide Leni’s reviewed hat, braids, fleece and trousers while preserving the narrated scene.",
+          "archivedSha256": "17ef1689d122175578e5774e72bff1bfe0b2954abf3a6a0f41f4a0169ef3dcdc",
+          "replacementSha256": "3f134e371c2586fd5d2712ab0ff3d71a5c7e71940dff86eb10c1e92ec29e7068"
+        },
+        {
+          "file": "page-04.webp",
+          "reason": "Localized character-continuity edit restores Guide Leni’s reviewed hat, braids, fleece and trousers while preserving the narrated scene.",
+          "archivedSha256": "7f0cbe90e1403533bd3eb1f0810aa3985a0eaf8e40877ba478a5a58ad66749cb",
+          "replacementSha256": "0fd4c0856465b61990fd8a38122fac56c17914b629fa2ef2d543d7ab1e21eec3"
+        },
+        {
+          "file": "page-08.webp",
+          "reason": "Localized character-continuity edit restores Guide Leni’s reviewed hat, braids, fleece and trousers while preserving the narrated scene.",
+          "archivedSha256": "a875018d338725e6b60c63da38dfc38bb0924ddd8fa8660962b10650de52260c",
+          "replacementSha256": "990049ec616ee4dd50f99f5a7883ed2ffea39d804d1db136838bc39f4e834f5e"
+        },
+        {
+          "file": "page-09.webp",
+          "reason": "Localized character-continuity edit restores Guide Leni’s reviewed hat, braids, fleece and trousers while preserving the narrated scene.",
+          "archivedSha256": "5e6e565812e5c741c6b2ea7dfd7bac4c4df0a6737c9e7f6132720fa2c63daf8a",
+          "replacementSha256": "f52f1bfb61f93f2d898dd30f15ce76bb87d4c8e945af7057cd7616b237e88d2c"
+        },
+        {
+          "file": "page-02.webp",
+          "reason": "Corrected Guide Leni to her reviewed red knit hat, two braids, blue fleece and plum trousers while keeping the narrated seed-planting action.",
+          "archivedSha256": "1d6502ce0d00eeb74d4e7df2c642e5e0feebf580fda777ab6ecaeab455e6102e",
+          "replacementSha256": "b3c7dc2fe5a518b2d673b25b0b4f19608323bba12ba06aee9c511d337c1c460a",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-62157332-3dd6-4201-a3e5-5f091b2dda8c.png",
+          "archive": "tmp/storybook-curated-originals/mina-mountain-seed-scene-fixes"
+        },
+        {
+          "file": "page-03.webp",
+          "reason": "Replaced oversized floor bed with one small terracotta seed pot on a tidy table beside the sunny window; Mina visibly pours a gentle trickle from a cup, with no spill or sprout.",
+          "archivedSha256": "3f134e371c2586fd5d2712ab0ff3d71a5c7e71940dff86eb10c1e92ec29e7068",
+          "replacementSha256": "87de6cf8cb358e1ead8e59390e4f2696081a649aefc38501a7c1d4ded7f0f3c4",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-40b6a775-58dd-4edf-a0ea-98b9a13bb608.png",
+          "archive": "tmp/storybook-curated-originals/mina-mountain-seed-scene-fixes"
+        },
+        {
+          "file": "page-05.webp",
+          "reason": "Corrected Guide Leni to the reviewed character design while preserving her reassurance beside the unchanged pot.",
+          "archivedSha256": "6d37487f14348d8f3674ac0d6fdc0269294bcfd7329f18f7efc77305128c3028",
+          "replacementSha256": "7bc6ae533c433a17d3f1298922c5307f1dae9cd1d9fa0b41b8f990d34f57969f",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-a6dd6b4a-5903-432a-ad0a-7e5b3c4dbdd6.png",
+          "archive": "tmp/storybook-curated-originals/mina-mountain-seed-scene-fixes"
+        },
+        {
+          "file": "page-06.webp",
+          "reason": "Removed the duplicated extra goat; retained exactly Mina and Piko with their patient pot-care action.",
+          "archivedSha256": "054b655dcbb20c44107214f91056b40c743931f43557e3e8046c26dea8dccedc",
+          "replacementSha256": "d91b13fc205a740bd9404d91fbd7bf1b7e888e345aa49092998766ab60c60414",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-205b8192-cb65-431e-a3de-6f1fbf3ccee9.png",
+          "archive": "tmp/storybook-curated-originals/mina-mountain-seed-scene-fixes"
+        },
+        {
+          "file": "page-07.webp",
+          "reason": "Replaced floor-soil shoot and unexplained rabbit with the narrated shoot in a small terracotta pot, twig marker and exact Guide Leni character.",
+          "archivedSha256": "683bd986adac122cc909020a56872c4e5957cae91aab4354260fcc1775b8ec9d",
+          "replacementSha256": "a24c29e533810ed29d494cb407335bbb6168c5d9a9d48964d42583bc98d622cb",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-4ebc5432-ebbd-483c-b4d9-d1063efde96b.png",
+          "archive": "tmp/storybook-curated-originals/mina-mountain-seed-scene-fixes"
+        },
+        {
+          "file": "page-10.webp",
+          "reason": "Removed the unexplained rabbit while preserving Mina, Piko, the potted plant, hikers and painted 2D final scene.",
+          "archivedSha256": "2e9b8151270f0a0d200610f85015088e7f3e650c2452815adb5877dd51982e21",
+          "replacementSha256": "d304e0df127601aaae5322b3c95533951d250bfdbfbba7b3d603648a064a2f27",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-b1f897c8-adde-456b-bf03-fa3287dcffb5.png",
+          "archive": "tmp/storybook-curated-originals/mina-mountain-seed-scene-fixes"
+        },
+        {
+          "file": "page-02.webp",
+          "reason": "Restored the seed-placement and soil-covering action from the archived original; changed only Guide Leni to her reviewed hat, braids, blue fleece and plum trousers.",
+          "archivedSha256": "1d6502ce0d00eeb74d4e7df2c642e5e0feebf580fda777ab6ecaeab455e6102e",
+          "replacementSha256": "327d8bd217432a81387dddc07b31228a3a6af2682ac6c229420b10bde8a111d8",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-acc400b8-e0d7-4248-96f8-8faa15faa6b3.png",
+          "archive": "tmp/storybook-curated-originals/mina-mountain-seed-scene-fixes"
+        }
+      ],
+      "archive": "tmp/storybook-curated-originals/mina-mountain-seed-guide-bible-edits",
+      "validation": "All ten page illustrations reviewed against the narration. Page 2 restored to planting action and corrected only for Guide Leni; final source-bound manifest and 22 media assets validated."
+    },
+    {
+      "slug": "kai-lost-library-book",
+      "style": "painted-2d",
+      "sourceHash": "bf995664cdcf2ddac82fcb50ef13c757b488fea20202319dc343fe664aafdee9",
+      "reviewedAt": "2026-10-01T00:14:06.357Z",
+      "replacements": [
+        {
+          "file": "page-04.webp",
+          "reason": "Replaced an unrelated child with Baker Elsie in her reviewed character design pointing Kai toward the bus shelter, preserving the rainy bakery scene and exact narration.",
+          "archivedSha256": "ec00ffc4927b2ee69044b5921187989857fb5791ad98a453157d39ae575b75cf",
+          "replacementSha256": "b8712f8055d9af9644d7757b88c384c7e915397da7b2ed9138e3be6d18de84fd",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-bec0ca09-8193-4cb0-96a6-6b3fea295726.png",
+          "archive": "tmp/storybook-curated-originals/kai-lost-library-book-scene-fixes"
+        },
+        {
+          "file": "page-02.webp",
+          "reason": "Localized edit aligns Dad to the newly reviewed bible while preserving the indoor phone call scene.",
+          "archivedSha256": "5a679aa33a1e1b22e5781578981a6ac3f92a0a2c19c19174548924f6f8cc317c",
+          "replacementSha256": "d01cb591b9ec18ae0d239e282ab9d6ab10fd19644edb190d942e6a1986d8f17b",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-42fe9584-c61e-4f6b-af05-39a4fe8eaaaa.png",
+          "archive": "tmp/storybook-curated-originals/kai-lost-library-book-dad-consistency"
+        },
+        {
+          "file": "page-06.webp",
+          "reason": "Localized edit aligns Dad’s face and clothing to the reviewed bible while preserving Kai checking the recovered dry book and Noor at the bicycle.",
+          "archivedSha256": "27fa6c865db1bc9202ba58130a1ca3c66268adb357ef8e32161991c3e6708b34",
+          "replacementSha256": "cc8ff38b5cc5ff36b9d428a62b2bcf3d1e2a96b766d536130795a5eb473ed1b0",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-bd75da7e-1fb9-40ae-9d67-f8a686582020.png",
+          "archive": "tmp/storybook-curated-originals/kai-lost-library-book-dad-consistency"
+        },
+        {
+          "file": "page-07.webp",
+          "reason": "Localized edit aligns Dad’s face and clothing to the reviewed bible while preserving Kai returning the book with Aunt Jo.",
+          "archivedSha256": "afbf74e3970c25cef311188a34eb9642c1136c0f2e814f34e1078aab460e5fd9",
+          "replacementSha256": "fa550393bbea7d67f7032ceb25a62d253bca7e8267433bf64bb5e286d5bae748",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-963c8af3-980f-4775-97a8-122c1e3a2f3a.png",
+          "archive": "tmp/storybook-curated-originals/kai-lost-library-book-dad-consistency"
+        },
+        {
+          "file": "page-08.webp",
+          "reason": "Localized edit aligns Dad to the reviewed bible while preserving Kai using the return slot with Aunt Jo.",
+          "archivedSha256": "d00cf1e5a3e4d0ea7070866f47cae6fafc9f88d60679560d3298df9c100991e6",
+          "replacementSha256": "fa578a5d3fbe9d4ed56af26e1aa747bf497f23d594092f739e65a808c90037cf",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-36b446f2-0d31-4b5c-b43d-7dec6d2216ce.png",
+          "archive": "tmp/storybook-curated-originals/kai-lost-library-book-dad-consistency"
+        },
+        {
+          "file": "page-08.webp",
+          "reason": "Localized cast correction replaces Dad with Aunt Jo in the library return scene, matching the narration and established librarian character design.",
+          "archivedSha256": "fa578a5d3fbe9d4ed56af26e1aa747bf497f23d594092f739e65a808c90037cf",
+          "replacementSha256": "80d5ee02331fd281f01661e474433dde8f1efc971614e053d848a5237d17276d",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-512f12b7-7a16-401e-80be-952ede3a1e9b.png",
+          "archive": "tmp/storybook-curated-originals/kai-lost-library-book-cast-action-fixes"
+        },
+        {
+          "file": "page-09.webp",
+          "reason": "Localized wardrobe correction changes Dad to the reviewed tan coat while retaining Kai counting the three route clues with Aunt Jo beside the library desk.",
+          "archivedSha256": "6896b2d9806b6915f265d84eebcf670ba5b2a94eceae65cd10afb3120e525dcf",
+          "replacementSha256": "bb494b877d447bcad278344f8dff6d3191155111537fba1a13b1cda36268e663",
+          "originalImagegenOutput": "/Users/omosanya_main/.codex/generated_images/01a0f3fb-e053-73c1-a2bc-6d5d0e6b6534/exec-706337a7-dbb4-42c5-ac4c-b1d0f8b34b30.png",
+          "archive": "tmp/storybook-curated-originals/kai-lost-library-book-cast-action-fixes"
+        }
+      ],
+      "validation": "All eleven images reviewed against exact narration and cast; Dad’s character bible is applied and page 8 now shows Aunt Jo. Manifest source hash and all 22 package assets validated."
+    }
+  ]
+}

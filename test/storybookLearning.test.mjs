@@ -3,7 +3,7 @@ import test from 'node:test';
 import { STORYBOOK_COMPREHENSION, STORYBOOK_LEARNING_VOICE_CORPUS, STORYBOOK_WORD_HELP, shuffledComprehension } from '../src/data/storybookLearning.js';
 
 test('each shipped story has a three-step comprehension path and word help', () => {
-  for (const slug of ['rex-missing-moon-map', 'luna-whispering-forest', 'nia-great-river-journey']) {
+  for (const slug of ['rex-missing-moon-map', 'luna-whispering-forest', 'nia-great-river-journey', 'bo-busy-bee-garden', 'sami-night-light-parade', 'mina-mountain-seed', 'kai-lost-library-book']) {
     assert.equal(STORYBOOK_COMPREHENSION[slug].length, 3);
     assert.ok(STORYBOOK_WORD_HELP[slug].length >= 3);
     for (const question of STORYBOOK_COMPREHENSION[slug]) {

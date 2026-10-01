@@ -14,6 +14,8 @@ import natureSpecimens from '../../assets/curriculum/nature-specimens.webp';
 import historyClues from '../../assets/curriculum/history-clues.webp';
 import robinArt from '../../assets/curriculum/robin.webp';
 import guideCharacters from '../../assets/curriculum/guides.webp';
+import { CURRICULUM_BADGES, loadCurriculumBadges, awardCurriculumBadge } from '../../data/curriculumBadges.js';
+import { CurriculumBadge, CurriculumBadgeCollection } from '../shared/CurriculumBadges.jsx';
 import './CurriculumQuest.css';
 
 const DIFFICULTY_LABELS = { starter: 'Starter', growing: 'Growing', challenge: 'Challenge' };
@@ -266,6 +268,7 @@ const ExplorerWords = ({ module, soundOn }) => <aside className="quest-words"><p
 
 const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, playerId }) => {
   const [moduleId, setModuleId] = useState('continents');
+  const [earnedBadges, setEarnedBadges] = useState(() => loadCurriculumBadges(playerId));
   const difficultyGameId = `worldmap-${moduleId}`;
   // Keep one difficulty band for the whole module run. Learning evidence may
   // recommend a harder band after a few answers, but switching bands mid-run
@@ -327,6 +330,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     saveQueueHistory(playerId, moduleId, difficulty, history);
     let nextCursor = roundCursor + 1;
     if (nextCursor >= roundOrder.length) {
+      setEarnedBadges(awardCurriculumBadge(playerId, moduleId, difficulty));
       setQueueComplete(true);
       onGameEvent?.(difficultyGameId, 'level_complete', {
         module: moduleId,
@@ -505,6 +509,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
             <span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>{DIFFICULTY_LABELS[difficulty]} path complete</span>
             <h2 id="quest-complete" className="mt-4 text-3xl font-black text-slate-900">You finished this discovery run!</h2>
             <p className="mx-auto mt-2 max-w-xl text-lg font-bold text-slate-700">You explored {roundOrder.length} questions in {activeModule.title}. Choose a level to practise it again.</p>
+            <div className="mx-auto mt-5 max-w-xs"><CurriculumBadge badge={CURRICULUM_BADGES.find((badge) => badge.module === moduleId && badge.band === difficulty)} earned /><p className="mt-3 font-bold text-indigo-800">Your badge is saved in your sticker collection.</p></div>
             <div className="mt-5 flex flex-wrap justify-center gap-3" aria-label="Choose a curriculum level">
               {Object.keys(DIFFICULTY_LABELS).map((band) => <button key={band} type="button" onClick={() => { if (band === difficulty) replayQueue(); else setDifficulty(band); }} aria-pressed={band === difficulty} className={`min-h-12 rounded-full border-2 px-5 font-black ${band === difficulty ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-indigo-200 bg-white text-indigo-800'}`}>{DIFFICULTY_LABELS[band]}</button>)}
             </div>
@@ -536,9 +541,10 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
               <ExplorerWords module={activeModule} soundOn={soundOn} />
             </div>
           )}
-          <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : 'is-retry'}`}><p><Sparkles className="mr-1 inline" size={17} /><span className="mr-2 rounded-full bg-white/75 px-2 py-1 text-xs uppercase tracking-wide">{locked ? 'Correct' : 'Try again'}</span>{feedback}</p><PackagedAudioButton text={feedbackVoice} label={locked ? 'Hear praise' : 'Hear feedback'} soundOn={soundOn} />{locked && <><PackagedAudioButton text={round.explanation} label="Hear why" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">Next question <ArrowRight size={16} /></button></>}</div>}</div>
+          <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : 'is-retry'}`}><p><span className="quest-fact-heading"><Sparkles size={23} />{locked ? 'Explorer fact' : 'A clue to try'}</span><span className="quest-fact-copy">{feedback}</span></p><PackagedAudioButton text={feedbackVoice} label={locked ? 'Hear praise' : 'Hear feedback'} soundOn={soundOn} />{locked && <><PackagedAudioButton text={round.explanation} label="Hear why" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">Next question <ArrowRight size={16} /></button></>}</div>}</div>
         </section>
         )}
+        <CurriculumBadgeCollection playerId={playerId} module={moduleId} earned={earnedBadges} />
       </main>
     </div>
   );

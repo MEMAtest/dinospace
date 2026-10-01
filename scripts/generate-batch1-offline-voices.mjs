@@ -1,4 +1,4 @@
-import { mkdir, rename, stat, writeFile } from 'node:fs/promises';
+import { mkdir, open, rename, rm, stat, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { CURRICULUM_VOICE_CORPUS, getMissingCurriculumVoiceAssets } from '../src/data/curriculumVoice.js';
 import { LETTER_LAUNCH_PROMPT_CORPUS } from '../src/data/letterLaunch.js';
@@ -9,6 +9,13 @@ import { voiceClipKey } from '../src/data/voiceKey.js';
 const root = resolve(import.meta.dirname, '..');
 const origin = 'https://dinospace-eight.vercel.app';
 const endpoint = `${origin}/api/voice`;
+const requestStatePath = resolve(root, 'tmp/offline-voice-request-state.json');
+const lockPath = resolve(root, 'tmp/offline-voice-generator.lock');
+const requestWindowMs = 10 * 60 * 1000;
+const requestLimit = 30;
+const requestedMaxCalls = Number(process.argv.find((arg) => arg.startsWith('--max-calls='))?.slice('--max-calls='.length) || 20);
+if (!Number.isInteger(requestedMaxCalls) || requestedMaxCalls < 1 || requestedMaxCalls > 20) throw new Error('--max-calls must be an integer from 1 to 20.');
+const storybookOnly = process.argv.includes('--storybook-only');
 const manifestPath = resolve(root, 'src/data/offlineVoiceManifest.js');
 const manifest = new Map(Object.entries(sourceManifest));
 const extraRetryLines = [
@@ -29,7 +36,8 @@ const corpora = {
   retries: extraRetryLines.map((text) => voiceItem(text)),
 };
 for (const item of getMissingCurriculumVoiceAssets()) corpora.curriculum.push({ text: item.text, key: item.key, path: item.path });
-const requested = new Map(Object.values(corpora).flat().map((item) => [item.key, item]));
+const selectedCorpora = storybookOnly ? { storybook: corpora.storybook } : corpora;
+const requested = new Map(Object.values(selectedCorpora).flat().map((item) => [item.key, item]));
 
 const absolutePath = (publicPath) => resolve(root, 'public', publicPath.replace(/^\//, ''));
 const isReady = async (publicPath) => {
@@ -48,7 +56,7 @@ if (dryRun) {
   let ready = 0;
   const breakdown = {};
   const counted = new Set();
-  for (const [name, items] of Object.entries(corpora)) {
+  for (const [name, items] of Object.entries(selectedCorpora)) {
     let groupReady = 0;
     let groupPending = 0;
     for (const item of items) {
@@ -61,13 +69,50 @@ if (dryRun) {
     }
     breakdown[name] = { ready: groupReady, pending: groupPending };
   }
-  console.log(JSON.stringify({ requested: requested.size, ready, pending: requested.size - ready, breakdown, dryRun: true }));
+  console.log(JSON.stringify({ requested: requested.size, ready, pending: requested.size - ready, breakdown, maxCalls: requestedMaxCalls, storybookOnly, dryRun: true }));
   process.exit(0);
 }
+
+await mkdir(resolve(root, 'tmp'), { recursive: true });
+let lock;
+try {
+  lock = await open(lockPath, 'wx');
+} catch (error) {
+  if (error.code === 'EEXIST') throw new Error(`A voice generation lock exists at ${lockPath}; inspect its recorded PID before removing a stale lock.`);
+  throw error;
+}
+await lock.writeFile(`${JSON.stringify({ pid: process.pid, startedAt: new Date().toISOString() })}\n`);
+const loadRequestState = async () => {
+  try {
+    const state = JSON.parse(await readFile(requestStatePath, 'utf8'));
+    const now = Date.now();
+    return {
+      requests: Array.isArray(state.requests) ? state.requests.filter((item) => Number.isFinite(item.at) && now - item.at < requestWindowMs) : [],
+      blockedUntil: Number.isFinite(state.blockedUntil) ? state.blockedUntil : 0,
+    };
+  } catch {
+    return { requests: [], blockedUntil: 0 };
+  }
+};
+let requestState;
+let runBudget = 0;
+try {
+  requestState = await loadRequestState();
+  if (requestState.blockedUntil > Date.now()) throw new Error(`Voice API cooldown is active until ${new Date(requestState.blockedUntil).toISOString()}.`);
+  runBudget = Math.min(requestedMaxCalls, requestLimit - requestState.requests.length);
+  if (runBudget < 1) throw new Error('The voice request journal shows no safe calls left in this ten-minute window. Resume after it expires.');
+} catch (error) {
+  await lock.close();
+  await rm(lockPath, { force: true });
+  throw error;
+}
+
 let generated = 0;
 let reused = 0;
 let stoppedAt = '';
+try {
 for (const item of requested.values()) {
+  if (generated >= runBudget) break;
   const priorPath = manifest.get(item.key);
   if (priorPath && await isReady(priorPath)) { reused += 1; continue; }
   const candidates = [...new Set([priorPath, item.path].filter(Boolean))];
@@ -83,6 +128,9 @@ for (const item of requested.values()) {
   }
 
   await mkdir(dirname(absolutePath(item.path)), { recursive: true });
+  requestState.requests.push({ at: Date.now() });
+  await writeFile(`${requestStatePath}.tmp`, `${JSON.stringify(requestState, null, 2)}\n`);
+  await rename(`${requestStatePath}.tmp`, requestStatePath);
   const response = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Origin: origin },
@@ -90,6 +138,9 @@ for (const item of requested.values()) {
   });
   if (response.status === 204 || response.status === 429) {
     stoppedAt = `${response.status}`;
+    requestState.blockedUntil = Date.now() + requestWindowMs;
+    await writeFile(`${requestStatePath}.tmp`, `${JSON.stringify(requestState, null, 2)}\n`);
+    await rename(`${requestStatePath}.tmp`, requestStatePath);
     console.error(`Stopped on a voice endpoint response of ${response.status}. No retry attempted.`);
     break;
   }
@@ -129,5 +180,9 @@ for (const item of requested.values()) {
   const publicPath = manifest.get(item.key) || item.path;
   if (!await isReady(publicPath)) pending.push(item.key);
 }
-console.log(JSON.stringify({ requested: requested.size, generated, reused, pending: pending.length, stoppedAt: stoppedAt || null }));
+console.log(JSON.stringify({ requested: requested.size, generated, reused, pending: pending.length, maxCalls: runBudget, storybookOnly, stoppedAt: stoppedAt || null }));
 if (stoppedAt) process.exitCode = stoppedAt === '429' ? 75 : 1;
+} finally {
+  await lock.close();
+  await rm(lockPath, { force: true });
+}

@@ -1,6 +1,7 @@
 import { normalizeVoiceText, voiceClipKey } from './voiceKey.js';
+import { CURATED_STORYBOOK_LEARNING_BATCH1 } from './storybookCuratedBatch1.js';
 
-export const STORYBOOK_COMPREHENSION = {
+const BUILT_IN_COMPREHENSION = {
   'rex-missing-moon-map': [
     { prompt: 'What had Rex lost?', answer: 'His star map', choices: ['His star map', 'His space boots', 'Pip the robot'], clue: 'Rex reached into his pocket, but it was empty.', why: 'Rex had lost the star map that showed the way home.' },
     { prompt: 'What clue did Pip spot?', answer: 'A sparkly corner by a crater', choices: ['A sparkly corner by a crater', 'A light inside the rocket', 'A trail of blue flowers'], clue: 'Pip saw something shiny near a big Moon crater.', why: 'Pip spotted a sparkly map corner near the crater.' },
@@ -18,10 +19,23 @@ export const STORYBOOK_COMPREHENSION = {
   ],
 };
 
-export const STORYBOOK_WORD_HELP = {
+export const STORYBOOK_COMPREHENSION = {
+  ...BUILT_IN_COMPREHENSION,
+  ...Object.fromEntries(Object.entries(CURATED_STORYBOOK_LEARNING_BATCH1).map(([slug, book]) => [slug, book.comprehension])),
+};
+
+const BUILT_IN_WORD_HELP = {
   'rex-missing-moon-map': [['crater', 'a big bowl-shaped hole on the Moon'], ['gripper', 'a small hand or claw that can hold things'], ['crumpled', 'wrinkled from being bent or squeezed']],
   'luna-whispering-forest': [['hollow', 'an empty space inside a tree'], ['sprite', 'a tiny magical creature'], ['shimmer', 'to shine with a soft, moving light']],
   'nia-great-river-journey': [['shallows', 'the part of a river where the water is not deep'], ['litter', 'rubbish left where it does not belong'], ['ranger', 'a person who helps care for a park and its animals']],
+};
+
+export const STORYBOOK_WORD_HELP = {
+  ...BUILT_IN_WORD_HELP,
+  ...Object.fromEntries(Object.entries(CURATED_STORYBOOK_LEARNING_BATCH1).map(([slug, book]) => [
+    slug,
+    book.wordHelp.map(({ word, meaning }) => [word, meaning]),
+  ])),
 };
 
 export const shuffledComprehension = (slug, random = Math.random) => {

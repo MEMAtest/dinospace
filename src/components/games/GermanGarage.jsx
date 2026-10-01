@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, CarFront, Volume2, Wrench } from 'lucide-react';
 import { GERMAN_MATCH_MODES } from '../../data/index.js';
 import { getGermanAudioPath } from '../../data/germanAudio.js';
-import { buildGermanModeRound, GERMAN_MODE_ITEMS, germanTranslation } from '../../data/germanLearning.js';
+import { buildSeededGermanRound, loadGermanTargetHistory, saveGermanTargetHistory, germanHistoryMode, rememberGermanTarget, germanTranslation } from '../../data/germanLearning.js';
 import { SoundToggle } from '../shared/index.jsx';
 import emptyGarage from '../../assets/german-garage/empty-garage.png';
 import friendlyCar from '../../assets/german-garage/friendly-car.png';
@@ -48,21 +48,27 @@ const MODE_SCENES = {
   greetings: greetingsScene,
 };
 
-const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, onReviewComplete, sessionLevel = 0 }) => {
+const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, onReviewComplete, playerId, sessionLevel = 0 }) => {
   const difficulty = useGameDifficulty('german');
   const optionCount = difficulty === 'starter' ? 3 : difficulty === 'growing' ? 4 : 6;
   const levelTarget = [5, 6, 7][sessionLevel] || 5;
+  const [runSeed] = useState(() => Math.floor(Math.random() * 4294967296));
+  const [completedHistory] = useState(() => loadGermanTargetHistory(playerId));
   const [initialRounds] = useState(() => {
-    const history = {};
+    let history = { ...completedHistory };
+    let cursor = 0;
     const create = (roundMode) => {
-      const round = buildGermanModeRound(roundMode, [], optionCount);
-      history[roundMode] = [round.target.name];
+      const round = buildSeededGermanRound(roundMode, history[germanHistoryMode(roundMode)] || [], optionCount, runSeed, cursor++);
+      history = rememberGermanTarget(history, roundMode, round.target.name);
       return round;
     };
     const practiceMode = sessionLevel === 1 ? 'vehicles' : sessionLevel === 2 ? 'directions' : 'numbers';
     return { history, paint: create('paint'), park: create('park'), match: create(practiceMode) };
   });
   const recentTargetsRef = useRef(initialRounds.history);
+  const completedTargetsRef = useRef(completedHistory);
+  const questionCursorRef = useRef(3);
+  const loggedRoundRef = useRef(null);
   const [mode, setMode] = useState(sessionLevel === 1 ? 'vehicles' : sessionLevel === 2 ? 'directions' : 'paint');
   const [paintRound, setPaintRound] = useState(initialRounds.paint);
   const [parkRound, setParkRound] = useState(initialRounds.park);
@@ -115,13 +121,9 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
   }, []);
 
   const makeNextRound = (roundMode) => {
-    const recent = recentTargetsRef.current[roundMode] || [];
-    const next = buildGermanModeRound(roundMode, recent, optionCount);
-    const poolSize = GERMAN_MODE_ITEMS[roundMode]?.length || 0;
-    recentTargetsRef.current = {
-      ...recentTargetsRef.current,
-      [roundMode]: [...recent, next.target.name].slice(-(poolSize - 1)),
-    };
+    const recent = recentTargetsRef.current[germanHistoryMode(roundMode)] || [];
+    const next = buildSeededGermanRound(roundMode, recent, optionCount, runSeed, questionCursorRef.current++);
+    recentTargetsRef.current = rememberGermanTarget(recentTargetsRef.current, roundMode, next.target.name);
     answeredRef.current = false;
     setFeedback('');
     hadMistakeRef.current = false;
@@ -132,11 +134,18 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
     else setMatchRound(next);
   };
 
+  useEffect(() => {
+    if (loggedRoundRef.current === round) return;
+    if (!loggedRoundRef.current) onGameEvent?.('german', 'start', { level: sessionLevel, round: 0, seed: runSeed });
+    loggedRoundRef.current = round;
+    onGameEvent?.('german', 'question', { level: sessionLevel, round: roundCount, seed: round.seed, difficulty });
+  }, [round, roundCount, runSeed, sessionLevel, difficulty, onGameEvent]);
+
   const choose = (option) => {
     if (answeredRef.current || pendingRound) return;
     if (mode === 'paint') setPaintedColour(option);
     if (option.name !== round.target.name) {
-      onGameEvent?.('german', 'answer_attempt', { level: sessionLevel, round: roundCount, firstAttempt: !hadMistakeRef.current });
+      onGameEvent?.('german', 'answer_attempt', { level: sessionLevel, round: roundCount, seed: round.seed, firstAttempt: !hadMistakeRef.current });
       hadMistakeRef.current = true;
       setFeedback('Not quite. Hear the word again, then choose the matching picture.');
       playSfx('oops');
@@ -159,8 +168,11 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
       difficulty,
       level: sessionLevel,
       round: roundCount,
+      seed: round.seed,
       deferFinish: isFinalRound,
     };
+    completedTargetsRef.current = rememberGermanTarget(completedTargetsRef.current, mode, round.target.name);
+    saveGermanTargetHistory(playerId, completedTargetsRef.current);
     setRoundCount(nextCount);
     setPendingRound({ mode, final: isFinalRound });
     setFeedback(`Richtig! ${round.target.name} means ${translation}.`);
@@ -192,13 +204,9 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
     setFeedback('');
     setPaintedColour(null);
     hadMistakeRef.current = false;
-    const recent = recentTargetsRef.current[nextMode] || [];
-    const next = buildGermanModeRound(nextMode, recent, optionCount);
-    const poolSize = GERMAN_MODE_ITEMS[nextMode]?.length || 0;
-    recentTargetsRef.current = {
-      ...recentTargetsRef.current,
-      [nextMode]: [...recent, next.target.name].slice(-(poolSize - 1)),
-    };
+    const recent = recentTargetsRef.current[germanHistoryMode(nextMode)] || [];
+    const next = buildSeededGermanRound(nextMode, recent, optionCount, runSeed, questionCursorRef.current++);
+    recentTargetsRef.current = rememberGermanTarget(recentTargetsRef.current, nextMode, next.target.name);
     if (nextMode === 'paint') setPaintRound(next);
     else if (nextMode === 'park') setParkRound(next);
     else setMatchRound(next);

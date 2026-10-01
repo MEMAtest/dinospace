@@ -1,0 +1,99 @@
+{
+  "id": "kai-lost-library-book",
+  "title": "Kai and the Lost Library Book",
+  "subtitle": "A neighbourhood mystery solved with careful clues",
+  "ageBand": "5-6",
+  "summary": "With Aunt Jo’s help, Kai retraces a rainy-day walk and finds a library book with help from a familiar neighbour.",
+  "cover": {
+    "image": "cover.webp",
+    "audio": "audio-cover.mp3",
+    "narration": "Kai and the Lost Library Book"
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "title": "A Rainy-Day Book",
+      "text": "Kai chose a picture book from the library for a rainy afternoon. Aunt Jo checked it out, and Kai tucked it safely into a blue tote bag before walking home.",
+      "image": "page-01.webp",
+      "audio": "audio-page-01.mp3",
+      "imagePrompt": "Inside a bright neighbourhood library, Aunt Jo hands Kai a colourful picture book at the desk. Kai places it into a blue tote bag while rain falls beyond the window. Avoid readable cover or signage text."
+    },
+    {
+      "pageNumber": 2,
+      "title": "An Empty Bag",
+      "text": "At home, Kai opened the tote bag, but the book was missing. Kai felt worried. Aunt Jo was still at the library, so Kai called her with Dad nearby.",
+      "image": "page-02.webp",
+      "audio": "audio-page-02.mp3",
+      "imagePrompt": "At home by the door, Kai looks into an empty blue tote bag with a worried face. Dad stands close by, calm and supportive, as Kai uses a phone to call Aunt Jo. No readable screen text."
+    },
+    {
+      "pageNumber": 3,
+      "title": "Three Stops",
+      "text": "Aunt Jo listened kindly on the phone. She helped Kai remember three stops: the bakery, the bus shelter and the library gate. Dad offered to retrace the walk together.",
+      "image": "page-03.webp",
+      "audio": "audio-page-03.mp3",
+      "imagePrompt": "Kai and Dad stand by a simple neighbourhood map with three picture-like landmarks: bakery, covered bus shelter, library gate. Aunt Jo appears on a phone call. Do not show words, route labels or personal details."
+    },
+    {
+      "pageNumber": 4,
+      "title": "The Bakery",
+      "text": "At the bakery, Elsie remembered Kai’s yellow umbrella. She had not seen the book inside, but she pointed out the dry pavement leading toward the bus shelter.",
+      "image": "page-04.webp",
+      "audio": "audio-page-04.mp3",
+      "imagePrompt": "Outside a cosy bakery on a rainy street, Elsie speaks with Kai and Dad beneath the shop awning. Kai’s yellow umbrella is clear. The covered bus shelter is visible farther along the pavement."
+    },
+    {
+      "pageNumber": 5,
+      "title": "A Familiar Neighbour",
+      "text": "At the covered bus shelter, Noor was locking a red bicycle. Noor knew Kai from the neighbourhood and had noticed a blue book beside the dry bench.",
+      "image": "page-05.webp",
+      "audio": "audio-page-05.mp3",
+      "imagePrompt": "At a well-lit covered bus shelter, familiar neighbour Noor locks a red bicycle beside a dry bench. Noor points from a safe distance toward a blue book resting beside the bench. Kai and Dad approach together."
+    },
+    {
+      "pageNumber": 6,
+      "title": "The Blue Cover",
+      "text": "Kai checked the cover. It was the library book! It had stayed dry beside the sheltered bench. Kai thanked Noor and held the book carefully against the raincoat.",
+      "image": "page-06.webp",
+      "audio": "audio-page-06.mp3",
+      "imagePrompt": "Kai confirms the blue book is the same picture book, comparing its colourful illustration with a small library stamp shown without readable words. The book is dry beside the sheltered bench; Dad remains beside Kai."
+    },
+    {
+      "pageNumber": 7,
+      "title": "Back to the Library",
+      "text": "Kai and Dad walked back to the library together. Aunt Jo welcomed them at the door. Kai explained where the book had been and checked that its pages were dry.",
+      "image": "page-07.webp",
+      "audio": "audio-page-07.mp3",
+      "imagePrompt": "Kai and Dad return to the library entrance, where Aunt Jo welcomes them. Kai holds the dry book open to check the pages. Show the rainy street outside and a warm bright interior."
+    },
+    {
+      "pageNumber": 8,
+      "title": "A Helpful Slot",
+      "text": "Aunt Jo showed Kai the library return slot. Kai slid the book through carefully, and Aunt Jo checked it back in. Kai felt relieved to have solved the mystery.",
+      "image": "page-08.webp",
+      "audio": "audio-page-08.mp3",
+      "imagePrompt": "At the library’s interior return desk, Aunt Jo demonstrates a safe return slot while Kai places the book inside. Make the action clear and friendly, with no readable labels or signage."
+    },
+    {
+      "pageNumber": 9,
+      "title": "One More Clue",
+      "text": "Aunt Jo asked Kai what helped. Kai remembered the bakery, the covered bench and Noor’s careful eyes. Dad smiled at the useful clues they had followed together.",
+      "image": "page-09.webp",
+      "audio": "audio-page-09.mp3",
+      "imagePrompt": "Kai, Dad and Aunt Jo talk beside the library desk. In the background through a window are small glimpses of the bakery and bus shelter. Kai counts three clues on their fingers."
+    },
+    {
+      "pageNumber": 10,
+      "title": "A Zipped Pocket",
+      "text": "Kai borrowed another picture book and placed it in a zipped pocket inside the tote bag. Then Kai and Dad walked home beneath the yellow umbrella, feeling ready for the next rainy day.",
+      "image": "page-10.webp",
+      "audio": "audio-page-10.mp3",
+      "imagePrompt": "Kai and Dad walk home together under the yellow umbrella. A new picture book is visible safely inside a zipped tote pocket. The library glows behind them; a calm, cosy rainy-day ending."
+    }
+  ],
+  "generation": {
+    "source": "reviewed-curated-manuscript",
+    "sourcePath": "docs/storybook-curated-manuscripts.json",
+    "sourceHash": "bf995664cdcf2ddac82fcb50ef13c757b488fea20202319dc343fe664aafdee9"
+  }
+}

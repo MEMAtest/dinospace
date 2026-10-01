@@ -6,6 +6,7 @@ import { makeLearningEvent } from '../../data/literacy.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { buildLetterLaunchRound, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchRandomFor } from '../../data/letterLaunch.js';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
+import launchWorld from '../../assets/little/bg-fuelup.webp';
 import './letterLaunch.css';
 
 const historyKey = (playerId, level) => `${playerId || 'amari'}_letter_launch_recent_v1_${level}`;
@@ -149,11 +150,11 @@ const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebr
   );
 
   return (
-    <div className="letter-launch min-h-screen flex flex-col bg-gradient-to-b from-[#060e46] via-[#153e9c] to-[#8ddcff] relative overflow-hidden text-white">
+    <div className="letter-launch min-h-screen flex flex-col relative overflow-hidden text-white" style={{ backgroundImage: `linear-gradient(180deg, rgba(6,14,70,.6), rgba(6,14,70,.12) 55%, rgba(6,14,70,.35)), url(${launchWorld})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 left-10 w-44 h-24 bg-white/70 rounded-full blur-2xl animate-drift-left" />
-        <div className="absolute top-24 right-6 w-52 h-28 bg-white/70 rounded-full blur-2xl animate-drift-right" />
-        <div className="absolute bottom-20 left-6 w-64 h-32 bg-white/60 rounded-full blur-3xl" />
+        <div className="absolute top-10 left-10 w-44 h-24 bg-cyan-200/10 rounded-full blur-2xl animate-drift-left" />
+        <div className="absolute top-24 right-6 w-52 h-28 bg-purple-200/10 rounded-full blur-2xl animate-drift-right" />
+        <div className="absolute bottom-20 left-6 w-64 h-32 bg-amber-200/10 rounded-full blur-3xl" />
       </div>
 
       <div className="flex items-center justify-between px-4 pt-4 z-20">

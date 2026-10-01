@@ -53,3 +53,48 @@ export const buildGermanModeRound = (mode, recentTargets = [], optionCount = 4, 
     translation: germanTranslation(mode, target.name),
   };
 };
+
+// Each question has its own seed so retries and React renders cannot change it.
+export const germanRandomFor = (seed) => {
+  let state = Number(seed) >>> 0;
+  return () => {
+    state += 0x6d2b79f5;
+    let value = Math.imul(state ^ (state >>> 15), 1 | state);
+    value ^= value + Math.imul(value ^ (value >>> 7), 61 | value);
+    return ((value ^ (value >>> 14)) >>> 0) / 4294967296;
+  };
+};
+
+export const buildSeededGermanRound = (mode, recent, count, runSeed, cursor) => {
+  const modeHash = [...mode].reduce((hash, letter) => Math.imul(hash, 31) + letter.charCodeAt(0), 0);
+  const seed = (Number(runSeed) + modeHash + Math.imul(cursor + 1, 0x9e3779b9)) >>> 0;
+  return { ...buildGermanModeRound(mode, recent, count, germanRandomFor(seed)), seed };
+};
+
+// Paint and parking practise the same colour vocabulary, so they share a rotation.
+export const germanHistoryMode = (mode) => ['paint', 'park'].includes(mode) ? 'colours' : mode;
+export const rememberGermanTarget = (history, mode, name) => {
+  const key = germanHistoryMode(mode);
+  const limit = Math.min(8, (GERMAN_MODE_ITEMS[mode]?.length || 1) - 1);
+  return { ...history, [key]: [...(history[key] || []).filter((word) => word !== name), name].slice(-limit) };
+};
+
+const historyKey = (playerId) => `${playerId || 'amari'}_german_recent_targets_v1`;
+export const loadGermanTargetHistory = (playerId, storage = globalThis.localStorage) => {
+  try {
+    const saved = JSON.parse(storage?.getItem(historyKey(playerId)) || '{}');
+    const result = Object.fromEntries(Object.entries(GERMAN_MODE_ITEMS).map(([mode, items]) => [
+      mode, Array.isArray(saved?.[mode])
+        ? saved[mode].filter((name) => items.some((item) => item.name === name)).slice(-Math.min(8, items.length - 1))
+        : [],
+    ]));
+    const colours = Array.isArray(saved?.colours) ? saved.colours : [...(result.paint || []), ...(result.park || [])];
+    result.colours = [...new Set(colours.filter((name) => GERMAN_MODE_ITEMS.paint.some((item) => item.name === name)))].slice(-8);
+    delete result.paint;
+    delete result.park;
+    return result;
+  } catch { return {}; }
+};
+export const saveGermanTargetHistory = (playerId, history, storage = globalThis.localStorage) => {
+  try { storage?.setItem(historyKey(playerId), JSON.stringify(history)); } catch { /* Storage is optional. */ }
+};

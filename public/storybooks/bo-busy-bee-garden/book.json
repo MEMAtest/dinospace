@@ -1,0 +1,99 @@
+{
+  "id": "bo-busy-bee-garden",
+  "title": "Bo and the Busy Bee Garden",
+  "subtitle": "A garden discovery about flowers and bees",
+  "ageBand": "5-6",
+  "summary": "Bo watches Bea the bee visit the flowering apple trees in Gran’s garden and learns how pollen can help some flowers grow into fruit.",
+  "cover": {
+    "image": "cover.webp",
+    "audio": "audio-cover.mp3",
+    "narration": "Bo and the Busy Bee Garden"
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "title": "A Garden Visit",
+      "text": "Bo visited Gran’s garden on a bright morning. White apple blossoms covered the trees, and bees buzzed gently between them. Bo wondered what the busy bees were doing.",
+      "image": "page-01.webp",
+      "audio": "audio-page-01.mp3",
+      "imagePrompt": "Wide establishing view of Gran’s flowering apple garden on a bright morning. Bo walks beside Gran on a clear path while small bees visit white blossoms in the background. Show the orchard and a few green leaves; keep bees natural sized and distant from the child."
+    },
+    {
+      "pageNumber": 2,
+      "title": "Bea Arrives",
+      "text": "One little bee landed on a blossom. “That is Bea,” said Gran. Bo stayed on the path and watched quietly as Bea explored the flower’s soft centre.",
+      "image": "page-02.webp",
+      "audio": "audio-page-02.mp3",
+      "imagePrompt": "Medium side view: Bea, a natural-sized honeybee, lands on the centre of one white apple blossom. Bo watches from the garden path beside Gran, with hands at their sides and a calm curious face. Make the flower and bee easy to see."
+    },
+    {
+      "pageNumber": 3,
+      "title": "A Sweet Sip",
+      "text": "Bea sipped nectar, a sweet drink made by flowers. As she moved around the blossom, tiny grains of pollen brushed onto her fuzzy body. Bo leaned closer with their eyes, not their hands.",
+      "image": "page-03.webp",
+      "audio": "audio-page-03.mp3",
+      "imagePrompt": "Close view of Bea feeding inside a white blossom. Show a few subtle yellow pollen grains touching her fuzzy body, with Bo and Gran softly visible farther back on the path. Bo observes from a safe distance and does not reach toward the bee."
+    },
+    {
+      "pageNumber": 4,
+      "title": "Flower to Flower",
+      "text": "Bea flew to another blossom. Some pollen travelled with her. Gran explained that when pollen reaches the right part of another flower, it can help that flower begin to make fruit.",
+      "image": "page-04.webp",
+      "audio": "audio-page-04.mp3",
+      "imagePrompt": "A clear visual sequence in one natural garden scene: Bea flies from one white apple blossom toward another, with only a few pollen specks visible. Gran gestures gently while Bo listens. Avoid arrows, labels, diagrams or guaranteed fruit on every flower."
+    },
+    {
+      "pageNumber": 5,
+      "title": "Bo’s Question",
+      "text": "“Will every flower become an apple?” Bo asked. “No,” Gran replied. “Some flowers need pollen moved between flowers, and many other things help fruit grow.” Bo nodded thoughtfully.",
+      "image": "page-05.webp",
+      "audio": "audio-page-05.mp3",
+      "imagePrompt": "Two-shot of Bo asking Gran beneath the apple trees. Nearby branches show blossoms at different stages, including some blossoms that will not become fruit. Bea continues visiting flowers in the background; use warm, thoughtful expressions."
+    },
+    {
+      "pageNumber": 6,
+      "title": "Watching Carefully",
+      "text": "Bo wanted to help Bea, but Gran reminded Bo to leave bees alone. Bea knew where to fly. Together, they watched from the path as she visited another cluster of blossoms.",
+      "image": "page-06.webp",
+      "audio": "audio-page-06.mp3",
+      "imagePrompt": "Bo and Gran remain on the path with a low garden fence between them and the blossom bed. Bea flies freely among flowers. Show Bo’s hands safely lowered and Gran’s reassuring expression, with no attempt to touch or feed the bee."
+    },
+    {
+      "pageNumber": 7,
+      "title": "Garden Visitors",
+      "text": "More bees visited the apple blossoms. Bea paused for nectar, then flew onward. Bo noticed that each bee followed its own path through the sunny branches.",
+      "image": "page-07.webp",
+      "audio": "audio-page-07.mp3",
+      "imagePrompt": "Upward view through sunlit apple branches, with several small bees visiting different blossoms. Bea is recognizable by her two dark stripes. Bo points from the path while Gran stays beside them."
+    },
+    {
+      "pageNumber": 8,
+      "title": "A Change",
+      "text": "Later in the season, some blossom petals had fallen. Tiny green apples appeared where a few flowers had been. Gran said the garden would need more time, sunshine and water for the apples to grow.",
+      "image": "page-08.webp",
+      "audio": "audio-page-08.mp3",
+      "imagePrompt": "The same apple tree later in the season, with fallen white petals on the ground and a few tiny green apples among remaining blossoms. Bo notices the change with delight; Gran explains beside the tree. Keep the scale and season believable."
+    },
+    {
+      "pageNumber": 9,
+      "title": "A Small Harvest",
+      "text": "Later in the season, Bo and Gran picked a few ripe apples. Other apples stayed on the branches, and flowers were still opening for the garden’s next visitors.",
+      "image": "page-09.webp",
+      "audio": "audio-page-09.mp3",
+      "imagePrompt": "Later-season orchard scene with Bo and Gran picking only a few ripe red apples into a small basket. Leave many apples on the branches and show a few late blossoms; no bee handling or crowded basket."
+    },
+    {
+      "pageNumber": 10,
+      "title": "Thank You, Bea",
+      "text": "Bo looked across the garden and spotted Bea near another flower. “Thank you, little visitor,” Bo whispered from the path. Gran smiled. The garden had more stories to tell.",
+      "image": "page-10.webp",
+      "audio": "audio-page-10.mp3",
+      "imagePrompt": "Quiet golden afternoon ending. Bo and Gran stand on the path, smiling toward a small bee near a blossom across the garden. Show a peaceful apple orchard and soft sunlight; keep a respectful distance and a warm closing mood."
+    }
+  ],
+  "generation": {
+    "source": "reviewed-curated-manuscript",
+    "sourcePath": "docs/storybook-curated-manuscripts.json",
+    "sourceHash": "b49fdc1ba0d0cae6ac5794d19144be6e71ff09ebeadd15c5b70b632750250ae7"
+  }
+}

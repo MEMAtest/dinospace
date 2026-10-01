@@ -368,6 +368,13 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
   const startReading = async () => {
     setStarted(true);
     setAudioError(false);
+    if (isCover && !autoRead) {
+      // Manual readers should enter the story without waiting for narration
+      // to turn a page. Replay remains available on the first story page.
+      stopAudio();
+      goToScreen(0, { shouldPlay: false });
+      return;
+    }
     // Start in the same click handler so mobile WebViews preserve activation.
     await playCurrentAudio();
   };

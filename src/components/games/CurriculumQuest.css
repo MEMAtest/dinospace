@@ -29,3 +29,19 @@
 /* Keep every interactive control usable on touch screens. */
 .curriculum-quest button{min-width:48px;min-height:48px}
 .quest-word button,.quest-specimen button{flex-shrink:0}
+
+/* Scene-led stages retain legible paper and large illustrated choices. */
+.curriculum-quest:before{background:linear-gradient(180deg,rgba(250,254,255,.02),rgba(250,254,255,.12) 50%,rgba(250,254,255,.22))}
+.quest-paper{background:rgba(255,255,255,.95);border:3px solid #fff;box-shadow:0 7px 0 rgba(58,124,161,.22),0 22px 44px rgba(18,56,87,.22)}
+.quest-time-detectives .quest-paper{background:rgba(255,247,225,.97);border-color:#ffe1a1;box-shadow:0 7px 0 rgba(162,105,43,.25),0 22px 44px rgba(80,47,12,.22)}
+.quest-nature-lab .quest-paper{background:rgba(249,255,249,.97);box-shadow:0 7px 0 rgba(42,132,89,.2),0 22px 44px rgba(17,87,59,.2)}
+.quest-lesson-visual{padding:12px;border:4px solid #bcefff;box-shadow:inset 0 3px 0 #fff,0 5px 0 #58b7d43d}
+.quest-lesson-visual .relative.mx-auto{height:clamp(330px,32vw,440px)}
+.quest-words h3{font-size:24px}.quest-lesson-copy{font-size:14px;line-height:1.6}.quest-feedback-card{padding:18px;font-size:16px;line-height:1.55;border:2px solid #fff;box-shadow:0 6px 0 #134a5c15}
+.quest-feedback-card.is-correct{background:linear-gradient(145deg,#eaffed,#c5f6dc)}
+.quest-timeline-art{border:3px solid #fff4d8;border-radius:18px;background:#fff9ed;box-shadow:0 5px 0 #a8651730}.quest-timeline-item strong{font-size:13px}
+.quest-answer-card .quest-choice-art{width:145px;height:125px}
+@media(max-width:640px){.quest-lesson-visual .relative.mx-auto{height:300px}.quest-lesson-copy{font-size:13px}.quest-feedback-card{font-size:15px;padding:14px}.quest-words h3{font-size:22px}.quest-timeline-item strong{font-size:11px}.quest-answer-card .quest-choice-art{width:95px;height:90px}.quest-paper{padding:18px 12px 22px}.quest-lesson-visual{padding:5px}}
+
+.quest-feedback-card>p{flex:1 1 100%;text-align:left}.quest-fact-heading{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:950;text-transform:uppercase;letter-spacing:.09em;color:#146245;margin-bottom:8px}.is-retry .quest-fact-heading{color:#8c5517}.quest-fact-copy{display:block;font-size:18px;line-height:1.5}.quest-feedback-card.is-correct{border-color:#a8e9c7}.quest-feedback-card.is-retry{border-color:#ffdca1}
+@media(max-width:640px){.quest-fact-copy{font-size:16px}.quest-fact-heading{font-size:11px}}

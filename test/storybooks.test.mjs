@@ -8,11 +8,15 @@ import {
   STORYBOOK_ASSET_PATHS,
 } from '../src/data/storybooks.js';
 
-test('acceptance batch contains three ten-page age 5-6 books with local assets', () => {
+test('acceptance batch contains seven ten-page age 5-6 books with local assets', () => {
   assert.deepEqual(STORYBOOK_CATALOG.map((book) => book.slug), [
     'rex-missing-moon-map',
     'luna-whispering-forest',
     'nia-great-river-journey',
+    'bo-busy-bee-garden',
+    'sami-night-light-parade',
+    'mina-mountain-seed',
+    'kai-lost-library-book',
   ]);
   STORYBOOK_CATALOG.forEach((book) => {
     assert.equal(book.ageBand, '5-6');
@@ -25,7 +29,7 @@ test('acceptance batch contains three ten-page age 5-6 books with local assets',
       assert.match(page.audio, new RegExp(`/storybooks/${book.slug}/audio-page-${String(page.number).padStart(2, '0')}\\.mp3$`));
     });
   });
-  assert.equal(STORYBOOK_ASSET_PATHS.length, 3 * (2 + (10 * 2)));
+  assert.equal(STORYBOOK_ASSET_PATHS.length, 7 * (2 + (10 * 2)));
 });
 
 test('generated manifests can replace copy while rejecting external asset paths', async () => {

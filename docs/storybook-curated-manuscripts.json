@@ -30,32 +30,130 @@
       "style": "painted-2d",
       "palette": "leaf green, blossom white, apple red, soft sky blue and warm garden gold",
       "characters": [
-        { "name": "Bo", "visualDescription": "A curious six-year-old child with warm brown skin, short dark curls, a yellow rain jacket, green trousers and red wellington boots; kind, observant expression." },
-        { "name": "Bea", "visualDescription": "A small friendly honeybee with a golden yellow body, two soft dark brown stripes, translucent wings and a tiny pollen dusting on her fuzzy back legs; realistic bee anatomy, never oversized." },
-        { "name": "Gran", "visualDescription": "A calm older gardener with silver hair in a loose bun, round glasses, a lavender cardigan, a sage apron and sturdy brown garden shoes." }
+        {
+          "name": "Bo",
+          "visualDescription": "A curious six-year-old child with warm brown skin, short dark curls, a yellow rain jacket, green trousers and red wellington boots; kind, observant expression."
+        },
+        {
+          "name": "Bea",
+          "visualDescription": "A small friendly honeybee with a golden yellow body, two soft dark brown stripes, translucent wings and a tiny pollen dusting on her fuzzy back legs; realistic bee anatomy, never oversized."
+        },
+        {
+          "name": "Gran",
+          "visualDescription": "A calm older gardener with silver hair in a loose bun, round glasses, a lavender cardigan, a sage apron and sturdy brown garden shoes."
+        }
       ],
       "coverPrompt": "Bo and Gran stand together on a garden path, looking from a respectful distance at a small bee visiting white apple blossoms. Show the flowering apple trees, bright leaves and a few young apples on a nearby branch as a gentle hint of the garden’s seasons. Consistent character appearances, complete characters, no text or lettering.",
       "pages": [
-        { "pageNumber": 1, "title": "A Garden Visit", "text": "Bo visited Gran’s garden on a bright morning. White apple blossoms covered the trees, and bees buzzed gently between them. Bo wondered what the busy bees were doing.", "imagePrompt": "Wide establishing view of Gran’s flowering apple garden on a bright morning. Bo walks beside Gran on a clear path while small bees visit white blossoms in the background. Show the orchard and a few green leaves; keep bees natural sized and distant from the child." },
-        { "pageNumber": 2, "title": "Bea Arrives", "text": "One little bee landed on a blossom. “That is Bea,” said Gran. Bo stayed on the path and watched quietly as Bea explored the flower’s soft centre.", "imagePrompt": "Medium side view: Bea, a natural-sized honeybee, lands on the centre of one white apple blossom. Bo watches from the garden path beside Gran, with hands at their sides and a calm curious face. Make the flower and bee easy to see." },
-        { "pageNumber": 3, "title": "A Sweet Sip", "text": "Bea sipped nectar, a sweet drink made by flowers. As she moved around the blossom, tiny grains of pollen brushed onto her fuzzy body. Bo leaned closer with their eyes, not their hands.", "imagePrompt": "Close view of Bea feeding inside a white blossom. Show a few subtle yellow pollen grains touching her fuzzy body, with Bo and Gran softly visible farther back on the path. Bo observes from a safe distance and does not reach toward the bee." },
-        { "pageNumber": 4, "title": "Flower to Flower", "text": "Bea flew to another blossom. Some pollen travelled with her. Gran explained that when pollen reaches the right part of another flower, it can help that flower begin to make fruit.", "imagePrompt": "A clear visual sequence in one natural garden scene: Bea flies from one white apple blossom toward another, with only a few pollen specks visible. Gran gestures gently while Bo listens. Avoid arrows, labels, diagrams or guaranteed fruit on every flower." },
-        { "pageNumber": 5, "title": "Bo’s Question", "text": "“Will every flower become an apple?” Bo asked. “No,” Gran replied. “Some flowers need pollen moved between flowers, and many other things help fruit grow.” Bo nodded thoughtfully.", "imagePrompt": "Two-shot of Bo asking Gran beneath the apple trees. Nearby branches show blossoms at different stages, including some blossoms that will not become fruit. Bea continues visiting flowers in the background; use warm, thoughtful expressions." },
-        { "pageNumber": 6, "title": "Watching Carefully", "text": "Bo wanted to help Bea, but Gran reminded Bo to leave bees alone. Bea knew where to fly. Together, they watched from the path as she visited another cluster of blossoms.", "imagePrompt": "Bo and Gran remain on the path with a low garden fence between them and the blossom bed. Bea flies freely among flowers. Show Bo’s hands safely lowered and Gran’s reassuring expression, with no attempt to touch or feed the bee." },
-        { "pageNumber": 7, "title": "Garden Visitors", "text": "More bees visited the apple blossoms. Bea paused for nectar, then flew onward. Bo noticed that each bee followed its own path through the sunny branches.", "imagePrompt": "Upward view through sunlit apple branches, with several small bees visiting different blossoms. Bea is recognizable by her two dark stripes. Bo points from the path while Gran stays beside them." },
-        { "pageNumber": 8, "title": "A Change", "text": "Later in the season, some blossom petals had fallen. Tiny green apples appeared where a few flowers had been. Gran said the garden would need more time, sunshine and water for the apples to grow.", "imagePrompt": "The same apple tree later in the season, with fallen white petals on the ground and a few tiny green apples among remaining blossoms. Bo notices the change with delight; Gran explains beside the tree. Keep the scale and season believable." },
-        { "pageNumber": 9, "title": "A Small Harvest", "text": "Later in the season, Bo and Gran picked a few ripe apples. Other apples stayed on the branches, and flowers were still opening for the garden’s next visitors.", "imagePrompt": "Later-season orchard scene with Bo and Gran picking only a few ripe red apples into a small basket. Leave many apples on the branches and show a few late blossoms; no bee handling or crowded basket." },
-        { "pageNumber": 10, "title": "Thank You, Bea", "text": "Bo looked across the garden and spotted Bea near another flower. “Thank you, little visitor,” Bo whispered from the path. Gran smiled. The garden had more stories to tell.", "imagePrompt": "Quiet golden afternoon ending. Bo and Gran stand on the path, smiling toward a small bee near a blossom across the garden. Show a peaceful apple orchard and soft sunlight; keep a respectful distance and a warm closing mood." }
+        {
+          "pageNumber": 1,
+          "title": "A Garden Visit",
+          "text": "Bo visited Gran’s garden on a bright morning. White apple blossoms covered the trees, and bees buzzed gently between them. Bo wondered what the busy bees were doing.",
+          "imagePrompt": "Wide establishing view of Gran’s flowering apple garden on a bright morning. Bo walks beside Gran on a clear path while small bees visit white blossoms in the background. Show the orchard and a few green leaves; keep bees natural sized and distant from the child."
+        },
+        {
+          "pageNumber": 2,
+          "title": "Bea Arrives",
+          "text": "One little bee landed on a blossom. “That is Bea,” said Gran. Bo stayed on the path and watched quietly as Bea explored the flower’s soft centre.",
+          "imagePrompt": "Medium side view: Bea, a natural-sized honeybee, lands on the centre of one white apple blossom. Bo watches from the garden path beside Gran, with hands at their sides and a calm curious face. Make the flower and bee easy to see."
+        },
+        {
+          "pageNumber": 3,
+          "title": "A Sweet Sip",
+          "text": "Bea sipped nectar, a sweet drink made by flowers. As she moved around the blossom, tiny grains of pollen brushed onto her fuzzy body. Bo leaned closer with their eyes, not their hands.",
+          "imagePrompt": "Close view of Bea feeding inside a white blossom. Show a few subtle yellow pollen grains touching her fuzzy body, with Bo and Gran softly visible farther back on the path. Bo observes from a safe distance and does not reach toward the bee."
+        },
+        {
+          "pageNumber": 4,
+          "title": "Flower to Flower",
+          "text": "Bea flew to another blossom. Some pollen travelled with her. Gran explained that when pollen reaches the right part of another flower, it can help that flower begin to make fruit.",
+          "imagePrompt": "A clear visual sequence in one natural garden scene: Bea flies from one white apple blossom toward another, with only a few pollen specks visible. Gran gestures gently while Bo listens. Avoid arrows, labels, diagrams or guaranteed fruit on every flower."
+        },
+        {
+          "pageNumber": 5,
+          "title": "Bo’s Question",
+          "text": "“Will every flower become an apple?” Bo asked. “No,” Gran replied. “Some flowers need pollen moved between flowers, and many other things help fruit grow.” Bo nodded thoughtfully.",
+          "imagePrompt": "Two-shot of Bo asking Gran beneath the apple trees. Nearby branches show blossoms at different stages, including some blossoms that will not become fruit. Bea continues visiting flowers in the background; use warm, thoughtful expressions."
+        },
+        {
+          "pageNumber": 6,
+          "title": "Watching Carefully",
+          "text": "Bo wanted to help Bea, but Gran reminded Bo to leave bees alone. Bea knew where to fly. Together, they watched from the path as she visited another cluster of blossoms.",
+          "imagePrompt": "Bo and Gran remain on the path with a low garden fence between them and the blossom bed. Bea flies freely among flowers. Show Bo’s hands safely lowered and Gran’s reassuring expression, with no attempt to touch or feed the bee."
+        },
+        {
+          "pageNumber": 7,
+          "title": "Garden Visitors",
+          "text": "More bees visited the apple blossoms. Bea paused for nectar, then flew onward. Bo noticed that each bee followed its own path through the sunny branches.",
+          "imagePrompt": "Upward view through sunlit apple branches, with several small bees visiting different blossoms. Bea is recognizable by her two dark stripes. Bo points from the path while Gran stays beside them."
+        },
+        {
+          "pageNumber": 8,
+          "title": "A Change",
+          "text": "Later in the season, some blossom petals had fallen. Tiny green apples appeared where a few flowers had been. Gran said the garden would need more time, sunshine and water for the apples to grow.",
+          "imagePrompt": "The same apple tree later in the season, with fallen white petals on the ground and a few tiny green apples among remaining blossoms. Bo notices the change with delight; Gran explains beside the tree. Keep the scale and season believable."
+        },
+        {
+          "pageNumber": 9,
+          "title": "A Small Harvest",
+          "text": "Later in the season, Bo and Gran picked a few ripe apples. Other apples stayed on the branches, and flowers were still opening for the garden’s next visitors.",
+          "imagePrompt": "Later-season orchard scene with Bo and Gran picking only a few ripe red apples into a small basket. Leave many apples on the branches and show a few late blossoms; no bee handling or crowded basket."
+        },
+        {
+          "pageNumber": 10,
+          "title": "Thank You, Bea",
+          "text": "Bo looked across the garden and spotted Bea near another flower. “Thank you, little visitor,” Bo whispered from the path. Gran smiled. The garden had more stories to tell.",
+          "imagePrompt": "Quiet golden afternoon ending. Bo and Gran stand on the path, smiling toward a small bee near a blossom across the garden. Show a peaceful apple orchard and soft sunlight; keep a respectful distance and a warm closing mood."
+        }
       ],
       "comprehension": [
-        { "prompt": "What sweet drink did Bea sip?", "answer": "Nectar", "choices": ["Nectar", "Rainwater", "Apple juice"], "clue": "Gran named the sweet drink inside a flower.", "why": "Bea sipped nectar, a sweet drink made by flowers." },
-        { "prompt": "How can pollen help some flowers?", "answer": "It can help fruit begin to grow", "choices": ["It can help fruit begin to grow", "It makes every flower turn red", "It waters the garden"], "clue": "Think about what Gran said when pollen reaches another flower.", "why": "Pollen reaching the right part of some flowers can help them begin to make fruit." },
-        { "prompt": "How did Bo stay safe while watching Bea?", "answer": "Bo watched from the path", "choices": ["Bo watched from the path", "Bo held Bea gently", "Bo carried the bee home"], "clue": "Gran reminded Bo to leave bees alone.", "why": "Bo watched quietly from the path and did not touch the bee." }
+        {
+          "prompt": "What sweet drink did Bea sip?",
+          "answer": "Nectar",
+          "choices": [
+            "Nectar",
+            "Rainwater",
+            "Apple juice"
+          ],
+          "clue": "Gran named the sweet drink inside a flower.",
+          "why": "Bea sipped nectar, a sweet drink made by flowers."
+        },
+        {
+          "prompt": "How can pollen help some flowers?",
+          "answer": "It can help fruit begin to grow",
+          "choices": [
+            "It can help fruit begin to grow",
+            "It makes every flower turn red",
+            "It waters the garden"
+          ],
+          "clue": "Think about what Gran said when pollen reaches another flower.",
+          "why": "Pollen reaching the right part of some flowers can help them begin to make fruit."
+        },
+        {
+          "prompt": "How did Bo stay safe while watching Bea?",
+          "answer": "Bo watched from the path",
+          "choices": [
+            "Bo watched from the path",
+            "Bo held Bea gently",
+            "Bo carried the bee home"
+          ],
+          "clue": "Gran reminded Bo to leave bees alone.",
+          "why": "Bo watched quietly from the path and did not touch the bee."
+        }
       ],
       "wordHelp": [
-        { "word": "blossom", "meaning": "A flower that grows on a tree or bush." },
-        { "word": "nectar", "meaning": "A sweet drink that some flowers make." },
-        { "word": "pollen", "meaning": "Tiny grains in flowers that can help some plants make fruit or seeds." }
+        {
+          "word": "blossom",
+          "meaning": "A flower that grows on a tree or bush."
+        },
+        {
+          "word": "nectar",
+          "meaning": "A sweet drink that some flowers make."
+        },
+        {
+          "word": "pollen",
+          "meaning": "Tiny grains in flowers that can help some plants make fruit or seeds."
+        }
       ]
     },
     {
@@ -66,32 +164,130 @@
       "style": "painted-2d",
       "palette": "twilight violet, lantern gold, grass green, soft navy and warm family amber",
       "characters": [
-        { "name": "Sami", "visualDescription": "A thoughtful six-year-old child with medium brown skin, short wavy black hair, a teal hoodie, mustard trousers and comfortable white trainers." },
-        { "name": "Dad", "visualDescription": "A reassuring adult with deep brown skin, close-cropped hair, a rust red jacket, dark blue trousers and a small canvas tool pouch for the lantern." },
-        { "name": "Tavi", "visualDescription": "A tiny natural-sized firefly with a dark brown body, delicate clear wings and a soft yellow-green glow at the end of its abdomen; gentle blinking light, not a fantasy-sized insect." }
+        {
+          "name": "Sami",
+          "visualDescription": "A thoughtful six-year-old child with medium brown skin, short wavy black hair, a teal hoodie, mustard trousers and comfortable white trainers."
+        },
+        {
+          "name": "Dad",
+          "visualDescription": "A reassuring adult with deep brown skin, close-cropped hair, a rust red jacket, dark blue trousers and a small canvas tool pouch for the lantern."
+        },
+        {
+          "name": "Tavi",
+          "visualDescription": "A tiny natural-sized firefly with a dark brown body, delicate clear wings and a soft yellow-green glow at the end of its abdomen; gentle blinking light, not a fantasy-sized insect."
+        }
       ],
       "coverPrompt": "At twilight, Sami walks beside Dad in a small family parade carrying a glowing paper lantern. Tavi, a tiny firefly, blinks above the grassy path, and the first stars appear overhead. Calm, reassuring family scene with consistent characters; no text or lettering.",
       "pages": [
-        { "pageNumber": 1, "title": "Paper Lanterns", "text": "Sami helped Dad prepare a paper lantern for the family’s evening parade. They checked its little battery together, then carried it carefully to the garden gate.", "imagePrompt": "Early evening at home. Sami and Dad check a small safe battery lantern together at a garden table. Several relatives wait near the gate with paper lanterns. The sky is still blue, and the mood feels calm and expectant." },
-        { "pageNumber": 2, "title": "A Dim Light", "text": "As the sun slipped lower, Sami’s lantern grew dim. “The parade is ruined,” Sami worried. Dad crouched beside the lantern and promised they would check it together.", "imagePrompt": "At the garden gate during sunset, Sami holds a dim paper lantern and looks worried. Dad crouches nearby with a calm, reassuring expression. Family members wait patiently in the background; keep the scene gentle." },
-        { "pageNumber": 3, "title": "Dad Checks", "text": "Dad opened the battery cover and saw that one battery had slipped out of place. He fixed it carefully. Sami watched from beside him, learning how the lantern made light.", "imagePrompt": "Close view of Dad safely correcting a loose battery in the lantern while Sami watches beside him. The lantern is switched off during the repair. Show the small battery cover clearly without text, labels or tiny readable writing." },
-        { "pageNumber": 4, "title": "First Star", "text": "While Dad finished, Sami looked up. The sky had changed from blue to purple, and one bright star appeared. A tiny moving light blinked above the grass.", "imagePrompt": "Sami looks up from the repaired lantern toward a purple twilight sky with one bright star. A tiny warm point of light blinks above the grass in the foreground. Dad remains nearby, in frame and attentive." },
-        { "pageNumber": 5, "title": "Meet Tavi", "text": "“May I look closer?” Sami asked. Dad stayed beside Sami as they watched a firefly blink above the grass. Its small light appeared, paused, then appeared again.", "imagePrompt": "Sami and Dad stand together on the path, watching a tiny firefly hover above grass at a respectful distance. Show the soft glow with a brief visual suggestion of its blink, without adding graphic symbols or motion text." },
-        { "pageNumber": 6, "title": "A Gentle Blink", "text": "The firefly’s name was Tavi. Sami did not try to catch it. Tavi blinked again, then flew over the flowers while Sami and Dad watched from the path.", "imagePrompt": "Tavi flies freely from the grass toward flowers. Sami keeps hands by their sides and watches beside Dad from the path. Show a calm family presence and the firefly’s natural small scale." },
-        { "pageNumber": 7, "title": "Parade Time", "text": "Dad’s lantern glowed again, and the family began walking together. Sami carried the lantern with both hands. Tavi blinked once more before disappearing among the garden plants.", "imagePrompt": "The family parade starts along a safe garden path. Sami carries the now glowing paper lantern with both hands and Dad walks beside them. Tavi’s tiny glow is visible among flowers behind the group." },
-        { "pageNumber": 8, "title": "Long Shadows", "text": "The lantern light made long shadows stretch across the path. Sami took slow steps and watched the shadows move whenever the lantern moved. Dad walked close beside Sami.", "imagePrompt": "Low angle along the path: the lantern casts long, soft shadows of the walking family across the ground. Sami notices the moving shapes while Dad stays at their side. Preserve the calm parade." },
-        { "pageNumber": 9, "title": "More Stars", "text": "At the hill, the sky looked darker and more stars appeared. Sami looked back at the lantern parade below. Its warm lights made a bright, winding line.", "imagePrompt": "View from a gentle grassy hill with Sami and Dad in the foreground looking down at the family lantern parade. The sky is deepening with several visible stars. Keep the hill safe and not steep." },
-        { "pageNumber": 10, "title": "Bedtime Sequence", "text": "On the way home, Sami named the evening in order: sunset, lanterns, stars, then bedtime. Dad smiled. Sami felt calm, ready for a cosy night’s sleep.", "imagePrompt": "At home after the parade, Sami sits beside Dad in a cosy bedroom, placing the lantern on a safe table. Through the window the night sky shows stars. Warm, reassuring bedtime ending." }
+        {
+          "pageNumber": 1,
+          "title": "Paper Lanterns",
+          "text": "Sami helped Dad prepare a paper lantern for the family’s evening parade. They checked its little battery together, then carried it carefully to the garden gate.",
+          "imagePrompt": "Early evening at home. Sami and Dad check a small safe battery lantern together at a garden table. Several relatives wait near the gate with paper lanterns. The sky is still blue, and the mood feels calm and expectant."
+        },
+        {
+          "pageNumber": 2,
+          "title": "A Dim Light",
+          "text": "As the sun slipped lower, Sami’s lantern grew dim. “The parade is ruined,” Sami worried. Dad crouched beside the lantern and promised they would check it together.",
+          "imagePrompt": "At the garden gate during sunset, Sami holds a dim paper lantern and looks worried. Dad crouches nearby with a calm, reassuring expression. Family members wait patiently in the background; keep the scene gentle."
+        },
+        {
+          "pageNumber": 3,
+          "title": "Dad Checks",
+          "text": "Dad opened the battery cover and saw that one battery had slipped out of place. He fixed it carefully. Sami watched from beside him, learning how the lantern made light.",
+          "imagePrompt": "Close view of Dad safely correcting a loose battery in the lantern while Sami watches beside him. The lantern is switched off during the repair. Show the small battery cover clearly without text, labels or tiny readable writing."
+        },
+        {
+          "pageNumber": 4,
+          "title": "First Star",
+          "text": "While Dad finished, Sami looked up. The sky had changed from blue to purple, and one bright star appeared. A tiny moving light blinked above the grass.",
+          "imagePrompt": "Sami looks up from the repaired lantern toward a purple twilight sky with one bright star. A tiny warm point of light blinks above the grass in the foreground. Dad remains nearby, in frame and attentive."
+        },
+        {
+          "pageNumber": 5,
+          "title": "Meet Tavi",
+          "text": "“May I look closer?” Sami asked. Dad stayed beside Sami as they watched a firefly blink above the grass. Its small light appeared, paused, then appeared again.",
+          "imagePrompt": "Sami and Dad stand together on the path, watching a tiny firefly hover above grass at a respectful distance. Show the soft glow with a brief visual suggestion of its blink, without adding graphic symbols or motion text."
+        },
+        {
+          "pageNumber": 6,
+          "title": "A Gentle Blink",
+          "text": "The firefly’s name was Tavi. Sami did not try to catch it. Tavi blinked again, then flew over the flowers while Sami and Dad watched from the path.",
+          "imagePrompt": "Tavi flies freely from the grass toward flowers. Sami keeps hands by their sides and watches beside Dad from the path. Show a calm family presence and the firefly’s natural small scale."
+        },
+        {
+          "pageNumber": 7,
+          "title": "Parade Time",
+          "text": "Dad’s lantern glowed again, and the family began walking together. Sami carried the lantern with both hands. Tavi blinked once more before disappearing among the garden plants.",
+          "imagePrompt": "The family parade starts along a safe garden path. Sami carries the now glowing paper lantern with both hands and Dad walks beside them. Tavi’s tiny glow is visible among flowers behind the group."
+        },
+        {
+          "pageNumber": 8,
+          "title": "Long Shadows",
+          "text": "The lantern light made long shadows stretch across the path. Sami took slow steps and watched the shadows move whenever the lantern moved. Dad walked close beside Sami.",
+          "imagePrompt": "Low angle along the path: the lantern casts long, soft shadows of the walking family across the ground. Sami notices the moving shapes while Dad stays at their side. Preserve the calm parade."
+        },
+        {
+          "pageNumber": 9,
+          "title": "More Stars",
+          "text": "At the hill, the sky looked darker and more stars appeared. Sami looked back at the lantern parade below. Its warm lights made a bright, winding line.",
+          "imagePrompt": "View from a gentle grassy hill with Sami and Dad in the foreground looking down at the family lantern parade. The sky is deepening with several visible stars. Keep the hill safe and not steep."
+        },
+        {
+          "pageNumber": 10,
+          "title": "Bedtime Sequence",
+          "text": "On the way home, Sami named the evening in order: sunset, lanterns, stars, then bedtime. Dad smiled. Sami felt calm, ready for a cosy night’s sleep.",
+          "imagePrompt": "At home after the parade, Sami sits beside Dad in a cosy bedroom, placing the lantern on a safe table. Through the window the night sky shows stars. Warm, reassuring bedtime ending."
+        }
       ],
       "comprehension": [
-        { "prompt": "Why did Sami’s lantern grow dim?", "answer": "A battery had slipped out of place", "choices": ["A battery had slipped out of place", "The stars took its light", "It was left in the rain"], "clue": "Dad opened the lantern’s battery cover.", "why": "Dad found that one battery had slipped out of place and fixed it carefully." },
-        { "prompt": "What did Tavi do above the grass?", "answer": "Blink a small light", "choices": ["Blink a small light", "Carry a lantern", "Make the sun rise"], "clue": "Sami watched the little light appear, pause, and appear again.", "why": "Tavi the firefly blinked a small light above the grass." },
-        { "prompt": "What order did Sami remember?", "answer": "Sunset, lanterns, stars, bedtime", "choices": ["Sunset, lanterns, stars, bedtime", "Bedtime, sunset, parade, lunch", "Stars, breakfast, lanterns, sunset"], "clue": "Sami named four parts of the evening on the way home.", "why": "Sami remembered sunset first, then lanterns, stars, and bedtime." }
+        {
+          "prompt": "Why did Sami’s lantern grow dim?",
+          "answer": "A battery had slipped out of place",
+          "choices": [
+            "A battery had slipped out of place",
+            "The stars took its light",
+            "It was left in the rain"
+          ],
+          "clue": "Dad opened the lantern’s battery cover.",
+          "why": "Dad found that one battery had slipped out of place and fixed it carefully."
+        },
+        {
+          "prompt": "What did Tavi do above the grass?",
+          "answer": "Blink a small light",
+          "choices": [
+            "Blink a small light",
+            "Carry a lantern",
+            "Make the sun rise"
+          ],
+          "clue": "Sami watched the little light appear, pause, and appear again.",
+          "why": "Tavi the firefly blinked a small light above the grass."
+        },
+        {
+          "prompt": "What order did Sami remember?",
+          "answer": "Sunset, lanterns, stars, bedtime",
+          "choices": [
+            "Sunset, lanterns, stars, bedtime",
+            "Bedtime, sunset, parade, lunch",
+            "Stars, breakfast, lanterns, sunset"
+          ],
+          "clue": "Sami named four parts of the evening on the way home.",
+          "why": "Sami remembered sunset first, then lanterns, stars, and bedtime."
+        }
       ],
       "wordHelp": [
-        { "word": "twilight", "meaning": "The soft light in the sky after the sun goes down." },
-        { "word": "shadow", "meaning": "A dark shape made when something blocks light." },
-        { "word": "parade", "meaning": "A group of people walking together for a celebration." }
+        {
+          "word": "twilight",
+          "meaning": "The soft light in the sky after the sun goes down."
+        },
+        {
+          "word": "shadow",
+          "meaning": "A dark shape made when something blocks light."
+        },
+        {
+          "word": "parade",
+          "meaning": "A group of people walking together for a celebration."
+        }
       ]
     },
     {
@@ -102,32 +298,130 @@
       "style": "painted-2d",
       "palette": "alpine blue, meadow green, warm hut wood, soft stone grey and flower pink",
       "characters": [
-        { "name": "Mina", "visualDescription": "A young mountain goat with cream fur, a small charcoal nose, short curved horns, a coral red scarf and sturdy little hooves; bright, patient expression." },
-        { "name": "Piko", "visualDescription": "A small marmot with warm brown fur, a pale muzzle, rounded ears, tiny paws and a leaf-green field satchel." },
-        { "name": "Guide Leni", "visualDescription": "A friendly mountain guide with tan skin, dark hair in two braids, a blue fleece, plum walking trousers and a red knit hat." }
+        {
+          "name": "Mina",
+          "visualDescription": "A young mountain goat with cream fur, a small charcoal nose, short curved horns, a coral red scarf and sturdy little hooves; bright, patient expression."
+        },
+        {
+          "name": "Piko",
+          "visualDescription": "A small marmot with warm brown fur, a pale muzzle, rounded ears, tiny paws and a leaf-green field satchel."
+        },
+        {
+          "name": "Guide Leni",
+          "visualDescription": "A friendly mountain guide with tan skin, dark hair in two braids, a blue fleece, plum walking trousers and a red knit hat."
+        }
       ],
       "coverPrompt": "Mina the young goat and Piko the marmot look at a tiny green shoot in a small pot on the sunny, sheltered porch of a mountain hut. Guide Leni stands with them, and distant alpine peaks rise behind the hut. Consistent characters, full bodies, no text.",
       "pages": [
-        { "pageNumber": 1, "title": "A Seed Packet", "text": "At the mountain hut, Guide Leni showed Mina and Piko a packet of native alpine flower seeds for the porch garden. Mina chose one small seed to plant.", "imagePrompt": "On the mountain hut porch, Guide Leni shows Mina and Piko a small plain seed packet and one seed in an open palm. Alpine mountains and a tidy porch garden are visible. No readable text on the packet." },
-        { "pageNumber": 2, "title": "A Little Pot", "text": "Leni filled a little pot with clean soil. Mina placed the seed inside, and Piko covered it gently. They set the pot where the porch was sunny and sheltered.", "imagePrompt": "Close garden action: Leni fills a small clay pot with clean soil, Mina places one seed, and Piko gently covers it. The porch is bright and protected from wind; keep all characters’ tools safe and simple." },
-        { "pageNumber": 3, "title": "A Careful Water", "text": "Mina poured a little water onto the soil. “Seeds need water, air and warmth to begin growing,” Leni explained. The friends placed the pot beside the sunny window.", "imagePrompt": "Mina pours a small amount of water from a child-sized cup onto the soil while Leni explains and Piko watches. A sunny window and sheltered porch show warmth. No seed is visible above the soil." },
-        { "pageNumber": 4, "title": "No Change Yet", "text": "The next morning, the pot looked just the same. Mina drooped her ears. “Maybe I did it wrong,” she said. Piko sat beside her and waited for Leni’s answer.", "imagePrompt": "Morning on the porch. Mina looks disappointed at the unchanged pot while Piko sits supportively nearby. Guide Leni approaches with a kind, reassuring expression. Soft mountain morning light, no sprout yet." },
-        { "pageNumber": 5, "title": "Seeds Take Time", "text": "“You cared for it well,” said Leni. “A seed can take many days to sprout. After it grows, the young plant needs light and water.” Mina felt hopeful again.", "imagePrompt": "Leni kneels beside Mina and the pot, explaining gently. Piko listens with a small smile. Show the soil surface still unchanged, with warm sunlight touching the porch." },
-        { "pageNumber": 6, "title": "One Day at a Time", "text": "Each day, Mina checked the soil and watered it only when it felt dry. Piko kept the pot away from the windy edge. They cared for it patiently.", "imagePrompt": "A gentle passage-of-time scene on the same porch: Mina checks soil with one hoof held back from the seed, Piko moves the pot safely inward, and Leni supervises. Show changing daylight without panels or text." },
-        { "pageNumber": 7, "title": "A Green Shoot", "text": "One morning, a tiny green shoot poked through the soil. Mina called Piko and Leni. They smiled, then measured the shoot beside a small twig without touching it.", "imagePrompt": "Close view of a tiny fresh green shoot emerging from the soil. Mina, Piko and Leni look on happily. A small twig stands beside the shoot as a measuring marker, with no marks or labels." },
-        { "pageNumber": 8, "title": "New Leaves", "text": "More days passed, and two small leaves opened. The shoot stood taller in the light. Mina drew its shape in a garden notebook while Piko watched the page.", "imagePrompt": "The seedling now has two small leaves and stands taller in the same pot. Mina draws it in an open blank notebook while Piko observes. Guide Leni waters another plant nearby." },
-        { "pageNumber": 9, "title": "A Garden Note", "text": "Mina added the date beside her drawing. “It grew a little since last time,” she said. Piko compared the picture with the plant, and Leni praised their careful watching.", "imagePrompt": "Mina and Piko compare the small seedling with an earlier simple drawing in a blank notebook while Leni smiles. Show the plant only slightly taller, with a few healthy leaves; no legible writing." },
-        { "pageNumber": 10, "title": "For the Next Hikers", "text": "Mina left the growing plant on the hut porch for everyone to enjoy. She had learned that seeds need care and time. The mountains still had many patient stories.", "imagePrompt": "Mina, Piko and Leni stand beside the potted alpine seedling on the hut porch. A couple of hikers admire it from the path without touching. Wide mountain view and a peaceful ending." }
+        {
+          "pageNumber": 1,
+          "title": "A Seed Packet",
+          "text": "At the mountain hut, Guide Leni showed Mina and Piko a packet of native alpine flower seeds for the porch garden. Mina chose one small seed to plant.",
+          "imagePrompt": "On the mountain hut porch, Guide Leni shows Mina and Piko a small plain seed packet and one seed in an open palm. Alpine mountains and a tidy porch garden are visible. No readable text on the packet."
+        },
+        {
+          "pageNumber": 2,
+          "title": "A Little Pot",
+          "text": "Leni filled a little pot with clean soil. Mina placed the seed inside, and Piko covered it gently. They set the pot where the porch was sunny and sheltered.",
+          "imagePrompt": "Close garden action: Leni fills a small clay pot with clean soil, Mina places one seed, and Piko gently covers it. The porch is bright and protected from wind; keep all characters’ tools safe and simple."
+        },
+        {
+          "pageNumber": 3,
+          "title": "A Careful Water",
+          "text": "Mina poured a little water onto the soil. “Seeds need water, air and warmth to begin growing,” Leni explained. The friends placed the pot beside the sunny window.",
+          "imagePrompt": "Mina pours a small amount of water from a child-sized cup onto the soil while Leni explains and Piko watches. A sunny window and sheltered porch show warmth. No seed is visible above the soil."
+        },
+        {
+          "pageNumber": 4,
+          "title": "No Change Yet",
+          "text": "The next morning, the pot looked just the same. Mina drooped her ears. “Maybe I did it wrong,” she said. Piko sat beside her and waited for Leni’s answer.",
+          "imagePrompt": "Morning on the porch. Mina looks disappointed at the unchanged pot while Piko sits supportively nearby. Guide Leni approaches with a kind, reassuring expression. Soft mountain morning light, no sprout yet."
+        },
+        {
+          "pageNumber": 5,
+          "title": "Seeds Take Time",
+          "text": "“You cared for it well,” said Leni. “A seed can take many days to sprout. After it grows, the young plant needs light and water.” Mina felt hopeful again.",
+          "imagePrompt": "Leni kneels beside Mina and the pot, explaining gently. Piko listens with a small smile. Show the soil surface still unchanged, with warm sunlight touching the porch."
+        },
+        {
+          "pageNumber": 6,
+          "title": "One Day at a Time",
+          "text": "Each day, Mina checked the soil and watered it only when it felt dry. Piko kept the pot away from the windy edge. They cared for it patiently.",
+          "imagePrompt": "A gentle passage-of-time scene on the same porch: Mina checks soil with one hoof held back from the seed, Piko moves the pot safely inward, and Leni supervises. Show changing daylight without panels or text."
+        },
+        {
+          "pageNumber": 7,
+          "title": "A Green Shoot",
+          "text": "One morning, a tiny green shoot poked through the soil. Mina called Piko and Leni. They smiled, then measured the shoot beside a small twig without touching it.",
+          "imagePrompt": "Close view of a tiny fresh green shoot emerging from the soil. Mina, Piko and Leni look on happily. A small twig stands beside the shoot as a measuring marker, with no marks or labels."
+        },
+        {
+          "pageNumber": 8,
+          "title": "New Leaves",
+          "text": "More days passed, and two small leaves opened. The shoot stood taller in the light. Mina drew its shape in a garden notebook while Piko watched the page.",
+          "imagePrompt": "The seedling now has two small leaves and stands taller in the same pot. Mina draws it in an open blank notebook while Piko observes. Guide Leni waters another plant nearby."
+        },
+        {
+          "pageNumber": 9,
+          "title": "A Garden Note",
+          "text": "Mina added the date beside her drawing. “It grew a little since last time,” she said. Piko compared the picture with the plant, and Leni praised their careful watching.",
+          "imagePrompt": "Mina and Piko compare the small seedling with an earlier simple drawing in a blank notebook while Leni smiles. Show the plant only slightly taller, with a few healthy leaves; no legible writing."
+        },
+        {
+          "pageNumber": 10,
+          "title": "For the Next Hikers",
+          "text": "Mina left the growing plant on the hut porch for everyone to enjoy. She had learned that seeds need care and time. The mountains still had many patient stories.",
+          "imagePrompt": "Mina, Piko and Leni stand beside the potted alpine seedling on the hut porch. A couple of hikers admire it from the path without touching. Wide mountain view and a peaceful ending."
+        }
       ],
       "comprehension": [
-        { "prompt": "Where did Mina plant the seed?", "answer": "In a little pot at the hut", "choices": ["In a little pot at the hut", "Beside a river", "Inside Piko’s satchel"], "clue": "Leni filled a small container with soil on the porch.", "why": "Mina planted the seed in a little pot on the mountain hut porch." },
-        { "prompt": "What helps a seed begin to grow?", "answer": "Water, air and warmth", "choices": ["Water, air and warmth", "Snow, paint and stones", "Only bright light"], "clue": "Leni explained what seeds need before a shoot appears.", "why": "Leni said a seed needs water, air and warmth to begin growing." },
-        { "prompt": "How did Mina track the shoot’s growth?", "answer": "She drew it in a notebook", "choices": ["She drew it in a notebook", "She moved it each hour", "She counted the mountain peaks"], "clue": "Mina made a picture and compared it with the plant later.", "why": "Mina drew the seedling and compared the drawing as it grew." }
+        {
+          "prompt": "Where did Mina plant the seed?",
+          "answer": "In a little pot at the hut",
+          "choices": [
+            "In a little pot at the hut",
+            "Beside a river",
+            "Inside Piko’s satchel"
+          ],
+          "clue": "Leni filled a small container with soil on the porch.",
+          "why": "Mina planted the seed in a little pot on the mountain hut porch."
+        },
+        {
+          "prompt": "What helps a seed begin to grow?",
+          "answer": "Water, air and warmth",
+          "choices": [
+            "Water, air and warmth",
+            "Snow, paint and stones",
+            "Only bright light"
+          ],
+          "clue": "Leni explained what seeds need before a shoot appears.",
+          "why": "Leni said a seed needs water, air and warmth to begin growing."
+        },
+        {
+          "prompt": "How did Mina track the shoot’s growth?",
+          "answer": "She drew it in a notebook",
+          "choices": [
+            "She drew it in a notebook",
+            "She moved it each hour",
+            "She counted the mountain peaks"
+          ],
+          "clue": "Mina made a picture and compared it with the plant later.",
+          "why": "Mina drew the seedling and compared the drawing as it grew."
+        }
       ],
       "wordHelp": [
-        { "word": "alpine", "meaning": "From high mountain places." },
-        { "word": "sheltered", "meaning": "Kept safe from strong wind or weather." },
-        { "word": "shoot", "meaning": "A new young stem growing from a seed or plant." }
+        {
+          "word": "alpine",
+          "meaning": "From high mountain places."
+        },
+        {
+          "word": "sheltered",
+          "meaning": "Kept safe from strong wind or weather."
+        },
+        {
+          "word": "shoot",
+          "meaning": "A new young stem growing from a seed or plant."
+        }
       ]
     },
     {
@@ -138,33 +432,138 @@
       "style": "painted-2d",
       "palette": "rainy-day blue, library red, umbrella yellow, warm bakery brown and leafy green",
       "characters": [
-        { "name": "Kai", "visualDescription": "A careful six-year-old child with light brown skin, straight dark hair in a neat bob, a blue raincoat, a bright yellow umbrella and purple boots." },
-        { "name": "Aunt Jo", "visualDescription": "A welcoming librarian with dark skin, curly hair in a high puff, green round glasses, a burgundy cardigan and a small silver library badge." },
-        { "name": "Noor", "visualDescription": "A friendly adult neighbour with olive skin, short curly hair, a mustard scarf, a navy coat and a red bicycle with a front basket." },
-        { "name": "Baker Elsie", "visualDescription": "A kind bakery owner with fair skin, grey-streaked hair under a flour-dusted headscarf and a warm brown apron." }
+        {
+          "name": "Kai",
+          "visualDescription": "A careful six-year-old child with light brown skin, straight dark hair in a neat bob, a blue raincoat, a bright yellow umbrella and purple boots."
+        },
+        {
+          "name": "Aunt Jo",
+          "visualDescription": "A welcoming librarian with dark skin, curly hair in a high puff, green round glasses, a burgundy cardigan and a small silver library badge."
+        },
+        {
+          "name": "Noor",
+          "visualDescription": "A friendly adult neighbour with olive skin, short curly hair, a mustard scarf, a navy coat and a red bicycle with a front basket."
+        },
+        {
+          "name": "Baker Elsie",
+          "visualDescription": "A kind bakery owner with fair skin, grey-streaked hair under a flour-dusted headscarf and a warm brown apron."
+        },
+        {
+          "name": "Dad",
+          "visualDescription": "Kai’s dad is a calm adult with light skin, short neat dark-brown hair, a tan waterproof coat over a deep-blue sweater, charcoal trousers and dark shoes."
+        }
       ],
       "coverPrompt": "Kai stands beside Aunt Jo outside the neighbourhood library, holding a blue book and a yellow umbrella. Noor waits nearby with a red bicycle. A sheltered bus stop and small bakery sit along the familiar street. Warm, safe neighbourhood mystery; consistent characters, no text or lettering.",
       "pages": [
-        { "pageNumber": 1, "title": "A Rainy-Day Book", "text": "Kai chose a picture book from the library for a rainy afternoon. Aunt Jo checked it out, and Kai tucked it safely into a blue tote bag before walking home.", "imagePrompt": "Inside a bright neighbourhood library, Aunt Jo hands Kai a colourful picture book at the desk. Kai places it into a blue tote bag while rain falls beyond the window. Avoid readable cover or signage text." },
-        { "pageNumber": 2, "title": "An Empty Bag", "text": "At home, Kai opened the tote bag, but the book was missing. Kai felt worried. Aunt Jo was still at the library, so Kai called her with Dad nearby.", "imagePrompt": "At home by the door, Kai looks into an empty blue tote bag with a worried face. Dad stands close by, calm and supportive, as Kai uses a phone to call Aunt Jo. No readable screen text." },
-        { "pageNumber": 3, "title": "Three Stops", "text": "Aunt Jo listened kindly on the phone. She helped Kai remember three stops: the bakery, the bus shelter and the library gate. Dad offered to retrace the walk together.", "imagePrompt": "Kai and Dad stand by a simple neighbourhood map with three picture-like landmarks: bakery, covered bus shelter, library gate. Aunt Jo appears on a phone call. Do not show words, route labels or personal details." },
-        { "pageNumber": 4, "title": "The Bakery", "text": "At the bakery, Elsie remembered Kai’s yellow umbrella. She had not seen the book inside, but she pointed out the dry pavement leading toward the bus shelter.", "imagePrompt": "Outside a cosy bakery on a rainy street, Elsie speaks with Kai and Dad beneath the shop awning. Kai’s yellow umbrella is clear. The covered bus shelter is visible farther along the pavement." },
-        { "pageNumber": 5, "title": "A Familiar Neighbour", "text": "At the covered bus shelter, Noor was locking a red bicycle. Noor knew Kai from the neighbourhood and had noticed a blue book beside the dry bench.", "imagePrompt": "At a well-lit covered bus shelter, familiar neighbour Noor locks a red bicycle beside a dry bench. Noor points from a safe distance toward a blue book resting beside the bench. Kai and Dad approach together." },
-        { "pageNumber": 6, "title": "The Blue Cover", "text": "Kai checked the cover. It was the library book! It had stayed dry beside the sheltered bench. Kai thanked Noor and held the book carefully against the raincoat.", "imagePrompt": "Kai confirms the blue book is the same picture book, comparing its colourful illustration with a small library stamp shown without readable words. The book is dry beside the sheltered bench; Dad remains beside Kai." },
-        { "pageNumber": 7, "title": "Back to the Library", "text": "Kai and Dad walked back to the library together. Aunt Jo welcomed them at the door. Kai explained where the book had been and checked that its pages were dry.", "imagePrompt": "Kai and Dad return to the library entrance, where Aunt Jo welcomes them. Kai holds the dry book open to check the pages. Show the rainy street outside and a warm bright interior." },
-        { "pageNumber": 8, "title": "A Helpful Slot", "text": "Aunt Jo showed Kai the library return slot. Kai slid the book through carefully, and Aunt Jo checked it back in. Kai felt relieved to have solved the mystery.", "imagePrompt": "At the library’s interior return desk, Aunt Jo demonstrates a safe return slot while Kai places the book inside. Make the action clear and friendly, with no readable labels or signage." },
-        { "pageNumber": 9, "title": "One More Clue", "text": "Aunt Jo asked Kai what helped. Kai remembered the bakery, the covered bench and Noor’s careful eyes. Dad smiled at the useful clues they had followed together.", "imagePrompt": "Kai, Dad and Aunt Jo talk beside the library desk. In the background through a window are small glimpses of the bakery and bus shelter. Kai counts three clues on their fingers." },
-        { "pageNumber": 10, "title": "A Zipped Pocket", "text": "Kai borrowed another picture book and placed it in a zipped pocket inside the tote bag. Then Kai and Dad walked home beneath the yellow umbrella, feeling ready for the next rainy day.", "imagePrompt": "Kai and Dad walk home together under the yellow umbrella. A new picture book is visible safely inside a zipped tote pocket. The library glows behind them; a calm, cosy rainy-day ending." }
+        {
+          "pageNumber": 1,
+          "title": "A Rainy-Day Book",
+          "text": "Kai chose a picture book from the library for a rainy afternoon. Aunt Jo checked it out, and Kai tucked it safely into a blue tote bag before walking home.",
+          "imagePrompt": "Inside a bright neighbourhood library, Aunt Jo hands Kai a colourful picture book at the desk. Kai places it into a blue tote bag while rain falls beyond the window. Avoid readable cover or signage text."
+        },
+        {
+          "pageNumber": 2,
+          "title": "An Empty Bag",
+          "text": "At home, Kai opened the tote bag, but the book was missing. Kai felt worried. Aunt Jo was still at the library, so Kai called her with Dad nearby.",
+          "imagePrompt": "At home by the door, Kai looks into an empty blue tote bag with a worried face. Dad stands close by, calm and supportive, as Kai uses a phone to call Aunt Jo. No readable screen text."
+        },
+        {
+          "pageNumber": 3,
+          "title": "Three Stops",
+          "text": "Aunt Jo listened kindly on the phone. She helped Kai remember three stops: the bakery, the bus shelter and the library gate. Dad offered to retrace the walk together.",
+          "imagePrompt": "Kai and Dad stand by a simple neighbourhood map with three picture-like landmarks: bakery, covered bus shelter, library gate. Aunt Jo appears on a phone call. Do not show words, route labels or personal details."
+        },
+        {
+          "pageNumber": 4,
+          "title": "The Bakery",
+          "text": "At the bakery, Elsie remembered Kai’s yellow umbrella. She had not seen the book inside, but she pointed out the dry pavement leading toward the bus shelter.",
+          "imagePrompt": "Outside a cosy bakery on a rainy street, Elsie speaks with Kai and Dad beneath the shop awning. Kai’s yellow umbrella is clear. The covered bus shelter is visible farther along the pavement."
+        },
+        {
+          "pageNumber": 5,
+          "title": "A Familiar Neighbour",
+          "text": "At the covered bus shelter, Noor was locking a red bicycle. Noor knew Kai from the neighbourhood and had noticed a blue book beside the dry bench.",
+          "imagePrompt": "At a well-lit covered bus shelter, familiar neighbour Noor locks a red bicycle beside a dry bench. Noor points from a safe distance toward a blue book resting beside the bench. Kai and Dad approach together."
+        },
+        {
+          "pageNumber": 6,
+          "title": "The Blue Cover",
+          "text": "Kai checked the cover. It was the library book! It had stayed dry beside the sheltered bench. Kai thanked Noor and held the book carefully against the raincoat.",
+          "imagePrompt": "Kai confirms the blue book is the same picture book, comparing its colourful illustration with a small library stamp shown without readable words. The book is dry beside the sheltered bench; Dad remains beside Kai."
+        },
+        {
+          "pageNumber": 7,
+          "title": "Back to the Library",
+          "text": "Kai and Dad walked back to the library together. Aunt Jo welcomed them at the door. Kai explained where the book had been and checked that its pages were dry.",
+          "imagePrompt": "Kai and Dad return to the library entrance, where Aunt Jo welcomes them. Kai holds the dry book open to check the pages. Show the rainy street outside and a warm bright interior."
+        },
+        {
+          "pageNumber": 8,
+          "title": "A Helpful Slot",
+          "text": "Aunt Jo showed Kai the library return slot. Kai slid the book through carefully, and Aunt Jo checked it back in. Kai felt relieved to have solved the mystery.",
+          "imagePrompt": "At the library’s interior return desk, Aunt Jo demonstrates a safe return slot while Kai places the book inside. Make the action clear and friendly, with no readable labels or signage."
+        },
+        {
+          "pageNumber": 9,
+          "title": "One More Clue",
+          "text": "Aunt Jo asked Kai what helped. Kai remembered the bakery, the covered bench and Noor’s careful eyes. Dad smiled at the useful clues they had followed together.",
+          "imagePrompt": "Kai, Dad and Aunt Jo talk beside the library desk. In the background through a window are small glimpses of the bakery and bus shelter. Kai counts three clues on their fingers."
+        },
+        {
+          "pageNumber": 10,
+          "title": "A Zipped Pocket",
+          "text": "Kai borrowed another picture book and placed it in a zipped pocket inside the tote bag. Then Kai and Dad walked home beneath the yellow umbrella, feeling ready for the next rainy day.",
+          "imagePrompt": "Kai and Dad walk home together under the yellow umbrella. A new picture book is visible safely inside a zipped tote pocket. The library glows behind them; a calm, cosy rainy-day ending."
+        }
       ],
       "comprehension": [
-        { "prompt": "What was missing from Kai’s tote bag?", "answer": "A library book", "choices": ["A library book", "A yellow umbrella", "A bicycle bell"], "clue": "Kai had borrowed something to read on a rainy afternoon.", "why": "Kai’s borrowed picture book was missing from the tote bag." },
-        { "prompt": "Who noticed the book by the shelter?", "answer": "Noor", "choices": ["Noor", "The bus driver", "Aunt Jo’s cat"], "clue": "A familiar neighbour was locking a red bicycle.", "why": "Noor noticed the blue book beside the dry bench at the bus shelter." },
-        { "prompt": "What will help Kai carry the next book?", "answer": "A zipped pocket", "choices": ["A zipped pocket", "An open basket", "A loose scarf"], "clue": "Kai chose a safer place inside the tote bag at the end.", "why": "Kai put the next book into a zipped pocket inside the tote bag." }
+        {
+          "prompt": "What was missing from Kai’s tote bag?",
+          "answer": "A library book",
+          "choices": [
+            "A library book",
+            "A yellow umbrella",
+            "A bicycle bell"
+          ],
+          "clue": "Kai had borrowed something to read on a rainy afternoon.",
+          "why": "Kai’s borrowed picture book was missing from the tote bag."
+        },
+        {
+          "prompt": "Who noticed the book by the shelter?",
+          "answer": "Noor",
+          "choices": [
+            "Noor",
+            "The bus driver",
+            "Aunt Jo’s cat"
+          ],
+          "clue": "A familiar neighbour was locking a red bicycle.",
+          "why": "Noor noticed the blue book beside the dry bench at the bus shelter."
+        },
+        {
+          "prompt": "What will help Kai carry the next book?",
+          "answer": "A zipped pocket",
+          "choices": [
+            "A zipped pocket",
+            "An open basket",
+            "A loose scarf"
+          ],
+          "clue": "Kai chose a safer place inside the tote bag at the end.",
+          "why": "Kai put the next book into a zipped pocket inside the tote bag."
+        }
       ],
       "wordHelp": [
-        { "word": "retrace", "meaning": "To go back along the same way you travelled before." },
-        { "word": "sheltered", "meaning": "Kept safe from rain or wind." },
-        { "word": "borrow", "meaning": "To use something for a while and return it later." }
+        {
+          "word": "retrace",
+          "meaning": "To go back along the same way you travelled before."
+        },
+        {
+          "word": "sheltered",
+          "meaning": "Kept safe from rain or wind."
+        },
+        {
+          "word": "borrow",
+          "meaning": "To use something for a while and return it later."
+        }
       ]
     }
   ]
