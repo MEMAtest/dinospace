@@ -55,15 +55,17 @@ const GermanGarage = ({ onBack, playSfx, soundOn, onToggleSound, onCelebrate, on
   const [runSeed] = useState(() => Math.floor(Math.random() * 4294967296));
   const [completedHistory] = useState(() => loadGermanTargetHistory(playerId));
   const [initialRounds] = useState(() => {
-    let history = { ...completedHistory };
     let cursor = 0;
-    const create = (roundMode) => {
-      const round = buildSeededGermanRound(roundMode, history[germanHistoryMode(roundMode)] || [], optionCount, runSeed, cursor++);
-      history = rememberGermanTarget(history, roundMode, round.target.name);
-      return round;
-    };
+    const create = (roundMode) => buildSeededGermanRound(roundMode, completedHistory[germanHistoryMode(roundMode)] || [], optionCount, runSeed, cursor++);
     const practiceMode = sessionLevel === 1 ? 'vehicles' : sessionLevel === 2 ? 'directions' : 'numbers';
-    return { history, paint: create('paint'), park: create('park'), match: create(practiceMode) };
+    const paint = create('paint');
+    const park = create('park');
+    const match = create(practiceMode);
+    const activeMode = sessionLevel === 0 ? 'paint' : practiceMode;
+    // Only the visible question belongs in shown history. Unused initial state
+    // for another tab must not push completed words out of the recent window.
+    const activeRound = sessionLevel === 0 ? paint : match;
+    return { history: rememberGermanTarget(completedHistory, activeMode, activeRound.target.name), paint, park, match };
   });
   const recentTargetsRef = useRef(initialRounds.history);
   const completedTargetsRef = useRef(completedHistory);
