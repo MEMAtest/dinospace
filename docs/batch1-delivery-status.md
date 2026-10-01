@@ -1,6 +1,6 @@
 # Four-game quality batch 1
 
-Date: 1 October 2026. Status: first four games independently accepted at **4.5/5**; final mobile overlay fix is live on `b6360bb`. The other 22 games remain categorized, not accepted.
+Date: 1 October 2026. Status: first four games independently accepted at **4.5/5**; mobile overlay fix and shared sound refresh are live on `aeea9e7`. The other 22 games remain categorized, not accepted.
 
 The target remains 4.5/5 for every game. This release repairs the first four games; passing a build does not award that score. The full game-by-game requirements and remaining batches are in `game-quality-4.5-roadmap.md`.
 
@@ -128,3 +128,11 @@ Independent b636 Letter retest completed: SAT wrong → clue → correct, no flo
 The independent editor reviewed the full baseline journeys, scoped production deltas, sanitized UI exports, source randomization checks, and final mobile overlay repair. Curriculum Quest, Letter Launch, German Garage and Storybook Studio are each **verified 4.5/5** under the documented roadmap. The detailed reasons and bounded evidence are in `batch1-editor-scorecard.md`.
 
 The remaining 22 games are categorized with written improvement instructions; they have not earned this acceptance. Next four: Puzzle Pop, Spot the Difference, Sky Shapes and Monster Math. The overall 26-game objective remains unfinished.
+
+
+## Shared sound production follow-up — 1 October 2026
+
+- Code SHA `aeea9e7167d9beb1c52e11e3b6643cb330975bc6`; READY deployment `dpl_7mvY5HPtQ6mMBvmEnPVddGumThyn`, canonical https://dinospace-eight.vercel.app. Immutable URL https://dinospace-oa3omstmt-memas-projects-23a0001d.vercel.app. Vercel metadata confirms exact SHA and alias. Production build JS `index-D6fYZHfF.js`, CSS `index-BH3dde_v.css`.
+- Shared effects now use short rising progress/success melodies, longer completion/level-up fanfares, and gentle retry cues. Existing 24 effect names remain supported. Simultaneous cues choose the most important event; each note has a soft attack and bounded volume. Muting cancels active and queued effects.
+- 110 automated tests, lint and build passed; the corrected optional-call audit passed all four focused checks. Independent local actual-control checks passed pregesture silence, wrong/right, progress, mute cancellation and re-enable. See `game-sound-refresh-qa.md` for final canonical UI evidence and measurement limitations.
+- This is a shared sound change. The four accepted game scores retain their earlier scoped gameplay evidence; the remaining 22 games still require review and improvement.
