@@ -13,11 +13,11 @@ This is the implementation contract for raising all 26 Amari games to a tested 4
 - **Events:** record start, question/scene, answer, hint, level complete, replay, and leave with game, level, and seed. Never log prompt text or child data.
 - **Evidence gate:** three seeded desktop and three mobile runs per game; test correct and wrong answers, hints, audio, level/reward progression, restart, leave/back, and randomized restart uniqueness. Check asset/network errors and console. Capture start, feedback, and completion evidence.
 
-## Current acceptance status — 1 October 2026
+## Current acceptance status — 2 October 2026
 
-**Verified 4.5:** Curriculum Quest, Storybook Studio, Letter Launch and German Garage. Independent reasons and exact production evidence are recorded in [batch 1 editor scorecard](batch1-editor-scorecard.md). Current canonical code SHA is `b6360bbf82cb32643be8a880900f13553c7300af`; evidence is explicitly separated between the full `86e3ecf` gameplay baseline, `7d9d961` telemetry follow-up and final `b6360bb` mobile overlay repair.
+**Verified 4.5:** Curriculum Quest, Storybook Studio, Letter Launch and German Garage. Independent reasons and exact production evidence are recorded in [batch 1 editor scorecard](batch1-editor-scorecard.md). Current canonical code SHA is `aeea9e7167d9beb1c52e11e3b6643cb330975bc6`; the gameplay acceptance evidence is separated between the full `86e3ecf` baseline, `7d9d961` telemetry follow-up and `b6360bb` mobile overlay repair. The later `aeea9e7` release adds shared progress/success sounds; rotating production health reports do not replace full gameplay acceptance.
 
-**Not yet accepted:** the remaining 22 games below. Their last scores remain historical review baselines. Next implementation batch: Puzzle Pop, Spot the Difference, Sky Shapes, Monster Math. Missing historical custom storybooks have not been recovered; the seven-title curated shelf includes four newly added titles.
+**Not yet accepted:** the remaining 22 games below. Their last scores remain historical review baselines. **In progress locally:** Puzzle Pop, Spot the Difference, Sky Shapes and Monster Math. Their 12-scene/mission chapter structures and three maths episodes are implemented; independent 5283 evidence and current 5284 repair checks remain local. Remaining release gates include player/reload isolation, mobile tracing, repaired explanations and replay navigation. No Batch 2 production release or 4.5 acceptance is claimed. Next batch after their acceptance: Count the Stars, Letter Trace, Cosmic Tic-Tac-Toe and Dino Detective. Missing historical custom storybooks have not been recovered; the seven-title curated shelf includes four newly added titles.
 
 ## Batch 1 — critical foundations
 
