@@ -52,6 +52,24 @@ const runGenerator = () => new Promise((resolveRun) => {
 let cooldownRetries = 0;
 let lastSummary = null;
 try {
+  const priorLog = await readFile(logPath, 'utf8');
+  const priorRuns = priorLog.split(/\r?\n/).filter(Boolean).reverse();
+  for (const line of priorRuns) {
+    try {
+      const event = JSON.parse(line);
+      if (event.event !== 'run_finished') continue;
+      lastSummary = {
+        exitCode: event.exitCode,
+        generated: event.generated,
+        reused: event.reused,
+        pending: event.pending,
+        stoppedAt: event.stoppedAt ?? null,
+      };
+      break;
+    } catch { /* ignore malformed or incomplete progress-log lines */ }
+  }
+} catch { /* first run has no progress log to recover */ }
+try {
   await log('started', { maxRuns, maxCooldownRetries, requestLimit, requestWindowMinutes: 10, logPath, statusPath });
   await updateStatus('running', { run: 0, cooldownRetries, lastResult: null });
 
