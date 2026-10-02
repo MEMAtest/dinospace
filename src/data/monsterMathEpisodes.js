@@ -63,7 +63,7 @@ const createOperationPool = () => {
         kind: 'add', answer: first + second,
         prompt: `What is ${first} plus ${second}?`,
         clue: 'Put the two groups together, then count every counter.',
-        explanation: `${monsterCounterPhrase(first)} and ${second} more make ${monsterCounterPhrase(first + second)}.`,
+        explanation: `${monsterCounterPhrase(first)}. Add ${second} more. That makes ${monsterCounterPhrase(first + second)}.`,
         model: { type: 'ten-frame', operation: 'add', first, second, answer: first + second },
       });
     }
@@ -75,7 +75,7 @@ const createOperationPool = () => {
         kind: 'subtract', answer: start - take,
         prompt: `What is ${start} take away ${take}?`,
         clue: `Start with ${monsterCounterPhrase(start)}. Slide ${take} away, then count what stays.`,
-        explanation: `Take ${take} away from ${start}. ${monsterCounterPhrase(start - take)} ${start - take === 1 ? 'stays' : 'stay'}.`,
+        explanation: `Start with ${monsterCounterPhrase(start)}. Take ${take} away. ${monsterCounterPhrase(start - take)} ${start - take === 1 ? 'stays' : 'stay'}.`,
         model: { type: 'ten-frame', operation: 'subtract', first: start, second: take, answer: start - take },
       });
     }
@@ -93,7 +93,7 @@ const createStoryPool = () => {
           kind: 'word-add', answer: first + second,
           prompt: `${context.name} has ${QUANTITY(first, context.one, context.many)}. ${context.name} finds ${second} more. How many ${context.many} are there now?`,
           clue: 'Look for the words “more” and “now.” Put both groups together.',
-          explanation: `${context.name} had ${QUANTITY(first, context.one, context.many)}, then found ${second} more. Now there ${first + second === 1 ? 'is' : 'are'} ${QUANTITY(first + second, context.one, context.many)}.`,
+          explanation: `${context.name} had ${QUANTITY(first, context.one, context.many)}. ${context.name} found ${second} more. Now there ${first + second === 1 ? 'is' : 'are'} ${QUANTITY(first + second, context.one, context.many)}.`,
           model: { type: 'number-line', operation: 'add', first, second, answer: first + second, emoji: context.emoji },
         });
       }
@@ -105,7 +105,7 @@ const createStoryPool = () => {
           kind: 'word-subtract', answer: start - take,
           prompt: `${context.name} has ${QUANTITY(start, context.one, context.many)}. ${context.name} gives ${QUANTITY(take, context.one, context.many)} away. How many are left?`,
           clue: 'Look for the words “gives away” and “left.” Take some from the first group.',
-          explanation: `${context.name} starts with ${QUANTITY(start, context.one, context.many)} and gives ${QUANTITY(take, context.one, context.many)} away. ${start - take === 1 ? 'One' : start - take} ${start - take === 1 ? context.one : context.many} ${start - take === 1 ? 'is' : 'are'} left.`,
+          explanation: `${context.name} starts with ${QUANTITY(start, context.one, context.many)}. ${context.name} gives ${QUANTITY(take, context.one, context.many)} away. ${start - take === 1 ? 'One' : start - take} ${start - take === 1 ? context.one : context.many} ${start - take === 1 ? 'is' : 'are'} left.`,
           model: { type: 'number-line', operation: 'subtract', first: start, second: take, answer: start - take, emoji: context.emoji },
         });
       }

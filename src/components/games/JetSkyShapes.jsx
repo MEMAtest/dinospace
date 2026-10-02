@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Check, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
+import { skyShapeNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
 import {
   SKY_SHAPE_EPISODES, SKY_SHAPE_MISSION_BY_ID, createSkyRunSeed, skyAccuracyStars, skyMissionQueueForEpisode, tracePointsForOutline,
   skyLearningAttemptDetail, skyTraceProgressPercent,
@@ -75,14 +76,14 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
 
   useEffect(() => {
-    speak('Choose a sky. Start each outline at its green dot and follow the glowing route.');
+    speakPackagedBatch2Line(speak, skyShapeNarration.choose);
   }, [speak]);
 
   useEffect(() => {
     if (phase !== 'play' || !mission || !Number.isSafeInteger(runSeed)) return;
     onGameEvent?.('jet', 'scene', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band });
     onGameEvent?.('jet', 'question', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band });
-    speak(`Sky ${episodeIndex + 1}. Trace the ${mission.name}. Start at the green dot.`);
+    speakPackagedBatch2Line(speak, skyShapeNarration.prompt(episodeIndex + 1, mission));
   }, [episode.band, episodeIndex, mission, onGameEvent, phase, roundIndex, runSeed, speak]);
 
   useEffect(() => {
@@ -195,7 +196,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
           level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band,
           missionId: mission.id, accuracy, firstAttempt: !hadMiss && !hadHint, hints: hadHint ? 1 : 0,
         }));
-        speak(`${mission.name} traced. Your trail stayed on the path ${accuracy} percent of the time.`);
+        speakPackagedBatch2Line(speak, skyShapeNarration.completed(mission));
         playSfx('success');
       } else {
         const nextPath = index + 1;
@@ -297,13 +298,13 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     setHadHint(true);
     setFeedback(pathIndex === 0 && cursorIndex === 0 ? 'Begin at green 1, then follow the glowing dots in order.' : `Continue at green dot ${pathIndex + 1}. Trace close to the bright line.`);
     onGameEvent?.('jet', 'hint', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band, hintType: 'instructions' });
-    speak(pathIndex === 0 && cursorIndex === 0 ? 'Begin at green one, then follow the glowing dots in order.' : `Continue at the next green dot. Stay close to the bright line.`);
+    speakPackagedBatch2Line(speak, skyShapeNarration.hint(pathIndex, cursorIndex));
   };
 
   const speakPrompt = () => {
     if (!mission) return;
     onGameEvent?.('jet', 'hint', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band, hintType: 'replay_clue' });
-    speak(`Trace the ${mission.name}. Start at the green dot and follow the glowing route.`);
+    speakPackagedBatch2Line(speak, skyShapeNarration.replay(mission));
   };
 
   const continueMission = () => {

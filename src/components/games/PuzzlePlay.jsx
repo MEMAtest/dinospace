@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, Check, Eye, Home, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { puzzlePopNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
 import {
   createPuzzlePopPieceTray,
   createPuzzlePopSceneQueue,
@@ -85,13 +86,13 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     prepareScene(nextQueue[0], nextSeed, []);
     onGameEvent?.('puzzle', 'start', { level: nextChapterIndex, round: 0, seed: nextSeed });
     onGameEvent?.('puzzle', 'scene', { level: nextChapterIndex, round: 1, seed: nextSeed });
-    speak(`Puzzle Pop. ${nextChapter.name}. ${nextChapter.skill} Build the ${nextQueue[0].title} picture.`);
+    speakPackagedBatch2Line(speak, puzzlePopNarration.start(nextChapter, nextQueue[0]));
     playSfx('launch');
   };
 
   const hearPrompt = () => {
     if (!scene) return;
-    speak(`Build the ${scene.title} picture. Choose a piece, then tap its matching space.`);
+    speakPackagedBatch2Line(speak, puzzlePopNarration.prompt(scene));
   };
 
   const choosePiece = (piece) => {
@@ -136,7 +137,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
       setPhase('scene-complete');
       onGameEvent?.('puzzle', 'scene_complete', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintsUsed });
       playSfx('success');
-      speak(`Picture complete. ${scene.fact}`);
+      speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene));
       if (sceneIndex === queue.length - 1) {
         const praise = getPraise();
         setMessage(`${praise} ${chapter.name} complete! ${scene.fact}`);
@@ -158,7 +159,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     setHintsUsed((value) => value + 1);
     setMessage(`Hint: piece ${nextPiece.correctSlot + 1} fits the glowing space. Check its edges in the preview.`);
     onGameEvent?.('puzzle', 'hint', { level: chapterIndex, round: sceneIndex + 1, seed, hintType: 'next_piece' });
-    speak(`Try piece ${nextPiece.correctSlot + 1}. Look for its colours and edge in the preview.`);
+    speakPackagedBatch2Line(speak, puzzlePopNarration.hint(nextPiece.correctSlot + 1));
     playSfx('chime');
   };
 
@@ -171,7 +172,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
       prepareScene(nextScene, seed + nextIndex + 1);
       setMessage(`Picture ${nextIndex + 1} of ${queue.length}. ${nextScene.title}.`);
       onGameEvent?.('puzzle', 'scene', { level: chapterIndex, round: nextIndex + 1, seed });
-      speak(`Next picture. Build ${nextScene.title}. ${nextScene.helper || 'Compare each piece with the preview.'}`);
+      speakPackagedBatch2Line(speak, puzzlePopNarration.next(nextScene));
       playSfx('click');
       return;
     }

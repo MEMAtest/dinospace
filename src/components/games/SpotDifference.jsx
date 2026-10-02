@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Check, Eye, Home, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { spotDifferenceNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
 import {
   completeSpotDifferenceChapter,
   createSpotDifferenceRun,
@@ -68,7 +69,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     setPhase('play');
     onGameEvent?.('spot', 'start', { level: targetIndex, round: 0, seed: nextSeed });
     onGameEvent?.('spot', 'scene', { level: targetIndex, round: 1, seed: nextSeed });
-    speak(`Spot the difference. ${SPOT_DIFFERENCE_CHAPTERS[targetIndex].name}. Compare ${nextQueue[0].title}. Find ${nextQueue[0].differences.length} changes.`);
+    speakPackagedBatch2Line(speak, spotDifferenceNarration.start(SPOT_DIFFERENCE_CHAPTERS[targetIndex], nextQueue[0]));
     playSfx('launch');
   };
 
@@ -96,7 +97,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
       const nextProgress = completeSpotDifferenceChapter(playerId, chapterIndex, [scene.id]);
       setProgress(nextProgress);
       onGameEvent?.('spot', 'scene_complete', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintCount });
-      speak(`You found every change. ${scene.fact}`);
+      speakPackagedBatch2Line(speak, spotDifferenceNarration.completed(scene));
       playSfx('success');
       if (sceneIndex === queue.length - 1) {
         const praise = getPraise();
@@ -133,7 +134,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     setHintTarget(target.id);
     setFeedback(`Magnifier hint: look near ${target.x < 35 ? 'the left' : target.x > 65 ? 'the right' : 'the middle'} ${target.y < 35 ? 'top' : target.y > 65 ? 'bottom' : 'area'} of Picture B.`);
     onGameEvent?.('spot', 'hint', { level: chapterIndex, round: sceneIndex + 1, seed, hintType: 'magnifier' });
-    speak(`Look near the ${target.x < 35 ? 'left' : target.x > 65 ? 'right' : 'middle'} ${target.y < 35 ? 'top' : target.y > 65 ? 'bottom' : 'area'} of Picture B.`);
+    speakPackagedBatch2Line(speak, spotDifferenceNarration.hint(target.x, target.y));
     playSfx('chime');
   };
 
@@ -145,7 +146,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
       setFeedback(`Picture ${nextIndex + 1} of ${queue.length}. Find ${queue[nextIndex].differences.length} changes.`);
       setPhase('play');
       onGameEvent?.('spot', 'scene', { level: chapterIndex, round: nextIndex + 1, seed });
-      speak(`Next pair. ${queue[nextIndex].title}. Find ${queue[nextIndex].differences.length} changes.`);
+      speakPackagedBatch2Line(speak, spotDifferenceNarration.next(queue[nextIndex]));
       playSfx('click');
       return;
     }
@@ -173,7 +174,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
       {scene && <>
         <p className="mb-3 min-h-12 rounded-2xl bg-white/95 px-4 py-3 text-center font-black text-indigo-800 shadow" aria-live="polite">{feedback}</p>
         {phase === 'play' ? <>
-          <section className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-white/90 p-3 shadow"><p className="font-black">{scene.title} <span className="text-slate-600">· {found.length} of {scene.differences.length} changes</span></p><div className="flex gap-2"><button type="button" onClick={() => { speak(`Find ${scene.differences.length} changes in ${scene.title}. Tap the changed detail in Picture B.`); playSfx('click'); }} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={18} /> Hear clue</button><button type="button" onClick={showHint} disabled={hintCount >= chapter.hintTokens} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-100 px-4 font-black text-amber-900 disabled:opacity-50"><Lightbulb size={18} /> Magnifier {chapter.hintTokens - hintCount} left</button></div></section>
+          <section className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-white/90 p-3 shadow"><p className="font-black">{scene.title} <span className="text-slate-600">· {found.length} of {scene.differences.length} changes</span></p><div className="flex gap-2"><button type="button" onClick={() => { speakPackagedBatch2Line(speak, spotDifferenceNarration.prompt(scene)); playSfx('click'); }} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={18} /> Hear clue</button><button type="button" onClick={showHint} disabled={hintCount >= chapter.hintTokens} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-100 px-4 font-black text-amber-900 disabled:opacity-50"><Lightbulb size={18} /> Magnifier {chapter.hintTokens - hintCount} left</button></div></section>
           <div className="grid gap-4 lg:grid-cols-2">
             {[false, true].map((changed) => <section key={String(changed)} className="min-w-0 rounded-3xl border-4 border-white bg-white p-3 shadow-xl"><h2 className="mb-2 text-center text-lg font-black text-indigo-800">Picture {changed ? 'B · Find changes here' : 'A · Look carefully'}</h2><div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-sky-100"><img src={scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
               {scene.differences.map((difference) => { const visible = changed ? difference.visual : difference.normalVisual; const done = found.includes(difference.id); if (changed && done) return <span key={difference.id} aria-label="Found difference" className="absolute z-10 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-100/95 ring-4 ring-emerald-500"><Check className="text-emerald-800" /></span>; return <span key={difference.id} aria-hidden="true" className="pointer-events-none absolute z-[1] grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 shadow" style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><DifferenceVisual type={visible} /></span>; })}

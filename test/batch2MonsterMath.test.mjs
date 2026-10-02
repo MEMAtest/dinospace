@@ -77,18 +77,18 @@ test('singular count, story, counter, and number-line text uses singular nouns a
 
   const addOne = MONSTER_QUESTION_POOLS[2].find((item) => item.id === 'story:add:mira-shells:1:1');
   assert.match(addOne.prompt, /Mira has 1 shell\./);
-  assert.match(addOne.explanation, /Mira had 1 shell, then found 1 more\./);
+  assert.match(addOne.explanation, /Mira had 1 shell\. Mira found 1 more\./);
   assert.match(addOne.explanation, /Now there are 2 shells\./);
 
   const takeOne = MONSTER_QUESTION_POOLS[2].find((item) => item.id === 'story:subtract:mira-shells:2:1');
   assert.match(takeOne.prompt, /Mira gives 1 shell away\./);
-  assert.match(takeOne.explanation, /gives 1 shell away\. One shell is left\./);
+  assert.match(takeOne.explanation, /Mira gives 1 shell away\. One shell is left\./);
 
   const operationAddOne = MONSTER_QUESTION_POOLS[1].find((item) => item.id === 'add:1:1');
-  assert.equal(operationAddOne.explanation, '1 counter and 1 more make 2 counters.');
+  assert.equal(operationAddOne.explanation, '1 counter. Add 1 more. That makes 2 counters.');
   const operationTakeOne = MONSTER_QUESTION_POOLS[1].find((item) => item.id === 'subtract:2:1');
   assert.equal(operationTakeOne.clue, 'Start with 2 counters. Slide 1 away, then count what stays.');
-  assert.equal(operationTakeOne.explanation, 'Take 1 away from 2. 1 counter stays.');
+  assert.equal(operationTakeOne.explanation, 'Start with 2 counters. Take 1 away. 1 counter stays.');
   assert.equal(tenFrameAccessibleLabel(operationTakeOne.model), '2 counters, take away 1 counter, 1 counter stays');
   assert.equal(tenFrameExplanation(operationTakeOne.model), '1 counter moved away; 1 counter stays.');
   assert.equal(numberLineInstruction({ first: 2, second: 1, answer: 1, operation: 'subtract' }), 'Start at 2, then jump back 1 step.');

@@ -192,6 +192,7 @@ export const useVoice = (enabled) => {
   const premiumAudioUrlRef = useRef(null);
   const pendingPremiumGestureCleanupRef = useRef(null);
   const premiumCacheRef = useRef(new Map());
+  const playbackGenerationRef = useRef(0);
   const voiceModeRef = useRef('premium');
   const [voiceMode, setVoiceModeState] = useState(getStoredVoiceMode);
   const [premiumStatus, setPremiumStatus] = useState('unknown');
@@ -214,6 +215,7 @@ export const useVoice = (enabled) => {
   }, []);
 
   const cancelPremiumVoice = useCallback(() => {
+    playbackGenerationRef.current += 1;
     clearPendingPremiumGesture();
     if (premiumRequestRef.current) {
       premiumRequestRef.current.abort();
@@ -222,6 +224,76 @@ export const useVoice = (enabled) => {
     premiumRequestKeyRef.current = null;
     stopPremiumPlayback();
   }, [clearPendingPremiumGesture, stopPremiumPlayback]);
+
+  const playPackagedSequence = useCallback((clips, startIndex, generation) => {
+    const playSequence = (segmentIndex) => {
+      if (generation !== playbackGenerationRef.current || !enabledRef.current) return;
+      const audio = new Audio(clips[segmentIndex]);
+      premiumAudioRef.current = audio;
+
+      const isCurrent = () => generation === playbackGenerationRef.current
+        && enabledRef.current
+        && premiumAudioRef.current === audio;
+      const retryAfterGesture = () => {
+        audio.onended = null;
+        audio.onerror = null;
+        audio.pause();
+        if (premiumAudioRef.current === audio) premiumAudioRef.current = null;
+        clearPendingPremiumGesture();
+        const retry = () => {
+          clearPendingPremiumGesture();
+          if (generation === playbackGenerationRef.current && enabledRef.current) {
+            playSequence(segmentIndex);
+          }
+        };
+        document.addEventListener('pointerdown', retry, { once: true });
+        document.addEventListener('keydown', retry, { once: true });
+        pendingPremiumGestureCleanupRef.current = () => {
+          document.removeEventListener('pointerdown', retry);
+          document.removeEventListener('keydown', retry);
+        };
+      };
+
+      audio.onended = () => {
+        if (!isCurrent()) return;
+        premiumAudioRef.current = null;
+        if (segmentIndex + 1 < clips.length) {
+          playSequence(segmentIndex + 1);
+        } else {
+          setPremiumStatus('ready');
+        }
+      };
+      audio.onerror = () => {
+        if (!isCurrent()) return;
+        premiumAudioRef.current = null;
+        setPremiumStatus('unavailable');
+      };
+
+      try {
+        const playback = audio.play();
+        if (playback?.then) {
+          playback.then(() => {
+            if (isCurrent()) setPremiumStatus('ready');
+          }).catch((error) => {
+            if (!isCurrent()) return;
+            if (error?.name === 'NotAllowedError') retryAfterGesture();
+            else {
+              premiumAudioRef.current = null;
+              setPremiumStatus('unavailable');
+            }
+          });
+        }
+      } catch (error) {
+        if (!isCurrent()) return;
+        if (error?.name === 'NotAllowedError') retryAfterGesture();
+        else {
+          premiumAudioRef.current = null;
+          setPremiumStatus('unavailable');
+        }
+      }
+    };
+    playSequence(startIndex);
+  }, [clearPendingPremiumGesture]);
 
   useEffect(() => {
     enabledRef.current = enabled;
@@ -255,7 +327,7 @@ export const useVoice = (enabled) => {
     const text = String(rawText).replace(/\s+/g, ' ').trim();
     if (!text) return;
 
-    const { lang = 'en-US', premium = true } = options;
+    const { lang = 'en-US', premium = true, segments } = options;
     const requestKey = `${lang}:${text}`;
     if (premiumRequestRef.current && premiumRequestKeyRef.current === requestKey) return;
     cancelPremiumVoice();
@@ -275,6 +347,24 @@ export const useVoice = (enabled) => {
     const handlePremiumFailure = () => {
       setPremiumStatus('unavailable');
     };
+
+    const offlineClipUrl = getOfflineVoiceClip(text, lang);
+    if (segments !== undefined && !offlineClipUrl) {
+      const segmentTexts = Array.isArray(segments)
+        ? segments.map((segment) => String(segment || '').replace(/\s+/g, ' ').trim())
+        : [];
+      const segmentClips = segmentTexts.map((segment) => segment ? getOfflineVoiceClip(segment, lang) : null);
+      if (segmentTexts.length === 0
+        || segmentTexts.some((segment) => !segment)
+        || segmentTexts.join(' ') !== text
+        || segmentClips.some((clip) => !clip)) {
+        setPremiumStatus('unavailable');
+        return;
+      }
+      setPremiumStatus('loading');
+      playPackagedSequence(segmentClips, 0, playbackGenerationRef.current);
+      return;
+    }
 
     const cacheKey = requestKey;
     const waitForPremiumGesture = (audioBlob) => {
@@ -337,7 +427,6 @@ export const useVoice = (enabled) => {
       }
     };
 
-    const offlineClipUrl = getOfflineVoiceClip(text, lang);
     const cachedAudio = premiumCacheRef.current.get(cacheKey);
     const voiceSource = chooseVoiceSource({
       packagedClip: offlineClipUrl,
@@ -455,7 +544,7 @@ export const useVoice = (enabled) => {
         premiumRequestKeyRef.current = null;
         handlePremiumFailure();
       });
-  }, [cancelPremiumVoice, clearPendingPremiumGesture]);
+  }, [cancelPremiumVoice, clearPendingPremiumGesture, playPackagedSequence]);
 
   return { speak, voiceMode, setVoiceMode, premiumStatus, premiumEnabled: PACKAGED_NARRATOR_ENABLED };
 };

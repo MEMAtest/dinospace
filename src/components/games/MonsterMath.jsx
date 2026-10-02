@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, Lightbulb, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
+import { monsterMathNarration } from '../../data/batch2Narration.js';
 import {
   createMonsterMathRun, createMonsterRunSeed, MONSTER_MATH_EPISODES, monsterCounterPhrase,
   monsterCountResultText, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation,
@@ -116,7 +117,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     if (questionAnnouncementRef.current === key) return;
     questionAnnouncementRef.current = key;
     onGameEvent?.('math', 'question', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band });
-    speak(question.prompt);
+    speak(question.prompt, { segments: monsterMathNarration.promptSegments(question) });
   }, [episode.band, episodeIndex, onGameEvent, phase, question, roundIndex, runSeed, speak]);
 
   const startEpisode = (selectedIndex = episodeIndex) => {
@@ -174,7 +175,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
       setFeedback('Not yet. Try the clue, then count the model again.');
       onGameEvent?.('math', 'answer_attempt', { level: episodeIndex, round: roundIndex, seed: runSeed, firstAttempt: !hadMistake, difficulty: episode.band });
       playSfx('wrong');
-      speak(`Try again. ${question.clue}`);
+      speak(monsterMathNarration.retry(question), { segments: monsterMathNarration.retrySegments(question) });
       return;
     }
     const independent = !hadMistake && !hadHint;
@@ -190,14 +191,14 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
       correct: true, firstAttempt: independent, independent, hints: hadHint ? 1 : 0,
     });
     playSfx('success');
-    speak(question.explanation);
+    speak(question.explanation, { segments: monsterMathNarration.explanationSegments(question) });
     animateAnswer(question.answer);
   };
 
   const replayPrompt = () => {
     if (!question) return;
     onGameEvent?.('math', 'hint', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band, hintType: 'replay_clue' });
-    speak(question.prompt);
+    speak(question.prompt, { segments: monsterMathNarration.promptSegments(question) });
   };
 
   const requestHint = () => {
@@ -206,7 +207,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     setShowHint(true);
     setFeedback(question.clue);
     onGameEvent?.('math', 'hint', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band, hintType: 'clue' });
-    speak(question.clue);
+    speak(question.clue, { segments: monsterMathNarration.clueSegments(question) });
   };
 
   const nextQuestion = () => {
