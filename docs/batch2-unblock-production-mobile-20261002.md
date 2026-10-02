@@ -17,7 +17,7 @@ Isolated session `unblock-prod-mobile`, fresh Amari at 0, 390×844. Voice/story 
 - Console zero errors/warnings; all 24 requests reviewed after reload returned 200 and included the correct production JS/CSS. One packaged profile prompt MP3 was requested; no provider API appeared. Physical audio was not assessed.
 - A test locator initially assumed Six questions complete was a heading. It is a paragraph; the locator timed out after completion, then a fresh snapshot confirmed the successful result. This was an automation error, not an application failure.
 
-Closed the disposable browser. No real child data was accessed or altered. Independent desktop Monster and mobile Sky production checks are being recorded separately by the fresh QA agent, including a real diagnostics download.
+Closed the disposable browser. No real child data was accessed or altered. Independent desktop Monster and mobile Sky production checks passed and are recorded in `batch2-reward-unblock-production-independent-qa-20261002.md`, including a real diagnostics download retaining matching start/completion seeds after reload.
 
 ## Remaining quality work
 
