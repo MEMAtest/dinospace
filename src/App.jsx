@@ -288,7 +288,7 @@ const PlayerSession = ({
         gamesPlayed={gamesPlayed}
         onLaunch={launchGame}
         onToggleFavourite={toggleFavourite}
-        onBack={() => back()}
+        onBack={() => back({ toParent: true })}
         {...soundProps}
       />
     );
