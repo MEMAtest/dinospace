@@ -2,6 +2,9 @@ import { MONSTER_MATH_EPISODES, MONSTER_QUESTION_POOLS } from './monsterMathEpis
 
 export const MONSTER_MATH_PROGRESS_VERSION = 1;
 export const MONSTER_MATH_PROGRESS_KEY = 'monster_math_progress_v1';
+// App's legacy scaledCelebrate callback converts callback units to awarded
+// stars by dividing by four. Keep the Monster Math run rating and award equal.
+export const monsterMathRewardCallbackUnits = (stars) => stars * 4;
 const keyFor = (playerId) => `${playerId || 'amari'}_${MONSTER_MATH_PROGRESS_KEY}`;
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 const browserStorage = () => typeof window === 'undefined' ? null : window.localStorage;
