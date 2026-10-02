@@ -67,9 +67,17 @@ test('twenty-space ten-frame shows both groups correctly when the first addend i
   assert.equal(question.answer, 13);
 });
 
-test('singular count, story, counter, and number-line text uses singular nouns and verbs', () => {
+test('count questions ask children to count without disclosing quantity', () => {
+  for (const question of MONSTER_QUESTION_POOLS[0]) {
+    assert.match(question.prompt, /^How many .+ can you see\?$/);
+    assert.doesNotMatch(question.prompt, /\b(?:one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b/i);
+    assert.equal(question.model.count, question.answer);
+  }
+});
+
+test('singular story, counter, explanation and number-line text uses singular nouns and verbs', () => {
   const oneStar = MONSTER_QUESTION_POOLS[0].find((item) => item.id === 'count:stars:1');
-  assert.equal(oneStar.prompt, 'Can you see one star?');
+  assert.equal(oneStar.prompt, 'How many stars can you see?');
   assert.equal(oneStar.explanation, 'There is 1 star.');
   assert.equal(monsterCountResultText(1), 'There is 1 counter.');
   assert.equal(monsterCountResultText(10), 'There are 10 counters.');

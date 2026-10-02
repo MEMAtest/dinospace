@@ -47,7 +47,7 @@ const createCountPool = () => COUNT_OBJECTS.flatMap((object) => Array.from({ len
     id: `count:${object.id}:${answer}`,
     kind: 'count',
     answer,
-    prompt: answer === 1 ? `Can you see one ${object.one}?` : `How many ${object.many} can you see?`,
+    prompt: `How many ${object.many} can you see?`,
     clue: 'Touch or point to each picture once. Keep a steady count.',
     explanation: `There ${answer === 1 ? 'is' : 'are'} ${answer} ${answer === 1 ? object.one : object.many}.`,
     model: { type: 'count', count: answer, emoji: object.emoji },

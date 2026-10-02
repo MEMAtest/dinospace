@@ -16,14 +16,14 @@ All fixed Batch 2 game lines use packaged-only lookup while assets are missing, 
 
 Command: `node scripts/generate-batch1-offline-voices.mjs --batch2-only --dry-run --max-calls=20`
 
-Current result: 1,371 unique requested narration lines; 206 already have physical clips; 1,165 are pending. Per-game inventory:
+Current result: 1,359 unique requested narration lines; 206 already have physical clips; 1,153 are pending. Per-game inventory:
 
 | Game | Ready | Pending | Total |
 | --- | ---: | ---: | ---: |
 | Puzzle Pop | 16 | 57 | 73 |
 | Spot the Difference | 0 | 55 | 55 |
 | Sky Shapes | 0 | 39 | 39 |
-| Monster Math | 190 | 1,014 | 1,204 |
+| Monster Math | 190 | 1,002 | 1,192 |
 
 Most reused Monster segments (usage across all question prompts, clues, retries, and explanations): `Try again.` (3,316); the two story clues (3,040 and 2,592); `How many are left?` (1,520); `Now there are` (1,296); each character's `… gives` scaffold (380); each character's `… has` scaffold (352); and the quantity phrase `1 more.` (192). The fixed count and operation clues remain complete sentences. Exact Sky accuracy stays visible in completion feedback; narration uses a mission-specific completion line. The Monster question pool remains fully varied. No assets were generated in this task.
 
@@ -35,5 +35,9 @@ Release readiness command: `node scripts/generate-batch1-offline-voices.mjs --ba
 
 - `npm test`: 150/150 passed, including exact text reassembly for every Monster prompt, clue, retry, and explanation, generator dry run, and packaged-sequence fail-closed tests.
 - No browser speech fallback remains in Puzzle Pop.
-- No API/provider requests, asset generation, deployment, or commit were made.
-- Production narration remains dependent on completing the 1,165 pending packaged clips. Until then, missing fixed Batch 2 lines intentionally stay silent; visible prompts and explanations remain available. This is an explicit audio release blocker, followed by prosody and mobile playback QA.
+- No API/provider requests or asset generation were made during preparation. The narration source is committed but remains unreleased.
+- Production narration remains dependent on completing the 1,153 pending packaged clips. Until then, missing fixed Batch 2 lines intentionally stay silent; visible prompts and explanations remain available. This is an explicit audio release blocker, followed by prosody and mobile playback QA.
+
+## Counting prompt correction
+
+The one-object counting prompt previously disclosed the answer (“Can you see one star?”). Every count now asks “How many … can you see?”; singular grammar is retained in the post-answer explanation. A pool-wide check verifies all 120 counting prompts omit quantity words and digits. Removing the 12 redundant answer-revealing clips reduces the pending inventory to 1,153 without changing the 3,316-question pool. Focused maths/corpus tests: 14/14, ESLint passed. This correction is local source, not current production.
