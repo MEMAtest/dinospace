@@ -4,9 +4,9 @@ export const GAME_DIAGNOSTICS_KEY = 'amari_game_diagnostics_v1';
 export const GAME_LIFECYCLE_DIAGNOSTICS_KEY = 'amari_game_lifecycle_diagnostics_v1';
 const LIMIT = 300;
 const LIFECYCLE_LIMIT = 100;
-const LIFECYCLE_EVENTS = new Set(['start', 'level_complete', 'replay', 'leave']);
+const LIFECYCLE_EVENTS = new Set(['start', 'level_complete', 'level_completed', 'replay', 'leave']);
 const identifier = (value) => typeof value === 'string' && /^[a-zA-Z0-9:_-]{1,100}$/.test(value) ? value : undefined;
-const HINT_TYPES = new Set(['prompt', 'question', 'clue', 'explanation', 'lesson', 'instructions', 'feedback', 'observation', 'vocabulary', 'word_help', 'audio_help', 'replay_clue']);
+const HINT_TYPES = new Set(['prompt', 'question', 'clue', 'explanation', 'lesson', 'instructions', 'feedback', 'observation', 'vocabulary', 'word_help', 'audio_help', 'replay_clue', 'next_piece', 'magnifier']);
 
 const sanitizedEntry = (game, event, data, at) => {
   if (!identifier(game) || !identifier(event)) return null;
