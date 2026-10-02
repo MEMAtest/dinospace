@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { getOfflineVoiceClip } from './data/offlineVoice.js';
 import { getGameSoundCue, selectGameSoundCue } from './data/gameSounds.js';
+import { chooseVoiceSource, createVoiceProviderCooldown } from './data/voiceProviderCooldown.js';
+
+// Shared for this loaded app session so many missing custom clips cannot
+// repeatedly hit the provider after it has asked us to slow down.
+const voiceProviderCooldown = createVoiceProviderCooldown();
 
 let hadUserGesture = false;
 if (typeof window !== 'undefined') {
@@ -333,7 +338,16 @@ export const useVoice = (enabled) => {
     };
 
     const offlineClipUrl = getOfflineVoiceClip(text, lang);
-    if (offlineClipUrl) {
+    const cachedAudio = premiumCacheRef.current.get(cacheKey);
+    const voiceSource = chooseVoiceSource({
+      packagedClip: offlineClipUrl,
+      premiumRequested: premium,
+      dynamicAvailable: canUsePremium,
+      cachedAudio,
+      coolingDown: voiceProviderCooldown.isCoolingDown(),
+    });
+
+    if (voiceSource === 'packaged') {
       setPremiumStatus('loading');
       // Play from the packaged URL during the same tap that requested it.
       // Fetching into a Blob first can lose mobile/Fire WebView user activation
@@ -366,20 +380,14 @@ export const useVoice = (enabled) => {
       return;
     }
 
-    if (!premium) {
-      setPremiumStatus('unavailable');
-      return;
-    }
-
-    if (!canUsePremium) {
+    if (voiceSource === 'unavailable' || voiceSource === 'cooldown') {
       // Dynamic narration still needs the service. Fixed welcome and game
       // prompts above remain available from the bundled ElevenLabs clips.
       setPremiumStatus('unavailable');
       return;
     }
 
-    const cachedAudio = premiumCacheRef.current.get(cacheKey);
-    if (cachedAudio) {
+    if (voiceSource === 'cache') {
       setPremiumStatus('ready');
       playPremiumAudio(cachedAudio);
       return;
@@ -396,13 +404,28 @@ export const useVoice = (enabled) => {
       signal: controller.signal,
     })
       .then(async (response) => {
-        if (response.status === 204) return null;
+        if (response.status === 204) {
+          voiceProviderCooldown.recordFailure({
+            status: response.status,
+            retryAfter: response.headers.get('retry-after'),
+          });
+          return null;
+        }
+        if (!response.ok) {
+          voiceProviderCooldown.recordFailure({
+            status: response.status,
+            retryAfter: response.headers.get('retry-after'),
+          });
+          throw new Error(`Voice request failed (${response.status})`);
+        }
         if (response.headers.get('x-amari-voice-provider') !== 'elevenlabs') {
           throw new Error('Voice provider could not be verified');
         }
-        if (!response.ok) throw new Error(`Voice request failed (${response.status})`);
         const audioBlob = await response.blob();
-        if (!audioBlob.size) throw new Error('Voice request returned no audio');
+        if (!audioBlob.size) {
+          voiceProviderCooldown.recordFailure({ status: 204 });
+          throw new Error('Voice request returned no audio');
+        }
         return audioBlob;
       })
       .then((audioBlob) => {
@@ -410,6 +433,7 @@ export const useVoice = (enabled) => {
         if (!audioBlob) {
           premiumRequestRef.current = null;
           premiumRequestKeyRef.current = null;
+          voiceProviderCooldown.recordFailure({ status: 204 });
           handlePremiumFailure();
           return;
         }
@@ -424,6 +448,9 @@ export const useVoice = (enabled) => {
       })
       .catch((error) => {
         if (error?.name === 'AbortError') return;
+        if (error instanceof TypeError || error?.name === 'NetworkError') {
+          voiceProviderCooldown.recordFailure({ status: 0 });
+        }
         premiumRequestRef.current = null;
         premiumRequestKeyRef.current = null;
         handlePremiumFailure();

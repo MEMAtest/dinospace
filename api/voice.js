@@ -24,7 +24,7 @@ const applyCors = (request, response) => {
     response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     // The browser verifies that dynamic audio came from ElevenLabs. Expose
     // the provenance headers to cross-origin web and Android clients.
-    response.setHeader('Access-Control-Expose-Headers', 'X-Amari-Voice-Provider, X-Amari-Voice-Model, X-Amari-Voice-Profile');
+    response.setHeader('Access-Control-Expose-Headers', 'X-Amari-Voice-Provider, X-Amari-Voice-Model, X-Amari-Voice-Profile, Retry-After');
   }
 };
 
@@ -96,6 +96,9 @@ export default async function handler(request, response) {
 
   const clientId = getClientId(request);
   if (!canGenerateVoice(clientId)) {
+    const bucket = requestBuckets.get(clientId);
+    const remainingMs = Math.max(1, RATE_LIMIT_WINDOW_MS - (Date.now() - bucket.startedAt));
+    response.setHeader('Retry-After', String(Math.ceil(remainingMs / 1000)));
     respondJson(response, 429, { error: 'Please try the voice again shortly' });
     return;
   }
