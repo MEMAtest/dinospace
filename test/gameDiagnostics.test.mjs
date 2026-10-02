@@ -26,19 +26,30 @@ test('run milestones retain seeds after frequent gameplay evicts the recent-even
   const storage = { getItem: (key) => values.get(key), setItem: (key, value) => values.set(key, value) };
   recordGameDiagnostic('puzzle', 'start', { seed: 123, level: 2, childName: 'private' }, storage);
   for (let round = 0; round < 350; round += 1) recordGameDiagnostic('puzzle', 'answer_correct', { round, seed: 123 }, storage);
-  recordGameDiagnostic('puzzle', 'level_complete', { seed: 123, level: 2 }, storage);
+  recordGameDiagnostic('puzzle', 'level_completed', { seed: 123, level: 2 }, storage);
   const exported = readGameDiagnostics(storage);
   assert.equal(exported.events.length, 300);
   assert.equal(exported.events.some((event) => event.event === 'start'), false);
   assert.deepEqual(exported.runMilestones.map(({ event, seed }) => ({ event, seed })), [
-    { event: 'start', seed: 123 }, { event: 'level_complete', seed: 123 },
+    { event: 'start', seed: 123 }, { event: 'level_completed', seed: 123 },
   ]);
   assert.equal(JSON.stringify(exported).includes('private'), false);
+  recordGameDiagnostic('jet', 'level_complete', { seed: 456, level: 0 }, storage);
+  assert.equal(readGameDiagnostics(storage).runMilestones.at(-1).event, 'level_complete');
   for (let seed = 0; seed < 105; seed += 1) recordGameDiagnostic('jet', 'start', { seed }, storage);
   const bounded = readGameDiagnostics(storage);
   assert.equal(bounded.runMilestones.length, 100);
   assert.equal(bounded.runMilestones[0].seed, 5);
   assert.equal(bounded.runMilestones.at(-1).seed, 104);
+});
+
+test('Puzzle and Spot hint types retain only their authored enum identifiers', () => {
+  const values = new Map();
+  const storage = { getItem: (key) => values.get(key), setItem: (key, value) => values.set(key, value) };
+  recordGameDiagnostic('puzzle', 'hint', { hintType: 'next_piece', prompt: 'private' }, storage);
+  recordGameDiagnostic('spot', 'hint', { hintType: 'magnifier', target: 'private' }, storage);
+  assert.deepEqual(readGameDiagnostics(storage).events.map(({ hintType }) => hintType), ['next_piece', 'magnifier']);
+  assert.equal(JSON.stringify(readGameDiagnostics(storage)).includes('private'), false);
 });
 
 test('exports sanitize legacy storage and tolerate missing or damaged milestone data', () => {
