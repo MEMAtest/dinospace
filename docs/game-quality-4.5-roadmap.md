@@ -6,12 +6,18 @@ This is the implementation contract for raising all 26 Amari games to a tested 4
 
 - **Age 6+:** one skill at a time, short concrete language, spoken prompt with replay, gentle error guidance, and tap targets at least 48px. Do not reveal the answer before the child can use a hint.
 - **Stable run:** choose difficulty, round queue, and question count at Start. Evidence from a correct answer may affect the next run, never restart or reorder the current run.
-- **Fair randomisation:** shuffle questions and distractor positions independently; use a seeded per-run queue with an eight-item no-repeat window across restarts; validate one defensible answer and balanced answer positions.
-- **Real progression:** at least three named bands, each with 5–8 purposeful rounds or a comparable board/scene objective. A new level must change the skill, content, or play mechanic, not only the number range. Show unlock, replay, and reward state clearly.
+- **Fair randomisation:** shuffle questions and distractor positions independently; use a seeded per-run queue and avoid the last eight eligible items across restarts where the pool permits. Never repeat within a run before pool exhaustion; after exhaustion reshuffle and avoid an immediate boundary repeat where possible. Validate one defensible answer and balanced answer positions. A taught-concept review scheduled in a later run is an explicit exception, not accidental repetition.
+- **Real progression:** at least three named bands, each with 5–8 purposeful rounds or an explicitly named comparable reading, board, or discovery route. A new level must change the skill, content, or play mechanic, not only the number range. Show unlock, replay, and reward state clearly.
 - **Useful feedback:** explain why an answer is right; keep an illustrated fact or explanation visible until the child advances. Wrong-answer guidance points to a usable clue without shaming.
 - **Navigation:** Back returns to the exact parent world; restart/replay are available; 390px mobile has no clipped controls or unexplained horizontal scroll. Every carousel has an obvious swipe or next/previous cue.
 - **Events:** record start, question/scene, answer, hint, level complete, replay, and leave with game, level, and seed. Never log prompt text or child data.
-- **Evidence gate:** three seeded desktop and three mobile runs per game; test correct and wrong answers, hints, audio, level/reward progression, restart, leave/back, and randomized restart uniqueness. Check asset/network errors and console. Capture start, feedback, and completion evidence.
+- **Evidence gate:** three seeded desktop and three mobile runs per game, collectively covering every required band and mechanic at both widths. Games with more than three stages need enough additional runs to cover the extra stages. Seeds come from ordinary UI starts and sanitized diagnostic exports; do not inject PRNG, answers, unlocks, or progress. Test correct and wrong answers, hints, audio, level/reward progression, restart, leave/back, and randomized restart uniqueness. Check asset/network errors and console. Capture start, feedback, and completion evidence. Bind production evidence to canonical URL, deployed SHA and rendered asset identity. Local/preview checks remain candidate evidence. Later narrow changes may use a retained full baseline plus explicit regression deltas; explain that lineage rather than counting old runs as new.
+
+## Scoring and evidence provenance — clarified 3 October 2026
+
+An independent editor scores five equally weighted dimensions from 0–5: age-6 teaching; meaningful progression; correctness and fair variation; feedback/audio/visual usability; and reliability/navigation/persistence. Acceptance requires an average of at least 4.5, no dimension below 4, and all mandatory game-specific and shared gates passed. Missing production gameplay evidence means **not accepted**, not an invented numeric score. A reviewer must give reasons and evidence for each dimension.
+
+Keep three separate fields in each batch scorecard: historical review baseline; published editorial acceptance and its tested release lineage; fresh canonical production verification and its scope. The existing Batch 1 verdict below is its recorded acceptance, not a new full retest under these clarifications. Health samples do not re-certify it. The last batch contains two games because the catalog has exactly 26.
 
 ## Current acceptance status — 2 October 2026
 
@@ -32,7 +38,7 @@ This is the implementation contract for raising all 26 Amari games to a tested 4
 
 | Game | Last score | Work required for 4.5/5 | Acceptance evidence |
 |---|---:|---|---|
-| Puzzle Pop | 2.5/5 | Add 12 illustrated scenes over three chapters; increase board sizes from 2×2 through 5×5; add picture preview, gentle edge/next-piece hint, scene fact, and unlock/replay flow. | Three scenes per chapter; valid shuffled trays; touch/keyboard play; distinct restart order; mobile completion and next-scene unlock. |
+| Puzzle Pop | 2.5/5 | Add 12 illustrated scenes over three chapters; increase board sizes from 2×2 through 5×5; add picture preview, gentle edge/next-piece hint, scene fact, and unlock/replay flow. | All 12 scenes, four per chapter, have valid art/facts and solvable shuffled trays; touch/keyboard play; distinct restart order; mobile completion and next-scene unlock. |
 | Spot the Difference | 2.5/5 | Add 12 paired scenes; progress from 3 to 5 to 7 differences; add magnifier/hint tokens, clear found counter, completion reveal, and a scene fact. | Hotspots at least 48px on mobile; shuffled scene/target order; gentle missed-tap feedback; find, reveal, next, restart, and back all work. |
 | Sky Shapes | 3/5 | Add 12 flight missions over three skies; grow from simple to compound outlines; give start dots, path tolerance feedback, accuracy stars, and a saved chapter blueprint/sticker. | Touch, mouse, and keyboard alternatives; seeded mission queue without immediate repeat; accurate route feedback and chapter reward. |
 | Monster Math | 3/5 | Build three visual episodes: count to 10, add/subtract to 20, then short word problems. Model each operation with counters, ten frames, or a number line and animate the result. | Every generated prompt/model/result agree; distractors valid; six unique questions per run; next episode unlock/replay works. |
@@ -83,3 +89,36 @@ This is the implementation contract for raising all 26 Amari games to a tested 4
 ## Delivery order
 
 Implement one four-game batch at a time. Run meaningful unit checks, production-candidate Playwright at desktop and 390px, and visual review before moving to the next batch. Record per-game status as **not started**, **in progress**, **verified 4.5**, or **blocked by missing external data/infrastructure**; preserve stale review scores as historical until rerun.
+
+## Concrete editorial checks for every game
+
+These clarify the rows above. They are acceptance instructions, not claims of completed implementation.
+
+| Game | Required learning and verification details |
+|---|---|
+| Curriculum Quest | Cover all three modules and their three bands; cross the adaptive threshold without restarting; inspect five geography facts, history/science explanations, named rewards and the Time Teller link/return. Apply the finite-pool rule. |
+| Storybook Studio | Comparable route is supported reading → vocabulary → three-step comprehension. Inspect all seven titles/assets, narration, resume and an explicit backup/restore round trip; separate newly added books from recovered legacy books. |
+| Letter Launch | Cover all four stages, taught-grapheme validation and 12+ eligible sets, visible launch animation, four chapter badges and profile separation. |
+| German Garage | Cover all three core bays and every optional practice tab; check bilingual explanations, German replay, pool exhaustion and child-controlled feedback advance. |
+| Puzzle Pop | Cover four scenes in each of three chapters, preview/hint/fact, all board sizes, solvable shuffled pieces and touch plus keyboard completion. |
+| Spot the Difference | Cover 12 pairs over three bands with exactly 3/5/7 genuine differences; check independently reachable mobile targets, missed taps, clue limits, scene facts and attempt diagnostics. |
+| Sky Shapes | Simple outlines → compound routes → precision/ordered parts; cover 12 missions, route explanation, scoring, pointer interruption, touch/mouse/keyboard and saved accuracy rewards. |
+| Monster Math | Count → add/take away → story problems. Episode labels/session metadata must match; inspect counters, ten frames and number lines against every generated answer, unique options and exact reload star totals. |
+| Count the Stars | One-to-one → grouped → tens/ones counting, beyond larger ranges alone. Validate 15 scenes, totals to 20, no decorative extra counted objects, marked taps and saved constellations. |
+| Letter Trace | Stroke order → letter case → CVC transfer, eight eligible letters per band. Reject reversed strokes/random scribbles while accepting valid child strokes at both widths; verify mastery, hints and input alternatives. |
+| Cosmic Tic-Tac-Toe | Make a line → block → guided fork. Explain the two possible winning lines; validate legal bot moves/terminal stops, draws and losses as recoverable outcomes, hints and saved mission rewards. |
+| Dino Detective | Group 12 worlds into three hiding/clue strategies; verify every world fact/sticker, five reachable finds, safe varied placement and completion-only unlock. |
+| Addition Adventure | Groups → bonds → story chapters; state band bounds in data/session labels and validate each depicted group, sum and held worked explanation. |
+| Subtraction Station | Removal → comparison → stories. Explain comparison separately from taking away; validate models and reject unintended negative results. |
+| Time Teller | Include o’clock, half/quarter past and quarter to, hand setting and routines. Explain daily-time ambiguity and verify the exact parent route after entry from Curriculum. |
+| Number Line Jump | Forward/back hops → missing numbers → comparison; equation, visible hops and landing agree, with keyboard/touch controls and durable explanation. |
+| Sound Safari | Listening → blending → segmenting; document taught phonemes and minimal-pair recordings; picture clues must not reveal a listening answer prematurely. |
+| Spelling Studio | Copy → missing sound → independent assembly; 20+ taught decodable words per band, all required tiles including repeated letters, shuffled layout and saved collection. |
+| Colour Mixing Lab | Specify a consistent pigment model and proportions. Mix → shade/lightness → colour hunt; recipes/results/explanations agree and controls convey meaning beyond colour alone. |
+| Odd One Out | State the intended property before selection; validate odd item and simple “because” answer, excluding defensible alternative rules in decoys. |
+| Pattern Parade | AB/AAB/ABB/ABC/growing patterns have enough visible terms for one rule. A signature means the full pattern content, not merely AB; apply finite-pool exceptions. |
+| Dino Hangman | Decodable families → picture-supported clues → independent rescue; document eligible words, gentle failure/retry and durable dino-fact rewards. |
+| Chess Explorers | Movement → safe capture → mini-puzzle; name the simplified rules taught and one objective per puzzle. Accept legal destinations without ambiguous unexplained “best move” scoring. |
+| Astronaut Academy | Observe → explain → design mission objectives; six purposeful missions per route, durable science facts, later-run review of missed concepts and a clear badge map. |
+| Memory Match | Preserve 4→8→10→12→13 pairs; teach scan/group/recall strategies as boards grow. Check pair integrity, distinct layouts, no level-5 regression, later-run adaptation and persisted stickers. |
+| Solar System | Comparable discovery → compare → challenge route across eight planets plus Pluto, a dwarf planet. Verify all nine destinations, mobile strip cues, seeded missions and saved discovery passport. |

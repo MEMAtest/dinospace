@@ -74,6 +74,14 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
 
 export const SPOT_DIFFERENCE_PROGRESS_KEY = 'amari_spot_difference_batch2_v1';
 
+export const spotAnswerAttemptDetail = ({ level, round, seed, correct, hadMistake }) => ({
+  level,
+  round,
+  seed,
+  correct,
+  firstAttempt: !hadMistake,
+});
+
 export const spotDifferenceRandomFor = (seed) => {
   let state = (Number(seed) >>> 0) || 1;
   return () => {

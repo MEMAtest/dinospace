@@ -9,6 +9,7 @@ import {
   getSpotDifferenceLastQueue,
   getSpotDifferenceProgress,
   saveSpotDifferenceQueue,
+  spotAnswerAttemptDetail,
   SPOT_DIFFERENCE_CHAPTERS,
   SPOT_DIFFERENCE_SCENES,
 } from '../../data/spotDifferenceBatch2.js';
@@ -120,7 +121,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     setWrongTapCount((value) => value + 1);
     setWrongTap(true);
     setFeedback('Not that spot yet. Compare the same area in Picture A.');
-    onGameEvent?.('spot', 'answer_attempt', { level: chapterIndex, round: sceneIndex + 1, seed, correct: false, firstAttempt: false });
+    onGameEvent?.('spot', 'answer_attempt', spotAnswerAttemptDetail({ level: chapterIndex, round: sceneIndex + 1, seed, correct: false, hadMistake }));
     playSfx('oops');
     if (wrongTimer.current) clearTimeout(wrongTimer.current);
     wrongTimer.current = window.setTimeout(() => setWrongTap(false), 450);

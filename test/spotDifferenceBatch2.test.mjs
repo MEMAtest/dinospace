@@ -7,6 +7,7 @@ import {
   SPOT_DIFFERENCE_CHAPTERS,
   SPOT_DIFFERENCE_PROGRESS_KEY,
   SPOT_DIFFERENCE_SCENES,
+  spotAnswerAttemptDetail,
 } from '../src/data/spotDifferenceBatch2.js';
 
 const memoryStorage = () => {
@@ -55,4 +56,13 @@ test('Spot chapter progress is child-scoped and only advances after four complet
   const corrupt = memoryStorage();
   corrupt.setItem(SPOT_DIFFERENCE_PROGRESS_KEY, 'bad json');
   assert.equal(getSpotDifferenceProgress('Amari', corrupt).unlockedChapter, 0);
+});
+
+test('Spot attempt diagnostics distinguish a first wrong tap from a retry', () => {
+  assert.deepEqual(spotAnswerAttemptDetail({ level: 1, round: 2, seed: 42, correct: false, hadMistake: false }), {
+    level: 1, round: 2, seed: 42, correct: false, firstAttempt: true,
+  });
+  assert.deepEqual(spotAnswerAttemptDetail({ level: 1, round: 2, seed: 42, correct: false, hadMistake: true }), {
+    level: 1, round: 2, seed: 42, correct: false, firstAttempt: false,
+  });
 });
