@@ -1,12 +1,12 @@
 // Defines the event that completes a named level. Games with their own board
-// progression (Memory Match, Puzzle Pop) and menus stay outside this wrapper.
+// progression (Memory Match, Puzzle Pop, Sky Shapes, Monster Math and
+// Spot the Difference) and menus stay outside this wrapper.
 export const GAME_SESSIONS = Object.freeze({
   addition: { event: 'answer_correct', target: 8, how: 'Add the two groups together.' },
   subtraction: { event: 'answer_correct', target: 8, how: 'Take some away. How many are left?' },
   counting: { event: 'answer_correct', target: 8, little: 5, how: 'Tap each one, then pick how many.' },
   numberline: { event: 'answer_correct', target: 8, how: 'Jump along the line to the answer.' },
   timeteller: { event: 'answer_correct', target: 8, how: 'Read the clock and pick the time.' },
-  math: { event: 'answer_correct', target: 8, how: 'Solve the sum and watch the truck jump.' },
   oddoneout: { event: 'answer_correct', target: 6, how: 'Find the one that does not belong.' },
   letters: { event: 'answer_correct', target: 8, how: 'Find the letter you hear.' },
   phonics: { event: 'answer_correct', target: 8, how: 'Match the sounds.' },
@@ -15,11 +15,9 @@ export const GAME_SESSIONS = Object.freeze({
   pattern: { event: 'answer_correct', target: 8, little: 5, how: 'What comes next in the pattern?' },
   words: { event: 'answer_correct', target: 6, how: 'Build the word with the sounds.' },
   trace: { event: 'answer_correct', target: 4, how: 'Trace the letter with your finger.' },
-  jet: { event: 'answer_correct', target: 3, how: 'Fly the jet around the shape.' },
   hangman: { event: 'word_completed', target: 5, how: 'Guess the letters to rescue the word.' },
   tictactoe: { event: 'round_completed', target: 3, how: 'Get three in a row to win the round.' },
   dino: { event: 'level_completed', target: 1, how: 'Tap the leaves to find the hidden dinosaurs.' },
-  spot: { event: 'level_completed', target: 1, how: 'Find what changed in the second picture.' },
 });
 
 export const sessionTarget = (rule, little) => (little && rule.little ? rule.little : rule.target);
