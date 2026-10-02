@@ -251,6 +251,10 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
       return;
     }
     event.preventDefault();
+    // Preventing the pointer default also suppresses the browser's normal
+    // focus transfer to this SVG. Keep keyboard tracing usable after a child
+    // clicks the green start dot.
+    event.currentTarget.focus({ preventScroll: true });
     event.currentTarget.setPointerCapture?.(event.pointerId);
     pointerRef.current = { id: event.pointerId, drawing: true };
     routeStartedRef.current = true;
@@ -361,7 +365,6 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     if (phase === 'play' && Number.isSafeInteger(runSeed)) {
       onGameEvent?.('jet', 'leave', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band });
     }
-    setPhase('done');
     onBack?.();
   };
 

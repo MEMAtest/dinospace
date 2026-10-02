@@ -44,13 +44,16 @@ test('Sky Shapes progress reaches 100 percent when the final route point is acce
 
 test('Sky Shapes queues are seed-stable, varied, and unique within each sky run', () => {
   for (let episodeIndex = 0; episodeIndex < 3; episodeIndex += 1) {
+    const missionIdsForEpisode = new Set(SKY_SHAPE_EPISODES[episodeIndex].missions.map((mission) => mission.id));
     const queueA = skyMissionQueueForEpisode(episodeIndex, 71234);
     const queueB = skyMissionQueueForEpisode(episodeIndex, 71234);
     assert.deepEqual(queueA.map((mission) => mission.id), queueB.map((mission) => mission.id));
     assert.equal(queueA.length, 4);
     assert.equal(new Set(queueA.map((mission) => mission.id)).size, 4);
+    assert.equal(queueA.every((mission) => missionIdsForEpisode.has(mission.id)), true, `${SKY_SHAPE_EPISODES[episodeIndex].title} cannot contain another sky's missions`);
     const queueC = skyMissionQueueForEpisode(episodeIndex, 71235);
     assert.notDeepEqual(queueA.map((mission) => mission.id), queueC.map((mission) => mission.id));
+    assert.equal(queueC.every((mission) => missionIdsForEpisode.has(mission.id)), true, `${SKY_SHAPE_EPISODES[episodeIndex].title} remains band-scoped across seeds`);
   }
   assert.equal(skyAccuracyStars(100), 3);
   assert.equal(skyAccuracyStars(90), 2);

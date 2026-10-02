@@ -237,7 +237,6 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
 
   const leaveGame = () => {
     if (phase === 'play' && Number.isSafeInteger(runSeed)) onGameEvent?.('math', 'leave', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band });
-    setPhase('done');
     onBack?.();
   };
 
