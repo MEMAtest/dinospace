@@ -5,7 +5,7 @@ import {
   monsterCountResultText, monsterCounterPhrase, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation,
 } from '../src/data/monsterMathEpisodes.js';
 import {
-  getMonsterMathProgress, recordMonsterEpisodeCompletion, rememberMonsterMathRun, recentMonsterQuestionIds,
+  getMonsterMathProgress, monsterMathRewardCallbackUnits, recordMonsterEpisodeCompletion, rememberMonsterMathRun, recentMonsterQuestionIds,
 } from '../src/data/monsterMathProgress.js';
 
 const memoryStorage = () => {
@@ -126,4 +126,16 @@ test('episode completion saves best stars and unlocks the next episode per child
   assert.equal(recordMonsterEpisodeCompletion('amari', 0, 4, firstRun.map((question) => question.id), storage), null);
   const repeatRun = createMonsterMathRun({ episodeIndex: 0, seed: 8, recentQuestionIds: recentMonsterQuestionIds('amari', 0, storage) });
   assert.equal(repeatRun.some((question) => firstRun.some((previous) => previous.id === question.id)), false);
+});
+
+test('Monster Math reward callback awards exactly the run stars saved to progress', () => {
+  const storage = memoryStorage();
+  const questions = createMonsterMathRun({ episodeIndex: 0, seed: 90 });
+  for (const runStars of [1, 2, 3]) {
+    const completion = recordMonsterEpisodeCompletion('amari', 0, runStars, questions.map((question) => question.id), storage);
+    assert.equal(completion.progress.bestStars['count-garden'], runStars);
+    // App's scaledCelebrate maps these legacy callback units back to total stars.
+    const awardedStars = Math.max(1, Math.round(monsterMathRewardCallbackUnits(runStars) / 4));
+    assert.equal(awardedStars, runStars);
+  }
 });
