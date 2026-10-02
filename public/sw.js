@@ -1,7 +1,7 @@
 // Bump this whenever the app shell changes.  It prevents an installed tablet
 // from continuing to serve an older JavaScript bundle after a production UI
 // release (for example, the story-maker progress screen).
-const CACHE_NAME = 'amari-discovery-v13';
+const CACHE_NAME = 'amari-discovery-v14';
 const PRECACHE_ASSETS = []; // __PRECACHE_ASSETS__
 const CORE_APP_SHELL = [
   '/',
