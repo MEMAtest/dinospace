@@ -50,6 +50,7 @@ const runGenerator = () => new Promise((resolveRun) => {
 });
 
 let cooldownRetries = 0;
+let lastSummary = null;
 try {
   await log('started', { maxRuns, maxCooldownRetries, requestLimit, requestWindowMinutes: 10, logPath, statusPath });
   await updateStatus('running', { run: 0, cooldownRetries, lastResult: null });
@@ -62,7 +63,7 @@ try {
       if (cooldownRetries >= maxCooldownRetries) throw new Error('Maximum recorded cooldown waits reached; stopping safely.');
       cooldownRetries += 1;
       await log('waiting_recorded_cooldown', { waitSeconds: Math.ceil(waitMs / 1000), cooldownRetry: cooldownRetries, cooldownRetriesMax: maxCooldownRetries });
-      await updateStatus('waiting_cooldown', { run: run - 1, cooldownRetries, waitUntil: new Date(now + waitMs).toISOString() });
+      await updateStatus('waiting_cooldown', { run: run - 1, cooldownRetries, waitUntil: new Date(now + waitMs).toISOString(), lastResult: lastSummary });
       await sleep(waitMs);
       journal = await readJournal();
     }
@@ -71,7 +72,7 @@ try {
       const oldestAt = Math.min(...journal.requests.map((request) => request.at));
       const waitMs = Math.max(1000, oldestAt + requestWindowMs - Date.now() + 1000);
       await log('waiting_request_window', { requestsInWindow: journal.requests.length, waitSeconds: Math.ceil(waitMs / 1000) });
-      await updateStatus('waiting_request_window', { run: run - 1, cooldownRetries, waitUntil: new Date(Date.now() + waitMs).toISOString(), requestsInWindow: journal.requests.length });
+      await updateStatus('waiting_request_window', { run: run - 1, cooldownRetries, waitUntil: new Date(Date.now() + waitMs).toISOString(), requestsInWindow: journal.requests.length, lastResult: lastSummary });
       await sleep(waitMs);
       run -= 1;
       continue;
@@ -83,6 +84,13 @@ try {
     const outputLine = result.stdout.trim().split(/\r?\n/).filter(Boolean).at(-1) || '';
     let summary = null;
     try { summary = JSON.parse(outputLine); } catch { /* preserve only redacted status below */ }
+    lastSummary = summary ? {
+      exitCode: result.code,
+      generated: summary.generated,
+      reused: summary.reused,
+      pending: summary.pending,
+      stoppedAt: summary.stoppedAt ?? null,
+    } : { exitCode: result.code, summaryAvailable: false };
     await log('run_finished', {
       run,
       exitCode: result.code,
@@ -92,15 +100,9 @@ try {
       stoppedAt: typeof summary?.stoppedAt === 'string' ? summary.stoppedAt : null,
       stderrPresent: Boolean(result.stderr.trim()),
     });
-    await updateStatus('running', { run, cooldownRetries, lastResult: summary ? {
-      exitCode: result.code,
-      generated: summary.generated,
-      reused: summary.reused,
-      pending: summary.pending,
-      stoppedAt: summary.stoppedAt ?? null,
-    } : { exitCode: result.code, summaryAvailable: false } });
+    await updateStatus('running', { run, cooldownRetries, lastResult: lastSummary });
 
-    if (result.code === 75) continue;
+    if (result.code === 75 && summary?.stoppedAt === '429') continue;
     if (result.code !== 0) throw new Error(`Generator exited ${result.code}; stopping on non-rate-limit failure.`);
     if (!summary || !Number.isInteger(summary.pending)) throw new Error('Generator summary was unavailable; stopping safely.');
     if (summary.pending === 0) {
@@ -115,7 +117,9 @@ try {
     if (run === maxRuns) throw new Error(`Finite run limit ${maxRuns} reached with ${summary.pending} clips pending.`);
   }
 } catch (error) {
-  const message = String(error?.message || error).replace(/https?:\/\/\S+/g, '[redacted-url]').replace(/(?:key|token|secret)=\S+/gi, '$1=[redacted]');
+  const message = String(error?.message || error)
+    .replace(/https?:\/\/\S+/g, '[redacted-url]')
+    .replace(/(?:api[_-]?key|token|secret)\s*[:=]\s*\S+/gi, '[redacted-credential]');
   await log('stopped_error', { message });
   await updateStatus('stopped_error', { error: message, cooldownRetries, stoppedAt: new Date().toISOString() });
   process.exitCode = 1;
