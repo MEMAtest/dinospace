@@ -13,7 +13,6 @@ export const SESSION_LEVELS = Object.freeze({
   counting: three(['Little stars', 'More stars', 'Star explorer'], ['Count up to five.', 'Count up to ten.', 'Count up to fifteen.']),
   numberline: three(['Small jumps', 'Longer jumps', 'Forward and back'], ['Add on a short number line.', 'Add on a longer line.', 'Add and subtract on the line.']),
   timeteller: three(['O’clock', 'Half past', 'Quarter hours'], ['Find whole hours.', 'Find half hours.', 'Find quarter past and quarter to.']),
-  math: three(['Two times', 'More tables', 'Table explorer'], ['Practice the two times table.', 'Try more times tables.', 'Mix the harder table facts.']),
   oddoneout: three(['Spot the difference', 'Look for the rule', 'Tricky groups'], ['Find the obvious odd one.', 'Compare a new set of objects.', 'Work out the trickier rule.']),
   letters: [
     { name: 'Letter sounds', description: 'Listen to a word and find the letter at its start.', band: 'starter', target: 6 },
@@ -27,8 +26,6 @@ export const SESSION_LEVELS = Object.freeze({
   pattern: three(['Simple repeats', 'New pattern rules', 'Pattern detective'], ['Find a repeating pattern.', 'Compare more pattern rules.', 'Solve the advanced pattern.']),
   words: three(['Copy the word', 'Find the missing sound', 'Build the whole word'], ['Put the sounds in order.', 'Complete a word with a missing sound.', 'Spell the word from its sounds.']),
   trace: three(['Follow the letter', 'Steadier tracing', 'Careful letters'], ['Trace a letter with a wide trail.', 'Follow a narrower letter trail.', 'Trace the whole letter carefully.'], [3, 4, 4]),
-  jet: three(['First flight', 'Narrow flight', 'Precision flight'], ['Fly around a forgiving shape.', 'Follow more of the outline.', 'Stay close to the full shape.'], [2, 3, 3]),
-  spot: three(['First differences', 'Closer looking', 'Sharp eyes'], ['Find the easy change.', 'Compare more details.', 'Find the subtle change.'], [1, 1, 1]),
   dino: three(['First tracks', 'Follow the trail', 'Dino detective'], ['Find a hidden dinosaur.', 'Follow more clues.', 'Search the trickier scene.'], [1, 1, 1]),
   hangman: [
     { name: 'First words', description: 'Rescue familiar three-letter words.', target: 3 },
