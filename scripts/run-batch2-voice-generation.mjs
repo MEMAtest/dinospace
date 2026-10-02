@@ -11,6 +11,7 @@ const maxRuns = 200;
 const maxCooldownRetries = 3;
 const requestWindowMs = 10 * 60 * 1000;
 const requestLimit = 30;
+const minimumCallsPerRun = 10;
 const sleep = (ms) => new Promise((resolveDelay) => setTimeout(resolveDelay, ms));
 
 await mkdir(resolve(root, 'tmp'), { recursive: true });
@@ -86,11 +87,15 @@ try {
       journal = await readJournal();
     }
 
-    if (journal.requests.length >= requestLimit) {
-      const oldestAt = Math.min(...journal.requests.map((request) => request.at));
-      const waitMs = Math.max(1000, oldestAt + requestWindowMs - Date.now() + 1000);
-      await log('waiting_request_window', { requestsInWindow: journal.requests.length, waitSeconds: Math.ceil(waitMs / 1000) });
-      await updateStatus('waiting_request_window', { run: run - 1, cooldownRetries, waitUntil: new Date(Date.now() + waitMs).toISOString(), requestsInWindow: journal.requests.length, lastResult: lastSummary });
+    const availableCalls = Math.max(0, requestLimit - journal.requests.length);
+    const minimumBatch = Math.min(minimumCallsPerRun, Number.isInteger(lastSummary?.pending) ? lastSummary.pending : minimumCallsPerRun);
+    if (availableCalls < minimumBatch) {
+      const expiries = journal.requests.map((request) => request.at + requestWindowMs).sort((left, right) => left - right);
+      const expiriesNeeded = minimumBatch - availableCalls;
+      const waitUntil = expiries[expiriesNeeded - 1] + 1000;
+      const waitMs = Math.max(1000, waitUntil - Date.now());
+      await log('waiting_request_window', { requestsInWindow: journal.requests.length, availableCalls, minimumBatch, waitSeconds: Math.ceil(waitMs / 1000) });
+      await updateStatus('waiting_request_window', { run: run - 1, cooldownRetries, waitUntil: new Date(waitUntil).toISOString(), requestsInWindow: journal.requests.length, availableCalls, minimumBatch, lastResult: lastSummary });
       await sleep(waitMs);
       run -= 1;
       continue;
