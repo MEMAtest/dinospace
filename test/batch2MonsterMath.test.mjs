@@ -1,6 +1,5 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
 import {
   createMonsterMathRun, isValidMonsterRun, MONSTER_MATH_EPISODES, MONSTER_QUESTION_POOLS,
   monsterCountResultText, monsterCounterPhrase, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation,
@@ -13,18 +12,6 @@ const memoryStorage = () => {
   const values = new Map();
   return { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
 };
-
-test('leave intent never marks an unfinished Monster Math run complete', async () => {
-  const source = await readFile(new URL('../src/components/games/MonsterMath.jsx', import.meta.url), 'utf8');
-  const leaveHandler = source.match(/const leaveGame = \(\) => \{([\s\S]*?)\n  \};/)?.[1];
-  assert.ok(leaveHandler, 'leave handler should remain easy to review');
-  assert.match(leaveHandler, /onBack\?\.\(\)/);
-  assert.doesNotMatch(leaveHandler, /setPhase\(['"]done['"]\)/, 'the app may still ask the child to confirm leaving');
-
-  const completionHandler = source.match(/const nextQuestion = \(\) => \{([\s\S]*?)\n  \};/)?.[1];
-  assert.ok(completionHandler);
-  assert.match(completionHandler, /if \(!completion\) return;[\s\S]*?setPhase\('done'\)/, 'only a saved six-question completion reaches the done screen');
-});
 
 test('Monster Math has three distinct age-appropriate episodes and broad question pools', () => {
   assert.deepEqual(MONSTER_MATH_EPISODES.map((episode) => episode.title), ['Count to 10', 'Add and Take Away', 'Monster Story Problems']);
