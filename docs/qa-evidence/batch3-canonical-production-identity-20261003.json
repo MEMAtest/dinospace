@@ -47,5 +47,11 @@
     }
   },
   "scope": "Canonical production deployment and static runtime identity verified; independent production control deltas pending. Functional release, not new 4.5 acceptance.",
-  "vercelReadyState": "READY"
+  "vercelReadyState": "READY",
+  "providerGitMetadata": {
+    "gitCommitRef": "codex/quest-game-editor-20260930",
+    "gitCommitSha": "c6791a7a70fc8ee68027b8b39ada9ede2c373c19",
+    "githubCommitSha": "a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4"
+  },
+  "sourceProvenance": "Uploaded clean git archive at sourceSha, explicit githubCommitSha metadata matches. Automatic gitCommitSha refers to the surrounding evidence checkout, not uploaded source; served runtime hashes independently bind artifact."
 }
