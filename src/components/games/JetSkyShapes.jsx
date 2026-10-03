@@ -56,6 +56,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const [pathIndex, setPathIndex] = useState(0);
   const [cursorIndex, setCursorIndex] = useState(0);
   const [completedPaths, setCompletedPaths] = useState([]);
+  const [routeStarted, setRouteStarted] = useState(false);
   const [trails, setTrails] = useState([]);
   const [visitedByPath, setVisitedByPath] = useState([]);
   const [attemptedMoves, setAttemptedMoves] = useState(0);
@@ -134,6 +135,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     setQueue(finalQueue);
     setRoundIndex(0);
     setRunSeed(seed);
+    setRouteStarted(false);
     setEpisodeBadge(false);
     setPhase('play');
     playSfx('launch');
@@ -175,6 +177,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     const previousCursor = cursorRef.current;
     const added = points.slice(previousCursor + (routeStartedRef.current ? 1 : 0), bounded + 1);
     routeStartedRef.current = true;
+    setRouteStarted(true);
     cursorRef.current = bounded;
     pathIndexRef.current = index;
     currentTrailRef.current = points.slice(0, bounded + 1);
@@ -222,6 +225,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
         pathIndexRef.current = nextPath;
         cursorRef.current = 0;
         routeStartedRef.current = false;
+        setRouteStarted(false);
         setPathIndex(nextPath);
         setCursorIndex(0);
         setFeedback(`Nice outline! Start at the next green dot, number ${nextPath + 1}.`);
@@ -278,6 +282,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     event.currentTarget.setPointerCapture?.(event.pointerId);
     pointerRef.current = { id: event.pointerId, drawing: true };
     routeStartedRef.current = true;
+    setRouteStarted(true);
     guidePointMove(point);
   };
 
@@ -334,6 +339,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     if (!mission || !traceReady) return;
     if (roundIndex < queue.length - 1) {
       setRoundIndex((index) => index + 1);
+      setRouteStarted(false);
       setHadHint(false);
       setHadMiss(false);
       return;
@@ -351,6 +357,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     pathIndexRef.current = 0;
     cursorRef.current = 0;
     routeStartedRef.current = false;
+    setRouteStarted(false);
     routeFinishedRef.current = false;
     attemptedMovesRef.current = 0;
     onRouteMovesRef.current = 0;
@@ -500,7 +507,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
                 </g>
               );
             })}
-            <g transform={`translate(${hotPoint[0]} ${hotPoint[1]})`} aria-hidden="true"><circle r="40" fill="rgba(253,230,138,.3)" /><text textAnchor="middle" y="16" fontSize="58">✈️</text></g>
+            {routeStarted && <g transform={`translate(${hotPoint[0]} ${hotPoint[1]})`} aria-hidden="true"><circle r="40" fill="rgba(253,230,138,.3)" /><text textAnchor="middle" y="16" fontSize="58">✈️</text></g>}
           </svg>
           <div className="absolute left-2 top-2 z-20 rounded-full bg-emerald-700/90 px-3 py-1 text-xs font-black text-white sm:left-4 sm:top-4">Numbered circle = Start · Checkered flag = Finish</div>
         </div>
