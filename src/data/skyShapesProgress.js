@@ -2,6 +2,9 @@ import { SKY_SHAPE_EPISODES, SKY_SHAPE_MISSION_BY_ID } from './skyShapes.js';
 
 export const SKY_SHAPES_PROGRESS_VERSION = 1;
 export const SKY_SHAPES_PROGRESS_KEY = 'sky_shapes_progress_v1';
+// App converts these callback units to global stars by dividing by four.
+export const skyRewardCallbackUnits = (stars) => stars * 4;
+export const SKY_CHAPTER_BONUS_STARS = 2;
 const keyFor = (playerId) => `${playerId || 'amari'}_${SKY_SHAPES_PROGRESS_KEY}`;
 const isRecord = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 const browserStorage = () => typeof window === 'undefined' ? null : window.localStorage;
@@ -58,6 +61,7 @@ export const recordSkyMissionCompletion = (playerId, missionId, accuracy, stars,
   const mission = SKY_SHAPE_MISSION_BY_ID[missionId];
   if (!mission || !Number.isFinite(accuracy) || accuracy < 0 || accuracy > 100 || !Number.isInteger(stars) || stars < 1 || stars > 3) return null;
   const progress = getSkyShapesProgress(playerId, storage);
+  const awardedStars = Math.max(0, stars - (progress.bestMissionStars[missionId] || 0));
   const completedMissionIds = progress.completedMissionIds.includes(missionId)
     ? progress.completedMissionIds : [...progress.completedMissionIds, missionId];
   const bestAccuracy = { ...progress.bestAccuracy, [missionId]: Math.max(progress.bestAccuracy[missionId] || 0, accuracy) };
@@ -69,7 +73,7 @@ export const recordSkyMissionCompletion = (playerId, missionId, accuracy, stars,
   const unlockedEpisode = episodeIsComplete ? Math.max(progress.unlockedEpisode, Math.min(SKY_SHAPE_EPISODES.length - 1, mission.episodeIndex + 1)) : progress.unlockedEpisode;
   const next = { ...progress, completedMissionIds, completedEpisodeIds, bestAccuracy, bestMissionStars, unlockedEpisode };
   saveProgress(playerId, next, storage);
-  return { progress: next, episodeComplete: episodeIsComplete, newlyCompletedMission: !progress.completedMissionIds.includes(missionId), bestStars: bestMissionStars[missionId], newlyCompletedEpisode: episodeIsComplete && !wasComplete };
+  return { progress: next, episodeComplete: episodeIsComplete, newlyCompletedMission: !progress.completedMissionIds.includes(missionId), awardedStars, bestStars: bestMissionStars[missionId], newlyCompletedEpisode: episodeIsComplete && !wasComplete };
 };
 
 export const recordSkyEpisodeReward = (playerId, episodeId, stars, storage = browserStorage()) => {
