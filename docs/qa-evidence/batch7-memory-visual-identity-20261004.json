@@ -1,0 +1,54 @@
+{
+  "sourceSha": "44b9807eeec169cc5d48809c8c5a5eff29297c5f",
+  "frozenLocalOrigin": "http://127.0.0.1:5288",
+  "frozenDist": "tmp/batch7-memory-visual-44b9807/dist",
+  "buildEnvironment": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "assets": {
+    "index.html": "3f66703d9b5cc72ab82b5fc5295a64d898a6999647932bf441fdd3d1438e430a",
+    "assets/index-BDBihkyp.js": "9230c9bb68c05af1b50cb612ff844fc40c231db3466d992717a4666f13a44ebc",
+    "assets/index-DjnU_ouj.css": "82f0502380f5be8bc50f3fb50da2db24bfc899e6765dc345cf107458c9473726"
+  },
+  "servedAssetCheck": {
+    "urlCount": 55,
+    "http200": 55,
+    "failures": []
+  },
+  "checks": {
+    "focusedTests": "9 passed: Memory content and Batch 7 progress",
+    "fullLint": "passed",
+    "productionConfigBuild": "passed; existing caniuse-lite age and large chunk warnings only",
+    "mobile390ReducedMotion": "all ten level buttons visible in two rows; each 54x48 CSS pixels; document width equals viewport; reduced motion emulated",
+    "activeBoardMissionOverlay": "mission CTA absent during Memory play; active board remains visible",
+    "browserConsole": "zero errors and warnings",
+    "providerNetwork": "voice and story routes intercepted before navigation; no provider requests escaped"
+  },
+  "artwork": {
+    "uniqueCardTokens": 87,
+    "illustratedTokens": 7,
+    "unillustratedTokens": 80,
+    "inventory": "batch7-memory-art-inventory-20261004.json",
+    "illustratedSemanticNames": [
+      "monkey",
+      "frog",
+      "long-neck dinosaur",
+      "T-rex",
+      "rocket",
+      "fire engine",
+      "car"
+    ],
+    "gate": "open: remaining card faces use emoji and need matching illustrations; this is not premium-art acceptance"
+  },
+  "narration": {
+    "exactAuthoredLines": 183,
+    "packagedLines": 2,
+    "missingLines": 181,
+    "readiness": "incomplete",
+    "inventory": "batch7-memory-voice-inventory-20261004.json",
+    "generation": "none; read-only audit only; Amari calls use premium:false"
+  },
+  "scope": "Builder identity and targeted 390px mobile delta only. Previous independent 10-board gameplay evidence and frozen candidates remain unchanged. Root to run independent candidate review. No deployment, 4.5 score, premium art/audio acceptance, device test, or human listening certification."
+}
