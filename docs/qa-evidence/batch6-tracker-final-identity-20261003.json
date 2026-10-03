@@ -1,0 +1,21 @@
+{
+  "sourceSha": "c8b76e8a868b43490c72ed8a54672c85e01f5bc2",
+  "url": "http://127.0.0.1:5267",
+  "assets": {
+    "sw.js": "a86d57898221f1b760cc2eb191b16b8d5d452a38419708f799fb741bf0fff860",
+    "assets/web-DgnDSH2G.js": "a502f91e735d727286d5ce248dcc0c85fe12318cc9090a559415c5b65b6c8401",
+    "assets/index-B_FHHjkJ.js": "cf7773bb0496a5fa349d6c2275f143da1833c294a5c571fd52aabaab3bf41bc7",
+    "assets/SolarSystem-Dp34f36M.js": "9b8144101059428170e59bfc772c052764bf716d9c6293f07a4e06f15fbfc25c",
+    "assets/index-CZIXwkmD.css": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3"
+  },
+  "checks": {
+    "sourceTests": "unchanged186-test baseline; App render guard-only delta",
+    "lint": "passed",
+    "productionBuild": "passed"
+  },
+  "scope": "Visible clue candidate plus daily tracker suppression for all four chapter games; frozen local candidate only",
+  "limitations": [
+    "Independent mobile overlay delta pending",
+    "Narration, editorial and production acceptance open"
+  ]
+}
