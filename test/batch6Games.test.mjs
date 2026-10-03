@@ -175,7 +175,7 @@ test('Batch 6 storage isolates players and credits only completed best-star delt
 });
 
 // Every authored clue must be playable, including remixed patterns and review missions.
-test('Batch 6 current clues and legal-move feedback are covered by packaged narration', () => {
+test('Batch 6 finite narration allowlist covers current clues and legal-move feedback', () => {
   const clues = [
     ...Object.values(PATTERN_MISSIONS).flat().map(patternClueNarration),
     ...Object.values(CHESS_PUZZLES).flat().map(chessClueNarration),
