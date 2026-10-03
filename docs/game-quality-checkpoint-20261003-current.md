@@ -11,3 +11,7 @@ Updated 2026-10-03T20:40:51.748451+00:00. Goal active: all26 contracts published
 - Batch7 Memory/Solar source40b6ef1 has implemented progression/passport repairs and narrow rootSolar evidence. Full independent gameplay, premium visual, audio and production gates remain pending.
 
 Production canonical remains3cdfc426e91b46a855448690278ceb6590280b68. Local mechanics, preview readiness and native audio events do not replace human listening, editorial scoring or exact production gameplay evidence.
+
+## Deployment retry
+
+Configured archive preview `dinospace-nlyas83zw-memas-projects-23a0001d.vercel.app` failed extracting an invalid temporary QA node_modules symlink. No alias promotion occurred. Root retried from a clean git-archive of exacta6e1e67 plus project metadata, explicitly carrying all three tested Vite build variables. The clean upload is70.4MB; deployment and gameplay acceptance remain pending.
