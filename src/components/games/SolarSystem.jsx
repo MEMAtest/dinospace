@@ -5,6 +5,7 @@ import { ArrowLeft, Pause, Play, Rotate3D, RotateCcw, Sparkles, Volume2, ZoomIn,
 import { PLANETS } from '../../data/index.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { readDiscoveryPassport, saveDiscoveryPassport, seededPlanetOptions } from '../../data/batch7Progress.js';
 
 const PLANET_COLORS = {
   Mercury: 0x8c8c8c,
@@ -519,7 +520,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
   return <div ref={mountRef} className="h-[min(54svh,470px)] min-h-[360px] w-full cursor-grab touch-none active:cursor-grabbing md:h-full md:min-h-0" />;
 });
 
-const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate }) => {
+const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, playerId }) => {
   const difficulty = useGameDifficulty('solar');
   const planetThumbnails = useMemo(() => Object.fromEntries(PLANETS.map((planet) => {
     const texture = makePlanetTexture(planet.name);
@@ -529,11 +530,23 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   })), []);
   const orreryRef = useRef(null);
   const [selectedPlanet, setSelectedPlanet] = useState(PLANETS[2]);
+  const [choiceSeed] = useState(() => crypto.getRandomValues(new Uint32Array(1))[0]);
   const [activeFact, setActiveFact] = useState(0);
-  const [discoveredFacts, setDiscoveredFacts] = useState({});
-  const [badges, setBadges] = useState([]);
-  const [quizFeedback, setQuizFeedback] = useState('');
-  const [completedQuizzes, setCompletedQuizzes] = useState({});
+  const [passport, setPassport] = useState(() => readDiscoveryPassport(playerId, PLANETS));
+  const passportRef = useRef(passport);
+  const discoveredFacts = passport.facts;
+  const completedQuizzes = passport.quizzes;
+  const badges = PLANETS.filter((planet) => planet.facts.every((_, index) => discoveredFacts[`${planet.name}-${index}`])).map((planet) => planet.name);
+  const [saveWarning, setSaveWarning] = useState('');
+  const stripRef = useRef(null);
+  const storePassport = (next) => {
+    const saved = saveDiscoveryPassport(playerId, PLANETS, next);
+    passportRef.current = next;
+    setPassport(next);
+    setSaveWarning(saved ? '' : 'Your discoveries are available for this visit, but could not be saved on this device.');
+    return saved;
+  };
+  const [quizFeedback, setQuizFeedback] = useState(() => passport.quizzes.Earth ? 'Correct — this challenge is already in your passport.' : '');
   const [paused, setPaused] = useState(false);
   const [showViewControls, setShowViewControls] = useState(false);
 
@@ -542,12 +555,12 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     if (!planet) return;
     setSelectedPlanet(planet);
     setActiveFact(0);
-    setQuizFeedback('');
+    setQuizFeedback(completedQuizzes[planet.name] ? 'Correct — this challenge is already in your passport.' : '');
     playSfx('chime');
     speak(`${planet.name}. ${planet.subtitle}. ${planet.mission}`);
     if (focus) orreryRef.current?.focusPlanet(planet.name);
     else orreryRef.current?.resetView();
-  }, [playSfx, speak]);
+  }, [playSfx, speak, completedQuizzes]);
 
   const handleFact = (index) => {
     const fact = selectedPlanet.facts[index];
@@ -556,22 +569,22 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     playSfx('sparkle');
     speak(`Discovery ${index + 1}. ${fact}`);
 
-    if (discoveredFacts[key]) return;
-    setDiscoveredFacts((current) => ({ ...current, [key]: true }));
+    if (passportRef.current.facts[key]) return;
+    const next = { ...passportRef.current, facts: { ...passportRef.current.facts, [key]: true } };
+    storePassport(next);
     const planetCount = selectedPlanet.facts.reduce(
-      (count, _item, factIndex) => count + (discoveredFacts[`${selectedPlanet.name}-${factIndex}`] ? 1 : 0),
+      (count, _item, factIndex) => count + (next.facts[`${selectedPlanet.name}-${factIndex}`] ? 1 : 0),
       0,
-    ) + 1;
+    );
     if (planetCount >= 3 && !badges.includes(selectedPlanet.name)) {
-      setBadges((current) => [...current, selectedPlanet.name]);
       onCelebrate(`${selectedPlanet.name} badge unlocked!`, 10, 50, 'solar');
     }
   };
 
   const handleQuiz = (option) => {
-    if (completedQuizzes[selectedPlanet.name]) return;
+    if (passportRef.current.quizzes[selectedPlanet.name]) return;
     if (option === selectedPlanet.quiz.answer) {
-      setCompletedQuizzes((current) => ({ ...current, [selectedPlanet.name]: true }));
+      storePassport({ ...passportRef.current, quizzes: { ...passportRef.current.quizzes, [selectedPlanet.name]: true } });
       setQuizFeedback('Correct — mission complete!');
       playSfx('success');
       speak(`Correct. ${selectedPlanet.quiz.answer}.`);
@@ -591,9 +604,10 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const discoveredForPlanet = selectedPlanet.facts.filter(
     (_fact, index) => discoveredFacts[`${selectedPlanet.name}-${index}`],
   ).length;
-  const quizOptions = difficulty === 'starter'
+  const availableOptions = difficulty === 'starter'
     ? [selectedPlanet.quiz.answer, selectedPlanet.quiz.options.find((option) => option !== selectedPlanet.quiz.answer)].filter(Boolean)
     : selectedPlanet.quiz.options;
+  const quizOptions = seededPlanetOptions(availableOptions, choiceSeed + PLANETS.indexOf(selectedPlanet));
 
   return (
     <div className="min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden">
@@ -608,7 +622,16 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
       </header>
 
-      <nav className="flex snap-x gap-2 overflow-x-auto border-b border-cyan-200/15 bg-[#061642] px-3 py-3 no-scrollbar" aria-label="Choose a planet">
+      <section className="flex flex-wrap items-center justify-between gap-2 bg-[#061642] px-3 pt-3" aria-label="Discovery passport">
+        <p className="text-sm font-bold">Passport: {Object.keys(discoveredFacts).length}/{PLANETS.reduce((count, planet) => count + planet.facts.length, 0)} discoveries · {Object.keys(completedQuizzes).length}/9 challenges</p>
+        <div className="flex gap-2">
+          <button type="button" className="min-h-12 rounded-xl border border-white/30 px-3 font-bold" aria-label="Previous planets in strip" onClick={() => stripRef.current?.scrollBy({ left: -250, behavior: 'smooth' })}>← Planets</button>
+          <button type="button" className="min-h-12 rounded-xl border border-white/30 px-3 font-bold" aria-label="More planets in strip" onClick={() => stripRef.current?.scrollBy({ left: 250, behavior: 'smooth' })}>More →</button>
+        </div>
+        <p className="w-full text-xs text-cyan-100">First mission: choose a world, open its three discoveries, then try the Captain’s challenge. Pluto is a dwarf planet.</p>
+        {saveWarning && <p role="status" className="w-full text-sm text-amber-200">{saveWarning}</p>}
+      </section>
+      <nav ref={stripRef} className="flex snap-x gap-2 overflow-x-auto border-b border-cyan-200/15 bg-[#061642] px-3 py-3 no-scrollbar" aria-label="Choose a planet">
         {PLANETS.map((planet) => (
           <button key={planet.name} type="button" aria-current={selectedPlanet.name === planet.name ? 'true' : undefined}
             onClick={() => selectPlanet(planet.name)}
@@ -622,7 +645,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         ))}
       </nav>
 
-      <main className="grid md:h-[calc(100vh-197px)] md:grid-cols-[minmax(0,1.62fr)_minmax(320px,0.78fr)]">
+      <main className="grid md:h-[calc(100vh-295px)] md:grid-cols-[minmax(0,1.62fr)_minmax(320px,0.78fr)]">
         <section className="relative overflow-hidden border-b border-cyan-100/10 bg-[#020617] md:border-b-0 md:border-r">
           <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
           <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-cyan-100/20 bg-slate-950/70 px-3 py-2 text-xs font-bold text-white/85 shadow-xl backdrop-blur sm:text-sm">
@@ -757,7 +780,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                   key={option}
                   onClick={() => handleQuiz(option)}
                   disabled={Boolean(completedQuizzes[selectedPlanet.name])}
-                  className="rounded-xl bg-white/10 px-3 py-2 text-sm font-black text-white/80 transition hover:bg-cyan-300 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:bg-white/10 disabled:hover:text-white/80"
+                  className="min-h-12 rounded-xl bg-white/10 px-3 py-2 text-sm font-black text-white/80 transition hover:bg-cyan-300 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:bg-white/10 disabled:hover:text-white/80"
                 >
                   {option}
                 </button>
