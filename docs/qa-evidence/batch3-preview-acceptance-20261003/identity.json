@@ -1,0 +1,43 @@
+{
+  "previewUrl": "https://dinospace-92oflqtsf-memas-projects-23a0001d.vercel.app/",
+  "deploymentId": "dpl_GgMh8otXVbABPR1p5cjh6wYZQKo6",
+  "deploymentStatus": "READY",
+  "sourceSha": "a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4",
+  "identityJsonCompared": "docs/qa-evidence/batch3-final-package-identity-20261003.json",
+  "identityJsonSourceSha": "8c9fd6e91ad640595d9986fc0d519e242d30d731",
+  "olderIdentityJsonApplicable": false,
+  "localBuild": "npm run build, default environment configuration",
+  "servedAssetsMatchLocalBuild": true,
+  "assets": {
+    "/assets/index-CIaykvxE.js": "83510b41cd24b85738a932f8a74f206b3035e186e222ae0a86994cf048982352",
+    "/assets/index-CohPvEcn.css": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+    "/assets/web-Bni-ldCP.js": "c3cf2225165bcf58d41c6e04ab74374ebebff7c9bbc11abad9c5ea4c46e75c97",
+    "/assets/SolarSystem-BGLRJFAj.js": "58273401014aa6aeb0796d5b2060eeaed09454aca35f49508fd13f5916d51c8d",
+    "/assets/AmariCountTheStars-BPxKOHzu.js": "f808d3dce19a7182e10954cf82f93e4f4431d5d3f7e9ee837fd043da5b87ec2b",
+    "/assets/AmariLetterTrace-DhdOyHc5.js": "2e62b2a28a060b7ef91e74dac7a09fda7a59278154616e3bcf38e97e84a8cc6f"
+  },
+  "expectedRuntimeBuild": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "observedRuntimeBuild": {
+    "dynamicElevenLabs": false,
+    "packagedNarrator": true,
+    "voiceApiUrl": "/api/voice",
+    "storyApiEnvironmentObject": {},
+    "storyFallbackUrl": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "browser": {
+    "profile": "isolated Playwright CLI session batch3-desktop",
+    "guardedBeforeNavigation": ["**/api/voice", "**/api/story"],
+    "apiProviderStoryRequests": 0,
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "desktopViewport": [1280, 800],
+    "desktopDocument": [1280, 808],
+    "mobileViewport": [390, 844],
+    "scope": "public home shell only; no profile selected and no chapter opened"
+  },
+  "result": "preflight-failed-runtime-config; chapter gameplay held"
+}
