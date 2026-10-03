@@ -1,0 +1,2485 @@
+{
+  "checkedAt": "2026-10-03T19:13:38.442Z",
+  "scope": "Local corpus existence, SHA256, duration and full decoding; not listening or production acceptance",
+  "requested": 275,
+  "ready": 275,
+  "missing": [],
+  "invalid": [],
+  "results": [
+    {
+      "game": "counting",
+      "key": "44a9aff3",
+      "text": "1",
+      "path": "/audio/en/44a9aff3-matilda.mp3",
+      "sha256": "379cca264a996cd707aec44b58558fa81f43cb56336e07441899efae741741c8",
+      "duration": 0.697958,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "da1faff9",
+      "text": "10",
+      "path": "/audio/en/da1faff9-matilda.mp3",
+      "sha256": "9933f439c4edc039853fd0147cd80f7287a24cfc5da4edfcba7c8657ae933c91",
+      "duration": 0.7895,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d91fae66",
+      "text": "11",
+      "path": "/audio/en/d91fae66-matilda.mp3",
+      "sha256": "1e3051073d91c7c8e063928f5ae6df5211dbfe8f07d9a5ce0c6aac2c989dc867",
+      "duration": 0.882375,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d81facd3",
+      "text": "12",
+      "path": "/audio/en/d81facd3-matilda.mp3",
+      "sha256": "bef07923afd4b2c0344c3e612ea0a1899863cd596690b2e9ab0b6be8d209c82b",
+      "duration": 0.835917,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d71fab40",
+      "text": "13",
+      "path": "/audio/en/d71fab40-matilda.mp3",
+      "sha256": "747e1d32e6e7cc4f4d6970d26a1ac773754ef86ea9617a919dfec9873baeb04b",
+      "duration": 0.882375,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "de1fb645",
+      "text": "14",
+      "path": "/audio/en/de1fb645-matilda.mp3",
+      "sha256": "c3a846ff22b4c163e95d0018a3dbf5dedd7b7b2cb7c013318d8d89b8601f245a",
+      "duration": 0.882375,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "dd1fb4b2",
+      "text": "15",
+      "path": "/audio/en/dd1fb4b2-matilda.mp3",
+      "sha256": "a02bea761d54ee3d9b45148ef22d97f2daff5cddcd2132d75313abb3d64ec987",
+      "duration": 0.835917,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "dc1fb31f",
+      "text": "16",
+      "path": "/audio/en/dc1fb31f-matilda.mp3",
+      "sha256": "23a61c8bf81b29230dd32e24d608f3388e54e06cdbd1bea0b035c65386d44892",
+      "duration": 0.743039,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "db1fb18c",
+      "text": "17",
+      "path": "/audio/en/db1fb18c-matilda.mp3",
+      "sha256": "3c43ac73231f51109f2c428c94fdf3f27b74c292021d9e3900486fdc94a748fc",
+      "duration": 0.789478,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "e21fbc91",
+      "text": "18",
+      "path": "/audio/en/e21fbc91-matilda.mp3",
+      "sha256": "030cfeed2cea11fc372436750ab8b31aff763126618794c047aff6f4f0879cbd",
+      "duration": 0.743039,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "e11fbafe",
+      "text": "19",
+      "path": "/audio/en/e11fbafe-matilda.mp3",
+      "sha256": "46f278906d5b30dabcc95fb6f4761f695a16a1053badef269e44188bc110abaa",
+      "duration": 0.789478,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "45a9b186",
+      "text": "2",
+      "path": "/audio/en/45a9b186-matilda.mp3",
+      "sha256": "7c410a311b3c3c23e169af456d28624e724934e2499f1b8fa213137a1ab8cb14",
+      "duration": 0.743042,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "6022c182",
+      "text": "20",
+      "path": "/audio/en/6022c182-matilda.mp3",
+      "sha256": "c8f967dc758676a36bd279573905a3b6e5b136c27d5e80dc70d970bc724dd263",
+      "duration": 0.603719,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "46a9b319",
+      "text": "3",
+      "path": "/audio/en/46a9b319-matilda.mp3",
+      "sha256": "6149436e040782ce3e5b85c371261966d8de754967810501b6a3fa07d08d68b5",
+      "duration": 0.7895,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "47a9b4ac",
+      "text": "4",
+      "path": "/audio/en/47a9b4ac-matilda.mp3",
+      "sha256": "3a28e4c34f3af43e2a49197f13d07336731991ac686c1b2dddbf1fc209441610",
+      "duration": 0.7895,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "48a9b63f",
+      "text": "5",
+      "path": "/audio/en/48a9b63f-matilda.mp3",
+      "sha256": "b6906edff494e15d1c9a95e9893ebc5a2881d2d2b3ea502de0fd65ce6d3dd2e8",
+      "duration": 0.743042,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "49a9b7d2",
+      "text": "6",
+      "path": "/audio/en/49a9b7d2-matilda.mp3",
+      "sha256": "e80c7c9246b7e3e76744b189483eb3084998b7b68db28286a4fff9100983e2ed",
+      "duration": 0.7895,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "4aa9b965",
+      "text": "7",
+      "path": "/audio/en/4aa9b965-matilda.mp3",
+      "sha256": "51c52f81aedf4be507ae14c5e0624da3874576c52227337fb95e81a29c945a73",
+      "duration": 0.7895,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "4ba9baf8",
+      "text": "8",
+      "path": "/audio/en/4ba9baf8-matilda.mp3",
+      "sha256": "61ab235b2a87a11c33dabbdf3bec9f5fbf30f363ab816b0e23b83dcb3535e60f",
+      "duration": 0.7895,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "4ca9bc8b",
+      "text": "9",
+      "path": "/audio/en/4ca9bc8b-matilda.mp3",
+      "sha256": "3c5a65a47242dfa8a65e7e83be00e5281390ca2702c337784014e11e59007954",
+      "duration": 0.7895,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "36ed1e9b",
+      "text": "Brilliant counting!",
+      "path": "/audio/en/36ed1e9b-matilda.mp3",
+      "sha256": "4489049cef21a652d80e321bcd489e3d2145316330beabf5335ebeae70985939",
+      "duration": 1.300317,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b9a50200",
+      "text": "Check your count badges once more.",
+      "path": "/audio/en/b9a50200-matilda.mp3",
+      "sha256": "5e9ac929ba98c79d4067b885c018549ec45de1ebff104c83094113a7949db08e",
+      "duration": 1.811156,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "3b259f66",
+      "text": "Choose Next when you are ready.",
+      "path": "/audio/en/3b259f66-matilda.mp3",
+      "sha256": "5743b923cb4b8bd63b294bb38b9b2cb01b568937895f666a8dfcfba8c565cb5f",
+      "duration": 1.904036,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "86be0e32",
+      "text": "Count one visible group, then the other group. Add the two totals.",
+      "path": "/audio/en/86be0e32-matilda.mp3",
+      "sha256": "af0e5bec5dbe6543c5c8270f4564f38d46974bb0d9099d93b635d4a695c57c1a",
+      "duration": 4.504671,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "f4fb7fb1",
+      "text": "Great counting!",
+      "path": "/audio/en/f4fb7fb1-matilda.mp3",
+      "sha256": "9d177ee09a03ad7f487657c3cb70e555b78360be28bcafcb5cc89ba5f96822e4",
+      "duration": 1.068118,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "948674f9",
+      "text": "How many did you count?",
+      "path": "/audio/en/948674f9-matilda.mp3",
+      "sha256": "61a45627e5bab18a7c5e4a7fd8b586013d10b2ee1c7c824fd2cd52523d9d6ea3",
+      "duration": 1.486083,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "03a953b6",
+      "text": "Point to each shape once. The numbered badges keep your place.",
+      "path": "/audio/en/03a953b6-matilda.mp3",
+      "sha256": "2f55c7cbabae9afe5eaa0695cb20a1aa90adda32f4e592eafac6f475d5583dec",
+      "duration": 3.808073,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "233e5c93",
+      "text": "Read one row at a time, and use each badge to keep your place.",
+      "path": "/audio/en/233e5c93-matilda.mp3",
+      "sha256": "91992be3e76c91ef73ad4f6b94919f535396fdf9cff613794e3f3e81647092c7",
+      "duration": 3.900952,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "93fa9195",
+      "text": "Tap each object once to count it.",
+      "path": "/audio/en/93fa9195-matilda.mp3",
+      "sha256": "7501616e1d059281876fdf4e46a5b3fde4fbfc434c74c00201508191d95e6138",
+      "duration": 1.996916,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "9fd58454",
+      "text": "That is the right total. Each object was counted once.",
+      "path": "/audio/en/9fd58454-matilda.mp3",
+      "sha256": "d971fe9d04045dae395ba76e2b65df27054753dcae9b379413994fe598f9104a",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "fd0cf2b1",
+      "text": "There are 10 crater gems. You counted each one once.",
+      "path": "/audio/en/fd0cf2b1-matilda.mp3",
+      "sha256": "16bbf536fb99a9cdfc987398f8143e581d5e79e1187294e42abb7cfbdff7d8e3",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "9f8f6a84",
+      "text": "There are 10 lit windows. You counted each one once.",
+      "path": "/audio/en/9f8f6a84-matilda.mp3",
+      "sha256": "833c339f00c2d8ccac4b85616f1cdcd967769bbcaaf6455782a8505c6214996a",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b5b6aa9f",
+      "text": "There are 10 map stars. You counted each one once.",
+      "path": "/audio/en/b5b6aa9f-matilda.mp3",
+      "sha256": "ca615d5e186a0d8200207baad3e02baff8e1589896496107e549b65495ebfebc",
+      "duration": 3.761633,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "23216101",
+      "text": "There are 10 meteors. You counted each one once.",
+      "path": "/audio/en/23216101-matilda.mp3",
+      "sha256": "d023ddeb76df1347ef7d5dcf081ec8753a69c983ba50dce2d7444ec5cf20e02d",
+      "duration": 2.972154,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d0e7d001",
+      "text": "There are 10 moon rocks. You counted each one once.",
+      "path": "/audio/en/d0e7d001-matilda.mp3",
+      "sha256": "e5e71f8d482cc4283144497e8454208923659ccad552a064a03d67bde0ab038b",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "e0991548",
+      "text": "There are 10 nebula lights. You counted each one once.",
+      "path": "/audio/en/e0991548-matilda.mp3",
+      "sha256": "a8dd298f8b86eb79acab88f422e5bf15edacb761ab6a2616ed94a6be6bd05219",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "29f7d854",
+      "text": "There are 10 ring stones. You counted each one once.",
+      "path": "/audio/en/29f7d854-matilda.mp3",
+      "sha256": "66363355de243d29d55585605f7197eb25efa3fb8ad7dceb8397e386610195c3",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "43a342fd",
+      "text": "There are 10 satellite bolts. You counted each one once.",
+      "path": "/audio/en/43a342fd-matilda.mp3",
+      "sha256": "7ca6af68947e6ba6746d27ab6bf3c74cd70c554ae3ce648af486d354201fe487",
+      "duration": 3.715193,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "9141dcea",
+      "text": "There are 10 solar panels. You counted each one once.",
+      "path": "/audio/en/9141dcea-matilda.mp3",
+      "sha256": "8326373e63e80e450f75c5de72c373e08f5e08e9e229849847f85553ec31998b",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "88df0369",
+      "text": "There are 10 stars. You counted each one once.",
+      "path": "/audio/en/88df0369-matilda.mp3",
+      "sha256": "be935b3094bd5f37ed033d36ad96f8d66fc57b0c373a40e20fd7ba49835bca63",
+      "duration": 2.647075,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "9ddcab52",
+      "text": "There are 11 crater gems. You counted each one once.",
+      "path": "/audio/en/9ddcab52-matilda.mp3",
+      "sha256": "4584bace25061a4148267f8c353751ea32d21f50d55ba8bc860a5559c437fc0a",
+      "duration": 3.715193,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "54f34224",
+      "text": "There are 11 map stars. You counted each one once.",
+      "path": "/audio/en/54f34224-matilda.mp3",
+      "sha256": "e6e8eaae45cb4cb38b4fb91c3ad78825edd54cb80a894eff4377ad99e23d5905",
+      "duration": 3.900952,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b53477d7",
+      "text": "There are 11 nebula lights. You counted each one once.",
+      "path": "/audio/en/b53477d7-matilda.mp3",
+      "sha256": "d28624704988c173866c761f4b7f8731935db93a343e257b6a2a189d5b90496b",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b9bcc3f7",
+      "text": "There are 11 ring stones. You counted each one once.",
+      "path": "/audio/en/b9bcc3f7-matilda.mp3",
+      "sha256": "56ad158828bc3e636317f8d183d8d0a658b6136975c86e24310f4e64a00810e0",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d35c8f1b",
+      "text": "There are 11 solar panels. You counted each one once.",
+      "path": "/audio/en/d35c8f1b-matilda.mp3",
+      "sha256": "3a4def688f182d04cd966cc70fe97a97a5ba8c952dc8f48370f91fd84d09d8ad",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d3903b6f",
+      "text": "There are 12 crater gems. You counted each one once.",
+      "path": "/audio/en/d3903b6f-matilda.mp3",
+      "sha256": "af1a9ed7b8209935e7df49c9a40a40004d71f36d8277f9ef6bf59b37fb1903a6",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "86fae275",
+      "text": "There are 12 map stars. You counted each one once.",
+      "path": "/audio/en/86fae275-matilda.mp3",
+      "sha256": "a5de194b66cc5e9c339c706d66f42d29fe62dae13fd82951d8bb807740eb5e27",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "ecd0bbc2",
+      "text": "There are 12 nebula lights. You counted each one once.",
+      "path": "/audio/en/ecd0bbc2-matilda.mp3",
+      "sha256": "c4aab509b119b0f02ba8febab4401e8f3832117ef1bea2d0092ffbd43d9fd487",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "62e03092",
+      "text": "There are 12 ring stones. You counted each one once.",
+      "path": "/audio/en/62e03092-matilda.mp3",
+      "sha256": "5cbe6754d96fcf4631697f9e04e092ccc6e5bb93202b3a22b39f15f9ddac6d50",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "2e1fd09c",
+      "text": "There are 12 solar panels. You counted each one once.",
+      "path": "/audio/en/2e1fd09c-matilda.mp3",
+      "sha256": "a6727f99a4fbc1888492e5cc0f3ac85b6a18661270079c72813ad1993ba8a859",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "3c55af00",
+      "text": "There are 13 crater gems. You counted each one once.",
+      "path": "/audio/en/3c55af00-matilda.mp3",
+      "sha256": "3b09c07cd9692ff303a9ae6cc4f2d9a8a8ccf2e05714bd40cde8c4f26a648f90",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "912efd7a",
+      "text": "There are 13 map stars. You counted each one once.",
+      "path": "/audio/en/912efd7a-matilda.mp3",
+      "sha256": "3c197264698687b9c81dfa9de1a8bb78776d518983b0db78659a88ef6e5148e2",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "cd5e53c1",
+      "text": "There are 13 nebula lights. You counted each one once.",
+      "path": "/audio/en/cd5e53c1-matilda.mp3",
+      "sha256": "b2a6a93cf0c9698d4bc107bd14c8a70a9a9cbd051f440ff5bc226f75adf1fa77",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "1e4aa7e5",
+      "text": "There are 13 ring stones. You counted each one once.",
+      "path": "/audio/en/1e4aa7e5-matilda.mp3",
+      "sha256": "fc867c37ec481847684ee0a111cacd4986b1610bfd94ad2fc88585e6a1ca8b5a",
+      "duration": 3.668753,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "039a7b15",
+      "text": "There are 13 solar panels. You counted each one once.",
+      "path": "/audio/en/039a7b15-matilda.mp3",
+      "sha256": "02a414b29a9d049b6a61e9f9a778fc16cf405ccfc399ba9bef78585aeb431243",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "90dd6edd",
+      "text": "There are 14 crater gems. You counted each one once.",
+      "path": "/audio/en/90dd6edd-matilda.mp3",
+      "sha256": "8037fcd8f454509d6815e4161e8847da297f924814cf9463cf5c8a0f517bfdcd",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "acad22a3",
+      "text": "There are 14 map stars. You counted each one once.",
+      "path": "/audio/en/acad22a3-matilda.mp3",
+      "sha256": "1b1592bd13bff5090d4e3b72c6b99b76b8863511b1847d68f94a34025b689f3d",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "1f29cee4",
+      "text": "There are 14 nebula lights. You counted each one once.",
+      "path": "/audio/en/1f29cee4-matilda.mp3",
+      "sha256": "30a46d71fcae661a3c0cb1760b4f6d29b4cbc60efd41a5ae0f2092e68655511a",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "5d08ebe8",
+      "text": "There are 14 ring stones. You counted each one once.",
+      "path": "/audio/en/5d08ebe8-matilda.mp3",
+      "sha256": "6b0966b7041e2db9789a6ff9477f518a1bbeca07457b786acf536d910b833d68",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "56f5cb9e",
+      "text": "There are 14 solar panels. You counted each one once.",
+      "path": "/audio/en/56f5cb9e-matilda.mp3",
+      "sha256": "aa277e7385038751d584f365a559b188f2377f32cc4321f8f894bd5f25710ef6",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "bded48fe",
+      "text": "There are 15 crater gems. You counted each one once.",
+      "path": "/audio/en/bded48fe-matilda.mp3",
+      "sha256": "fa933d62ecf4bd0ae8d8f5bc45866e0d6f1978edf21271eba9e8c91c5598c0f3",
+      "duration": 3.668753,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "dc123ac8",
+      "text": "There are 15 map stars. You counted each one once.",
+      "path": "/audio/en/dc123ac8-matilda.mp3",
+      "sha256": "b492c7a1cb1edc83c85cbb5a215dcccf5c4c36e226517a9c7659503e5e704527",
+      "duration": 4.179592,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "432f8f23",
+      "text": "There are 15 nebula lights. You counted each one once.",
+      "path": "/audio/en/432f8f23-matilda.mp3",
+      "sha256": "c9f5e718e296eb29992ca906f04227b429c0b69d6f9e7a4c6505301d6c611423",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "58be6ecb",
+      "text": "There are 15 ring stones. You counted each one once.",
+      "path": "/audio/en/58be6ecb-matilda.mp3",
+      "sha256": "6cf5c9eae69674fc32b54deabfc86a096a52c967f8a9efaa5fda31dac4e5cecd",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "a3e3a07f",
+      "text": "There are 15 solar panels. You counted each one once.",
+      "path": "/audio/en/a3e3a07f-matilda.mp3",
+      "sha256": "cd2d88cad0cbd90c8105074f56f9932cfe0e05599245684fead415d5a14daa52",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "a8643ddb",
+      "text": "There are 16 crater gems. You counted each one once.",
+      "path": "/audio/en/a8643ddb-matilda.mp3",
+      "sha256": "1f225bb232ed3bfc7cb964864341c43732720d07a091f875c54ed2514bd10afb",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "0199dc99",
+      "text": "There are 16 map stars. You counted each one once.",
+      "path": "/audio/en/0199dc99-matilda.mp3",
+      "sha256": "c20c6d0c69a3dc5841c05f67b8b2469afe075f0ca0671da3fc20253abd4024d5",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "f276245e",
+      "text": "There are 16 nebula lights. You counted each one once.",
+      "path": "/audio/en/f276245e-matilda.mp3",
+      "sha256": "fb35c85ae4f2e751ed080007b4dca8b53339d1c3e14ee8c1be25e1637425342e",
+      "duration": 3.715193,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "4d7a88c6",
+      "text": "There are 16 ring stones. You counted each one once.",
+      "path": "/audio/en/4d7a88c6-matilda.mp3",
+      "sha256": "a190a275ebdb7b86ec86800af1364666a45af190b84604d534710e76019af38f",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "de8e0a70",
+      "text": "There are 16 solar panels. You counted each one once.",
+      "path": "/audio/en/de8e0a70-matilda.mp3",
+      "sha256": "30d9192c56161ada697ad53c04c6eaa6a35e865a8af6fc1a33c7350d76d12222",
+      "duration": 3.854512,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b9f009dc",
+      "text": "There are 17 crater gems. You counted each one once.",
+      "path": "/audio/en/b9f009dc-matilda.mp3",
+      "sha256": "b696ad18b44556611f3370f18c0410774f916bd1918df98fccd6471b31a39973",
+      "duration": 3.854512,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "652d741e",
+      "text": "There are 17 map stars. You counted each one once.",
+      "path": "/audio/en/652d741e-matilda.mp3",
+      "sha256": "b44ee0f3bb21e2d28b64a60ecc503578e1a15f2ec02d49422fc0d853cbc520fb",
+      "duration": 3.715193,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "006c323d",
+      "text": "There are 17 nebula lights. You counted each one once.",
+      "path": "/audio/en/006c323d-matilda.mp3",
+      "sha256": "5a85d371a84c630c55b2d6e646d57e3ca962298406f6d35a8e5603620a290a87",
+      "duration": 3.808073,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d07fde79",
+      "text": "There are 17 ring stones. You counted each one once.",
+      "path": "/audio/en/d07fde79-matilda.mp3",
+      "sha256": "9d05b118278638c9e2101b6d97664911ad8e5488653909c92847c9e931c75644",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "2fc46019",
+      "text": "There are 17 solar panels. You counted each one once.",
+      "path": "/audio/en/2fc46019-matilda.mp3",
+      "sha256": "b333a1c5d070e6d506393c7e342093bb92b6df0f0495ad7ca09731e137e5b15b",
+      "duration": 3.900952,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "6b044c79",
+      "text": "There are 18 crater gems. You counted each one once.",
+      "path": "/audio/en/6b044c79-matilda.mp3",
+      "sha256": "0552a9b85c4f03b8621eb6bc68ecee3dc27f476e73da4ab9b6a0743633847b43",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "4e296527",
+      "text": "There are 18 map stars. You counted each one once.",
+      "path": "/audio/en/4e296527-matilda.mp3",
+      "sha256": "23c0fc7ecbec783f4a1905864411d2e99dee1bc49d407951f7c9879382dbb7ac",
+      "duration": 3.668753,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "fcd8ec70",
+      "text": "There are 18 nebula lights. You counted each one once.",
+      "path": "/audio/en/fcd8ec70-matilda.mp3",
+      "sha256": "dc32366a5bee6cfd11fb969b98bbd60c5c7e0edd1d5d60b185079cf5ccdd46e0",
+      "duration": 3.715193,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "6016f34c",
+      "text": "There are 18 ring stones. You counted each one once.",
+      "path": "/audio/en/6016f34c-matilda.mp3",
+      "sha256": "e230030c15f8682cd6fd99d4fcee95a706f1f59fca6e72cab6c4a12e88a964f1",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "df29b352",
+      "text": "There are 18 solar panels. You counted each one once.",
+      "path": "/audio/en/df29b352-matilda.mp3",
+      "sha256": "d4fac8250827e48dd78b8360af66701a27b21833f7f9e93267bf32787ddf8344",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "ba32fe1a",
+      "text": "There are 19 crater gems. You counted each one once.",
+      "path": "/audio/en/ba32fe1a-matilda.mp3",
+      "sha256": "571ca41b99d003341272a6abd82a1c00be2a25e61483ec13fc3eb67dd9f45550",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "6378598c",
+      "text": "There are 19 map stars. You counted each one once.",
+      "path": "/audio/en/6378598c-matilda.mp3",
+      "sha256": "0b54f2cb845d671a1ef37fec58c7080847346a06c44eac0c4270facae28ccf26",
+      "duration": 3.668753,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "ad5d77bf",
+      "text": "There are 19 nebula lights. You counted each one once.",
+      "path": "/audio/en/ad5d77bf-matilda.mp3",
+      "sha256": "ea013d66aa8d63c08a576041fc4fc98a7666a59c526a6d6617ee0ccfdd32f862",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "6347d66f",
+      "text": "There are 19 ring stones. You counted each one once.",
+      "path": "/audio/en/6347d66f-matilda.mp3",
+      "sha256": "906adc2ca7894c75e72c2b018087151945734e825ac985468ed484cca18e4fd9",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "596b1463",
+      "text": "There are 19 solar panels. You counted each one once.",
+      "path": "/audio/en/596b1463-matilda.mp3",
+      "sha256": "2bdc83164bd098fb911b6ab0f2eb231e17ab8c27eb3f268c59d91c5e294649e1",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "ddbbd7e9",
+      "text": "There are 2 comet seeds. You counted each one once.",
+      "path": "/audio/en/ddbbd7e9-matilda.mp3",
+      "sha256": "c752bfc71e4f14b0a5e0e1c42062ee282a63d73163e64ab837be67dd119d3cf5",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "79422ca2",
+      "text": "There are 2 crater gems. You counted each one once.",
+      "path": "/audio/en/79422ca2-matilda.mp3",
+      "sha256": "a6c74031f53292712355e153c80007f06bea18852f97f802d8850a9f40a01b8e",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "0c6f1616",
+      "text": "There are 2 fireflies. You counted each one once.",
+      "path": "/audio/en/0c6f1616-matilda.mp3",
+      "sha256": "cbe2e50eac57cb692a284758592c8172320cffe873ea5f2af9a45e4260e4587b",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "976d1c47",
+      "text": "There are 2 lit windows. You counted each one once.",
+      "path": "/audio/en/976d1c47-matilda.mp3",
+      "sha256": "bf32822b4565538cab94e7bc28367ee9370d6e181cb50f26cf74be282f11a116",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "1215d4d4",
+      "text": "There are 2 map stars. You counted each one once.",
+      "path": "/audio/en/1215d4d4-matilda.mp3",
+      "sha256": "c169035041d26c963a739be7d2244ac2e9d63c6cd96936398fcebaf1e4b90b66",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "751e4142",
+      "text": "There are 2 meteors. You counted each one once.",
+      "path": "/audio/en/751e4142-matilda.mp3",
+      "sha256": "799f3b2c9d62614168e7970574d4316156824977f1688e05d950b9194ff46cc6",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "8535eb16",
+      "text": "There are 2 moon berries. You counted each one once.",
+      "path": "/audio/en/8535eb16-matilda.mp3",
+      "sha256": "8c6884febfa76d8e69fc10ec1b8511d9c9e7912f76abf8929ab6f981e66d514c",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "31ce3374",
+      "text": "There are 2 moon rocks. You counted each one once.",
+      "path": "/audio/en/31ce3374-matilda.mp3",
+      "sha256": "ac771b53281c3e47d955326801cd9c34c679e5870ba53afc8ae0a63253f37602",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d1ac2e87",
+      "text": "There are 2 nebula lights. You counted each one once.",
+      "path": "/audio/en/d1ac2e87-matilda.mp3",
+      "sha256": "172cbf6cc664188b67e51cbd0da567dc8ea984a579953382f13c5497514b5e6c",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "11ce9778",
+      "text": "There are 2 planets. You counted each one once.",
+      "path": "/audio/en/11ce9778-matilda.mp3",
+      "sha256": "bc21c2e1a7f1a016be682ea45f536c34204ae01daa0b27fa23b93c81779092b2",
+      "duration": 3.018594,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "0b7bcc47",
+      "text": "There are 2 ring stones. You counted each one once.",
+      "path": "/audio/en/0b7bcc47-matilda.mp3",
+      "sha256": "cfb0aac9d4bf1897b96e63a9a47587eec222c686df55391d61c5998de67c881e",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "ba97729a",
+      "text": "There are 2 rocket lights. You counted each one once.",
+      "path": "/audio/en/ba97729a-matilda.mp3",
+      "sha256": "febd5761f99e88a5d76c61b4a9bfbf30c37480b8b499a8cf929fd90989f13545",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "9b1094ca",
+      "text": "There are 2 satellite bolts. You counted each one once.",
+      "path": "/audio/en/9b1094ca-matilda.mp3",
+      "sha256": "c83f0cef481e8a46f0bc47bfaf59911f4da55970bbe76b8d497e0cf6c8057022",
+      "duration": 3.668753,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b99ea7cb",
+      "text": "There are 2 solar panels. You counted each one once.",
+      "path": "/audio/en/b99ea7cb-matilda.mp3",
+      "sha256": "461b02e22b42fc59813fc55b5859c9d36f96c5258bdf7f1a15b3ddc3d70c8eee",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "f9a5b08a",
+      "text": "There are 2 stars. You counted each one once.",
+      "path": "/audio/en/f9a5b08a-matilda.mp3",
+      "sha256": "ec573363c47a640d98c3dad5fc18d181626125d2e4b5ef0c44b9c90b4ac2c287",
+      "duration": 3.111474,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "be45918e",
+      "text": "There are 20 crater gems. You counted each one once.",
+      "path": "/audio/en/be45918e-matilda.mp3",
+      "sha256": "d584731a90a25f886b7743bb4902297dc8e33d06d5d18a424e6cc437515a96f0",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "5bc9b638",
+      "text": "There are 20 map stars. You counted each one once.",
+      "path": "/audio/en/5bc9b638-matilda.mp3",
+      "sha256": "0fba017aaf82474c871720a2523f3cd261d3df3996af32d0f9b620387b6a303c",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "ed3d94d3",
+      "text": "There are 20 nebula lights. You counted each one once.",
+      "path": "/audio/en/ed3d94d3-matilda.mp3",
+      "sha256": "0ecd472435e25d521885547f338f6ff03db82d28366cf2132c1d6bd1443f8366",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "3ca07e5b",
+      "text": "There are 20 ring stones. You counted each one once.",
+      "path": "/audio/en/3ca07e5b-matilda.mp3",
+      "sha256": "df8b78162d36156348fa14daa9f624e7fc07915563565c7922edaf411d205020",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "634e602f",
+      "text": "There are 20 solar panels. You counted each one once.",
+      "path": "/audio/en/634e602f-matilda.mp3",
+      "sha256": "42edee92c60de407636c7dbb6dacc9cc4b3be0d294fa5ed4d401bd29d01fc0cb",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "0f163166",
+      "text": "There are 3 comet seeds. You counted each one once.",
+      "path": "/audio/en/0f163166-matilda.mp3",
+      "sha256": "9d29bf6439f1098a827ef483546c3b5287bb3a62b31f92bc413a318abc4948d7",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "0ae89b01",
+      "text": "There are 3 crater gems. You counted each one once.",
+      "path": "/audio/en/0ae89b01-matilda.mp3",
+      "sha256": "778dd8232e8cd7462b5dcf7a18649996a49aeff464840b6c0fd56cba48876c24",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "fc7011dd",
+      "text": "There are 3 fireflies. You counted each one once.",
+      "path": "/audio/en/fc7011dd-matilda.mp3",
+      "sha256": "a7b7537bd5ce774c9c4b459fec6a125c5de6e5655fedff6c7ca11ae1db6dbfc2",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "766916d4",
+      "text": "There are 3 lit windows. You counted each one once.",
+      "path": "/audio/en/766916d4-matilda.mp3",
+      "sha256": "56015e140090c5cc78e8233c66b0bc21b4a0b16be3723f1e39be36f9b0d6e40b",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "61d0318f",
+      "text": "There are 3 map stars. You counted each one once.",
+      "path": "/audio/en/61d0318f-matilda.mp3",
+      "sha256": "2e7794e8b5b6a5f2c9231e42ca07e1ff830afc39ad8eedd3566be18c806ac823",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "07519671",
+      "text": "There are 3 meteors. You counted each one once.",
+      "path": "/audio/en/07519671-matilda.mp3",
+      "sha256": "d80e66942798a892606b4c2be8433e548027a96ed8421c75b28466a55bfe9521",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "fce23753",
+      "text": "There are 3 moon berries. You counted each one once.",
+      "path": "/audio/en/fce23753-matilda.mp3",
+      "sha256": "b6c429ddc87b875d8460a81feb42a145247690cb46ce0b842028e102e734b78e",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "51e30431",
+      "text": "There are 3 moon rocks. You counted each one once.",
+      "path": "/audio/en/51e30431-matilda.mp3",
+      "sha256": "e72270a740c35c3795648c431584b3183e413b2fdd620bf9b4bb4d443536e9aa",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "3c778678",
+      "text": "There are 3 nebula lights. You counted each one once.",
+      "path": "/audio/en/3c778678-matilda.mp3",
+      "sha256": "bb7d3a739040887659ebb02f0b6ea01127bc983869771ca7e1a55590ed6c76a1",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d8af890f",
+      "text": "There are 3 planets. You counted each one once.",
+      "path": "/audio/en/d8af890f-matilda.mp3",
+      "sha256": "201b473b6649bb2911585ca24c7d09439077fb7d7a648229fdbabfa05956ae3d",
+      "duration": 3.065034,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "e77f0524",
+      "text": "There are 3 ring stones. You counted each one once.",
+      "path": "/audio/en/e77f0524-matilda.mp3",
+      "sha256": "711a850af3f4da127f5d18ff1e270eff96406d9001e0c8b15f96f660f41adce0",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "3d363545",
+      "text": "There are 3 rocket lights. You counted each one once.",
+      "path": "/audio/en/3d363545-matilda.mp3",
+      "sha256": "4f9d21a0c1dcce86df8a66a731f89488ff1e51af29eee37377d8d49d0c153fb6",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "37d5e12d",
+      "text": "There are 3 satellite bolts. You counted each one once.",
+      "path": "/audio/en/37d5e12d-matilda.mp3",
+      "sha256": "4ff3bffa7f32d21e5d1e4ca799006af0e15dc547634cd42b81c2b3e40f74fb05",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "12bbc55a",
+      "text": "There are 3 solar panels. You counted each one once.",
+      "path": "/audio/en/12bbc55a-matilda.mp3",
+      "sha256": "853e6e8ab085c5684e3fb2711807275fc376c23f2dd2699547c13b5b72521bee",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "df282e79",
+      "text": "There are 3 stars. You counted each one once.",
+      "path": "/audio/en/df282e79-matilda.mp3",
+      "sha256": "c702b06a1a5ad12648c067e67c7185ec1510fe2b6ec55cce0a7e20127b8344e3",
+      "duration": 3.018594,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "a01c841f",
+      "text": "There are 4 comet seeds. You counted each one once.",
+      "path": "/audio/en/a01c841f-matilda.mp3",
+      "sha256": "d3b2f5264303461f0ad54f8644ea8b9a667ef0a022046c8b2df8174875abdbb1",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "328aacec",
+      "text": "There are 4 crater gems. You counted each one once.",
+      "path": "/audio/en/328aacec-matilda.mp3",
+      "sha256": "41ee035809e36f930cae67c96d7253b1918656ff419f86ba4753a1c8066ff148",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "1b46db64",
+      "text": "There are 4 fireflies. You counted each one once.",
+      "path": "/audio/en/1b46db64-matilda.mp3",
+      "sha256": "08afd4ae50a6dbf2961e23b6a0742f0662c15265a1853be54cca2ac27b2f4bca",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "aa9c4fc1",
+      "text": "There are 4 lit windows. You counted each one once.",
+      "path": "/audio/en/aa9c4fc1-matilda.mp3",
+      "sha256": "e96f218915bb8a1472a644bca50760b953dd4ce7c54fee25a85ad02a44760018",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "ceef4c0e",
+      "text": "There are 4 map stars. You counted each one once.",
+      "path": "/audio/en/ceef4c0e-matilda.mp3",
+      "sha256": "872a52c9d66110d5a9a92a84cc7b6b31fafeaf98a48d07e558712e3dcc0529ce",
+      "duration": 3.715193,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "cc46e664",
+      "text": "There are 4 meteors. You counted each one once.",
+      "path": "/audio/en/cc46e664-matilda.mp3",
+      "sha256": "0b1cda5868e62daea9f21bb6ec313626c2444689dbe32832c466e711353c0c9b",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "bbc50a4c",
+      "text": "There are 4 moon berries. You counted each one once.",
+      "path": "/audio/en/bbc50a4c-matilda.mp3",
+      "sha256": "31f6edb01a1508cdf5ad079754624aca20a03125324045d020486afe81879689",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "aad6da1e",
+      "text": "There are 4 moon rocks. You counted each one once.",
+      "path": "/audio/en/aad6da1e-matilda.mp3",
+      "sha256": "d19c83ed34872fa34bd21e3f5bdaa95c781a71b16dcc7e59a69ae70ae101c39d",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "e3ca7eed",
+      "text": "There are 4 nebula lights. You counted each one once.",
+      "path": "/audio/en/e3ca7eed-matilda.mp3",
+      "sha256": "b2760af5bf947fb470982aa168372b26bc6e4bfbfb60703d02eac87cc434433f",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "7153ad36",
+      "text": "There are 4 planets. You counted each one once.",
+      "path": "/audio/en/7153ad36-matilda.mp3",
+      "sha256": "48c4886036887557b66086b6443bdcfb3709823ac7bc885359fd95be7f393ca8",
+      "duration": 2.972154,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "f29178c9",
+      "text": "There are 4 ring stones. You counted each one once.",
+      "path": "/audio/en/f29178c9-matilda.mp3",
+      "sha256": "120773d2b2d9ab62a39bfe23e2217c956572b03763886b8b8b08d9cb7c37e90f",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "92e4a990",
+      "text": "There are 4 rocket lights. You counted each one once.",
+      "path": "/audio/en/92e4a990-matilda.mp3",
+      "sha256": "4536f0692ddbe2eeac7f16ab6b6b8555ffcfa210fc8e1c0a1a018c66ce103781",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b26f2df8",
+      "text": "There are 4 satellite bolts. You counted each one once.",
+      "path": "/audio/en/b26f2df8-matilda.mp3",
+      "sha256": "c0e7e7f5e4ffa7cd8a05a84508aa6a8989562c90c711a23044838d1216b005fe",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "bd452609",
+      "text": "There are 4 solar panels. You counted each one once.",
+      "path": "/audio/en/bd452609-matilda.mp3",
+      "sha256": "424c4c75d5cff7725aab42df70c6725c9381819759462e60e603f34e8e7ddb9d",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "16716654",
+      "text": "There are 4 stars. You counted each one once.",
+      "path": "/audio/en/16716654-matilda.mp3",
+      "sha256": "3f73c1f9dbdf62a76d0b438dcb7e64b65c1ff37eb6e0be7a3b15c62d9dd05209",
+      "duration": 3.018594,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b385d554",
+      "text": "There are 5 comet seeds. You counted each one once.",
+      "path": "/audio/en/b385d554-matilda.mp3",
+      "sha256": "bbef27e5a3cf14cb7bc1a718822f5e70491e8e456aa735a36476cb59988c6101",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "7dac852b",
+      "text": "There are 5 crater gems. You counted each one once.",
+      "path": "/audio/en/7dac852b-matilda.mp3",
+      "sha256": "74eaf89307f101271a92ee3125032aa43b3602318e949463835195815e06a2e2",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "25d427a3",
+      "text": "There are 5 fireflies. You counted each one once.",
+      "path": "/audio/en/25d427a3-matilda.mp3",
+      "sha256": "707fd664522040c1aa0269c4dbee6d2be514e4c18751722bfeffe9f96cb7d193",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "297c6d66",
+      "text": "There are 5 lit windows. You counted each one once.",
+      "path": "/audio/en/297c6d66-matilda.mp3",
+      "sha256": "e5d7c8d365644908c87736a3c5f2431ac7fd3a96874018312579d98eeb8acdcb",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "adc19709",
+      "text": "There are 5 map stars. You counted each one once.",
+      "path": "/audio/en/adc19709-matilda.mp3",
+      "sha256": "dd46ffa85d06585bd3acadbc16d88701376eda9c8da1976ecfd27c0053ce0578",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "98f055cb",
+      "text": "There are 5 meteors. You counted each one once.",
+      "path": "/audio/en/98f055cb-matilda.mp3",
+      "sha256": "ad15560dfa74030a35eb1e0f93b1de3996bed8dbece493dcf57852a266464313",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "1590e779",
+      "text": "There are 5 moon berries. You counted each one once.",
+      "path": "/audio/en/1590e779-matilda.mp3",
+      "sha256": "6be7f237ad3aa03daf27b5ea0119404b73501a2d6b11a5ea5b342f8b6fe44e33",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "dabf718b",
+      "text": "There are 5 moon rocks. You counted each one once.",
+      "path": "/audio/en/dabf718b-matilda.mp3",
+      "sha256": "bd6cc061552032b369882b2d8a16455d6485fcdba7004aeb526f80751ce3062d",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "7767d84e",
+      "text": "There are 5 nebula lights. You counted each one once.",
+      "path": "/audio/en/7767d84e-matilda.mp3",
+      "sha256": "9f7ac07b09526dabb15351adf942a0b41bbc877750102a025071629d5d7ffef4",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "08e5b40d",
+      "text": "There are 5 planets. You counted each one once.",
+      "path": "/audio/en/08e5b40d-matilda.mp3",
+      "sha256": "880c5225d00b101d2690835e35a33114f44a26c471934cb8bf192c2bb98edcb6",
+      "duration": 2.925714,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "3f5e53d6",
+      "text": "There are 5 ring stones. You counted each one once.",
+      "path": "/audio/en/3f5e53d6-matilda.mp3",
+      "sha256": "db78f8c151a2015cc9e24b0997430ef0bdc6f5cd24ff2252beac2230a7c94791",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "28fc0dbb",
+      "text": "There are 5 rocket lights. You counted each one once.",
+      "path": "/audio/en/28fc0dbb-matilda.mp3",
+      "sha256": "0d25b21e06fa95b8ad80f3323e12bdf2c3fee8cee7f484dfe61d1dfa68f6b261",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "5917bfeb",
+      "text": "There are 5 satellite bolts. You counted each one once.",
+      "path": "/audio/en/5917bfeb-matilda.mp3",
+      "sha256": "cc2964766794b304f9cbb209905515394d8152ca364c75114f3658af8a8069b8",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "61d301e0",
+      "text": "There are 5 solar panels. You counted each one once.",
+      "path": "/audio/en/61d301e0-matilda.mp3",
+      "sha256": "8f576c611be8fbafa4dd8a279a5ed5dd252569cad31a1f1e305bae94fc47bd97",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "11d8b463",
+      "text": "There are 5 stars. You counted each one once.",
+      "path": "/audio/en/11d8b463-matilda.mp3",
+      "sha256": "4d9ba1848b235834e3f43ce4a13e557a0ae869c248604639776f04da0301efc5",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "895c078e",
+      "text": "There are 6 crater gems. You counted each one once.",
+      "path": "/audio/en/895c078e-matilda.mp3",
+      "sha256": "bc225164edf0a8f255780dfb936fcf754b10e3bff92be1fb5c3466ba317bafc8",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "260ea5a3",
+      "text": "There are 6 lit windows. You counted each one once.",
+      "path": "/audio/en/260ea5a3-matilda.mp3",
+      "sha256": "49be8cee1dad570fc2d10435cc115f59c27136b292017c27eec26425b3edd78d",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "7f41bc38",
+      "text": "There are 6 map stars. You counted each one once.",
+      "path": "/audio/en/7f41bc38-matilda.mp3",
+      "sha256": "e0ec8efcd573ef818c440cc9e6c4d3273a26d5722945eb35444a39556f03baf8",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "db0f559e",
+      "text": "There are 6 meteors. You counted each one once.",
+      "path": "/audio/en/db0f559e-matilda.mp3",
+      "sha256": "8150c743309efb9cc415efabf070bcf69963ed800a888eff7a997563926fc79b",
+      "duration": 3.111474,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "0b5a3fb8",
+      "text": "There are 6 moon rocks. You counted each one once.",
+      "path": "/audio/en/0b5a3fb8-matilda.mp3",
+      "sha256": "ed821c506c4335a0592aa3ac68e712f579dbf1089d1faffa1f1027ef3b300067",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d9affad3",
+      "text": "There are 6 nebula lights. You counted each one once.",
+      "path": "/audio/en/d9affad3-matilda.mp3",
+      "sha256": "f022083cc66b39122b8f0772ff725fba6cab6e3e0dc5ee557b04951afda0c5a5",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "07b6f45b",
+      "text": "There are 6 ring stones. You counted each one once.",
+      "path": "/audio/en/07b6f45b-matilda.mp3",
+      "sha256": "325fd0ab1858f96144cbf6ff6fe72f9b40c962ef7e0d4c016ed3c95cdb634c28",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "c55d4786",
+      "text": "There are 6 satellite bolts. You counted each one once.",
+      "path": "/audio/en/c55d4786-matilda.mp3",
+      "sha256": "f88e90c296fc0a652678dbb2d9473ecf0dce8064d246fcf4bd128a1aa24beb78",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "17aa222f",
+      "text": "There are 6 solar panels. You counted each one once.",
+      "path": "/audio/en/17aa222f-matilda.mp3",
+      "sha256": "9f0ba8f34fe6dc726982b7059b54972b31a50f6bf90f7bfeab4c0a8398272779",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b1fa76b6",
+      "text": "There are 6 stars. You counted each one once.",
+      "path": "/audio/en/b1fa76b6-matilda.mp3",
+      "sha256": "a396461dfbe1f3c158281c20d229a21558fd90ac2e71d37ac79ce3bf32bf348a",
+      "duration": 2.647075,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "ac81aa6d",
+      "text": "There are 7 crater gems. You counted each one once.",
+      "path": "/audio/en/ac81aa6d-matilda.mp3",
+      "sha256": "b3837c684e6f5571647f5a2a91daaba48c61e75ad384aeeb5fbff268a30217a3",
+      "duration": 3.668753,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "0cde9a90",
+      "text": "There are 7 lit windows. You counted each one once.",
+      "path": "/audio/en/0cde9a90-matilda.mp3",
+      "sha256": "b25e704abed7b7817d399183a7c3299a0d798a3a47b63c94828e49e1c14bc5a8",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "dfe34fd3",
+      "text": "There are 7 map stars. You counted each one once.",
+      "path": "/audio/en/dfe34fd3-matilda.mp3",
+      "sha256": "125d712aa08fcfbe06c347fd15e2d6b5d07e0e726529c2240f321949e6572a9a",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "5d871aed",
+      "text": "There are 7 meteors. You counted each one once.",
+      "path": "/audio/en/5d871aed-matilda.mp3",
+      "sha256": "e45a58ddc966fbeade3f8aed51204037ba383c89a6adbf3f6b0fa117662186bc",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d0a78755",
+      "text": "There are 7 moon rocks. You counted each one once.",
+      "path": "/audio/en/d0a78755-matilda.mp3",
+      "sha256": "53462bb192111aa372eda0b5b6f78a08d0de9cb121c371141f1f862a515fbcdc",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "828efad4",
+      "text": "There are 7 nebula lights. You counted each one once.",
+      "path": "/audio/en/828efad4-matilda.mp3",
+      "sha256": "63751b87c07537897940f92800c980f72066844dcb23ec29b1b6183482278b5f",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "88df6cf8",
+      "text": "There are 7 ring stones. You counted each one once.",
+      "path": "/audio/en/88df6cf8-matilda.mp3",
+      "sha256": "fc1bf376f5e959f9aeff245b986bbf73df45ce897a223a720322701ba0daf086",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "43a5d7d9",
+      "text": "There are 7 satellite bolts. You counted each one once.",
+      "path": "/audio/en/43a5d7d9-matilda.mp3",
+      "sha256": "21c337773e62f79172fe323b718d2fc703022f4daebd11a073364dec87c01ac0",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "542bae4e",
+      "text": "There are 7 solar panels. You counted each one once.",
+      "path": "/audio/en/542bae4e-matilda.mp3",
+      "sha256": "b41ff1febd30ea25dd6ccab36b4c61bc664fa608e502d721b61fcb205df5d69f",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "cda06cd5",
+      "text": "There are 7 stars. You counted each one once.",
+      "path": "/audio/en/cda06cd5-matilda.mp3",
+      "sha256": "5c09b8ae3fd3b8e0171e766aaac99e2e1fb357d28a6310f6201f9e1cdacd796f",
+      "duration": 2.600635,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "4ee4eb58",
+      "text": "There are 8 crater gems. You counted each one once.",
+      "path": "/audio/en/4ee4eb58-matilda.mp3",
+      "sha256": "db4f8af24417692f09462a5c862220d45d21744e55a0e7a67d785018c76d533a",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "803a3a8d",
+      "text": "There are 8 lit windows. You counted each one once.",
+      "path": "/audio/en/803a3a8d-matilda.mp3",
+      "sha256": "162b3f9b6990a893f1964ca1f7137016546502498b8db49616cd378106572d4e",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "6c67f052",
+      "text": "There are 8 map stars. You counted each one once.",
+      "path": "/audio/en/6c67f052-matilda.mp3",
+      "sha256": "b486e2eb57c59cdab4bfd873fe7be918c38a6a8590223040f3ad03727ac8289a",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "c3535660",
+      "text": "There are 8 meteors. You counted each one once.",
+      "path": "/audio/en/c3535660-matilda.mp3",
+      "sha256": "78eb0acc5d2ee9ebc3b51d791646d11d63ee2d341a45d9f4489f5a3d19f8d598",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "fef01292",
+      "text": "There are 8 moon rocks. You counted each one once.",
+      "path": "/audio/en/fef01292-matilda.mp3",
+      "sha256": "93d4e8d95d0f73bd92e64b45fbfbbfc7eacc0130534940fdae54d0f33abadcb6",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "cbff22b9",
+      "text": "There are 8 nebula lights. You counted each one once.",
+      "path": "/audio/en/cbff22b9-matilda.mp3",
+      "sha256": "7d59589244cf42324d09c65af7ffb538fad6fa28a30a4a57f665e6d31a81f482",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "c9bd9c0d",
+      "text": "There are 8 ring stones. You counted each one once.",
+      "path": "/audio/en/c9bd9c0d-matilda.mp3",
+      "sha256": "085ce145f94e766f66569144e01521bbd9d69f46e0be26bd854ef0e82549748f",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "7921ebd4",
+      "text": "There are 8 satellite bolts. You counted each one once.",
+      "path": "/audio/en/7921ebd4-matilda.mp3",
+      "sha256": "e35ee111b60d56ce43d5b4a172122ef1c50bfe080157490c4b489935bf962d8d",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d7f1550d",
+      "text": "There are 8 solar panels. You counted each one once.",
+      "path": "/audio/en/d7f1550d-matilda.mp3",
+      "sha256": "9b8ed09cadc3153e22d282ff7b77cf9b430aef3920e69429b157f20b49945530",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "5efe9510",
+      "text": "There are 8 stars. You counted each one once.",
+      "path": "/audio/en/5efe9510-matilda.mp3",
+      "sha256": "2d3e62ecdf17c516b8205bf82cece1194b528442734d3308dd0c518a70f53688",
+      "duration": 3.065034,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "fb295747",
+      "text": "There are 9 crater gems. You counted each one once.",
+      "path": "/audio/en/fb295747-matilda.mp3",
+      "sha256": "2f65332f30cc7e13fee31138bd7903af640a6c8d9ecb5aa43a33420696245ccc",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "2c962f22",
+      "text": "There are 9 lit windows. You counted each one once.",
+      "path": "/audio/en/2c962f22-matilda.mp3",
+      "sha256": "c29056089ebd9ef8d3eab0036032c6f5d8b2e0554ab9147a3e969fced5c79b18",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "a55ae74d",
+      "text": "There are 9 map stars. You counted each one once.",
+      "path": "/audio/en/a55ae74d-matilda.mp3",
+      "sha256": "86c16eff8cbb5cc4ead67886ffd82699008b492bd2c5b65a4c76865faed4f995",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "dea8c5f7",
+      "text": "There are 9 meteors. You counted each one once.",
+      "path": "/audio/en/dea8c5f7-matilda.mp3",
+      "sha256": "d0edb77268a3fbbe4a9954b6a935e592fd7e4b18c8be44b049f6f675c55f4c19",
+      "duration": 3.111474,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "30232f4f",
+      "text": "There are 9 moon rocks. You counted each one once.",
+      "path": "/audio/en/30232f4f-matilda.mp3",
+      "sha256": "4634c4ef7efcad29d23f570e505d6f4b72ea7b8a8556edbd8c5491a09b046733",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "c654c21a",
+      "text": "There are 9 nebula lights. You counted each one once.",
+      "path": "/audio/en/c654c21a-matilda.mp3",
+      "sha256": "32b5e2e313f171617cb77b313a18df08c6e824a8e524b86ab8568c3835d55143",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b3ab87fa",
+      "text": "There are 9 ring stones. You counted each one once.",
+      "path": "/audio/en/b3ab87fa-matilda.mp3",
+      "sha256": "bdfa9bfbfa46be146ff9874cf730510e557599541545a00b2969098fa925ead3",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b50e36d7",
+      "text": "There are 9 satellite bolts. You counted each one once.",
+      "path": "/audio/en/b50e36d7-matilda.mp3",
+      "sha256": "8b2a6c528b9813e536898fe40a6cdfba56270cd8051c8eb5f2fbc19f3a18bd32",
+      "duration": 3.622313,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "a44c3a14",
+      "text": "There are 9 solar panels. You counted each one once.",
+      "path": "/audio/en/a44c3a14-matilda.mp3",
+      "sha256": "951e99a44409434f28e6608a5128906b8675b49c53f5f55e678752ab7c4cf58f",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "20ba6b8f",
+      "text": "There are 9 stars. You counted each one once.",
+      "path": "/audio/en/20ba6b8f-matilda.mp3",
+      "sha256": "5ac17856cdeddd1dda9b15da548a5e1c2e7132b77bfd28cf2532b9bca4c29cc2",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "eabc0017",
+      "text": "There is 1 comet seed. You counted each one once.",
+      "path": "/audio/en/eabc0017-matilda.mp3",
+      "sha256": "45f3a653ec9dea6bc0c70dbef3c0dab2deb3da3035ee8890589d8835b9ed72e1",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "046ee1d2",
+      "text": "There is 1 crater gem. You counted each one once.",
+      "path": "/audio/en/046ee1d2-matilda.mp3",
+      "sha256": "2c40c5b0427245e9d8c404efa96b8fd82da08e322ebaf95d530120933d8de2cd",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "b9c7e285",
+      "text": "There is 1 firefly. You counted each one once.",
+      "path": "/audio/en/b9c7e285-matilda.mp3",
+      "sha256": "f34437870314aa09864a62242b1ae11bb276d3c2fc21e5780ee7cb4306b3a098",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "d1d2e865",
+      "text": "There is 1 lit window. You counted each one once.",
+      "path": "/audio/en/d1d2e865-matilda.mp3",
+      "sha256": "c61e53148ae8309ac61eaffc97ae38683637d5c5011f88278c2faae22b656661",
+      "duration": 2.925714,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "eab7ce90",
+      "text": "There is 1 map star. You counted each one once.",
+      "path": "/audio/en/eab7ce90-matilda.mp3",
+      "sha256": "b1af78bb3ab8556d42f984920a01d4c294364b36cbe38afddba26c86d54e5342",
+      "duration": 3.436553,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "65b21302",
+      "text": "There is 1 meteor. You counted each one once.",
+      "path": "/audio/en/65b21302-matilda.mp3",
+      "sha256": "253420c599c9a1a3ef98f051d5335c31cf39d368f352dc34b9e2200c4166eda2",
+      "duration": 3.018594,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "3a1a4eb7",
+      "text": "There is 1 moon berry. You counted each one once.",
+      "path": "/audio/en/3a1a4eb7-matilda.mp3",
+      "sha256": "64c70dc192d1744aef67aee2cb586edb72c6d6184aae6a246e62233487f0a11d",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "9c42454a",
+      "text": "There is 1 moon rock. You counted each one once.",
+      "path": "/audio/en/9c42454a-matilda.mp3",
+      "sha256": "102047e5ec480c6bed7cce8bdeca22737f68be538d0ba02701ba1e3050217b07",
+      "duration": 3.065034,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "77943791",
+      "text": "There is 1 nebula light. You counted each one once.",
+      "path": "/audio/en/77943791-matilda.mp3",
+      "sha256": "150769bc16464b498adcd183b28b20d154deaecb3ece6ea9058c38e12c35d7c1",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "f22051c0",
+      "text": "There is 1 planet. You counted each one once.",
+      "path": "/audio/en/f22051c0-matilda.mp3",
+      "sha256": "804bbfcdc44d7fe8155bbb7ae0310857f114fe60d273090fca7f160bf2786b57",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "32cef1ad",
+      "text": "There is 1 ring stone. You counted each one once.",
+      "path": "/audio/en/32cef1ad-matilda.mp3",
+      "sha256": "730c2afe96c9f080aee11ae90549c87c3cffa3dd6383cc3f0fee387eaf4154b2",
+      "duration": 3.529433,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "3ba98156",
+      "text": "There is 1 rocket light. You counted each one once.",
+      "path": "/audio/en/3ba98156-matilda.mp3",
+      "sha256": "7668ea878e77d2b139feaa3a809861adab7ae9ec80680d6695fa3cc64fa561c0",
+      "duration": 3.111474,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "32081326",
+      "text": "There is 1 satellite bolt. You counted each one once.",
+      "path": "/audio/en/32081326-matilda.mp3",
+      "sha256": "046f9281deac854aa767a636b31e544ed66aa5983eee3dcfe5096de083f9f778",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "e8d7773b",
+      "text": "There is 1 solar panel. You counted each one once.",
+      "path": "/audio/en/e8d7773b-matilda.mp3",
+      "sha256": "fdd3cbd32ca2afa32392687830c2f2fc526ce69a9fa9b5bc244c6353a7ac44f9",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "56f6b8da",
+      "text": "There is 1 star. You counted each one once.",
+      "path": "/audio/en/56f6b8da-matilda.mp3",
+      "sha256": "06d0ab6b6bd27044a63522f009dbcd62c1af46a3aea9b7888f69a2818b1f9ffc",
+      "duration": 2.925714,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "1b69f0bb",
+      "text": "You finished this star survey and earned its constellation page.",
+      "path": "/audio/en/1b69f0bb-matilda.mp3",
+      "sha256": "df6622668bdf51a374d6c4ca4e041ab060717feb9260d37f4340064ebd6601f5",
+      "duration": 3.297234,
+      "valid": true
+    },
+    {
+      "game": "counting",
+      "key": "6b067bdc",
+      "text": "objects",
+      "path": "/audio/en/6b067bdc-matilda.mp3",
+      "sha256": "ab749e11f8ba79fe43ad8aa10d48f2380d3c539e72f4d5088aea4a2460dddf13",
+      "duration": 0.696599,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "47b90a1f",
+      "text": "A new fern frond often uncurls from a tight spiral.",
+      "path": "/audio/en/47b90a1f-matilda.mp3",
+      "sha256": "6564a44729ebf515213ee713a2eadb78e01e43717afe17137bb2800cdb84bd37",
+      "duration": 3.111474,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "906930fb",
+      "text": "A river is flowing water that can wear a path through the land.",
+      "path": "/audio/en/906930fb-matilda.mp3",
+      "sha256": "fea7f499b82a29bfc5b8c5668b7eca15c4de43633809c9c426e164d085be9415",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "59aac364",
+      "text": "A wetland is land saturated with water, though it may not stay wet all year.",
+      "path": "/audio/en/59aac364-matilda.mp3",
+      "sha256": "80f9865b6d991f443f2dec19b38d56a8506f55fc2de5bdc1da922f57963e6bc5",
+      "duration": 4.92263,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "9db34942",
+      "text": "Allosaurus was a meat-eating dinosaur with small horns above its eyes.",
+      "path": "/audio/en/9db34942-matilda.mp3",
+      "sha256": "a46edf95b9e9fec99aeee24993ab54d1e962f96c98f1f4a582cbf464cd781cb9",
+      "duration": 4.133152,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "717508c6",
+      "text": "Ankylosaurus had bony armor and a heavy club at the end of its tail.",
+      "path": "/audio/en/717508c6-matilda.mp3",
+      "sha256": "ba5ddeaf0c6517d23925809eac61256ed05b6fbbd47d1281762a5af3c0f14500",
+      "duration": 3.808073,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "824c8162",
+      "text": "Brachiosaurus had front legs longer than its back legs.",
+      "path": "/audio/en/824c8162-matilda.mp3",
+      "sha256": "3c9aa8c55b973075858776716a02628f18b78fb790ed035ad00aeb5669250ea9",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "d19ae22c",
+      "text": "Carnotaurus had two horns on top of its head and very small arms.",
+      "path": "/audio/en/d19ae22c-matilda.mp3",
+      "sha256": "11d807e1ea8b86617242f05ac1c34490a4324821a7674135067153785767f8fc",
+      "duration": 4.040272,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "932d4aa9",
+      "text": "Corythosaurus was a duck-billed dinosaur with a helmet-shaped head crest.",
+      "path": "/audio/en/932d4aa9-matilda.mp3",
+      "sha256": "e607898e03db35b0ab72e1badbe963891c01c133a885431a6e11ded8204eeef3",
+      "duration": 3.993832,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "e1316120",
+      "text": "Deserts get very little rain. Some deserts are cold, not hot.",
+      "path": "/audio/en/e1316120-matilda.mp3",
+      "sha256": "6b4dc8a44dd043063ae6799b065941212059e6fe842416e3a7bfdf8e48daba76",
+      "duration": 4.597551,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "f5db223c",
+      "text": "Dilophosaurus had two bony crests on its head.",
+      "path": "/audio/en/f5db223c-matilda.mp3",
+      "sha256": "124918f75de298cc8765133ea7a52981b8bdd504a83670ba495360b03438a566",
+      "duration": 2.739955,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "bce81c3e",
+      "text": "Ferns make spores instead of flowers or seeds.",
+      "path": "/audio/en/bce81c3e-matilda.mp3",
+      "sha256": "4fa33ed4da729b9c277ff5bd8aef46756600d87f6f7c67dbae07c8a0e1805f36",
+      "duration": 2.693515,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "d579cda9",
+      "text": "Find the featured creature. Open a numbered cover to look underneath.",
+      "path": "/audio/en/d579cda9-matilda.mp3",
+      "sha256": "dc3b843738d6d9d4e695e7aa9a1520adf9009d75b99b554952d8558304cc2ce4",
+      "duration": 3.993832,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "97d93db8",
+      "text": "Follow the footprints near the rocky ledge.",
+      "path": "/audio/en/97d93db8-matilda.mp3",
+      "sha256": "38ef72c390c04dd784c86ff6100389ecf594ab8e0737f2ea4b322c383c2784b8",
+      "duration": 2.182676,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "4342cb3d",
+      "text": "Follow the glimmer beside the cave wall.",
+      "path": "/audio/en/4342cb3d-matilda.mp3",
+      "sha256": "0e48918d25736748077d6ce73208be66be5d8049eee9720679ff76e4fdb2e690",
+      "duration": 2.182676,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "1771fc02",
+      "text": "Follow the warm, winding clue near the rocky ground.",
+      "path": "/audio/en/1771fc02-matilda.mp3",
+      "sha256": "e16e7110db030c201e44795fb9ab0978478465ead2ec0f2d5ee4bf4f8f0db1fd",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "e056035a",
+      "text": "Fossil footprints are clues that show where an animal walked.",
+      "path": "/audio/en/e056035a-matilda.mp3",
+      "sha256": "34122fae17b0fed45f8d3242173d062796d0afb5a6b8755a68b586f6441fd346",
+      "duration": 3.204354,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "aaa902d7",
+      "text": "Look along the bright colours in the sky.",
+      "path": "/audio/en/aaa902d7-matilda.mp3",
+      "sha256": "4d45245abdacc04f8e8cbdffab7921b964259385bd1dd9af96d3851bdfbe2653",
+      "duration": 2.229116,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "c16f2e8a",
+      "text": "Look close to the ancient shoreline.",
+      "path": "/audio/en/c16f2e8a-matilda.mp3",
+      "sha256": "39f68793eef4f54b8cec871ec8d08eb2b78072caf1a43d8a2312bf9095cab126",
+      "duration": 1.950476,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "eba32a38",
+      "text": "Look for the creature hiding in this leafy place.",
+      "path": "/audio/en/eba32a38-matilda.mp3",
+      "sha256": "52ff6694fd59f9a6b7bb371d824942e9b68173d73307d10842aec348f04d3ca2",
+      "duration": 2.554195,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "2bed27f3",
+      "text": "Look in the lower left spot.",
+      "path": "/audio/en/2bed27f3-matilda.mp3",
+      "sha256": "47bce5c2a03902ff6f06ea5d9db12e7aca9d881ed77538f0c74f487d9a3f1ec0",
+      "duration": 1.578957,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "027dc5a4",
+      "text": "Look in the lower right spot.",
+      "path": "/audio/en/027dc5a4-matilda.mp3",
+      "sha256": "b641bc8c30404c2a20bc449f66b786d99fc61af918bd8c7e2ee8ec21c3066be4",
+      "duration": 1.578957,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "bab15fa8",
+      "text": "Look in the upper left spot.",
+      "path": "/audio/en/bab15fa8-matilda.mp3",
+      "sha256": "e96737f6f5678dda0e35087deeec4d7b474bd7802c21893632290d4c8aff62cf",
+      "duration": 1.578957,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "ec74c2e4",
+      "text": "Look in the upper middle spot.",
+      "path": "/audio/en/ec74c2e4-matilda.mp3",
+      "sha256": "c9bd34c08375b62d605702b1c958e62c35ef94b93883221ed606efd632a230c8",
+      "duration": 1.625397,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "1f1c2db1",
+      "text": "Look in the upper right spot.",
+      "path": "/audio/en/1f1c2db1-matilda.mp3",
+      "sha256": "a19d7a39db9ff268d4c45c516ce2ef1dcc3b32c2d1e2587745db99abff16233c",
+      "duration": 1.578957,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "0410561f",
+      "text": "Look near the shallow water and reeds.",
+      "path": "/audio/en/0410561f-matilda.mp3",
+      "sha256": "e210bb17849721d1e44b1e03121f8053a0bd8a508f40bea07c156643f81ec054",
+      "duration": 1.996916,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "b5cddefb",
+      "text": "Look near the shapes made by wind and sand.",
+      "path": "/audio/en/b5cddefb-matilda.mp3",
+      "sha256": "a03071e81baa11e6bd6ea82eda90f87f4bd8fd2313133e7073dbac6a649edf87",
+      "duration": 2.275556,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "08870865",
+      "text": "Look where the water path bends through the scene.",
+      "path": "/audio/en/08870865-matilda.mp3",
+      "sha256": "9068545504949df9669b43968d91f6a26c53d355a1de77fece80108842d6a322",
+      "duration": 2.507755,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "421e8dd5",
+      "text": "Moonlight is sunlight reflected from the Moon.",
+      "path": "/audio/en/421e8dd5-matilda.mp3",
+      "sha256": "a0ac3df5ee6e216da71d14909694fa553ec12fe5ad109cadeab32cf727c000cd",
+      "duration": 2.414875,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "ba16bc69",
+      "text": "Not this cover. Try another spot, or choose Show a clue.",
+      "path": "/audio/en/ba16bc69-matilda.mp3",
+      "sha256": "7d7a494d904b185f1b2a39f594b5fb454a822e5ccfa8df1faab07be70ea1a902",
+      "duration": 3.390113,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "1d34ca61",
+      "text": "Parasaurolophus had a long hollow head crest. It may have helped make sounds.",
+      "path": "/audio/en/1d34ca61-matilda.mp3",
+      "sha256": "e60a54861dd4eef9f115be8a268bd8cfcf9a41ca7b99044cd1c7d9b1e4ccd911",
+      "duration": 5.06195,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "8e51ffee",
+      "text": "Plesiosaurs were marine reptiles, not dinosaurs.",
+      "path": "/audio/en/8e51ffee-matilda.mp3",
+      "sha256": "074ee3cad391fb8b6e742415f35e9fec6b4ea92c17fb2a175b66f5332fab8fcb",
+      "duration": 2.879274,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "d669520c",
+      "text": "Raindrops bend and reflect sunlight, spreading it into rainbow colours.",
+      "path": "/audio/en/d669520c-matilda.mp3",
+      "sha256": "1c922b884cc2c51f0382c2a625c7b3833ca0c25423ee1f8a0087c2b2eaf1e71d",
+      "duration": 4.643991,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "282007e2",
+      "text": "Rock beneath Earth’s surface is called magma. Once it erupts, it is called lava.",
+      "path": "/audio/en/282007e2-matilda.mp3",
+      "sha256": "6b167f99e02cd07e3fc7c794021b473f85962043da312ab68fb6bc6dfa7dac5b",
+      "duration": 5.29415,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "7767a176",
+      "text": "Search around the snowy tracks.",
+      "path": "/audio/en/7767a176-matilda.mp3",
+      "sha256": "0d93cd4b134d51f2980a98541a1265cc20207248fe16e2fc0f7a08bcf714a2f3",
+      "duration": 1.811156,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "466f3a25",
+      "text": "Search between the tall fern fronds.",
+      "path": "/audio/en/466f3a25-matilda.mp3",
+      "sha256": "009c9501ba30778461fa4310a7daa1688f2adb2964291884f81df9cbd2d0cdfd",
+      "duration": 2.089796,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "29407cc8",
+      "text": "Search under the quiet night sky.",
+      "path": "/audio/en/29407cc8-matilda.mp3",
+      "sha256": "3c04ade160038d309c6d268630512cf193bc94363c68506dac46975033274680",
+      "duration": 1.996916,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "519ce93e",
+      "text": "Snowflakes are groups of ice crystals that grow inside cold clouds.",
+      "path": "/audio/en/519ce93e-matilda.mp3",
+      "sha256": "4ad53979d0ead97431fa3091d7d0fa4bdbcf63610c529153f2eb263a2234eb85",
+      "duration": 3.854512,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "68d5f96d",
+      "text": "Spinosaurus had a tall sail on its back. Scientists still study what it was for.",
+      "path": "/audio/en/68d5f96d-matilda.mp3",
+      "sha256": "8139ad343d64abd78b45c4cfdec4cbaf9cb47a84393fdea71aa4c0c32076b253",
+      "duration": 5.34059,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "2c9108b1",
+      "text": "Stegosaurus had bony plates along its back. Their exact purpose is still being studied.",
+      "path": "/audio/en/2c9108b1-matilda.mp3",
+      "sha256": "c04bc87d6d8aa69efa799074430dd367ce489f05ab257648b563ae57f2da11bd",
+      "duration": 5.433469,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "9385938b",
+      "text": "T. rex had short arms and powerful jaws.",
+      "path": "/audio/en/9385938b-matilda.mp3",
+      "sha256": "d27ced5745a667d0f6fc90ffa2a7ecc7ab078589bf68ace4e77cbfe876734045",
+      "duration": 2.693515,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "0ee03dcf",
+      "text": "Triceratops had three horns and a large bony frill.",
+      "path": "/audio/en/0ee03dcf-matilda.mp3",
+      "sha256": "284b49f50d9ca6c6b7100f7472abbb5e2742c08e1475d17ab61ebd0b86984148",
+      "duration": 3.111474,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "58e6aeba",
+      "text": "Velociraptor had a curved claw on each foot.",
+      "path": "/audio/en/58e6aeba-matilda.mp3",
+      "sha256": "ae136769d412ff090f9c000df8ef190bf211a60f9c0317b9df898524ea2878fe",
+      "duration": 2.507755,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "6eb3670c",
+      "text": "Water can slowly dissolve limestone and help form caves.",
+      "path": "/audio/en/6eb3670c-matilda.mp3",
+      "sha256": "2a15d161148f23d58c19bc743ccbf8783e0bc43f619df4d4bf626e2428e4b69d",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "50ee6768",
+      "text": "You finished all five search rounds and earned this world sticker.",
+      "path": "/audio/en/50ee6768-matilda.mp3",
+      "sha256": "56e2cab3fe93b51da90eb97f5612a8342215b2ce3bb1b74903823d503e5a548f",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "dino",
+      "key": "ac4e248c",
+      "text": "You found the creature. Read its fact and the world fact, then choose Next.",
+      "path": "/audio/en/ac4e248c-matilda.mp3",
+      "sha256": "b223402eda1569f2a6364cb0edcf083a493243725e8d42add19bf2e9e55e8415",
+      "duration": 5.20127,
+      "valid": true
+    },
+    {
+      "game": "trace",
+      "key": "7b4cce67",
+      "text": "Follow the dotted path in order. Start at the green number and move toward the arrow.",
+      "path": "/audio/en/7b4cce67-matilda.mp3",
+      "sha256": "bd222e8197e128ba398d5592310310270acccff7069ce89ecfdb4d54adaf37a8",
+      "duration": 5.10839,
+      "valid": true
+    },
+    {
+      "game": "trace",
+      "key": "7e216f14",
+      "text": "Show me a stroke.",
+      "path": "/audio/en/7e216f14-matilda.mp3",
+      "sha256": "040876354b1eb958561aef744f3b1f2653c2aa83075217c5281058e656727952",
+      "duration": 1.114558,
+      "valid": true
+    },
+    {
+      "game": "trace",
+      "key": "bbfbcf12",
+      "text": "Take your time. Lift your finger before you start the next stroke.",
+      "path": "/audio/en/bbfbcf12-matilda.mp3",
+      "sha256": "efab71958b4a11f7b9f9dd503449dd06f79a0b58ed53c20e2d112797c82ccad9",
+      "duration": 3.900952,
+      "valid": true
+    },
+    {
+      "game": "trace",
+      "key": "6d8b847b",
+      "text": "That is the word. You traced the letter and matched its first sound.",
+      "path": "/audio/en/6d8b847b-matilda.mp3",
+      "sha256": "f25b148ff81b8c4c3a84b0a3711625af66186364fdae8f74c186ec04008b5532",
+      "duration": 4.597551,
+      "valid": true
+    },
+    {
+      "game": "trace",
+      "key": "7d57ac21",
+      "text": "The word starts with this letter sound.",
+      "path": "/audio/en/7d57ac21-matilda.mp3",
+      "sha256": "6a61ed712b7eec86ee9b17e7a8694b13d3df56905abdce3a84373c91652c39b6",
+      "duration": 2.136236,
+      "valid": true
+    },
+    {
+      "game": "trace",
+      "key": "b87dc444",
+      "text": "Try that stroke again. Begin at the green number and follow the arrows.",
+      "path": "/audio/en/b87dc444-matilda.mp3",
+      "sha256": "c931476ef041154658727fcd00d16a7b5c910535cd085e6f09b3ad21f7b62606",
+      "duration": 4.690431,
+      "valid": true
+    },
+    {
+      "game": "trace",
+      "key": "435f52be",
+      "text": "You followed the letter. Great tracing!",
+      "path": "/audio/en/435f52be-matilda.mp3",
+      "sha256": "b5b70558e432a1a62eb340619fd40149473c443dee61d160e353590085170f79",
+      "duration": 2.321995,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "95f7c1f0",
+      "text": "A fork makes two ways to win on the next turn. Look for a square that starts both paths.",
+      "path": "/audio/en/95f7c1f0-matilda.mp3",
+      "sha256": "b09edac722499b757bf1530efe104f8bd78cb89c22ab9d6ee55037cd01f48e8d",
+      "duration": 5.15483,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "97e2883c",
+      "text": "A row needs three marks. You can reset and try another plan.",
+      "path": "/audio/en/97e2883c-matilda.mp3",
+      "sha256": "aa32ca2edd0563ade246e0a28aa8b4b97ec4280727c4202088759131fc60e79a",
+      "duration": 3.761633,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "f2052218",
+      "text": "Dino made a line of three!",
+      "path": "/audio/en/f2052218-matilda.mp3",
+      "sha256": "0d59cf0d411bb9ad850bbfc9ae32f7b7093950108b7f5767d74966c30a113a8d",
+      "duration": 1.439637,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "6f1a93e8",
+      "text": "Not that square yet. Look for the glowing lesson clue or reset and try again.",
+      "path": "/audio/en/6f1a93e8-matilda.mp3",
+      "sha256": "2c945202112b4b26c09e1ecc7e182405c55397c374e1df6cc533e4f00b7f5c75",
+      "duration": 5.01551,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "f4def1e8",
+      "text": "Place one mark that makes two winning paths for your next turn.",
+      "path": "/audio/en/f4def1e8-matilda.mp3",
+      "sha256": "6880f7fc2df7391af58f58e217f090b11cb4cd7cc1445830c79dbead40815544",
+      "duration": 3.575873,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "dcf926f3",
+      "text": "Rocket has two in a row. Put your mark in the last square to block the line.",
+      "path": "/audio/en/dcf926f3-matilda.mp3",
+      "sha256": "221e1a5f066b6f192c00080139bb1efdd34816777c64a2246d7af69628ea9754",
+      "duration": 4.690431,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "db56eb63",
+      "text": "Rocket is nearly at three. Put a Dino mark in the square that stops the line.",
+      "path": "/audio/en/db56eb63-matilda.mp3",
+      "sha256": "029df9559849c8d471d71e2fb182c586d6b0bfed564a031031f11a4dad448f43",
+      "duration": 4.829751,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "584ae166",
+      "text": "Rocket made a line of three. Try a new plan.",
+      "path": "/audio/en/584ae166-matilda.mp3",
+      "sha256": "13a52948e44e2cfb3c8e7d574d7d002fa026f89329b8fcb75bf70efec2eb5ef6",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "7f63350c",
+      "text": "That mark opens two different winning squares for your next turn.",
+      "path": "/audio/en/7f63350c-matilda.mp3",
+      "sha256": "d7af04ec5205ef4685195aeebdd1be2539e5053e228f3231cf1b218fbf24799c",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "f301a963",
+      "text": "That move shows the tactic. Look at the line or paths you made.",
+      "path": "/audio/en/f301a963-matilda.mp3",
+      "sha256": "61a8f25cb9270e0dd8b30b6a44d0a869cb1a979d44b58550aa62632d4e93afbb",
+      "duration": 3.808073,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "e9c36eda",
+      "text": "The board is full. That is a draw. Try a new board.",
+      "path": "/audio/en/e9c36eda-matilda.mp3",
+      "sha256": "fe57ba80f8b68275bd5c8df9ced5ec1c2ba23b9e755cfe5756caf47aaf9ed4f5",
+      "duration": 3.668753,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "e7e450d7",
+      "text": "Three Dino marks now make a line.",
+      "path": "/audio/en/e7e450d7-matilda.mp3",
+      "sha256": "5e50311c007b6c6951c9ce292770390f506eabeb51ff36b5e44f7d976fdbb3d0",
+      "duration": 1.996916,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "66dd46ca",
+      "text": "Two Dino marks are waiting. Find the square that makes three in a row.",
+      "path": "/audio/en/66dd46ca-matilda.mp3",
+      "sha256": "65f6c05e0e5a4b03609d05f7544f7813ae10589c2068897d71cebd7dc44c91e3",
+      "duration": 3.808073,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "5c4f6f20",
+      "text": "Two in a row can make a line. Find the empty square that finishes it.",
+      "path": "/audio/en/5c4f6f20-matilda.mp3",
+      "sha256": "f3f15aab8263e734f34e5fecb9a9a47eb062b7495b9252acd56de92ea4a931c6",
+      "duration": 4.133152,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "fff67abc",
+      "text": "Your Dino mark fills the square Rocket needed to complete the line.",
+      "path": "/audio/en/fff67abc-matilda.mp3",
+      "sha256": "99c3be605a1b92aeea194d503710d2528acc8b9fc09bcd4bc8e97b0eda8a1500",
+      "duration": 3.343673,
+      "valid": true
+    },
+    {
+      "game": "tictactoe",
+      "key": "e213a2e5",
+      "text": "Your turn. Make a line across, down, or diagonally.",
+      "path": "/audio/en/e213a2e5-matilda.mp3",
+      "sha256": "a843b38ef227848a653270d4fa950784856bbec0bff493b7668941ed3486cb8c",
+      "duration": 3.250794,
+      "valid": true
+    }
+  ]
+}
