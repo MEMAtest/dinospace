@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-03T01:32:02.071344+00:00",
+  "canonicalUrl": "https://dinospace-eight.vercel.app",
+  "deploymentId": "dpl_DGLGVkaMikT5GPntS6YThDsesHyx",
+  "gitCommitSha": "6b84554e7a1d21b3db658d213a2298462c78599e",
+  "assets": [
+    {
+      "path": "/assets/index-akZ21SWl.js",
+      "status": 200,
+      "sha256": "3ebd53465f2f2a6994163ce420c3d04e7e4f578544518f9bde4f7b6e2f8fb2b0",
+      "matchesProductionConfigCandidate": true
+    },
+    {
+      "path": "/assets/index-CPZQTFam.css",
+      "status": 200,
+      "sha256": "25e3cfc13e4e40f8ceb95c3adf163e301e2f6b800c18052e2ccb9e32e475f459",
+      "matchesProductionConfigCandidate": true
+    }
+  ],
+  "readyState": "READY",
+  "target": "production",
+  "aliases": [
+    "dinospace-eight.vercel.app",
+    "dinospace-memas-projects-23a0001d.vercel.app"
+  ],
+  "aliasAssigned": true,
+  "buildConfig": {
+    "VITE_ELEVENLABS_ENABLED": "true"
+  }
+}
