@@ -224,7 +224,7 @@
     "scope": "Batch 2 functional repair released; quality acceptance still pending",
     "independentChecks": "Final 831 targeted desktop/mobile controls pass: Sky visible starts, Spot paired scenes and hint geometry, Puzzle actual hints:1 diagnostic. Historical failed candidates remain preserved.",
     "humanListening": "pending",
-    "productionPlaywright": "Independent final production controls in progress on canonical 3cdfc42",
+    "productionPlaywright": "Actual canonical desktop/mobile Puzzle and Spot replay plus targeted Monster checks passed. Observational native audio cancellation and remaining mobile Sky checks in progress; no 4.5 acceptance.",
     "preview": {
       "url": "https://dinospace-e2xpceist-memas-projects-23a0001d.vercel.app",
       "deploymentId": "dpl_8VyFhnvHSU39MVYfqCQEwTZjTmDC",
@@ -251,13 +251,14 @@
   "implementationBatch": 3,
   "implementationBranch": "codex/amari-batch3-quality-20261003",
   "implementationCandidate": {
-    "source": "7c79f47154d97f877858bd3d5124c37cf23bb5e6",
+    "source": "569953595e89eabf628a5fdc6e2a43541e2b19f2",
     "branch": "codex/amari-batch3-quality-20261003",
     "testsPassed": 198,
     "lint": "passed",
     "build": "passed",
-    "localPlaywright": "Independent desktop/mobile Count/Dino and Trace/Cosmic checks in progress",
+    "localPlaywright": "Independent desktop/mobile QA continues on frozen 5699535. Tracing canvas containment and actual pointer completion recovered; Count mobile answer reveal fully visible after native scrolling settles. Dino first-world crash recovery and remaining journeys still under test.",
     "narration": "Packaging and runtime wiring pending",
-    "release": "Not deployed or accepted"
+    "release": "Not deployed or accepted",
+    "sourceGateLineage": "198-test baseline7c79; later JSX-only browser repairs lint/build pass, actual delta verification pending."
   }
 }
