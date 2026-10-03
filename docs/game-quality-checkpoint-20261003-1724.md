@@ -18,3 +18,7 @@ Batch3 packaged-only voice wiring and optional cancellation on internal transiti
 ## Release boundary
 
 Canonical production remains3cdfc426e91b46a855448690278ceb6590280b68 with the retained Batch2 production reports. Batch3 andBatch4 are not deployed. Human listening, current independent editorial scoring and production Playwright evidence remain required. Source tests and local QA are not proof that all games meet4.5.
+
+## Packaging update — 17:35UTC
+
+Batch3 frozen76be035 now passes204/204 fullsource tests, fullESLint, productionconfigurationbuild and6servedasset matches. Its finite narration worker has generated30newclips; all46currentlymapped clips decoded without ffmpeg errors and have retained duration/SHA256/byte records.229clips remain. The worker is waiting under the request journal, not failed. Its status/log are now supervised by the existing quiet production health automation; monitoring cannot restart it or call providers. No new production release or accepted score.
