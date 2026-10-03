@@ -1,0 +1,21 @@
+### Result
+1. [GET] http://127.0.0.1:5203/ => [200] OK
+2. [GET] http://127.0.0.1:5203/assets/index-DZuRTFaZ.js => [200] OK
+3. [GET] http://127.0.0.1:5203/assets/index-CU-OkS6z.css => [200] OK
+4. [GET] http://127.0.0.1:5203/assets/amari-astronaut-robot-Dj0NBZLZ.png => [200] OK
+5. [GET] http://127.0.0.1:5203/assets/askia-detective-CPOpmaoU.webp => [200] OK
+6. [GET] http://127.0.0.1:5203/icons/amari-discovery-192.png => [200] OK
+7. [GET] http://127.0.0.1:5203/audio/en/24f14aff-matilda.mp3 => [206] Partial Content
+8. [GET] http://127.0.0.1:5203/icons/amari-discovery-192.png => [200] OK
+9. [GET] http://127.0.0.1:5203/icons/amari-discovery-192.png => [200] OK
+10. [GET] http://127.0.0.1:5203/icons/amari-discovery-192.png => [200] OK
+11. [GET] http://127.0.0.1:5203/audio/en/1029770e-matilda.mp3 => [206] Partial Content
+12. [GET] http://127.0.0.1:5203/icons/amari-discovery-192.png => [200] OK
+13. [GET] http://127.0.0.1:5203/audio/en/aaf81fc2-matilda.mp3 => [206] Partial Content
+14. [GET] http://127.0.0.1:5203/audio/en/ef380652-matilda.mp3 => [200] OK
+15. [GET] http://127.0.0.1:5203/audio/en/b57c84aa-matilda.mp3 => [200] OK
+16. [GET] http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3 => [200] OK
+17. [GET] http://127.0.0.1:5203/icons/amari-discovery-192.png => [200] OK
+18. [GET] http://127.0.0.1:5203/assets/amari-astronaut-robot-Dj0NBZLZ.png => [200] OK
+19. [GET] http://127.0.0.1:5203/icons/amari-discovery-192.png => [200] OK
+20. [GET] http://127.0.0.1:5203/icons/amari-discovery-192.png => [200] OK

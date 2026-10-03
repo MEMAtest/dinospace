@@ -14,7 +14,7 @@ Authored wording: Picture complete. Some dinosaurs ate plants, and some ate meat
 
 ![Listen](/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/public/audio/en/d988f5f4-matilda.mp3)
 
-Listening verdict: pending. Desktop game playback: pending. 390px game playback: pending.
+Human listening verdict: pending. Human listening through desktop controls: pending. Human listening through 390px controls: pending. Native browser playback evidence is tracked separately in the acceptance gate matrix.
 
 ## Spot the Difference
 
@@ -26,7 +26,7 @@ Authored wording: You found every change. People help their community by sharing
 
 ![Listen](/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/public/audio/en/2f2b4a34-matilda.mp3)
 
-Listening verdict: pending. Desktop game playback: pending. 390px game playback: pending.
+Human listening verdict: pending. Human listening through desktop controls: pending. Human listening through 390px controls: pending. Native browser playback evidence is tracked separately in the acceptance gate matrix.
 
 ## Sky Shapes
 
@@ -42,7 +42,7 @@ Authored wording: A circle is one smooth curve. It has no corners.
 
 ![Listen](/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/public/audio/en/d9a1e08e-matilda.mp3)
 
-Listening verdict: pending. Desktop game playback: pending. 390px game playback: pending.
+Human listening verdict: pending. Human listening through desktop controls: pending. Human listening through 390px controls: pending. Native browser playback evidence is tracked separately in the acceptance gate matrix.
 
 ## Monster Math
 
@@ -54,4 +54,4 @@ Authored wording: There is 1 star.
 
 ![Listen](/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/public/audio/en/d067b8a7-matilda.mp3)
 
-Listening verdict: pending. Desktop game playback: pending. 390px game playback: pending.
+Human listening verdict: pending. Human listening through desktop controls: pending. Human listening through 390px controls: pending. Native browser playback evidence is tracked separately in the acceptance gate matrix.

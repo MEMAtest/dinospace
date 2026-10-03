@@ -1,0 +1,689 @@
+{
+  "events": [
+    {
+      "type": "play-call",
+      "at": 11341.700000001118,
+      "src": "http://127.0.0.1:5203/audio/en/24f14aff-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "pause-call",
+      "at": 11473.099999999627,
+      "src": "http://127.0.0.1:5203/audio/en/24f14aff-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "play",
+      "at": 11487.400000000373,
+      "src": "http://127.0.0.1:5203/audio/en/24f14aff-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": true,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 11487.800000000745,
+      "src": "http://127.0.0.1:5203/audio/en/24f14aff-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": true,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 11554.099999999627,
+      "src": "http://127.0.0.1:5203/audio/en/24f14aff-matilda.mp3",
+      "currentTime": 0,
+      "duration": 1.857596,
+      "paused": true,
+      "ended": false
+    },
+    {
+      "type": "play-call",
+      "at": 27098,
+      "src": "http://127.0.0.1:5203/audio/en/1029770e-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "play",
+      "at": 27101.5,
+      "src": "http://127.0.0.1:5203/audio/en/1029770e-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 27141.5,
+      "src": "http://127.0.0.1:5203/audio/en/1029770e-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.96907,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 27142.599999999627,
+      "src": "http://127.0.0.1:5203/audio/en/1029770e-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.96907,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 32141.400000000373,
+      "src": "http://127.0.0.1:5203/audio/en/1029770e-matilda.mp3",
+      "currentTime": 4.96907,
+      "duration": 4.96907,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "ended",
+      "at": 32141.5,
+      "src": "http://127.0.0.1:5203/audio/en/1029770e-matilda.mp3",
+      "currentTime": 4.96907,
+      "duration": 4.96907,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play-call",
+      "at": 34615.300000000745,
+      "src": "http://127.0.0.1:5203/audio/en/aaf81fc2-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "play",
+      "at": 34629.90000000037,
+      "src": "http://127.0.0.1:5203/audio/en/aaf81fc2-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 34635.300000000745,
+      "src": "http://127.0.0.1:5203/audio/en/aaf81fc2-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.318912,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 34636.90000000037,
+      "src": "http://127.0.0.1:5203/audio/en/aaf81fc2-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.318912,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 38989.300000000745,
+      "src": "http://127.0.0.1:5203/audio/en/aaf81fc2-matilda.mp3",
+      "currentTime": 4.318912,
+      "duration": 4.318912,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "ended",
+      "at": 38989.300000000745,
+      "src": "http://127.0.0.1:5203/audio/en/aaf81fc2-matilda.mp3",
+      "currentTime": 4.318912,
+      "duration": 4.318912,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play-call",
+      "at": 66699.20000000112,
+      "src": "http://127.0.0.1:5203/audio/en/ef380652-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "play",
+      "at": 66700.09999999963,
+      "src": "http://127.0.0.1:5203/audio/en/ef380652-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 66702.30000000075,
+      "src": "http://127.0.0.1:5203/audio/en/ef380652-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.040272,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 66703.20000000112,
+      "src": "http://127.0.0.1:5203/audio/en/ef380652-matilda.mp3",
+      "currentTime": 0.011651,
+      "duration": 4.040272,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 70765.40000000037,
+      "src": "http://127.0.0.1:5203/audio/en/ef380652-matilda.mp3",
+      "currentTime": 4.040272,
+      "duration": 4.040272,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play-call",
+      "at": 70765.5,
+      "src": "http://127.0.0.1:5203/audio/en/b57c84aa-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "ended",
+      "at": 70765.59999999963,
+      "src": "http://127.0.0.1:5203/audio/en/ef380652-matilda.mp3",
+      "currentTime": 4.040272,
+      "duration": 4.040272,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play",
+      "at": 70765.90000000037,
+      "src": "http://127.0.0.1:5203/audio/en/b57c84aa-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 70767.20000000112,
+      "src": "http://127.0.0.1:5203/audio/en/b57c84aa-matilda.mp3",
+      "currentTime": 0,
+      "duration": 2.925714,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 70768.30000000075,
+      "src": "http://127.0.0.1:5203/audio/en/b57c84aa-matilda.mp3",
+      "currentTime": 0,
+      "duration": 2.925714,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 73752,
+      "src": "http://127.0.0.1:5203/audio/en/b57c84aa-matilda.mp3",
+      "currentTime": 2.925714,
+      "duration": 2.925714,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "ended",
+      "at": 73752.09999999963,
+      "src": "http://127.0.0.1:5203/audio/en/b57c84aa-matilda.mp3",
+      "currentTime": 2.925714,
+      "duration": 2.925714,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play-call",
+      "at": 114432.59999999963,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "play",
+      "at": 114447.5,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 114451,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.133152,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 114452.20000000112,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 0.011651,
+      "duration": 4.133152,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 118769.70000000112,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 4.133152,
+      "duration": 4.133152,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "ended",
+      "at": 118769.70000000112,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 4.133152,
+      "duration": 4.133152,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play-call",
+      "at": 149050.70000000112,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "play",
+      "at": 149062.70000000112,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 149074.70000000112,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.133152,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 149075.80000000075,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 0.011641,
+      "duration": 4.133152,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 153330,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 4.133152,
+      "duration": 4.133152,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "ended",
+      "at": 153330,
+      "src": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "currentTime": 4.133152,
+      "duration": 4.133152,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play-call",
+      "at": 181450.80000000075,
+      "src": "http://127.0.0.1:5203/audio/en/34a377ee-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "play",
+      "at": 181461.40000000037,
+      "src": "http://127.0.0.1:5203/audio/en/34a377ee-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 181475.59999999963,
+      "src": "http://127.0.0.1:5203/audio/en/34a377ee-matilda.mp3",
+      "currentTime": 0,
+      "duration": 3.575873,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 181476.90000000037,
+      "src": "http://127.0.0.1:5203/audio/en/34a377ee-matilda.mp3",
+      "currentTime": 0.011638,
+      "duration": 3.575873,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 185287.59999999963,
+      "src": "http://127.0.0.1:5203/audio/en/34a377ee-matilda.mp3",
+      "currentTime": 3.575873,
+      "duration": 3.575873,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "ended",
+      "at": 185287.59999999963,
+      "src": "http://127.0.0.1:5203/audio/en/34a377ee-matilda.mp3",
+      "currentTime": 3.575873,
+      "duration": 3.575873,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play-call",
+      "at": 219226.70000000112,
+      "src": "http://127.0.0.1:5203/audio/en/75af60ea-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "play",
+      "at": 219227.5,
+      "src": "http://127.0.0.1:5203/audio/en/75af60ea-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 219229.09999999963,
+      "src": "http://127.0.0.1:5203/audio/en/75af60ea-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.411791,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 219229.90000000037,
+      "src": "http://127.0.0.1:5203/audio/en/75af60ea-matilda.mp3",
+      "currentTime": 3.7e-05,
+      "duration": 4.411791,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 223767.30000000075,
+      "src": "http://127.0.0.1:5203/audio/en/75af60ea-matilda.mp3",
+      "currentTime": 4.411791,
+      "duration": 4.411791,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play-call",
+      "at": 223767.30000000075,
+      "src": "http://127.0.0.1:5203/audio/en/d9a1e08e-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "ended",
+      "at": 223767.30000000075,
+      "src": "http://127.0.0.1:5203/audio/en/75af60ea-matilda.mp3",
+      "currentTime": 4.411791,
+      "duration": 4.411791,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "play",
+      "at": 223767.70000000112,
+      "src": "http://127.0.0.1:5203/audio/en/d9a1e08e-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 223781.70000000112,
+      "src": "http://127.0.0.1:5203/audio/en/d9a1e08e-matilda.mp3",
+      "currentTime": 0,
+      "duration": 3.482993,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 223785.30000000075,
+      "src": "http://127.0.0.1:5203/audio/en/d9a1e08e-matilda.mp3",
+      "currentTime": 0,
+      "duration": 3.482993,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause-call",
+      "at": 223832.09999999963,
+      "src": "http://127.0.0.1:5203/audio/en/d9a1e08e-matilda.mp3",
+      "currentTime": 0.047054,
+      "duration": 3.482993
+    },
+    {
+      "type": "pause",
+      "at": 223843,
+      "src": "http://127.0.0.1:5203/audio/en/d9a1e08e-matilda.mp3",
+      "currentTime": 0,
+      "duration": 3.482993,
+      "paused": true,
+      "ended": false
+    },
+    {
+      "type": "play-call",
+      "at": 224079.80000000075,
+      "src": "http://127.0.0.1:5203/audio/en/37504663-matilda.mp3",
+      "currentTime": 0,
+      "duration": null
+    },
+    {
+      "type": "play",
+      "at": 224093.20000000112,
+      "src": "http://127.0.0.1:5203/audio/en/37504663-matilda.mp3",
+      "currentTime": 0,
+      "duration": null,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "loadedmetadata",
+      "at": 224096.5,
+      "src": "http://127.0.0.1:5203/audio/en/37504663-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.272472,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "playing",
+      "at": 224097.5,
+      "src": "http://127.0.0.1:5203/audio/en/37504663-matilda.mp3",
+      "currentTime": 0,
+      "duration": 4.272472,
+      "paused": false,
+      "ended": false
+    },
+    {
+      "type": "pause",
+      "at": 228418,
+      "src": "http://127.0.0.1:5203/audio/en/37504663-matilda.mp3",
+      "currentTime": 4.272472,
+      "duration": 4.272472,
+      "paused": true,
+      "ended": true
+    },
+    {
+      "type": "ended",
+      "at": 228418,
+      "src": "http://127.0.0.1:5203/audio/en/37504663-matilda.mp3",
+      "currentTime": 4.272472,
+      "duration": 4.272472,
+      "paused": true,
+      "ended": true
+    }
+  ],
+  "resources": [
+    {
+      "name": "http://127.0.0.1:5203/assets/index-DZuRTFaZ.js",
+      "transferSize": 319547,
+      "duration": 47.399999998509884
+    },
+    {
+      "name": "http://127.0.0.1:5203/assets/index-CU-OkS6z.css",
+      "transferSize": 32408,
+      "duration": 12.699999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5203/assets/askia-detective-CPOpmaoU.webp",
+      "transferSize": 153018,
+      "duration": 14.900000000372529
+    },
+    {
+      "name": "http://127.0.0.1:5203/assets/amari-astronaut-robot-Dj0NBZLZ.png",
+      "transferSize": 962273,
+      "duration": 18.300000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5203/icons/amari-discovery-192.png",
+      "transferSize": 58548,
+      "duration": 15
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/24f14aff-matilda.mp3",
+      "transferSize": 31273,
+      "duration": 62.5
+    },
+    {
+      "name": "http://127.0.0.1:5203/icons/amari-discovery-192.png",
+      "transferSize": 58548,
+      "duration": 62.09999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5203/icons/amari-discovery-192.png",
+      "transferSize": 58548,
+      "duration": 31.40000000037253
+    },
+    {
+      "name": "http://127.0.0.1:5203/icons/amari-discovery-192.png",
+      "transferSize": 58548,
+      "duration": 20.299999998882413
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/1029770e-matilda.mp3",
+      "transferSize": 81010,
+      "duration": 47.09999999962747
+    },
+    {
+      "name": "http://127.0.0.1:5203/icons/amari-discovery-192.png",
+      "transferSize": 58548,
+      "duration": 33.80000000074506
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/aaf81fc2-matilda.mp3",
+      "transferSize": 0,
+      "duration": 5.299999998882413
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/ef380652-matilda.mp3",
+      "transferSize": 0,
+      "duration": 1.800000000745058
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/b57c84aa-matilda.mp3",
+      "transferSize": 0,
+      "duration": 1
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "transferSize": 0,
+      "duration": 3
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/5e00ba97-matilda.mp3",
+      "transferSize": 0,
+      "duration": 11.699999999254942
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/34a377ee-matilda.mp3",
+      "transferSize": 0,
+      "duration": 14
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/75af60ea-matilda.mp3",
+      "transferSize": 0,
+      "duration": 1.599999999627471
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/d9a1e08e-matilda.mp3",
+      "transferSize": 0,
+      "duration": 1.900000000372529
+    },
+    {
+      "name": "http://127.0.0.1:5203/audio/en/37504663-matilda.mp3",
+      "transferSize": 0,
+      "duration": 3
+    },
+    {
+      "name": "http://127.0.0.1:5203/icons/amari-discovery-192.png",
+      "transferSize": 0,
+      "duration": 0.900000000372529
+    },
+    {
+      "name": "http://127.0.0.1:5203/assets/amari-astronaut-robot-Dj0NBZLZ.png",
+      "transferSize": 0,
+      "duration": 1.200000001117587
+    },
+    {
+      "name": "http://127.0.0.1:5203/icons/amari-discovery-192.png",
+      "transferSize": 0,
+      "duration": 0.8000000007450581
+    },
+    {
+      "name": "http://127.0.0.1:5203/icons/amari-discovery-192.png",
+      "transferSize": 0,
+      "duration": 4.199999999254942
+    }
+  ],
+  "viewport": {
+    "w": 1280,
+    "h": 800
+  }
+}

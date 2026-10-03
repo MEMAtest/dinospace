@@ -1,0 +1,189 @@
+{
+  "version": 2,
+  "retention": {
+    "recentEvents": 300,
+    "runMilestones": 100
+  },
+  "events": [
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T09:36:34.706Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T09:36:34.708Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T09:36:34.708Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T09:37:06.791Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T09:37:06.791Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "hint",
+      "at": "2026-10-03T09:37:54.526Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter",
+      "hintType": "replay_clue"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T09:37:54.599Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "hint",
+      "at": "2026-10-03T09:38:29.144Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter",
+      "hintType": "replay_clue"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T09:38:29.220Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T09:39:01.544Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T09:39:01.544Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T09:39:39.320Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3291063970,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T09:39:39.320Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3291063970,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "hint",
+      "at": "2026-10-03T09:39:44.174Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3291063970,
+      "difficulty": "starter",
+      "hintType": "replay_clue"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T09:43:02.756Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    }
+  ],
+  "runMilestones": [
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T09:36:34.706Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T09:37:54.599Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T09:38:29.220Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T09:43:02.756Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3291063970,
+      "difficulty": "starter"
+    }
+  ]
+}
