@@ -26,3 +26,16 @@ The previous `/tmp` snapshot was missing and independently returned HTTP 404; th
 - CSS remains `index-CPZQTFam.css`, unchanged hash.
 
 The rebuilt snapshot differs by generated-manifest coverage; gameplay/narration hook source is unchanged. It remains local, frozen and incomplete for Monster. Historical `/tmp` measurements retain their own identity; no attempt is made to label them as the new runtime build.
+
+## Reproduced exit defect and repaired candidate
+
+Independent Sky UI testing of the restored `index-Dmr-JKNn.js` snapshot reproduced narration continuing after confirmed navigation back to Creative Lab. A 4.272-second packaged replay started at 06:47:41.460 UTC; the route changed within approximately 0.4 seconds, while the same audio reached its natural end at 06:47:45.790. This is a failed exit gate. Opening a leave dialog alone is not navigation and should preserve audio if the child cancels it; a Spot attempt that confirmed after its clip had already ended was not counted as an exit-leak reproduction.
+
+Source repair `70108cb` exposes the existing narration cancellation function and runs it during route/player cleanup before the destination starts narration. It also guards packaged playback callbacks against a cancelled generation: a controlled delayed-autoplay-rejection test first reproduced two gesture listeners being re-armed after cancellation, then passed after the guard fix. The tests use a fake media element only for this timing race; they do not serve as actual browser playback proof. Full Node suite: 162/162. Lint/build passed.
+
+New frozen LOCAL candidate is workspace `tmp/batch2-audio-exit-fix-20261003`, served at port 5196:
+
+- JS `index-YAjCSdc_.js`: SHA-256 `f79f3b88a7bbb16a86c9a42c04deb3b4634ff139e492176c2d0b1df110f8b8c3`.
+- CSS remains `index-CPZQTFam.css` with its recorded unchanged hash.
+
+Independent confirmed-Back, cancelled-leave, replay, next and mute deltas are underway at both widths. This repair is not deployed; canonical production still runs `6b84554`. Packaged narration completion, audible review and production audio evidence remain required.
