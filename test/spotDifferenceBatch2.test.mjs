@@ -3,6 +3,7 @@ import test from 'node:test';
 import {
   completeSpotDifferenceChapter,
   createSpotDifferenceRun,
+  getNextSpotDifferenceHint,
   getSpotDifferenceProgress,
   resolveSpotDifferenceTap,
   SPOT_DIFFERENCE_CHAPTERS,
@@ -66,6 +67,13 @@ test('Spot attempt diagnostics distinguish a first wrong tap from a retry', () =
   assert.deepEqual(spotAnswerAttemptDetail({ level: 1, round: 2, seed: 42, correct: false, hadMistake: true }), {
     level: 1, round: 2, seed: 42, correct: false, firstAttempt: false,
   });
+});
+
+test('Spot magnifier hints select distinct unfinished changes and stop when none remain', () => {
+  const differences = [{ id: 'first' }, { id: 'second' }, { id: 'third' }];
+  assert.equal(getNextSpotDifferenceHint(differences).id, 'first');
+  assert.equal(getNextSpotDifferenceHint(differences, ['first'], ['second']).id, 'third');
+  assert.equal(getNextSpotDifferenceHint(differences, ['first', 'third'], ['second']), null);
 });
 
 test('tapping a found difference within its hit radius is neutral and keeps the same tolerance', () => {

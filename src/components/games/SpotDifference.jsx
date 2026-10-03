@@ -6,6 +6,7 @@ import { spotDifferenceNarration, speakPackagedBatch2Line } from '../../data/bat
 import {
   completeSpotDifferenceChapter,
   createSpotDifferenceRun,
+  getNextSpotDifferenceHint,
   getSpotDifferenceLastQueue,
   getSpotDifferenceProgress,
   resolveSpotDifferenceTap,
@@ -40,6 +41,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
   const [feedback, setFeedback] = useState('Choose a chapter, then compare the two pictures.');
   const [hintCount, setHintCount] = useState(0);
   const [hintTarget, setHintTarget] = useState(null);
+  const [hintedTargets, setHintedTargets] = useState([]);
   const [wrongTap, setWrongTap] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
   const [wrongTapCount, setWrongTapCount] = useState(0);
@@ -64,6 +66,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     setFound([]);
     setHintCount(0);
     setHintTarget(null);
+    setHintedTargets([]);
     setHadMistake(false);
     setWrongTapCount(0);
     setFeedback('Look at both pictures. Tap a changed detail in Picture B.');
@@ -79,6 +82,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     setFound([]);
     setHintCount(0);
     setHintTarget(null);
+    setHintedTargets([]);
     setHadMistake(false);
     setWrongTapCount(0);
     setWrongTap(false);
@@ -131,10 +135,11 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
 
   const showHint = () => {
     if (!scene || hintCount >= chapter.hintTokens || complete || phase !== 'play') return;
-    const target = scene.differences.find((entry) => !found.includes(entry.id));
+    const target = getNextSpotDifferenceHint(scene.differences, found, hintedTargets);
     if (!target) return;
     setHintCount((value) => value + 1);
     setHintTarget(target.id);
+    setHintedTargets((value) => [...value, target.id]);
     setFeedback(`Magnifier hint: look near ${target.x < 35 ? 'the left' : target.x > 65 ? 'the right' : 'the middle'} ${target.y < 35 ? 'top' : target.y > 65 ? 'bottom' : 'area'} of Picture B.`);
     onGameEvent?.('spot', 'hint', { level: chapterIndex, round: sceneIndex + 1, seed, hintType: 'magnifier' });
     speakPackagedBatch2Line(speak, spotDifferenceNarration.hint(target.x, target.y));
@@ -177,12 +182,12 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
       {scene && <>
         <p className="mb-3 min-h-12 rounded-2xl bg-white/95 px-4 py-3 text-center font-black text-indigo-800 shadow" aria-live="polite">{feedback}</p>
         {phase === 'play' ? <>
-          <section className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-white/90 p-3 shadow"><p className="font-black">{scene.title} <span className="text-slate-600">· {found.length} of {scene.differences.length} changes</span></p><div className="flex gap-2"><button type="button" onClick={() => { speakPackagedBatch2Line(speak, spotDifferenceNarration.prompt(scene)); playSfx('click'); }} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={18} /> Hear clue</button><button type="button" onClick={showHint} disabled={hintCount >= chapter.hintTokens} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-100 px-4 font-black text-amber-900 disabled:opacity-50"><Lightbulb size={18} /> Magnifier {chapter.hintTokens - hintCount} left</button></div></section>
+          <section className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-white/90 p-3 shadow"><p className="font-black">{scene.title} <span className="text-slate-600">· {found.length} of {scene.differences.length} changes</span></p><div className="flex gap-2"><button type="button" onClick={() => { speakPackagedBatch2Line(speak, spotDifferenceNarration.prompt(scene)); playSfx('click'); }} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={18} /> Hear clue</button><button type="button" onClick={showHint} disabled={hintCount >= chapter.hintTokens || !getNextSpotDifferenceHint(scene.differences, found, hintedTargets)} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-100 px-4 font-black text-amber-900 disabled:opacity-50"><Lightbulb size={18} /> Magnifier {chapter.hintTokens - hintCount} left</button></div></section>
           <div className="grid gap-4 lg:grid-cols-2">
             {[false, true].map((changed) => <section key={String(changed)} className="min-w-0 rounded-3xl border-4 border-white bg-white p-3 shadow-xl"><h2 className="mb-2 text-center text-lg font-black text-indigo-800">Picture {changed ? 'B · Find changes here' : 'A · Look carefully'}</h2><div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-sky-100"><img src={scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
               {scene.differences.map((difference) => { const visible = changed ? difference.visual : difference.normalVisual; const done = found.includes(difference.id); if (changed && done) return <span key={difference.id} aria-label="Found difference" className="pointer-events-none absolute z-10 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-100/95 ring-4 ring-emerald-500" style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><Check className="text-emerald-800" /></span>; return <span key={difference.id} aria-hidden="true" className="pointer-events-none absolute z-[1] grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 shadow" style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><DifferenceVisual type={visible} /></span>; })}
               {changed && <button type="button" onClick={inspectPicture} aria-label="Search Picture B for a change" className={`absolute inset-0 z-10 h-full w-full cursor-crosshair bg-transparent ${wrongTap ? 'ring-4 ring-inset ring-rose-400' : ''}`} />}
-              {changed && scene.differences.map((difference) => !found.includes(difference.id) && <button key={`hot-${difference.id}`} type="button" onClick={() => handleFind(difference)} aria-label={`Check ${difference.x < 35 ? 'left' : difference.x > 65 ? 'right' : 'middle'} ${difference.y < 35 ? 'top' : difference.y > 65 ? 'bottom' : 'middle'} detail`} className={`absolute z-20 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-transparent bg-transparent focus-visible:border-indigo-600 focus-visible:bg-indigo-200/40 focus-visible:outline-none ${hintTarget === difference.id ? 'animate-pulse border-amber-500 bg-amber-200/40' : ''}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }} />)}
+              {changed && scene.differences.map((difference) => !found.includes(difference.id) && <button key={`hot-${difference.id}`} type="button" onClick={() => handleFind(difference)} aria-label={`Check ${difference.x < 35 ? 'left' : difference.x > 65 ? 'right' : 'middle'} ${difference.y < 35 ? 'top' : difference.y > 65 ? 'bottom' : 'middle'} detail`} className={`absolute z-20 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 focus-visible:border-indigo-600 focus-visible:bg-indigo-200/40 focus-visible:outline-none ${hintTarget === difference.id ? 'animate-pulse border-amber-500 bg-amber-200/40' : 'border-transparent bg-transparent'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }} />)}
             </div></section>)}
           </div>
           <div className="mt-4 flex flex-wrap justify-center gap-2" aria-label="Changes found">{scene.differences.map((entry, index) => <span key={entry.id} className={`grid h-11 w-11 place-items-center rounded-full border-2 font-black ${found.includes(entry.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-800' : 'border-slate-300 bg-white text-slate-500'}`} aria-label={`Change ${index + 1}${found.includes(entry.id) ? ', found' : ', not found'}`}>{found.includes(entry.id) ? <Check size={19} /> : index + 1}</span>)}</div>

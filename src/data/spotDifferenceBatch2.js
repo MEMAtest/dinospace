@@ -91,6 +91,11 @@ export const spotAnswerAttemptDetail = ({ level, round, seed, correct, hadMistak
   firstAttempt: !hadMistake,
 });
 
+export const getNextSpotDifferenceHint = (differences, foundIds = [], hintedIds = []) => {
+  const unavailable = new Set([...foundIds, ...hintedIds]);
+  return differences.find(({ id }) => !unavailable.has(id)) || null;
+};
+
 export const spotDifferenceRandomFor = (seed) => {
   let state = (Number(seed) >>> 0) || 1;
   return () => {
