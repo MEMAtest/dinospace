@@ -34,9 +34,10 @@ const AstronautAcademyAmari=(props)=>{
     const correct=choice===mission.answer;
     journey.markAttempt(mission,correct);
     if(correct){
+      setWrong(false);
       const prefix=mission.review?'You remembered this from before. ':'';
       if(mission.review)journey.resolveMissed(mission.id.replace(/^review-/,''));
-      journey.reveal(mission,true,`${prefix}${mission.fact}`,mission.fact,choice);
+      journey.reveal(mission,true,`${prefix}You matched the question to a mission fact.`,mission.fact,choice);
       speakBatch6(speak,`${prefix}${mission.fact}`);
     }else{
       journey.addMissed(mission.review?mission.id.replace(/^review-/,''):mission.id);

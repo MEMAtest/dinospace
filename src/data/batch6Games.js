@@ -6,6 +6,13 @@ export const BATCH6_BANDS = Object.freeze([
   { id: 'challenge', name: 'Big discoveries', badge: 'Discovery star' },
 ]);
 export const BATCH6_QUESTION_COUNTS = Object.freeze({ pattern: 6, hangman: 6, chess: 5, astronaut: 6 });
+export const distinctBatch6FactLines = (explanation, fact) => {
+  const lines = [];
+  if (typeof explanation === 'string' && explanation.trim()) lines.push({ text: explanation, kind:'explanation' });
+  const normalize = (value) => String(value || '').trim().replace(/\s+/g,' ').toLowerCase();
+  if (typeof fact === 'string' && fact.trim() && normalize(fact) !== normalize(explanation)) lines.push({ text: fact, kind:'fact' });
+  return lines;
+};
 const stableContentId = (kind, content) => {
   let first = 0x811c9dc5;
   let second = 0x9e3779b9;
@@ -35,8 +42,15 @@ export const makeFreshQueue = (gameId, playerId, items, count, seed, signature =
   const key = `amari_batch6_recent_${gameId}_${playerId}_v1`;
   let recent = [];
   try { recent = JSON.parse(localStorage.getItem(key) || '[]'); } catch { recent = []; }
-  const unseen = items.filter((item) => !recent.includes(signature(item)));
-  const eligible = unseen.length >= count ? unseen : items;
+  const seenSignatures = new Set();
+  const uniqueItems = items.filter((item) => {
+    const itemSignature = signature(item);
+    if (seenSignatures.has(itemSignature)) return false;
+    seenSignatures.add(itemSignature);
+    return true;
+  });
+  const unseen = uniqueItems.filter((item) => !recent.includes(signature(item)));
+  const eligible = unseen.length >= count ? unseen : uniqueItems;
   const queue = makeQueue(eligible, count, seed);
   try { localStorage.setItem(key, JSON.stringify([...recent, ...queue.map(signature)].slice(-Math.max(8, items.length)))); } catch { /* private mode keeps the run usable */ }
   return queue;
@@ -91,7 +105,9 @@ export const saveBatch6Run = (gameId, playerId, chapter, stars, facts, missed = 
 };
 
 const PATTERN_RECOLOR_TOKENS = ['🟣','🟠','🟢','🟡','🌙','⭐','🔵','🟤','🐶','🐱','🐭','🐰','🍎','🍐','🍊','🍇','🔺','🔷','⬟','⚫','🦕','🦖','🥚','🌋','🧡','💚','💙','💜','🍓','🍋','🥝','🍉','🐢','🦋','🐝','🐞','🥕','🍌','🍍','⚽','🏀','🎾','🎱','🧩','🎈','🎁','🛸','🪐','☀️','☁️','🌈','❄️','🔥','💧','🍄','🌵','🌻','🐠','🐙','🐬','🦀','🦉','🦊','🐻','🐸','🐧','🐥','🦄','🐳','🍪','🍰','🧁','🍦','🧸','🎨','🪁','🛶','🌠'];
-const BASE_PATTERN_TOKENS = [...new Set(['🔴','🔵','🟡','🟢','⭐','🌙','🚀','🦖','⬟','▲','●','🦕','🥚','🌋',...PATTERN_RECOLOR_TOKENS])].sort((a,b)=>b.length-a.length);
+const PATTERN_SOUND_CHOICES = ['👏','🥁','🔔','🪇','🎺','🪈','🎹','🎸','🪘','🪕','📯','🪗'];
+const PATTERN_MOVEMENT_CHOICES = ['⬆️','➡️','⬇️','⬅️','↗️','↘️','↙️','↖️','⤴️','⤵️','↔️','↕️'];
+const BASE_PATTERN_TOKENS = [...new Set(['🔴','🔵','🟡','🟢','⭐','🌙','🚀','🦖','⬟','▲','●','🦕','🥚','🌋',...PATTERN_RECOLOR_TOKENS,...PATTERN_SOUND_CHOICES,...PATTERN_MOVEMENT_CHOICES])].sort((a,b)=>b.length-a.length);
 const tokenizePatternTerm = (value) => {
   const remaining = String(value);
   const result = [];
@@ -157,6 +173,44 @@ export const PATTERN_MISSIONS = Object.freeze({
     pattern('ABC', ['🟢','🟡','🔵','🟢','🟡'], '🔵', 'Three-step rhythm', 'Keep the same order across all three parts.'),
   ]),
 });
+
+const patternPresentationMap = (mission) => {
+  const symbols = mission.symbolTokens || [];
+  const palette = mission.modality === 'sound rule' ? PATTERN_SOUND_CHOICES : PATTERN_MOVEMENT_CHOICES;
+  if (symbols.length > palette.length) return new Map();
+  const seed = Number.parseInt(stableContentId('pattern-display', mission.signature).slice(-8), 16) || 1;
+  const labels = seededShuffle(palette, seededRandom(seed));
+  return new Map(symbols.map((symbol, index) => [symbol, labels[index]]));
+};
+export const patternDisplayTerm = (mission, value) => {
+  if (!mission || mission.modality === 'picture rule') return value;
+  const presentation = patternPresentationMap(mission);
+  return tokenizePatternTerm(value).map((symbol) => presentation.get(symbol) || '').join('');
+};
+
+// Recolored variants that present the same visible pattern share an opaque key.
+// Choice order is excluded because it is shuffled independently; answer text stays local to this computation.
+export const patternContentSignature = (mission) => stableContentId('pattern-content', JSON.stringify({
+  modality: mission.modality,
+  rule: mission.rule,
+  sequence: mission.sequence.map((term) => term === '?' ? '?' : patternDisplayTerm(mission, term)),
+  answer: patternDisplayTerm(mission, mission.answer),
+}));
+
+const MOVEMENT_NAMES = { '⬆️':'up arrow', '➡️':'right arrow', '⬇️':'down arrow', '⬅️':'left arrow', '↗️':'up-right arrow', '↘️':'down-right arrow', '↙️':'down-left arrow', '↖️':'up-left arrow', '⤴️':'turning-up arrow', '⤵️':'turning-down arrow', '↔️':'side-to-side arrow', '↕️':'up-and-down arrow' };
+export const patternMovementCue = (mission) => {
+  if (mission?.rule === 'growing' && mission.growthRule === 'alternate') {
+    const [first, second] = tokenizePatternTerm(mission.sequence[1] || '');
+    const firstName = MOVEMENT_NAMES[patternDisplayTerm(mission, first)] || 'first arrow';
+    const secondName = MOVEMENT_NAMES[patternDisplayTerm(mission, second)] || 'second arrow';
+    return `Each step adds one arrow, alternating ${firstName} then ${secondName}.`;
+  }
+  if (mission?.rule === 'growing') return 'Each step adds one more copy of the same arrow.';
+  if (mission?.rule === 'AAB') return 'Two matching arrows, then one different arrow, make the repeating group.';
+  if (mission?.rule === 'ABB') return 'One arrow, then two matching arrows, make the repeating group.';
+  if (mission?.rule === 'ABC') return 'Watch the same three arrows repeat in order.';
+  return 'Watch the two arrows take turns.';
+};
 
 export const HANGMAN_WORDS_BY_BAND = Object.freeze({
   starter: [
@@ -284,6 +338,15 @@ export const chessLegalMoves = (puzzle, size = 5) => {
   }
   return moves;
 };
+export const getChessMoveTransition = (puzzle, pieceSelected, square, size = 5) => {
+  if (!Array.isArray(square) || !insideBoard(square, size)) return { kind:'ignore', selected:pieceSelected, attempted:false, clearFeedback:false };
+  if (sameSquare(square, puzzle.from)) return { kind:pieceSelected ? 'deselect' : 'select', selected:!pieceSelected, attempted:false, clearFeedback:true };
+  if (!pieceSelected) return { kind:'ignore', selected:false, attempted:false, clearFeedback:false };
+  const legal = chessLegalMoves(puzzle, size).some((move) => sameSquare(move, square));
+  const target = sameSquare(square, puzzle.target);
+  if (legal && target) return { kind:'correct', selected:false, attempted:true, legal:true, clearFeedback:true };
+  return { kind:'wrong', selected:true, attempted:true, legal, clearFeedback:false };
+};
 export const isSafeChessCapture = (puzzle, target = puzzle.target, size = 5) => {
   const targetPiece=(puzzle.board||[]).find((item)=>item.color==='black'&&sameSquare(item.at,target));
   if(!targetPiece) return false;
@@ -370,6 +433,8 @@ const isKnownItemId = (gameId, id) => {
 export const validatePatternMission = (mission) => {
   if (!mission?.id || !mission.signature || mission.sequence.at(-1) !== '?') return false;
   if (!Array.isArray(mission.options) || mission.options.length !== 4 || new Set(mission.options).size !== 4 || !mission.options.includes(mission.answer)) return false;
+  if (new Set(mission.options.map((option) => patternDisplayTerm(mission, option))).size !== 4
+    || !mission.options.some((option) => patternDisplayTerm(mission, option) === patternDisplayTerm(mission, mission.answer))) return false;
   const signature = `${mission.rule}|${mission.sequence.join('')}>${mission.answer}|${mission.options.join(',')}`;
   if (mission.signature !== signature || mission.id !== stableContentId('pattern', signature)) return false;
   const allowed = new Set(mission.symbolTokens || []);

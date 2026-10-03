@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  ASTRONAUT_MISSIONS, BATCH6_PROGRESS_KEY, CHESS_PUZZLES, HANGMAN_WORDS_BY_BAND,
-  PATTERN_MISSIONS, chessLegalMoves, isSafeChessCapture, makeFreshQueue, makeQueue, seededRandom, seededShuffle,
+  ASTRONAUT_MISSIONS, BATCH6_PROGRESS_KEY, CHESS_PUZZLES, HANGMAN_WORDS_BY_BAND, distinctBatch6FactLines,
+  PATTERN_MISSIONS, chessLegalMoves, getChessMoveTransition, isSafeChessCapture, makeFreshQueue, seededRandom, seededShuffle,
   readBatch6Progress, saveBatch6Run, validateAstronautMission,
-  chessPieceAttacks, validateChessPuzzle, validatePatternMission, validateTaughtWord,
+  chessPieceAttacks, patternContentSignature, patternDisplayTerm, patternMovementCue, validateChessPuzzle, validatePatternMission, validateTaughtWord,
 } from '../src/data/batch6Games.js';
 import { PHASE_SOUNDS } from '../src/data/learningProgress.js';
 import { BATCH6_SPOKEN_PHRASES, speakBatch6 } from '../src/data/batch6Narration.js';
@@ -16,34 +16,42 @@ class MemoryStorage {
   setItem(key, value) { if (this.failWrites) throw new Error('storage disabled'); this.values.set(key, String(value)); }
 }
 
-test('Pattern Parade has six validated missions per run, with distinct full signatures and rules', () => {
-  for (const missions of Object.values(PATTERN_MISSIONS)) {
-    assert.ok(missions.length >= 48, 'at least eight six-question runs are available before pool exhaustion');
-    assert.equal(new Set(missions.map((mission) => mission.signature)).size, missions.length);
-    assert.ok(missions.every(validatePatternMission));
-    assert.equal(missions.filter((mission) => ['AB', 'AAB', 'ABB', 'ABC', 'growing'].includes(mission.rule)).length, missions.length);
-    const queue = makeQueue(missions, 6, 714);
-    assert.equal(queue.length, 6);
-    assert.equal(new Set(queue.map((mission) => mission.signature)).size, 6);
-  }
-  const alternate = PATTERN_MISSIONS.challenge.find((mission)=>mission.growthRule==='alternate');
-  assert.equal(validatePatternMission(alternate),true);
-  assert.equal(validatePatternMission({...alternate,answer:'🔴🔵🟡🟢'}),false,'growing answers follow the explicitly alternating token rule');
-  assert.ok(PATTERN_MISSIONS.challenge.slice(6).every((mission)=>!/(red|blue|dino|rocket|star|moon)/i.test(`${mission.label} ${mission.fact}`)),'remixes use label/fact wording that does not claim a hidden palette');
+test('Pattern Parade has six validated missions per run, unique rendered choices, and no semantic repeats', () => {
   const previous = globalThis.localStorage;
   globalThis.localStorage = new MemoryStorage();
   try {
-    const recent = new Set();
-    for (let run = 1; run <= 8; run += 1) {
-      const queue = makeFreshQueue('pattern','eight-runs',PATTERN_MISSIONS.starter,6,run*714,(item)=>item.signature);
-      assert.equal(queue.length, 6);
-      assert.ok(queue.every((item)=>!recent.has(item.signature)));
-      queue.forEach((item)=>recent.add(item.signature));
+    for (const [band,missions] of Object.entries(PATTERN_MISSIONS)) {
+      assert.ok(missions.length >= 48, 'at least eight six-question runs are available before pool exhaustion');
+      assert.equal(new Set(missions.map((mission) => mission.signature)).size, missions.length);
+      assert.ok(missions.every(validatePatternMission));
+      assert.ok(missions.every((mission) => new Set(mission.options.map((option) => patternDisplayTerm(mission, option))).size === 4), 'sound and movement choices stay visually distinct');
+      assert.ok(missions.every((mission) => mission.options.filter((option) => patternDisplayTerm(mission, option) === patternDisplayTerm(mission, mission.answer)).length === 1), 'only the authored correct answer has the correct visible label');
+      const contentSignatures = missions.map(patternContentSignature);
+      assert.ok(new Set(contentSignatures).size >= 48, 'the finite pool contains at least eight runs of semantic content');
+      assert.ok(contentSignatures.every((signature) => /^pattern-content-[a-f0-9]{16}$/.test(signature)), 'content history stores opaque signatures rather than answer text');
+      assert.equal(missions.filter((mission) => ['AB', 'AAB', 'ABB', 'ABC', 'growing'].includes(mission.rule)).length, missions.length);
+      const seen = new Set();
+      for (let run = 1; run <= 8; run += 1) {
+        const queue = makeFreshQueue('pattern',`${band}-eight-runs`,missions,6,run*714,patternContentSignature);
+        assert.equal(queue.length, 6);
+        const signatures = queue.map(patternContentSignature);
+        assert.equal(new Set(signatures).size, 6, 'a run never repeats the same visible semantic pattern');
+        assert.ok(signatures.every((signature) => !seen.has(signature)), 'a later run avoids earlier content while unseen items remain');
+        signatures.forEach((signature) => seen.add(signature));
+      }
     }
   } finally {
     if (previous === undefined) delete globalThis.localStorage;
     else globalThis.localStorage = previous;
   }
+  const alternate = PATTERN_MISSIONS.challenge.find((mission)=>mission.growthRule==='alternate');
+  assert.equal(validatePatternMission(alternate),true);
+  assert.equal(validatePatternMission({...alternate,answer:'🔴🔵🟡🟢'}),false,'growing answers follow the explicitly alternating token rule');
+  const movingAlternate = PATTERN_MISSIONS.growing.find((mission) => mission.rule==='growing' && mission.growthRule==='alternate' && mission.modality==='movement rule');
+  const movementCue = patternMovementCue(movingAlternate);
+  assert.match(movementCue,/Each step adds one arrow, alternating .+ then .+\./);
+  assert.notEqual(movementCue,'Follow the moving steps: up, across, then down.');
+  assert.ok(PATTERN_MISSIONS.challenge.slice(6).every((mission)=>!/(red|blue|dino|rocket|star|moon)/i.test(`${mission.label} ${mission.fact}`)),'remixes use label/fact wording that does not claim a hidden palette');
 });
 
 test('Dino Hangman only offers words whose complete authored graphemes were taught', () => {
@@ -83,6 +91,21 @@ test('Chess chapter puzzles have one legal, reachable objective and safe capture
   assert.equal(chessPieceAttacks('pawn',[3,2],[4,1],[],5,'white'),false,'white pawn attacks point toward decreasing board rows');
   assert.equal(chessPieceAttacks('pawn',[1,2],[2,1],[],5,'black'),true);
   assert.equal(chessPieceAttacks('pawn',[1,2],[0,1],[],5,'black'),false,'black pawn attacks point toward increasing board rows');
+  const kingD3 = CHESS_PUZZLES.starter.find((puzzle) => puzzle.id === 'king-neighbour');
+  assert.deepEqual(kingD3.from,[2,3]);
+  assert.deepEqual(kingD3.target,[3,3]);
+  const selectedPiece = getChessMoveTransition(kingD3,false,kingD3.from,5);
+  assert.deepEqual(selectedPiece,{kind:'select',selected:true,attempted:false,clearFeedback:true},'selecting king d3 is not a wrong-goal attempt');
+  const destinationBeforeSelection = getChessMoveTransition(kingD3,false,kingD3.target,5);
+  assert.equal(destinationBeforeSelection.kind,'ignore');
+  assert.equal(destinationBeforeSelection.attempted,false);
+  const wrongMove = getChessMoveTransition(kingD3,selectedPiece.selected,[1,3],5);
+  assert.equal(wrongMove.kind,'wrong');
+  assert.equal(wrongMove.selected,true,'the piece remains selected after an incorrect destination');
+  const solvedMove = getChessMoveTransition(kingD3,wrongMove.selected,kingD3.target,5);
+  assert.equal(solvedMove.kind,'correct');
+  assert.equal(solvedMove.clearFeedback,true,'a correct d2 move clears stale wrong-goal feedback');
+  assert.equal(solvedMove.selected,false);
 });
 
 test('Astronaut Academy missions rotate seeded options and retain primary NASA/ESA attribution', () => {
@@ -105,6 +128,16 @@ test('Batch 6 narration has a finite phrase inventory and requests packaged-only
   assert.equal(speakBatch6((...args) => { call = args; }, BATCH6_SPOKEN_PHRASES[0]), true);
   assert.deepEqual(call, [BATCH6_SPOKEN_PHRASES[0], { premium:false }]);
   assert.equal(speakBatch6(() => assert.fail('unknown phrases must not be sent'), 'a child supplied phrase'), false);
+});
+
+test('Batch 6 fact panels suppress a repeated fact and retain distinct explanations', () => {
+  const fact='Rover cameras help map nearby terrain.';
+  assert.deepEqual(distinctBatch6FactLines(fact,` ${fact} `),[{text:fact,kind:'explanation'}]);
+  assert.deepEqual(distinctBatch6FactLines('You matched the mission clue.',fact),[
+    {text:'You matched the mission clue.',kind:'explanation'},
+    {text:fact,kind:'fact'},
+  ]);
+  assert.deepEqual(distinctBatch6FactLines('',fact),[{text:fact,kind:'fact'}]);
 });
 
 test('Batch 6 storage isolates players and credits only completed best-star deltas', () => {
