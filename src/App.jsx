@@ -230,8 +230,10 @@ const PlayerSession = ({
     const GameComponent = little && currentGame.id === 'dino' ? LittleDinoDetective : currentGame.component;
     const nextId = nextGameAfter(currentGame.id);
     const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
-    // Memory and picture puzzles already own their multi-board progression.
-    const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
+    // These Amari chapters own their finite queues, held explanations and
+    // completion rewards. A second answer-count wrapper would restart them.
+    const batch4OwnsProgression = !little && ['addition', 'subtraction', 'timeteller', 'numberline'].includes(currentGame.id);
+    const sessionRule = currentGame.little || batch4OwnsProgression || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
       onBack: () => back({ toParent: !little }),
       onLaunchGame: launchGame,

@@ -1,6 +1,6 @@
 # Batch 4: arithmetic, number lines and time
 
-Status: source audit and implementation instructions only. These four games remain **not started** in the acceptance inventory. This extends their published instructions in `game-quality-4.5-roadmap.md`; it does not assign a new score or claim browser verification.
+Status: isolated implementation underway. The four games are **in progress**, with no accepted scores. Luna is building Addition/Subtraction; Time Teller/Number Line gameplay builders are pending capacity. Root has begun navigation and single progression-owner integration for all four. This extends their published instructions in `game-quality-4.5-roadmap.md`; it does not assign a new score or claim browser verification.
 
 ## Observed source risks
 
@@ -61,3 +61,5 @@ At desktop and 390px, use fresh QA profiles and ordinary controls to complete al
 Checkout `work/dinospace-batch4-quality`, branch `codex/amari-batch4-quality-20261003`, starts from root documentation checkpoint `6d13d3a` over the released Batch 2 runtime. It does not contain the pending Batch 3 implementation; root will reconcile App/collection ownership at integration. Gameplay builders must preserve the frozen QA candidates in the other checkouts.
 
 Root added a narrowly scoped clock-origin history contract: launching Time Teller from Curriculum Quest records the known curriculum route in browser history; ordinary Maths entry uses its parent world. Same-game replacement and reload preserve that origin, while other destinations clear it. Cancelled browser back restores the original history metadata. Two helper tests and focused ESLint pass; actual related-link, reload, Keep/Leave and parent-world browser journeys remain required. This is navigation preparation, not completion of the four game implementations or a production fix.
+
+Root removes the generic answer-count wrapper for these four Amari routes. The old Askia route rules are preserved. This preparation must not be released until the four replacement chapter flows and separate QA are complete. A live dev navigation check was interrupted by the builder writing a component before its imported helper; this is an unfinished working tree observation, not a frozen candidate or production regression. Related-link browser acceptance stays pending.
