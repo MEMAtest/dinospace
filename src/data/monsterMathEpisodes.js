@@ -34,6 +34,7 @@ export const tenFrameAccessibleLabel = (model) => model.operation === 'add'
 export const tenFrameExplanation = (model) => model.operation === 'add'
   ? `${monsterCounterPhrase(model.first)} and ${model.second} more make ${monsterCounterPhrase(model.answer)}.`
   : `${monsterCounterPhrase(model.second)} moved away; ${monsterCounterPhrase(model.answer)} ${model.answer === 1 ? 'stays' : 'stay'}.`;
+export const tenFrameModelTeaching = (model, answered) => answered ? null : tenFrameExplanation(model);
 
 const STORY_CONTEXTS = Object.freeze([
   { id: 'mira-shells', name: 'Mira', one: 'shell', many: 'shells', emoji: '🐚' },

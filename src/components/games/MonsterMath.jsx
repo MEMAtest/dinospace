@@ -4,7 +4,7 @@ import { SoundToggle } from '../shared/index.jsx';
 import { monsterMathNarration } from '../../data/batch2Narration.js';
 import {
   createMonsterMathRun, createMonsterRunSeed, MONSTER_MATH_EPISODES, monsterCounterPhrase,
-  monsterCountResultText, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation,
+  monsterCountResultText, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameModelTeaching,
 } from '../../data/monsterMathEpisodes.js';
 import {
   getMonsterMathProgress, recentMonsterQuestionIds, recordMonsterEpisodeCompletion, rememberMonsterMathRun,
@@ -51,7 +51,7 @@ const CounterModel = ({ question, locked, animationCount }) => {
           })}
         </div>
         <p className="mt-2 text-center text-lg font-black text-slate-800" aria-live="polite">{model.first} {model.operation === 'add' ? '+' : '−'} {model.second} = {locked ? model.answer : '?'}</p>
-        {locked && <p className="text-center text-sm font-bold text-emerald-700">{tenFrameExplanation(model)}</p>}
+        {tenFrameModelTeaching(model, locked) && <p className="text-center text-sm font-bold text-emerald-700">{tenFrameModelTeaching(model, locked)}</p>}
       </div>
     );
   }

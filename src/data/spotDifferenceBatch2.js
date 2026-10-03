@@ -72,6 +72,15 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
   makeScene(2, 11, 'Nature Lab', nature, 'Leaves and seeds in a nature collection', 'Plants need light and water to grow.'),
 ]);
 
+export const resolveSpotDifferenceTap = (differences, foundIds, x, y) => {
+  const found = new Set(foundIds);
+  const withinTolerance = (entry) => Math.hypot(x - entry.x, y - entry.y) <= entry.radius;
+  const alreadyFound = differences.find((entry) => found.has(entry.id) && withinTolerance(entry));
+  if (alreadyFound) return { kind: 'already-found', difference: alreadyFound };
+  const difference = differences.find((entry) => !found.has(entry.id) && withinTolerance(entry));
+  return difference ? { kind: 'new', difference } : { kind: 'miss', difference: null };
+};
+
 export const SPOT_DIFFERENCE_PROGRESS_KEY = 'amari_spot_difference_batch2_v1';
 
 export const spotAnswerAttemptDetail = ({ level, round, seed, correct, hadMistake }) => ({

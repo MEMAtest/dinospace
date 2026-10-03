@@ -8,6 +8,7 @@ import {
   createSpotDifferenceRun,
   getSpotDifferenceLastQueue,
   getSpotDifferenceProgress,
+  resolveSpotDifferenceTap,
   saveSpotDifferenceQueue,
   spotAnswerAttemptDetail,
   SPOT_DIFFERENCE_CHAPTERS,
@@ -115,8 +116,9 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = ((event.clientX - bounds.left) / bounds.width) * 100;
     const y = ((event.clientY - bounds.top) / bounds.height) * 100;
-    const hit = scene.differences.find((entry) => !found.includes(entry.id) && Math.hypot(x - entry.x, y - entry.y) <= entry.radius);
-    if (hit) { handleFind(hit); return; }
+    const tap = resolveSpotDifferenceTap(scene.differences, found, x, y);
+    if (tap.kind === 'already-found') return;
+    if (tap.kind === 'new') { handleFind(tap.difference); return; }
     setHadMistake(true);
     setWrongTapCount((value) => value + 1);
     setWrongTap(true);

@@ -4,6 +4,7 @@ import {
   completeSpotDifferenceChapter,
   createSpotDifferenceRun,
   getSpotDifferenceProgress,
+  resolveSpotDifferenceTap,
   SPOT_DIFFERENCE_CHAPTERS,
   SPOT_DIFFERENCE_PROGRESS_KEY,
   SPOT_DIFFERENCE_SCENES,
@@ -64,5 +65,19 @@ test('Spot attempt diagnostics distinguish a first wrong tap from a retry', () =
   });
   assert.deepEqual(spotAnswerAttemptDetail({ level: 1, round: 2, seed: 42, correct: false, hadMistake: true }), {
     level: 1, round: 2, seed: 42, correct: false, firstAttempt: false,
+  });
+});
+
+test('tapping a found difference within its hit radius is neutral and keeps the same tolerance', () => {
+  const [found, remaining] = SPOT_DIFFERENCE_SCENES[0].differences;
+  const foundIds = [found.id];
+  assert.deepEqual(resolveSpotDifferenceTap([found, remaining], foundIds, found.x + found.radius, found.y), {
+    kind: 'already-found', difference: found,
+  });
+  assert.deepEqual(resolveSpotDifferenceTap([found, remaining], foundIds, found.x + found.radius + 0.01, found.y), {
+    kind: 'miss', difference: null,
+  });
+  assert.deepEqual(resolveSpotDifferenceTap([found, remaining], foundIds, remaining.x, remaining.y), {
+    kind: 'new', difference: remaining,
   });
 });
