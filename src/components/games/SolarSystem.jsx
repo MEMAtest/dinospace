@@ -612,13 +612,13 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   return (
     <div className="min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden">
       <header className="relative z-30 flex items-center justify-between gap-2 border-b border-white/10 bg-slate-950/80 px-3 py-3 backdrop-blur-xl sm:px-4">
-        <button onClick={onBack} className="game-icon-button !h-10 !w-10 shrink-0 !bg-white/10 !text-white sm:!h-12 sm:!w-12" aria-label="Back to Explore and Languages"><ArrowLeft /></button>
+        <button onClick={onBack} className="game-icon-button !h-12 !w-12 shrink-0 !bg-white/10 !text-white sm:!h-12 sm:!w-12" aria-label="Back to Explore and Languages"><ArrowLeft /></button>
         <div className="text-center">
           <p className="text-[9px] font-black uppercase tracking-[0.18em] text-cyan-300 sm:text-xs sm:tracking-[0.25em]">Interactive 3D mission</p>
           <h2 className="whitespace-nowrap text-base font-black text-white sm:text-3xl">Solar System Explorer</h2>
         </div>
         <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!h-10 !w-10 !bg-white/10 !text-white sm:!h-12 sm:!w-12" />
+          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!h-12 !w-12 !bg-white/10 !text-white sm:!h-12 sm:!w-12" />
         </div>
       </header>
 
@@ -653,7 +653,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </div>
           <div className="pointer-events-none absolute bottom-[4.65rem] left-4 hidden items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/40 sm:flex"><span className="h-2 w-2 rounded-full bg-cyan-300" /> Selected world is ringed in cyan</div>
           <div className="absolute right-3 top-3 z-10 flex flex-col items-end gap-2" role="group" aria-label="Solar System view controls">
-            <button type="button" onClick={() => setShowViewControls((current) => !current)} aria-expanded={showViewControls} className="rounded-full border border-cyan-200/35 bg-slate-950/85 px-3 py-2 text-xs font-black text-cyan-100 shadow-lg backdrop-blur"><Rotate3D size={16} className="mr-1 inline" /> View controls</button>
+            <button type="button" onClick={() => setShowViewControls((current) => !current)} aria-expanded={showViewControls} className="min-h-12 rounded-full border border-cyan-200/35 bg-slate-950/85 px-3 py-2 text-xs font-black text-cyan-100 shadow-lg backdrop-blur"><Rotate3D size={16} className="mr-1 inline" /> View controls</button>
             {showViewControls && <>
             <button type="button" onClick={() => setPaused((current) => !current)} className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100" aria-label={paused ? 'Resume planet orbits' : 'Pause planet orbits'}>{paused ? <Play size={19} /> : <Pause size={19} />}</button>
             <button
@@ -708,7 +708,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10" aria-label={`${discoveredForPlanet} of 3 discoveries found`}>
             <div className="h-full rounded-full bg-gradient-to-r from-cyan-300 to-violet-300 transition-all" style={{ width: `${Math.max(8, (discoveredForPlanet / 3) * 100)}%` }} />
           </div>
-          <p className="mt-1 text-right text-[10px] font-black uppercase tracking-wide text-cyan-100/45">Find 3 discoveries to earn the badge</p>
+          <p className="mt-1 text-right text-[10px] font-black uppercase tracking-wide text-cyan-100/45">{discoveredForPlanet >= 3 ? 'World badge collected — explore more discoveries below' : 'Find 3 discoveries to earn the badge'}</p>
 
           <div className="mt-5 rounded-2xl border border-violet-200/20 bg-gradient-to-br from-violet-300/15 to-cyan-300/5 p-4 shadow-lg">
             <div className="flex items-center gap-2 text-sm font-black text-violet-200"><Sparkles size={17} /> Current mission</div>
@@ -734,7 +734,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               <h4 className="font-black">Discovery deck</h4>
               <button
                 onClick={() => speak(selectedPlanet.facts[activeFact])}
-                className="flex items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/70"
+                className="flex min-h-12 items-center gap-1 rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/70"
               >
                 <Volume2 size={14} /> Listen
               </button>
@@ -744,7 +744,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                 <button
                   key={fact}
                   onClick={() => handleFact(index)}
-                  className={`relative rounded-xl border p-2 text-left text-xs font-black transition ${
+                  className={`relative min-h-12 rounded-xl border p-2 text-left text-xs font-black transition ${
                     activeFact === index
                       ? 'border-cyan-300 bg-cyan-300 text-slate-950'
                       : 'border-white/10 bg-white/5 text-white/65 hover:bg-white/10'

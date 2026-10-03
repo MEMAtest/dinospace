@@ -268,3 +268,7 @@
 @media (prefers-reduced-motion: reduce) {
   .memory-little-card-inner { transition: none; }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-board * { transition: none !important; animation: none !important; }
+}

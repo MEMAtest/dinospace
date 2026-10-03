@@ -1,0 +1,22 @@
+{
+  "sourceSha": "76d775f0c544ddf59eb666c521559db6a8a0d6db",
+  "candidate": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-batch7-quality/tmp/batch7-badge-repair-candidate-20261003",
+  "url": "http://127.0.0.1:5247",
+  "checks": {
+    "tests": 183,
+    "failed": 0,
+    "lint": "passed",
+    "build": "production voice config passed"
+  },
+  "assets": {
+    "sw.js": "844f2d1d837a91ec56f35531ab4e8f6c7bf2a4b81158d6c9f8884a6dc0ebd66e",
+    "assets/web-DsYuqEuB.js": "fc7212dce98e3abe1ef97d973711f5a38cadb101ad81054c379a399238cfdf4c",
+    "assets/SolarSystem-wsyPcvqn.js": "18b7eaf1596bb6dfed1c0bb1ba33ac1292a967e0f2badb5430895413460aa5e3",
+    "assets/index-Cj32NB5J.js": "a9a9e19c3f86a6a5ecdbe98f15058265519d4b8be920725769ab7c045a243527",
+    "assets/index-CZK90UZr.css": "1ce8167ba063270ded805d67b85a250c37233ea4d0d8447c71c4a6b71c1a0a30"
+  },
+  "limitations": [
+    "Initial implementation, not visual/editorial acceptance",
+    "Full browser/packaged narration/device/offline/production acceptance pending"
+  ]
+}

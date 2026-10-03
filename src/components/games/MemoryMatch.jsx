@@ -45,7 +45,7 @@ const CARD_NAMES = {
 
 const cardName = (emoji) => CARD_NAMES[emoji] || 'picture';
 
-const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, playerId, littleMode = false }) => {
+const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, playerId, littleMode = false, onPhaseChange }) => {
   const levels = littleMode ? ASKIA_MEMORY_LEVELS : MEMORY_LEVELS;
   const [levelIndex, setLevelIndex] = useState(() => getGameLevel(playerId, 'memory', levels.length).current);
   const difficulty = littleMode ? 'starter' : ['starter', 'growing', 'challenge'][Math.min(levelIndex, 2)];
@@ -68,6 +68,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const completePanelRef = useRef(null);
 
   useEffect(() => () => clearTimeout(mismatchRef.current), []);
+  useEffect(() => { onPhaseChange?.(showLevelComplete ? 'done' : 'play'); }, [onPhaseChange, showLevelComplete]);
 
   // One timer per play-through: restarts on every startLevel (runId) and stops once the level is complete.
   useEffect(() => {
