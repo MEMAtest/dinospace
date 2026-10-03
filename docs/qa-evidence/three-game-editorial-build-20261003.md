@@ -25,3 +25,7 @@ This is local source/build evidence. It is not an actual browser review, product
 ## Spot Challenge target placement follow-up
 
 During independent review, the initial scene-specific Challenge placements were found to put the History Hall book and compass 7% apart horizontally at the same vertical position, causing their 56px hit targets to overlap. All Challenge prop pairs now use the established safe seven-position layout. A regression test checks every Challenge scene at a 280×210 frame: targets remain fully inside the frame and no pair of 56px target rectangles intersects. This data-level check supplements, but does not replace, the requested actual browser retest.
+
+## Diagnostic semantics follow-up
+
+Spot's existing `firstAttempt` value means the child reached a correct response without a prior incorrect placement; it does not mean no hint was used. Hints are a separate count. Device-local diagnostic sanitization now retains only integer `hints` values from 0 through 100. The new sanitizer test verifies a valid assisted completion can export `firstAttempt: true` with `hints: 2`, while invalid counts and private authored/personal fields are dropped. An assisted success must not be described as unaided.

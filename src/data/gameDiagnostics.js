@@ -4,6 +4,7 @@ export const GAME_DIAGNOSTICS_KEY = 'amari_game_diagnostics_v1';
 export const GAME_LIFECYCLE_DIAGNOSTICS_KEY = 'amari_game_lifecycle_diagnostics_v1';
 const LIMIT = 300;
 const LIFECYCLE_LIMIT = 100;
+const MAX_HINT_COUNT = 100;
 const LIFECYCLE_EVENTS = new Set(['start', 'level_complete', 'level_completed', 'replay', 'leave']);
 const identifier = (value) => typeof value === 'string' && /^[a-zA-Z0-9:_-]{1,100}$/.test(value) ? value : undefined;
 const HINT_TYPES = new Set(['prompt', 'question', 'clue', 'explanation', 'lesson', 'instructions', 'feedback', 'observation', 'vocabulary', 'word_help', 'audio_help', 'replay_clue', 'next_piece', 'magnifier']);
@@ -16,6 +17,7 @@ const sanitizedEntry = (game, event, data, at) => {
     if (Number.isSafeInteger(data[key]) && data[key] >= 0) entry[key] = data[key];
   }
   if (Number.isSafeInteger(data.pageIndex) && data.pageIndex >= -1) entry.pageIndex = data.pageIndex;
+  if (Number.isSafeInteger(data.hints) && data.hints >= 0 && data.hints <= MAX_HINT_COUNT) entry.hints = data.hints;
   if (identifier(data.difficulty)) entry.difficulty = data.difficulty;
   if (typeof data.firstAttempt === 'boolean') entry.firstAttempt = data.firstAttempt;
   if (HINT_TYPES.has(data.hintType)) entry.hintType = data.hintType;

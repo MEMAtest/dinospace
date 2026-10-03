@@ -103,3 +103,20 @@ test('diagnostics retain only numeric Storybook page positions including the cov
   assert.equal('title' in entries[0], false);
   assert.equal('pageIndex' in entries[1], false);
 });
+
+test('device-local diagnostics retain bounded numeric hint counts and reject invalid or private fields', () => {
+  const values = new Map();
+  const storage = { getItem: (key) => values.get(key), setItem: (key, value) => values.set(key, value) };
+  recordGameDiagnostic('spot', 'scene_complete', {
+    hints: 2, firstAttempt: true, prompt: 'private scene text', childName: 'private name', target: 'private target',
+  }, storage);
+  for (const hints of [-1, 1.5, 101, '2', Number.MAX_SAFE_INTEGER + 1]) {
+    recordGameDiagnostic('spot', 'scene_complete', { hints }, storage);
+  }
+  const exported = readGameDiagnostics(storage).events;
+  assert.equal(exported[0].hints, 2);
+  assert.equal(exported[0].firstAttempt, true);
+  assert.equal(exported.slice(1).every((entry) => !('hints' in entry) && entry.game === 'spot' && entry.event === 'scene_complete'), true);
+  assert.equal(exported.slice(1).every((entry) => Object.keys(entry).every((key) => ['at', 'game', 'event'].includes(key))), true);
+  assert.equal(JSON.stringify(readGameDiagnostics(storage)).includes('private'), false);
+});
