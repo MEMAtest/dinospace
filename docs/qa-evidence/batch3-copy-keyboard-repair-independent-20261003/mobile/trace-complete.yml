@@ -1,0 +1,31 @@
+- generic [ref=e391]:
+  - banner [ref=e392]:
+    - button "Back to learning world" [ref=e393] [cursor=pointer]
+    - generic [ref=e396]:
+      - paragraph [ref=e397]: Words · age-six practice
+      - paragraph [ref=e398]: Letter Trace
+    - button "Sound on" [pressed] [ref=e399] [cursor=pointer]
+  - main [ref=e416]:
+    - generic [ref=e417]:
+      - generic [ref=e418]:
+        - paragraph [ref=e419]: Follow the path · round 1 of 8
+        - heading "Trace M · Moon" [level=1] [ref=e420]
+      - generic [ref=e421]:
+        - button "Hear the tracing instruction again" [ref=e422] [cursor=pointer]
+        - button "Sound on" [pressed] [ref=e427] [cursor=pointer]
+    - region "Letter tracing exercise" [ref=e428]:
+      - generic [ref=e429]:
+        - paragraph [ref=e430]: Letter complete. Choose Next when you are ready.
+        - paragraph [ref=e431]: 100% traced
+      - progressbar "Letter path progress" [ref=e432]
+      - img "M letter guide. Trace M. All 1 strokes complete." [ref=e449]
+      - generic [ref=e435]:
+        - button "Show this stroke" [disabled] [ref=e436]
+        - button "Retry trace" [disabled] [ref=e439]
+        - button "Use keyboard" [disabled] [ref=e443]
+        - button "Check shape" [disabled] [ref=e444]
+    - generic [ref=e450]:
+      - heading "You followed the letter. Great tracing!" [level=2] [ref=e451]
+      - paragraph [ref=e452]: The explanation stays here until you are ready.
+      - button "Next letter" [ref=e453] [cursor=pointer]
+  - contentinfo [ref=e415]: Pointer completion records letter mastery only after an unhinted, first-try hand trace. Keyboard practice can complete the chapter without recording handwriting mastery.
