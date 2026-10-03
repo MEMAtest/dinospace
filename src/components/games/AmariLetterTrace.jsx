@@ -405,6 +405,7 @@ const AmariLetterTrace = ({
       if (event.key === 'ArrowRight' || event.key === 'ArrowDown') keyboardRef.current.cursor = Math.min(stroke.length - 1, keyboardRef.current.cursor + 1);
       if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') keyboardRef.current.cursor = Math.max(0, keyboardRef.current.cursor - 1);
       strokeStateRef.current.cursors[index] = Math.max(strokeStateRef.current.cursors[index] || 0, keyboardRef.current.cursor);
+      updateReady();
       drawGuide();
     }
   };
