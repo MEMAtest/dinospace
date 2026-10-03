@@ -1,0 +1,18 @@
+{
+  "sourceSha": "a1eec24552c99529ba30ed38d10492a6ce1c7829",
+  "url": "http://127.0.0.1:5271",
+  "assets": {
+    "sw.js": "f81c500ee06028bdb78c3d220fa7a3d266ebfe40e25476cf5b62a412dce72ba7",
+    "assets/index-dnjzrIP3.js": "12fd2ce10f228b3dc0cfb3f35cb8a19530169394a762a731d5fc288c3250100e",
+    "assets/AmariCountTheStars-vkr9gNKP.js": "b8eba3e4fb007902cda145d0cceceff8f704c2ad4adb4f73e43b6ef4da10ce25",
+    "assets/web-B2XR5Ihf.js": "a69f0f1d1ae6bd280a7bdf1c520089d3e789fd86e27ea85a89b61e50f818c635",
+    "assets/AmariLetterTrace-CfnpNJaI.js": "687b26a444e9d87023b1c009c0fa70dbc48ca51a522485f8f5b9a35a65a58cb6",
+    "assets/SolarSystem-C8X3ByBE.js": "d544c4e8e8abb8a83fce6ec3bc963ac5542c8c1934614542961556206ebb59dd",
+    "assets/index-CohPvEcn.css": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d"
+  },
+  "checks": {
+    "changedFileLint": "passed",
+    "productionBuild": "passed"
+  },
+  "scope": "Counting grammar and keyboard partial-progress refresh after canonical a6 release. Narrow local regression pending; not deployed."
+}
