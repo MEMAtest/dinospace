@@ -4,7 +4,7 @@ import { ODD_RULES, validateOddMission } from './batch5Reasoning.js';
 
 const KEY = 'batch5_reasoning_progress_v1';
 const storageDefault = () => typeof window === 'undefined' ? null : window.localStorage;
-const validGame = (game) => ['colormix', 'oddOneOut'].includes(game);
+const validGame = (game) => ['colormix', 'oddoneout'].includes(game);
 const pool = (game, chapter) => (game === 'colormix' ? COLOUR_TASKS : ODD_RULES).filter((entry) => entry.chapter === chapter).map((entry) => entry.id);
 const empty = () => ({ completed: [], bestStars: {}, recentIds: {}, palettes: [], unlocked: 0 });
 const normalize = (raw, game) => {

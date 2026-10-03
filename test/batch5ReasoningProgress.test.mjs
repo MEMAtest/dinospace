@@ -5,7 +5,7 @@ import { makeOddRun } from '../src/data/batch5Reasoning.js';
 import { completeReasoningRun, getReasoningProgress } from '../src/data/batch5ReasoningProgress.js';
 const memory = () => { const data = new Map(); return { getItem: (key) => data.get(key), setItem: (key, value) => data.set(key, value) }; };
 const resultsFor = (run, firstTry = true) => run.missions.map(({ id }) => ({ id, correct: true, firstTry, hints: firstTry ? 0 : 1 }));
-for (const [game, maker] of [['colormix', makeColourRun], ['oddOneOut', makeOddRun]]) {
+for (const [game, maker] of [['colormix', makeColourRun], ['oddoneout', makeOddRun]]) {
   test(`${game}: only completed canonical unlocked runs persist, best-star deltas and sibling isolation`, () => {
     const storage = memory();
     const locked = maker({ chapter: 2, seed: 1 });
