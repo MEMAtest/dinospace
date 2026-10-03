@@ -3,8 +3,8 @@
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
-    "in progress": 8,
-    "not started": 14
+    "in progress": 12,
+    "not started": 10
   },
   "canonicalRelease": "3cdfc426e91b46a855448690278ceb6590280b68",
   "currentBatch": 2,
@@ -109,34 +109,34 @@
     {
       "game": "Addition Adventure",
       "batch": 4,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch4-arithmetic-time-implementation-plan-20261003.md"
     },
     {
       "game": "Subtraction Station",
       "batch": 4,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch4-arithmetic-time-implementation-plan-20261003.md"
     },
     {
       "game": "Time Teller",
       "batch": 4,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch4-arithmetic-time-implementation-plan-20261003.md"
     },
     {
       "game": "Number Line Jump",
       "batch": 4,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch4-arithmetic-time-implementation-plan-20261003.md"
     },
     {
       "game": "Sound Safari",
@@ -260,5 +260,10 @@
     "narration": "Packaging and runtime wiring pending",
     "release": "Not deployed or accepted",
     "sourceGateLineage": "198-test baseline7c79; later JSX-only browser repairs lint/build pass, actual delta verification pending."
+  },
+  "nextImplementationBatch": {
+    "batch": 4,
+    "branch": "codex/amari-batch4-quality-20261003",
+    "scope": "Isolated App progression ownership and clock-origin navigation preparation. Luna Addition/Subtraction builder active; Time/Number Line builders pending capacity. No frozen build, QA acceptance or production release."
   }
 }
