@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, Star, Volume2 } from 'lucide-react';
+import { ArrowLeft, Sparkles, Star, Volume2 } from 'lucide-react';
 import { MEMORY_LEVELS } from '../../data/index.js';
+import { memoryCardLabel } from '../../data/memoryMatchContent.js';
 import { getPraise, loadSaved, saveSafe } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { getGameLevel, nextGameLevelIndex, saveGameLevel } from '../../data/sessionLevels.js';
@@ -9,6 +10,7 @@ import askiaArt from '../../assets/little/askia-detective.webp';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
 import fireEngineArt from '../../assets/little/rescue-firetruck.webp';
 import trexArt from '../../assets/little/detective-trex.webp';
+import memoryCoachArt from '../../assets/little/askia-detective.webp';
 import './memoryMatch.css';
 import { buildSeededMemoryDeck, memoryStrategy, readMemoryPassport, completeMemoryBoard } from '../../data/batch7Progress.js';
 const makeDeck = (level) => buildSeededMemoryDeck(level, crypto.getRandomValues(new Uint32Array(1))[0]);
@@ -28,23 +30,16 @@ const ASKIA_CARD_ART = {
   '🦖': trexArt,
 };
 
-const CARD_NAMES = {
-  '🐶': 'dog', '🦊': 'fox', '🐸': 'frog', '🐵': 'monkey', '🦄': 'unicorn', '🐙': 'octopus',
-  '🐳': 'whale', '🐬': 'dolphin', '🦈': 'shark', '🐢': 'turtle', '🪼': 'jellyfish', '🦀': 'crab',
-  '🦑': 'squid', '🐟': 'fish', '🚀': 'rocket', '🛸': 'flying saucer', '🌟': 'glowing star',
-  '🌙': 'moon', '🪐': 'ringed planet', '☄️': 'comet', '⭐️': 'star', '🛰️': 'satellite',
-  '👽': 'alien', '🌌': 'galaxy', '🎈': 'balloon', '🎉': 'party popper', '🥳': 'party face',
-  '🎂': 'cake', '🍭': 'lolly', '🍩': 'doughnut', '🧁': 'cupcake', '🍓': 'strawberry',
-  '🍕': 'pizza', '🍟': 'chips', '🍉': 'watermelon', '🍬': 'sweet', '🦕': 'long-neck dinosaur',
-  '🦖': 'T-rex', '🦴': 'bone', '🌋': 'volcano', '🥚': 'egg', '🪨': 'rock', '🌿': 'leaf',
-  '🚗': 'car', '✈️': 'aeroplane', '🚂': 'train', '🚁': 'helicopter', '🏎️': 'racing car',
-  '🚒': 'fire engine', '🍎': 'apple', '🍌': 'banana', '🍇': 'grapes', '🥕': 'carrot',
-  '🧀': 'cheese', '🍪': 'biscuit', '🥤': 'drink', '🌽': 'corn', '👨‍🚀': 'astronaut',
-  '🌍': 'Earth', '🔭': 'telescope',
+const cardName = (emoji, levelId) => memoryCardLabel(emoji, levelId);
+const SPOKEN_CARD_NAMES = {
+  '🚂': 'train', '🪨': 'rock', '👨‍🚀': 'astronaut', '🐟': 'fish', '🚆': 'picture', '🚤': 'picture',
+  '🛵': 'picture', '🚲': 'picture', '🚌': 'picture', '🚜': 'picture', '🌠': 'picture', '☀️': 'picture', '🌞': 'picture',
+  '🌑': 'picture', '🌕': 'picture', '🐾': 'picture', '🪺': 'picture', '🦷': 'picture', '⛏️': 'picture',
+  '🌳': 'picture', '🌱': 'picture', '🦆': 'picture', '🪷': 'picture', '🐌': 'picture', '🐝': 'picture',
+  '🦋': 'picture', '🐞': 'picture', '🐛': 'picture', '🪱': 'picture', '🐜': 'picture', '🕷️': 'picture',
+  '🌷': 'picture', '🍄': 'picture',
 };
-
-const cardName = (emoji) => CARD_NAMES[emoji] || 'picture';
-
+const spokenCardName = (emoji, levelId) => SPOKEN_CARD_NAMES[emoji] || cardName(emoji, levelId);
 const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, playerId, littleMode = false, onPhaseChange }) => {
   const levels = littleMode ? ASKIA_MEMORY_LEVELS : MEMORY_LEVELS;
   const [levelIndex, setLevelIndex] = useState(() => getGameLevel(playerId, 'memory', levels.length).current);
@@ -136,7 +131,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     playSfx('flip');
     if (nextFlipped.length < 2) {
       setFlipped(nextFlipped);
-      speak(`You found a ${cardName(deck[index].emoji)}. Remember where it is.`);
+      speak(`You found a ${spokenCardName(deck[index].emoji, level.id)}. Remember where it is.`);
       return;
     }
 
@@ -152,7 +147,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       setFlipped([]);
       setLocked(false);
       playSfx('sparkle');
-      speak(`A pair of ${cardName(deck[first].emoji)}s!`);
+      speak(`A pair of ${spokenCardName(deck[first].emoji, level.id)}s!`);
       if (littleMode) onCelebrate(getPraise(), 4, 200);
       if (matches + 1 === level.emojis.length) finishLevel(matches + 1, moves + 1);
     } else {
@@ -199,32 +194,32 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           type="button"
           onClick={() => handleFlip(index)}
           disabled={card.matched || locked}
-          aria-label={isFaceUp ? `${cardName(card.emoji)} card${card.matched ? ', matched' : ''}` : `Face-down memory card ${index + 1}`}
-          className={littleMode ? `memory-little-card ${card.matched ? 'is-matched' : ''}` : 'relative min-h-12 w-full aspect-square'}
+          aria-label={isFaceUp ? `${cardName(card.emoji, level.id)} card${card.matched ? ', matched' : ''}` : `Face-down memory card ${index + 1}`}
+          className={littleMode ? `memory-little-card ${card.matched ? 'is-matched' : ''}` : `memory-card ${card.matched ? 'is-matched' : ''}`}
         >
           <div
-            className={littleMode ? 'memory-little-card-inner' : 'absolute inset-0 transition-transform duration-500'}
+            className={littleMode ? 'memory-little-card-inner' : 'memory-card-inner'}
             style={{
               transformStyle: 'preserve-3d',
               transform: isFaceUp ? 'rotateY(180deg)' : 'rotateY(0deg)',
             }}
           >
             <div
-              className={littleMode ? 'memory-little-card-back' : 'absolute inset-0 bg-white rounded-2xl border-4 border-rose-200 shadow-lg flex items-center justify-center text-3xl'}
+              className={littleMode ? 'memory-little-card-back' : 'memory-card-side memory-card-back'}
               style={{ backfaceVisibility: 'hidden' }}
             >
-              {littleMode ? <span aria-hidden="true" className="memory-little-paw">✦</span> : '🧠'}
+              {littleMode ? <span aria-hidden="true" className="memory-little-paw">✦</span> : <><span className="memory-card-back-mark" aria-hidden="true">{level.cardMark || '✦'}</span><span className="memory-card-back-label" aria-hidden="true">AMARI</span></>}
             </div>
             <div
               aria-hidden={!isFaceUp}
-              className={littleMode ? 'memory-little-card-front' : 'absolute inset-0 bg-rose-500 rounded-2xl border-4 border-rose-200 shadow-lg flex items-center justify-center text-4xl'}
+              className={littleMode ? 'memory-little-card-front' : 'memory-card-side memory-card-front'}
               style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
             >
-              {littleMode && ASKIA_CARD_ART[card.emoji]
+              {littleMode ? (ASKIA_CARD_ART[card.emoji]
                 ? <img src={ASKIA_CARD_ART[card.emoji]} alt="" draggable="false" />
-                : littleMode && card.emoji === '⭐️'
+                : card.emoji === '⭐️'
                   ? <Star aria-hidden="true" className="memory-little-star-art" fill="currentColor" />
-                  : card.emoji}
+                  : card.emoji) : <><span className="memory-card-art" aria-hidden="true">{card.emoji}</span><span className="memory-card-label" aria-hidden="true">{cardName(card.emoji, level.id)}</span></>}
             </div>
           </div>
         </button>
@@ -275,13 +270,9 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-rose-100 via-pink-100 to-rose-200 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-200/60 rounded-full blur-3xl" />
-      </div>
-
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
+    <div className="memory-match-app" data-theme={level.scene || level.id}>
+      <div className="memory-atmosphere" aria-hidden="true" />
+      <header className="memory-topbar">
         <button
           onClick={onBack}
           className="game-icon-button"
@@ -289,50 +280,57 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         >
           <ArrowLeft />
         </button>
-        <div className="text-center">
-          <h2 className="text-3xl font-black text-rose-600">Memory Match</h2>
-          {!littleMode && <p className="text-rose-600/70 font-semibold">
-            Level {levelIndex + 1}/{levels.length} · {level.name}
-          </p>}
-          <p className={`text-rose-600/70 font-semibold ${littleMode ? 'hidden' : ''}`}>
-            Matches: {matches} · Moves: {moves} · ⏱️ {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}
-            {bestTimes[level.id] ? ` · Best: ${Math.floor(bestTimes[level.id] / 60)}:${String(bestTimes[level.id] % 60).padStart(2, '0')}` : ''}
-          </p>
+        <div className="memory-title-block">
+          <span className="memory-eyebrow">AMARI’S MEMORY QUEST</span>
+          <h2>Memory Match</h2>
+          <p>Level {levelIndex + 1} of {levels.length}<span aria-hidden="true"> · </span><strong>{level.name}</strong></p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </div>
+      </header>
 
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
-        <button
-          onClick={() => speak('Find the matching pairs.')}
-          className="mb-4 text-rose-600 font-semibold"
-        >
-          🔊 Hear the mission
-        </button>
-        <p className={`mb-4 max-w-xl rounded-full bg-white/70 px-5 py-2 text-center text-sm font-bold text-rose-700 ${littleMode ? 'hidden' : ''}`} role="status">
-          {strategy}
-        </p>
-        <div className="mb-4 flex flex-wrap justify-center gap-2" aria-label="Memory levels">
-          {levels.map((entry, index) => <button type="button" key={entry.id} disabled={index > getGameLevel(playerId, 'memory', levels.length).unlocked} onClick={() => startLevel(index)} aria-label={`Level ${index + 1}: ${entry.name}`} aria-current={index === levelIndex ? 'step' : undefined} className={`grid h-12 w-12 place-items-center rounded-full border-2 font-black ${index === levelIndex ? 'border-rose-700 bg-rose-500 text-white' : index > getGameLevel(playerId, 'memory', levels.length).unlocked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-amber-300 bg-white text-rose-700'}`}>{index + 1}</button>)}
-        </div>
+      <main className="memory-main">
+        <section className="memory-coach" aria-label="Memory strategy">
+          <div className="memory-coach-avatar"><img src={memoryCoachArt} alt="" /></div>
+          <div className="memory-coach-copy">
+            <span className="memory-coach-kicker"><Sparkles size={15} aria-hidden="true" /> YOUR MEMORY TIP</span>
+            <p role="status">{strategy}</p>
+          </div>
+          <button type="button" onClick={() => speak('Find the matching pairs.')} className="memory-repeat-button" aria-label="Repeat the memory tip"><Volume2 size={21} aria-hidden="true" /></button>
+        </section>
 
-        <div className="memory-board grid gap-4 w-full max-w-3xl" style={{ '--memory-columns': level.columns }}>
-          {deck.map(renderCard)}
-        </div>
-        <p className="mt-3 font-bold text-rose-700" aria-label="Memory passport">Memory passport: {Object.keys(passport).length}/{levels.length} board stickers collected</p>
-        {saveWarning && <p role="status" className="mt-2 rounded-xl bg-white p-3 text-rose-800">{saveWarning}</p>}
+        <section className="memory-play-area" aria-label={`${level.name} memory board`}>
+          <div className="memory-play-heading">
+            <div className="memory-level-nav" aria-label="Memory levels">
+              {levels.map((entry, index) => <button type="button" key={entry.id} disabled={index > getGameLevel(playerId, 'memory', levels.length).unlocked} onClick={() => startLevel(index)} aria-label={`Level ${index + 1}: ${entry.name}`} aria-current={index === levelIndex ? 'step' : undefined} className="memory-level-step">{index + 1}</button>)}
+            </div>
+            <div className="memory-stats" aria-label="Round statistics">
+              <span><strong>{matches}</strong><small>PAIRS</small></span>
+              <span><strong>{moves}</strong><small>MOVES</small></span>
+              <span><strong>{Math.floor(timer / 60)}:{String(timer % 60).padStart(2, '0')}</strong><small>TIME</small></span>
+              {bestTimes[level.id] && <span><strong>{Math.floor(bestTimes[level.id] / 60)}:{String(bestTimes[level.id] % 60).padStart(2, '0')}</strong><small>BEST</small></span>}
+            </div>
+          </div>
+
+          <div className="memory-board" style={{ '--memory-columns': level.columns }}>
+            {deck.map(renderCard)}
+          </div>
+          <div className="memory-board-footer">
+            <p aria-label="Memory passport"><Star fill="currentColor" aria-hidden="true" />{Object.keys(passport).length}/{levels.length} board stickers collected</p>
+          </div>
+        </section>
+        {saveWarning && <p role="status" className="memory-save-warning">{saveWarning}</p>}
 
         {showLevelComplete && (
-          <div ref={completePanelRef} className="mt-6 bg-white/90 p-6 rounded-3xl shadow-xl text-center">
+          <div ref={completePanelRef} className="memory-complete-panel">
             <Star className="mx-auto mb-2 h-12 w-12 text-amber-500" fill="currentColor" aria-hidden="true" />
-            <h3 className="text-2xl font-black text-rose-600">{completionMessage}</h3>
-            <p className="mt-2 font-bold text-rose-700">Memory explorer: recalling a picture’s place helps you find its partner. Next time, try a row-by-row scan.</p>
-            <button onClick={handleNextLevel} className="mt-4 min-h-14 w-full rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 px-8 py-4 text-2xl font-black text-white shadow-lg transition hover:scale-105 active:scale-95">
+            <h3>{completionMessage}</h3>
+            <p>Memory explorer: recalling a picture’s place helps you find its partner. Next time, try a row-by-row scan.</p>
+            <button onClick={handleNextLevel}>
               {levelIndex < levels.length - 1 ? `Next level: ${levels[levelIndex + 1].name}` : 'Replay this level'}
             </button>
           </div>
         )}
-      </div>
+      </main>
     </div>
   );
 };
