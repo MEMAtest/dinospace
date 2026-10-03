@@ -5,7 +5,7 @@ import {
 } from '../src/data/skyShapes.js';
 import { GAME_DIAGNOSTICS_KEY, recordGameDiagnostic } from '../src/data/gameDiagnostics.js';
 import {
-  getSkyShapesProgress, recordSkyEpisodeReward, recordSkyMissionCompletion, rememberSkyMissionQueue,
+  getSkyShapesProgress, recordSkyFlightCompletion, recordSkyEpisodeReward, recordSkyMissionCompletion, rememberSkyMissionQueue,
   skyRewardCallbackUnits, SKY_CHAPTER_BONUS_STARS,
 } from '../src/data/skyShapesProgress.js';
 
@@ -145,4 +145,28 @@ test('all twelve perfect Sky missions award 36 stars and three one-time chapter 
       assert.equal(result.newlyCompletedEpisode, false);
     }
   }
+});
+
+test('flight completion saves before navigation and replay cannot repeat mission or chapter credit', () => {
+  const storage = memoryStorage();
+  const episode = SKY_SHAPE_EPISODES[0];
+  let earned = 0;
+  for (const [index, mission] of episode.missions.entries()) {
+    const result = recordSkyFlightCompletion('amari', mission.id, 100, 3, storage);
+    earned += result.awardedStars + result.chapterBonusStars;
+    const reloaded = getSkyShapesProgress('amari', storage);
+    assert.ok(reloaded.completedMissionIds.includes(mission.id));
+    assert.equal(reloaded.bestMissionStars[mission.id], 3);
+    assert.equal(result.chapterBonusStars, index === episode.missions.length - 1 ? 2 : 0);
+    if (index === episode.missions.length - 1) {
+      assert.equal(reloaded.bestStars[episode.id], 3);
+      assert.equal(reloaded.unlockedEpisode, 1);
+    }
+  }
+  assert.equal(earned, 14);
+  for (const mission of episode.missions) {
+    const replay = recordSkyFlightCompletion('amari', mission.id, 100, 3, storage);
+    assert.equal(replay.awardedStars + replay.chapterBonusStars, 0);
+  }
+  assert.equal(getSkyShapesProgress('askia', storage).completedMissionIds.length, 0);
 });
