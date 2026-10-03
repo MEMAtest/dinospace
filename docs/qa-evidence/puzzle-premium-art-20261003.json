@@ -1,0 +1,21 @@
+{
+  "sourceReference": "src/assets/puzzle-pop/dino-park.jpg",
+  "assets": [
+    {
+      "asset": "src/assets/puzzle-pop/dino-river-3d.webp",
+      "bytes": 415714,
+      "sha256": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8",
+      "original": "output/imagegen/dino-river-3d-20261003.png",
+      "originalSha256": "bd9e4ad5b60ed372d0f6dbd92c58032d4ff4bf42c51e2dba3383cecd8944e7f4",
+      "scope": "New scene generated using existing Dino Park as style reference; opaque4:3, no text/grid/UI; encoded to WebP without crop or resizing"
+    },
+    {
+      "asset": "src/assets/puzzle-pop/dino-moon-3d.webp",
+      "bytes": 401560,
+      "sha256": "a8c15f541d45125fd165e6d126ffe1d67f2d61c78b38d148067c5a553f934c1e",
+      "original": "output/imagegen/dino-moon-3d-20261003.png",
+      "originalSha256": "5b42cefeb7173c0753aab92208e931df9d7f171edaada323d3beb4d8702e2c8a",
+      "scope": "New scene generated using existing Dino Park as style reference; opaque4:3, no text/grid/UI; encoded to WebP without crop or resizing"
+    }
+  ]
+}
