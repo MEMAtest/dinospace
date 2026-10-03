@@ -1,4 +1,5 @@
 import LetterLaunchBadgeCollection from './components/shared/LetterLaunchBadgeCollection.jsx';
+import Batch3BadgeCollections from './components/shared/Batch3BadgeCollections.jsx';
 import { getEarnedChapterBadgeIds } from './data/chapterBadges.js';
 import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.jsx';
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
@@ -304,6 +305,7 @@ const PlayerSession = ({
         <PageHeader title={`${player.name}’s stickers`} subtitle={`⭐ ${points} stars`} onBack={() => back()} backLabel="Back to home" {...soundProps} />
         <LetterLaunchBadgeCollection earnedBadgeIds={getEarnedChapterBadgeIds(player.id, 'letters')} />
         <CurriculumBadgeCollection playerId={player.id} />
+        <Batch3BadgeCollections playerId={player.id} />
         <RewardsShelf points={points} earnedStickerIds={earnedStickerIds} />
       </div>
     );
