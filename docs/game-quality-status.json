@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T23:36:40.983832+00:00",
+  "updatedAt": "2026-10-03T23:48:29.137718+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -312,7 +312,9 @@
     "identity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-narration-repair-identity-20261003.json",
     "soundRepairSource": "f8f9f7a938870e415e0feac69761e1c18d7d10ad",
     "soundRepairIdentity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-progress-sounds-identity-20261003.json",
-    "soundQaOrigin": "http://127.0.0.1:5295"
+    "soundQaOrigin": "http://127.0.0.1:5295",
+    "soundRepairEvidence": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-progress-sounds-independent-20261004/report.md",
+    "soundRepairScope": "Independent fresh desktop1280\u00d7720 and mobile390\u00d7844 actual wrong/correct controls emitted expected native oscillator/envelope events in all four games. Chess selection and partial Hangman letters emitted no answer cue. Desktop Pattern mute interrupted active notes and suppressed the next answer cue. Five served hashes matched dedicated5295 origin. This is event proof, not human listening or narration completeness; no release/4.5 acceptance."
   },
   "batch4PackagingPlan": {
     "source": "ac3b3cc",
@@ -354,7 +356,8 @@
     "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7",
     "memoryRepairSource": "44b9807eeec169cc5d48809c8c5a5eff29297c5f",
     "memoryRepairIdentity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-visual-identity-20261004.json",
-    "memoryRepairScope": "Builder44 candidate5288 passed nine focused tests, lint and configured build. Ten48px level pills wrap into visible rows; the active Memory phase hides the intercepting mission CTA. Exact authored tips and card names use packaged-only speech. Independent actual mobile delta is running. Artwork:7/87 illustrated tokens. Narration:2/183 packaged lines. Four new space illustrations are saved and awaiting builder integration into the next art delta; no new premium acceptance."
+    "memoryRepairScope": "Builder44 candidate5288 passed nine focused tests, lint and configured build. Ten48px level pills wrap into visible rows; the active Memory phase hides the intercepting mission CTA. Exact authored tips and card names use packaged-only speech. Independent actual mobile delta is running. Artwork:7/87 illustrated tokens. Narration:2/183 packaged lines. Four new space illustrations are saved and awaiting builder integration into the next art delta; no new premium acceptance.",
+    "nextArtwork": "Eight new dog/fox/egg/volcano and space pictures are being mapped into a separate candidate, with alpha-preserving512px WebP and front images loaded only after card flip. Four additional Earth/full-Moon/new-Moon/Sun source assets saved in eaf0a7e, awaiting later integration and actual small-card review. Board content and progress retained."
   },
   "monsterClueRepair": {
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
