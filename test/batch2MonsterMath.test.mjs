@@ -108,7 +108,14 @@ test('singular story, counter, explanation and number-line text uses singular no
   const operationTakeOne = MONSTER_QUESTION_POOLS[1].find((item) => item.id === 'subtract:2:1');
   assert.equal(operationTakeOne.clue, 'Start with 2 counters. Slide 1 away, then count what stays.');
   assert.equal(operationTakeOne.explanation, 'Start with 2 counters. Take 1 away. 1 counter stays.');
-  assert.equal(tenFrameAccessibleLabel(operationTakeOne.model), '2 counters, take away 1 counter, 1 counter stays');
+  assert.equal(tenFrameAccessibleLabel(operationTakeOne.model), '2 counters, take away 1 counter. Count what is left.');
+  assert.equal(tenFrameAccessibleLabel(operationTakeOne.model, true), '2 counters, take away 1 counter; 1 counter stays');
+  const addition = MONSTER_QUESTION_POOLS[1].find((item) => item.id === 'add:11:5');
+  assert.equal(tenFrameAccessibleLabel(addition.model), '11 counters; add 5 more. Put both groups together, then count them.');
+  assert.equal(tenFrameAccessibleLabel(addition.model, true), '11 counters; add 5 more; 16 counters total');
+  const mobileAddition = MONSTER_QUESTION_POOLS[1].find((item) => item.id === 'add:8:3');
+  assert.equal(tenFrameAccessibleLabel(mobileAddition.model), '8 counters; add 3 more. Put both groups together, then count them.');
+  assert.equal(tenFrameAccessibleLabel(mobileAddition.model, true), '8 counters; add 3 more; 11 counters total');
   assert.equal(tenFrameExplanation(operationTakeOne.model), '1 counter moved away; 1 counter stays.');
   assert.equal(numberLineInstruction({ first: 2, second: 1, answer: 1, operation: 'subtract' }), 'Start at 2, then jump back 1 step.');
 });

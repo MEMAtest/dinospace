@@ -44,7 +44,7 @@ const CounterModel = ({ question, locked, animationCount }) => {
     return (
       <div className="rounded-3xl border-4 border-orange-200 bg-white p-3 shadow-md sm:p-4">
         <p className="mb-2 text-center text-sm font-black uppercase tracking-widest text-orange-700">Two ten frames · count the counters</p>
-        <div className="mx-auto grid max-w-[34rem] grid-cols-10 gap-1 rounded-2xl bg-orange-100 p-2" aria-label={tenFrameAccessibleLabel(model)}>
+        <div className="mx-auto grid max-w-[34rem] grid-cols-10 gap-1 rounded-2xl bg-orange-100 p-2" aria-label={tenFrameAccessibleLabel(model, locked)}>
           {cells.map((cell) => {
             const color = cell.group === 'more' ? tokenColors[1] : tokenColors[0];
             return <span key={cell.index} className={`grid aspect-square min-h-5 place-items-center rounded-full border-2 border-white ${cell.visible ? color : 'bg-white'} ${cell.removed ? 'scale-75 opacity-35' : ''} ${cell.counted && !cell.removed ? 'ring-2 ring-emerald-400' : ''}`} aria-hidden="true">{cell.removed ? <span className="text-xs font-black text-white">✓</span> : null}</span>;
@@ -277,7 +277,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
           <div className="text-6xl" aria-hidden="true">{newEpisodeBadge ? '🏅' : '👾'}</div>
           <p className="mt-2 text-xs font-black uppercase tracking-widest text-orange-700">Six questions complete</p>
           <h1 className="mt-1 text-3xl font-black">{episode.title}</h1>
-          <p className="mt-3 text-lg font-bold text-slate-700">{firstTryCount} of 6 right first try</p>
+          <p className="mt-3 text-lg font-bold text-slate-700">{firstTryCount} of 6 correct without a mistake or clue</p>
           <div className="mt-3 flex justify-center gap-2 text-4xl" aria-label={`${runStars} of 3 stars`}>{Array.from({ length: 3 }, (_, index) => <span key={index} aria-hidden="true" className={index < runStars ? 'text-amber-400' : 'text-slate-200'}>★</span>)}</div>
           <p className="mt-3 rounded-2xl bg-orange-50 p-3 font-bold text-orange-900">{newEpisodeBadge ? 'New episode badge saved for this child.' : 'Progress is saved. Replay to practise again.'}</p>
           <div className="mt-5 flex flex-wrap justify-center gap-3">

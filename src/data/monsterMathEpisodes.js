@@ -28,9 +28,16 @@ export const monsterNumberLineValues = (model) => {
   const high = Math.min(20, Math.max(model.first, model.answer) + 2);
   return Array.from({ length: high - low + 1 }, (_, index) => low + index);
 };
-export const tenFrameAccessibleLabel = (model) => model.operation === 'add'
-  ? `${monsterCounterPhrase(model.first)} and ${model.second} more, ${monsterCounterPhrase(model.first + model.second)} total`
-  : `${monsterCounterPhrase(model.first)}, take away ${monsterCounterPhrase(model.second)}, ${monsterCounterPhrase(model.answer)} ${model.answer === 1 ? 'stays' : 'stay'}`;
+export const tenFrameAccessibleLabel = (model, answered = false) => {
+  if (model.operation === 'add') {
+    const groups = `${monsterCounterPhrase(model.first)}; add ${model.second} more`;
+    return answered ? `${groups}; ${monsterCounterPhrase(model.answer)} total` : `${groups}. Put both groups together, then count them.`;
+  }
+  const operation = `${monsterCounterPhrase(model.first)}, take away ${monsterCounterPhrase(model.second)}`;
+  return answered
+    ? `${operation}; ${monsterCounterPhrase(model.answer)} ${model.answer === 1 ? 'stays' : 'stay'}`
+    : `${operation}. Count what is left.`;
+};
 export const tenFrameExplanation = (model) => model.operation === 'add'
   ? `${monsterCounterPhrase(model.first)} and ${model.second} more make ${monsterCounterPhrase(model.answer)}.`
   : `${monsterCounterPhrase(model.second)} moved away; ${monsterCounterPhrase(model.answer)} ${model.answer === 1 ? 'stays' : 'stay'}.`;
