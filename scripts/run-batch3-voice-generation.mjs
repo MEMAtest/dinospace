@@ -8,9 +8,9 @@ const statusPath = resolve(root, 'tmp/batch3-voice-generation-status.json');
 const pidPath = resolve(root, 'tmp/batch3-voice-generation.pid');
 const logPath = resolve(root, 'tmp/batch3-narration-generation-2026-10-03.log');
 const maxRunsArg = process.argv.find((arg) => arg.startsWith('--max-runs='));
-const maxRuns = maxRunsArg === undefined ? 14 : Number(maxRunsArg.slice('--max-runs='.length));
-if (!Number.isInteger(maxRuns) || maxRuns < 1 || maxRuns > 14) {
-  throw new Error('max-runs must be an integer from 1 to 14.');
+const maxRuns = maxRunsArg === undefined ? 20 : Number(maxRunsArg.slice('--max-runs='.length));
+if (!Number.isInteger(maxRuns) || maxRuns < 1 || maxRuns > 20) {
+  throw new Error('max-runs must be an integer from 1 to 20.');
 }
 const maxCooldownRetries = 3;
 const requestWindowMs = 10 * 60 * 1000;
