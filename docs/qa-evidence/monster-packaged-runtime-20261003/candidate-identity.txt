@@ -1,0 +1,8 @@
+Candidate: http://127.0.0.1:5203/
+Assigned source commit: ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630
+Voice runtime flag: VITE_ELEVENLABS_ENABLED=true (assignment)
+Served JS: /assets/index-DZuRTFaZ.js
+SHA-256: d63a6423477fd3cda6d2e9f66d15eefafc6a693e6039865a79b1f59cc534d85c
+Served CSS: /assets/index-CU-OkS6z.css
+SHA-256: 2613b85082a6ae658aaf50bd961b80106c8249c46da4366c7a7489d3052b9e7e
+Independent verification: curl of both served asset paths returned the hashes above.

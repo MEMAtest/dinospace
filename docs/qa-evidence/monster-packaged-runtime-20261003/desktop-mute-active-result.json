@@ -1,0 +1,14 @@
+### Result
+{"text":"r the question again\n\nNUMBER LINE · FOLLOW EACH JUMP\n\n1\n2\n●\n3\n🐚\n4\n🐚\n5\n🐚\n6\n🐚\n7\n🐚\n8\n🐚\n9\n🐚\n10\n🐚\n11\n🐚\n12\n🐚\n13\n✓\n14\n15\n16\n\nStart at 3, then jump forward 11 steps to 14.\n\nCHOOSE THE ANSWER\n\n12\n14\n17\n15\nShow me a clue\n\nMira had 3 shells. Mira found 11 more. Now there are 14 shells.\n\nNext question","buttonNames":["","","Hear the question again","12","14","17","15","Show me a clue","Next question"],"events":[{"type":"playing","src":"89a6d5c7-matilda.mp3","currentTime":0.011634,"duration":0.789478},{"type":"pause","src":"89a6d5c7-matilda.mp3","currentTime":0,"duration":0.789478}]}
+### Ran Playwright code
+```js
+await (async page=>{
+ await page.evaluate(()=>{window.__qaMuteStart=(window.__qaMediaEvents||[]).length});
+ await page.getByRole('button',{name:'Hear the question again'}).click();
+ await page.waitForFunction(()=>window.__qaMediaEvents?.slice(window.__qaMuteStart).some(e=>e.type==='playing'),null,{timeout:4000});
+ await page.getByRole('button',{name:'Turn sound off'}).click();
+ await page.waitForTimeout(300);
+ return {text:(await page.locator('body').innerText()).slice(-300),buttonNames:await page.getByRole('button').allTextContents(),events:await page.evaluate(()=>window.__qaMediaEvents.slice(window.__qaMuteStart).filter(e=>['playing','pause','ended','error'].includes(e.type)).map(e=>({type:e.type,src:e.src.split('/').pop(),currentTime:e.currentTime,duration:e.duration}))) };
+}
+)(page);
+```

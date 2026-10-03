@@ -1,0 +1,24 @@
+### Result
+[{"heading":"What is 1 plus 14?","visibleEquation":"1 + 14 = ?","answerSelected":"15","heldFeedback":"EPISODE 2 · ADD AND TAKE AWAY\n\nMonster Math\nQuestion 1/6\n1/6\n\nADDITION-SUBTRACTION\n\nWhat is 1 plus 14?\nHear the question again\n\nTWO TEN FRAMES · COUNT THE COUNTERS\n\n1 + 14 = 15\n\nCHOOSE THE ANSWER\n\n13\n15\n12\n19\nShow me a clue\n\n1 counter. Add 14 more. That makes 15 counters.\n\nNext question"},{"heading":"What is 8 plus 1?","visibleEquation":"8 + 1 = ?","answerSelected":"9","heldFeedback":"EPISODE 2 · ADD AND TAKE AWAY\n\nMonster Math\nQuestion 2/6\n2/6\n\nADDITION-SUBTRACTION\n\nWhat is 8 plus 1?\nHear the question again\n\nTWO TEN FRAMES · COUNT THE COUNTERS\n\n8 + 1 = 9\n\nCHOOSE THE ANSWER\n\n9\n7\n6\n11\nShow me a clue\n\n8 counters. Add 1 more. That makes 9 counters.\n\nNext question"},{"heading":"What is 18 take away 5?","visibleEquation":"18 − 5 = ?","answerSelected":"13","heldFeedback":"EPISODE 2 · ADD AND TAKE AWAY\n\nMonster Math\nQuestion 3/6\n3/6\n\nADDITION-SUBTRACTION\n\nWhat is 18 take away 5?\nHear the question again\n\nTWO TEN FRAMES · COUNT THE COUNTERS\n\n✓\n✓\n✓\n✓\n✓\n\n18 − 5 = 13\n\nCHOOSE THE ANSWER\n\n17\n10\n13\n16\nShow me a clue\n\nStart with 18 counters. Take 5 away. 13 counters stay.\n\nNext question"},{"heading":"What is 4 plus 5?","visibleEquation":"4 + 5 = ?","answerSelected":"9","heldFeedback":"EPISODE 2 · ADD AND TAKE AWAY\n\nMonster Math\nQuestion 4/6\n4/6\n\nADDITION-SUBTRACTION\n\nWhat is 4 plus 5?\nHear the question again\n\nTWO TEN FRAMES · COUNT THE COUNTERS\n\n4 + 5 = 9\n\nCHOOSE THE ANSWER\n\n5\n10\n9\n8\nShow me a clue\n\n4 counters. Add 5 more. That makes 9 counters.\n\nNext question"},{"heading":"What is 19 take away 10?","visibleEquation":"19 − 10 = ?","answerSelected":"9","heldFeedback":"EPISODE 2 · ADD AND TAKE AWAY\n\nMonster Math\nQuestion 5/6\n5/6\n\nADDITION-SUBTRACTION\n\nWhat is 19 take away 10?\nHear the question again\n\nTWO TEN FRAMES · COUNT THE COUNTERS\n\n✓\n✓\n✓\n✓\n✓\n✓\n✓\n✓\n✓\n✓\n\n19 − 10 = 9\n\nCHOOSE THE ANSWER\n\n9\n11\n12\n5\nShow me a clue\n\nStart with 19 counters. Take 10 away. 9 counters stay.\n\nNext question"},{"heading":"What is 1 plus 5?","visibleEquation":"1 + 5 = ?","answerSelected":"6","heldFeedback":"EPISODE 2 · ADD AND TAKE AWAY\n\nMonster Math\nQuestion 6/6\n6/6\n\nADDITION-SUBTRACTION\n\nWhat is 1 plus 5?\nHear the question again\n\nTWO TEN FRAMES · COUNT THE COUNTERS\n\n1 + 5 = 6\n\nCHOOSE THE ANSWER\n\n6\n2\n3\n5\nShow me a clue\n\n1 counter. Add 5 more. That makes 6 counters.\n\nFinish episode"}]
+### Ran Playwright code
+```js
+await (async page => {
+ const rec=[];
+ for(let i=0;i<6;i++){
+  const heading=await page.getByRole('heading',{level:2}).last().innerText();
+  const body=await page.locator('body').innerText();
+  const match=body.match(/(\d+)\s*([+−-])\s*(\d+)\s*=\s*\?/);
+  if(!match) throw new Error('No visible equation in UI for '+heading+'\n'+body.slice(-500));
+  const a=Number(match[1]),op=match[2],b=Number(match[3]),answer=op==='+'?a+b:a-b;
+  const visibleEquation=match[0];
+  await page.getByRole('button',{name:String(answer),exact:true}).click();
+  const next=page.getByRole('button',{name:/Next question|Finish episode/}).last();
+  await next.waitFor({state:'visible',timeout:3000});
+  const feedback=(await page.locator('body').innerText()).slice(-450);
+  rec.push({heading,visibleEquation,answerSelected:String(answer),heldFeedback:feedback});
+  if(i<5) { await next.click(); await page.waitForTimeout(600); }
+ }
+ return rec;
+}
+)(page);
+```
