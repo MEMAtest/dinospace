@@ -1,0 +1,116 @@
+{
+  "checkedAt": "2026-10-03T08:42:33.732Z",
+  "scope": "12 new Sky teaching facts: packaged bytes, positive duration and full decoding; no listening or production acceptance",
+  "source": "56e8ad61f41aa61b0668c3d1ae35970e2bc5e051",
+  "results": [
+    {
+      "id": "sky-circle",
+      "key": "d9a1e08e",
+      "text": "A circle is one smooth curve. It has no corners.",
+      "path": "/audio/en/d9a1e08e-matilda.mp3",
+      "sha256": "ad1a2744ea0f8ecd9b2e206a298dbfb26a0bff22d7a65537e984a561f9d71cd2",
+      "duration": 3.482993,
+      "valid": true
+    },
+    {
+      "id": "sky-triangle",
+      "key": "b57c84aa",
+      "text": "A triangle has 3 straight sides and 3 corners.",
+      "path": "/audio/en/b57c84aa-matilda.mp3",
+      "sha256": "c02f5bb1ba48876a87ea8344c39f895a4cf74ed58a0fef34ad9b89d78bee51e6",
+      "duration": 2.925714,
+      "valid": true
+    },
+    {
+      "id": "sky-square",
+      "key": "a1c19ebb",
+      "text": "A square has 4 equal straight sides and 4 corners.",
+      "path": "/audio/en/a1c19ebb-matilda.mp3",
+      "sha256": "a69bc961613c92e3a3c391ea2135ddfd2c8f38a42267120ee900142c31887986",
+      "duration": 3.018594,
+      "valid": true
+    },
+    {
+      "id": "sky-diamond",
+      "key": "b9da41be",
+      "text": "A diamond has 4 straight sides and 4 corners. Its points sit at the top, bottom, and sides.",
+      "path": "/audio/en/b9da41be-matilda.mp3",
+      "sha256": "d27c6df95bf2da668482ebc5500556a5c49e6c10a690e2772b28f61f265381b8",
+      "duration": 6.176508,
+      "valid": true
+    },
+    {
+      "id": "sky-heart",
+      "key": "fb6de031",
+      "text": "A heart outline has two rounded bumps and a pointed bottom.",
+      "path": "/audio/en/fb6de031-matilda.mp3",
+      "sha256": "f129f22ae5c978b244c1ea1231368fc2b1c8e852b7989dca125dc0d9f35c19de",
+      "duration": 3.250794,
+      "valid": true
+    },
+    {
+      "id": "sky-star",
+      "key": "876e8aca",
+      "text": "This star has 5 outer points and 5 inward corners.",
+      "path": "/audio/en/876e8aca-matilda.mp3",
+      "sha256": "574525b17d1b23000e6cacbb3b2aebd6c052724958e68b58541a008fbbabb588",
+      "duration": 3.157914,
+      "valid": true
+    },
+    {
+      "id": "sky-house",
+      "key": "6467a0d8",
+      "text": "The house is made from an outside outline and a separate door. The numbers show the order.",
+      "path": "/audio/en/6467a0d8-matilda.mp3",
+      "sha256": "c0588cd7db4f7b63106964cde105da64373b6988248210724ca775b9af64c4ac",
+      "duration": 4.96907,
+      "valid": true
+    },
+    {
+      "id": "sky-cloud",
+      "key": "fbb6615e",
+      "text": "A cloud edge is made from connected curves, with no sharp corners.",
+      "path": "/audio/en/fbb6615e-matilda.mp3",
+      "sha256": "77ea327618eeb833e887218ea7843038f9cd51f9b2600474cb6fd39842061ea3",
+      "duration": 3.947392,
+      "valid": true
+    },
+    {
+      "id": "sky-rocket",
+      "key": "64d41633",
+      "text": "The rocket is built from 4 parts: body, two fins, and a round window.",
+      "path": "/audio/en/64d41633-matilda.mp3",
+      "sha256": "a2d8ae3dd705ab68cbc94193436c1f386dc1fb361212c0cb7f19690ffa14c4b6",
+      "duration": 4.96907,
+      "valid": true
+    },
+    {
+      "id": "sky-airplane",
+      "key": "aabc78d5",
+      "text": "The airplane uses 3 separate lines for its body, main wings, and tail wings.",
+      "path": "/audio/en/aabc78d5-matilda.mp3",
+      "sha256": "7a387f1a17bfbb7a4b7d3e1cdbb19d0e1dda513c7cbf47c680a023dc1342ab86",
+      "duration": 5.24771,
+      "valid": true
+    },
+    {
+      "id": "sky-castle",
+      "key": "b9c6b4ed",
+      "text": "The castle has 6 parts: a wall, two towers, two roofs, and a door.",
+      "path": "/audio/en/b9c6b4ed-matilda.mp3",
+      "sha256": "d87304dd7ac3cfd0e6e7caf8caad70fb440f2a12aa45703d88b6c3a854f331f9",
+      "duration": 5.526349,
+      "valid": true
+    },
+    {
+      "id": "sky-observatory",
+      "key": "20fff796",
+      "text": "The observatory has a base, a roof, a dome, and a separate moon.",
+      "path": "/audio/en/20fff796-matilda.mp3",
+      "sha256": "c0be0daf548e05e37ca8e912dad30367a0ffe51e61aeb11547135d478a87df63",
+      "duration": 3.622313,
+      "valid": true
+    }
+  ],
+  "ready": 12
+}

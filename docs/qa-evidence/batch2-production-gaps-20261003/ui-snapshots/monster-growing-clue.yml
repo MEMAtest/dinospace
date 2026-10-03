@@ -1,0 +1,28 @@
+- generic [ref=e3945]:
+  - banner [ref=e3946]:
+    - button "Back to learning world" [ref=e3947] [cursor=pointer]
+    - generic [ref=e3950]:
+      - paragraph [ref=e3951]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e3952]
+    - generic [ref=e3984]: Question 1/6
+    - button "Turn sound on" [ref=e3985] [cursor=pointer]
+  - main [ref=e3958]:
+    - generic [ref=e3990]: 0/6
+    - generic [ref=e3993]:
+      - paragraph [ref=e3994]: addition-subtraction
+      - heading "What is 20 take away 15?" [level=2] [ref=e3995]
+      - button "Hear the question again" [ref=e3996] [cursor=pointer]
+    - generic [ref=e4001]:
+      - generic [ref=e4002]:
+        - paragraph [ref=e4003]: Two ten frames · count the counters
+        - generic "20 counters, take away 15 counters, 5 counters stay" [ref=e4004]
+        - paragraph [ref=e4025]: 20 − 15 = ?
+      - generic [ref=e4026]:
+        - paragraph [ref=e4027]: Choose the answer
+        - generic [ref=e4028]:
+          - button "5" [ref=e4029] [cursor=pointer]
+          - button "3" [ref=e4030] [cursor=pointer]
+          - button "4" [ref=e4031] [cursor=pointer]
+          - button "1" [ref=e4032] [cursor=pointer]
+        - button "Clue shown" [disabled] [ref=e4038]
+    - paragraph [ref=e4037]: Start with 20 counters. Slide 15 away, then count what stays.

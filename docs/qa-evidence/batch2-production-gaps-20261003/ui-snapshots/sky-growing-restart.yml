@@ -1,0 +1,35 @@
+- generic [ref=e3185]:
+  - banner [ref=e3186]:
+    - button "Back to learning world" [ref=e3187] [cursor=pointer]
+    - generic [ref=e3190]:
+      - paragraph [ref=e3191]: Sky 2 · Rainbow Ridge
+      - heading "Cloud House" [level=1] [ref=e3239]
+    - generic [ref=e3240]: Flight 1/4
+    - button "Turn sound on" [ref=e3241] [cursor=pointer]
+  - main [ref=e3198]:
+    - generic [ref=e3246]:
+      - generic [ref=e3247]:
+        - paragraph [ref=e3248]: Mission 1 · growing
+        - paragraph [ref=e3249]: 🏠 Trace each outline part in order · 0/2
+      - paragraph [ref=e3250]: 0/4 saved
+    - generic [ref=e3200]:
+      - generic [ref=e3252]: 0%
+      - generic [ref=e3253]: ☆☆☆
+    - generic [ref=e3254]:
+      - generic [aria-hidden]:
+        - generic: ✦
+        - generic: ✧
+        - generic: ✦
+      - application "Tracing board for Cloud House. Start at the green numbered dot. Press Enter, then Space or an arrow key to follow the glowing dots." [active] [ref=e3255]:
+        - generic [ref=e3260]: "1"
+        - generic [ref=e3266]: "2"
+        - generic [ref=e3270]: ✈️
+      - generic [ref=e3271]: Green = start · Red = finish
+    - generic [ref=e3234]:
+      - status [ref=e3272]: Keyboard flight started. Press Space or an arrow key to follow each glowing dot.
+      - generic [ref=e3273]:
+        - button "Hear mission again" [ref=e3274] [cursor=pointer]
+        - button "Show a tracing hint" [ref=e3279] [cursor=pointer]
+        - button "Restart this flight" [ref=e3280] [cursor=pointer]: Restart flight
+      - paragraph [ref=e3284]: "Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the glowing dots."
+    - generic [ref=e3285]: Guide 1 of 2; 50% of sampled moves are on the guide.

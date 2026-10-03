@@ -1,0 +1,40 @@
+- generic [ref=e1677]:
+  - banner [ref=e2002]:
+    - button "Back to learning world" [ref=e2003] [cursor=pointer]
+    - generic [ref=e2006]:
+      - paragraph [ref=e2007]: Episode 3 · Monster Story Problems
+      - heading "Monster Math" [level=1] [ref=e2008]
+    - generic [ref=e2040]: Question 1/6
+    - button "Turn sound on" [ref=e2041] [cursor=pointer]
+  - main [ref=e2014]:
+    - generic [ref=e2046]: 0/6
+    - generic [ref=e2049]:
+      - paragraph [ref=e2050]: word-problems
+      - heading "Max has 10 cookies. Max gives 5 cookies away. How many are left?" [level=2] [ref=e2051]
+      - button "Hear the question again" [ref=e2052] [cursor=pointer]
+    - generic [ref=e2057]:
+      - generic [ref=e2058]:
+        - paragraph [ref=e2059]: Number line · follow each jump
+        - generic [ref=e2062]:
+          - generic [ref=e2063]: "3"
+          - generic [ref=e2065]: "4"
+          - generic [ref=e2067]: "5"
+          - generic [ref=e2069]: "6"
+          - generic [ref=e2071]: "7"
+          - generic [ref=e2073]: "8"
+          - generic [ref=e2075]: "9"
+          - generic [ref=e2077]:
+            - generic "Starting point" [ref=e2078]: ●
+            - generic [ref=e2079]: "10"
+          - generic [ref=e2080]: "11"
+          - generic [ref=e2082]: "12"
+        - paragraph [ref=e2084]: Start at 10, then jump back 5 steps.
+      - generic [ref=e2085]:
+        - paragraph [ref=e2086]: Choose the answer
+        - generic [ref=e2087]:
+          - button "6" [ref=e2088] [cursor=pointer]
+          - button "2" [ref=e2089] [cursor=pointer]
+          - button "7" [ref=e2090] [cursor=pointer]
+          - button "5" [ref=e2091] [cursor=pointer]
+        - button "Show me a clue" [ref=e2092] [cursor=pointer]
+    - paragraph [ref=e2096]: Count the picture or follow the model, then choose.

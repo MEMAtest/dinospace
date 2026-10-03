@@ -1,0 +1,31 @@
+- generic [ref=e1677]:
+  - banner [ref=e1822]:
+    - button "Back to learning world" [ref=e1823] [cursor=pointer]
+    - generic [ref=e1826]:
+      - paragraph [ref=e1827]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e1828]
+    - generic [ref=e1860]: Question 1/6
+    - button "Turn sound on" [ref=e1861] [cursor=pointer]
+  - main [ref=e1834]:
+    - generic [ref=e1866]: 1/6
+    - generic [ref=e1869]:
+      - paragraph [ref=e1870]: addition-subtraction
+      - heading "What is 2 plus 10?" [level=2] [ref=e1871]
+      - button "Hear the question again" [ref=e1872] [cursor=pointer]
+    - generic [ref=e1877]:
+      - generic [ref=e1878]:
+        - paragraph [ref=e1879]: Two ten frames · count the counters
+        - generic "2 counters and 10 more, 12 counters total" [ref=e1880]
+        - paragraph [ref=e1901]: 2 + 10 = 12
+        - paragraph [ref=e1915]: 2 counters and 10 more make 12 counters.
+      - generic [ref=e1902]:
+        - paragraph [ref=e1903]: Choose the answer
+        - generic [ref=e1904]:
+          - button "10" [disabled] [ref=e1905]
+          - button "15" [disabled] [ref=e1906]
+          - button "12" [disabled] [ref=e1907]
+          - button "9" [disabled] [ref=e1908]
+        - button "Show me a clue" [disabled] [ref=e1909]
+    - generic [ref=e1912]:
+      - paragraph [ref=e1913]: 2 counters and 10 more make 12 counters.
+      - button "Watch the counters…" [disabled] [ref=e1916]

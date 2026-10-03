@@ -1,0 +1,31 @@
+- generic [ref=e1677]:
+  - banner [ref=e1822]:
+    - button "Back to learning world" [ref=e1823] [cursor=pointer]
+    - generic [ref=e1826]:
+      - paragraph [ref=e1827]: Three visual episodes · six questions each
+      - heading "Monster Math" [level=1] [ref=e1828]
+    - button "Turn sound on" [ref=e1829] [cursor=pointer]
+  - main [ref=e1834]:
+    - paragraph [ref=e1835]: Count the pictures, move counters, and solve a short story. Every answer stays on screen until you choose Next.
+    - generic [ref=e1836]:
+      - button "Episode 1 · starter ✓ Count to 10 Count each monster snack or space treasure once." [pressed] [ref=e1837] [cursor=pointer]:
+        - generic [ref=e1838]: Episode 1 · starter
+        - strong [ref=e1839]: ✓ Count to 10
+        - generic [ref=e1840]: Count each monster snack or space treasure once.
+      - button "Episode 2 · growing Add and Take Away Use counters and a ten frame to solve sums to 20." [ref=e1841] [cursor=pointer]:
+        - generic [ref=e1842]: Episode 2 · growing
+        - strong [ref=e1843]: Add and Take Away
+        - generic [ref=e1844]: Use counters and a ten frame to solve sums to 20.
+      - button "Episode 3 · challenge Monster Story Problems Listen to a short story and show what changed." [disabled] [ref=e1845]:
+        - generic [ref=e1846]: Episode 3 · challenge
+        - strong [ref=e1847]: Monster Story Problems
+        - generic [ref=e1848]: Listen to a short story and show what changed.
+    - generic [ref=e1849]:
+      - paragraph [ref=e1850]: starter episode
+      - heading "Count to 10" [level=2] [ref=e1851]
+      - paragraph [ref=e1852]: Count each monster snack or space treasure once.
+      - generic "Episode completion rewards" [ref=e1853]:
+        - generic [ref=e1854]: 1. Count to 10 ★★★
+        - generic [ref=e1855]: 2. Add and Take Away not earned yet
+        - generic [ref=e1856]: 3. Monster Story Problems locked
+      - button "Replay this episode" [ref=e1857] [cursor=pointer]
