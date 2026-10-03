@@ -1,0 +1,159 @@
+{
+  "version": 2,
+  "retention": {
+    "recentEvents": 300,
+    "runMilestones": 100
+  },
+  "events": [
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T07:29:57.379Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T07:29:57.380Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T07:29:57.380Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T07:31:08.194Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1445926224,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T07:31:08.194Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1445926224,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T07:31:49.600Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T07:31:49.600Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T07:32:41.740Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1445926224,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T07:32:41.740Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1445926224,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T07:33:18.690Z",
+      "level": 0,
+      "round": 2,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T07:33:18.690Z",
+      "level": 0,
+      "round": 2,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T07:33:19.090Z",
+      "level": 0,
+      "round": 2,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T07:34:14.094Z",
+      "level": 0,
+      "round": 2,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    }
+  ],
+  "runMilestones": [
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T07:29:57.379Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T07:33:19.090Z",
+      "level": 0,
+      "round": 2,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T07:34:14.094Z",
+      "level": 0,
+      "round": 2,
+      "seed": 1445926224,
+      "difficulty": "starter"
+    }
+  ]
+}

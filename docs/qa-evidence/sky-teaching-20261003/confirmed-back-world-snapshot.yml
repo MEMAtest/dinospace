@@ -1,0 +1,57 @@
+- generic [ref=e563]:
+  - banner [ref=e564]:
+    - button "Back to home" [ref=e565] [cursor=pointer]
+    - generic [ref=e568]:
+      - heading "Creative Lab" [level=1] [ref=e569]
+      - paragraph [ref=e570]: Draw, mix and build pictures
+    - button "Turn sound off" [ref=e571] [cursor=pointer]
+  - button "🎲 Surprise me" [ref=e577] [cursor=pointer]
+  - generic [ref=e578]:
+    - generic [ref=e579]:
+      - button "NEW Half-built rocket Rockets Rocket Builder Build it, then blast off!" [ref=e580] [cursor=pointer]:
+        - generic [ref=e583]: NEW
+        - generic [ref=e585]:
+          - img "Half-built rocket" [ref=e587]
+          - generic [ref=e604]:
+            - generic [ref=e605]: Rockets
+            - heading "Rocket Builder" [level=2] [ref=e606]
+            - paragraph [ref=e607]: Build it, then blast off!
+      - button "Add Rocket Builder to favourites" [ref=e611] [cursor=pointer]: ☆
+    - generic [ref=e612]:
+      - button "NEW Dino jigsaw Dino puzzles Dino Jigsaw Drag the pieces!" [ref=e613] [cursor=pointer]:
+        - generic [ref=e616]: NEW
+        - generic [ref=e618]:
+          - img "Dino jigsaw" [ref=e620]
+          - generic [ref=e656]:
+            - generic [ref=e657]: Dino puzzles
+            - heading "Dino Jigsaw" [level=2] [ref=e658]
+            - paragraph [ref=e659]: Drag the pieces!
+      - button "Add Dino Jigsaw to favourites" [ref=e663] [cursor=pointer]: ☆
+    - generic [ref=e664]:
+      - button "✓ Played 2 Rocket drawing shapes Create Sky Shapes Draw with a jet!" [ref=e665] [cursor=pointer]:
+        - generic [ref=e668]: ✓ Played 2
+        - generic [ref=e670]:
+          - img "Rocket drawing shapes" [ref=e672]
+          - generic [ref=e683]:
+            - generic [ref=e684]: Create
+            - heading "Sky Shapes" [level=2] [ref=e685]
+            - paragraph [ref=e686]: Draw with a jet!
+      - button "Add Sky Shapes to favourites" [ref=e690] [cursor=pointer]: ☆
+    - generic [ref=e691]:
+      - button "Colour mixing palette Create Colour Mixing Lab Mix colours together!" [ref=e692] [cursor=pointer]:
+        - generic [ref=e695]:
+          - img "Colour mixing palette" [ref=e697]
+          - generic [ref=e711]:
+            - generic [ref=e712]: Create
+            - heading "Colour Mixing Lab" [level=2] [ref=e713]
+            - paragraph [ref=e714]: Mix colours together!
+      - button "Add Colour Mixing Lab to favourites" [ref=e718] [cursor=pointer]: ☆
+    - generic [ref=e719]:
+      - button "Picture puzzle Quick Think Puzzle Pop Build the picture!" [ref=e720] [cursor=pointer]:
+        - generic [ref=e723]:
+          - img "Picture puzzle" [ref=e725]
+          - generic [ref=e735]:
+            - generic [ref=e736]: Quick Think
+            - heading "Puzzle Pop" [level=2] [ref=e737]
+            - paragraph [ref=e738]: Build the picture!
+      - button "Add Puzzle Pop to favourites" [ref=e742] [cursor=pointer]: ☆

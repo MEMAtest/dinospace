@@ -1,0 +1,43 @@
+- generic [ref=e424]:
+  - banner [ref=e425]:
+    - button "Back to learning world" [ref=e426] [cursor=pointer]
+    - generic [ref=e429]:
+      - paragraph [ref=e430]: 12 guided flights · three skies
+      - heading "Sky Shapes" [level=1] [ref=e431]
+    - button "Turn sound off" [ref=e432] [cursor=pointer]
+  - main [ref=e437]:
+    - paragraph [ref=e438]: Trace a glowing outline with your finger or mouse. Use Enter and Space to guide the jet from a keyboard.
+    - generic [ref=e439]:
+      - button "Sky 1 · starter Cloud Meadow 0/4 flights complete" [pressed] [ref=e440] [cursor=pointer]:
+        - generic [ref=e441]: Sky 1 · starter
+        - strong [ref=e442]: Cloud Meadow
+        - generic [ref=e443]: 0/4 flights complete
+      - button "Sky 2 · growing Rainbow Ridge 0/4 flights complete" [disabled] [ref=e444]:
+        - generic [ref=e445]: Sky 2 · growing
+        - strong [ref=e446]: Rainbow Ridge
+        - generic [ref=e447]: 0/4 flights complete
+      - button "Sky 3 · challenge Aurora Station 0/4 flights complete" [disabled] [ref=e448]:
+        - generic [ref=e449]: Sky 3 · challenge
+        - strong [ref=e450]: Aurora Station
+        - generic [ref=e451]: 0/4 flights complete
+    - generic [ref=e452]:
+      - generic [ref=e453]:
+        - generic [ref=e454]:
+          - paragraph [ref=e455]: starter sky
+          - heading "Cloud Meadow" [level=2] [ref=e456]
+          - paragraph [ref=e457]: Fly around one clear outline at a time.
+        - generic [ref=e458]: 0 of 4 missions earned
+      - generic [ref=e459]:
+        - generic [ref=e460]:
+          - generic [ref=e461]: ☀️
+          - generic [ref=e462]: Round Sun
+        - generic [ref=e463]:
+          - generic [ref=e464]: ⛰️
+          - generic [ref=e465]: Mountain Peak
+        - generic [ref=e466]:
+          - generic [ref=e467]: 🪟
+          - generic [ref=e468]: Window Cloud
+        - generic [ref=e469]:
+          - generic [ref=e470]: 🪁
+          - generic [ref=e471]: Kite
+      - button "Start this sky" [ref=e472] [cursor=pointer]
