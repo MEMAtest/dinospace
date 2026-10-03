@@ -120,3 +120,20 @@ test('device-local diagnostics retain bounded numeric hint counts and reject inv
   assert.equal(exported.slice(1).every((entry) => Object.keys(entry).every((key) => ['at', 'game', 'event'].includes(key))), true);
   assert.equal(JSON.stringify(readGameDiagnostics(storage)).includes('private'), false);
 });
+
+test('export preserves explicit outcomes and safe mastery flags but excludes responses and authored content', () => {
+  const values = new Map();
+  const storage = { getItem: k => values.get(k), setItem: (k, v) => values.set(k, v) };
+  recordGameDiagnostic('subtraction', 'answer_attempt', { correct: false, firstAttempt: true, response: 'private response', prompt: 'private prompt' }, storage);
+  recordGameDiagnostic('trace', 'learning_attempt', { correct: true, keyboardAlternative: true, handwritingMastery: false, independent: false, hintCount: 1 }, storage);
+  recordGameDiagnostic('trace', 'learning_attempt', { correct: 'private', keyboardAlternative: 'private', hints: 'private' }, storage);
+  const events = readGameDiagnostics(storage).events;
+  assert.equal(events[0].correct, false);
+  assert.equal(events[1].keyboardAlternative, true);
+  assert.equal(events[1].handwritingMastery, false);
+  assert.equal(events[1].independent, false);
+  assert.equal(events[1].hints, 1);
+  assert.equal('correct' in events[2], false);
+  assert.equal('keyboardAlternative' in events[2], false);
+  assert.equal(JSON.stringify(events).includes('private'), false);
+});
