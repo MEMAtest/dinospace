@@ -410,7 +410,7 @@ const AmariLetterTrace = ({
       firstTry: firstAttempt,
       hints: hintCount,
       difficulty: ['starter', 'growing', 'challenge'][level],
-      extra: { level, round: roundIndex, seed: run.seed, unassistedFirstTry: nowFirstTry, handwritingMastery: Boolean(award.newlyMastered && nowFirstTry), keyboardAlternative: keyboardMode },
+      extra: { level, round: roundIndex, seed: run.seed, independent: nowFirstTry, masteryEligible: !keyboardMode, unassistedFirstTry: nowFirstTry, handwritingMastery: Boolean(award.newlyMastered && nowFirstTry), keyboardAlternative: keyboardMode },
     }));
     onGameEvent?.('trace', 'answer_correct', { firstAttempt, hints: hintCount, keyboardAlternative: keyboardMode, level, round: roundIndex, seed: run.seed, difficulty: ['starter', 'growing', 'challenge'][level] });
   };
