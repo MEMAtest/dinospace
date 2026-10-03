@@ -17,3 +17,7 @@ Four focused integration tests pass: routing ownership and exact Askia bounds, e
 Review of the initial builder source identified active Count phases bypassing the leave guard, Challenge tracing requesting uppercase despite a lowercase chapter, word choices always presenting the correct word first, and Cosmic chapter replay finishing after one board because it used lifetime completion count. Builders are correcting these before a frozen integrated candidate. Count layout/art and Dino illustrated cover/collection scope also require correction to meet the published visual contract. These findings are not accepted gameplay and are retained here to make the quality gate explicit.
 
 Batch 2 functional repairs separately reached canonical production at `3cdfc426e91b46a855448690278ceb6590280b68`; final independent production controls and listening remain pending. No Batch 3 source has been deployed.
+
+## Read-only narration packaging plan
+
+The four authored narration inventories are now enumerable from pure data through `batch3Narration.js`. `check-batch3-voice-readiness.mjs` checks the existing packaged manifest and files without generation or API requests. The preliminary [coverage report](qa-evidence/batch3-narration-readiness-plan-20261003.json) intentionally exits nonzero while clips are absent. This is a file coverage plan; no premium runtime wiring, complete decode, audible-quality or release claim follows from it. Count uses a development browser voice pending proper packaged wiring; Dino currently labels its text clue honestly.
