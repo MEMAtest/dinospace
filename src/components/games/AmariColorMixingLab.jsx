@@ -3,6 +3,7 @@ import { ArrowLeft, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
 import { COLOUR_CHAPTERS, COLOUR_RECIPES, COLOUR_SWATCHES, COLOUR_MODEL, colourChoiceLabel, makeColourRun, markColourAnswer } from '../../data/batch5Colour.js';
 import { completeReasoningRun, getReasoningProgress } from '../../data/batch5ReasoningProgress.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { batch5AttemptMetrics } from './batch5AttemptMetrics.js';
 import './batch5ReasoningGames.css';
 
 const noop = () => {};
@@ -49,6 +50,8 @@ function PaletteDots({ ids }) {
   return <div className="flex flex-wrap justify-center gap-2" aria-label="Saved palette">{ids.map((id) => <span key={id} className="reasoning-palette-dot" style={{ backgroundColor: COLOUR_SWATCHES[id]?.hex }} title={swatchLabel(id)} aria-label={swatchLabel(id)} />)}</div>;
 }
 
+const recipeForResult = (result) => COLOUR_RECIPES.find((entry) => entry.result === result);
+
 export default function AmariColorMixingLab({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, playerId = 'amari' }) {
   const [progress, setProgress] = useState(() => getReasoningProgress('colormix', playerId));
   const [chapter, setChapter] = useState(() => getReasoningProgress('colormix', playerId).unlocked);
@@ -84,10 +87,10 @@ export default function AmariColorMixingLab({ onBack = noop, playSfx = noop, sou
     if (!mission || locked) return;
     const checked = markColourAnswer(mission, choice);
     if (!checked.valid) return;
-    if (!checked.correct) { setMissed(true); setFeedback('Try again. Use the colour names and compare the recipe.'); playSfx('wrong'); onGameEvent?.('colormix', 'answer_wrong', { level: chapter, round: cursor, seed, skill: 'colour-recipe', item: mission.id, response: choice, expected: mission.answer, correct: false, firstAttempt: false, independent: false, hints: Number(hinted) }); return; }
-    const firstTry = !missed && !hinted;
+    if (!checked.correct) { const attempt = batch5AttemptMetrics(missed, Number(hinted)); setMissed(true); setFeedback('Try again. Use the colour names and compare the recipe.'); playSfx('wrong'); onGameEvent?.('colormix', 'answer_wrong', { level: chapter, round: cursor, seed, skill: 'colour-recipe', item: mission.id, response: choice, expected: mission.answer, correct: false, ...attempt, hints: Number(hinted) }); return; }
+    const { firstAttempt: firstTry } = batch5AttemptMetrics(missed, Number(hinted));
     setLocked(true); setFeedback(mission.fact); setResults((previous) => [...previous, { id: mission.id, correct: true, firstTry, hints: Number(hinted) }]);
-    onGameEvent?.('colormix', 'answer_correct', { level: chapter, round: cursor, seed, skill: 'colour-recipe', item: mission.id, response: choice, expected: mission.answer, correct: true, firstAttempt: firstTry, independent: firstTry, hints: Number(hinted) }); playSfx('success');
+    onGameEvent?.('colormix', 'answer_correct', { level: chapter, round: cursor, seed, skill: 'colour-recipe', item: mission.id, response: choice, expected: mission.answer, correct: true, ...batch5AttemptMetrics(missed, Number(hinted)), hints: Number(hinted) }); playSfx('success');
   };
   const next = () => {
     if (!locked) return;
@@ -105,13 +108,14 @@ export default function AmariColorMixingLab({ onBack = noop, playSfx = noop, sou
   if (stage === 'map' || stage === 'finish') return <div className="amari-scene reasoning-scene reasoning-scene--colour flex flex-col" aria-label="Amari Colour Mixing Lab">
     <header className="amari-scene-header relative z-20"><button type="button" onClick={onBack} className="game-icon-button" aria-label="Back to Creative Lab"><ArrowLeft /></button><div className="amari-scene-title"><h1 className="text-lg font-black sm:text-2xl">Colour Mixing Lab</h1><p className="text-xs text-sky-100">Three recipe chapters · {progress.completed.length} badges</p></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
     <main className="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col items-center px-4 py-5 text-center"><p className="amari-scene-card max-w-2xl p-4 font-bold">Our colour lab uses a simple classroom paint model: one part of each named colour. Real paints can vary. You can read or hear every recipe.</p>
-      {progress.palettes.length > 0 && <section className="amari-scene-card mt-4 w-full p-4"><h2 className="font-black">Your saved palette</h2><PaletteDots ids={progress.palettes} /><p className="mt-2 text-sm font-bold">{progress.palettes.map(swatchLabel).join(' · ')}</p></section>}
+      {progress.palettes.length > 0 && <section className="amari-scene-card mt-4 w-full p-4"><h2 className="font-black">Your saved palette</h2><div className="mt-3 grid gap-3 sm:grid-cols-2">{progress.palettes.map((id) => { const savedRecipe = recipeForResult(id); return <div key={id} className="rounded-xl bg-white/80 p-3"><div className="flex items-center justify-center gap-2"><PaintPot colour={id} /><strong>{swatchLabel(id)}</strong></div>{savedRecipe && <><p className="mt-2 text-sm font-bold">{swatchLabel(savedRecipe.first)} + {swatchLabel(savedRecipe.second)} makes {swatchLabel(id)}.</p><p className="text-xs">{savedRecipe.fact}</p></>}</div>; })}</div></section>}
       <div className="mt-4 grid w-full gap-3 sm:grid-cols-3">{COLOUR_CHAPTERS.map((item, index) => <button key={item.id} type="button" disabled={index > progress.unlocked} onClick={() => { stopNarration(); setChapter(index); setFeedback(''); }} aria-pressed={chapter === index} className={`min-h-20 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-40 ${chapter === index ? 'border-fuchsia-700 bg-fuchsia-100' : 'border-white bg-white/90'}`}><span className="block text-xs uppercase">Chapter {index + 1} {progress.completed.includes(index) ? '· Badge earned' : index > progress.unlocked ? '· Locked' : ''}</span>{item.title}<span className="mt-1 block text-xs font-semibold">{item.skill}</span>{progress.bestStars[index] ? <span className="block text-xs">Best: {'★'.repeat(progress.bestStars[index])}</span> : null}</button>)}</div>
-      {stage === 'finish' ? <section className="amari-scene-card mt-5 w-full p-5"><h2 className="text-2xl font-black">Chapter complete!</h2><p className="mt-2 font-semibold">Your recipe facts stay in the palette. Choose when you are ready to go on.</p><PaletteDots ids={progress.palettes} /><div className="mt-4 grid gap-3 sm:grid-cols-2"><button type="button" onClick={() => beginRun(chapter, true)} className="min-h-12 rounded-xl bg-fuchsia-700 px-5 font-black text-white"><RotateCcw className="mr-2 inline" size={18} />Replay with new recipes</button>{chapter < 2 && progress.unlocked > chapter && <button type="button" onClick={() => returnToMap(progress.unlocked)} className="min-h-12 rounded-xl bg-white px-5 font-black">Choose next chapter</button>}</div></section> : <><div className="amari-scene-card mt-4 flex w-full max-w-lg flex-wrap items-center justify-center gap-3 p-4"><p className="w-full font-black">{COLOUR_MODEL.note}</p>{Object.keys(COLOUR_SWATCHES).slice(0, chapter === 0 ? 3 : 8).map((id) => <div className="flex min-w-16 flex-col items-center gap-1" key={id}><PaintPot colour={id} small /><span className="text-xs font-bold">{swatchLabel(id)}</span></div>)}</div><button type="button" onClick={() => beginRun(chapter)} className="mt-5 min-h-14 w-full max-w-lg rounded-2xl bg-fuchsia-800 text-lg font-black text-white">Start {COLOUR_CHAPTERS[chapter]?.title}</button></>}
+      {stage === 'finish' ? <section className="amari-scene-card mt-5 w-full p-5"><h2 className="text-2xl font-black">Chapter complete!</h2><p className="mt-2 font-semibold">Your mixed colours and their classroom recipes stay in the saved palette.</p><PaletteDots ids={progress.palettes} /><div className="mt-4 grid gap-3 sm:grid-cols-2"><button type="button" onClick={() => beginRun(chapter, true)} className="min-h-12 rounded-xl bg-fuchsia-700 px-5 font-black text-white"><RotateCcw className="mr-2 inline" size={18} />Replay with new recipes</button>{chapter < 2 && progress.unlocked > chapter && <button type="button" onClick={() => returnToMap(progress.unlocked)} className="min-h-12 rounded-xl bg-white px-5 font-black">Choose next chapter</button>}</div></section> : <><div className="amari-scene-card mt-4 flex w-full max-w-lg flex-wrap items-center justify-center gap-3 p-4"><p className="w-full font-black">{COLOUR_MODEL.note}</p>{Object.keys(COLOUR_SWATCHES).slice(0, chapter === 0 ? 3 : 8).map((id) => <div className="flex min-w-16 flex-col items-center gap-1" key={id}><PaintPot colour={id} small /><span className="text-xs font-bold">{swatchLabel(id)}</span></div>)}</div><button type="button" onClick={() => beginRun(chapter)} className="mt-5 min-h-14 w-full max-w-lg rounded-2xl bg-fuchsia-800 text-lg font-black text-white">Start {COLOUR_CHAPTERS[chapter]?.title}</button></>}
       {feedback && stage === 'map' && <p role="status" className="mt-3 rounded-xl bg-amber-100 p-3 font-bold">{feedback}</p>}
     </main></div>;
 
-  const recipe = mission ? COLOUR_RECIPES.find((item) => item.id === mission.answer) : null;
+  const displayedMixResult = mission?.mixResult || (chapter === 2 ? mission?.target : null);
+  const recipe = mission ? (chapter === 2 ? COLOUR_RECIPES.find((item) => item.id === mission.answer) : recipeForResult(displayedMixResult)) : null;
   const designObject = mission?.id.startsWith('design:') ? mission.id.slice('design:'.length) : null;
   const instruction = chapter === 2 ? 'Choose the recipe that matches the design brief.' : 'Use the named colours. The recipe uses one part of each.';
   return <div className="amari-scene reasoning-scene reasoning-scene--colour flex flex-col" aria-label="Amari Colour Mixing Lab">
@@ -121,11 +125,12 @@ export default function AmariColorMixingLab({ onBack = noop, playSfx = noop, sou
         {designObject && <div className="mx-auto mt-2 w-40"><DesignArt object={designObject} colour={mission.target} /></div>}
         <div className="mt-3 flex flex-wrap items-center justify-center gap-3" aria-label="Named colour recipe inputs">
           {mission.first && <div className="flex items-center gap-2 rounded-xl bg-fuchsia-50 px-3 py-2"><PaintPot colour={mission.first} /><span className="font-black">{swatchLabel(mission.first)}</span></div>}
-          {mission.first && mission.second && <span className="text-2xl font-black text-fuchsia-700">+</span>}
-          {mission.second && <div className="flex items-center gap-2 rounded-xl bg-fuchsia-50 px-3 py-2"><PaintPot colour={mission.second} /><span className="font-black">{swatchLabel(mission.second)}</span></div>}
+          {mission.first && <span className="text-2xl font-black text-fuchsia-700">+</span>}
+          {mission.second ? <div className="flex items-center gap-2 rounded-xl bg-fuchsia-50 px-3 py-2"><PaintPot colour={mission.second} /><span className="font-black">{swatchLabel(mission.second)}</span></div> : mission.first && !locked && <div className="flex items-center gap-2 rounded-xl border-2 border-dashed border-fuchsia-300 px-3 py-2"><span aria-hidden="true" className="text-2xl">?</span><span className="font-black">Choose an addition</span></div>}
+          {locked && !mission.second && recipe && <div className="flex items-center gap-2 rounded-xl bg-fuchsia-50 px-3 py-2"><PaintPot colour={recipe.second} /><span className="font-black">Added {swatchLabel(recipe.second)}</span></div>}
           {chapter === 2 && locked && recipe && <div className="flex items-center gap-2 rounded-xl bg-fuchsia-50 px-3 py-2"><PaintPot colour={recipe.first} /><span className="font-black">{swatchLabel(recipe.first)} + {swatchLabel(recipe.second)}</span><PaintPot colour={recipe.second} /></div>}
         </div>
-        {chapter !== 2 && mission.first && <div className={`reasoning-mix-stage mt-3 ${locked ? 'is-mixed' : ''}`} aria-label={locked ? `Mixed ${swatchLabel(mission.answer)}` : 'Empty mixing beaker'}><Beaker colour={locked ? mission.answer : null} active={locked} label={locked ? `${swatchLabel(mission.answer)} mixed paint` : 'Empty beaker'} /><span className="font-black">{locked ? swatchLabel(mission.answer) : '1 part + 1 part'}</span></div>}
+        {displayedMixResult && <div className={`reasoning-mix-stage mt-3 ${locked ? 'is-mixed' : ''}`} aria-label={locked ? `Mixed ${swatchLabel(displayedMixResult)}` : 'Empty mixing beaker'}><Beaker colour={locked ? displayedMixResult : null} active={locked} label={locked ? `${swatchLabel(displayedMixResult)} mixed paint` : 'Empty beaker'} /><span className="font-black">{locked ? swatchLabel(displayedMixResult) : '1 part + 1 part'}</span></div>}
       </section>
       <div className={`mt-4 grid w-full gap-3 ${chapter === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-2 sm:grid-cols-3'}`} role="group" aria-label={chapter === 2 ? 'Choose a recipe' : 'Choose a colour'}>
         {mission.choices.map((choice) => {
@@ -140,7 +145,7 @@ export default function AmariColorMixingLab({ onBack = noop, playSfx = noop, sou
       </div>
       <div className="mt-3 flex w-full flex-wrap justify-center gap-3">{!locked && <button type="button" onClick={hint} disabled={hinted} className="min-h-12 rounded-xl border-2 border-amber-500 bg-white px-4 font-black disabled:opacity-50"><Lightbulb className="mr-2 inline" size={18} />Use one hint</button>}{locked && <button type="button" onClick={() => speakLine(mission.fact)} className="min-h-12 rounded-xl bg-cyan-100 px-4 font-black"><Volume2 className="mr-2 inline" size={18} />Hear the colour fact</button>}</div>
       {feedback && <p role="status" className={`mt-3 w-full rounded-xl p-3 font-bold ${locked ? 'bg-emerald-100' : 'bg-amber-100'}`}>{feedback}</p>}
-      {hinted && !locked && <p className="mt-2 rounded-xl bg-white/90 p-3 text-sm font-bold">{COLOUR_MODEL.note}</p>}
+      {hinted && !locked && <p role="note" className="mt-2 rounded-xl bg-white/90 p-3 text-sm font-bold">{mission.clue}</p>}
       {locked && <button type="button" onClick={next} className="mt-4 min-h-14 w-full rounded-2xl bg-fuchsia-800 text-lg font-black text-white">{cursor === 5 ? 'Finish chapter' : 'Next recipe'}</button>}
     </main></div>;
 }

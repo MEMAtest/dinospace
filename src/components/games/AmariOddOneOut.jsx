@@ -3,6 +3,7 @@ import { ArrowLeft, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
 import { makeOddRun, markOddAnswer, ODD_CHAPTERS, ODD_RULES } from '../../data/batch5Reasoning.js';
 import { completeReasoningRun, getReasoningProgress } from '../../data/batch5ReasoningProgress.js';
 import { SoundToggle } from '../shared/index.jsx';
+import { batch5AttemptMetrics } from './batch5AttemptMetrics.js';
 import './batch5ReasoningGames.css';
 
 const noop = () => {};
@@ -100,7 +101,7 @@ export default function AmariOddOneOut({ onBack = noop, playSfx = noop, soundOn 
   const hint = () => { if (hinted || locked) return; setHinted(true); setFeedback(mission.explanation); onGameEvent?.('oddoneout', 'hint', { level: chapter, round: cursor, seed, hints: 1, hintType: 'clue' }); };
   const chooseItem = (item) => {
     if (locked || phase !== 'item') return;
-    if (item.id !== mission.answerId) { setItemMissed(true); setFeedback('Not that one. Read the named rule again and look at all four pictures.'); playSfx('wrong'); onGameEvent?.('oddoneout', 'answer_wrong', { level: chapter, round: cursor, seed, skill: 'rule-classification', item: mission.ruleId, response: 'incorrect-item', expected: 'one-outside-rule', correct: false, firstAttempt: false, independent: false, hints: Number(hinted) }); return; }
+    if (item.id !== mission.answerId) { const attempt = batch5AttemptMetrics(itemMissed || reasonMissed, Number(hinted)); setItemMissed(true); setFeedback('Not that one. Read the named rule again and look at all four pictures.'); playSfx('wrong'); onGameEvent?.('oddoneout', 'answer_wrong', { level: chapter, round: cursor, seed, skill: 'rule-classification', item: mission.ruleId, response: 'incorrect-item', expected: 'one-outside-rule', correct: false, ...attempt, hints: Number(hinted) }); return; }
     const answer = markOddAnswer(mission, item.id, 0);
     if (answer.invalid) return;
     setSelectedId(item.id); setPhase('reason'); setFeedback('You found the one that does not fit. Now choose why.'); playSfx('tap');
@@ -109,11 +110,11 @@ export default function AmariOddOneOut({ onBack = noop, playSfx = noop, soundOn 
     if (locked || phase !== 'reason') return;
     const answer = markOddAnswer(mission, selectedId, reason.id);
     if (answer.invalid) return;
-    if (!answer.correct) { setReasonMissed(true); setFeedback('Try another reason. Use the exact property named at the top.'); playSfx('wrong'); onGameEvent?.('oddoneout', 'answer_wrong', { level: chapter, round: cursor, seed, skill: 'rule-classification', item: mission.ruleId, response: 'incorrect-reason', expected: 'reason-for-outlier', correct: false, firstAttempt: false, independent: false, hints: Number(hinted) }); return; }
-    const firstTry = !itemMissed && !reasonMissed && !hinted;
+    if (!answer.correct) { const attempt = batch5AttemptMetrics(itemMissed || reasonMissed, Number(hinted)); setReasonMissed(true); setFeedback('Try another reason. Use the exact property named at the top.'); playSfx('wrong'); onGameEvent?.('oddoneout', 'answer_wrong', { level: chapter, round: cursor, seed, skill: 'rule-classification', item: mission.ruleId, response: 'incorrect-reason', expected: 'reason-for-outlier', correct: false, ...attempt, hints: Number(hinted) }); return; }
+    const { firstAttempt: firstTry } = batch5AttemptMetrics(itemMissed || reasonMissed, Number(hinted));
     setLocked(true); setFeedback(`${mission.explanation} ${reason.text}`);
     setResults((previous) => [...previous, { id: mission.id, correct: true, firstTry, hints: Number(hinted) }]);
-    onGameEvent?.('oddoneout', 'answer_correct', { level: chapter, round: cursor, seed, skill: 'rule-classification', item: mission.ruleId, response: mission.answerId, expected: mission.reasonId, correct: true, firstAttempt: firstTry, independent: firstTry, hints: Number(hinted) }); playSfx('success');
+    onGameEvent?.('oddoneout', 'answer_correct', { level: chapter, round: cursor, seed, skill: 'rule-classification', item: mission.ruleId, response: mission.answerId, expected: mission.reasonId, correct: true, ...batch5AttemptMetrics(itemMissed || reasonMissed, Number(hinted)), hints: Number(hinted) }); playSfx('success');
   };
   const next = () => {
     if (!locked) return;

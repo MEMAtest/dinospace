@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { COLOUR_CHAPTERS, COLOUR_RECIPES, COLOUR_SWATCHES, COLOUR_TASKS, makeColourRun, markColourAnswer, validateColourMission } from '../src/data/batch5Colour.js';
 import { makeOddRun, markOddAnswer, ODD_CHAPTERS, ODD_RULES, validateOddMission } from '../src/data/batch5Reasoning.js';
 import { buildBatch5ReasoningNarrationInventory } from '../scripts/batch5ReasoningNarrationInventory.mjs';
+import { batch5AttemptMetrics } from '../src/components/games/batch5AttemptMetrics.js';
+import { LEARNING_STORAGE_KEYS, recordLegacyGameEvent } from '../src/data/learningProgress.js';
 
 const projectFile = (path) => readFile(new URL(path, import.meta.url), 'utf8');
 
@@ -48,6 +50,34 @@ test('reasoning voice inventory covers every runtime authored prompt, label, fac
     for (const reason of rule.reasons) assert.ok(texts.has(reason));
   }
   for (const sequence of inventory.sequences) { assert.ok(sequence.every((segment) => texts.has(segment))); assert.ok(texts.has(sequence.join(' '))); }
+});
+
+test('firstAttempt excludes prior mistakes while independent also excludes hints through the actual learning adapter', () => {
+  assert.deepEqual(batch5AttemptMetrics(false, 0), { firstAttempt: true, independent: true });
+  assert.deepEqual(batch5AttemptMetrics(false, 1), { firstAttempt: true, independent: false });
+  assert.deepEqual(batch5AttemptMetrics(true, 0), { firstAttempt: false, independent: false });
+
+  const values = new Map();
+  const storage = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) };
+  recordLegacyGameEvent('colormix', 'answer_correct', { skill: 'colour-recipe', item: 'predict:orange', correct: true, ...batch5AttemptMetrics(false, 1), hints: 1 }, storage);
+  const attempts = JSON.parse(values.get(LEARNING_STORAGE_KEYS.attempts));
+  assert.equal(attempts.length, 1);
+  assert.equal(attempts[0].correct, true);
+  assert.equal(attempts[0].firstAttempt, true);
+  assert.equal(attempts[0].independent, false);
+  assert.equal(attempts[0].hints, 1);
+});
+
+test('colour result visuals and saved palette use mixResult rather than a selected missing ingredient', async () => {
+  const source = await projectFile('../src/components/games/AmariColorMixingLab.jsx');
+  assert.ok(source.includes('Beaker colour={locked ? displayedMixResult : null}'));
+  assert.ok(source.includes('recipeForResult(displayedMixResult)'));
+  assert.ok(source.includes('Your mixed colours and their classroom recipes stay in the saved palette.'));
+  assert.ok(source.includes('Choose an addition'));
+  assert.ok(source.includes('{mission.clue}'));
+  for (const task of COLOUR_TASKS.filter((entry) => entry.mixResult && entry.first && !entry.second)) {
+    assert.ok(task.answer !== task.mixResult || task.id.startsWith('change:'), `task ${task.id} should exercise an input distinct from its result`);
+  }
 });
 
 test('Amari-only route keeps Askia catalog components, disables generic session duplication and passes explicit cancellation', async () => {

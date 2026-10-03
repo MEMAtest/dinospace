@@ -6,6 +6,7 @@ import { getBatch5LiteracyProgress, recordBatch5LiteracyCompletion, rememberBatc
 import { getTaughtGraphemes } from '../../data/literacy.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { useAmariPhonemeAudio } from './useAmariPhonemeAudio.js';
+import { batch5AttemptMetrics } from './batch5AttemptMetrics.js';
 
 const noop = () => {};
 const randomSeed = () => globalThis.crypto?.getRandomValues ? globalThis.crypto.getRandomValues(new Uint32Array(1))[0] || 1 : Math.floor(Math.random() * 0xffffffff) || 1;
@@ -85,7 +86,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
       setFeedback(BATCH5_NARRATION.retry[0]);
       tell(BATCH5_NARRATION.retry[0]);
       setResults((previous) => previous.map((item, index) => index === cursor ? { ...item, firstTry: false } : item));
-      onGameEvent?.('phonics', 'answer_wrong', { level: chapterIndex, round: cursor, seed, skill: question.type === 'match' ? 'phoneme-recognition' : question.type === 'blend' ? 'blending' : 'phoneme-segmentation', item: question.type === 'blend' ? question.target.word : question.answerId, response: 'incorrect-choice', expected: question.type === 'blend' ? question.target.word : question.answerId, correct: false, firstAttempt: false, independent: false, hints: hintCount });
+      onGameEvent?.('phonics', 'answer_wrong', { level: chapterIndex, round: cursor, seed, skill: question.type === 'match' ? 'phoneme-recognition' : question.type === 'blend' ? 'blending' : 'phoneme-segmentation', item: question.type === 'blend' ? question.target.word : question.answerId, response: 'incorrect-choice', expected: question.type === 'blend' ? question.target.word : question.answerId, correct: false, ...batch5AttemptMetrics(attempted, hintCount), hints: hintCount });
       playSfx('wrong');
       return;
     }
@@ -93,13 +94,13 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
     setFeedback(praiseFor(question));
     setResults((previous) => {
       const next = [...previous];
-      next[cursor] = { id: question.id, firstTry: !attempted && hintCount === 0, hintCount };
+      next[cursor] = { id: question.id, firstTry: !attempted, hintCount };
       return next;
     });
     const fact = question.type === 'match' ? `The word is ${question.target.word}.`
       : question.type === 'blend' ? `The word is ${question.target.word}.` : 'You found the sound.';
     tell(`${praiseFor(question)} ${fact}`, [praiseFor(question), fact]);
-    onGameEvent?.('phonics', 'answer_correct', { level: chapterIndex, round: cursor, seed, skill: question.type === 'match' ? 'phoneme-recognition' : question.type === 'blend' ? 'blending' : 'phoneme-segmentation', item: question.type === 'blend' ? question.target.word : question.answerId, response: question.type === 'blend' ? question.target.word : question.answerId, expected: question.type === 'blend' ? question.target.word : question.answerId, correct: true, firstTry: !attempted && hintCount === 0, firstAttempt: !attempted && hintCount === 0, independent: !attempted && hintCount === 0, hints: hintCount });
+    onGameEvent?.('phonics', 'answer_correct', { level: chapterIndex, round: cursor, seed, skill: question.type === 'match' ? 'phoneme-recognition' : question.type === 'blend' ? 'blending' : 'phoneme-segmentation', item: question.type === 'blend' ? question.target.word : question.answerId, response: question.type === 'blend' ? question.target.word : question.answerId, expected: question.type === 'blend' ? question.target.word : question.answerId, correct: true, firstTry: !attempted, ...batch5AttemptMetrics(attempted, hintCount), hints: hintCount });
     playSfx('success');
   };
 

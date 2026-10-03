@@ -7,6 +7,7 @@ import { DECODABLE_CAPTIONS, getAvailableTrickyWords, getTaughtGraphemes, makeLe
 import { loadSaved, saveSafe } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { useAmariPhonemeAudio } from './useAmariPhonemeAudio.js';
+import { batch5AttemptMetrics } from './batch5AttemptMetrics.js';
 
 const LEGACY_WORD_PROGRESS_KEY = 'amari_spelling_progress_v1';
 const noop = () => {};
@@ -95,20 +96,20 @@ export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, sou
   };
   const correctAnswer = () => {
     if (locked) return;
-    const clean = !attempted && hintCount === 0;
+    const { firstAttempt: firstTry, independent } = batch5AttemptMetrics(attempted, hintCount);
     setLocked(true);
     setFeedback(BATCH5_NARRATION.praise[1]);
-    setResults((previous) => { const next = [...previous]; next[cursor] = { id: question.id, firstTry: clean, hintCount }; return next; });
+    setResults((previous) => { const next = [...previous]; next[cursor] = { id: question.id, firstTry, hintCount }; return next; });
     const wordFact = `The word is ${question.target.word}.`;
     tell(`${BATCH5_NARRATION.praise[1]} ${wordFact}`, [BATCH5_NARRATION.praise[1], wordFact]);
-    onGameEvent?.('words', 'answer_correct', { level: chapterIndex, round: cursor, seed, skill: chapterIndex === 0 ? 'supported-spelling' : chapterIndex === 1 ? 'phoneme-gap' : 'independent-spelling', item: question.target.word, response: question.target.word, expected: question.target.word, difficulty: BATCH5_SPELLING_BANDS[chapterIndex].id, correct: true, firstTry: clean, firstAttempt: clean, independent: clean, hints: hintCount });
+    onGameEvent?.('words', 'answer_correct', { level: chapterIndex, round: cursor, seed, skill: chapterIndex === 0 ? 'supported-spelling' : chapterIndex === 1 ? 'phoneme-gap' : 'independent-spelling', item: question.target.word, response: question.target.word, expected: question.target.word, difficulty: BATCH5_SPELLING_BANDS[chapterIndex].id, correct: true, firstTry, firstAttempt: firstTry, independent, hints: hintCount });
     playSfx('success');
   };
   const rejectAnswer = () => {
     setAttempted(true);
     setFeedback(BATCH5_NARRATION.retry[1]);
     tell(BATCH5_NARRATION.retry[1]);
-    onGameEvent?.('words', 'answer_wrong', { level: chapterIndex, round: cursor, seed, skill: chapterIndex === 0 ? 'supported-spelling' : chapterIndex === 1 ? 'phoneme-gap' : 'independent-spelling', item: question.target.word, response: 'incorrect-build', expected: question.target.word, correct: false, firstAttempt: false, independent: false, hints: hintCount });
+    onGameEvent?.('words', 'answer_wrong', { level: chapterIndex, round: cursor, seed, skill: chapterIndex === 0 ? 'supported-spelling' : chapterIndex === 1 ? 'phoneme-gap' : 'independent-spelling', item: question.target.word, response: 'incorrect-build', expected: question.target.word, correct: false, ...batch5AttemptMetrics(attempted, hintCount), hints: hintCount });
     playSfx('wrong');
   };
   const chooseTile = (tile) => {
