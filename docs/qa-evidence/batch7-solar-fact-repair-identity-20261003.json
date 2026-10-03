@@ -1,0 +1,16 @@
+{
+  "sourceSha": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
+  "url": "http://127.0.0.1:5273",
+  "assets": {
+    "sw.js": "301b7a963d723008f0a99b348a60ff246e67bd99a9c6fc481897bf0ba75683bc",
+    "assets/SolarSystem-D08RH-iZ.js": "35ff61fbd666432f35fade05dfd52544a4725916c2c35986c018f31adce637ec",
+    "assets/index-C8JBvYB2.css": "9ae08df7fc6db88b71c0a6e03fb8b8a032856f983e2f39490f904bb86063a884",
+    "assets/index-B_-S7xrV.js": "c14768abe0cb739f9c41c693dce346557cedad53e6abae0719ded54b9f61fe63",
+    "assets/web-DFLM3Pzx.js": "cb4645028865cc4d941b944cd7e6e39a17bb8a666a9e42d02b3f1d53a7764d42"
+  },
+  "checks": {
+    "changedFileLint": "passed",
+    "productionBuild": "passed"
+  },
+  "scope": "5263 accessibility runtime plus bounded NASA-source Solar copy corrections; local only, rendered delta pending"
+}
