@@ -15,3 +15,14 @@ The ready corpus comprises Puzzle Pop 73 clips, Spot the Difference 55, and Sky 
 ## Open gates
 
 Independent actual-control playback, replay, hint/fact, next/cancellation and mute checks at desktop and 390px are underway for these three games. Native media events and successful requests are runtime proof only, not listening proof. Monster Math still requires 433 missing clips at this checkpoint, followed by packaged-sequence runtime and audible joins/prosody checks. Complete corpus readiness, audible review, exact production release and production playback deltas remain required. The accepted count is 4/26.
+
+## Restored QA snapshot and resumed worker
+
+At the next goal continuation the prior worker PID 27199 was absent on repeated process checks; execution handle 36845 was also unavailable. The log ended during run 31 without a terminal reason. Cause is unproven. Read-only readiness found 405 missing clips, with all generated files preserved. No generator child or lock remained. Root resumed the existing generator using a detached worker PID 4108 and the same request journal/30-call ten-minute cap. `--max-runs=169` preserves the previous remaining run allowance rather than resetting to 200. The script now accepts this bounded override, rejects values outside 1–200 before writing or calling services, and passed syntax validation plus a zero-value rejection check. The resumed worker completed two passes and checkpointed 375 missing clips.
+
+The previous `/tmp` snapshot was missing and independently returned HTTP 404; those initial runtime attempts performed no browser navigation and provide no playback proof. Root rebuilt source `b93ebd7` plus the current generated manifest into workspace `tmp/batch2-audio-snapshot-20261003-0640`, served on the same port 5195. Runtime testers received this new identity:
+
+- JS `index-Dmr-JKNn.js`: SHA-256 `b32ececc238e237cad75666c7006217f9650a678f2cf0fe07db316b46a459e25`, served HTTP 200.
+- CSS remains `index-CPZQTFam.css`, unchanged hash.
+
+The rebuilt snapshot differs by generated-manifest coverage; gameplay/narration hook source is unchanged. It remains local, frozen and incomplete for Monster. Historical `/tmp` measurements retain their own identity; no attempt is made to label them as the new runtime build.

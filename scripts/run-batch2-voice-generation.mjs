@@ -7,7 +7,11 @@ const statePath = resolve(root, 'tmp/offline-voice-request-state.json');
 const statusPath = resolve(root, 'tmp/batch2-voice-generation-status.json');
 const pidPath = resolve(root, 'tmp/batch2-voice-generation.pid');
 const logPath = resolve(root, 'tmp/batch2-narration-generation-2026-10-02.log');
-const maxRuns = 200;
+const maxRunsArg = process.argv.find((arg) => arg.startsWith('--max-runs='));
+const maxRuns = maxRunsArg === undefined ? 200 : Number(maxRunsArg.slice('--max-runs='.length));
+if (!Number.isInteger(maxRuns) || maxRuns < 1 || maxRuns > 200) {
+  throw new Error('max-runs must be an integer from 1 to 200.');
+}
 const maxCooldownRetries = 3;
 const requestWindowMs = 10 * 60 * 1000;
 const requestLimit = 30;
