@@ -257,7 +257,7 @@
     "lint": "passed",
     "build": "passed",
     "localPlaywright": "Count653 complete three bands and replay both widths; Dino569 complete12 worlds both widths; Cosmic5215 complete3 chapters both widths. Trace5223 Starter/Growing pointer matrix completed both widths; retained-choice regression repaired5231, full Challenge pointer matrix underway, final5237 keyboard/help/arrows delta pending. No new production acceptance.",
-    "narration": "275 unique finite worker live; 111 pending at 18:20 UTC, expected rate-window waiting. Frozen 5237 contains 46 mapped clips; first 46 decoded. Full packaging/native/listening open.",
+    "narration": "275 unique finite worker live;87 pending at18:30UTC, expected request-window waiting. Frozen5237 contains46 mappedclips; first46decoded. Fullpackaging/native/listening open.",
     "release": "Not deployed or accepted",
     "sourceGateScope": "204/204tests, fullESLint, productionconfigurationbuild and6servedhashes on immutable5237 archivedsource",
     "identity": "work/dinospace-batch3-quality/docs/qa-evidence/batch3-direction-identity-20261003.json"
@@ -265,25 +265,29 @@
   "nextImplementationBatch": {
     "batch": 4,
     "branch": "codex/amari-batch4-quality-20261003",
-    "scope": "Four chapter games implemented; final control candidate5227 in full independent QA. Phrase narration improvement underway in isolated source. No production release."
+    "scope": "Four games passed full independent local mechanics matrix on5227. Phrase narration source5235 narrow delta in progress; physical audio/listening/production acceptance pending."
   },
   "batch4Candidate": {
     "sha": "01e10f75d3658133db4b3a1ffd269f0ee34c7c35",
-    "status": "immutable local final control repair in independent full Playwright QA",
+    "status": "Independent full desktop/mobile rendered mechanics pass; narration delta and packaging/listening/production acceptance pending",
     "sourceTests": "195/195",
     "fullESLint": "passed",
     "productionConfigurationBuild": "passed",
     "identity": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-final-repair-identity-20261003.json",
     "originalIndependentReport": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-independent-local-20261003/report.md",
     "productionReleased": false,
-    "editorialAccepted": false
+    "editorialAccepted": false,
+    "independentReport": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-final-repair-local-20261003/report.md",
+    "independentReportCommit": "aab31f0de1badd5003ffbb9cff0aa15d8c70ce83",
+    "coverage": "All four games: three chapters/worlds \u00d7 six missions at both1280\u00d7800 and390\u00d7844, full same-band replay; saved chapter badges/best-star improvement, sibling isolation, reload, clock wraps, NumberLine markers/frog and parent-world routes. Exact local5227 candidate only."
   },
   "latestCheckpoint": "docs/game-quality-checkpoint-20261003-1724.md",
   "batch5Implementation": {
     "sourceBase": "1d33a28",
     "branch": "codex/amari-batch5-quality-20261003",
     "plan": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md",
-    "scope": "Luna Sound Safari/Spelling source and finite narration inventories underway; root Colour/Odd canonical three-chapter models and completed-run progress implemented with 9 focused tests and lint. Separate browser QA, audio packaging and production acceptance pending."
+    "scope": "Luna literacy source committed; Colour/Odd root models/progress committed with9focusedtests/lint. Luna now building Colour/Odd UI and Amari-only routing; separate browser/audio/production acceptance pending.",
+    "literacySource": "9c2c7cf870717046a94cdc890307855e2467d0e2"
   },
   "batch4NarrationCandidate": {
     "sha": "fa47bf73e7d169bb1b37b6bf278718a7b088e97a",

@@ -47,3 +47,8 @@ Batch4 fa47bf7 at5235 passes198tests/fullESLint/build/4servedhashes. Completedfu
 ## 18:31 UTC continuation
 
 Batch5 root foundations are committed: Colour/Odd three distinct chapters, six unique authored missions per run, seeded choices and canonical validation, completed-only child-scoped progress, positive best-star improvement deltas and completed-run palette checkpoints. Nine focused tests and lint pass; no browser acceptance is inferred. Luna literacy builder has source components and finite source inventory in review; pure phonemes remain entirely unpackaged. Batch4 independent tester now reports all18 NumberLine mobile missions, while final report/navigation/desktop coverage remains pending. Batch3 Trace repaired desktop Challenge progressed through pointer rounds; mobile ordinary unlocking is underway. Narration worker had111 pending at18:20UTC and was in an expected request-window wait. Production remains unchanged; accepted score counts remain4/16/6.
+
+
+## 18:35 UTC independent mechanics closure
+
+Independent Batch4 report aab31f0 records all four games, all18missions each, both1280×800 and390×844, plus full same-band replay, shelf/best-star deltas, sibling isolation, reload persistence and contextual routes on immutable5227. Report explicitly withholds narration, physical-device and production acceptance. Narrow5235 narration delta follows. Batch5 Luna literacy commit9c2c7cf has source components/pools/progress and finite narration inventory;648 voice clips and37pure phoneme clips remain pending. Luna is now building the two Colour/Odd UI components and Amari-only routing using root-owned canonical models. No new production release or4.5scores.
