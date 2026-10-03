@@ -23,6 +23,11 @@ export const monsterCounterPhrase = (count) => `${count} ${count === 1 ? 'counte
 const QUANTITY = (count, singular, plural) => `${count} ${count === 1 ? singular : plural}`;
 export const monsterCountResultText = (count) => `There ${count === 1 ? 'is' : 'are'} ${monsterCounterPhrase(count)}.`;
 export const numberLineInstruction = (model, locked = false) => `Start at ${model.first}, then jump ${model.operation === 'add' ? 'forward' : 'back'} ${model.second} ${model.second === 1 ? 'step' : 'steps'}${locked ? ` to ${model.answer}` : ''}.`;
+export const monsterNumberLineValues = (model) => {
+  const low = Math.max(0, Math.min(model.first, model.answer) - 2);
+  const high = Math.min(20, Math.max(model.first, model.answer) + 2);
+  return Array.from({ length: high - low + 1 }, (_, index) => low + index);
+};
 export const tenFrameAccessibleLabel = (model) => model.operation === 'add'
   ? `${monsterCounterPhrase(model.first)} and ${model.second} more, ${monsterCounterPhrase(model.first + model.second)} total`
   : `${monsterCounterPhrase(model.first)}, take away ${monsterCounterPhrase(model.second)}, ${monsterCounterPhrase(model.answer)} ${model.answer === 1 ? 'stays' : 'stay'}`;
