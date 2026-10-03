@@ -6,7 +6,7 @@
     "in progress": 8,
     "not started": 14
   },
-  "canonicalRelease": "6b84554e7a1d21b3db658d213a2298462c78599e",
+  "canonicalRelease": "3cdfc426e91b46a855448690278ceb6590280b68",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -221,10 +221,10 @@
   ],
   "candidate": {
     "source": "83149d897366dcbe8bc4034849d340ed61a0221d",
-    "scope": "Batch 2 local changes only; no new production acceptance",
-    "independentChecks": "831 independent desktop/390px Sky start/reset/next-part, Spot paired-scene geometry/hints/held facts, and actual Puzzle hint-count export passed. Monster unaffected preview runtime proof retained. Functional repair release preparation; no new4.5acceptance.",
+    "scope": "Batch 2 functional repair released; quality acceptance still pending",
+    "independentChecks": "Final 831 targeted desktop/mobile controls pass: Sky visible starts, Spot paired scenes and hint geometry, Puzzle actual hints:1 diagnostic. Historical failed candidates remain preserved.",
     "humanListening": "pending",
-    "productionPlaywright": "pending for unreleased changes",
+    "productionPlaywright": "Independent final production controls in progress on canonical 3cdfc42",
     "preview": {
       "url": "https://dinospace-e2xpceist-memas-projects-23a0001d.vercel.app",
       "deploymentId": "dpl_8VyFhnvHSU39MVYfqCQEwTZjTmDC",
@@ -239,7 +239,14 @@
       "frozenBuild": "passed",
       "corpusBytesMatched": 1371
     },
-    "releaseClass": "functional repair, editorial acceptance pending"
+    "releaseClass": "functional repair, editorial acceptance pending",
+    "production": {
+      "url": "https://dinospace-eight.vercel.app",
+      "deploymentId": "dpl_Yw6eFRkrTbgF7b9hw2oyUdSXJA9W",
+      "source": "3cdfc426e91b46a855448690278ceb6590280b68",
+      "renderedAssetMatch": true,
+      "scope": "Functional repair release; no new 4.5 acceptance"
+    }
   },
   "implementationBatch": 3,
   "implementationBranch": "codex/amari-batch3-quality-20261003"
