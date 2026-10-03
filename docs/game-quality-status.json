@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "FinitePID18781confirmedalive23:36UTC; status23:33run52,reused709/pending4456,0cooldownretries,waitingrequestwindow. Fullaudioacceptanceopen.",
+    "voiceCoverage": "Finite worker PID18781 confirmed alive at23:36UTC; status23:33UTC, run52:709 reused,4456 pending, zero cooldown retries, waiting for the request window. Full audio acceptance remains open.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -307,7 +307,7 @@
     "branch": "codex/amari-batch6-quality-20261003",
     "base": "0d11256",
     "plan": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md",
-    "scope": "Full original chapter matrices retained; independent5275visibleclue/letterdelta passed. Newf8f9f7aSFXwiring full187tests/lint/configuredbuildpassed; frozen5285fiveassetshashesmatch andindependentactualWebAudioQAunderway.435phrases/1valid/434missing; narration/listening/editorial/productiongatesopen.",
+    "scope": "Full original chapter matrices retained; independent5275 visible clue/letter delta passed. Newf8f9f7a sound wiring passed187 tests, changed-file lint and configured build. Dedicated IPv4 origin5295 serves five matching frozen assets; independent actual WebAudio QA is underway. Narration:435 phrases,1 valid clip,434 missing. Listening, editorial and production gates remain open.",
     "source": "3a0da1b",
     "identity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-narration-repair-identity-20261003.json",
     "soundRepairSource": "f8f9f7a938870e415e0feac69761e1c18d7d10ad",
@@ -317,7 +317,7 @@
   "batch4PackagingPlan": {
     "source": "ac3b3cc",
     "plan": "work/dinospace-batch4-quality/docs/batch4-finite-narration-packaging-plan-20261003.md",
-    "state": "FinitePID18781confirmedlive23:36UTC,shared30calls/10minjournal,max520runs; no concurrentrawElevenLabsjob."
+    "state": "Finite worker PID18781 confirmed live at23:36UTC; shared journal limit30 calls per10 minutes, maximum520 runs. No concurrent raw ElevenLabs job."
   },
   "latestWorkCheckpoint": "docs/game-quality-checkpoint-20261003-current.md",
   "pendingReleaseCandidates": [
@@ -339,7 +339,7 @@
     "deploymentId": "dpl_2STuJZUmaGLU6Vpvj5sb6uSj4B7t",
     "url": "https://dinospace-eight.vercel.app",
     "renderedAssetsMatched": 7,
-    "productionPlaywright": "Independent fresh canonical1280x800/390x844 normalunlock/clueonce/wrongretry/correctheldexplanation/Nextreset/Keepplaying/confirmedMathsBackpassed. MobileNext56pxreachablebyscroll,nohorizontaloverflow;consoleclean. Exact2+10unobservednaturally. Soundoff; no newplayback/listeningclaim.",
+    "productionPlaywright": "Independent fresh canonical checks passed at1280\u00d7800 and390\u00d7844: ordinary unlock, clue once, wrong retry, held correct explanation, Next reset, Keep playing and confirmed Back to Maths. The56px mobile Next control is reachable by scrolling with no horizontal overflow; console clean. Exact2+10 did not appear naturally. Sound was off; no new playback or listening claim.",
     "editorialAccepted": false,
     "identityEvidence": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json",
     "candidateProductionEvidence": "docs/qa-evidence/monster-clue-once-vercel-candidate-20261003/report.md",
@@ -354,13 +354,13 @@
     "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7",
     "memoryRepairSource": "44b9807eeec169cc5d48809c8c5a5eff29297c5f",
     "memoryRepairIdentity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-visual-identity-20261004.json",
-    "memoryRepairScope": "Builder44candidate5288passed9focusedtests/lint/configbuild; ten48pxpillswrap,activeMemoryphasehidesinterceptingmissionCTA, exactauthoredtips/cardnamesusepackaged-onlyspeech. Independentmobileactualdelta running; art7/87/narration2/183ready. Fournewspaceillustrationssavedrootandbuilderintegratingnextartdelta; no newpremiumacceptance."
+    "memoryRepairScope": "Builder44 candidate5288 passed nine focused tests, lint and configured build. Ten48px level pills wrap into visible rows; the active Memory phase hides the intercepting mission CTA. Exact authored tips and card names use packaged-only speech. Independent actual mobile delta is running. Artwork:7/87 illustrated tokens. Narration:2/183 packaged lines. Four new space illustrations are saved and awaiting builder integration into the next art delta; no new premium acceptance."
   },
   "monsterClueRepair": {
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
     "identity": "docs/qa-evidence/monster-clue-once-candidate-identity-20261003.json",
     "productionFailure": "docs/qa-evidence/monster-exact-case-production-20261003/report.md",
-    "state": "Canonicalfunctionalrepairreleased: READYexpecteddeployment,7matchingservedassets, independentfreshdesktop/390pxactualcontrols passed. Exact2+10notnaturallyobservedbyindependentreviewer. FullBatch2editorialandhumanlisteningremainopen;not4.5accepted.",
+    "state": "Canonical functional repair released: expected READY deployment and seven matching served assets. Independent fresh desktop/390px actual controls passed. Exact2+10 did not appear naturally in independent sampling. Full Batch2 editorial acceptance and human listening remain open; not4.5 accepted.",
     "productionCandidateIdentity": "docs/qa-evidence/monster-clue-production-candidate-identity-20261003.json",
     "localDesktopEvidence": "docs/qa-evidence/monster-clue-once-independent-20261003/desktop-report.md",
     "localMobileEvidence": "docs/qa-evidence/monster-clue-once-independent-20261003/report.md",
