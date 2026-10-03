@@ -3,7 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { ArrowLeft, Volume2, Sparkles } from 'lucide-react';
 import { BATCH6_BANDS, BATCH6_QUESTION_COUNTS, distinctBatch6FactLines, makeSeed, makeFreshQueue, readBatch6Progress, saveBatch6Run, seededRandom, seededShuffle } from '../../data/batch6Games.js';
 
-export const useBatch6Journey = ({ gameId, playerId, onGameEvent, onCelebrate, speak, cancelNarration, onBack, onPhaseChange }) => {
+export const useBatch6Journey = ({ gameId, playerId, onGameEvent, onCelebrate, speak, playSfx, cancelNarration, onBack, onPhaseChange }) => {
   const [progress, setProgress] = useState(() => readBatch6Progress(gameId, playerId));
   const [chapter, setChapter] = useState(null);
   const [run, setRun] = useState(null);
@@ -30,6 +30,7 @@ export const useBatch6Journey = ({ gameId, playerId, onGameEvent, onCelebrate, s
   }, [cancelNarration, gameId, onGameEvent, playerId]);
   const markAttempt = useCallback((mission, correct) => {
     if (!run || run.feedback) return;
+    playSfx?.(correct ? 'success' : 'oops');
     const firstAttempt = !run.mistakes.has(mission.id);
     const independent = correct && firstAttempt && run.hints === 0;
     const event = correct ? 'answer_correct' : 'answer_wrong';
@@ -40,7 +41,7 @@ export const useBatch6Journey = ({ gameId, playerId, onGameEvent, onCelebrate, s
     if (correct) {
       if (independent) setIndependentCount((value) => value + 1);
     }
-  }, [chapter, gameId, onGameEvent, run]);
+  }, [chapter, gameId, onGameEvent, playSfx, run]);
   const reveal = useCallback((mission, correct, explanation, fact, response) => {
     if (!run) return;
     setRun((current) => ({ ...current, feedback: { correct, explanation, fact, mission, response } }));

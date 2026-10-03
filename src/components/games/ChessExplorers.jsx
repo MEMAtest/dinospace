@@ -10,8 +10,8 @@ const chapterCopy={starter:'Piece moves: rook, bishop, knight, queen and king.',
 const chapterNames={starter:'Piece moves',growing:'Safe captures',challenge:'Mini-puzzles'};
 const ChessExplorers=(props)=>!props.littleMode?<ChessExplorersAmari {...props}/>:<ChessExplorersAskia {...props}/>;
 const ChessExplorersAmari=(props)=>{
-  const {playerId,onGameEvent,onCelebrate,speak,onBack,cancelNarration,soundOn,onToggleSound,onPhaseChange}=props;
-  const journey=useBatch6Journey({gameId:'chess',playerId,onGameEvent,onCelebrate,speak,onBack,cancelNarration,onPhaseChange});
+  const {playerId,onGameEvent,onCelebrate,speak,playSfx,onBack,cancelNarration,soundOn,onToggleSound,onPhaseChange}=props;
+  const journey=useBatch6Journey({gameId:'chess',playerId,onGameEvent,onCelebrate,speak,playSfx,onBack,cancelNarration,onPhaseChange});
   const [wrong,setWrong]=useState(false);
   const [hinted,setHinted]=useState(false);
   const [pieceSelected,setPieceSelected]=useState(false);

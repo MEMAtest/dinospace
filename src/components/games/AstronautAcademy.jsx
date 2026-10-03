@@ -17,8 +17,8 @@ const getMissionPool=(chapter,playerId)=>{
 };
 const AstronautAcademy=(props)=>!props.littleMode?<AstronautAcademyAmari {...props}/>:<AstronautAcademyAskia {...props}/>;
 const AstronautAcademyAmari=(props)=>{
-  const {playerId,onGameEvent,onCelebrate,speak,onBack,cancelNarration,soundOn,onToggleSound,onPhaseChange}=props;
-  const journey=useBatch6Journey({gameId:'astronaut',playerId,onGameEvent,onCelebrate,speak,onBack,cancelNarration,onPhaseChange});
+  const {playerId,onGameEvent,onCelebrate,speak,playSfx,onBack,cancelNarration,soundOn,onToggleSound,onPhaseChange}=props;
+  const journey=useBatch6Journey({gameId:'astronaut',playerId,onGameEvent,onCelebrate,speak,playSfx,onBack,cancelNarration,onPhaseChange});
   const [wrong,setWrong]=useState(false);
   const [hinted,setHinted]=useState(false);
   const [passport,setPassport]=useState(false);

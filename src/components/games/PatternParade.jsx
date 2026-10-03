@@ -9,8 +9,8 @@ const bandText = { starter:'Repeat it: spot the two-part or three-part unit.', g
 const chapterNames = { starter:'Repeat it', growing:'Change the rule', challenge:'Growing festival' };
 const PatternParade=(props)=>!props.littleMode?<PatternParadeAmari {...props}/>:<PatternParadeAskia {...props}/>;
 const PatternParadeAmari=(props)=>{
-  const { playerId, onGameEvent, onCelebrate, speak, onBack, cancelNarration, soundOn, onToggleSound, onPhaseChange } = props;
-  const journey = useBatch6Journey({ gameId:'pattern', playerId, onGameEvent, onCelebrate, speak, onBack, cancelNarration, onPhaseChange });
+  const { playerId, onGameEvent, onCelebrate, speak, playSfx, onBack, cancelNarration, soundOn, onToggleSound, onPhaseChange } = props;
+  const journey = useBatch6Journey({ gameId:'pattern', playerId, onGameEvent, onCelebrate, speak, playSfx, onBack, cancelNarration, onPhaseChange });
   const [mistake, setMistake] = useState(false);
   const [hintUsed, setHintUsed] = useState(false);
   const band = BATCH6_BANDS.find((item) => item.id === journey.chapter);

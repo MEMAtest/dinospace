@@ -11,8 +11,8 @@ const chapterNames = { starter:'Word-family rescue', growing:'Picture-clue rescu
 const ALPHABET='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const DinoHangman = (props) => !props.littleMode ? <DinoHangmanAmari {...props} /> : <HangmanAskia {...props} />;
 const DinoHangmanAmari = (props) => {
-  const { playerId, onGameEvent, onCelebrate, speak, onBack, cancelNarration, soundOn, onToggleSound, onPhaseChange } = props;
-  const journey = useBatch6Journey({ gameId:'hangman', playerId, onGameEvent, onCelebrate, speak, onBack, cancelNarration, onPhaseChange });
+  const { playerId, onGameEvent, onCelebrate, speak, playSfx, onBack, cancelNarration, soundOn, onToggleSound, onPhaseChange } = props;
+  const journey = useBatch6Journey({ gameId:'hangman', playerId, onGameEvent, onCelebrate, speak, playSfx, onBack, cancelNarration, onPhaseChange });
   const taught = useMemo(() => getLearningProfile().selectedSounds, []);
   const eligible = useMemo(() => Object.fromEntries(BATCH6_BANDS.map((band) => [band.id, HANGMAN_WORDS_BY_BAND[band.id].filter((item) => validateTaughtWord(item, taught))])), [taught]);
   const [guessed, setGuessed] = useState([]);
