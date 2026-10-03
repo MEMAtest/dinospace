@@ -1,0 +1,31 @@
+{
+  "sourceSha": "67c8e9d75b7a616b8cd5b478090a78b36274b47f",
+  "testRevision": "3be2d90e37ecfc7a6a49f0298c30051b6435934c",
+  "checkedAt": "2026-10-03T13:04:42.271129+00:00",
+  "candidateDirectory": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/tmp/batch2-assisted-diagnostic-final-20261003",
+  "configuration": {
+    "VITE_ELEVENLABS_ENABLED": "true"
+  },
+  "buildAssets": [
+    {
+      "path": "/assets/index-BpPZJHe9.js",
+      "sha256": "2b69cbcd0e831dbdc031bafae06de651f86642dab57fcacad1e34383e9074d17"
+    },
+    {
+      "path": "/assets/index-CUmO8J4O.css",
+      "sha256": "d8fe5109969658486618b98444a2d23d3fb411f1604a6081d45d3e5ed90f5d2f"
+    }
+  ],
+  "corpusByteCheck": {
+    "count": 1371,
+    "allMatch": true,
+    "mismatches": []
+  },
+  "sourceGates": {
+    "tests": 173,
+    "passed": 173,
+    "lint": "passed",
+    "productionConfigBuild": "passed"
+  },
+  "scope": "Frozen local build; not production or accepted. Full-suite test revision only updates test/docs, not runtime."
+}

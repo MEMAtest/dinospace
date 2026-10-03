@@ -220,9 +220,9 @@
     }
   ],
   "candidate": {
-    "source": "37bd0a3f57aa7b9315cea1459ed6fcc28d100202",
+    "source": "67c8e9d75b7a616b8cd5b478090a78b36274b47f",
     "scope": "Batch 2 local changes only; no new production acceptance",
-    "independentChecks": "037 art/5x5 geometry and Monster guided/wording checks passed locally; separate Puzzle/Spot/Sky editorial enhancements in development",
+    "independentChecks": "Monster desktop/mobile native preview audio and navigation delta passed on37bd; Puzzle/Sky new editorial UI checks underway on e223; final Spot spacing and hint-count export checks pending on67c. No new acceptance.",
     "humanListening": "pending",
     "productionPlaywright": "pending for unreleased changes",
     "preview": {
@@ -231,6 +231,14 @@
       "source": "37bd0a3f57aa7b9315cea1459ed6fcc28d100202",
       "renderedAssetMatch": true,
       "scope": "Preview only, not production acceptance"
+    },
+    "testRevision": "3be2d90e37ecfc7a6a49f0298c30051b6435934c",
+    "sourceGates": {
+      "tests": 173,
+      "passed": 173,
+      "lint": "passed",
+      "frozenBuild": "passed",
+      "corpusBytesMatched": 1371
     }
   }
 }

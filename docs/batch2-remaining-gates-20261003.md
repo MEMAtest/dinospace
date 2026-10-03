@@ -1,6 +1,6 @@
 # Batch 2 remaining-gates audit — 3 October 2026
 
-## Current checkpoint — four-game editorial candidate
+## Earlier checkpoint — superseded by latest checkpoint below
 
 This checkpoint supersedes the older pending counts and in-progress statements below; chronological evidence keeps its original source identity.
 
@@ -129,3 +129,13 @@ First provider preview `dc4fa0e` was READY but compiled with voice disabled; its
 Luna is implementing the remaining concrete local editorial changes: Puzzle preview-to-board landmark demonstration using real Hint accounting/full readable active title; seven definite scene-specific SVG detail differences for Spot Challenge while keeping 56px targets and correct hint/history; Sky one dominant active action and a distinguishable finish flag. Spot also reuses accurate premium scene art to replace old cutouts and map/leaf topic mismatches. Root prepared a [dedicated animal communication image](qa-evidence/spot-safari-art-provenance-20261003.json) for its unchanged Sound Safari fact. Its binding and separate actual-render review remain pending.
 
 The 26-game contract and counts are unchanged: 4 accepted, 4 in progress, 18 not started. Human listening, final editorial synthesis and canonical production Playwright remain open.
+
+## Latest checkpoint — 3 October, 13:05 UTC
+
+Accepted counts remain **4/26**, with four Batch 2 titles in progress and 18 not started. Final production and human listening have not been accepted.
+
+- Source `e223bcc` adds Puzzle preview-to-board teaching, accurate Spot scene artwork and defensible Challenge props, and clearer Sky mission/start/finish guidance. Independent Puzzle/Sky actual-control deltas are in progress at desktop and 390px.
+- Root review found overlapping 56px Challenge hit areas on e223. The [static failure](qa-evidence/spot-challenge-e223-target-overlap-static-20261003.json) retains its source and geometry assumptions. Source `9489ac5` repairs spacing; the frozen package passes 172 tests, lint/build and all 1,371 audited clip-byte comparisons. Actual final Spot rectangle/interaction checks remain pending.
+- Independent Puzzle UI review found the mapping-demo hint event exported, but completion's supplied hint count stripped. `67c8e9d` retains only bounded numeric hint counts. `firstAttempt` retains the established meaning of no earlier incorrect response; assistance is recorded separately. Full-suite test revision `3be2d90` passes **173/173**, lint and unchanged runtime build. An initial older test expectation failed and is preserved in the local log; its privacy assertion now explicitly allows the bounded numeric field while still stripping mission copy. [Frozen identity](qa-evidence/batch2-assisted-diagnostic-candidate-identity-20261003.json). Actual UI export verification remains pending.
+- Independent [Monster preview runtime](qa-evidence/monster-preview-37bd0a3-20261003/report.md) passes bounded desktop/mobile wrong → clue → correct/held Next, native replay/mute/Next/confirmed Back and exact Maths parent-world navigation. Preview37bd matches its packaged bundle hashes; it predates the three-game changes and is not canonical-production or listening proof.
+- [Independent acceptance reconciliation](qa-evidence/batch2-acceptance-reconciliation-20261003.md) separates current product defects from open proof, listening and final production gates. No provisional score was promoted to 4.5.
