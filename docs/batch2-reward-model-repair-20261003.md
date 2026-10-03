@@ -30,6 +30,13 @@ Released to canonical production: deployment `dpl_kiGvxVvJatYKntaseMvP9tMp3e6T`,
 
 ## Further defect found during production acceptance
 
-On released `9cc4331`, a completed100% flight followed by Back to world before pressing Next mission left the completion ledger empty and Home at zero. Pressing Next did persist3stars, so the defect is completion save timing, not reward arithmetic. The result card already said the stars were saved. This path is now a required regression.
+On released `9cc4331`, a completed 100% flight followed by Back to world before pressing Next mission left the completion ledger empty and Home at zero. Pressing Next did persist 3 stars, so the defect is completion save timing, not reward arithmetic. The result card already said the stars were saved. This path is now a required regression.
 
-Candidate `773b3c306673baeace3fd5b8aae984729f67ad26` moves flight, best-rating, chapter reward and unlock persistence to the final accepted trace point. The navigation button no longer awards or saves progress. Chapter bonus text identifies the separate2stars. A synchronous route-finished guard rejects duplicate final pointer events.149tests, lint and build passed; JS `index-BgC8Szhg.js`. Independent finish→leave→Home→reload and fourth-flight badge/bonus checks are underway. This follow-up is not deployed yet.
+Candidate `773b3c306673baeace3fd5b8aae984729f67ad26` moves flight, best-rating, chapter reward and unlock persistence to the final accepted trace point. The navigation button no longer awards or saves progress. Chapter bonus text identifies the separate two stars. A synchronous route-finished guard rejects duplicate final pointer events. 149 tests, lint and build passed; JS `index-BgC8Szhg.js`. Independent finish→leave→Home→reload and fourth-flight badge/bonus checks are underway. This follow-up is not deployed yet.
+
+
+## Follow-up candidate acceptance
+
+Independent actual-controls QA of `773b3c3` passed completed-flight→leave→Home and reload at 390px and desktop. Cloud Meadow finished four unique perfect flights, saved badge, unlocked Sky 2 and showed 14 global stars before pressing Complete this sky; leave/reload retained the state. A completed perfect replay added zero. Numeric run seeds included 60885509 (mobile) and 3773054440 (desktop); final independent report/screenshots will retain this candidate identity.
+
+The original production baseline also reproduced a Puzzle feedback race: wrong placement→correct placement within 850ms showed Great fit, but 1.1 seconds later a stale timer replaced it with wrong-placement guidance. Candidate `1f07314` removes only that delayed text write; the short wrong-slot visual animation still clears. Final candidate `6b84554` adds precise Sky copy distinguishing accuracy rating from new star credit. 149 tests, lint and build pass; default voice-off JS `index-Dz1r44Ih.js`. Independent Puzzle timed recovery and Sky copy deltas are in progress before release.
