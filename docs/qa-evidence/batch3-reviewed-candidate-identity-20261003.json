@@ -1,0 +1,35 @@
+{
+  "sourceSha": "7c79f47154d97f877858bd3d5124c37cf23bb5e6",
+  "url": "http://127.0.0.1:5213",
+  "voiceBuildFlag": true,
+  "testsPassed": 198,
+  "lint": "passed",
+  "build": "passed",
+  "assets": [
+    {
+      "path": "/assets/AmariCountTheStars-BLrZ15r8.js",
+      "sha256": "393210be1621c78e959144536fe8c817a786a3931b863974272843b651d4ba7b"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-Bci4erEa.js",
+      "sha256": "f567c3265909ab6e8df05bf74fd09702a9a74a7ed5246b27250d6d960bb59aba"
+    },
+    {
+      "path": "/assets/SolarSystem-B4PyhAjt.js",
+      "sha256": "f08154fa74915c2b696646935802881ae061e296c8db152c3126c7e85a6e22cd"
+    },
+    {
+      "path": "/assets/index-CohPvEcn.css",
+      "sha256": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d"
+    },
+    {
+      "path": "/assets/index-gociiuen.js",
+      "sha256": "1472b5d445fe76b586ca551563fdd152d40054c734bff954da58cba54d212b55"
+    },
+    {
+      "path": "/assets/web-B-rQt0vX.js",
+      "sha256": "7886e78b8f36c31f24f05e6b3430a765dbaaf6f746507d5ccbbc9a42a19f0e4b"
+    }
+  ],
+  "scope": "Frozen local candidate only; narration packaging and independent desktop/mobile/browser and production acceptance remain pending."
+}

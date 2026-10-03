@@ -249,5 +249,15 @@
     }
   },
   "implementationBatch": 3,
-  "implementationBranch": "codex/amari-batch3-quality-20261003"
+  "implementationBranch": "codex/amari-batch3-quality-20261003",
+  "implementationCandidate": {
+    "source": "7c79f47154d97f877858bd3d5124c37cf23bb5e6",
+    "branch": "codex/amari-batch3-quality-20261003",
+    "testsPassed": 198,
+    "lint": "passed",
+    "build": "passed",
+    "localPlaywright": "Independent desktop/mobile Count/Dino and Trace/Cosmic checks in progress",
+    "narration": "Packaging and runtime wiring pending",
+    "release": "Not deployed or accepted"
+  }
 }

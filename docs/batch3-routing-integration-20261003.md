@@ -29,3 +29,9 @@ After the builders stopped, root ran the full repository suite: 197/197 passed, 
 ## Independent source review follow-up
 
 The [independent Trace/Cosmic review](qa-evidence/batch3-trace-cosmic-source-review-20261003.md) identified three gaps. Builder `ec6cd81` repairs interrupted-stroke reset while preserving completed strokes, and asks Keep playing/Leave board before internal Cosmic navigation. Root adds a same-letter capital/lowercase comparison card to every Growing trace round; the requested form is indicated and the child compares the pair before tracing. These corrections still need independent actual-control checks; the first frozen `afc5f90` identity predates them and is historical only.
+
+## Reviewed candidate frozen for independent UI QA
+
+Source `7c79f47154d97f877858bd3d5124c37cf23bb5e6` passes 198/198 repository tests, ESLint and the production-config build. All six served JS/CSS artifacts match their frozen file hashes at the [reviewed candidate identity](qa-evidence/batch3-reviewed-candidate-identity-20261003.json). Independent Luna reviewers are exercising Count/Dino and Trace/Cosmic separately at desktop and 390px using ordinary child UI progression. Earlier frozen candidate `afc5f90` remains historical evidence. The new candidate is local only, with no 4.5 acceptance or deployment.
+
+The narration inventory is a reusable-segment packaging plan. Count currently joins praise and explanation for browser speech; using those reusable packaged segments requires explicit sequential playback wiring. Coverage does not establish that current runtime playback is complete. No new generation or provider calls were made.
