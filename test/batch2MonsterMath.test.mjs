@@ -212,3 +212,15 @@ test('Monster rewards only new best stars, preserves earlier bests and isolates 
     }
   }
 });
+
+test('ten-frame clue lives once in feedback after hint, including the production 2 plus 10 case', () => {
+  for (const question of MONSTER_QUESTION_POOLS[1]) {
+    if (question.model.type !== 'ten-frame') continue;
+    assert.equal(tenFrameModelTeaching(question.model, false, true), null, question.id);
+    assert.equal(tenFrameModelTeaching(question.model, true, true), null, question.id);
+    assert.ok(tenFrameModelTeaching(question.model, false, false), question.id);
+  }
+  const question = MONSTER_QUESTION_POOLS[1].find((item) => item.id === 'add:2:10');
+  assert.equal(tenFrameModelTeaching(question.model, false), question.clue);
+  assert.equal(tenFrameModelTeaching(question.model, false, true), null);
+});

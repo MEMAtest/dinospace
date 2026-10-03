@@ -47,8 +47,8 @@ export const tenFrameAccessibleLabel = (model, answered = false) => {
 export const tenFrameExplanation = (model) => model.operation === 'add'
   ? `${monsterCounterPhrase(model.first)} and ${model.second} more make ${monsterCounterPhrase(model.answer)}.`
   : `${monsterCounterPhrase(model.second)} moved away; ${monsterCounterPhrase(model.answer)} ${model.answer === 1 ? 'stays' : 'stay'}.`;
-export const tenFrameModelTeaching = (model, answered) => {
-  if (answered) return null;
+export const tenFrameModelTeaching = (model, answered, clueShown = false) => {
+  if (answered || clueShown) return null;
   return model.operation === 'add'
     ? 'Put the two groups together, then count every counter.'
     : 'Start with the counters, take away the second group, then count what is left.';

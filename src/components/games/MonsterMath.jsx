@@ -25,7 +25,7 @@ const EpisodeTile = ({ episode, index, progress, selected, disabled, onSelect })
   );
 };
 
-const CounterModel = ({ question, locked, animationCount, showHint, guidedSteps, onStep, onResetSteps }) => {
+const CounterModel = ({ question, locked, animationCount, showHint, clueShown, guidedSteps, onStep, onResetSteps }) => {
   const model = question.model;
   if (model.type === 'count') {
     const accessibleLabels = monsterCountVisualLabels(model);
@@ -52,7 +52,7 @@ const CounterModel = ({ question, locked, animationCount, showHint, guidedSteps,
           })}
         </div>
         <p className="mt-2 text-center text-lg font-black text-slate-800" aria-live="polite">{model.first} {model.operation === 'add' ? '+' : '−'} {model.second} = {locked ? model.answer : '?'}</p>
-        {tenFrameModelTeaching(model, locked) && <p className="text-center text-sm font-bold text-emerald-700">{tenFrameModelTeaching(model, locked)}</p>}
+        {tenFrameModelTeaching(model, locked, clueShown) && <p className="text-center text-sm font-bold text-emerald-700">{tenFrameModelTeaching(model, locked, clueShown)}</p>}
       </div>
     );
   }
@@ -327,6 +327,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
             locked={locked}
             animationCount={animationCount}
             showHint={showHint && question?.model.type === 'number-line'}
+            clueShown={hadHint}
             guidedSteps={guidedSteps}
             onStep={() => setGuidedSteps((steps) => monsterNumberLineStep(question.model, steps).completed + 1)}
             onResetSteps={() => setGuidedSteps(0)}
