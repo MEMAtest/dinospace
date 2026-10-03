@@ -1,4 +1,19 @@
-# Amari quality checkpoint
+# Amari quality checkpoint — current verified state
+
+Updated 3 October 2026, 22:10 UTC. Goal active. **26 acceptance contracts published; 4 recorded accepted, 22 in progress.** No new editorial score is awarded by this checkpoint.
+
+- **Production:** canonical now resolves `dpl_HRtGufD4yhwza3iqDu7BfRze6SFS`, clean archive source `a1eec24552c99529ba30ed38d10492a6ce1c7829`. All seven canonical runtime hashes match the tested repair. [Identity](qa-evidence/batch3-copy-keyboard-canonical-identity-20261003.json). The independent full four-game Batch 3 production baseline remains under a6; independent production deltas for the Count wording and Trace keyboard update are running.
+- **Batch 3 repair:** independent 5271 desktop/mobile checks passed immediate keyboard progress, backtracking, completed stroke/held Next, mobile pointer completion and natural one-object Count grammar. [Report](qa-evidence/batch3-copy-keyboard-repair-independent-20261003/report.md). Human listening and final editorial acceptance remain open.
+- **Batch 4:** finite worker PID18781 verified alive at22:09UTC; status22:02UTC run34, 4716 phrases pending, zero cooldown retries, waiting for the next request window. No second narration worker started.
+- **Batch 5:** full desktop and three-game mobile evidence plus the Colour ingredient/tracker repair are retained. Sound Safari blending needs the37-file pure-phoneme corpus with redistribution rights and listening acceptance. No phoneme pack has been approved or generated.
+- **Batch 6:** independent full desktop/mobile chapter matrices and tracker repair passed in the isolated checkout. Root found newer visible clues were absent from the narration allowlist; exact authored clue helpers/coverage are being repaired before packaging. Actual audio completeness, independent delta, editorial and production gates remain open.
+- **Batch 7:** full ten-board Memory and nine-world Solar local matrices passed; accessibility and NASA fact-copy deltas are retained. Luna is improving Memory art and theme relevance. Those new visuals require a different independent reviewer. Audio, premium visuals, editorial and production acceptance remain open.
+- **Batch 2:** independent reviewer is reconciling per-game product defects against proof/listening gaps and provisional rubric reasons. Earlier partial score estimates do not constitute accepted4.5 scores.
+
+## Historical checkpoints — superseded by the current state above
+
+The entries below preserve their original evidence and deployment identities. Their old pending counts and canonical identities are historical.
+
 
 Updated 2026-10-03T20:40:51.748451+00:00. Goal active: all26 contracts published,4 recorded verified4.5 and22 inprogress. No new score or production release is claimed.
 

@@ -1,0 +1,57 @@
+{
+  "sourceSha": "a1eec24552c99529ba30ed38d10492a6ce1c7829",
+  "url": "https://dinospace-eight.vercel.app",
+  "assets": {
+    "sw.js": {
+      "expected": "f81c500ee06028bdb78c3d220fa7a3d266ebfe40e25476cf5b62a412dce72ba7",
+      "actual": "f81c500ee06028bdb78c3d220fa7a3d266ebfe40e25476cf5b62a412dce72ba7",
+      "matches": true
+    },
+    "assets/index-dnjzrIP3.js": {
+      "expected": "12fd2ce10f228b3dc0cfb3f35cb8a19530169394a762a731d5fc288c3250100e",
+      "actual": "12fd2ce10f228b3dc0cfb3f35cb8a19530169394a762a731d5fc288c3250100e",
+      "matches": true
+    },
+    "assets/AmariCountTheStars-vkr9gNKP.js": {
+      "expected": "b8eba3e4fb007902cda145d0cceceff8f704c2ad4adb4f73e43b6ef4da10ce25",
+      "actual": "b8eba3e4fb007902cda145d0cceceff8f704c2ad4adb4f73e43b6ef4da10ce25",
+      "matches": true
+    },
+    "assets/web-B2XR5Ihf.js": {
+      "expected": "a69f0f1d1ae6bd280a7bdf1c520089d3e789fd86e27ea85a89b61e50f818c635",
+      "actual": "a69f0f1d1ae6bd280a7bdf1c520089d3e789fd86e27ea85a89b61e50f818c635",
+      "matches": true
+    },
+    "assets/AmariLetterTrace-CfnpNJaI.js": {
+      "expected": "687b26a444e9d87023b1c009c0fa70dbc48ca51a522485f8f5b9a35a65a58cb6",
+      "actual": "687b26a444e9d87023b1c009c0fa70dbc48ca51a522485f8f5b9a35a65a58cb6",
+      "matches": true
+    },
+    "assets/SolarSystem-C8X3ByBE.js": {
+      "expected": "d544c4e8e8abb8a83fce6ec3bc963ac5542c8c1934614542961556206ebb59dd",
+      "actual": "d544c4e8e8abb8a83fce6ec3bc963ac5542c8c1934614542961556206ebb59dd",
+      "matches": true
+    },
+    "assets/index-CohPvEcn.css": {
+      "expected": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "actual": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "matches": true
+    }
+  },
+  "checks": {
+    "changedFileLint": "passed",
+    "productionBuild": "passed"
+  },
+  "scope": "Canonical promoted repair. Provider deployment resolves source-bound candidate; seven canonical assets independently match frozen local repair. Independent production control QA pending.",
+  "deploymentId": "dpl_HRtGufD4yhwza3iqDu7BfRze6SFS",
+  "checkedAt": "2026-10-03T22:08:58.854067+00:00",
+  "canonicalPromoted": true,
+  "providerGitMetadata": {
+    "gitCommitRef": "codex/quest-game-editor-20260930",
+    "gitCommitSha": "392428e30af81cbac67970042e44726f76e59bc0",
+    "githubCommitSha": "a1eec24552c99529ba30ed38d10492a6ce1c7829",
+    "githubCommitRef": "codex/quest-game-editor-20260930",
+    "auditedArchiveSourceSha": "a1eec24552c99529ba30ed38d10492a6ce1c7829"
+  },
+  "supersedesUnboundCandidate": "dpl_8GXKdeeA69um8hUcQFetyJxNPoms"
+}
