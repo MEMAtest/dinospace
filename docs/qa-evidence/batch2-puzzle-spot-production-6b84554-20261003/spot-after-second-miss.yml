@@ -1,0 +1,45 @@
+- generic [ref=e1202]:
+  - banner [ref=e1203]:
+    - button "Back to learning world" [ref=e1204] [cursor=pointer]
+    - generic [ref=e1208]:
+      - heading "Spot the Difference" [level=1] [ref=e1209]
+      - paragraph [ref=e1234]: Bright-Eyed Beginners · Pair 1 of 4 · 0/3
+    - button "Turn sound off" [ref=e1210] [cursor=pointer]
+  - main [ref=e1215]:
+    - paragraph [ref=e1235]: Not that spot yet. Compare the same area in Picture A.
+    - generic [ref=e1236]:
+      - paragraph [ref=e1237]:
+        - text: Moon Camp
+        - generic [ref=e1238]: · 0 of 3 changes
+      - generic [ref=e1239]:
+        - button "Hear clue" [ref=e1240] [cursor=pointer]
+        - button "Magnifier 2 left" [ref=e1245] [cursor=pointer]
+    - generic [ref=e1248]:
+      - generic [ref=e1249]:
+        - heading "Picture A · Look carefully" [level=2] [ref=e1250]
+        - generic [ref=e1251]:
+          - img "A dinosaur exploring a moon camp, picture A" [ref=e1252]
+          - generic [aria-hidden]:
+            - generic [aria-hidden]: ☁️
+          - generic [aria-hidden]:
+            - generic [aria-hidden]: ⭐
+          - generic [aria-hidden]:
+            - generic [aria-hidden]: 🌙
+      - generic [ref=e1253]:
+        - heading "Picture B · Find changes here" [level=2] [ref=e1254]
+        - generic [ref=e1255]:
+          - img "A dinosaur exploring a moon camp, picture B" [ref=e1256]
+          - generic [aria-hidden]:
+            - generic [aria-hidden]: 🌙
+          - generic [aria-hidden]:
+            - generic [aria-hidden]: ❤️
+          - generic [aria-hidden]:
+            - generic [aria-hidden]: ☀️
+          - button "Search Picture B for a change" [active] [ref=e1257]
+          - button "Check left middle detail" [ref=e1258] [cursor=pointer]
+          - button "Check left bottom detail" [ref=e1259] [cursor=pointer]
+          - button "Check right middle detail" [ref=e1260] [cursor=pointer]
+    - generic "Changes found" [ref=e1261]:
+      - generic "Change 1, not found" [ref=e1262]: "1"
+      - generic "Change 2, not found" [ref=e1263]: "2"
+      - generic "Change 3, not found" [ref=e1264]: "3"
