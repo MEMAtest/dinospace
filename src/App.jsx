@@ -36,7 +36,7 @@ const AMARI_CHAPTER_GAME_IDS = new Set(['pattern', 'hangman', 'chess', 'astronau
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
 // after this long, a "leave the game?" check protects the child's progress.
 const CONFIRM_LEAVE_AFTER_MS = 10000;
-const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap']);
+const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', ...AMARI_CHAPTER_GAME_IDS]);
 
 const byIds = (ids) => ids.map(getGame).filter(Boolean);
 
