@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, BookOpen, Home, Lightbulb, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import {
@@ -73,6 +73,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
   const [hintText, setHintText] = useState('');
   const [feedback, setFeedback] = useState('Choose an unlocked star survey to begin.');
   const [lastResult, setLastResult] = useState(null);
+  const answerPanelRef = useRef(null);
 
   const episode = COUNT_THE_STARS_EPISODES[episodeIndex] || COUNT_THE_STARS_EPISODES[0];
   const round = run?.rounds[roundIndex] || null;
@@ -81,6 +82,13 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
     : round.layoutVariant === 'orbit' && round.count <= 5 ? 'scattered one by one' : 'organized rows or an array';
 
   useEffect(() => { onPhaseChange?.(phase === 'map' || phase === 'collection' ? 'map' : phase === 'complete' ? 'complete' : 'play'); }, [onPhaseChange, phase]);
+  useEffect(() => {
+    if (phase !== 'answer' || !window.matchMedia('(max-width: 640px)').matches) return;
+    const frame = window.requestAnimationFrame(() => answerPanelRef.current?.scrollIntoView({
+      block: 'center', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+    }));
+    return () => window.cancelAnimationFrame(frame);
+  }, [phase]);
   useEffect(() => { if (!soundOn) cancelLocalSpeech(); }, [soundOn]);
   useEffect(() => () => cancelLocalSpeech(), []);
 
@@ -258,7 +266,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
             <div className="flex flex-wrap gap-2"><button type="button" onClick={() => speakLocally(COUNT_THE_STARS_NARRATION.instruction, soundOn)} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black"><Volume2 size={18} /> Hear instructions</button><button type="button" disabled={roundHadHint || phase === 'fact'} onClick={showCountingClue} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-3 font-black text-indigo-950 disabled:opacity-50"><Lightbulb size={18} /> Show a clue</button></div>
           </div>
           {hintText && <p className="mt-2 rounded-xl border border-amber-100/50 bg-amber-200/15 px-3 py-2 text-sm font-bold" role="status" aria-live="polite">{hintText}</p>}
-          {phase === 'answer' && <div className="mt-4 rounded-2xl border border-white/20 bg-black/20 p-3 text-center">
+          {phase === 'answer' && <div ref={answerPanelRef} className="mt-4 rounded-2xl border border-white/20 bg-black/20 p-3 text-center">
             <p className="mb-3 text-lg font-black">How many {round.count === 1 ? round.scene.noun : pluralOf(round.scene.noun)} did you count?</p>
             <div className="flex flex-wrap justify-center gap-3">{round.options.map((option) => <button key={option} type="button" onClick={() => handleAnswer(option)} className="min-h-16 min-w-16 rounded-2xl bg-amber-300 px-4 text-2xl font-black text-slate-950 shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-white">{option}</button>)}</div>
             {feedback && <p className="mt-3 font-bold text-amber-100" role="status" aria-live="polite">{feedback}</p>}

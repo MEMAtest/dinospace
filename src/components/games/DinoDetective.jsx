@@ -67,7 +67,8 @@ const DinoDetective = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onC
   const round = run?.rounds[roundIndex];
   const targetSpot = round && DINO_SEARCH_SPOTS.find(({ id }) => id === round.targetSpotId);
   const trailControl = targetSpot && { x: Math.max(8, Math.min(92, ((50 + targetSpot.x) / 2) + (targetSpot.x < 50 ? -12 : 12))), y: (96 + targetSpot.y) / 2 };
-  const trailPaws = targetSpot && Array.from({ length: world.bandIndex === 1 ? 6 : world.bandIndex === 2 ? 3 : 4 }, (_, index, values) => quadraticPoint({ x: 50, y: 96 }, trailControl, targetSpot, (index + 1) / (values.length + 1)));
+  const trailPawCount = world.bandIndex === 1 ? 6 : world.bandIndex === 2 ? 3 : 4;
+  const trailPaws = targetSpot && Array.from({ length: trailPawCount }, (_, index) => quadraticPoint({ x: 50, y: 96 }, trailControl, targetSpot, (index + 1) / (trailPawCount + 1)));
 
   useEffect(() => { onPhaseChange?.(phaseName(phase)); }, [onPhaseChange, phase]);
 
