@@ -3,7 +3,7 @@ import { Batch6BaseCss, Batch6Chrome, ChapterMap, FactPanel, useBatch6Journey } 
 import { BATCH6_BANDS, CHESS_PUZZLES, chessLegalMoves, getChessMoveTransition, isSafeChessCapture, validateChessPuzzle } from '../../data/batch6Games.js';
 import ChessExplorersAskia from './ChessExplorersAskia.jsx';
 import KidPopIcon from '../shared/KidPopIcon.jsx';
-import { speakBatch6 } from '../../data/batch6Narration.js';
+import { speakBatch6, chessClueNarration } from '../../data/batch6Narration.js';
 
 const pieceFaces={rook:'♖',bishop:'♗',knight:'♘',queen:'♕',king:'♔',pawn:'♙'};
 const chapterCopy={starter:'Piece moves: rook, bishop, knight, queen and king.',growing:'Safe captures: capture a marked pawn only when its square is safe.',challenge:'Mini-puzzles: use a clear path and one stated goal.'};
@@ -51,7 +51,7 @@ const ChessExplorersAmari=(props)=>{
       speakBatch6(speak,`${pieceName} move solved. ${mission.objective}`);
     }else setWrong(true);
   };
-  const clueText = mission ? `Start with the ${mission.piece} on ${String.fromCharCode(97 + mission.from[1])}${5 - mission.from[0]}. Trace its path to the star on ${String.fromCharCode(97 + mission.target[1])}${5 - mission.target[0]}, checking every square for a blocker.` : '';
+  const clueText = mission ? chessClueNarration(mission) : '';
   const useHint=()=>{if(hinted||hasFact)return;setHinted(true);journey.hint('lesson');speakBatch6(speak,clueText);};
   return <><Batch6BaseCss/><Batch6Chrome title="Chess Explorers" subtitle={band?chapterNames[band.id]:'Mini-board missions'} onBack={journey.back} soundOn={soundOn} onToggleSound={onToggleSound} leaveOpen={journey.leaveOpen} onLeave={journey.leave} onKeep={journey.keep} illustration={<KidPopIcon kind="chess" label="Chess piece" />} progress={mission&&!hasFact?.complete?{current:journey.run.index+1,total:journey.run.queue.length}:null} onReplay={mission&&!hasFact?()=>{cancelNarration?.();speakBatch6(speak,mission.objective);}:undefined} saveFailed={journey.run?.feedback?.saveFailed}>
     {!journey.run&&<ChapterMap title="Choose a chess chapter" chapters={BATCH6_BANDS.map((item)=>({...item,name:chapterNames[item.id],subtitle:chapterCopy[item.id]}))} completed={journey.progress.completed} bestStars={journey.progress.bestStars} onStart={(id)=>journey.start(id,CHESS_PUZZLES[id].filter((puzzle)=>validateChessPuzzle(puzzle,5)),5)} onBack={onBack}/>}

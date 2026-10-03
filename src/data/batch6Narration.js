@@ -1,11 +1,15 @@
 import { ASTRONAUT_MISSIONS, CHESS_PUZZLES, HANGMAN_WORDS_BY_BAND, PATTERN_MISSIONS } from './batch6Games.js';
 
+export const patternClueNarration = (mission) => mission.rule === 'growing' ? mission.fact : `Look at the first ${mission.rule === 'AB' ? 'two' : 'three'} places. They make the ${mission.rule} repeating unit. Start that same unit again.`;
+export const chessClueNarration = (mission) => `Start with the ${mission.piece} on ${String.fromCharCode(97 + mission.from[1])}${5 - mission.from[0]}. Trace its path to the star on ${String.fromCharCode(97 + mission.target[1])}${5 - mission.target[0]}, checking every square for a blocker.`;
+export const astronautClueNarration = (mission) => `Mission clue. ${mission.fact}`;
+
 const phrases = [
   'Good try. Look at the whole repeating part, then try again.',
   'Look at the first two places. What part repeats?',
   'Look at the first three places. What part repeats?',
   'Good try. Use the picture clues, then try another answer.',
-  'That is a legal move, but the puzzle asks for the marked goal. Try again.',
+  'That square is a legal move, but the puzzle asks for the marked goal. Try again.',
   'That move does not follow this piece’s rule. Look for a green destination.',
   'A safe capture lands on a square the other pieces do not attack. Try again.',
   'Look at the space science clue. Which choice matches it?',
@@ -14,20 +18,21 @@ const phrases = [
 ];
 
 for (const missions of Object.values(PATTERN_MISSIONS)) for (const mission of missions) {
+  phrases.push(patternClueNarration(mission));
   phrases.push(`Pattern mission. ${mission.label}. What comes next?`);
   phrases.push(`Yes. ${mission.label}. ${mission.fact}`);
 }
 for (const words of Object.values(HANGMAN_WORDS_BY_BAND)) for (const word of words) {
   phrases.push(`Dinosaur word rescue. ${word.clue}`);
 }
-for (const letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') phrases.push(`Listen for ${letter.toLowerCase()}.`);
+for (const letter of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') phrases.push(`Find the letter ${letter.toLowerCase()}.`);
 for (const puzzles of Object.values(CHESS_PUZZLES)) for (const puzzle of puzzles) {
-  phrases.push(puzzle.objective);
+  phrases.push(puzzle.objective, chessClueNarration(puzzle));
   phrases.push(`${puzzle.piece[0].toUpperCase()}${puzzle.piece.slice(1)} move solved. ${puzzle.objective}`);
   phrases.push(`The ${puzzle.piece} starts on the blue square. Find its legal path to the gold star.`);
 }
 for (const missions of Object.values(ASTRONAUT_MISSIONS)) for (const mission of missions) {
-  phrases.push(mission.q, mission.fact, `You remembered this from before. ${mission.fact}`);
+  phrases.push(mission.q, mission.fact, astronautClueNarration(mission), `You remembered this from before. ${mission.fact}`);
 }
 
 export const BATCH6_SPOKEN_PHRASES = Object.freeze([...new Set(phrases)]);

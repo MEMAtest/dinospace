@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Batch6BaseCss, Batch6Chrome, ChapterMap, FactPanel, useBatch6Journey } from './Batch6Journey.jsx';
 import { BATCH6_BANDS, PATTERN_MISSIONS, patternContentSignature, patternDisplayTerm, patternMovementCue } from '../../data/batch6Games.js';
-import { speakBatch6 } from '../../data/batch6Narration.js';
+import { speakBatch6, patternClueNarration } from '../../data/batch6Narration.js';
 import PatternParadeAskia from './PatternParadeAskia.jsx';
 import patternParadeArt from '../../assets/game-scenes/pattern-parade.webp';
 
@@ -30,7 +30,7 @@ const PatternParadeAmari=(props)=>{
       speakBatch6(speak, `Yes. ${mission.label}. ${mission.fact}`);
     } else { setMistake(true); speakBatch6(speak, 'Good try. Look at the whole repeating part, then try again.'); }
   };
-  const clueText = !mission ? '' : mission.rule === 'growing' ? mission.fact : `Look at the first ${mission.rule === 'AB' ? 'two' : 'three'} places. They make the ${mission.rule} repeating unit. Start that same unit again.`;
+  const clueText = mission ? patternClueNarration(mission) : '';
   const hint = () => { if(hintUsed||journey.run?.feedback)return;setHintUsed(true);journey.hint('lesson');speakBatch6(speak, clueText); };
   return <><Batch6BaseCss /><Batch6Chrome title="Pattern Parade" subtitle={band ? chapterNames[band.id] : 'Festival of patterns'} onBack={journey.back} soundOn={soundOn} onToggleSound={onToggleSound} leaveOpen={journey.leaveOpen} onLeave={journey.leave} onKeep={journey.keep} illustration={<img src={patternParadeArt} alt="" className="batch6-hero-art" />} progress={mission && !journey.run.feedback?.complete ? { current: journey.run.index + 1, total: journey.run.queue.length } : null} onReplay={mission&&!journey.run.feedback?()=>{cancelNarration?.();speakBatch6(speak,`Pattern mission. ${mission.label}. What comes next?`);}:undefined} saveFailed={journey.run?.feedback?.saveFailed}>
     {!journey.run && <ChapterMap title="Choose a pattern chapter" chapters={BATCH6_BANDS.map((item) => ({ ...item, name:chapterNames[item.id], subtitle:bandText[item.id] }))} completed={journey.progress.completed} bestStars={journey.progress.bestStars} onStart={(id) => journey.start(id, PATTERN_MISSIONS[id], 6, patternContentSignature)} onBack={onBack} />}

@@ -3,7 +3,7 @@ import { Batch6BaseCss, Batch6Chrome, ChapterMap, FactPanel, useBatch6Journey } 
 import { ASTRONAUT_MISSIONS, BATCH6_BANDS, readBatch6Progress, validateAstronautMission } from '../../data/batch6Games.js';
 import AstronautAcademyAskia from './AstronautAcademyAskia.jsx';
 import astronautRobotArt from '../../assets/landing/amari-astronaut-robot.png';
-import { speakBatch6 } from '../../data/batch6Narration.js';
+import { speakBatch6, astronautClueNarration } from '../../data/batch6Narration.js';
 
 const copy={starter:'Space science: observe the Sun, Moon and Mars; learn simple tools.',growing:'Mission engineering: protect and power a spacecraft.',challenge:'Review missions: use evidence to plan a space mission.'};
 const chapterNames={starter:'Space science',growing:'Mission engineering',challenge:'Review missions'};
@@ -45,7 +45,7 @@ const AstronautAcademyAmari=(props)=>{
       speakBatch6(speak,'Good try. Use the picture clues, then try another answer.');
     }
   };
-  const hint=()=>{if(hinted||feedback)return;setHinted(true);journey.hint('clue');speakBatch6(speak,`Mission clue. ${mission.fact}`);};
+  const hint=()=>{if(hinted||feedback)return;setHinted(true);journey.hint('clue');speakBatch6(speak,astronautClueNarration(mission));};
   const start=(id)=>journey.start(id,getMissionPool(id,playerId),6);
   return <><Batch6BaseCss/><Batch6Chrome title="Astronaut Academy" subtitle={band?chapterNames[band.id]:'Mission control'} onBack={journey.back} soundOn={soundOn} onToggleSound={onToggleSound} leaveOpen={journey.leaveOpen} onLeave={journey.leave} onKeep={journey.keep} illustration={<img src={astronautRobotArt} alt="" className="batch6-hero-art" />} progress={mission&&!feedback?.complete?{current:journey.run.index+1,total:journey.run.queue.length}:null} onReplay={mission&&!feedback?()=>{cancelNarration?.();speakBatch6(speak,mission.q);}:undefined} saveFailed={journey.run?.feedback?.saveFailed}>
     {!journey.run&&!passport&&<><ChapterMap title="Mission map" chapters={BATCH6_BANDS.map((item)=>({...item,name:chapterNames[item.id],subtitle:copy[item.id]}))} completed={journey.progress.completed} bestStars={journey.progress.bestStars} onStart={start} onBack={onBack}/><div className="batch6-actions"><button className="batch6-secondary" onClick={()=>setPassport(true)}>Open discovery passport ({journey.progress.facts.length} facts)</button></div></>}

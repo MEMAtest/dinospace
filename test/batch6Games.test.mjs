@@ -7,7 +7,7 @@ import {
   chessPieceAttacks, patternContentSignature, patternDisplayTerm, patternMovementCue, validateChessPuzzle, validatePatternMission, validateTaughtWord,
 } from '../src/data/batch6Games.js';
 import { PHASE_SOUNDS } from '../src/data/learningProgress.js';
-import { BATCH6_SPOKEN_PHRASES, speakBatch6 } from '../src/data/batch6Narration.js';
+import { BATCH6_SPOKEN_PHRASES, speakBatch6, patternClueNarration, chessClueNarration, astronautClueNarration } from '../src/data/batch6Narration.js';
 
 class MemoryStorage {
   values = new Map();
@@ -172,4 +172,26 @@ test('Batch 6 storage isolates players and credits only completed best-star delt
     if (previous === undefined) delete globalThis.localStorage;
     else globalThis.localStorage = previous;
   }
+});
+
+// Every authored clue must be playable, including remixed patterns and review missions.
+test('Batch 6 current clues and legal-move feedback are covered by packaged narration', () => {
+  const clues = [
+    ...Object.values(PATTERN_MISSIONS).flat().map(patternClueNarration),
+    ...Object.values(CHESS_PUZZLES).flat().map(chessClueNarration),
+    ...Object.values(ASTRONAUT_MISSIONS).flat().map(astronautClueNarration),
+    'That square is a legal move, but the puzzle asks for the marked goal. Try again.',
+    ...[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map((letter) => `Find the letter ${letter.toLowerCase()}.`),
+  ];
+  for (const clue of clues) {
+    let called = false;
+    assert.equal(speakBatch6(() => { called = true; }, clue), true, clue);
+    assert.equal(called, true, clue);
+  }
+  for (const rule of ['AAB', 'ABB', 'ABC']) {
+    const clue = patternClueNarration({ rule });
+    assert.match(clue, /first three places/);
+  }
+  assert.match(patternClueNarration({ rule: 'AB' }), /first two places/);
+  assert.equal(speakBatch6(() => assert.fail('untrusted content must remain rejected'), 'Mission clue. untrusted child text'), false);
 });

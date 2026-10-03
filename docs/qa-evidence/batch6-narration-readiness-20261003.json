@@ -1,0 +1,2190 @@
+{
+  "checkedAt": "2026-10-03T22:10:39.812Z",
+  "scope": "Local corpus existence, SHA256, duration and full decoding; not listening or production acceptance",
+  "requested": 435,
+  "ready": 1,
+  "missing": [
+    {
+      "game": "batch6",
+      "key": "0a8b7c2c",
+      "text": "Good try. Look at the whole repeating part, then try again."
+    },
+    {
+      "game": "batch6",
+      "key": "6922d97b",
+      "text": "Look at the first two places. What part repeats?"
+    },
+    {
+      "game": "batch6",
+      "key": "49733ff5",
+      "text": "Look at the first three places. What part repeats?"
+    },
+    {
+      "game": "batch6",
+      "key": "a4bc365f",
+      "text": "Good try. Use the picture clues, then try another answer."
+    },
+    {
+      "game": "batch6",
+      "key": "a1ba6903",
+      "text": "That square is a legal move, but the puzzle asks for the marked goal. Try again."
+    },
+    {
+      "game": "batch6",
+      "key": "479228e9",
+      "text": "That move does not follow this piece’s rule. Look for a green destination."
+    },
+    {
+      "game": "batch6",
+      "key": "1f10c9a4",
+      "text": "A safe capture lands on a square the other pieces do not attack. Try again."
+    },
+    {
+      "game": "batch6",
+      "key": "22478081",
+      "text": "Look at the space science clue. Which choice matches it?"
+    },
+    {
+      "game": "batch6",
+      "key": "77155197",
+      "text": "Look at the mission tool clue. Which choice matches it?"
+    },
+    {
+      "game": "batch6",
+      "key": "75eecc86",
+      "text": "The Sun is a star at the centre of our solar system. Its light and heat reach Earth."
+    },
+    {
+      "game": "batch6",
+      "key": "57127501",
+      "text": "Look at the first two places. They make the AB repeating unit. Start that same unit again."
+    },
+    {
+      "game": "batch6",
+      "key": "8e429399",
+      "text": "Pattern mission. Red, blue, repeat. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "1b33d64b",
+      "text": "Yes. Red, blue, repeat. An AB pattern has two parts that take turns."
+    },
+    {
+      "game": "batch6",
+      "key": "0fc26f17",
+      "text": "Pattern mission. Star, moon, repeat. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "22c1e78b",
+      "text": "Yes. Star, moon, repeat. Look for the two pictures that take turns."
+    },
+    {
+      "game": "batch6",
+      "key": "f5ce7460",
+      "text": "Look at the first three places. They make the AAB repeating unit. Start that same unit again."
+    },
+    {
+      "game": "batch6",
+      "key": "0251a836",
+      "text": "Pattern mission. Two dinos, one rocket. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "54ecfe20",
+      "text": "Yes. Two dinos, one rocket. AAB means two of one thing, then one of another."
+    },
+    {
+      "game": "batch6",
+      "key": "948d0057",
+      "text": "Look at the first three places. They make the ABB repeating unit. Start that same unit again."
+    },
+    {
+      "game": "batch6",
+      "key": "777d1ef4",
+      "text": "Pattern mission. One red, two blue. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "a9d13fbd",
+      "text": "Yes. One red, two blue. ABB means one red, then two blue."
+    },
+    {
+      "game": "batch6",
+      "key": "a07d3c03",
+      "text": "Pattern mission. Shape steps. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "dfe8da8d",
+      "text": "Yes. Shape steps. Shapes can make a repeating pattern too."
+    },
+    {
+      "game": "batch6",
+      "key": "1be66791",
+      "text": "Pattern mission. Moon, moon, star. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "984f37f6",
+      "text": "Yes. Moon, moon, star. Say the pattern aloud to hear its repeat."
+    },
+    {
+      "game": "batch6",
+      "key": "c66a3ff7",
+      "text": "Pattern mission. AB pattern 1. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "cedc8a82",
+      "text": "Yes. AB pattern 1. Two different parts take turns in an AB pattern."
+    },
+    {
+      "game": "batch6",
+      "key": "b3cc75a6",
+      "text": "Pattern mission. AB pattern 2. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "b7130daf",
+      "text": "Yes. AB pattern 2. Two different parts take turns in an AB pattern."
+    },
+    {
+      "game": "batch6",
+      "key": "4d898ee1",
+      "text": "Pattern mission. AB pattern 3. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "ec0279b4",
+      "text": "Yes. AB pattern 3. Two different parts take turns in an AB pattern."
+    },
+    {
+      "game": "batch6",
+      "key": "f5f04938",
+      "text": "Pattern mission. AB pattern 4. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "ce5a2459",
+      "text": "Yes. AB pattern 4. Two different parts take turns in an AB pattern."
+    },
+    {
+      "game": "batch6",
+      "key": "c92f28db",
+      "text": "Pattern mission. AB pattern 5. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "124a7f46",
+      "text": "Yes. AB pattern 5. Two different parts take turns in an AB pattern."
+    },
+    {
+      "game": "batch6",
+      "key": "ea0c458a",
+      "text": "Pattern mission. AB pattern 6. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "ae478d43",
+      "text": "Yes. AB pattern 6. Two different parts take turns in an AB pattern."
+    },
+    {
+      "game": "batch6",
+      "key": "9afb7ce5",
+      "text": "Pattern mission. AB pattern 7. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "2a147728",
+      "text": "Yes. AB pattern 7. Two different parts take turns in an AB pattern."
+    },
+    {
+      "game": "batch6",
+      "key": "5a4f165c",
+      "text": "Pattern mission. AB pattern 8. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "0f233dbd",
+      "text": "Yes. AB pattern 8. Two different parts take turns in an AB pattern."
+    },
+    {
+      "game": "batch6",
+      "key": "28059f9c",
+      "text": "Pattern mission. AAB pattern 1. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "9a58fb03",
+      "text": "Yes. AAB pattern 1. An AAB pattern repeats two matching parts, then one different part."
+    },
+    {
+      "game": "batch6",
+      "key": "27e3b5e9",
+      "text": "Pattern mission. AAB pattern 2. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "89b8f1a8",
+      "text": "Yes. AAB pattern 2. An AAB pattern repeats two matching parts, then one different part."
+    },
+    {
+      "game": "batch6",
+      "key": "9cff7c8e",
+      "text": "Pattern mission. AAB pattern 3. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "a7d4928d",
+      "text": "Yes. AAB pattern 3. An AAB pattern repeats two matching parts, then one different part."
+    },
+    {
+      "game": "batch6",
+      "key": "8a0cdcc3",
+      "text": "Pattern mission. AAB pattern 4. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "0b0ff7ca",
+      "text": "Yes. AAB pattern 4. An AAB pattern repeats two matching parts, then one different part."
+    },
+    {
+      "game": "batch6",
+      "key": "98379960",
+      "text": "Pattern mission. AAB pattern 5. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "aa125e9f",
+      "text": "Yes. AAB pattern 5. An AAB pattern repeats two matching parts, then one different part."
+    },
+    {
+      "game": "batch6",
+      "key": "2476296d",
+      "text": "Pattern mission. AAB pattern 6. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "1928dbb4",
+      "text": "Yes. AAB pattern 6. An AAB pattern repeats two matching parts, then one different part."
+    },
+    {
+      "game": "batch6",
+      "key": "54e22112",
+      "text": "Pattern mission. AAB pattern 7. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "66dbf429",
+      "text": "Yes. AAB pattern 7. An AAB pattern repeats two matching parts, then one different part."
+    },
+    {
+      "game": "batch6",
+      "key": "dba68d37",
+      "text": "Pattern mission. AAB pattern 8. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "e88378f6",
+      "text": "Yes. AAB pattern 8. An AAB pattern repeats two matching parts, then one different part."
+    },
+    {
+      "game": "batch6",
+      "key": "5c425307",
+      "text": "Pattern mission. ABB pattern 1. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "7699232e",
+      "text": "Yes. ABB pattern 1. An ABB pattern repeats one part, then two matching parts."
+    },
+    {
+      "game": "batch6",
+      "key": "ed2ffe36",
+      "text": "Pattern mission. ABB pattern 2. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "4daae80d",
+      "text": "Yes. ABB pattern 2. An ABB pattern repeats one part, then two matching parts."
+    },
+    {
+      "game": "batch6",
+      "key": "b47eec31",
+      "text": "Pattern mission. ABB pattern 3. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "d877d654",
+      "text": "Yes. ABB pattern 3. An ABB pattern repeats one part, then two matching parts."
+    },
+    {
+      "game": "batch6",
+      "key": "13c99c48",
+      "text": "Pattern mission. ABB pattern 4. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "7adf8dcb",
+      "text": "Yes. ABB pattern 4. An ABB pattern repeats one part, then two matching parts."
+    },
+    {
+      "game": "batch6",
+      "key": "8baa62ab",
+      "text": "Pattern mission. ABB pattern 5. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "77df2a4a",
+      "text": "Yes. ABB pattern 5. An ABB pattern repeats one part, then two matching parts."
+    },
+    {
+      "game": "batch6",
+      "key": "f3e0f11a",
+      "text": "Pattern mission. ABB pattern 6. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "131c1d19",
+      "text": "Yes. ABB pattern 6. An ABB pattern repeats one part, then two matching parts."
+    },
+    {
+      "game": "batch6",
+      "key": "49090175",
+      "text": "Pattern mission. ABB pattern 7. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "2c81f540",
+      "text": "Yes. ABB pattern 7. An ABB pattern repeats one part, then two matching parts."
+    },
+    {
+      "game": "batch6",
+      "key": "fd32252c",
+      "text": "Pattern mission. ABB pattern 8. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "4e39ac27",
+      "text": "Yes. ABB pattern 8. An ABB pattern repeats one part, then two matching parts."
+    },
+    {
+      "game": "batch6",
+      "key": "8fdca7bc",
+      "text": "Look at the first three places. They make the ABC repeating unit. Start that same unit again."
+    },
+    {
+      "game": "batch6",
+      "key": "a2c453f9",
+      "text": "Pattern mission. Three-colour parade. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "ed153ac4",
+      "text": "Yes. Three-colour parade. ABC uses three parts before the repeat begins."
+    },
+    {
+      "game": "batch6",
+      "key": "ce9ae13a",
+      "text": "Pattern mission. Two rockets, one dino. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "4fc725e3",
+      "text": "Yes. Two rockets, one dino. The pair stays together before the single dino."
+    },
+    {
+      "game": "batch6",
+      "key": "65f3fda1",
+      "text": "Pattern mission. Star, moon, moon. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "2810be84",
+      "text": "Yes. Star, moon, moon. ABB repeats one star and then two moons."
+    },
+    {
+      "game": "batch6",
+      "key": "a4daed3f",
+      "text": "Pattern mission. Shape parade. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "6783c125",
+      "text": "Yes. Shape parade. Track all three shapes in the same order."
+    },
+    {
+      "game": "batch6",
+      "key": "ebbe6ba2",
+      "text": "A growing pattern adds one more colour-step each turn."
+    },
+    {
+      "game": "batch6",
+      "key": "1028def8",
+      "text": "Pattern mission. Add one each time. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "4bf072fe",
+      "text": "Yes. Add one each time. A growing pattern adds one more colour-step each turn."
+    },
+    {
+      "game": "batch6",
+      "key": "ea91f319",
+      "text": "Pattern mission. Dino, rocket, star. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "cb0aca36",
+      "text": "Yes. Dino, rocket, star. The whole three-picture unit repeats."
+    },
+    {
+      "game": "batch6",
+      "key": "4d2d7764",
+      "text": "Pattern mission. ABC pattern 1. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "9653a96e",
+      "text": "Yes. ABC pattern 1. An ABC pattern repeats three different parts in the same order."
+    },
+    {
+      "game": "batch6",
+      "key": "d47d40f1",
+      "text": "Pattern mission. ABC pattern 2. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "e0ea651d",
+      "text": "Yes. ABC pattern 2. An ABC pattern repeats three different parts in the same order."
+    },
+    {
+      "game": "batch6",
+      "key": "3cf080f6",
+      "text": "Pattern mission. ABC pattern 3. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "34603a30",
+      "text": "Yes. ABC pattern 3. An ABC pattern repeats three different parts in the same order."
+    },
+    {
+      "game": "batch6",
+      "key": "1fd91f6b",
+      "text": "Pattern mission. ABC pattern 4. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "cd481817",
+      "text": "Yes. ABC pattern 4. An ABC pattern repeats three different parts in the same order."
+    },
+    {
+      "game": "batch6",
+      "key": "3c7dad08",
+      "text": "Pattern mission. ABC pattern 5. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "dfc987b2",
+      "text": "Yes. ABC pattern 5. An ABC pattern repeats three different parts in the same order."
+    },
+    {
+      "game": "batch6",
+      "key": "7fbd6435",
+      "text": "Pattern mission. ABC pattern 6. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "ec1785c1",
+      "text": "Yes. ABC pattern 6. An ABC pattern repeats three different parts in the same order."
+    },
+    {
+      "game": "batch6",
+      "key": "df2a5eda",
+      "text": "Pattern mission. ABC pattern 7. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "296ffaa4",
+      "text": "Yes. ABC pattern 7. An ABC pattern repeats three different parts in the same order."
+    },
+    {
+      "game": "batch6",
+      "key": "a94a65ef",
+      "text": "Pattern mission. ABC pattern 8. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "5e19051b",
+      "text": "Yes. ABC pattern 8. An ABC pattern repeats three different parts in the same order."
+    },
+    {
+      "game": "batch6",
+      "key": "2dd01ba7",
+      "text": "Each step adds one symbol, alternating the first and second symbols."
+    },
+    {
+      "game": "batch6",
+      "key": "30d78be5",
+      "text": "Pattern mission. growing pattern 1. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "ea2de1ba",
+      "text": "Yes. growing pattern 1. Each step adds one symbol, alternating the first and second symbols."
+    },
+    {
+      "game": "batch6",
+      "key": "8bcc5838",
+      "text": "Pattern mission. growing pattern 2. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "389677ef",
+      "text": "Yes. growing pattern 2. Each step adds one symbol, alternating the first and second symbols."
+    },
+    {
+      "game": "batch6",
+      "key": "5f0b37db",
+      "text": "Pattern mission. growing pattern 3. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "5f47e048",
+      "text": "Yes. growing pattern 3. Each step adds one symbol, alternating the first and second symbols."
+    },
+    {
+      "game": "batch6",
+      "key": "49a884a6",
+      "text": "Pattern mission. growing pattern 4. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "3655b405",
+      "text": "Yes. growing pattern 4. Each step adds one symbol, alternating the first and second symbols."
+    },
+    {
+      "game": "batch6",
+      "key": "e3659de1",
+      "text": "Pattern mission. growing pattern 5. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "d46ce886",
+      "text": "Yes. growing pattern 5. Each step adds one symbol, alternating the first and second symbols."
+    },
+    {
+      "game": "batch6",
+      "key": "c0007ad4",
+      "text": "Pattern mission. growing pattern 6. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "46b0795b",
+      "text": "Yes. growing pattern 6. Each step adds one symbol, alternating the first and second symbols."
+    },
+    {
+      "game": "batch6",
+      "key": "5c464ef7",
+      "text": "Pattern mission. growing pattern 7. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "0d229134",
+      "text": "Yes. growing pattern 7. Each step adds one symbol, alternating the first and second symbols."
+    },
+    {
+      "game": "batch6",
+      "key": "e3c164d2",
+      "text": "Pattern mission. growing pattern 8. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "ec7ce9c1",
+      "text": "Yes. growing pattern 8. Each step adds one symbol, alternating the first and second symbols."
+    },
+    {
+      "game": "batch6",
+      "key": "ff8783b2",
+      "text": "Each step adds one more star."
+    },
+    {
+      "game": "batch6",
+      "key": "06df34a2",
+      "text": "Pattern mission. Growing star trail. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "f8b99cee",
+      "text": "Yes. Growing star trail. Each step adds one more star."
+    },
+    {
+      "game": "batch6",
+      "key": "bd119182",
+      "text": "Each step adds one symbol, alternating red and blue."
+    },
+    {
+      "game": "batch6",
+      "key": "33d1ce98",
+      "text": "Pattern mission. Growing alternating walk. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "51165a28",
+      "text": "Yes. Growing alternating walk. Each step adds one symbol, alternating red and blue."
+    },
+    {
+      "game": "batch6",
+      "key": "8c8e4fa9",
+      "text": "Pattern mission. Three-scene repeat. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "2113e103",
+      "text": "Yes. Three-scene repeat. The complete dino, star, rocket unit repeats."
+    },
+    {
+      "game": "batch6",
+      "key": "b9d4befa",
+      "text": "Pattern mission. Double beat. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "193b4384",
+      "text": "Yes. Double beat. Listen for two matching beats and one different beat."
+    },
+    {
+      "game": "batch6",
+      "key": "a3791fcd",
+      "text": "Pattern mission. Moon, double rocket. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "5e4a4298",
+      "text": "Yes. Moon, double rocket. One moon is followed by two rockets."
+    },
+    {
+      "game": "batch6",
+      "key": "25961cb6",
+      "text": "Pattern mission. Three-step rhythm. What comes next?"
+    },
+    {
+      "game": "batch6",
+      "key": "2a18976c",
+      "text": "Yes. Three-step rhythm. Keep the same order across all three parts."
+    },
+    {
+      "game": "batch6",
+      "key": "6a00d5a7",
+      "text": "Each step adds one more copy of the same symbol."
+    },
+    {
+      "game": "batch6",
+      "key": "a355f912",
+      "text": "Yes. growing pattern 1. Each step adds one more copy of the same symbol."
+    },
+    {
+      "game": "batch6",
+      "key": "598286df",
+      "text": "Yes. growing pattern 2. Each step adds one more copy of the same symbol."
+    },
+    {
+      "game": "batch6",
+      "key": "73550f2c",
+      "text": "Yes. growing pattern 3. Each step adds one more copy of the same symbol."
+    },
+    {
+      "game": "batch6",
+      "key": "1f623b89",
+      "text": "Yes. growing pattern 4. Each step adds one more copy of the same symbol."
+    },
+    {
+      "game": "batch6",
+      "key": "734840a6",
+      "text": "Yes. growing pattern 5. Each step adds one more copy of the same symbol."
+    },
+    {
+      "game": "batch6",
+      "key": "a913cbc3",
+      "text": "Yes. growing pattern 6. Each step adds one more copy of the same symbol."
+    },
+    {
+      "game": "batch6",
+      "key": "50df6380",
+      "text": "Yes. growing pattern 7. Each step adds one more copy of the same symbol."
+    },
+    {
+      "game": "batch6",
+      "key": "08e066bd",
+      "text": "Yes. growing pattern 8. Each step adds one more copy of the same symbol."
+    },
+    {
+      "game": "batch6",
+      "key": "26a54f0e",
+      "text": "Dinosaur word rescue. A pet that can purr."
+    },
+    {
+      "game": "batch6",
+      "key": "44a433d4",
+      "text": "Dinosaur word rescue. A small rug on the floor."
+    },
+    {
+      "game": "batch6",
+      "key": "25f9858d",
+      "text": "Dinosaur word rescue. What you did when you rested on a chair."
+    },
+    {
+      "game": "batch6",
+      "key": "f6ab94ea",
+      "text": "Dinosaur word rescue. A picture that helps you find a place."
+    },
+    {
+      "game": "batch6",
+      "key": "d44add86",
+      "text": "Dinosaur word rescue. Turn this to let water flow."
+    },
+    {
+      "game": "batch6",
+      "key": "14d1c166",
+      "text": "Dinosaur word rescue. A gentle little touch on a dino’s back."
+    },
+    {
+      "game": "batch6",
+      "key": "be6ba199",
+      "text": "Dinosaur word rescue. The bright star that lights our daytime sky."
+    },
+    {
+      "game": "batch6",
+      "key": "2039008f",
+      "text": "Dinosaur word rescue. Move quickly on your feet."
+    },
+    {
+      "game": "batch6",
+      "key": "0c47a3d3",
+      "text": "Dinosaur word rescue. A happy time playing a game."
+    },
+    {
+      "game": "batch6",
+      "key": "1cd48d80",
+      "text": "Dinosaur word rescue. A small sharp fastener for a noticeboard."
+    },
+    {
+      "game": "batch6",
+      "key": "8b79d836",
+      "text": "Dinosaur word rescue. A metal container for food."
+    },
+    {
+      "game": "batch6",
+      "key": "aa3ae75f",
+      "text": "Dinosaur word rescue. Rest on a chair with your bottom down."
+    },
+    {
+      "game": "batch6",
+      "key": "9952a738",
+      "text": "Dinosaur word rescue. A tiny creature that might crawl through grass."
+    },
+    {
+      "game": "batch6",
+      "key": "0da808b6",
+      "text": "Dinosaur word rescue. A small container you can drink from."
+    },
+    {
+      "game": "batch6",
+      "key": "5b1a6e5b",
+      "text": "Dinosaur word rescue. A farm animal with a curly tail."
+    },
+    {
+      "game": "batch6",
+      "key": "903dee65",
+      "text": "Dinosaur word rescue. A cosy place to sleep at night."
+    },
+    {
+      "game": "batch6",
+      "key": "3c1ab884",
+      "text": "Dinosaur word rescue. Something you can wear on your head."
+    },
+    {
+      "game": "batch6",
+      "key": "9796e949",
+      "text": "Dinosaur word rescue. A grown-up chicken that lays eggs."
+    },
+    {
+      "game": "batch6",
+      "key": "30d665fa",
+      "text": "Dinosaur word rescue. A sweet fruit spread for toast."
+    },
+    {
+      "game": "batch6",
+      "key": "c7bf80dd",
+      "text": "Dinosaur word rescue. A mesh that can catch a ball or fish."
+    },
+    {
+      "game": "batch6",
+      "key": "bd0439be",
+      "text": "Dinosaur word rescue. A large vehicle that carries many people."
+    },
+    {
+      "game": "batch6",
+      "key": "0a1f8e3a",
+      "text": "Dinosaur word rescue. A tool that writes with ink."
+    },
+    {
+      "game": "batch6",
+      "key": "9038b520",
+      "text": "Dinosaur word rescue. A toy that spins around on a point."
+    },
+    {
+      "game": "batch6",
+      "key": "5c6eb026",
+      "text": "Dinosaur word rescue. Wet soft earth after rain."
+    },
+    {
+      "game": "batch6",
+      "key": "4b15a227",
+      "text": "Dinosaur word rescue. Bring your hands together to make this sound."
+    },
+    {
+      "game": "batch6",
+      "key": "f734783c",
+      "text": "Dinosaur word rescue. A sea animal that walks sideways."
+    },
+    {
+      "game": "batch6",
+      "key": "66e4dcf4",
+      "text": "Dinosaur word rescue. A short journey to another place."
+    },
+    {
+      "game": "batch6",
+      "key": "af5f2b36",
+      "text": "Dinosaur word rescue. A little picture you stick on a letter before posting it."
+    },
+    {
+      "game": "batch6",
+      "key": "79c07dd3",
+      "text": "Dinosaur word rescue. A green animal that can hop and croak."
+    },
+    {
+      "game": "batch6",
+      "key": "7b218b29",
+      "text": "Dinosaur word rescue. A small metal loop that holds papers together."
+    },
+    {
+      "game": "batch6",
+      "key": "1661a690",
+      "text": "Dinosaur word rescue. A musical instrument you hit to make a beat."
+    },
+    {
+      "game": "batch6",
+      "key": "d9a61873",
+      "text": "Dinosaur word rescue. Take hold of something with your hand."
+    },
+    {
+      "game": "batch6",
+      "key": "2175d58a",
+      "text": "Dinosaur word rescue. A wide happy smile."
+    },
+    {
+      "game": "batch6",
+      "key": "26e5390f",
+      "text": "Dinosaur word rescue. A word that tells someone not to go on."
+    },
+    {
+      "game": "batch6",
+      "key": "451cc7b4",
+      "text": "Dinosaur word rescue. Turn around and around in a circle."
+    },
+    {
+      "game": "batch6",
+      "key": "052b0092",
+      "text": "Dinosaur word rescue. The outside edge of a loaf of bread."
+    },
+    {
+      "game": "batch6",
+      "key": "96f91a57",
+      "text": "Find the letter a."
+    },
+    {
+      "game": "batch6",
+      "key": "b4fb8828",
+      "text": "Find the letter b."
+    },
+    {
+      "game": "batch6",
+      "key": "96fd9785",
+      "text": "Find the letter c."
+    },
+    {
+      "game": "batch6",
+      "key": "b5000556",
+      "text": "Find the letter d."
+    },
+    {
+      "game": "batch6",
+      "key": "1702de33",
+      "text": "Find the letter e."
+    },
+    {
+      "game": "batch6",
+      "key": "150519a4",
+      "text": "Find the letter f."
+    },
+    {
+      "game": "batch6",
+      "key": "37078dc1",
+      "text": "Find the letter g."
+    },
+    {
+      "game": "batch6",
+      "key": "950a6052",
+      "text": "Find the letter h."
+    },
+    {
+      "game": "batch6",
+      "key": "b70cd46f",
+      "text": "Find the letter i."
+    },
+    {
+      "game": "batch6",
+      "key": "950edd80",
+      "text": "Find the letter j."
+    },
+    {
+      "game": "batch6",
+      "key": "1711e8bd",
+      "text": "Find the letter k."
+    },
+    {
+      "game": "batch6",
+      "key": "3514568e",
+      "text": "Find the letter l."
+    },
+    {
+      "game": "batch6",
+      "key": "171665eb",
+      "text": "Find the letter m."
+    },
+    {
+      "game": "batch6",
+      "key": "3518d3bc",
+      "text": "Find the letter n."
+    },
+    {
+      "game": "batch6",
+      "key": "971bac99",
+      "text": "Find the letter o."
+    },
+    {
+      "game": "batch6",
+      "key": "14ceffaa",
+      "text": "Find the letter p."
+    },
+    {
+      "game": "batch6",
+      "key": "36d173c7",
+      "text": "Find the letter q."
+    },
+    {
+      "game": "batch6",
+      "key": "14d37cd8",
+      "text": "Find the letter r."
+    },
+    {
+      "game": "batch6",
+      "key": "36d5f0f5",
+      "text": "Find the letter s."
+    },
+    {
+      "game": "batch6",
+      "key": "94d8c386",
+      "text": "Find the letter t."
+    },
+    {
+      "game": "batch6",
+      "key": "b6db37a3",
+      "text": "Find the letter u."
+    },
+    {
+      "game": "batch6",
+      "key": "b4dd7314",
+      "text": "Find the letter v."
+    },
+    {
+      "game": "batch6",
+      "key": "16e04bf1",
+      "text": "Find the letter w."
+    },
+    {
+      "game": "batch6",
+      "key": "34e2b9c2",
+      "text": "Find the letter x."
+    },
+    {
+      "game": "batch6",
+      "key": "16e4c91f",
+      "text": "Find the letter y."
+    },
+    {
+      "game": "batch6",
+      "key": "34e736f0",
+      "text": "Find the letter z."
+    },
+    {
+      "game": "batch6",
+      "key": "3a284ed8",
+      "text": "Move the rook along its clear row to the star square."
+    },
+    {
+      "game": "batch6",
+      "key": "1624ee61",
+      "text": "Start with the rook on a1. Trace its path to the star on d1, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "8d026c87",
+      "text": "Rook move solved. Move the rook along its clear row to the star square."
+    },
+    {
+      "game": "batch6",
+      "key": "3ab60b85",
+      "text": "The rook starts on the blue square. Find its legal path to the gold star."
+    },
+    {
+      "game": "batch6",
+      "key": "8fb933c5",
+      "text": "Move the rook straight up to the star square."
+    },
+    {
+      "game": "batch6",
+      "key": "a17f32f7",
+      "text": "Start with the rook on b1. Trace its path to the star on b4, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "0112789e",
+      "text": "Rook move solved. Move the rook straight up to the star square."
+    },
+    {
+      "game": "batch6",
+      "key": "b352d3ef",
+      "text": "Move the bishop along the clear diagonal."
+    },
+    {
+      "game": "batch6",
+      "key": "c809c3c2",
+      "text": "Start with the bishop on a1. Trace its path to the star on d4, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "cd2be110",
+      "text": "Bishop move solved. Move the bishop along the clear diagonal."
+    },
+    {
+      "game": "batch6",
+      "key": "1904cd6d",
+      "text": "The bishop starts on the blue square. Find its legal path to the gold star."
+    },
+    {
+      "game": "batch6",
+      "key": "0d14f6e1",
+      "text": "Move the knight in its L-shape to the star square."
+    },
+    {
+      "game": "batch6",
+      "key": "2e495287",
+      "text": "Start with the knight on b1. Trace its path to the star on c3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "d5e5cb50",
+      "text": "Knight move solved. Move the knight in its L-shape to the star square."
+    },
+    {
+      "game": "batch6",
+      "key": "f5a4da41",
+      "text": "The knight starts on the blue square. Find its legal path to the gold star."
+    },
+    {
+      "game": "batch6",
+      "key": "d05b23d8",
+      "text": "Move the king one square to the star."
+    },
+    {
+      "game": "batch6",
+      "key": "c400f16d",
+      "text": "Start with the king on c2. Trace its path to the star on c3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "8c462059",
+      "text": "King move solved. Move the king one square to the star."
+    },
+    {
+      "game": "batch6",
+      "key": "7f0ca9c3",
+      "text": "The king starts on the blue square. Find its legal path to the gold star."
+    },
+    {
+      "game": "batch6",
+      "key": "eb11c649",
+      "text": "Move the queen straight up the clear file."
+    },
+    {
+      "game": "batch6",
+      "key": "d00f053e",
+      "text": "Start with the queen on e1. Trace its path to the star on e4, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "a96862d7",
+      "text": "Queen move solved. Move the queen straight up the clear file."
+    },
+    {
+      "game": "batch6",
+      "key": "7e036ce2",
+      "text": "The queen starts on the blue square. Find its legal path to the gold star."
+    },
+    {
+      "game": "batch6",
+      "key": "1107e2e1",
+      "text": "Jump the knight in an L-shape over the blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "2ee8e859",
+      "text": "Start with the knight on a2. Trace its path to the star on b4, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "5d2e04e6",
+      "text": "Knight move solved. Jump the knight in an L-shape over the blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "6d00072b",
+      "text": "Move the rook left along the clear row."
+    },
+    {
+      "game": "batch6",
+      "key": "8af7b7d2",
+      "text": "Start with the rook on c1. Trace its path to the star on a1, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "8ba3fc38",
+      "text": "Rook move solved. Move the rook left along the clear row."
+    },
+    {
+      "game": "batch6",
+      "key": "51238727",
+      "text": "Move the bishop along a clear diagonal."
+    },
+    {
+      "game": "batch6",
+      "key": "74143a4c",
+      "text": "Start with the bishop on a5. Trace its path to the star on c3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "02b36cf0",
+      "text": "Bishop move solved. Move the bishop along a clear diagonal."
+    },
+    {
+      "game": "batch6",
+      "key": "2e868cda",
+      "text": "Move the king one square down."
+    },
+    {
+      "game": "batch6",
+      "key": "cccbd2ad",
+      "text": "Start with the king on d3. Trace its path to the star on d2, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "a1715ef5",
+      "text": "King move solved. Move the king one square down."
+    },
+    {
+      "game": "batch6",
+      "key": "3c7c43d0",
+      "text": "Capture the marked pawn with the rook, then check that its landing square is safe."
+    },
+    {
+      "game": "batch6",
+      "key": "651a6fb5",
+      "text": "Rook move solved. Capture the marked pawn with the rook, then check that its landing square is safe."
+    },
+    {
+      "game": "batch6",
+      "key": "487d905f",
+      "text": "Capture the marked pawn with the knight safely."
+    },
+    {
+      "game": "batch6",
+      "key": "388b26bd",
+      "text": "Start with the knight on a1. Trace its path to the star on b3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "e71cc7f4",
+      "text": "Knight move solved. Capture the marked pawn with the knight safely."
+    },
+    {
+      "game": "batch6",
+      "key": "23128905",
+      "text": "Capture the marked pawn along the diagonal, if it is safe."
+    },
+    {
+      "game": "batch6",
+      "key": "e59bcf50",
+      "text": "Start with the bishop on a1. Trace its path to the star on c3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "78a47b3c",
+      "text": "Bishop move solved. Capture the marked pawn along the diagonal, if it is safe."
+    },
+    {
+      "game": "batch6",
+      "key": "dfec1ec4",
+      "text": "Capture the marked pawn with the queen safely."
+    },
+    {
+      "game": "batch6",
+      "key": "3e126c36",
+      "text": "Queen move solved. Capture the marked pawn with the queen safely."
+    },
+    {
+      "game": "batch6",
+      "key": "b4c3f7ad",
+      "text": "Capture the marked pawn along the row safely."
+    },
+    {
+      "game": "batch6",
+      "key": "a3d39051",
+      "text": "Start with the rook on a5. Trace its path to the star on d5, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "5f661bda",
+      "text": "Rook move solved. Capture the marked pawn along the row safely."
+    },
+    {
+      "game": "batch6",
+      "key": "705a42a3",
+      "text": "Start with the knight on e5. Trace its path to the star on d3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "02c97740",
+      "text": "Capture the marked pawn along the diagonal safely."
+    },
+    {
+      "game": "batch6",
+      "key": "af503a80",
+      "text": "Start with the bishop on e5. Trace its path to the star on c3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "4bd37c51",
+      "text": "Bishop move solved. Capture the marked pawn along the diagonal safely."
+    },
+    {
+      "game": "batch6",
+      "key": "1b57be19",
+      "text": "Start with the queen on a5. Trace its path to the star on e5, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "6e1cabbb",
+      "text": "Capture the marked pawn up the file safely."
+    },
+    {
+      "game": "batch6",
+      "key": "202bdcff",
+      "text": "Start with the rook on e1. Trace its path to the star on e4, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "98ca389c",
+      "text": "Rook move solved. Capture the marked pawn up the file safely."
+    },
+    {
+      "game": "batch6",
+      "key": "2528763f",
+      "text": "Start with the knight on e1. Trace its path to the star on d3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "3935bad7",
+      "text": "Move along the clear row to the goal; a pawn blocks the rook’s upward path."
+    },
+    {
+      "game": "batch6",
+      "key": "0a33ab0c",
+      "text": "Start with the rook on a1. Trace its path to the star on e1, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "0da41f28",
+      "text": "Rook move solved. Move along the clear row to the goal; a pawn blocks the rook’s upward path."
+    },
+    {
+      "game": "batch6",
+      "key": "cfa7e632",
+      "text": "Slide the bishop diagonally to the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "b7e490eb",
+      "text": "Bishop move solved. Slide the bishop diagonally to the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "8b5adbfe",
+      "text": "The knight jumps over pieces to land on the star."
+    },
+    {
+      "game": "batch6",
+      "key": "ea12f699",
+      "text": "Start with the knight on c1. Trace its path to the star on d3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "151895f1",
+      "text": "Knight move solved. The knight jumps over pieces to land on the star."
+    },
+    {
+      "game": "batch6",
+      "key": "8114397d",
+      "text": "Move the king one square diagonally to the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "6bfe1106",
+      "text": "Start with the king on e1. Trace its path to the star on d2, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "defeafea",
+      "text": "King move solved. Move the king one square diagonally to the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "6258fafa",
+      "text": "Use the queen’s diagonal path to reach the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "440c6b53",
+      "text": "Start with the queen on a1. Trace its path to the star on d4, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "b1e31f00",
+      "text": "Queen move solved. Use the queen’s diagonal path to reach the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "013a188c",
+      "text": "Move across the clear row to the goal; leave the friendly pawn alone."
+    },
+    {
+      "game": "batch6",
+      "key": "e50008b0",
+      "text": "Start with the rook on e3. Trace its path to the star on a3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "8c86451b",
+      "text": "Rook move solved. Move across the clear row to the goal; leave the friendly pawn alone."
+    },
+    {
+      "game": "batch6",
+      "key": "de680da0",
+      "text": "Jump in an L-shape to reach the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "bd8fc8f1",
+      "text": "Start with the knight on a5. Trace its path to the star on b3, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "9a4943af",
+      "text": "Knight move solved. Jump in an L-shape to reach the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "be0f2abe",
+      "text": "Move diagonally to the marked square."
+    },
+    {
+      "game": "batch6",
+      "key": "c206f2be",
+      "text": "Start with the bishop on e5. Trace its path to the star on b2, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "5b941449",
+      "text": "Bishop move solved. Move diagonally to the marked square."
+    },
+    {
+      "game": "batch6",
+      "key": "f4324208",
+      "text": "Move straight down the open file."
+    },
+    {
+      "game": "batch6",
+      "key": "0045b6d1",
+      "text": "Start with the queen on c5. Trace its path to the star on c1, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "2d7785f2",
+      "text": "Queen move solved. Move straight down the open file."
+    },
+    {
+      "game": "batch6",
+      "key": "5deab4a6",
+      "text": "Move the king one square up to the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "9471a243",
+      "text": "Start with the king on c3. Trace its path to the star on c4, checking every square for a blocker."
+    },
+    {
+      "game": "batch6",
+      "key": "8be33a65",
+      "text": "King move solved. Move the king one square up to the goal."
+    },
+    {
+      "game": "batch6",
+      "key": "4e94fef9",
+      "text": "What gives Earth most of its light and warmth?"
+    },
+    {
+      "game": "batch6",
+      "key": "cb00e100",
+      "text": "The Sun is a star. Its light and heat reach Earth."
+    },
+    {
+      "game": "batch6",
+      "key": "8d7483b9",
+      "text": "Mission clue. The Sun is a star. Its light and heat reach Earth."
+    },
+    {
+      "game": "batch6",
+      "key": "6bfd74d8",
+      "text": "You remembered this from before. The Sun is a star. Its light and heat reach Earth."
+    },
+    {
+      "game": "batch6",
+      "key": "cb209709",
+      "text": "What does the Moon travel around?"
+    },
+    {
+      "game": "batch6",
+      "key": "639c941d",
+      "text": "The Moon travels around Earth, and sunlight lights its surface."
+    },
+    {
+      "game": "batch6",
+      "key": "846a61da",
+      "text": "Mission clue. The Moon travels around Earth, and sunlight lights its surface."
+    },
+    {
+      "game": "batch6",
+      "key": "b9815a35",
+      "text": "You remembered this from before. The Moon travels around Earth, and sunlight lights its surface."
+    },
+    {
+      "game": "batch6",
+      "key": "b94324ea",
+      "text": "Iron minerals in Martian dust give Mars much of its rusty red colour."
+    },
+    {
+      "game": "batch6",
+      "key": "58023f75",
+      "text": "Mission clue. Iron minerals in Martian dust give Mars much of its rusty red colour."
+    },
+    {
+      "game": "batch6",
+      "key": "7514c712",
+      "text": "You remembered this from before. Iron minerals in Martian dust give Mars much of its rusty red colour."
+    },
+    {
+      "game": "batch6",
+      "key": "470735da",
+      "text": "What helps an astronaut breathe outside a spacecraft?"
+    },
+    {
+      "game": "batch6",
+      "key": "4a27fdf5",
+      "text": "A spacesuit supplies oxygen and helps protect an astronaut."
+    },
+    {
+      "game": "batch6",
+      "key": "4188f92e",
+      "text": "Mission clue. A spacesuit supplies oxygen and helps protect an astronaut."
+    },
+    {
+      "game": "batch6",
+      "key": "dde2f09d",
+      "text": "You remembered this from before. A spacesuit supplies oxygen and helps protect an astronaut."
+    },
+    {
+      "game": "batch6",
+      "key": "8de7c95c",
+      "text": "What can solar panels turn sunlight into?"
+    },
+    {
+      "game": "batch6",
+      "key": "43496606",
+      "text": "Solar panels collect energy from sunlight and convert it to electricity for spacecraft systems."
+    },
+    {
+      "game": "batch6",
+      "key": "54c0c0d1",
+      "text": "Mission clue. Solar panels collect energy from sunlight and convert it to electricity for spacecraft systems."
+    },
+    {
+      "game": "batch6",
+      "key": "e81f105e",
+      "text": "You remembered this from before. Solar panels collect energy from sunlight and convert it to electricity for spacecraft systems."
+    },
+    {
+      "game": "batch6",
+      "key": "0fd81db0",
+      "text": "Why does a Mars rover have wheels?"
+    },
+    {
+      "game": "batch6",
+      "key": "8bdd38ea",
+      "text": "Rover wheels help robot explorers cross rocky ground on Mars."
+    },
+    {
+      "game": "batch6",
+      "key": "65fbccf5",
+      "text": "Mission clue. Rover wheels help robot explorers cross rocky ground on Mars."
+    },
+    {
+      "game": "batch6",
+      "key": "8e1238a2",
+      "text": "You remembered this from before. Rover wheels help robot explorers cross rocky ground on Mars."
+    },
+    {
+      "game": "batch6",
+      "key": "dad40e50",
+      "text": "Where does moonlight come from?"
+    },
+    {
+      "game": "batch6",
+      "key": "a3a28ff0",
+      "text": "The Moon does not make its own light; it reflects sunlight."
+    },
+    {
+      "game": "batch6",
+      "key": "4744491b",
+      "text": "Mission clue. The Moon does not make its own light; it reflects sunlight."
+    },
+    {
+      "game": "batch6",
+      "key": "98cc5b68",
+      "text": "You remembered this from before. The Moon does not make its own light; it reflects sunlight."
+    },
+    {
+      "game": "batch6",
+      "key": "cdc1a322",
+      "text": "What covers most of Earth’s surface?"
+    },
+    {
+      "game": "batch6",
+      "key": "394e0c27",
+      "text": "Most of Earth’s surface is covered by liquid water."
+    },
+    {
+      "game": "batch6",
+      "key": "7504ca34",
+      "text": "Mission clue. Most of Earth’s surface is covered by liquid water."
+    },
+    {
+      "game": "batch6",
+      "key": "49b8485f",
+      "text": "You remembered this from before. Most of Earth’s surface is covered by liquid water."
+    },
+    {
+      "game": "batch6",
+      "key": "16f5666e",
+      "text": "What can a rover camera help scientists do?"
+    },
+    {
+      "game": "batch6",
+      "key": "fe3e262e",
+      "text": "Rover cameras take images that help teams study terrain and plan drives."
+    },
+    {
+      "game": "batch6",
+      "key": "143b2043",
+      "text": "Mission clue. Rover cameras take images that help teams study terrain and plan drives."
+    },
+    {
+      "game": "batch6",
+      "key": "a0ea7bc6",
+      "text": "You remembered this from before. Rover cameras take images that help teams study terrain and plan drives."
+    },
+    {
+      "game": "batch6",
+      "key": "8ab3fab5",
+      "text": "Which shape is closest to Earth?"
+    },
+    {
+      "game": "batch6",
+      "key": "28f074fe",
+      "text": "Earth is nearly spherical, a little wider around its middle."
+    },
+    {
+      "game": "batch6",
+      "key": "d2c2e52f",
+      "text": "Mission clue. Earth is nearly spherical, a little wider around its middle."
+    },
+    {
+      "game": "batch6",
+      "key": "f3d61d66",
+      "text": "You remembered this from before. Earth is nearly spherical, a little wider around its middle."
+    },
+    {
+      "game": "batch6",
+      "key": "4180a06b",
+      "text": "What pushes a rocket upward at launch?"
+    },
+    {
+      "game": "batch6",
+      "key": "64c6abfb",
+      "text": "A rocket engine pushes exhaust downward; that push moves the rocket upward."
+    },
+    {
+      "game": "batch6",
+      "key": "12d37e60",
+      "text": "Mission clue. A rocket engine pushes exhaust downward; that push moves the rocket upward."
+    },
+    {
+      "game": "batch6",
+      "key": "c15b1b63",
+      "text": "You remembered this from before. A rocket engine pushes exhaust downward; that push moves the rocket upward."
+    },
+    {
+      "game": "batch6",
+      "key": "eb412089",
+      "text": "What is the blanket of gases around Earth called?"
+    },
+    {
+      "game": "batch6",
+      "key": "16d68159",
+      "text": "Earth’s atmosphere is a layer of gases around our planet."
+    },
+    {
+      "game": "batch6",
+      "key": "afd7b6de",
+      "text": "Mission clue. Earth’s atmosphere is a layer of gases around our planet."
+    },
+    {
+      "game": "batch6",
+      "key": "652867e1",
+      "text": "You remembered this from before. Earth’s atmosphere is a layer of gases around our planet."
+    },
+    {
+      "game": "batch6",
+      "key": "44864c3b",
+      "text": "What keeps us on the ground on Earth?"
+    },
+    {
+      "game": "batch6",
+      "key": "11835d05",
+      "text": "Gravity is a force that pulls objects toward one another and keeps our feet on the ground."
+    },
+    {
+      "game": "batch6",
+      "key": "4e512e10",
+      "text": "Mission clue. Gravity is a force that pulls objects toward one another and keeps our feet on the ground."
+    },
+    {
+      "game": "batch6",
+      "key": "916158ed",
+      "text": "You remembered this from before. Gravity is a force that pulls objects toward one another and keeps our feet on the ground."
+    },
+    {
+      "game": "batch6",
+      "key": "ae1fa56e",
+      "text": "What makes day and night on Earth?"
+    },
+    {
+      "game": "batch6",
+      "key": "54fe4375",
+      "text": "Earth spins once about every 24 hours. The side facing the Sun has day; the side turned away has night."
+    },
+    {
+      "game": "batch6",
+      "key": "0bd3726e",
+      "text": "Mission clue. Earth spins once about every 24 hours. The side facing the Sun has day; the side turned away has night."
+    },
+    {
+      "game": "batch6",
+      "key": "bff7102d",
+      "text": "You remembered this from before. Earth spins once about every 24 hours. The side facing the Sun has day; the side turned away has night."
+    },
+    {
+      "game": "batch6",
+      "key": "42f046a7",
+      "text": "Where has NASA found water ice on Mars?"
+    },
+    {
+      "game": "batch6",
+      "key": "7faf28b3",
+      "text": "Mars has water ice in polar caps and beneath parts of its surface."
+    },
+    {
+      "game": "batch6",
+      "key": "abbb1cfe",
+      "text": "Mission clue. Mars has water ice in polar caps and beneath parts of its surface."
+    },
+    {
+      "game": "batch6",
+      "key": "45c1c9eb",
+      "text": "You remembered this from before. Mars has water ice in polar caps and beneath parts of its surface."
+    },
+    {
+      "game": "batch6",
+      "key": "d894a7f7",
+      "text": "What protects a spacecraft from heat as it enters an atmosphere?"
+    },
+    {
+      "game": "batch6",
+      "key": "a91b3b18",
+      "text": "A heat shield protects a spacecraft from the heat of atmospheric entry."
+    },
+    {
+      "game": "batch6",
+      "key": "279807e3",
+      "text": "Mission clue. A heat shield protects a spacecraft from the heat of atmospheric entry."
+    },
+    {
+      "game": "batch6",
+      "key": "925e4020",
+      "text": "You remembered this from before. A heat shield protects a spacecraft from the heat of atmospheric entry."
+    },
+    {
+      "game": "batch6",
+      "key": "6af1a691",
+      "text": "What helps a lander slow down in a planet’s atmosphere?"
+    },
+    {
+      "game": "batch6",
+      "key": "1d5261ae",
+      "text": "A parachute creates drag and helps slow a descending spacecraft."
+    },
+    {
+      "game": "batch6",
+      "key": "6676c4b3",
+      "text": "Mission clue. A parachute creates drag and helps slow a descending spacecraft."
+    },
+    {
+      "game": "batch6",
+      "key": "2be0af56",
+      "text": "You remembered this from before. A parachute creates drag and helps slow a descending spacecraft."
+    },
+    {
+      "game": "batch6",
+      "key": "8d006ebf",
+      "text": "What sends a rover’s messages back to Earth?"
+    },
+    {
+      "game": "batch6",
+      "key": "8fdac891",
+      "text": "Spacecraft antennas send radio signals to Earth-based receivers."
+    },
+    {
+      "game": "batch6",
+      "key": "e2043018",
+      "text": "Mission clue. Spacecraft antennas send radio signals to Earth-based receivers."
+    },
+    {
+      "game": "batch6",
+      "key": "5b6bddf9",
+      "text": "You remembered this from before. Spacecraft antennas send radio signals to Earth-based receivers."
+    },
+    {
+      "game": "batch6",
+      "key": "a836fa9d",
+      "text": "What mostly causes Earth’s seasons?"
+    },
+    {
+      "game": "batch6",
+      "key": "59b6502b",
+      "text": "Earth’s tilt changes how directly sunlight reaches each hemisphere during the year."
+    },
+    {
+      "game": "batch6",
+      "key": "2ccde744",
+      "text": "Mission clue. Earth’s tilt changes how directly sunlight reaches each hemisphere during the year."
+    },
+    {
+      "game": "batch6",
+      "key": "d7490bc3",
+      "text": "You remembered this from before. Earth’s tilt changes how directly sunlight reaches each hemisphere during the year."
+    },
+    {
+      "game": "batch6",
+      "key": "d60576c6",
+      "text": "How many small moons orbit Mars?"
+    },
+    {
+      "game": "batch6",
+      "key": "b7f4a6db",
+      "text": "Mars has two small moons, Phobos and Deimos."
+    },
+    {
+      "game": "batch6",
+      "key": "88704a8e",
+      "text": "Mission clue. Mars has two small moons, Phobos and Deimos."
+    },
+    {
+      "game": "batch6",
+      "key": "28679473",
+      "text": "You remembered this from before. Mars has two small moons, Phobos and Deimos."
+    },
+    {
+      "game": "batch6",
+      "key": "9f240e66",
+      "text": "How can a rover help avoid a rock in its path?"
+    },
+    {
+      "game": "batch6",
+      "key": "7558a6db",
+      "text": "Rover cameras help teams and onboard software see hazards and plan a safe route."
+    },
+    {
+      "game": "batch6",
+      "key": "b47f1e3e",
+      "text": "Mission clue. Rover cameras help teams and onboard software see hazards and plan a safe route."
+    },
+    {
+      "game": "batch6",
+      "key": "85135773",
+      "text": "You remembered this from before. Rover cameras help teams and onboard software see hazards and plan a safe route."
+    },
+    {
+      "game": "batch6",
+      "key": "191905bf",
+      "text": "Why does a lander need strong legs?"
+    },
+    {
+      "game": "batch6",
+      "key": "9d1a02d6",
+      "text": "Landing systems need a stable way to touch down and support their spacecraft."
+    },
+    {
+      "game": "batch6",
+      "key": "b2642ea1",
+      "text": "Mission clue. Landing systems need a stable way to touch down and support their spacecraft."
+    },
+    {
+      "game": "batch6",
+      "key": "adad575e",
+      "text": "You remembered this from before. Landing systems need a stable way to touch down and support their spacecraft."
+    },
+    {
+      "game": "batch6",
+      "key": "b59af869",
+      "text": "What is the name for a path around a star or planet?"
+    },
+    {
+      "game": "batch6",
+      "key": "2d4fd661",
+      "text": "An orbit is the path an object follows around another object in space."
+    },
+    {
+      "game": "batch6",
+      "key": "82800220",
+      "text": "Mission clue. An orbit is the path an object follows around another object in space."
+    },
+    {
+      "game": "batch6",
+      "key": "45305b59",
+      "text": "You remembered this from before. An orbit is the path an object follows around another object in space."
+    },
+    {
+      "game": "batch6",
+      "key": "09626302",
+      "text": "Why are rover commands planned ahead?"
+    },
+    {
+      "game": "batch6",
+      "key": "f8d7d8f3",
+      "text": "Because radio signals take time to cross the distance, rovers carry out planned commands."
+    },
+    {
+      "game": "batch6",
+      "key": "8c92a0ec",
+      "text": "Mission clue. Because radio signals take time to cross the distance, rovers carry out planned commands."
+    },
+    {
+      "game": "batch6",
+      "key": "d70c5a7b",
+      "text": "You remembered this from before. Because radio signals take time to cross the distance, rovers carry out planned commands."
+    },
+    {
+      "game": "batch6",
+      "key": "b26214b0",
+      "text": "Which planet has an extremely thick, hot atmosphere?"
+    },
+    {
+      "game": "batch6",
+      "key": "f3919e82",
+      "text": "Venus has a dense carbon-dioxide atmosphere that traps heat."
+    },
+    {
+      "game": "batch6",
+      "key": "e7a44b3f",
+      "text": "Mission clue. Venus has a dense carbon-dioxide atmosphere that traps heat."
+    },
+    {
+      "game": "batch6",
+      "key": "1900ddaa",
+      "text": "You remembered this from before. Venus has a dense carbon-dioxide atmosphere that traps heat."
+    },
+    {
+      "game": "batch6",
+      "key": "751beb6e",
+      "text": "Which planet is the largest in our solar system?"
+    },
+    {
+      "game": "batch6",
+      "key": "336b408e",
+      "text": "Jupiter is the biggest planet in our solar system."
+    },
+    {
+      "game": "batch6",
+      "key": "3379579b",
+      "text": "Mission clue. Jupiter is the biggest planet in our solar system."
+    },
+    {
+      "game": "batch6",
+      "key": "64e8a9e6",
+      "text": "You remembered this from before. Jupiter is the biggest planet in our solar system."
+    },
+    {
+      "game": "batch6",
+      "key": "5d407eb9",
+      "text": "Which moon is covered by an icy shell and may hide an ocean?"
+    },
+    {
+      "game": "batch6",
+      "key": "3a4d339e",
+      "text": "Evidence suggests Jupiter’s moon Europa has a salty ocean beneath its ice."
+    },
+    {
+      "game": "batch6",
+      "key": "08921783",
+      "text": "Mission clue. Evidence suggests Jupiter’s moon Europa has a salty ocean beneath its ice."
+    },
+    {
+      "game": "batch6",
+      "key": "35583086",
+      "text": "You remembered this from before. Evidence suggests Jupiter’s moon Europa has a salty ocean beneath its ice."
+    },
+    {
+      "game": "batch6",
+      "key": "7f91b5a8",
+      "text": "A heavier lander needs a safer landing. What design change helps slow it?"
+    },
+    {
+      "game": "batch6",
+      "key": "b4d177a2",
+      "text": "A larger parachute can help slow a larger lander, but engineers test the design carefully."
+    },
+    {
+      "game": "batch6",
+      "key": "c21afa2b",
+      "text": "Mission clue. A larger parachute can help slow a larger lander, but engineers test the design carefully."
+    },
+    {
+      "game": "batch6",
+      "key": "a8d49e7a",
+      "text": "You remembered this from before. A larger parachute can help slow a larger lander, but engineers test the design carefully."
+    },
+    {
+      "game": "batch6",
+      "key": "0be0c9db",
+      "text": "A rover works far from sunlight. Which power source can keep it running?"
+    },
+    {
+      "game": "batch6",
+      "key": "93f884a0",
+      "text": "Some Mars rovers use radioisotope power systems to make electricity when sunlight is limited."
+    },
+    {
+      "game": "batch6",
+      "key": "c7dd77c3",
+      "text": "Mission clue. Some Mars rovers use radioisotope power systems to make electricity when sunlight is limited."
+    },
+    {
+      "game": "batch6",
+      "key": "f48320a8",
+      "text": "You remembered this from before. Some Mars rovers use radioisotope power systems to make electricity when sunlight is limited."
+    },
+    {
+      "game": "batch6",
+      "key": "2e950208",
+      "text": "Why can’t a driver steer a Mars rover like a remote toy car?"
+    },
+    {
+      "game": "batch6",
+      "key": "637db9a5",
+      "text": "Radio signals take several minutes to travel between Earth and Mars, so rovers need onboard plans."
+    },
+    {
+      "game": "batch6",
+      "key": "e6640e28",
+      "text": "Mission clue. Radio signals take several minutes to travel between Earth and Mars, so rovers need onboard plans."
+    },
+    {
+      "game": "batch6",
+      "key": "f3aff60d",
+      "text": "You remembered this from before. Radio signals take several minutes to travel between Earth and Mars, so rovers need onboard plans."
+    },
+    {
+      "game": "batch6",
+      "key": "32beab2d",
+      "text": "Which planet is famous for its bright rings?"
+    },
+    {
+      "game": "batch6",
+      "key": "f632806d",
+      "text": "Saturn’s rings are made mostly of pieces of ice and rock."
+    },
+    {
+      "game": "batch6",
+      "key": "99dc65de",
+      "text": "Mission clue. Saturn’s rings are made mostly of pieces of ice and rock."
+    },
+    {
+      "game": "batch6",
+      "key": "47403335",
+      "text": "You remembered this from before. Saturn’s rings are made mostly of pieces of ice and rock."
+    },
+    {
+      "game": "batch6",
+      "key": "32f61201",
+      "text": "A day on Mars is a little longer than a day on Earth. What is one Mars day called?"
+    },
+    {
+      "game": "batch6",
+      "key": "05a681b2",
+      "text": "Mars scientists call one Martian day a sol; it lasts about 24 hours and 39 minutes."
+    },
+    {
+      "game": "batch6",
+      "key": "4b2c4f61",
+      "text": "Mission clue. Mars scientists call one Martian day a sol; it lasts about 24 hours and 39 minutes."
+    },
+    {
+      "game": "batch6",
+      "key": "1f738eaa",
+      "text": "You remembered this from before. Mars scientists call one Martian day a sol; it lasts about 24 hours and 39 minutes."
+    },
+    {
+      "game": "batch6",
+      "key": "c1a0db06",
+      "text": "What does a rover use to keep a rock sample for study?"
+    },
+    {
+      "game": "batch6",
+      "key": "7a9f598f",
+      "text": "Perseverance seals rock and soil samples in clean tubes for possible future return."
+    },
+    {
+      "game": "batch6",
+      "key": "eb1c8adc",
+      "text": "Mission clue. Perseverance seals rock and soil samples in clean tubes for possible future return."
+    },
+    {
+      "game": "batch6",
+      "key": "043c5147",
+      "text": "You remembered this from before. Perseverance seals rock and soil samples in clean tubes for possible future return."
+    },
+    {
+      "game": "batch6",
+      "key": "02f0f174",
+      "text": "A spacecraft is near the Sun. Which power source can gather lots of sunlight?"
+    },
+    {
+      "game": "batch6",
+      "key": "6025774d",
+      "text": "Solar arrays turn sunlight into electricity; mission planners choose power for where a spacecraft travels."
+    },
+    {
+      "game": "batch6",
+      "key": "348d3f48",
+      "text": "Mission clue. Solar arrays turn sunlight into electricity; mission planners choose power for where a spacecraft travels."
+    },
+    {
+      "game": "batch6",
+      "key": "730f9dd5",
+      "text": "You remembered this from before. Solar arrays turn sunlight into electricity; mission planners choose power for where a spacecraft travels."
+    },
+    {
+      "game": "batch6",
+      "key": "13198e44",
+      "text": "Which way does Venus spin compared with most planets?"
+    },
+    {
+      "game": "batch6",
+      "key": "4a3806a4",
+      "text": "Venus rotates in the opposite direction to most planets."
+    },
+    {
+      "game": "batch6",
+      "key": "013abd39",
+      "text": "Mission clue. Venus rotates in the opposite direction to most planets."
+    },
+    {
+      "game": "batch6",
+      "key": "f355374c",
+      "text": "You remembered this from before. Venus rotates in the opposite direction to most planets."
+    },
+    {
+      "game": "batch6",
+      "key": "c948a0ac",
+      "text": "What helps an exploring rover choose a path around a rock?"
+    },
+    {
+      "game": "batch6",
+      "key": "0088df9f",
+      "text": "Perseverance can use onboard navigation to map nearby terrain and avoid hazards."
+    },
+    {
+      "game": "batch6",
+      "key": "14edfb5a",
+      "text": "Mission clue. Perseverance can use onboard navigation to map nearby terrain and avoid hazards."
+    },
+    {
+      "game": "batch6",
+      "key": "3a954a67",
+      "text": "You remembered this from before. Perseverance can use onboard navigation to map nearby terrain and avoid hazards."
+    }
+  ],
+  "invalid": [],
+  "results": [
+    {
+      "game": "batch6",
+      "key": "8a4e7833",
+      "text": "Which planet is called the Red Planet?",
+      "path": "/audio/en/8a4e7833-matilda.mp3",
+      "sha256": "509f74c1cf2165d89549f1a7263539362977a2f16769eacecbeebd4d9de042fa",
+      "duration": 2.182667,
+      "valid": true
+    }
+  ]
+}
