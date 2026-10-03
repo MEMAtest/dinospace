@@ -1,0 +1,40 @@
+{
+  "desktop": {
+    "viewport": "1280x800",
+    "episode": "Growing",
+    "question": "What is 14 take away 5?",
+    "before": {
+      "accessibleModelLabel": "14 counters, take away 5 counters. Count what is left.",
+      "visibleEquation": "14 − 5 = ?",
+      "visibleStrategy": "Start with the counters, take away the second group, then count what is left.",
+      "answerExposedByModelOrStrategy": false
+    },
+    "selectedVisibleAnswer": "9",
+    "after": {
+      "accessibleModelLabel": "14 counters, take away 5 counters; 9 counters stay",
+      "visibleEquation": "14 − 5 = 9",
+      "workedFeedbackParagraph": "Start with 14 counters. Take 5 away. 9 counters stay.",
+      "workedFeedbackParagraphCount": 1,
+      "nextVisibleAndEnabled": true
+    }
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "episode": "Growing",
+    "question": "What is 2 plus 14?",
+    "before": {
+      "accessibleModelLabel": "2 counters; add 14 more. Put both groups together, then count them.",
+      "visibleEquation": "2 + 14 = ?",
+      "visibleStrategy": "Put the two groups together, then count every counter.",
+      "answerExposedByModelOrStrategy": false
+    },
+    "selectedVisibleAnswer": "16",
+    "after": {
+      "accessibleModelLabel": "2 counters; add 14 more; 16 counters total",
+      "visibleEquation": "2 + 14 = 16",
+      "workedFeedbackParagraph": "2 counters. Add 14 more. That makes 16 counters.",
+      "workedFeedbackParagraphCount": 1,
+      "nextVisibleAndEnabled": true
+    }
+  }
+}

@@ -66,3 +66,11 @@ At the 08:38 UTC worker checkpoint, the read-only readiness check reports 1,300/
 Frozen source `56e8ad6` plus the captured manifest is served at local port 5201 from `tmp/batch2-sky-fact-audio-20261003`, production voice flag enabled. JS `index-D9m1RXiV.js` SHA256 `7b24c6fc5bfb2c8e9f1c4b75dfc54a1f06254f3f1eb6fe282877338a88f204ce`; CSS `index-CU-OkS6z.css` SHA256 `2613b85082a6ae658aaf50bd961b80106c8249c46da4366c7a7489d3052b9e7e`. Independent segmented-completion/media cancellation deltas are in progress; this candidate is not deployed.
 
 The audio forwarding tool explicitly reported unsupported audio input to root. Thus root cannot certify audible wording/prosody from these clips. [Nine packaged listening samples](batch2-listening-review-20261003.md) are prepared for a human reviewer with explicit pending verdicts; standalone listening samples cannot replace actual browser interactions at both viewports. Listening remains a mandatory acceptance gate.
+
+## Complete corpus and clean candidate — 3 October, 09:09 UTC
+
+Worker PID 4108 finished normally at 09:08:49 UTC after run 32 with zero pending, and exited. Read-only [final readiness](qa-evidence/batch2-final-readiness-20261003.json): 1,371/1,371. [Full decode audit](qa-evidence/batch2-corpus-final-decode-20261003.json): zero missing and zero invalid, all positive durations. Exact corpus paths and unchanged old mappings are recorded in [packaging whitelist](qa-evidence/batch2-final-packaging-20261003.json); no unrelated generated cache files were staged.
+
+Clean Git source `ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630` is frozen at `tmp/batch2-complete-candidate-20261003` and served at port 5203 with the production voice flag. JS `index-DZuRTFaZ.js` SHA256 `d63a6423477fd3cda6d2e9f66d15eefafc6a693e6039865a79b1f59cc534d85c`; CSS `index-CU-OkS6z.css` SHA256 `2613b85082a6ae658aaf50bd961b80106c8249c46da4366c7a7489d3052b9e7e`. Every one of the 1,371 frozen clip hashes matches the successful decode audit; all 5,305 manifest paths, including inherited games, exist in the package. 164 tests, lint and build pass.
+
+Independent Monster packaged-sequence runtime is now testing this first complete corpus; the earlier muted model checks cannot substitute. Listening, exact production release/deltas and editorial acceptance remain pending. Generation completion does not mark Batch 2 accepted.

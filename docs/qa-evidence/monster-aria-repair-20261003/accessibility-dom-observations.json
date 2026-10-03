@@ -1,0 +1,32 @@
+{
+  "desktopViewport": "1280x800",
+  "growingFirstQuestionBeforeAnswer": {
+    "prompt": "What is 17 plus 2?",
+    "accessibleModelLabel": "17 counters; add 2 more. Put both groups together, then count them.",
+    "visibleEquation": "17 + 2 = ?",
+    "visibleStrategy": "Put the two groups together, then count every counter.",
+    "solvedTotalInModelOrStrategy": false,
+    "visibleCorrectChoice": "19"
+  },
+  "afterVisibleCorrectChoice": {
+    "accessibleModelLabel": "17 counters; add 2 more; 19 counters total",
+    "visibleEquation": "17 + 2 = 19",
+    "workedFeedbackParagraph": "17 counters. Add 2 more. That makes 19 counters.",
+    "feedbackParagraphCount": 1,
+    "nextVisibleAndEnabled": true
+  },
+  "mobileViewport": "390x844",
+  "mobileGrowingFirstQuestionBeforeAnswer": {
+    "prompt": "What is 12 take away 1?",
+    "accessibleModelLabel": "12 counters, take away 1 counter. Count what is left.",
+    "visibleEquation": "12 − 1 = ?",
+    "solvedTotalInModelOrStrategy": false
+  },
+  "mobileAfterVisibleCorrectChoice": {
+    "accessibleModelLabel": "12 counters, take away 1 counter; 11 counters stay",
+    "visibleEquation": "12 − 1 = 11",
+    "workedFeedbackParagraph": "Start with 12 counters. Take 1 away. 11 counters stay.",
+    "feedbackParagraphCount": 1,
+    "nextVisibleAndEnabled": true
+  }
+}
