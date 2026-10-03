@@ -1,0 +1,45 @@
+{
+  "method": "Generated dedicated scene assets; cwebp quality 90, no resize or crop. Original generated PNGs preserved. Existing shared assets untouched. Scene IDs, facts and narration text unchanged. Root visually inspected all four generated scenes; independent browser review pending.",
+  "assets": [
+    {
+      "name": "nature-lab-leaves-3d",
+      "original": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-72d900a7-80a9-45d6-ae5d-adbfa3bf4bb2.png",
+      "preservedCopy": "output/imagegen/nature-lab-leaves-3d.png",
+      "asset": "src/assets/puzzle-pop/nature-lab-leaves-3d.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 424104,
+      "sha256": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20"
+    },
+    {
+      "name": "treehouse-robots-3d",
+      "original": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-2fd49b8a-3242-49a9-99bf-930c128a44df.png",
+      "preservedCopy": "output/imagegen/treehouse-robots-3d.png",
+      "asset": "src/assets/puzzle-pop/treehouse-robots-3d.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 288118,
+      "sha256": "e065b1e9a1573ef09f5af86f88d0c84a3ffb0da022037561525351db25317f33"
+    },
+    {
+      "name": "robin-tree-3d",
+      "original": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-daef120a-adfe-4b71-bb7d-ae0f17b1c04f.png",
+      "preservedCopy": "output/imagegen/robin-tree-3d.png",
+      "asset": "src/assets/puzzle-pop/robin-tree-3d.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 407546,
+      "sha256": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932"
+    },
+    {
+      "name": "world-explorer-map-3d",
+      "original": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-f3bd7a80-68fd-400d-a3b0-282f4f25a4d4.png",
+      "preservedCopy": "output/imagegen/world-explorer-map-3d.png",
+      "asset": "src/assets/puzzle-pop/world-explorer-map-3d.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 411940,
+      "sha256": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23"
+    }
+  ]
+}

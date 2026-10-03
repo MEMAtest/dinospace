@@ -2,14 +2,14 @@ const dinoPark = new URL('../assets/puzzle-pop/dino-park.jpg', import.meta.url).
 const dinoRiver = new URL('../assets/puzzle-pop/dino-river-3d.webp', import.meta.url).href;
 const dinoMoon = new URL('../assets/puzzle-pop/dino-moon-3d.webp', import.meta.url).href;
 const city = new URL('../assets/spot-difference/superhero-city.webp', import.meta.url).href;
-const treehouse = new URL('../assets/game-scenes/askia-memory-treehouse.webp', import.meta.url).href;
+const treehouse = new URL('../assets/puzzle-pop/treehouse-robots-3d.webp', import.meta.url).href;
 const soundSafari = new URL('../assets/game-scenes/sound-safari.webp', import.meta.url).href;
 const patternParade = new URL('../assets/game-scenes/pattern-parade.webp', import.meta.url).href;
 const timeObservatory = new URL('../assets/game-scenes/time-observatory.webp', import.meta.url).href;
-const robin = new URL('../assets/curriculum/robin.webp', import.meta.url).href;
-const geography = new URL('../assets/curriculum/geography-world.webp', import.meta.url).href;
+const robin = new URL('../assets/puzzle-pop/robin-tree-3d.webp', import.meta.url).href;
+const geography = new URL('../assets/puzzle-pop/world-explorer-map-3d.webp', import.meta.url).href;
 const history = new URL('../assets/curriculum/history-world.webp', import.meta.url).href;
-const nature = new URL('../assets/curriculum/nature-specimens.webp', import.meta.url).href;
+const nature = new URL('../assets/puzzle-pop/nature-lab-leaves-3d.webp', import.meta.url).href;
 
 export const PUZZLE_POP_CHAPTERS = Object.freeze([
   Object.freeze({
@@ -29,8 +29,8 @@ export const PUZZLE_POP_CHAPTERS = Object.freeze([
     visualTip: 'Match one clear edge or colour landmark, then fit its neighbours.',
     scenes: Object.freeze([
       { id: 'hero-city', title: 'Hero City Helpers', image: city, alt: 'A colourful superhero city with buildings and characters', fact: 'People in a community share places such as roads, parks, shops and homes.' },
-      { id: 'treehouse-robots', title: 'Treehouse Robots', image: treehouse, alt: 'A friendly treehouse scene with a young explorer', fact: 'A clear set of steps helps a robot know what to do next.' },
-      { id: 'sound-safari', title: 'Sound Safari', image: soundSafari, alt: 'A bright wildlife listening scene', fact: 'Listening carefully helps us tell the difference between sounds that are alike.' },
+      { id: 'treehouse-robots', title: 'Treehouse Robots', image: treehouse, alt: 'A young astronaut and robot following arrow steps inside a treehouse workshop', fact: 'A clear set of steps helps a robot know what to do next.' },
+      { id: 'sound-safari', title: 'Sound Safari', image: soundSafari, alt: 'A tropical path beside flowing waterfall water, rocks and plants', fact: 'Listening carefully helps us tell the difference between sounds that are alike.' },
       { id: 'pattern-festival', title: 'Pattern Festival', image: patternParade, alt: 'A colourful parade with repeating patterns', fact: 'A pattern repeats a rule. Finding the rule helps you know what comes next.' },
     ]),
   }),
@@ -39,10 +39,10 @@ export const PUZZLE_POP_CHAPTERS = Object.freeze([
     skill: 'Study small details and use the preview to solve a bigger board.',
     visualTip: 'Scan one row or column at a time. Check a small feature in the preview.',
     scenes: Object.freeze([
-      { id: 'time-observatory', title: 'Time Observatory', image: timeObservatory, alt: 'A colourful observatory with clocks and stars', fact: 'Earth spins once each day. That spin gives us day and night.' },
-      { id: 'world-explorer', title: 'World Explorer', image: geography, alt: 'A colourful map illustration of Earth and geography', fact: 'Maps use symbols and pictures to help us understand places.' },
-      { id: 'history-hall', title: 'History Hall', image: history, alt: 'A museum scene with objects from the past', fact: 'Historians use objects, pictures and stories as clues about the past.' },
-      { id: 'nature-lab', title: 'Nature Lab', image: nature, alt: 'A close view of leaves, seeds and nature specimens', fact: 'Leaves can have different shapes, but they all help plants use sunlight.' },
+      { id: 'time-observatory', title: 'Time Observatory', image: timeObservatory, alt: 'An observatory with a telescope, Earth globe, stars and sunset', fact: 'Earth spins once each day. That spin gives us day and night.' },
+      { id: 'world-explorer', title: 'World Explorer', image: geography, alt: 'An explorer workbench with a picture-symbol map and an Earth globe', fact: 'Maps use symbols and pictures to help us understand places.' },
+      { id: 'history-hall', title: 'History Hall', image: history, alt: 'Ancient ruins with books, maps and a compass', fact: 'Historians use objects, pictures and stories as clues about the past.' },
+      { id: 'nature-lab', title: 'Nature Lab', image: nature, alt: 'A sunny botanical workbench with differently shaped leaves, plants and seeds', fact: 'Leaves can have different shapes, but they all help plants use sunlight.' },
     ]),
   }),
 ]);
