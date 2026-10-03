@@ -228,7 +228,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     setRunStars(stars);
     setNewEpisodeBadge(completion.newlyCompleted);
     onGameEvent?.('math', 'level_complete', { level: episodeIndex, round: rounds.length - 1, seed: runSeed, difficulty: episode.band });
-    if (completion.newlyCompleted || completion.improved) onCelebrate(`${episode.title} complete!`, monsterMathRewardCallbackUnits(stars), 0, 'math');
+    if (completion.awardedStars > 0) onCelebrate(`${episode.title} complete!`, monsterMathRewardCallbackUnits(completion.awardedStars), 0, 'math');
     setFeedback(`${episode.title} complete. You got ${stars} ${stars === 1 ? 'star' : 'stars'} for this run.`);
     playSfx('complete');
     setPhase('done');

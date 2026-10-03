@@ -128,16 +128,20 @@ test('episode completion saves best stars and unlocks the next episode per child
   assert.equal(repeatRun.some((question) => firstRun.some((previous) => previous.id === question.id)), false);
 });
 
-test('Monster Math reward callback awards exactly the run stars saved to progress', () => {
+test('Monster rewards only new best stars, preserves earlier bests and isolates child ledgers', () => {
   const storage = memoryStorage();
   const questions = createMonsterMathRun({ episodeIndex: 0, seed: 90 });
-  for (const runStars of [1, 2, 3]) {
-    const completion = recordMonsterEpisodeCompletion('amari', 0, runStars, questions.map((question) => question.id), storage);
-    assert.equal(completion.progress.bestStars['count-garden'], runStars);
-    // App's scaledCelebrate maps these legacy callback units back to total stars.
-    const awardedStars = Math.max(1, Math.round(monsterMathRewardCallbackUnits(runStars) / 4));
-    assert.equal(awardedStars, runStars);
-  }
+  const ids = questions.map((question) => question.id);
+  const first = recordMonsterEpisodeCompletion('amari', 0, 1, ids, storage);
+  assert.equal(first.awardedStars, 1);
+  const improvement = recordMonsterEpisodeCompletion('amari', 0, 3, ids, storage);
+  assert.equal(improvement.awardedStars, 2);
+  assert.equal(monsterMathRewardCallbackUnits(improvement.awardedStars) / 4, 2);
+  assert.equal(improvement.progress.bestStars['count-garden'], 3);
+  assert.equal(recordMonsterEpisodeCompletion('amari', 0, 3, ids, storage).awardedStars, 0);
+  assert.equal(recordMonsterEpisodeCompletion('amari', 0, 1, ids, storage).awardedStars, 0);
+  assert.equal(getMonsterMathProgress('amari', storage).bestStars['count-garden'], 3);
+  assert.equal(recordMonsterEpisodeCompletion('askia', 0, 3, ids, storage).awardedStars, 3);
 });
 
  test('number lines include the complete counting route before an answer is chosen', () => {

@@ -71,5 +71,5 @@ export const recordMonsterEpisodeCompletion = (playerId, episodeIndex, stars, qu
     unlockedEpisode: Math.max(progress.unlockedEpisode, Math.min(MONSTER_MATH_EPISODES.length - 1, episodeIndex + 1)),
   };
   try { storage?.setItem(keyFor(playerId), JSON.stringify(next)); } catch { /* Keep the current run playable if storage is unavailable. */ }
-  return { progress: next, newlyCompleted: !progress.completedEpisodeIds.includes(episodeId), improved: stars > (progress.bestStars[episodeId] || 0) };
+  return { progress: next, awardedStars: Math.max(0, stars - (progress.bestStars[episodeId] || 0)), newlyCompleted: !progress.completedEpisodeIds.includes(episodeId), improved: stars > (progress.bestStars[episodeId] || 0) };
 };
