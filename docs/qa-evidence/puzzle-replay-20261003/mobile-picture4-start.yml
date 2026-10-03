@@ -1,0 +1,38 @@
+- generic [ref=e407]:
+  - banner [ref=e408]:
+    - button "Back to learning world" [ref=e409] [cursor=pointer]
+    - generic [ref=e413]:
+      - heading "Puzzle Pop" [level=1] [ref=e414]
+      - paragraph [ref=e439]: Picture Pioneers · Picture 4 of 4 · Moon Camp
+    - button "Turn sound off" [ref=e415] [cursor=pointer]
+  - main [ref=e420]:
+    - complementary [ref=e440]:
+      - generic [ref=e441]:
+        - generic [ref=e442]: Picture preview
+        - generic [ref=e446]: 2×2
+      - 'img "Completed picture preview: A friendly dinosaur exploring a moon camp" [ref=e557]'
+      - paragraph [ref=e448]: Match big picture pieces and spot the main shapes.
+      - button "Hear again" [ref=e449] [cursor=pointer]
+      - generic "Chapter progress" [ref=e455]:
+        - generic "Picture 1, completed before" [ref=e483]: "1"
+        - generic "Picture 2, completed before" [ref=e515]: "2"
+        - generic "Picture 3, completed before" [ref=e547]: "3"
+        - generic "Picture 4" [ref=e459]: "4"
+    - generic [ref=e460]:
+      - paragraph [ref=e461]: Picture 4 of 4. Moon Camp.
+      - generic "2 by 2 puzzle board" [ref=e558]:
+        - button "Puzzle space 1" [ref=e559] [cursor=pointer]
+        - button "Puzzle space 2" [ref=e560] [cursor=pointer]
+        - button "Puzzle space 3" [ref=e561] [cursor=pointer]
+        - button "Puzzle space 4" [ref=e562] [cursor=pointer]
+      - generic [ref=e563]:
+        - generic [ref=e564]:
+          - paragraph [ref=e565]:
+            - text: Picture pieces
+            - generic [ref=e566]: (4 left · 0 moves)
+          - button "Hint" [ref=e567] [cursor=pointer]
+        - generic "Picture piece tray" [ref=e570]:
+          - button "Choose piece 2" [ref=e571] [cursor=pointer]
+          - button "Choose piece 4" [ref=e573] [cursor=pointer]
+          - button "Choose piece 1" [ref=e575] [cursor=pointer]
+          - button "Choose piece 3" [ref=e577] [cursor=pointer]

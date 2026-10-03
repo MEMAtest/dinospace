@@ -1,0 +1,38 @@
+- generic [ref=e1037]:
+  - banner [ref=e1038]:
+    - button "Back to learning world" [ref=e1039] [cursor=pointer]
+    - generic [ref=e1043]:
+      - heading "Puzzle Pop" [level=1] [ref=e1044]
+      - paragraph [ref=e1069]: Picture Pioneers · Picture 1 of 4 · Dino Park Picnic
+    - button "Turn sound off" [ref=e1045] [cursor=pointer]
+  - main [ref=e1050]:
+    - complementary [ref=e1070]:
+      - generic [ref=e1071]:
+        - generic [ref=e1072]: Picture preview
+        - generic [ref=e1076]: 2×2
+      - 'img "Completed picture preview: Friendly dinosaurs enjoying a sunny park" [ref=e1077]'
+      - paragraph [ref=e1078]: Match big picture pieces and spot the main shapes.
+      - button "Hear instructions again" [ref=e1079] [cursor=pointer]
+      - generic "Chapter progress" [ref=e1085]:
+        - generic "Picture 1" [ref=e1086]: "1"
+        - generic "Picture 2" [ref=e1087]: "2"
+        - generic "Picture 3" [ref=e1088]: "3"
+        - generic "Picture 4" [ref=e1089]: "4"
+    - generic [ref=e1090]:
+      - paragraph [ref=e1091]: Look at the Dino Park Picnic preview. Choose a piece to begin.
+      - generic "2 by 2 puzzle board" [ref=e1092]:
+        - button "Puzzle space 1" [ref=e1093] [cursor=pointer]
+        - button "Puzzle space 2" [ref=e1094] [cursor=pointer]
+        - button "Puzzle space 3" [ref=e1095] [cursor=pointer]
+        - button "Puzzle space 4" [ref=e1096] [cursor=pointer]
+      - generic [ref=e1097]:
+        - generic [ref=e1098]:
+          - paragraph [ref=e1099]:
+            - text: Picture pieces
+            - generic [ref=e1100]: (4 left · 0 moves)
+          - button "Hint" [ref=e1101] [cursor=pointer]
+        - generic "Picture piece tray" [ref=e1104]:
+          - button "Choose piece 1" [ref=e1105] [cursor=pointer]
+          - button "Choose piece 3" [ref=e1107] [cursor=pointer]
+          - button "Choose piece 2" [ref=e1109] [cursor=pointer]
+          - button "Choose piece 4" [ref=e1111] [cursor=pointer]

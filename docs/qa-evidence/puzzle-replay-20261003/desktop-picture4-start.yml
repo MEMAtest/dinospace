@@ -1,0 +1,38 @@
+- generic [ref=e1037]:
+  - banner [ref=e1038]:
+    - button "Back to learning world" [ref=e1039] [cursor=pointer]
+    - generic [ref=e1043]:
+      - heading "Puzzle Pop" [level=1] [ref=e1044]
+      - paragraph [ref=e1069]: Picture Pioneers · Picture 4 of 4 · Robin’s Tree
+    - button "Turn sound off" [ref=e1045] [cursor=pointer]
+  - main [ref=e1050]:
+    - complementary [ref=e1070]:
+      - generic [ref=e1071]:
+        - generic [ref=e1072]: Picture preview
+        - generic [ref=e1076]: 2×2
+      - 'img "Completed picture preview: A robin and woodland details in a green habitat" [ref=e1195]'
+      - paragraph [ref=e1078]: Match big picture pieces and spot the main shapes.
+      - button "Hear instructions again" [ref=e1079] [cursor=pointer]
+      - generic "Chapter progress" [ref=e1085]:
+        - generic "Picture 1, completed before" [ref=e1121]: "1"
+        - generic "Picture 2, completed before" [ref=e1153]: "2"
+        - generic "Picture 3, completed before" [ref=e1185]: "3"
+        - generic "Picture 4" [ref=e1089]: "4"
+    - generic [ref=e1090]:
+      - paragraph [ref=e1091]: Picture 4 of 4. Robin’s Tree.
+      - generic "2 by 2 puzzle board" [ref=e1196]:
+        - button "Puzzle space 1" [ref=e1197] [cursor=pointer]
+        - button "Puzzle space 2" [ref=e1198] [cursor=pointer]
+        - button "Puzzle space 3" [ref=e1199] [cursor=pointer]
+        - button "Puzzle space 4" [ref=e1200] [cursor=pointer]
+      - generic [ref=e1201]:
+        - generic [ref=e1202]:
+          - paragraph [ref=e1203]:
+            - text: Picture pieces
+            - generic [ref=e1204]: (4 left · 0 moves)
+          - button "Hint" [ref=e1205] [cursor=pointer]
+        - generic "Picture piece tray" [ref=e1208]:
+          - button "Choose piece 2" [ref=e1209] [cursor=pointer]
+          - button "Choose piece 1" [ref=e1211] [cursor=pointer]
+          - button "Choose piece 3" [ref=e1213] [cursor=pointer]
+          - button "Choose piece 4" [ref=e1215] [cursor=pointer]

@@ -1,0 +1,276 @@
+{
+  "candidate": {
+    "url": "http://127.0.0.1:5198",
+    "sourceRevision": "6d18cce plus generated manifest checkpoint",
+    "javascript": {
+      "path": "/assets/index-ru9r4zVs.js",
+      "sha256": "24960c1feb0821cc5552bb0c9d81f89373037461c685d2d0e20417efe3083b1f"
+    },
+    "stylesheet": {
+      "path": "/assets/index-CU-OkS6z.css",
+      "sha256": "2613b85082a6ae658aaf50bd961b80106c8249c46da4366c7a7489d3052b9e7e"
+    }
+  },
+  "desktop": {
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "scene": "River Valley",
+    "pictureB": {
+      "x": 656.5,
+      "y": 288,
+      "width": 572.5,
+      "height": 429.375
+    },
+    "targets": [
+      {
+        "label": "Check left middle detail",
+        "centerBefore": {
+          "x": 782.4375,
+          "y": 502.6875
+        },
+        "foundMarkerRectAfter": {
+          "x": 758.4375,
+          "y": 478.6875,
+          "width": 48,
+          "height": 48
+        },
+        "markerCenterAfter": {
+          "x": 782.4375,
+          "y": 502.6875
+        },
+        "centerErrorPx": 0
+      },
+      {
+        "label": "Check right middle detail",
+        "centerBefore": {
+          "x": 1097.3125,
+          "y": 506.96875
+        },
+        "foundMarkerRectAfter": {
+          "x": 1073.3125,
+          "y": 482.96875,
+          "width": 48,
+          "height": 48
+        },
+        "markerCenterAfter": {
+          "x": 1097.3125,
+          "y": 506.96875
+        },
+        "centerErrorPx": 0
+      }
+    ]
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scene": "Superhero City",
+    "pictureBBeforeFirstHit": {
+      "x": 28,
+      "y": 659.25,
+      "width": 319,
+      "height": 239.25
+    },
+    "firstTarget": {
+      "label": "Check right top detail",
+      "buttonRectBefore": {
+        "x": 261.578125,
+        "y": 676.703125,
+        "width": 56,
+        "height": 56
+      },
+      "buttonCenterBefore": {
+        "x": 289.578125,
+        "y": 704.703125
+      },
+      "containerRelativeCenterBefore": {
+        "x": 261.578125,
+        "y": 45.453125
+      },
+      "pictureBAfterFeedback": {
+        "x": 28,
+        "y": 635.25,
+        "width": 319,
+        "height": 239.25
+      },
+      "markerRectAfter": {
+        "x": 265.578125,
+        "y": 656.703125,
+        "width": 48,
+        "height": 48
+      },
+      "markerCenterAfter": {
+        "x": 289.578125,
+        "y": 680.703125
+      },
+      "containerRelativeCenterAfter": {
+        "x": 261.578125,
+        "y": 45.453125
+      },
+      "containerRelativeCenterErrorPx": 0
+    },
+    "secondTarget": {
+      "label": "Check left top detail",
+      "buttonRectBefore": {
+        "x": 54.21875,
+        "y": 674.3125,
+        "width": 56,
+        "height": 56
+      },
+      "buttonCenterBefore": {
+        "x": 82.21875,
+        "y": 702.3125
+      },
+      "containerRelativeCenterBefore": {
+        "x": 54.21875,
+        "y": 43.0625
+      },
+      "markerRectAfter": {
+        "x": 58.21875,
+        "y": 654.3125,
+        "width": 48,
+        "height": 48
+      },
+      "markerCenterAfter": {
+        "x": 82.21875,
+        "y": 678.3125
+      },
+      "containerRelativeCenterAfter": {
+        "x": 54.21875,
+        "y": 43.0625
+      },
+      "containerRelativeCenterErrorPx": 0
+    }
+  },
+  "mobileControls": {
+    "introChapterMap": {
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "documentHeight": 844,
+      "controls": [
+        {
+          "label": "Back to learning world",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "Turn sound off",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "Bright-Eyed Beginners",
+          "width": 310,
+          "height": 76
+        },
+        {
+          "label": "Curious Comparers",
+          "width": 310,
+          "height": 76
+        },
+        {
+          "label": "Super Spotters (disabled/locked)",
+          "width": 310,
+          "height": 76
+        },
+        {
+          "label": "Replay chapter",
+          "width": 219.59375,
+          "height": 56
+        },
+        {
+          "label": "Start chapter (unplayed Curious Comparers intro)",
+          "width": 203.84375,
+          "height": 56
+        }
+      ]
+    },
+    "playing": {
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 375,
+      "documentHeight": 983,
+      "controls": [
+        {
+          "label": "Back to learning world",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "Turn sound off",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "Hear clue",
+          "width": 132.796875,
+          "height": 48
+        },
+        {
+          "label": "Magnifier",
+          "width": 173.359375,
+          "height": 48
+        },
+        {
+          "label": "Picture B search surface",
+          "width": 319,
+          "height": 239.25
+        },
+        {
+          "label": "Each visible hotspot button",
+          "width": 56,
+          "height": 56
+        },
+        {
+          "label": "Some lower hotspot buttons in the stacked picture can fall below the viewport fold; page scrolling is required",
+          "minimumWidth": 56,
+          "minimumHeight": 56
+        }
+      ]
+    },
+    "completed": {
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "documentHeight": 844,
+      "controls": [
+        {
+          "label": "Back to learning world",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "Turn sound off",
+          "width": 48,
+          "height": 48
+        },
+        {
+          "label": "Next chapter",
+          "width": 165.703125,
+          "height": 48
+        },
+        {
+          "label": "Replay chapter",
+          "width": 182.96875,
+          "height": 48
+        }
+      ]
+    }
+  },
+  "scrollAndOverflow": {
+    "mobileGameContentWidth": 375,
+    "mobileViewportWidth": 390,
+    "horizontalOverflowObserved": false,
+    "verticalScrollRequiredDuringPlay": true
+  }
+}

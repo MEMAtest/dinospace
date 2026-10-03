@@ -1,0 +1,21 @@
+- generic [ref=e407]:
+  - banner [ref=e408]:
+    - button "Back to learning world" [ref=e409] [cursor=pointer]
+    - heading "Puzzle Pop" [level=1] [ref=e414]
+    - button "Turn sound off" [ref=e415] [cursor=pointer]
+  - main [ref=e420]:
+    - generic [ref=e421]:
+      - paragraph [aria-hidden] [ref=e422]: 🧩
+      - heading "Twelve pictures. Three puzzle chapters." [level=2] [ref=e423]
+      - paragraph [ref=e424]: Match big picture pieces and spot the main shapes.
+      - generic "Puzzle Pop chapters" [ref=e425]:
+        - button "Picture Pioneers" [pressed] [ref=e426] [cursor=pointer]:
+          - generic [ref=e427]: 1. Picture Pioneers
+          - generic [ref=e428]: 2×2 · 0/4 pictures
+        - button "Curious Constructors, locked" [disabled] [ref=e429]:
+          - generic [ref=e430]: 2. Curious Constructors
+          - generic [ref=e431]: 3×3 · 0/4 pictures · Locked
+        - button "Detail Detectives, locked" [disabled] [ref=e432]:
+          - generic [ref=e433]: 3. Detail Detectives
+          - generic [ref=e434]: 5×5 · 0/4 pictures · Locked
+      - button "Start chapter" [ref=e435] [cursor=pointer]

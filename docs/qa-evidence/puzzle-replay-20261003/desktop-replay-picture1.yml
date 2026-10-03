@@ -1,0 +1,38 @@
+- generic [ref=e2049]:
+  - banner [ref=e2050]:
+    - button "Back to learning world" [ref=e2051] [cursor=pointer]
+    - generic [ref=e2055]:
+      - heading "Puzzle Pop" [level=1] [ref=e2056]
+      - paragraph [ref=e2082]: Picture Pioneers · Picture 1 of 4 · Moon Camp
+    - button "Turn sound off" [ref=e2057] [cursor=pointer]
+  - main [ref=e2062]:
+    - complementary [ref=e2083]:
+      - generic [ref=e2084]:
+        - generic [ref=e2085]: Picture preview
+        - generic [ref=e2089]: 2×2
+      - 'img "Completed picture preview: A friendly dinosaur exploring a moon camp" [ref=e2090]'
+      - paragraph [ref=e2091]: Match big picture pieces and spot the main shapes.
+      - button "Hear instructions again" [ref=e2092] [cursor=pointer]
+      - generic "Chapter progress" [ref=e2098]:
+        - generic "Picture 1, completed before" [ref=e2099]: "1"
+        - generic "Picture 2, completed before" [ref=e2100]: "2"
+        - generic "Picture 3, completed before" [ref=e2101]: "3"
+        - generic "Picture 4, completed before" [ref=e2102]: "4"
+    - generic [ref=e2103]:
+      - paragraph [ref=e2104]: Look at the Moon Camp preview. Choose a piece to begin.
+      - generic "2 by 2 puzzle board" [ref=e2105]:
+        - button "Puzzle space 1" [ref=e2106] [cursor=pointer]
+        - button "Puzzle space 2" [ref=e2107] [cursor=pointer]
+        - button "Puzzle space 3" [ref=e2108] [cursor=pointer]
+        - button "Puzzle space 4" [ref=e2109] [cursor=pointer]
+      - generic [ref=e2110]:
+        - generic [ref=e2111]:
+          - paragraph [ref=e2112]:
+            - text: Picture pieces
+            - generic [ref=e2113]: (4 left · 0 moves)
+          - button "Hint" [ref=e2114] [cursor=pointer]
+        - generic "Picture piece tray" [ref=e2117]:
+          - button "Choose piece 3" [ref=e2118] [cursor=pointer]
+          - button "Choose piece 2" [ref=e2120] [cursor=pointer]
+          - button "Choose piece 4" [ref=e2122] [cursor=pointer]
+          - button "Choose piece 1" [ref=e2124] [cursor=pointer]
