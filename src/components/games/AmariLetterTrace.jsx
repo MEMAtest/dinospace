@@ -4,6 +4,7 @@ import { TRACE_LETTERS } from '../../data/index.js';
 import { makeLearningEvent } from '../../data/literacy.js';
 import {
   completeLetterTraceLevel,
+  AMARI_TRACE_NARRATION,
   findForwardGuidePoint,
   getLetterTraceProgress,
   LETTER_TRACE_LEVELS,
@@ -14,16 +15,7 @@ import {
   traceToleranceForSize,
 } from '../../data/letterTraceLearning.js';
 import { getLetterStrokes } from './LetterTrace.jsx';
-
-export const AMARI_TRACE_NARRATION = Object.freeze([
-  'Follow the dotted path in order. Start at the green number and move toward the arrow.',
-  'Take your time. Lift your finger before you start the next stroke.',
-  'Show me a stroke.',
-  'Try that stroke again. Begin at the green number and follow the arrows.',
-  'You followed the letter. Great tracing!',
-  'That is the word. You traced the letter and matched its first sound.',
-  'The word starts with this letter sound.',
-]);
+export { AMARI_TRACE_NARRATION } from '../../data/letterTraceLearning.js';
 
 const getSeed = () => {
   if (globalThis.crypto?.getRandomValues) {
@@ -65,7 +57,9 @@ const AmariLetterTrace = ({
   const [traceProgress, setTraceProgress] = useState(0);
   const [traceReady, setTraceReady] = useState(false);
   const [hintUsed, setHintUsed] = useState(false);
+  const [hintCount, setHintCount] = useState(0);
   const [firstTry, setFirstTry] = useState(true);
+  const [hadIncorrectResponse, setHadIncorrectResponse] = useState(false);
   const [feedback, setFeedback] = useState(AMARI_TRACE_NARRATION[0]);
   const [roundPassed, setRoundPassed] = useState(false);
   const [wordChoices, setWordChoices] = useState([]);
@@ -104,7 +98,9 @@ const AmariLetterTrace = ({
     setTraceProgress(0);
     setTraceReady(false);
     setHintUsed(false);
+    setHintCount(0);
     setFirstTry(true);
+    setHadIncorrectResponse(false);
     setRoundPassed(false);
     setSelectedWord(null);
     setError('');
@@ -248,6 +244,7 @@ const AmariLetterTrace = ({
     } else {
       strokeStateRef.current.off += distance;
       setFirstTry(false);
+      setHadIncorrectResponse(true);
       setFeedback('That bit wandered off the path. Try the same stroke again.');
     }
     strokeStateRef.current.paths[strokeIndex] ||= [last];
@@ -273,6 +270,7 @@ const AmariLetterTrace = ({
     const rect = canvasRef.current.getBoundingClientRect();
     if (Math.hypot(point.x - anchor.x, point.y - anchor.y) > traceToleranceForSize(rect.width, rect.height, level)) {
       setFirstTry(false);
+      setHadIncorrectResponse(true);
       setFeedback(`Begin this stroke at the green ${index + 1}.`);
       return;
     }
@@ -303,6 +301,7 @@ const AmariLetterTrace = ({
       setFeedback(strokeStateRef.current.completed < guideRef.current.length ? 'Stroke done. Lift, then start at the next green number.' : 'All strokes are ready. Check your shape.');
     } else if (stroke) {
       setFirstTry(false);
+      setHadIncorrectResponse(true);
       setFeedback(`Nice try. Start this stroke again at green ${activeIndex + 1}.`);
     }
     pointerRef.current = { active: false, id: null, last: null };
@@ -361,7 +360,8 @@ const AmariLetterTrace = ({
     if (roundPassed) return;
     setRoundPassed(true);
     setSelectedWord(word);
-    const nowFirstTry = firstTry && !hintUsed && !keyboardMode;
+    const firstAttempt = !hadIncorrectResponse;
+    const nowFirstTry = firstAttempt && firstTry && !hintUsed && !keyboardMode;
     const resultText = level === 2 ? AMARI_TRACE_NARRATION[5] : AMARI_TRACE_NARRATION[4];
     setFeedback(resultText);
     say(resultText);
@@ -376,12 +376,12 @@ const AmariLetterTrace = ({
       item: level === 2 ? word?.word : traceLetter,
       response: keyboardMode ? 'keyboard-guide' : hintUsed ? 'guided-pointer-trace' : 'pointer-trace',
       correct: true,
-      firstTry: nowFirstTry,
-      hints: hintUsed ? 1 : 0,
+      firstTry: firstAttempt,
+      hints: hintCount,
       difficulty: ['starter', 'growing', 'challenge'][level],
-      extra: { level, round: roundIndex, seed: run.seed, handwritingMastery: Boolean(award.newlyMastered && nowFirstTry), keyboardAlternative: keyboardMode },
+      extra: { level, round: roundIndex, seed: run.seed, unassistedFirstTry: nowFirstTry, handwritingMastery: Boolean(award.newlyMastered && nowFirstTry), keyboardAlternative: keyboardMode },
     }));
-    onGameEvent?.('trace', 'answer_correct', { firstAttempt: nowFirstTry, level, round: roundIndex, seed: run.seed, difficulty: ['starter', 'growing', 'challenge'][level] });
+    onGameEvent?.('trace', 'answer_correct', { firstAttempt, hints: hintCount, keyboardAlternative: keyboardMode, level, round: roundIndex, seed: run.seed, difficulty: ['starter', 'growing', 'challenge'][level] });
   };
 
   const checkTrace = () => {
@@ -400,6 +400,7 @@ const AmariLetterTrace = ({
     const correct = word.word === letter.word?.word;
     if (!correct) {
       setFirstTry(false);
+      setHadIncorrectResponse(true);
       setFeedback('That word starts with a different sound. Look at the first letter and try again.');
       playSfx('oops');
       onGameEvent?.('trace', 'answer_attempt', { firstAttempt: false, level, round: roundIndex, seed: run.seed });
@@ -411,10 +412,11 @@ const AmariLetterTrace = ({
   const showHint = () => {
     if (roundPassed) return;
     setHintUsed(true);
+    setHintCount((count) => count + 1);
     setFirstTry(false);
     setShowGuide(true);
     setFeedback(AMARI_TRACE_NARRATION[2]);
-    onGameEvent?.('trace', 'hint', { level, round: roundIndex, seed: run.seed, hintType: 'next_piece' });
+    onGameEvent?.('trace', 'hint', { level, round: roundIndex, seed: run.seed, hintType: 'next_piece', hints: hintCount + 1 });
     say(AMARI_TRACE_NARRATION[2]);
     playSfx('sparkle');
     drawGuide();

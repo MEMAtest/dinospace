@@ -5,6 +5,32 @@ export const COSMIC_CHAPTERS = Object.freeze([
 ]);
 export const COSMIC_BOARDS_PER_CHAPTER = 3;
 export const COSMIC_PROGRESS_KEY = 'amari_cosmic_tactics_v1';
+export const COSMIC_TACTIC_NARRATION = Object.freeze([
+  'Two in a row can make a line. Find the empty square that finishes it.',
+  'Rocket has two in a row. Put your mark in the last square to block the line.',
+  'A fork makes two ways to win on the next turn. Look for a square that starts both paths.',
+  'That move shows the tactic. Look at the line or paths you made.',
+  'Not that square yet. Look for the glowing lesson clue or reset and try again.',
+  'Your turn. Make a line across, down, or diagonally.',
+  'The board is full. That is a draw. Try a new board.',
+  'A row needs three marks. You can reset and try another plan.',
+  'Dino made a line of three!',
+  'Rocket made a line of three. Try a new plan.',
+  'Three Dino marks now make a line.',
+  'Your Dino mark fills the square Rocket needed to complete the line.',
+  'That mark opens two different winning squares for your next turn.',
+]);
+
+export const getCosmicRunMissionIds = (completedMissionIds = [], replay = false) => {
+  const completed = new Set(Array.isArray(completedMissionIds) ? completedMissionIds : []);
+  const remaining = Array.from({ length: COSMIC_BOARDS_PER_CHAPTER }, (_, missionId) => missionId).filter((missionId) => !completed.has(missionId));
+  return replay || remaining.length === 0 ? Array.from({ length: COSMIC_BOARDS_PER_CHAPTER }, (_, missionId) => missionId) : remaining;
+};
+
+export const getNextCosmicRunStep = (runMissionIds, currentStep) => {
+  if (!Array.isArray(runMissionIds) || !Number.isInteger(currentStep) || currentStep < 0 || currentStep >= runMissionIds.length - 1) return null;
+  return currentStep + 1;
+};
 
 export const WIN_LINES = Object.freeze([
   [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6],
@@ -124,13 +150,18 @@ const parseProgress = (storage) => {
 export const getCosmicProgress = (playerId = 'amari', storage = globalThis.localStorage) => {
   const saved = parseProgress(storage)[playerId] || {};
   const rawMissions = Array.isArray(saved.completedMissionIds) ? saved.completedMissionIds : [];
-  const completedMissionIds = COSMIC_CHAPTERS.map((_, index) => [...new Set((Array.isArray(rawMissions[index]) ? rawMissions[index] : []).filter((mission) => Number.isInteger(mission) && mission >= 0 && mission < COSMIC_BOARDS_PER_CHAPTER))]);
-  const completedByChapter = completedMissionIds.map((missions) => missions.length);
+  const completedMissionIds = [];
   let unlocked = 0;
-  for (let level = 0; level < COSMIC_CHAPTERS.length - 1; level += 1) {
-    if (completedByChapter[level] < COSMIC_BOARDS_PER_CHAPTER) break;
-    unlocked = level + 1;
+  for (let index = 0; index < COSMIC_CHAPTERS.length; index += 1) {
+    if (index > unlocked) {
+      completedMissionIds.push([]);
+      continue;
+    }
+    const missions = [...new Set((Array.isArray(rawMissions[index]) ? rawMissions[index] : []).filter((mission) => Number.isInteger(mission) && mission >= 0 && mission < COSMIC_BOARDS_PER_CHAPTER))];
+    completedMissionIds.push(missions);
+    if (missions.length === COSMIC_BOARDS_PER_CHAPTER && index < COSMIC_CHAPTERS.length - 1) unlocked = index + 1;
   }
+  const completedByChapter = completedMissionIds.map((missions) => missions.length);
   const badges = COSMIC_CHAPTERS.filter((_, index) => completedByChapter[index] >= COSMIC_BOARDS_PER_CHAPTER).map((chapter) => chapter.id);
   return { unlocked, completedByChapter, completedMissionIds, badges };
 };

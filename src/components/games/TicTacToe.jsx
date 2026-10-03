@@ -7,26 +7,15 @@ import {
   completeCosmicTactic,
   COSMIC_BOARDS_PER_CHAPTER,
   COSMIC_CHAPTERS,
+  COSMIC_TACTIC_NARRATION,
   getBoardResult,
   getCosmicProgress,
+  getCosmicRunMissionIds,
+  getNextCosmicRunStep,
   makeTacticScenario,
 } from '../../data/cosmicTactics.js';
+export { COSMIC_TACTIC_NARRATION } from '../../data/cosmicTactics.js';
 
-export const COSMIC_TACTIC_NARRATION = Object.freeze([
-  'Two in a row can make a line. Find the empty square that finishes it.',
-  'Rocket has two in a row. Put your mark in the last square to block the line.',
-  'A fork makes two ways to win on the next turn. Look for a square that starts both paths.',
-  'That move shows the tactic. Look at the line or paths you made.',
-  'Not that square yet. Look for the glowing lesson clue or reset and try again.',
-  'Your turn. Make a line across, down, or diagonally.',
-  'The board is full. That is a draw. Try a new board.',
-  'A row needs three marks. You can reset and try another plan.',
-  'Dino made a line of three!',
-  'Rocket made a line of three. Try a new plan.',
-  'Three Dino marks now make a line.',
-  'Your Dino mark fills the square Rocket needed to complete the line.',
-  'That mark opens two different winning squares for your next turn.',
-]);
 
 const MARK = Object.freeze({ X: { name: 'Dino', emoji: '🦖', color: 'text-lime-300' }, O: { name: 'Rocket', emoji: '🚀', color: 'text-cyan-300' } });
 const PLAYER_MARK = 'X';
@@ -61,11 +50,14 @@ const TicTacToe = ({
   const [difficulty, setDifficulty] = useState('scout');
   const [seed, setSeed] = useState(getSeed);
   const [missionIndex, setMissionIndex] = useState(0);
+  const [missionRunIds, setMissionRunIds] = useState([0, 1, 2]);
+  const [missionRunStep, setMissionRunStep] = useState(0);
   const [board, setBoard] = useState(() => Array(9).fill(null));
   const [turn, setTurn] = useState(PLAYER_MARK);
   const [missionTarget, setMissionTarget] = useState(null);
   const [hintCell, setHintCell] = useState(null);
   const [hintUsed, setHintUsed] = useState(false);
+  const [hintCount, setHintCount] = useState(0);
   const [hadMistake, setHadMistake] = useState(false);
   const [missionSolved, setMissionSolved] = useState(false);
   const [missionWrong, setMissionWrong] = useState(false);
@@ -93,8 +85,8 @@ const TicTacToe = ({
   const startMission = (requestedChapter = chapterIndex, replay = false) => {
     const saved = getCosmicProgress(playerId);
     if (!replay && requestedChapter > saved.unlocked) return;
-    const count = saved.completedByChapter[requestedChapter] || 0;
-    const nextMissionIndex = replay ? 0 : Math.min(COSMIC_BOARDS_PER_CHAPTER - 1, count);
+    const runMissionIds = getCosmicRunMissionIds(saved.completedMissionIds[requestedChapter], replay);
+    const nextMissionIndex = runMissionIds[0];
     const nextSeed = getSeed();
     const scenario = makeTacticScenario({ level: requestedChapter, seed: nextSeed, round: nextMissionIndex });
     clearTimeout(botTimerRef.current);
@@ -104,11 +96,14 @@ const TicTacToe = ({
     setActivity('mission');
     setSeed(nextSeed);
     setMissionIndex(nextMissionIndex);
+    setMissionRunIds(runMissionIds);
+    setMissionRunStep(0);
     setBoard(scenario.board);
     setMissionTarget(scenario.target);
     setTurn('X');
     setHintCell(null);
     setHintUsed(false);
+    setHintCount(0);
     setHadMistake(false);
     setMissionSolved(false);
     setMissionWrong(false);
@@ -187,7 +182,7 @@ const TicTacToe = ({
       lastAwardRef.current = id;
       const awarded = completeCosmicTactic({ playerId, level: chapterIndex, missionId: missionIndex });
       setProgress(getCosmicProgress(playerId));
-      onGameEvent?.('tictactoe', 'tactic_completed', { level: chapterIndex, round: missionIndex, seed, tactic: chapter.tactic, firstAttempt: !hintUsed && !hadMistake });
+      onGameEvent?.('tictactoe', 'tactic_completed', { level: chapterIndex, round: missionIndex, seed, tactic: chapter.tactic, firstAttempt: !hadMistake, hints: hintCount });
       if (awarded.newlyCompleted) onCelebrate(`${chapter.title} tactic learned!`, 4, 250, 'tictactoe');
       if (awarded.newlyAwardedBadge) onCelebrate(`${chapter.title} badge earned!`, 4, 250, 'tictactoe');
     }
@@ -219,7 +214,7 @@ const TicTacToe = ({
   const showHint = () => {
     if (phase !== 'play' || activity !== 'mission' || missionSolved) return;
     setHintUsed(true);
-    setHadMistake(true);
+    setHintCount((count) => count + 1);
     setHintCell(missionTarget);
     setFeedback(chapter.tactic === 'win'
       ? 'Look where two Dino marks already share a line.'
@@ -227,7 +222,7 @@ const TicTacToe = ({
         ? 'Follow Rocket’s two marks to the one empty square in their line.'
         : 'Look for a move that leaves two different places to win next.');
     say(chapter.instruction);
-    onGameEvent?.('tictactoe', 'hint', { level: chapterIndex, round: missionIndex, seed, hintType: 'lesson' });
+    onGameEvent?.('tictactoe', 'hint', { level: chapterIndex, round: missionIndex, seed, hintType: 'lesson', hints: hintCount + 1 });
     playSfx('sparkle');
   };
 
@@ -246,12 +241,32 @@ const TicTacToe = ({
   const nextMission = () => {
     const updated = getCosmicProgress(playerId);
     setProgress(updated);
-    if (updated.completedByChapter[chapterIndex] >= COSMIC_BOARDS_PER_CHAPTER) {
+    const nextStep = getNextCosmicRunStep(missionRunIds, missionRunStep);
+    if (nextStep === null) {
       setPhase('complete');
       setFeedback('The chapter badge is saved. The explanation stays here until you choose what comes next.');
       return;
     }
-    startMission(chapterIndex);
+    const nextMissionIndex = missionRunIds[nextStep];
+    const scenario = makeTacticScenario({ level: chapterIndex, seed, round: nextMissionIndex });
+    clearTimeout(botTimerRef.current);
+    completedResultRef.current = '';
+    lastAwardRef.current = '';
+    setMissionRunStep(nextStep);
+    setMissionIndex(nextMissionIndex);
+    setBoard(scenario.board);
+    setMissionTarget(scenario.target);
+    setTurn('X');
+    setHintCell(null);
+    setHintUsed(false);
+    setHintCount(0);
+    setHadMistake(false);
+    setMissionSolved(false);
+    setMissionWrong(false);
+    setFeedback(chapter.instruction);
+    onGameEvent?.('tictactoe', 'question', { level: chapterIndex, round: nextMissionIndex, seed, difficulty: ['starter', 'growing', 'challenge'][chapterIndex] });
+    say(chapter.instruction);
+    playSfx('launch');
   };
 
   const resetFreeBoard = () => {
@@ -347,7 +362,7 @@ const TicTacToe = ({
       <div className="mx-auto w-full max-w-xl rounded-2xl border border-cyan-100/20 bg-white/10 p-4 text-center">
         <p className="min-h-14 text-lg font-bold" aria-live="polite">{feedback}</p>
         {missionWrong && <button type="button" onClick={retryMission} className="mt-2 min-h-12 rounded-xl bg-white px-5 font-black text-slate-950"><RotateCcw className="mr-2 inline" size={18} />Retry this board</button>}
-        {missionSolved && <div className="mt-2 grid gap-3"><p className="font-black text-lime-100">Tactic solved. The explanation is held until you choose to continue.</p><button type="button" onClick={nextMission} className="min-h-12 rounded-xl bg-lime-300 px-5 font-black text-slate-950">{progress.completedByChapter[chapterIndex] >= COSMIC_BOARDS_PER_CHAPTER ? 'Finish chapter' : 'Next tactic board'}</button></div>}
+        {missionSolved && <div className="mt-2 grid gap-3"><p className="font-black text-lime-100">Tactic solved. The explanation is held until you choose to continue.</p><button type="button" onClick={nextMission} className="min-h-12 rounded-xl bg-lime-300 px-5 font-black text-slate-950">{missionRunStep >= missionRunIds.length - 1 ? 'Finish chapter' : 'Next tactic board'}</button></div>}
       </div>
       <button type="button" onClick={() => setPhase('map')} className="mx-auto min-h-12 rounded-xl bg-white/10 px-5 font-black">Chapter map</button>
     </main>

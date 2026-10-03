@@ -1,5 +1,15 @@
 import { PHASE_WORDS, getTaughtGraphemes, isDecodableWith } from './literacy.js';
 
+export const AMARI_TRACE_NARRATION = Object.freeze([
+  'Follow the dotted path in order. Start at the green number and move toward the arrow.',
+  'Take your time. Lift your finger before you start the next stroke.',
+  'Show me a stroke.',
+  'Try that stroke again. Begin at the green number and follow the arrows.',
+  'You followed the letter. Great tracing!',
+  'That is the word. You traced the letter and matched its first sound.',
+  'The word starts with this letter sound.',
+]);
+
 export const LETTER_TRACE_LEVELS = Object.freeze([
   { id: 'follow-path', title: 'Follow the path', prompt: 'Trace eight big letters, one careful stroke at a time.', caseMode: 'upper' },
   { id: 'big-and-little', title: 'Big and little', prompt: 'Trace eight letters in big and little forms.', caseMode: 'paired' },

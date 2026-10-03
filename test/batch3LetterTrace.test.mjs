@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   completeLetterTraceLevel,
+  AMARI_TRACE_NARRATION,
   findForwardGuidePoint,
   getLetterTraceProgress,
   getLetterTraceShelfBadgeIds,
@@ -19,6 +20,7 @@ const memoryStorage = () => {
 };
 
 test('each chapter builds eight deterministic unique taught-letter rounds', () => {
+  assert.ok(AMARI_TRACE_NARRATION.length >= 1);
   const taught = new Set(['a', 's', 't', 'p', 'i', 'n', 'm', 'd', 'g', 'o', 'c', 'k']);
   for (const level of [0, 1, 2]) {
     const run = makeLetterTraceRun({ seed: 9041, level, taught });

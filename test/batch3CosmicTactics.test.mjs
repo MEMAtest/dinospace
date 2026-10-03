@@ -7,6 +7,8 @@ import {
   COSMIC_PROGRESS_KEY,
   findForkMoves,
   findImmediateMoves,
+  getCosmicRunMissionIds,
+  getNextCosmicRunStep,
   getBoardResult,
   getCosmicProgress,
   legalTicMoves,
@@ -89,4 +91,29 @@ test('chapter completion-only progress is isolated by player and bounded to thre
   assert.equal(completeCosmicTactic({ playerId: 'amari', level: 2, missionId: 0, storage }).invalid, true);
   assert.equal(getCosmicProgress('askia', storage).completedByChapter[0], 0);
   assert.ok(storage.values.has(COSMIC_PROGRESS_KEY));
+});
+
+test('chapter replay runs all three distinct boards with one seed; resumed runs select only missing boards', () => {
+  assert.deepEqual(getCosmicRunMissionIds([0], false), [1, 2]);
+  assert.deepEqual(getCosmicRunMissionIds([0, 1, 2], false), [0, 1, 2]);
+  assert.deepEqual(getCosmicRunMissionIds([0, 1, 2], true), [0, 1, 2]);
+  const runIds = getCosmicRunMissionIds([0, 1, 2], true);
+  assert.equal(getNextCosmicRunStep(runIds, 0), 1);
+  assert.equal(getNextCosmicRunStep(runIds, 1), 2);
+  assert.equal(getNextCosmicRunStep(runIds, 2), null);
+  const layouts = runIds.map((round) => makeTacticScenario({ level: 0, seed: 2468, round }).board.map((mark) => mark || '-').join(''));
+  assert.equal(new Set(layouts).size, 3);
+});
+
+test('orphan future chapter missions and badges are removed until prior chapter completion', () => {
+  const storage = memoryStorage();
+  storage.setItem(COSMIC_PROGRESS_KEY, JSON.stringify({ amari: {
+    completedMissionIds: [[0, 1], [0, 1, 2], [0, 1, 2]],
+    badges: ['make-a-line', 'block-the-rocket', 'find-a-fork'],
+  } }));
+  const progress = getCosmicProgress('amari', storage);
+  assert.deepEqual(progress.completedMissionIds, [[0, 1], [], []]);
+  assert.deepEqual(progress.completedByChapter, [2, 0, 0]);
+  assert.deepEqual(progress.badges, []);
+  assert.equal(progress.unlocked, 0);
 });
