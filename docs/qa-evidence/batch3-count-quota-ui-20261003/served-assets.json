@@ -1,0 +1,50 @@
+{
+  "sourceSha": "653633f73cd97fcd297c592e1139c17ddb0b3855",
+  "url": "http://127.0.0.1:5219",
+  "verifiedAt": "2026-10-03",
+  "assets": [
+    {
+      "path": "/assets/AmariCountTheStars-CWp1lO2n.js",
+      "status": 200,
+      "expectedSha256": "46f8f00b8eb6ce10cd907536119d83539438450107bd796d31345d66dcca40e6",
+      "actualSha256": "46f8f00b8eb6ce10cd907536119d83539438450107bd796d31345d66dcca40e6",
+      "match": true
+    },
+    {
+      "path": "/assets/AmariLetterTrace-kmFnfBK-.js",
+      "status": 200,
+      "expectedSha256": "a91860c35ba954d0d8ebe73fef36fbf99a1d454a7150a4e2c1effcf611f7b3c3",
+      "actualSha256": "a91860c35ba954d0d8ebe73fef36fbf99a1d454a7150a4e2c1effcf611f7b3c3",
+      "match": true
+    },
+    {
+      "path": "/assets/SolarSystem-DPMLn1IN.js",
+      "status": 200,
+      "expectedSha256": "20ae7066a7c8bf53667a17a8bae9978dfd7229fd674c236346a6e61d4c9048cf",
+      "actualSha256": "20ae7066a7c8bf53667a17a8bae9978dfd7229fd674c236346a6e61d4c9048cf",
+      "match": true
+    },
+    {
+      "path": "/assets/index-BhTsQrK7.js",
+      "status": 200,
+      "expectedSha256": "d94c784b1e537b39799a0171324dcd4b188e592d35ef1df3d693682f2432e26f",
+      "actualSha256": "d94c784b1e537b39799a0171324dcd4b188e592d35ef1df3d693682f2432e26f",
+      "match": true
+    },
+    {
+      "path": "/assets/index-CohPvEcn.css",
+      "status": 200,
+      "expectedSha256": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "actualSha256": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "match": true
+    },
+    {
+      "path": "/assets/web-iudCZ0Jb.js",
+      "status": 200,
+      "expectedSha256": "6e5ddd921a62127e728eadd40160e37c590de9df0c8c5a29860f975ebf7cdfc8",
+      "actualSha256": "6e5ddd921a62127e728eadd40160e37c590de9df0c8c5a29860f975ebf7cdfc8",
+      "match": true
+    }
+  ],
+  "allMatch": true
+}
