@@ -21,7 +21,7 @@ const heart = (id) => polygon(Array.from({ length: 48 }, (_, index) => {
 
 const SKY_EPISODES = Object.freeze([
   Object.freeze({
-    id: 'cloud-meadow', title: 'Cloud Meadow', subtitle: 'Fly around one clear outline at a time.', band: 'starter',
+    id: 'cloud-meadow', title: 'Cloud Meadow', subtitle: 'Fly around one clear outline at a time.', band: 'starter', objective: 'Learning goal: follow one smooth or straight outline from start to finish.',
     missions: Object.freeze([
       Object.freeze({ id: 'sky-circle', name: 'Round Sun', icon: '☀️', shape: 'circle', paths: Object.freeze([circle(500, 330, 205, 'sun-edge')]) }),
       Object.freeze({ id: 'sky-triangle', name: 'Mountain Peak', icon: '⛰️', shape: 'triangle', paths: Object.freeze([polygon([[500, 120], [735, 535], [265, 535]], 'mountain-edge')]) }),
@@ -30,7 +30,7 @@ const SKY_EPISODES = Object.freeze([
     ]),
   }),
   Object.freeze({
-    id: 'rainbow-ridge', title: 'Rainbow Ridge', subtitle: 'Trace familiar shapes with more corners and curves.', band: 'growing',
+    id: 'rainbow-ridge', title: 'Rainbow Ridge', subtitle: 'Trace familiar shapes with more corners and curves.', band: 'growing', objective: 'Learning goal: slow down at corners and follow curves without cutting across them.',
     missions: Object.freeze([
       Object.freeze({ id: 'sky-heart', name: 'Heart Balloon', icon: '💛', shape: 'heart', paths: Object.freeze([heart('heart-edge')]) }),
       Object.freeze({ id: 'sky-star', name: 'Bright Star', icon: '⭐', shape: 'star', paths: Object.freeze([star(500, 330, 230, 100, 'star-edge')]) }),
@@ -45,7 +45,7 @@ const SKY_EPISODES = Object.freeze([
     ]),
   }),
   Object.freeze({
-    id: 'aurora-station', title: 'Aurora Station', subtitle: 'Put several outlines together to guide each flying machine.', band: 'challenge',
+    id: 'aurora-station', title: 'Aurora Station', subtitle: 'Put several outlines together to guide each flying machine.', band: 'challenge', objective: 'Learning goal: finish each numbered part before starting the next one.',
     missions: Object.freeze([
       Object.freeze({ id: 'sky-rocket', name: 'Rocket Ship', icon: '🚀', shape: 'rocket', paths: Object.freeze([
         polygon([[500, 95], [620, 265], [620, 430], [570, 485], [430, 485], [380, 430], [380, 265]], 'rocket-body'),
@@ -77,6 +77,20 @@ const SKY_EPISODES = Object.freeze([
 ]);
 
 export const SKY_SHAPE_EPISODES = SKY_EPISODES;
+export const SKY_SHAPE_TEACHING = Object.freeze({
+  'sky-circle': Object.freeze({ strategy: 'Keep the jet moving gently around the round path until it meets the red dot.', explanation: 'A circle is one smooth curve. It has no corners.' }),
+  'sky-triangle': Object.freeze({ strategy: 'Follow one straight side, pause at each corner, then turn along the next side.', explanation: 'A triangle has 3 straight sides and 3 corners.' }),
+  'sky-square': Object.freeze({ strategy: 'Trace one straight side at a time. Turn at each corner and keep the sides even.', explanation: 'A square has 4 equal straight sides and 4 corners.' }),
+  'sky-diamond': Object.freeze({ strategy: 'Trace each sloping side and make a clear turn at every corner.', explanation: 'A diamond has 4 straight sides and 4 corners. Its points sit at the top, bottom, and sides.' }),
+  'sky-heart': Object.freeze({ strategy: 'Move slowly around the curves. Change direction gently where the two top bumps meet.', explanation: 'A heart outline has two rounded bumps and a pointed bottom.' }),
+  'sky-star': Object.freeze({ strategy: 'Follow the edge out to a point, then in to a corner. Slow down at each turn.', explanation: 'This star has 5 outer points and 5 inward corners.' }),
+  'sky-house': Object.freeze({ strategy: 'Finish the outside roof and walls first. Then trace the door, marked 2.', explanation: 'The house is made from an outside outline and a separate door. The numbers show the order.' }),
+  'sky-cloud': Object.freeze({ strategy: 'Follow the puffy edge with small, steady movements. Round each bump instead of cutting across it.', explanation: 'A cloud edge is made from connected curves, with no sharp corners.' }),
+  'sky-rocket': Object.freeze({ strategy: 'Trace the body first. Then do each fin and the round window, following the numbers.', explanation: 'The rocket is built from 4 parts: body, two fins, and a round window.' }),
+  'sky-airplane': Object.freeze({ strategy: 'Follow each numbered line from its green start to its red finish. Lift your finger between parts.', explanation: 'The airplane uses 3 separate lines for its body, main wings, and tail wings.' }),
+  'sky-castle': Object.freeze({ strategy: 'Take one numbered part at a time. Pause at corners and lift between parts.', explanation: 'The castle has 6 parts: a wall, two towers, two roofs, and a door.' }),
+  'sky-observatory': Object.freeze({ strategy: 'Trace each numbered part in order. Use smooth moves for the round domes and careful turns for straight edges.', explanation: 'The observatory has a base, a roof, a dome, and a separate moon.' }),
+});
 export const SKY_SHAPE_MISSIONS = Object.freeze(SKY_EPISODES.flatMap((episode, episodeIndex) => episode.missions.map((mission, missionIndex) => Object.freeze({
   ...mission,
   episodeId: episode.id,

@@ -3,7 +3,7 @@ import { ArrowLeft, Check, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import { skyShapeNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
 import {
-  SKY_SHAPE_EPISODES, SKY_SHAPE_MISSION_BY_ID, createSkyRunSeed, skyAccuracyStars, skyMissionQueueForEpisode, tracePointsForOutline,
+  SKY_SHAPE_EPISODES, SKY_SHAPE_MISSION_BY_ID, SKY_SHAPE_TEACHING, createSkyRunSeed, skyAccuracyStars, skyMissionQueueForEpisode, tracePointsForOutline,
   skyLearningAttemptDetail, skyTraceProgressPercent,
 } from '../../data/skyShapes.js';
 import {
@@ -452,6 +452,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
           <div><p className="text-xs font-black uppercase tracking-widest text-sky-200">Mission {roundIndex + 1} · {episode.band}</p><p className="text-lg font-black sm:text-xl">{mission?.icon} Trace each outline part in order · {completedPaths.length}/{totalPathCount}</p></div>
           <p className="rounded-full bg-white/15 px-3 py-1 text-sm font-black">{progress.completedMissionIds.filter((id) => SKY_SHAPE_MISSION_BY_ID[id]?.episodeId === episode.id).length}/{episode.missions.length} saved</p>
         </div>
+        <p className="mx-1 mt-2 rounded-xl border border-cyan-200/50 bg-cyan-100/15 px-3 py-2 text-sm font-bold text-cyan-50 sm:mx-3"><span className="font-black text-cyan-200">{episode.band} sky goal: </span>{episode.objective.replace(/^Learning goal: /, '')}</p>
         <div className="mt-3 flex flex-wrap items-center gap-2 px-1 sm:px-3">
           <div className="h-3 min-w-36 flex-1 overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-gradient-to-r from-yellow-300 to-emerald-400 transition-all" style={{ width: `${overallProgress}%` }} /></div>
           <span className="w-12 text-right text-sm font-black">{overallProgress}%</span>
@@ -500,7 +501,9 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
         </div>
 
         <div className="mt-3 rounded-2xl border-2 border-white/20 bg-white/10 p-3 text-center">
+          <p className="mx-auto mb-2 max-w-3xl rounded-xl bg-indigo-200/15 px-3 py-2 text-sm font-bold text-indigo-50"><span className="font-black text-yellow-200">Tracing tip: </span>{SKY_SHAPE_TEACHING[mission?.id]?.strategy}</p>
           <p className="min-h-12 text-base font-black sm:text-lg" role="status" aria-live="polite">{traceReady ? `${missionAccuracy}% accurate · ${missionStars} of 3 accuracy stars.` : feedback}</p>
+          {traceReady && <p className="mx-auto mt-2 max-w-3xl rounded-xl border border-emerald-200/50 bg-emerald-100/15 px-3 py-2 text-sm font-bold text-emerald-50" role="status">Shape idea: {SKY_SHAPE_TEACHING[mission?.id]?.explanation}</p>}
           {traceReady && <p className="mt-1 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-sky-50">Your best flight rating is saved. {newMissionStars > 0 ? `${newMissionStars} new ${newMissionStars === 1 ? 'star' : 'stars'} added to your collection!` : 'Try a new mission to collect more stars.'}</p>}
           {traceReady && chapterBonusStars > 0 && <p className="mt-1 font-black text-yellow-200">Aviator badge saved · {chapterBonusStars} bonus stars added!</p>}
           {traceReady && <div className="mt-2 flex justify-center gap-2 text-3xl" aria-label={`${missionStars} of 3 accuracy stars`}>{Array.from({ length: 3 }, (_, index) => <span key={index} aria-hidden="true" className={index < missionStars ? 'text-yellow-300' : 'text-white/35'}>★</span>)}</div>}
