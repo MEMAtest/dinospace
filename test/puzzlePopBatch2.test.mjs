@@ -23,6 +23,21 @@ test('Puzzle Pop has twelve unique scenes across three progressively larger boar
   assert.ok(PUZZLE_POP_CHAPTERS.flatMap(({ scenes }) => scenes).every(({ image, fact, alt }) => image && fact.length > 25 && alt));
 });
 
+test('Puzzle Pop chapter picture tips cover edge, landmark and row/column comparison without changing authored skills', () => {
+  assert.deepEqual(PUZZLE_POP_CHAPTERS.map(({ skill, visualTip }) => [skill, visualTip]), [
+    ['Match big picture pieces and spot the main shapes.', 'Compare a piece’s corner or edge with the same spot in the preview.'],
+    ['Use edges, colours and smaller details to fit each piece.', 'Match one clear edge or colour landmark, then fit its neighbours.'],
+    ['Study small details and use the preview to solve a bigger board.', 'Scan one row or column at a time. Check a small feature in the preview.'],
+  ]);
+  const starter = PUZZLE_POP_CHAPTERS[0].scenes;
+  const river = starter.find(({ id }) => id === 'river-valley');
+  const moon = starter.find(({ id }) => id === 'moon-camp');
+  assert.match(river.image, /dino-river-3d\.webp$/);
+  assert.match(moon.image, /dino-moon-3d\.webp$/);
+  assert.equal(river.fact, 'Rivers carry fresh water across the land and create homes for plants and animals.');
+  assert.equal(moon.fact, 'The Moon shines because sunlight bounces off its rocky surface.');
+});
+
 test('seeded chapter queues and piece trays are stable, shuffled, complete and replay-varied', () => {
   for (let chapter = 0; chapter < 3; chapter += 1) {
     const first = createPuzzlePopSceneQueue(chapter, 311);

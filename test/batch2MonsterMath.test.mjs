@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   createMonsterMathRun, isValidMonsterRun, MONSTER_MATH_EPISODES, MONSTER_QUESTION_POOLS,
-  monsterCountResultText, monsterCounterPhrase, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation, tenFrameModelTeaching,
+  monsterCountResultText, monsterCountVisualLabels, monsterCounterPhrase, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation, tenFrameModelTeaching,
 } from '../src/data/monsterMathEpisodes.js';
 import {
   getMonsterMathProgress, monsterMathRewardCallbackUnits, recordMonsterEpisodeCompletion, rememberMonsterMathRun, recentMonsterQuestionIds,
@@ -83,6 +83,27 @@ test('count questions ask children to count without disclosing quantity', () => 
     assert.match(question.prompt, /^How many .+ can you see\?$/);
     assert.doesNotMatch(question.prompt, /\b(?:one|two|three|four|five|six|seven|eight|nine|ten|\d+)\b/i);
     assert.equal(question.model.count, question.answer);
+  }
+});
+
+test('Starter counting visuals expose neutral group name and singular per-picture labels for all objects and quantities', () => {
+  const groups = new Map();
+  for (const question of MONSTER_QUESTION_POOLS[0]) {
+    const labels = monsterCountVisualLabels(question.model);
+    assert.equal(labels.group, 'Counting pictures');
+    assert.doesNotMatch(labels.group, /\b(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)\b/i);
+    assert.equal(labels.picture, question.model.objectName);
+    assert.ok(question.model.objectName);
+    const objectId = question.id.split(':')[1];
+    const group = groups.get(objectId) || [];
+    group.push(question);
+    groups.set(objectId, group);
+  }
+  assert.equal(groups.size, 12);
+  for (const questions of groups.values()) {
+    assert.deepEqual(questions.map(({ answer }) => answer), Array.from({ length: 10 }, (_, index) => index + 1));
+    assert.equal(new Set(questions.map(({ model }) => model.objectName)).size, 1);
+    assert.ok(/^[a-z]+$/.test(questions[0].model.objectName));
   }
 });
 

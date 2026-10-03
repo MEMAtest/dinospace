@@ -12,6 +12,7 @@ import {
   resolveSpotDifferenceTap,
   saveSpotDifferenceQueue,
   spotAnswerAttemptDetail,
+  spotDifferenceCompletionMessage,
   SPOT_DIFFERENCE_CHAPTERS,
   SPOT_DIFFERENCE_SCENES,
 } from '../../data/spotDifferenceBatch2.js';
@@ -98,7 +99,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     onGameEvent?.('spot', 'answer_correct', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake });
     playSfx('sparkle');
     if (nextFound.length === scene.differences.length) {
-      setFeedback(`Picture pair complete! ${scene.fact}`);
+      setFeedback(spotDifferenceCompletionMessage());
       setPhase('scene-complete');
       const nextProgress = completeSpotDifferenceChapter(playerId, chapterIndex, [scene.id]);
       setProgress(nextProgress);
@@ -107,7 +108,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
       playSfx('success');
       if (sceneIndex === queue.length - 1) {
         const praise = getPraise();
-        setFeedback(`${praise} ${chapter.name} complete! ${scene.fact}`);
+        setFeedback(spotDifferenceCompletionMessage({ chapterComplete: true, chapterName: chapter.name, praise }));
         setPhase('chapter-complete');
         onCelebrate(praise, 8, 80);
         onGameEvent?.('spot', 'level_completed', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintCount, wrongTaps: wrongTapCount, difficulty: chapter.band });
@@ -175,7 +176,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     </header>
 
     {phase === 'intro' ? <main className="mx-auto max-w-3xl px-4 py-5"><section className="rounded-3xl border-4 border-white bg-white/90 p-5 text-center shadow-xl sm:p-7">
-      <p className="text-5xl" aria-hidden="true">🔎</p><h2 className="mt-2 text-2xl font-black text-indigo-800">Twelve picture pairs. Three chapters.</h2><p className="mt-2 font-bold text-slate-700">Find the changes in four picture pairs. You can use two magnifier hints in each pair.</p>
+      <p className="text-5xl" aria-hidden="true">🔎</p><h2 className="mt-2 text-2xl font-black text-indigo-800">Twelve picture pairs. Three chapters.</h2><p className="mt-2 font-bold text-slate-700">Find the changes in four picture pairs. You can use two magnifier hints in each pair.</p><p className="mt-2 rounded-2xl bg-indigo-50 px-4 py-3 text-sm font-bold text-indigo-900"><strong>Compare: </strong>Look at the top, middle, then bottom of Picture A and Picture B.</p>
       <div className="mt-5 grid gap-3 sm:grid-cols-3">{SPOT_DIFFERENCE_CHAPTERS.map((entry, index) => { const unlocked = index <= progress.unlockedChapter; const count = SPOT_DIFFERENCE_SCENES.filter((item) => item.chapterIndex === index && progress.completedSceneIds.includes(item.id)).length; return <button type="button" key={entry.id} disabled={!unlocked} onClick={() => setChapterIndex(index)} aria-pressed={chapterIndex === index} className={`min-h-12 rounded-2xl border-2 p-3 text-left font-black ${chapterIndex === index ? 'border-indigo-600 bg-indigo-100 text-indigo-900' : unlocked ? 'border-sky-300 bg-white text-slate-800' : 'border-slate-200 bg-slate-100 text-slate-400'}`}><span className="block">{index + 1}. {entry.name}</span><span className="mt-1 block text-sm">Find {entry.differenceCount} changes · {count}/4 pairs {unlocked ? '' : '· Locked'}</span></button>; })}</div>
       <button type="button" onClick={() => startChapter()} className="mt-5 inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-7 py-3 text-lg font-black text-white"><Eye /> {completedCount ? 'Replay chapter' : 'Start chapter'}</button>
     </section></main> : <main className="mx-auto max-w-7xl px-3 pb-8 pt-3 sm:px-5">

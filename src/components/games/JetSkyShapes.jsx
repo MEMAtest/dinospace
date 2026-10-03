@@ -394,7 +394,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
           </div>
           <section className="mt-5 rounded-[2rem] border-4 border-white/80 bg-white/85 p-4 shadow-xl sm:p-6">
             <div className="flex flex-wrap items-end justify-between gap-3">
-              <div><p className="text-xs font-black uppercase tracking-widest text-sky-700">{episode.band} sky</p><h2 className="text-2xl font-black text-slate-900 sm:text-3xl">{episode.title}</h2><p className="mt-1 max-w-xl text-sm font-bold text-slate-600 sm:text-base">{episode.subtitle}</p></div>
+              <div><p className="text-xs font-black uppercase tracking-widest text-sky-700">{episode.band} sky</p><h2 className="text-2xl font-black text-slate-900 sm:text-3xl">{episode.title}</h2><p className="mt-1 max-w-xl text-sm font-bold text-slate-600 sm:text-base">{episode.subtitle}</p><p className="mt-1 max-w-xl text-sm font-bold text-sky-900 sm:text-base"><span className="font-black">Sky goal: </span>{episode.objective.replace(/^Learning goal: /, '')}</p></div>
               <div className="rounded-2xl bg-sky-100 px-4 py-2 text-sm font-black text-sky-950">{episode.missions.filter((item) => progress.completedMissionIds.includes(item.id)).length} of {episode.missions.length} missions earned</div>
             </div>
             <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
@@ -453,7 +453,6 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
           <div><p className="text-xs font-black uppercase tracking-widest text-sky-200">Mission {roundIndex + 1} · {episode.band}</p><p className="text-lg font-black sm:text-xl">{mission?.icon} Trace each outline part in order · {completedPaths.length}/{totalPathCount}</p></div>
           <p className="rounded-full bg-white/15 px-3 py-1 text-sm font-black">{progress.completedMissionIds.filter((id) => SKY_SHAPE_MISSION_BY_ID[id]?.episodeId === episode.id).length}/{episode.missions.length} saved</p>
         </div>
-        <p className="mx-1 mt-2 rounded-xl border border-cyan-200/50 bg-cyan-100/15 px-3 py-2 text-sm font-bold text-cyan-50 sm:mx-3"><span className="font-black text-cyan-200">{episode.band} sky goal: </span>{episode.objective.replace(/^Learning goal: /, '')}</p>
         <div className="mt-3 flex flex-wrap items-center gap-2 px-1 sm:px-3">
           <div className="h-3 min-w-36 flex-1 overflow-hidden rounded-full bg-white/20"><div className="h-full rounded-full bg-gradient-to-r from-yellow-300 to-emerald-400 transition-all" style={{ width: `${overallProgress}%` }} /></div>
           <span className="w-12 text-right text-sm font-black">{overallProgress}%</span>

@@ -3,8 +3,8 @@ import { ArrowLeft, Lightbulb, RotateCcw, Sparkles, Volume2 } from 'lucide-react
 import { SoundToggle } from '../shared/index.jsx';
 import { monsterMathNarration } from '../../data/batch2Narration.js';
 import {
-  createMonsterMathRun, createMonsterRunSeed, MONSTER_MATH_EPISODES, monsterCounterPhrase,
-  monsterCountResultText, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameModelTeaching,
+  createMonsterMathRun, createMonsterRunSeed, MONSTER_MATH_EPISODES,
+  monsterCountResultText, monsterCountVisualLabels, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameModelTeaching,
 } from '../../data/monsterMathEpisodes.js';
 import {
   getMonsterMathProgress, recentMonsterQuestionIds, recordMonsterEpisodeCompletion, rememberMonsterMathRun,
@@ -28,11 +28,12 @@ const EpisodeTile = ({ episode, index, progress, selected, disabled, onSelect })
 const CounterModel = ({ question, locked, animationCount }) => {
   const model = question.model;
   if (model.type === 'count') {
+    const accessibleLabels = monsterCountVisualLabels(model);
     return (
       <div className="rounded-3xl border-4 border-amber-200 bg-white p-4 shadow-md">
         <p className="mb-3 text-center text-sm font-black uppercase tracking-widest text-amber-700">Count each picture once</p>
-        <div className="mx-auto grid max-w-[22rem] grid-cols-5 justify-items-center gap-2" aria-label={`${monsterCounterPhrase(model.count)} ${model.emoji}`}>
-          {Array.from({ length: model.count }, (_, index) => <span key={index} className={`grid h-12 w-12 place-items-center rounded-2xl ${locked && animationCount > index ? 'bg-emerald-100' : 'bg-amber-50'} text-3xl shadow-sm`} aria-hidden="true">{model.emoji}</span>)}
+        <div role="group" aria-label={accessibleLabels.group} className="mx-auto grid max-w-[22rem] grid-cols-5 justify-items-center gap-2">
+          {Array.from({ length: model.count }, (_, index) => <span key={index} role="img" aria-label={accessibleLabels.picture} className={`grid h-12 w-12 place-items-center rounded-2xl ${locked && animationCount > index ? 'bg-emerald-100' : 'bg-amber-50'} text-3xl shadow-sm`}>{model.emoji}</span>)}
         </div>
         {locked && <p className="mt-3 text-center text-lg font-black text-emerald-700" aria-live="polite">{monsterCountResultText(model.count)}</p>}
       </div>

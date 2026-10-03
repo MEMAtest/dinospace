@@ -10,7 +10,9 @@ import {
   SPOT_DIFFERENCE_PROGRESS_KEY,
   SPOT_DIFFERENCE_SCENES,
   spotAnswerAttemptDetail,
+  spotDifferenceCompletionMessage,
 } from '../src/data/spotDifferenceBatch2.js';
+import { spotDifferenceNarration } from '../src/data/batch2Narration.js';
 
 const memoryStorage = () => {
   const values = new Map();
@@ -74,6 +76,17 @@ test('Spot magnifier hints select distinct unfinished changes and stop when none
   assert.equal(getNextSpotDifferenceHint(differences).id, 'first');
   assert.equal(getNextSpotDifferenceHint(differences, ['first'], ['second']).id, 'third');
   assert.equal(getNextSpotDifferenceHint(differences, ['first', 'third'], ['second']), null);
+});
+
+test('Spot completion status leaves the displayed fact singular while packaged narration retains it', () => {
+  const scene = SPOT_DIFFERENCE_SCENES[0];
+  const pairMessage = spotDifferenceCompletionMessage();
+  const chapterMessage = spotDifferenceCompletionMessage({ chapterComplete: true, chapterName: 'Bright-Eyed Beginners', praise: 'Great spotting!' });
+  assert.equal(pairMessage.includes(scene.fact), false);
+  assert.equal(chapterMessage.includes(scene.fact), false);
+  assert.equal(pairMessage, 'Picture pair complete! Your fact is below. Choose Next picture when you are ready.');
+  assert.equal(chapterMessage, 'Great spotting! Bright-Eyed Beginners complete! Your picture fact is below.');
+  assert.equal(spotDifferenceNarration.completed(scene), `You found every change. ${scene.fact}`);
 });
 
 test('tapping a found difference within its hit radius is neutral and keeps the same tolerance', () => {

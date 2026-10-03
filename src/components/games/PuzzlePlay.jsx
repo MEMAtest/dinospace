@@ -157,7 +157,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     setSelected(nextPiece);
     setHintSlot(nextPiece.correctSlot);
     setHintsUsed((value) => value + 1);
-    setMessage(`Hint: piece ${nextPiece.correctSlot + 1} fits the glowing space. Check its edges in the preview.`);
+    setMessage(`Hint: piece ${nextPiece.correctSlot + 1} fits the glowing space. ${chapter.visualTip}`);
     onGameEvent?.('puzzle', 'hint', { level: chapterIndex, round: sceneIndex + 1, seed, hintType: 'next_piece' });
     speakPackagedBatch2Line(speak, puzzlePopNarration.hint(nextPiece.correctSlot + 1));
     playSfx('chime');
@@ -205,6 +205,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
             <p className="text-5xl" aria-hidden="true">🧩</p>
             <h2 className="mt-2 text-2xl font-black text-orange-800">Twelve pictures. Three puzzle chapters.</h2>
             <p className="mt-2 text-base font-bold text-slate-700">{chapter.skill}</p>
+            <p className="mt-2 rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold text-orange-900"><strong>Picture tip: </strong>{chapter.visualTip}</p>
             <div className="mt-4 grid gap-3 sm:grid-cols-3" aria-label="Puzzle Pop chapters">
               {PUZZLE_POP_CHAPTERS.map((entry, index) => {
                 const unlocked = index <= savedProgress.unlockedChapter;
@@ -227,6 +228,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                   <span className="flex items-center gap-2 font-black"><Eye size={20} /> Picture preview</span>
                   <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-black">{chapter.grid}×{chapter.grid}</span>
                 </div>
+                <h2 className="col-span-2 m-0 rounded-xl bg-orange-50 px-2 py-2 text-center text-sm font-black leading-tight text-orange-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-lg">{scene.title}</h2>
                 <img src={scene.image} alt={`Completed picture preview: ${scene.alt}`} className="row-span-2 aspect-square h-24 w-24 rounded-xl object-cover shadow-md sm:row-span-1 sm:aspect-[4/3] sm:h-auto sm:w-full sm:rounded-2xl" />
                 <p className="m-0 rounded-xl bg-emerald-50 px-2 py-2 text-xs font-bold text-emerald-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-sm">{chapter.skill}</p>
                 <button type="button" onClick={hearPrompt} className="inline-flex min-h-12 w-full items-center justify-center gap-1 rounded-xl bg-sky-100 px-2 text-xs font-black text-sky-900 sm:mt-3 sm:gap-2 sm:px-3 sm:text-base"><Volume2 size={19} /> <span className="sm:hidden">Hear again</span><span className="hidden sm:inline">Hear instructions again</span></button>

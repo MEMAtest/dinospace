@@ -1,6 +1,6 @@
 const dinoPark = new URL('../assets/puzzle-pop/dino-park.jpg', import.meta.url).href;
-const dinoRiver = new URL('../assets/puzzle-pop/dino-river.svg', import.meta.url).href;
-const dinoMoon = new URL('../assets/puzzle-pop/dino-moon.svg', import.meta.url).href;
+const dinoRiver = new URL('../assets/puzzle-pop/dino-river-3d.webp', import.meta.url).href;
+const dinoMoon = new URL('../assets/puzzle-pop/dino-moon-3d.webp', import.meta.url).href;
 const city = new URL('../assets/spot-difference/superhero-city.webp', import.meta.url).href;
 const treehouse = new URL('../assets/game-scenes/askia-memory-treehouse.webp', import.meta.url).href;
 const soundSafari = new URL('../assets/game-scenes/sound-safari.webp', import.meta.url).href;
@@ -15,6 +15,7 @@ export const PUZZLE_POP_CHAPTERS = Object.freeze([
   Object.freeze({
     id: 'starter', name: 'Picture Pioneers', band: 'starter', grid: 2,
     skill: 'Match big picture pieces and spot the main shapes.',
+    visualTip: 'Compare a piece’s corner or edge with the same spot in the preview.',
     scenes: Object.freeze([
       { id: 'dino-park', title: 'Dino Park Picnic', image: dinoPark, alt: 'Friendly dinosaurs enjoying a sunny park', fact: 'Some dinosaurs ate plants, and some ate meat. Their teeth helped scientists learn what they ate.' },
       { id: 'river-valley', title: 'River Valley', image: dinoRiver, alt: 'A friendly dinosaur beside a sparkling river', fact: 'Rivers carry fresh water across the land and create homes for plants and animals.' },
@@ -25,6 +26,7 @@ export const PUZZLE_POP_CHAPTERS = Object.freeze([
   Object.freeze({
     id: 'growing', name: 'Curious Constructors', band: 'growing', grid: 3,
     skill: 'Use edges, colours and smaller details to fit each piece.',
+    visualTip: 'Match one clear edge or colour landmark, then fit its neighbours.',
     scenes: Object.freeze([
       { id: 'hero-city', title: 'Hero City Helpers', image: city, alt: 'A colourful superhero city with buildings and characters', fact: 'People in a community share places such as roads, parks, shops and homes.' },
       { id: 'treehouse-robots', title: 'Treehouse Robots', image: treehouse, alt: 'A friendly treehouse scene with a young explorer', fact: 'A clear set of steps helps a robot know what to do next.' },
@@ -35,6 +37,7 @@ export const PUZZLE_POP_CHAPTERS = Object.freeze([
   Object.freeze({
     id: 'challenge', name: 'Detail Detectives', band: 'challenge', grid: 5,
     skill: 'Study small details and use the preview to solve a bigger board.',
+    visualTip: 'Scan one row or column at a time. Check a small feature in the preview.',
     scenes: Object.freeze([
       { id: 'time-observatory', title: 'Time Observatory', image: timeObservatory, alt: 'A colourful observatory with clocks and stars', fact: 'Earth spins once each day. That spin gives us day and night.' },
       { id: 'world-explorer', title: 'World Explorer', image: geography, alt: 'A colourful map illustration of Earth and geography', fact: 'Maps use symbols and pictures to help us understand places.' },

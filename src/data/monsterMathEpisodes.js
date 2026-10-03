@@ -20,6 +20,7 @@ const COUNT_OBJECTS = Object.freeze([
 ]);
 
 export const monsterCounterPhrase = (count) => `${count} ${count === 1 ? 'counter' : 'counters'}`;
+export const monsterCountVisualLabels = (model) => ({ group: 'Counting pictures', picture: model.objectName });
 const QUANTITY = (count, singular, plural) => `${count} ${count === 1 ? singular : plural}`;
 export const monsterCountResultText = (count) => `There ${count === 1 ? 'is' : 'are'} ${monsterCounterPhrase(count)}.`;
 export const numberLineInstruction = (model, locked = false) => `Start at ${model.first}, then jump ${model.operation === 'add' ? 'forward' : 'back'} ${model.second} ${model.second === 1 ? 'step' : 'steps'}${locked ? ` to ${model.answer}` : ''}.`;
@@ -68,7 +69,7 @@ const createCountPool = () => COUNT_OBJECTS.flatMap((object) => Array.from({ len
     prompt: `How many ${object.many} can you see?`,
     clue: 'Touch or point to each picture once. Keep a steady count.',
     explanation: `There ${answer === 1 ? 'is' : 'are'} ${answer} ${answer === 1 ? object.one : object.many}.`,
-    model: { type: 'count', count: answer, emoji: object.emoji },
+    model: { type: 'count', count: answer, emoji: object.emoji, objectName: object.one },
   };
 }));
 
