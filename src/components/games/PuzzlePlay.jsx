@@ -8,20 +8,10 @@ import {
   createPuzzlePopSceneQueue,
   getPuzzlePopProgress,
   PUZZLE_POP_CHAPTERS,
+  puzzlePopTileImageStyle,
   savePuzzlePopQueue,
   completePuzzlePopScene,
 } from '../../data/puzzlePopBatch2.js';
-
-const tileStyle = (slot, grid, image) => {
-  const column = slot % grid;
-  const row = Math.floor(slot / grid);
-  const axis = grid - 1;
-  return {
-    backgroundImage: `url("${image.replaceAll('"', '%22')}")`,
-    backgroundSize: `${grid * 100}% ${grid * 100}%`,
-    backgroundPosition: `${(column / axis) * 100}% ${(row / axis) * 100}%`,
-  };
-};
 
 const createSeed = () => Math.floor(Math.random() * 0xffffffff) || 1;
 
@@ -229,7 +219,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                   <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-black">{chapter.grid}×{chapter.grid}</span>
                 </div>
                 <h2 className="col-span-2 m-0 rounded-xl bg-orange-50 px-2 py-2 text-center text-sm font-black leading-tight text-orange-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-lg">{scene.title}</h2>
-                <img src={scene.image} alt={`Completed picture preview: ${scene.alt}`} className="row-span-2 aspect-square h-24 w-24 rounded-xl object-cover shadow-md sm:row-span-1 sm:aspect-[4/3] sm:h-auto sm:w-full sm:rounded-2xl" />
+                <img src={scene.image} alt={`Completed picture preview: ${scene.alt}`} className="row-span-2 aspect-square h-24 w-24 rounded-xl object-cover shadow-md sm:row-span-1 sm:aspect-square sm:h-auto sm:w-full sm:rounded-2xl" />
                 <p className="m-0 rounded-xl bg-emerald-50 px-2 py-2 text-xs font-bold text-emerald-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-sm">{chapter.skill}</p>
                 <button type="button" onClick={hearPrompt} className="inline-flex min-h-12 w-full items-center justify-center gap-1 rounded-xl bg-sky-100 px-2 text-xs font-black text-sky-900 sm:mt-3 sm:gap-2 sm:px-3 sm:text-base"><Volume2 size={19} /> <span className="sm:hidden">Hear again</span><span className="hidden sm:inline">Hear instructions again</span></button>
                 <div className="col-span-2 mt-0 flex flex-wrap justify-center gap-2 sm:mt-3" aria-label="Chapter progress">
@@ -244,7 +234,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                     <div className="grid aspect-square w-full max-w-[280px] grid-cols-1 gap-1 self-center overflow-hidden rounded-3xl border-4 border-white bg-amber-50 p-1.5 shadow-xl sm:max-w-[460px]" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, width: boardWidth }} aria-label={`${chapter.grid} by ${chapter.grid} puzzle board`}>
                       {placed.map((piece, slotIndex) => (
                         <button type="button" key={`slot-${slotIndex}`} onClick={() => placePiece(slotIndex)} aria-label={`Puzzle space ${slotIndex + 1}${hintSlot === slotIndex ? ', hint space' : ''}`} className={`relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-md border border-white/80 focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-400 ${wrongSlot === slotIndex ? 'animate-shake bg-rose-100' : piece ? 'bg-white' : hintSlot === slotIndex ? 'bg-yellow-200 ring-4 ring-yellow-400' : 'bg-emerald-50'}`}>
-                          {piece && <span aria-hidden="true" className="absolute inset-0 bg-cover" style={tileStyle(slotIndex, chapter.grid, scene.image)}><span className="absolute inset-0 border border-white/15" /></span>}
+                          {piece && <span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(slotIndex, chapter.grid)} /><span className="absolute inset-0 border border-white/15" /></span>}
                           {!piece && hintSlot === slotIndex && <Lightbulb className="absolute inset-0 m-auto text-orange-600" aria-hidden="true" />}
                           {piece && <Check className="absolute right-0.5 top-0.5 rounded-full bg-emerald-600 p-0.5 text-white" size={20} aria-hidden="true" />}
                         </button>
@@ -257,7 +247,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                         <button type="button" onClick={showHint} disabled={!tray.length} className="inline-flex min-h-12 items-center gap-1.5 rounded-full bg-amber-100 px-4 font-black text-orange-800 disabled:opacity-50"><Lightbulb size={18} /> Hint</button>
                       </div>
                       <div className="grid gap-1.5 sm:gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(48px, 1fr))' }} aria-label="Picture piece tray">
-                        {tray.map((piece) => <button type="button" key={piece.id} onClick={() => choosePiece(piece)} aria-pressed={selected?.id === piece.id} aria-label={`Choose piece ${piece.correctSlot + 1}`} className={`relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 bg-cover" style={tileStyle(piece.correctSlot, chapter.grid, scene.image)} /></button>)}
+                        {tray.map((piece) => <button type="button" key={piece.id} onClick={() => choosePiece(piece)} aria-pressed={selected?.id === piece.id} aria-label={`Choose piece ${piece.correctSlot + 1}`} className={`relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(piece.correctSlot, chapter.grid)} /></span></button>)}
                       </div>
                     </div>
                   </>

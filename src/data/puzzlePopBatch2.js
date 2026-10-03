@@ -48,6 +48,14 @@ export const PUZZLE_POP_CHAPTERS = Object.freeze([
 ]);
 
 export const PUZZLE_POP_SCENE_COUNT = PUZZLE_POP_CHAPTERS.reduce((count, chapter) => count + chapter.scenes.length, 0);
+
+export const puzzlePopTileImageStyle = (slot, grid) => ({
+  width: `${grid * 100}%`,
+  height: `${grid * 100}%`,
+  left: `${-(slot % grid) * 100}%`,
+  top: `${-Math.floor(slot / grid) * 100}%`,
+  objectFit: 'cover',
+});
 export const PUZZLE_POP_PROGRESS_KEY = 'amari_puzzle_pop_batch2_v1';
 
 export const puzzlePopRandomFor = (seed) => {

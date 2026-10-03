@@ -5,6 +5,7 @@ import {
   createPuzzlePopPieceTray,
   createPuzzlePopSceneQueue,
   getPuzzlePopProgress,
+  puzzlePopTileImageStyle,
   PUZZLE_POP_CHAPTERS,
   PUZZLE_POP_SCENE_COUNT,
   PUZZLE_POP_PROGRESS_KEY,
@@ -36,6 +37,19 @@ test('Puzzle Pop chapter picture tips cover edge, landmark and row/column compar
   assert.match(moon.image, /dino-moon-3d\.webp$/);
   assert.equal(river.fact, 'Rivers carry fresh water across the land and create homes for plants and animals.');
   assert.equal(moon.fact, 'The Moon shines because sunlight bounces off its rocky surface.');
+});
+
+test('Puzzle tile viewports partition the same square cover crop across every board size', () => {
+  for (const grid of [2, 3, 5]) {
+    for (let slot = 0; slot < grid ** 2; slot += 1) {
+      const style = puzzlePopTileImageStyle(slot, grid);
+      assert.equal(style.width, `${grid * 100}%`);
+      assert.equal(style.height, `${grid * 100}%`);
+      assert.equal(style.left, `${-(slot % grid) * 100}%`);
+      assert.equal(style.top, `${-Math.floor(slot / grid) * 100}%`);
+      assert.equal(style.objectFit, 'cover');
+    }
+  }
 });
 
 test('seeded chapter queues and piece trays are stable, shuffled, complete and replay-varied', () => {
