@@ -261,7 +261,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
           </div>
           {hintText && <p className="mt-2 rounded-xl border border-amber-100/50 bg-amber-200/15 px-3 py-2 text-sm font-bold" role="status" aria-live="polite">{hintText}</p>}
           {phase === 'answer' && <div ref={answerPanelRef} className="mt-4 rounded-2xl border border-white/20 bg-black/20 p-3 text-center">
-            <p className="mb-3 text-lg font-black">How many {round.count === 1 ? round.scene.noun : pluralOf(round.scene.noun)} did you count?</p>
+            <p className="mb-3 text-lg font-black">How many {pluralOf(round.scene.noun)} did you count?</p>
             <div className="flex flex-wrap justify-center gap-3">{round.options.map((option) => <button key={option} type="button" onClick={() => handleAnswer(option)} className="min-h-16 min-w-16 rounded-2xl bg-amber-300 px-4 text-2xl font-black text-slate-950 shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-white">{option}</button>)}</div>
             {feedback && <p className="mt-3 font-bold text-amber-100" role="status" aria-live="polite">{feedback}</p>}
           </div>}
