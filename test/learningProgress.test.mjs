@@ -90,3 +90,17 @@ test('legacy completion counters do not become learning evidence', () => {
   }, store);
   assert.equal(getLearningSnapshot(store).attempts.length, 1);
 });
+
+test('diagnostic success attempts cannot duplicate learning credit while wrong attempts remain evidence', () => {
+  const store = storage();
+  const base = { skill: 'number-bonds', item: 'join-2-3', firstAttempt: true };
+  recordLegacyGameEvent('addition', 'answer_attempt', { ...base, correct: false }, store);
+  assert.equal(recordLegacyGameEvent('addition', 'answer_attempt', { ...base, correct: true, diagnosticOnly: true }, store), null);
+  recordLegacyGameEvent('addition', 'answer_correct', { ...base, correct: true, firstAttempt: false, independent: false }, store);
+  const snapshot = getLearningSnapshot(store);
+  assert.equal(snapshot.attempts.length, 2);
+  assert.deepEqual(snapshot.attempts.map(a => a.correct), [false, true]);
+  const record = Object.values(snapshot.mastery).find(record => record.item === base.item);
+  assert.equal(record.attempts, 2);
+  assert.equal(record.accuracy, .5);
+});
