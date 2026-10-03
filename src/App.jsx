@@ -1,3 +1,4 @@
+import Batch7BadgeCollections from './components/shared/Batch7BadgeCollections.jsx';
 import LetterLaunchBadgeCollection from './components/shared/LetterLaunchBadgeCollection.jsx';
 import { getEarnedChapterBadgeIds } from './data/chapterBadges.js';
 import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.jsx';
@@ -300,6 +301,7 @@ const PlayerSession = ({
         <PageHeader title={`${player.name}’s stickers`} subtitle={`⭐ ${points} stars`} onBack={() => back()} backLabel="Back to home" {...soundProps} />
         <LetterLaunchBadgeCollection earnedBadgeIds={getEarnedChapterBadgeIds(player.id, 'letters')} />
         <CurriculumBadgeCollection playerId={player.id} />
+        <Batch7BadgeCollections playerId={player.id} />
         <RewardsShelf points={points} earnedStickerIds={earnedStickerIds} />
       </div>
     );
