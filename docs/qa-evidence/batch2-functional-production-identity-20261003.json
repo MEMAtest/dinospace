@@ -1,0 +1,21 @@
+{
+  "canonical": "https://dinospace-eight.vercel.app",
+  "sourceSha": "3cdfc426e91b46a855448690278ceb6590280b68",
+  "deploymentId": "dpl_Yw6eFRkrTbgF7b9hw2oyUdSXJA9W",
+  "immutableUrl": "https://dinospace-7gskjcp0h-memas-projects-23a0001d.vercel.app",
+  "readyState": "READY",
+  "target": "production",
+  "aliasAssigned": true,
+  "assets": [
+    {
+      "path": "/assets/index-B8F2g6Xc.js",
+      "sha256": "eb284559d1686de42a4754d7cf73b0fd3b304a0adb6df0d6c440507176e49752"
+    },
+    {
+      "path": "/assets/index-CUmO8J4O.css",
+      "sha256": "d8fe5109969658486618b98444a2d23d3fb411f1604a6081d45d3e5ed90f5d2f"
+    }
+  ],
+  "runtimeEquivalentSha": "83149d897366dcbe8bc4034849d340ed61a0221d",
+  "qualityAcceptance": "pending independent production delta and human listening"
+}
