@@ -100,6 +100,21 @@ export const SKY_SHAPE_MISSIONS = Object.freeze(SKY_EPISODES.flatMap((episode, e
 }))));
 export const SKY_SHAPE_MISSION_BY_ID = Object.freeze(Object.fromEntries(SKY_SHAPE_MISSIONS.map((mission) => [mission.id, mission])));
 
+export const skyFinishFlagPosition = (start, end) => {
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+  const offsets = [[82, -68], [82, 68], [-82, -68], [-82, 68], [0, -98], [0, 98], [-98, 0], [98, 0]];
+  const best = offsets.map(([dx, dy]) => {
+    const x = clamp(end[0] + dx, 48, 950);
+    const y = clamp(end[1] + dy, 50, 610);
+    const gapX = Math.max(x - start[0], 0, start[0] - (x + 48));
+    const gapY = Math.max((y - 44) - start[1], 0, start[1] - (y + 22));
+    const gap = Math.hypot(gapX, gapY);
+    const endpointDistance = Math.hypot(x - end[0], y - end[1]);
+    return { x, y, gap, endpointDistance };
+  }).sort((a, b) => b.gap - a.gap || a.endpointDistance - b.endpointDistance)[0];
+  return { x: best.x, y: best.y };
+};
+
 export const tracePointsForOutline = (outline, stepSize = 25) => {
   const vertices = outline.points;
   const edges = outline.closed ? vertices.length : Math.max(0, vertices.length - 1);

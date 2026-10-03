@@ -35,6 +35,16 @@ test('Spot has twelve paired scenes with 3, 5 and 7 visual changes by chapter', 
   }
 });
 
+test('Spot challenge differences are bespoke shape or count variants across aligned scene art', () => {
+  for (const scene of SPOT_DIFFERENCE_SCENES.filter(({ chapterIndex }) => chapterIndex === 2)) {
+    assert.ok(scene.image.endsWith('.webp'), `${scene.title} uses aligned WebP art`);
+    assert.equal(scene.differences.length, 7);
+    assert.ok(scene.differences.every(({ normalVisual, visual, label }) => (
+      normalVisual.startsWith('prop:') && visual.startsWith('prop:') && normalVisual !== visual && label
+    )), `${scene.title} uses seven paired, named scene props`);
+  }
+});
+
 test('Spot run order and visual pair placement are seeded, complete and replay-varied', () => {
   for (let chapter = 0; chapter < 3; chapter += 1) {
     const run = createSpotDifferenceRun(chapter, 721);

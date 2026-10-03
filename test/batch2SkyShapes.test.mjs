@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  SKY_SHAPE_EPISODES, SKY_SHAPE_MISSIONS, skyAccuracyStars, skyLearningAttemptDetail, skyMissionQueueForEpisode, skyTraceProgressPercent, tracePointsForOutline,
+  SKY_SHAPE_EPISODES, SKY_SHAPE_MISSIONS, skyAccuracyStars, skyFinishFlagPosition, skyLearningAttemptDetail, skyMissionQueueForEpisode, skyTraceProgressPercent, tracePointsForOutline,
 } from '../src/data/skyShapes.js';
 import { GAME_DIAGNOSTICS_KEY, recordGameDiagnostic } from '../src/data/gameDiagnostics.js';
 import {
@@ -32,6 +32,22 @@ test('every tracing outline has a sampled path with the correct start dot and a 
       assert.deepEqual(points[0], outline.points[0]);
       assert.deepEqual(points.at(-1), outline.closed ? outline.points[0] : outline.points.at(-1));
       assert.ok(points.every(([x, y]) => Number.isFinite(x) && Number.isFinite(y) && x >= 0 && x <= 1000 && y >= 0 && y <= 650));
+    }
+  }
+});
+
+test('Sky finish flags stay in bounds and clear of numbered starts, including closed-loop paths', () => {
+  for (const mission of SKY_SHAPE_MISSIONS) {
+    for (const outline of mission.paths) {
+      const start = outline.points[0];
+      const end = outline.closed ? start : outline.points.at(-1);
+      const flag = skyFinishFlagPosition(start, end);
+      assert.ok(flag.x >= 48 && flag.x <= 950, `${mission.id}:${outline.id} flag x in view`);
+      assert.ok(flag.y >= 50 && flag.y <= 610, `${mission.id}:${outline.id} flag y in view`);
+      const gapX = Math.max(flag.x - start[0], 0, start[0] - (flag.x + 48));
+      const gapY = Math.max((flag.y - 44) - start[1], 0, start[1] - (flag.y + 22));
+      assert.ok(Math.hypot(gapX, gapY) > 0, `${mission.id}:${outline.id} flag does not cover numbered start`);
+      assert.ok(Math.hypot(flag.x - end[0], flag.y - end[1]) <= 180, `${mission.id}:${outline.id} flag stays near route finish`);
     }
   }
 });

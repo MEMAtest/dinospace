@@ -3,7 +3,7 @@ import { ArrowLeft, Check, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import { skyShapeNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
 import {
-  SKY_SHAPE_EPISODES, SKY_SHAPE_MISSION_BY_ID, SKY_SHAPE_TEACHING, createSkyRunSeed, skyAccuracyStars, skyMissionQueueForEpisode, tracePointsForOutline,
+  SKY_SHAPE_EPISODES, SKY_SHAPE_MISSION_BY_ID, SKY_SHAPE_TEACHING, createSkyRunSeed, skyAccuracyStars, skyFinishFlagPosition, skyMissionQueueForEpisode, tracePointsForOutline,
   skyLearningAttemptDetail, skyTraceProgressPercent,
 } from '../../data/skyShapes.js';
 import {
@@ -228,7 +228,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
       }
       return;
     }
-    setFeedback((completedPaths.length > 0 || index > 0) ? `Good flying. ${percentFor(donePoints, totalPoints)}% of this outline is traced.` : `Follow the glowing route to the red finish dot. ${percentFor(donePoints, totalPoints)}% traced.`);
+    setFeedback((completedPaths.length > 0 || index > 0) ? `Good flying. ${percentFor(donePoints, totalPoints)}% of this outline is traced.` : `Follow the glowing route to the checkered finish flag. ${percentFor(donePoints, totalPoints)}% traced.`);
   };
 
   const guidePointMove = (point) => {
@@ -450,7 +450,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
 
       <main className="mx-auto mt-3 max-w-6xl rounded-[2rem] border-4 border-white/80 bg-sky-950/80 p-2.5 text-white shadow-2xl sm:mt-5 sm:p-5">
         <div className="flex flex-wrap items-center justify-between gap-2 px-1 sm:px-3">
-          <div><p className="text-xs font-black uppercase tracking-widest text-sky-200">Mission {roundIndex + 1} · {episode.band}</p><p className="text-lg font-black sm:text-xl">{mission?.icon} Trace each outline part in order · {completedPaths.length}/{totalPathCount}</p></div>
+          <div><p className="text-xs font-black uppercase tracking-widest text-sky-200">Mission {roundIndex + 1} · {episode.band}</p><p className="text-lg font-black sm:text-xl">{mission?.icon} {mission?.name} · {completedPaths.length}/{totalPathCount} parts</p></div>
           <p className="rounded-full bg-white/15 px-3 py-1 text-sm font-black">{progress.completedMissionIds.filter((id) => SKY_SHAPE_MISSION_BY_ID[id]?.episodeId === episode.id).length}/{episode.missions.length} saved</p>
         </div>
         <div className="mt-3 flex flex-wrap items-center gap-2 px-1 sm:px-3">
@@ -467,7 +467,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
             style={{ aspectRatio: `${VIEW_WIDTH}/${VIEW_HEIGHT}` }}
             role="application"
             tabIndex={0}
-            aria-label={`Tracing board for ${mission?.name}. Start at the green numbered dot. Press Enter, then Space or an arrow key to follow the glowing dots.`}
+            aria-label={`Tracing board for ${mission?.name}. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.`}
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
             onPointerUp={stopPointer}
@@ -482,6 +482,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
               const visited = visitedByPath[index] || 0;
               const start = points[0] || [500, 330];
               const end = points[points.length - 1] || start;
+              const flag = skyFinishFlagPosition(start, end);
               return (
                 <g key={mission?.paths[index]?.id} aria-hidden="true">
                   <polyline points={pathString} fill="none" stroke={complete ? '#34d399' : 'rgba(255,255,255,.92)'} strokeWidth="30" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="3 18" />
@@ -490,14 +491,18 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
                   {trail.length > 1 && <polyline points={trail.map(pointString).join(' ')} fill="none" stroke="#f97316" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" opacity=".8" />}
                   <circle cx={start[0]} cy={start[1]} r={active ? 33 : 22} fill={complete ? '#059669' : active ? '#16a34a' : '#075985'} stroke="#fff" strokeWidth="8" />
                   <text x={start[0]} y={start[1] + 8} textAnchor="middle" fontSize="24" fontWeight="900" fill="#fff">{index + 1}</text>
-                  <circle cx={end[0]} cy={end[1]} r="22" fill={complete ? '#10b981' : '#ef4444'} stroke="#fff" strokeWidth="7" />
-                  {complete && <path d={`M${end[0] - 10} ${end[1]} l8 9 l16 -20`} fill="none" stroke="#fff" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />}
+                  <g transform={`translate(${flag.x} ${flag.y})`}>
+                    <path d="M0 -34 V24" fill="none" stroke="#fff" strokeWidth="8" strokeLinecap="round" />
+                    <path d="M3 -32 H44 V-4 H3 Z" fill="#fff" stroke="#0f172a" strokeWidth="3" />
+                    <path d="M3 -32 H23.5 V-18 H3 Z M23.5 -18 H44 V-4 H23.5 Z" fill="#0f172a" />
+                    {complete && <path d="M10 -17 l7 7 l14 -16" fill="none" stroke="#059669" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />}
+                  </g>
                 </g>
               );
             })}
             <g transform={`translate(${hotPoint[0]} ${hotPoint[1]})`} aria-hidden="true"><circle r="40" fill="rgba(253,230,138,.3)" /><text textAnchor="middle" y="16" fontSize="58">✈️</text></g>
           </svg>
-          <div className="absolute left-2 top-2 z-20 rounded-full bg-emerald-700/90 px-3 py-1 text-xs font-black text-white sm:left-4 sm:top-4">Green = start · Red = finish</div>
+          <div className="absolute left-2 top-2 z-20 rounded-full bg-emerald-700/90 px-3 py-1 text-xs font-black text-white sm:left-4 sm:top-4">Numbered circle = Start · Checkered flag = Finish</div>
         </div>
 
         <div className="mt-3 rounded-2xl border-2 border-white/20 bg-white/10 p-3 text-center">

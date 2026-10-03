@@ -1,15 +1,15 @@
 const city = new URL('../assets/spot-difference/superhero-city.webp', import.meta.url).href;
 const dinoPark = new URL('../assets/puzzle-pop/dino-park.jpg', import.meta.url).href;
-const dinoRiver = new URL('../assets/puzzle-pop/dino-river.svg', import.meta.url).href;
-const dinoMoon = new URL('../assets/puzzle-pop/dino-moon.svg', import.meta.url).href;
-const treehouse = new URL('../assets/game-scenes/askia-memory-treehouse.webp', import.meta.url).href;
-const soundSafari = new URL('../assets/game-scenes/sound-safari.webp', import.meta.url).href;
+const dinoRiver = new URL('../assets/puzzle-pop/dino-river-3d.webp', import.meta.url).href;
+const dinoMoon = new URL('../assets/puzzle-pop/dino-moon-3d.webp', import.meta.url).href;
+const treehouse = new URL('../assets/puzzle-pop/treehouse-robots-3d.webp', import.meta.url).href;
+const soundSafari = new URL('../assets/spot-difference/sound-safari-animals-3d.webp', import.meta.url).href;
 const patternParade = new URL('../assets/game-scenes/pattern-parade.webp', import.meta.url).href;
 const timeObservatory = new URL('../assets/game-scenes/time-observatory.webp', import.meta.url).href;
-const robin = new URL('../assets/curriculum/robin.webp', import.meta.url).href;
-const geography = new URL('../assets/curriculum/geography-world.webp', import.meta.url).href;
+const robin = new URL('../assets/puzzle-pop/robin-tree-3d.webp', import.meta.url).href;
+const geography = new URL('../assets/puzzle-pop/world-explorer-map-3d.webp', import.meta.url).href;
 const history = new URL('../assets/curriculum/history-world.webp', import.meta.url).href;
-const nature = new URL('../assets/curriculum/nature-specimens.webp', import.meta.url).href;
+const nature = new URL('../assets/puzzle-pop/nature-lab-leaves-3d.webp', import.meta.url).href;
 
 export const SPOT_DIFFERENCE_CHAPTERS = Object.freeze([
   Object.freeze({ id: 'starter', name: 'Bright-Eyed Beginners', band: 'starter', differenceCount: 3, hintTokens: 2, skill: 'Compare the big shapes and colours in both pictures.' }),
@@ -32,9 +32,58 @@ const CHANGE_POSITIONS = Object.freeze([
   { x: 22, y: 50 }, { x: 77, y: 51 }, { x: 20, y: 82 }, { x: 79, y: 81 },
 ]);
 
+const CHALLENGE_DETAILS = Object.freeze({
+  8: Object.freeze([
+    { label: 'the sun has a different number of rays', before: 'sun:rays7', after: 'sun:rays9', x: 18, y: 18 },
+    { label: 'the canopy leaf points in a different direction', before: 'leaf:point-left', after: 'leaf:point-right', x: 78, y: 16 },
+    { label: 'the flower has a different number of petals', before: 'flower:petals5', after: 'flower:petals6', x: 14, y: 53 },
+    { label: 'the small leaf has a different shape', before: 'leaf:round', after: 'leaf:pointed', x: 67, y: 32 },
+    { label: 'the worm bends the other way', before: 'worm:curve-left', after: 'worm:curve-right', x: 66, y: 83 },
+    { label: 'the ladybird has one more spot', before: 'ladybug:spots2', after: 'ladybug:spots3', x: 86, y: 80 },
+    { label: 'the leaf has a different number of veins', before: 'leaf:veins3', after: 'leaf:veins5', x: 42, y: 20 },
+  ]),
+  9: Object.freeze([
+    { label: 'the compass needle points in a different direction', before: 'compass:north', after: 'compass:east', x: 17, y: 17 },
+    { label: 'the map river takes a different route', before: 'route:bend1', after: 'route:bend2', x: 47, y: 73 },
+    { label: 'the map has one more tree symbol', before: 'trees:count2', after: 'trees:count3', x: 62, y: 68 },
+    { label: 'the mountain range has a different number of peaks', before: 'mountains:peaks2', after: 'mountains:peaks3', x: 37, y: 65 },
+    { label: 'the destination marker has a different shape', before: 'marker:circle', after: 'marker:flag', x: 77, y: 82 },
+    { label: 'the binoculars point a different way', before: 'binoculars:upright', after: 'binoculars:tilted', x: 82, y: 62 },
+    { label: 'the map has a different number of route bends', before: 'route:bend2', after: 'route:bend3', x: 57, y: 82 },
+  ]),
+  10: Object.freeze([
+    { label: 'the book is open instead of closed', before: 'book:closed', after: 'book:open', x: 16, y: 85 },
+    { label: 'the ruin has a different number of archways', before: 'arches:count2', after: 'arches:count3', x: 78, y: 29 },
+    { label: 'the compass needle points in a different direction', before: 'compass:north', after: 'compass:west', x: 23, y: 85 },
+    { label: 'the stone has a different shape', before: 'stone:round', after: 'stone:square', x: 18, y: 55 },
+    { label: 'the lantern has a different number of flames', before: 'lantern:flame1', after: 'lantern:flame2', x: 88, y: 78 },
+    { label: 'the scroll is rolled instead of open', before: 'scroll:open', after: 'scroll:rolled', x: 73, y: 86 },
+    { label: 'the column has a different number of grooves', before: 'column:grooves2', after: 'column:grooves4', x: 82, y: 45 },
+  ]),
+  11: Object.freeze([
+    { label: 'the leaf sample has a different shape', before: 'leaf:heart', after: 'leaf:oak', x: 20, y: 83 },
+    { label: 'the leaf has a different number of veins', before: 'leaf:veins3', after: 'leaf:veins5', x: 36, y: 81 },
+    { label: 'the seedling has a different number of leaves', before: 'sprout:leaves2', after: 'sprout:leaves3', x: 45, y: 59 },
+    { label: 'the flower has a different number of petals', before: 'flower:petals5', after: 'flower:petals7', x: 87, y: 77 },
+    { label: 'the watering can has a different number of drops', before: 'drops:count1', after: 'drops:count2', x: 84, y: 48 },
+    { label: 'the potted plant has a different number of leaves', before: 'sprout:leaves2', after: 'sprout:leaves4', x: 55, y: 43 },
+    { label: 'the leaf sample points a different way', before: 'leaf:upright', after: 'leaf:sideways', x: 69, y: 84 },
+  ]),
+});
+
 const makeDifferences = (sceneIndex, count) => Array.from({ length: count }, (_, position) => {
   const templateIndex = (position + sceneIndex * 2) % CHANGE_TEMPLATES.length;
   const template = CHANGE_TEMPLATES[templateIndex];
+  const challengeDetail = CHALLENGE_DETAILS[sceneIndex]?.[position];
+  if (challengeDetail) return Object.freeze({
+    id: `${sceneIndex}-${template.id}`,
+    label: challengeDetail.label,
+    normalVisual: `prop:${challengeDetail.before}`,
+    visual: `prop:${challengeDetail.after}`,
+    x: challengeDetail.x,
+    y: challengeDetail.y,
+    radius: 8,
+  });
   return Object.freeze({
     ...template,
     id: `${sceneIndex}-${template.id}`,
@@ -62,14 +111,14 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
   makeScene(0, 1, 'Dino Park', dinoPark, 'Friendly dinosaurs in a sunny park', 'Fossils are clues that help scientists learn about dinosaurs.'),
   makeScene(0, 2, 'River Valley', dinoRiver, 'A dinosaur beside a sparkling river', 'A clean river gives plants and animals a place to find fresh water.'),
   makeScene(0, 3, 'Moon Camp', dinoMoon, 'A dinosaur exploring a moon camp', 'The Moon is a rocky world that travels around Earth.'),
-  makeScene(1, 4, 'Treehouse Team', treehouse, 'A young explorer in a leafy treehouse', 'Taking turns helps everyone share a game or a job.'),
-  makeScene(1, 5, 'Sound Safari', soundSafari, 'Animals in a bright listening adventure', 'Animals use different sounds to communicate with one another.'),
+  makeScene(1, 4, 'Treehouse Team', treehouse, 'A young astronaut and robot sharing arrow blocks in a treehouse workshop', 'Taking turns helps everyone share a game or a job.'),
+  makeScene(1, 5, 'Sound Safari', soundSafari, 'An elephant, monkey, bird and frog making sounds beside a waterfall', 'Animals use different sounds to communicate with one another.'),
   makeScene(1, 6, 'Pattern Parade', patternParade, 'A colourful parade with repeating shapes', 'Repeating patterns follow a rule that we can describe.'),
-  makeScene(1, 7, 'Time Observatory', timeObservatory, 'A starry observatory with clocks', 'Earth turns once each day, bringing daylight and darkness.'),
-  makeScene(2, 8, 'Robin’s Woodland', robin, 'A robin among leaves and woodland plants', 'Robins use their beaks to find food and build safe nests.'),
-  makeScene(2, 9, 'World Explorer', geography, 'A map illustration showing land and water', 'Maps use symbols and labels to show useful information about places.'),
-  makeScene(2, 10, 'History Hall', history, 'A museum scene with objects from the past', 'Old objects can be clues about how people lived long ago.'),
-  makeScene(2, 11, 'Nature Lab', nature, 'Leaves and seeds in a nature collection', 'Plants need light and water to grow.'),
+  makeScene(1, 7, 'Time Observatory', timeObservatory, 'An observatory with a telescope, Earth globe, stars and sunset', 'Earth turns once each day, bringing daylight and darkness.'),
+  makeScene(2, 8, 'Robin’s Woodland', robin, 'A robin pecking at soil beneath a tree among flowers and woodland plants', 'Robins use their beaks to find food and build safe nests.'),
+  makeScene(2, 9, 'World Explorer', geography, 'An explorer workbench with a picture-symbol map and an Earth globe', 'Maps use symbols and labels to show useful information about places.'),
+  makeScene(2, 10, 'History Hall', history, 'Ancient ruins with books, maps and a compass', 'Old objects can be clues about how people lived long ago.'),
+  makeScene(2, 11, 'Nature Lab', nature, 'A sunny plant workbench with differently shaped leaves, seedlings and roots', 'Plants need light and water to grow.'),
 ]);
 
 export const resolveSpotDifferenceTap = (differences, foundIds, x, y) => {

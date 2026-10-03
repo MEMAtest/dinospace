@@ -43,6 +43,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     ? 'min(100%, 380px, calc(100dvh - 420px))'
     : 'min(100%, 460px, calc(100dvh - 380px))';
   const solved = Boolean(scene && placed.length && placed.every(Boolean));
+  const showMappingDemo = chapterIndex === 2 && moves === 0 && hintsUsed === 0;
   const completedInChapter = useMemo(() => chapter.scenes.filter(({ id }) => savedProgress.completedSceneIds.includes(id)).length, [chapter, savedProgress.completedSceneIds]);
 
   useEffect(() => () => { if (wrongTimeoutRef.current) clearTimeout(wrongTimeoutRef.current); }, []);
@@ -184,7 +185,10 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
         <button type="button" onClick={() => { onGameEvent?.('puzzle', 'leave', { level: chapterIndex, round: sceneIndex + 1, seed: seed || undefined }); onBack?.(); }} className="game-icon-button" aria-label="Back to learning world"><Home /></button>
         <div className="min-w-0 flex-1 text-center">
           <h1 className="text-2xl font-black text-orange-700 sm:text-3xl">Puzzle Pop</h1>
-          {phase !== 'intro' && scene && <p className="text-sm font-bold leading-tight text-orange-800 sm:text-base"><span className="block sm:inline">{chapter.name}</span><span className="block sm:inline"><span className="hidden sm:inline"> · </span>Picture {sceneIndex + 1} of {queue.length}</span></p>}
+          {phase !== 'intro' && scene && <>
+            <p className="break-words text-sm font-black leading-tight text-orange-950 sm:text-base">{scene.title}</p>
+            <p className="text-xs font-bold leading-tight text-orange-800 sm:text-sm">{chapter.name} · Picture {sceneIndex + 1} of {queue.length}</p>
+          </>}
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
@@ -219,7 +223,12 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                   <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-black">{chapter.grid}×{chapter.grid}</span>
                 </div>
                 <h2 className="col-span-2 m-0 rounded-xl bg-orange-50 px-2 py-2 text-center text-sm font-black leading-tight text-orange-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-lg">{scene.title}</h2>
-                <img src={scene.image} alt={`Completed picture preview: ${scene.alt}`} className="row-span-2 aspect-square h-24 w-24 rounded-xl object-cover shadow-md sm:row-span-1 sm:aspect-square sm:h-auto sm:w-full sm:rounded-2xl" />
+                <div className="relative row-span-2 aspect-square h-24 w-24 overflow-hidden rounded-xl shadow-md sm:row-span-1 sm:h-auto sm:w-full sm:rounded-2xl">
+                  <img src={scene.image} alt={`Completed picture preview: ${scene.alt}`} className="absolute inset-0 h-full w-full object-cover" />
+                  {hintSlot !== null && <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))` }}>
+                    {Array.from({ length: chapter.grid ** 2 }, (_, slot) => <span key={slot} className={`border border-white/60 ${slot === hintSlot ? 'z-10 rounded-sm bg-amber-300/35 ring-2 ring-inset ring-amber-500' : ''}`} />)}
+                  </div>}
+                </div>
                 <p className="m-0 rounded-xl bg-emerald-50 px-2 py-2 text-xs font-bold text-emerald-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-sm">{chapter.skill}</p>
                 <button type="button" onClick={hearPrompt} className="inline-flex min-h-12 w-full items-center justify-center gap-1 rounded-xl bg-sky-100 px-2 text-xs font-black text-sky-900 sm:mt-3 sm:gap-2 sm:px-3 sm:text-base"><Volume2 size={19} /> <span className="sm:hidden">Hear again</span><span className="hidden sm:inline">Hear instructions again</span></button>
                 <div className="col-span-2 mt-0 flex flex-wrap justify-center gap-2 sm:mt-3" aria-label="Chapter progress">
@@ -244,11 +253,12 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                     <div className="rounded-3xl border-4 border-white bg-white/90 p-3 shadow-lg sm:p-4">
                       <div className="mb-3 flex items-center justify-between gap-2">
                         <p className="font-black text-slate-800">Picture pieces <span className="text-slate-500">({tray.length} left · {moves} moves)</span></p>
-                        <button type="button" onClick={showHint} disabled={!tray.length} className="inline-flex min-h-12 items-center gap-1.5 rounded-full bg-amber-100 px-4 font-black text-orange-800 disabled:opacity-50"><Lightbulb size={18} /> Hint</button>
+                        <button type="button" onClick={showHint} disabled={!tray.length} className="inline-flex min-h-12 items-center gap-1.5 rounded-full bg-amber-100 px-4 font-black text-orange-800 disabled:opacity-50"><Lightbulb size={18} />{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
                       </div>
                       <div className="grid gap-1.5 sm:gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(48px, 1fr))' }} aria-label="Picture piece tray">
                         {tray.map((piece) => <button type="button" key={piece.id} onClick={() => choosePiece(piece)} aria-pressed={selected?.id === piece.id} aria-label={`Choose piece ${piece.correctSlot + 1}`} className={`relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(piece.correctSlot, chapter.grid)} /></span></button>)}
                       </div>
+                      {showMappingDemo && <p className="text-center text-sm font-bold text-orange-900">Try a piece mapping: compare its highlighted preview square with the glowing board space.</p>}
                     </div>
                   </>
                 ) : (
