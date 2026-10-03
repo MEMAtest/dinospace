@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-10-03T00:48:26.385889+00:00",
+  "canonicalUrl": "https://dinospace-eight.vercel.app",
+  "htmlStatus": 200,
+  "deploymentId": "dpl_kiGvxVvJatYKntaseMvP9tMp3e6T",
+  "immutableUrl": "https://dinospace-b0efvu1om-memas-projects-23a0001d.vercel.app",
+  "gitCommitSha": "9cc4331dd9e9491284cb052f13a2804d484671cb",
+  "gitCommitRef": "codex/batch2-reward-settings-repair-20261003",
+  "readyState": "READY",
+  "target": "production",
+  "aliases": [
+    "dinospace-eight.vercel.app",
+    "dinospace-memas-projects-23a0001d.vercel.app"
+  ],
+  "aliasAssigned": true,
+  "assets": [
+    {
+      "path": "/assets/index-DfKtGOa7.js",
+      "status": 200,
+      "sha256": "6f63bf8a21f6903a40b29a2536c187b4997c69e37ccaba4b67ce875b1e859b6c",
+      "matchesCandidate": false,
+      "matchesProductionConfigCandidate": true
+    },
+    {
+      "path": "/assets/index-Bwl2SrXA.css",
+      "status": 200,
+      "sha256": "bc6a7190764e87d256bd93bba89acb258be80ef865646a1ba2d1b043816ce8e7",
+      "matchesCandidate": true
+    }
+  ],
+  "buildConfig": {
+    "VITE_ELEVENLABS_ENABLED": "true"
+  }
+}
