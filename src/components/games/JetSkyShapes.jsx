@@ -7,8 +7,8 @@ import {
   skyLearningAttemptDetail, skyTraceProgressPercent,
 } from '../../data/skyShapes.js';
 import {
-  getSkyShapesProgress, recordSkyEpisodeReward, recordSkyMissionCompletion, rememberSkyMissionQueue,
-  skyRewardCallbackUnits, SKY_CHAPTER_BONUS_STARS,
+  getSkyShapesProgress, recordSkyFlightCompletion, rememberSkyMissionQueue,
+  skyRewardCallbackUnits,
 } from '../../data/skyShapesProgress.js';
 
 const VIEW_WIDTH = 1000;
@@ -67,6 +67,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const [hadHint, setHadHint] = useState(false);
   const [hadMiss, setHadMiss] = useState(false);
   const [episodeBadge, setEpisodeBadge] = useState(false);
+  const [chapterBonusStars, setChapterBonusStars] = useState(0);
 
   const episode = SKY_SHAPE_EPISODES[episodeIndex] || SKY_SHAPE_EPISODES[0];
   const mission = queue[roundIndex] || null;
@@ -110,6 +111,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     setTraceReady(false);
     setMissionAccuracy(0);
     setMissionStars(1);
+    setChapterBonusStars(0);
     setHadHint(false);
     setHadMiss(false);
     setFeedback(`Start at the green 1. Trace the ${mission.shape} outline.`);
@@ -164,6 +166,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   };
 
   const setGuidedProgress = (index, nextCursor) => {
+    if (routeFinishedRef.current) return;
     const points = guidePaths[index];
     if (!points?.length) return;
     const bounded = Math.max(0, Math.min(points.length - 1, nextCursor));
@@ -191,6 +194,17 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
         const stars = skyAccuracyStars(accuracy);
         setMissionAccuracy(accuracy);
         setMissionStars(stars);
+        const result = recordSkyFlightCompletion(playerId, mission.id, accuracy, stars);
+        if (result) {
+          setProgress(result.progress);
+          setChapterBonusStars(result.chapterBonusStars);
+          const awarded = result.awardedStars + result.chapterBonusStars;
+          if (awarded > 0) onCelebrate(`${mission.name} complete!${result.chapterBonusStars ? ' Aviator badge earned!' : ''}`, skyRewardCallbackUnits(awarded), 0, 'jet');
+          if (roundIndex === queue.length - 1 && result.episodeComplete) {
+            setEpisodeBadge(true);
+            onGameEvent?.('jet', 'level_complete', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band });
+          }
+        }
         setFeedback(`${accuracy}% on the glowing route. You earned ${stars} ${stars === 1 ? 'star' : 'stars'}!`);
         onGameEvent?.('jet', 'answer_correct', { level: episodeIndex, round: roundIndex, seed: runSeed, firstAttempt: !hadMiss && !hadHint, difficulty: episode.band });
         onGameEvent?.('jet', 'learning_attempt', skyLearningAttemptDetail({
@@ -314,26 +328,15 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
 
   const continueMission = () => {
     if (!mission || !traceReady) return;
-    const result = recordSkyMissionCompletion(playerId, mission.id, missionAccuracy, missionStars);
-    if (!result) return;
-    setProgress(result.progress);
-    if (result.awardedStars > 0) onCelebrate(`${mission.name} complete!`, skyRewardCallbackUnits(result.awardedStars), 0, 'jet');
     if (roundIndex < queue.length - 1) {
       setRoundIndex((index) => index + 1);
       setHadHint(false);
       setHadMiss(false);
       return;
     }
-    const allMissionStars = episode.missions.map((item) => result.progress.bestMissionStars[item.id] || (item.id === mission.id ? missionStars : 1));
-    const chapterStars = Math.max(1, Math.min(3, Math.round(allMissionStars.reduce((sum, value) => sum + value, 0) / allMissionStars.length)));
-    const reward = recordSkyEpisodeReward(playerId, episode.id, chapterStars);
-    setEpisodeBadge(true);
-    setProgress(reward?.progress || result.progress);
-    onGameEvent?.('jet', 'level_complete', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band });
-    if (result.newlyCompletedEpisode) {
-      onCelebrate(`${episode.title} Aviator badge earned!`, skyRewardCallbackUnits(SKY_CHAPTER_BONUS_STARS), 0, 'jet');
-    }
-    setFeedback(`${episode.title} complete. Your best sky flight is ${reward?.bestStars || chapterStars} stars.`);
+    const latest = getSkyShapesProgress(playerId);
+    setProgress(latest);
+    setFeedback(`${episode.title} complete. Your best sky flight is ${latest.bestStars[episode.id] || missionStars} stars.`);
     setPhase('done');
     playSfx('complete');
   };
@@ -496,6 +499,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
         <div className="mt-3 rounded-2xl border-2 border-white/20 bg-white/10 p-3 text-center">
           <p className="min-h-12 text-base font-black sm:text-lg" role="status" aria-live="polite">{traceReady ? `${missionAccuracy}% accurate · ${missionStars} ${missionStars === 1 ? 'star' : 'stars'} earned.` : feedback}</p>
           {traceReady && <p className="mt-1 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-sky-50">You followed {Math.round((missionAccuracy / 100) * 100)}% of your trail near the outline. Your sky-stars are saved with this mission.</p>}
+          {traceReady && chapterBonusStars > 0 && <p className="mt-1 font-black text-yellow-200">Aviator badge saved · {chapterBonusStars} bonus stars added!</p>}
           {traceReady && <div className="mt-2 flex justify-center gap-2 text-3xl" aria-label={`${missionStars} of 3 accuracy stars`}>{Array.from({ length: 3 }, (_, index) => <span key={index} aria-hidden="true" className={index < missionStars ? 'text-yellow-300' : 'text-white/35'}>★</span>)}</div>}
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             <button type="button" onClick={speakPrompt} className="min-h-12 rounded-xl bg-white px-4 py-2 font-black text-sky-900"><Volume2 size={18} className="mr-1 inline" />Hear mission again</button>

@@ -84,3 +84,14 @@ export const recordSkyEpisodeReward = (playerId, episodeId, stars, storage = bro
   saveProgress(playerId, next, storage);
   return { progress: next, bestStars: Math.max(previous, stars), improved: stars > previous };
 };
+
+// Persist the completed route and its chapter reward before the child chooses Next.
+export const recordSkyFlightCompletion = (playerId, missionId, accuracy, stars, storage = browserStorage()) => {
+  const result = recordSkyMissionCompletion(playerId, missionId, accuracy, stars, storage);
+  if (!result) return null;
+  const episode = SKY_SHAPE_EPISODES[SKY_SHAPE_MISSION_BY_ID[missionId].episodeIndex];
+  const ratings = episode.missions.map((mission) => result.progress.bestMissionStars[mission.id] || 0);
+  const chapterStars = Math.max(1, Math.min(3, Math.round(ratings.reduce((sum, rating) => sum + rating, 0) / ratings.length)));
+  const reward = result.episodeComplete ? recordSkyEpisodeReward(playerId, episode.id, chapterStars, storage) : null;
+  return { ...result, progress: reward?.progress || result.progress, chapterStars: reward?.bestStars || 0, chapterBonusStars: result.newlyCompletedEpisode ? SKY_CHAPTER_BONUS_STARS : 0 };
+};
