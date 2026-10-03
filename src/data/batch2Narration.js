@@ -1,6 +1,6 @@
 import { PUZZLE_POP_CHAPTERS } from './puzzlePopBatch2.js';
 import { SPOT_DIFFERENCE_CHAPTERS, SPOT_DIFFERENCE_SCENES } from './spotDifferenceBatch2.js';
-import { SKY_SHAPE_MISSIONS } from './skyShapes.js';
+import { SKY_SHAPE_MISSIONS, SKY_SHAPE_TEACHING } from './skyShapes.js';
 import { MONSTER_QUESTION_POOLS } from './monsterMathEpisodes.js';
 
 export const puzzlePopNarration = Object.freeze({
@@ -23,6 +23,7 @@ export const skyShapeNarration = Object.freeze({
   choose: 'Choose a sky. Start each outline at its green dot and follow the glowing route.',
   prompt: (episodeNumber, mission) => `Sky ${episodeNumber}. Trace the ${mission.name}. Start at the green dot.`,
   completed: (mission) => `Great job tracing the ${mission.name}! You followed every glowing path.`,
+  completionSegments: (mission) => [skyShapeNarration.completed(mission), SKY_SHAPE_TEACHING[mission.id].explanation],
   hint: (pathIndex, cursorIndex) => pathIndex === 0 && cursorIndex === 0
     ? 'Begin at green one, then follow the glowing dots in order.'
     : 'Continue at the next green dot. Stay close to the bright line.',
@@ -81,6 +82,7 @@ SKY_SHAPE_MISSIONS.forEach((mission) => {
   addLine('skyShapes', skyShapeNarration.prompt(mission.episodeIndex + 1, mission));
   addLine('skyShapes', skyShapeNarration.replay(mission));
   addLine('skyShapes', skyShapeNarration.completed(mission));
+  addLine('skyShapes', SKY_SHAPE_TEACHING[mission.id].explanation);
   for (let pathIndex = 0; pathIndex < mission.paths.length; pathIndex += 1) {
     addLine('skyShapes', skyShapeNarration.hint(pathIndex, 0));
     if (pathIndex > 0) addLine('skyShapes', skyShapeNarration.hint(pathIndex, 1));

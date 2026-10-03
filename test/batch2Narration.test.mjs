@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { BATCH2_VOICE_CORPUS_BY_GAME, BATCH2_VOICE_LINES, monsterMathNarration, puzzlePopNarration, skyShapeNarration, spotDifferenceNarration, speakPackagedBatch2Line } from '../src/data/batch2Narration.js';
 import { PUZZLE_POP_CHAPTERS } from '../src/data/puzzlePopBatch2.js';
 import { SPOT_DIFFERENCE_CHAPTERS, SPOT_DIFFERENCE_SCENES } from '../src/data/spotDifferenceBatch2.js';
-import { SKY_SHAPE_MISSIONS } from '../src/data/skyShapes.js';
+import { SKY_SHAPE_MISSIONS, SKY_SHAPE_TEACHING } from '../src/data/skyShapes.js';
 import { MONSTER_QUESTION_POOLS } from '../src/data/monsterMathEpisodes.js';
 import { voiceClipKey } from '../src/data/voiceKey.js';
 
@@ -40,8 +40,12 @@ test('Sky and Monster Math spoken prompts, hints, retries, and explanations are 
     assert.ok(corpus.has(skyShapeNarration.prompt(mission.episodeIndex + 1, mission)));
     assert.ok(corpus.has(skyShapeNarration.replay(mission)));
     assert.ok(corpus.has(skyShapeNarration.completed(mission)));
+    const completionSegments = skyShapeNarration.completionSegments(mission);
+    assert.deepEqual(completionSegments, [skyShapeNarration.completed(mission), SKY_SHAPE_TEACHING[mission.id].explanation]);
+    assert.ok(completionSegments.every((segment) => corpus.has(segment)), `completion praise and fact are packaged: ${mission.id}`);
     for (let pathIndex = 0; pathIndex < mission.paths.length; pathIndex += 1) assert.ok(corpus.has(skyShapeNarration.hint(pathIndex, 0)));
   });
+  assert.equal(new Set(SKY_SHAPE_MISSIONS.map(({ id }) => SKY_SHAPE_TEACHING[id].explanation)).size, 12);
   MONSTER_QUESTION_POOLS.flat().forEach((question) => {
     const scripts = [
       [question.prompt, monsterMathNarration.promptSegments(question)],

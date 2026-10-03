@@ -214,7 +214,8 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
           level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band,
           missionId: mission.id, accuracy, firstAttempt: !hadMiss && !hadHint, hints: hadHint ? 1 : 0,
         }));
-        speakPackagedBatch2Line(speak, skyShapeNarration.completed(mission));
+        const completionSegments = skyShapeNarration.completionSegments(mission);
+        speak(completionSegments.join(' '), { segments: completionSegments });
         playSfx('success');
       } else {
         const nextPath = index + 1;
