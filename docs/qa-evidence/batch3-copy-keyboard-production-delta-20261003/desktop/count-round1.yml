@@ -1,0 +1,23 @@
+- generic [ref=e230]:
+  - banner [ref=e231]:
+    - button "Back to Maths Missions" [ref=e232] [cursor=pointer]
+    - generic [ref=e236]:
+      - heading "Count the Stars" [level=1] [ref=e237]
+      - paragraph [ref=e238]: Star Garden · Round 1 of 6
+    - button "Turn sound off" [ref=e239] [cursor=pointer]
+  - main [ref=e313]:
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - generic [ref=e316]:
+          - paragraph [ref=e317]: Star Garden · starter
+          - heading "Comet Seeds" [level=2] [ref=e318]
+        - generic [aria-hidden] [ref=e319]: 🌠
+      - paragraph [ref=e320]: Count each glowing object once. A number badge keeps your place.
+      - group "Counting board for Comet Seeds; organized rows or an array" [ref=e321]:
+        - button "comet seed 1, not counted yet" [ref=e322] [cursor=pointer]
+        - button "comet seed 2, not counted yet" [ref=e326] [cursor=pointer]
+      - generic [ref=e330]:
+        - paragraph [ref=e331]: Tap each object once to count it.
+        - generic [ref=e332]:
+          - button "Hear instructions" [ref=e333] [cursor=pointer]
+          - button "Show a clue" [ref=e338] [cursor=pointer]

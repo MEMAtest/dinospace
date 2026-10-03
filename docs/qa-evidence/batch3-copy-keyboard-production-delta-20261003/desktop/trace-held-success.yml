@@ -1,0 +1,31 @@
+- generic [ref=e405]:
+  - banner [ref=e406]:
+    - button "Back to learning world" [ref=e407] [cursor=pointer]
+    - generic [ref=e410]:
+      - paragraph [ref=e411]: Words · age-six practice
+      - paragraph [ref=e412]: Letter Trace
+    - button "Sound on" [pressed] [ref=e413] [cursor=pointer]
+  - main [ref=e430]:
+    - generic [ref=e431]:
+      - generic [ref=e432]:
+        - paragraph [ref=e433]: Follow the path · round 1 of 8
+        - heading "Trace G · Giraffe" [level=1] [ref=e434]
+      - generic [ref=e435]:
+        - button "Hear the tracing instruction again" [ref=e436] [cursor=pointer]
+        - button "Sound on" [pressed] [ref=e441] [cursor=pointer]
+    - region "Letter tracing exercise" [ref=e442]:
+      - generic [ref=e443]:
+        - paragraph [ref=e444]: Letter complete. Choose Next when you are ready.
+        - paragraph [ref=e445]: 100% traced
+      - progressbar "Letter path progress" [ref=e446]
+      - img "G letter guide. Trace G. All 1 strokes complete." [ref=e464]
+      - generic [ref=e449]:
+        - button "Show this stroke" [disabled] [ref=e450]
+        - button "Retry trace" [disabled] [ref=e453]
+        - button "Use touch or mouse" [disabled] [pressed] [ref=e462]
+        - button "Check shape" [disabled] [ref=e458]
+    - generic [ref=e465]:
+      - heading "You followed the letter. Great tracing!" [level=2] [ref=e466]
+      - paragraph [ref=e467]: The explanation stays here until you are ready.
+      - button "Next letter" [ref=e468] [cursor=pointer]
+  - contentinfo [ref=e429]: Pointer completion records letter mastery only after an unhinted, first-try hand trace. Keyboard practice can complete the chapter without recording handwriting mastery.

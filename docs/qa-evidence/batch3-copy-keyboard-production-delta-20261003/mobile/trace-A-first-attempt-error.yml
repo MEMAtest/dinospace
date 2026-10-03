@@ -1,0 +1,39 @@
+- generic [ref=e2]:
+  - generic [ref=e393]:
+    - banner [ref=e394]:
+      - button "Back to learning world" [ref=e395] [cursor=pointer]
+      - generic [ref=e398]:
+        - paragraph [ref=e399]: Words · age-six practice
+        - paragraph [ref=e400]: Letter Trace
+      - button "Sound on" [pressed] [ref=e401] [cursor=pointer]
+    - main [ref=e418]:
+      - generic [ref=e419]:
+        - generic [ref=e420]:
+          - paragraph [ref=e421]: Follow the path · round 1 of 8
+          - heading "Trace A · Apple" [level=1] [ref=e422]
+        - generic [ref=e423]:
+          - button "Hear the tracing instruction again" [ref=e424] [cursor=pointer]
+          - button "Sound on" [pressed] [ref=e429] [cursor=pointer]
+      - region "Letter tracing exercise" [ref=e430]:
+        - generic [ref=e431]:
+          - paragraph [ref=e432]: Start at green 1; follow the arrows.
+          - paragraph [ref=e433]: 0% traced
+        - progressbar "Letter path progress" [ref=e434]
+        - img "A letter guide. Trace A. Stroke 1 of 2." [ref=e436]
+        - generic [ref=e437]:
+          - button "Show this stroke" [ref=e438] [cursor=pointer]
+          - button "Retry trace" [ref=e441] [cursor=pointer]
+          - button "Use keyboard" [ref=e445] [cursor=pointer]
+          - button "Check shape" [disabled] [ref=e446]
+      - paragraph [ref=e449]: Nice try. Start this stroke again at green 1.
+    - contentinfo [ref=e417]: Pointer completion records letter mastery only after an unhinted, first-try hand trace. Keyboard practice can complete the chapter without recording handwriting mastery.
+  - dialog [ref=e450]:
+    - generic [ref=e451]:
+      - heading "Leave the game?" [level=2] [ref=e452]
+      - generic [ref=e453]:
+        - generic [ref=e454]:
+          - button "Keep playing" [active] [ref=e455] [cursor=pointer]
+          - generic [ref=e458]: Keep playing
+        - generic [ref=e459]:
+          - button "Back to world" [ref=e460] [cursor=pointer]
+          - generic [ref=e463]: World

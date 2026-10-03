@@ -1,0 +1,34 @@
+- generic [ref=e230]:
+  - banner [ref=e231]:
+    - button "Back to Maths Missions" [ref=e232] [cursor=pointer]
+    - generic [ref=e236]:
+      - heading "Count the Stars" [level=1] [ref=e237]
+      - paragraph [ref=e238]: Star Garden · Round 1 of 6
+    - button "Turn sound off" [ref=e239] [cursor=pointer]
+  - main [ref=e313]:
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - generic [ref=e316]:
+          - paragraph [ref=e317]: Star Garden · starter
+          - heading "Comet Seeds" [level=2] [ref=e318]
+        - generic [aria-hidden] [ref=e319]: 🌠
+      - paragraph [ref=e320]: Count each glowing object once. A number badge keeps your place.
+      - group "Counting board for Comet Seeds; organized rows or an array" [ref=e321]:
+        - button "comet seed 1, counted number 1" [disabled] [pressed] [ref=e341]:
+          - generic [ref=e342]: "1"
+        - button "comet seed 2, counted number 2" [disabled] [pressed] [ref=e343]:
+          - generic [ref=e344]: "2"
+      - generic [ref=e330]:
+        - paragraph [ref=e331]: How many did you count?
+        - generic [ref=e332]:
+          - button "Hear instructions" [ref=e333] [cursor=pointer]
+          - button "Show a clue" [disabled] [ref=e338]
+      - status [ref=e353]: Read one row at a time, and use each badge to keep your place.
+      - generic [ref=e345]:
+        - paragraph [ref=e346]: How many comet seeds did you count?
+        - generic [ref=e347]:
+          - button "3" [ref=e348] [cursor=pointer]
+          - button "4" [ref=e349] [cursor=pointer]
+          - button "1" [active] [ref=e350] [cursor=pointer]
+          - button "2" [ref=e351] [cursor=pointer]
+        - status [ref=e352]: Check your count badges once more.
