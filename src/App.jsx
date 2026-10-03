@@ -237,7 +237,13 @@ const PlayerSession = ({
     const sessionRule = currentGame.little || batch4OwnsProgression || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
       onBack: () => back({ toParent: !little }),
-      onLaunchGame: launchGame,
+      onLaunchGame: (gameId) => {
+        if (currentGame.id === 'worldmap' && gameId === 'timeteller') {
+          navigate({ name: 'game', id: 'worldmap', module: 'time-detectives' }, { replace: true });
+        }
+        launchGame(gameId);
+      },
+      initialModule: route.id === 'worldmap' ? route.module : undefined,
       playSfx,
       speak,
       // The older games award 4–14 stars per answer, which emptied the

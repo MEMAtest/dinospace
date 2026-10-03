@@ -14,11 +14,11 @@ import { LEARNING_WORLDS } from './data/learningWorlds.js';
 const PAGES = new Set(['home', 'stickers', 'grownups']);
 
 export const parseRoute = (hash = '') => {
-  const [head, arg] = String(hash).replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
+  const [head, arg, module] = String(hash).replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent);
   if (!head) return { name: 'welcome' };
   if (PAGES.has(head)) return { name: head };
   if (head === 'world' && arg) return { name: 'world', id: arg };
-  if (head === 'play' && arg) return { name: 'game', id: arg };
+  if (head === 'play' && arg) return { name: 'game', id: arg, ...(arg === 'worldmap' && module === 'time-detectives' ? { module } : {}) };
   return { name: 'home' };
 };
 
@@ -26,7 +26,7 @@ export const routeHash = (route) => {
   switch (route?.name) {
     case 'welcome': return '#/';
     case 'world': return `#/world/${encodeURIComponent(route.id)}`;
-    case 'game': return `#/play/${encodeURIComponent(route.id)}`;
+    case 'game': return `#/play/${encodeURIComponent(route.id)}${route.id === 'worldmap' && route.module === 'time-detectives' ? '/time-detectives' : ''}`;
     case 'stickers':
     case 'grownups':
     case 'home':
@@ -56,7 +56,7 @@ export const sameRoute = (a, b) => routeHash(a) === routeHash(b);
 // arbitrary routes or carrying another game's origin forward.
 export const gameReturnRoute = (route, historyState) => route?.name === 'game'
   && route.id === 'timeteller' && historyState?.clockLessonOrigin === 'worldmap'
-  ? { name: 'game', id: 'worldmap' } : parentRoute(route);
+  ? { name: 'game', id: 'worldmap', module: 'time-detectives' } : parentRoute(route);
 
 export const nextRouteHistoryState = (from, next, previousState, depth) => ({
   depth,

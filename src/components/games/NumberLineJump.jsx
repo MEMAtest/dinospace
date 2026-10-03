@@ -1,6 +1,7 @@
+import { createArithmeticSeed } from '../../data/arithmeticAdventure.js';
 import { useEffect, useState } from 'react';
 import { ArrowLeft, Lightbulb, Volume2 } from 'lucide-react';
-import { NUMBER_LINE_CHAPTERS, createNumberLineRun, createArithmeticSeed } from '../../data/timeLineAdventure.js';
+import { NUMBER_LINE_CHAPTERS, createNumberLineRun } from '../../data/timeLineAdventure.js';
 import { getTimeLineProgress, rememberTimeLineRun, saveTimeLineRun } from '../../data/timeLineProgress.js';
 import { SoundToggle } from '../shared/index.jsx';
 
