@@ -214,7 +214,9 @@ const AmariLetterTrace = ({
       markerOrder.forEach((index) => {
         const stroke = strokes[index];
       const start = stroke[0];
-      const cursor = strokeStateRef.current.cursors[index] ?? 0;
+      // Coverage is a high-water mark; the keyboard cursor may move back.
+      // Paint its actual current position so rewind remains visible.
+      const cursor = keyboardRef.current.cursor;
       ctx.beginPath();
       ctx.arc(start.x, start.y, 19, 0, Math.PI * 2);
       ctx.fillStyle = index <= strokeStateRef.current.completed ? '#15803d' : '#64748b';
