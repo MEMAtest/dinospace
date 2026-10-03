@@ -52,3 +52,8 @@ Batch5 root foundations are committed: Colour/Odd three distinct chapters, six u
 ## 18:35 UTC independent mechanics closure
 
 Independent Batch4 report aab31f0 records all four games, all18missions each, both1280×800 and390×844, plus full same-band replay, shelf/best-star deltas, sibling isolation, reload persistence and contextual routes on immutable5227. Report explicitly withholds narration, physical-device and production acceptance. Narrow5235 narration delta follows. Batch5 Luna literacy commit9c2c7cf has source components/pools/progress and finite narration inventory;648 voice clips and37pure phoneme clips remain pending. Luna is now building the two Colour/Odd UI components and Amari-only routing using root-owned canonical models. No new production release or4.5scores.
+
+
+## 18:56 UTC implementation and evidence
+
+Previous goal turn changed committed source and completed-run persistence, so it was progress. This continuation prepared fingerprint-pinned finite Batch4 packaging (not started), confirmed its narrow narration check cannot establish active cancellation while5181clips are absent, and full-decoded212available Batch3clips with0invalid. WorkerPID1660 was confirmed live with63pending at18:40UTC. Batch5 all-four source candidatee5f8013 is withheld: rootreview found missing recipe inputs and selected-ingredient/result confusion; metadata and validator/test repaired05b865f while Luna repairs UI/hints/event semantics. NewBatch6worktree0d11256 and concrete4game contract9188fc6 have a Luna builder active. Counts now4accepted/20inprogress/2notstarted; unchanged production.

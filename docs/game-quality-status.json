@@ -3,8 +3,8 @@
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
-    "in progress": 16,
-    "not started": 6
+    "in progress": 20,
+    "not started": 2
   },
   "canonicalRelease": "3cdfc426e91b46a855448690278ceb6590280b68",
   "currentBatch": 2,
@@ -173,34 +173,34 @@
     {
       "game": "Pattern Parade",
       "batch": 6,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md"
     },
     {
       "game": "Dino Hangman",
       "batch": 6,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md"
     },
     {
       "game": "Chess Explorers",
       "batch": 6,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md"
     },
     {
       "game": "Astronaut Academy",
       "batch": 6,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md"
     },
     {
       "game": "Memory Match",
@@ -260,7 +260,8 @@
     "narration": "275 unique finite worker live;87 pending at18:30UTC, expected request-window waiting. Frozen5237 contains46 mappedclips; first46decoded. Fullpackaging/native/listening open.",
     "release": "Not deployed or accepted",
     "sourceGateScope": "204/204tests, fullESLint, productionconfigurationbuild and6servedhashes on immutable5237 archivedsource",
-    "identity": "work/dinospace-batch3-quality/docs/qa-evidence/batch3-direction-identity-20261003.json"
+    "identity": "work/dinospace-batch3-quality/docs/qa-evidence/batch3-direction-identity-20261003.json",
+    "audioDecode": "212mappedclips full decode/positive duration/hash audit,0invalid at18:49UTC; not full275 readiness/listening. Evidence work/dinospace-batch3-quality/docs/qa-evidence/batch3-partial-decode-20261003-1850.json"
   },
   "nextImplementationBatch": {
     "batch": 4,
@@ -286,7 +287,7 @@
     "sourceBase": "1d33a28",
     "branch": "codex/amari-batch5-quality-20261003",
     "plan": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md",
-    "scope": "Luna literacy source committed; Colour/Odd root models/progress committed with9focusedtests/lint. Luna now building Colour/Odd UI and Amari-only routing; separate browser/audio/production acceptance pending.",
+    "scope": "All4Amari source UIs/routes committed e5f8013, rootreview caught missingColourinputs/wrongresult semantic risk; canonical first/second/mixResult/clue and palette metadata fixed05b865f with10focusedtests/lint. Luna UI/hint/diagnostic correction active; frozen browser candidate/audio/production pending.",
     "literacySource": "9c2c7cf870717046a94cdc890307855e2467d0e2"
   },
   "batch4NarrationCandidate": {
@@ -297,6 +298,20 @@
     "build": "passed",
     "servedHashesMatch": true,
     "voiceCoverage": "65ready/5181pendingphrases; packagingnotstarted",
-    "release": "Notdeployed/accepted"
+    "release": "Notdeployed/accepted",
+    "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
+    "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
+    "deltaScope": "Exact5235 source/assets, guarded UI/navigation/console checks passed. No complete spoken sequence available, so active playback/cancellation unverified."
+  },
+  "batch6Implementation": {
+    "branch": "codex/amari-batch6-quality-20261003",
+    "base": "0d11256",
+    "plan": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md",
+    "scope": "Sourceaudit and concrete4-game contract committed9188fc6; Luna builder active on Pattern/Hangman/Chess/Astronaut. No candidate browser/audio/production acceptance."
+  },
+  "batch4PackagingPlan": {
+    "source": "ac3b3cc",
+    "plan": "work/dinospace-batch4-quality/docs/batch4-finite-narration-packaging-plan-20261003.md",
+    "state": "Prepared only; Batch3 completed/process exit and explicit sharedjournal required before start; fingerprint pinned;520finitechildrunsmaximum. No Batch4 provider calls."
   }
 }
