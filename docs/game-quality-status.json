@@ -264,5 +264,15 @@
     "batch": 4,
     "branch": "codex/amari-batch4-quality-20261003",
     "scope": "Isolated App progression ownership and clock-origin navigation preparation. Luna Addition/Subtraction builder active; Time/Number Line builders pending capacity. No frozen build, QA acceptance or production release."
+  },
+  "batch4Candidate": {
+    "sha": "d96e5d7ad08483163e375a4ddbe358a346163922",
+    "status": "frozen local candidate in independent Playwright QA",
+    "sourceTests": "191/191",
+    "fullESLint": "passed",
+    "productionConfigurationBuild": "passed",
+    "identity": "docs/qa-evidence/batch4-integrated-candidate-identity-20261003.json",
+    "productionReleased": false,
+    "editorialAccepted": false
   }
 }
