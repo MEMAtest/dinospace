@@ -13,7 +13,8 @@ export const COLOUR_SWATCHES = freeze({
   pink: { label: 'Light red', hex: '#f79aa3' }, sky: { label: 'Light blue', hex: '#9bcaf5' }, mint: { label: 'Light green', hex: '#a0d9ad' },
   darkRed: { label: 'Dark red', hex: '#8e2634' }, darkBlue: { label: 'Dark blue', hex: '#193e79' }, darkGreen: { label: 'Dark green', hex: '#235b39' },
 });
-const recipe = (id, first, second, result, fact) => ({ id, first, second, result, fact });
+export const COLOUR_MODEL = Object.freeze({ id: 'authored-classroom-ryb-v1', partsFirst: 1, partsSecond: 1, note: 'One part of each named colour. These classroom swatches illustrate a recipe; real pigments vary.' });
+const recipe = (id, first, second, result, fact) => ({ id, first, second, partsFirst: 1, partsSecond: 1, result, fact });
 export const COLOUR_RECIPES = freeze([
   recipe('orange', 'red', 'yellow', 'orange', 'Red and yellow make orange in our colour lab.'),
   recipe('green', 'yellow', 'blue', 'green', 'Yellow and blue make green in our colour lab.'),
