@@ -144,6 +144,10 @@ export default function NumberLineJump({
     const next = position + dir;
     if (next < 0 || next > 10 || trail.length >= q.b) return;
     if (value !== next) {
+      onGameEvent?.('numberline', 'answer_attempt', {
+        level: chapterIndex, round: ri, seed, difficulty: chapter.id,
+        skill: 'hop', item: q.id, response: value, correct: false, firstAttempt: !mistake,
+      });
       setMistake(true);
       setFeedback('Take one number at a time in the direction shown.');
       playSfx('wrong');
@@ -216,7 +220,7 @@ export default function NumberLineJump({
   const line = (limit, markers = {}) => <div className="relative h-36 px-6" style={{
     minWidth: Math.max(760, (limit + 1) * 54)
   }} role="group" aria-label={`Number line from 0 to ${limit}`}><div className="absolute bottom-7 left-6 right-6 h-1 rounded-full bg-orange-400" />
-    {q?.type === 'hop' && <div className="absolute top-4 -translate-x-1/2 transition-[left] duration-300 motion-reduce:transition-none" style={{left: `${4 + (position / limit) * 92}%`}}><Frog /></div>}{Array.from({
+    {q?.type === 'hop' && <div key={q.id} className="absolute top-4 -translate-x-1/2 transition-[left] duration-300 motion-reduce:transition-none" style={{left: `${4 + (position / limit) * 92}%`}}><Frog /></div>}{Array.from({
       length: limit + 1
     }, (_, n) => <div key={n} className="absolute bottom-2 flex -translate-x-1/2 flex-col items-center" style={{
       left: `${4 + n / limit * 92}%`
