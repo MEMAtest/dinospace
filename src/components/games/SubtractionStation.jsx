@@ -5,6 +5,7 @@ import { getArithmeticProgress, rememberStartedArithmeticRun, saveArithmeticRun 
 import { SoundToggle } from '../shared/index.jsx';
 
 const tell = (speak, text, segments = arithmeticNarrationSegments(text)) => speak?.(text, { premium: false, segments });
+const noopCancel = () => {};
 const colorClass = { red: 'bg-rose-500', blue: 'bg-sky-500', gold: 'bg-amber-400', pink: 'bg-pink-400', violet: 'bg-violet-500', brown: 'bg-amber-800', teal: 'bg-teal-500' };
 const colorHex = { red: '#f43f5e', blue: '#0ea5e9', gold: '#fbbf24', pink: '#f472b6', violet: '#8b5cf6', brown: '#92400e', teal: '#14b8a6', rose: '#e11d48' };
 const ObjectToken = ({ object, color }) => {
@@ -20,7 +21,7 @@ const ObjectToken = ({ object, color }) => {
 const group = (n, color, label, removed = 0, object = 'counter', moving = false) => <div role="group" aria-label={`${label}, ${n} ${n === 1 ? object : `${object}s`}${removed ? `, ${removed} marked for removal` : ''}`} className={`min-w-24 rounded-2xl border-2 border-slate-200 bg-white p-2 transition-all duration-700 motion-reduce:transition-none ${moving ? 'translate-x-4 translate-y-3 opacity-40' : ''}`}><p className="text-xs font-black text-slate-700">{label}: {n === 0 ? '0 (empty)' : n}</p><div className="mt-1 flex max-w-56 flex-wrap gap-1" aria-hidden="true">{Array.from({ length: n }, (_, i) => <svg key={i} viewBox="0 0 32 32" className={`h-7 w-7 ${i < removed ? 'opacity-45' : ''}`} focusable="false"><ObjectToken object={object} color={color}/>{i < removed && <path d="m5 5 22 22M27 5 5 27" stroke="#be123c" strokeWidth="3"/>}</svg>)}</div></div>;
 const Chapter = ({ chapter, index, selected, done, locked, onClick }) => <button type="button" disabled={locked} onClick={onClick} aria-pressed={selected} className={`min-h-16 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-50 ${selected ? 'border-violet-600 bg-violet-100' : 'border-white bg-white'}`}><span className="block text-xs uppercase tracking-wide">Chapter {index + 1}{done ? ' · Badge earned' : locked ? ' · Locked' : ''}</span>{chapter.title}</button>;
 
-export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) {
+export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, cancelNarration = noopCancel, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) {
   const [progress, setProgress] = useState(() => getArithmeticProgress('subtraction', playerId));
   const [chapterIndex, setChapterIndex] = useState(() => getArithmeticProgress('subtraction', playerId).unlockedChapter);
   const [phase, setPhase] = useState('start');
@@ -40,6 +41,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
   useEffect(() => {
     onPhaseChange?.(phase === 'done' ? 'finish' : phase === 'start' ? 'intro' : 'play');
   }, [phase, onPhaseChange]);
+  useEffect(() => () => cancelNarration(), [cancelNarration]);
   useEffect(() => {
     if (phase !== 'play' || !question) return;
     onGameEvent?.('subtraction', 'question', { level: chapterIndex, round: roundIndex, seed, difficulty: chapter.id });
@@ -47,6 +49,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
   }, [phase, question, chapterIndex, chapter.id, roundIndex, seed, speak, onGameEvent]);
 
   const start = (index = chapterIndex) => {
+    cancelNarration();
     const newSeed = createArithmeticSeed();
     const recent = getArithmeticProgress('subtraction', playerId).recentQuestionIds[index] || [];
     const queue = createSubtractionRun({ chapter: index, seed: newSeed, recentIds: recent });
@@ -87,6 +90,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
           ? 'Pair one counter from each group. They have the same number, so none are left unpaired.'
           : 'Pair one counter from each group. Count what is left unpaired.';
       setFeedback(guidance);
+      tell(speak, question.clue, arithmeticNarrationSegments(question, 'clue'));
       playSfx('wrong');
       return;
     }
@@ -105,7 +109,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
       skill: chapter.skill, item: question.id, response: value, expected: question.answer,
       correct: true, firstAttempt, independent: firstAttempt && !hintUsed, priorWrong: mistake, hints: hintUsed ? 1 : 0,
     });
-    tell(speak, question.explanation);
+    tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'));
   };
 
   const hint = () => {
@@ -114,11 +118,12 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     setHintCount((count) => count + 1);
     setFeedback(question.clue);
     onGameEvent?.('subtraction', 'hint', { level: chapterIndex, round: roundIndex, seed, difficulty: chapter.id, hintType: 'one_step' });
-    tell(speak, question.clue);
+    tell(speak, question.clue, arithmeticNarrationSegments(question, 'clue'));
   };
 
   const next = () => {
     if (!locked) return;
+    cancelNarration();
     if (roundIndex < 5) {
       setRoundIndex((index) => index + 1);
       setMistake(false);
@@ -183,6 +188,6 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
       </div>
     </div>;
   }, [question, locked, motion]);
-  if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>{phase === 'start' ? <main className="mx-auto mt-5 max-w-4xl"><p className="mb-4 rounded-2xl bg-white p-4 text-center font-bold">Take away, compare groups, and solve stories. Each chapter has six questions and a worked answer you control.</p><div className="grid gap-3 sm:grid-cols-3">{SUBTRACTION_CHAPTERS.map((c,i)=><Chapter key={c.id} chapter={c} index={i} selected={chapterIndex===i} done={progress.completedChapterIds.includes(c.id)} locked={i>progress.unlockedChapter} onClick={()=>setChapterIndex(i)} />)}</div><button onClick={()=>start()} className="mt-5 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white">Start {chapter.title}</button></main> : <main className="mx-auto mt-8 max-w-2xl rounded-3xl bg-white p-6 text-center shadow-xl"><p className="text-2xl font-black">{feedback}</p><p className="mt-3">Choose the next unlocked chapter or replay a completed chapter.</p><button className="mt-5 min-h-14 w-full rounded-2xl bg-violet-700 px-5 font-black text-white" onClick={()=>{setPhase('start');setChapterIndex(progress.unlockedChapter);}}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white px-5 font-black text-violet-800 ring-2 ring-violet-700" onClick={()=>start(chapterIndex)}>Replay {chapter.title}</button></main>}</div>;
+  if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>{phase === 'start' ? <main className="mx-auto mt-5 max-w-4xl"><p className="mb-4 rounded-2xl bg-white p-4 text-center font-bold">Take away, compare groups, and solve stories. Each chapter has six questions and a worked answer you control.</p><div className="grid gap-3 sm:grid-cols-3">{SUBTRACTION_CHAPTERS.map((c,i)=><Chapter key={c.id} chapter={c} index={i} selected={chapterIndex===i} done={progress.completedChapterIds.includes(c.id)} locked={i>progress.unlockedChapter} onClick={()=>setChapterIndex(i)} />)}</div><button onClick={()=>start()} className="mt-5 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white">Start {chapter.title}</button></main> : <main className="mx-auto mt-8 max-w-2xl rounded-3xl bg-white p-6 text-center shadow-xl"><p className="text-2xl font-black">{feedback}</p><p className="mt-3">Choose the next unlocked chapter or replay a completed chapter.</p><button className="mt-5 min-h-14 w-full rounded-2xl bg-violet-700 px-5 font-black text-white" onClick={()=>{cancelNarration();setPhase('start');setChapterIndex(progress.unlockedChapter);}}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white px-5 font-black text-violet-800 ring-2 ring-violet-700" onClick={()=>start(chapterIndex)}>Replay {chapter.title}</button></main>}</div>;
   return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-3 text-lg font-bold" aria-live="polite">{question?.prompt}</p><button className="mb-4 inline-flex min-h-12 items-center gap-2 rounded-xl bg-violet-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>{model}<div className="my-4 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-violet-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>{feedback&&<p role="status" className="mx-auto mb-3 max-w-2xl rounded-xl bg-violet-50 p-3 font-bold">{feedback}</p>}{!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}{locked&&<button onClick={next} className="mt-3 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white">{roundIndex===5?'Finish chapter':'Next question'}</button>}</main></div>;
 }

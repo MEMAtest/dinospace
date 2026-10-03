@@ -2,6 +2,7 @@ import { createArithmeticSeed } from '../../data/arithmeticAdventure.js';
 import { useEffect, useState } from 'react';
 import { ArrowLeft, Lightbulb, Volume2 } from 'lucide-react';
 import { NUMBER_LINE_CHAPTERS, createNumberLineRun } from '../../data/timeLineAdventure.js';
+import { numberLineNarrationSegments, numberLineNarrationText } from '../../data/batch4Narration.js';
 import { getTimeLineProgress, rememberTimeLineRun, saveTimeLineRun } from '../../data/timeLineProgress.js';
 import { SoundToggle } from '../shared/index.jsx';
 const Frog = () => <svg viewBox="0 0 80 64" aria-hidden="true" className="h-12 w-14 drop-shadow-sm">
@@ -15,15 +16,8 @@ const Frog = () => <svg viewBox="0 0 80 64" aria-hidden="true" className="h-12 w
   <ellipse cx="16" cy="55" rx="13" ry="6" fill="#22c55e" /><ellipse cx="64" cy="55" rx="13" ry="6" fill="#22c55e" />
 </svg>;
 
-const tell = (speak, line) => speak?.(line, {
-  premium: false,
-  segments: [line]
-});
-const VOICE = Object.freeze({
-  mission: 'Listen to the number line mission.',
-  hint: 'Use the number line to check one step at a time.',
-  correct: 'That is right. The number line shows each hop and landing.'
-});
+const tell = (speak, line, segments) => speak?.(line, { premium: false, segments });
+const noopCancel = () => {};
 const ChapterButton = ({
   c,
   i,
@@ -38,6 +32,7 @@ export default function NumberLineJump({
   soundOn,
   onToggleSound,
   speak = () => {},
+  cancelNarration = noopCancel,
   onCelebrate = () => {},
   onGameEvent,
   onPhaseChange,
@@ -58,6 +53,7 @@ export default function NumberLineJump({
   const [trail, setTrail] = useState([]);
   const chapter = NUMBER_LINE_CHAPTERS[chapterIndex],
     q = run[ri];
+  useEffect(() => () => cancelNarration(), [cancelNarration]);
   useEffect(() => {
     onPhaseChange?.(phase === 'done' ? 'finish' : phase === 'start' ? 'intro' : 'play');
   }, [phase, onPhaseChange]);
@@ -69,10 +65,11 @@ export default function NumberLineJump({
         seed,
         difficulty: chapter.id
       });
-      tell(speak, VOICE.mission);
+      tell(speak, numberLineNarrationText(q), numberLineNarrationSegments(q));
     }
   }, [phase, q, chapterIndex, ri, seed, chapter.id, speak, onGameEvent]);
   const start = (index = chapterIndex) => {
+    cancelNarration();
     const s = createArithmeticSeed();
     const recent = getTimeLineProgress('numberline', playerId).recentQuestionIds[index] || [];
     const next = createNumberLineRun({
@@ -117,6 +114,7 @@ export default function NumberLineJump({
     if (!ok) {
       setMistake(true);
       setFeedback(q.clue);
+      tell(speak, q.clue, numberLineNarrationSegments(q, 'clue'));
       playSfx('wrong');
       return;
     }
@@ -138,7 +136,7 @@ export default function NumberLineJump({
       independent: !mistake && !hintUsed,
       hints: hintUsed ? 1 : 0
     });
-    tell(speak, VOICE.correct);
+    tell(speak, q.explanation, numberLineNarrationSegments(q, 'explanation'));
   };
   const hopTo = value => {
     if (!q || locked || q.type !== 'hop') return;
@@ -152,6 +150,7 @@ export default function NumberLineJump({
       });
       setMistake(true);
       setFeedback('Take one number at a time in the direction shown.');
+      tell(speak, q.clue, numberLineNarrationSegments(q, 'clue'));
       playSfx('wrong');
       return;
     }
@@ -171,7 +170,7 @@ export default function NumberLineJump({
     if (!q || locked || hintUsed) return;
     setHintUsed(true);
     setFeedback(q.clue);
-    tell(speak, VOICE.hint);
+    tell(speak, q.clue, numberLineNarrationSegments(q, 'clue'));
     onGameEvent?.('numberline', 'hint', {
       level: chapterIndex,
       round: ri,
@@ -182,6 +181,7 @@ export default function NumberLineJump({
   };
   const next = () => {
     if (!locked) return;
+    cancelNarration();
     if (ri < 5) {
       const index = ri + 1;
       setRi(index);
@@ -240,11 +240,12 @@ export default function NumberLineJump({
   }
 
   if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-orange-100 via-amber-50 to-teal-100 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Number Line Jump</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>{phase === 'start' ? <main className="mx-auto mt-5 max-w-4xl"><p className="mb-4 rounded-2xl bg-white p-4 text-center font-bold">Make each hop, find missing numbers, and compare number line journeys. Each world has six missions; explanations stay until Next.</p><div className="grid gap-3 sm:grid-cols-3">{NUMBER_LINE_CHAPTERS.map((c, i) => <ChapterButton key={c.id} c={c} i={i} selected={i === chapterIndex} complete={progress.completedChapterIds.includes(c.id)} locked={i > progress.unlockedChapter} onClick={() => setChapterIndex(i)} />)}</div><button onClick={() => start()} className="mt-5 min-h-14 w-full rounded-2xl bg-orange-700 px-5 text-lg font-black text-white">Start {chapter.title}</button></main> : <main className="mx-auto mt-8 max-w-2xl rounded-3xl bg-white p-6 text-center shadow-xl"><p className="text-2xl font-black">{feedback}</p><p className="mt-3">{progress.completedChapterIds.length < 3 ? 'Choose the next unlocked world or replay this one.' : 'All three worlds are complete. Replay any world.'}</p><button className="mt-5 min-h-14 w-full rounded-2xl bg-orange-700 font-black text-white" onClick={() => {
+        cancelNarration();
         setChapterIndex(progress.unlockedChapter);
         setPhase('start');
       }}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white font-black text-orange-900 ring-2 ring-orange-700" onClick={() => start(chapterIndex)}>Replay {chapter.title}</button></main>}</div>;
   const limit = chapter.max;
-  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-orange-100 via-amber-50 to-teal-100 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">World {chapterIndex + 1} of 3 · Mission {ri + 1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Number Line Jump</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-2 text-lg font-bold" aria-live="polite">{q.prompt}</p><button className="mb-4 inline-flex min-h-12 items-center gap-2 rounded-xl bg-orange-100 px-4 font-black" onClick={() => tell(speak, VOICE.mission)}><Volume2 size={20} /> Hear mission</button>{q.type === 'hop' && <p className="mb-3 font-black text-orange-800">Start at {q.a}. Make {q.b} hop{q.b === 1 ? '' : 's'} {q.direction > 0 ? 'forward →' : 'back ←'}.</p>}{q.type === 'missing' && <p className="mb-3 font-black text-orange-800">The line shows 0 to 20. Find the missing part of the equation.</p>}{q.type === 'compare' && <div className="mb-3 grid gap-2 sm:grid-cols-2"><p className="rounded-xl bg-orange-50 p-3 font-bold">A: {q.start1} → {q.end1} ({q.hops1} hops)</p><p className="rounded-xl bg-teal-50 p-3 font-bold">B: {q.start2} → {q.end2} ({q.hops2} hops)</p></div>}<p className="mb-1 text-xs font-bold text-slate-600">Scroll along the number line. Use Enter, Space, or the arrow keys on the hop buttons.</p><div className="mb-3 overflow-x-auto rounded-2xl border-2 border-orange-200 bg-orange-50" tabIndex="0" aria-label="Scrollable number line from zero to the chapter limit">{line(limit, markers)}</div>{q.type === 'hop' ? <><p className="mb-2 font-bold" aria-live="polite">Frog at {position} · {trail.length} of {q.b} hops made</p><div className="grid grid-cols-2 gap-2"><button disabled={locked || position >= 10 || trail.length >= q.b} onClick={() => hopTo(position + 1)} onKeyDown={e => {
+  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-orange-100 via-amber-50 to-teal-100 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">World {chapterIndex + 1} of 3 · Mission {ri + 1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Number Line Jump</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-2 text-lg font-bold" aria-live="polite">{q.prompt}</p><button className="mb-4 inline-flex min-h-12 items-center gap-2 rounded-xl bg-orange-100 px-4 font-black" onClick={() => tell(speak, numberLineNarrationText(q), numberLineNarrationSegments(q))}><Volume2 size={20} /> Hear mission</button>{q.type === 'hop' && <p className="mb-3 font-black text-orange-800">Start at {q.a}. Make {q.b} hop{q.b === 1 ? '' : 's'} {q.direction > 0 ? 'forward →' : 'back ←'}.</p>}{q.type === 'missing' && <p className="mb-3 font-black text-orange-800">The line shows 0 to 20. Find the missing part of the equation.</p>}{q.type === 'compare' && <div className="mb-3 grid gap-2 sm:grid-cols-2"><p className="rounded-xl bg-orange-50 p-3 font-bold">A: {q.start1} → {q.end1} ({q.hops1} hops)</p><p className="rounded-xl bg-teal-50 p-3 font-bold">B: {q.start2} → {q.end2} ({q.hops2} hops)</p></div>}<p className="mb-1 text-xs font-bold text-slate-600">Scroll along the number line. Use Enter, Space, or the arrow keys on the hop buttons.</p><div className="mb-3 overflow-x-auto rounded-2xl border-2 border-orange-200 bg-orange-50" tabIndex="0" aria-label="Scrollable number line from zero to the chapter limit">{line(limit, markers)}</div>{q.type === 'hop' ? <><p className="mb-2 font-bold" aria-live="polite">Frog at {position} · {trail.length} of {q.b} hops made</p><div className="grid grid-cols-2 gap-2"><button disabled={locked || position >= 10 || trail.length >= q.b} onClick={() => hopTo(position + 1)} onKeyDown={e => {
             if (e.key === 'ArrowRight') {
               e.preventDefault();
               hopTo(position + 1);

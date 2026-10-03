@@ -177,6 +177,10 @@ const getPool = (game, chapter) => {
   return poolCache.get(key);
 };
 
+export const getCanonicalArithmeticQuestionPool = (game, chapter) => Object.freeze(
+  getPool(game, chapter).map((question) => Object.freeze({ ...question, game, chapter })),
+);
+
 export const canonicalArithmeticIds = (game, chapter) => {
   const key = `${game}:${chapter}`;
   if (!canonicalIdCache.has(key)) canonicalIdCache.set(key, new Set(getPool(game, chapter).map((question) => question.id)));
@@ -241,18 +245,44 @@ export const scoreArithmeticResults = (results) => {
   };
 };
 
-const narrationSegments = new Set();
-for (const game of ['addition', 'subtraction']) {
-  for (const chapter of [0, 1, 2]) {
-    const pool = game === 'addition' ? additionPool(chapter) : subtractionPool(chapter);
-    for (const question of pool) {
-      for (const text of [question.prompt, question.clue, question.explanation]) {
-        for (const segment of text.split(/\s+/).filter(Boolean)) narrationSegments.add(segment);
-      }
-    }
-  }
-}
-export const ARITHMETIC_NARRATION_SEGMENTS = Object.freeze([...narrationSegments]);
+const narrationForQuestion = (question, field) => {
+  if (!question || typeof question !== 'object' || !['prompt', 'clue', 'explanation'].includes(field)) return [];
+  const { a, b, answer, one, many, type, total, person, game, clue } = question;
+  if (field === 'clue') return [clue];
+  const amount = (count) => quantity(count, one, many);
+  let segments;
+  if (game === 'addition' && type === 'groups') {
+    segments = field === 'prompt'
+      ? [`Put ${amount(a)}`, `and ${amount(b)} together.`, 'How many altogether?']
+      : [`${amount(a)} and ${amount(b)} make`, `${answer} altogether.`];
+  } else if (game === 'addition' && type === 'bond') {
+    segments = field === 'prompt' ? [question.prompt] : [`${a} and ${b} are the two parts.`, `Together they make ${total}.`];
+  } else if (game === 'addition' && type === 'story') {
+    segments = field === 'prompt'
+      ? [`${person} has ${amount(a)}`, `and gets ${b} more.`, 'How many now?']
+      : [`${person} had ${amount(a)}`, `and got ${amount(b)} more.`, `${answer} altogether.`];
+  } else if (game === 'subtraction' && type === 'take') {
+    segments = field === 'prompt'
+      ? [`There are ${amount(a)}.`, `Take away ${b}.`, 'How many are left?']
+      : [`Start with ${a}.`, `Take ${b} away.`, `${answer} remain.`];
+  } else if (game === 'subtraction' && type === 'compare') {
+    if (field === 'prompt') segments = a === b
+      ? [`Group A has ${a} and Group B has ${b}.`, 'Do the groups have the same number, or how many are unpaired?']
+      : [`Group A has ${a};`, `Group B has ${b}.`, 'How many more are in the larger group?'];
+    else segments = a === b
+      ? [`Pair ${a} from each group.`, 'The groups have the same number, with 0 unpaired.']
+      : [`Pair ${Math.min(a, b)} from each group.`, `${answer} ${answer === 1 ? 'counter is' : 'counters are'} left unpaired.`];
+  } else if (game === 'subtraction' && type === 'story') {
+    segments = field === 'prompt'
+      ? [`${person} has ${amount(a)}`, `and gives ${amount(b)} away.`, 'How many are left?']
+      : [`${person} starts with ${a},`, `gives ${b} away,`, `and has ${answer} left.`];
+  } else return [];
+  return segments.join(' ') === question[field] ? segments : [];
+};
+
+export const arithmeticNarrationSegments = (questionOrText, field = 'prompt') => typeof questionOrText === 'string'
+  ? []
+  : narrationForQuestion(questionOrText, field);
 
 export const ARITHMETIC_NARRATION = Object.freeze({
   counts: Object.freeze(Array.from({ length: 21 }, (_, value) => String(value))),
@@ -266,11 +296,3 @@ export const ARITHMETIC_NARRATION = Object.freeze({
     'Use one clue.', 'That is correct.', 'Try again.',
   ]),
 });
-
-export const arithmeticNarrationSegments = (questionOrText) => {
-  const text = typeof questionOrText === 'string' ? questionOrText : questionOrText?.prompt || '';
-  // Word-sized clips form a finite reusable vocabulary. The caller only asks
-  // the packaged voice path to play exact segments; premium voice stays off.
-  const segments = text.trim().split(/\s+/).filter(Boolean);
-  return segments.every((segment) => ARITHMETIC_NARRATION_SEGMENTS.includes(segment)) ? segments : [];
-};

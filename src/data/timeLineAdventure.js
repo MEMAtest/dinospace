@@ -45,6 +45,14 @@ const freezeMissionMix = (pool, requiredGroups, recentIds, seed) => {
 const routineFor = (hour) => hour === 12 ? ['lunch', 'middle of the day'] : hour <= 4 ? ['after-school play', 'afternoon'] : hour === 5 ? ['family dinner', 'evening'] : hour === 6 ? ['story time', 'evening'] : hour === 7 ? ['breakfast', 'morning'] : hour <= 11 ? ['school activity', 'morning'] : ['daily routine', 'day'];
 export const createTimeRun = ({ chapter = 0, seed = 1, recentIds = [] } = {}) => {
   if (!Number.isInteger(chapter) || chapter < 0 || chapter > 2 || !Number.isInteger(seed)) return [];
+  const rows = canonicalTimeRows(chapter);
+  const pool = timePool(chapter);
+  const required = chapter === 2 ? [(row) => row.type === 'read', (row) => row.type === 'set'] : [];
+  return freezeMissionMix(rows, required, recentIds, seed).map((row, i) => ({ ...row, chapter, seed, options: row.type === 'read' ? makeTimeOptions(row.target, pool, seed + i * 7919) : [] }));
+};
+
+const canonicalTimeRows = (chapter) => {
+  if (!Number.isInteger(chapter) || chapter < 0 || chapter > 2) return [];
   const pool = timePool(chapter); const rows = [];
   for (let hour = 1; hour <= 12; hour++) for (const minute of pool) {
     const isSet = chapter === 2 && ((hour + minute / 15) % 3 === 0);
@@ -52,9 +60,10 @@ export const createTimeRun = ({ chapter = 0, seed = 1, recentIds = [] } = {}) =>
     const target = { hour, minute };
     rows.push({ id: `${chapter}:${hour}:${minute}:${isSet ? 'set' : 'read'}`, target, type: isSet ? 'set' : 'read', routine, label: timeLabel(target), prompt: isSet ? `Set the clock to ${timeLabel(target)}${routine ? `, ${routine[0]} time in the ${routine[1]}` : ''}.` : chapter === 2 ? `${routine ? `It is the ${routine[1]} and ${routine[0]} is happening. ` : ''}What time is shown on the clock?` : 'What time is shown on the clock?', explanation: `${timeLabel(target)} means the minute hand points to ${minute === 0 ? '12' : minute === 15 ? '3' : minute === 30 ? '6' : '9'}, and the hour hand is ${minute ? 'moving between numbers' : 'on the hour number'}.${routine ? ` This routine is in the ${routine[1]}.` : ''}`, clue: 'The long blue hand shows minutes. The short red hand shows the hour.' });
   }
-  const required = chapter === 2 ? [(row) => row.type === 'read', (row) => row.type === 'set'] : [];
-  return freezeMissionMix(rows, required, recentIds, seed).map((row, i) => ({ ...row, chapter, seed, options: row.type === 'read' ? makeTimeOptions(row.target, pool, seed + i * 7919) : [] }));
+  return rows;
 };
+
+export const getCanonicalTimeQuestionPool = (chapter) => Object.freeze(canonicalTimeRows(chapter).map((row) => Object.freeze({ ...row, target: Object.freeze({ ...row.target }), routine: row.routine ? Object.freeze([...row.routine]) : null })));
 
 export const isKnownTimeQuestionId = (id, chapter) => {
   const match = /^(\d+):(\d+):(\d+):(read|set)$/.exec(id || '');
