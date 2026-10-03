@@ -21,3 +21,7 @@ Batch 2 functional repairs separately reached canonical production at `3cdfc426e
 ## Read-only narration packaging plan
 
 The four authored narration inventories are now enumerable from pure data through `batch3Narration.js`. `check-batch3-voice-readiness.mjs` checks the existing packaged manifest and files without generation or API requests. The preliminary [coverage report](qa-evidence/batch3-narration-readiness-plan-20261003.json) intentionally exits nonzero while clips are absent. This is a file coverage plan; no premium runtime wiring, complete decode, audible-quality or release claim follows from it. Count uses a development browser voice pending proper packaged wiring; Dino currently labels its text clue honestly.
+
+## Integrated source gate and build diagnosis
+
+After the builders stopped, root ran the full repository suite: 197/197 passed, and ESLint passed. The first sequential build reproduced the missing `dist/assets` error. This was not merely parallel contention: the PWA close hook masked Rollup's original import diagnostic. Root now skips precache injection after a failed build, exposing the actual Count import mismatch. `recentCountQuestionIds` is exported by `countTheStarsProgress.js`, not `countTheStarsBatch3.js`; root moved the import. The repaired production-config build succeeded in a unique output directory. The earlier failure records remain; later independent retry/navigation corrections still need a refreshed frozen candidate and browser checks.

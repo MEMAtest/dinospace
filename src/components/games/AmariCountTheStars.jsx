@@ -3,10 +3,10 @@ import { ArrowLeft, BookOpen, Home, Lightbulb, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import {
   COUNT_CONSTELLATION_PAGES, COUNT_THE_STARS_EPISODES, COUNT_THE_STARS_NARRATION,
-  createCountRunSeed, createCountTheStarsRun, recentCountQuestionIds,
+  createCountRunSeed, createCountTheStarsRun,
 } from '../../data/countTheStarsBatch3.js';
 import {
-  getCountTheStarsProgress, recordCountTheStarsCompletion, rememberCountTheStarsRun,
+  getCountTheStarsProgress, recordCountTheStarsCompletion, rememberCountTheStarsRun, recentCountQuestionIds,
 } from '../../data/countTheStarsProgress.js';
 
 const praiseFor = (stars) => stars === 3 ? 'Brilliant counting!' : stars === 2 ? 'Great counting!' : 'You kept counting!';

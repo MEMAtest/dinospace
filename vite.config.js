@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 
 const injectPwaPrecache = () => {
   let resolvedConfig
+  let buildFailed = false
 
   const walkFiles = async (directory, prefix) => {
     try {
@@ -33,7 +34,19 @@ const injectPwaPrecache = () => {
     configResolved(config) {
       resolvedConfig = config
     },
+    buildStart() {
+      buildFailed = false
+    },
+    buildEnd(error) {
+      if (error) buildFailed = true
+    },
+    renderError() {
+      buildFailed = true
+    },
     async closeBundle() {
+      // Rollup also closes plugins after a failed build. Preserve the original
+      // diagnostic instead of hiding it behind a missing output-directory error.
+      if (buildFailed) return
       const outputDir = resolve(resolvedConfig.root, resolvedConfig.build.outDir)
       const assetsDir = resolve(outputDir, 'assets')
       const germanAudioDir = resolve(outputDir, 'audio', 'de')
