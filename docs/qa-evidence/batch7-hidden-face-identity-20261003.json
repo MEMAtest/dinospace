@@ -1,0 +1,21 @@
+{
+  "sourceSha": "1b19e73d43776400bf324f42d88e1a49dbd95366",
+  "url": "http://127.0.0.1:5263",
+  "assets": {
+    "sw.js": "e4fc2a05530ad38fc12a0f67cd3d718c7cdeeefc68735c6c717bd18ce70639b9",
+    "assets/web-C4hxco-e.js": "ba56838bcdfa43ed5dbf0a571e1aae80a940e2d0dc29d6e998d82f062ed33973",
+    "assets/index-C8JBvYB2.css": "9ae08df7fc6db88b71c0a6e03fb8b8a032856f983e2f39490f904bb86063a884",
+    "assets/SolarSystem-Bcvdw-7c.js": "567271a8df08b5212d5c7a2ae3774119ac0b6eb0b1e377c1f5aee313cc4ace99",
+    "assets/index-PVsyVRa9.js": "4622e6181c905a4fd9c420edd3bd9c010a473f9be0a6eaeeec79820f1357a7b4"
+  },
+  "checks": {
+    "focusedLint": "passed",
+    "productionBuild": "passed",
+    "priorSuite": 183
+  },
+  "scope": "Hide unrevealed card faces from accessibility tree",
+  "limitations": [
+    "Independent accessibility delta pending",
+    "Full gameplay remains inprogress on5257"
+  ]
+}
