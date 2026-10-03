@@ -1,6 +1,6 @@
 {
   "source": "Built-in image generation for user-authorized premium Memory artwork",
-  "review": "Root viewed all three: golden banded ringed planet, dark lunar sphere with right illuminated crescent, icy nucleus with cyan-white comet tail. Distinct silhouettes/semantics. Actual82px rendered acceptance remains pending.",
+  "review": "Root viewed allfour: ringedgoldplanet, dark lunar sphere with illuminated crescent, icycometcyanwhite tail, white/goldorbital satelliteblue solarpanels/dish. Distinctsilhouettes/semantics. Actual82pxrenderreviewpending.",
   "assets": [
     {
       "asset": "src/assets/memory-match/ringed-planet-v1.png",
@@ -49,6 +49,22 @@
       ],
       "sha256": "c6d4d1499698d36a4cb858389a30bab67ce6e305633ee09bcbfff353571210da",
       "bytes": 985751
+    },
+    {
+      "asset": "src/assets/memory-match/satellite-v1.png",
+      "token": "\ud83d\udef0\ufe0f",
+      "label": "satellite",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "sha256": "679bdb342359f27a14b12f9549c53effc597a28e81292ae405c0eeddcc65a2ce",
+      "bytes": 1738624
     }
   ],
   "integration": "Not integrated by root. Builder to bind matchingtokens only; immutable44b9807 unchanged."
