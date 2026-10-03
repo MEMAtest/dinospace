@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { clockAngles, createTimeRun, createNumberLineRun, isValidTimeRun, isValidNumberLineRun, timeLabel } from '../src/data/timeLineAdventure.js';
+import { clockAngles, advanceClock, createTimeRun, createNumberLineRun, isValidTimeRun, isValidNumberLineRun, timeLabel } from '../src/data/timeLineAdventure.js';
 import { getTimeLineProgress, normalizeTimeLineProgress, rememberTimeLineRun, saveTimeLineRun, timeLineProgressKey } from '../src/data/timeLineProgress.js';
 
 const store=()=>{const m=new Map();return {getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,v),set:(k,v)=>m.set(k,v)};};
@@ -27,4 +27,18 @@ test('time and number line progress is child scoped, contiguous, rejects corrupt
  const storedRun=createNumberLineRun({chapter:0,seed:987});rememberTimeLineRun('numberline','abandoned',0,storedRun,storage);assert.equal(getTimeLineProgress('numberline','abandoned',storage).recentQuestionIds[0].length,6);
  const invalidTime=createTimeRun({chapter:0,seed:14});assert.equal(isValidTimeRun([...invalidTime.slice(0,5),{...invalidTime[5],target:{hour:13,minute:0}}],0),false);
  const invalidOptions=createTimeRun({chapter:1,seed:17});assert.equal(isValidTimeRun([...invalidOptions.slice(0,5),{...invalidOptions[5],options:[...invalidOptions[5].options.slice(0,3),{hour:13,minute:90}]}],1),false);
+});
+
+test('moving clock hands preserves elapsed time across hour and twelve-hour boundaries', () => {
+  assert.deepEqual(advanceClock({ hour: 12, minute: 45 }, 15), { hour: 1, minute: 0 });
+  assert.deepEqual(advanceClock({ hour: 1, minute: 0 }, -15), { hour: 12, minute: 45 });
+  assert.deepEqual(advanceClock({ hour: 11, minute: 45 }, 15), { hour: 12, minute: 0 });
+  for (let hour = 1; hour <= 12; hour++) for (const minute of [0, 15, 30, 45]) {
+    const time = { hour, minute };
+    for (const delta of [-60, -15, 15, 60]) {
+      const moved = advanceClock(time, delta);
+      assert.deepEqual(advanceClock(moved, -delta), time);
+      assert.equal((moved.hour % 12 * 60 + moved.minute - (hour % 12 * 60 + minute) + 720) % 720, (delta + 720) % 720);
+    }
+  }
 });

@@ -132,7 +132,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     const result = saveArithmeticRun('subtraction', playerId, chapterIndex, rounds, stars);
     if (!result) return;
     setProgress(result.progress);
-    if (result.newlyCompleted && result.awardedStars > 0) {
+    if (result.awardedStars > 0) {
       onCelebrate?.(`${chapter.title} complete!`, arithmeticRewardUnits(result.awardedStars), 0, 'subtraction');
     }
     onGameEvent?.('subtraction', 'level_complete', { level: chapterIndex, round: 5, seed, difficulty: chapter.id, hintCount });

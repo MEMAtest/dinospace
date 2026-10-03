@@ -13,6 +13,12 @@ export const NUMBER_LINE_CHAPTERS = Object.freeze([
 export const timeLabel = ({ hour, minute }) => minute === 0 ? `${hour} o’clock` : minute === 30 ? `half past ${hour}` : minute === 15 ? `quarter past ${hour}` : `quarter to ${hour === 12 ? 1 : hour + 1}`;
 export const clockAngles = ({ hour, minute }) => ({ hour: (hour % 12) * 30 + minute * 0.5, minute: minute * 6 });
 export const formatClock = ({ hour, minute }) => `${hour}:${String(minute).padStart(2, '0')}`;
+
+// Moving the minute hand also advances the hour hand, including twelve-hour wrap.
+export const advanceClock = ({ hour, minute }, minutes) => {
+  const total = (((hour % 12) * 60 + minute + minutes) % 720 + 720) % 720;
+  return { hour: Math.floor(total / 60) || 12, minute: total % 60 };
+};
 const wrap = (hour) => ((hour - 1 + 12) % 12) + 1;
 const makeTimeOptions = (target, pool, seed) => {
   const labels = new Set([timeLabel(target)]); const options = [target];
@@ -64,7 +70,7 @@ const makeNumberRow = (chapter, seed, i) => {
   const max = chapter === 0 ? 10 : 20; const rand = (n) => Math.floor((Math.imul((seed + i * 997 + n) | 0, 2654435761) >>> 0) / 4294967296 * (max + 1));
   const rawA = rand(11); const b = Math.max(1, rand(29));
   if (chapter === 0) { const direction = (i % 2) ? -1 : 1; const a = direction > 0 ? Math.min(rawA, max - 1) : Math.max(rawA, 1); const hop = Math.max(1, Math.min(b, direction > 0 ? max - a : a)); const answer = a + direction * hop; return { id: `hop:${a}:${direction}:${hop}`, type: 'hop', a, b: hop, direction, answer, prompt: `Start at ${a}. Hop ${hop} ${direction > 0 ? 'forward' : 'back'}. Where do you land?`, clue: 'Move one number for each hop.', explanation: `${a} ${direction > 0 ? '+' : '−'} ${hop} = ${answer}. The frog moved ${hop} hop${hop === 1 ? '' : 's'} and landed on ${answer}.` }; }
-  if (chapter === 1) { const start = Math.min(rand(41), max - 1); const hops = Math.max(1, Math.min(b, max - start)); const end = start + hops; const missing = i % 3; const answer = missing === 0 ? start : missing === 1 ? hops : end; return { id: `missing:${start}:${hops}:${missing}`, type: 'missing', start, hops, end, missing, answer, prompt: missing === 0 ? `? + ${hops} = ${end}. Which number is the start?` : missing === 1 ? `${start} + ? = ${end}. How many hops?` : `${start} + ${hops} = ?. Where do you land?`, clue: 'Count forward from the known starting number to the known landing number.', explanation: `${start} + ${hops} = ${end}; the missing number is ${answer}.` }; }
+  if (chapter === 1) { const start = Math.min(rand(41), max - 1); const hops = Math.max(1, Math.min(b, max - start)); const end = start + hops; const missing = i % 3; const answer = missing === 0 ? start : missing === 1 ? hops : end; return { id: `missing:${start}:${hops}:${missing}`, type: 'missing', start, hops, end, missing, answer, prompt: missing === 0 ? `? + ${hops} = ${end}. Which number is the start?` : missing === 1 ? `${start} + ? = ${end}. How many hops?` : `${start} + ${hops} = ?. Where do you land?`, clue: missing === 0 ? 'Start at the landing number and count back one space for each hop.' : missing === 1 ? 'Count the spaces from the starting number to the landing number.' : 'Start at the starting number and count forward one space for each hop.', explanation: `${start} + ${hops} = ${end}; the missing number is ${answer}.` }; }
   const start1 = Math.min(rand(51), max - 1); const hops1 = Math.max(1, Math.min(b, max - start1)); const start2 = Math.min(rand(63), max - 1); const hops2 = Math.max(1, Math.min(rand(31), max - start2));
   const end1 = start1 + hops1; const end2 = start2 + hops2; const compare = i % 2 ? 'farther' : 'larger';
   const v1 = compare === 'farther' ? hops1 : end1; const v2 = compare === 'farther' ? hops2 : end2; const answer = v1 === v2 ? 'same' : v1 > v2 ? 'A' : 'B';
