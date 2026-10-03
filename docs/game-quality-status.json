@@ -251,28 +251,31 @@
   "implementationBatch": 3,
   "implementationBranch": "codex/amari-batch3-quality-20261003",
   "implementationCandidate": {
-    "source": "653633f73cd97fcd297c592e1139c17ddb0b3855",
+    "source": "76be035",
     "branch": "codex/amari-batch3-quality-20261003",
     "testsPassed": 199,
     "lint": "passed",
     "build": "passed",
-    "localPlaywright": "569 Dino full12 worlds desktop/mobile and persisted replay pass. 653 harder-count quotas/current Trace stroke announcement await rendered delta. Broad Trace/Cosmic QA remains active.",
-    "narration": "Packaging and runtime wiring pending",
-    "release": "Not deployed or accepted"
+    "localPlaywright": "Count653 complete Starter/Growing/Challenge and replay at both widths; Dino569 complete12 worlds at both widths; Cosmic5215 complete3 chapters at both widths. Trace5223 active marker repair passes D/P both widths, full8-round three-band matrix underway. No new production acceptance.",
+    "narration": "Packaged-only wiring and explicit internal cancellation implemented. Read-only corpus275 unique,16ready259pending; decode/native playback/listening gates remain open.",
+    "release": "Not deployed or accepted",
+    "sourceGateScope": "204 tests and full lint passed at11cbbbb; full checks of76be035 cancellation repair underway"
   },
   "nextImplementationBatch": {
     "batch": 4,
     "branch": "codex/amari-batch4-quality-20261003",
-    "scope": "Isolated App progression ownership and clock-origin navigation preparation. Luna Addition/Subtraction builder active; Time/Number Line builders pending capacity. No frozen build, QA acceptance or production release."
+    "scope": "Four chapter games implemented; final control candidate5227 in full independent QA. Phrase narration improvement underway in isolated source. No production release."
   },
   "batch4Candidate": {
-    "sha": "d96e5d7ad08483163e375a4ddbe358a346163922",
-    "status": "frozen local candidate in independent Playwright QA",
-    "sourceTests": "191/191",
+    "sha": "01e10f75d3658133db4b3a1ffd269f0ee34c7c35",
+    "status": "immutable local final control repair in independent full Playwright QA",
+    "sourceTests": "195/195",
     "fullESLint": "passed",
     "productionConfigurationBuild": "passed",
-    "identity": "docs/qa-evidence/batch4-integrated-candidate-identity-20261003.json",
+    "identity": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-final-repair-identity-20261003.json",
+    "originalIndependentReport": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-independent-local-20261003/report.md",
     "productionReleased": false,
     "editorialAccepted": false
-  }
+  },
+  "latestCheckpoint": "docs/game-quality-checkpoint-20261003-1724.md"
 }
