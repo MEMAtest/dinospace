@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T22:35:30.734094+00:00",
+  "updatedAt": "2026-10-03T23:06:01.407408+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -337,7 +337,7 @@
     "renderedAssetsMatched": 7,
     "productionPlaywright": "Independent canonical copy/keyboard patch delta passed: natural one-object Count, immediate keyboard progress/backtracking, 390px pointer Trace, held Next, parent-world Back/reload, zero console errors/warnings. Browser pointer, not physical touchscreen certification.",
     "editorialAccepted": false,
-    "knownMinorDefect": "Count grammar and Trace keyboard progress repairs passed canonical delta. Separate Monster clue paragraph duplication reproduced on canonical; source f72f59e repaired it, independent5281delta pending.",
+    "knownMinorDefect": "Monster clue paragraph duplication reproduced on canonical; repaired source f72 passes independent local desktop/390px delta. Immutable candidate control QA and canonical promotion pending.",
     "productionEvidence": "docs/qa-evidence/batch3-canonical-production-independent-20261003/report.md",
     "identityEvidence": "docs/qa-evidence/batch3-copy-keyboard-canonical-identity-20261003.json",
     "patchProductionEvidence": "docs/qa-evidence/batch3-copy-keyboard-production-delta-20261003/report.md"
@@ -345,13 +345,16 @@
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
     "runtimeSource": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
-    "scope": "Ten Memory boards and all 54 Solar facts / nine challenges passed local desktop/mobile. NASA and accessibility deltas retained. Memory premium art and theme build active; new candidate independent QA, audio, editorial and production open.",
+    "scope": "Original full ten-board Memory and54 Solar facts/nine challenges local desktop/mobile retained. New374 Memory desktop review reached all10 increasing boards and reload passport; mobile reviewer reproduced Daily Mission intercepting a card and opening Astronaut Academy. Builder repairing overlay, tip/name audio and semantic illustrated faces; audio/premium/editorial/production gates open.",
     "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md"
   },
   "monsterClueRepair": {
-    "sourceSha": "f72f59e",
+    "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
     "identity": "docs/qa-evidence/monster-clue-once-candidate-identity-20261003.json",
     "productionFailure": "docs/qa-evidence/monster-exact-case-production-20261003/report.md",
-    "state": "14 focused tests, changed-file lint and production-config build passed; seven frozen HTTP asset hashes match. Separate local UI QA in progress. Not deployed or accepted."
+    "state": "14 focused tests, changed lint and configured build passed. Separate desktop and390px actual clue/wrong/correct/Next/Back checks pass locally; exact2+10 not naturally seen by independent reviewer. Immutable production candidate READY with7 matching assets; candidate control QA underway, canonical promotion pending. Not4.5 accepted.",
+    "productionCandidateIdentity": "docs/qa-evidence/monster-clue-production-candidate-identity-20261003.json",
+    "localDesktopEvidence": "docs/qa-evidence/monster-clue-once-independent-20261003/desktop-report.md",
+    "localMobileEvidence": "docs/qa-evidence/monster-clue-once-independent-20261003/report.md"
   }
 }
