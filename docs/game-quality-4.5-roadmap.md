@@ -21,7 +21,7 @@ Keep three separate fields in each batch scorecard: historical review baseline; 
 
 ## Current acceptance status — 3 October 2026
 
-[Per-game status inventory](game-quality-status.json): **4 verified, 8 in progress, 14 not started**. Prepared plans do not count as implementation or tested acceptance.
+[Per-game status inventory](game-quality-status.json): **4 recorded verified, 22 in progress, 0 not started**. All remaining games now have implementations in isolated batch checkouts. Implementation does not count as tested acceptance. The [current checkpoint](game-quality-checkpoint-20261003-current.md) supersedes the dated implementation snapshots below; those snapshots remain as evidence of the work sequence.
 
 **Verified 4.5:** Curriculum Quest, Storybook Studio, Letter Launch and German Garage. Independent reasons and exact production evidence are recorded in [batch 1 editor scorecard](batch1-editor-scorecard.md). Current canonical code SHA is `3cdfc426e91b46a855448690278ceb6590280b68`; the Batch 1 gameplay acceptance evidence is separated between the full `86e3ecf` baseline, `7d9d961` telemetry follow-up and `b6360bb` mobile overlay repair. The later `aeea9e7` release added shared progress/success sounds. Batch 2 initially released at `20ff27d`; `8499e15` fixes duplicate-world Home navigation and limits repeated voice failures. Rotating production health reports do not replace full gameplay acceptance.
 
