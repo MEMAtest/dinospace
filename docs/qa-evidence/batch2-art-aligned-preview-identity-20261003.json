@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-03T12:11:07.616248+00:00",
+  "deploymentId": "dpl_8hoLNChVTG39TJYbLz4cmZYQ86kR",
+  "url": "https://dinospace-j03hnskra-memas-projects-23a0001d.vercel.app",
+  "state": "READY",
+  "target": null,
+  "projectId": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w",
+  "gitCommitSha": "dc4fa0eb7957d3129794e1a589eca41516c0590d",
+  "gitBranch": "codex/quest-game-editor-20260930",
+  "scope": "Vercel preview preparation only; not canonical production or game acceptance",
+  "httpStatus": 200,
+  "renderedAssets": [
+    {
+      "path": "/assets/index-2yjiHw-9.js",
+      "status": 200,
+      "sha256": "25bf60b833e5eb7e781d0b6fff4832e8dbc51f39a93545eb58c12dbf5e183fcf"
+    },
+    {
+      "path": "/assets/index-D3NTSs-Z.css",
+      "status": 200,
+      "sha256": "008707f972ebe009fcbfcf5aa50207cc0c8a381f3f4e89fa1d22194374a681db"
+    }
+  ],
+  "bundleMismatchDiagnosis": {
+    "localVoiceEnabledFalseBuild": "index-2yjiHw-9.js",
+    "sha256": "25bf60b833e5eb7e781d0b6fff4832e8dbc51f39a93545eb58c12dbf5e183fcf",
+    "exactMatch": true,
+    "meaning": "Preview used voice-enabled=false configuration. Not equivalent to the true-flag local candidate. Preserve identity; prepare a new preview with explicit public VITE_ELEVENLABS_ENABLED=true."
+  }
+}

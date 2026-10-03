@@ -182,9 +182,9 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 text-slate-800">
       <header className="sticky top-0 z-20 flex items-center justify-between gap-2 bg-amber-50/90 px-3 py-3 backdrop-blur sm:px-5">
         <button type="button" onClick={() => { onGameEvent?.('puzzle', 'leave', { level: chapterIndex, round: sceneIndex + 1, seed: seed || undefined }); onBack?.(); }} className="game-icon-button" aria-label="Back to learning world"><Home /></button>
-        <div className="min-w-0 text-center">
+        <div className="min-w-0 flex-1 text-center">
           <h1 className="text-2xl font-black text-orange-700 sm:text-3xl">Puzzle Pop</h1>
-          {phase !== 'intro' && scene && <p className="truncate text-sm font-bold text-orange-800 sm:text-base">{chapter.name} · Picture {sceneIndex + 1} of {queue.length} · {scene.title}</p>}
+          {phase !== 'intro' && scene && <p className="text-sm font-bold leading-tight text-orange-800 sm:text-base"><span className="block sm:inline">{chapter.name}</span><span className="block sm:inline"><span className="hidden sm:inline"> · </span>Picture {sceneIndex + 1} of {queue.length}</span></p>}
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
