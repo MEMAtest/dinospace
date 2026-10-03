@@ -1,0 +1,7 @@
+### Ran Playwright code
+```js
+await (async(page) => { await page.getByRole("button",{name:"Stickers",exact:true}).click(); if(await page.getByRole("region",{name:"Solar discovery stickers",exact:true}).count()) throw new Error("Amari Solar leaked to Askia"); if(await page.getByRole("region",{name:"Memory board stickers",exact:true}).count()) throw new Error("Amari Memory leaked to Askia"); })(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5257/#/stickers
+- Page Title: Amari Discovery

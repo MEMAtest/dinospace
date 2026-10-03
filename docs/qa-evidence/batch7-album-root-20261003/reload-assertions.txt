@@ -1,0 +1,4 @@
+### Ran Playwright code
+```js
+await (async(page) => { const region=page.getByRole("region",{name:"Solar discovery stickers",exact:true}); if (!(await region.getByRole("listitem",{name:"Earth: collected",exact:true}).isVisible())) throw new Error("Earth album missing"); await page.reload(); await page.getByRole("region",{name:"Solar discovery stickers",exact:true}).waitFor(); if (!(await page.getByRole("listitem",{name:"Earth: collected",exact:true}).isVisible())) throw new Error("Earth not retained"); if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error("horizontal overflow"); await page.getByRole("region",{name:"Solar discovery stickers",exact:true}).scrollIntoViewIfNeeded(); })(page);
+```

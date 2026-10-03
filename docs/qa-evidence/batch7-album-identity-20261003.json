@@ -1,0 +1,20 @@
+{
+  "sourceSha": "b36d078c52bd551efd2cb2b962e386ef78d575c4",
+  "url": "http://127.0.0.1:5257",
+  "assets": {
+    "sw.js": "c3b0d76110aad283170d8ebb0fafc90d40c1cfed59e55bc8e72fde8a7234a04d",
+    "assets/web-t5TVK3-X.js": "568b3fdea117ceb25bbd1447f76fdb3e82a9c8ea3c8290a1749d4f676b0faf95",
+    "assets/index-C8JBvYB2.css": "9ae08df7fc6db88b71c0a6e03fb8b8a032856f983e2f39490f904bb86063a884",
+    "assets/index-pMyn9JSz.js": "56d9d4a81d54694cedb8e5840135fbc66794ed6f28b2327de420ed78bab2a198",
+    "assets/SolarSystem-hWLykQNn.js": "7e843d70d1485d2dfb42a3b072af215433156c1fa5e3abcbfa9096b493c364e7"
+  },
+  "checks": {
+    "tests": 183,
+    "lint": "passed",
+    "build": "production config passed"
+  },
+  "limitations": [
+    "Root album delta pending",
+    "Full independent Memory/Solar acceptance pending"
+  ]
+}

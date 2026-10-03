@@ -1,0 +1,7 @@
+### Ran Playwright code
+```js
+await (async(page) => { await page.setViewportSize({width:1280,height:800}); await page.getByRole("region",{name:"Solar discovery stickers",exact:true}).scrollIntoViewIfNeeded(); if (!(await page.getByRole("listitem",{name:"Earth: collected",exact:true}).isVisible())) throw new Error("desktop badge absent"); if(await page.evaluate(() => document.documentElement.scrollWidth>innerWidth)) throw new Error("desktop overflow"); await page.getByRole("button",{name:"Back to home",exact:true}).click(); await page.getByRole("button",{name:"Amari is playing. Tap to change player",exact:true}).click(); })(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5257/#/
+- Page Title: Amari Discovery

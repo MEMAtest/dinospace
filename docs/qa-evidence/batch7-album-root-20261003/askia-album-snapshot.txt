@@ -1,0 +1,37 @@
+### Page
+- Page URL: http://127.0.0.1:5257/#/stickers
+- Page Title: Amari Discovery
+### Snapshot
+```yaml
+- generic [ref=f1e585]:
+  - banner [ref=f1e586]:
+    - button "Back to home" [ref=f1e587] [cursor=pointer]
+    - generic "0 stars" [ref=f1e590]: ⭐ 0
+  - generic "Stars until the next sticker" [ref=f1e591]:
+    - img "Rocket Star" [ref=f1e594]
+  - main [ref=f1e595]:
+    - button "A sticker still to earn" [disabled] [ref=f1e596]:
+      - img "Rocket Star" [ref=f1e598]
+    - button "A sticker still to earn" [disabled] [ref=f1e599]:
+      - img "Dino Egg Prize" [ref=f1e601]
+    - button "A sticker still to earn" [disabled] [ref=f1e602]:
+      - img "Super Star" [ref=f1e604]
+    - button "A sticker still to earn" [disabled] [ref=f1e605]:
+      - img "Rescue Truck" [ref=f1e607]
+    - button "A sticker still to earn" [disabled] [ref=f1e608]:
+      - img "Heart of Awesome" [ref=f1e610]
+    - button "A sticker still to earn" [disabled] [ref=f1e611]:
+      - img "Planet Master" [ref=f1e613]: 🪐
+    - button "A sticker still to earn" [disabled] [ref=f1e614]:
+      - img "Brave and Strong Shield" [ref=f1e616]
+    - button "A sticker still to earn" [disabled] [ref=f1e617]:
+      - img "Gold Winner Trophy" [ref=f1e619]
+    - button "A sticker still to earn" [disabled] [ref=f1e620]:
+      - img "Rainbow Gem" [ref=f1e622]
+    - button "A sticker still to earn" [disabled] [ref=f1e623]:
+      - img "Crown of Greatness" [ref=f1e625]
+    - button "A sticker still to earn" [disabled] [ref=f1e626]:
+      - img "Awesome Medal" [ref=f1e628]
+    - button "A sticker still to earn" [disabled] [ref=f1e629]:
+      - img "Galaxy King" [ref=f1e631]: 🌌
+```

@@ -1,0 +1,223 @@
+### Page
+- Page URL: http://127.0.0.1:5257/#/stickers
+- Page Title: Amari Discovery
+### Snapshot
+```yaml
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - button "Back to home" [ref=f1e5] [cursor=pointer]
+    - generic [ref=f1e8]:
+      - heading "Amari’s stickers" [level=1] [ref=f1e9]
+      - paragraph [ref=f1e10]: ⭐ 3 stars
+    - button "Turn sound off" [ref=f1e11] [cursor=pointer]
+  - region "Letter Launch chapter badge collection" [ref=f1e16]:
+    - generic [ref=f1e17]:
+      - heading "Rocket badge collection" [level=2] [ref=f1e18]
+      - generic [ref=f1e19]: 0 of 4 earned
+    - list "Four Letter Launch chapter badges" [ref=f1e20]:
+      - listitem [ref=f1e21]:
+        - img "Sound Scout badge, not earned yet" [ref=f1e22]:
+          - generic [ref=f1e23]: S
+        - generic [ref=f1e24]:
+          - strong [ref=f1e25]: Sound Scout
+          - generic [ref=f1e26]: Finish chapter
+      - listitem [ref=f1e27]:
+        - img "First Sound Finder badge, not earned yet" [ref=f1e28]:
+          - generic [ref=f1e29]: 🔎
+        - generic [ref=f1e30]:
+          - strong [ref=f1e31]: First Sound Finder
+          - generic [ref=f1e32]: Finish chapter
+      - listitem [ref=f1e33]:
+        - img "Letter Match Maker badge, not earned yet" [ref=f1e34]:
+          - generic [ref=f1e35]: Aa
+        - generic [ref=f1e36]:
+          - strong [ref=f1e37]: Letter Match Maker
+          - generic [ref=f1e38]: Finish chapter
+      - listitem [ref=f1e39]:
+        - img "CVC Word Builder badge, not earned yet" [ref=f1e40]:
+          - generic [ref=f1e41]: CAT
+        - generic [ref=f1e42]:
+          - strong [ref=f1e43]: CVC Word Builder
+          - generic [ref=f1e44]: Finish chapter
+  - region "Curriculum explorer badges" [ref=f1e45]:
+    - generic [ref=f1e46]:
+      - heading "Explorer badges" [level=3] [ref=f1e47]
+      - generic [ref=f1e48]: 0 / 9 collected
+    - generic [ref=f1e49]:
+      - 'generic "Starter map explorer: finish this path to collect" [ref=f1e50]':
+        - generic [ref=f1e51]: "1"
+        - strong [ref=f1e56]: Starter map explorer
+        - generic [ref=f1e57]: Complete this path
+      - 'generic "Growing map explorer: finish this path to collect" [ref=f1e58]':
+        - generic [ref=f1e59]: "2"
+        - strong [ref=f1e64]: Growing map explorer
+        - generic [ref=f1e65]: Complete this path
+      - 'generic "Challenge map explorer: finish this path to collect" [ref=f1e66]':
+        - generic [ref=f1e67]: "3"
+        - strong [ref=f1e72]: Challenge map explorer
+        - generic [ref=f1e73]: Complete this path
+      - 'generic "Starter time detective: finish this path to collect" [ref=f1e74]':
+        - generic [ref=f1e75]: "1"
+        - strong [ref=f1e80]: Starter time detective
+        - generic [ref=f1e81]: Complete this path
+      - 'generic "Growing time detective: finish this path to collect" [ref=f1e82]':
+        - generic [ref=f1e83]: "2"
+        - strong [ref=f1e88]: Growing time detective
+        - generic [ref=f1e89]: Complete this path
+      - 'generic "Challenge time detective: finish this path to collect" [ref=f1e90]':
+        - generic [ref=f1e91]: "3"
+        - strong [ref=f1e96]: Challenge time detective
+        - generic [ref=f1e97]: Complete this path
+      - 'generic "Starter nature observer: finish this path to collect" [ref=f1e98]':
+        - generic [ref=f1e99]: "1"
+        - strong [ref=f1e104]: Starter nature observer
+        - generic [ref=f1e105]: Complete this path
+      - 'generic "Growing nature observer: finish this path to collect" [ref=f1e106]':
+        - generic [ref=f1e107]: "2"
+        - strong [ref=f1e112]: Growing nature observer
+        - generic [ref=f1e113]: Complete this path
+      - 'generic "Challenge nature observer: finish this path to collect" [ref=f1e114]':
+        - generic [ref=f1e115]: "3"
+        - strong [ref=f1e120]: Challenge nature observer
+        - generic [ref=f1e121]: Complete this path
+  - generic [ref=f1e122]:
+    - region "Memory board stickers" [ref=f1e123]:
+      - generic [ref=f1e124]:
+        - heading "Memory board stickers" [level=2] [ref=f1e125]
+        - generic [ref=f1e126]: 0 / 10 collected
+      - list [ref=f1e127]:
+        - 'listitem "Forest Friends: not collected" [ref=f1e128]':
+          - generic [ref=f1e138]:
+            - strong [ref=f1e139]: Forest Friends
+            - generic [ref=f1e140]: Find every pair to collect
+        - 'listitem "Ocean Splash: not collected" [ref=f1e141]':
+          - generic [ref=f1e151]:
+            - strong [ref=f1e152]: Ocean Splash
+            - generic [ref=f1e153]: Find every pair to collect
+        - 'listitem "Space Sparkle: not collected" [ref=f1e154]':
+          - generic [ref=f1e164]:
+            - strong [ref=f1e165]: Space Sparkle
+            - generic [ref=f1e166]: Find every pair to collect
+        - 'listitem "Party Mix: not collected" [ref=f1e167]':
+          - generic [ref=f1e177]:
+            - strong [ref=f1e178]: Party Mix
+            - generic [ref=f1e179]: Find every pair to collect
+        - 'listitem "Dino & Space Friends: not collected" [ref=f1e180]':
+          - generic [ref=f1e190]:
+            - strong [ref=f1e191]: Dino & Space Friends
+            - generic [ref=f1e192]: Find every pair to collect
+        - 'listitem "Vehicles & Explorers: not collected" [ref=f1e193]':
+          - generic [ref=f1e203]:
+            - strong [ref=f1e204]: Vehicles & Explorers
+            - generic [ref=f1e205]: Find every pair to collect
+        - 'listitem "Yummy Feast: not collected" [ref=f1e206]':
+          - generic [ref=f1e216]:
+            - strong [ref=f1e217]: Yummy Feast
+            - generic [ref=f1e218]: Find every pair to collect
+        - 'listitem "Astronaut Mission: not collected" [ref=f1e219]':
+          - generic [ref=f1e229]:
+            - strong [ref=f1e230]: Astronaut Mission
+            - generic [ref=f1e231]: Find every pair to collect
+        - 'listitem "Garden & Pond: not collected" [ref=f1e232]':
+          - generic [ref=f1e242]:
+            - strong [ref=f1e243]: Garden & Pond
+            - generic [ref=f1e244]: Find every pair to collect
+        - 'listitem "Galaxy Carnival: not collected" [ref=f1e245]':
+          - generic [ref=f1e255]:
+            - strong [ref=f1e256]: Galaxy Carnival
+            - generic [ref=f1e257]: Find every pair to collect
+    - region "Solar discovery stickers" [ref=f1e258]:
+      - generic [ref=f1e259]:
+        - heading "Solar discovery stickers" [level=2] [ref=f1e260]
+        - generic [ref=f1e261]: 1 / 9 collected
+      - list [ref=f1e262]:
+        - 'listitem "Mercury: not collected" [ref=f1e263]':
+          - generic [ref=f1e271]:
+            - strong [ref=f1e272]: Mercury
+            - generic [ref=f1e273]: Explore three different facts to collect
+        - 'listitem "Venus: not collected" [ref=f1e274]':
+          - generic [ref=f1e282]:
+            - strong [ref=f1e283]: Venus
+            - generic [ref=f1e284]: Explore three different facts to collect
+        - 'listitem "Earth: collected" [ref=f1e285]':
+          - generic [ref=f1e295]:
+            - strong [ref=f1e296]: Earth
+            - generic [ref=f1e297]: Three discoveries collected
+        - 'listitem "Mars: not collected" [ref=f1e298]':
+          - generic [ref=f1e306]:
+            - strong [ref=f1e307]: Mars
+            - generic [ref=f1e308]: Explore three different facts to collect
+        - 'listitem "Jupiter: not collected" [ref=f1e309]':
+          - generic [ref=f1e317]:
+            - strong [ref=f1e318]: Jupiter
+            - generic [ref=f1e319]: Explore three different facts to collect
+        - 'listitem "Saturn: not collected" [ref=f1e320]':
+          - generic [ref=f1e328]:
+            - strong [ref=f1e329]: Saturn
+            - generic [ref=f1e330]: Explore three different facts to collect
+        - 'listitem "Uranus: not collected" [ref=f1e331]':
+          - generic [ref=f1e339]:
+            - strong [ref=f1e340]: Uranus
+            - generic [ref=f1e341]: Explore three different facts to collect
+        - 'listitem "Neptune: not collected" [ref=f1e342]':
+          - generic [ref=f1e350]:
+            - strong [ref=f1e351]: Neptune
+            - generic [ref=f1e352]: Explore three different facts to collect
+        - 'listitem "Pluto: not collected" [ref=f1e353]':
+          - generic [ref=f1e361]:
+            - strong [ref=f1e362]: Pluto
+            - generic [ref=f1e363]: Explore three different facts to collect
+  - generic [ref=f1e364]:
+    - generic [ref=f1e365]:
+      - heading "Sticker Shelf" [level=3] [ref=f1e366]
+      - generic [ref=f1e367]: Unlock more by earning stars!
+    - generic [ref=f1e368]:
+      - button "Bronze Rocket, unlocks at 10 stars" [ref=f1e369] [cursor=pointer]:
+        - img "Rocket Star" [ref=f1e371]
+        - generic [ref=f1e372]: Bronze Rocket
+        - generic [ref=f1e373]: 10⭐
+      - button "Silver Dino, unlocks at 25 stars" [ref=f1e374] [cursor=pointer]:
+        - img "Dino Egg Prize" [ref=f1e376]
+        - generic [ref=f1e377]: Silver Dino
+        - generic [ref=f1e378]: 25⭐
+      - button "Gold Star, unlocks at 40 stars" [ref=f1e379] [cursor=pointer]:
+        - img "Super Star" [ref=f1e381]
+        - generic [ref=f1e382]: Gold Star
+        - generic [ref=f1e383]: 40⭐
+      - button "Rescue Truck, unlocks at 60 stars" [ref=f1e384] [cursor=pointer]:
+        - img "Rescue Truck" [ref=f1e386]
+        - generic [ref=f1e387]: Rescue Truck
+        - generic [ref=f1e388]: 60⭐
+      - button "Super Heart, unlocks at 80 stars" [ref=f1e389] [cursor=pointer]:
+        - img "Heart of Awesome" [ref=f1e391]
+        - generic [ref=f1e392]: Super Heart
+        - generic [ref=f1e393]: 80⭐
+      - button "Planet Master, unlocks at 100 stars" [ref=f1e394] [cursor=pointer]:
+        - img "Planet Master" [ref=f1e396]: 🪐
+        - generic [ref=f1e397]: Planet Master
+        - generic [ref=f1e398]: 100⭐
+      - button "Mega Hero, unlocks at 130 stars" [ref=f1e399] [cursor=pointer]:
+        - img "Brave and Strong Shield" [ref=f1e401]
+        - generic [ref=f1e402]: Mega Hero
+        - generic [ref=f1e403]: 130⭐
+      - button "Trophy Winner, unlocks at 170 stars" [ref=f1e404] [cursor=pointer]:
+        - img "Gold Winner Trophy" [ref=f1e406]
+        - generic [ref=f1e407]: Trophy Winner
+        - generic [ref=f1e408]: 170⭐
+      - button "Diamond Brain, unlocks at 220 stars" [ref=f1e409] [cursor=pointer]:
+        - img "Rainbow Gem" [ref=f1e411]
+        - generic [ref=f1e412]: Diamond Brain
+        - generic [ref=f1e413]: 220⭐
+      - button "Royal Crown, unlocks at 280 stars" [ref=f1e414] [cursor=pointer]:
+        - img "Crown of Greatness" [ref=f1e416]
+        - generic [ref=f1e417]: Royal Crown
+        - generic [ref=f1e418]: 280⭐
+      - button "Legend Badge, unlocks at 350 stars" [ref=f1e419] [cursor=pointer]:
+        - img "Awesome Medal" [ref=f1e421]
+        - generic [ref=f1e422]: Legend Badge
+        - generic [ref=f1e423]: 350⭐
+      - button "Galaxy King, unlocks at 450 stars" [ref=f1e424] [cursor=pointer]:
+        - img "Galaxy King" [ref=f1e426]: 🌌
+        - generic [ref=f1e427]: Galaxy King
+        - generic [ref=f1e428]: 450⭐
+```
