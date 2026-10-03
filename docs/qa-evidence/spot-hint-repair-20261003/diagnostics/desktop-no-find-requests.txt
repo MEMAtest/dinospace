@@ -1,0 +1,7 @@
+GET http://127.0.0.1:5204/ [200]
+GET http://127.0.0.1:5204/assets/index-Dckzdv86.js [200]
+GET http://127.0.0.1:5204/assets/index-CU-OkS6z.css [200]
+GET http://127.0.0.1:5204/assets/amari-astronaut-robot-Dj0NBZLZ.png [200]
+GET http://127.0.0.1:5204/assets/askia-detective-CPOpmaoU.webp [200]
+GET http://127.0.0.1:5204/icons/amari-discovery-192.png [200, repeated]
+No voice/story provider request; both route guards returned 204 if matched.

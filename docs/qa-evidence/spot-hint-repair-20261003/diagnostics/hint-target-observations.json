@@ -1,0 +1,58 @@
+{
+  "candidate": {
+    "source": "4cfaa789505758bd0b96114fcb609e293e8f746b",
+    "url": "http://127.0.0.1:5204",
+    "voiceFlag": true,
+    "js": {"path": "/assets/index-Dckzdv86.js", "sha256": "4585129777a287697bf27be43e560159825723e295ac78bfe6928bce96f73c7c"},
+    "css": {"path": "/assets/index-CU-OkS6z.css", "sha256": "2613b85082a6ae658aaf50bd961b80106c8249c46da4366c7a7489d3052b9e7e"}
+  },
+  "viewports": {
+    "desktop1280x800": {
+      "uiExportSeed": 1940058400,
+      "scene": "Dino Park",
+      "firstHint": {
+        "remainingTokensAfter": 1,
+        "label": "Check right top detail",
+        "center": {"x": 1139.59375, "y": 370.640625},
+        "style": {"borderColor": "rgb(245, 158, 11)", "borderWidth": "2px", "backgroundColor": "rgba(253, 230, 138, 0.4)", "animationName": "pulse", "zIndex": "20"},
+        "evidence": "../screenshots/desktop-first-hint.png"
+      },
+      "firstHintFoundProgress": "1/3",
+      "nextHint": {
+        "remainingTokensAfter": 0,
+        "label": "Check middle top detail",
+        "center": {"x": 954, "y": 361.9375},
+        "style": {"borderColor": "rgb(245, 158, 11)", "borderWidth": "2px", "backgroundColor": "rgba(253, 230, 138, 0.4)", "animationName": "pulse", "zIndex": "20"},
+        "evidence": "../screenshots/desktop-second-hint.png"
+      },
+      "completionFact": "Fossils are clues that help scientists learn about dinosaurs.",
+      "nextPair": {"counter": "0/3", "remainingTokens": 2},
+      "chapterReplay": {"pair": "1 of 4", "counter": "0/3", "remainingTokens": 2}
+    },
+    "mobile390x844": {
+      "uiExportSeed": 3892475542,
+      "scene": "Dino Park",
+      "firstHint": {
+        "remainingTokensAfter": 1,
+        "label": "Check right top detail",
+        "center": {"x": 301.875, "y": 718.09375},
+        "style": {"borderColor": "rgb(245, 158, 11)", "borderWidth": "2px", "backgroundColor": "rgba(253, 230, 138, 0.4)", "animationName": "pulse", "zIndex": "20"},
+        "evidence": "../screenshots/mobile-first-hint-390x844.png"
+      },
+      "firstHintFoundProgress": "1/3",
+      "nextHint": {
+        "remainingTokensAfter": 0,
+        "label": "Check middle top detail",
+        "center": {"x": 195, "y": 713.078125},
+        "style": {"borderColor": "rgb(245, 158, 11)", "borderWidth": "2px", "backgroundColor": "rgba(253, 230, 138, 0.4)", "animationName": "pulse", "zIndex": "20"},
+        "evidence": "../screenshots/mobile-second-hint-390x844.png"
+      },
+      "firstHintFoundScreenshot": "../screenshots/mobile-first-hint-found-390x844.png",
+      "heldFactAfter1400msScreenshot": "../screenshots/mobile-pair-complete-held-390x844.png",
+      "nextPair": {"counter": "0/3", "remainingTokens": 2},
+      "chapterReplay": {"pair": "1 of 4", "counter": "0/3", "remainingTokens": 2},
+      "width": {"document": 390, "body": 390, "viewport": 390}
+    }
+  },
+  "method": "Fresh isolated browser contexts, actual visible controls, no injected state or answers; voice/story endpoints stubbed before navigation."
+}

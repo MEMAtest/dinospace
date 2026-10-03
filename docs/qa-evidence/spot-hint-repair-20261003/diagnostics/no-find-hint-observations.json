@@ -1,0 +1,29 @@
+{
+  "candidate": {
+    "url": "http://127.0.0.1:5204",
+    "source": "4cfaa789505758bd0b96114fcb609e293e8f746b",
+    "jsSha256": "4585129777a287697bf27be43e560159825723e295ac78bfe6928bce96f73c7c",
+    "cssSha256": "2613b85082a6ae658aaf50bd961b80106c8249c46da4366c7a7489d3052b9e7e"
+  },
+  "case": "Magnifier twice consecutively without finding either target",
+  "desktop1280x800": {
+    "hint1": {"target":"Check left bottom detail","center":[780,644.6875],"border":"rgb(245, 158, 11)","fill":"rgba(253, 230, 138, 0.4)","animation":"pulse"},
+    "hint2": {"target":"Check left middle detail","center":[791.59375,505.5],"border":"rgb(245, 158, 11)","fill":"rgba(253, 230, 138, 0.4)","animation":"pulse"},
+    "foundProgressAfterEach":"0 of 3 changes",
+    "tokens":"2 -> 1 -> 0",
+    "thirdUseDisabled":true
+  },
+  "mobile390x844": {
+    "hint1": {"target":"Check left bottom detail","center":[94.796875,875.90625],"border":"rgb(245, 158, 11)","fill":"rgba(253, 230, 138, 0.4)","animation":"pulse"},
+    "hint2": {"target":"Check left middle detail","center":[101.46875,795.75],"border":"rgb(245, 158, 11)","fill":"rgba(253, 230, 138, 0.4)","animation":"pulse"},
+    "foundProgressAfterEach":"0 of 3 changes",
+    "tokens":"2 -> 1 -> 0",
+    "thirdUseDisabled":true,
+    "documentScrollWidth":390,
+    "viewportWidth":390
+  },
+  "controls": "Normal app UI only; no answer/progress/seed/unlock injection",
+  "guards": "204 stubs for **/api/voice** and **/api/story** installed before first app navigation in each context; sound toggled off through UI",
+  "console": "0 messages, 0 errors, 0 warnings in both contexts",
+  "network": "same-origin local app/assets only"
+}

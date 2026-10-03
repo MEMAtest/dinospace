@@ -1,0 +1,4 @@
+For each fresh Playwright session, installed before the first app navigation:
+page.route('**/api/voice**', r => r.fulfill({status:204, body:''}))
+page.route('**/api/story**', r => r.fulfill({status:204, body:''}))
+Sound was turned off through the visible app toggle. No provider calls were made.
