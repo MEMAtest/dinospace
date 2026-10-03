@@ -5,8 +5,8 @@ This plan is executable QA instructions, not a test result. Current frozen runti
 ## Before promotion
 
 1. Finish independent local changes: Sky numbered starts before input and after restart/path transition; Spot repaired seven-target Challenge geometry and meaningful prop differences; Puzzle actual downloaded assisted-completion hint count. Preserve every failed candidate and its source identity.
-2. Record the outstanding human listening verdict separately. File decoding and native media events establish mechanics only. Do not invent an audible verdict or publish a 4.5 score before its mandatory gate passes.
-3. Reconcile each game's five editorial dimensions with the retained complete-band production baseline and all changed-control evidence. Leave unsupported dimensions unscored.
+2. Record the outstanding human listening verdict separately. File decoding and native media events establish mechanics only. The user has authorized production improvements, so a reviewed functional repair may be released and exercised while listening remains pending. Do not invent an audible verdict or publish a 4.5 score before that acceptance gate passes.
+3. For final editorial acceptance, reconcile each game's five dimensions with the retained complete-band production baseline and all changed-control evidence. A functional repair release is not that verdict; leave unsupported dimensions unscored.
 4. Recheck canonical Vercel alias, source SHA and incoming main changes. Preserve unrelated work. Promote only the independently reviewed source; record the actual resulting SHA, deployment ID, alias and JS/CSS hashes. Never relabel preview evidence as production.
 
 ## Production browser setup

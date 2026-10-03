@@ -222,7 +222,7 @@
   "candidate": {
     "source": "83149d897366dcbe8bc4034849d340ed61a0221d",
     "scope": "Batch 2 local changes only; no new production acceptance",
-    "independentChecks": "e223 Puzzle mapping/title controls pass scoped desktop/mobile checks; hint-count export omitted and repaired67c. e223 Sky route/fact/finishflag behavior passes, but start-number overlap failed and repaired831; independent831 Sky start, finalSpot layout, and exported hint-count checks underway.",
+    "independentChecks": "831 independent desktop/390px Sky start/reset/next-part, Spot paired-scene geometry/hints/held facts, and actual Puzzle hint-count export passed. Monster unaffected preview runtime proof retained. Functional repair release preparation; no new4.5acceptance.",
     "humanListening": "pending",
     "productionPlaywright": "pending for unreleased changes",
     "preview": {
@@ -238,7 +238,8 @@
       "lint": "passed",
       "frozenBuild": "passed",
       "corpusBytesMatched": 1371
-    }
+    },
+    "releaseClass": "functional repair, editorial acceptance pending"
   },
   "implementationBatch": 3,
   "implementationBranch": "codex/amari-batch3-quality-20261003"

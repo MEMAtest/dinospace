@@ -1,0 +1,6 @@
+### Result
+{"before":"You found a change! 1 of 7.\n\nHistory Hall · 1 of 7 changes\n\nHear clue\nMagnifier 2 left\nPicture A · L","repeatedTargetStillExposed":0,"remainingTargets":6}
+### Ran Playwright code
+```js
+await (async page => {const before=await page.locator('main').innerText();const countBefore=await page.getByRole('button',{name:'Check left bottom detail'}).count();const remaining=await page.getByRole('button').evaluateAll(xs=>xs.filter(x=>x.getAttribute('aria-label')?.startsWith('Check ')).length);await page.screenshot({path:'docs/qa-evidence/batch2-guidance-final-20261003/mobile-spot-repeat-hit-state.png',fullPage:true});return{before:before.slice(0,100),repeatedTargetStillExposed:countBefore,remainingTargets:remaining};})(page);
+```

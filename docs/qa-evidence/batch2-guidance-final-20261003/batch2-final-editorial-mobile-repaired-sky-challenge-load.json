@@ -1,0 +1,55 @@
+### Result
+{"viewport":{"width":390,"height":844,"documentWidth":390,"documentHeight":870},"geometry":{"board":{"x":24,"y":204,"width":342,"height":222.296875},"routePointCount":17,"startEndViewBoxCoords":[[500,115],[500,515]],"circles":[{"fill":"#16a34a","rect":{"x":183.7141571044922,"y":232.04360961914062,"width":22.571685791015625,"height":22.571685791015625}},{"fill":"#075985","rect":{"x":187.47610473632812,"y":299.07464599609375,"width":15.04779052734375,"height":15.04779052734375}},{"fill":"#075985","rect":{"x":187.47610473632812,"y":348.6639709472656,"width":15.04779052734375,"height":15.04779052734375}}],"markerNumbers":[{"text":"1","rect":{"x":192.5625,"y":238.06539916992188,"width":4.875,"height":10.000015258789062}},{"text":"2","rect":{"x":192.5625,"y":301.33453369140625,"width":4.875,"height":10}},{"text":"3","rect":{"x":192.5625,"y":350.923828125,"width":4.875,"height":10}}],"transformedGroups":[{"transform":"translate(500 610)","rect":{"x":195,"y":400.9892272949219,"width":15.04779052734375,"height":19.835723876953125}},{"transform":"translate(598 300)","rect":{"x":228.51553344726562,"y":294.970703125,"width":15.04779052734375,"height":19.83575439453125}},{"transform":"translate(598 445)","rect":{"x":228.51553344726562,"y":344.5600280761719,"width":15.04779052734375,"height":19.835723876953125}}]},"instructions":[{"text":"MISSION 1 · CHALLENGE","role":null,"rect":{"x":26,"y":106,"width":215.265625,"height":16}},{"text":"✈️ Winged Jet · 0/3 parts","role":null,"rect":{"x":26,"y":122,"width":215.265625,"height":28}},{"text":"1/4 saved","role":null,"rect":{"x":275.875,"y":114,"width":88.125,"height":28}},{"text":"Tracing tip: Follow each numbered line from its green start to its red finish. Lift your finger between parts.","role":null,"rect":{"x":36,"y":454.296875,"width":318,"height":76}},{"text":"Start at the green 1. Trace the airplane outline.","role":"status","rect":{"x":36,"y":538.296875,"width":318,"height":48}},{"text":"Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the glowing dots.","role":null,"rect":{"x":36,"y":770.296875,"width":318,"height":48}}]}
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(100);
+  const viewport = await page.evaluate(() => ({
+    width: innerWidth,
+    height: innerHeight,
+    documentWidth: document.documentElement.scrollWidth,
+    documentHeight: document.documentElement.scrollHeight,
+  }));
+  const svg = page.locator('svg[role="application"]');
+  const geometry = await svg.evaluate((el) => {
+    const rect = (node) => {
+      const box = node.getBoundingClientRect();
+      return { x: box.x, y: box.y, width: box.width, height: box.height };
+    };
+    const route = el.querySelector('polyline')?.getAttribute('points')?.trim()
+      .split(/\s+/)
+      .map((pair) => pair.split(',').map(Number));
+    return {
+      board: rect(el),
+      routePointCount: route?.length ?? 0,
+      startEndViewBoxCoords: route?.length ? [route[0], route.at(-1)] : [],
+      circles: [...el.querySelectorAll('circle')].map((node) => ({
+        fill: node.getAttribute('fill'),
+        rect: rect(node),
+      })),
+      markerNumbers: [...el.querySelectorAll('text')].map((node) => ({
+        text: node.textContent,
+        rect: rect(node),
+      })),
+      transformedGroups: [...el.querySelectorAll('g[transform]')].map((node) => ({
+        transform: node.getAttribute('transform'),
+        rect: rect(node),
+      })),
+    };
+  });
+  const instructions = await page.locator('main').evaluate((el) => [...el.querySelectorAll('p')]
+    .filter((node) => node.innerText.trim())
+    .map((node) => {
+      const rect = node.getBoundingClientRect();
+      return {
+        text: node.innerText.trim(),
+        role: node.getAttribute('role'),
+        rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+      };
+    }));
+  await page.screenshot({ fullPage: true });
+  return { viewport, geometry, instructions };
+}
+)(page);
+```

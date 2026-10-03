@@ -1,0 +1,55 @@
+### Result
+{"viewport":{"width":1280,"height":800,"documentWidth":1280,"documentHeight":1219},"geometry":{"board":{"x":90,"y":234,"width":1100,"height":715},"routePointCount":97,"startEndViewBoxCoords":[[705,330],[705,330]],"circles":[{"fill":"#16a34a","rect":{"x":829.2000122070312,"y":560.7000122070312,"width":72.5999755859375,"height":72.5999755859375}}],"markerNumbers":[{"text":"1","rect":{"x":857.6483764648438,"y":580.800048828125,"width":15.70318603515625,"height":31}}],"transformedGroups":[{"transform":"translate(803 330)","rect":{"x":973.2999877929688,"y":559.5999755859375,"width":48.4000244140625,"height":63.800048828125}}]},"instructions":[{"text":"MISSION 1 · STARTER","role":null,"rect":{"x":100,"y":136,"width":234.46875,"height":16}},{"text":"☀️ Round Sun · 0/1 parts","role":null,"rect":{"x":100,"y":152,"width":234.46875,"height":28}},{"text":"4/4 saved","role":null,"rect":{"x":1091.875,"y":144,"width":88.125,"height":28}},{"text":"Tracing tip: Keep the jet moving gently around the round path until it meets the red dot.","role":null,"rect":{"x":256,"y":977,"width":768,"height":36}},{"text":"Start at the green dot and trace the route again.","role":"status","rect":{"x":102,"y":1021,"width":1076,"height":48}},{"text":"Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the glowing dots.","role":null,"rect":{"x":102,"y":1141,"width":1076,"height":16}}]}
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(100);
+  const viewport = await page.evaluate(() => ({
+    width: innerWidth,
+    height: innerHeight,
+    documentWidth: document.documentElement.scrollWidth,
+    documentHeight: document.documentElement.scrollHeight,
+  }));
+  const svg = page.locator('svg[role="application"]');
+  const geometry = await svg.evaluate((el) => {
+    const rect = (node) => {
+      const box = node.getBoundingClientRect();
+      return { x: box.x, y: box.y, width: box.width, height: box.height };
+    };
+    const route = el.querySelector('polyline')?.getAttribute('points')?.trim()
+      .split(/\s+/)
+      .map((pair) => pair.split(',').map(Number));
+    return {
+      board: rect(el),
+      routePointCount: route?.length ?? 0,
+      startEndViewBoxCoords: route?.length ? [route[0], route.at(-1)] : [],
+      circles: [...el.querySelectorAll('circle')].map((node) => ({
+        fill: node.getAttribute('fill'),
+        rect: rect(node),
+      })),
+      markerNumbers: [...el.querySelectorAll('text')].map((node) => ({
+        text: node.textContent,
+        rect: rect(node),
+      })),
+      transformedGroups: [...el.querySelectorAll('g[transform]')].map((node) => ({
+        transform: node.getAttribute('transform'),
+        rect: rect(node),
+      })),
+    };
+  });
+  const instructions = await page.locator('main').evaluate((el) => [...el.querySelectorAll('p')]
+    .filter((node) => node.innerText.trim())
+    .map((node) => {
+      const rect = node.getBoundingClientRect();
+      return {
+        text: node.innerText.trim(),
+        role: node.getAttribute('role'),
+        rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+      };
+    }));
+  await page.screenshot({ fullPage: true });
+  return { viewport, geometry, instructions };
+}
+)(page);
+```

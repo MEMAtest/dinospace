@@ -1,0 +1,6 @@
+### Result
+["Picture pair complete! Your fact is below. Choose Next picture when you are ready.\n\n🏆\n\nSuperhero City pair complete!\n\nPicture fact: People ","Picture pair complete! Your fact is below. Choose Next picture when you are ready.\n\n🏆\n\nRiver Valley pair complete!\n\nPicture fact: A clean r","Well done! Bright-Eyed Beginners complete! Your picture fact is below.\n\n🏆\n\nBright-Eyed Beginners complete!\n\nPicture fact: Fossils are clues"]
+### Ran Playwright code
+```js
+await (async page => {const rounds=[]; for(let pair=2;pair<=4;pair++){ const ns=await page.getByRole('button').evaluateAll(xs=>xs.map(x=>x.getAttribute('aria-label')).filter(n=>n&&n.startsWith('Check '))); for(const name of ns){let b=page.getByRole('button',{name}); if(await b.count()) await b.click();} let t=await page.locator('main').innerText(); rounds.push(t.slice(0,140)); if(pair<4&&await page.getByRole('button',{name:'Next picture'}).count()){await page.getByRole('button',{name:'Next picture'}).click(); await page.waitForTimeout(100);}} return rounds;})(page);
+```

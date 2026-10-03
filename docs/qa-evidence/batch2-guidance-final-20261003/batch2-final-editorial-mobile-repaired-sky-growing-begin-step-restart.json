@@ -1,0 +1,6 @@
+### Result
+{"before":{"jets":1,"text":["1","✈️"]},"after":{"jets":[{"x":97.50120544433594,"y":323.99005126953125,"w":24,"h":25}],"start":[{"x":108.4752197265625,"y":351.741943359375,"w":22.571685791015625,"h":22.5716552734375}]},"reset":{"jets":0}}
+### Ran Playwright code
+```js
+await (async page => { const board=page.locator('svg[role=application]'); await board.focus(); await page.keyboard.press('Enter'); await page.waitForTimeout(100); const before=await board.evaluate(el=>({jets:[...el.querySelectorAll('text')].filter(x=>x.textContent==='✈️').length, text:[...el.querySelectorAll('text')].map(x=>x.textContent)})); await page.keyboard.press('Space'); await page.waitForTimeout(100); const after=await board.evaluate(el=>({jets:[...el.querySelectorAll('text')].filter(x=>x.textContent==='✈️').map(x=>{let r=x.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}}),start:[...el.querySelectorAll('circle[fill="#16a34a"]')].map(x=>{let r=x.getBoundingClientRect();return{x:r.x,y:r.y,w:r.width,h:r.height}})})); await page.getByRole('button',{name:'Restart this flight'}).click(); const reset=await board.evaluate(el=>({jets:[...el.querySelectorAll('text')].filter(x=>x.textContent==='✈️').length})); return {before,after,reset}; })(page);
+```

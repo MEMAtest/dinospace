@@ -1,0 +1,55 @@
+### Result
+{"viewport":{"width":1280,"height":800,"documentWidth":1280,"documentHeight":1219},"geometry":{"board":{"x":90,"y":234,"width":1100,"height":715},"routePointCount":45,"startEndViewBoxCoords":[[500,95],[500,95]],"circles":[{"fill":"#16a34a","rect":{"x":603.7000122070312,"y":302.20001220703125,"width":72.5999755859375,"height":72.5999755859375}},{"fill":"#075985","rect":{"x":494.79998779296875,"y":611.2999877929688,"width":48.4000244140625,"height":48.4000244140625}},{"fill":"#075985","rect":{"x":736.7999877929688,"y":611.2999877929688,"width":48.4000244140625,"height":48.4000244140625}},{"fill":"#075985","rect":{"x":662,"y":539.7999877929688,"width":48.4000244140625,"height":48.4000244140625}}],"markerNumbers":[{"text":"1","rect":{"x":632.1484375,"y":322.29998779296875,"width":15.703125,"height":31}},{"text":"2","rect":{"x":511.1484375,"y":619.300048828125,"width":15.703125,"height":31}},{"text":"3","rect":{"x":753.1483764648438,"y":619.300048828125,"width":15.70318603515625,"height":31}},{"text":"4","rect":{"x":678.2582397460938,"y":547.800048828125,"width":15.7933349609375,"height":31}}],"transformedGroups":[{"transform":"translate(598 95)","rect":{"x":747.7999877929688,"y":301.1000061035156,"width":48.4000244140625,"height":63.79998779296875}},{"transform":"translate(488 365)","rect":{"x":626.7999877929688,"y":598.0999755859375,"width":48.4000244140625,"height":63.800048828125}},{"transform":"translate(708 365)","rect":{"x":868.7999877929688,"y":598.0999755859375,"width":48.4000244140625,"height":63.800048828125}},{"transform":"translate(640 300)","rect":{"x":794,"y":526.5999755859375,"width":48.4000244140625,"height":63.800048828125}}]},"instructions":[{"text":"MISSION 1 · CHALLENGE","role":null,"rect":{"x":100,"y":136,"width":244.4375,"height":16}},{"text":"🚀 Rocket Ship · 0/4 parts","role":null,"rect":{"x":100,"y":152,"width":244.4375,"height":28}},{"text":"1/4 saved","role":null,"rect":{"x":1091.875,"y":144,"width":88.125,"height":28}},{"text":"Tracing tip: Trace the body first. Then do each fin and the round window, following the numbers.","role":null,"rect":{"x":256,"y":977,"width":768,"height":36}},{"text":"Start at the green 1. Trace the rocket outline.","role":"status","rect":{"x":102,"y":1021,"width":1076,"height":48}},{"text":"Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the glowing dots.","role":null,"rect":{"x":102,"y":1141,"width":1076,"height":16}}]}
+### Ran Playwright code
+```js
+await (async (page) => {
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(100);
+  const viewport = await page.evaluate(() => ({
+    width: innerWidth,
+    height: innerHeight,
+    documentWidth: document.documentElement.scrollWidth,
+    documentHeight: document.documentElement.scrollHeight,
+  }));
+  const svg = page.locator('svg[role="application"]');
+  const geometry = await svg.evaluate((el) => {
+    const rect = (node) => {
+      const box = node.getBoundingClientRect();
+      return { x: box.x, y: box.y, width: box.width, height: box.height };
+    };
+    const route = el.querySelector('polyline')?.getAttribute('points')?.trim()
+      .split(/\s+/)
+      .map((pair) => pair.split(',').map(Number));
+    return {
+      board: rect(el),
+      routePointCount: route?.length ?? 0,
+      startEndViewBoxCoords: route?.length ? [route[0], route.at(-1)] : [],
+      circles: [...el.querySelectorAll('circle')].map((node) => ({
+        fill: node.getAttribute('fill'),
+        rect: rect(node),
+      })),
+      markerNumbers: [...el.querySelectorAll('text')].map((node) => ({
+        text: node.textContent,
+        rect: rect(node),
+      })),
+      transformedGroups: [...el.querySelectorAll('g[transform]')].map((node) => ({
+        transform: node.getAttribute('transform'),
+        rect: rect(node),
+      })),
+    };
+  });
+  const instructions = await page.locator('main').evaluate((el) => [...el.querySelectorAll('p')]
+    .filter((node) => node.innerText.trim())
+    .map((node) => {
+      const rect = node.getBoundingClientRect();
+      return {
+        text: node.innerText.trim(),
+        role: node.getAttribute('role'),
+        rect: { x: rect.x, y: rect.y, width: rect.width, height: rect.height },
+      };
+    }));
+  await page.screenshot({ fullPage: true });
+  return { viewport, geometry, instructions };
+}
+)(page);
+```

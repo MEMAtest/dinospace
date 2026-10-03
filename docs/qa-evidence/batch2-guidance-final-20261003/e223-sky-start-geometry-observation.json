@@ -1,0 +1,24 @@
+{
+  "candidate": "e223bccfd8c962a4c06ddd343ff2c2e53d8e4b58",
+  "observation": "Before repair, the jet substantially covered the numbered green start marker on the initial Sky Shapes screen.",
+  "viewports": {
+    "desktop-1280x800": {
+      "scene": "Moon Observatory",
+      "board": { "x": 90, "y": 234, "width": 1100, "height": 715 },
+      "startCircle": { "x": 400.2, "y": 615.7, "width": 72.6, "height": 72.6 },
+      "jet": { "x": 403.5, "y": 609.6, "width": 66, "height": 73 }
+    },
+    "mobile-390x844": {
+      "scene": "Sky Castle",
+      "board": { "x": 24, "y": 204, "width": 342, "height": 222.3 },
+      "startCircle": { "x": 115.3, "y": 295.3, "width": 22.6, "height": 22.6 },
+      "jet": { "x": 114.6, "y": 292.1, "width": 24, "height": 25 },
+      "note": "The jet hid the number 1 at the start."
+    }
+  },
+  "screenshots": [
+    "desktop-sky-challenge-observatory-start.png",
+    "mobile-sky-challenge-castle-start.png"
+  ],
+  "measurementSource": "Recorded from the live DOM during the e223 review; the coordinate values are rounded to one decimal place."
+}

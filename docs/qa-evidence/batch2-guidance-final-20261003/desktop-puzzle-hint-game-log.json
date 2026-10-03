@@ -1,0 +1,3018 @@
+{
+  "version": 2,
+  "retention": {
+    "recentEvents": 300,
+    "runMilestones": 100
+  },
+  "events": [
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:06.273Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:06.338Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:06.338Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:06.405Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:06.405Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:06.471Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:06.471Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "scene_complete",
+      "at": "2026-10-03T12:49:06.471Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "scene",
+      "at": "2026-10-03T12:49:06.693Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:06.856Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:06.856Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:06.923Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:06.923Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:06.988Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:06.988Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.056Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.056Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.122Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.123Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.190Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.190Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.255Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.256Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.322Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.322Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.389Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.389Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "scene_complete",
+      "at": "2026-10-03T12:49:07.390Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "scene",
+      "at": "2026-10-03T12:49:07.605Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.757Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.757Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.822Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.823Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.890Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.890Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:07.956Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:07.957Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:08.022Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:08.022Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:08.088Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:08.088Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:08.155Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:08.155Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:08.222Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:08.222Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:49:08.292Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:49:08.292Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "scene_complete",
+      "at": "2026-10-03T12:49:08.292Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "level_completed",
+      "at": "2026-10-03T12:49:08.292Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T12:49:31.219Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3740002672
+    },
+    {
+      "game": "puzzle",
+      "event": "scene",
+      "at": "2026-10-03T12:49:31.219Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672
+    },
+    {
+      "game": "puzzle",
+      "event": "hint",
+      "at": "2026-10-03T12:50:32.132Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "hintType": "next_piece"
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:53:16.637Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:53:16.637Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:54:59.426Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:54:59.426Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:54:59.490Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:54:59.490Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:54:59.558Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:54:59.558Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:54:59.624Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:54:59.624Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:54:59.691Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:54:59.692Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:54:59.758Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:54:59.758Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:54:59.825Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:54:59.825Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:54:59.890Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:54:59.890Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:54:59.959Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:54:59.959Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.025Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.026Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.091Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.091Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.157Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.158Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.225Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.225Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.291Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.292Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.357Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.357Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.424Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.424Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.489Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.490Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.558Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.558Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.624Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.625Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.691Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.691Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.757Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.757Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.825Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.826Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.891Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.892Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T12:55:00.959Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T12:55:00.959Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "scene_complete",
+      "at": "2026-10-03T12:55:00.959Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3740002672,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "scene",
+      "at": "2026-10-03T12:55:12.898Z",
+      "level": 2,
+      "round": 2,
+      "seed": 3740002672
+    },
+    {
+      "game": "puzzle",
+      "event": "leave",
+      "at": "2026-10-03T12:55:49.735Z",
+      "level": 2,
+      "round": 2,
+      "seed": 3740002672
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T12:57:25.250Z",
+      "level": 0,
+      "round": 0,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T12:57:25.251Z",
+      "level": 0,
+      "round": 0,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T12:57:25.251Z",
+      "level": 0,
+      "round": 0,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:01:23.207Z",
+      "level": 0,
+      "round": 0,
+      "seed": 815801178,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T13:01:23.208Z",
+      "level": 0,
+      "round": 0,
+      "seed": 815801178,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:01:35.251Z",
+      "level": 0,
+      "round": 1,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:01:35.251Z",
+      "level": 0,
+      "round": 1,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:01:43.685Z",
+      "level": 0,
+      "round": 1,
+      "seed": 815801178,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T13:01:43.685Z",
+      "level": 0,
+      "round": 1,
+      "seed": 815801178,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:01:52.543Z",
+      "level": 0,
+      "round": 2,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:01:52.543Z",
+      "level": 0,
+      "round": 2,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "level_complete",
+      "at": "2026-10-03T13:02:02.296Z",
+      "level": 0,
+      "round": 2,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:02:02.296Z",
+      "level": 0,
+      "round": 2,
+      "seed": 815801178,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T13:02:02.296Z",
+      "level": 0,
+      "round": 2,
+      "seed": 815801178,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:02:57.560Z",
+      "level": 1,
+      "round": 0,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:02:57.561Z",
+      "level": 1,
+      "round": 0,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:02:57.561Z",
+      "level": 1,
+      "round": 0,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:04:06.111Z",
+      "level": 1,
+      "round": 0,
+      "seed": 118030837,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T13:04:06.111Z",
+      "level": 1,
+      "round": 0,
+      "seed": 118030837,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:04:18.870Z",
+      "level": 1,
+      "round": 1,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:04:18.870Z",
+      "level": 1,
+      "round": 1,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:04:55.170Z",
+      "level": 1,
+      "round": 1,
+      "seed": 118030837,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T13:04:55.170Z",
+      "level": 1,
+      "round": 1,
+      "seed": 118030837,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:06:35.610Z",
+      "level": 1,
+      "round": 2,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:06:35.610Z",
+      "level": 1,
+      "round": 2,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:07:11.626Z",
+      "level": 1,
+      "round": 2,
+      "seed": 118030837,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T13:07:11.626Z",
+      "level": 1,
+      "round": 2,
+      "seed": 118030837,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:07:25.035Z",
+      "level": 1,
+      "round": 3,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:07:25.035Z",
+      "level": 1,
+      "round": 3,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "level_complete",
+      "at": "2026-10-03T13:07:35.420Z",
+      "level": 1,
+      "round": 3,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:07:35.420Z",
+      "level": 1,
+      "round": 3,
+      "seed": 118030837,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T13:07:35.420Z",
+      "level": 1,
+      "round": 3,
+      "seed": 118030837,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:08:42.949Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3242612805,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:08:42.949Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3242612805,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:08:42.949Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3242612805,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "jet",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:13:32.109Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3242612805,
+      "difficulty": "challenge",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "learning_attempt",
+      "at": "2026-10-03T13:13:32.110Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3242612805,
+      "difficulty": "challenge",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "replay",
+      "at": "2026-10-03T13:17:55.458Z",
+      "level": 0,
+      "round": 0,
+      "seed": 540609556,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:17:55.458Z",
+      "level": 0,
+      "round": 0,
+      "seed": 540609556,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:17:55.459Z",
+      "level": 0,
+      "round": 0,
+      "seed": 540609556,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:17:55.459Z",
+      "level": 0,
+      "round": 0,
+      "seed": 540609556,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:19:40.046Z",
+      "level": 0,
+      "round": 0,
+      "seed": 540609556,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T13:20:21.567Z",
+      "level": 0,
+      "round": 0,
+      "seed": 540609556,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "replay",
+      "at": "2026-10-03T13:21:38.593Z",
+      "level": 1,
+      "round": 0,
+      "seed": 1538029327,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:21:38.593Z",
+      "level": 1,
+      "round": 0,
+      "seed": 1538029327,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:21:38.594Z",
+      "level": 1,
+      "round": 0,
+      "seed": 1538029327,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:21:38.594Z",
+      "level": 1,
+      "round": 0,
+      "seed": 1538029327,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:22:07.875Z",
+      "level": 1,
+      "round": 0,
+      "seed": 1538029327,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T13:22:23.713Z",
+      "level": 1,
+      "round": 0,
+      "seed": 1538029327,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:22:38.336Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2874801509,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T13:22:38.337Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2874801509,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T13:22:38.337Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2874801509,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "jet",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:23:07.770Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2874801509,
+      "difficulty": "challenge",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:23:47.322Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2874801509,
+      "difficulty": "challenge",
+      "firstAttempt": true
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T13:25:01.979Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2874801509,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "spot",
+      "event": "start",
+      "at": "2026-10-03T13:25:58.708Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3182248368
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:25:58.708Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3182248368
+    },
+    {
+      "game": "spot",
+      "event": "hint",
+      "at": "2026-10-03T13:26:45.650Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3182248368,
+      "hintType": "magnifier"
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:27:37.760Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:27:37.761Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:27:37.794Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:27:37.795Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:27:37.827Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:27:37.828Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:27:37.828Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3182248368,
+      "hints": 1,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:27:51.085Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3182248368
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:28:18.548Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:28:18.548Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:28:18.580Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:28:18.580Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:28:18.615Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:28:18.616Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:28:18.616Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3182248368,
+      "hints": 0,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:28:18.651Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3182248368
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:28:18.765Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:28:18.765Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:28:18.799Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:28:18.799Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:28:18.831Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:28:18.831Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:28:18.832Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3182248368,
+      "hints": 0,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:28:18.864Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:28:18.981Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:28:18.982Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:28:19.014Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:28:19.015Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:28:19.048Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:28:19.049Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:28:19.049Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368,
+      "hints": 0,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "level_completed",
+      "at": "2026-10-03T13:28:19.049Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368,
+      "hints": 0,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "start",
+      "at": "2026-10-03T13:29:01.153Z",
+      "level": 1,
+      "round": 0,
+      "seed": 3922837936
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:29:01.154Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.271Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.272Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.322Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.322Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.371Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.372Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.425Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.426Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.488Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.488Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:29:03.488Z",
+      "level": 1,
+      "round": 1,
+      "seed": 3922837936,
+      "hints": 0,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:29:03.539Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.756Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.756Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.804Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.805Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.856Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.857Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.906Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.906Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:03.989Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:03.989Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:29:03.989Z",
+      "level": 1,
+      "round": 2,
+      "seed": 3922837936,
+      "hints": 0,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:29:04.074Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:04.307Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:04.307Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:04.355Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:04.355Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:04.405Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:04.406Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:04.455Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:04.456Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:04.505Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:04.506Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:29:04.506Z",
+      "level": 1,
+      "round": 3,
+      "seed": 3922837936,
+      "hints": 0,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:29:04.589Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:04.821Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:04.821Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:04.874Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:04.874Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:04.922Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:04.922Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:04.972Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:04.973Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:29:05.057Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:29:05.057Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:29:05.057Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "hints": 0,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "level_completed",
+      "at": "2026-10-03T13:29:05.058Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "hints": 0,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "start",
+      "at": "2026-10-03T13:29:28.685Z",
+      "level": 2,
+      "round": 0,
+      "seed": 1406474251
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:29:28.685Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251
+    },
+    {
+      "game": "spot",
+      "event": "hint",
+      "at": "2026-10-03T13:30:00.918Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "hintType": "magnifier"
+    },
+    {
+      "game": "spot",
+      "event": "hint",
+      "at": "2026-10-03T13:30:01.034Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "hintType": "magnifier"
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:31:20.925Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:31:20.926Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:31:20.994Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:31:20.994Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:31:21.060Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:31:21.060Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:31:21.109Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:31:21.109Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:31:21.160Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:31:21.160Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:31:21.210Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:31:21.210Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:31:21.260Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:31:21.261Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:31:21.261Z",
+      "level": 2,
+      "round": 1,
+      "seed": 1406474251,
+      "hints": 2,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T13:31:46.873Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251
+    },
+    {
+      "game": "spot",
+      "event": "hint",
+      "at": "2026-10-03T13:32:12.537Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "hintType": "magnifier"
+    },
+    {
+      "game": "spot",
+      "event": "hint",
+      "at": "2026-10-03T13:32:12.653Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "hintType": "magnifier"
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:32:32.212Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:32:32.213Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:32:32.264Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:32:32.264Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:32:32.314Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:32:32.314Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:32:32.364Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:32:32.364Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:32:32.415Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:32:32.416Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:32:32.463Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:32:32.464Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:32:32.513Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:32:32.513Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:32:32.513Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251,
+      "hints": 2,
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "leave",
+      "at": "2026-10-03T13:33:02.964Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251
+    },
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T13:33:42.552Z",
+      "level": 2,
+      "round": 0,
+      "seed": 420383361
+    },
+    {
+      "game": "puzzle",
+      "event": "scene",
+      "at": "2026-10-03T13:33:42.552Z",
+      "level": 2,
+      "round": 1,
+      "seed": 420383361
+    },
+    {
+      "game": "puzzle",
+      "event": "hint",
+      "at": "2026-10-03T13:34:03.077Z",
+      "level": 2,
+      "round": 1,
+      "seed": 420383361,
+      "hintType": "next_piece"
+    },
+    {
+      "game": "puzzle",
+      "event": "leave",
+      "at": "2026-10-03T13:34:49.033Z",
+      "level": 2,
+      "round": 1,
+      "seed": 420383361
+    },
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T13:34:50.136Z",
+      "level": 0,
+      "round": 0,
+      "seed": 509194977
+    },
+    {
+      "game": "puzzle",
+      "event": "scene",
+      "at": "2026-10-03T13:34:50.136Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977
+    },
+    {
+      "game": "puzzle",
+      "event": "hint",
+      "at": "2026-10-03T13:35:05.908Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "hintType": "next_piece"
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:35:17.666Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:35:17.667Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:36:48.948Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:36:48.948Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:36:49.112Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:36:49.113Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T13:36:49.323Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T13:36:49.324Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "scene_complete",
+      "at": "2026-10-03T13:36:49.324Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977,
+      "hints": 1,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "leave",
+      "at": "2026-10-03T13:37:04.841Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977
+    }
+  ],
+  "runMilestones": [
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T10:42:56.638Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3506075780
+    },
+    {
+      "game": "puzzle",
+      "event": "level_completed",
+      "at": "2026-10-03T10:46:14.738Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3506075780,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "leave",
+      "at": "2026-10-03T10:48:58.191Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3506075780
+    },
+    {
+      "game": "spot",
+      "event": "start",
+      "at": "2026-10-03T10:49:56.789Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3398957858
+    },
+    {
+      "game": "spot",
+      "event": "leave",
+      "at": "2026-10-03T10:51:07.055Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3398957858
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T10:51:19.296Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3730744489,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T10:55:34.429Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3730744489,
+      "difficulty": "starter"
+    },
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T12:48:25.985Z",
+      "level": 1,
+      "round": 0,
+      "seed": 2546403180
+    },
+    {
+      "game": "puzzle",
+      "event": "level_completed",
+      "at": "2026-10-03T12:49:08.292Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2546403180,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T12:49:31.219Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3740002672
+    },
+    {
+      "game": "puzzle",
+      "event": "leave",
+      "at": "2026-10-03T12:55:49.735Z",
+      "level": 2,
+      "round": 2,
+      "seed": 3740002672
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T12:57:25.250Z",
+      "level": 0,
+      "round": 0,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "level_complete",
+      "at": "2026-10-03T13:02:02.296Z",
+      "level": 0,
+      "round": 2,
+      "seed": 815801178,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:02:57.560Z",
+      "level": 1,
+      "round": 0,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "level_complete",
+      "at": "2026-10-03T13:07:35.420Z",
+      "level": 1,
+      "round": 3,
+      "seed": 118030837,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:08:42.949Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3242612805,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "jet",
+      "event": "replay",
+      "at": "2026-10-03T13:17:55.458Z",
+      "level": 0,
+      "round": 0,
+      "seed": 540609556,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:17:55.458Z",
+      "level": 0,
+      "round": 0,
+      "seed": 540609556,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T13:20:21.567Z",
+      "level": 0,
+      "round": 0,
+      "seed": 540609556,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "replay",
+      "at": "2026-10-03T13:21:38.593Z",
+      "level": 1,
+      "round": 0,
+      "seed": 1538029327,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:21:38.593Z",
+      "level": 1,
+      "round": 0,
+      "seed": 1538029327,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T13:22:23.713Z",
+      "level": 1,
+      "round": 0,
+      "seed": 1538029327,
+      "difficulty": "growing"
+    },
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T13:22:38.336Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2874801509,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T13:25:01.979Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2874801509,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "spot",
+      "event": "start",
+      "at": "2026-10-03T13:25:58.708Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3182248368
+    },
+    {
+      "game": "spot",
+      "event": "level_completed",
+      "at": "2026-10-03T13:28:19.049Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3182248368,
+      "hints": 0,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "start",
+      "at": "2026-10-03T13:29:01.153Z",
+      "level": 1,
+      "round": 0,
+      "seed": 3922837936
+    },
+    {
+      "game": "spot",
+      "event": "level_completed",
+      "at": "2026-10-03T13:29:05.058Z",
+      "level": 1,
+      "round": 4,
+      "seed": 3922837936,
+      "hints": 0,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "spot",
+      "event": "start",
+      "at": "2026-10-03T13:29:28.685Z",
+      "level": 2,
+      "round": 0,
+      "seed": 1406474251
+    },
+    {
+      "game": "spot",
+      "event": "leave",
+      "at": "2026-10-03T13:33:02.964Z",
+      "level": 2,
+      "round": 2,
+      "seed": 1406474251
+    },
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T13:33:42.552Z",
+      "level": 2,
+      "round": 0,
+      "seed": 420383361
+    },
+    {
+      "game": "puzzle",
+      "event": "leave",
+      "at": "2026-10-03T13:34:49.033Z",
+      "level": 2,
+      "round": 1,
+      "seed": 420383361
+    },
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T13:34:50.136Z",
+      "level": 0,
+      "round": 0,
+      "seed": 509194977
+    },
+    {
+      "game": "puzzle",
+      "event": "leave",
+      "at": "2026-10-03T13:37:04.841Z",
+      "level": 0,
+      "round": 1,
+      "seed": 509194977
+    }
+  ]
+}
