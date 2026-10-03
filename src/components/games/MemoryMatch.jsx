@@ -216,6 +216,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               {littleMode ? <span aria-hidden="true" className="memory-little-paw">✦</span> : '🧠'}
             </div>
             <div
+              aria-hidden={!isFaceUp}
               className={littleMode ? 'memory-little-card-front' : 'absolute inset-0 bg-rose-500 rounded-2xl border-4 border-rose-200 shadow-lg flex items-center justify-center text-4xl'}
               style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
             >
