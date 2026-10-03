@@ -1,0 +1,5 @@
+Fresh named session began at about:blank. Before navigating to the candidate, executed:
+await page.setViewportSize({width:390,height:844});
+await page.route('**/api/voice**', r=>r.abort());
+await page.route('**/api/story**', r=>r.abort());
+await page.goto('http://127.0.0.1:5205');

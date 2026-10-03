@@ -1,0 +1,9 @@
+{
+  "visibleFeedback": ["There are 6 counters.", "There are 6 balloons."],
+  "groupLabel": "Counting pictures",
+  "individualPictureNames": ["balloon", "balloon", "balloon", "balloon", "balloon", "balloon"],
+  "listCount": 0,
+  "nextEnabled": true,
+  "allVisibleButtonsAtLeast48px": true,
+  "minimumButtonBounds": { "back": [48, 48], "sound": [48, 48], "hearPrompt": [246.59, 48], "answer": [172.41, 64], "clue": [356.81, 48], "next": [175.95, 56] }
+}

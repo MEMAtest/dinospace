@@ -1,0 +1,30 @@
+- generic [ref=e465]:
+  - banner [ref=e466]:
+    - button "Back to learning world" [ref=e467] [cursor=pointer]
+    - generic [ref=e470]:
+      - paragraph [ref=e471]: Episode 1 · Count to 10
+      - heading "Monster Math" [level=1] [ref=e472]
+    - generic [ref=e502]: Question 1/6
+    - button "Turn sound on" [ref=e503] [cursor=pointer]
+  - main [ref=e478]:
+    - generic [ref=e508]: 0/6
+    - generic [ref=e511]:
+      - paragraph [ref=e512]: counting
+      - heading "How many apples can you see?" [level=2] [ref=e513]
+      - button "Hear the question again" [ref=e514] [cursor=pointer]
+    - generic [ref=e519]:
+      - generic [ref=e520]:
+        - paragraph [ref=e521]: Count each picture once
+        - group "Counting pictures" [ref=e522]:
+          - img "apple" [ref=e523]: 🍎
+          - img "apple" [ref=e524]: 🍎
+          - img "apple" [ref=e525]: 🍎
+      - generic [ref=e526]:
+        - paragraph [ref=e527]: Choose the answer
+        - generic [ref=e528]:
+          - button "2" [ref=e529] [cursor=pointer]
+          - button "6" [ref=e530] [cursor=pointer]
+          - button "7" [ref=e531] [cursor=pointer]
+          - button "3" [ref=e532] [cursor=pointer]
+        - button "Show me a clue" [ref=e533] [cursor=pointer]
+    - paragraph [ref=e537]: Count the picture or follow the model, then choose.

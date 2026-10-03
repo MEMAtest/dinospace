@@ -1,0 +1,37 @@
+- generic [ref=e1405]:
+  - banner [ref=e1406]:
+    - button "Back to learning world" [ref=e1407] [cursor=pointer]
+    - generic [ref=e1410]:
+      - paragraph [ref=e1411]: Episode 1 · Count to 10
+      - heading "Monster Math" [level=1] [ref=e1412]
+    - generic [ref=e1442]: Question 2/6
+    - button "Turn sound on" [ref=e1443] [cursor=pointer]
+  - main [ref=e1418]:
+    - generic [ref=e1448]: 1/6
+    - generic [ref=e1451]:
+      - paragraph [ref=e1452]: counting
+      - heading "How many crystals can you see?" [level=2] [ref=e1480]
+      - button "Hear the question again" [ref=e1454] [cursor=pointer]
+    - generic [ref=e1459]:
+      - generic [ref=e1460]:
+        - paragraph [ref=e1461]: Count each picture once
+        - group "Counting pictures" [ref=e1462]:
+          - img "crystal" [ref=e1481]: 🔷
+          - img "crystal" [ref=e1482]: 🔷
+          - img "crystal" [ref=e1483]: 🔷
+          - img "crystal" [ref=e1484]: 🔷
+          - img "crystal" [ref=e1485]: 🔷
+          - img "crystal" [ref=e1486]: 🔷
+          - img "crystal" [ref=e1487]: 🔷
+          - img "crystal" [ref=e1488]: 🔷
+          - img "crystal" [ref=e1489]: 🔷
+          - img "crystal" [ref=e1490]: 🔷
+      - generic [ref=e1465]:
+        - paragraph [ref=e1466]: Choose the answer
+        - generic [ref=e1467]:
+          - button "7" [ref=e1491] [cursor=pointer]
+          - button "6" [ref=e1492] [cursor=pointer]
+          - button "8" [ref=e1493] [cursor=pointer]
+          - button "10" [ref=e1494] [cursor=pointer]
+        - button "Show me a clue" [ref=e1472] [cursor=pointer]
+    - paragraph [ref=e1476]: Count the picture or follow the model, then choose.

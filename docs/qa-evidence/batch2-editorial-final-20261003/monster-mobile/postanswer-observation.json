@@ -1,0 +1,41 @@
+{
+  "question": "How many apples can you see?",
+  "visibleFeedback": [
+    "There are 3 counters.",
+    "There are 3 apples."
+  ],
+  "groupLabel": "Counting pictures",
+  "individualPictureNames": [
+    "apple",
+    "apple",
+    "apple"
+  ],
+  "listCount": 0,
+  "nextEnabled": true,
+  "nextBoundsAfterAnswerBeforeScroll": {
+    "x": 107.02,
+    "y": 817.5,
+    "width": 175.95,
+    "height": 56,
+    "bottom": 873.5
+  },
+  "scrollWidths": {
+    "viewport": 390,
+    "document": 390,
+    "body": 390
+  },
+  "nextBoundsAfterNormalVerticalScroll": {
+    "scrollY": 80,
+    "documentWidth": 390,
+    "enabled": true,
+    "rect": {
+      "x": 107.02,
+      "y": 737.5,
+      "width": 175.95,
+      "height": 56,
+      "bottom": 793.5
+    },
+    "fullyWithinViewport": true
+  },
+  "nextClickResult": "Advanced from question 1/6 to question 2/6; prior result text disappeared"
+}

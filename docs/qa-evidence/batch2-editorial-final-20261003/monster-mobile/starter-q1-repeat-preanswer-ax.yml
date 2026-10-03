@@ -1,0 +1,29 @@
+- generic [ref=e1405]:
+  - banner [ref=e1406]:
+    - button "Back to learning world" [ref=e1407] [cursor=pointer]
+    - generic [ref=e1410]:
+      - paragraph [ref=e1411]: Episode 1 · Count to 10
+      - heading "Monster Math" [level=1] [ref=e1412]
+    - generic [ref=e1442]: Question 1/6
+    - button "Turn sound on" [ref=e1443] [cursor=pointer]
+  - main [ref=e1418]:
+    - generic [ref=e1448]: 0/6
+    - generic [ref=e1451]:
+      - paragraph [ref=e1452]: counting
+      - heading "How many oranges can you see?" [level=2] [ref=e1453]
+      - button "Hear the question again" [ref=e1454] [cursor=pointer]
+    - generic [ref=e1459]:
+      - generic [ref=e1460]:
+        - paragraph [ref=e1461]: Count each picture once
+        - group "Counting pictures" [ref=e1462]:
+          - img "orange" [ref=e1463]: 🍊
+          - img "orange" [ref=e1464]: 🍊
+      - generic [ref=e1465]:
+        - paragraph [ref=e1466]: Choose the answer
+        - generic [ref=e1467]:
+          - button "2" [ref=e1468] [cursor=pointer]
+          - button "3" [ref=e1469] [cursor=pointer]
+          - button "1" [ref=e1470] [cursor=pointer]
+          - button "4" [ref=e1471] [cursor=pointer]
+        - button "Show me a clue" [ref=e1472] [cursor=pointer]
+    - paragraph [ref=e1476]: Count the picture or follow the model, then choose.

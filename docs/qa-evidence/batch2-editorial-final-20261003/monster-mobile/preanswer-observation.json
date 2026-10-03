@@ -1,0 +1,12 @@
+{
+  "viewport": { "width": 390, "height": 844 },
+  "question": "How many apples can you see?",
+  "group": { "role": "group", "ariaLabel": "Counting pictures" },
+  "pictureAccessibleNames": ["apple", "apple", "apple"],
+  "visuallyCountedPictures": 3,
+  "answerOptions": [2, 6, 7, 3],
+  "lists": 0,
+  "scrollWidths": { "viewport": 390, "document": 390, "body": 390 },
+  "allVisibleButtonsAtLeast48px": true,
+  "buttonBounds": { "back": [48,48], "sound": [48,48], "hearPrompt": [246.59,48], "answer": [161,64], "clue": [334,48] }
+}

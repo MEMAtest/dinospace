@@ -1,0 +1,36 @@
+- generic [ref=e484]:
+  - banner [ref=e485]:
+    - button "Back to learning world" [ref=e486] [cursor=pointer]
+    - generic [ref=e489]:
+      - paragraph [ref=e490]: Episode 1 · Count to 10
+      - heading "Monster Math" [level=1] [ref=e491]
+    - generic [ref=e521]: Question 1/6
+    - button "Turn sound on" [ref=e522] [cursor=pointer]
+  - main [ref=e497]:
+    - generic [ref=e527]: 1/6
+    - generic [ref=e530]:
+      - paragraph [ref=e531]: counting
+      - heading "How many balloons can you see?" [level=2] [ref=e532]
+      - button "Hear the question again" [ref=e533] [cursor=pointer]
+    - generic [ref=e538]:
+      - generic [ref=e539]:
+        - paragraph [ref=e540]: Count each picture once
+        - group "Counting pictures" [ref=e541]:
+          - img "balloon" [ref=e542]: 🎈
+          - img "balloon" [ref=e543]: 🎈
+          - img "balloon" [ref=e544]: 🎈
+          - img "balloon" [ref=e545]: 🎈
+          - img "balloon" [ref=e546]: 🎈
+          - img "balloon" [ref=e547]: 🎈
+        - paragraph [ref=e561]: There are 6 counters.
+      - generic [ref=e548]:
+        - paragraph [ref=e549]: Choose the answer
+        - generic [ref=e550]:
+          - button "3" [disabled] [ref=e551]
+          - button "6" [disabled] [ref=e552]
+          - button "5" [disabled] [ref=e553]
+          - button "8" [disabled] [ref=e554]
+        - button "Show me a clue" [disabled] [ref=e555]
+    - generic [ref=e558]:
+      - paragraph [ref=e559]: There are 6 balloons.
+      - button "Watch the counters…" [disabled] [ref=e562]
