@@ -39,3 +39,11 @@ Batch7 independent desktopMemoryhas completed levels1–6 through actual reveale
 Batch3 canonical keyboard QA found partial stroke progress remained0until finishing the stroke. Sourcea1eec24 now refreshes visible progress on each arrow; counting grammar repair is included. Lint/productionbuild pass; immutable5271has7/7matchingHTTPassets and independent narrow delta is queued after current canonical checks. Neither copy nor keyboard progress repair is canonical yet.
 
 Batch4 narration worker18781was verified live; status21:32UTCrun28has4801pending,0cooldownretries, waiting for the next request window. One finite authorized worker remains active; no concurrent narration job launched.
+
+## Production and complete local matrices reconciled
+
+Independent canonical Batch3report392428e now records all4games atdesktop/390px: wrong/clue/correct/heldNext, Trace desktopkeyboard andmobilepointer completion, correctparentroutes and bounded persistence/media checks. Zero consoleerrors/warnings and nofailedstaticassets. Real Dino desktopnativeplayback/replay/mute/Back cancellation is observed; mobile media timings are not separately instrumented. Report keeps full4.5 and humanlistening open.
+
+Batch6 complete localmatrixreporteb3a714/e2324fd retains all3chapters pergame desktop/mobile, trackerfailure andpassing5267delta. Root corrected report lineage: AABtwo-termhint was a defect; final5265actualhint says firstthreeplaces and matching screenshot. Astronaut solar-panel androcket scenarios remain distinct.
+
+Batch7reviewer reports all10Memoryboards atbothwidths, all54Solarfacts and9challenges atbothwidths,5263accessibilitydelta and5273NASA-copydelta complete; evidenceassemblyunderway. These arelocalfunctionalevidence, notpremiumart/audio/editorial/productionacceptance.

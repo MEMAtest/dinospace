@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T21:28:17.474919+00:00",
+  "updatedAt": "2026-10-03T21:56:18.614725+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -321,7 +321,7 @@
       "sourceSha": "a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4",
       "deploymentId": "dpl_2d8La99iCHGQAUNjCpfagawN9LB8",
       "url": "https://dinospace-i6pptqfbo-memas-projects-23a0001d.vercel.app",
-      "state": "canonical functional release; independent production deltas underway; editorial and listening gates pending",
+      "state": "canonical functional release; bounded production deltas passed; editorial and listening gates pending",
       "identityEvidence": "docs/qa-evidence/batch3-canonical-production-identity-20261003.json",
       "corpusEvidence": "docs/qa-evidence/batch3-production-candidate-corpus-20261003.json",
       "canonicalUrl": "https://dinospace-eight.vercel.app"
@@ -333,8 +333,9 @@
     "deploymentId": "dpl_2d8La99iCHGQAUNjCpfagawN9LB8",
     "url": "https://dinospace-eight.vercel.app",
     "renderedAssetsMatched": 7,
-    "productionPlaywright": "independent deltas underway",
+    "productionPlaywright": "Passed bounded four-game desktop/390 controls against exact canonical deployment; full retained local lineage and limits in report",
     "editorialAccepted": false,
-    "knownMinorDefect": "Count singular prompt grammar; repaired in source after frozen release, not yet redeployed"
+    "knownMinorDefect": "Count singular prompt grammar; repaired in source after frozen release, not yet redeployed",
+    "productionEvidence": "docs/qa-evidence/batch3-canonical-production-independent-20261003/report.md"
   }
 }
