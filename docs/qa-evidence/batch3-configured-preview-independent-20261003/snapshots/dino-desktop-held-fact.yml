@@ -1,0 +1,39 @@
+- generic [ref=f3e673]:
+  - banner [ref=f3e674]:
+    - button "Back to learning world" [ref=f3e675] [cursor=pointer]
+    - generic [ref=f3e678]:
+      - heading "Dino Detective" [level=1] [ref=f3e679]
+      - paragraph [ref=f3e680]: Jungle Jive · Find 1 of 5
+    - button "Turn sound off" [ref=f3e681] [cursor=pointer]
+  - main [ref=f3e772]:
+    - generic [ref=f3e773]:
+      - generic [ref=f3e774]:
+        - generic [ref=f3e775]:
+          - paragraph [ref=f3e776]: starter band · Jungle Jive
+          - heading "Find T-Rex" [level=2] [ref=f3e777]
+          - paragraph [ref=f3e778]: Look for the creature hiding in this leafy place.
+        - generic [aria-hidden] [ref=f3e779]: 🌿
+      - group "Jungle Jive search area" [ref=f3e780]:
+        - button "Search behind left fern, spot 1 of 5" [disabled] [ref=f3e781]:
+          - generic [aria-hidden] [ref=f3e791]: "1"
+        - button "Search behind middle stones, spot 2 of 5" [disabled] [ref=f3e792]:
+          - generic [aria-hidden] [ref=f3e802]: "2"
+        - button "Search behind right water reeds, spot 3 of 5" [disabled] [ref=f3e803]:
+          - generic [aria-hidden] [ref=f3e813]: "3"
+        - button "Search behind lower left clearing, spot 4 of 5" [disabled] [ref=f3e814]:
+          - generic [aria-hidden] [ref=f3e824]: "4"
+        - button "T-Rex, spot 5 of 5, clue points here" [disabled] [ref=f3e847]:
+          - img "Rex the T-Rex" [ref=f3e848]
+      - generic [ref=f3e836]:
+        - status [ref=f3e837]: You found the creature. Read its fact and the world fact, then choose Next.
+        - generic [ref=f3e838]:
+          - button "Hear instructions" [ref=f3e839] [cursor=pointer]
+          - button "Read clue" [ref=f3e840] [cursor=pointer]
+          - button "Show a clue" [disabled] [ref=f3e843]
+      - status [ref=f3e849]:
+        - heading "T-Rex" [level=3] [ref=f3e850]
+        - paragraph [ref=f3e851]: T. rex had short arms and powerful jaws.
+        - paragraph [ref=f3e852]: "World fact: Ferns make spores instead of flowers or seeds."
+        - button "Read facts again" [ref=f3e853] [cursor=pointer]
+        - button "Next find" [ref=f3e854] [cursor=pointer]
+    - paragraph [ref=f3e846]: Five numbered hiding places. A bright footprint trail leads to the target.

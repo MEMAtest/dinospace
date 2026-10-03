@@ -1,0 +1,39 @@
+{
+  "candidate": {
+    "url": "https://dinospace-gozbhps8b-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_BYkiU9xkKqGRtdDc79c9BSRyyhDW",
+    "sourceSha": "a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4"
+  },
+  "method": "Observation-only browser listeners recorded native HTMLMediaElement play, playing, timeupdate, pause and ended events. Original playback methods remained in use; audio was neither mocked nor generated. API routes /api/voice and /api/story were guarded before navigation.",
+  "observations": [
+    {
+      "game": "Letter Trace",
+      "viewport": "mobile 390x844",
+      "interaction": "Played the visible tracing instruction, then used confirmed Back to world while playback was active.",
+      "evidence": "Same-origin packaged MP3 request; play/playing and timeupdate observed, followed by pause during exit. A rapid exit observation paused at approximately 0.24 seconds, then reset to 0.",
+      "limitation": "No human listening review; one letter run only."
+    },
+    {
+      "game": "Count the Stars",
+      "viewport": "mobile 390x844",
+      "interaction": "Played the visible instruction during a normal round, then confirmed exit.",
+      "evidence": "Same-origin packaged MP3 request; native play/playing/timeupdate and pause at exit observed.",
+      "limitation": "No human listening review; this confirms the exercised instruction only."
+    },
+    {
+      "game": "Cosmic Tic-Tac-Toe",
+      "viewport": "mobile 390x844",
+      "interaction": "Used Show hint and immediately confirmed Leave board.",
+      "evidence": "Same-origin packaged hint audio; native play/playing and pause at exit observed, with currentTime at 0 when paused.",
+      "limitation": "No human listening review; hint playback and one cancellation path only."
+    },
+    {
+      "game": "Dino Detective",
+      "viewport": "mobile 390x844",
+      "interaction": "Used Read clue and confirmed Back to world while the clue was active.",
+      "evidence": "Same-origin packaged clue MP3; native play/playing/timeupdate and pause on exit observed. In a separate clue playback, time advanced to about 2.55 seconds before pause/end.",
+      "limitation": "No human listening review; one clue and cancellation path only."
+    }
+  ],
+  "network": "The observed media requests were same-origin packaged assets. No /api/voice or /api/story provider calls were made; both routes remained guarded with 204 responses."
+}

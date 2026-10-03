@@ -1,0 +1,36 @@
+- generic [ref=e229]:
+  - banner [ref=e230]:
+    - button "Back to Maths Missions" [ref=e231] [cursor=pointer]
+    - generic [ref=e235]:
+      - heading "Count the Stars" [level=1] [ref=e236]
+      - paragraph [ref=e237]: Star Garden · Round 1 of 6
+    - button "Turn sound off" [ref=e238] [cursor=pointer]
+  - main [ref=e312]:
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - generic [ref=e315]:
+          - paragraph [ref=e316]: Star Garden · starter
+          - heading "Firefly Meadow" [level=2] [ref=e317]
+        - generic [aria-hidden] [ref=e318]: 🌿
+      - paragraph [ref=e319]: Count each glowing object once. A number badge keeps your place.
+      - group "Counting board for Firefly Meadow; scattered one by one" [ref=e320]:
+        - button "firefly 1, counted number 1" [disabled] [pressed] [ref=e368]:
+          - generic [ref=e369]: "1"
+        - button "firefly 2, counted number 2" [disabled] [pressed] [ref=e370]:
+          - generic [ref=e371]: "2"
+        - button "firefly 3, counted number 3" [disabled] [pressed] [ref=e372]:
+          - generic [ref=e373]: "3"
+        - button "firefly 4, counted number 4" [disabled] [pressed] [ref=e374]:
+          - generic [ref=e375]: "4"
+        - button "firefly 5, counted number 5" [disabled] [pressed] [ref=e376]:
+          - generic [ref=e377]: "5"
+      - generic [ref=e356]:
+        - paragraph [ref=e357]: Count complete
+        - generic [ref=e358]:
+          - button "Hear instructions" [ref=e359] [cursor=pointer]
+          - button "Show a clue" [disabled] [ref=e364]
+      - status [ref=e367]: Point to each shape once. The numbered badges keep your place.
+      - status [ref=e386]:
+        - paragraph [ref=e387]: Great counting!
+        - paragraph [ref=e388]: There are 5 fireflies. You counted each one once.
+        - button "Next" [ref=e389] [cursor=pointer]
