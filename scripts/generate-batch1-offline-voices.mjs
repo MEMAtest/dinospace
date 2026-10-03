@@ -4,6 +4,7 @@ import { CURRICULUM_VOICE_CORPUS, getMissingCurriculumVoiceAssets } from '../src
 import { LETTER_LAUNCH_PROMPT_CORPUS } from '../src/data/letterLaunch.js';
 import { STORYBOOK_LEARNING_VOICE_CORPUS } from '../src/data/storybookLearning.js';
 import { BATCH2_VOICE_CORPUS_BY_GAME } from '../src/data/batch2Narration.js';
+import { BATCH3_VOICE_CORPUS_BY_GAME } from '../src/data/batch3Narration.js';
 import { OFFLINE_VOICE_MANIFEST as sourceManifest } from '../src/data/offlineVoiceManifest.js';
 import { voiceClipKey } from '../src/data/voiceKey.js';
 
@@ -18,6 +19,7 @@ const requestedMaxCalls = Number(process.argv.find((arg) => arg.startsWith('--ma
 if (!Number.isInteger(requestedMaxCalls) || requestedMaxCalls < 1 || requestedMaxCalls > 20) throw new Error('--max-calls must be an integer from 1 to 20.');
 const storybookOnly = process.argv.includes('--storybook-only');
 const batch2Only = process.argv.includes('--batch2-only');
+const batch3Only = process.argv.includes('--batch3-only');
 const manifestPath = resolve(root, 'src/data/offlineVoiceManifest.js');
 const manifest = new Map(Object.entries(sourceManifest));
 const extraRetryLines = [
@@ -32,6 +34,7 @@ const voiceItem = (text, path = `/audio/en/${voiceClipKey(text, 'en-US')}-matild
   path,
 });
 const corpora = {
+  ...Object.fromEntries(Object.entries(BATCH3_VOICE_CORPUS_BY_GAME).map(([game, lines]) => [`batch3${game}`, lines.map((text) => voiceItem(text))])),
   batch2PuzzlePop: BATCH2_VOICE_CORPUS_BY_GAME.puzzlePop.map((text) => voiceItem(text)),
   batch2SpotDifference: BATCH2_VOICE_CORPUS_BY_GAME.spotDifference.map((text) => voiceItem(text)),
   batch2SkyShapes: BATCH2_VOICE_CORPUS_BY_GAME.skyShapes.map((text) => voiceItem(text)),
@@ -42,8 +45,8 @@ const corpora = {
   retries: extraRetryLines.map((text) => voiceItem(text)),
 };
 for (const item of getMissingCurriculumVoiceAssets()) corpora.curriculum.push({ text: item.text, key: item.key, path: item.path });
-if (storybookOnly && batch2Only) throw new Error('Choose at most one corpus selector.');
-const selectedCorpora = batch2Only ? {
+if ([storybookOnly, batch2Only, batch3Only].filter(Boolean).length > 1) throw new Error('Choose at most one corpus selector.');
+const selectedCorpora = batch3Only ? Object.fromEntries(Object.entries(corpora).filter(([name]) => name.startsWith('batch3'))) : batch2Only ? {
   batch2PuzzlePop: corpora.batch2PuzzlePop,
   batch2SpotDifference: corpora.batch2SpotDifference,
   batch2SkyShapes: corpora.batch2SkyShapes,
@@ -87,7 +90,7 @@ if (dryRun) {
     }
     breakdown[name] = { ready: groupReady, pending: groupPending };
   }
-  console.log(JSON.stringify({ requested: requested.size, ready, pending: requested.size - ready, breakdown, maxCalls: requestedMaxCalls, storybookOnly, batch2Only, dryRun: true }));
+  console.log(JSON.stringify({ requested: requested.size, ready, pending: requested.size - ready, breakdown, maxCalls: requestedMaxCalls, storybookOnly, batch2Only, batch3Only, dryRun: true }));
   process.exit(checkReady && ready < requested.size ? 1 : 0);
 }
 
@@ -198,7 +201,7 @@ for (const item of requested.values()) {
   const publicPath = manifest.get(item.key) || item.path;
   if (!await isReady(publicPath)) pending.push(item.key);
 }
-console.log(JSON.stringify({ requested: requested.size, generated, reused, pending: pending.length, maxCalls: runBudget, storybookOnly, batch2Only, stoppedAt: stoppedAt || null }));
+console.log(JSON.stringify({ requested: requested.size, generated, reused, pending: pending.length, maxCalls: runBudget, storybookOnly, batch2Only, batch3Only, stoppedAt: stoppedAt || null }));
 if (stoppedAt) process.exitCode = stoppedAt === '429' ? 75 : 1;
 } finally {
   await lock.close();
