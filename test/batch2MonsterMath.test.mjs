@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   createMonsterMathRun, isValidMonsterRun, MONSTER_MATH_EPISODES, MONSTER_QUESTION_POOLS,
-  monsterCountResultText, monsterCounterPhrase, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation,
+  monsterCountResultText, monsterCounterPhrase, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation,
 } from '../src/data/monsterMathEpisodes.js';
 import {
   getMonsterMathProgress, monsterMathRewardCallbackUnits, recordMonsterEpisodeCompletion, rememberMonsterMathRun, recentMonsterQuestionIds,
@@ -137,5 +137,20 @@ test('Monster Math reward callback awards exactly the run stars saved to progres
     // App's scaledCelebrate maps these legacy callback units back to total stars.
     const awardedStars = Math.max(1, Math.round(monsterMathRewardCallbackUnits(runStars) / 4));
     assert.equal(awardedStars, runStars);
+  }
+});
+
+ test('number lines include the complete counting route before an answer is chosen', () => {
+  assert.deepEqual(monsterNumberLineValues({ first: 18, answer: 6 }), Array.from({ length: 17 }, (_, index) => index + 4));
+  for (const pool of MONSTER_QUESTION_POOLS.slice(1)) {
+    for (const question of pool) {
+      const { first, answer } = question.model;
+      const values = monsterNumberLineValues(question.model);
+      assert.ok(values[0] >= 0 && values.at(-1) <= 20);
+      for (let hop = Math.min(first, answer); hop <= Math.max(first, answer); hop += 1) {
+        assert.ok(values.includes(hop), `${question.id}: missing ${hop}`);
+      }
+      assert.ok(values.every((value, index) => index === 0 || value === values[index - 1] + 1));
+    }
   }
 });

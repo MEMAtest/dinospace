@@ -3,7 +3,7 @@ import { ArrowLeft, Lightbulb, RotateCcw, Sparkles, Volume2 } from 'lucide-react
 import { SoundToggle } from '../shared/index.jsx';
 import {
   createMonsterMathRun, createMonsterRunSeed, MONSTER_MATH_EPISODES, monsterCounterPhrase,
-  monsterCountResultText, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation,
+  monsterCountResultText, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation,
 } from '../../data/monsterMathEpisodes.js';
 import {
   getMonsterMathProgress, recentMonsterQuestionIds, recordMonsterEpisodeCompletion, rememberMonsterMathRun,
@@ -57,9 +57,7 @@ const CounterModel = ({ question, locked, animationCount }) => {
 
   const start = model.first;
   const end = locked ? model.answer : null;
-  const low = Math.max(0, Math.min(start, end ?? start) - 2);
-  const high = Math.min(20, Math.max(start, end ?? (start + (model.operation === 'add' ? model.second : 0))) + 2);
-  const values = Array.from({ length: high - low + 1 }, (_, index) => low + index);
+  const values = monsterNumberLineValues(model);
   return (
     <div className="rounded-3xl border-4 border-indigo-200 bg-white p-3 shadow-md sm:p-4">
       <p className="mb-3 text-center text-sm font-black uppercase tracking-widest text-indigo-700">Number line · follow each jump</p>
