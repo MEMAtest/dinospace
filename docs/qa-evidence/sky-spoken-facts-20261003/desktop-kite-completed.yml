@@ -1,0 +1,45 @@
+- generic [ref=e424]:
+  - banner [ref=e425]:
+    - button "Back to learning world" [ref=e426] [cursor=pointer]
+    - generic [ref=e429]:
+      - paragraph [ref=e430]: Sky 1 · Cloud Meadow
+      - heading "Kite" [level=1] [ref=e473]
+    - generic [ref=e474]: Flight 1/4
+    - button "Turn sound off" [ref=e475] [cursor=pointer]
+  - main [ref=e437]:
+    - generic [ref=e480]:
+      - generic [ref=e481]:
+        - paragraph [ref=e482]: Mission 1 · starter
+        - paragraph [ref=e483]: 🪁 Trace each outline part in order · 1/1
+      - paragraph [ref=e484]: 1/4 saved
+    - paragraph [ref=e485]:
+      - generic [ref=e486]: "starter sky goal:"
+      - text: follow one smooth or straight outline from start to finish.
+    - generic [ref=e487]:
+      - generic [ref=e489]: 100%
+      - generic [ref=e490]: ★★★
+    - generic [ref=e491]:
+      - generic [aria-hidden]:
+        - generic: ✦
+        - generic: ✧
+        - generic: ✦
+      - application "Tracing board for Kite. Start at the green numbered dot. Press Enter, then Space or an arrow key to follow the glowing dots." [ref=e492]:
+        - generic [ref=e497]: "1"
+        - generic [ref=e501]: ✈️
+      - generic [ref=e502]: Green = start · Red = finish
+    - generic [ref=e503]:
+      - paragraph [ref=e504]: "Tracing tip: Trace each sloping side and make a clear turn at every corner."
+      - status [ref=e505]: 100% accurate · 3 of 3 accuracy stars.
+      - status [ref=e523]: "Shape idea: A diamond has 4 straight sides and 4 corners. Its points sit at the top, bottom, and sides."
+      - paragraph [ref=e524]: Your best flight rating is saved. 3 new stars added to your collection!
+      - generic "3 of 3 accuracy stars" [ref=e525]:
+        - generic [aria-hidden] [ref=e526]: ★
+        - generic [aria-hidden] [ref=e527]: ★
+        - generic [aria-hidden] [ref=e528]: ★
+      - generic [ref=e506]:
+        - button "Hear mission again" [active] [ref=e507] [cursor=pointer]
+        - button "Show a tracing hint" [disabled] [ref=e512]
+        - button "Restart this flight" [disabled] [ref=e513]: Restart flight
+        - button "Next mission" [ref=e529] [cursor=pointer]
+      - paragraph [ref=e517]: "Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the glowing dots."
+    - generic [ref=e518]: Guide 1 of 1; 100% of sampled moves are on the guide.

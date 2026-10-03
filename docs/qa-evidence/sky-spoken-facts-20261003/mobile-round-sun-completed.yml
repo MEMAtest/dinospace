@@ -1,0 +1,45 @@
+- generic [ref=e407]:
+  - banner [ref=e408]:
+    - button "Back to learning world" [ref=e409] [cursor=pointer]
+    - generic [ref=e412]:
+      - paragraph [ref=e413]: Sky 1 · Cloud Meadow
+      - heading "Round Sun" [level=1] [ref=e456]
+    - generic [ref=e457]: Flight 1/4
+    - button "Turn sound off" [ref=e458] [cursor=pointer]
+  - main [ref=e420]:
+    - generic [ref=e463]:
+      - generic [ref=e464]:
+        - paragraph [ref=e465]: Mission 1 · starter
+        - paragraph [ref=e466]: ☀️ Trace each outline part in order · 1/1
+      - paragraph [ref=e467]: 1/4 saved
+    - paragraph [ref=e468]:
+      - generic [ref=e469]: "starter sky goal:"
+      - text: follow one smooth or straight outline from start to finish.
+    - generic [ref=e470]:
+      - generic [ref=e472]: 100%
+      - generic [ref=e473]: ★★★
+    - generic [ref=e474]:
+      - generic [aria-hidden]:
+        - generic: ✦
+        - generic: ✧
+        - generic: ✦
+      - application "Tracing board for Round Sun. Start at the green numbered dot. Press Enter, then Space or an arrow key to follow the glowing dots." [ref=e475]:
+        - generic [ref=e480]: "1"
+        - generic [ref=e484]: ✈️
+      - generic [ref=e485]: Green = start · Red = finish
+    - generic [ref=e486]:
+      - paragraph [ref=e487]: "Tracing tip: Keep the jet moving gently around the round path until it meets the red dot."
+      - status [ref=e488]: 100% accurate · 3 of 3 accuracy stars.
+      - status [ref=e506]: "Shape idea: A circle is one smooth curve. It has no corners."
+      - paragraph [ref=e507]: Your best flight rating is saved. 3 new stars added to your collection!
+      - generic "3 of 3 accuracy stars" [ref=e508]:
+        - generic [aria-hidden] [ref=e509]: ★
+        - generic [aria-hidden] [ref=e510]: ★
+        - generic [aria-hidden] [ref=e511]: ★
+      - generic [ref=e489]:
+        - button "Hear mission again" [ref=e490] [cursor=pointer]
+        - button "Show a tracing hint" [disabled] [ref=e495]
+        - button "Restart this flight" [disabled] [ref=e496]: Restart flight
+        - button "Next mission" [ref=e512] [cursor=pointer]
+      - paragraph [ref=e500]: "Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the glowing dots."
+    - generic [ref=e501]: Guide 1 of 1; 100% of sampled moves are on the guide.

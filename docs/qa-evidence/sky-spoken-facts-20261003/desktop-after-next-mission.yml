@@ -1,0 +1,38 @@
+- generic [ref=e424]:
+  - banner [ref=e425]:
+    - button "Back to learning world" [ref=e426] [cursor=pointer]
+    - generic [ref=e429]:
+      - paragraph [ref=e430]: Sky 1 · Cloud Meadow
+      - heading "Window Cloud" [level=1] [ref=e530]
+    - generic [ref=e474]: Flight 2/4
+    - button "Turn sound off" [ref=e475] [cursor=pointer]
+  - main [ref=e437]:
+    - generic [ref=e480]:
+      - generic [ref=e481]:
+        - paragraph [ref=e482]: Mission 2 · starter
+        - paragraph [ref=e483]: 🪟 Trace each outline part in order · 0/1
+      - paragraph [ref=e484]: 1/4 saved
+    - paragraph [ref=e485]:
+      - generic [ref=e486]: "starter sky goal:"
+      - text: follow one smooth or straight outline from start to finish.
+    - generic [ref=e487]:
+      - generic [ref=e489]: 0%
+      - generic [ref=e490]: ☆☆☆
+    - generic [ref=e491]:
+      - generic [aria-hidden]:
+        - generic: ✦
+        - generic: ✧
+        - generic: ✦
+      - application "Tracing board for Window Cloud. Start at the green numbered dot. Press Enter, then Space or an arrow key to follow the glowing dots." [ref=e531]:
+        - generic [ref=e536]: "1"
+        - generic [ref=e501]: ✈️
+      - generic [ref=e502]: Green = start · Red = finish
+    - generic [ref=e503]:
+      - paragraph [ref=e504]: "Tracing tip: Trace one straight side at a time. Turn at each corner and keep the sides even."
+      - status [ref=e505]: Start at the green 1. Trace the square outline.
+      - generic [ref=e506]:
+        - button "Hear mission again" [ref=e507] [cursor=pointer]
+        - button "Show a tracing hint" [ref=e512] [cursor=pointer]
+        - button "Restart this flight" [ref=e513] [cursor=pointer]: Restart flight
+      - paragraph [ref=e517]: "Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the glowing dots."
+    - generic [ref=e518]: Guide 1 of 1; 0% of sampled moves are on the guide.
