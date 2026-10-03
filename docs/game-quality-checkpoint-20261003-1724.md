@@ -57,3 +57,12 @@ Independent Batch4 report aab31f0 records all four games, all18missions each, bo
 ## 18:56 UTC implementation and evidence
 
 Previous goal turn changed committed source and completed-run persistence, so it was progress. This continuation prepared fingerprint-pinned finite Batch4 packaging (not started), confirmed its narrow narration check cannot establish active cancellation while5181clips are absent, and full-decoded212available Batch3clips with0invalid. WorkerPID1660 was confirmed live with63pending at18:40UTC. Batch5 all-four source candidatee5f8013 is withheld: rootreview found missing recipe inputs and selected-ingredient/result confusion; metadata and validator/test repaired05b865f while Luna repairs UI/hints/event semantics. NewBatch6worktree0d11256 and concrete4game contract9188fc6 have a Luna builder active. Counts now4accepted/20inprogress/2notstarted; unchanged production.
+
+
+## 19:24 UTC packaged candidates and independent QA
+
+Batch3 finite worker completed at19:10UTC. All275canonical mapped clips passed positive duration and full decoding, with0missing/0invalid; package8c9fd6e is committed. Final immutable5243 includes actual keyboard rewind painting and reload startup repairs, passes208tests/full lint/production-config build. Independent native playback/cancellation across all4games and keyboard cursor delta are assigned, carrying completed Challenge/pointer mechanics under their original source identities. Decode is not human listening or production acceptance.
+
+Batch5 source9b079bc passed201tests/full lint/production-config build after the shared diagnostic fixture was reconciled with truthful correct/independent flags. Immutable5241 is now assigned to a separate tester for all4games, all3chapters×6missions and replay at desktop/390px, actual taught-phoneme settings, mixing outputs, item+reason choices, finish-only rewards/navigation/privacy. Narration and pure-phoneme assets remain incomplete; no silent acceptance.
+
+Batch4 finite fingerprint-pinned narration workerPID18781 started19:21UTC with the shared request journal after Batch3terminal exit. First30newclips checkpointed;5151pending, expected rate-window wait. Existing health automation now supervises it read-only without restarts/provider calls. Batch6 Luna implementation continues; root ported shared fixturebfabc93 and requested final full gates. Counts unchanged4accepted/20inprogress/2notstarted; canonical production unchanged3cdfc426.
