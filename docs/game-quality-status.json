@@ -3,8 +3,8 @@
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
-    "in progress": 4,
-    "not started": 18
+    "in progress": 8,
+    "not started": 14
   },
   "canonicalRelease": "6b84554e7a1d21b3db658d213a2298462c78599e",
   "currentBatch": 2,
@@ -77,34 +77,34 @@
     {
       "game": "Count the Stars",
       "batch": 3,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch3-isolated-implementation-20261003.md"
     },
     {
       "game": "Letter Trace",
       "batch": 3,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch3-isolated-implementation-20261003.md"
     },
     {
       "game": "Cosmic Tic-Tac-Toe",
       "batch": 3,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch3-isolated-implementation-20261003.md"
     },
     {
       "game": "Dino Detective",
       "batch": 3,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch3-isolated-implementation-20261003.md"
     },
     {
       "game": "Addition Adventure",
@@ -239,5 +239,7 @@
       "frozenBuild": "passed",
       "corpusBytesMatched": 1371
     }
-  }
+  },
+  "implementationBatch": 3,
+  "implementationBranch": "codex/amari-batch3-quality-20261003"
 }

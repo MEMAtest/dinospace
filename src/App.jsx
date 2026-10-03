@@ -1,7 +1,7 @@
 import LetterLaunchBadgeCollection from './components/shared/LetterLaunchBadgeCollection.jsx';
 import { getEarnedChapterBadgeIds } from './data/chapterBadges.js';
 import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.jsx';
-import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
 import { ACHIEVEMENTS, STICKERS } from './data/index.js';
@@ -21,7 +21,7 @@ import WorldPage from './components/home/WorldPage.jsx';
 import LittleStickerAlbum from './components/home/LittleStickerAlbum.jsx';
 import GameSession from './components/shared/GameSession.jsx';
 import LittleDinoDetective from './components/little/games/LittleDinoDetective.jsx';
-import { GAME_SESSIONS } from './data/gameSessions.js';
+import { GAME_SESSIONS, ownsGameProgression } from './data/gameSessions.js';
 import { recordLegacyGameEvent } from './data/learningProgress.js';
 import { recordGameDiagnostic } from './data/gameDiagnostics.js';
 import {
@@ -35,7 +35,9 @@ const MAX_RECENT_GAMES = 4;
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
 // after this long, a "leave the game?" check protects the child's progress.
 const CONFIRM_LEAVE_AFTER_MS = 10000;
-const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap']);
+const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino']);
+const AmariCountTheStars = lazy(() => import('./components/games/AmariCountTheStars.jsx'));
+const AmariLetterTrace = lazy(() => import('./components/games/AmariLetterTrace.jsx'));
 
 const byIds = (ids) => ids.map(getGame).filter(Boolean);
 
@@ -227,11 +229,13 @@ const PlayerSession = ({
   let content;
 
   if (route.name === 'game' && currentGame) {
-    const GameComponent = little && currentGame.id === 'dino' ? LittleDinoDetective : currentGame.component;
+    const GameComponent = little && currentGame.id === 'dino' ? LittleDinoDetective
+      : !little && currentGame.id === 'counting' ? AmariCountTheStars
+        : !little && currentGame.id === 'trace' ? AmariLetterTrace
+          : currentGame.component;
     const nextId = nextGameAfter(currentGame.id);
     const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
-    // Memory and picture puzzles already own their multi-board progression.
-    const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
+    const sessionRule = currentGame.little || ownsGameProgression(currentGame.id, little) ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
       onBack: () => back({ toParent: !little }),
       onLaunchGame: launchGame,
