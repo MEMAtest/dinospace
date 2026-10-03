@@ -1,0 +1,29 @@
+- generic [ref=e465]:
+  - banner [ref=e629]:
+    - button "Back to learning world" [ref=e630] [cursor=pointer]
+    - generic [ref=e633]:
+      - paragraph [ref=e634]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e635]
+    - generic [ref=e636]: Question 2/6
+    - button "Turn sound on" [ref=e637] [cursor=pointer]
+  - main [ref=e642]:
+    - generic [ref=e643]: 1/6
+    - generic [ref=e646]:
+      - paragraph [ref=e647]: addition-subtraction
+      - heading "What is 19 take away 15?" [level=2] [ref=e697]
+      - button "Hear the question again" [ref=e649] [cursor=pointer]
+    - generic [ref=e654]:
+      - generic [ref=e655]:
+        - paragraph [ref=e656]: Two ten frames · count the counters
+        - generic "19 counters, take away 15 counters. Count what is left." [ref=e698]
+        - paragraph [ref=e678]: 19 − 15 = ?
+        - paragraph [ref=e699]: Start with the counters, take away the second group, then count what is left.
+      - generic [ref=e680]:
+        - paragraph [ref=e681]: Choose the answer
+        - generic [ref=e682]:
+          - button "7" [ref=e700] [cursor=pointer]
+          - button "4" [ref=e701] [cursor=pointer]
+          - button "8" [ref=e702] [cursor=pointer]
+          - button "5" [ref=e703] [cursor=pointer]
+        - button "Show me a clue" [ref=e704] [cursor=pointer]
+    - paragraph [ref=e691]: Count the picture or follow the model, then choose.

@@ -1,0 +1,30 @@
+- generic [ref=e465]:
+  - banner [ref=e629]:
+    - button "Back to learning world" [ref=e630] [cursor=pointer]
+    - generic [ref=e633]:
+      - paragraph [ref=e634]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e635]
+    - generic [ref=e636]: Question 1/6
+    - button "Turn sound on" [ref=e637] [cursor=pointer]
+  - main [ref=e642]:
+    - generic [ref=e643]: 1/6
+    - generic [ref=e646]:
+      - paragraph [ref=e647]: addition-subtraction
+      - heading "What is 18 plus 1?" [level=2] [ref=e648]
+      - button "Hear the question again" [ref=e649] [cursor=pointer]
+    - generic [ref=e654]:
+      - generic [ref=e655]:
+        - paragraph [ref=e656]: Two ten frames · count the counters
+        - generic "18 counters; add 1 more; 19 counters total" [ref=e694]
+        - paragraph [ref=e678]: 18 + 1 = 19
+      - generic [ref=e680]:
+        - paragraph [ref=e681]: Choose the answer
+        - generic [ref=e682]:
+          - button "16" [disabled] [ref=e683]
+          - button "17" [disabled] [ref=e684]
+          - button "19" [disabled] [ref=e685]
+          - button "15" [disabled] [ref=e686]
+        - button "Clue shown" [disabled] [ref=e692]
+    - generic [ref=e690]:
+      - paragraph [ref=e691]: 18 counters. Add 1 more. That makes 19 counters.
+      - button "Watch the counters…" [disabled] [ref=e695]

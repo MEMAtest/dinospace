@@ -1,0 +1,29 @@
+- generic [ref=e465]:
+  - banner [ref=e629]:
+    - button "Back to learning world" [ref=e630] [cursor=pointer]
+    - generic [ref=e633]:
+      - paragraph [ref=e634]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e635]
+    - generic [ref=e636]: Question 1/6
+    - button "Turn sound on" [ref=e637] [cursor=pointer]
+  - main [ref=e642]:
+    - generic [ref=e643]: 0/6
+    - generic [ref=e646]:
+      - paragraph [ref=e647]: addition-subtraction
+      - heading "What is 18 plus 1?" [level=2] [ref=e648]
+      - button "Hear the question again" [ref=e649] [cursor=pointer]
+    - generic [ref=e654]:
+      - generic [ref=e655]:
+        - paragraph [ref=e656]: Two ten frames · count the counters
+        - generic "18 counters; add 1 more. Put both groups together, then count them." [ref=e657]
+        - paragraph [ref=e678]: 18 + 1 = ?
+        - paragraph [ref=e679]: Put the two groups together, then count every counter.
+      - generic [ref=e680]:
+        - paragraph [ref=e681]: Choose the answer
+        - generic [ref=e682]:
+          - button "16" [ref=e683] [cursor=pointer]
+          - button "17" [ref=e684] [cursor=pointer]
+          - button "19" [ref=e685] [cursor=pointer]
+          - button "15" [ref=e686] [cursor=pointer]
+        - button "Show me a clue" [ref=e687] [cursor=pointer]
+    - paragraph [ref=e691]: Count the picture or follow the model, then choose.

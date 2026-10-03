@@ -1,0 +1,40 @@
+- generic [ref=e2]:
+  - generic [ref=e465]:
+    - banner [ref=e1253]:
+      - button "Back to learning world" [ref=e1254] [cursor=pointer]
+      - generic [ref=e1257]:
+        - paragraph [ref=e1258]: Episode 2 · Add and Take Away
+        - heading "Monster Math" [level=1] [ref=e1259]
+      - generic [ref=e1260]: Question 1/6
+      - button "Turn sound on" [ref=e1261] [cursor=pointer]
+    - main [ref=e1266]:
+      - generic [ref=e1267]: 0/6
+      - generic [ref=e1270]:
+        - paragraph [ref=e1271]: addition-subtraction
+        - heading "What is 10 take away 1?" [level=2] [ref=e1272]
+        - button "Hear the question again" [ref=e1273] [cursor=pointer]
+      - generic [ref=e1278]:
+        - generic [ref=e1279]:
+          - paragraph [ref=e1280]: Two ten frames · count the counters
+          - generic "10 counters, take away 1 counter. Count what is left." [ref=e1281]
+          - paragraph [ref=e1302]: 10 − 1 = ?
+          - paragraph [ref=e1303]: Start with the counters, take away the second group, then count what is left.
+        - generic [ref=e1304]:
+          - paragraph [ref=e1305]: Choose the answer
+          - generic [ref=e1306]:
+            - button "10" [ref=e1307] [cursor=pointer]
+            - button "13" [ref=e1308] [cursor=pointer]
+            - button "7" [ref=e1309] [cursor=pointer]
+            - button "9" [ref=e1310] [cursor=pointer]
+          - button "Show me a clue" [ref=e1311] [cursor=pointer]
+      - paragraph [ref=e1315]: Count the picture or follow the model, then choose.
+  - dialog [ref=e1316]:
+    - generic [ref=e1317]:
+      - heading "Leave the game?" [level=2] [ref=e1318]
+      - generic [ref=e1319]:
+        - generic [ref=e1320]:
+          - button "Keep playing" [active] [ref=e1321] [cursor=pointer]
+          - generic [ref=e1324]: Keep playing
+        - generic [ref=e1325]:
+          - button "Back to world" [ref=e1326] [cursor=pointer]
+          - generic [ref=e1329]: World
