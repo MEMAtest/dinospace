@@ -60,3 +60,9 @@ Equivalent graphemes may use byte-identical copies of one accepted recording (s/
 - The [RP phonetics guide repository](https://github.com/thavasix-gr8/rp-phonetics-guide) describes phoneme teaching but uses word audio. It does not supply an accepted pure-sound corpus for this release.
 
 The user's owned or appropriately licensed recordings are requested. Other batch implementation and QA continue while this deliverable is missing. No provider calls or new voice worker were launched for this research.
+
+## Possible authored synthetic pilot
+
+[ElevenLabs' pronunciation guidance](https://elevenlabs.io/docs/help-center/technical/do-pauses-and-ssml-phoneme-tags-work-with-the-api) documents model-specific IPA/phoneme support. This provides a possible authored alternative to a third-party pack; it does not prove isolated phonics sounds will be correct. The current multilingual narration model must not be assumed to honor phoneme markup.
+
+After the existing finite Batch4 worker terminates, root may prepare one finite pronunciation pilot using a documented compatible model, the same request journal and 32 distinct sound targets. Keep pilot outputs outside accepted runtime paths until their isolated-sound pronunciation is listened to and accepted. Reuse equivalent accepted sounds for the five alias paths. Do not run a second paid job while Batch4 is active, conceal retries or equate SSML support with pure-sound correctness. A user-owned pack may resolve this requirement sooner.
