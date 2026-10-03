@@ -8,6 +8,7 @@ import {
 } from '../../data/skyShapes.js';
 import {
   getSkyShapesProgress, recordSkyEpisodeReward, recordSkyMissionCompletion, rememberSkyMissionQueue,
+  skyRewardCallbackUnits, SKY_CHAPTER_BONUS_STARS,
 } from '../../data/skyShapesProgress.js';
 
 const VIEW_WIDTH = 1000;
@@ -316,7 +317,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     const result = recordSkyMissionCompletion(playerId, mission.id, missionAccuracy, missionStars);
     if (!result) return;
     setProgress(result.progress);
-    if (result.newlyCompletedMission) onCelebrate(`${mission.name} complete!`, 2, 0, 'jet');
+    if (result.awardedStars > 0) onCelebrate(`${mission.name} complete!`, skyRewardCallbackUnits(result.awardedStars), 0, 'jet');
     if (roundIndex < queue.length - 1) {
       setRoundIndex((index) => index + 1);
       setHadHint(false);
@@ -329,8 +330,8 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     setEpisodeBadge(true);
     setProgress(reward?.progress || result.progress);
     onGameEvent?.('jet', 'level_complete', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band });
-    if (result.newlyCompletedEpisode || reward?.improved) {
-      onCelebrate(`${episode.title} Aviator badge earned!`, 6, 0, 'jet');
+    if (result.newlyCompletedEpisode) {
+      onCelebrate(`${episode.title} Aviator badge earned!`, skyRewardCallbackUnits(SKY_CHAPTER_BONUS_STARS), 0, 'jet');
     }
     setFeedback(`${episode.title} complete. Your best sky flight is ${reward?.bestStars || chapterStars} stars.`);
     setPhase('done');

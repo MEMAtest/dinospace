@@ -6,6 +6,7 @@ import {
 import { GAME_DIAGNOSTICS_KEY, recordGameDiagnostic } from '../src/data/gameDiagnostics.js';
 import {
   getSkyShapesProgress, recordSkyEpisodeReward, recordSkyMissionCompletion, rememberSkyMissionQueue,
+  skyRewardCallbackUnits, SKY_CHAPTER_BONUS_STARS,
 } from '../src/data/skyShapesProgress.js';
 
 const memoryStorage = () => {
@@ -109,4 +110,39 @@ test('Sky Shapes remembers only valid recent mission identifiers', () => {
   rememberSkyMissionQueue('amari', [...ids, 'untrusted-id'], storage);
   const saved = getSkyShapesProgress('amari', storage);
   assert.deepEqual(saved.recentMissionIds, ids.slice(-8));
+});
+
+test('Sky awards saved accuracy stars exactly once, with only the improvement on replay', () => {
+  const storage = memoryStorage();
+  const mission = SKY_SHAPE_EPISODES[0].missions[0];
+  const initial = recordSkyMissionCompletion('amari', mission.id, 72, 1, storage);
+  assert.equal(initial.awardedStars, 1);
+  const improved = recordSkyMissionCompletion('amari', mission.id, 100, 3, storage);
+  assert.equal(improved.awardedStars, 2);
+  assert.equal(recordSkyMissionCompletion('amari', mission.id, 100, 3, storage).awardedStars, 0);
+  assert.equal(recordSkyMissionCompletion('amari', mission.id, 70, 1, storage).awardedStars, 0);
+  assert.equal(getSkyShapesProgress('amari', storage).bestMissionStars[mission.id], 3);
+  assert.equal(getSkyShapesProgress('askia', storage).bestMissionStars[mission.id], undefined);
+  for (const stars of [1, 2, 3]) assert.equal(Math.max(1, Math.round(skyRewardCallbackUnits(stars) / 4)), stars);
+  assert.equal(Math.round(skyRewardCallbackUnits(SKY_CHAPTER_BONUS_STARS) / 4), 2);
+});
+
+test('all twelve perfect Sky missions award 36 stars and three one-time chapter bonuses', () => {
+  const storage = memoryStorage();
+  let total = 0;
+  for (const episode of SKY_SHAPE_EPISODES) {
+    for (const mission of episode.missions) {
+      const result = recordSkyMissionCompletion('amari', mission.id, 100, 3, storage);
+      total += result.awardedStars;
+      if (result.newlyCompletedEpisode) total += SKY_CHAPTER_BONUS_STARS;
+    }
+  }
+  assert.equal(total, 42);
+  for (const episode of SKY_SHAPE_EPISODES) {
+    for (const mission of episode.missions) {
+      const result = recordSkyMissionCompletion('amari', mission.id, 100, 3, storage);
+      assert.equal(result.awardedStars, 0);
+      assert.equal(result.newlyCompletedEpisode, false);
+    }
+  }
 });

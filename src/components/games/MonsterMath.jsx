@@ -262,7 +262,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
             <h2 className="mt-1 text-2xl font-black sm:text-3xl">{episode.title}</h2>
             <p className="mt-2 font-bold text-slate-700">{episode.subtitle}</p>
             <div className="mt-4 flex flex-wrap gap-2" aria-label="Episode completion rewards">
-              {MONSTER_MATH_EPISODES.map((entry, index) => <span key={entry.id} className={`rounded-full px-3 py-1 text-sm font-black ${progress.bestStars[entry.id] ? 'bg-amber-200 text-amber-950' : 'bg-slate-100 text-slate-500'}`}>{index + 1}. {entry.title} {progress.bestStars[entry.id] ? `${'★'.repeat(progress.bestStars[entry.id])}` : 'locked'}</span>)}
+              {MONSTER_MATH_EPISODES.map((entry, index) => <span key={entry.id} className={`rounded-full px-3 py-1 text-sm font-black ${progress.bestStars[entry.id] ? 'bg-amber-200 text-amber-950' : 'bg-slate-100 text-slate-500'}`}>{index + 1}. {entry.title} {progress.bestStars[entry.id] ? `${'★'.repeat(progress.bestStars[entry.id])}` : index > progress.unlockedEpisode ? 'locked' : 'not earned yet'}</span>)}
             </div>
             <button type="button" onClick={() => startEpisode(episodeIndex)} className="mt-5 min-h-16 w-full rounded-2xl bg-orange-700 px-6 py-3 text-lg font-black text-white shadow-[0_6px_0_#9a3412] hover:bg-orange-800 active:translate-y-1 active:shadow-none">{progress.completedEpisodeIds.includes(episode.id) ? 'Replay this episode' : 'Start six questions'}</button>
           </section>
@@ -323,8 +323,6 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
 
         <section className="rounded-3xl border-2 border-white bg-white/90 p-4 text-center shadow-md" aria-live="polite">
           <p className={`min-h-8 text-base font-black sm:text-lg ${locked ? 'text-emerald-800' : 'text-orange-900'}`}>{feedback || (showHint ? question?.clue : 'Count the picture or follow the model, then choose.')}</p>
-          {locked && <p className="mt-1 font-bold text-slate-700">{question?.explanation}</p>}
-          {showHint && !locked && <p className="mt-1 font-bold text-indigo-800">{question?.clue}</p>}
           {locked && <button type="button" disabled={!animationDone} onClick={nextQuestion} className="mt-3 min-h-14 rounded-2xl bg-emerald-600 px-7 py-3 text-lg font-black text-white shadow-[0_5px_0_#047857] active:translate-y-1 active:shadow-none disabled:cursor-wait disabled:bg-slate-400 disabled:shadow-none">{animationDone ? roundIndex + 1 < rounds.length ? 'Next question' : 'Finish episode' : 'Watch the counters…'}</button>}
         </section>
       </main>
