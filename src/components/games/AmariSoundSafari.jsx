@@ -17,7 +17,7 @@ const promptFor = (question) => question.type === 'match' ? BATCH5_NARRATION.pro
 const praiseFor = (question) => question.type === 'match' ? BATCH5_NARRATION.praise[0]
   : question.type === 'blend' ? BATCH5_NARRATION.praise[3] : BATCH5_NARRATION.praise[2];
 
-export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, playerId = 'amari' }) {
+export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, onPhaseChange = noop, playerId = 'amari' }) {
   const [progress, setProgress] = useState(() => getBatch5LiteracyProgress('soundSafari', playerId));
   const [chapterIndex, setChapterIndex] = useState(() => getBatch5LiteracyProgress('soundSafari', playerId).unlockedChapter);
   const [stage, setStage] = useState('start');
@@ -37,6 +37,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
   const { play: playPhonemes, cancelAll: stopNarration, missingClip } = useAmariPhonemeAudio({ soundOn, cancelNarration: () => cancelRef.current?.() });
   const question = run[cursor];
   const chapter = BATCH5_SOUND_SAFARI_CHAPTERS[chapterIndex];
+  useEffect(() => { onPhaseChange(stage === 'play' ? 'play' : stage === 'finish' ? 'done' : 'start'); }, [stage, onPhaseChange]);
   const visibleTaught = useMemo(() => [...getTaughtGraphemes()], []);
   const potentialPool = useMemo(() => createSoundSafariPool(chapterIndex, visibleTaught), [chapterIndex, visibleTaught]);
 

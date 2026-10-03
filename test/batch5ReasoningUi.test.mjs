@@ -80,6 +80,16 @@ test('colour result visuals and saved palette use mixResult rather than a select
   }
 });
 
+test('all four Amari Batch 5 screens report parent session phases on stage changes', async () => {
+  const paths = ['AmariColorMixingLab.jsx', 'AmariOddOneOut.jsx', 'AmariSoundSafari.jsx', 'AmariSpellingStudio.jsx'];
+  for (const path of paths) {
+    const source = await projectFile(`../src/components/games/${path}`);
+    assert.ok(source.includes('onPhaseChange = noop'), `${path} should accept an optional phase callback`);
+    assert.ok(source.includes("stage === 'play' ? 'play' : stage === 'finish' ? 'done' : 'start'"), `${path} should classify map/start and finish states`);
+    assert.ok(source.includes('[stage, onPhaseChange]'), `${path} should notify only when the phase or callback changes`);
+  }
+});
+
 test('Amari-only route keeps Askia catalog components, disables generic session duplication and passes explicit cancellation', async () => {
   const [routes, routeIds, app, catalog] = await Promise.all([
     projectFile('../src/batch5AmariRoutes.jsx'), projectFile('../src/data/batch5AmariRouteIds.js'), projectFile('../src/App.jsx'), projectFile('../src/gameCatalog.jsx'),

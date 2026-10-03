@@ -65,7 +65,7 @@ function CategoryArt({ item }) {
 }
 function ThingArt({ item }) { return item.kind === 'number' ? <NumberArt item={item} /> : item.kind === 'shape' ? <ShapeArt item={item} /> : <CategoryArt item={item} />; }
 
-export default function AmariOddOneOut({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, playerId = 'amari' }) {
+export default function AmariOddOneOut({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, onPhaseChange = noop, playerId = 'amari' }) {
   const [progress, setProgress] = useState(() => getReasoningProgress('oddoneout', playerId));
   const [chapter, setChapter] = useState(() => getReasoningProgress('oddoneout', playerId).unlocked);
   const [stage, setStage] = useState('map');
@@ -87,6 +87,7 @@ export default function AmariOddOneOut({ onBack = noop, playSfx = noop, soundOn 
   const selectedItem = mission?.choices.find((item) => item.id === selectedId);
   const speakLine = useCallback((line, segments = [line]) => speak?.(line, { premium: false, segments }), [speak]);
   useEffect(() => () => stopNarration(), [stopNarration]);
+  useEffect(() => { onPhaseChange(stage === 'play' ? 'play' : stage === 'finish' ? 'done' : 'start'); }, [stage, onPhaseChange]);
   useEffect(() => { if (stage === 'play' && mission) onGameEvent?.('oddoneout', 'question', { level: chapter, round: cursor, seed }); }, [stage, mission, chapter, cursor, seed, onGameEvent]);
 
   const beginRun = (chapterIndex = chapter, replay = false) => {

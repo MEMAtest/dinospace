@@ -52,7 +52,7 @@ function PaletteDots({ ids }) {
 
 const recipeForResult = (result) => COLOUR_RECIPES.find((entry) => entry.result === result);
 
-export default function AmariColorMixingLab({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, playerId = 'amari' }) {
+export default function AmariColorMixingLab({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, onPhaseChange = noop, playerId = 'amari' }) {
   const [progress, setProgress] = useState(() => getReasoningProgress('colormix', playerId));
   const [chapter, setChapter] = useState(() => getReasoningProgress('colormix', playerId).unlocked);
   const [stage, setStage] = useState('map');
@@ -70,6 +70,7 @@ export default function AmariColorMixingLab({ onBack = noop, playSfx = noop, sou
   const mission = run?.missions[cursor];
   const speakLine = useCallback((line, segments = [line]) => speak?.(line, { premium: false, segments }), [speak]);
   useEffect(() => () => stopNarration(), [stopNarration]);
+  useEffect(() => { onPhaseChange(stage === 'play' ? 'play' : stage === 'finish' ? 'done' : 'start'); }, [stage, onPhaseChange]);
   useEffect(() => { if (stage === 'play' && mission) onGameEvent?.('colormix', 'question', { level: chapter, round: cursor, seed }); }, [stage, mission, chapter, cursor, seed, onGameEvent]);
 
   const beginRun = (chapterIndex = chapter, replay = false) => {

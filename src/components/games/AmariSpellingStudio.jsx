@@ -16,7 +16,7 @@ const positionLabel = (item) => item.length === 1 ? 'sound' : 'sounds';
 const phonemeLabel = (item) => ({ 'th-voiced': 'th as in this', 'th-unvoiced': 'th as in thin', 'oo-long': 'oo as in moon', 'oo-short': 'oo as in book' }[item] || item);
 const promptFor = (index) => index === 0 ? BATCH5_NARRATION.prompts[5] : index === 1 ? BATCH5_NARRATION.instruction[4] : BATCH5_NARRATION.instruction[3];
 
-export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, playerId = 'amari' }) {
+export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, onPhaseChange = noop, playerId = 'amari' }) {
   const [progress, setProgress] = useState(() => getBatch5LiteracyProgress('spelling', playerId));
   const [chapterIndex, setChapterIndex] = useState(() => getBatch5LiteracyProgress('spelling', playerId).unlockedChapter);
   const [stage, setStage] = useState('start');
@@ -44,6 +44,7 @@ export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, sou
   const { play: playPhonemes, cancelAll: stopNarration, missingClip } = useAmariPhonemeAudio({ soundOn, cancelNarration: () => cancelRef.current?.() });
   const question = run[cursor];
   const band = BATCH5_SPELLING_BANDS[chapterIndex];
+  useEffect(() => { onPhaseChange(stage === 'play' ? 'play' : stage === 'finish' ? 'done' : 'start'); }, [stage, onPhaseChange]);
   const visibleTaught = useMemo(() => [...getTaughtGraphemes()], []);
   const potentialPool = useMemo(() => getEligibleSpellingWords(chapterIndex, visibleTaught), [chapterIndex, visibleTaught]);
   const trickyWords = useMemo(() => playerId === 'amari' ? getAvailableTrickyWords() : [], [playerId]);
