@@ -1,0 +1,190 @@
+{
+  "version": 2,
+  "retention": {
+    "recentEvents": 300,
+    "runMilestones": 100
+  },
+  "events": [
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T09:47:31.562Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3376026969,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "scene",
+      "at": "2026-10-03T09:47:31.563Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3376026969,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "question",
+      "at": "2026-10-03T09:47:31.563Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3376026969,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T09:47:52.292Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3376026969,
+      "difficulty": "starter"
+    },
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T09:47:52.974Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1535672285
+    },
+    {
+      "game": "puzzle",
+      "event": "scene",
+      "at": "2026-10-03T09:47:52.974Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1535672285
+    },
+    {
+      "game": "puzzle",
+      "event": "hint",
+      "at": "2026-10-03T09:48:17.835Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1535672285,
+      "hintType": "next_piece"
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_attempt",
+      "at": "2026-10-03T09:48:25.658Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1535672285,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "answer_correct",
+      "at": "2026-10-03T09:48:25.658Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1535672285,
+      "firstAttempt": true
+    },
+    {
+      "game": "puzzle",
+      "event": "leave",
+      "at": "2026-10-03T09:48:40.683Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1535672285
+    },
+    {
+      "game": "spot",
+      "event": "start",
+      "at": "2026-10-03T09:48:41.349Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3321277063
+    },
+    {
+      "game": "spot",
+      "event": "scene",
+      "at": "2026-10-03T09:48:41.349Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3321277063
+    },
+    {
+      "game": "spot",
+      "event": "hint",
+      "at": "2026-10-03T09:49:02.162Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3321277063,
+      "hintType": "magnifier"
+    },
+    {
+      "game": "spot",
+      "event": "hint",
+      "at": "2026-10-03T09:49:15.534Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3321277063,
+      "hintType": "magnifier"
+    },
+    {
+      "game": "spot",
+      "event": "leave",
+      "at": "2026-10-03T09:49:40.997Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3321277063
+    }
+  ],
+  "runMilestones": [
+    {
+      "game": "jet",
+      "event": "start",
+      "at": "2026-10-03T09:47:31.562Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3376026969,
+      "difficulty": "starter"
+    },
+    {
+      "game": "jet",
+      "event": "leave",
+      "at": "2026-10-03T09:47:52.292Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3376026969,
+      "difficulty": "starter"
+    },
+    {
+      "game": "puzzle",
+      "event": "start",
+      "at": "2026-10-03T09:47:52.974Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1535672285
+    },
+    {
+      "game": "puzzle",
+      "event": "leave",
+      "at": "2026-10-03T09:48:40.683Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1535672285
+    },
+    {
+      "game": "spot",
+      "event": "start",
+      "at": "2026-10-03T09:48:41.349Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3321277063
+    },
+    {
+      "game": "spot",
+      "event": "leave",
+      "at": "2026-10-03T09:49:40.997Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3321277063
+    }
+  ]
+}
