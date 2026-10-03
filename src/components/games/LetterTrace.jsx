@@ -68,7 +68,10 @@ const LOWER_STROKES = {
   z: [[[.28,.4],[.72,.4],[.28,.86],[.72,.86]]],
 };
 
-const getLetterStrokes = (letter, width, height) => {
+// The Amari-only route reuses the same normalized guides; Askia still renders
+// this existing component and retains its existing interaction flow.
+// eslint-disable-next-line react-refresh/only-export-components
+export const getLetterStrokes = (letter, width, height) => {
   const source = (letter === letter.toUpperCase() ? UPPER_STROKES[letter] : LOWER_STROKES[letter]) || UPPER_STROKES[letter.toUpperCase()];
   const scale = Math.min(width, height) * 0.86;
   const left = (width - scale) / 2;
