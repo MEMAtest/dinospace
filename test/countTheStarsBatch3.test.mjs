@@ -16,8 +16,21 @@ test('count episodes provide six stable unique questions and safe visible object
       assert.equal(new Set(round.options).size, 4);
       assert.ok(round.options.includes(round.count));
       assert.ok(countCentersAreSafe(round.objects));
-      assert.deepEqual(round.objects, buildCountObjects(round.count, 2718, round.id));
+      assert.deepEqual(round.objects, buildCountObjects(round.count, 2718, round.id, round.layoutVariant));
     }
+  }
+});
+
+test('scene motifs and one-use layout modes provide distinct countable arrangements', () => {
+  const motifs = COUNT_THE_STARS_EPISODES.flatMap(({ scenes }) => scenes.map(({ motif }) => motif));
+  assert.equal(motifs.length, 15);
+  assert.equal(new Set(motifs).size, 15);
+  for (const count of Array.from({ length: 20 }, (_, index) => index + 1)) {
+    const scattered = buildCountObjects(count, 22, `same-${count}`, 'orbit');
+    const organized = buildCountObjects(count, 22, `same-${count}`, 'grouped');
+    assert.ok(countCentersAreSafe(scattered, 330, 330, 56));
+    assert.ok(countCentersAreSafe(organized, 330, 330, 56));
+    if (count > 1) assert.notDeepEqual(scattered.map(({ x, y }) => [x, y]).sort(), organized.map(({ x, y }) => [x, y]).sort());
   }
 });
 
