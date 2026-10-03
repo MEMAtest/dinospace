@@ -6,7 +6,7 @@ Scope: Time Teller and Number Line Jump components, their seeded mission/progres
 
 ## Implemented
 
-- Both games have three sequential named chapters/worlds with six seeded missions per run. The run queue remains frozen through wrong answers, hints, and rerenders. Correct explanations remain visible until the child presses Next.
+- Both games have three sequential named chapters/worlds with six seeded missions per run. Required taught modes are reserved in each queue (routine read/set, forward/back, each missing value, larger/farther comparison) before the remaining unique missions are selected and shuffled under the same seed. The run queue remains frozen through wrong answers, hints, and rerenders. Correct explanations remain visible until the child presses Next.
 - Progress is stored by child and game. Unlocks derive from contiguous chapter completion, future/orphan awards are rejected, malformed recent IDs are discarded, chapter stars are awarded once, and a started queue enters the recent-question window even if the child leaves before finishing.
 - Time Teller includes o’clock/half-past reading, quarter-past/quarter-to reading, read and set-hand missions, daily routine prompts with explicit morning/afternoon/evening/day context, a narrated hand lesson, and a continuous hour-hand angle (`hour * 30 + minute * 0.5`). Hand setting uses 15-minute and one-hour controls with keyboard-accessible buttons.
 - Number Line Jump includes child-controlled forward/back hops to 10, missing start/hop/landing missions to 20, and separate larger-landing/farther-distance comparisons to 20. Accepted hops update the frog position one step at a time. Static models and seeded validation enforce equation/hop/landing agreement.
@@ -34,7 +34,7 @@ No paid voice, image, or story provider is called. This report inventories runti
 
 ## Focused checks
 
-- `node --test test/timeLineAdventure.test.mjs`: 4/4 passing. This covers all 48 allowed hour/minute pairs and wrap labels, 50 seeded time runs per chapter, 80 seeded number-line runs per chapter, model/answer agreement, option bounds and uniqueness, progress isolation, corrupted/future/orphan rejection, malformed models, and recent-question storage for abandoned runs.
+- `node --test test/timeLineAdventure.test.mjs`: 4/4 passing. This covers all 48 allowed hour/minute pairs and wrap labels, 50 seeded time runs per chapter, 80 seeded number-line runs per chapter, required mode coverage, model/answer agreement, option bounds and uniqueness, progress isolation, corrupted/future/orphan rejection, malformed models, and recent-question storage for abandoned runs.
 - ESLint passed for the two game components, the two new data modules, and the focused test file.
 
 ## Pending acceptance gates

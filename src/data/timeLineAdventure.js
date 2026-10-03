@@ -22,6 +22,20 @@ const makeTimeOptions = (target, pool, seed) => {
   return seededShuffle(options, seed ^ 0x1a2b3c);
 };
 const timePool = (chapter) => chapter === 0 ? [0, 30] : chapter === 1 ? [0, 15, 30, 45] : [0, 15, 30, 45];
+const freezeMissionMix = (pool, requiredGroups, recentIds, seed) => {
+  let eligible = pool.filter((row) => !recentIds.includes(row.id));
+  if (eligible.length < 6) eligible = pool;
+  const chosen = [];
+  requiredGroups.forEach((group, index) => {
+    const options = eligible.filter(group);
+    const source = options.length ? options : pool.filter(group);
+    const pick = seededShuffle(source.filter((row) => !chosen.some((entry) => entry.id === row.id)), seed + index * 104729)[0];
+    if (pick) chosen.push(pick);
+  });
+  const rest = seededShuffle(eligible.filter((row) => !chosen.some((entry) => entry.id === row.id)), seed ^ 0x7654321);
+  if (rest.length < 6 - chosen.length) rest.push(...seededShuffle(pool.filter((row) => !chosen.some((entry) => entry.id === row.id) && !rest.some((entry) => entry.id === row.id)), seed ^ 0x1234567));
+  return seededShuffle([...chosen, ...rest.slice(0, 6 - chosen.length)], seed);
+};
 const routineFor = (hour) => hour === 12 ? ['lunch', 'middle of the day'] : hour <= 4 ? ['after-school play', 'afternoon'] : hour === 5 ? ['family dinner', 'evening'] : hour === 6 ? ['story time', 'evening'] : hour === 7 ? ['breakfast', 'morning'] : hour <= 11 ? ['school activity', 'morning'] : ['daily routine', 'day'];
 export const createTimeRun = ({ chapter = 0, seed = 1, recentIds = [] } = {}) => {
   if (!Number.isInteger(chapter) || chapter < 0 || chapter > 2 || !Number.isInteger(seed)) return [];
@@ -32,8 +46,8 @@ export const createTimeRun = ({ chapter = 0, seed = 1, recentIds = [] } = {}) =>
     const target = { hour, minute };
     rows.push({ id: `${chapter}:${hour}:${minute}:${isSet ? 'set' : 'read'}`, target, type: isSet ? 'set' : 'read', routine, label: timeLabel(target), prompt: isSet ? `Set the clock to ${timeLabel(target)}${routine ? `, ${routine[0]} time in the ${routine[1]}` : ''}.` : chapter === 2 ? `${routine ? `It is the ${routine[1]} and ${routine[0]} is happening. ` : ''}What time is shown on the clock?` : 'What time is shown on the clock?', explanation: `${timeLabel(target)} means the minute hand points to ${minute === 0 ? '12' : minute === 15 ? '3' : minute === 30 ? '6' : '9'}, and the hour hand is ${minute ? 'moving between numbers' : 'on the hour number'}.${routine ? ` This routine is in the ${routine[1]}.` : ''}`, clue: 'The long blue hand shows minutes. The short red hand shows the hour.' });
   }
-  let eligible = rows.filter((row) => !recentIds.includes(row.id)); if (eligible.length < 6) eligible = rows;
-  return seededShuffle(eligible, seed).slice(0, 6).map((row, i) => ({ ...row, chapter, seed, options: row.type === 'read' ? makeTimeOptions(row.target, pool, seed + i * 7919) : [] }));
+  const required = chapter === 2 ? [(row) => row.type === 'read', (row) => row.type === 'set'] : [];
+  return freezeMissionMix(rows, required, recentIds, seed).map((row, i) => ({ ...row, chapter, seed, options: row.type === 'read' ? makeTimeOptions(row.target, pool, seed + i * 7919) : [] }));
 };
 
 export const isKnownTimeQuestionId = (id, chapter) => {
@@ -60,8 +74,8 @@ const numericOptions = (answer, max, seed) => { const candidates = [answer - 1, 
 export const createNumberLineRun = ({ chapter = 0, seed = 1, recentIds = [] } = {}) => {
   if (!Number.isInteger(chapter) || chapter < 0 || chapter > 2 || !Number.isInteger(seed)) return [];
   const pool = [...new Map(Array.from({ length: 80 }, (_, i) => makeNumberRow(chapter, seed, i)).map((row) => [row.id, row])).values()];
-  let rows = pool.filter((row) => !recentIds.includes(row.id)); if (rows.length < 6) rows = pool;
-  return seededShuffle(rows, seed).slice(0, 6).map((row, i) => ({ ...row, chapter, options: row.type === 'compare' ? ['A', 'B', 'same'] : numericOptions(row.answer, chapter === 0 ? 10 : 20, seed + i * 23) }));
+  const required = chapter === 0 ? [(row) => row.direction === 1, (row) => row.direction === -1] : chapter === 1 ? [0, 1, 2].map((missing) => (row) => row.missing === missing) : ['larger', 'farther'].map((compare) => (row) => row.compare === compare);
+  return freezeMissionMix(pool, required, recentIds, seed).map((row, i) => ({ ...row, chapter, options: row.type === 'compare' ? ['A', 'B', 'same'] : numericOptions(row.answer, chapter === 0 ? 10 : 20, seed + i * 23) }));
 };
 export const isKnownNumberQuestionId = (id, chapter) => {
   const parts = (id || '').split(':'); const n = parts.slice(1).map(Number);
