@@ -1,0 +1,75 @@
+{
+  "createdAt": "2026-10-03T23:59:34.965697+00:00",
+  "method": "Built-in image_gen, one isolated transparent source per token; originals copied unchanged",
+  "scope": "Four source assets only. Root inspected full generated outputs; actual small-card integration and independent gameplay review remain pending. No new 4.5 acceptance.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/seedling-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-05afaff5-beb5-412b-aea5-9d75fa0b15f8.png",
+      "token": "\ud83c\udf31",
+      "meaning": "two leaves on soil",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "852f5879bdd47a02504d08a0e46ef41e28760e64e45515d0b1851eca4f54f015",
+      "bytes": 929095
+    },
+    {
+      "asset": "src/assets/memory-match/tree-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-f472c9e8-4d61-4bea-a9f9-58a2663d0932.png",
+      "token": "\ud83c\udf33",
+      "meaning": "mature tree with trunk and broad canopy",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "a272427a5c9dba58685af87df95bda45f254cb63ace6e40e0bcc8c05edfedc39",
+      "bytes": 1523918
+    },
+    {
+      "asset": "src/assets/memory-match/leaf-sprig-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-82732b8e-4c50-4428-9681-16f129002f8e.png",
+      "token": "\ud83c\udf3f",
+      "meaning": "loose three-leaf sprig without soil",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "4133f3829a864fa6d152f6201bf6779e47bf9bd35dde5681d0aaf1197c9b6567",
+      "bytes": 964241
+    },
+    {
+      "asset": "src/assets/memory-match/mushroom-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-5ef93517-a6b9-444c-a2fa-ef547586febd.png",
+      "token": "\ud83c\udf44",
+      "meaning": "single red capped mushroom",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "0035f74a465c5188c5da719aaceb29b7e0569d3ced68c54e68fbfe71b7cdbe6a",
+      "bytes": 920744
+    }
+  ]
+}
