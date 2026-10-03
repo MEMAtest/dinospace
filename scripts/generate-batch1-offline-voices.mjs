@@ -1,4 +1,5 @@
 import { mkdir, open, rename, rm, stat, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { dirname, resolve } from 'node:path';
 import { CURRICULUM_VOICE_CORPUS, getMissingCurriculumVoiceAssets } from '../src/data/curriculumVoice.js';
 import { LETTER_LAUNCH_PROMPT_CORPUS } from '../src/data/letterLaunch.js';
@@ -10,7 +11,8 @@ import { voiceClipKey } from '../src/data/voiceKey.js';
 const root = resolve(import.meta.dirname, '..');
 const origin = 'https://dinospace-eight.vercel.app';
 const endpoint = `${origin}/api/voice`;
-const requestStatePath = resolve(root, 'tmp/offline-voice-request-state.json');
+const requestStateArg = process.argv.find((arg) => arg.startsWith('--request-state='))?.slice('--request-state='.length);
+const requestStatePath = resolve(root, requestStateArg || 'tmp/offline-voice-request-state.json');
 const lockPath = resolve(root, 'tmp/offline-voice-generator.lock');
 const requestWindowMs = 10 * 60 * 1000;
 const requestLimit = 30;
@@ -18,6 +20,7 @@ const requestedMaxCalls = Number(process.argv.find((arg) => arg.startsWith('--ma
 if (!Number.isInteger(requestedMaxCalls) || requestedMaxCalls < 1 || requestedMaxCalls > 20) throw new Error('--max-calls must be an integer from 1 to 20.');
 const storybookOnly = process.argv.includes('--storybook-only');
 const batch2Only = process.argv.includes('--batch2-only');
+const batch4Only = process.argv.includes('--batch4-only');
 const manifestPath = resolve(root, 'src/data/offlineVoiceManifest.js');
 const manifest = new Map(Object.entries(sourceManifest));
 const extraRetryLines = [
@@ -31,7 +34,11 @@ const voiceItem = (text, path = `/audio/en/${voiceClipKey(text, 'en-US')}-matild
   key: voiceClipKey(text, 'en-US'),
   path,
 });
+const expectedInventorySha = process.argv.find((arg) => arg.startsWith('--expected-inventory-sha='))?.slice('--expected-inventory-sha='.length);
+const batch4Inventory = batch4Only ? (await import('./batch4NarrationInventory.mjs')).buildBatch4VoiceInventory() : null;
+if (expectedInventorySha && (!batch4Inventory || createHash('sha256').update(JSON.stringify(batch4Inventory.items)).digest('hex') !== expectedInventorySha)) throw new Error('The finite narration inventory has changed; stop and reconcile its scope before generation.');
 const corpora = {
+  ...(batch4Inventory ? Object.fromEntries(Object.entries(batch4Inventory.corpusByGame).map(([game, texts]) => [`batch4${game}`, texts.map((text) => voiceItem(text))])) : {}),
   batch2PuzzlePop: BATCH2_VOICE_CORPUS_BY_GAME.puzzlePop.map((text) => voiceItem(text)),
   batch2SpotDifference: BATCH2_VOICE_CORPUS_BY_GAME.spotDifference.map((text) => voiceItem(text)),
   batch2SkyShapes: BATCH2_VOICE_CORPUS_BY_GAME.skyShapes.map((text) => voiceItem(text)),
@@ -42,8 +49,8 @@ const corpora = {
   retries: extraRetryLines.map((text) => voiceItem(text)),
 };
 for (const item of getMissingCurriculumVoiceAssets()) corpora.curriculum.push({ text: item.text, key: item.key, path: item.path });
-if (storybookOnly && batch2Only) throw new Error('Choose at most one corpus selector.');
-const selectedCorpora = batch2Only ? {
+if ([storybookOnly, batch2Only, batch4Only].filter(Boolean).length > 1) throw new Error('Choose at most one corpus selector.');
+const selectedCorpora = batch4Only ? Object.fromEntries(Object.entries(corpora).filter(([name]) => name.startsWith('batch4'))) : batch2Only ? {
   batch2PuzzlePop: corpora.batch2PuzzlePop,
   batch2SpotDifference: corpora.batch2SpotDifference,
   batch2SkyShapes: corpora.batch2SkyShapes,
@@ -87,7 +94,7 @@ if (dryRun) {
     }
     breakdown[name] = { ready: groupReady, pending: groupPending };
   }
-  console.log(JSON.stringify({ requested: requested.size, ready, pending: requested.size - ready, breakdown, maxCalls: requestedMaxCalls, storybookOnly, batch2Only, dryRun: true }));
+  console.log(JSON.stringify({ requested: requested.size, ready, pending: requested.size - ready, breakdown, maxCalls: requestedMaxCalls, storybookOnly, batch2Only, batch4Only, dryRun: true }));
   process.exit(checkReady && ready < requested.size ? 1 : 0);
 }
 
@@ -198,7 +205,7 @@ for (const item of requested.values()) {
   const publicPath = manifest.get(item.key) || item.path;
   if (!await isReady(publicPath)) pending.push(item.key);
 }
-console.log(JSON.stringify({ requested: requested.size, generated, reused, pending: pending.length, maxCalls: runBudget, storybookOnly, batch2Only, stoppedAt: stoppedAt || null }));
+console.log(JSON.stringify({ requested: requested.size, generated, reused, pending: pending.length, maxCalls: runBudget, storybookOnly, batch2Only, batch4Only, stoppedAt: stoppedAt || null }));
 if (stoppedAt) process.exitCode = stoppedAt === '429' ? 75 : 1;
 } finally {
   await lock.close();
