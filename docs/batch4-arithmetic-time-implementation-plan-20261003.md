@@ -55,3 +55,9 @@ Equation, visible accepted hops and landing must agree. Reject hops beyond the a
 ## Independent acceptance and release
 
 At desktop and 390px, use fresh QA profiles and ordinary controls to complete all three chapters of each game, then a same-band replay. Capture UI diagnostic seeds/level/round/hint outcomes, start, wrong, held explanation, completion, reload, Keep playing and confirmed Back states. Check per-child isolation, duplicate credit, all target classes, illustrated/audio assets, console and guarded provider requests. Unit/build passes support a candidate; only canonical deployment identity plus actual production Playwright and required audio/editorial review support 4.5 acceptance. Retain failed candidates and their findings.
+
+## Isolated integration preparation (3 October)
+
+Checkout `work/dinospace-batch4-quality`, branch `codex/amari-batch4-quality-20261003`, starts from root documentation checkpoint `6d13d3a` over the released Batch 2 runtime. It does not contain the pending Batch 3 implementation; root will reconcile App/collection ownership at integration. Gameplay builders must preserve the frozen QA candidates in the other checkouts.
+
+Root added a narrowly scoped clock-origin history contract: launching Time Teller from Curriculum Quest records the known curriculum route in browser history; ordinary Maths entry uses its parent world. Same-game replacement and reload preserve that origin, while other destinations clear it. Cancelled browser back restores the original history metadata. Two helper tests and focused ESLint pass; actual related-link, reload, Keep/Leave and parent-world browser journeys remain required. This is navigation preparation, not completion of the four game implementations or a production fix.

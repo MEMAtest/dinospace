@@ -50,3 +50,18 @@ export const parentRoute = (route) => {
 };
 
 export const sameRoute = (a, b) => routeHash(a) === routeHash(b);
+
+// A related clock lesson returns to the curriculum that launched it. Store
+// only this known route, so a reload preserves the origin without trusting
+// arbitrary routes or carrying another game's origin forward.
+export const gameReturnRoute = (route, historyState) => route?.name === 'game'
+  && route.id === 'timeteller' && historyState?.clockLessonOrigin === 'worldmap'
+  ? { name: 'game', id: 'worldmap' } : parentRoute(route);
+
+export const nextRouteHistoryState = (from, next, previousState, depth) => ({
+  depth,
+  ...(next?.name === 'game' && next.id === 'timeteller'
+    && ((from?.name === 'game' && from.id === 'worldmap')
+      || (from?.name === 'game' && from.id === 'timeteller' && previousState?.clockLessonOrigin === 'worldmap'))
+    ? { clockLessonOrigin: 'worldmap' } : {}),
+});
