@@ -21,3 +21,7 @@ The build emitted the existing stale `caniuse-lite` database notice and Vite's c
 ## Limits
 
 This is local source/build evidence. It is not an actual browser review, production deployment or acceptance, or an assessment of audio quality. Independent UI review is still required for mobile layout, the Puzzle preview-to-board demonstration, and the visual clarity/alignment of the new Spot props and Sky markers.
+
+## Spot Challenge target placement follow-up
+
+During independent review, the initial scene-specific Challenge placements were found to put the History Hall book and compass 7% apart horizontally at the same vertical position, causing their 56px hit targets to overlap. All Challenge prop pairs now use the established safe seven-position layout. A regression test checks every Challenge scene at a 280×210 frame: targets remain fully inside the frame and no pair of 56px target rectangles intersects. This data-level check supplements, but does not replace, the requested actual browser retest.

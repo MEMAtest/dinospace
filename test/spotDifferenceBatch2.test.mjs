@@ -45,6 +45,23 @@ test('Spot challenge differences are bespoke shape or count variants across alig
   }
 });
 
+test('Spot Challenge 56px hit targets stay inside and do not overlap in a 280x210 image frame', () => {
+  const frame = { width: 280, height: 210, target: 56 };
+  for (const scene of SPOT_DIFFERENCE_SCENES.filter(({ chapterIndex }) => chapterIndex === 2)) {
+    const centers = scene.differences.map(({ x, y }) => ({ x: (x / 100) * frame.width, y: (y / 100) * frame.height }));
+    for (const [index, center] of centers.entries()) {
+      assert.ok(center.x >= frame.target / 2 && center.x <= frame.width - frame.target / 2, `${scene.title} target ${index + 1} fits horizontally`);
+      assert.ok(center.y >= frame.target / 2 && center.y <= frame.height - frame.target / 2, `${scene.title} target ${index + 1} fits vertically`);
+      for (const [otherIndex, other] of centers.entries()) {
+        if (otherIndex <= index) continue;
+        const overlapsHorizontally = Math.abs(center.x - other.x) < frame.target;
+        const overlapsVertically = Math.abs(center.y - other.y) < frame.target;
+        assert.equal(overlapsHorizontally && overlapsVertically, false, `${scene.title} targets ${index + 1} and ${otherIndex + 1} do not overlap`);
+      }
+    }
+  }
+});
+
 test('Spot run order and visual pair placement are seeded, complete and replay-varied', () => {
   for (let chapter = 0; chapter < 3; chapter += 1) {
     const run = createSpotDifferenceRun(chapter, 721);
