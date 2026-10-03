@@ -1,7 +1,7 @@
 import LetterLaunchBadgeCollection from './components/shared/LetterLaunchBadgeCollection.jsx';
 import { getEarnedChapterBadgeIds } from './data/chapterBadges.js';
 import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.jsx';
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
 import { ACHIEVEMENTS, STICKERS } from './data/index.js';
@@ -407,6 +407,10 @@ export default function App() {
   const [grownUpsUnlocked, setGrownUpsUnlocked] = useState(false);
   const playSfx = useSfx(soundOn);
   const voice = useVoice(soundOn);
+  const cancelNarration = voice.cancel;
+  // Stop the departing screen's narration before the next screen starts audio.
+  // A cancelled leave dialog keeps the route unchanged and keeps its narration.
+  useLayoutEffect(() => () => cancelNarration(), [cancelNarration, route.name, route.id, playerId]);
   const installPrompt = useInstallPrompt();
   const player = getPlayer(playerId);
   const toggleSound = useCallback(() => setSoundOn((prev) => !prev), []);

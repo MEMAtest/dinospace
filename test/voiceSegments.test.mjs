@@ -61,6 +61,7 @@ const withVoice = async (run) => {
       'import.meta.env.VITE_ELEVENLABS_ENABLED': '"true"',
     },
     server: { middlewareMode: true, hmr: false },
+    optimizeDeps: { noDiscovery: true, entries: [] },
     appType: 'custom',
     logLevel: 'error',
   });
@@ -175,6 +176,44 @@ test('a browser gesture retries the current segment before advancing', async () 
       audios[1].end();
       assert.equal(audios.length, 3);
       assert.equal(audios[2].src, getOfflineVoiceClip(segments[1]));
+    } finally {
+      globalThis.Audio.prototype.play = originalPlay;
+    }
+  });
+});
+
+
+test('explicit screen-exit cancellation stops a packaged sequence and rejects its stale completion', async () => {
+  await withVoice(async ({ voice, audios, requests }) => {
+    const segments = findPackagedPair();
+    voice.speak(segments.join(' '), { segments });
+    const departedAudio = audios[0];
+    departedAudio.currentTime = 0.5;
+    voice.cancel();
+    assert.equal(departedAudio.paused, true);
+    assert.equal(departedAudio.currentTime, 0);
+    departedAudio.end();
+    assert.equal(audios.length, 1, 'departed narration cannot continue its next segment');
+    voice.speak(segments[1]);
+    assert.equal(audios.length, 2, 'a new screen can still start its own narration');
+    assert.equal(requests.length, 0);
+  });
+});
+
+
+test('a delayed autoplay rejection cannot re-arm narration after screen exit', async () => {
+  await withVoice(async ({ voice, audios, documentListeners }) => {
+    const originalPlay = globalThis.Audio.prototype.play;
+    let rejectPlay;
+    globalThis.Audio.prototype.play = () => new Promise((resolve, reject) => { rejectPlay = reject; });
+    try {
+      const text = findPackagedPair()[0];
+      voice.speak(text);
+      voice.cancel();
+      rejectPlay(Object.assign(new Error('gesture required'), { name: 'NotAllowedError' }));
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      assert.equal(audios[0].paused, true);
+      assert.equal(documentListeners.size, 0, 'future gestures must not restart departed audio');
     } finally {
       globalThis.Audio.prototype.play = originalPlay;
     }

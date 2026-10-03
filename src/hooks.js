@@ -443,18 +443,24 @@ export const useVoice = (enabled) => {
       // and leave narration silent until a later, unrelated tap.
       const audio = new Audio(offlineClipUrl);
       premiumAudioRef.current = audio;
+      const generation = playbackGenerationRef.current;
+      const isCurrent = () => generation === playbackGenerationRef.current
+        && enabledRef.current
+        && premiumAudioRef.current === audio;
       audio.onended = () => {
         if (premiumAudioRef.current === audio) premiumAudioRef.current = null;
       };
-      audio.onerror = handlePremiumFailure;
+      audio.onerror = () => { if (isCurrent()) handlePremiumFailure(); };
       const playback = audio.play();
-      playback?.then(() => setPremiumStatus('ready')).catch((error) => {
+      playback?.then(() => { if (isCurrent()) setPremiumStatus('ready'); }).catch((error) => {
+        if (!isCurrent()) return;
         if (error?.name === 'NotAllowedError') {
           const retry = () => {
+            if (!isCurrent()) return;
             clearPendingPremiumGesture();
             audio.play()
-              .then(() => setPremiumStatus('ready'))
-              .catch(handlePremiumFailure);
+              .then(() => { if (isCurrent()) setPremiumStatus('ready'); })
+              .catch(() => { if (isCurrent()) handlePremiumFailure(); });
           };
           document.addEventListener('pointerdown', retry, { once: true });
           document.addEventListener('keydown', retry, { once: true });
@@ -546,7 +552,7 @@ export const useVoice = (enabled) => {
       });
   }, [cancelPremiumVoice, clearPendingPremiumGesture, playPackagedSequence]);
 
-  return { speak, voiceMode, setVoiceMode, premiumStatus, premiumEnabled: PACKAGED_NARRATOR_ENABLED };
+  return { speak, cancel: cancelPremiumVoice, voiceMode, setVoiceMode, premiumStatus, premiumEnabled: PACKAGED_NARRATOR_ENABLED };
 };
 
 export const useInstallPrompt = () => {
