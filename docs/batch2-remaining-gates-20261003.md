@@ -143,3 +143,9 @@ Accepted counts remain **4/26**, with four Batch 2 titles in progress and 18 not
 ### Independent Sky start-marker failure — 13:11 UTC
 
 On frozen e223, the plane overlaps and obscures the green numbered start marker on desktop Moon Observatory and390px Sky Castle. The tester preserves actual DOM bounds and screenshots in `qa-evidence/batch2-guidance-final-20261003/`; root inspected the mobile screenshot and confirmed number1 is covered. Finish flags were separately offset and did not overlap. A bounded start-visibility repair is in progress; this new failure has not been accepted or relabelled as passed. Final independent Spot and diagnostic-export checks will use the repaired candidate. Canonical provider recheck at13:10UTC still identifies6b84554, READY and assigned to the expected alias, with no alias error.
+
+### Repaired candidate served — 13:18 UTC
+
+Source83149d hides the plane until accepted tracing begins, leaving the numbered start visible before input; path/mission/restart transitions reset that visibility. It contains repaired Spot spacing and bounded exported hint counts. Root full suite173/173, lint and frozen production-config build pass; all1371 corpus bytes match. After the independent tester saved e223 observations and confirmed safe upgrade, root served the immutable831package on the same QA origins5205/5207 and verified JS/CSS byte hashes. No stored progress was copied or injected. Independent narrow831start-marker, Spot Challenge and actual downloaded hint-count checks are underway.
+
+Vercel [preview831](https://dinospace-e2xpceist-memas-projects-23a0001d.vercel.app), deploymentdpl_8VyFhnvHSU39MVYfqCQEwTZjTmDC, is READY and matches both frozen build assets exactly: [identity](qa-evidence/batch2-start-visible-preview-identity-20261003.json). This preview is not canonical production or4.5acceptance. Production remains6b84554.

@@ -220,19 +220,18 @@
     }
   ],
   "candidate": {
-    "source": "67c8e9d75b7a616b8cd5b478090a78b36274b47f",
+    "source": "83149d897366dcbe8bc4034849d340ed61a0221d",
     "scope": "Batch 2 local changes only; no new production acceptance",
-    "independentChecks": "Monster native preview delta passed; e223 Puzzle mapping/title behavior passed narrow UI observations but hint-count export omitted. e223 Sky finish flags distinct, but plane obscures start number on desktop/mobile Challenge; repair in progress. Final Spot spacing and67c hint-count export checks pending.",
+    "independentChecks": "e223 Puzzle mapping/title controls pass scoped desktop/mobile checks; hint-count export omitted and repaired67c. e223 Sky route/fact/finishflag behavior passes, but start-number overlap failed and repaired831; independent831 Sky start, finalSpot layout, and exported hint-count checks underway.",
     "humanListening": "pending",
     "productionPlaywright": "pending for unreleased changes",
     "preview": {
-      "url": "https://dinospace-18zij40zn-memas-projects-23a0001d.vercel.app",
-      "deploymentId": "dpl_4xceRk64ExrMULULt92oy51Szbz4",
-      "source": "37bd0a3f57aa7b9315cea1459ed6fcc28d100202",
+      "url": "https://dinospace-e2xpceist-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_8VyFhnvHSU39MVYfqCQEwTZjTmDC",
+      "source": "83149d897366dcbe8bc4034849d340ed61a0221d",
       "renderedAssetMatch": true,
       "scope": "Preview only, not production acceptance"
     },
-    "testRevision": "3be2d90e37ecfc7a6a49f0298c30051b6435934c",
     "sourceGates": {
       "tests": 173,
       "passed": 173,

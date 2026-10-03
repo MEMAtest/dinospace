@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-03T13:17:59.047633+00:00",
+  "url": "https://dinospace-e2xpceist-memas-projects-23a0001d.vercel.app",
+  "deploymentId": "dpl_8VyFhnvHSU39MVYfqCQEwTZjTmDC",
+  "state": "READY",
+  "target": null,
+  "sourceSha": "83149d897366dcbe8bc4034849d340ed61a0221d",
+  "buildAssets": [
+    {
+      "path": "/assets/index-B8F2g6Xc.js",
+      "sha256": "eb284559d1686de42a4754d7cf73b0fd3b304a0adb6df0d6c440507176e49752",
+      "servedSha256": "eb284559d1686de42a4754d7cf73b0fd3b304a0adb6df0d6c440507176e49752",
+      "match": true
+    },
+    {
+      "path": "/assets/index-CUmO8J4O.css",
+      "sha256": "d8fe5109969658486618b98444a2d23d3fb411f1604a6081d45d3e5ed90f5d2f",
+      "servedSha256": "d8fe5109969658486618b98444a2d23d3fb411f1604a6081d45d3e5ed90f5d2f",
+      "match": true
+    }
+  ],
+  "configuration": {
+    "VITE_ELEVENLABS_ENABLED": "true"
+  },
+  "scope": "READY preview with exact local831asset match. Not production, gameplay acceptance or human listening."
+}
