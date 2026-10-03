@@ -1,0 +1,22 @@
+{
+  "sourceSha": "e7ec3f550177f937cb7a5d021dae8447aaf18d3b",
+  "candidate": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-batch6-quality/tmp/batch6-initial-candidate-20261003",
+  "url": "http://127.0.0.1:5251",
+  "checks": {
+    "tests": 185,
+    "failed": 0,
+    "lint": "passed (builder report)",
+    "build": "production voice config passed"
+  },
+  "assets": {
+    "sw.js": "8b7fbf8ebe993cd5ee0ec5891d08c3a43ccfce6df3a2dd9d68b04c127f524c46",
+    "assets/web-CD5lNQXz.js": "c349c43680fa12cc965cd9c8c4d172691801fd42e77320ffcec5084eeec99423",
+    "assets/SolarSystem-edycAdLY.js": "d03d10976e1384b8707cd2bdfe73a433bfdb610dd37b0ba147f0cb2a3e43f821",
+    "assets/index-BO6NpCPQ.js": "29f488630e0ed722a11625bdc2c5205a2a7c1ec5a15c098d05ca135340f55025",
+    "assets/index-CZIXwkmD.css": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3"
+  },
+  "limitations": [
+    "Independent browser and editorial acceptance pending",
+    "Incomplete packaged narration; no listening/device/offline/production acceptance"
+  ]
+}
