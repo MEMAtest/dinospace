@@ -25,3 +25,7 @@ The four authored narration inventories are now enumerable from pure data throug
 ## Integrated source gate and build diagnosis
 
 After the builders stopped, root ran the full repository suite: 197/197 passed, and ESLint passed. The first sequential build reproduced the missing `dist/assets` error. This was not merely parallel contention: the PWA close hook masked Rollup's original import diagnostic. Root now skips precache injection after a failed build, exposing the actual Count import mismatch. `recentCountQuestionIds` is exported by `countTheStarsProgress.js`, not `countTheStarsBatch3.js`; root moved the import. The repaired production-config build succeeded in a unique output directory. The earlier failure records remain; later independent retry/navigation corrections still need a refreshed frozen candidate and browser checks.
+
+## Independent source review follow-up
+
+The [independent Trace/Cosmic review](qa-evidence/batch3-trace-cosmic-source-review-20261003.md) identified three gaps. Builder `ec6cd81` repairs interrupted-stroke reset while preserving completed strokes, and asks Keep playing/Leave board before internal Cosmic navigation. Root adds a same-letter capital/lowercase comparison card to every Growing trace round; the requested form is indicated and the child compares the pair before tracing. These corrections still need independent actual-control checks; the first frozen `afc5f90` identity predates them and is historical only.

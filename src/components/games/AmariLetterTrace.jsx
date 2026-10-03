@@ -493,6 +493,14 @@ const AmariLetterTrace = ({
         <div className="flex items-center gap-2"><button type="button" onClick={() => say(AMARI_TRACE_NARRATION[0])} className="grid min-h-12 min-w-12 place-items-center rounded-xl bg-blue-100 text-blue-900" aria-label="Hear the tracing instruction again"><Volume2 size={22} /></button><button type="button" onClick={onToggleSound} aria-pressed={soundOn} className="min-h-12 rounded-xl bg-slate-100 px-3 font-black text-slate-800">Sound {soundOn ? 'on' : 'off'}</button></div>
       </div>
       <section className="rounded-2xl border border-blue-100 bg-white/90 p-3 shadow" aria-label="Letter tracing exercise">
+        {level === 1 && <div className="mb-3 rounded-2xl bg-indigo-50 p-3 text-center" aria-label={`Same letter pair: capital ${letter.upper} and lowercase ${letter.lower}`}>
+          <div className="flex justify-center gap-4">
+            {[['Capital', letter.upper], ['Lowercase', letter.lower]].map(([label, form]) => <div key={label} className={`min-w-24 rounded-xl border-2 px-4 py-2 ${form === traceLetter ? 'border-blue-600 bg-white' : 'border-indigo-100 bg-indigo-100/50'}`}>
+              <p className="text-xs font-bold text-indigo-900">{label}</p><p className="text-4xl font-black text-blue-900">{form}</p>
+            </div>)}
+          </div>
+          <p className="mt-2 text-sm font-bold text-indigo-950">Both forms are the same letter. Compare their shapes, then trace {traceLetter === letter.upper ? 'the capital' : 'the lowercase'} form.</p>
+        </div>}
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2"><p className="font-bold text-slate-800">Start at green {strokeStateRef.current.completed + 1}; follow the arrows.</p><p className="font-black text-blue-800" aria-live="polite">{traceProgress}% traced</p></div>
         <div className="h-3 overflow-hidden rounded-full bg-blue-100" role="progressbar" aria-label="Letter path progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={traceProgress}><div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-700" style={{ width: `${traceProgress}%` }} /></div>
         <div className="mt-3 grid min-h-[280px] h-[min(48vh,440px)] w-full overflow-hidden rounded-2xl border-4 border-blue-200 bg-sky-50 sm:min-h-[340px]">
