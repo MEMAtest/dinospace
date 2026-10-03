@@ -68,6 +68,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const [hadMiss, setHadMiss] = useState(false);
   const [episodeBadge, setEpisodeBadge] = useState(false);
   const [chapterBonusStars, setChapterBonusStars] = useState(0);
+  const [newMissionStars, setNewMissionStars] = useState(0);
 
   const episode = SKY_SHAPE_EPISODES[episodeIndex] || SKY_SHAPE_EPISODES[0];
   const mission = queue[roundIndex] || null;
@@ -112,6 +113,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     setMissionAccuracy(0);
     setMissionStars(1);
     setChapterBonusStars(0);
+    setNewMissionStars(0);
     setHadHint(false);
     setHadMiss(false);
     setFeedback(`Start at the green 1. Trace the ${mission.shape} outline.`);
@@ -198,6 +200,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
         if (result) {
           setProgress(result.progress);
           setChapterBonusStars(result.chapterBonusStars);
+          setNewMissionStars(result.awardedStars);
           const awarded = result.awardedStars + result.chapterBonusStars;
           if (awarded > 0) onCelebrate(`${mission.name} complete!${result.chapterBonusStars ? ' Aviator badge earned!' : ''}`, skyRewardCallbackUnits(awarded), 0, 'jet');
           if (roundIndex === queue.length - 1 && result.episodeComplete) {
@@ -497,8 +500,8 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
         </div>
 
         <div className="mt-3 rounded-2xl border-2 border-white/20 bg-white/10 p-3 text-center">
-          <p className="min-h-12 text-base font-black sm:text-lg" role="status" aria-live="polite">{traceReady ? `${missionAccuracy}% accurate · ${missionStars} ${missionStars === 1 ? 'star' : 'stars'} earned.` : feedback}</p>
-          {traceReady && <p className="mt-1 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-sky-50">You followed {Math.round((missionAccuracy / 100) * 100)}% of your trail near the outline. Your sky-stars are saved with this mission.</p>}
+          <p className="min-h-12 text-base font-black sm:text-lg" role="status" aria-live="polite">{traceReady ? `${missionAccuracy}% accurate · ${missionStars} of 3 accuracy stars.` : feedback}</p>
+          {traceReady && <p className="mt-1 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-sky-50">Your best flight rating is saved. {newMissionStars > 0 ? `${newMissionStars} new ${newMissionStars === 1 ? 'star' : 'stars'} added to your collection!` : 'Try a new mission to collect more stars.'}</p>}
           {traceReady && chapterBonusStars > 0 && <p className="mt-1 font-black text-yellow-200">Aviator badge saved · {chapterBonusStars} bonus stars added!</p>}
           {traceReady && <div className="mt-2 flex justify-center gap-2 text-3xl" aria-label={`${missionStars} of 3 accuracy stars`}>{Array.from({ length: 3 }, (_, index) => <span key={index} aria-hidden="true" className={index < missionStars ? 'text-yellow-300' : 'text-white/35'}>★</span>)}</div>}
           <div className="mt-3 flex flex-wrap justify-center gap-2">
