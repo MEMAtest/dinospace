@@ -146,3 +146,7 @@ The Batch 2 runtime candidate is frozen at83149d for independent final controls;
 ## Functional production release — 3 October 2026
 
 Batch 2 runtime repairs are now canonical production at `3cdfc426e91b46a855448690278ceb6590280b68`, deployment `dpl_Yw6eFRkrTbgF7b9hw2oyUdSXJA9W`. Vercel reports READY production with the canonical alias assigned, and the served JS/CSS hashes match frozen runtime `83149d` exactly. See [production identity](qa-evidence/batch2-functional-production-identity-20261003.json). Final independent production Playwright controls are in progress; human listening and final editorial acceptance remain pending. This supersedes older current-release statements while preserving their historical evidence. Accepted count remains 4/26. Batch 3 stays isolated and unreleased.
+
+## Batch 3 candidate and Batch 4 preparation — 3 October 2026
+
+The separate Batch 3 branch has a frozen local candidate `7c79f47154d97f877858bd3d5124c37cf23bb5e6` passing 198/198 tests, lint and build. Independent Luna reviewers are exercising its four games at desktop and 390px. Narration packaging/runtime wiring and all production/editorial acceptance remain pending; it is not deployed. The next four games now have a [concrete arithmetic and time implementation plan](batch4-arithmetic-time-implementation-plan-20261003.md), based on a source audit. Plans alone leave their status not started. Counts remain 4 accepted, 8 in progress, 14 not started.
