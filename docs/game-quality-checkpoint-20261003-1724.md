@@ -22,3 +22,9 @@ Canonical production remains3cdfc426e91b46a855448690278ceb6590280b68 with the re
 ## Packaging update — 17:35UTC
 
 Batch3 frozen76be035 now passes204/204 fullsource tests, fullESLint, productionconfigurationbuild and6servedasset matches. Its finite narration worker has generated30newclips; all46currentlymapped clips decoded without ffmpeg errors and have retained duration/SHA256/byte records.229clips remain. The worker is waiting under the request journal, not failed. Its status/log are now supervised by the existing quiet production health automation; monitoring cannot restart it or call providers. No new production release or accepted score.
+
+## Challenge blocker and repair — 17:40UTC
+
+Independent5223 mobile Trace Challenge reproduced K→c retaining DOG/ANT/KID; none matched c, blocking the round. Reset now clears the prior choices; immutable5231 sourcec7c6575 passes204tests/focusedlint/build and6servedhashes. Independent consecutive-letter and fullChallenge checks are assigned on that exact candidate; the failure remains recorded on5223. No accepted score orrelease.
+
+Fresh5227 arithmetic QA now completes all18questions in Addition and Subtraction at both widths; wrong/hints/zero/equalgroups and positive replay improvement vs equal-best noextraaward are observed. Time/number-line deltas and final report remain underway. Worker has55newclips saved/204pending at17:40UTC; its rate-window wait is expected.

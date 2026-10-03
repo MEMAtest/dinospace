@@ -251,16 +251,16 @@
   "implementationBatch": 3,
   "implementationBranch": "codex/amari-batch3-quality-20261003",
   "implementationCandidate": {
-    "source": "76be035d3c08e8eb302bbf637316d85606ecfec5",
+    "source": "c7c6575d956238c9b6d6797c76de253fe4e95c50",
     "branch": "codex/amari-batch3-quality-20261003",
     "testsPassed": 204,
     "lint": "passed",
     "build": "passed",
-    "localPlaywright": "Count653 complete Starter/Growing/Challenge and replay at both widths; Dino569 complete12 worlds at both widths; Cosmic5215 complete3 chapters at both widths. Trace5223 active marker repair passes D/P both widths, full8-round three-band matrix underway. No new production acceptance.",
-    "narration": "275unique clips:46mapped/decoded,229pending after first30 generated. Finite supervisor is rate-window waiting, source checkpointed. Independent native playback and human listening remain open.",
+    "localPlaywright": "Count653 complete Starter/Growing/Challenge and replay at both widths; Dino569 complete12 worlds at both widths; Cosmic5215 complete3 chapters at both widths. Trace5223 active marker repair passes D/P both widths, full8-round three-band matrix underway. No new production acceptance. Independent5223Challenge found retained previousletterchoices blocking round2; repaired5231 consecutiveletter/fullChallenge delta nowassigned.",
+    "narration": "Finite275clip worker making expectedprogress;55newclips saved,204pending at17:40UTC. Frozen5231 contains first30additions (46mapped/decoded). Remainingpackaging/native/listening gates open.",
     "release": "Not deployed or accepted",
-    "sourceGateScope": "Full204tests/ESLint/productionconfigurationbuild and6servedhashes passed at immutable5229",
-    "identity": "work/dinospace-batch3-quality/docs/qa-evidence/batch3-narration-cancel-identity-20261003.json"
+    "sourceGateScope": "204/204 tests, focused Trace ESLint, productionconfigurationbuild and6servedhashes on5231; fullESLint prior76be035",
+    "identity": "work/dinospace-batch3-quality/docs/qa-evidence/batch3-word-choice-identity-20261003.json"
   },
   "nextImplementationBatch": {
     "batch": 4,
