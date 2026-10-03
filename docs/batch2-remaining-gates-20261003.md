@@ -36,3 +36,9 @@ The finite narration worker is a separate gate. The latest saved preflight check
 5. Monster current-6b UI regression spot checks for episode labeling, single clue/explanation, and pre-answer subtraction route.
 
 Do not repeat the 24-run baseline, rerun closed `18+2` evidence without an identity break, or count saved failed rows as new test runs. Audio completion/listening/production gates proceed separately as the worker and audio reviewers finish.
+
+## Additional reproduced visual defect — separate local lineage
+
+The [Spot marker reproduction](qa-evidence/spot-marker-20261003/reproduction.md) on source `a32f2e0` found that a selected detail's green marker appeared at the picture origin, 290px horizontally and 73.94px vertically from its target. Source `6d18cce` gives found markers the same percentage coordinates as their details and makes the decorative marker ignore pointer events. It changes no question queue, scoring, narration or progression.
+
+Candidate tests: 162/162, lint and build pass. Frozen local `tmp/batch2-spot-marker-20261003`, port 5198, production voice flag enabled. JS `index-ru9r4zVs.js` SHA256 `24960c1feb0821cc5552bb0c9d81f89373037461c685d2d0e20417efe3083b1f`; CSS `index-CU-OkS6z.css` SHA256 `2613b85082a6ae658aaf50bd961b80106c8249c46da4366c7a7489d3052b9e7e`. Independent marker, same-viewport Spot replay and control-bound checks are underway. This is not a production repair or acceptance claim.
