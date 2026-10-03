@@ -1,0 +1,80 @@
+{
+  "candidate": {
+    "sourceSha": "037914f48e5198ca97c03668baa1d0d2dbf40369",
+    "origin": "http://127.0.0.1:5207",
+    "js": {
+      "file": "index-BSWKtpbm.js",
+      "sha256": "31b725a9caf8f216466d79e57097606e8530b0928d372ae7862fabd86414e100"
+    },
+    "css": {
+      "file": "index-D3NTSs-Z.css",
+      "sha256": "008707f972ebe009fcbfcf5aa50207cc0c8a381f3f4e89fa1d22194374a681db"
+    }
+  },
+  "viewports": {
+    "desktop": { "width": 1280, "height": 800, "documentWidth": 1280 },
+    "mobile": { "width": 390, "height": 844, "documentWidth": 390 }
+  },
+  "routeGuards": {
+    "patterns": ["**/api/voice**", "**/api/story**"],
+    "installedThrough": "page.route abort handlers before candidate reload",
+    "cliRouteList": "No active routes (CLI route-list does not enumerate page.route handlers)",
+    "requestInventory": "No /api/voice or /api/story requests recorded"
+  },
+  "console": { "desktop": { "messages": 0, "errors": 0, "warnings": 0 }, "mobile": { "messages": 0, "errors": 0, "warnings": 0 } },
+  "scenes": [
+    {
+      "title": "Robin’s Tree",
+      "chapter": "Picture Pioneers",
+      "grid": "2x2",
+      "asset": "robin-tree-3d-C6X3IbOn.webp",
+      "naturalSize": [1254, 1254],
+      "desktop": { "previewBoardTraySourceAligned": true, "completion": true, "minBoardTargetPx": 198, "minTrayTargetPx": 49.47 },
+      "mobile": { "previewBoardTraySourceAligned": true, "completion": true, "minBoardTargetPx": 128, "minTrayTargetPx": 48.16 },
+      "fact": "Robins use their beaks to find small insects and worms in the soil."
+    },
+    {
+      "title": "Treehouse Robots",
+      "chapter": "Curious Constructors",
+      "grid": "3x3",
+      "asset": "treehouse-robots-3d-s6y8m7qr.webp",
+      "naturalSize": [1254, 1254],
+      "desktop": { "previewBoardTraySourceAligned": true, "hintedPlacement": true, "minBoardTargetPx": 130.65, "minTrayTargetPx": 49.47 },
+      "mobile": { "previewBoardTraySourceAligned": true, "completion": true, "minBoardTargetPx": 84, "minTrayTargetPx": 50.65 },
+      "fact": "A clear set of steps helps a robot know what to do next."
+    },
+    {
+      "title": "World Explorer",
+      "chapter": "Detail Detectives",
+      "grid": "5x5",
+      "asset": "world-explorer-map-3d-BiOIYdoV.webp",
+      "naturalSize": [1254, 1254],
+      "desktop": { "previewBoardTraySourceAligned": true, "completion": true, "minBoardTargetPx": 68.79, "minTrayTargetPx": 49.46 },
+      "mobile": { "previewBoardTraySourceAligned": true, "completion": true, "minBoardTargetPx": 48.79, "minTrayTargetPx": 50.65 },
+      "fact": "Maps use symbols and pictures to help us understand places."
+    },
+    {
+      "title": "Nature Lab",
+      "chapter": "Detail Detectives",
+      "grid": "5x5",
+      "asset": "nature-lab-leaves-3d-DDByeZD_.webp",
+      "naturalSize": [1254, 1254],
+      "desktop": { "previewBoardTraySourceAligned": true, "hintedPlacement": true, "minBoardTargetPx": 68.79, "minTrayTargetPx": 49.46 },
+      "mobile": { "previewBoardTraySourceAligned": true, "completion": true, "minBoardTargetPx": 48.79, "minTrayTargetPx": 50.65 },
+      "fact": "Leaves can have different shapes, but they all help plants use sunlight."
+    }
+  ],
+  "mobileSharedControls": {
+    "nextPicturePx": [161.75, 48],
+    "leaveKeepPlayingPx": [88.32, 88.32],
+    "leaveBackToWorldPx": [73.6, 73.6],
+    "topStatusSceneName": "ellipsized",
+    "previewSceneTitle": "full"
+  },
+  "limitations": [
+    "No fresh rerun of the 24-row baseline",
+    "Only four changed Puzzle Pop scenes checked here; do not generalize to all twelve",
+    "Audio muted; no human listening assessment",
+    "No canonical production or deployment acceptance"
+  ]
+}

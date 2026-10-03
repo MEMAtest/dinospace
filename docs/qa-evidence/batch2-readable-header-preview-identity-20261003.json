@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-03T12:18:06.020643+00:00",
+  "deploymentId": "dpl_4xceRk64ExrMULULt92oy51Szbz4",
+  "url": "https://dinospace-18zij40zn-memas-projects-23a0001d.vercel.app",
+  "state": "READY",
+  "target": null,
+  "projectId": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w",
+  "gitCommitSha": "37bd0a3f57aa7b9315cea1459ed6fcc28d100202",
+  "publicBuildConfiguration": {
+    "VITE_ELEVENLABS_ENABLED": "true"
+  },
+  "scope": "Vercel preview identity and package checks only; not canonical production or 4.5 acceptance",
+  "httpStatus": 200,
+  "renderedAssets": [
+    {
+      "path": "/assets/index-DwMhgxXE.js",
+      "sha256": "e1e159f6bbe13540e75e93389584439a816b5b530ffcea12f640db7ada99c82d",
+      "matchesLocalProductionConfigBuild": true
+    },
+    {
+      "path": "/assets/index-D3NTSs-Z.css",
+      "sha256": "008707f972ebe009fcbfcf5aa50207cc0c8a381f3f4e89fa1d22194374a681db",
+      "matchesLocalProductionConfigBuild": true
+    }
+  ]
+}
