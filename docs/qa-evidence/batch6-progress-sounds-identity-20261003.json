@@ -1,0 +1,39 @@
+{
+  "sourceSha": "f8f9f7a938870e415e0feac69761e1c18d7d10ad",
+  "url": "http://127.0.0.1:5285",
+  "assets": {
+    "sw.js": "797c6e016c4c67e252b4304543fbd4213995be4bee16e1022892ecfd9e0a1aed",
+    "assets/SolarSystem-CHOhSTvx.js": "e48c49128f7a54ec9a8fe53283fb0b1352651df6fe766fa93641094ece425d0e",
+    "assets/index-CZIXwkmD.css": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+    "assets/index-DnTp545C.js": "ed2bb6c0c45595804f55b07a4d4587469db87a3e1798d37594237e55687afdc6",
+    "assets/web-CsKejXOe.js": "f47014c6ed96870f30f33beb3d09c911d91b19f09df5416dda3ebb2d29391932"
+  },
+  "scope": "Per-attempt SFX wiring only; independent browser sound-event QA pending. Not released or 4.5 accepted.",
+  "servedHashChecks": {
+    "sw.js": {
+      "status": 200,
+      "actual": "797c6e016c4c67e252b4304543fbd4213995be4bee16e1022892ecfd9e0a1aed",
+      "matches": true
+    },
+    "assets/SolarSystem-CHOhSTvx.js": {
+      "status": 200,
+      "actual": "e48c49128f7a54ec9a8fe53283fb0b1352651df6fe766fa93641094ece425d0e",
+      "matches": true
+    },
+    "assets/index-CZIXwkmD.css": {
+      "status": 200,
+      "actual": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+      "matches": true
+    },
+    "assets/index-DnTp545C.js": {
+      "status": 200,
+      "actual": "ed2bb6c0c45595804f55b07a4d4587469db87a3e1798d37594237e55687afdc6",
+      "matches": true
+    },
+    "assets/web-CsKejXOe.js": {
+      "status": 200,
+      "actual": "f47014c6ed96870f30f33beb3d09c911d91b19f09df5416dda3ebb2d29391932",
+      "matches": true
+    }
+  }
+}
