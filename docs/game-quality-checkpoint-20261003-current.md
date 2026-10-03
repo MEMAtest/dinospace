@@ -29,3 +29,13 @@ Batch7b36d078albumintegration passed183tests/lint/build and actual root SolarEar
 ## Canonical Batch 3 functional release
 
 Vercel promotion succeeded for dpl_2d8La99iCHGQAUNjCpfagawN9LB8, source a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4. Root verified READY and all seven canonical asset hashes. Independent configured-preview controls passed with the retained full local baseline; fresh canonical production deltas are underway for all four games at desktop and390px. Accepted count remains4/26; human listening and editorial acceptance remain open. The small “How many planet” copy defect is repaired in source after the frozen release and is not yet redeployed. Batch5 now has a concrete37-file pure-phoneme recording/rights contract and user-owned/licensed recordings have been requested; no new provider job launched.
+
+## Further independent QA and repairs
+
+Batch6 mobile5265Pattern all18missions and Astronaut all18missions passed the reported progression/fact checks. The reviewer reproduced a daily3/3 floating badge intercepting mission navigation at390px. Sourcec8b76e8 suppresses that overlay in all four batch-owned chapter games; lint/productionbuild pass, immutable5267has5/5matchingHTTPassets, narrow independent delta pending. Existing failure remains preserved.
+
+Batch7 independent desktopMemoryhas completed levels1–6 through actual revealed-card play, increasing from4to14pairs; full ten-level desktop/mobile and nine-world Solar matrix remains underway, not accepted.
+
+Batch3 canonical keyboard QA found partial stroke progress remained0until finishing the stroke. Sourcea1eec24 now refreshes visible progress on each arrow; counting grammar repair is included. Lint/productionbuild pass; immutable5271has7/7matchingHTTPassets and independent narrow delta is queued after current canonical checks. Neither copy nor keyboard progress repair is canonical yet.
+
+Batch4 narration worker18781was verified live; status21:32UTCrun28has4801pending,0cooldownretries, waiting for the next request window. One finite authorized worker remains active; no concurrent narration job launched.
