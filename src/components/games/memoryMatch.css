@@ -339,6 +339,10 @@
 .memory-card-back-label { z-index: 1; margin-top: 4px; font-size: clamp(.48rem, .72vw, .64rem); font-weight: 1000; letter-spacing: .16em; opacity: .86; }
 .memory-card-front { gap: 2px; transform: rotateY(180deg); border: 2px solid rgb(255 255 255 / 94%); background: radial-gradient(ellipse at 30% 13%, white, transparent 48%), linear-gradient(150deg, #fff, color-mix(in srgb, var(--memory-glow) 80%, white)); box-shadow: 0 5px 0 rgb(68 106 145 / 33%), 0 9px 15px rgb(31 57 83 / 17%), inset 0 1px 0 white; color: #193856; }
 .memory-card-art { display: grid; flex: 1; min-height: 0; width: 100%; place-items: end center; padding-top: 9%; font-size: clamp(1.75rem, 4.5vw, 4rem); line-height: 1; filter: drop-shadow(0 4px 2px rgb(15 41 66 / 15%)); }
+.memory-card-art-image { display: block; width: 88%; height: 90%; object-fit: contain; }
+.memory-card-art-sprite { display: block; width: 88%; height: 90%; background-repeat: no-repeat; background-size: 390% 390%; filter: drop-shadow(0 4px 2px rgb(15 41 66 / 16%)); }
+.memory-card-art-monkey { background-position: 88% 38%; }
+.memory-card-art-frog { background-position: 95% 86%; }
 .memory-card-label { display: block; max-width: 94%; min-height: 1.1em; overflow: hidden; padding: 2px 2px 7%; color: var(--memory-accent-dark); font-size: clamp(.55rem, .92vw, .74rem); font-weight: 950; line-height: 1.05; text-align: center; text-overflow: ellipsis; text-transform: capitalize; white-space: nowrap; }
 .memory-card.is-matched .memory-card-front { border-color: #ffe275; box-shadow: 0 5px 0 #d79a19, 0 0 19px rgb(255 211 76 / 52%), inset 0 1px 0 white; animation: memory-match-pop .4s ease-out both; }
 @keyframes memory-match-pop { 0% { transform: rotateY(180deg) scale(.94); } 55% { transform: rotateY(180deg) scale(1.045); } 100% { transform: rotateY(180deg) scale(1); } }
@@ -368,8 +372,8 @@
   .memory-repeat-button { width: 48px; height: 48px; border-radius: 15px; }
   .memory-play-area { padding: 10px 8px 9px; border-radius: 23px; }
   .memory-play-heading { flex-direction: column; align-items: stretch; gap: 7px; margin-bottom: 9px; }
-  .memory-level-nav { justify-content: flex-start; gap: 5px; padding: 3px 3px 6px; }
-  .memory-level-step { flex-basis: 48px; width: 48px; height: 48px; border-radius: 16px; }
+  .memory-level-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(48px, 1fr)); justify-content: center; gap: 5px; overflow: visible; padding: 3px 3px 6px; }
+  .memory-level-step { width: 100%; min-width: 48px; height: 48px; border-radius: 16px; }
   .memory-stats { justify-content: space-between; gap: 5px; }
   .memory-stats span { min-width: 48px; min-height: 42px; flex: 1; padding: 3px 4px; border-radius: 12px; }
   .memory-stats strong { font-size: .88rem; }

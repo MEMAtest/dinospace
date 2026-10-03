@@ -365,7 +365,10 @@ const PlayerSession = ({
   return (
     <>
       {content}
-      {currentGame && !little && !currentGame.little && !NO_CHALLENGE_TRACKER.has(currentGame.id) && (!GAME_SESSIONS[currentGame.id] || sessionPhase === 'play') && (
+      {currentGame && !little && !currentGame.little && !NO_CHALLENGE_TRACKER.has(currentGame.id)
+        // Memory Match owns its live board and completion panel. Its play/done
+        // phases keep the floating tracker away from card targets throughout.
+        && (currentGame.id === 'memory' ? sessionPhase === 'map' : (!GAME_SESSIONS[currentGame.id] || sessionPhase === 'play')) && (
         <DailyChallengeTracker
           challenge={todaysChallenge}
           progress={challengeProgress}

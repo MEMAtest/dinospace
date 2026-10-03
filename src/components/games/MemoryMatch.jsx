@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Sparkles, Star, Volume2 } from 'lucide-react';
 import { MEMORY_LEVELS } from '../../data/index.js';
-import { memoryCardLabel } from '../../data/memoryMatchContent.js';
+import { memoryCardLabel, MEMORY_CARD_ILLUSTRATIONS } from '../../data/memoryMatchContent.js';
 import { getPraise, loadSaved, saveSafe } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { getGameLevel, nextGameLevelIndex, saveGameLevel } from '../../data/sessionLevels.js';
@@ -10,6 +10,9 @@ import askiaArt from '../../assets/little/askia-detective.webp';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
 import fireEngineArt from '../../assets/little/rescue-firetruck.webp';
 import trexArt from '../../assets/little/detective-trex.webp';
+import brontoArt from '../../assets/little/detective-bronto.webp';
+import friendlyCarArt from '../../assets/german-garage/friendly-car.png';
+import safariAnimalsArt from '../../assets/spot-difference/sound-safari-animals-3d.webp';
 import memoryCoachArt from '../../assets/little/askia-detective.webp';
 import './memoryMatch.css';
 import { buildSeededMemoryDeck, memoryStrategy, readMemoryPassport, completeMemoryBoard } from '../../data/batch7Progress.js';
@@ -30,16 +33,24 @@ const ASKIA_CARD_ART = {
   '🦖': trexArt,
 };
 
-const cardName = (emoji, levelId) => memoryCardLabel(emoji, levelId);
-const SPOKEN_CARD_NAMES = {
-  '🚂': 'train', '🪨': 'rock', '👨‍🚀': 'astronaut', '🐟': 'fish', '🚆': 'picture', '🚤': 'picture',
-  '🛵': 'picture', '🚲': 'picture', '🚌': 'picture', '🚜': 'picture', '🌠': 'picture', '☀️': 'picture', '🌞': 'picture',
-  '🌑': 'picture', '🌕': 'picture', '🐾': 'picture', '🪺': 'picture', '🦷': 'picture', '⛏️': 'picture',
-  '🌳': 'picture', '🌱': 'picture', '🦆': 'picture', '🪷': 'picture', '🐌': 'picture', '🐝': 'picture',
-  '🦋': 'picture', '🐞': 'picture', '🐛': 'picture', '🪱': 'picture', '🐜': 'picture', '🕷️': 'picture',
-  '🌷': 'picture', '🍄': 'picture',
+const MEMORY_ASSET_BY_PATH = {
+  'little/detective-bronto.webp': brontoArt,
+  'little/detective-trex.webp': trexArt,
+  'little/fuel-rocket.webp': rocketArt,
+  'little/rescue-firetruck.webp': fireEngineArt,
+  'german-garage/friendly-car.png': friendlyCarArt,
+  'spot-difference/sound-safari-animals-3d.webp': safariAnimalsArt,
 };
-const spokenCardName = (emoji, levelId) => SPOKEN_CARD_NAMES[emoji] || cardName(emoji, levelId);
+const AMARI_CARD_ART = Object.fromEntries(Object.entries(MEMORY_CARD_ILLUSTRATIONS).map(([emoji, art]) => [
+  emoji,
+  art.crop
+    ? { type: 'sprite', className: `memory-card-art-sprite memory-card-art-${art.crop}` }
+    : { type: 'image', src: MEMORY_ASSET_BY_PATH[art.asset], className: 'memory-card-art-image' },
+]));
+
+const cardName = (emoji, levelId) => memoryCardLabel(emoji, levelId);
+const spokenCardName = (emoji, levelId) => cardName(emoji, levelId);
+const speakMemory = (speak, text) => speak(text, { premium: false });
 const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, playerId, littleMode = false, onPhaseChange }) => {
   const levels = littleMode ? ASKIA_MEMORY_LEVELS : MEMORY_LEVELS;
   const [levelIndex, setLevelIndex] = useState(() => getGameLevel(playerId, 'memory', levels.length).current);
@@ -79,13 +90,15 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const matches = deck.filter((card) => card.matched).length / 2;
 
   useEffect(() => {
-    speak('Find the matching pairs.');
-  }, [levelIndex, level.name, littleMode, speak]);
+    if (littleMode) speak('Find the matching pairs.');
+    else speakMemory(speak, strategy);
+  }, [levelIndex, level.name, littleMode, speak, strategy]);
 
   const finishLevel = (finalMatches, finalMoves) => {
     clearInterval(timerRef.current);
     const praise = getPraise();
-    speak('You matched them all. Fantastic memory!');
+    if (littleMode) speak('You matched them all. Fantastic memory!');
+    else speakMemory(speak, 'You matched them all. Fantastic memory!');
     playSfx('success');
     setCompletionMessage(praise);
     setShowLevelComplete(true);
@@ -131,7 +144,8 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     playSfx('flip');
     if (nextFlipped.length < 2) {
       setFlipped(nextFlipped);
-      speak(`You found a ${spokenCardName(deck[index].emoji, level.id)}. Remember where it is.`);
+      if (littleMode) speak('Find the matching pairs.');
+      else speakMemory(speak, `You found the ${spokenCardName(deck[index].emoji, level.id)}. Remember where it is.`);
       return;
     }
 
@@ -147,7 +161,8 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       setFlipped([]);
       setLocked(false);
       playSfx('sparkle');
-      speak(`A pair of ${spokenCardName(deck[first].emoji, level.id)}s!`);
+      if (littleMode) speak('Find the matching pairs.');
+      else speakMemory(speak, `You matched the ${spokenCardName(deck[first].emoji, level.id)} pair.`);
       if (littleMode) onCelebrate(getPraise(), 4, 200);
       if (matches + 1 === level.emojis.length) finishLevel(matches + 1, moves + 1);
     } else {
@@ -160,7 +175,8 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         setFlipped([]);
         setLocked(false);
         playSfx('oops');
-        speak('Those pictures are different. Try to remember where each one is.');
+        if (littleMode) speak('Those pictures are different. Try to remember where each one is.');
+        else speakMemory(speak, 'Those pictures are different. Try to remember where each one is.');
       }, littleMode ? 1500 : 700);
     }
   };
@@ -219,7 +235,11 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                 ? <img src={ASKIA_CARD_ART[card.emoji]} alt="" draggable="false" />
                 : card.emoji === '⭐️'
                   ? <Star aria-hidden="true" className="memory-little-star-art" fill="currentColor" />
-                  : card.emoji) : <><span className="memory-card-art" aria-hidden="true">{card.emoji}</span><span className="memory-card-label" aria-hidden="true">{cardName(card.emoji, level.id)}</span></>}
+              : card.emoji) : <><span className="memory-card-art" aria-hidden="true">{AMARI_CARD_ART[card.emoji]
+                ? AMARI_CARD_ART[card.emoji].type === 'image'
+                  ? <img className={AMARI_CARD_ART[card.emoji].className} src={AMARI_CARD_ART[card.emoji].src} alt="" draggable="false" />
+                  : <span className={AMARI_CARD_ART[card.emoji].className} style={{ backgroundImage: `url("${safariAnimalsArt}")` }} />
+                : card.emoji}</span><span className="memory-card-label" aria-hidden="true">{cardName(card.emoji, level.id)}</span></>}
             </div>
           </div>
         </button>
@@ -295,7 +315,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             <span className="memory-coach-kicker"><Sparkles size={15} aria-hidden="true" /> YOUR MEMORY TIP</span>
             <p role="status">{strategy}</p>
           </div>
-          <button type="button" onClick={() => speak('Find the matching pairs.')} className="memory-repeat-button" aria-label="Repeat the memory tip"><Volume2 size={21} aria-hidden="true" /></button>
+          <button type="button" onClick={() => speakMemory(speak, strategy)} className="memory-repeat-button" aria-label="Repeat the memory tip"><Volume2 size={21} aria-hidden="true" /></button>
         </section>
 
         <section className="memory-play-area" aria-label={`${level.name} memory board`}>

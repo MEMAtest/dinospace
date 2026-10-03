@@ -11,7 +11,7 @@ export const MEMORY_CARD_LABELS = Object.freeze({
   '🚂': 'steam train', '🚆': 'passenger train', '🚁': 'helicopter', '🏎️': 'racing car', '🚒': 'fire engine',
   '🚤': 'speedboat', '🛵': 'scooter', '🚲': 'bicycle', '🚌': 'bus', '🚜': 'tractor', '🚦': 'traffic light',
   '🍎': 'apple', '🍌': 'banana', '🍇': 'grapes', '🥕': 'carrot', '🧀': 'cheese', '🍪': 'biscuit',
-  '🥤': 'drink', '🌽': 'corn', '👨‍🚀': 'astronaut in a white suit', '🧑‍🚀': 'astronaut waving', '🌍': 'Earth',
+  '🥤': 'drink', '🌽': 'corn', '👨‍🚀': 'suited astronaut', '🧑‍🚀': 'waving astronaut', '🌍': 'Earth',
   '🔭': 'telescope', '🌠': 'shooting star', '🐾': 'dinosaur footprints', '🪺': 'dinosaur nest',
   '🦷': 'tooth', '⛏️': 'fossil dig pick', '🌳': 'tree', '🌱': 'seedling', '⛰️': 'mountain',
   '🦆': 'duck', '🪷': 'water lily', '🐌': 'snail', '🐝': 'bee', '🦋': 'butterfly', '🐞': 'ladybird',
@@ -26,6 +26,52 @@ const CONTEXTUAL_LABELS = Object.freeze({
   'cosmic-challenge': { '🪨': 'moon rock' },
 });
 
+// Only art with a confirmed semantic match is listed here. Similar cards keep
+// their own art token or remain clearly named emoji until matching artwork is
+// available; sprite crops are explicitly distinguished by `crop`.
+export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
+  '🦕': Object.freeze({ asset: 'little/detective-bronto.webp' }),
+  '🦖': Object.freeze({ asset: 'little/detective-trex.webp' }),
+  '🚀': Object.freeze({ asset: 'little/fuel-rocket.webp' }),
+  '🚒': Object.freeze({ asset: 'little/rescue-firetruck.webp' }),
+  '🚗': Object.freeze({ asset: 'german-garage/friendly-car.png' }),
+  '🐵': Object.freeze({ asset: 'spot-difference/sound-safari-animals-3d.webp', crop: 'monkey' }),
+  '🐸': Object.freeze({ asset: 'spot-difference/sound-safari-animals-3d.webp', crop: 'frog' }),
+});
+
 export function memoryCardLabel(emoji, levelId) {
   return CONTEXTUAL_LABELS[levelId]?.[emoji] || MEMORY_CARD_LABELS[emoji] || 'unlabelled card';
+}
+
+export const MEMORY_STRATEGY_LINES = Object.freeze([
+  'Scan one row at a time. Say the picture and remember its place before turning another card.',
+  'Group nearby cards in your mind. When a picture returns, recall the place where you saw its partner.',
+  'Try recalling both places before you turn the second card. Keep the same board until every pair is found.',
+]);
+
+export function memoryNarrationLines(levels) {
+  const cardLines = levels.flatMap((level) => [...new Set(level.emojis)].flatMap((emoji) => {
+    const label = memoryCardLabel(emoji, level.id);
+    return [`You found the ${label}. Remember where it is.`, `You matched the ${label} pair.`];
+  }));
+  return [...new Set([
+    ...MEMORY_STRATEGY_LINES,
+    ...cardLines,
+    'Those pictures are different. Try to remember where each one is.',
+    'You matched them all. Fantastic memory!',
+  ])];
+}
+
+export function memoryIllustrationAudit(levels) {
+  const usages = new Map();
+  levels.forEach((level) => level.emojis.forEach((emoji) => {
+    if (!usages.has(emoji)) usages.set(emoji, []);
+    usages.get(emoji).push({ levelId: level.id, label: memoryCardLabel(emoji, level.id) });
+  }));
+  return [...usages.entries()].map(([emoji, boards]) => ({
+    emoji,
+    labels: [...new Set(boards.map(({ label }) => label))],
+    boards: boards.map(({ levelId }) => levelId),
+    illustration: MEMORY_CARD_ILLUSTRATIONS[emoji] || null,
+  })).sort((a, b) => a.emoji.localeCompare(b.emoji));
 }

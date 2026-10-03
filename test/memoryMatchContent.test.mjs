@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { MEMORY_LEVELS } from '../src/data/index.js';
-import { MEMORY_CARD_LABELS, memoryCardLabel } from '../src/data/memoryMatchContent.js';
+import { MEMORY_CARD_ILLUSTRATIONS, MEMORY_CARD_LABELS, MEMORY_STRATEGY_LINES, memoryCardLabel, memoryIllustrationAudit, memoryNarrationLines } from '../src/data/memoryMatchContent.js';
+import { memoryStrategy } from '../src/data/batch7Progress.js';
 
 test('the Memory Match redesign preserves all canonical levels and pair counts', () => {
   assert.deepEqual(MEMORY_LEVELS.map(({ id }) => id), [
@@ -10,6 +11,7 @@ test('the Memory Match redesign preserves all canonical levels and pair counts',
   assert.deepEqual(MEMORY_LEVELS.map(({ emojis }) => emojis.length), [4, 8, 10, 12, 13, 14, 15, 16, 17, 18]);
   for (const level of MEMORY_LEVELS) {
     assert.equal(new Set(level.emojis).size, level.emojis.length, `${level.name} has duplicate pictures`);
+    assert.equal(new Set(level.emojis.map((emoji) => memoryCardLabel(emoji, level.id))).size, level.emojis.length, `${level.name} has cards with indistinguishable names`);
     for (const emoji of level.emojis) {
       assert.ok(MEMORY_CARD_LABELS[emoji], `${level.name} has no picture label for ${emoji}`);
       assert.notEqual(memoryCardLabel(emoji, level.id), 'unlabelled card');
@@ -44,4 +46,29 @@ test('visually similar vehicles and moon objects have distinct teaching labels',
   assert.notEqual(MEMORY_CARD_LABELS['🚂'], MEMORY_CARD_LABELS['🚆']);
   assert.notEqual(MEMORY_CARD_LABELS['🌙'], MEMORY_CARD_LABELS['🌑']);
   assert.notEqual(MEMORY_CARD_LABELS['🌑'], MEMORY_CARD_LABELS['🌕']);
+});
+
+test('every authored Memory narration names the displayed strategy or visible card', () => {
+  const lines = memoryNarrationLines(MEMORY_LEVELS);
+  assert.ok(MEMORY_STRATEGY_LINES.every((line) => lines.includes(line)));
+  assert.ok([0, 1, 2].every((index) => MEMORY_STRATEGY_LINES.includes(memoryStrategy(index, false))));
+  assert.ok(MEMORY_STRATEGY_LINES.includes(memoryStrategy(2, true)));
+  assert.ok(!lines.some((line) => /^You found the picture\./i.test(line)));
+  for (const level of MEMORY_LEVELS) {
+    for (const emoji of level.emojis) {
+      const label = memoryCardLabel(emoji, level.id);
+      assert.ok(lines.includes(`You found the ${label}. Remember where it is.`));
+      assert.ok(lines.includes(`You matched the ${label} pair.`));
+    }
+  }
+});
+
+test('Memory illustration inventory distinguishes each authored crop and reports unillustrated tokens', () => {
+  const audit = memoryIllustrationAudit(MEMORY_LEVELS);
+  assert.equal(audit.length, new Set(MEMORY_LEVELS.flatMap(({ emojis }) => emojis)).size);
+  assert.deepEqual(Object.keys(MEMORY_CARD_ILLUSTRATIONS), ['🦕', '🦖', '🚀', '🚒', '🚗', '🐵', '🐸']);
+  assert.notEqual(MEMORY_CARD_ILLUSTRATIONS['🦕'].asset, MEMORY_CARD_ILLUSTRATIONS['🦖'].asset);
+  assert.equal(MEMORY_CARD_ILLUSTRATIONS['🐵'].asset, MEMORY_CARD_ILLUSTRATIONS['🐸'].asset);
+  assert.notEqual(MEMORY_CARD_ILLUSTRATIONS['🐵'].crop, MEMORY_CARD_ILLUSTRATIONS['🐸'].crop);
+  assert.ok(audit.some(({ emoji, labels }) => emoji === '🦷' && labels.includes('dinosaur tooth') && !MEMORY_CARD_ILLUSTRATIONS[emoji]));
 });
