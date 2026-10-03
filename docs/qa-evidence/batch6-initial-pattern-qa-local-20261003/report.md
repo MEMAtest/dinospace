@@ -12,7 +12,7 @@ The independent Playwright CLI session used a fresh browser context. Before its 
 
 The CLI default viewport was 1280×720 for the gameplay observations. A later screenshot was captured at 1280×800; the current question remained in the same run. This limited report contains no mobile check.
 
-Four of five candidate assets matched the identity. The served main bundle did not: `assets/index-BO6NpCPQ.js` returned HTTP 200 at 1,114,112 bytes with SHA-256 `b7c664a40a167934ad9041b7d55adeb300243247e47815484fc841697e637267`; identity expects `29f488630e0ed722a11625bdc2c5205a2a7c1ec5a15c098d05ca135340f55025`. The local frozen artifact at `tmp/batch6-initial-candidate-20261003/dist/assets/index-BO6NpCPQ.js` matched the expected hash. Therefore the served UI evidence below is explicitly qualified by this HTTP bundle identity mismatch and should not be represented as proof of exact frozen served bytes.
+At the time of this QA run, four of five direct HTTP asset fetches matched the identity. The fetch of assets/index-BO6NpCPQ.js returned HTTP 200 at 1,114,112 bytes with SHA-256 b7c664a40a167934ad9041b7d55adeb300243247e47815484fc841697e637267; identity expects 29f488630e0ed722a11625bdc2c5205a2a7c1ec5a15c098d05ca135340f55025. The local frozen artifact at tmp/batch6-initial-candidate-20261003/dist/assets/index-BO6NpCPQ.js matched the expected hash. After this report was drafted, root independently fetched the same HTTP asset and observed the expected 1,234,742 bytes and matching SHA. The cause and timing of the discrepancy are unresolved; this report preserves the observation without concluding the candidate server was mutated. A fresh exact-byte check remains part of follow-up testing on the next candidate.
 
 ## Observed Pattern Parade route behavior
 
