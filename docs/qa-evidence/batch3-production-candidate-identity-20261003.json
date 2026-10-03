@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-03T20:56:37.900651+00:00",
+  "url": "https://dinospace-i6pptqfbo-memas-projects-23a0001d.vercel.app",
+  "deploymentId": "dpl_2d8La99iCHGQAUNjCpfagawN9LB8",
+  "sourceSha": "a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4",
+  "target": "production",
+  "aliasPromoted": false,
+  "htmlSelectedAssets": [
+    "/assets/index-CDMB4hb_.js",
+    "/assets/index-CohPvEcn.css"
+  ],
+  "assets": {
+    "sw.js": {
+      "expected": "16210e16fd397e1985cd40146be90f463d124560176064feae1468406d33def3",
+      "actual": "16210e16fd397e1985cd40146be90f463d124560176064feae1468406d33def3",
+      "matches": true
+    },
+    "assets/web-Pgwg7VXr.js": {
+      "expected": "664c77acd5372d62caa4c07f02a09a60a1c52663089115f5ac40ac76ed9a8f9d",
+      "actual": "664c77acd5372d62caa4c07f02a09a60a1c52663089115f5ac40ac76ed9a8f9d",
+      "matches": true
+    },
+    "assets/index-CDMB4hb_.js": {
+      "expected": "9ef561b80a5526b442b4b19e356e6cd126c12bbe0cf31259355b0b8bb897323e",
+      "actual": "9ef561b80a5526b442b4b19e356e6cd126c12bbe0cf31259355b0b8bb897323e",
+      "matches": true
+    },
+    "assets/AmariLetterTrace-CVLWvmkp.js": {
+      "expected": "62e1795c8a012a67feca1d8d1cdc796740a4dafc01ac841e56a2dc9f020295cb",
+      "actual": "62e1795c8a012a67feca1d8d1cdc796740a4dafc01ac841e56a2dc9f020295cb",
+      "matches": true
+    },
+    "assets/SolarSystem-BwYkWOY-.js": {
+      "expected": "d69d8b472c4aaf2e113977cfe843bfd8c9c9268a448ef69b890f784a8397794e",
+      "actual": "d69d8b472c4aaf2e113977cfe843bfd8c9c9268a448ef69b890f784a8397794e",
+      "matches": true
+    },
+    "assets/AmariCountTheStars-DRIJ91Dz.js": {
+      "expected": "9619413cbea1b09779fce8d2531a4ae2b16a698eabcc13db86cfbecdc70928ff",
+      "actual": "9619413cbea1b09779fce8d2531a4ae2b16a698eabcc13db86cfbecdc70928ff",
+      "matches": true
+    },
+    "assets/index-CohPvEcn.css": {
+      "expected": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "actual": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "matches": true
+    }
+  },
+  "scope": "Immutable production candidate static identity only, acceptance and canonical promotion pending"
+}
