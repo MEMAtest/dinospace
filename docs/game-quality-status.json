@@ -1,0 +1,222 @@
+{
+  "updatedAt": "2026-10-03",
+  "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
+  "counts": {
+    "verified 4.5": 4,
+    "in progress": 4,
+    "not started": 18
+  },
+  "canonicalRelease": "6b84554e7a1d21b3db658d213a2298462c78599e",
+  "currentBatch": 2,
+  "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
+  "games": [
+    {
+      "game": "Curriculum Quest",
+      "batch": 1,
+      "status": "verified 4.5",
+      "recordedEditorialScore": 4.5,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": "docs/batch1-editor-scorecard.md"
+    },
+    {
+      "game": "Storybook Studio",
+      "batch": 1,
+      "status": "verified 4.5",
+      "recordedEditorialScore": 4.5,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": "docs/batch1-editor-scorecard.md"
+    },
+    {
+      "game": "Letter Launch",
+      "batch": 1,
+      "status": "verified 4.5",
+      "recordedEditorialScore": 4.5,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": "docs/batch1-editor-scorecard.md"
+    },
+    {
+      "game": "German Garage",
+      "batch": 1,
+      "status": "verified 4.5",
+      "recordedEditorialScore": 4.5,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": "docs/batch1-editor-scorecard.md"
+    },
+    {
+      "game": "Puzzle Pop",
+      "batch": 2,
+      "status": "in progress",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": "docs/batch2-remaining-gates-20261003.md"
+    },
+    {
+      "game": "Spot the Difference",
+      "batch": 2,
+      "status": "in progress",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": "docs/batch2-remaining-gates-20261003.md"
+    },
+    {
+      "game": "Sky Shapes",
+      "batch": 2,
+      "status": "in progress",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": "docs/batch2-remaining-gates-20261003.md"
+    },
+    {
+      "game": "Monster Math",
+      "batch": 2,
+      "status": "in progress",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": "docs/batch2-remaining-gates-20261003.md"
+    },
+    {
+      "game": "Count the Stars",
+      "batch": 3,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Letter Trace",
+      "batch": 3,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Cosmic Tic-Tac-Toe",
+      "batch": 3,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Dino Detective",
+      "batch": 3,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Addition Adventure",
+      "batch": 4,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Subtraction Station",
+      "batch": 4,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Time Teller",
+      "batch": 4,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Number Line Jump",
+      "batch": 4,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Sound Safari",
+      "batch": 5,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Spelling Studio",
+      "batch": 5,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Colour Mixing Lab",
+      "batch": 5,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Odd One Out",
+      "batch": 5,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Pattern Parade",
+      "batch": 6,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Dino Hangman",
+      "batch": 6,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Chess Explorers",
+      "batch": 6,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Astronaut Academy",
+      "batch": 6,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Memory Match",
+      "batch": 7,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    },
+    {
+      "game": "Solar System",
+      "batch": 7,
+      "status": "not started",
+      "recordedEditorialScore": null,
+      "instructions": "docs/game-quality-4.5-roadmap.md",
+      "evidence": null
+    }
+  ]
+}
