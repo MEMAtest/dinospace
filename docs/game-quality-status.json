@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T23:15:08.947291+00:00",
+  "updatedAt": "2026-10-03T23:31:50.462243+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -311,7 +311,8 @@
     "source": "3a0da1b",
     "identity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-narration-repair-identity-20261003.json",
     "soundRepairSource": "f8f9f7a938870e415e0feac69761e1c18d7d10ad",
-    "soundRepairIdentity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-progress-sounds-identity-20261003.json"
+    "soundRepairIdentity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-progress-sounds-identity-20261003.json",
+    "soundQaOrigin": "http://127.0.0.1:5295"
   },
   "batch4PackagingPlan": {
     "source": "ac3b3cc",
@@ -338,10 +339,11 @@
     "deploymentId": "dpl_2STuJZUmaGLU6Vpvj5sb6uSj4B7t",
     "url": "https://dinospace-eight.vercel.app",
     "renderedAssetsMatched": 7,
-    "productionPlaywright": "Independent immutable production candidate desktop/390px clue/wrong/correct/heldNext/reset/Back passed. Fresh canonical delta running after promotion. Sound off; no new audio/listening claim.",
+    "productionPlaywright": "Independent fresh canonical1280x800/390x844 normalunlock/clueonce/wrongretry/correctheldexplanation/Nextreset/Keepplaying/confirmedMathsBackpassed. MobileNext56pxreachablebyscroll,nohorizontaloverflow;consoleclean. Exact2+10unobservednaturally. Soundoff; no newplayback/listeningclaim.",
     "editorialAccepted": false,
     "identityEvidence": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json",
-    "candidateProductionEvidence": "docs/qa-evidence/monster-clue-once-vercel-candidate-20261003/report.md"
+    "candidateProductionEvidence": "docs/qa-evidence/monster-clue-once-vercel-candidate-20261003/report.md",
+    "productionEvidence": "docs/qa-evidence/monster-clue-canonical-20261004/report.md"
   },
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
@@ -355,11 +357,12 @@
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
     "identity": "docs/qa-evidence/monster-clue-once-candidate-identity-20261003.json",
     "productionFailure": "docs/qa-evidence/monster-exact-case-production-20261003/report.md",
-    "state": "Independent local and immutable production desktop/390px clue/wrong/correct/Next/Back deltas passed. Canonical promoted and READY; seven served runtime assets match. Fresh canonical Playwright delta running; not4.5 accepted.",
+    "state": "Canonicalfunctionalrepairreleased: READYexpecteddeployment,7matchingservedassets, independentfreshdesktop/390pxactualcontrols passed. Exact2+10notnaturallyobservedbyindependentreviewer. FullBatch2editorialandhumanlisteningremainopen;not4.5accepted.",
     "productionCandidateIdentity": "docs/qa-evidence/monster-clue-production-candidate-identity-20261003.json",
     "localDesktopEvidence": "docs/qa-evidence/monster-clue-once-independent-20261003/desktop-report.md",
     "localMobileEvidence": "docs/qa-evidence/monster-clue-once-independent-20261003/report.md",
-    "canonicalIdentity": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json"
+    "canonicalIdentity": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json",
+    "productionEvidence": "docs/qa-evidence/monster-clue-canonical-20261004/report.md"
   },
   "functionalReleaseHistory": [
     {
