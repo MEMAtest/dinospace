@@ -242,6 +242,7 @@ const PlayerSession = ({
       onLaunchGame: launchGame,
       playSfx,
       speak,
+      cancelNarration: voice.cancel,
       // The older games award 4–14 stars per answer, which emptied the
       // sticker shelf within days; scale them to match the newer games.
       onCelebrate: currentGame.little ? celebrate : scaledCelebrate,

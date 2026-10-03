@@ -98,7 +98,7 @@ test('Sky Shapes learning-attempt diagnostics retain numeric run identity withou
   assert.equal(recordGameDiagnostic('jet', 'learning_attempt', detail, storage), true);
   const [event] = JSON.parse(storage.getItem(GAME_DIAGNOSTICS_KEY));
   assert.deepEqual(event, {
-    at: event.at, game: 'jet', event: 'learning_attempt', level: 2, round: 3, seed: 82341, difficulty: 'challenge', firstAttempt: true, hints: 0,
+    at: event.at, game: 'jet', event: 'learning_attempt', level: 2, round: 3, seed: 82341, difficulty: 'challenge', firstAttempt: true, hints: 0, correct: true, independent: true,
   });
   assert.equal('missionId' in event, false);
   assert.equal(JSON.stringify(event).includes('sky-castle'), false);
