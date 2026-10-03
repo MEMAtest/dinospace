@@ -108,6 +108,7 @@ const AmariLetterTrace = ({
     setFirstTry(true);
     setHadIncorrectResponse(false);
     setRoundPassed(false);
+    setWordChoices([]);
     setSelectedWord(null);
     setError('');
     setShowGuide(false);
