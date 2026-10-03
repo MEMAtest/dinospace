@@ -1,0 +1,56 @@
+{
+  "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
+  "url": "http://127.0.0.1:5281",
+  "assets": {
+    "sw.js": "817cf57c604a22e426e1cb820dc60811c4f6463c649e9ac8a6623ff7cdf7965e",
+    "assets/AmariLetterTrace-DIOb2Ph4.js": "dcac1670a35012028709454928c368d338b3ab7a5c530ce7a03b59897323a2e2",
+    "assets/index-Bz5F_U4N.js": "5e0277daf99ec38d9fe3e7999954cb6a42d2891690c81ccaabee385e057f994a",
+    "assets/SolarSystem-DzlpM427.js": "da2bda0ba47f4cca0f3d6c37911b8d132412d99e2005e43b7fa8be05b734d1f7",
+    "assets/web-Bptrbxiq.js": "69800548fa326398b81974ff6f4ede159f2cdff1a1be3c84889c2470f189f69a",
+    "assets/index-CohPvEcn.css": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+    "assets/AmariCountTheStars-BO8qzzX_.js": "8ff232e08207f083f4323c8a74b9b6792b14281d9320e47d99aa9292173a5a62"
+  },
+  "checks": {
+    "focusedTests": "14 passed",
+    "changedFileLint": "passed",
+    "productionBuild": "passed"
+  },
+  "scope": "Monster clue paragraph suppression only. Independent UI delta pending. Not released or4.5 accepted.",
+  "servedHashChecks": {
+    "sw.js": {
+      "expected": "817cf57c604a22e426e1cb820dc60811c4f6463c649e9ac8a6623ff7cdf7965e",
+      "actual": "817cf57c604a22e426e1cb820dc60811c4f6463c649e9ac8a6623ff7cdf7965e",
+      "matches": true
+    },
+    "assets/AmariLetterTrace-DIOb2Ph4.js": {
+      "expected": "dcac1670a35012028709454928c368d338b3ab7a5c530ce7a03b59897323a2e2",
+      "actual": "dcac1670a35012028709454928c368d338b3ab7a5c530ce7a03b59897323a2e2",
+      "matches": true
+    },
+    "assets/index-Bz5F_U4N.js": {
+      "expected": "5e0277daf99ec38d9fe3e7999954cb6a42d2891690c81ccaabee385e057f994a",
+      "actual": "5e0277daf99ec38d9fe3e7999954cb6a42d2891690c81ccaabee385e057f994a",
+      "matches": true
+    },
+    "assets/SolarSystem-DzlpM427.js": {
+      "expected": "da2bda0ba47f4cca0f3d6c37911b8d132412d99e2005e43b7fa8be05b734d1f7",
+      "actual": "da2bda0ba47f4cca0f3d6c37911b8d132412d99e2005e43b7fa8be05b734d1f7",
+      "matches": true
+    },
+    "assets/web-Bptrbxiq.js": {
+      "expected": "69800548fa326398b81974ff6f4ede159f2cdff1a1be3c84889c2470f189f69a",
+      "actual": "69800548fa326398b81974ff6f4ede159f2cdff1a1be3c84889c2470f189f69a",
+      "matches": true
+    },
+    "assets/index-CohPvEcn.css": {
+      "expected": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "actual": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "matches": true
+    },
+    "assets/AmariCountTheStars-BO8qzzX_.js": {
+      "expected": "8ff232e08207f083f4323c8a74b9b6792b14281d9320e47d99aa9292173a5a62",
+      "actual": "8ff232e08207f083f4323c8a74b9b6792b14281d9320e47d99aa9292173a5a62",
+      "matches": true
+    }
+  }
+}
