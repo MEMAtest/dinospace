@@ -1,22 +1,22 @@
 # Batch 2 remaining-gates audit — 3 October 2026
 
-## Current checkpoint — complete corpus candidate
+## Current checkpoint — four-game editorial candidate
 
-This checkpoint supersedes the older pending counts and in-progress statements below; the chronological rows retain their original identities.
+This checkpoint supersedes the older pending counts and in-progress statements below; chronological evidence keeps its original source identity.
 
 | Gate | Current evidence | Remaining work |
 |---|---|---|
-| Published per-game instructions | [Coverage inventory](qa-evidence/amari-26-game-contract-coverage-20261003.json): 26 distinct games in batches 4/4/4/4/4/4/2 | Implementation and acceptance remain separate; accepted count is 4/26. |
-| Packaged narration | Source `ead5a1d`: 1,371/1,371 ready and successfully decoded; 5,305 manifest paths present; prior 4,150 mappings unchanged | Human listening and final production playback acceptance. No generation worker restart is required. |
-| Complete local candidate | [Identity](qa-evidence/batch2-complete-candidate-identity-20261003.json), 164 tests, lint and build pass | [Independent Monster native playback controls](qa-evidence/monster-packaged-runtime-20261003/report.md) pass the bounded desktop/390px checks, including ordinary Story unlock and complete prompt/explanation chains. A newly reproduced Spot hint repair is in progress; its changed controls need a fresh candidate delta. |
-| Sky spoken facts | [Bounded runtime report](qa-evidence/sky-spoken-facts-20261003/qa-report-20261003.md): native packaged praise/fact playback, held fact/Next, active-fact Back cancellation at both widths | [Complete-corpus mute and Keep playing deltas](qa-evidence/sky-complete-corpus-controls-20261003/README.md) pass at both widths. Native events include praise/fact mapping and pause before natural end; human listening and final production remain pending. |
-| Monster answer accessibility | [Independent report](qa-evidence/monster-aria-repair-20261003/report.md): addition and subtraction at both widths disclose quantities/operation before answering, solved result plus one explanation afterward; completion wording matches clue scoring | Final production repair delta. |
-| Puzzle mobile board controls | [Canonical 6b report](qa-evidence/puzzle-mobile-controls-20261003/qa-report.md): 2/3/5 board sizes, minimum board target 49px, tray 51px, ordinary scrolling, keyboard and no horizontal overflow | Final-production changed controls and same-viewport replay deltas. |
-| Spot feedback and markers | Independent local reports retain marker alignment, repeat-hit neutrality, genuine misses and seven nonintersecting 56px Challenge targets. Editorial review reproduced an invisible magnifier highlight due to conflicting transparent styles, plus repeat hint-token use on the same detail. | Luna visual/distinct-hint repair and separate rendered-CSS/UI delta, then final production repair and same-viewport replay deltas. |
-| Replay variation | 4/8 production pairs retained; Puzzle and Spot desktop/mobile pairs additionally proven locally | Those four pairs still need final-production deltas; local proof is not relabelled production. |
-| Release and editorial acceptance | Canonical alias remains `6b84554`; no new release or score is assigned | Required listening verdict, native playback gate, exact deployment identity and affected production controls, then independent per-game scores. |
+| Published instructions | 26 distinct game contracts; status inventory records 4 accepted, 4 in progress, 18 not started | Implementation and acceptance for all remaining games. |
+| Packaged narration | 1,371/1,371 ready and fully decoded; all candidate clip bytes match the final audit | Human listening and final production playback. No worker restart or new provider calls. |
+| Frozen editorial candidate | Source `e8065ffc69207d0f8b2d2677d6627b5fe28bc13a`, [identity](qa-evidence/batch2-editorial-final-candidate-identity-20261003.json), 168 tests, lint/build pass, isolated local port 5205 | Separate independent rendered UI/editorial reviews underway; no accepted scores assigned. |
+| Puzzle teaching and artwork | Chapter strategies, full scene titles and new River Valley/Moon Camp 3D illustrations wired into the candidate | Independent affected-picture completion, mobile readability and visual review, then production delta. |
+| Spot hints and feedback | Independent source `4cfaa789` checks pass: visible amber CSS, two consecutive distinct hints without finding, token limits and reset. New candidate adds comparison strategy and removes duplicate completion fact | Independent new strategy/single-fact delta and final production acceptance. |
+| Sky teaching and audio | Prior local packaged praise/fact, Back/mute/Keep playing checks pass at both widths. New candidate simplifies active-flight hierarchy while preserving map objectives | Independent layout delta, human listening and final production. |
+| Monster counting accessibility | Actual pre-answer total leak preserved on 5204; source `e8065ff` now labels each counting picture individually under a neutral group. Earlier Growing model repair and mobile Next pass locally | Independent pre/post-answer accessibility review at both widths, then final production repair. |
+| Replay variation | 4/8 production pairs retained; Puzzle/Spot desktop/mobile pairs proved locally | Four final-production replay deltas. |
+| Editorial/release acceptance | Canonical alias still `6b84554…`; earlier provisional candidate estimates remain below target | Independent reasons and mandatory gates, human listening, exact release identity and production Playwright evidence. |
 
-Root's audio input is unsupported. The [listening review](batch2-listening-review-20261003.md) has nine authored-wording samples and an explicitly pending human verdict. Decoding, HTTP delivery and native media events cannot certify intelligibility, pronunciation or tone. The already submitted user question remains pending; elapsed time does not close this gate.
+No local candidate evidence is relabelled as production acceptance. Native media events and decoding do not establish intelligibility or pronunciation.
 
 ## Decision and identity
 
