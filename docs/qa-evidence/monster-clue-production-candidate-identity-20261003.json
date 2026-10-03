@@ -1,0 +1,69 @@
+{
+  "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
+  "deployment": {
+    "id": "dpl_2STuJZUmaGLU6Vpvj5sb6uSj4B7t",
+    "url": "dinospace-kdjkemvhr-memas-projects-23a0001d.vercel.app",
+    "readyState": "READY"
+  },
+  "canonicalBefore": {
+    "id": "dpl_HRtGufD4yhwza3iqDu7BfRze6SFS",
+    "url": "dinospace-laau5ey99-memas-projects-23a0001d.vercel.app",
+    "readyState": "READY"
+  },
+  "assets": {
+    "sw.js": {
+      "status": 200,
+      "expected": "817cf57c604a22e426e1cb820dc60811c4f6463c649e9ac8a6623ff7cdf7965e",
+      "actual": "817cf57c604a22e426e1cb820dc60811c4f6463c649e9ac8a6623ff7cdf7965e",
+      "matches": true
+    },
+    "assets/AmariLetterTrace-DIOb2Ph4.js": {
+      "status": 200,
+      "expected": "dcac1670a35012028709454928c368d338b3ab7a5c530ce7a03b59897323a2e2",
+      "actual": "dcac1670a35012028709454928c368d338b3ab7a5c530ce7a03b59897323a2e2",
+      "matches": true
+    },
+    "assets/index-Bz5F_U4N.js": {
+      "status": 200,
+      "expected": "5e0277daf99ec38d9fe3e7999954cb6a42d2891690c81ccaabee385e057f994a",
+      "actual": "5e0277daf99ec38d9fe3e7999954cb6a42d2891690c81ccaabee385e057f994a",
+      "matches": true
+    },
+    "assets/SolarSystem-DzlpM427.js": {
+      "status": 200,
+      "expected": "da2bda0ba47f4cca0f3d6c37911b8d132412d99e2005e43b7fa8be05b734d1f7",
+      "actual": "da2bda0ba47f4cca0f3d6c37911b8d132412d99e2005e43b7fa8be05b734d1f7",
+      "matches": true
+    },
+    "assets/web-Bptrbxiq.js": {
+      "status": 200,
+      "expected": "69800548fa326398b81974ff6f4ede159f2cdff1a1be3c84889c2470f189f69a",
+      "actual": "69800548fa326398b81974ff6f4ede159f2cdff1a1be3c84889c2470f189f69a",
+      "matches": true
+    },
+    "assets/index-CohPvEcn.css": {
+      "status": 200,
+      "expected": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "actual": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "matches": true
+    },
+    "assets/AmariCountTheStars-BO8qzzX_.js": {
+      "status": 200,
+      "expected": "8ff232e08207f083f4323c8a74b9b6792b14281d9320e47d99aa9292173a5a62",
+      "actual": "8ff232e08207f083f4323c8a74b9b6792b14281d9320e47d99aa9292173a5a62",
+      "matches": true
+    }
+  },
+  "provider": {
+    "id": "dpl_2STuJZUmaGLU6Vpvj5sb6uSj4B7t",
+    "readyState": "READY",
+    "meta": {
+      "gitCommitSha": "63d4606803ad94d18df90f4af0acf000ca663839",
+      "githubCommitSha": "f72f59e",
+      "githubCommitRef": "codex/quest-game-editor-20260930",
+      "auditedArchiveSourceSha": "f72f59e"
+    }
+  },
+  "sourceBinding": "Provider explicit short ref f72f59e resolves to full sourceSha; clean git archive source and seven byte-exact runtime assets independently bind candidate. Automatic gitCommitSha 63d4606 describes surrounding checkout docs and is not source attribution.",
+  "scope": "Ready immutable production candidate. Desktop local delta and independent immutable production controls pending; canonical remains a1eec24552c99529ba30ed38d10492a6ce1c7829. No quality-score promotion."
+}
