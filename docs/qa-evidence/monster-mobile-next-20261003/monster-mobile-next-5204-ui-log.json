@@ -1,0 +1,375 @@
+{
+  "version": 2,
+  "retention": {
+    "recentEvents": 300,
+    "runMilestones": 100
+  },
+  "events": [
+    {
+      "game": "math",
+      "event": "start",
+      "at": "2026-10-03T10:13:58.000Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:13:58.001Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:14:07.832Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3396886547,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:14:16.049Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:14:29.431Z",
+      "level": 0,
+      "round": 1,
+      "seed": 3396886547,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:14:47.780Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:14:56.979Z",
+      "level": 0,
+      "round": 2,
+      "seed": 3396886547,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:15:04.114Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:15:11.862Z",
+      "level": 0,
+      "round": 3,
+      "seed": 3396886547,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:15:17.879Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:15:23.813Z",
+      "level": 0,
+      "round": 4,
+      "seed": 3396886547,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:15:29.730Z",
+      "level": 0,
+      "round": 5,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:15:37.411Z",
+      "level": 0,
+      "round": 5,
+      "seed": 3396886547,
+      "difficulty": "starter",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "level_complete",
+      "at": "2026-10-03T10:15:52.461Z",
+      "level": 0,
+      "round": 5,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "start",
+      "at": "2026-10-03T10:15:58.394Z",
+      "level": 1,
+      "round": 0,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:15:58.395Z",
+      "level": 1,
+      "round": 0,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:16:08.710Z",
+      "level": 1,
+      "round": 0,
+      "seed": 301157189,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:16:26.742Z",
+      "level": 1,
+      "round": 1,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:16:33.193Z",
+      "level": 1,
+      "round": 1,
+      "seed": 301157189,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:16:40.842Z",
+      "level": 1,
+      "round": 2,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:16:50.275Z",
+      "level": 1,
+      "round": 2,
+      "seed": 301157189,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:17:06.140Z",
+      "level": 1,
+      "round": 3,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:17:12.941Z",
+      "level": 1,
+      "round": 3,
+      "seed": 301157189,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:17:28.924Z",
+      "level": 1,
+      "round": 4,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:17:37.723Z",
+      "level": 1,
+      "round": 4,
+      "seed": 301157189,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:17:45.423Z",
+      "level": 1,
+      "round": 5,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:17:52.140Z",
+      "level": 1,
+      "round": 5,
+      "seed": 301157189,
+      "difficulty": "growing",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "level_complete",
+      "at": "2026-10-03T10:17:58.722Z",
+      "level": 1,
+      "round": 5,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "start",
+      "at": "2026-10-03T10:18:07.038Z",
+      "level": 2,
+      "round": 0,
+      "seed": 588548649,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:18:07.039Z",
+      "level": 2,
+      "round": 0,
+      "seed": 588548649,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "math",
+      "event": "answer_correct",
+      "at": "2026-10-03T10:18:28.821Z",
+      "level": 2,
+      "round": 0,
+      "seed": 588548649,
+      "difficulty": "challenge",
+      "firstAttempt": true
+    },
+    {
+      "game": "math",
+      "event": "question",
+      "at": "2026-10-03T10:19:26.535Z",
+      "level": 2,
+      "round": 1,
+      "seed": 588548649,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "math",
+      "event": "leave",
+      "at": "2026-10-03T10:19:47.568Z",
+      "level": 2,
+      "round": 1,
+      "seed": 588548649,
+      "difficulty": "challenge"
+    }
+  ],
+  "runMilestones": [
+    {
+      "game": "math",
+      "event": "start",
+      "at": "2026-10-03T10:13:58.000Z",
+      "level": 0,
+      "round": 0,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "level_complete",
+      "at": "2026-10-03T10:15:52.461Z",
+      "level": 0,
+      "round": 5,
+      "seed": 3396886547,
+      "difficulty": "starter"
+    },
+    {
+      "game": "math",
+      "event": "start",
+      "at": "2026-10-03T10:15:58.394Z",
+      "level": 1,
+      "round": 0,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "level_complete",
+      "at": "2026-10-03T10:17:58.722Z",
+      "level": 1,
+      "round": 5,
+      "seed": 301157189,
+      "difficulty": "growing"
+    },
+    {
+      "game": "math",
+      "event": "start",
+      "at": "2026-10-03T10:18:07.038Z",
+      "level": 2,
+      "round": 0,
+      "seed": 588548649,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "math",
+      "event": "leave",
+      "at": "2026-10-03T10:19:47.568Z",
+      "level": 2,
+      "round": 1,
+      "seed": 588548649,
+      "difficulty": "challenge"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+On the fresh named Playwright session `monster-next-5204-mobile`, while the page was `about:blank` and before the first candidate navigation, the executed setup was:
+
+```js
+await page.setViewportSize({width:390,height:844});
+await page.route('**/api/voice**', r => r.abort());
+await page.route('**/api/story**', r => r.abort());
+await page.goto('http://127.0.0.1:5204');
+```

@@ -1,0 +1,12 @@
+{
+  "viewport": { "width": 390, "height": 844 },
+  "beforeScroll": { "scrollWidth": 390, "scrollY": 0 },
+  "afterNormalWheelScroll": {
+    "scrollWidth": 390,
+    "bodyScrollWidth": 390,
+    "scrollY": 178,
+    "button": "Next question",
+    "disabled": false,
+    "rect": { "x": 107.015625, "y": 737.5, "width": 175.953125, "height": 56, "top": 737.5, "bottom": 793.5 }
+  }
+}

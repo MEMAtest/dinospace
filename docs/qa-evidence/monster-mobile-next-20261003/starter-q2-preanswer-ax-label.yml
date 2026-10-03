@@ -1,0 +1,37 @@
+- generic [ref=e465]:
+  - banner [ref=e466]:
+    - button "Back to learning world" [ref=e467] [cursor=pointer]
+    - generic [ref=e470]:
+      - paragraph [ref=e471]: Episode 1 · Count to 10
+      - heading "Monster Math" [level=1] [ref=e472]
+    - generic [ref=e502]: Question 2/6
+    - button "Turn sound on" [ref=e503] [cursor=pointer]
+  - main [ref=e478]:
+    - generic [ref=e508]: 1/6
+    - generic [ref=e511]:
+      - paragraph [ref=e512]: counting
+      - heading "How many oranges can you see?" [level=2] [ref=e539]
+      - button "Hear the question again" [ref=e514] [cursor=pointer]
+    - generic [ref=e519]:
+      - generic [ref=e520]:
+        - paragraph [ref=e521]: Count each picture once
+        - generic "10 counters 🍊" [ref=e540]:
+          - generic [aria-hidden] [ref=e523]: 🍊
+          - generic [aria-hidden] [ref=e541]: 🍊
+          - generic [aria-hidden] [ref=e542]: 🍊
+          - generic [aria-hidden] [ref=e543]: 🍊
+          - generic [aria-hidden] [ref=e544]: 🍊
+          - generic [aria-hidden] [ref=e545]: 🍊
+          - generic [aria-hidden] [ref=e546]: 🍊
+          - generic [aria-hidden] [ref=e547]: 🍊
+          - generic [aria-hidden] [ref=e548]: 🍊
+          - generic [aria-hidden] [ref=e549]: 🍊
+      - generic [ref=e524]:
+        - paragraph [ref=e525]: Choose the answer
+        - generic [ref=e526]:
+          - button "8" [ref=e550] [cursor=pointer]
+          - button "10" [ref=e551] [cursor=pointer]
+          - button "9" [ref=e552] [cursor=pointer]
+          - button "6" [ref=e553] [cursor=pointer]
+        - button "Show me a clue" [ref=e531] [cursor=pointer]
+    - paragraph [ref=e535]: Count the picture or follow the model, then choose.
