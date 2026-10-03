@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T22:15:07.588324+00:00",
+  "updatedAt": "2026-10-03T22:35:30.734094+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -335,16 +335,23 @@
     "deploymentId": "dpl_HRtGufD4yhwza3iqDu7BfRze6SFS",
     "url": "https://dinospace-eight.vercel.app",
     "renderedAssetsMatched": 7,
-    "productionPlaywright": "Prior a6 full four-game canonical baseline retained; a1 copy/keyboard patch independent production delta in progress",
+    "productionPlaywright": "Independent canonical copy/keyboard patch delta passed: natural one-object Count, immediate keyboard progress/backtracking, 390px pointer Trace, held Next, parent-world Back/reload, zero console errors/warnings. Browser pointer, not physical touchscreen certification.",
     "editorialAccepted": false,
-    "knownMinorDefect": "Prior Count grammar and keyboard partial progress fixed; local independent delta passed, canonical delta pending",
+    "knownMinorDefect": "Count grammar and Trace keyboard progress repairs passed canonical delta. Separate Monster clue paragraph duplication reproduced on canonical; source f72f59e repaired it, independent5281delta pending.",
     "productionEvidence": "docs/qa-evidence/batch3-canonical-production-independent-20261003/report.md",
-    "identityEvidence": "docs/qa-evidence/batch3-copy-keyboard-canonical-identity-20261003.json"
+    "identityEvidence": "docs/qa-evidence/batch3-copy-keyboard-canonical-identity-20261003.json",
+    "patchProductionEvidence": "docs/qa-evidence/batch3-copy-keyboard-production-delta-20261003/report.md"
   },
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
     "runtimeSource": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
     "scope": "Ten Memory boards and all 54 Solar facts / nine challenges passed local desktop/mobile. NASA and accessibility deltas retained. Memory premium art and theme build active; new candidate independent QA, audio, editorial and production open.",
     "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md"
+  },
+  "monsterClueRepair": {
+    "sourceSha": "f72f59e",
+    "identity": "docs/qa-evidence/monster-clue-once-candidate-identity-20261003.json",
+    "productionFailure": "docs/qa-evidence/monster-exact-case-production-20261003/report.md",
+    "state": "14 focused tests, changed-file lint and production-config build passed; seven frozen HTTP asset hashes match. Separate local UI QA in progress. Not deployed or accepted."
   }
 }

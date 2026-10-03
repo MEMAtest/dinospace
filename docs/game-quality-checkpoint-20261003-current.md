@@ -10,6 +10,14 @@ Updated 3 October 2026, 22:10 UTC. Goal active. **26 acceptance contracts publis
 - **Batch 7:** full ten-board Memory and nine-world Solar local matrices passed; accessibility and NASA fact-copy deltas are retained. Luna is improving Memory art and theme relevance. Those new visuals require a different independent reviewer. Audio, premium visuals, editorial and production acceptance remain open.
 - **Batch 2:** independent reviewer is reconciling per-game product defects against proof/listening gaps and provisional rubric reasons. Earlier partial score estimates do not constitute accepted4.5 scores.
 
+## Latest production controls and newly reproduced defect
+
+Independent [canonical Count/Trace repair delta](qa-evidence/batch3-copy-keyboard-production-delta-20261003/report.md) passed the requested desktop/390px controls, including immediate keyboard progress, ordinary pointer completion, held Next, natural one-object grammar, Back confirmation and parent-world reload. Zero console errors/warnings; guards prevented provider calls. Browser pointer at390px does not certify physical touchscreen input.
+
+Root then reached Monster Math's exact2+10 through normal production Growing replay. Correct-answer duplication is fixed, but **the Show me a clue screenshot still repeats the neutral teaching sentence**. [Actual failure and bounded results](qa-evidence/monster-exact-case-production-20261003/report.md). Sourcef72f59e suppresses model teaching once a clue is shown. Fourteen focused tests, changed-file lint and production-config build pass; immutable5281 has seven matching HTTP assets. Independent local delta is in progress; this Monster fix is not canonical yet.
+
+The accepted count remains4/26. Batch6 narration routing repair3a0da1b is frozen5275 with five matching HTTP assets; independent clue/letter-label checks are running. Its435-phrase corpus has1 valid clip and434 missing, so no playback acceptance is claimed.
+
 ## Historical checkpoints — superseded by the current state above
 
 The entries below preserve their original evidence and deployment identities. Their old pending counts and canonical identities are historical.
