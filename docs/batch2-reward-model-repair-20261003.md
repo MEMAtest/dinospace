@@ -21,7 +21,7 @@ The obsolete Grownups selectors were removed; chapter unlocks and saved child pr
 
 ## Source and verification boundary
 
-Integration commits: `65657ec`, `6a651a7`, `321200a`, `3d9bb91`. The clean candidate is rooted in the released SHA and contains these gameplay changes plus Spot first-miss telemetry, without the unfinished packaged narration integration. Clean candidate branch `codex/batch2-reward-settings-repair-20261003`, commit `9cc4331`: 148/148 Node tests and lint passed. Build and fresh independent browser acceptance of this exact candidate are pending.
+Integration commits: `65657ec`, `6a651a7`, `321200a`, `3d9bb91`. The clean candidate is rooted in the released SHA and contains these gameplay changes plus Spot first-miss telemetry, without the unfinished packaged narration integration. Clean candidate branch `codex/batch2-reward-settings-repair-20261003`, commit `9cc4331`: 148/148 Node tests and lint passed. Build also passed (JS `index-3o36Hdky.js`); fresh independent browser acceptance of this exact candidate is pending. Integration suite: 159/159 tests and lint passed. The clean candidate has 148 tests because it deliberately excludes 11 unfinished narration integration checks.
 
 An earlier candidate at `02cfdda` passed independent first-flight visible UI checks: zero baseline → displayed 3 stars → Home total 3. That evidence does not certify the later number-line change.
 
