@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import { startupNavigation } from './navigation.js'
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
   window.addEventListener('load', () => {
@@ -11,9 +12,11 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
   });
 }
 
-// Every visit starts at "who is playing?" with a fresh screen history, so the
-// first back press never lands on a stale screen from a previous visit.
-window.history.replaceState({ depth: 0 }, '', `${window.location.pathname}${window.location.search}#/`);
+// Preserve a reload's known route and related lesson history. Fresh visits
+// start with player selection; App also guards screens without a chosen child.
+const navigationType = window.performance.getEntriesByType('navigation')[0]?.type;
+const startup = startupNavigation(window.location.hash, window.history.state, navigationType);
+window.history.replaceState(startup.state, '', `${window.location.pathname}${window.location.search}${startup.hash}`);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

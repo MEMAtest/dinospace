@@ -201,6 +201,9 @@ export const recordLearningAttempt = (input, storage = canUseBrowserStorage()) =
 
 export const recordLegacyGameEvent = (gameId, event, amountOrPayload = 1, storage = canUseBrowserStorage()) => {
   const payload = typeof amountOrPayload === 'object' && amountOrPayload !== null ? amountOrPayload : {};
+  // The successful attempt is logged for troubleshooting; its separate
+  // completed learning event owns mastery credit. Wrong attempts still count.
+  if (payload.diagnosticOnly === true) return null;
   const hasLearningEvidence = typeof payload.correct === 'boolean';
   if (!hasLearningEvidence) return null;
   return recordLearningAttempt({
