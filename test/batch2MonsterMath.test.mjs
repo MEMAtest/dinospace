@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   createMonsterMathRun, isValidMonsterRun, MONSTER_MATH_EPISODES, MONSTER_QUESTION_POOLS,
-  monsterCountResultText, monsterCountVisualLabels, monsterCounterPhrase, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation, tenFrameModelTeaching,
+  monsterCountResultText, monsterCountVisualLabels, monsterCounterPhrase, monsterNumberLineStep, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameExplanation, tenFrameModelTeaching,
 } from '../src/data/monsterMathEpisodes.js';
 import {
   getMonsterMathProgress, monsterMathRewardCallbackUnits, recordMonsterEpisodeCompletion, rememberMonsterMathRun, recentMonsterQuestionIds,
@@ -139,6 +139,21 @@ test('singular story, counter, explanation and number-line text uses singular no
   assert.equal(tenFrameAccessibleLabel(mobileAddition.model, true), '8 counters; add 3 more; 11 counters total');
   assert.equal(tenFrameExplanation(operationTakeOne.model), '1 counter moved away; 1 counter stays.');
   assert.equal(numberLineInstruction({ first: 2, second: 1, answer: 1, operation: 'subtract' }), 'Start at 2, then jump back 1 step.');
+});
+
+test('guided number-line jumps move one bounded step and reset naturally to the starting value', () => {
+  const subtraction = { first: 15, second: 13, answer: 2, operation: 'subtract' };
+  assert.deepEqual(monsterNumberLineStep(subtraction), { position: 15, completed: 0, remaining: 13 });
+  for (let step = 1; step <= subtraction.second; step += 1) {
+    const result = monsterNumberLineStep(subtraction, step);
+    assert.equal(result.position, subtraction.first - step);
+    assert.equal(result.remaining, subtraction.second - step);
+  }
+  assert.deepEqual(monsterNumberLineStep(subtraction, 20), { position: 2, completed: 13, remaining: 0 });
+  assert.deepEqual(monsterNumberLineStep(subtraction, -3), { position: 15, completed: 0, remaining: 13 });
+  const addition = { first: 7, second: 4, answer: 11, operation: 'add' };
+  assert.deepEqual(monsterNumberLineStep(addition, 1), { position: 8, completed: 1, remaining: 3 });
+  assert.deepEqual(monsterNumberLineStep(addition, 4), { position: 11, completed: 4, remaining: 0 });
 });
 
 test('eight recent question ids are avoided on the next run and history persists on start', () => {

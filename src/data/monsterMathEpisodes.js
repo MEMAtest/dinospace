@@ -29,6 +29,11 @@ export const monsterNumberLineValues = (model) => {
   const high = Math.min(20, Math.max(model.first, model.answer) + 2);
   return Array.from({ length: high - low + 1 }, (_, index) => low + index);
 };
+export const monsterNumberLineStep = (model, completedSteps = 0) => {
+  const steps = Number.isFinite(completedSteps) ? Math.max(0, Math.min(model.second, Math.floor(completedSteps))) : 0;
+  const direction = model.operation === 'add' ? 1 : -1;
+  return { position: model.first + direction * steps, completed: steps, remaining: model.second - steps };
+};
 export const tenFrameAccessibleLabel = (model, answered = false) => {
   if (model.operation === 'add') {
     const groups = `${monsterCounterPhrase(model.first)}; add ${model.second} more`;

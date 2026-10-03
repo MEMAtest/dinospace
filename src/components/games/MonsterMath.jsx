@@ -4,7 +4,7 @@ import { SoundToggle } from '../shared/index.jsx';
 import { monsterMathNarration } from '../../data/batch2Narration.js';
 import {
   createMonsterMathRun, createMonsterRunSeed, MONSTER_MATH_EPISODES,
-  monsterCountResultText, monsterCountVisualLabels, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameModelTeaching,
+  monsterCountResultText, monsterCountVisualLabels, monsterNumberLineStep, monsterNumberLineValues, numberLineInstruction, tenFrameAccessibleLabel, tenFrameCellModel, tenFrameModelTeaching,
 } from '../../data/monsterMathEpisodes.js';
 import {
   getMonsterMathProgress, recentMonsterQuestionIds, recordMonsterEpisodeCompletion, rememberMonsterMathRun,
@@ -25,7 +25,7 @@ const EpisodeTile = ({ episode, index, progress, selected, disabled, onSelect })
   );
 };
 
-const CounterModel = ({ question, locked, animationCount }) => {
+const CounterModel = ({ question, locked, animationCount, showHint, guidedSteps, onStep, onResetSteps }) => {
   const model = question.model;
   if (model.type === 'count') {
     const accessibleLabels = monsterCountVisualLabels(model);
@@ -59,6 +59,7 @@ const CounterModel = ({ question, locked, animationCount }) => {
 
   const start = model.first;
   const end = locked ? model.answer : null;
+  const guided = showHint && !locked ? monsterNumberLineStep(model, guidedSteps) : null;
   const values = monsterNumberLineValues(model);
   return (
     <div className="rounded-3xl border-4 border-indigo-200 bg-white p-3 shadow-md sm:p-4">
@@ -69,18 +70,25 @@ const CounterModel = ({ question, locked, animationCount }) => {
           {values.map((value) => {
             const atStart = value === start;
             const atEnd = locked && value === end;
+            const atGuidedPoint = guided && value === guided.position;
             const inJump = locked && (model.operation === 'add' ? value > start && value <= end : value < start && value >= end);
             return <div key={value} className="relative flex min-w-0 flex-col items-center gap-1 text-[10px] font-black sm:text-xs">
-              {atStart && <span className="z-10 grid h-5 w-5 place-items-center rounded-full bg-sky-600 text-white" aria-label="Starting point">●</span>}
+              {atStart && !atGuidedPoint && <span className="z-10 grid h-5 w-5 place-items-center rounded-full bg-sky-600 text-white" aria-label="Starting point">●</span>}
+              {atGuidedPoint && <span className="z-10 grid h-6 w-6 place-items-center rounded-full bg-amber-500 text-white" aria-label={`Current position ${guided.position}`}>●</span>}
               {atEnd && <span className="z-10 grid h-5 w-5 place-items-center rounded-full bg-emerald-500 text-white" aria-label="Answer point">✓</span>}
-              {inJump && !atEnd && <span className="z-10 grid h-5 w-5 place-items-center rounded-full bg-indigo-400 text-white" aria-hidden="true">{model.emoji}</span>}
-              {!atStart && !atEnd && !inJump && <span className="h-5" />}
+              {inJump && !atEnd && !atGuidedPoint && <span className="z-10 grid h-5 w-5 place-items-center rounded-full bg-indigo-400 text-white" aria-hidden="true">{model.emoji}</span>}
+              {!atStart && !atEnd && !inJump && !atGuidedPoint && <span className="h-5" />}
               <span className={`${atEnd ? 'rounded bg-emerald-100 px-1 text-emerald-800' : atStart ? 'text-sky-800' : 'text-slate-500'}`}>{value}</span>
             </div>;
           })}
         </div>
       </div>
       <p className="mt-1 text-center text-lg font-black text-slate-800" aria-live="polite">{numberLineInstruction(model, locked)}</p>
+      {guided && <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
+        <button type="button" onClick={onStep} disabled={guided.remaining === 0} className="min-h-12 rounded-xl bg-amber-500 px-4 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Jump one step {model.operation === 'add' ? 'forward' : 'back'}</button>
+        <button type="button" onClick={onResetSteps} disabled={guided.completed === 0} className="min-h-12 rounded-xl bg-slate-200 px-4 font-black text-slate-900 disabled:cursor-not-allowed disabled:opacity-50">Start again</button>
+        <p className="w-full text-center font-bold text-amber-950" aria-live="polite">At {guided.position}. {guided.remaining ? `${guided.remaining} ${guided.remaining === 1 ? 'jump' : 'jumps'} left.` : 'No jumps left.'}</p>
+      </div>}
     </div>
   );
 };
@@ -95,6 +103,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
   const [locked, setLocked] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
   const [hadHint, setHadHint] = useState(false);
+  const [guidedSteps, setGuidedSteps] = useState(0);
   const [firstTryCount, setFirstTryCount] = useState(0);
   const [animationCount, setAnimationCount] = useState(0);
   const [animationDone, setAnimationDone] = useState(false);
@@ -135,6 +144,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     setLocked(false);
     setHadMistake(false);
     setHadHint(false);
+    setGuidedSteps(0);
     setFirstTryCount(0);
     setAnimationCount(0);
     setAnimationDone(false);
@@ -171,7 +181,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     if (!question || locked) return;
     if (answer !== question.answer) {
       setHadMistake(true);
-      setShowHint(false);
+      setShowHint(hadHint && question.model.type === 'number-line');
       setFeedback('Not yet. Try the clue, then count the model again.');
       onGameEvent?.('math', 'answer_attempt', { level: episodeIndex, round: roundIndex, seed: runSeed, firstAttempt: !hadMistake, difficulty: episode.band });
       playSfx('wrong');
@@ -180,6 +190,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     }
     const independent = !hadMistake && !hadHint;
     setLocked(true);
+    setGuidedSteps(0);
     setShowHint(false);
     setFeedback(question.explanation);
     setFirstTryCount((count) => count + (independent ? 1 : 0));
@@ -217,6 +228,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
       setLocked(false);
       setHadMistake(false);
       setHadHint(false);
+      setGuidedSteps(0);
       setAnimationCount(0);
       setAnimationDone(false);
       setShowHint(false);
@@ -310,13 +322,21 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
         </section>
 
         <div className="grid gap-3 lg:grid-cols-[1.2fr_.8fr] lg:items-stretch">
-          <CounterModel question={question} locked={locked} animationCount={animationCount} />
+          <CounterModel
+            question={question}
+            locked={locked}
+            animationCount={animationCount}
+            showHint={showHint && question?.model.type === 'number-line'}
+            guidedSteps={guidedSteps}
+            onStep={() => setGuidedSteps((steps) => monsterNumberLineStep(question.model, steps).completed + 1)}
+            onResetSteps={() => setGuidedSteps(0)}
+          />
           <section className="flex flex-col justify-center rounded-3xl border-4 border-white/80 bg-white/90 p-4 shadow-md sm:p-5">
             <p className="mb-3 text-center text-sm font-black uppercase tracking-widest text-orange-700">Choose the answer</p>
             <div className="grid grid-cols-2 gap-3">
               {question?.options.map((option) => <button key={option} type="button" disabled={locked} onClick={() => checkAnswer(option)} className="min-h-16 rounded-2xl border-4 border-white bg-sky-600 text-3xl font-black text-white shadow-[0_5px_0_#075985] transition hover:bg-sky-700 active:translate-y-1 active:shadow-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-yellow-300 disabled:opacity-55">{option}</button>)}
             </div>
-            <button type="button" onClick={requestHint} disabled={locked || hadHint} className="mt-3 min-h-12 rounded-xl bg-amber-200 px-4 py-2 font-black text-amber-950 disabled:opacity-55"><Lightbulb size={18} className="mr-1 inline" />{hadHint ? 'Clue shown' : 'Show me a clue'}</button>
+            <button type="button" onClick={requestHint} disabled={locked || hadHint} className="mt-3 min-h-12 rounded-xl bg-amber-200 px-4 py-2 font-black text-amber-950 disabled:opacity-55"><Lightbulb size={18} className="mr-1 inline" />{hadHint ? 'Clue shown' : question?.model.type === 'number-line' ? 'Try the jumps' : 'Show me a clue'}</button>
           </section>
         </div>
 
