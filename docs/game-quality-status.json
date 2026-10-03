@@ -220,10 +220,17 @@
     }
   ],
   "candidate": {
-    "source": "037914f48e5198ca97c03668baa1d0d2dbf40369",
+    "source": "37bd0a3f57aa7b9315cea1459ed6fcc28d100202",
     "scope": "Batch 2 local changes only; no new production acceptance",
-    "independentChecks": "5x5 geometry, guided jumps, wording and static picture/fact review passed locally; final actual Puzzle artwork deltas in progress",
+    "independentChecks": "037 art/5x5 geometry and Monster guided/wording checks passed locally; separate Puzzle/Spot/Sky editorial enhancements in development",
     "humanListening": "pending",
-    "productionPlaywright": "pending for unreleased changes"
+    "productionPlaywright": "pending for unreleased changes",
+    "preview": {
+      "url": "https://dinospace-18zij40zn-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_4xceRk64ExrMULULt92oy51Szbz4",
+      "source": "37bd0a3f57aa7b9315cea1459ed6fcc28d100202",
+      "renderedAssetMatch": true,
+      "scope": "Preview only, not production acceptance"
+    }
   }
 }
