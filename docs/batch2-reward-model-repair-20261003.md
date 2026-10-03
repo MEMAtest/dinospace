@@ -15,11 +15,13 @@ Sky awards the difference between the new mission rating and the saved best rati
 
 Monster available episodes say “not earned yet”; unavailable episodes remain locked. Feedback contains one clue or explanation. The initial number line includes every tick between the start and result, with two context ticks where the 0–20 boundary permits. The answer highlight and jump markers remain hidden until a correct choice. Regression coverage checks all operation/story pools, including 18 minus 12.
 
+Monster also awards only additional best-rating stars: one to three awards two extra, identical/lower replay awards zero. First completion awards its displayed rating.
+
 The obsolete Grownups selectors were removed; chapter unlocks and saved child progress remain the source of progression.
 
 ## Source and verification boundary
 
-Integration commits: `65657ec`, `6a651a7`, `321200a`. The clean candidate is rooted in the released SHA and contains these gameplay changes plus Spot first-miss telemetry, without the unfinished packaged narration integration. Clean candidate branch `codex/batch2-reward-settings-repair-20261003`, commit `6328376`: 148/148 Node tests and lint passed. Build and fresh independent browser acceptance of this exact candidate are pending.
+Integration commits: `65657ec`, `6a651a7`, `321200a`, `3d9bb91`. The clean candidate is rooted in the released SHA and contains these gameplay changes plus Spot first-miss telemetry, without the unfinished packaged narration integration. Clean candidate branch `codex/batch2-reward-settings-repair-20261003`, commit `9cc4331`: 148/148 Node tests and lint passed. Build and fresh independent browser acceptance of this exact candidate are pending.
 
 An earlier candidate at `02cfdda` passed independent first-flight visible UI checks: zero baseline → displayed 3 stars → Home total 3. That evidence does not certify the later number-line change.
 
