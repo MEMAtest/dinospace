@@ -32,6 +32,7 @@ import { getGame } from './gameCatalog.jsx';
 
 const BONUS_GAME_IDS = new Set(BONUS_GAME_ID_LIST);
 const MAX_RECENT_GAMES = 4;
+const AMARI_CHAPTER_GAME_IDS = new Set(['pattern', 'hangman', 'chess', 'astronaut']);
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
 // after this long, a "leave the game?" check protects the child's progress.
 const CONFIRM_LEAVE_AFTER_MS = 10000;
@@ -55,7 +56,7 @@ const GameLoading = () => (
 // reloads that child's saved progress.
 const PlayerSession = ({
   player, route, navigate, back, setLeaveGuard, soundOn, onToggleSound, playSfx, speak, voice, installPrompt,
-  grownUpsUnlocked, onUnlockGrownUps, onSwitchPlayer, onBreakRequested,
+  cancelNarration, grownUpsUnlocked, onUnlockGrownUps, onSwitchPlayer, onBreakRequested,
 }) => {
   const little = isLittleExplorer(player);
   const [favouriteGames, setFavouriteGames] = useState(() => loadPlayerValue(player.id, 'favourite_games', []));
@@ -231,9 +232,11 @@ const PlayerSession = ({
     const nextId = nextGameAfter(currentGame.id);
     const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
     // Memory and picture puzzles already own their multi-board progression.
-    const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
+    const amariChapterFlow = little && AMARI_CHAPTER_GAME_IDS.has(currentGame.id);
+    const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') || amariChapterFlow ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
-      onBack: () => back({ toParent: !little }),
+      onBack: () => { if (amariChapterFlow) cancelNarration?.(); back({ force: amariChapterFlow, toParent: !little }); },
+      cancelNarration: amariChapterFlow ? cancelNarration : undefined,
       onLaunchGame: launchGame,
       playSfx,
       speak,
@@ -472,6 +475,7 @@ export default function App() {
       onToggleSound={toggleSound}
       playSfx={playSfx}
       speak={voice.speak}
+      cancelNarration={cancelNarration}
       voice={voice}
       installPrompt={installPrompt}
       grownUpsUnlocked={grownUpsUnlocked}
