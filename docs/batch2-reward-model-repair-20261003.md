@@ -26,3 +26,10 @@ Integration commits: `65657ec`, `6a651a7`, `321200a`, `3d9bb91`. The clean candi
 An earlier candidate at `02cfdda` passed independent first-flight visible UI checks: zero baseline → displayed 3 stars → Home total 3. That evidence does not certify the later number-line change.
 
 Released to canonical production: deployment `dpl_kiGvxVvJatYKntaseMvP9tMp3e6T`, immutable `https://dinospace-b0efvu1om-memas-projects-23a0001d.vercel.app`, exact SHA `9cc4331dd9e9491284cb052f13a2804d484671cb`. Root verified alias assignment and HTML/static assets. Production JS `index-DfKtGOa7.js` exactly matches this source rebuilt with public `VITE_ELEVENLABS_ENABLED=true`; default local voice-off build uses `index-3o36Hdky.js`. CSS remains `index-Bwl2SrXA.css`. Independent production controls are being checked; deployment readiness alone does not prove them. Full Batch 2 acceptance also requires all three bands at desktop and 390px, retained generated seeds, bounded replay deltas, narration readiness and actual audio QA. No 4.5 score is assigned yet.
+
+
+## Further defect found during production acceptance
+
+On released `9cc4331`, a completed100% flight followed by Back to world before pressing Next mission left the completion ledger empty and Home at zero. Pressing Next did persist3stars, so the defect is completion save timing, not reward arithmetic. The result card already said the stars were saved. This path is now a required regression.
+
+Candidate `773b3c306673baeace3fd5b8aae984729f67ad26` moves flight, best-rating, chapter reward and unlock persistence to the final accepted trace point. The navigation button no longer awards or saves progress. Chapter bonus text identifies the separate2stars. A synchronous route-finished guard rejects duplicate final pointer events.149tests, lint and build passed; JS `index-BgC8Szhg.js`. Independent finish→leave→Home→reload and fourth-flight badge/bonus checks are underway. This follow-up is not deployed yet.
