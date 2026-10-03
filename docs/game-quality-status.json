@@ -307,9 +307,11 @@
     "branch": "codex/amari-batch6-quality-20261003",
     "base": "0d11256",
     "plan": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md",
-    "scope": "All four games, three chapters each, desktop/mobile matrices plus tracker repair passed with retained source lineage. Current 5275 narration allowlist and Letter clue delta awaits independent UI proof; 435 phrases, 1 ready, 434 missing. Not released or accepted.",
+    "scope": "Full original chapter matrices retained; independent5275visibleclue/letterdelta passed. Newf8f9f7aSFXwiring full187tests/lint/configuredbuildpassed; frozen5285fiveassetshashesmatch andindependentactualWebAudioQAunderway.435phrases/1valid/434missing; narration/listening/editorial/productiongatesopen.",
     "source": "3a0da1b",
-    "identity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-narration-repair-identity-20261003.json"
+    "identity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-narration-repair-identity-20261003.json",
+    "soundRepairSource": "f8f9f7a938870e415e0feac69761e1c18d7d10ad",
+    "soundRepairIdentity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-progress-sounds-identity-20261003.json"
   },
   "batch4PackagingPlan": {
     "source": "ac3b3cc",
@@ -345,7 +347,9 @@
     "branch": "codex/amari-batch7-quality-20261003",
     "runtimeSource": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
     "scope": "Original full ten-board Memory and54 Solar facts/nine challenges local desktop/mobile retained. New374 Memory desktop review reached all10 increasing boards and reload passport; mobile reviewer reproduced Daily Mission intercepting a card and opening Astronaut Academy. Builder repairing overlay, tip/name audio and semantic illustrated faces; audio/premium/editorial/production gates open.",
-    "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md"
+    "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md",
+    "memory374IndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-premium-independent-20261003/report.md",
+    "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7"
   },
   "monsterClueRepair": {
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
