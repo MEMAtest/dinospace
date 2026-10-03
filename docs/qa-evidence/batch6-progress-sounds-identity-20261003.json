@@ -1,6 +1,6 @@
 {
   "sourceSha": "f8f9f7a938870e415e0feac69761e1c18d7d10ad",
-  "url": "http://127.0.0.1:5285",
+  "url": "http://127.0.0.1:5295",
   "assets": {
     "sw.js": "797c6e016c4c67e252b4304543fbd4213995be4bee16e1022892ecfd9e0a1aed",
     "assets/SolarSystem-CHOhSTvx.js": "e48c49128f7a54ec9a8fe53283fb0b1352651df6fe766fa93641094ece425d0e",
@@ -35,5 +35,8 @@
       "actual": "f47014c6ed96870f30f33beb3d09c911d91b19f09df5416dda3ebb2d29391932",
       "matches": true
     }
-  }
+  },
+  "initialOrigin": "http://127.0.0.1:5285",
+  "originChange": "Independent pre-navigation check found another Memory QA listener bound IPv4 port5285, while sound listener occupiedIPv6. No sound controls tested on wrongruntime. Frozenfilebytes unchanged. New explicitIPv4port5295 independently hash-verified.",
+  "verifiedAt": "2026-10-03T23:25:45.431444+00:00"
 }
