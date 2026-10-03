@@ -1,0 +1,21 @@
+{
+  "sourceSha": "62b462f725d3651ba96722b5640a0203253f18cc",
+  "url": "http://127.0.0.1:5265",
+  "assets": {
+    "sw.js": "9d74dc527620068d084ee7b37f06cb5e4795e75036eda79e3abce5c2957b7213",
+    "assets/web-C8EEQwqd.js": "19b7384fd2cef815baeed309c6a47c7cf91952c44a6887f9ce94a1bb9a1badde",
+    "assets/index-q3NR3Kh2.js": "2cd709f4f1877bd40d7bcbbadd16fb9ae95be38644c9f7179bd51dbc958f9770",
+    "assets/SolarSystem-Q-3WuKQs.js": "b184042eec43ea9a046588664f4bca84494b9a308570e11e3dfd80d7af63f0fd",
+    "assets/index-CZIXwkmD.css": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3"
+  },
+  "checks": {
+    "tests": 186,
+    "lint": "passed",
+    "productionBuild": "passed"
+  },
+  "scope": "All mechanics/copy repairs plus visible Pattern, Chess and Astronaut hint support",
+  "limitations": [
+    "Independent final browser delta pending",
+    "Narration/4.5/production acceptance open"
+  ]
+}

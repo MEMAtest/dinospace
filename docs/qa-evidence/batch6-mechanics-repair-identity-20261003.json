@@ -1,0 +1,20 @@
+{
+  "sourceSha": "555d7f0b59c21f550b44a82d2b59ba7599f0b6bd",
+  "url": "http://127.0.0.1:5259",
+  "assets": {
+    "sw.js": "998b0acb560eb277967a902b7b9dd145413ce8ddf6de5a591cf8bc89c6bb6dc5",
+    "assets/SolarSystem-B_zYEBM5.js": "d788f5fea902d5c5c828415389de10568bb3c51a71ee14497af92552cd7d9114",
+    "assets/index-Da-vj_xU.js": "5fbc6b99c3b88b3e5c051516f6fcd7aed79e37c45e04908092aba6628035eb10",
+    "assets/index-CZIXwkmD.css": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+    "assets/web-UOAxd0NR.js": "6abfebd7e0160dcda4cbe6cd105f636d4afff3aaed7e67ef07eee300ddcaa4a8"
+  },
+  "checks": {
+    "tests": 186,
+    "lint": "passed",
+    "build": "production config passed"
+  },
+  "limitations": [
+    "Independent browser repair delta pending",
+    "Narration incomplete; no4.5score"
+  ]
+}

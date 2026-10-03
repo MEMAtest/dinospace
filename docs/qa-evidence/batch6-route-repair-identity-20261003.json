@@ -1,0 +1,21 @@
+{
+  "sourceSha": "75abaf74a66ed87bfed3c09de2ec020c059d875e",
+  "url": "http://127.0.0.1:5253",
+  "candidate": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-batch6-quality/tmp/batch6-route-repair-candidate-20261003",
+  "checks": {
+    "tests": 185,
+    "lint": "passed",
+    "build": "production config passed"
+  },
+  "assets": {
+    "sw.js": "d08e7b6791c943fd21b4a20fd613d2cb2fa62c0232053f053f8ae0d38727a3bb",
+    "assets/SolarSystem-Dr7LX4Eg.js": "5bd1d97b98e36df4c6397801e36c58c84001fb33b8b595f11e7255e8ff912f5e",
+    "assets/web-BDOT4QwG.js": "347911ab10b431bc5a5c9dafd0c8e7dbb820b508459c089d2753a457327af3a2",
+    "assets/index-CZIXwkmD.css": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+    "assets/index-BD5BsLUC.js": "1aab8e8b6b99332bfe03e7461a359d60718e6358f9a3a0c7e133453423048ff2"
+  },
+  "limitations": [
+    "Independent browser acceptance pending",
+    "Narration incomplete; no 4.5 claim"
+  ]
+}
