@@ -116,7 +116,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
       onGameEvent?.('puzzle', 'answer_attempt', { level: chapterIndex, round: sceneIndex + 1, seed, correct: false, firstAttempt: !hadMistake });
       playSfx('oops');
       if (wrongTimeoutRef.current) clearTimeout(wrongTimeoutRef.current);
-      wrongTimeoutRef.current = window.setTimeout(() => { setWrongSlot(null); setMessage(`Look for a piece that matches this part of the ${scene.title} picture.`); }, 850);
+      wrongTimeoutRef.current = window.setTimeout(() => { setWrongSlot(null); }, 850);
       return;
     }
 
