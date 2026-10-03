@@ -1,0 +1,71 @@
+{
+  "source": "Built-in image generation for user-authorized premium Memory artwork",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/earth-v1.png",
+      "token": "\ud83c\udf0d",
+      "label": "Earth",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "158300705b07ac48a8bac314488c92f3d3d761cd21868b09d875c2f171554592",
+      "bytes": 1854347
+    },
+    {
+      "asset": "src/assets/memory-match/full-moon-v1.png",
+      "token": "\ud83c\udf15",
+      "label": "full moon",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "9b0fc0c45db4ed1183c3e96b9959d98e6a165c0c2b85138eca49cd749955017d",
+      "bytes": 1404172
+    },
+    {
+      "asset": "src/assets/memory-match/new-moon-v1.png",
+      "token": "\ud83c\udf11",
+      "label": "new moon",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "1f66e9ede340e07b2af9fe7a6853416b45fc25a1d35134dce3e8de9923491337",
+      "bytes": 1182883
+    },
+    {
+      "asset": "src/assets/memory-match/sun-v1.png",
+      "token": "\u2600\ufe0f",
+      "label": "Sun",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "e10d18651c40e84f449607ee2febed3e3b7d04f8ca41e8aa9679fdb26605831b",
+      "bytes": 939117
+    }
+  ],
+  "visualReview": "Root viewed all four outputs. Earth has recognizable Africa/Europe/Asia on a blue globe, with stylized geography rather than a teaching map. Full Moon is a bright silver disk; new Moon is dark with a thin rim and no illuminated crescent. Sun has a golden sphere and eight rounded rays with no face, preserving distinction from the separate Sun-with-a-face token.",
+  "acceptance": "Actual small-card render and semantic distinction QA remain pending. No score or release claim. Source assets saved without modifying frozen44b9807 candidate."
+}
