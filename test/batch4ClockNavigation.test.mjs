@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { gameReturnRoute, nextRouteHistoryState, parseRoute, routeHash } from '../src/navigation.js';
+import { gameReturnRoute, nextRouteHistoryState, parseRoute, routeHash, startupNavigation } from '../src/navigation.js';
 
 test('related clock lessons retain their curriculum origin across reload and same-game replacement', () => {
   const curriculum = { name: 'game', id: 'worldmap', module: 'time-detectives' };
@@ -29,4 +29,15 @@ test('the specific time lesson survives URL reload without accepting unknown mod
   assert.deepEqual(parseRoute(routeHash(lesson)), lesson);
   assert.deepEqual(parseRoute('#/play/worldmap/arbitrary'), { name: 'game', id: 'worldmap' });
   assert.equal(routeHash({ name: 'game', id: 'addition', module: 'time-detectives' }), '#/play/addition');
+});
+
+test('application startup preserves reload routes and known origin while fresh visits reset safely', () => {
+  const state = { depth: 4, clockLessonOrigin: 'worldmap', arbitrary: 'ignored' };
+  const restored = startupNavigation('#/play/timeteller', state, 'reload');
+  assert.deepEqual(restored, { hash: '#/play/timeteller', state: { depth: 4, clockLessonOrigin: 'worldmap' } });
+  assert.deepEqual(gameReturnRoute(parseRoute(restored.hash), restored.state), { name: 'game', id: 'worldmap', module: 'time-detectives' });
+  assert.deepEqual(startupNavigation('#/play/timeteller', state, 'navigate'), { hash: '#/', state: { depth: 0 } });
+  assert.deepEqual(startupNavigation('#/play/worldmap/time-detectives', { depth: 2 }, 'back_forward'), { hash: '#/play/worldmap/time-detectives', state: { depth: 2 } });
+  assert.deepEqual(startupNavigation('#/invalid', state, 'reload'), { hash: '#/', state: { depth: 0 } });
+  assert.deepEqual(startupNavigation('#/play/addition', { depth: -5, clockLessonOrigin: 'worldmap' }, 'reload'), { hash: '#/play/addition', state: { depth: 0 } });
 });

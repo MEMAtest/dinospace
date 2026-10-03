@@ -116,6 +116,8 @@ export default function TimeTeller({
       item: q.id,
       response: formatClock(time),
       correct: ok,
+      diagnosticOnly: ok,
+      skill: q.type === 'set' ? 'set-hands' : 'read-clock',
       firstAttempt: !mistake
     });
     if (!ok) {

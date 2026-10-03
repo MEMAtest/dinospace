@@ -77,12 +77,12 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     const correct = value === question.answer;
     onGameEvent?.('subtraction', 'answer_attempt', {
       level: chapterIndex, round: roundIndex, seed, difficulty: chapter.id,
-      item: question.id, response: value, correct, firstAttempt,
+      skill: chapter.skill, item: question.id, response: value, correct, firstAttempt, diagnosticOnly: correct,
     });
     if (!correct) {
       setMistake(true);
       const guidance = question.type !== 'compare'
-        ? 'Look at the marked objects. Count the ones that remain.'
+        ? question.b === 0 ? 'Nothing is taken away. The starting group stays the same.' : 'Look at the marked objects. Count the ones that remain.'
         : question.a === question.b
           ? 'Pair one counter from each group. They have the same number, so none are left unpaired.'
           : 'Pair one counter from each group. Count what is left unpaired.';
@@ -103,7 +103,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     onGameEvent?.('subtraction', 'answer_correct', {
       level: chapterIndex, round: roundIndex, seed, difficulty: chapter.id,
       skill: chapter.skill, item: question.id, response: value, expected: question.answer,
-      correct: true, firstAttempt, priorWrong: mistake, hints: hintUsed ? 1 : 0,
+      correct: true, firstAttempt, independent: firstAttempt && !hintUsed, priorWrong: mistake, hints: hintUsed ? 1 : 0,
     });
     tell(speak, question.explanation);
   };

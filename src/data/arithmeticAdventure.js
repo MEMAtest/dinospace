@@ -107,7 +107,7 @@ const subtractionPool = (chapter) => {
             id: `take:${one}:${a}:${b}`, type: 'take', a, b, answer: a - b,
             one, many, color, object,
             prompt: `There are ${quantity(a, one, many)}. Take away ${b}. How many are left?`,
-            clue: 'Look at the marked objects. Count the ones that remain.',
+            clue: b === 0 ? 'Nothing is taken away. The starting group stays the same.' : 'Look at the marked objects. Count the ones that remain.',
             explanation: `Start with ${a}. Take ${b} away. ${a - b} remain.`,
           });
         }

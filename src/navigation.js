@@ -65,3 +65,16 @@ export const nextRouteHistoryState = (from, next, previousState, depth) => ({
       || (from?.name === 'game' && from.id === 'timeteller' && previousState?.clockLessonOrigin === 'worldmap'))
     ? { clockLessonOrigin: 'worldmap' } : {}),
 });
+
+// A reload or browser history restoration keeps the known screen and its
+// related-lesson origin. A fresh visit still begins with player selection.
+export const startupNavigation = (hash, state, navigationType) => {
+  const restoring = navigationType === 'reload' || navigationType === 'back_forward';
+  const route = parseRoute(hash);
+  if (!restoring || routeHash(route) !== hash) return { hash: '#/', state: { depth: 0 } };
+  const depth = Number.isSafeInteger(state?.depth) && state.depth >= 0 ? state.depth : 0;
+  return {
+    hash: routeHash(route),
+    state: { depth, ...(route.name === 'game' && route.id === 'timeteller' && state?.clockLessonOrigin === 'worldmap' ? { clockLessonOrigin: 'worldmap' } : {}) },
+  };
+};

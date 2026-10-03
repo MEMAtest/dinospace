@@ -110,6 +110,8 @@ export default function NumberLineJump({
       item: q.id,
       response: value,
       correct: ok,
+      diagnosticOnly: ok,
+      skill: q.type,
       firstAttempt: !mistake
     });
     if (!ok) {

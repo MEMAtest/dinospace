@@ -76,7 +76,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     const correct = value === question.answer;
     onGameEvent?.('addition', 'answer_attempt', {
       level: chapterIndex, round: roundIndex, seed, difficulty: chapter.id,
-      item: question.id, response: value, correct, firstAttempt,
+      skill: chapter.skill, item: question.id, response: value, correct, firstAttempt, diagnosticOnly: correct,
     });
     if (!correct) {
       setMistake(true);
@@ -93,7 +93,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     onGameEvent?.('addition', 'answer_correct', {
       level: chapterIndex, round: roundIndex, seed, difficulty: chapter.id,
       skill: chapter.skill, item: question.id, response: value, expected: question.answer,
-      correct: true, firstAttempt, priorWrong: mistake, hints: hintUsed ? 1 : 0,
+      correct: true, firstAttempt, independent: firstAttempt && !hintUsed, priorWrong: mistake, hints: hintUsed ? 1 : 0,
     });
     tell(speak, question.explanation);
   };
