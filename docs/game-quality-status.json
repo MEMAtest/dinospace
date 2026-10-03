@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-03T19:24:00Z",
+  "updatedAt": "2026-10-03T19:41:00Z",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
-    "in progress": 20,
-    "not started": 2
+    "in progress": 22,
+    "not started": 0
   },
   "canonicalRelease": "3cdfc426e91b46a855448690278ceb6590280b68",
   "currentBatch": 2,
@@ -205,18 +205,18 @@
     {
       "game": "Memory Match",
       "batch": 7,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch7-memory-solar-implementation-plan-20261003.md"
     },
     {
       "game": "Solar System",
       "batch": 7,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "docs/batch7-memory-solar-implementation-plan-20261003.md"
     }
   ],
   "candidate": {
