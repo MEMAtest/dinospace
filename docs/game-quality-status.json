@@ -251,13 +251,14 @@
   "implementationBatch": 3,
   "implementationBranch": "codex/amari-batch3-quality-20261003",
   "implementationCandidate": {
-    "source": "7c79f47154d97f877858bd3d5124c37cf23bb5e6",
+    "source": "569953595e89eabf628a5fdc6e2a43541e2b19f2",
     "branch": "codex/amari-batch3-quality-20261003",
     "testsPassed": 198,
     "lint": "passed",
     "build": "passed",
-    "localPlaywright": "Independent desktop/mobile Count/Dino and Trace/Cosmic checks in progress",
+    "localPlaywright": "Initial7c79 actual UI found Dino crash, desktop Trace clipping, completed-stroke copy, mobile Count answer reveal issue. Separate569 repair candidate under independent desktop/mobile review.",
     "narration": "Packaging and runtime wiring pending",
-    "release": "Not deployed or accepted"
+    "release": "Not deployed or accepted",
+    "sourceGateLineage": "198-test baseline7c79; later JSX-only browser repairs lint/build pass, actual delta verification pending."
   }
 }

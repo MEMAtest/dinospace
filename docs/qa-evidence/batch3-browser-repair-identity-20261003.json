@@ -1,0 +1,35 @@
+{
+  "sourceSha": "569953595e89eabf628a5fdc6e2a43541e2b19f2",
+  "url": "http://127.0.0.1:5215",
+  "voiceBuildFlag": true,
+  "baselineTestsPassed": 198,
+  "lint": "passed",
+  "build": "passed",
+  "assets": [
+    {
+      "path": "/assets/AmariCountTheStars-Dj_LWnhm.js",
+      "sha256": "9706c2690eff6fda94454a18830b685aedcf1e48278cd934aec0274a0b9c6072"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-ClnQuP5o.js",
+      "sha256": "20a344893e47cef00e8c9df74f2ab0114961d9015d72009269d698d37349d1e6"
+    },
+    {
+      "path": "/assets/SolarSystem-PBT1a1c5.js",
+      "sha256": "1fba15daeeeebc76a4e585524d1a6e9ada2fcaba1dd3157fde271240775fbbc6"
+    },
+    {
+      "path": "/assets/index-BvJd4_Yg.js",
+      "sha256": "77ddf33cd6560841426eb80c4f8e03bfc2c912d1b1dff7bc790c5b183769cb2e"
+    },
+    {
+      "path": "/assets/index-CohPvEcn.css",
+      "sha256": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d"
+    },
+    {
+      "path": "/assets/web-guPxiNy3.js",
+      "sha256": "a4650f80b0c1174438259ac1bc14674c9506ab8be5b8f40dc32cf8d1366e3962"
+    }
+  ],
+  "scope": "Local UI repair candidate for independently reproduced 7c79 failures; no deployment or4.5 acceptance."
+}
