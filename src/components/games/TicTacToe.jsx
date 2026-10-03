@@ -21,6 +21,7 @@ const MARK = Object.freeze({ X: { name: 'Dino', emoji: '🦖', color: 'text-lime
 const PLAYER_MARK = 'X';
 const otherMark = (mark) => mark === 'X' ? 'O' : 'X';
 const phaseName = (phase) => ({ map: 'intro', play: 'play', complete: 'complete' })[phase] || phase;
+const noopCancel = () => {};
 const getSeed = () => {
   if (globalThis.crypto?.getRandomValues) {
     const value = new Uint32Array(1);
@@ -36,6 +37,7 @@ const TicTacToe = ({
   soundOn = false,
   onToggleSound,
   speak = () => {},
+  cancelNarration = noopCancel,
   onCelebrate = () => {},
   onGameEvent,
   onPhaseChange,
@@ -77,13 +79,17 @@ const TicTacToe = ({
   const requestLeaveBoard = () => setConfirmLeaveBoard(true);
   const keepPlaying = () => setConfirmLeaveBoard(false);
   const leaveBoard = () => {
+    cancelNarration();
     setConfirmLeaveBoard(false);
     setPhase('map');
   };
 
   useEffect(() => { onPhaseChange?.(phaseName(phase)); }, [onPhaseChange, phase]);
   useEffect(() => { setProgress(getCosmicProgress(playerId)); }, [playerId]);
-  useEffect(() => () => clearTimeout(botTimerRef.current), []);
+  useEffect(() => () => {
+    clearTimeout(botTimerRef.current);
+    cancelNarration();
+  }, [cancelNarration]);
 
   const say = useCallback((text) => {
     if (soundOn && text) speak(text, { premium: false });
@@ -92,6 +98,7 @@ const TicTacToe = ({
   const startMission = (requestedChapter = chapterIndex, replay = false) => {
     const saved = getCosmicProgress(playerId);
     if (!replay && requestedChapter > saved.unlocked) return;
+    cancelNarration();
     const runMissionIds = getCosmicRunMissionIds(saved.completedMissionIds[requestedChapter], replay);
     const nextMissionIndex = runMissionIds[0];
     const nextSeed = getSeed();
@@ -122,6 +129,7 @@ const TicTacToe = ({
   };
 
   const startFreePlay = (nextOpponent = opponent, nextDifficulty = difficulty) => {
+    cancelNarration();
     const nextSeed = getSeed();
     clearTimeout(botTimerRef.current);
     completedResultRef.current = '';
@@ -145,6 +153,7 @@ const TicTacToe = ({
   };
 
   const beginBoard = () => {
+    cancelNarration();
     const nextSeed = getSeed();
     clearTimeout(botTimerRef.current);
     completedResultRef.current = '';
@@ -234,6 +243,7 @@ const TicTacToe = ({
   };
 
   const retryMission = () => {
+    cancelNarration();
     const scenario = makeTacticScenario({ level: chapterIndex, seed, round: missionIndex });
     setBoard(scenario.board);
     setMissionTarget(scenario.target);
@@ -246,6 +256,7 @@ const TicTacToe = ({
     onGameEvent?.('tictactoe', 'replay', { level: chapterIndex, round: missionIndex, seed, difficulty: ['starter', 'growing', 'challenge'][chapterIndex] });
   };
   const nextMission = () => {
+    cancelNarration();
     const updated = getCosmicProgress(playerId);
     setProgress(updated);
     const nextStep = getNextCosmicRunStep(missionRunIds, missionRunStep);
@@ -388,19 +399,25 @@ const TicTacToe = ({
     </main>
   );
 
+  const showChapterMap = () => {
+    cancelNarration();
+    setProgress(getCosmicProgress(playerId));
+    setPhase('map');
+  };
+
   const renderComplete = () => (
     <main className="mx-auto grid min-h-[70vh] w-full max-w-3xl content-center justify-items-center gap-5 px-4 py-8 text-center">
       <div className="text-7xl" aria-hidden="true">🏅</div><h1 className="text-4xl font-black">{chapter.title} complete!</h1>
       <p className="max-w-2xl text-lg font-bold text-white/80">You solved three different {chapter.tactic === 'win' ? 'winning-line' : chapter.tactic === 'block' ? 'blocking' : 'fork'} boards. Your chapter badge and next chapter unlock are saved.</p>
       <p className="rounded-full bg-white/10 px-5 py-2 font-black">Saved badges: {progress.badges.length} · next chapter {chapterIndex < 2 ? progress.unlocked >= chapterIndex + 1 ? 'unlocked' : 'locked' : 'last chapter complete'}</p>
-      <div className="flex flex-wrap justify-center gap-3"><button type="button" onClick={() => startMission(chapterIndex, true)} className="min-h-12 rounded-xl bg-cyan-200 px-5 font-black text-slate-950"><RotateCcw className="mr-2 inline" size={18} />Replay chapter</button><button type="button" onClick={() => { setProgress(getCosmicProgress(playerId)); setPhase('map'); }} className="min-h-12 rounded-xl bg-white/15 px-5 font-black">Choose another chapter</button><button type="button" onClick={onBack} className="min-h-12 rounded-xl bg-white/15 px-5 font-black"><ArrowLeft className="mr-2 inline" size={18} />Back to world</button></div>
+      <div className="flex flex-wrap justify-center gap-3"><button type="button" onClick={() => startMission(chapterIndex, true)} className="min-h-12 rounded-xl bg-cyan-200 px-5 font-black text-slate-950"><RotateCcw className="mr-2 inline" size={18} />Replay chapter</button><button type="button" onClick={showChapterMap} className="min-h-12 rounded-xl bg-white/15 px-5 font-black">Choose another chapter</button><button type="button" onClick={onBack} className="min-h-12 rounded-xl bg-white/15 px-5 font-black"><ArrowLeft className="mr-2 inline" size={18} />Back to world</button></div>
     </main>
   );
 
   return <div className="relative flex min-h-[100dvh] flex-col overflow-x-hidden bg-[#07132f] text-white">
     <div className="ttt-starfield pointer-events-none absolute inset-0 opacity-80" />
     <header className="relative z-10 flex min-h-[68px] items-center justify-between gap-2 px-3 py-3 sm:px-6">
-      <button type="button" onClick={phase === 'map' ? onBack : phase === 'play' ? requestLeaveBoard : () => setPhase('map')} aria-label={phase === 'map' ? 'Back to learning world' : phase === 'play' ? 'Leave game board' : 'Back to game map'} className="grid min-h-12 min-w-12 place-items-center rounded-full bg-white/15"><ArrowLeft /></button>
+      <button type="button" onClick={phase === 'map' ? onBack : phase === 'play' ? requestLeaveBoard : showChapterMap} aria-label={phase === 'map' ? 'Back to learning world' : phase === 'play' ? 'Leave game board' : 'Back to game map'} className="grid min-h-12 min-w-12 place-items-center rounded-full bg-white/15"><ArrowLeft /></button>
       <div className="text-center"><p className="text-xs font-black uppercase tracking-[.2em] text-cyan-100">Dino Space Arena</p><p className="text-xl font-black sm:text-2xl">Cosmic Tic-Tac-Toe</p></div>
       <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" />
     </header>

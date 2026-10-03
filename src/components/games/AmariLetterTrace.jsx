@@ -28,6 +28,7 @@ const getSeed = () => {
 };
 
 const phaseName = (phase) => ({ map: 'intro', play: 'play', complete: 'complete' })[phase] || phase;
+const noopCancel = () => {};
 const letterMetadata = (lower) => TRACE_LETTERS.find((item) => item.lower === lower) || TRACE_LETTERS[0];
 
 const AmariLetterTrace = ({
@@ -36,6 +37,7 @@ const AmariLetterTrace = ({
   soundOn = false,
   onToggleSound,
   speak = () => {},
+  cancelNarration = noopCancel,
   onCelebrate = () => {},
   onGameEvent,
   onPhaseChange,
@@ -86,9 +88,7 @@ const AmariLetterTrace = ({
   useEffect(() => {
     setMastery(getLetterTraceProgress(playerId));
   }, [playerId]);
-  useEffect(() => () => {
-    if (typeof window !== 'undefined') window.speechSynthesis?.cancel?.();
-  }, []);
+  useEffect(() => () => cancelNarration(), [cancelNarration]);
 
   const say = useCallback((text) => {
     if (soundOn && text) speak(text, { premium: false });
@@ -125,6 +125,7 @@ const AmariLetterTrace = ({
       setError('Choose at least eight taught letter sounds in the grown-ups learning settings before starting this chapter.');
       return;
     }
+    cancelNarration();
     setRun(nextRun);
     setRoundIndex(0);
     resetRoundState(nextRun.rounds[0]);
@@ -134,7 +135,7 @@ const AmariLetterTrace = ({
     setPhase('play');
     playSfx('launch');
     say(AMARI_TRACE_NARRATION[0]);
-  }, [level, onGameEvent, playerId, playSfx, resetRoundState, say]);
+  }, [cancelNarration, level, onGameEvent, playerId, playSfx, resetRoundState, say]);
 
   const drawGuide = useCallback(() => {
     const canvas = canvasRef.current;
@@ -339,6 +340,7 @@ const AmariLetterTrace = ({
   };
 
   const restartTrace = () => {
+    cancelNarration();
     strokeStateRef.current = { cursors: guideRef.current.map(() => 0), completed: 0, on: 0, off: 0, paths: [] };
     pointerRef.current = { active: false, id: null, last: null };
     keyboardRef.current = { cursor: 0, active: false };
@@ -452,6 +454,7 @@ const AmariLetterTrace = ({
 
   const advance = () => {
     if (!roundPassed) return;
+    cancelNarration();
     const nextIndex = roundIndex + 1;
     if (nextIndex < LETTER_TRACE_ROUNDS_PER_LEVEL) {
       setRoundIndex(nextIndex);
@@ -472,6 +475,7 @@ const AmariLetterTrace = ({
   const chooseLevel = (nextLevel) => {
     if (nextLevel > mastery.unlocked) return;
     if (nextLevel === level) return;
+    cancelNarration();
     setActiveLevel(nextLevel);
     setError('');
     playSfx('click');
