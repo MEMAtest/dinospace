@@ -36,3 +36,9 @@ Batch4 phrase wiringfa47bf7 retains exact spokenoperands/semantics and moves ful
 Root corrected Tracekeyboard learning classificationabe8b59: keyboardguide may completechapters but is not independenthandwriting evidence. It preservesactualfirstAttempt semantics. Pointergeometry remainsunchanged; newkeyboarddelta needs exactcandidate.
 
 Batch5 isolatedsourceaudit/planpublished at a3dc731, fourgames inprogress. Luna is implementing SoundSafari/Spelling while Colour/Odd await buildercapacity. Total4accepted/16inprogress/6notstarted; no additional4.5scores. Rootreleasebranchhas noBatch3/4/5runtimepromotion.
+
+## Exact final candidate gates — 18:05UTC
+
+Final Trace16b545b at5237 isbuilt from aGitarchive, excluding liveaudio-worker mutations:204tests/fullESLint/build and6servedhashes pass. Itcontains clearedwordchoices, keyboardindependent/masteryeligibility correction, accurateRight/Downadvancehelp andvisiblepointerdirectionarrows; fullChallenge remainsin independentQA at5231plus a narrow5237changedcontrol/keyboarddelta. No4.5promotion.
+
+Batch4 fa47bf7 at5235 passes198tests/fullESLint/build/4servedhashes. CompletedfullAddition/Subtractionbothwidths and Timebothwidths are recordedbytheactive5227tester; finalNumberLinedesktop/log/navigation/replay evidence andreport remain open. Noaudioorproductionacceptance. Batch3worker livePID1660 has117mappedclips/158pending at18:00UTC, waitingunderitsrequestjournal; noerrororrestart.

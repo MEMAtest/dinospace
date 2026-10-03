@@ -251,16 +251,16 @@
   "implementationBatch": 3,
   "implementationBranch": "codex/amari-batch3-quality-20261003",
   "implementationCandidate": {
-    "source": "c7c6575d956238c9b6d6797c76de253fe4e95c50",
+    "source": "16b545b6afef31a54c02d5a98e3e7db7e07b2677",
     "branch": "codex/amari-batch3-quality-20261003",
     "testsPassed": 204,
     "lint": "passed",
     "build": "passed",
     "localPlaywright": "Count653 complete Starter/Growing/Challenge and replay at both widths; Dino569 complete12 worlds at both widths; Cosmic5215 complete3 chapters at both widths. Trace5223 active marker repair passes D/P both widths, full8-round three-band matrix underway. No new production acceptance. Independent5223Challenge found retained previousletterchoices blocking round2; repaired5231 consecutiveletter/fullChallenge delta nowassigned.",
-    "narration": "Finite275clip worker making expectedprogress;55newclips saved,204pending at17:40UTC. Frozen5231 contains first30additions (46mapped/decoded). Remainingpackaging/native/listening gates open.",
+    "narration": "275unique finiteworker stilllive, expectedratewindowwaiting;158pendingat18:00UTC. Frozen5237 contains46mappedclips; first46decoded. Fullpackaging/native/listening open.",
     "release": "Not deployed or accepted",
-    "sourceGateScope": "204/204 tests, focused Trace ESLint, productionconfigurationbuild and6servedhashes on5231; fullESLint prior76be035",
-    "identity": "work/dinospace-batch3-quality/docs/qa-evidence/batch3-word-choice-identity-20261003.json"
+    "sourceGateScope": "204/204tests, fullESLint, productionconfigurationbuild and6servedhashes on immutable5237 archivedsource",
+    "identity": "work/dinospace-batch3-quality/docs/qa-evidence/batch3-direction-identity-20261003.json"
   },
   "nextImplementationBatch": {
     "batch": 4,
@@ -284,5 +284,15 @@
     "branch": "codex/amari-batch5-quality-20261003",
     "plan": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md",
     "scope": "Sourceaudit/publishedconcreteplanforallfour; LunaSoundSafari/Spellingbuilderactive; Colour/Oddbuilderpendingcapacity. No candidateQA/acceptance/release."
+  },
+  "batch4NarrationCandidate": {
+    "sha": "fa47bf73e7d169bb1b37b6bf278718a7b088e97a",
+    "identity": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-identity-20261003.json",
+    "sourceTests": "198/198",
+    "fullESLint": "passed",
+    "build": "passed",
+    "servedHashesMatch": true,
+    "voiceCoverage": "65ready/5181pendingphrases; packagingnotstarted",
+    "release": "Notdeployed/accepted"
   }
 }
