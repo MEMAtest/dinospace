@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { MEMORY_LEVELS, PLANETS } from '../src/data/index.js';
-import { buildSeededMemoryDeck, readDiscoveryPassport, saveDiscoveryPassport, completeMemoryBoard, readMemoryPassport } from '../src/data/batch7Progress.js';
+import { buildSeededMemoryDeck, readDiscoveryPassport, saveDiscoveryPassport, completeMemoryBoard, readMemoryPassport, discoveredPlanetBadges } from '../src/data/batch7Progress.js';
 test('Memory retains rising pair counts and ten distinct valid seeded decks per board', () => {
   assert.deepEqual(MEMORY_LEVELS.slice(0, 5).map((level) => level.emojis.length), [4, 8, 10, 12, 13]);
   for (const level of MEMORY_LEVELS) {
@@ -14,6 +14,18 @@ test('Memory retains rising pair counts and ten distinct valid seeded decks per 
       signatures.add(deck.map((card) => card.id).join('|'));
     }
     assert.equal(signatures.size, 10);
+  }
+});
+test('All nine planets earn their badge after three distinct discoveries, not all six', () => {
+  assert.equal(PLANETS.length, 9);
+  for (const planet of PLANETS) {
+    assert.ok(planet.facts.length >= 3);
+    const facts = { [`${planet.name}-0`]: true, [`${planet.name}-1`]: true };
+    assert.deepEqual(discoveredPlanetBadges(PLANETS, facts), []);
+    facts[`${planet.name}-2`] = true;
+    assert.deepEqual(discoveredPlanetBadges(PLANETS, facts), [planet.name]);
+    facts[`${planet.name}-3`] = true;
+    assert.deepEqual(discoveredPlanetBadges(PLANETS, facts), [planet.name]);
   }
 });
 test('Memory awards completed boards and best-star improvements once, preserving reload and sibling isolation', () => {

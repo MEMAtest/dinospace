@@ -5,7 +5,7 @@ import { ArrowLeft, Pause, Play, Rotate3D, RotateCcw, Sparkles, Volume2, ZoomIn,
 import { PLANETS } from '../../data/index.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { SoundToggle } from '../shared/index.jsx';
-import { readDiscoveryPassport, saveDiscoveryPassport, seededPlanetOptions } from '../../data/batch7Progress.js';
+import { readDiscoveryPassport, saveDiscoveryPassport, seededPlanetOptions, discoveredPlanetBadges } from '../../data/batch7Progress.js';
 
 const PLANET_COLORS = {
   Mercury: 0x8c8c8c,
@@ -536,7 +536,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const passportRef = useRef(passport);
   const discoveredFacts = passport.facts;
   const completedQuizzes = passport.quizzes;
-  const badges = PLANETS.filter((planet) => planet.facts.every((_, index) => discoveredFacts[`${planet.name}-${index}`])).map((planet) => planet.name);
+  const badges = discoveredPlanetBadges(PLANETS, discoveredFacts);
   const [saveWarning, setSaveWarning] = useState('');
   const stripRef = useRef(null);
   const storePassport = (next) => {
@@ -601,9 +601,9 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     playSfx('click');
   };
 
-  const discoveredForPlanet = selectedPlanet.facts.filter(
+  const discoveredForPlanet = Math.min(3, selectedPlanet.facts.filter(
     (_fact, index) => discoveredFacts[`${selectedPlanet.name}-${index}`],
-  ).length;
+  ).length);
   const availableOptions = difficulty === 'starter'
     ? [selectedPlanet.quiz.answer, selectedPlanet.quiz.options.find((option) => option !== selectedPlanet.quiz.answer)].filter(Boolean)
     : selectedPlanet.quiz.options;

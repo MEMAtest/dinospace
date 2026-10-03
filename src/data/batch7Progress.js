@@ -22,6 +22,9 @@ export function saveDiscoveryPassport(playerId, planets, value, storage = storag
   const canonical = readDiscoveryPassport(playerId, planets, { getItem: () => JSON.stringify(value) });
   try { storage.setItem(key(playerId), JSON.stringify(canonical)); return true; } catch { return false; }
 }
+export function discoveredPlanetBadges(planets, facts) {
+  return planets.filter((planet) => planet.facts.filter((_, index) => facts[`${planet.name}-${index}`] === true).length >= 3).map((planet) => planet.name);
+}
 export function buildSeededMemoryDeck(level, seed) {
   let state = (Number(seed) >>> 0) || 1;
   const cards = level.emojis.flatMap((emoji, index) => ['a', 'b'].map((copy) => ({ id: `${level.id}-${index}-${copy}`, emoji, flipped: false, matched: false })));
