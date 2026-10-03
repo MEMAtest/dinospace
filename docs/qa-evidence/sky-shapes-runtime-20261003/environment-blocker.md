@@ -13,3 +13,7 @@ The prescribed snapshot identity could not be verified or opened:
 No browser navigation, game interaction, audio request, or playback check was performed. In particular, this report makes no claim about route behavior, replay, interruption/cancellation, mute behavior, dynamic fallback calls, or audible intelligibility/prosody. The current worktree build was not substituted for the requested frozen snapshot.
 
 QA can resume when the exact snapshot is restored and served at the prescribed origin.
+
+## Resolution
+
+The missing initial snapshot was restored under `tmp/batch2-audio-snapshot-20261003-0640`, served on port 5195, and hashed as reported in the dated runtime report. Its Back interruption defect was reproduced. A separate repaired snapshot was then built under `tmp/batch2-audio-exit-fix-20261003` and independently exercised on port 5196. This note preserves the initial environment failure; see `runtime-report-20261003.md` for the final two-identity result.

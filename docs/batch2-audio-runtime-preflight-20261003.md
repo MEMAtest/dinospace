@@ -39,3 +39,9 @@ New frozen LOCAL candidate is workspace `tmp/batch2-audio-exit-fix-20261003`, se
 - CSS remains `index-CPZQTFam.css` with its recorded unchanged hash.
 
 Independent confirmed-Back, cancelled-leave, replay, next and mute deltas are underway at both widths. This repair is not deployed; canonical production still runs `6b84554`. Packaged narration completion, audible review and production audio evidence remain required.
+
+## Independent repaired-candidate results
+
+The [Sky runtime report](qa-evidence/sky-shapes-runtime-20261003/runtime-report-20261003.md) records desktop and 390px replay, hint, mute, completion, Next, restart, confirmed-Back cancellation and Keep playing retention on the exact repaired candidate. Subsequent Home/world gestures did not resume cancelled narration. The [Puzzle/Spot report](qa-evidence/puzzle-spot-runtime-20261003/report.md) distinguishes older interaction evidence from repaired-candidate cancellation deltas; its untested combinations remain explicit. These are local runtime results, not a listening review or a production release.
+
+The candidate's 167 Puzzle/Spot/Sky clip hashes match the previously screened corpus exactly: [clip identity check](qa-evidence/batch2-audio-exit-fix-clip-identity-20261003.json). At 07:14 UTC the read-only audit found **1,058 of 1,359** Batch 2 clips present with positive duration and successful full FFmpeg decoding, **301 missing** and **zero invalid**: [checkpoint report](qa-evidence/batch2-corpus-decode-checkpoint-20261003.json). Exit status 1 correctly indicates incomplete readiness. `node scripts/check-batch2-audio.mjs` reproduces the audit without generation or provider calls. Authored text and clip hashes are retained; decoding does not prove spoken wording or intelligibility. The live finite worker remains responsible for the remaining Monster Math clips.
