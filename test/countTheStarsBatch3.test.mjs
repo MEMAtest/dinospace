@@ -5,6 +5,24 @@ import {
   countQuestionPool, createCountTheStarsRun,
 } from '../src/data/countTheStarsBatch3.js';
 
+test('each harder count survey reliably teaches its new range and organised grouping', () => {
+  for (const level of [1, 2]) {
+    const threshold = level === 1 ? 5 : 10;
+    let recent = [];
+    for (const seed of [36, 109, 171, 2577, 8177, ...Array.from({ length: 200 }, (_, index) => index + 1)]) {
+      const run = createCountTheStarsRun(level, seed, recent);
+      assert.equal(run.rounds.length, 6);
+      assert.equal(new Set(run.rounds.map(({ id }) => id)).size, 6);
+      assert.ok(run.rounds.filter(({ count }) => count > threshold).length >= 3);
+      assert.ok(run.rounds.filter(({ count, layoutVariant }) => count > threshold && layoutVariant === 'grouped').length >= 2);
+      assert.ok(run.rounds.some(({ count }) => count <= threshold), 'retain a review quantity');
+      assert.ok(run.rounds.every(({ id }) => !recent.includes(id)), 'avoid recent question identities');
+      assert.ok(new Set(run.rounds.map(({ count }) => count)).size >= 4, 'vary quantities within a run');
+      recent = [...recent, ...run.rounds.map(({ id }) => id)].slice(-8);
+    }
+  }
+});
+
 test('count episodes provide six stable unique questions and safe visible object sets', () => {
   for (let episode = 0; episode < COUNT_THE_STARS_EPISODES.length; episode += 1) {
     const first = createCountTheStarsRun(episode, 2718);

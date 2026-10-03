@@ -171,7 +171,25 @@ export const createCountTheStarsRun = (episodeIndex, seed, recentQuestionIds = [
   const recent = new Set(recentQuestionIds);
   let eligible = pool.filter(({ id }) => !recent.has(id));
   if (eligible.length < 6) eligible = pool;
-  const queue = shuffleWith(eligible, random).slice(0, 6).map((entry) => {
+  const shuffled = shuffleWith(eligible, random);
+  const chosen = [];
+  if (episodeIndex > 0) {
+    const threshold = episodeIndex === 1 ? 5 : 10;
+    const take = (predicate) => {
+      const matches = shuffled.filter((entry) => predicate(entry) && !chosen.some(({ id }) => id === entry.id));
+      const entry = matches.find(({ count }) => !chosen.some((picked) => picked.count === count)) || matches[0];
+      if (entry) chosen.push(entry);
+    };
+    // A harder chapter must practise its new range every run, even when
+    // random selection would otherwise draw only Starter-sized quantities.
+    take(({ count, layoutVariant }) => count > threshold && layoutVariant === 'grouped');
+    take(({ count, layoutVariant }) => count > threshold && layoutVariant === 'grouped');
+    take(({ count }) => count > threshold);
+    take(({ count }) => count <= threshold);
+    while (chosen.length < 6) take(() => true);
+  }
+  const selected = episodeIndex > 0 ? shuffleWith(chosen, random) : shuffled.slice(0, 6);
+  const queue = selected.map((entry) => {
     const objects = buildCountObjects(entry.count, seed, entry.id, entry.layoutVariant);
     return freeze({
       ...entry,

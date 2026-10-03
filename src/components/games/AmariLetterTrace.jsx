@@ -74,7 +74,12 @@ const AmariLetterTrace = ({
   const currentMeta = letterMetadata(letter.lower);
   const traceLetter = letter.requested || (level === 2 ? letter.lower : letter.upper);
   const storyChoices = useMemo(() => wordChoices, [wordChoices]);
-  const strokeAnnouncement = `Trace ${traceLetter}. Stroke ${Math.min(strokeStateRef.current.completed + 1, guideRef.current.length || 1)} of ${guideRef.current.length || 1}.`;
+  // The drawing effect updates guideRef after render. Derive the announced
+  // count from this letter so a new round never announces the previous guide.
+  const currentStrokeCount = getLetterStrokes(traceLetter, 100, 100).length || 1;
+  const strokeAnnouncement = traceReady || roundPassed
+    ? `Trace ${traceLetter}. All ${currentStrokeCount} strokes complete.`
+    : `Trace ${traceLetter}. Stroke ${Math.min(strokeStateRef.current.completed + 1, currentStrokeCount)} of ${currentStrokeCount}.`;
 
   useEffect(() => { onPhaseChange?.(phaseName(phase)); }, [onPhaseChange, phase]);
   useEffect(() => { setActiveLevel(Math.max(0, Math.min(2, sessionLevel))); }, [sessionLevel]);
