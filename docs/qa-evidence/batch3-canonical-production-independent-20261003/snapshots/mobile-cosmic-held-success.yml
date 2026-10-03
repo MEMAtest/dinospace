@@ -1,0 +1,32 @@
+- generic [ref=e1741]:
+  - banner [ref=e1742]:
+    - button "Leave game board" [ref=e1787] [cursor=pointer]
+    - generic [ref=e1746]:
+      - paragraph [ref=e1747]: Dino Space Arena
+      - paragraph [ref=e1748]: Cosmic Tic-Tac-Toe
+    - button "Turn sound off" [ref=e1749] [cursor=pointer]
+  - main [ref=e1788]:
+    - generic [ref=e1789]:
+      - generic [ref=e1790]:
+        - generic [ref=e1791]:
+          - paragraph [ref=e1792]: Make a line · board 1 of 3
+          - heading "Rival Comet" [level=1] [ref=e1793]
+        - button "Show hint" [disabled] [ref=e1794]
+      - paragraph [ref=e1797]: Two Dino marks are waiting. Find the square that makes three in a row.
+      - paragraph [ref=e1798]: 1 of 3 tactic boards solved · the move stays yours to choose.
+    - grid "Cosmic three by three board" [ref=e1799]:
+      - gridcell "Row 1, column 1, square 1, Dino" [disabled] [ref=e1800]: 🦖
+      - gridcell "Row 1, column 2, square 2, Dino" [disabled] [ref=e1801]: 🦖
+      - gridcell "Row 1, column 3, square 3, Dino" [disabled] [ref=e1819]: 🦖
+      - gridcell "Row 2, column 1, square 4, Rocket" [disabled] [ref=e1803]: 🚀
+      - gridcell "Row 2, column 2, square 5, Rocket" [disabled] [ref=e1804]: 🚀
+      - gridcell "Row 2, column 3, square 6, empty" [disabled] [ref=e1805]
+      - gridcell "Row 3, column 1, square 7, empty" [disabled] [ref=e1806]
+      - gridcell "Row 3, column 2, square 8, empty" [disabled] [ref=e1807]
+      - gridcell "Row 3, column 3, square 9, empty" [disabled] [ref=e1808]
+    - generic [ref=e1809]:
+      - paragraph [ref=e1810]: Three Dino marks now make a line.
+      - generic [ref=e1820]:
+        - paragraph [ref=e1821]: Tactic solved. The explanation is held until you choose to continue.
+        - button "Next tactic board" [ref=e1822] [cursor=pointer]
+    - button "Chapter map" [ref=e1811] [cursor=pointer]

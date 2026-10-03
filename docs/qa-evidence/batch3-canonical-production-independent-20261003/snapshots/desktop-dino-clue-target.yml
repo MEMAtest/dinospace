@@ -1,0 +1,33 @@
+- generic [ref=e2564]:
+  - banner [ref=e2565]:
+    - button "Back to learning world" [ref=e2566] [cursor=pointer]
+    - generic [ref=e2569]:
+      - heading "Dino Detective" [level=1] [ref=e2570]
+      - paragraph [ref=e2571]: Jungle Jive · Find 1 of 5
+    - button "Turn sound off" [ref=e2572] [cursor=pointer]
+  - main [ref=e2663]:
+    - generic [ref=e2664]:
+      - generic [ref=e2665]:
+        - generic [ref=e2666]:
+          - paragraph [ref=e2667]: starter band · Jungle Jive
+          - heading "Find T-Rex" [level=2] [ref=e2668]
+          - paragraph [ref=e2669]: Look for the creature hiding in this leafy place.
+        - generic [aria-hidden] [ref=e2670]: 🌿
+      - group "Jungle Jive search area" [ref=e2671]:
+        - button "Search behind left fern, spot 1 of 5" [ref=e2672] [cursor=pointer]:
+          - generic [aria-hidden] [ref=e2682]: "1"
+        - button "Search behind middle stones, spot 2 of 5, not here" [ref=e2738] [cursor=pointer]:
+          - generic [aria-hidden] [ref=e2693]: "2"
+        - button "Search behind right water reeds, spot 3 of 5" [ref=e2694] [cursor=pointer]:
+          - generic [aria-hidden] [ref=e2704]: "3"
+        - button "T-Rex, spot 4 of 5, clue points here" [ref=e2739] [cursor=pointer]:
+          - img "Rex the T-Rex" [ref=e2740]
+        - button "Search behind lower right rocks, spot 5 of 5" [ref=e2716] [cursor=pointer]:
+          - generic [aria-hidden] [ref=e2726]: "5"
+      - generic [ref=e2727]:
+        - status [ref=e2728]: Look in the lower left spot.
+        - generic [ref=e2729]:
+          - button "Hear instructions" [ref=e2730] [cursor=pointer]
+          - button "Read clue" [ref=e2731] [cursor=pointer]
+          - button "Show a clue" [disabled] [ref=e2734]
+    - paragraph [ref=e2737]: Five numbered hiding places. A bright footprint trail leads to the target.

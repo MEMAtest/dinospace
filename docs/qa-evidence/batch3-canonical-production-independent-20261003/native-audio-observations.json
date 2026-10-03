@@ -1,0 +1,30 @@
+{
+  "candidate": {
+    "url": "https://dinospace-eight.vercel.app",
+    "deploymentId": "dpl_2d8La99iCHGQAUNjCpfagawN9LB8",
+    "sourceSha": "a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4"
+  },
+  "method": "Observation only. A wrapper around native Audio construction returned the original genuine browser Audio objects and preserved original play/pause methods. It recorded native media events; it did not provide, synthesize, intercept, or fake audio.",
+  "game": "Dino Detective - Jungle Jive",
+  "viewport": "desktop 1280x800",
+  "asset": "https://dinospace-eight.vercel.app/audio/en/ac4e248c-matilda.mp3",
+  "durationSeconds": 5.20127,
+  "events": [
+    "Read facts again created a native Audio object and emitted play and playing.",
+    "Native timeupdate advanced from 0 through approximately 4.2 seconds of the 5.20-second clip.",
+    "Using Read facts again again replayed the packaged clip through a new native Audio object.",
+    "Turn sound off caused native pause at currentTime 0.",
+    "During another playback, Back to learning world opened its normal confirmation; confirmed Back to world returned to Explore & Languages and caused native pause/reset at currentTime 0."
+  ],
+  "networkAndGuards": {
+    "mediaOrigin": "same-origin production packaged audio; observed HTTP 200/206 responses",
+    "voiceRoute": "Playwright guard installed before app navigation, status 204, remained active",
+    "storyRoute": "Playwright guard installed before app navigation, status 204, remained active",
+    "providerCalls": 0
+  },
+  "limitations": [
+    "No human listening-quality review.",
+    "Native event sequence was instrumented on desktop Dino Detective only; mobile requests were confirmed but not instrumented for timeupdate/cancellation.",
+    "Representative clips only, not a complete narration inventory."
+  ]
+}
