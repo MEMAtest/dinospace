@@ -1,0 +1,34 @@
+{
+  "sourceSha": "e223bccfd8c962a4c06ddd343ff2c2e53d8e4b58",
+  "checkedAt": "2026-10-03T12:43:20.448791+00:00",
+  "candidateDirectory": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/tmp/batch2-guidance-final-20261003",
+  "origins": [
+    "http://127.0.0.1:5205",
+    "http://127.0.0.1:5207"
+  ],
+  "configuration": {
+    "VITE_ELEVENLABS_ENABLED": "true"
+  },
+  "renderedBuildAssets": [
+    {
+      "path": "assets/index-CQ3R0BNq.js",
+      "sha256": "c9c6f6a05a7c48e32b5a59505cbd386f6faa1584c397f741b9f72fb6a216207b"
+    },
+    {
+      "path": "assets/index-CUmO8J4O.css",
+      "sha256": "d8fe5109969658486618b98444a2d23d3fb411f1604a6081d45d3e5ed90f5d2f"
+    }
+  ],
+  "corpusByteCheck": {
+    "count": 1371,
+    "allMatch": true
+  },
+  "transition": "Known preview handles terminated after prior tests completed; new immutable candidate served on same QA origins. Prior files/reports preserved; profiles may retain normally earned progress, no storage injection/copy.",
+  "sourceGates": {
+    "tests": 171,
+    "passed": 171,
+    "lint": "passed",
+    "productionConfigBuild": "passed"
+  },
+  "scope": "Local candidate identity, not production or acceptance"
+}

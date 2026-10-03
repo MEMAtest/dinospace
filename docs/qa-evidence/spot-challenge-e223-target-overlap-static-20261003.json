@@ -1,0 +1,148 @@
+{
+  "source": "e223bccfd8c962a4c06ddd343ff2c2e53d8e4b58",
+  "scope": "Static layout constraint audit from committed percentage coordinates and 56px target contract. Frame sizes are conservative/representative audit assumptions, not browser measurements. URL expressions replaced only to load immutable data module for this audit; no app execution/state injected.",
+  "results": [
+    {
+      "scene": "Robin’s Woodland",
+      "frame": {
+        "width": 280,
+        "height": 210
+      },
+      "overlaps": [
+        [
+          "8-mask",
+          "8-flower"
+        ],
+        [
+          "8-cloud-moon",
+          "8-moon-sun"
+        ]
+      ]
+    },
+    {
+      "scene": "Robin’s Woodland",
+      "frame": {
+        "width": 540,
+        "height": 405
+      },
+      "overlaps": []
+    },
+    {
+      "scene": "World Explorer",
+      "frame": {
+        "width": 280,
+        "height": 210
+      },
+      "overlaps": [
+        [
+          "9-flower",
+          "9-cloud-moon"
+        ],
+        [
+          "9-flower",
+          "9-moon-sun"
+        ],
+        [
+          "9-flower",
+          "9-mask"
+        ],
+        [
+          "9-cloud-moon",
+          "9-star-heart"
+        ],
+        [
+          "9-cloud-moon",
+          "9-mask"
+        ],
+        [
+          "9-star-heart",
+          "9-flag"
+        ]
+      ]
+    },
+    {
+      "scene": "World Explorer",
+      "frame": {
+        "width": 540,
+        "height": 405
+      },
+      "overlaps": [
+        [
+          "9-flower",
+          "9-moon-sun"
+        ],
+        [
+          "9-flower",
+          "9-mask"
+        ]
+      ]
+    },
+    {
+      "scene": "History Hall",
+      "frame": {
+        "width": 280,
+        "height": 210
+      },
+      "overlaps": [
+        [
+          "10-cloud-moon",
+          "10-star-heart"
+        ],
+        [
+          "10-moon-sun",
+          "10-flower"
+        ],
+        [
+          "10-mask",
+          "10-bolt-star"
+        ]
+      ]
+    },
+    {
+      "scene": "History Hall",
+      "frame": {
+        "width": 540,
+        "height": 405
+      },
+      "overlaps": [
+        [
+          "10-cloud-moon",
+          "10-star-heart"
+        ]
+      ]
+    },
+    {
+      "scene": "Nature Lab",
+      "frame": {
+        "width": 280,
+        "height": 210
+      },
+      "overlaps": [
+        [
+          "11-star-heart",
+          "11-flag"
+        ],
+        [
+          "11-flag",
+          "11-mask"
+        ],
+        [
+          "11-mask",
+          "11-cloud-moon"
+        ],
+        [
+          "11-bolt-star",
+          "11-moon-sun"
+        ]
+      ]
+    },
+    {
+      "scene": "Nature Lab",
+      "frame": {
+        "width": 540,
+        "height": 405
+      },
+      "overlaps": []
+    }
+  ]
+}
