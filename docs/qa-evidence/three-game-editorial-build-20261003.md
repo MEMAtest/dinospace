@@ -11,7 +11,7 @@ This source-only pass updates Puzzle Pop, Spot the Difference, and Sky Shapes. I
 ## Verification
 
 - Focused Sky Shapes and Spot tests: **20 passed**.
-- Full test suite: **171 passed, 0 failed**.
+- Full test suite after diagnostic hint-count sanitizer contract update: **173 passed, 0 failed**.
 - ESLint: **passed**.
 - Production build: **passed**.
 - `git diff --check`: **passed**.
