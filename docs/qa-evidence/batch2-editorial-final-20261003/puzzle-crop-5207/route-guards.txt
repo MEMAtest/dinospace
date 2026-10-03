@@ -1,0 +1,4 @@
+Separate fresh Playwright CLI sessions for desktop and mobile began at about:blank. Each installed:
+page.route('**/api/voice**', r => r.fulfill({status:204, body:''}))
+page.route('**/api/story**', r => r.fulfill({status:204, body:''}))
+before the first app navigation to http://127.0.0.1:5207. Sound was turned off through the app control. No answers, seeds, unlocks, or progress state were injected.

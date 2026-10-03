@@ -1,0 +1,49 @@
+- generic [ref=e1863]:
+  - banner [ref=e1864]:
+    - button "Back to learning world" [ref=e1865] [cursor=pointer]
+    - generic [ref=e1868]:
+      - paragraph [ref=e1869]: Episode 3 · Monster Story Problems
+      - heading "Monster Math" [level=1] [ref=e1870]
+    - generic [ref=e1900]: Question 1/6
+    - button "Turn sound on" [ref=e1901] [cursor=pointer]
+  - main [ref=e1876]:
+    - generic [ref=e1906]: 1/6
+    - generic [ref=e1909]:
+      - paragraph [ref=e1910]: word-problems
+      - heading "Ava has 11 flowers. Ava finds 4 more. How many flowers are there now?" [level=2] [ref=e1911]
+      - button "Hear the question again" [ref=e1912] [cursor=pointer]
+    - generic [ref=e1917]:
+      - generic [ref=e1918]:
+        - paragraph [ref=e1919]: Number line · follow each jump
+        - generic [ref=e1922]:
+          - generic [ref=e1923]: "9"
+          - generic [ref=e1925]: "10"
+          - generic [ref=e1927]:
+            - generic "Starting point" [ref=e1962]: ●
+            - generic [ref=e1929]: "11"
+          - generic [ref=e1930]:
+            - generic [aria-hidden] [ref=e1963]: 🌼
+            - generic [ref=e1931]: "12"
+          - generic [ref=e1932]:
+            - generic [aria-hidden] [ref=e1964]: 🌼
+            - generic [ref=e1933]: "13"
+          - generic [ref=e1934]:
+            - generic [aria-hidden] [ref=e1965]: 🌼
+            - generic [ref=e1935]: "14"
+          - generic [ref=e1936]:
+            - generic "Answer point" [ref=e1966]: ✓
+            - generic [ref=e1937]: "15"
+          - generic [ref=e1938]: "16"
+          - generic [ref=e1940]: "17"
+        - paragraph [ref=e1942]: Start at 11, then jump forward 4 steps to 15.
+      - generic [ref=e1943]:
+        - paragraph [ref=e1944]: Choose the answer
+        - generic [ref=e1945]:
+          - button "15" [disabled] [ref=e1946]
+          - button "12" [disabled] [ref=e1947]
+          - button "19" [disabled] [ref=e1948]
+          - button "13" [disabled] [ref=e1949]
+        - button "Clue shown" [disabled] [ref=e1960]
+    - generic [ref=e1953]:
+      - paragraph [ref=e1954]: Ava had 11 flowers. Ava found 4 more. Now there are 15 flowers.
+      - button "Watch the counters…" [disabled] [ref=e1967]

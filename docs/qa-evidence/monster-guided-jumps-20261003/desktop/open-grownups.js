@@ -1,0 +1,1 @@
+async (page) => { const b=page.getByRole('button',{name:'Press and hold'}); const r=await b.boundingBox(); await page.mouse.move(r.x+r.width/2,r.y+r.height/2); await page.mouse.down(); await page.waitForTimeout(3300); await page.mouse.up(); return (await page.locator('body').innerText()).slice(0,800); }

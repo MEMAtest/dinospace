@@ -1,0 +1,47 @@
+{
+  "candidate": {
+    "url": "http://127.0.0.1:5207",
+    "source": "35ee3f7b9b62379bc5440c05869bc2619f4d3379",
+    "js": {"file":"index-BRWRMlSS.js","sha256":"5c80e07695cc9670b168b13f507bbfc350ed96d21fa660b38e9bcb8166944ef1"},
+    "css": {"file":"index-D3NTSs-Z.css","sha256":"008707f972ebe009fcbfcf5aa50207cc0c8a381f3f4e89fa1d22194374a681db"}
+  },
+  "contexts": "Fresh isolated desktop 1280x800 and mobile 390x844 sessions; route guards installed before first app navigation; UI mute control used.",
+  "desktop1280x800": {
+    "twoByTwo": [
+      {"title":"Dino Park Picnic","sceneImage":"dino-park-CfXqz-J3.jpg","natural":[1448,1086],"previewBox":[104,208,391.75,391.75],"previewObjectFit":"cover","completedUsingUI":true},
+      {"title":"Moon Camp","sceneImage":"dino-moon-3d-f1vVSf2r.webp","natural":[1448,1086],"complete":true,"factOnceAndHeldUntilNext":true},
+      {"title":"Robin’s Tree","sceneImage":"robin-DEL_wsI-.webp","natural":[1312,1199],"complete":true},
+      {"title":"River Valley","sceneImage":"dino-river-3d-DS1Pw89d.webp","natural":[1448,1086],"complete":true,"factOnceAndHeldUntilNext":true}
+    ],
+    "threeByThree": {"title":"Sound Safari","sceneImage":"sound-safari-CRJmreSh.webp","natural":[941,1672],"boardLabel":"3 by 3 puzzle board","boardSize":[420,420],"hint":"Hint: piece 6 fits the glowing space. Match one clear edge or colour landmark, then fit its neighbours.","placed":"Great fit! 1 of 9 pieces are in place.","previewObjectFit":"cover","tileObjectFit":"cover","tileStyle":{"width":"300%","height":"300%","left":"0%","top":"-100%"}}
+  },
+  "mobile390x844": {
+    "twoByTwo": [
+      {"title":"Robin’s Tree","sceneImage":"robin-DEL_wsI-.webp","natural":[1312,1199],"previewBox":[28,181.5,96,96],"previewObjectFit":"cover","complete":true},
+      {"title":"Moon Camp","sceneImage":"dino-moon-3d-f1vVSf2r.webp","natural":[1448,1086],"complete":true,"factOnceAndHeldUntilNext":true},
+      {"title":"Dino Park Picnic","sceneImage":"dino-park-CfXqz-J3.jpg","natural":[1448,1086],"complete":true},
+      {"title":"River Valley","sceneImage":"dino-river-3d-DS1Pw89d.webp","natural":[1448,1086],"complete":true,"factOnceAndHeldUntilNext":true}
+    ],
+    "threeByThree": {"title":"Treehouse Robots","sceneImage":"askia-memory-treehouse-Cw_L04Vp.webp","natural":[941,1672],"boardLabel":"3 by 3 puzzle board","boardSize":[280,280],"previewBox":[28,135.5,96,96],"previewObjectFit":"cover","tileObjectFit":"cover","tileStyle":{"width":"300%","height":"300%","left":"0%","top":"-200%"},"placed":"Great fit! 1 of 9 pieces are in place."},
+    "width": {"scrollWidth":390,"clientWidth":390}
+  },
+  "copy": "On 5207, completion status is concise; at Moon Camp mobile screenshot the sentence ‘The Moon shines because sunlight bounces off its rocky surface’ appears once under Picture fact and stays visible until Next. Both widths used visible controls to complete a normal 2x2 scene.",
+  "fiveByFive": {
+    "unlock": "Unlocked normally in each retained viewport after completing all four 3x3 Curious Constructors pictures (9 hinted piece/space placements per picture). No progress, answer, seed, or storage injection.",
+    "chapterMapAfterDelta": {"desktop":{"starter":"2x2 · 4/4 pictures","growing":"3x3 · 4/4 pictures","challenge":"5x5 · 2/4 pictures","challengeDisabled":false,"controlSize":[216,76]},"mobile":{"starter":"2x2 · 4/4 pictures","growing":"3x3 · 4/4 pictures","challenge":"5x5 · 2/4 pictures","challengeDisabled":false,"controlSize":[310,76],"documentWidth":390}},
+    "desktop1280x800": {
+      "fullPortrait": {"title":"Time Observatory","sceneImage":"time-observatory-BK3ZKZ4R.webp","natural":[941,1672],"completedUsingUI":true,"heldFactOnce":true},
+      "fullWide": {"title":"History Hall","sceneImage":"history-world-CCqb-QTZ.webp","natural":[1672,941],"completedUsingUI":true,"heldFactOnce":true},
+      "widePartial": {"title":"World Explorer","sceneImage":"geography-world-Iq2wULHl.webp","natural":[1672,941],"boardLabel":"5 by 5 puzzle board","boardSpaces":25,"placedUsingHintAndUI":true,"result":"Great fit! 1 of 25 pieces are in place.","previewObjectFit":"cover","tileDOMSrcMatchesPreview":true,"tileStyle":{"width":"500%","height":"500%","left":"-300%","top":"-300%","objectFit":"cover"}},
+      "geometry": {"boardCount":25,"boardMin":[68.796875,68.796875],"trayCountAtStart":25,"trayMin":[49.46875,49.46875],"documentWidth":1280,"horizontalTargetClipCount":0,"completionNextPicture":[161.75,48],"leaveDialog":[{"name":"Keep playing","size":[96,96]},{"name":"Back to world","size":[80,80]}]}
+    },
+    "mobile390x844": {
+      "fullWide": {"title":"Nature Lab","sceneImage":"nature-specimens-COeDdiwv.webp","natural":[1944,809],"completedUsingUI":true,"heldFactOnce":true,"contentMismatch":"Rendered scene shows animal cutouts (bluebird, green lizard/frog-like figure, orange cat) while alt text describes leaves/seeds and the held fact describes leaf shape and sunlight. This is a real source-5207 artwork-to-fact mismatch; do not treat 5207 as accepted."},
+      "fullPortrait": {"title":"Time Observatory","sceneImage":"time-observatory-BK3ZKZ4R.webp","natural":[941,1672],"completedUsingUI":true,"heldFactOnce":true},
+      "widePartial": {"title":"World Explorer","sceneImage":"geography-world-Iq2wULHl.webp","natural":[1672,941],"boardLabel":"5 by 5 puzzle board","boardSpaces":25,"placedUsingHintAndUI":true,"result":"Great fit! 1 of 25 pieces are in place.","previewObjectFit":"cover","tileDOMSrcMatchesPreview":true,"tileStyle":{"width":"500%","height":"500%","left":"-200%","top":"0%","objectFit":"cover"}},
+      "geometry": {"viewport":[390,844],"boardCount":25,"boardMin":[48.796875,48.796875],"trayCountAtStart":25,"trayMin":[50.65625,50.65625],"documentWidth":390,"horizontalTargetClipCount":0,"completionNextPicture":[161.75,48],"leaveDialog":[{"name":"Keep playing","size":[96,96]},{"name":"Back to world","size":[80,80]}],"trayVerticalScroll":"5×5 tray is below the initial fold and reachable through ordinary page scroll"}
+    },
+    "requestsConsole": "All sampled app/assets were local; JS/CSS and selected scene art returned 200, Matilda packaged MP3 206 Partial Content; 0 console messages/errors/warnings, no /api/voice or /api/story request observed. Both broad route guards were installed before the first navigation (route-guards.txt).",
+    "fullBandClaim": "This is a narrow 5207 crop delta only, not a rerun of the full 24-row baseline or a review of all 12 puzzle pictures. Fresh 5x5 checks include portrait and wide sources at both widths, plus actual completion of one wide and one portrait 5x5 per viewport."
+  }
+}

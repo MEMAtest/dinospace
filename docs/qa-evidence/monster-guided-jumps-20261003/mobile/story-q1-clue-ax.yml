@@ -1,0 +1,50 @@
+- generic [ref=e465]:
+  - banner [ref=e661]:
+    - button "Back to learning world" [ref=e662] [cursor=pointer]
+    - generic [ref=e665]:
+      - paragraph [ref=e666]: Episode 3 · Monster Story Problems
+      - heading "Monster Math" [level=1] [ref=e667]
+    - generic [ref=e668]: Question 1/6
+    - button "Turn sound on" [ref=e669] [cursor=pointer]
+  - main [ref=e674]:
+    - generic [ref=e675]: 0/6
+    - generic [ref=e678]:
+      - paragraph [ref=e679]: word-problems
+      - heading "Ava has 4 flowers. Ava finds 11 more. How many flowers are there now?" [level=2] [ref=e680]
+      - button "Hear the question again" [ref=e681] [cursor=pointer]
+    - generic [ref=e686]:
+      - generic [ref=e687]:
+        - paragraph [ref=e688]: Number line · follow each jump
+        - generic [ref=e691]:
+          - generic [ref=e692]: "2"
+          - generic [ref=e694]: "3"
+          - generic [ref=e696]:
+            - generic "Current position 4" [ref=e738]: ●
+            - generic [ref=e698]: "4"
+          - generic [ref=e699]: "5"
+          - generic [ref=e701]: "6"
+          - generic [ref=e703]: "7"
+          - generic [ref=e705]: "8"
+          - generic [ref=e707]: "9"
+          - generic [ref=e709]: "10"
+          - generic [ref=e711]: "11"
+          - generic [ref=e713]: "12"
+          - generic [ref=e715]: "13"
+          - generic [ref=e717]: "14"
+          - generic [ref=e719]: "15"
+          - generic [ref=e721]: "16"
+          - generic [ref=e723]: "17"
+        - paragraph [ref=e725]: Start at 4, then jump forward 11 steps.
+        - generic [ref=e739]:
+          - button "Jump one step forward" [ref=e740] [cursor=pointer]
+          - button "Start again" [disabled] [ref=e741]
+          - paragraph [ref=e742]: At 4. 11 jumps left.
+      - generic [ref=e726]:
+        - paragraph [ref=e727]: Choose the answer
+        - generic [ref=e728]:
+          - button "11" [ref=e729] [cursor=pointer]
+          - button "17" [ref=e730] [cursor=pointer]
+          - button "16" [ref=e731] [cursor=pointer]
+          - button "15" [ref=e732] [cursor=pointer]
+        - button "Clue shown" [disabled] [ref=e743]
+    - paragraph [ref=e737]: Look for the words “more” and “now.” Put both groups together.

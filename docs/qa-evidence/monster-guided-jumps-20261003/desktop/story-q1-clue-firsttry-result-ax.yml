@@ -1,0 +1,47 @@
+- generic [ref=e1911]:
+  - banner [ref=e1912]:
+    - button "Back to learning world" [ref=e1913] [cursor=pointer]
+    - generic [ref=e1916]:
+      - paragraph [ref=e1917]: Episode 3 · Monster Story Problems
+      - heading "Monster Math" [level=1] [ref=e1918]
+    - generic [ref=e1948]: Question 1/6
+    - button "Turn sound on" [ref=e1949] [cursor=pointer]
+  - main [ref=e1924]:
+    - generic [ref=e1954]: 1/6
+    - generic [ref=e1957]:
+      - paragraph [ref=e1958]: word-problems
+      - heading "Leo has 20 apples. Leo gives 4 apples away. How many are left?" [level=2] [ref=e1959]
+      - button "Hear the question again" [ref=e1960] [cursor=pointer]
+    - generic [ref=e1965]:
+      - generic [ref=e1966]:
+        - paragraph [ref=e1967]: Number line · follow each jump
+        - generic [ref=e1970]:
+          - generic [ref=e1971]: "14"
+          - generic [ref=e1973]: "15"
+          - generic [ref=e1975]:
+            - generic "Answer point" [ref=e2006]: ✓
+            - generic [ref=e1976]: "16"
+          - generic [ref=e1977]:
+            - generic [aria-hidden] [ref=e2007]: 🍎
+            - generic [ref=e1978]: "17"
+          - generic [ref=e1979]:
+            - generic [aria-hidden] [ref=e2008]: 🍎
+            - generic [ref=e1980]: "18"
+          - generic [ref=e1981]:
+            - generic [aria-hidden] [ref=e2009]: 🍎
+            - generic [ref=e1982]: "19"
+          - generic [ref=e1983]:
+            - generic "Starting point" [ref=e2010]: ●
+            - generic [ref=e1985]: "20"
+        - paragraph [ref=e1986]: Start at 20, then jump back 4 steps to 16.
+      - generic [ref=e1987]:
+        - paragraph [ref=e1988]: Choose the answer
+        - generic [ref=e1989]:
+          - button "19" [disabled] [ref=e1990]
+          - button "16" [disabled] [ref=e1991]
+          - button "17" [disabled] [ref=e1992]
+          - button "12" [disabled] [ref=e1993]
+        - button "Clue shown" [disabled] [ref=e2004]
+    - generic [ref=e1997]:
+      - paragraph [ref=e1998]: Leo starts with 20 apples. Leo gives 4 apples away. 16 apples are left.
+      - button "Watch the counters…" [disabled] [ref=e2011]

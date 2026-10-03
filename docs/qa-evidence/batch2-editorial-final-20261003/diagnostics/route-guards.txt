@@ -1,0 +1,5 @@
+Desktop and mobile each used a fresh Playwright CLI session started at about:blank.
+Before first navigation in each:
+page.route('**/api/voice**', r => r.fulfill({status:204, body:''}))
+page.route('**/api/story**', r => r.fulfill({status:204, body:''}))
+Sound was turned off using the visible app control. No answer, seed, progress, unlock, or storage state was injected. No provider calls were made.

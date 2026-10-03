@@ -1,0 +1,63 @@
+{
+  "candidate": {
+    "source": "19a4f01ccd00dacd867c89d149b20c2cbec1bc89",
+    "url": "http://127.0.0.1:5209",
+    "js": {
+      "file": "index-CX0VJ3DR.js",
+      "sha256": "d6bdc7db470e1fcfb171e7a2d58e2da3963e74651948f89fa70593cf399aa95d"
+    },
+    "css": {
+      "file": "index-D3NTSs-Z.css",
+      "sha256": "008707f972ebe009fcbfcf5aa50207cc0c8a381f3f4e89fa1d22194374a681db"
+    }
+  },
+  "desktop1280x800": {
+    "ordinaryUIUnlockSeeds": { "starter": 2302072109, "growing": 2687924632 },
+    "storySeed": 692781806,
+    "question": "Leo has 14 apples. Leo gives 4 apples away. How many are left?",
+    "correctAnswer": 10,
+    "preClue": { "solvedLandingMarkerOrRouteVisible": false, "answerRemainedAmongOrdinaryChoices": true, "stepControls": 0, "clueButton": "Try the jumps" },
+    "afterClue": { "hint": "Look for the words ‘gives away’ and ‘left.’ Take some from the first group.", "markerLabel": "Current position 14", "status": "At 14. 4 jumps left.", "statusAriaLive": "polite" },
+    "stepTrace": [
+      { "activation": "pointer", "position": 13, "remaining": 3 },
+      { "activation": "Start again", "position": 14, "remaining": 4 },
+      { "activation": "Enter", "position": 13, "remaining": 3 },
+      { "activation": "Space", "position": 12, "remaining": 2 },
+      { "activation": "pointer", "position": 11, "remaining": 1 },
+      { "activation": "pointer", "position": 10, "remaining": 0, "stepDisabled": true },
+      { "activation": "Space at hop limit", "position": 10, "remaining": 0, "unchanged": true }
+    ],
+    "wrongAnswer": { "selected": 11, "message": "Not yet. Try the clue, then count the model again.", "stepControlStillPresent": true },
+    "correctAnswer": { "selected": 10, "equationAndModel": "Start at 14, then jump back 4 steps to 10.", "explanation": "Leo starts with 14 apples. Leo gives 4 apples away. 10 apples are left.", "stepControlsHidden": true },
+    "nextQuestion": { "advancedOnce": true, "oldStepStatusHidden": true, "newPrompt": "Max has 4 cookies. Max gives 1 cookie away. How many are left?" },
+    "answerAfterHintFirstAttempt": { "storySeed": 1128832827, "question": "Leo has 20 apples. Leo gives 4 apples away. How many are left?", "hintThenCorrectFirstAnswer": true, "answer_correctFirstAttempt": false }
+  },
+  "mobile390x844": {
+    "ordinaryUIUnlockSeeds": { "starter": 458316376, "growing": 2740710172 },
+    "storySeed": 1767847090,
+    "question": "Ava has 4 flowers. Ava finds 11 more. How many flowers are there now?",
+    "correctAnswer": 15,
+    "preClue": { "solvedLandingMarkerOrRouteVisible": false, "answerRemainedAmongOrdinaryChoices": true, "stepControls": 0, "clueButton": "Try the jumps" },
+    "afterClue": { "hint": "Look for the words ‘more’ and ‘now.’ Put both groups together.", "markerLabel": "Current position 4", "status": "At 4. 11 jumps left.", "statusAriaLive": "polite" },
+    "stepTrace": [
+      { "activation": "Enter", "position": 5, "remaining": 10 },
+      { "activation": "Space", "position": 6, "remaining": 9 },
+      { "activation": "wrong answer 17", "position": 6, "remaining": 9, "message": "Not yet. Try the clue, then count the model again.", "stepControlStillEnabled": true },
+      { "activation": "pointer", "position": 7, "remaining": 8 },
+      { "activation": "pointer", "position": 8, "remaining": 7 },
+      { "activation": "pointer", "position": 9, "remaining": 6 },
+      { "activation": "pointer", "position": 10, "remaining": 5 },
+      { "activation": "pointer", "position": 11, "remaining": 4 },
+      { "activation": "pointer", "position": 12, "remaining": 3 },
+      { "activation": "pointer", "position": 13, "remaining": 2 },
+      { "activation": "pointer", "position": 14, "remaining": 1 },
+      { "activation": "pointer", "position": 15, "remaining": 0, "stepDisabled": true },
+      { "activation": "Enter at hop limit", "position": 15, "remaining": 0, "unchanged": true }
+    ],
+    "resetFollowup": { "question": "Tess has 16 stars. Tess gives 9 stars away. How many are left?", "start": 16, "afterOneBackStep": 15, "afterStartAgain": 16, "remainingAfterReset": 9 },
+    "correctAnswer": { "selected": 15, "equationAndModel": "Start at 11, then jump forward 4 steps to 15.", "explanation": "Ava had 11 flowers. Ava found 4 more. Now there are 15 flowers.", "stepControlsHidden": true },
+    "nextQuestion": { "advancedOnce": true, "oldStepStatusHidden": true, "newPrompt": "Tess has 16 stars. Tess gives 9 stars away. How many are left?" },
+    "contrast": { "statusForeground": "rgb(69, 26, 3)", "statusBackground": "rgb(255, 255, 255)", "statusContrast": 14.98, "stepButtonForeground": "rgb(69, 26, 3)", "stepButtonBackground": "rgb(245, 158, 11)", "stepButtonContrast": 6.97 },
+    "answerAfterHintFirstAttempt": { "storySeed": 2758292032, "question": "Ava has 11 flowers. Ava finds 4 more. How many flowers are there now?", "hintThenCorrectFirstAnswer": true, "answer_correctFirstAttempt": false }
+  }
+}

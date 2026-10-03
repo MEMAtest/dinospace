@@ -1,0 +1,43 @@
+- generic [ref=e484]:
+  - banner [ref=e681]:
+    - button "Back to learning world" [ref=e682] [cursor=pointer]
+    - generic [ref=e685]:
+      - paragraph [ref=e686]: Episode 3 · Monster Story Problems
+      - heading "Monster Math" [level=1] [ref=e687]
+    - generic [ref=e688]: Question 1/6
+    - button "Turn sound on" [ref=e689] [cursor=pointer]
+  - main [ref=e694]:
+    - generic [ref=e695]: 0/6
+    - generic [ref=e698]:
+      - paragraph [ref=e699]: word-problems
+      - heading "Leo has 14 apples. Leo gives 4 apples away. How many are left?" [level=2] [ref=e700]
+      - button "Hear the question again" [ref=e701] [cursor=pointer]
+    - generic [ref=e706]:
+      - generic [ref=e707]:
+        - paragraph [ref=e708]: Number line · follow each jump
+        - generic [ref=e711]:
+          - generic [ref=e712]: "8"
+          - generic [ref=e714]: "9"
+          - generic [ref=e716]: "10"
+          - generic [ref=e718]: "11"
+          - generic [ref=e720]: "12"
+          - generic [ref=e722]: "13"
+          - generic [ref=e724]:
+            - generic "Current position 14" [ref=e744]: ●
+            - generic [ref=e726]: "14"
+          - generic [ref=e727]: "15"
+          - generic [ref=e729]: "16"
+        - paragraph [ref=e731]: Start at 14, then jump back 4 steps.
+        - generic [ref=e745]:
+          - button "Jump one step back" [ref=e746] [cursor=pointer]
+          - button "Start again" [disabled] [ref=e747]
+          - paragraph [ref=e748]: At 14. 4 jumps left.
+      - generic [ref=e732]:
+        - paragraph [ref=e733]: Choose the answer
+        - generic [ref=e734]:
+          - button "10" [ref=e735] [cursor=pointer]
+          - button "11" [ref=e736] [cursor=pointer]
+          - button "7" [ref=e737] [cursor=pointer]
+          - button "6" [ref=e738] [cursor=pointer]
+        - button "Clue shown" [disabled] [ref=e749]
+    - paragraph [ref=e743]: Look for the words “gives away” and “left.” Take some from the first group.

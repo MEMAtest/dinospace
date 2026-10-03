@@ -1,0 +1,43 @@
+- generic [ref=e1863]:
+  - banner [ref=e1864]:
+    - button "Back to learning world" [ref=e1865] [cursor=pointer]
+    - generic [ref=e1868]:
+      - paragraph [ref=e1869]: Episode 3 · Monster Story Problems
+      - heading "Monster Math" [level=1] [ref=e1870]
+    - generic [ref=e1900]: Question 1/6
+    - button "Turn sound on" [ref=e1901] [cursor=pointer]
+  - main [ref=e1876]:
+    - generic [ref=e1906]: 0/6
+    - generic [ref=e1909]:
+      - paragraph [ref=e1910]: word-problems
+      - heading "Ava has 11 flowers. Ava finds 4 more. How many flowers are there now?" [level=2] [ref=e1911]
+      - button "Hear the question again" [ref=e1912] [cursor=pointer]
+    - generic [ref=e1917]:
+      - generic [ref=e1918]:
+        - paragraph [ref=e1919]: Number line · follow each jump
+        - generic [ref=e1922]:
+          - generic [ref=e1923]: "9"
+          - generic [ref=e1925]: "10"
+          - generic [ref=e1927]:
+            - generic "Current position 11" [ref=e1955]: ●
+            - generic [ref=e1929]: "11"
+          - generic [ref=e1930]: "12"
+          - generic [ref=e1932]: "13"
+          - generic [ref=e1934]: "14"
+          - generic [ref=e1936]: "15"
+          - generic [ref=e1938]: "16"
+          - generic [ref=e1940]: "17"
+        - paragraph [ref=e1942]: Start at 11, then jump forward 4 steps.
+        - generic [ref=e1956]:
+          - button "Jump one step forward" [ref=e1957] [cursor=pointer]
+          - button "Start again" [disabled] [ref=e1958]
+          - paragraph [ref=e1959]: At 11. 4 jumps left.
+      - generic [ref=e1943]:
+        - paragraph [ref=e1944]: Choose the answer
+        - generic [ref=e1945]:
+          - button "15" [ref=e1946] [cursor=pointer]
+          - button "12" [ref=e1947] [cursor=pointer]
+          - button "19" [ref=e1948] [cursor=pointer]
+          - button "13" [ref=e1949] [cursor=pointer]
+        - button "Clue shown" [disabled] [ref=e1960]
+    - paragraph [ref=e1954]: Look for the words “more” and “now.” Put both groups together.
