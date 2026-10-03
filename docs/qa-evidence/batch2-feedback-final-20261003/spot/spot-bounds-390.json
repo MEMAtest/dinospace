@@ -1,0 +1,58 @@
+{
+  "candidate": {
+    "url": "http://127.0.0.1:5199",
+    "sourceRevision": "f79a282a99774b39005c882d60f2ea479cbabf48",
+    "javascript": {"path": "/assets/index-Dcf_ih0a.js", "sha256": "f70c6038be49561db3c62700912a72ffdcd281bbcc8792ade2f446195be41047"},
+    "stylesheet": {"path": "/assets/index-CU-OkS6z.css", "sha256": "2613b85082a6ae658aaf50bd961b80106c8249c46da4366c7a7489d3052b9e7e"}
+  },
+  "viewport": {"width": 390, "height": 844},
+  "repeatMarkerCase": {
+    "seed": 3516220250,
+    "scene": "Dino Park",
+    "hotspot": "Check right top detail",
+    "targetButtonBefore": {"x": 273.875, "y": 690.09375, "width": 56, "height": 56, "center": {"x": 301.875, "y": 718.09375}},
+    "foundMarkerAfterFirstHit": {"x": 277.875, "y": 670.09375, "width": 48, "height": 48, "center": {"x": 301.875, "y": 694.09375}},
+    "physicalRepeatTapAtMarkerCenter": {"x": 302, "y": 694},
+    "afterRepeat": {"foundMarkers": 1, "progress": "1 of 3", "feedback": "You found a change! 1 of 3.", "missFeedback": false, "additionalAnswerAttempt": false, "penaltyOrProgressChange": false}
+  },
+  "genuineBlankMiss": {
+    "physicalTap": {"x": 330, "y": 820},
+    "feedback": "Not that spot yet. Compare the same area in Picture A.",
+    "foundMarkers": 1,
+    "progress": "1 of 3",
+    "diagnosticAnswerAttemptRecorded": true,
+    "diagnosticAnswerCorrectRecorded": false
+  },
+  "leaveConfirmation": {
+    "keepPlaying": {"x": 95, "y": 392, "width": 96, "height": 96},
+    "backToWorld": {"x": 215, "y": 408, "width": 80, "height": 80}
+  },
+  "superSpottersChallenge": {
+    "scene": "Nature Lab",
+    "pair": "1 of 4",
+    "pictureB": {"x": 28, "y": 670.5, "width": 334, "height": 250.5},
+    "document": {"width": 390, "height": 1029},
+    "scrollYToReachBottomControls": 185,
+    "hotspots": [
+      {"label": "Check left top detail", "x": 56.765625, "y": 687.578125, "width": 56, "height": 56},
+      {"label": "Check right middle detail", "x": 257.171875, "y": 770.25, "width": 56, "height": 56},
+      {"label": "Check left bottom detail", "x": 66.796875, "y": 847.90625, "width": 56, "height": 56},
+      {"label": "Check left middle detail", "x": 73.46875, "y": 767.75, "width": 56, "height": 56},
+      {"label": "Check right bottom detail", "x": 263.859375, "y": 845.390625, "width": 56, "height": 56},
+      {"label": "Check right top detail", "x": 273.875, "y": 690.09375, "width": 56, "height": 56},
+      {"label": "Check middle top detail", "x": 167, "y": 685.078125, "width": 56, "height": 56}
+    ],
+    "overlappingPairs": [],
+    "allSevenReachableAfterNormalPageScroll": true,
+    "horizontalOverflow": false
+  },
+  "mobileControlClasses": {
+    "backAndSound": "48x48",
+    "hearClue": "132.796875x48",
+    "magnifier": "173.359375x48",
+    "pictureBSearchSurface": "334x250.5",
+    "hotspot": "56x56",
+    "leaveKeepPlaying": "96x96",
+    "leaveBackToWorld": "80x80"
+  }
+}
