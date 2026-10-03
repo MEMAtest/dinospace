@@ -68,12 +68,12 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
     setPoolMessage('');
     clearAnswer();
     setStage('play');
-    onGameEvent?.('soundSafari', replay ? 'replay' : 'start', { level: index, seed: nextSeed });
+    onGameEvent?.('phonics', replay ? 'replay' : 'start', { level: index, seed: nextSeed });
     playSfx('click');
   };
 
   useEffect(() => {
-    if (stage === 'play' && question) onGameEvent?.('soundSafari', 'question', { level: chapterIndex, round: cursor, seed });
+    if (stage === 'play' && question) onGameEvent?.('phonics', 'question', { level: chapterIndex, round: cursor, seed });
   }, [stage, question, chapterIndex, cursor, seed, onGameEvent]);
 
   const answer = (option) => {
@@ -85,7 +85,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
       setFeedback(BATCH5_NARRATION.retry[0]);
       tell(BATCH5_NARRATION.retry[0]);
       setResults((previous) => previous.map((item, index) => index === cursor ? { ...item, firstTry: false } : item));
-      onGameEvent?.('soundSafari', 'answer_wrong', { level: chapterIndex, round: cursor, seed });
+      onGameEvent?.('phonics', 'answer_wrong', { level: chapterIndex, round: cursor, seed, skill: question.type === 'match' ? 'phoneme-recognition' : question.type === 'blend' ? 'blending' : 'phoneme-segmentation', item: question.type === 'blend' ? question.target.word : question.answerId, response: 'incorrect-choice', expected: question.type === 'blend' ? question.target.word : question.answerId, correct: false, firstAttempt: false, independent: false, hints: hintCount });
       playSfx('wrong');
       return;
     }
@@ -99,7 +99,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
     const fact = question.type === 'match' ? `The word is ${question.target.word}.`
       : question.type === 'blend' ? `The word is ${question.target.word}.` : 'You found the sound.';
     tell(`${praiseFor(question)} ${fact}`, [praiseFor(question), fact]);
-    onGameEvent?.('soundSafari', 'answer_correct', { level: chapterIndex, round: cursor, seed, correct: true, firstTry: !attempted && hintCount === 0 });
+    onGameEvent?.('phonics', 'answer_correct', { level: chapterIndex, round: cursor, seed, skill: question.type === 'match' ? 'phoneme-recognition' : question.type === 'blend' ? 'blending' : 'phoneme-segmentation', item: question.type === 'blend' ? question.target.word : question.answerId, response: question.type === 'blend' ? question.target.word : question.answerId, expected: question.type === 'blend' ? question.target.word : question.answerId, correct: true, firstTry: !attempted && hintCount === 0, firstAttempt: !attempted && hintCount === 0, independent: !attempted && hintCount === 0, hints: hintCount });
     playSfx('success');
   };
 
@@ -115,7 +115,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
     if (question.type === 'match') playPhonemes(question.target.phonemes[0]);
     else if (question.type === 'blend') playPhonemes(question.target.phonemes);
     else tell(question.target.word, [question.target.word]);
-    onGameEvent?.('soundSafari', 'hint', { level: chapterIndex, round: cursor, seed });
+    onGameEvent?.('phonics', 'hint', { level: chapterIndex, round: cursor, seed, hints: hintCount + 1, hintType: 'clue' });
   };
 
   const next = () => {
@@ -135,7 +135,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
     }
     setFeedback(`${BATCH5_NARRATION.praise[1]} You earned ${stars} ${stars === 1 ? 'star' : 'stars'}.`);
     setStage('finish');
-    onGameEvent?.('soundSafari', 'level_complete', { level: chapterIndex, seed, stars });
+    onGameEvent?.('phonics', 'level_complete', { level: chapterIndex, seed, stars });
   };
 
   if (playerId !== 'amari') return null;

@@ -81,12 +81,12 @@ export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, sou
     clearAnswer(nextRun[0]);
     setExtraMode('');
     setStage('play');
-    onGameEvent?.('spelling', replay ? 'replay' : 'start', { level: index, seed: nextSeed });
+    onGameEvent?.('words', replay ? 'replay' : 'start', { level: index, seed: nextSeed });
     playSfx('click');
   };
 
   useEffect(() => {
-    if (stage === 'play' && question) onGameEvent?.('spelling', 'question', { level: chapterIndex, round: cursor, seed });
+    if (stage === 'play' && question) onGameEvent?.('words', 'question', { level: chapterIndex, round: cursor, seed });
   }, [stage, question, chapterIndex, cursor, seed, onGameEvent]);
 
   const speakPrompt = () => {
@@ -101,15 +101,14 @@ export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, sou
     setResults((previous) => { const next = [...previous]; next[cursor] = { id: question.id, firstTry: clean, hintCount }; return next; });
     const wordFact = `The word is ${question.target.word}.`;
     tell(`${BATCH5_NARRATION.praise[1]} ${wordFact}`, [BATCH5_NARRATION.praise[1], wordFact]);
-    onGameEvent?.('spelling', 'answer_correct', { level: chapterIndex, round: cursor, seed, firstTry: clean });
-    onGameEvent?.('spelling', 'learning_attempt', makeLearningEvent({ skill: chapterIndex === 0 ? 'supported-spelling' : chapterIndex === 1 ? 'phoneme-gap' : 'independent-spelling', item: question.id, response: 'correct', correct: true, firstTry: clean, hints: hintCount, difficulty: BATCH5_SPELLING_BANDS[chapterIndex].id }));
+    onGameEvent?.('words', 'answer_correct', { level: chapterIndex, round: cursor, seed, skill: chapterIndex === 0 ? 'supported-spelling' : chapterIndex === 1 ? 'phoneme-gap' : 'independent-spelling', item: question.target.word, response: question.target.word, expected: question.target.word, difficulty: BATCH5_SPELLING_BANDS[chapterIndex].id, correct: true, firstTry: clean, firstAttempt: clean, independent: clean, hints: hintCount });
     playSfx('success');
   };
   const rejectAnswer = () => {
     setAttempted(true);
     setFeedback(BATCH5_NARRATION.retry[1]);
     tell(BATCH5_NARRATION.retry[1]);
-    onGameEvent?.('spelling', 'answer_wrong', { level: chapterIndex, round: cursor, seed });
+    onGameEvent?.('words', 'answer_wrong', { level: chapterIndex, round: cursor, seed, skill: chapterIndex === 0 ? 'supported-spelling' : chapterIndex === 1 ? 'phoneme-gap' : 'independent-spelling', item: question.target.word, response: 'incorrect-build', expected: question.target.word, correct: false, firstAttempt: false, independent: false, hints: hintCount });
     playSfx('wrong');
   };
   const chooseTile = (tile) => {
@@ -133,7 +132,7 @@ export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, sou
     if (locked) return;
     setHintVisible(true);
     setHintCount((count) => count + 1);
-    onGameEvent?.('spelling', 'hint', { level: chapterIndex, round: cursor, seed });
+    onGameEvent?.('words', 'hint', { level: chapterIndex, round: cursor, seed, hints: hintCount + 1, hintType: 'clue' });
     playPhonemes(question.target.phonemes);
   };
   const next = () => {
@@ -154,7 +153,7 @@ export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, sou
     }
     setFeedback(`${BATCH5_NARRATION.praise[1]} You earned ${stars} ${stars === 1 ? 'star' : 'stars'}.`);
     setStage('finish');
-    onGameEvent?.('spelling', 'level_complete', { level: chapterIndex, seed, stars });
+    onGameEvent?.('words', 'level_complete', { level: chapterIndex, seed, stars });
   };
 
   const startExtras = (mode) => { stopNarration(); setExtraMode(mode); setExtraIndex(0); setCaptionText(''); setCaptionSaved(false); setStage('extras'); };

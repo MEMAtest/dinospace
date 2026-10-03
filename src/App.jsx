@@ -29,6 +29,8 @@ import {
 } from './data/learningWorlds.js';
 import { ACTIVE_PLAYER_KEY, getPlayer, isLittleExplorer, playerStorageKey } from './data/players.js';
 import { getGame } from './gameCatalog.jsx';
+import AmariBatch5Route from './batch5AmariRoutes.jsx';
+import { hasAmariBatch5Route } from './data/batch5AmariRouteIds.js';
 
 const BONUS_GAME_IDS = new Set(BONUS_GAME_ID_LIST);
 const MAX_RECENT_GAMES = 4;
@@ -227,16 +229,18 @@ const PlayerSession = ({
   let content;
 
   if (route.name === 'game' && currentGame) {
-    const GameComponent = little && currentGame.id === 'dino' ? LittleDinoDetective : currentGame.component;
+    const amariBatch5Route = hasAmariBatch5Route(player.id, currentGame.id);
+    const GameComponent = little && currentGame.id === 'dino' ? LittleDinoDetective : amariBatch5Route ? AmariBatch5Route : currentGame.component;
     const nextId = nextGameAfter(currentGame.id);
     const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
     // Memory and picture puzzles already own their multi-board progression.
-    const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') ? null : GAME_SESSIONS[currentGame.id];
+    const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') || amariBatch5Route ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
       onBack: () => back({ toParent: !little }),
       onLaunchGame: launchGame,
       playSfx,
       speak,
+      cancelNarration: voice.cancel,
       // The older games award 4–14 stars per answer, which emptied the
       // sticker shelf within days; scale them to match the newer games.
       onCelebrate: currentGame.little ? celebrate : scaledCelebrate,
@@ -272,7 +276,7 @@ const PlayerSession = ({
               {({ run, onGameEvent, onReviewComplete, sessionLevel }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} sessionLevel={sessionLevel} onGameEvent={onGameEvent} onReviewComplete={onReviewComplete} />}
             </GameSession>
           ) : (
-            <GameComponent key={currentGame.id} {...gameProps} />
+            <GameComponent key={currentGame.id} {...gameProps} {...(amariBatch5Route ? { gameId: currentGame.id } : {})} />
           )}
         </Suspense>
       </ForcedDifficultyContext.Provider>
