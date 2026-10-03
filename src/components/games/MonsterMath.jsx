@@ -85,7 +85,7 @@ const CounterModel = ({ question, locked, animationCount, showHint, guidedSteps,
       </div>
       <p className="mt-1 text-center text-lg font-black text-slate-800" aria-live="polite">{numberLineInstruction(model, locked)}</p>
       {guided && <div className="mt-3 flex flex-wrap items-center justify-center gap-2">
-        <button type="button" onClick={onStep} disabled={guided.remaining === 0} className="min-h-12 rounded-xl bg-amber-500 px-4 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Jump one step {model.operation === 'add' ? 'forward' : 'back'}</button>
+        <button type="button" onClick={onStep} disabled={guided.remaining === 0} className="min-h-12 rounded-xl bg-amber-500 px-4 font-black text-amber-950 disabled:cursor-not-allowed disabled:opacity-50">Jump one step {model.operation === 'add' ? 'forward' : 'back'}</button>
         <button type="button" onClick={onResetSteps} disabled={guided.completed === 0} className="min-h-12 rounded-xl bg-slate-200 px-4 font-black text-slate-900 disabled:cursor-not-allowed disabled:opacity-50">Start again</button>
         <p className="w-full text-center font-bold text-amber-950" aria-live="polite">At {guided.position}. {guided.remaining ? `${guided.remaining} ${guided.remaining === 1 ? 'jump' : 'jumps'} left.` : 'No jumps left.'}</p>
       </div>}
