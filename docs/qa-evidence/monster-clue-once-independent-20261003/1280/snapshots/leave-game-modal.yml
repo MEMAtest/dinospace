@@ -1,0 +1,40 @@
+- generic [ref=e2]:
+  - generic [ref=e479]:
+    - banner [ref=e633]:
+      - button "Back to learning world" [ref=e634] [cursor=pointer]
+      - generic [ref=e637]:
+        - paragraph [ref=e638]: Episode 2 · Add and Take Away
+        - heading "Monster Math" [level=1] [ref=e639]
+      - generic [ref=e640]: Question 2/6
+      - button "Turn sound off" [ref=e641] [cursor=pointer]
+    - main [ref=e646]:
+      - generic [ref=e647]: 1/6
+      - generic [ref=e650]:
+        - paragraph [ref=e651]: addition-subtraction
+        - heading "What is 8 plus 12?" [level=2] [ref=e707]
+        - button "Hear the question again" [ref=e653] [cursor=pointer]
+      - generic [ref=e658]:
+        - generic [ref=e659]:
+          - paragraph [ref=e660]: Two ten frames · count the counters
+          - generic "8 counters; add 12 more. Put both groups together, then count them." [ref=e708]
+          - paragraph [ref=e682]: 8 + 12 = ?
+          - paragraph [ref=e709]: Put the two groups together, then count every counter.
+        - generic [ref=e684]:
+          - paragraph [ref=e685]: Choose the answer
+          - generic [ref=e686]:
+            - button "20" [ref=e710] [cursor=pointer]
+            - button "19" [ref=e711] [cursor=pointer]
+            - button "16" [ref=e712] [cursor=pointer]
+            - button "18" [ref=e713] [cursor=pointer]
+          - button "Show me a clue" [ref=e714] [cursor=pointer]
+      - paragraph [ref=e695]: Count the picture or follow the model, then choose.
+  - dialog [ref=e715]:
+    - generic [ref=e716]:
+      - heading "Leave the game?" [level=2] [ref=e717]
+      - generic [ref=e718]:
+        - generic [ref=e719]:
+          - button "Keep playing" [active] [ref=e720] [cursor=pointer]
+          - generic [ref=e723]: Keep playing
+        - generic [ref=e724]:
+          - button "Back to world" [ref=e725] [cursor=pointer]
+          - generic [ref=e728]: World

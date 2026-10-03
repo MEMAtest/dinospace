@@ -1,0 +1,29 @@
+- generic [ref=e479]:
+  - banner [ref=e633]:
+    - button "Back to learning world" [ref=e634] [cursor=pointer]
+    - generic [ref=e637]:
+      - paragraph [ref=e638]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e639]
+    - generic [ref=e640]: Question 1/6
+    - button "Turn sound off" [ref=e641] [cursor=pointer]
+  - main [ref=e646]:
+    - generic [ref=e647]: 0/6
+    - generic [ref=e650]:
+      - paragraph [ref=e651]: addition-subtraction
+      - heading "What is 14 take away 6?" [level=2] [ref=e652]
+      - button "Hear the question again" [ref=e653] [cursor=pointer]
+    - generic [ref=e658]:
+      - generic [ref=e659]:
+        - paragraph [ref=e660]: Two ten frames · count the counters
+        - generic "14 counters, take away 6 counters. Count what is left." [ref=e661]
+        - paragraph [ref=e682]: 14 − 6 = ?
+        - paragraph [ref=e683]: Start with the counters, take away the second group, then count what is left.
+      - generic [ref=e684]:
+        - paragraph [ref=e685]: Choose the answer
+        - generic [ref=e686]:
+          - button "4" [ref=e687] [cursor=pointer]
+          - button "11" [ref=e688] [cursor=pointer]
+          - button "5" [ref=e689] [cursor=pointer]
+          - button "8" [ref=e690] [cursor=pointer]
+        - button "Show me a clue" [ref=e691] [cursor=pointer]
+    - paragraph [ref=e695]: Count the picture or follow the model, then choose.

@@ -1,0 +1,36 @@
+- generic [ref=e479]:
+  - banner [ref=e633]:
+    - button "Back to learning world" [ref=e634] [cursor=pointer]
+    - generic [ref=e637]:
+      - paragraph [ref=e638]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e639]
+    - generic [ref=e640]: Question 1/6
+    - button "Turn sound off" [ref=e641] [cursor=pointer]
+  - main [ref=e646]:
+    - generic [ref=e647]: 1/6
+    - generic [ref=e650]:
+      - paragraph [ref=e651]: addition-subtraction
+      - heading "What is 14 take away 6?" [level=2] [ref=e652]
+      - button "Hear the question again" [ref=e653] [cursor=pointer]
+    - generic [ref=e658]:
+      - generic [ref=e659]:
+        - paragraph [ref=e660]: Two ten frames · count the counters
+        - generic "14 counters, take away 6 counters; 8 counters stay" [ref=e698]:
+          - generic [ref=e699]: ✓
+          - generic [ref=e700]: ✓
+          - generic [ref=e701]: ✓
+          - generic [ref=e702]: ✓
+          - generic [ref=e703]: ✓
+          - generic [ref=e704]: ✓
+        - paragraph [ref=e682]: 14 − 6 = 8
+      - generic [ref=e684]:
+        - paragraph [ref=e685]: Choose the answer
+        - generic [ref=e686]:
+          - button "4" [disabled] [ref=e687]
+          - button "11" [disabled] [ref=e688]
+          - button "5" [disabled] [ref=e689]
+          - button "8" [disabled] [ref=e690]
+        - button "Clue shown" [disabled] [ref=e696]
+    - generic [ref=e694]:
+      - paragraph [ref=e695]: Start with 14 counters. Take 6 away. 8 counters stay.
+      - button "Watch the counters…" [disabled] [ref=e705]

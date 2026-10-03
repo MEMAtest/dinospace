@@ -1,0 +1,96 @@
+- generic [ref=e743]:
+  - banner [ref=e744]:
+    - button "Back to home" [ref=e745] [cursor=pointer]
+    - generic [ref=e748]:
+      - heading "Maths Missions" [level=1] [ref=e749]
+      - paragraph [ref=e750]: Numbers, jumps and clever problems
+    - img "Maths Missions icon" [ref=e752]:
+      - img [aria-hidden] [ref=e753]:
+        - generic [ref=e754]:
+          - generic [ref=e756]: "2"
+          - generic [ref=e761]: "5"
+          - generic [ref=e767]: +
+    - button "Turn sound off" [ref=e768] [cursor=pointer]
+  - button "🎲 Surprise me" [ref=e774] [cursor=pointer]
+  - generic [ref=e775]:
+    - generic [ref=e776]:
+      - button "Count the stars Maths Count the Stars Tap and count!" [ref=e777] [cursor=pointer]:
+        - generic [ref=e780]:
+          - img "Count the stars" [ref=e782]:
+            - img [aria-hidden] [ref=e783]:
+              - generic [ref=e788]: "123"
+          - generic [ref=e794]:
+            - generic [ref=e795]: Maths
+            - heading "Count the Stars" [level=2] [ref=e796]
+            - paragraph [ref=e797]: Tap and count!
+      - button "Add Count the Stars to favourites" [ref=e801] [cursor=pointer]: ☆
+    - generic [ref=e802]:
+      - button "NEW Rocket and fuel Rockets Fuel Up Count the fuel cans" [ref=e803] [cursor=pointer]:
+        - generic [ref=e806]: NEW
+        - generic [ref=e808]:
+          - img "Rocket and fuel" [ref=e810]
+          - generic [ref=e830]:
+            - generic [ref=e831]: Rockets
+            - heading "Fuel Up" [level=2] [ref=e832]
+            - paragraph [ref=e833]: Count the fuel cans
+      - button "Add Fuel Up to favourites" [ref=e837] [cursor=pointer]: ☆
+    - generic [ref=e838]:
+      - button "NEW Fire Fire trucks Fire Truck Rescue Spray out the fires!" [ref=e839] [cursor=pointer]:
+        - generic [ref=e842]: NEW
+        - generic [ref=e844]:
+          - img "Fire" [ref=e846]
+          - generic [ref=e851]:
+            - generic [ref=e852]: Fire trucks
+            - heading "Fire Truck Rescue" [level=2] [ref=e853]
+            - paragraph [ref=e854]: Spray out the fires!
+      - button "Add Fire Truck Rescue to favourites" [ref=e858] [cursor=pointer]: ☆
+    - generic [ref=e859]:
+      - button "Addition plus Maths Addition Adventure Add it up!" [ref=e860] [cursor=pointer]:
+        - generic [ref=e863]:
+          - img "Addition plus" [ref=e865]:
+            - img [aria-hidden] [ref=e866]:
+              - generic [ref=e871]: +
+          - generic [ref=e877]:
+            - generic [ref=e878]: Maths
+            - heading "Addition Adventure" [level=2] [ref=e879]
+            - paragraph [ref=e880]: Add it up!
+      - button "Add Addition Adventure to favourites" [ref=e884] [cursor=pointer]: ☆
+    - generic [ref=e885]:
+      - button "Subtraction minus Maths Subtraction Station Take it away!" [ref=e886] [cursor=pointer]:
+        - generic [ref=e889]:
+          - img "Subtraction minus" [ref=e891]:
+            - img [aria-hidden] [ref=e892]:
+              - generic [ref=e897]: −
+          - generic [ref=e903]:
+            - generic [ref=e904]: Maths
+            - heading "Subtraction Station" [level=2] [ref=e905]
+            - paragraph [ref=e906]: Take it away!
+      - button "Add Subtraction Station to favourites" [ref=e910] [cursor=pointer]: ☆
+    - generic [ref=e911]:
+      - button "✓ Played 1 Monster math truck Maths Monster Math Count, add and solve stories" [ref=e912] [cursor=pointer]:
+        - generic [ref=e915]: ✓ Played 1
+        - generic [ref=e917]:
+          - img "Monster math truck" [ref=e919]
+          - generic [ref=e932]:
+            - generic [ref=e933]: Maths
+            - heading "Monster Math" [level=2] [ref=e934]
+            - paragraph [ref=e935]: Count, add and solve stories
+      - button "Add Monster Math to favourites" [ref=e939] [cursor=pointer]: ☆
+    - generic [ref=e940]:
+      - button "Number line jumper Maths Number Line Jump Hop to the answer!" [ref=e941] [cursor=pointer]:
+        - generic [ref=e944]:
+          - img "Number line jumper" [ref=e946]
+          - generic [ref=e958]:
+            - generic [ref=e959]: Maths
+            - heading "Number Line Jump" [level=2] [ref=e960]
+            - paragraph [ref=e961]: Hop to the answer!
+      - button "Add Number Line Jump to favourites" [ref=e965] [cursor=pointer]: ☆
+    - generic [ref=e966]:
+      - button "Learning clock Maths Time Teller Read the clock!" [ref=e967] [cursor=pointer]:
+        - generic [ref=e970]:
+          - img "Learning clock" [ref=e972]
+          - generic [ref=e985]:
+            - generic [ref=e986]: Maths
+            - heading "Time Teller" [level=2] [ref=e987]
+            - paragraph [ref=e988]: Read the clock!
+      - button "Add Time Teller to favourites" [ref=e992] [cursor=pointer]: ☆
