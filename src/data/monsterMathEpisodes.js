@@ -34,7 +34,12 @@ export const tenFrameAccessibleLabel = (model) => model.operation === 'add'
 export const tenFrameExplanation = (model) => model.operation === 'add'
   ? `${monsterCounterPhrase(model.first)} and ${model.second} more make ${monsterCounterPhrase(model.answer)}.`
   : `${monsterCounterPhrase(model.second)} moved away; ${monsterCounterPhrase(model.answer)} ${model.answer === 1 ? 'stays' : 'stay'}.`;
-export const tenFrameModelTeaching = (model, answered) => answered ? null : tenFrameExplanation(model);
+export const tenFrameModelTeaching = (model, answered) => {
+  if (answered) return null;
+  return model.operation === 'add'
+    ? 'Put the two groups together, then count every counter.'
+    : 'Start with the counters, take away the second group, then count what is left.';
+};
 
 const STORY_CONTEXTS = Object.freeze([
   { id: 'mira-shells', name: 'Mira', one: 'shell', many: 'shells', emoji: '🐚' },

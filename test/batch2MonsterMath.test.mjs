@@ -70,7 +70,9 @@ test('twenty-space ten-frame shows both groups correctly when the first addend i
 test('answered ten-frame keeps answer teaching in feedback without repeating it below the model', () => {
   const growingAdd = MONSTER_QUESTION_POOLS[1].find((item) => item.id === 'add:2:10');
   assert.equal(growingAdd.answer, 12);
-  assert.equal(tenFrameModelTeaching(growingAdd.model, false), '2 counters and 10 more make 12 counters.');
+  const beforeAnswerTeaching = tenFrameModelTeaching(growingAdd.model, false);
+  assert.equal(beforeAnswerTeaching, 'Put the two groups together, then count every counter.');
+  assert.doesNotMatch(beforeAnswerTeaching, /12|make|total|answer/i);
   assert.equal(growingAdd.explanation, '2 counters. Add 10 more. That makes 12 counters.');
   assert.equal(tenFrameModelTeaching(growingAdd.model, true), null);
   assert.equal(tenFrameCellModel(growingAdd, { locked: true, animationCount: 12 }).filter((cell) => cell.visible && cell.counted).length, 12);
