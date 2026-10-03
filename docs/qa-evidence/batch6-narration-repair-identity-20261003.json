@@ -1,0 +1,44 @@
+{
+  "sourceSha": "3a0da1b09ccdf82bf93313ad962d0d327f799496",
+  "url": "http://127.0.0.1:5275",
+  "assets": {
+    "sw.js": "4f030dfb002b2256212e6fd82ce66ea5774e8104add913b7174f7b4471d58393",
+    "assets/index-BVF6es7_.js": "9e81444dc56fd0f0982c10b94cda76fc413a8c557135ddfbd26e12b98c76e85a",
+    "assets/SolarSystem-NUP6zvTC.js": "e43d39c5aada1428a2665af90d595cfb23ad10aff640b327c11b5c90368ad816",
+    "assets/index-CZIXwkmD.css": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+    "assets/web-CFdytlpW.js": "8bdfb2307d6ee9df87996f163afdd6948c7b13909b2bfe8eb6a364cce833284e"
+  },
+  "checks": {
+    "focusedTests": "8 passed",
+    "changedFileLint": "passed",
+    "productionBuild": "passed"
+  },
+  "scope": "Frozen narration allowlist and truthful Hangman letter-clue delta; independent UI checks pending, audio corpus missing434 clips, no release or4.5 claim.",
+  "servedHashChecks": {
+    "sw.js": {
+      "expected": "4f030dfb002b2256212e6fd82ce66ea5774e8104add913b7174f7b4471d58393",
+      "actual": "4f030dfb002b2256212e6fd82ce66ea5774e8104add913b7174f7b4471d58393",
+      "matches": true
+    },
+    "assets/index-BVF6es7_.js": {
+      "expected": "9e81444dc56fd0f0982c10b94cda76fc413a8c557135ddfbd26e12b98c76e85a",
+      "actual": "9e81444dc56fd0f0982c10b94cda76fc413a8c557135ddfbd26e12b98c76e85a",
+      "matches": true
+    },
+    "assets/SolarSystem-NUP6zvTC.js": {
+      "expected": "e43d39c5aada1428a2665af90d595cfb23ad10aff640b327c11b5c90368ad816",
+      "actual": "e43d39c5aada1428a2665af90d595cfb23ad10aff640b327c11b5c90368ad816",
+      "matches": true
+    },
+    "assets/index-CZIXwkmD.css": {
+      "expected": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+      "actual": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+      "matches": true
+    },
+    "assets/web-CFdytlpW.js": {
+      "expected": "8bdfb2307d6ee9df87996f163afdd6948c7b13909b2bfe8eb6a364cce833284e",
+      "actual": "8bdfb2307d6ee9df87996f163afdd6948c7b13909b2bfe8eb6a364cce833284e",
+      "matches": true
+    }
+  }
+}
