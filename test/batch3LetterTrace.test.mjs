@@ -11,6 +11,7 @@ import {
   makeLetterTraceRun,
   makeTraceWordChoices,
   recordLetterTraceMastery,
+  resetUnfinishedTraceStroke,
   traceToleranceForSize,
 } from '../src/data/letterTraceLearning.js';
 
@@ -54,6 +55,23 @@ test('forward guide progress does not jump backwards and hit size scales with th
   assert.equal(traceToleranceForSize(390, 844, 0), 54);
   assert.equal(traceToleranceForSize(1280, 800, 2), 54);
   assert.equal(traceToleranceForSize(180, 240, 2), 26);
+});
+
+test('lifting or cancelling resets only the active unfinished stroke', () => {
+  const before = {
+    completed: 1,
+    cursors: [7, 4, 2],
+    paths: [['done-start', 'done-end'], ['partial-start', 'partial-end'], ['untouched']],
+    on: 20,
+    off: 3,
+  };
+  const after = resetUnfinishedTraceStroke(before);
+  assert.deepEqual(after.cursors, [7, 0, 2]);
+  assert.deepEqual(after.paths, [['done-start', 'done-end'], [], ['untouched']]);
+  assert.equal(after.completed, 1);
+  assert.equal(after.on, 20);
+  assert.equal(after.off, 3);
+  assert.equal(before.cursors[1], 4);
 });
 
 test('mastery is per player and chapter unlock waits for an explicit level completion', () => {

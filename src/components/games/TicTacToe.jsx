@@ -45,6 +45,7 @@ const TicTacToe = ({
   const [progress, setProgress] = useState(() => getCosmicProgress(playerId));
   const [chapterIndex, setChapterIndex] = useState(Math.max(0, Math.min(2, sessionLevel)));
   const [phase, setPhase] = useState('map');
+  const [confirmLeaveBoard, setConfirmLeaveBoard] = useState(false);
   const [activity, setActivity] = useState('mission');
   const [opponent, setOpponent] = useState('bot');
   const [difficulty, setDifficulty] = useState('scout');
@@ -73,6 +74,12 @@ const TicTacToe = ({
   const result = useMemo(() => getBoardResult(board), [board]);
   const terminal = Boolean(result.winner || result.draw);
   const botThinking = phase === 'play' && activity === 'free' && opponent === 'bot' && turn === 'O' && !terminal;
+  const requestLeaveBoard = () => setConfirmLeaveBoard(true);
+  const keepPlaying = () => setConfirmLeaveBoard(false);
+  const leaveBoard = () => {
+    setConfirmLeaveBoard(false);
+    setPhase('map');
+  };
 
   useEffect(() => { onPhaseChange?.(phaseName(phase)); }, [onPhaseChange, phase]);
   useEffect(() => { setProgress(getCosmicProgress(playerId)); }, [playerId]);
@@ -364,7 +371,7 @@ const TicTacToe = ({
         {missionWrong && <button type="button" onClick={retryMission} className="mt-2 min-h-12 rounded-xl bg-white px-5 font-black text-slate-950"><RotateCcw className="mr-2 inline" size={18} />Retry this board</button>}
         {missionSolved && <div className="mt-2 grid gap-3"><p className="font-black text-lime-100">Tactic solved. The explanation is held until you choose to continue.</p><button type="button" onClick={nextMission} className="min-h-12 rounded-xl bg-lime-300 px-5 font-black text-slate-950">{missionRunStep >= missionRunIds.length - 1 ? 'Finish chapter' : 'Next tactic board'}</button></div>}
       </div>
-      <button type="button" onClick={() => setPhase('map')} className="mx-auto min-h-12 rounded-xl bg-white/10 px-5 font-black">Chapter map</button>
+      <button type="button" onClick={requestLeaveBoard} className="mx-auto min-h-12 rounded-xl bg-white/10 px-5 font-black">Chapter map</button>
     </main>
   );
 
@@ -377,7 +384,7 @@ const TicTacToe = ({
       <div className="flex items-center justify-between rounded-2xl border border-white/15 bg-white/10 px-4 py-3"><p className="text-lg font-black" aria-live="polite">{terminal ? result.draw ? 'Cosmic draw' : `${MARK[result.winner].name} wins this board` : botThinking ? 'Nova Bot is thinking…' : `${MARK[turn].name}’s turn`}</p><button type="button" onClick={resetFreeBoard} className="flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-4 font-black"><RotateCcw size={18} />{terminal ? 'New board' : 'Reset board'}</button></div>
       {renderBoard()}
       <div className="mx-auto w-full max-w-xl rounded-2xl border border-cyan-100/20 bg-white/10 p-4 text-center"><p className="min-h-8 font-bold" aria-live="polite">{feedback}</p><p className="mt-2 text-sm font-semibold text-white/70">Dino {scores.X} · {opponent === 'bot' ? 'Nova' : 'Rocket'} {scores.O} · draws {scores.draws}</p></div>
-      <button type="button" onClick={() => setPhase('map')} className="mx-auto min-h-12 rounded-xl bg-white/10 px-5 font-black">Back to chapters</button>
+      <button type="button" onClick={requestLeaveBoard} className="mx-auto min-h-12 rounded-xl bg-white/10 px-5 font-black">Back to chapters</button>
     </main>
   );
 
@@ -393,7 +400,7 @@ const TicTacToe = ({
   return <div className="relative flex min-h-[100dvh] flex-col overflow-x-hidden bg-[#07132f] text-white">
     <div className="ttt-starfield pointer-events-none absolute inset-0 opacity-80" />
     <header className="relative z-10 flex min-h-[68px] items-center justify-between gap-2 px-3 py-3 sm:px-6">
-      <button type="button" onClick={phase === 'map' ? onBack : () => setPhase('map')} aria-label={phase === 'map' ? 'Back to learning world' : 'Back to game map'} className="grid min-h-12 min-w-12 place-items-center rounded-full bg-white/15"><ArrowLeft /></button>
+      <button type="button" onClick={phase === 'map' ? onBack : phase === 'play' ? requestLeaveBoard : () => setPhase('map')} aria-label={phase === 'map' ? 'Back to learning world' : phase === 'play' ? 'Leave game board' : 'Back to game map'} className="grid min-h-12 min-w-12 place-items-center rounded-full bg-white/15"><ArrowLeft /></button>
       <div className="text-center"><p className="text-xs font-black uppercase tracking-[.2em] text-cyan-100">Dino Space Arena</p><p className="text-xl font-black sm:text-2xl">Cosmic Tic-Tac-Toe</p></div>
       <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/15 !text-white" />
     </header>
@@ -401,6 +408,7 @@ const TicTacToe = ({
       {phase === 'map' && renderMap()}
       {phase === 'play' && (activity === 'mission' ? renderMission() : renderFreePlay())}
       {phase === 'complete' && renderComplete()}
+      {confirmLeaveBoard && <div className="fixed inset-0 z-50 grid place-items-center bg-slate-950/70 p-4"><section role="alertdialog" aria-modal="true" aria-labelledby="leave-cosmic-title" aria-describedby="leave-cosmic-copy" className="w-full max-w-md rounded-3xl border-2 border-cyan-100 bg-slate-900 p-6 text-center text-white shadow-2xl"><h2 id="leave-cosmic-title" className="text-2xl font-black">Leave this board?</h2><p id="leave-cosmic-copy" className="mt-3 font-semibold text-white/80">Keep playing retains this board. Leaving creates no new board result or badge.</p><div className="mt-5 flex flex-wrap justify-center gap-3"><button type="button" onClick={keepPlaying} className="min-h-12 rounded-xl bg-cyan-200 px-5 font-black text-slate-950">Keep playing</button><button type="button" onClick={leaveBoard} className="min-h-12 rounded-xl bg-white/15 px-5 font-black">Leave board</button></div></section></div>}
     </div>
   </div>;
 };

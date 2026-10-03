@@ -12,6 +12,7 @@ import {
   makeLetterTraceRun,
   makeTraceWordChoices,
   recordLetterTraceMastery,
+  resetUnfinishedTraceStroke,
   traceToleranceForSize,
 } from '../../data/letterTraceLearning.js';
 import { getLetterStrokes } from './LetterTrace.jsx';
@@ -300,6 +301,7 @@ const AmariLetterTrace = ({
       strokeStateRef.current.completed += 1;
       setFeedback(strokeStateRef.current.completed < guideRef.current.length ? 'Stroke done. Lift, then start at the next green number.' : 'All strokes are ready. Check your shape.');
     } else if (stroke) {
+      strokeStateRef.current = resetUnfinishedTraceStroke(strokeStateRef.current);
       setFirstTry(false);
       setHadIncorrectResponse(true);
       setFeedback(`Nice try. Start this stroke again at green ${activeIndex + 1}.`);
@@ -307,7 +309,17 @@ const AmariLetterTrace = ({
     pointerRef.current = { active: false, id: null, last: null };
     updateReady();
     drawGuide();
-    canvasRef.current.releasePointerCapture?.(event.pointerId);
+    try { canvasRef.current.releasePointerCapture?.(event.pointerId); } catch { /* capture may already be released */ }
+  };
+
+  const cancelPointer = (event) => {
+    if (!pointerRef.current.active || event.pointerId !== pointerRef.current.id) return;
+    const activeIndex = strokeStateRef.current.completed;
+    strokeStateRef.current = resetUnfinishedTraceStroke(strokeStateRef.current);
+    pointerRef.current = { active: false, id: null, last: null };
+    setFeedback(`Touch stopped. Restart this stroke at green ${activeIndex + 1}.`);
+    updateReady();
+    drawGuide();
   };
 
   const restartTrace = () => {
@@ -484,7 +496,7 @@ const AmariLetterTrace = ({
         <div className="mb-2 flex flex-wrap items-center justify-between gap-2"><p className="font-bold text-slate-800">Start at green {strokeStateRef.current.completed + 1}; follow the arrows.</p><p className="font-black text-blue-800" aria-live="polite">{traceProgress}% traced</p></div>
         <div className="h-3 overflow-hidden rounded-full bg-blue-100" role="progressbar" aria-label="Letter path progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={traceProgress}><div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-700" style={{ width: `${traceProgress}%` }} /></div>
         <div className="mt-3 grid min-h-[280px] h-[min(48vh,440px)] w-full overflow-hidden rounded-2xl border-4 border-blue-200 bg-sky-50 sm:min-h-[340px]">
-          <canvas ref={canvasRef} aria-label={`${traceLetter} letter guide. ${strokeAnnouncement}`} role="img" onPointerDown={startPointer} onPointerMove={movePointer} onPointerUp={endPointer} onPointerCancel={endPointer} onKeyDown={handleKeyDown} tabIndex={keyboardMode ? 0 : -1} className={`h-full w-full touch-none ${keyboardMode ? 'focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-500' : 'cursor-crosshair'}`} />
+          <canvas ref={canvasRef} aria-label={`${traceLetter} letter guide. ${strokeAnnouncement}`} role="img" onPointerDown={startPointer} onPointerMove={movePointer} onPointerUp={endPointer} onPointerCancel={cancelPointer} onKeyDown={handleKeyDown} tabIndex={keyboardMode ? 0 : -1} className={`h-full w-full touch-none ${keyboardMode ? 'focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-500' : 'cursor-crosshair'}`} />
         </div>
         <div className="mt-3 flex flex-wrap justify-center gap-2">
           <button type="button" onClick={showHint} disabled={roundPassed} className="min-h-12 rounded-xl bg-amber-100 px-4 font-black text-amber-950"><Lightbulb className="mr-2 inline" size={18} />Show this stroke</button>

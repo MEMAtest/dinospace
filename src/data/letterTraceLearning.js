@@ -103,6 +103,15 @@ export const findForwardGuidePoint = (points, point, cursor = -1, maxBacktrack =
   return nearest;
 };
 
+export const resetUnfinishedTraceStroke = (state) => {
+  if (!state || !Number.isInteger(state.completed) || state.completed < 0) return state;
+  const cursors = Array.isArray(state.cursors) ? [...state.cursors] : [];
+  const paths = Array.isArray(state.paths) ? [...state.paths] : [];
+  cursors[state.completed] = 0;
+  paths[state.completed] = [];
+  return { ...state, cursors, paths };
+};
+
 export const makeTraceWordChoices = (round, eligible = getTraceEligibleItems(2), seed = 0) => {
   const words = eligible.map((item) => item.word).filter(Boolean);
   const random = seededRandom(seed);
