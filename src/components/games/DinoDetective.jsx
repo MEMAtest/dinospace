@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { dinoFoundNarration } from '../../data/batch3Narration.js';
 import { ArrowLeft, BookOpen, Lightbulb } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import DinoIcon from '../shared/DinoIcon.jsx';
@@ -49,7 +50,7 @@ const HidingCover = ({ bandIndex }) => <svg aria-hidden="true" viewBox="0 0 64 6
       : <g stroke="#e2e8f0" strokeWidth="1.8"><path d="M8 53 13 35l12-7 9 5 3 12 8-7 12 4 2 11Z" fill="#64748b"/><path d="M20 41q8-8 16 0m-12 4q8-8 16 0" fill="none" stroke="#bbf7d0" strokeWidth="3"/><circle cx="21" cy="46" r="2" fill="#f8fafc"/><circle cx="45" cy="43" r="2" fill="#f8fafc"/></g>}
 </svg>;
 
-const DinoDetective = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) => {
+const DinoDetective = ({ onBack, playSfx = () => {}, speak = () => {}, cancelNarration = () => {}, soundOn, onToggleSound, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) => {
   const [progress, setProgress] = useState(() => getDinoDetectiveProgress(playerId));
   const [phase, setPhase] = useState('map');
   const [worldIndex, setWorldIndex] = useState(0);
@@ -71,9 +72,11 @@ const DinoDetective = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onC
   const trailPaws = targetSpot && Array.from({ length: trailPawCount }, (_, index) => quadraticPoint({ x: 50, y: 96 }, trailControl, targetSpot, (index + 1) / (trailPawCount + 1)));
 
   useEffect(() => { onPhaseChange?.(phaseName(phase)); }, [onPhaseChange, phase]);
+  useEffect(() => () => cancelNarration(), [cancelNarration]);
 
   const startWorld = (index) => {
     if (index > progress.unlockedWorldIndex) return;
+    cancelNarration();
     const selected = DINO_DETECTIVE_WORLDS[index];
     const seed = createDinoRunSeed();
     const nextRun = createDinoDetectiveRun(index, seed, recentDinoRunSignatures(playerId, selected.id));
@@ -87,6 +90,7 @@ const DinoDetective = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onC
     if (isCompleted(progress, selected)) onGameEvent?.('dino', 'replay', { level: index, round: 0, seed, difficulty: selected.bandId });
     onGameEvent?.('dino', 'start', { level: index, round: 0, seed, difficulty: selected.bandId });
     onGameEvent?.('dino', 'question', { level: index, round: 1, seed, difficulty: selected.bandId });
+    speak(DINO_DETECTIVE_NARRATION.instruction, { premium: false, segments: [DINO_DETECTIVE_NARRATION.instruction] });
     playSfx('launch');
   };
 
@@ -96,11 +100,14 @@ const DinoDetective = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onC
       setWrongSpot(spotId); setMistakes((value) => value + 1);
       setRoundHadMistake(true);
       setFeedback(DINO_DETECTIVE_NARRATION.wrong);
+      speak(DINO_DETECTIVE_NARRATION.wrong, { premium: false, segments: [DINO_DETECTIVE_NARRATION.wrong] });
       onGameEvent?.('dino', 'answer_attempt', { level: worldIndex, round: roundIndex + 1, seed: run.seed, correct: false, firstAttempt: !roundHadMistake, hints: Number(hintShown), difficulty: world.bandId });
       playSfx('wrong');
       return;
     }
     setFound(true); setWrongSpot(null); setFeedback(DINO_DETECTIVE_NARRATION.found);
+    const narration = dinoFoundNarration(world);
+    speak(narration.text, { premium: false, segments: narration.segments });
     onGameEvent?.('dino', 'answer_attempt', { level: worldIndex, round: roundIndex + 1, seed: run.seed, correct: true, firstAttempt: !roundHadMistake, hints: Number(hintShown), difficulty: world.bandId });
     onGameEvent?.('dino', 'answer_correct', { level: worldIndex, round: roundIndex + 1, seed: run.seed, firstAttempt: !roundHadMistake, hints: Number(hintShown), difficulty: world.bandId });
     playSfx('success');
@@ -110,15 +117,18 @@ const DinoDetective = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onC
     if (phase !== 'active' || hintShown) return;
     setHintShown(true); setHints((value) => value + 1);
     setFeedback(round.hintText);
+    speak(round.hintText, { premium: false, segments: [round.hintText] });
     onGameEvent?.('dino', 'hint', { level: worldIndex, round: roundIndex + 1, seed: run.seed, hints: 1, difficulty: world.bandId });
   };
 
   const next = () => {
     if (!found || !run) return;
+    cancelNarration();
     if (roundIndex < run.rounds.length - 1) {
       const nextIndex = roundIndex + 1;
       setRoundIndex(nextIndex); setFound(false); setHintShown(false); setWrongSpot(null); setRoundHadMistake(false);
       setFeedback(DINO_DETECTIVE_NARRATION.instruction);
+      speak(DINO_DETECTIVE_NARRATION.instruction, { premium: false, segments: [DINO_DETECTIVE_NARRATION.instruction] });
       onGameEvent?.('dino', 'question', { level: worldIndex, round: nextIndex + 1, seed: run.seed, difficulty: world.bandId });
       return;
     }
@@ -131,9 +141,11 @@ const DinoDetective = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onC
       if (completion.awardedStars > 0) onCelebrate(`${world.name} finder complete!`, completion.awardedStars * 4, 0);
     }
     setPhase('complete'); setFeedback(DINO_DETECTIVE_NARRATION.complete);
+    speak(DINO_DETECTIVE_NARRATION.complete, { premium: false, segments: [DINO_DETECTIVE_NARRATION.complete] });
   };
 
   const back = () => {
+    cancelNarration();
     if (run && phase === 'active') onGameEvent?.('dino', 'leave', { level: worldIndex, round: roundIndex + 1, seed: run.seed, hints, difficulty: world.bandId });
     onBack?.();
   };
@@ -155,10 +167,10 @@ const DinoDetective = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onC
           <button type="button" disabled={!unlocked} onClick={() => startWorld(entry.index)} className="mt-2 min-h-12 w-full rounded-xl bg-emerald-800 px-2 text-sm font-black text-white disabled:bg-slate-400">{complete ? 'Replay' : unlocked ? 'Explore' : 'Locked'}</button>
         </article>;
       })}</div></section>)}
-      <button type="button" onClick={() => setPhase('collection')} className="mx-auto mt-4 flex min-h-12 items-center gap-2 rounded-xl bg-emerald-900 px-4 font-black text-white"><BookOpen size={18} /> World stickers ({progress.earnedWorldStickerIds.length}/12)</button>
+      <button type="button" onClick={() => { cancelNarration(); setPhase('collection'); }} className="mx-auto mt-4 flex min-h-12 items-center gap-2 rounded-xl bg-emerald-900 px-4 font-black text-white"><BookOpen size={18} /> World stickers ({progress.earnedWorldStickerIds.length}/12)</button>
     </main>}
 
-    {phase === 'collection' && <main className="z-10 mx-auto mt-5 w-full max-w-4xl rounded-[2rem] bg-white/85 p-5 shadow-xl"><h2 className="text-center text-2xl font-black">World sticker book</h2><p className="mt-1 text-center font-semibold">Stickers appear after all five finds in a world.</p><div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">{DINO_DETECTIVE_WORLDS.map((entry) => { const earned = progress.earnedWorldStickerIds.includes(entry.stickerId); return <div key={entry.stickerId} className="rounded-2xl border bg-emerald-50 p-3 text-center"><div className="flex h-[60px] items-center justify-center">{earned ? <DinoSticker species={entry.targetSpecies} size={56} /> : <span aria-hidden="true" className="text-3xl">🔒</span>}</div><p className="font-black">{entry.stickerName}</p><p className="text-xs">{earned ? 'Earned' : 'Locked'}</p></div>; })}</div><button type="button" onClick={() => setPhase('map')} className="mx-auto mt-4 block min-h-12 rounded-xl bg-emerald-900 px-5 font-black text-white">Back to worlds</button></main>}
+    {phase === 'collection' && <main className="z-10 mx-auto mt-5 w-full max-w-4xl rounded-[2rem] bg-white/85 p-5 shadow-xl"><h2 className="text-center text-2xl font-black">World sticker book</h2><p className="mt-1 text-center font-semibold">Stickers appear after all five finds in a world.</p><div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">{DINO_DETECTIVE_WORLDS.map((entry) => { const earned = progress.earnedWorldStickerIds.includes(entry.stickerId); return <div key={entry.stickerId} className="rounded-2xl border bg-emerald-50 p-3 text-center"><div className="flex h-[60px] items-center justify-center">{earned ? <DinoSticker species={entry.targetSpecies} size={56} /> : <span aria-hidden="true" className="text-3xl">🔒</span>}</div><p className="font-black">{entry.stickerName}</p><p className="text-xs">{earned ? 'Earned' : 'Locked'}</p></div>; })}</div><button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="mx-auto mt-4 block min-h-12 rounded-xl bg-emerald-900 px-5 font-black text-white">Back to worlds</button></main>}
 
     {phase === 'active' && run && <main className="z-10 mx-auto mt-4 flex w-full max-w-5xl flex-1 flex-col">
       <section className={`relative min-h-[380px] flex-1 overflow-hidden rounded-[2rem] border-4 border-white/80 bg-gradient-to-br ${ambientStyles[world.ambientId]} p-4 text-white shadow-2xl sm:min-h-[460px] sm:p-6`}>
@@ -179,13 +191,13 @@ const DinoDetective = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onC
           })}
           {hintShown && targetSpot && <div aria-hidden="true" className="pointer-events-none absolute z-20 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-yellow-200/80" style={{ left: `${targetSpot.x}%`, top: `${targetSpot.y}%`, width: 78, height: 78 }} />}
         </div>
-        <div className="relative z-10 mt-3 flex flex-wrap items-center justify-between gap-2"><p aria-live="polite" role="status" className="min-h-6 font-black">{feedback}</p><div className="flex gap-2"><button type="button" onClick={() => { setFeedback(world.hint); }} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black"><BookOpen size={17}/> Read clue</button><button type="button" disabled={hintShown || found} onClick={showClue} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-3 font-black text-emerald-950 disabled:opacity-55"><Lightbulb size={17}/> Show a clue</button></div></div>
-        {found && <div className="relative z-20 mt-3 rounded-2xl border-2 border-emerald-100 bg-emerald-950/90 p-4 shadow-xl" role="status" aria-live="polite"><h3 className="text-xl font-black">{world.targetName}</h3><p className="mt-1 font-semibold">{world.targetFact}</p><p className="mt-2 border-t border-white/20 pt-2 text-sm font-bold">World fact: {world.sceneFact}</p><button type="button" onClick={next} className="mt-3 min-h-12 w-full rounded-xl bg-amber-300 px-5 font-black text-emerald-950">{roundIndex < 4 ? 'Next find' : 'Finish world'}</button></div>}
+        <div className="relative z-10 mt-3 flex flex-wrap items-center justify-between gap-2"><p aria-live="polite" role="status" className="min-h-6 font-black">{feedback}</p><div className="flex gap-2"><button type="button" onClick={() => speak(DINO_DETECTIVE_NARRATION.instruction, { premium: false, segments: [DINO_DETECTIVE_NARRATION.instruction] })} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black">Hear instructions</button><button type="button" onClick={() => { setFeedback(world.hint); speak(world.hint, { premium: false, segments: [world.hint] }); }} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black"><BookOpen size={17}/> Read clue</button><button type="button" disabled={hintShown || found} onClick={showClue} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-3 font-black text-emerald-950 disabled:opacity-55"><Lightbulb size={17}/> Show a clue</button></div></div>
+        {found && <div className="relative z-20 mt-3 rounded-2xl border-2 border-emerald-100 bg-emerald-950/90 p-4 shadow-xl" role="status" aria-live="polite"><h3 className="text-xl font-black">{world.targetName}</h3><p className="mt-1 font-semibold">{world.targetFact}</p><p className="mt-2 border-t border-white/20 pt-2 text-sm font-bold">World fact: {world.sceneFact}</p><button type="button" onClick={() => { const narration = dinoFoundNarration(world); speak(narration.text, { premium: false, segments: narration.segments }); }} className="mt-3 min-h-11 w-full rounded-xl bg-white/15 px-4 font-black">Read facts again</button><button type="button" onClick={next} className="mt-3 min-h-12 w-full rounded-xl bg-amber-300 px-5 font-black text-emerald-950">{roundIndex < 4 ? 'Next find' : 'Finish world'}</button></div>}
       </section>
       <p className="mx-auto mt-2 max-w-4xl text-sm font-bold">Five numbered hiding places. {world.bandIndex === 0 ? 'A bright footprint trail leads to the target.' : world.bandIndex === 1 ? 'Look for the trail as it bends between places.' : 'Follow the faint trail; use Show a clue whenever you need it.'}</p>
     </main>}
 
-    {phase === 'complete' && <main className="z-10 mx-auto mt-8 w-full max-w-xl rounded-[2rem] border-2 border-amber-200 bg-emerald-950 p-6 text-center text-white shadow-2xl"><div className="text-6xl" aria-hidden="true">{result?.newlyEarnedSticker ? world.mark : '🏆'}</div><h2 className="mt-2 text-3xl font-black">{world.name} complete</h2><p className="mt-2 font-semibold">{DINO_DETECTIVE_NARRATION.complete}</p>{result?.newlyEarnedSticker && <p className="mt-3 rounded-xl bg-amber-200 p-3 font-black text-emerald-950">Sticker earned: {world.stickerName}</p>}<p className="mt-2 font-bold">Best: {progress.bestStars[world.id] || 0} stars</p><div className="mt-5 flex flex-wrap justify-center gap-3"><button type="button" onClick={() => setPhase('map')} className="min-h-12 rounded-xl bg-white px-5 font-black text-emerald-950">World map</button><button type="button" onClick={() => setPhase('collection')} className="min-h-12 rounded-xl bg-amber-300 px-5 font-black text-emerald-950">Sticker book</button></div></main>}
+    {phase === 'complete' && <main className="z-10 mx-auto mt-8 w-full max-w-xl rounded-[2rem] border-2 border-amber-200 bg-emerald-950 p-6 text-center text-white shadow-2xl"><div className="text-6xl" aria-hidden="true">{result?.newlyEarnedSticker ? world.mark : '🏆'}</div><h2 className="mt-2 text-3xl font-black">{world.name} complete</h2><p className="mt-2 font-semibold">{DINO_DETECTIVE_NARRATION.complete}</p>{result?.newlyEarnedSticker && <p className="mt-3 rounded-xl bg-amber-200 p-3 font-black text-emerald-950">Sticker earned: {world.stickerName}</p>}<p className="mt-2 font-bold">Best: {progress.bestStars[world.id] || 0} stars</p><div className="mt-5 flex flex-wrap justify-center gap-3"><button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="min-h-12 rounded-xl bg-white px-5 font-black text-emerald-950">World map</button><button type="button" onClick={() => { cancelNarration(); setPhase('collection'); }} className="min-h-12 rounded-xl bg-amber-300 px-5 font-black text-emerald-950">Sticker book</button></div></main>}
   </div>;
 };
 

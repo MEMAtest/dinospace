@@ -23,6 +23,21 @@ export const BATCH3_VOICE_CORPUS_BY_GAME = Object.freeze({
   tictactoe: unique([...COSMIC_TACTIC_NARRATION, ...COSMIC_CHAPTERS.map(({ instruction }) => instruction)]),
 });
 
+export const countAnswerNarration = (count) => {
+  const segments = [String(count), COUNT_THE_STARS_NARRATION.countQuestion];
+  return Object.freeze({ text: segments.join(' '), segments: Object.freeze(segments) });
+};
+
+export const countCorrectNarration = (praise, explanation) => {
+  const segments = [praise, explanation];
+  return Object.freeze({ text: segments.join(' '), segments: Object.freeze(segments) });
+};
+
+export const dinoFoundNarration = (world) => {
+  const segments = [DINO_DETECTIVE_NARRATION.found, world.targetFact, world.sceneFact];
+  return Object.freeze({ text: segments.join(' '), segments: Object.freeze(segments) });
+};
+
 export const BATCH3_VOICE_ITEMS = Object.freeze(unique(Object.values(BATCH3_VOICE_CORPUS_BY_GAME).flat()).map((text) => {
   const key = voiceClipKey(text);
   return Object.freeze({ text, key, path: `/audio/en/${key}-matilda.mp3` });

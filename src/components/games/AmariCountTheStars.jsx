@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, BookOpen, Home, Lightbulb, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
+import { countAnswerNarration, countCorrectNarration } from '../../data/batch3Narration.js';
 import {
   COUNT_CONSTELLATION_PAGES, COUNT_THE_STARS_EPISODES, COUNT_THE_STARS_NARRATION,
   createCountRunSeed, createCountTheStarsRun,
@@ -11,15 +12,6 @@ import {
 
 const praiseFor = (stars) => stars === 3 ? 'Brilliant counting!' : stars === 2 ? 'Great counting!' : 'You kept counting!';
 const pluralOf = (noun) => noun.endsWith('y') ? `${noun.slice(0, -1)}ies` : `${noun}s`;
-const cancelLocalSpeech = () => { if (typeof window !== 'undefined') window.speechSynthesis?.cancel(); };
-
-const speakLocally = (text, enabled) => {
-  if (!enabled || typeof window === 'undefined' || !window.speechSynthesis || !window.SpeechSynthesisUtterance) return;
-  window.speechSynthesis.cancel();
-  const utterance = new window.SpeechSynthesisUtterance(text);
-  utterance.lang = 'en-GB';
-  window.speechSynthesis.speak(utterance);
-};
 
 const CountMotif = ({ kind, accent }) => {
   const common = { fill: accent, stroke: '#fff7d6', strokeWidth: 1.8, strokeLinejoin: 'round', strokeLinecap: 'round' };
@@ -59,7 +51,7 @@ const ConstellationArt = ({ page, locked = false }) => {
   </svg>;
 };
 
-const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) => {
+const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, cancelNarration = () => {}, soundOn, onToggleSound, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) => {
   const [progress, setProgress] = useState(() => getCountTheStarsProgress(playerId));
   const [phase, setPhase] = useState('map');
   const [episodeIndex, setEpisodeIndex] = useState(0);
@@ -89,12 +81,11 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
     }));
     return () => window.cancelAnimationFrame(frame);
   }, [phase]);
-  useEffect(() => { if (!soundOn) cancelLocalSpeech(); }, [soundOn]);
-  useEffect(() => () => cancelLocalSpeech(), []);
+  useEffect(() => () => cancelNarration(), [cancelNarration]);
 
   const startEpisode = (index) => {
     if (index > progress.unlockedEpisode) return;
-    cancelLocalSpeech();
+    cancelNarration();
     const selectedEpisode = COUNT_THE_STARS_EPISODES[index];
     const seed = createCountRunSeed();
     const nextRun = createCountTheStarsRun(index, seed, recentCountQuestionIds(playerId, index));
@@ -116,7 +107,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
     if (progress.completedEpisodeIds.includes(selectedEpisode.id)) onGameEvent?.('counting', 'replay', { level: index, round: 0, seed, difficulty: selectedEpisode.band });
     onGameEvent?.('counting', 'start', { level: index, round: 0, seed, difficulty: selectedEpisode.band });
     onGameEvent?.('counting', 'question', { level: index, round: 1, seed, difficulty: selectedEpisode.band });
-    speakLocally(COUNT_THE_STARS_NARRATION.instruction, soundOn);
+    speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] });
     playSfx('launch');
   };
 
@@ -125,11 +116,13 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
     const nextTapped = [...tappedIds, objectId];
     setTappedIds(nextTapped);
     playSfx('tap');
-    speakLocally(String(nextTapped.length), soundOn);
     if (nextTapped.length === round.count) {
       setPhase('answer');
       setFeedback(COUNT_THE_STARS_NARRATION.countQuestion);
-      speakLocally(COUNT_THE_STARS_NARRATION.countQuestion, soundOn);
+      const narration = countAnswerNarration(nextTapped.length);
+      speak(narration.text, { premium: false, segments: narration.segments });
+    } else {
+      speak(String(nextTapped.length), { premium: false, segments: [String(nextTapped.length)] });
     }
   };
 
@@ -140,7 +133,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
       setMistakeCount((count) => count + 1);
       setFeedback(COUNT_THE_STARS_NARRATION.recountClue);
       onGameEvent?.('counting', 'answer_attempt', { level: episodeIndex, round: roundIndex + 1, seed: run.seed, correct: false, firstAttempt: !roundHadMistake, hints: Number(roundHadHint) });
-      speakLocally(COUNT_THE_STARS_NARRATION.recountClue, soundOn);
+      speak(COUNT_THE_STARS_NARRATION.recountClue, { premium: false, segments: [COUNT_THE_STARS_NARRATION.recountClue] });
       playSfx('wrong');
       return;
     }
@@ -149,7 +142,8 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
     onGameEvent?.('counting', 'answer_correct', { level: episodeIndex, round: roundIndex + 1, seed: run.seed, firstAttempt, hints: Number(roundHadHint), difficulty: episode.band });
     setFeedback(praiseFor(firstAttempt && !roundHadHint ? 3 : 2));
     setPhase('fact');
-    speakLocally(`${praiseFor(firstAttempt && !roundHadHint ? 3 : 2)} ${round.explanation}`, soundOn);
+    const narration = countCorrectNarration(praiseFor(firstAttempt && !roundHadHint ? 3 : 2), round.explanation);
+    speak(narration.text, { premium: false, segments: narration.segments });
     playSfx('success');
   };
 
@@ -164,12 +158,12 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
     setHintCount((count) => count + 1);
     setHintText(clue);
     onGameEvent?.('counting', 'hint', { level: episodeIndex, round: roundIndex + 1, seed: run.seed, hints: 1, hintType: 'counting_strategy', difficulty: episode.band });
-    speakLocally(clue, soundOn);
+    speak(clue, { premium: false, segments: [clue] });
   };
 
   const advance = () => {
     if (phase !== 'fact' || !run) return;
-    cancelLocalSpeech();
+    cancelNarration();
     if (roundIndex < run.rounds.length - 1) {
       const nextIndex = roundIndex + 1;
       setRoundIndex(nextIndex);
@@ -180,7 +174,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
       setFeedback(`Round ${nextIndex + 1} of ${run.rounds.length}. Tap each object once.`);
       setPhase('count');
       onGameEvent?.('counting', 'question', { level: episodeIndex, round: nextIndex + 1, seed: run.seed, difficulty: episode.band });
-      speakLocally(COUNT_THE_STARS_NARRATION.instruction, soundOn);
+      speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] });
       return;
     }
     const stars = mistakeCount === 0 && hintCount === 0 ? 3 : mistakeCount <= 2 ? 2 : 1;
@@ -193,16 +187,16 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
     }
     setPhase('complete');
     setFeedback(COUNT_THE_STARS_NARRATION.episodeComplete);
-    speakLocally(COUNT_THE_STARS_NARRATION.episodeComplete, soundOn);
+    speak(COUNT_THE_STARS_NARRATION.episodeComplete, { premium: false, segments: [COUNT_THE_STARS_NARRATION.episodeComplete] });
   };
 
   const leaveGame = () => {
-    cancelLocalSpeech();
+    cancelNarration();
     if (run) onGameEvent?.('counting', 'leave', { level: episodeIndex, round: roundIndex + 1, seed: run.seed, difficulty: episode.band });
     onBack?.();
   };
 
-  const openCollection = () => { cancelLocalSpeech(); setPhase('collection'); };
+  const openCollection = () => { cancelNarration(); setPhase('collection'); };
 
   return (
     <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-slate-950 via-indigo-950 to-violet-950 px-3 pb-8 pt-3 text-white sm:px-6 sm:pt-5">
@@ -242,7 +236,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
             </div>;
           })}
         </div>
-        <button type="button" onClick={() => { cancelLocalSpeech(); setPhase('map'); }} className="mx-auto mt-5 block min-h-14 rounded-2xl bg-white px-6 font-black text-indigo-950">Back to surveys</button>
+        <button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="mx-auto mt-5 block min-h-14 rounded-2xl bg-white px-6 font-black text-indigo-950">Back to surveys</button>
       </main>}
 
       {(phase === 'count' || phase === 'answer' || phase === 'fact') && round && <main className="mx-auto mt-4 max-w-4xl">
@@ -263,7 +257,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
           </div>
           <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-black/20 px-3 py-2">
             <p className="font-black" aria-live="polite">{phase === 'count' ? (tappedIds.length ? `Counted ${tappedIds.length} object${tappedIds.length === 1 ? '' : 's'}.` : 'Tap each object once to count it.') : phase === 'answer' ? COUNT_THE_STARS_NARRATION.countQuestion : 'Count complete'}</p>
-            <div className="flex flex-wrap gap-2"><button type="button" onClick={() => speakLocally(COUNT_THE_STARS_NARRATION.instruction, soundOn)} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black"><Volume2 size={18} /> Hear instructions</button><button type="button" disabled={roundHadHint || phase === 'fact'} onClick={showCountingClue} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-3 font-black text-indigo-950 disabled:opacity-50"><Lightbulb size={18} /> Show a clue</button></div>
+            <div className="flex flex-wrap gap-2"><button type="button" onClick={() => speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] })} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black"><Volume2 size={18} /> Hear instructions</button><button type="button" disabled={roundHadHint || phase === 'fact'} onClick={showCountingClue} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-3 font-black text-indigo-950 disabled:opacity-50"><Lightbulb size={18} /> Show a clue</button></div>
           </div>
           {hintText && <p className="mt-2 rounded-xl border border-amber-100/50 bg-amber-200/15 px-3 py-2 text-sm font-bold" role="status" aria-live="polite">{hintText}</p>}
           {phase === 'answer' && <div ref={answerPanelRef} className="mt-4 rounded-2xl border border-white/20 bg-black/20 p-3 text-center">
@@ -285,7 +279,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, soundOn, onToggleSound
         <p className="mt-3 text-lg font-bold">{COUNT_THE_STARS_NARRATION.episodeComplete}</p>
         {lastResult?.newlyEarnedPage && <p className="mt-3 rounded-2xl bg-amber-200 p-4 font-black text-indigo-950">Constellation page earned: {episode.name} Constellation</p>}
         <p className="mt-2 font-bold text-amber-100">Best: {lastResult?.progress.bestStars[episode.id] || progress.bestStars[episode.id] || 0} stars</p>
-        <div className="mt-5 flex flex-wrap justify-center gap-3"><button type="button" onClick={() => { cancelLocalSpeech(); setPhase('map'); }} className="min-h-14 rounded-2xl bg-white px-6 font-black text-indigo-950">Survey map</button><button type="button" onClick={openCollection} className="min-h-14 rounded-2xl bg-amber-300 px-6 font-black text-indigo-950">Constellation book</button></div>
+        <div className="mt-5 flex flex-wrap justify-center gap-3"><button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="min-h-14 rounded-2xl bg-white px-6 font-black text-indigo-950">Survey map</button><button type="button" onClick={openCollection} className="min-h-14 rounded-2xl bg-amber-300 px-6 font-black text-indigo-950">Constellation book</button></div>
       </main>}
     </div>
   );
