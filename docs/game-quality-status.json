@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T22:11:30.750580+00:00",
+  "updatedAt": "2026-10-03T22:15:07.588324+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -251,17 +251,17 @@
   "implementationBatch": 3,
   "implementationBranch": "codex/amari-batch3-quality-20261003",
   "implementationCandidate": {
-    "source": "16b545b6afef31a54c02d5a98e3e7db7e07b2677",
+    "source": "a1eec24552c99529ba30ed38d10492a6ce1c7829",
     "branch": "codex/amari-batch3-quality-20261003",
-    "testsPassed": 204,
+    "testsPassed": 208,
     "lint": "passed",
     "build": "passed",
-    "localPlaywright": "Count653 complete three bands and replay both widths; Dino569 complete12 worlds both widths; Cosmic5215 complete3 chapters both widths. Trace5223 Starter/Growing pointer matrix completed both widths; retained-choice regression repaired5231, full Challenge pointer matrix underway, final5237 keyboard/help/arrows delta pending. No new production acceptance.",
-    "narration": "275 unique finite worker live;87 pending at18:30UTC, expected request-window waiting. Frozen5237 contains46 mappedclips; first46decoded. Fullpackaging/native/listening open.",
-    "release": "Not deployed or accepted",
-    "sourceGateScope": "204/204tests, fullESLint, productionconfigurationbuild and6servedhashes on immutable5237 archivedsource",
-    "identity": "work/dinospace-batch3-quality/docs/qa-evidence/batch3-direction-identity-20261003.json",
-    "audioDecode": "212mappedclips full decode/positive duration/hash audit,0invalid at18:49UTC; not full275 readiness/listening. Evidence work/dinospace-batch3-quality/docs/qa-evidence/batch3-partial-decode-20261003-1850.json"
+    "localPlaywright": "Full local four-game matrix retained; independent5271Count copy/Trace keyboard-mobile delta passed. New canonical patch controls in progress.",
+    "narration": "275 packaged phrases ready and full decode passed; human listening remains open.",
+    "release": "Canonical functional repair released; editorial4.5notaccepted",
+    "sourceGateScope": "208-test full baseline a6; changed-file lint/build and independent delta for a1.",
+    "identity": "docs/qa-evidence/batch3-copy-keyboard-canonical-identity-20261003.json",
+    "audioDecode": "275finalcorpus full decode/positive duration/hash audit,0invalid; production candidate bytes match."
   },
   "nextImplementationBatch": {
     "batch": 4,
@@ -282,13 +282,13 @@
     "independentReportCommit": "aab31f0de1badd5003ffbb9cff0aa15d8c70ce83",
     "coverage": "All four games: three chapters/worlds \u00d7 six missions at both1280\u00d7800 and390\u00d7844, full same-band replay; saved chapter badges/best-star improvement, sibling isolation, reload, clock wraps, NumberLine markers/frog and parent-world routes. Exact local5227 candidate only."
   },
-  "latestCheckpoint": "docs/game-quality-checkpoint-20261003-1724.md",
+  "latestCheckpoint": "docs/game-quality-checkpoint-20261003-current.md",
   "batch5Implementation": {
     "sourceBase": "1d33a28",
     "branch": "codex/amari-batch5-quality-20261003",
     "plan": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md",
-    "scope": "All4Amari source UIs/routes committed e5f8013, rootreview caught missingColourinputs/wrongresult semantic risk; canonical first/second/mixResult/clue and palette metadata fixed05b865f with10focusedtests/lint. Luna UI/hint/diagnostic correction active; frozen browser candidate/audio/production pending.",
-    "literacySource": "9c2c7cf870717046a94cdc890307855e2467d0e2"
+    "scope": "Full desktop matrix; mobileColour/Spelling/Odd complete and independent5255repair deltas pass. Missing37purephonemeclips blocks meaningful SoundSafari mobileblending. Audio/editorial/production remainopen.",
+    "literacySource": "99ed1955131bd53b9738264edcde4e2091ad6e5e"
   },
   "batch4NarrationCandidate": {
     "sha": "fa47bf73e7d169bb1b37b6bf278718a7b088e97a",
@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "65ready/5181pendingphrases; packagingnotstarted",
+    "voiceCoverage": "Finite worker live; status22:02UTCrun34generated15/reused450/4716pending,0cooldownretries. Not fullaudioacceptance.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -307,21 +307,23 @@
     "branch": "codex/amari-batch6-quality-20261003",
     "base": "0d11256",
     "plan": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md",
-    "scope": "Sourceaudit and concrete4-game contract committed9188fc6; Luna builder active on Pattern/Hangman/Chess/Astronaut. No candidate browser/audio/production acceptance."
+    "scope": "Allfour3chapterdesktop/mobilematrices plus tracker repair passed with retained source lineage. Current5275narrationallowlist/Letterclue delta awaits independentUIproof; 435phrases1ready434missing. Notreleased/accepted.",
+    "source": "3a0da1b",
+    "identity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-narration-repair-identity-20261003.json"
   },
   "batch4PackagingPlan": {
     "source": "ac3b3cc",
     "plan": "work/dinospace-batch4-quality/docs/batch4-finite-narration-packaging-plan-20261003.md",
-    "state": "Prepared only; Batch3 completed/process exit and explicit sharedjournal required before start; fingerprint pinned;520finitechildrunsmaximum. No Batch4 provider calls."
+    "state": "FiniteworkerPID18781launched19:21UTC, verifiedlive22:09UTC; sharedjournal rate limits active, max520runs; nosecondpaidworker."
   },
-  "latestWorkCheckpoint": "docs/game-quality-checkpoint-20261003-1724.md",
+  "latestWorkCheckpoint": "docs/game-quality-checkpoint-20261003-current.md",
   "pendingReleaseCandidates": [
     {
       "batch": 3,
       "sourceSha": "a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4",
       "deploymentId": "dpl_2d8La99iCHGQAUNjCpfagawN9LB8",
       "url": "https://dinospace-i6pptqfbo-memas-projects-23a0001d.vercel.app",
-      "state": "canonical functional release; bounded production deltas passed; editorial and listening gates pending",
+      "state": "Historical a6 canonical functional baseline; superseded by source-bound a1copy/keyboardpatch; editorial/listening remainpending",
       "identityEvidence": "docs/qa-evidence/batch3-canonical-production-identity-20261003.json",
       "corpusEvidence": "docs/qa-evidence/batch3-production-candidate-corpus-20261003.json",
       "canonicalUrl": "https://dinospace-eight.vercel.app"
@@ -329,13 +331,20 @@
   ],
   "latestFunctionalRelease": {
     "batch": 3,
-    "sourceSha": "a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4",
-    "deploymentId": "dpl_2d8La99iCHGQAUNjCpfagawN9LB8",
+    "sourceSha": "a1eec24552c99529ba30ed38d10492a6ce1c7829",
+    "deploymentId": "dpl_HRtGufD4yhwza3iqDu7BfRze6SFS",
     "url": "https://dinospace-eight.vercel.app",
     "renderedAssetsMatched": 7,
-    "productionPlaywright": "Passed bounded four-game desktop/390 controls against exact canonical deployment; full retained local lineage and limits in report",
+    "productionPlaywright": "Prior a6fullfour-gamecanonical baseline retained; a1copy/keyboardpatch independentproductiondelta inprogress",
     "editorialAccepted": false,
-    "knownMinorDefect": "Count singular prompt grammar; repaired in source after frozen release, not yet redeployed",
-    "productionEvidence": "docs/qa-evidence/batch3-canonical-production-independent-20261003/report.md"
+    "knownMinorDefect": "Prior Countgrammar and keyboardpartialprogress fixed; localindependentdelta passed, canonicaldelta pending",
+    "productionEvidence": "docs/qa-evidence/batch3-canonical-production-independent-20261003/report.md",
+    "identityEvidence": "docs/qa-evidence/batch3-copy-keyboard-canonical-identity-20261003.json"
+  },
+  "batch7Implementation": {
+    "branch": "codex/amari-batch7-quality-20261003",
+    "runtimeSource": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
+    "scope": "TenMemoryboards and all54Solarfacts/ninechallenges passed localdesktop/mobile. NASA/accessibilitydeltas retained. Memory premiumart/theme buildactive; newcandidateindependentQA/audio/editorial/productionopen.",
+    "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md"
   }
 }
