@@ -9,7 +9,7 @@ import DinoIcon from '../shared/DinoIcon.jsx';
 const chapterCopy = { starter:'Word-family rescue: listen for the same ending sound.', growing:'Picture-clue rescue: connect a picture with a taught word.', challenge:'Independent rescue: longer words with consonant blends.' };
 const chapterNames = { starter:'Word-family rescue', growing:'Picture-clue rescue', challenge:'Independent rescue' };
 const ALPHABET='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-const DinoHangman = (props) => props.littleMode ? <DinoHangmanAmari {...props} /> : <HangmanAskia {...props} />;
+const DinoHangman = (props) => !props.littleMode ? <DinoHangmanAmari {...props} /> : <HangmanAskia {...props} />;
 const DinoHangmanAmari = (props) => {
   const { playerId, onGameEvent, onCelebrate, speak, onBack, cancelNarration, soundOn, onToggleSound, onPhaseChange } = props;
   const journey = useBatch6Journey({ gameId:'hangman', playerId, onGameEvent, onCelebrate, speak, onBack, cancelNarration, onPhaseChange });

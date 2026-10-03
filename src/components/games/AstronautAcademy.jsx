@@ -15,7 +15,7 @@ const getMissionPool=(chapter,playerId)=>{
   const reviews=[...missed].map((id)=>all.find((item)=>item.id===id)).filter(Boolean).map((item)=>({...item,id:`review-${item.id}`,review:true,signature:item.id}));
   return [...base.filter((item)=>!missed.has(item.id)),...reviews];
 };
-const AstronautAcademy=(props)=>props.littleMode?<AstronautAcademyAmari {...props}/>:<AstronautAcademyAskia {...props}/>;
+const AstronautAcademy=(props)=>!props.littleMode?<AstronautAcademyAmari {...props}/>:<AstronautAcademyAskia {...props}/>;
 const AstronautAcademyAmari=(props)=>{
   const {playerId,onGameEvent,onCelebrate,speak,onBack,cancelNarration,soundOn,onToggleSound,onPhaseChange}=props;
   const journey=useBatch6Journey({gameId:'astronaut',playerId,onGameEvent,onCelebrate,speak,onBack,cancelNarration,onPhaseChange});

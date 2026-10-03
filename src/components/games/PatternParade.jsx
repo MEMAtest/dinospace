@@ -7,7 +7,7 @@ import patternParadeArt from '../../assets/game-scenes/pattern-parade.webp';
 
 const bandText = { starter:'Repeat it: spot the two-part or three-part unit.', growing:'Change the rule: follow colours, sounds and growing steps.', challenge:'Growing festival: explain a rule with more than one step.' };
 const chapterNames = { starter:'Repeat it', growing:'Change the rule', challenge:'Growing festival' };
-const PatternParade=(props)=>props.littleMode?<PatternParadeAmari {...props}/>:<PatternParadeAskia {...props}/>;
+const PatternParade=(props)=>!props.littleMode?<PatternParadeAmari {...props}/>:<PatternParadeAskia {...props}/>;
 const PatternParadeAmari=(props)=>{
   const { playerId, onGameEvent, onCelebrate, speak, onBack, cancelNarration, soundOn, onToggleSound, onPhaseChange } = props;
   const journey = useBatch6Journey({ gameId:'pattern', playerId, onGameEvent, onCelebrate, speak, onBack, cancelNarration, onPhaseChange });

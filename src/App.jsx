@@ -232,7 +232,7 @@ const PlayerSession = ({
     const nextId = nextGameAfter(currentGame.id);
     const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
     // Memory and picture puzzles already own their multi-board progression.
-    const amariChapterFlow = little && AMARI_CHAPTER_GAME_IDS.has(currentGame.id);
+    const amariChapterFlow = !little && AMARI_CHAPTER_GAME_IDS.has(currentGame.id);
     const sessionRule = currentGame.little || ['memory', 'puzzle'].includes(currentGame.id) || (little && currentGame.id === 'dino') || amariChapterFlow ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
       onBack: () => { if (amariChapterFlow) cancelNarration?.(); back({ force: amariChapterFlow, toParent: !little }); },

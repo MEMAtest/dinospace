@@ -8,7 +8,7 @@ import { speakBatch6 } from '../../data/batch6Narration.js';
 const pieceFaces={rook:'♖',bishop:'♗',knight:'♘',queen:'♕',king:'♔',pawn:'♙'};
 const chapterCopy={starter:'Piece moves: rook, bishop, knight, queen and king.',growing:'Safe captures: capture a marked pawn only when its square is safe.',challenge:'Mini-puzzles: use a clear path and one stated goal.'};
 const chapterNames={starter:'Piece moves',growing:'Safe captures',challenge:'Mini-puzzles'};
-const ChessExplorers=(props)=>props.littleMode?<ChessExplorersAmari {...props}/>:<ChessExplorersAskia {...props}/>;
+const ChessExplorers=(props)=>!props.littleMode?<ChessExplorersAmari {...props}/>:<ChessExplorersAskia {...props}/>;
 const ChessExplorersAmari=(props)=>{
   const {playerId,onGameEvent,onCelebrate,speak,onBack,cancelNarration,soundOn,onToggleSound,onPhaseChange}=props;
   const journey=useBatch6Journey({gameId:'chess',playerId,onGameEvent,onCelebrate,speak,onBack,cancelNarration,onPhaseChange});
