@@ -42,3 +42,8 @@ Batch5 isolatedsourceaudit/planpublished at a3dc731, fourgames inprogress. Luna 
 Final Trace16b545b at5237 isbuilt from aGitarchive, excluding liveaudio-worker mutations:204tests/fullESLint/build and6servedhashes pass. Itcontains clearedwordchoices, keyboardindependent/masteryeligibility correction, accurateRight/Downadvancehelp andvisiblepointerdirectionarrows; fullChallenge remainsin independentQA at5231plus a narrow5237changedcontrol/keyboarddelta. No4.5promotion.
 
 Batch4 fa47bf7 at5235 passes198tests/fullESLint/build/4servedhashes. CompletedfullAddition/Subtractionbothwidths and Timebothwidths are recordedbytheactive5227tester; finalNumberLinedesktop/log/navigation/replay evidence andreport remain open. Noaudioorproductionacceptance. Batch3worker livePID1660 has117mappedclips/158pending at18:00UTC, waitingunderitsrequestjournal; noerrororrestart.
+
+
+## 18:31 UTC continuation
+
+Batch5 root foundations are committed: Colour/Odd three distinct chapters, six unique authored missions per run, seeded choices and canonical validation, completed-only child-scoped progress, positive best-star improvement deltas and completed-run palette checkpoints. Nine focused tests and lint pass; no browser acceptance is inferred. Luna literacy builder has source components and finite source inventory in review; pure phonemes remain entirely unpackaged. Batch4 independent tester now reports all18 NumberLine mobile missions, while final report/navigation/desktop coverage remains pending. Batch3 Trace repaired desktop Challenge progressed through pointer rounds; mobile ordinary unlocking is underway. Narration worker had111 pending at18:20UTC and was in an expected request-window wait. Production remains unchanged; accepted score counts remain4/16/6.
