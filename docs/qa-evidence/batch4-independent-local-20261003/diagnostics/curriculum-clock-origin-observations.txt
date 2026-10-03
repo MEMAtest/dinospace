@@ -1,0 +1,5 @@
+17:07:46 before game: URL=http://127.0.0.1:5221/#/play/timeteller, amari_discovery_active_player="amari"
+17:08:16 after ordinary reload of that game route: URL=http://127.0.0.1:5221/#/, amari_discovery_active_player="amari"
+17:09:54 after visible Leave the game? -> Back to world from Time Teller entered via Curriculum Quest Time Detectives: URL=http://127.0.0.1:5221/#/play/worldmap/time-detectives
+17:13:48 route and active-player read repeated: URL=http://127.0.0.1:5221/#/play/worldmap/time-detectives, amari_discovery_active_player="amari"
+No localStorage writes or addInitScripts were used. Network guards were the only injected browser setup.

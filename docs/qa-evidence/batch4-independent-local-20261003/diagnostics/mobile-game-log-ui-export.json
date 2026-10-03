@@ -1,0 +1,1073 @@
+{
+  "version": 2,
+  "retention": {
+    "recentEvents": 300,
+    "runMilestones": 100
+  },
+  "events": [
+    {
+      "game": "numberline",
+      "event": "start",
+      "at": "2026-10-03T16:28:38.243Z",
+      "level": 0,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:28:38.244Z",
+      "level": 0,
+      "round": 0,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:28:53.484Z",
+      "level": 0,
+      "round": 0,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:29:07.324Z",
+      "level": 0,
+      "round": 0,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:29:09.425Z",
+      "level": 0,
+      "round": 0,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:29:11.476Z",
+      "level": 0,
+      "round": 0,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:29:13.694Z",
+      "level": 0,
+      "round": 0,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:29:13.694Z",
+      "level": 0,
+      "round": 0,
+      "seed": 4131056985,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:29:13.694Z",
+      "level": 0,
+      "round": 0,
+      "seed": 4131056985,
+      "hints": 0,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:29:33.038Z",
+      "level": 0,
+      "round": 1,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:29:43.243Z",
+      "level": 0,
+      "round": 1,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:29:45.268Z",
+      "level": 0,
+      "round": 1,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:29:51.534Z",
+      "level": 0,
+      "round": 1,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:29:51.534Z",
+      "level": 0,
+      "round": 1,
+      "seed": 4131056985,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:29:51.534Z",
+      "level": 0,
+      "round": 1,
+      "seed": 4131056985,
+      "hints": 0,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:29:59.468Z",
+      "level": 0,
+      "round": 2,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:30:09.689Z",
+      "level": 0,
+      "round": 2,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:30:11.757Z",
+      "level": 0,
+      "round": 2,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:30:13.825Z",
+      "level": 0,
+      "round": 2,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:30:15.841Z",
+      "level": 0,
+      "round": 2,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:30:17.811Z",
+      "level": 0,
+      "round": 2,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:30:17.811Z",
+      "level": 0,
+      "round": 2,
+      "seed": 4131056985,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:30:17.811Z",
+      "level": 0,
+      "round": 2,
+      "seed": 4131056985,
+      "hints": 0,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:30:32.068Z",
+      "level": 0,
+      "round": 3,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:30:38.438Z",
+      "level": 0,
+      "round": 3,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:30:38.439Z",
+      "level": 0,
+      "round": 3,
+      "seed": 4131056985,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:30:38.439Z",
+      "level": 0,
+      "round": 3,
+      "seed": 4131056985,
+      "hints": 0,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:30:44.976Z",
+      "level": 0,
+      "round": 4,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:30:51.912Z",
+      "level": 0,
+      "round": 4,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:30:54.180Z",
+      "level": 0,
+      "round": 4,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:30:54.180Z",
+      "level": 0,
+      "round": 4,
+      "seed": 4131056985,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:30:54.180Z",
+      "level": 0,
+      "round": 4,
+      "seed": 4131056985,
+      "hints": 0,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:31:00.501Z",
+      "level": 0,
+      "round": 5,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:31:09.172Z",
+      "level": 0,
+      "round": 5,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:31:11.375Z",
+      "level": 0,
+      "round": 5,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:31:13.458Z",
+      "level": 0,
+      "round": 5,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "hop",
+      "at": "2026-10-03T16:31:15.612Z",
+      "level": 0,
+      "round": 5,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:31:15.613Z",
+      "level": 0,
+      "round": 5,
+      "seed": 4131056985,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:31:15.613Z",
+      "level": 0,
+      "round": 5,
+      "seed": 4131056985,
+      "hints": 0,
+      "difficulty": "forward-back",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "level_complete",
+      "at": "2026-10-03T16:31:22.953Z",
+      "level": 0,
+      "round": 5,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "start",
+      "at": "2026-10-03T16:31:47.987Z",
+      "level": 1,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:31:47.988Z",
+      "level": 1,
+      "round": 0,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:32:16.654Z",
+      "level": 1,
+      "round": 0,
+      "seed": 991163907,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:32:16.654Z",
+      "level": 1,
+      "round": 0,
+      "seed": 991163907,
+      "hints": 0,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:42:57.494Z",
+      "level": 1,
+      "round": 1,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:43:05.380Z",
+      "level": 1,
+      "round": 1,
+      "seed": 991163907,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:43:05.380Z",
+      "level": 1,
+      "round": 1,
+      "seed": 991163907,
+      "hints": 0,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:43:13.366Z",
+      "level": 1,
+      "round": 2,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:43:21.989Z",
+      "level": 1,
+      "round": 2,
+      "seed": 991163907,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:43:21.989Z",
+      "level": 1,
+      "round": 2,
+      "seed": 991163907,
+      "hints": 0,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:43:31.543Z",
+      "level": 1,
+      "round": 3,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:43:38.748Z",
+      "level": 1,
+      "round": 3,
+      "seed": 991163907,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:43:38.748Z",
+      "level": 1,
+      "round": 3,
+      "seed": 991163907,
+      "hints": 0,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:43:48.970Z",
+      "level": 1,
+      "round": 4,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:43:55.574Z",
+      "level": 1,
+      "round": 4,
+      "seed": 991163907,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:43:55.574Z",
+      "level": 1,
+      "round": 4,
+      "seed": 991163907,
+      "hints": 0,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:44:02.742Z",
+      "level": 1,
+      "round": 5,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:44:09.264Z",
+      "level": 1,
+      "round": 5,
+      "seed": 991163907,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:44:09.264Z",
+      "level": 1,
+      "round": 5,
+      "seed": 991163907,
+      "hints": 0,
+      "difficulty": "missing-numbers",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "level_complete",
+      "at": "2026-10-03T16:44:16.334Z",
+      "level": 1,
+      "round": 5,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "start",
+      "at": "2026-10-03T16:44:34.677Z",
+      "level": 2,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:44:34.678Z",
+      "level": 2,
+      "round": 0,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:44:46.832Z",
+      "level": 2,
+      "round": 0,
+      "seed": 393708413,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:44:46.832Z",
+      "level": 2,
+      "round": 0,
+      "seed": 393708413,
+      "hints": 0,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:44:53.936Z",
+      "level": 2,
+      "round": 1,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:45:01.823Z",
+      "level": 2,
+      "round": 1,
+      "seed": 393708413,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:45:01.823Z",
+      "level": 2,
+      "round": 1,
+      "seed": 393708413,
+      "hints": 0,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:45:08.630Z",
+      "level": 2,
+      "round": 2,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:45:20.101Z",
+      "level": 2,
+      "round": 2,
+      "seed": 393708413,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:45:20.101Z",
+      "level": 2,
+      "round": 2,
+      "seed": 393708413,
+      "hints": 0,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:45:26.455Z",
+      "level": 2,
+      "round": 3,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:45:56.154Z",
+      "level": 2,
+      "round": 3,
+      "seed": 393708413,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:46:03.741Z",
+      "level": 2,
+      "round": 3,
+      "seed": 393708413,
+      "difficulty": "compare-distances",
+      "firstAttempt": false
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:46:03.741Z",
+      "level": 2,
+      "round": 3,
+      "seed": 393708413,
+      "hints": 0,
+      "difficulty": "compare-distances",
+      "firstAttempt": false
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:46:11.879Z",
+      "level": 2,
+      "round": 4,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:46:20.648Z",
+      "level": 2,
+      "round": 4,
+      "seed": 393708413,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:46:29.021Z",
+      "level": 2,
+      "round": 4,
+      "seed": 393708413,
+      "difficulty": "compare-distances",
+      "firstAttempt": false
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:46:29.021Z",
+      "level": 2,
+      "round": 4,
+      "seed": 393708413,
+      "hints": 0,
+      "difficulty": "compare-distances",
+      "firstAttempt": false
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:46:35.525Z",
+      "level": 2,
+      "round": 5,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:46:42.945Z",
+      "level": 2,
+      "round": 5,
+      "seed": 393708413,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:46:42.945Z",
+      "level": 2,
+      "round": 5,
+      "seed": 393708413,
+      "hints": 0,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "level_complete",
+      "at": "2026-10-03T16:46:49.366Z",
+      "level": 2,
+      "round": 5,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "start",
+      "at": "2026-10-03T16:48:16.296Z",
+      "level": 2,
+      "seed": 2241462363,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "question",
+      "at": "2026-10-03T16:48:16.297Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2241462363,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:48:26.615Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2241462363,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:48:26.615Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2241462363,
+      "hints": 0,
+      "difficulty": "compare-distances",
+      "firstAttempt": true
+    },
+    {
+      "game": "numberline",
+      "event": "leave",
+      "at": "2026-10-03T16:48:37.223Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2241462363,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "subtraction",
+      "event": "start",
+      "at": "2026-10-03T16:53:57.427Z",
+      "level": 0,
+      "seed": 1207051682,
+      "difficulty": "take-away"
+    },
+    {
+      "game": "subtraction",
+      "event": "question",
+      "at": "2026-10-03T16:53:57.427Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1207051682,
+      "difficulty": "take-away"
+    },
+    {
+      "game": "subtraction",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:54:07.415Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1207051682,
+      "difficulty": "take-away",
+      "firstAttempt": true
+    },
+    {
+      "game": "subtraction",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:54:07.415Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1207051682,
+      "hints": 0,
+      "difficulty": "take-away",
+      "firstAttempt": true
+    },
+    {
+      "game": "subtraction",
+      "event": "question",
+      "at": "2026-10-03T16:54:17.404Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1207051682,
+      "difficulty": "take-away"
+    },
+    {
+      "game": "subtraction",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:54:24.440Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1207051682,
+      "difficulty": "take-away",
+      "firstAttempt": true
+    },
+    {
+      "game": "subtraction",
+      "event": "hint",
+      "at": "2026-10-03T16:54:32.144Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1207051682,
+      "difficulty": "take-away"
+    },
+    {
+      "game": "subtraction",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:54:41.583Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1207051682,
+      "difficulty": "take-away",
+      "firstAttempt": false
+    },
+    {
+      "game": "subtraction",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:54:41.583Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1207051682,
+      "hints": 1,
+      "difficulty": "take-away",
+      "firstAttempt": false
+    },
+    {
+      "game": "subtraction",
+      "event": "leave",
+      "at": "2026-10-03T16:55:02.544Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1207051682,
+      "difficulty": "take-away"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:58:19.964Z",
+      "level": 0,
+      "seed": 1384815316,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:58:19.965Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1384815316,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "leave",
+      "at": "2026-10-03T16:58:27.634Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1384815316,
+      "difficulty": "clock-explorers"
+    }
+  ],
+  "runMilestones": [
+    {
+      "game": "numberline",
+      "event": "start",
+      "at": "2026-10-03T16:28:38.243Z",
+      "level": 0,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "level_complete",
+      "at": "2026-10-03T16:31:22.953Z",
+      "level": 0,
+      "round": 5,
+      "seed": 4131056985,
+      "difficulty": "forward-back"
+    },
+    {
+      "game": "numberline",
+      "event": "start",
+      "at": "2026-10-03T16:31:47.987Z",
+      "level": 1,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "level_complete",
+      "at": "2026-10-03T16:44:16.334Z",
+      "level": 1,
+      "round": 5,
+      "seed": 991163907,
+      "difficulty": "missing-numbers"
+    },
+    {
+      "game": "numberline",
+      "event": "start",
+      "at": "2026-10-03T16:44:34.677Z",
+      "level": 2,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "level_complete",
+      "at": "2026-10-03T16:46:49.366Z",
+      "level": 2,
+      "round": 5,
+      "seed": 393708413,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "start",
+      "at": "2026-10-03T16:48:16.296Z",
+      "level": 2,
+      "seed": 2241462363,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "numberline",
+      "event": "leave",
+      "at": "2026-10-03T16:48:37.223Z",
+      "level": 2,
+      "round": 0,
+      "seed": 2241462363,
+      "difficulty": "compare-distances"
+    },
+    {
+      "game": "subtraction",
+      "event": "start",
+      "at": "2026-10-03T16:53:57.427Z",
+      "level": 0,
+      "seed": 1207051682,
+      "difficulty": "take-away"
+    },
+    {
+      "game": "subtraction",
+      "event": "leave",
+      "at": "2026-10-03T16:55:02.544Z",
+      "level": 0,
+      "round": 1,
+      "seed": 1207051682,
+      "difficulty": "take-away"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:58:19.964Z",
+      "level": 0,
+      "seed": 1384815316,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "leave",
+      "at": "2026-10-03T16:58:27.634Z",
+      "level": 0,
+      "round": 0,
+      "seed": 1384815316,
+      "difficulty": "clock-explorers"
+    }
+  ]
+}

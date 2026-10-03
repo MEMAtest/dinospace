@@ -1,0 +1,18 @@
+{
+  "gitSha": "d96e5d7ad08483163e375a4ddbe358a346163922",
+  "url": "http://127.0.0.1:5221",
+  "frozenDirectory": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-batch4-quality/tmp/batch4-integrated-candidate-20261003",
+  "assets": {
+    "assets/SolarSystem-DVKM105O.js": "0a591d705718a3ff5bddfef8354769ee4e87f38c2914a5dfb33119ae565129e9",
+    "assets/index-B2K9dxKh.css": "ab64c2491374761b2a5ce2d89f21c3aac90e1be2cbdc35f72b0d469cc1a9e417",
+    "assets/index-SmstRCkG.js": "6bc861c757621e6176db088643c5c51c3dbc904c4dc782e749a3595b7839f35a",
+    "assets/web-7-uYZ9py.js": "23435fa55a5c4f439bbd1e34ec31acdd401cc31b4d375830f00029a44b7bd36a"
+  },
+  "checks": {
+    "sourceTests": "191/191",
+    "fullESLint": "passed",
+    "productionConfigurationBuild": "passed"
+  },
+  "acceptance": "pending independent rendered controls, packaged audio, editorial and production gates",
+  "servedAssetMatch": true
+}

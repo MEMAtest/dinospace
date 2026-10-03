@@ -1,0 +1,854 @@
+{
+  "version": 2,
+  "retention": {
+    "recentEvents": 300,
+    "runMilestones": 100
+  },
+  "events": [
+    {
+      "game": "addition",
+      "event": "start",
+      "at": "2026-10-03T16:22:36.969Z",
+      "level": 0,
+      "seed": 2914204893,
+      "difficulty": "groups"
+    },
+    {
+      "game": "addition",
+      "event": "question",
+      "at": "2026-10-03T16:22:36.970Z",
+      "level": 0,
+      "round": 0,
+      "seed": 2914204893,
+      "difficulty": "groups"
+    },
+    {
+      "game": "addition",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:23:01.065Z",
+      "level": 0,
+      "round": 0,
+      "seed": 2914204893,
+      "difficulty": "groups",
+      "firstAttempt": true
+    },
+    {
+      "game": "addition",
+      "event": "hint",
+      "at": "2026-10-03T16:23:04.418Z",
+      "level": 0,
+      "round": 0,
+      "seed": 2914204893,
+      "difficulty": "groups"
+    },
+    {
+      "game": "addition",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:23:15.139Z",
+      "level": 0,
+      "round": 0,
+      "seed": 2914204893,
+      "difficulty": "groups",
+      "firstAttempt": false
+    },
+    {
+      "game": "addition",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:23:15.139Z",
+      "level": 0,
+      "round": 0,
+      "seed": 2914204893,
+      "hints": 1,
+      "difficulty": "groups",
+      "firstAttempt": false
+    },
+    {
+      "game": "addition",
+      "event": "question",
+      "at": "2026-10-03T16:23:44.738Z",
+      "level": 0,
+      "round": 1,
+      "seed": 2914204893,
+      "difficulty": "groups"
+    },
+    {
+      "game": "addition",
+      "event": "leave",
+      "at": "2026-10-03T16:25:12.716Z",
+      "level": 0,
+      "round": 1,
+      "seed": 2914204893,
+      "difficulty": "groups"
+    },
+    {
+      "game": "addition",
+      "event": "leave",
+      "at": "2026-10-03T16:25:41.082Z",
+      "level": 0,
+      "round": 1,
+      "seed": 2914204893,
+      "difficulty": "groups"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:26:20.435Z",
+      "level": 0,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:26:20.436Z",
+      "level": 0,
+      "round": 0,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:26:41.378Z",
+      "level": 0,
+      "round": 0,
+      "seed": 229505565,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "hint",
+      "at": "2026-10-03T16:26:50.903Z",
+      "level": 0,
+      "round": 0,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:26:57.421Z",
+      "level": 0,
+      "round": 0,
+      "seed": 229505565,
+      "difficulty": "clock-explorers",
+      "firstAttempt": false
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:27:18.650Z",
+      "level": 0,
+      "round": 0,
+      "seed": 229505565,
+      "difficulty": "clock-explorers",
+      "firstAttempt": false
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:27:18.650Z",
+      "level": 0,
+      "round": 0,
+      "seed": 229505565,
+      "hints": 1,
+      "difficulty": "clock-explorers",
+      "firstAttempt": false
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:27:28.923Z",
+      "level": 0,
+      "round": 1,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "hint",
+      "at": "2026-10-03T16:33:13.084Z",
+      "level": 0,
+      "round": 1,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:33:25.205Z",
+      "level": 0,
+      "round": 1,
+      "seed": 229505565,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:33:25.205Z",
+      "level": 0,
+      "round": 1,
+      "seed": 229505565,
+      "hints": 1,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:33:36.763Z",
+      "level": 0,
+      "round": 2,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:33:49.234Z",
+      "level": 0,
+      "round": 2,
+      "seed": 229505565,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:33:49.234Z",
+      "level": 0,
+      "round": 2,
+      "seed": 229505565,
+      "hints": 0,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:33:57.057Z",
+      "level": 0,
+      "round": 3,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:34:15.950Z",
+      "level": 0,
+      "round": 3,
+      "seed": 229505565,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:34:15.950Z",
+      "level": 0,
+      "round": 3,
+      "seed": 229505565,
+      "hints": 0,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:34:24.888Z",
+      "level": 0,
+      "round": 4,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:34:40.796Z",
+      "level": 0,
+      "round": 4,
+      "seed": 229505565,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:34:40.796Z",
+      "level": 0,
+      "round": 4,
+      "seed": 229505565,
+      "hints": 0,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:34:49.617Z",
+      "level": 0,
+      "round": 5,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:35:10.244Z",
+      "level": 0,
+      "round": 5,
+      "seed": 229505565,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:35:10.244Z",
+      "level": 0,
+      "round": 5,
+      "seed": 229505565,
+      "hints": 0,
+      "difficulty": "clock-explorers",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "level_complete",
+      "at": "2026-10-03T16:35:17.731Z",
+      "level": 0,
+      "round": 5,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:35:42.001Z",
+      "level": 1,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:35:42.002Z",
+      "level": 1,
+      "round": 0,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:35:57.869Z",
+      "level": 1,
+      "round": 0,
+      "seed": 2154901940,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:35:57.869Z",
+      "level": 1,
+      "round": 0,
+      "seed": 2154901940,
+      "hints": 0,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:36:08.041Z",
+      "level": 1,
+      "round": 1,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:36:19.814Z",
+      "level": 1,
+      "round": 1,
+      "seed": 2154901940,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:36:19.814Z",
+      "level": 1,
+      "round": 1,
+      "seed": 2154901940,
+      "hints": 0,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:36:29.905Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:36:44.010Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2154901940,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:36:44.010Z",
+      "level": 1,
+      "round": 2,
+      "seed": 2154901940,
+      "hints": 0,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:36:51.383Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:37:09.892Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2154901940,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:37:09.892Z",
+      "level": 1,
+      "round": 3,
+      "seed": 2154901940,
+      "hints": 0,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:37:16.329Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:37:32.954Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2154901940,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:37:32.954Z",
+      "level": 1,
+      "round": 4,
+      "seed": 2154901940,
+      "hints": 0,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:37:42.843Z",
+      "level": 1,
+      "round": 5,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:38:08.457Z",
+      "level": 1,
+      "round": 5,
+      "seed": 2154901940,
+      "difficulty": "past-and-to",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:38:28.266Z",
+      "level": 1,
+      "round": 5,
+      "seed": 2154901940,
+      "difficulty": "past-and-to",
+      "firstAttempt": false
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:38:28.266Z",
+      "level": 1,
+      "round": 5,
+      "seed": 2154901940,
+      "hints": 0,
+      "difficulty": "past-and-to",
+      "firstAttempt": false
+    },
+    {
+      "game": "timeteller",
+      "event": "level_complete",
+      "at": "2026-10-03T16:38:37.093Z",
+      "level": 1,
+      "round": 5,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:38:57.199Z",
+      "level": 2,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:38:57.200Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:39:36.119Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3726526452,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:39:36.119Z",
+      "level": 2,
+      "round": 0,
+      "seed": 3726526452,
+      "hints": 0,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:39:51.461Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:40:01.165Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3726526452,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:40:01.165Z",
+      "level": 2,
+      "round": 1,
+      "seed": 3726526452,
+      "hints": 0,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:40:10.221Z",
+      "level": 2,
+      "round": 2,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:40:19.908Z",
+      "level": 2,
+      "round": 2,
+      "seed": 3726526452,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:40:19.909Z",
+      "level": 2,
+      "round": 2,
+      "seed": 3726526452,
+      "hints": 0,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:40:28.514Z",
+      "level": 2,
+      "round": 3,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:40:37.134Z",
+      "level": 2,
+      "round": 3,
+      "seed": 3726526452,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:40:37.134Z",
+      "level": 2,
+      "round": 3,
+      "seed": 3726526452,
+      "hints": 0,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:40:47.090Z",
+      "level": 2,
+      "round": 4,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:41:00.264Z",
+      "level": 2,
+      "round": 4,
+      "seed": 3726526452,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:41:00.264Z",
+      "level": 2,
+      "round": 4,
+      "seed": 3726526452,
+      "hints": 0,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:41:09.102Z",
+      "level": 2,
+      "round": 5,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_attempt",
+      "at": "2026-10-03T16:41:23.893Z",
+      "level": 2,
+      "round": 5,
+      "seed": 3726526452,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "answer_correct",
+      "at": "2026-10-03T16:41:23.893Z",
+      "level": 2,
+      "round": 5,
+      "seed": 3726526452,
+      "hints": 0,
+      "difficulty": "daily-routines",
+      "firstAttempt": true
+    },
+    {
+      "game": "timeteller",
+      "event": "level_complete",
+      "at": "2026-10-03T16:41:30.430Z",
+      "level": 2,
+      "round": 5,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:41:52.240Z",
+      "level": 2,
+      "seed": 1080063394,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "question",
+      "at": "2026-10-03T16:41:52.241Z",
+      "level": 2,
+      "round": 0,
+      "seed": 1080063394,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "leave",
+      "at": "2026-10-03T17:00:55.762Z",
+      "level": 2,
+      "round": 0,
+      "seed": 1080063394,
+      "difficulty": "daily-routines"
+    }
+  ],
+  "runMilestones": [
+    {
+      "game": "addition",
+      "event": "start",
+      "at": "2026-10-03T16:22:36.969Z",
+      "level": 0,
+      "seed": 2914204893,
+      "difficulty": "groups"
+    },
+    {
+      "game": "addition",
+      "event": "leave",
+      "at": "2026-10-03T16:25:12.716Z",
+      "level": 0,
+      "round": 1,
+      "seed": 2914204893,
+      "difficulty": "groups"
+    },
+    {
+      "game": "addition",
+      "event": "leave",
+      "at": "2026-10-03T16:25:41.082Z",
+      "level": 0,
+      "round": 1,
+      "seed": 2914204893,
+      "difficulty": "groups"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:26:20.435Z",
+      "level": 0,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "level_complete",
+      "at": "2026-10-03T16:35:17.731Z",
+      "level": 0,
+      "round": 5,
+      "seed": 229505565,
+      "difficulty": "clock-explorers"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:35:42.001Z",
+      "level": 1,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "level_complete",
+      "at": "2026-10-03T16:38:37.093Z",
+      "level": 1,
+      "round": 5,
+      "seed": 2154901940,
+      "difficulty": "past-and-to"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:38:57.199Z",
+      "level": 2,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "level_complete",
+      "at": "2026-10-03T16:41:30.430Z",
+      "level": 2,
+      "round": 5,
+      "seed": 3726526452,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "start",
+      "at": "2026-10-03T16:41:52.240Z",
+      "level": 2,
+      "seed": 1080063394,
+      "difficulty": "daily-routines"
+    },
+    {
+      "game": "timeteller",
+      "event": "leave",
+      "at": "2026-10-03T17:00:55.762Z",
+      "level": 2,
+      "round": 0,
+      "seed": 1080063394,
+      "difficulty": "daily-routines"
+    }
+  ]
+}
