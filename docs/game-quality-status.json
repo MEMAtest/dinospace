@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T19:41:00Z",
+  "updatedAt": "2026-10-03T21:11:39.020600+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -314,5 +314,16 @@
     "plan": "work/dinospace-batch4-quality/docs/batch4-finite-narration-packaging-plan-20261003.md",
     "state": "Prepared only; Batch3 completed/process exit and explicit sharedjournal required before start; fingerprint pinned;520finitechildrunsmaximum. No Batch4 provider calls."
   },
-  "latestWorkCheckpoint": "docs/game-quality-checkpoint-20261003-1724.md"
+  "latestWorkCheckpoint": "docs/game-quality-checkpoint-20261003-1724.md",
+  "pendingReleaseCandidates": [
+    {
+      "batch": 3,
+      "sourceSha": "a6e1e675411a9a6d48b3f8e99fdbd5ad44ea44f4",
+      "deploymentId": "dpl_2d8La99iCHGQAUNjCpfagawN9LB8",
+      "url": "https://dinospace-i6pptqfbo-memas-projects-23a0001d.vercel.app",
+      "state": "ready; canonical promotion pending independent browser acceptance",
+      "identityEvidence": "docs/qa-evidence/batch3-production-candidate-identity-20261003.json",
+      "corpusEvidence": "docs/qa-evidence/batch3-production-candidate-corpus-20261003.json"
+    }
+  ]
 }
