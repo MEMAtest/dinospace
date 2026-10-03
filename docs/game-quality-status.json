@@ -218,5 +218,12 @@
       "instructions": "docs/game-quality-4.5-roadmap.md",
       "evidence": null
     }
-  ]
+  ],
+  "candidate": {
+    "source": "19a4f01ccd00dacd867c89d149b20c2cbec1bc89",
+    "scope": "Batch 2 local changes only; no new production acceptance",
+    "independentChecks": "Puzzle 5x5 crop and Monster guided jumps in progress",
+    "humanListening": "pending",
+    "productionPlaywright": "pending for unreleased changes"
+  }
 }
