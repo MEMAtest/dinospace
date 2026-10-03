@@ -28,3 +28,11 @@ Batch3 frozen76be035 now passes204/204 fullsource tests, fullESLint, productionc
 Independent5223 mobile Trace Challenge reproduced K→c retaining DOG/ANT/KID; none matched c, blocking the round. Reset now clears the prior choices; immutable5231 sourcec7c6575 passes204tests/focusedlint/build and6servedhashes. Independent consecutive-letter and fullChallenge checks are assigned on that exact candidate; the failure remains recorded on5223. No accepted score orrelease.
 
 Fresh5227 arithmetic QA now completes all18questions in Addition and Subtraction at both widths; wrong/hints/zero/equalgroups and positive replay improvement vs equal-best noextraaward are observed. Time/number-line deltas and final report remain underway. Worker has55newclips saved/204pending at17:40UTC; its rate-window wait is expected.
+
+## Continued implementation — 17:55UTC
+
+Batch4 phrase wiringfa47bf7 retains exact spokenoperands/semantics and moves fullinventory enumeration tooffline scripts; runtime performs boundedactivequestion parsing. Focused21tests/lintpass, fullrootgatesrunning. The finite5246phraseinventory is not packaged (5181pending); no generationcalls were madebythebuilder.
+
+Root corrected Tracekeyboard learning classificationabe8b59: keyboardguide may completechapters but is not independenthandwriting evidence. It preservesactualfirstAttempt semantics. Pointergeometry remainsunchanged; newkeyboarddelta needs exactcandidate.
+
+Batch5 isolatedsourceaudit/planpublished at a3dc731, fourgames inprogress. Luna is implementing SoundSafari/Spelling while Colour/Odd await buildercapacity. Total4accepted/16inprogress/6notstarted; no additional4.5scores. Rootreleasebranchhas noBatch3/4/5runtimepromotion.

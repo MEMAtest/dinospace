@@ -3,8 +3,8 @@
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
-    "in progress": 12,
-    "not started": 10
+    "in progress": 16,
+    "not started": 6
   },
   "canonicalRelease": "3cdfc426e91b46a855448690278ceb6590280b68",
   "currentBatch": 2,
@@ -141,34 +141,34 @@
     {
       "game": "Sound Safari",
       "batch": 5,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
     },
     {
       "game": "Spelling Studio",
       "batch": 5,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
     },
     {
       "game": "Colour Mixing Lab",
       "batch": 5,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
     },
     {
       "game": "Odd One Out",
       "batch": 5,
-      "status": "not started",
+      "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": null
+      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
     },
     {
       "game": "Pattern Parade",
@@ -278,5 +278,11 @@
     "productionReleased": false,
     "editorialAccepted": false
   },
-  "latestCheckpoint": "docs/game-quality-checkpoint-20261003-1724.md"
+  "latestCheckpoint": "docs/game-quality-checkpoint-20261003-1724.md",
+  "batch5Implementation": {
+    "sourceBase": "1d33a28",
+    "branch": "codex/amari-batch5-quality-20261003",
+    "plan": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md",
+    "scope": "Sourceaudit/publishedconcreteplanforallfour; LunaSoundSafari/Spellingbuilderactive; Colour/Oddbuilderpendingcapacity. No candidateQA/acceptance/release."
+  }
 }
