@@ -22,6 +22,13 @@ export const GAME_SESSIONS = Object.freeze({
 
 export const sessionTarget = (rule, little) => (little && rule.little ? rule.little : rule.target);
 
+// These games own their finite chapter/results flow. Wrapping them again would
+// end a run at the old answer count and hide the game's held explanation.
+// Askia keeps his existing counting/tracing sessions and separate Dino shell.
+export const ownsGameProgression = (gameId, little = false) =>
+  ['memory', 'puzzle', 'jet', 'math', 'spot', 'dino'].includes(gameId)
+  || (!little && ['counting', 'trace', 'tictactoe'].includes(gameId));
+
 // First-try answers → 1–3 stars. Games that do not report retries count
 // every answer as first try.
 export const sessionStars = (firstTries, total) => {

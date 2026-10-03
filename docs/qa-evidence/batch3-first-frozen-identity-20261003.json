@@ -1,0 +1,33 @@
+{
+  "sourceSha": "afc5f9037d06d803ea0d2dfd2e7a3f02546e3e2f",
+  "baseSha": "974cf180172fccdd209c90a782fbd94f9c96e599",
+  "url": "http://127.0.0.1:5211",
+  "voiceBuildFlag": true,
+  "assets": [
+    {
+      "path": "/assets/AmariCountTheStars-BmNArlU5.js",
+      "sha256": "6defbae89cf7d3c5755194b72c17aef1332c6cb4fb48bffb81064cd91632a939"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-Bdai37zn.js",
+      "sha256": "1a3acc79eb842ef6093ce185fc76419d60a6191da11681957435d41095379ac4"
+    },
+    {
+      "path": "/assets/SolarSystem--JmJL04x.js",
+      "sha256": "0a2d9955f23abe2546d66b837410b769ab823b0bb458720d5ecb87889311bfa7"
+    },
+    {
+      "path": "/assets/index-CR1EJyD7.js",
+      "sha256": "12fff9e5fccde732237902c6cfbfe9a907b56c04e87bb45d460e818af3dcb3fb"
+    },
+    {
+      "path": "/assets/web-ZhleBp1S.js",
+      "sha256": "ec06891221a72b8b65001305f19a93afeb51ada13df989ab8aa4121940205b2e"
+    },
+    {
+      "path": "/assets/index-DneWsKF2.css",
+      "sha256": "75178ede8dd2a8432c1a0b27107085f3d56c419c0be0fc8b3f494190649556ae"
+    }
+  ],
+  "scope": "Frozen local implementation build. Later source corrections are separate; no production or audio acceptance."
+}

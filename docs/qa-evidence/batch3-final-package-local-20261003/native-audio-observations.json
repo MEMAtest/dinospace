@@ -1,0 +1,42 @@
+{
+  "candidate": "http://127.0.0.1:5243",
+  "sourceSha": "8c9fd6e91ad640595d9986fc0d519e242d30d731",
+  "observationMethod": "Wrapped HTMLMediaElement.play only to log the native call and media play/playing/timeupdate/pause events; original native play function was called unchanged. Playback confirmation uses currentTime progression and native media state, not request success alone.",
+  "networkGuards": ["**/api/voice**", "**/api/story**"],
+  "games": [
+    {
+      "game": "Letter Trace",
+      "action": "Hear the tracing instruction again; then leave through Back to learning world and Back to world.",
+      "clip": "audio/en/7b4cce67-matilda.mp3",
+      "durationSeconds": 5.10839,
+      "nativeEvidence": ["play", "playing", "timeupdate; currentTime advanced from 0.011638 to 0.245965 seconds"],
+      "cancellation": "Leaving reset currentTime to 0 and emitted pause while paused=true."
+    },
+    {
+      "game": "Count the Stars",
+      "action": "Hear instructions twice on the visible Starter round.",
+      "clip": "audio/en/93fa9195-matilda.mp3",
+      "durationSeconds": 1.996916,
+      "nativeEvidence": ["play", "playing", "currentTime advanced to 0.168386 seconds"],
+      "cancellation": "The repeated Hear instructions paused/reset the first play to 0 and began another native play; the second play advanced to 0.057167 seconds."
+    },
+    {
+      "game": "Dino Detective",
+      "action": "Enter Jungle Jive, replay Hear instructions, then use Read clue.",
+      "clips": [
+        {"clip": "audio/en/d579cda9-matilda.mp3", "durationSeconds": 3.993832, "nativeEvidence": ["play", "playing", "timeupdate; currentTime advanced"]},
+        {"clip": "audio/en/eba32a38-matilda.mp3", "durationSeconds": 2.554195, "nativeEvidence": ["play", "playing; currentTime advanced to 0.093764 seconds"]}
+      ],
+      "cancellation": "Read clue stopped/reset the preceding instruction play at 0 before starting the clue play."
+    },
+    {
+      "game": "Cosmic Tic-Tac-Toe",
+      "action": "Show hint twice on Make a line board 1, then leave a replayed board through Leave board.",
+      "clip": "audio/en/66dd46ca-matilda.mp3",
+      "durationSeconds": 3.808073,
+      "nativeEvidence": ["play", "playing", "repeated timeupdate through clip completion"],
+      "cancellation": "The replay was stopped/reset to 0 and emitted pause when the board was left."
+    }
+  ],
+  "limits": ["No human listening judgment was performed.", "No provider voice/story calls were made."]
+}

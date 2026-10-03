@@ -1,0 +1,27 @@
+{
+  "sourceSha": "8c9fd6e91ad640595d9986fc0d519e242d30d731",
+  "candidate": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-batch3-quality/tmp/batch3-final-package-candidate-20261003",
+  "url": "http://127.0.0.1:5243",
+  "checks": {
+    "tests": 208,
+    "failed": 0,
+    "lint": "passed",
+    "build": "production voice config passed",
+    "audioReady": 275,
+    "audioInvalid": 0,
+    "audioMissing": 0
+  },
+  "assets": {
+    "sw.js": "16210e16fd397e1985cd40146be90f463d124560176064feae1468406d33def3",
+    "assets/web-Pgwg7VXr.js": "664c77acd5372d62caa4c07f02a09a60a1c52663089115f5ac40ac76ed9a8f9d",
+    "assets/index-CDMB4hb_.js": "9ef561b80a5526b442b4b19e356e6cd126c12bbe0cf31259355b0b8bb897323e",
+    "assets/AmariLetterTrace-CVLWvmkp.js": "62e1795c8a012a67feca1d8d1cdc796740a4dafc01ac841e56a2dc9f020295cb",
+    "assets/SolarSystem-BwYkWOY-.js": "d69d8b472c4aaf2e113977cfe843bfd8c9c9268a448ef69b890f784a8397794e",
+    "assets/AmariCountTheStars-DRIJ91Dz.js": "9619413cbea1b09779fce8d2531a4ae2b16a698eabcc13db86cfbecdc70928ff",
+    "assets/index-CohPvEcn.css": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d"
+  },
+  "limitations": [
+    "Independent native playback and keyboard rewind delta pending",
+    "No production or human listening acceptance"
+  ]
+}

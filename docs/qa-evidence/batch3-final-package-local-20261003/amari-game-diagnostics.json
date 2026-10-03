@@ -1,0 +1,58 @@
+{
+  "version": 2,
+  "retention": {
+    "recentEvents": 300,
+    "runMilestones": 100
+  },
+  "events": [
+    {
+      "game": "trace",
+      "event": "start",
+      "at": "2026-10-03T19:30:11.478Z",
+      "level": 0,
+      "round": 0,
+      "seed": 745722875,
+      "difficulty": "starter"
+    },
+    {
+      "game": "trace",
+      "event": "learning_attempt",
+      "at": "2026-10-03T19:32:01.108Z",
+      "level": 0,
+      "round": 0,
+      "seed": 745722875,
+      "hints": 0,
+      "difficulty": "starter",
+      "correct": true,
+      "firstAttempt": true,
+      "independent": false,
+      "masteryEligible": false,
+      "handwritingMastery": false,
+      "keyboardAlternative": true,
+      "unassistedFirstTry": false
+    },
+    {
+      "game": "trace",
+      "event": "answer_correct",
+      "at": "2026-10-03T19:32:01.109Z",
+      "level": 0,
+      "round": 0,
+      "seed": 745722875,
+      "hints": 0,
+      "difficulty": "starter",
+      "firstAttempt": true,
+      "keyboardAlternative": true
+    }
+  ],
+  "runMilestones": [
+    {
+      "game": "trace",
+      "event": "start",
+      "at": "2026-10-03T19:30:11.478Z",
+      "level": 0,
+      "round": 0,
+      "seed": 745722875,
+      "difficulty": "starter"
+    }
+  ]
+}

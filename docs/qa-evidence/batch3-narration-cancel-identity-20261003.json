@@ -1,0 +1,48 @@
+{
+  "gitSha": "76be035d3c08e8eb302bbf637316d85606ecfec5",
+  "url": "http://127.0.0.1:5229",
+  "frozenDirectory": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-batch3-quality/tmp/batch3-narration-cancel-candidate-20261003",
+  "assets": {
+    "assets/index-DogSYIlS.js": "6c61c14438f15dcbda20e54025f71847b7c70af6ed3bc72c01234e4456c92e2d",
+    "assets/AmariLetterTrace-uFZRoIOQ.js": "6fcb42872afa3231e779a219907c5ab02923829e5bb9b136ef49040645faaa12",
+    "assets/AmariCountTheStars-C7-Y_UjI.js": "7019cc1bf0072e546e90ea269764f8c6101b31f004c95f51caa741faa803ad8f",
+    "assets/web-BuCJLMYn.js": "f6aa5dbb0e7325e8e2ac655558a115c0900a6cf48f45a402c6f961e15be4ca54",
+    "assets/index-CohPvEcn.css": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+    "assets/SolarSystem-DDAxn1Bw.js": "7aa250d194e640bff01f3eced15bd803ccaabbf3329df5d965333802587be759"
+  },
+  "checks": {
+    "sourceTests": "204/204",
+    "fullESLint": "passed",
+    "productionConfigurationBuild": "passed"
+  },
+  "servedAssetMatch": true,
+  "packagedMappedCoverage": {
+    "requested": 275,
+    "ready": 16,
+    "pending": 259,
+    "breakdown": {
+      "counting": {
+        "requested": 207,
+        "ready": 16,
+        "pending": 191
+      },
+      "dino": {
+        "requested": 45,
+        "ready": 0,
+        "pending": 45
+      },
+      "trace": {
+        "requested": 7,
+        "ready": 0,
+        "pending": 7
+      },
+      "tictactoe": {
+        "requested": 16,
+        "ready": 0,
+        "pending": 16
+      }
+    },
+    "scope": "Read-only mapped file coverage; runtime wiring, decode and human listening remain separate gates."
+  },
+  "scope": "Marker/Count mechanics lineage plus packaged-only narration wiring, cancellation and safe diagnostics. Missing audio prevents release; fullTrace5223 and separate5229keyboard/native deltas pending."
+}
