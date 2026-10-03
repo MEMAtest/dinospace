@@ -1,0 +1,55 @@
+{
+  "source": "Built-in image generation for user-authorized premium Memory artwork",
+  "review": "Root viewed all three: golden banded ringed planet, dark lunar sphere with right illuminated crescent, icy nucleus with cyan-white comet tail. Distinct silhouettes/semantics. Actual82px rendered acceptance remains pending.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/ringed-planet-v1.png",
+      "token": "\ud83e\ude90",
+      "label": "ringed planet",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "sha256": "d83d20511e02fae4ccb3e8dd41f2c30c4beaedcc47bd558a2e5b9dbd8e2687cc",
+      "bytes": 1769599
+    },
+    {
+      "asset": "src/assets/memory-match/crescent-moon-v1.png",
+      "token": "\ud83c\udf19",
+      "label": "moon",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "8a5449c01e811819e779efe811f9b7c9e4be208d161b309d2a9daf3015385bc3",
+      "bytes": 834444
+    },
+    {
+      "asset": "src/assets/memory-match/comet-v1.png",
+      "token": "\u2604\ufe0f",
+      "label": "comet",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "sha256": "c6d4d1499698d36a4cb858389a30bab67ce6e305633ee09bcbfff353571210da",
+      "bytes": 985751
+    }
+  ],
+  "integration": "Not integrated by root. Builder to bind matchingtokens only; immutable44b9807 unchanged."
+}
