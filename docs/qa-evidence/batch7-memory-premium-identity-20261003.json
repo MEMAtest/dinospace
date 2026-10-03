@@ -1,0 +1,44 @@
+{
+  "sourceSha": "37499e8064b5478d2aebcc52641c4872ecc4e5eb",
+  "url": "http://127.0.0.1:5283",
+  "assets": {
+    "sw.js": "5636b2df5a2d05c3eae271a8c1f50f9af87b3b329ac4512f993c8391a207d3ec",
+    "assets/index-CGQ06td9.css": "02246163df94903b9cdfa33c7f5db76856b85e576fa511145125ec889f432422",
+    "assets/index-DgHmv9ct.js": "c59ccb507ef4660943f84f61e788cb61fa23f8ce7a171cce5438b57349df85b5",
+    "assets/SolarSystem-Dh71uHTg.js": "1be140e0bb01c9dba02a88ca0ba4fadd3b68e7e342d6be982a8b057ed5abb680",
+    "assets/web-DrsRKPfO.js": "7f67dc2149853475d1e624ec592b7f3e6e44c1e8ef8361d293edaa46ecb45961"
+  },
+  "checks": {
+    "focusedTests": "14 passed (builder)",
+    "fullLint": "passed (builder)",
+    "productionBuild": "passed (builder)"
+  },
+  "scope": "Amari Memory visual/theme upgrade. Builder observations only; different independent reviewer required. Existing ten-board and Solar gameplay baseline retains prior identity. Not released or accepted.",
+  "servedHashChecks": {
+    "sw.js": {
+      "expected": "5636b2df5a2d05c3eae271a8c1f50f9af87b3b329ac4512f993c8391a207d3ec",
+      "actual": "5636b2df5a2d05c3eae271a8c1f50f9af87b3b329ac4512f993c8391a207d3ec",
+      "matches": true
+    },
+    "assets/index-CGQ06td9.css": {
+      "expected": "02246163df94903b9cdfa33c7f5db76856b85e576fa511145125ec889f432422",
+      "actual": "02246163df94903b9cdfa33c7f5db76856b85e576fa511145125ec889f432422",
+      "matches": true
+    },
+    "assets/index-DgHmv9ct.js": {
+      "expected": "c59ccb507ef4660943f84f61e788cb61fa23f8ce7a171cce5438b57349df85b5",
+      "actual": "c59ccb507ef4660943f84f61e788cb61fa23f8ce7a171cce5438b57349df85b5",
+      "matches": true
+    },
+    "assets/SolarSystem-Dh71uHTg.js": {
+      "expected": "1be140e0bb01c9dba02a88ca0ba4fadd3b68e7e342d6be982a8b057ed5abb680",
+      "actual": "1be140e0bb01c9dba02a88ca0ba4fadd3b68e7e342d6be982a8b057ed5abb680",
+      "matches": true
+    },
+    "assets/web-DrsRKPfO.js": {
+      "expected": "7f67dc2149853475d1e624ec592b7f3e6e44c1e8ef8361d293edaa46ecb45961",
+      "actual": "7f67dc2149853475d1e624ec592b7f3e6e44c1e8ef8361d293edaa46ecb45961",
+      "matches": true
+    }
+  }
+}
