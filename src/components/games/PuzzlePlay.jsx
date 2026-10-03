@@ -133,14 +133,14 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     if (nextPlaced.every(Boolean)) {
       const nextProgress = completePuzzlePopScene(playerId, chapterIndex, scene.id);
       setSavedProgress(nextProgress);
-      setMessage(`Picture complete! ${scene.fact}`);
+      setMessage('Picture complete! Read the picture fact below.');
       setPhase('scene-complete');
       onGameEvent?.('puzzle', 'scene_complete', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintsUsed });
       playSfx('success');
       speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene));
       if (sceneIndex === queue.length - 1) {
         const praise = getPraise();
-        setMessage(`${praise} ${chapter.name} complete! ${scene.fact}`);
+        setMessage(`${praise} ${chapter.name} complete! Read the picture fact below.`);
         setPhase('chapter-complete');
         onCelebrate(praise, 8, 80);
         onGameEvent?.('puzzle', 'level_completed', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintsUsed, difficulty: chapter.band });
