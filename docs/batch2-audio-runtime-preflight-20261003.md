@@ -45,3 +45,14 @@ Independent confirmed-Back, cancelled-leave, replay, next and mute deltas are un
 The [Sky runtime report](qa-evidence/sky-shapes-runtime-20261003/runtime-report-20261003.md) records desktop and 390px replay, hint, mute, completion, Next, restart, confirmed-Back cancellation and Keep playing retention on the exact repaired candidate. Subsequent Home/world gestures did not resume cancelled narration. The [Puzzle/Spot report](qa-evidence/puzzle-spot-runtime-20261003/report.md) distinguishes older interaction evidence from repaired-candidate cancellation deltas; its untested combinations remain explicit. These are local runtime results, not a listening review or a production release.
 
 The candidate's 167 Puzzle/Spot/Sky clip hashes match the previously screened corpus exactly: [clip identity check](qa-evidence/batch2-audio-exit-fix-clip-identity-20261003.json). At 07:14 UTC the read-only audit found **1,058 of 1,359** Batch 2 clips present with positive duration and successful full FFmpeg decoding, **301 missing** and **zero invalid**: [checkpoint report](qa-evidence/batch2-corpus-decode-checkpoint-20261003.json). Exit status 1 correctly indicates incomplete readiness. `node scripts/check-batch2-audio.mjs` reproduces the audit without generation or provider calls. Authored text and clip hashes are retained; decoding does not prove spoken wording or intelligibility. The live finite worker remains responsible for the remaining Monster Math clips.
+
+## Sky teaching candidate — separate local delta
+
+Source `a32f2e0` adds a distinct visible objective for each existing sky, mission-specific tracing tips, and shape explanations held after completion until Next. Root corrected the star tip to describe outward points and inward corners; it does not claim unequal side lengths. Mission count, queue, scoring, saves, input and narration corpus are unchanged. Candidate gate: 162/162 tests, lint and build passed.
+
+Frozen workspace `tmp/batch2-sky-teaching-20261003`, served at `http://127.0.0.1:5197`:
+
+- JS `index-DclDJx8i.js`, SHA256 `f2052b2c5e696a22a32c81e206b6ca02818d28375a467ff26ac4eed252d1969f`.
+- CSS `index-CU-OkS6z.css`, SHA256 `2613b85082a6ae658aaf50bd961b80106c8249c46da4366c7a7489d3052b9e7e`.
+
+Fresh independent browser verification of the teaching delta is underway. Earlier 5196 cancellation evidence remains attributed to its own identity. This candidate is not deployed and does not close the listening, remaining narration, or production gates.
