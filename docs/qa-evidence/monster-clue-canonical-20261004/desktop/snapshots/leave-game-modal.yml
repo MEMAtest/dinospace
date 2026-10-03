@@ -1,0 +1,40 @@
+- generic [ref=e2]:
+  - generic [ref=e475]:
+    - banner [ref=e614]:
+      - button "Back to learning world" [ref=e615] [cursor=pointer]
+      - generic [ref=e618]:
+        - paragraph [ref=e619]: Episode 2 · Add and Take Away
+        - heading "Monster Math" [level=1] [ref=e620]
+      - generic [ref=e621]: Question 2/6
+      - button "Turn sound off" [ref=e622] [cursor=pointer]
+    - main [ref=e627]:
+      - generic [ref=e628]: 1/6
+      - generic [ref=e631]:
+        - paragraph [ref=e632]: addition-subtraction
+        - heading "What is 3 plus 15?" [level=2] [ref=e682]
+        - button "Hear the question again" [ref=e634] [cursor=pointer]
+      - generic [ref=e639]:
+        - generic [ref=e640]:
+          - paragraph [ref=e641]: Two ten frames · count the counters
+          - generic "3 counters; add 15 more. Put both groups together, then count them." [ref=e683]
+          - paragraph [ref=e663]: 3 + 15 = ?
+          - paragraph [ref=e684]: Put the two groups together, then count every counter.
+        - generic [ref=e665]:
+          - paragraph [ref=e666]: Choose the answer
+          - generic [ref=e667]:
+            - button "16" [ref=e670] [cursor=pointer]
+            - button "14" [ref=e685] [cursor=pointer]
+            - button "18" [ref=e686] [cursor=pointer]
+            - button "20" [ref=e671] [cursor=pointer]
+          - button "Show me a clue" [ref=e687] [cursor=pointer]
+      - paragraph [ref=e676]: Count the picture or follow the model, then choose.
+  - dialog [ref=e688]:
+    - generic [ref=e689]:
+      - heading "Leave the game?" [level=2] [ref=e690]
+      - generic [ref=e691]:
+        - generic [ref=e692]:
+          - button "Keep playing" [active] [ref=e693] [cursor=pointer]
+          - generic [ref=e696]: Keep playing
+        - generic [ref=e697]:
+          - button "Back to world" [ref=e698] [cursor=pointer]
+          - generic [ref=e701]: World

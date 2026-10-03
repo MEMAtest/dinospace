@@ -6,7 +6,7 @@
 **URL:** `https://dinospace-kdjkemvhr-memas-projects-23a0001d.vercel.app`
 **Identity evidence:** [`monster-clue-production-candidate-identity-20261003.json`](../monster-clue-production-candidate-identity-20261003.json)
 
-This is a scoped UI check of a READY immutable Vercel candidate. It is not the canonical site: at the time of this check canonical remained on source `a1eec24552c99529ba30ed38d10492a6ce1c7829`. This report does not authorize or perform promotion, and does not claim full Batch 4/4.5 acceptance.
+This is a scoped UI check of a READY immutable Vercel candidate. It is not the canonical site: at the time of this check canonical remained on source `a1eec24552c99529ba30ed38d10492a6ce1c7829`. This report does not authorize or perform promotion, and does not claim full Batch 2/4.5 acceptance.
 
 ## Guarded setup
 

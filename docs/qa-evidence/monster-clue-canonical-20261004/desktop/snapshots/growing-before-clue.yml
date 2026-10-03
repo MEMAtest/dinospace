@@ -1,0 +1,29 @@
+- generic [ref=e475]:
+  - banner [ref=e614]:
+    - button "Back to learning world" [ref=e615] [cursor=pointer]
+    - generic [ref=e618]:
+      - paragraph [ref=e619]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e620]
+    - generic [ref=e621]: Question 1/6
+    - button "Turn sound off" [ref=e622] [cursor=pointer]
+  - main [ref=e627]:
+    - generic [ref=e628]: 0/6
+    - generic [ref=e631]:
+      - paragraph [ref=e632]: addition-subtraction
+      - heading "What is 9 plus 7?" [level=2] [ref=e633]
+      - button "Hear the question again" [ref=e634] [cursor=pointer]
+    - generic [ref=e639]:
+      - generic [ref=e640]:
+        - paragraph [ref=e641]: Two ten frames · count the counters
+        - generic "9 counters; add 7 more. Put both groups together, then count them." [ref=e642]
+        - paragraph [ref=e663]: 9 + 7 = ?
+        - paragraph [ref=e664]: Put the two groups together, then count every counter.
+      - generic [ref=e665]:
+        - paragraph [ref=e666]: Choose the answer
+        - generic [ref=e667]:
+          - button "17" [ref=e668] [cursor=pointer]
+          - button "15" [ref=e669] [cursor=pointer]
+          - button "16" [ref=e670] [cursor=pointer]
+          - button "20" [ref=e671] [cursor=pointer]
+        - button "Show me a clue" [ref=e672] [cursor=pointer]
+    - paragraph [ref=e676]: Count the picture or follow the model, then choose.

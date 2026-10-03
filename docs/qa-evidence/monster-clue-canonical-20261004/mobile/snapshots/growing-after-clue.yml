@@ -1,0 +1,28 @@
+- generic [ref=e809]:
+  - banner [ref=e956]:
+    - button "Back to learning world" [ref=e957] [cursor=pointer]
+    - generic [ref=e960]:
+      - paragraph [ref=e961]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e962]
+    - generic [ref=e963]: Question 1/6
+    - button "Turn sound off" [ref=e964] [cursor=pointer]
+  - main [ref=e969]:
+    - generic [ref=e970]: 0/6
+    - generic [ref=e973]:
+      - paragraph [ref=e974]: addition-subtraction
+      - heading "What is 16 take away 6?" [level=2] [ref=e975]
+      - button "Hear the question again" [ref=e976] [cursor=pointer]
+    - generic [ref=e981]:
+      - generic [ref=e982]:
+        - paragraph [ref=e983]: Two ten frames · count the counters
+        - generic "16 counters, take away 6 counters. Count what is left." [ref=e984]
+        - paragraph [ref=e1005]: 16 − 6 = ?
+      - generic [ref=e1007]:
+        - paragraph [ref=e1008]: Choose the answer
+        - generic [ref=e1009]:
+          - button "7" [ref=e1010] [cursor=pointer]
+          - button "9" [ref=e1011] [cursor=pointer]
+          - button "10" [ref=e1012] [cursor=pointer]
+          - button "11" [ref=e1013] [cursor=pointer]
+        - button "Clue shown" [disabled] [ref=e1019]
+    - paragraph [ref=e1018]: Start with 16 counters. Slide 6 away, then count what stays.
