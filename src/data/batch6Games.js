@@ -245,7 +245,7 @@ export const HANGMAN_WORDS_BY_BAND = Object.freeze({
     { word:'CLAP', graphemes:['c','l','a','p'], family:'cl', emoji:'👏', clue:'Bring your hands together to make this sound.', fact:'The first two consonants in clap blend together: /c/ then /l/.' },
     { word:'CRAB', graphemes:['c','r','a','b'], family:'cr', emoji:'🦀', clue:'A sea animal that walks sideways.', fact:'A crab has a hard outer shell and two claws.' },
     { word:'TRIP', graphemes:['t','r','i','p'], family:'tr', emoji:'🧳', clue:'A short journey to another place.', fact:'The first two consonants in trip blend together: /t/ then /r/.' },
-    { word:'STAMP', graphemes:['s','t','a','m','p'], family:'st', emoji:'📮', clue:'A little picture you stick on a letter before posting it.', fact:'In stamp, three consonants meet: /s/, /t/ and /m/.' },
+    { word:'STAMP', graphemes:['s','t','a','m','p'], family:'st', emoji:'📮', clue:'A little picture you stick on a letter before posting it.', fact:'In stamp, /s/ and /t/ blend at the start; /m/ and /p/ are the last two sounds.' },
     { word:'FROG', graphemes:['f','r','o','g'], family:'fr', emoji:'🐸', clue:'A green animal that can hop and croak.', fact:'A frog is an amphibian: it can live in water and on land.' },
     { word:'CLIP', graphemes:['c','l','i','p'], family:'cl', emoji:'📎', clue:'A small metal loop that holds papers together.', fact:'The two sounds at the start of clip can be heard separately.' },
     { word:'DRUM', graphemes:['d','r','u','m'], family:'dr', emoji:'🥁', clue:'A musical instrument you hit to make a beat.', fact:'The first two consonants in drum blend together: /d/ then /r/.' },
