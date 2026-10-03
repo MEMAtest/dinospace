@@ -172,6 +172,25 @@ const AmariLetterTrace = ({
       ctx.lineJoin = 'round';
       ctx.stroke();
       ctx.setLineDash([]);
+
+    });
+    strokeStateRef.current.paths.forEach((path, index) => {
+      if (path.length < 2) return;
+      ctx.beginPath();
+      path.forEach((point, pointIndex) => pointIndex === 0 ? ctx.moveTo(point.x, point.y) : ctx.lineTo(point.x, point.y));
+      ctx.strokeStyle = index < strokeStateRef.current.completed ? '#16a34a' : '#2563eb';
+      ctx.lineWidth = 13;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.stroke();
+    });
+    // Letter strokes can share a start point (for example D). Draw the
+    // current start last so a future gray number cannot cover its green cue.
+    if (strokeStateRef.current.completed < strokes.length) {
+      const markerOrder = strokes.map((_, index) => index).filter((index) => index !== activeStroke);
+      markerOrder.push(activeStroke);
+      markerOrder.forEach((index) => {
+        const stroke = strokes[index];
       const start = stroke[0];
       const cursor = strokeStateRef.current.cursors[index] ?? 0;
       ctx.beginPath();
@@ -192,17 +211,9 @@ const AmariLetterTrace = ({
         ctx.lineWidth = 3;
         ctx.stroke();
       }
-    });
-    strokeStateRef.current.paths.forEach((path, index) => {
-      if (path.length < 2) return;
-      ctx.beginPath();
-      path.forEach((point, pointIndex) => pointIndex === 0 ? ctx.moveTo(point.x, point.y) : ctx.lineTo(point.x, point.y));
-      ctx.strokeStyle = index < strokeStateRef.current.completed ? '#16a34a' : '#2563eb';
-      ctx.lineWidth = 13;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.stroke();
-    });
+      });
+    }
+
   }, [keyboardMode, showGuide, traceLetter]);
 
   useEffect(() => {
