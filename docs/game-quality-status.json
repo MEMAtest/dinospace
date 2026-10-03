@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-03T23:06:01.407408+00:00",
+  "updatedAt": "2026-10-03T23:15:08.947291+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "a1eec24552c99529ba30ed38d10492a6ce1c7829",
+  "canonicalRelease": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -330,17 +330,16 @@
     }
   ],
   "latestFunctionalRelease": {
-    "batch": 3,
-    "sourceSha": "a1eec24552c99529ba30ed38d10492a6ce1c7829",
-    "deploymentId": "dpl_HRtGufD4yhwza3iqDu7BfRze6SFS",
+    "batch": 2,
+    "game": "Monster Math",
+    "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
+    "deploymentId": "dpl_2STuJZUmaGLU6Vpvj5sb6uSj4B7t",
     "url": "https://dinospace-eight.vercel.app",
     "renderedAssetsMatched": 7,
-    "productionPlaywright": "Independent canonical copy/keyboard patch delta passed: natural one-object Count, immediate keyboard progress/backtracking, 390px pointer Trace, held Next, parent-world Back/reload, zero console errors/warnings. Browser pointer, not physical touchscreen certification.",
+    "productionPlaywright": "Independent immutable production candidate desktop/390px clue/wrong/correct/heldNext/reset/Back passed. Fresh canonical delta running after promotion. Sound off; no new audio/listening claim.",
     "editorialAccepted": false,
-    "knownMinorDefect": "Monster clue paragraph duplication reproduced on canonical; repaired source f72 passes independent local desktop/390px delta. Immutable candidate control QA and canonical promotion pending.",
-    "productionEvidence": "docs/qa-evidence/batch3-canonical-production-independent-20261003/report.md",
-    "identityEvidence": "docs/qa-evidence/batch3-copy-keyboard-canonical-identity-20261003.json",
-    "patchProductionEvidence": "docs/qa-evidence/batch3-copy-keyboard-production-delta-20261003/report.md"
+    "identityEvidence": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json",
+    "candidateProductionEvidence": "docs/qa-evidence/monster-clue-once-vercel-candidate-20261003/report.md"
   },
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
@@ -352,9 +351,25 @@
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
     "identity": "docs/qa-evidence/monster-clue-once-candidate-identity-20261003.json",
     "productionFailure": "docs/qa-evidence/monster-exact-case-production-20261003/report.md",
-    "state": "14 focused tests, changed lint and configured build passed. Separate desktop and390px actual clue/wrong/correct/Next/Back checks pass locally; exact2+10 not naturally seen by independent reviewer. Immutable production candidate READY with7 matching assets; candidate control QA underway, canonical promotion pending. Not4.5 accepted.",
+    "state": "Independent local and immutable production desktop/390px clue/wrong/correct/Next/Back deltas passed. Canonical promoted and READY; seven served runtime assets match. Fresh canonical Playwright delta running; not4.5 accepted.",
     "productionCandidateIdentity": "docs/qa-evidence/monster-clue-production-candidate-identity-20261003.json",
     "localDesktopEvidence": "docs/qa-evidence/monster-clue-once-independent-20261003/desktop-report.md",
-    "localMobileEvidence": "docs/qa-evidence/monster-clue-once-independent-20261003/report.md"
-  }
+    "localMobileEvidence": "docs/qa-evidence/monster-clue-once-independent-20261003/report.md",
+    "canonicalIdentity": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json"
+  },
+  "functionalReleaseHistory": [
+    {
+      "batch": 3,
+      "sourceSha": "a1eec24552c99529ba30ed38d10492a6ce1c7829",
+      "deploymentId": "dpl_HRtGufD4yhwza3iqDu7BfRze6SFS",
+      "url": "https://dinospace-eight.vercel.app",
+      "renderedAssetsMatched": 7,
+      "productionPlaywright": "Independent canonical copy/keyboard patch delta passed: natural one-object Count, immediate keyboard progress/backtracking, 390px pointer Trace, held Next, parent-world Back/reload, zero console errors/warnings. Browser pointer, not physical touchscreen certification.",
+      "editorialAccepted": false,
+      "knownMinorDefect": "Monster clue paragraph duplication reproduced on canonical; repaired source f72 passes independent local desktop/390px delta. Immutable candidate control QA and canonical promotion pending.",
+      "productionEvidence": "docs/qa-evidence/batch3-canonical-production-independent-20261003/report.md",
+      "identityEvidence": "docs/qa-evidence/batch3-copy-keyboard-canonical-identity-20261003.json",
+      "patchProductionEvidence": "docs/qa-evidence/batch3-copy-keyboard-production-delta-20261003/report.md"
+    }
+  ]
 }
