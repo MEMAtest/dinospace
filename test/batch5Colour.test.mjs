@@ -36,3 +36,13 @@ test('replay uses unseen tasks first, stays deterministic and rejects altered au
   }
   assert.equal(makeColourRun({ chapter: 4, seed: 1 }), null);
 });
+
+test('mixing inputs and results describe authored recipes rather than the selected missing ingredient', () => {
+  for (const mission of COLOUR_TASKS.filter((entry) => entry.mixResult)) {
+    const second = mission.second || mission.answer;
+    assert.equal(mixClassroomColours(mission.first, second), mission.mixResult);
+    if (mission.id.startsWith('change:') || mission.id.startsWith('ingredient:')) assert.notEqual(mission.answer, mission.mixResult);
+  }
+  const run = makeColourRun({ chapter: 1, seed: 4 });
+  assert.ok(!validateColourMission({ ...run.missions[0], mixResult: 'invented' }));
+});

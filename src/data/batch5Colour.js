@@ -33,19 +33,19 @@ export const COLOUR_CHAPTERS = freeze([
   { id: 'light-dark', title: 'Light and Dark', skill: 'Use white for tints and black for shades' },
   { id: 'design', title: 'Colour Designer', skill: 'Choose a recipe for a named design target' },
 ]);
-const task = (id, chapter, prompt, answer, choices, fact, target = null) => ({ id, chapter, prompt, answer, choices, fact, target });
+const task = (id, chapter, prompt, answer, choices, fact, target = null, inputs = {}) => ({ id, chapter, prompt, answer, choices, fact, clue: fact, target, first: inputs.first || null, second: inputs.second || null, mixResult: inputs.mixResult || null });
 const secondary = COLOUR_RECIPES.slice(0, 3).map((entry) => task(`predict:${entry.id}`, 0,
-  `What will ${entry.first} and ${entry.second} make in our lab?`, entry.result, ['orange', 'green', 'purple'], entry.fact));
+  `What will ${entry.first} and ${entry.second} make in our lab?`, entry.result, ['orange', 'green', 'purple'], entry.fact, null, { first: entry.first, second: entry.second, mixResult: entry.result }));
 const matches = ['red', 'yellow', 'blue'].map((colour) => task(`match:${colour}`, 0,
   `Find the colour named ${colour}.`, colour, ['red', 'yellow', 'blue'], `This swatch is ${colour}. Colours also have names, so you can read or hear them.`));
 const reverses = ['orange', 'green'].map((id) => {
   const entry = COLOUR_RECIPES.find((candidate) => candidate.id === id);
   return task(`ingredient:${id}`, 0, `You have ${entry.first}. What should you add to make ${entry.result}?`, entry.second,
-    ['red', 'yellow', 'blue'].filter((colour) => colour !== entry.first), entry.fact);
+    ['red', 'yellow', 'blue'].filter((colour) => colour !== entry.first), entry.fact, null, { first: entry.first, mixResult: entry.result });
 });
 const changes = COLOUR_RECIPES.slice(3).map((entry) => task(`change:${entry.id}`, 1,
   `Make ${COLOUR_SWATCHES[entry.result].label.toLowerCase()} from ${entry.first}. What should you add?`, entry.second,
-  ['white', 'black', 'yellow'], entry.fact, entry.result));
+  ['white', 'black', 'yellow'], entry.fact, entry.result, { first: entry.first, mixResult: entry.result }));
 const tintFacts = [
   task('rule:tint', 1, 'Which colour makes a tint lighter in our lab?', 'white', ['white', 'black', 'blue'], 'A tint is made by adding white.'),
   task('rule:shade', 1, 'Which colour makes a shade darker in our lab?', 'black', ['white', 'black', 'yellow'], 'A shade is made by adding black.'),
@@ -73,7 +73,7 @@ export const makeColourRun = ({ chapter, seed, recentTaskIds = [] }) => {
 };
 export const validateColourMission = (mission) => {
   const canonical = COLOUR_TASKS.find((entry) => entry.id === mission?.id);
-  return Boolean(canonical && ['chapter', 'prompt', 'answer', 'fact', 'target'].every((key) => mission[key] === canonical[key])
+  return Boolean(canonical && ['chapter', 'prompt', 'answer', 'fact', 'clue', 'target', 'first', 'second', 'mixResult'].every((key) => mission[key] === canonical[key])
     && Array.isArray(mission.choices) && mission.choices.length >= 2 && mission.choices.length <= 4
     && new Set(mission.choices).size === mission.choices.length && mission.choices.includes(canonical.answer)
     && mission.choices.every((choice) => canonical.choices.includes(choice)));

@@ -20,7 +20,7 @@ const normalize = (raw, game) => {
   for (let chapter = 0; chapter < 3; chapter += 1) {
     if (Array.isArray(raw.recentIds?.[chapter])) clean.recentIds[chapter] = [...new Set(raw.recentIds[chapter].filter((id) => pool(game, chapter).includes(id)))];
   }
-  if (game === 'colormix' && Array.isArray(raw.palettes)) clean.palettes = [...new Set(raw.palettes.filter((id) => COLOUR_TASKS.some((entry) => entry.target === id)))];
+  if (game === 'colormix' && Array.isArray(raw.palettes)) clean.palettes = [...new Set(raw.palettes.filter((id) => COLOUR_TASKS.some((entry) => entry.target === id || entry.mixResult === id)))];
   return clean;
 };
 export const getReasoningProgress = (game, playerId = 'amari', storage = storageDefault()) => {
@@ -46,7 +46,7 @@ export const completeReasoningRun = ({ game, run, results, playerId = 'amari' },
   progress.unlocked = Math.min(2, progress.completed.length);
   const recent = [...new Set([...(progress.recentIds[run.chapter] || []), ...ids])];
   progress.recentIds[run.chapter] = recent.length >= pool(game, run.chapter).length ? ids : recent;
-  if (game === 'colormix') progress.palettes = [...new Set([...progress.palettes, ...run.missions.map((entry) => entry.target).filter(Boolean)])];
+  if (game === 'colormix') progress.palettes = [...new Set([...progress.palettes, ...run.missions.map((entry) => entry.mixResult || entry.target).filter(Boolean)])];
   let root = {};
   try { const raw = JSON.parse(storage?.getItem(playerStorageKey(playerId, KEY)) || 'null'); if (raw && typeof raw === 'object' && !Array.isArray(raw)) root = raw; } catch { /* Replace an unreadable local checkpoint. */ }
   root[game] = progress;
