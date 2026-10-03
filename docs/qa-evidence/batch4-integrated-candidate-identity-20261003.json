@@ -13,5 +13,6 @@
     "fullESLint": "passed",
     "productionConfigurationBuild": "passed"
   },
-  "acceptance": "pending independent rendered controls, packaged audio, editorial and production gates"
+  "acceptance": "pending independent rendered controls, packaged audio, editorial and production gates",
+  "servedAssetMatch": true
 }
