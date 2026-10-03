@@ -174,7 +174,27 @@ const AmariLetterTrace = ({
       ctx.lineJoin = 'round';
       ctx.stroke();
       ctx.setLineDash([]);
-
+      // Show the direction on the visible path, including curved strokes.
+      // Start numbers remain on top of these arrows below.
+      if (stroke.length > 2 && strokeStateRef.current.completed < strokes.length) {
+        const arrowIndexes = [...new Set([Math.floor((stroke.length - 1) / 3), Math.floor(2 * (stroke.length - 1) / 3)])].filter((pointIndex) => pointIndex > 0);
+        arrowIndexes.forEach((pointIndex) => {
+          const from = stroke[pointIndex - 1];
+          const to = stroke[pointIndex];
+          const angle = Math.atan2(to.y - from.y, to.x - from.x);
+          ctx.save();
+          ctx.translate(to.x, to.y);
+          ctx.rotate(angle);
+          ctx.beginPath();
+          ctx.moveTo(9, 0);
+          ctx.lineTo(-6, -6);
+          ctx.lineTo(-6, 6);
+          ctx.closePath();
+          ctx.fillStyle = index < strokeStateRef.current.completed ? '#15803d' : index === activeStroke ? '#1d4ed8' : '#64748b';
+          ctx.fill();
+          ctx.restore();
+        });
+      }
     });
     strokeStateRef.current.paths.forEach((path, index) => {
       if (path.length < 2) return;
@@ -530,7 +550,7 @@ const AmariLetterTrace = ({
         <div className="mt-3 flex flex-wrap justify-center gap-2">
           <button type="button" onClick={showHint} disabled={roundPassed} className="min-h-12 rounded-xl bg-amber-100 px-4 font-black text-amber-950"><Lightbulb className="mr-2 inline" size={18} />Show this stroke</button>
           <button type="button" onClick={restartTrace} disabled={roundPassed} className="min-h-12 rounded-xl bg-slate-100 px-4 font-black text-slate-900"><RotateCcw className="mr-2 inline" size={18} />Retry trace</button>
-          <button type="button" onClick={() => { setKeyboardMode((value) => !value); keyboardRef.current = { cursor: 0, active: false }; setFeedback(keyboardMode ? 'Pointer tracing is ready.' : 'Focus the guide. Press Space to start, use arrow keys along the stroke, then Space at the end.'); }} disabled={roundPassed} aria-pressed={keyboardMode} className="min-h-12 rounded-xl bg-violet-100 px-4 font-black text-violet-950">{keyboardMode ? 'Use touch or mouse' : 'Use keyboard'}</button>
+          <button type="button" onClick={() => { setKeyboardMode((value) => !value); keyboardRef.current = { cursor: 0, active: false }; setFeedback(keyboardMode ? 'Pointer tracing is ready.' : 'Focus the guide. Press Space to start. Right or Down moves forward along the guide; Left or Up goes back. Press Space at the end to finish the stroke.'); }} disabled={roundPassed} aria-pressed={keyboardMode} className="min-h-12 rounded-xl bg-violet-100 px-4 font-black text-violet-950">{keyboardMode ? 'Use touch or mouse' : 'Use keyboard'}</button>
           <button type="button" onClick={checkTrace} disabled={!traceReady || roundPassed} className="min-h-12 rounded-xl bg-emerald-700 px-5 font-black text-white disabled:opacity-40"><Check className="mr-2 inline" size={20} />{level === 2 ? 'Find the word' : 'Check shape'}</button>
         </div>
       </section>
