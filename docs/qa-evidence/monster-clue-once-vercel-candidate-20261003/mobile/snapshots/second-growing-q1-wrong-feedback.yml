@@ -1,0 +1,28 @@
+- generic [ref=e944]:
+  - banner [ref=e945]:
+    - button "Back to learning world" [ref=e946] [cursor=pointer]
+    - generic [ref=e949]:
+      - paragraph [ref=e950]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e951]
+    - generic [ref=e981]: Question 1/6
+    - button "Turn sound off" [ref=e982] [cursor=pointer]
+  - main [ref=e957]:
+    - generic [ref=e987]: 0/6
+    - generic [ref=e990]:
+      - paragraph [ref=e991]: addition-subtraction
+      - heading "What is 16 plus 3?" [level=2] [ref=e992]
+      - button "Hear the question again" [ref=e993] [cursor=pointer]
+    - generic [ref=e998]:
+      - generic [ref=e999]:
+        - paragraph [ref=e1000]: Two ten frames · count the counters
+        - generic "16 counters; add 3 more. Put both groups together, then count them." [ref=e1001]
+        - paragraph [ref=e1022]: 16 + 3 = ?
+      - generic [ref=e1024]:
+        - paragraph [ref=e1025]: Choose the answer
+        - generic [ref=e1026]:
+          - button "17" [ref=e1027] [cursor=pointer]
+          - button "18" [ref=e1028] [cursor=pointer]
+          - button "15" [active] [ref=e1029] [cursor=pointer]
+          - button "19" [ref=e1030] [cursor=pointer]
+        - button "Clue shown" [disabled] [ref=e1036]
+    - paragraph [ref=e1035]: Not yet. Try the clue, then count the model again.

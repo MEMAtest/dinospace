@@ -1,0 +1,40 @@
+- generic [ref=e2]:
+  - generic [ref=e475]:
+    - banner [ref=e612]:
+      - button "Back to learning world" [ref=e613] [cursor=pointer]
+      - generic [ref=e616]:
+        - paragraph [ref=e617]: Episode 2 · Add and Take Away
+        - heading "Monster Math" [level=1] [ref=e618]
+      - generic [ref=e619]: Question 2/6
+      - button "Turn sound off" [ref=e620] [cursor=pointer]
+    - main [ref=e625]:
+      - generic [ref=e626]: 1/6
+      - generic [ref=e629]:
+        - paragraph [ref=e630]: addition-subtraction
+        - heading "What is 19 take away 8?" [level=2] [ref=e686]
+        - button "Hear the question again" [ref=e632] [cursor=pointer]
+      - generic [ref=e637]:
+        - generic [ref=e638]:
+          - paragraph [ref=e639]: Two ten frames · count the counters
+          - generic "19 counters, take away 8 counters. Count what is left." [ref=e687]
+          - paragraph [ref=e661]: 19 − 8 = ?
+          - paragraph [ref=e688]: Start with the counters, take away the second group, then count what is left.
+        - generic [ref=e663]:
+          - paragraph [ref=e664]: Choose the answer
+          - generic [ref=e665]:
+            - button "7" [ref=e689] [cursor=pointer]
+            - button "10" [ref=e690] [cursor=pointer]
+            - button "14" [ref=e691] [cursor=pointer]
+            - button "11" [ref=e692] [cursor=pointer]
+          - button "Show me a clue" [ref=e693] [cursor=pointer]
+      - paragraph [ref=e674]: Count the picture or follow the model, then choose.
+  - dialog [ref=e694]:
+    - generic [ref=e695]:
+      - heading "Leave the game?" [level=2] [ref=e696]
+      - generic [ref=e697]:
+        - generic [ref=e698]:
+          - button "Keep playing" [active] [ref=e699] [cursor=pointer]
+          - generic [ref=e702]: Keep playing
+        - generic [ref=e703]:
+          - button "Back to world" [ref=e704] [cursor=pointer]
+          - generic [ref=e707]: World

@@ -1,0 +1,30 @@
+- generic [ref=e944]:
+  - banner [ref=e945]:
+    - button "Back to learning world" [ref=e946] [cursor=pointer]
+    - generic [ref=e949]:
+      - paragraph [ref=e950]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e951]
+    - generic [ref=e981]: Question 1/6
+    - button "Turn sound off" [ref=e982] [cursor=pointer]
+  - main [ref=e957]:
+    - generic [ref=e987]: 1/6
+    - generic [ref=e990]:
+      - paragraph [ref=e991]: addition-subtraction
+      - heading "What is 16 plus 3?" [level=2] [ref=e992]
+      - button "Hear the question again" [ref=e993] [cursor=pointer]
+    - generic [ref=e998]:
+      - generic [ref=e999]:
+        - paragraph [ref=e1000]: Two ten frames · count the counters
+        - generic "16 counters; add 3 more; 19 counters total" [ref=e1038]
+        - paragraph [ref=e1022]: 16 + 3 = 19
+      - generic [ref=e1024]:
+        - paragraph [ref=e1025]: Choose the answer
+        - generic [ref=e1026]:
+          - button "17" [disabled] [ref=e1027]
+          - button "18" [disabled] [ref=e1028]
+          - button "15" [disabled] [ref=e1029]
+          - button "19" [disabled] [ref=e1030]
+        - button "Clue shown" [disabled] [ref=e1036]
+    - generic [ref=e1034]:
+      - paragraph [ref=e1035]: 16 counters. Add 3 more. That makes 19 counters.
+      - button "Watch the counters…" [disabled] [ref=e1039]

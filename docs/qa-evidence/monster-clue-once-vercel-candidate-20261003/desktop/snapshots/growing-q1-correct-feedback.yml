@@ -1,0 +1,36 @@
+- generic [ref=e475]:
+  - banner [ref=e612]:
+    - button "Back to learning world" [ref=e613] [cursor=pointer]
+    - generic [ref=e616]:
+      - paragraph [ref=e617]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e618]
+    - generic [ref=e619]: Question 1/6
+    - button "Turn sound off" [ref=e620] [cursor=pointer]
+  - main [ref=e625]:
+    - generic [ref=e626]: 1/6
+    - generic [ref=e629]:
+      - paragraph [ref=e630]: addition-subtraction
+      - heading "What is 18 take away 6?" [level=2] [ref=e631]
+      - button "Hear the question again" [ref=e632] [cursor=pointer]
+    - generic [ref=e637]:
+      - generic [ref=e638]:
+        - paragraph [ref=e639]: Two ten frames · count the counters
+        - generic "18 counters, take away 6 counters; 12 counters stay" [ref=e677]:
+          - generic [ref=e678]: ✓
+          - generic [ref=e679]: ✓
+          - generic [ref=e680]: ✓
+          - generic [ref=e681]: ✓
+          - generic [ref=e682]: ✓
+          - generic [ref=e683]: ✓
+        - paragraph [ref=e661]: 18 − 6 = 12
+      - generic [ref=e663]:
+        - paragraph [ref=e664]: Choose the answer
+        - generic [ref=e665]:
+          - button "12" [disabled] [ref=e666]
+          - button "8" [disabled] [ref=e667]
+          - button "13" [disabled] [ref=e668]
+          - button "16" [disabled] [ref=e669]
+        - button "Clue shown" [disabled] [ref=e675]
+    - generic [ref=e673]:
+      - paragraph [ref=e674]: Start with 18 counters. Take 6 away. 12 counters stay.
+      - button "Watch the counters…" [disabled] [ref=e684]

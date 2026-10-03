@@ -1,0 +1,29 @@
+- generic [ref=e455]:
+  - banner [ref=e599]:
+    - button "Back to learning world" [ref=e600] [cursor=pointer]
+    - generic [ref=e603]:
+      - paragraph [ref=e604]: Episode 2 · Add and Take Away
+      - heading "Monster Math" [level=1] [ref=e605]
+    - generic [ref=e606]: Question 1/6
+    - button "Turn sound off" [ref=e607] [cursor=pointer]
+  - main [ref=e612]:
+    - generic [ref=e613]: 0/6
+    - generic [ref=e616]:
+      - paragraph [ref=e617]: addition-subtraction
+      - heading "What is 10 take away 9?" [level=2] [ref=e618]
+      - button "Hear the question again" [ref=e619] [cursor=pointer]
+    - generic [ref=e624]:
+      - generic [ref=e625]:
+        - paragraph [ref=e626]: Two ten frames · count the counters
+        - generic "10 counters, take away 9 counters. Count what is left." [ref=e627]
+        - paragraph [ref=e648]: 10 − 9 = ?
+        - paragraph [ref=e649]: Start with the counters, take away the second group, then count what is left.
+      - generic [ref=e650]:
+        - paragraph [ref=e651]: Choose the answer
+        - generic [ref=e652]:
+          - button "1" [ref=e653] [cursor=pointer]
+          - button "2" [ref=e654] [cursor=pointer]
+          - button "3" [ref=e655] [cursor=pointer]
+          - button "5" [ref=e656] [cursor=pointer]
+        - button "Show me a clue" [ref=e657] [cursor=pointer]
+    - paragraph [ref=e661]: Count the picture or follow the model, then choose.
