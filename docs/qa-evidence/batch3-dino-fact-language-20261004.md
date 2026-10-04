@@ -13,7 +13,7 @@ The wetland copy explains the ground condition using common words and preserves 
 
 ## Checks
 
-- `node --test test/batch3Narration.test.mjs`: **4/4 passed**, including exact assertions for both new facts and their narration-corpus inclusion.
+- `node --test test/batch3Narration.test.mjs`: **3/3 passed**, covering the existing finite narration-corpus membership and Dino sequence checks.
 - `npx eslint src/data/dinoDetectiveBatch3.js test/batch3Narration.test.mjs`: passed.
 - Read-only `node scripts/check-batch3-voice-readiness.mjs`: **273/275 ready**; the only pending items are the two new fact keys above. Count 207/207, Dino 43/45, Trace 7/7, Tic-Tac-Toe 16/16. Their new keys do not yet map in `offlineVoiceManifest.js`, and the corresponding MP3s are not present.
 - No narration generation, provider call, asset/manifest mutation, decode claim, listening claim, production build, deployment, or browser QA performed for this local delta.
