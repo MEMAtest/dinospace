@@ -1,0 +1,224 @@
+{
+  "createdAt": "2026-10-04T05:25:00Z",
+  "scope": "Add supplied balloon, party popper, cake, and wrapped sweet art to the corresponding existing Amari Memory Match tokens. Preserve all board tokens, names, pair counts, progress semantics, face-down hiding, and Askia.",
+  "sourceCommit": "eb869cd76eebbe906afc59bd55a9f54c67eb1307",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5317",
+    "frozenDist": "tmp/batch7-memory-party-decorations-final/dist",
+    "priorFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-garden-creatures-final/dist",
+      "tmp/batch7-memory-fossils-final/dist",
+      "tmp/batch7-memory-isolated-space-final/dist",
+      "tmp/batch7-memory-party-food-final/dist"
+    ]
+  },
+  "integratedTokens": [
+    {
+      "token": "🎈",
+      "label": "Balloon",
+      "original": "src/assets/memory-match/party-balloon-v1.png",
+      "originalSha256": "f9b99e4d37ac10d8704d386be34ad69fb9d22b963d9b4e2ecd6b6cf89b9f8a04",
+      "webp": "/assets/party-balloon-v1-card-MKctpWSH.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 17972,
+      "webpSha256": "7d1461090d5f7aaf58d143112cffb4bbedd4b0343424c75c4fb4c937dd98168c",
+      "contexts": [
+        "Party & Treats"
+      ]
+    },
+    {
+      "token": "🎉",
+      "label": "Party popper",
+      "original": "src/assets/memory-match/party-popper-v1.png",
+      "originalSha256": "aac29cce37754f0d323ec1764d29db0059a5aace12f55ec2b987a096a2af44b4",
+      "webp": "/assets/party-popper-v1-card-B9cQaGjQ.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 39324,
+      "webpSha256": "679bbb0a6696619f39be25068161e67c7cd7879fdef40cbecc28438917818337",
+      "contexts": [
+        "Party & Treats"
+      ]
+    },
+    {
+      "token": "🎂",
+      "label": "Cake",
+      "original": "src/assets/memory-match/party-cake-v1.png",
+      "originalSha256": "a95b18b6a8881eb525de6f9f71bff0fcd5e535bdd919c9972775db3e5daeb7db",
+      "webp": "/assets/party-cake-v1-card-CO4d89cT.webp",
+      "dimensions": [
+        512,
+        512
+      ],
+      "bytes": 26356,
+      "webpSha256": "7bb6895c8210f2fbb170bb5471b2e1025a82203bd2a1a52e0fafa979877a1aa3",
+      "contexts": [
+        "Party & Treats"
+      ]
+    },
+    {
+      "token": "🍬",
+      "label": "Sweet",
+      "original": "src/assets/memory-match/wrapped-sweet-v1.png",
+      "originalSha256": "6340cc291d59d8e480647ac80edc7652a69651f60335ecabe1f0197863d93bf6",
+      "webp": "/assets/wrapped-sweet-v1-card-BCCqF-l1.webp",
+      "dimensions": [
+        512,
+        256
+      ],
+      "bytes": 19998,
+      "webpSha256": "9224959de0e1c35b077200453a26c2efc9a48afc88a5e43399a6ede50068fd77",
+      "contexts": [
+        "Party & Treats"
+      ]
+    }
+  ],
+  "renderedUiChecks": {
+    "profileAndProgression": "Fresh isolated Playwright CLI session with voice and story routes installed before app navigation. Selected Amari through the visible chooser, opened Thinking & Play > Memory Match, and earned Levels 1–3 with real card flips and visible Next controls before reaching Party & Treats. No stored progress, card fronts, hidden DOM data, or React state was injected or inspected.",
+    "earnedLevels": {
+      "forestFriendsPairs": 4,
+      "oceanSplashPairs": 8,
+      "spaceSparklePairs": 10,
+      "partyPairs": 12,
+      "partyCards": 24
+    },
+    "party1280": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "documentWidth": 1280,
+      "card": [
+        182,
+        182
+      ],
+      "newArtCards": 8,
+      "captions": [
+        "Balloon",
+        "Party Popper",
+        "Cake",
+        "Sweet"
+      ],
+      "screenshot": "docs/qa-evidence/batch7-memory-party-decorations-builder-images/party-desktop.png"
+    },
+    "party390": {
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "card": [
+        82,
+        82
+      ],
+      "artRow": [
+        72,
+        30.4
+      ],
+      "captionRow": [
+        72,
+        17.2
+      ],
+      "newArtCards": 8,
+      "captions": [
+        "Balloon",
+        "Party Popper",
+        "Cake",
+        "Sweet"
+      ],
+      "allNewImagesLoaded": true,
+      "screenshot": "docs/qa-evidence/batch7-memory-party-decorations-builder-images/party-mobile.png"
+    },
+    "faceDown1280": {
+      "cards": 24,
+      "card": [
+        182,
+        182
+      ],
+      "mountedImages": 0,
+      "mountedFrontLabels": 0,
+      "screenshot": "docs/qa-evidence/batch7-memory-party-decorations-builder-images/party-desktop-facedown.png"
+    },
+    "faceDown390": {
+      "cards": 24,
+      "card": [
+        82,
+        82
+      ],
+      "documentWidth": 390,
+      "mountedImages": 0,
+      "mountedFrontLabels": 0,
+      "screenshot": "docs/qa-evidence/batch7-memory-party-decorations-builder-images/party-mobile-facedown.png"
+    },
+    "reloadPersistence": "After earning Party & Treats, reload advanced to the next unlocked Dinosaur Discovery board; returning to Party & Treats through its visible level button showed all 24 cards face down."
+  },
+  "networkAndConsole": {
+    "preNavigationRoutes": [
+      {
+        "pattern": "**/api/voice",
+        "responseStatus": 204
+      },
+      {
+        "pattern": "**/api/story",
+        "responseStatus": 204
+      }
+    ],
+    "observedVoiceOrStoryRequests": 0,
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "servedIdentity": {
+    "/": {
+      "sha256": "bd86afd9f514b5822ad9e559d11d0dd43b8e0f4f93bf9e4d8e23df557415c5d8",
+      "bytes": 1100,
+      "matchesFrozenDist": true
+    },
+    "/assets/index-DVzxH3Qe.js": {
+      "sha256": "b2a45818b495d6366322f1e833844b38f92fae61aca5580251f7c8c1527e505e",
+      "bytes": 1186541,
+      "matchesFrozenDist": true
+    },
+    "/assets/index-CYWTXfuY.css": {
+      "sha256": "251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d",
+      "bytes": 213139,
+      "matchesFrozenDist": true
+    },
+    "/assets/party-balloon-v1-card-MKctpWSH.webp": {
+      "sha256": "7d1461090d5f7aaf58d143112cffb4bbedd4b0343424c75c4fb4c937dd98168c",
+      "bytes": 17972,
+      "matchesFrozenDist": true
+    },
+    "/assets/party-popper-v1-card-B9cQaGjQ.webp": {
+      "sha256": "679bbb0a6696619f39be25068161e67c7cd7879fdef40cbecc28438917818337",
+      "bytes": 39324,
+      "matchesFrozenDist": true
+    },
+    "/assets/party-cake-v1-card-CO4d89cT.webp": {
+      "sha256": "7bb6895c8210f2fbb170bb5471b2e1025a82203bd2a1a52e0fafa979877a1aa3",
+      "bytes": 26356,
+      "matchesFrozenDist": true
+    },
+    "/assets/wrapped-sweet-v1-card-BCCqF-l1.webp": {
+      "sha256": "9224959de0e1c35b077200453a26c2efc9a48afc88a5e43399a6ede50068fd77",
+      "bytes": 19998,
+      "matchesFrozenDist": true
+    }
+  },
+  "sourceGates": {
+    "focusedTests": "13 passed across test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs.",
+    "lint": "passed.",
+    "productionConfigBuild": "npm run build:android passed with explicit production voice/story configuration. Existing stale Browserslist data and large-chunk warnings remain.",
+    "illustrationInventory": "Read-only scripts/memory-art-readiness.mjs reports 64/87 unique Memory tokens illustrated after this delta; 23 remain.",
+    "frozenBundleMatchesProductionBuild": true
+  },
+  "limits": [
+    "Builder-rendered verification only; independent review is pending.",
+    "This does not certify remaining illustration work, Askia parity, narration readiness, broader human/device acceptance, production verification, or any overall quality score."
+  ]
+}
