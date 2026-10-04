@@ -7,7 +7,7 @@ import {
   chessPieceAttacks, patternContentSignature, patternDisplayTerm, patternMovementCue, validateChessPuzzle, validatePatternMission, validateTaughtWord,
 } from '../src/data/batch6Games.js';
 import { PHASE_SOUNDS } from '../src/data/learningProgress.js';
-import { BATCH6_SPOKEN_PHRASES, speakBatch6, patternClueNarration, chessClueNarration, astronautClueNarration } from '../src/data/batch6Narration.js';
+import { BATCH6_SPOKEN_PHRASES, speakBatch6, patternClueNarration, patternQuestionNarration, chessClueNarration, chessMissionNarration, chessMissionRule, chessOtherPieceRules, astronautClueNarration } from '../src/data/batch6Narration.js';
 
 class MemoryStorage {
   values = new Map();
@@ -46,6 +46,9 @@ test('Pattern Parade has six validated missions per run, unique rendered choices
   }
   const alternate = PATTERN_MISSIONS.challenge.find((mission)=>mission.growthRule==='alternate');
   assert.equal(validatePatternMission(alternate),true);
+  assert.equal(patternQuestionNarration(),'Pattern mission. What comes next?');
+  assert.ok(!patternQuestionNarration().includes(alternate.label));
+  assert.ok(BATCH6_SPOKEN_PHRASES.includes(patternQuestionNarration()));
   assert.equal(validatePatternMission({...alternate,answer:'🔴🔵🟡🟢'}),false,'growing answers follow the explicitly alternating token rule');
   const movingAlternate = PATTERN_MISSIONS.growing.find((mission) => mission.rule==='growing' && mission.growthRule==='alternate' && mission.modality==='movement rule');
   const movementCue = patternMovementCue(movingAlternate);
@@ -81,7 +84,15 @@ test('Chess chapter puzzles have one legal, reachable objective and safe capture
   for (const [band, puzzles] of Object.entries(CHESS_PUZZLES)) {
     assert.ok(puzzles.length >= 10);
     assert.ok(puzzles.every((puzzle) => puzzle.band === band && validateChessPuzzle(puzzle, 5)));
+    for (const puzzle of puzzles) {
+      const rule = chessMissionRule(puzzle);
+      assert.match(rule, new RegExp(`\\b${puzzle.piece}\\b`, 'i'), `${puzzle.id} speaks and shows a rule for its actual piece`);
+      assert.ok(chessMissionNarration(puzzle).includes(puzzle.objective));
+      if (band === 'growing') assert.match(rule,/safe/i,'capture missions state the safe-square condition');
+      assert.ok(BATCH6_SPOKEN_PHRASES.includes(chessMissionNarration(puzzle)));
+    }
   }
+  assert.equal(chessOtherPieceRules.length,6);
   const blockedRook = { piece:'rook', from:[4,0], target:[4,4], board:[{piece:'pawn',color:'white',at:[4,2]}] };
   assert.equal(chessLegalMoves(blockedRook,5).some(([row,col])=>row===4&&col===4),false);
   const defended = { band:'growing', piece:'rook', from:[4,2], target:[2,2], objective:'Capture safely', board:[{piece:'pawn',color:'black',at:[2,2]},{piece:'rook',color:'black',at:[2,4]}] };
@@ -109,10 +120,21 @@ test('Chess chapter puzzles have one legal, reachable objective and safe capture
 });
 
 test('Astronaut Academy missions rotate seeded options and retain primary NASA/ESA attribution', () => {
+  const normalize = (value) => String(value).toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
   for (const missions of Object.values(ASTRONAUT_MISSIONS)) {
     assert.ok(missions.length >= 12);
     assert.ok(missions.every(validateAstronautMission));
     assert.ok(missions.every((mission) => new Set(mission.options).size === mission.options.length));
+    for (const mission of missions) {
+      assert.ok(mission.clue.trim(), `${mission.id} has a separately authored clue`);
+      const clue = normalize(mission.clue);
+      for (const option of mission.options) {
+        const normalizedOption = normalize(option);
+        assert.ok(!clue.includes(normalizedOption), `${mission.id} clue does not repeat the option “${option}”`);
+      }
+      const narratedClue = astronautClueNarration(mission);
+      assert.ok(BATCH6_SPOKEN_PHRASES.includes(narratedClue), `${mission.id} has packaged-only narration inventory coverage`);
+    }
   }
   const mission = ASTRONAUT_MISSIONS.starter[0];
   const first = seededShuffle(mission.options, seededRandom(42));

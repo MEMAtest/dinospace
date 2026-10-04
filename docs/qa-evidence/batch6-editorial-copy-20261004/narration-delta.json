@@ -1,0 +1,527 @@
+{
+  "checkedAt": "2026-10-04T12:54:03.720Z",
+  "sourcePhraseCount": 378,
+  "fullAudit": {
+    "requested": 378,
+    "ready": 1,
+    "missing": 377,
+    "invalid": 0
+  },
+  "changedRequested": 64,
+  "changedReady": 0,
+  "changedMissing": 64,
+  "changedEntries": [
+    {
+      "key": "e19a278b",
+      "text": "Pattern mission. What comes next?",
+      "path": "/audio/en/e19a278b-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "ade8eda4",
+      "text": "The rook moves along a row or column. It cannot pass through a piece. Move the rook along its clear row to the star square.",
+      "path": "/audio/en/ade8eda4-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "ba416479",
+      "text": "The rook moves along a row or column. It cannot pass through a piece. Move the rook straight up to the star square.",
+      "path": "/audio/en/ba416479-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "7c65611e",
+      "text": "The bishop moves diagonally. It cannot pass through a piece. Move the bishop along the clear diagonal.",
+      "path": "/audio/en/7c65611e-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "7092d7ec",
+      "text": "The knight moves in an L shape and can jump over pieces. Move the knight in its L-shape to the star square.",
+      "path": "/audio/en/7092d7ec-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "7b41cf51",
+      "text": "The king moves one square in any direction. Move the king one square to the star.",
+      "path": "/audio/en/7b41cf51-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "aa8ac3df",
+      "text": "The queen moves along rows, columns or diagonals. It cannot pass through a piece. Move the queen straight up the clear file.",
+      "path": "/audio/en/aa8ac3df-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "53779882",
+      "text": "The knight moves in an L shape and can jump over pieces. Jump the knight in an L-shape over the blocker.",
+      "path": "/audio/en/53779882-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "cbfece97",
+      "text": "The rook moves along a row or column. It cannot pass through a piece. Move the rook left along the clear row.",
+      "path": "/audio/en/cbfece97-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "6596b8be",
+      "text": "The bishop moves diagonally. It cannot pass through a piece. Move the bishop along a clear diagonal.",
+      "path": "/audio/en/6596b8be-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "aa8ff27d",
+      "text": "The king moves one square in any direction. Move the king one square down.",
+      "path": "/audio/en/aa8ff27d-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "69186234",
+      "text": "The rook moves along a row or column. It cannot pass through a piece. Capture the marked pawn only if its square is safe. Capture the marked pawn with the rook, then check that its landing square is safe.",
+      "path": "/audio/en/69186234-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "2aa97120",
+      "text": "The knight moves in an L shape and can jump over pieces. Capture the marked pawn only if its square is safe. Capture the marked pawn with the knight safely.",
+      "path": "/audio/en/2aa97120-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "3bcc9bda",
+      "text": "The bishop moves diagonally. It cannot pass through a piece. Capture the marked pawn only if its square is safe. Capture the marked pawn along the diagonal, if it is safe.",
+      "path": "/audio/en/3bcc9bda-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "66e3095e",
+      "text": "The queen moves along rows, columns or diagonals. It cannot pass through a piece. Capture the marked pawn only if its square is safe. Capture the marked pawn with the queen safely.",
+      "path": "/audio/en/66e3095e-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "b07b0199",
+      "text": "The rook moves along a row or column. It cannot pass through a piece. Capture the marked pawn only if its square is safe. Capture the marked pawn along the row safely.",
+      "path": "/audio/en/b07b0199-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "b4f5abc7",
+      "text": "The bishop moves diagonally. It cannot pass through a piece. Capture the marked pawn only if its square is safe. Capture the marked pawn along the diagonal safely.",
+      "path": "/audio/en/b4f5abc7-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "a9684fe7",
+      "text": "The rook moves along a row or column. It cannot pass through a piece. Capture the marked pawn only if its square is safe. Capture the marked pawn up the file safely.",
+      "path": "/audio/en/a9684fe7-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "8e52bffb",
+      "text": "The rook moves along a row or column. It cannot pass through a piece. Move along the clear row to the goal; a pawn blocks the rook’s upward path.",
+      "path": "/audio/en/8e52bffb-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "c2b31b79",
+      "text": "The bishop moves diagonally. It cannot pass through a piece. Slide the bishop diagonally to the goal.",
+      "path": "/audio/en/c2b31b79-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "5061294d",
+      "text": "The knight moves in an L shape and can jump over pieces. The knight jumps over pieces to land on the star.",
+      "path": "/audio/en/5061294d-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "4f36a792",
+      "text": "The king moves one square in any direction. Move the king one square diagonally to the goal.",
+      "path": "/audio/en/4f36a792-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "4504c7f8",
+      "text": "The queen moves along rows, columns or diagonals. It cannot pass through a piece. Use the queen’s diagonal path to reach the goal.",
+      "path": "/audio/en/4504c7f8-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "7ef0af40",
+      "text": "The rook moves along a row or column. It cannot pass through a piece. Move across the clear row to the goal; leave the friendly pawn alone.",
+      "path": "/audio/en/7ef0af40-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "c24553f3",
+      "text": "The knight moves in an L shape and can jump over pieces. Jump in an L-shape to reach the goal.",
+      "path": "/audio/en/c24553f3-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "64768a2b",
+      "text": "The bishop moves diagonally. It cannot pass through a piece. Move diagonally to the marked square.",
+      "path": "/audio/en/64768a2b-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "1f0b095a",
+      "text": "The queen moves along rows, columns or diagonals. It cannot pass through a piece. Move straight down the open file.",
+      "path": "/audio/en/1f0b095a-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "c0a7178d",
+      "text": "The king moves one square in any direction. Move the king one square up to the goal.",
+      "path": "/audio/en/c0a7178d-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "790e8b0a",
+      "text": "Mission clue. Think about the brightest thing we see in daytime and how it warms the ground.",
+      "path": "/audio/en/790e8b0a-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "2dd5d1dd",
+      "text": "Mission clue. The Moon travels near one of these objects. Which choice is the planet where we live?",
+      "path": "/audio/en/2dd5d1dd-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "1bf0d36c",
+      "text": "Mission clue. The nickname comes from the rusty colour of its dusty ground. Which planet in the choices fits?",
+      "path": "/audio/en/1bf0d36c-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "56de3507",
+      "text": "Mission clue. Astronauts have a special name for the clothing they wear outside a spacecraft.",
+      "path": "/audio/en/56de3507-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "4164f3e3",
+      "text": "Mission clue. Spacecraft need power for many systems. Look at how sunlight is collected.",
+      "path": "/audio/en/4164f3e3-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "1948d611",
+      "text": "Mission clue. Compare a rover with a flying robot: which one explores the surface?",
+      "path": "/audio/en/1948d611-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "c26ad97c",
+      "text": "Mission clue. Look at where the Moon is in relation to the Sun and Earth.",
+      "path": "/audio/en/c26ad97c-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "e70d8fd2",
+      "text": "Mission clue. Most of Earth’s surface is ocean. Think about what oceans are made of.",
+      "path": "/audio/en/e70d8fd2-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "0eb54785",
+      "text": "Mission clue. What information could help scientists plan a rover’s next move?",
+      "path": "/audio/en/0eb54785-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "b49f27ed",
+      "text": "Mission clue. Earth from space has no corners. Which shape choice fits a world like that?",
+      "path": "/audio/en/b49f27ed-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "66777485",
+      "text": "Mission clue. At launch, watch the direction the rocket rises and the direction its exhaust travels.",
+      "path": "/audio/en/66777485-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "2178f6bf",
+      "text": "Mission clue. Think about the layer a spacecraft travels through before reaching space.",
+      "path": "/audio/en/2178f6bf-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "dbb9725b",
+      "text": "Mission clue. What do you notice when a ball falls after you let it go?",
+      "path": "/audio/en/dbb9725b-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "47473d9c",
+      "text": "Mission clue. Use a globe and lamp to explore which side is lit as the globe moves.",
+      "path": "/audio/en/47473d9c-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "c9a399a1",
+      "text": "Mission clue. Think about how water can stay frozen in cold places, including places hidden from view.",
+      "path": "/audio/en/c9a399a1-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "150626e6",
+      "text": "Mission clue. A spacecraft becomes very hot as it enters a planet’s air. What could help it survive?",
+      "path": "/audio/en/150626e6-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "dec02b9d",
+      "text": "Mission clue. Watch what happens when a falling leaf spreads out and catches air.",
+      "path": "/audio/en/dec02b9d-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "3292e306",
+      "text": "Mission clue. Look at the rover’s communication equipment, not the parts that touch the ground.",
+      "path": "/audio/en/3292e306-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "88b0a5d2",
+      "text": "Mission clue. Think about how sunlight reaches different parts of Earth during the year.",
+      "path": "/audio/en/88b0a5d2-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "3615a783",
+      "text": "Mission clue. The names are Phobos and Deimos. Count the names.",
+      "path": "/audio/en/3615a783-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "d6c7a615",
+      "text": "Mission clue. Before crossing a rocky patch, what information would help a rover choose a safe direction?",
+      "path": "/audio/en/d6c7a615-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "62abd3f9",
+      "text": "Mission clue. Imagine a lander touching down on rough ground. What could stop it wobbling?",
+      "path": "/audio/en/62abd3f9-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "080dcb9f",
+      "text": "Mission clue. Imagine tracing a curved route around a star or planet. Which choice names that kind of route?",
+      "path": "/audio/en/080dcb9f-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "6e198590",
+      "text": "Mission clue. Think about the long distance between Earth and Mars when a command is sent.",
+      "path": "/audio/en/6e198590-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "94acf1c7",
+      "text": "Mission clue. The choices have very different air and surface temperatures. Which one has the thickest, hottest air?",
+      "path": "/audio/en/94acf1c7-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "3c48e46e",
+      "text": "Mission clue. One choice is a giant planet, while the other two are rocky worlds. Which is the largest?",
+      "path": "/audio/en/3c48e46e-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "16dc72ae",
+      "text": "Mission clue. The question is about an icy moon, not a planet. Which moon fits the description?",
+      "path": "/audio/en/16dc72ae-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "c05201bd",
+      "text": "Mission clue. Think about what changes when a parachute has a wider canopy.",
+      "path": "/audio/en/c05201bd-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "8484263e",
+      "text": "Mission clue. Compare power sources used by spacecraft in places with little sunlight.",
+      "path": "/audio/en/8484263e-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "9e62fb81",
+      "text": "Mission clue. Think about the great distance a radio message must cross between Earth and Mars.",
+      "path": "/audio/en/9e62fb81-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "c9c4e1e3",
+      "text": "Mission clue. One of these planets is easy to recognize by the bright bands around it.",
+      "path": "/audio/en/c9c4e1e3-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "32ba251d",
+      "text": "Mission clue. Mars teams use a special word when planning a rover’s daily schedule.",
+      "path": "/audio/en/32ba251d-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "34293c01",
+      "text": "Mission clue. A rover collects small pieces for scientists to study later. What could keep one safe?",
+      "path": "/audio/en/34293c01-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "5e924c47",
+      "text": "Mission clue. Compare the power sources spacecraft can use when they travel close to the Sun.",
+      "path": "/audio/en/5e924c47-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "a9c71439",
+      "text": "Mission clue. Compare the arrows showing how Venus and most planets turn.",
+      "path": "/audio/en/a9c71439-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    },
+    {
+      "key": "648fba01",
+      "text": "Mission clue. Look at the ground around a rover and decide what information a route planner needs.",
+      "path": "/audio/en/648fba01-matilda.mp3",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null
+    }
+  ]
+}
