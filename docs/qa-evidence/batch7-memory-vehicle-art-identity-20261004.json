@@ -1,0 +1,82 @@
+{
+  "createdAt": "2026-10-04T00:00:00Z",
+  "scope": "Add four existing-token vehicle illustrations to Amari Memory Match using the retained original transparent art, with 512px alpha WebP delivery. Preserve all authored tokens, labels, board sizes, progression, Askia, and face-down hiding.",
+  "sourceCommit": "a59482a7a47a59bea733abc097efa02bbd0153c0",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5312",
+    "frozenDist": "tmp/batch7-memory-vehicles-final/dist",
+    "priorFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-frog-grid-fix-final/dist",
+      "tmp/batch7-memory-ocean-completion-final/dist",
+      "tmp/batch7-memory-fruit-art-final-v3/dist",
+      "tmp/batch7-memory-space-objects-final/dist",
+      "tmp/batch7-memory-star-sun-final/dist"
+    ]
+  },
+  "integratedTokens": [
+    {"token": "✈️", "label": "Aeroplane", "original": "src/assets/memory-match/aeroplane-v1.png", "webp": "/assets/aeroplane-v1-card-DeWn50PE.webp", "bytes": 33702, "sha256": "8f45a3c6795eaeeeb710f12d9ea8b11ad42dd0c182b69e807596329bb28042cb"},
+    {"token": "🚁", "label": "Helicopter", "original": "src/assets/memory-match/helicopter-v1.png", "webp": "/assets/helicopter-v1-card-C_TDJUCM.webp", "bytes": 37924, "sha256": "5a7d33f9a8f67450e9d7e0837c8350da133db11ba6c1f65449bc0f2ea66305d8"},
+    {"token": "🚂", "label": "Steam Train", "original": "src/assets/memory-match/steam-train-v1.png", "webp": "/assets/steam-train-v1-card-DyyqHl0x.webp", "bytes": 58640, "sha256": "ac3797f937eb9ff4b8ede0175755e345190b73e8e86d963670ffae804d7620b1"},
+    {"token": "🚆", "label": "Passenger Train", "original": "src/assets/memory-match/passenger-train-v1.png", "webp": "/assets/passenger-train-v1-card-DNZb03oY.webp", "bytes": 30128, "sha256": "d97ddbb06ce047755d7ce4dd41f1b30a48670ff5bb90d2b756aabde6457614e9"}
+  ],
+  "renderedUiChecks": {
+    "profileAndProgression": "Selected Amari through the visible chooser and completed levels 1–6 by normal card flips and Next controls. No saved-progress or hidden-state injection.",
+    "board": "All Kinds of Vehicles, level 6, 28 cards / 14 pairs. Four newly illustrated pairs are separately recognizable: aeroplane, helicopter, steam locomotive, passenger train.",
+    "desktop1280": {
+      "viewport": [1280, 800],
+      "documentWidth": 1280,
+      "card": [182, 182],
+      "artContainer": [172, 109.3],
+      "image": [151.36, 109.3],
+      "captionRow": [172, 20.95],
+      "imagesLoaded": "8 of 8 new-asset cards; each 512×512 natural size",
+      "captionOverlap": false,
+      "screenshot": "docs/qa-evidence/batch7-memory-vehicle-art-builder-images/vehicles-desktop-1280-completed.png"
+    },
+    "mobile390": {
+      "viewport": [390, 844],
+      "documentWidth": 390,
+      "card": [82, 82],
+      "artContainer": [72, 30.4],
+      "image": [63.36, 30.4],
+      "captionRow": [72, 17.2],
+      "imagesLoaded": "8 of 8 new-asset cards; each 512×512 natural size",
+      "captionOverlap": false,
+      "screenshot": "docs/qa-evidence/batch7-memory-vehicle-art-builder-images/vehicles-mobile-390-completed.png"
+    },
+    "faceDown": {
+      "desktop1280": {"faceDownCards": 28, "mountedCardImages": 0, "screenshot": "docs/qa-evidence/batch7-memory-vehicle-art-builder-images/vehicles-desktop-1280-facedown.png"},
+      "mobile390": {"faceDownCards": 28, "mountedCardImages": 0, "screenshot": "docs/qa-evidence/batch7-memory-vehicle-art-builder-images/vehicles-mobile-390-facedown.png"}
+    }
+  },
+  "networkAndConsole": {
+    "preNavigationRoutes": [
+      {"pattern": "/api/voice", "responseStatus": 204},
+      {"pattern": "/api/story", "responseStatus": 204}
+    ],
+    "observedVoiceOrStoryRequests": 0,
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "servedIdentity": {
+    "/": {"sha256": "50bd5d2824872ee539ae1c83da980fc42fd5979705695c6d9681f215a46f6ec9", "matchesFrozenDist": true},
+    "/assets/index-D2YNMQPj.js": {"sha256": "7499d26a677ef82d56af4d6105f04e4bf1e6baf67a341a8922a5bf62aec0a8eb", "matchesFrozenDist": true},
+    "/assets/index-CYWTXfuY.css": {"sha256": "251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d", "matchesFrozenDist": true},
+    "/assets/aeroplane-v1-card-DeWn50PE.webp": {"sha256": "8f45a3c6795eaeeeb710f12d9ea8b11ad42dd0c182b69e807596329bb28042cb", "bytes": 33702, "matchesFrozenDist": true},
+    "/assets/helicopter-v1-card-C_TDJUCM.webp": {"sha256": "5a7d33f9a8f67450e9d7e0837c8350da133db11ba6c1f65449bc0f2ea66305d8", "bytes": 37924, "matchesFrozenDist": true},
+    "/assets/steam-train-v1-card-DyyqHl0x.webp": {"sha256": "ac3797f937eb9ff4b8ede0175755e345190b73e8e86d963670ffae804d7620b1", "bytes": 58640, "matchesFrozenDist": true},
+    "/assets/passenger-train-v1-card-DNZb03oY.webp": {"sha256": "d97ddbb06ce047755d7ce4dd41f1b30a48670ff5bb90d2b756aabde6457614e9", "bytes": 30128, "matchesFrozenDist": true}
+  },
+  "sourceGates": {
+    "focusedTests": "10 passed: test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs",
+    "lint": "passed",
+    "productionConfigBuild": "passed with explicit voice and story configuration; unchanged stale Browserslist database and large-chunk warnings remain",
+    "frozenBundleMatchesProductionBuild": true,
+    "illustrationInventory": "47 of 87 Memory tokens illustrated; 40 remain without dedicated art"
+  },
+  "limits": [
+    "These are builder-rendered checks; independent vehicle-art review is pending.",
+    "This candidate is not production, full premium-art, audio, human, device, or 4.5 acceptance."
+  ]
+}
