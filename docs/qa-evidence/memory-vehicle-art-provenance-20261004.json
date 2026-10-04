@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-04T03:05:29.176051+00:00",
+  "method": "Built-in image_gen; one call per distinct asset and targeted edits. transparent_background=true. Final originals copied unchanged; no bitmap edits or provider-key CLI.",
+  "scope": "Originals only; runtime integration, rendered QA, production and4.5 acceptance pending.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/aeroplane-v1.png",
+      "token": "\u2708\ufe0f",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-e1fae198-1b8f-41e4-9af8-71ba37d386cf.png",
+      "sha256": "1b7d3941eb0901777367fe637613aa08a714f076337351675efa0545857afc85",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "White/sky-blue toy passenger jet, two underwing engines, complete wing/tail silhouette; edit removed glow and retained transparent alpha.",
+      "rootReview": "Generated original visually reviewed: recognizable distinct complete vehicle, no scene/text/card border. Small rendered card acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/helicopter-v1.png",
+      "token": "\ud83d\ude81",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-e3278074-ce48-4da8-8a2b-745241c171e1.png",
+      "sha256": "9f0dc7bda18b0a9254855d8c01254f99d4964c3aa19a892047bd665aa1db6b21",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Orange/red rounded helicopter, cyan cockpit, main rotor, tail rotor and skids; edit shrank object to reveal all rotor tips and transparent margin.",
+      "rootReview": "Generated original visually reviewed: recognizable distinct complete vehicle, no scene/text/card border. Small rendered card acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/steam-train-v1.png",
+      "token": "\ud83d\ude82",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-269b96db-8dbe-4c62-b5ba-7f984be64cc7.png",
+      "sha256": "978ad5db011e61bdc63254ecb2a15f1856bed004a9e90a3e0264e49ce5f092d3",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Green/red glossy steam locomotive, tall chimney, cylindrical boiler, large linked driving wheels; edit removed surrounding halo.",
+      "rootReview": "Generated original visually reviewed: recognizable distinct complete vehicle, no scene/text/card border. Small rendered card acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/passenger-train-v1.png",
+      "token": "\ud83d\ude86",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-3f26e4fb-af09-4e14-b88d-581205053204.png",
+      "sha256": "e9990e3bc0524b828905107a4dc5500942e999d933ef080f3abf129ff8fe2ae2",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Modern silver/violet streamlined passenger train, broad blue windshield, two short connected rear carriages, no chimney/boiler/steam; transparent alpha.",
+      "rootReview": "Generated original visually reviewed: recognizable distinct complete vehicle, no scene/text/card border. Small rendered card acceptance pending."
+    }
+  ]
+}
