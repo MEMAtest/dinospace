@@ -618,3 +618,12 @@ Current supported component recommendations now reconcile repaired candidate def
 Root's [64 recent B4 clip check](qa-evidence/batch4-interim-recent-decode-20261004/report.md) fully decoded every selected file, verified positive duration and stable bytes, with no invalid clip. This is a bounded changing-corpus subset while the finite worker remains live; hashes can be reconciled after completion. It closes no listening or full corpus gate. No provider call, manifest write or worker restart occurred.
 
 The new pinned B5–B7 supervisor source0d66b35 passed11 builder tests and dry-run plans, but separate QA found aP1 journal-lock coordination flaw: its private locks do not conflict with the existing B3 writer's lock. The builder is repairing that exact concurrency gap before use. Paid execution has not occurred. A separate finite supplemental selector for the five released B2 and two local Dino phrases is also in preparation; both require independent acceptance and the B4 terminal/dead-worker check before any generation. Accepted count remains4/26.
+
+
+## 4 October — Dino visible delta and reviewed packager integration
+
+Root imported and read [Dino copy QAf630017](qa-evidence/batch3-dino-fact-ui-20261004/report.md), inspecting the390px Cave card. Swamp was checked in fresh desktop/mobile contexts; Cave used desktop and the same ordinarily unlocked context resized to390px. Revised facts stay visible until explicit Next, the parent route is Explore, and all5879 served files match. MobileNext is reachable by vertical scrolling; nohorizontaloverflow. Two matching recordings remain absent, so this local copy is not released or accepted overall.
+
+Root selectively integrated finite narration supervisor0d66 and exact shared-lock repairafbb, retaining [independentQA24db](qa-evidence/reviewed-narration-supervisor-independent-qa-20261004/report.md). Root's12 focused tests and read-only Solar plan pass. The shared-journal concurrency defect is closed; an isolated fixture follow-up now covers the remaining provider/MIME rejection and request-error audit branches. No paidjob ran, and B4terminal gate remains closed while its worker is live.
+
+Canonical provider still resolves to dpl_7wFmajPYqR6CPrTLFksm4dkGzppv/0d, READYproduction, and all8 runtime files byte-match in the [late recheck](qa-evidence/canonical-provider-hash-recheck-20261004-late.json). This is identity revalidation, not a new game/browser acceptance run. Accepted count remains4/26.

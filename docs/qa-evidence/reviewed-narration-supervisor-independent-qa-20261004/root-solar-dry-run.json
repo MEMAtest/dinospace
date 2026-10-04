@@ -1,0 +1,30 @@
+{
+  "mode": "dry-run",
+  "readOnly": true,
+  "job": "b7-solar",
+  "label": "B7 Solar narration",
+  "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+  "requested": 127,
+  "packagedCandidateReusable": 111,
+  "pending": 16,
+  "maxCallsPerRun": 20,
+  "maxRuns": 1,
+  "pendingKeys": [
+    "00567b7b",
+    "0fe0928c",
+    "257b6d0e",
+    "35106371",
+    "35fa6542",
+    "4ce4761a",
+    "68e808f6",
+    "6d6518dd",
+    "71829c71",
+    "93930f34",
+    "94e99828",
+    "9c98dcb8",
+    "a2b823b4",
+    "ade6cb63",
+    "fce2de6e",
+    "fe913cbc"
+  ]
+}

@@ -1,0 +1,20 @@
+✔ pins exact reviewed ledger and derives only approved owner keys (41.321917ms)
+✔ rejects jobs, call rates and run counts outside finite reviewed bounds (0.27675ms)
+✔ requires a terminal reconciled B4 record tied to the current manifest and dead worker PID (5.844208ms)
+✔ requires the explicit shared journal and fails closed on invalid journal state or concurrent edits (2.887667ms)
+✔ uses and honors the exact exclusive lock held by the shared B3 producer (2.15375ms)
+✔ only reuses a packaged candidate when reviewed bytes match, including an unmapped exact file (2.36325ms)
+✔ a generated file is reusable only with a matching local receipt and exact text/inventory binding (1.882125ms)
+✔ request helper sends only the approved voice payload and enforces a finite timeout through injected fetch (13.729417ms)
+✔ dry-run reports exact pending keys and leaves package and shared journal untouched (157.168209ms)
+✔ paid mode cannot pass a live predecessor PID even with an apparently terminal record (123.557125ms)
+✔ CLI refuses a modified inventory digest before selecting or writing (72.829375ms)
+✔ paid mode requires explicit per-run and total-run caps (71.101708ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 597.374834

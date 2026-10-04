@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T16:43:32.075668+00:00",
+  "updatedAt": "2026-10-04T16:54:52.320302+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1007,7 +1007,13 @@
         "f6991245",
         "0f0204e5"
       ],
-      "releaseStatus": "Not deployed; package clips and independently retest held fact/Next at desktop390 before release"
+      "releaseStatus": "Not deployed; two new clips remain missing. Independent visible fact/Next/parent return delta passed at desktop390; audio/playback/listening and release still pending.",
+      "visibleQa": {
+        "source": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+        "commit": "f630017",
+        "report": "docs/qa-evidence/batch3-dino-fact-ui-20261004/report.md",
+        "scope": "Root fullread report/viewed mobile Cave. Swamp freshdesktop/mobile and Cave desktop/resized390 held facts/explicitNext/parentExplore pass. Full5879 servedfiles match. MobileNext belowfold reachablebyordinaryscroll; nohorizontaloverflow. Noaudio/releaseaward."
+      }
     },
     "countQuotaReconciliation": {
       "report": "docs/qa-evidence/batch3-count-quota-ui-20261003/REPORT.md",
@@ -1337,9 +1343,13 @@
     "scope": "64 most recent exact mapped B4 corpus clips, full decode/duration/stable bytes pass. Interim subset while PID18781 live; no full readiness/playback/listening/release claim."
   },
   "reviewedNarrationSupervisor": {
-    "source": "0d66b35ed8c80618fe05d1ac344372af81225750",
+    "source": "afbbf01deb48b70b25797ec8fdbd698ed59ffa0c",
     "branch": "codex/narration-packager-20261004",
-    "scope": "New finite pinned B5-B7 job supervisor; default read-only, no actual paid execution. Independent review identified P1 non-cooperating shared journal writer lock; repair pending before use. Existing B4 worker unaffected. Supplemental5+2 selectors being prepared separately.",
-    "independentFinding": "Must acquire exact B3 producer lock for its shared request journal, not only a private reviewed-narration lock."
-  }
+    "scope": "Selectively integrated finite supervisor and exact B3 producer-lock fix. Independent/root12 tests and read-only Solar plan pass. No real paid execution. Runner-level isolated provider/MIME/error-audit fixture checks assigned; B4 live and terminal gate still closed. Supplemental5+2 selectors separate.",
+    "independentFinding": "Must acquire exact B3 producer lock for its shared request journal, not only a private reviewed-narration lock.",
+    "independentCommit": "24db1a7",
+    "independentReport": "docs/qa-evidence/reviewed-narration-supervisor-independent-qa-20261004/report.md",
+    "rootIntegrationReport": "docs/qa-evidence/reviewed-narration-supervisor-independent-qa-20261004/root-integration.md"
+  },
+  "canonicalLateRevalidation": "docs/qa-evidence/canonical-provider-hash-recheck-20261004-late.json"
 }
