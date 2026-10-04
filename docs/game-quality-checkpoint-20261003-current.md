@@ -673,3 +673,10 @@ Root read and imported [B4 current review](qa-evidence/batch4-current-editorial-
 Root inspected retained Count/Trace/Number Line mobile screenshots and found the solar-panel counting motif showed two panel wings per counted object. Isolated source e067 on canonical0d now draws one bounded panel; configuredbuild/scopedlint/threeprimaryhashes pass, and ordinary independent QA is assigned on5387. No data,narrationkey,score or difficulty changed.
 
 Independent [B5 visual review](qa-evidence/batch5-current-visual-feedback-review-20261004.md) found ambiguous platform-emoji SoundSafari pictures; controlled-art inventory/build is assigned. Independent [B7 reconciliation](qa-evidence/batch7-editorial-reconciliation-20261004.md) keeps Solar teaching at4.0 for demanding copy and identifies small late Memory captions; all54 Solar factcopyreview and larger mobilecard repair are assigned. These concrete findings remain release blockers; no overall score or accepted-count change.
+
+
+## 4 October single-panel QA and picture-vocabulary repair
+
+Independent [Count panel QA](qa-evidence/count-single-panel-independent-20261004/report.md) ordinarily unlockedStarter/Growing and playedoneGalaxySurvey run. SatellitePanels appearednaturallyatround3 andround6; oneframedpanelrendereddesktop/390 andmobileonetap→answer1→heldfeedback→Next/Keepplaying/parentpassed. Rootreadfullreport andviewed390heldscreenshot, thenintegratedthecomponent-onlysourcee067locally. Canonicalremainsoldart; no4.5awardorproductionclaim.
+
+SoundSafariasset audit exposed95uniquevisiblewordtargets/optionswithmanyfunction/actionwords that cannot haveunambiguouswordlesspictures. Rootrejected genericartsubstitution andassignedcontrolledpicturevocabularywithstrict taughtgraphemes andatleast20eligiblewords perstage; originalspellingvocabularyretained. No88-cardgeneration orpaidvoicecallwaslaunched.
