@@ -1,0 +1,25 @@
+- generic [ref=e480]:
+  - banner [ref=e481]:
+    - button "Back to Maths Missions" [ref=e482] [cursor=pointer]
+    - generic [ref=e501]:
+      - paragraph [ref=e502]: Chapter 1 of 3 · Question 3 of 6
+      - heading "Subtraction Station" [level=1] [ref=e503]
+    - button "Turn sound on" [ref=e486] [cursor=pointer]
+  - main [ref=e491]:
+    - paragraph [ref=e492]: There is 1 flower. Take away 1. How many are left?
+    - button "Hear question" [ref=e504] [cursor=pointer]
+    - generic [ref=e509]:
+      - group "Starting group, 1 flower, 1 marked for removal" [ref=e610]:
+        - paragraph [ref=e511]: "Starting group: 1"
+      - generic [aria-hidden] [ref=e550]: −
+      - group "Take away, 1 flower" [ref=e618]:
+        - paragraph [ref=e552]: "Take away: 1"
+      - generic [aria-hidden] [ref=e575]: →
+      - group "Remaining tray, 0 flowers" [ref=e631]: Remaining
+    - group "Choose the answer" [ref=e577]:
+      - button "Answer 0" [disabled] [ref=e627]: "0"
+      - button "Answer 1" [disabled] [ref=e600]: "1"
+      - button "Answer 2" [disabled] [ref=e581]: "2"
+      - button "Answer 4" [disabled] [ref=e599]: "4"
+    - status [ref=e632]: Start with 1. Take 1 away. 0 remain.
+    - button "Next question" [ref=e633] [cursor=pointer]
