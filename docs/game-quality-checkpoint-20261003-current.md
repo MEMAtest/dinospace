@@ -364,8 +364,8 @@ Memorycoverage `2e3c9b0` root-read:87tokens/127authoredcontextplacements/89asset
 
 ## Root evidence reconciliation — 4 October
 
-Root read the complete5355 Nature/World report and inspected normal390px A/B screenshots: seven native object changes remain visible at that width. The retained independent direct-picture taps and navigation/persistence results close these specific local visual repairs, without audio or production acceptance.
+Root read the complete 5355 Nature/World report and inspected the normal 390px A/B screenshots. Seven changes to depicted objects remain visible at that width. The independent direct picture taps, navigation and persistence checks close these specific local visual repairs. Audio and production acceptance remain pending.
 
-Root read13debe2 Memory28-context report and inspected normal390px Space,Party and Astronaut boards. Together with earlier99 focused contexts, all127 authored placements now have scoped rendered review against the unchanged87-token/89-asset candidate. This closes the art-context evidence gap only; packaged narration, listening, production and editorial scoring remain separate.
+Root read the Memory 28-context report at `13debe2` and inspected the normal 390px Space, Party and Astronaut boards. Together with the earlier 99 focused contexts, all 127 authored placements now have scoped rendered review against the unchanged 87-token, 89-asset candidate. This closes the art-context evidence gap. Packaged narration, listening, production and editorial scoring remain separate gates.
 
-Authorized narration worker18781 is live at run170, with2747 lines pending and zero cooldown retries; last generation succeeded and the worker is waiting for its normal request window. No job restarted.
+The authorized narration worker, PID 18781, is live at run 170 with 2,747 lines pending and zero cooldown retries. Its last generation succeeded, and it is waiting for its normal request window. No job was restarted.
