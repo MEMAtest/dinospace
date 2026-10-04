@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T18:46:26.160815+00:00",
+  "updatedAt": "2026-10-04T18:49:08.778470+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1416,13 +1416,16 @@
     "source": "4a9ae1cd4cd1293aafae4c10877d5cb6cf8ae029",
     "origin": "http://127.0.0.1:5385",
     "report": "docs/qa-evidence/b4-zero-remain-5385-report-20261004.md",
-    "scope": "Component-only result marker appearsafterlockedzero, neverbeforeanswer. Builderdesktopzero/390preanswer checks and corehashes pass; rootviewedzero screenshot. Independentbounded5385Chapter1 didnotnaturallyproducezero in completedquestions. Group-label contrast followupbeingbuiltseparately. No data/narrationkey oraudio/prod change.",
-    "independentReport": "docs/qa-evidence/b4-zero-remain-5385-independent-20261004/report.md"
+    "scope": "Visible zero appears only after a locked correct zero answer. The initial independent 5385 queue did not produce zero; the later 5386 ordinary question 2 did, confirming the held zero marker at desktop and 390px without injection or repeated hunting. No narration/data/production change.",
+    "independentReport": "docs/qa-evidence/b4-zero-remain-5385-independent-20261004/report.md",
+    "latestCandidate": "9c594dd0e49f5a84588787a084a55aefeec4cdc0",
+    "latestIndependentReport": "docs/qa-evidence/b4-zero-opacity-5386-independent-20261004/report.md"
   },
   "batch4LabelContrastRepair": {
     "source": "9c594dd0e49f5a84588787a084a55aefeec4cdc0",
     "origin": "http://127.0.0.1:5386",
     "report": "docs/qa-evidence/b4-zero-remain-5386-20261004-report.md",
-    "scope": "Preserves5385zeroresult, moves opacity40 fromgroupcontainer toillustrationrow. Labelsremainfullopacity; objectsretainfade/motion/removalXs.249existingtests/lint/configbuild/3corehashespass.Independentdesktop390representativeheldlabelQAunderway. Noquestion/answer/narrationdata orreleasedcodechange."
+    "scope": "The result labels remain fully opaque while only illustrations fade. Independent ordinary two-question run confirms positive and zero held results at desktop and 390px in the same profile. Root reviewed mobile zero screenshot. Retained full mechanics and route baselines still apply; no audio or production acceptance.",
+    "independentReport": "docs/qa-evidence/b4-zero-opacity-5386-independent-20261004/report.md"
   }
 }

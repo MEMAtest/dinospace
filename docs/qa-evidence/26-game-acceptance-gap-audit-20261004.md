@@ -75,3 +75,8 @@ Independent5383 actual-controls evidence closes the route/shelf delta: curriculu
 Newly confirmed ac3 copy defects are repaired in fe5: six singular starting-object phrases, one singular remainder phrase, and forty singular distance phrases. Independent full inventory regeneration matches the exact47 replacements and5199 unchanged entries; [source audit](batch4-grammar-corpus-delta-review-20261004.md). The [5384 browser delta](batch4-grammar-independent-qa-20261004/report.md) observes corrected singular start/zero feedback; the one-remainder and one-space comparisons remain finite-source-covered, not UI-observed. All47 corrected audio paths remain a release gate.
 
 Root visual review of the zero-remains screenshot found the held Remaining tray visually blank although its accessible label reports zero. A visible zero/empty marker after correct answer is being prepared in a separate candidate. Preserve5384 evidence and avoid an answer leak before the child chooses. No new overall score or production release is recorded.
+
+
+## 4 October zero-result and contrast closure
+
+The component-only fixes are independently verified on source `9c594dd` at port 5386. An ordinary two-question run reached zero naturally, and the held `0 (empty)` result remained readable after resizing between desktop and 390px. Starting/removal labels stay fully opaque while only the illustrations fade. Root reviewed the mobile zero screenshot. See [bounded UI report](b4-zero-opacity-5386-independent-20261004/report.md). This closes the visible-zero and group-label defects; it does not replace the retained full mechanics or audio gates. The original 5385 independent run without a zero result remains historical evidence.
