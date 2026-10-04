@@ -66,3 +66,12 @@ The roadmap requires five equally weighted dimensions, a mean of at least 4.5, n
 The independent B2 worksheet refresh (32da241) now records supported 4.5 recommendations for age teaching, progression, correctness/fair variation and reliability for all four B2 games; their formal feedback/audio/visual dimension remains unscored. The prior ledger rows describing score refresh as the next action are superseded by that completed review. Five missing clips and listening remain open. The B3 assessment addendum similarly supports local Dino age teaching4.5 from the completed two-fact UI delta; canonical Dino remains4.0 until promotion. No overall score or accepted-count change occurred.
 
 B4 now has a clean canonical-base repaired source aa162721 at frozen5383. Its first clean integration5382 omitted useHashRouter calls to existing clock-origin helpers; rootreview found this and the reviewed hook was restored. Independent actual-control QA is underway; local runtime identity does not establish production acceptance.
+
+
+## 4 October maths copy and integration follow-up
+
+Independent5383 actual-controls evidence closes the route/shelf delta: curriculum-origin clock returns to selected Time Detectives, Maths-origin clock returns to Maths, reload preserves origin, and desktop Addition chapter badge persists while Askia remains separate. See [report](batch4-clock-route-independent-qa-20261004/report.md). This does not repeat the retained full chapter matrix or certify audio.
+
+Newly confirmed ac3 copy defects are repaired in fe5: six singular starting-object phrases, one singular remainder phrase, and forty singular distance phrases. Independent full inventory regeneration matches the exact47 replacements and5199 unchanged entries; [source audit](batch4-grammar-corpus-delta-review-20261004.md). The [5384 browser delta](batch4-grammar-independent-qa-20261004/report.md) observes corrected singular start/zero feedback; the one-remainder and one-space comparisons remain finite-source-covered, not UI-observed. All47 corrected audio paths remain a release gate.
+
+Root visual review of the zero-remains screenshot found the held Remaining tray visually blank although its accessible label reports zero. A visible zero/empty marker after correct answer is being prepared in a separate candidate. Preserve5384 evidence and avoid an answer leak before the child chooses. No new overall score or production release is recorded.
