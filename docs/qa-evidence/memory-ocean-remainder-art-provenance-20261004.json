@@ -1,0 +1,94 @@
+{
+  "createdAt": "2026-10-04T01:30:21.182517+00:00",
+  "method": "Built-in image_gen separate assets and targeted edits, selected originals copied unchanged",
+  "scope": "Four remaining Ocean originals plus separate pond fish for existing Garden-specific fish label. Root reviewed full outputs and selected corrected anatomy/clean cutouts; integration/small-card/independent review pending. No 4.5 acceptance.",
+  "promptSet": "Premium rounded solid toy ocean cutouts with no scene/text/badge; jellyfish bell; crab eight walking legs plus pincers; squid eight arms plus two long tentacles; saltwater clownfish and freshwater pond goldfish separate contexts.",
+  "discarded": "Initial crab walking-leg count; squid glow/incorrect limb variants; blue/yellow fish variants with halos were not copied or mapped.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/jellyfish-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-3c3156e2-c465-4626-ab28-88e5b6a67640.png",
+      "token": "\ud83e\udebc",
+      "meaning": "lavender bell and flowing aqua tentacles",
+      "dimensions": [
+        1246,
+        1262
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "7a5803d23e18e8b049d56ee79bc8d404c76787851f768166d44cc7efd1085670",
+      "bytes": 915119
+    },
+    {
+      "asset": "src/assets/memory-match/crab-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-737ba0eb-f2f8-4d49-b345-3f8417ae2f8b.png",
+      "token": "\ud83e\udd80",
+      "meaning": "eight walking legs and two pincers",
+      "dimensions": [
+        1368,
+        1149
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "d83c259b2fa9a62c5eeb444732e79748b3824fce1d5f9e4486b1aa9aac564fdf",
+      "bytes": 1428409
+    },
+    {
+      "asset": "src/assets/memory-match/squid-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-285b5bbc-5309-415c-81e2-8d68fdb36832.png",
+      "token": "\ud83e\udd91",
+      "meaning": "eight lateral short arms plus two long club-tipped tentacles",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "1238a3e08b979ae01fba174a996d0027aede6a7f0bb3965484c07ba23f3f530c",
+      "bytes": 838827
+    },
+    {
+      "asset": "src/assets/memory-match/ocean-fish-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-2803d845-2fe8-4d22-a21a-f72cd10b341e.png",
+      "token": "\ud83d\udc1f",
+      "meaning": "saltwater clownfish for Ocean context",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "8fc7fabcdf7c4aeb8c4b15fd9ad05c0e0b2db56e9537afabdff53dc9a7d7b863",
+      "bytes": 933827
+    },
+    {
+      "asset": "src/assets/memory-match/pond-fish-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-d33bdb0e-4f30-4a5e-a5ee-0edd2d2989a7.png",
+      "token": "\ud83d\udc1f",
+      "meaning": "freshwater goldfish for Garden pond context only",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "cadcdee2e890be9f82b412608a78c756fd11dad0b56a4842dfd81a0eb08bed32",
+      "bytes": 823824
+    }
+  ]
+}
