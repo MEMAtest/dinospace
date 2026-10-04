@@ -1,0 +1,40 @@
+{
+  "sourceCommit": "f9d398281b86fde8d41a719f54137ab6d835d70a",
+  "candidateUrl": "http://127.0.0.1:5364/",
+  "frozenDirectory": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-batch5-quality/tmp/batch5-phase2-default-20261004/dist",
+  "buildCommand": "npm run build:android",
+  "scope": "Fresh phonics default aligns with displayed Phase2; local candidate, no release",
+  "generatedFileCount": 5610,
+  "criticalHashes": {
+    "assets/index-B-IZD6Bi.js": "22664334ed6b19b8a92006f457c075a52e8c29f6ec6a0dd550d1549d73a67cf6",
+    "assets/index-BP6YjlOz.css": "0706c2b8d66766533dac0957775391419f13d5e7dc69e612d8e057b87a55f71f",
+    "index.html": "3ff474591f4fd0eb33e71275ebab5f25fd0e1950ee5fc1a4f4374413c1e7fc28"
+  },
+  "tests": {
+    "passed": 26,
+    "failed": 0,
+    "scope": "literacy,learningProgress,batch5Literacy,letterLaunch"
+  },
+  "lint": "scoped pass",
+  "narrationAndManifest": "unchanged; not audio acceptance",
+  "criticalServedVerification": [
+    {
+      "file": "assets/index-B-IZD6Bi.js",
+      "status": 200,
+      "sha256": "22664334ed6b19b8a92006f457c075a52e8c29f6ec6a0dd550d1549d73a67cf6",
+      "matched": true
+    },
+    {
+      "file": "assets/index-BP6YjlOz.css",
+      "status": 200,
+      "sha256": "0706c2b8d66766533dac0957775391419f13d5e7dc69e612d8e057b87a55f71f",
+      "matched": true
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "3ff474591f4fd0eb33e71275ebab5f25fd0e1950ee5fc1a4f4374413c1e7fc28",
+      "matched": true
+    }
+  ]
+}
