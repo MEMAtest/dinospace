@@ -82,3 +82,9 @@ Fruit independent report: `../../dinospace-batch7-quality/docs/qa-evidence/batch
 Space c1d58ec independentabd43b3 and Star/Sun db0a9c1 independentbd6ab1d passed their scoped desktop/390px actual-card checks; complete reports stay in Batch7. Inventory43/87 illustrated. Frog/Monkey implicit grid shrink repaired in3931a3b, frozen5310, builder passed and independent QA underway. Four vehicle originals/provenance saved unchanged in8c2d22a, integration queued.
 
 Canonical reviewer reproduced muted sound resetting on reload twice. Sourcec478644 saves device sound preference through existing safe helpers. Clean archive configured build/lint and [seven matching frozen files](qa-evidence/sound-preference-identity-20261004.json) passed at5311; independent local regression checks queued. Canonical remains484addf until acceptance/release. WorkerPID18781 verified live at run92, updated02:55:26Z,3877pending; expected request-window wait, no restart. No new4.5/listening acceptance.
+
+## Current delta — 4 October, Frog acceptance and vehicle candidate
+
+Frog/Monkey3931 geometry regression passed independent21b1117 bothwidths; root reviewed screenshot and retained scenic-crop style as broader premium-art followup. Vehiclea59482a frozen5312 builder passed with47/87illustrated,40missing; independentreview underway. Four Party/Food originals saved4e53d04; integration underway.
+
+Soundc478 local5311 independent81e2c5a passed two-wayreload and muteprofile-switchchecks plus sampled native-mutedactions/no playback; sevenhashesmatched. Exactarchive immutable Vercel candidate building; canonical stays484 pending independentliveQA/promotion. WorkerPID18781 verifiedlive run96, updated03:15:39Z,3819pending. No new4.5/listening acceptance.
