@@ -1,0 +1,15 @@
+{
+  "candidateDeployment": "dpl_JDhthNmQTzSw1UBsT4EvJfuwq7k2",
+  "runtimeSource": "e067e3d389ad2f1ec1a8583535c07edd4b83268e",
+  "challengeRuns": 1,
+  "challengeRun": [
+    {"round": 1, "visiblePrompt": "Constellation Maps", "visibleObjectTaps": 8, "visibleFeedback": "There are 8 map stars. You counted each one once."},
+    {"round": 2, "visiblePrompt": "Crater Gems", "visibleObjectTaps": 2, "visibleFeedback": "There are 2 crater gems. You counted each one once."},
+    {"round": 3, "visiblePrompt": "Constellation Maps", "visibleObjectTaps": 5, "visibleFeedback": "There are 5 map stars. You counted each one once."},
+    {"round": 4, "visiblePrompt": "Nebula Dots", "visibleObjectTaps": 12, "visibleFeedback": "There are 12 nebula lights. You counted each one once."},
+    {"round": 5, "visiblePrompt": "Planet Rings", "visibleObjectTaps": 19, "visibleFeedback": "There are 19 ring stones. You counted each one once."},
+    {"round": 6, "visiblePrompt": "Planet Rings", "visibleObjectTaps": 13, "visibleFeedback": "There are 13 ring stones. You counted each one once."}
+  ],
+  "satellitePanelsObserved": false,
+  "notes": "Rounds and counts recorded from visible rendered prompt, visible object controls clicked, and held visible correct-feedback text. No hidden question/answer state was read. The candidate target did not occur during the single permitted Challenge run."
+}
