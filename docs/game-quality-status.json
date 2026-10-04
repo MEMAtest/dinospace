@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T05:56:40.393936+00:00",
+  "updatedAt": "2026-10-04T06:01:41.917223+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "PID18781 confirmed live;05:46:54Zrun126 reports1777reused3390pending,last14generated,zero retries,expected request-window wait. No restart/concurrent paid worker.",
+    "voiceCoverage": "PID18781 confirmed live;05:57:00Zrun128reports1805reused3361pending,last15generated,zero retries,expected request-windowwait. No restart/concurrentpaidworker.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -638,7 +638,9 @@
     "sourceSha": "bff12e2025a3d45b123a23a7f838d36500772a0e",
     "origin": "http://127.0.0.1:5321",
     "identity": "docs/qa-evidence/spot-river-regions-identity-20261004.json",
-    "scope": "Independent desktop/mobile controls passed but VISUAL REJECTED: hard sky rectangle seam at75percentwidth persists atbothsizes. Other scopedtargets/hints/miss/heldfact/Next/reload/hash/guards/console pass. Preserve5321 failure lineage;notaccepted."
+    "scope": "Independent desktop/mobile controls passed but VISUAL REJECTED: hard sky rectangle seam at75percentwidth persists atbothsizes. Other scopedtargets/hints/miss/heldfact/Next/reload/hash/guards/console pass. Preserve5321 failure lineage;notaccepted.",
+    "report": "docs/qa-evidence/spot-river-regions-5321-review-20261004/report.md",
+    "commit": "138c854"
   },
   "spotStarterPreparedArt": {
     "commit": "1d2d691",
@@ -657,5 +659,11 @@
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-identity-20261004.json",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-report-20261004.md",
     "scope": "Builder normalearned1-8/fullGarden17pairsbothwidths,82pxmobile/captions/face-down/reload/hash/guards/console pass;15focusedtests/lint/buildpass. Builderinventory72/87; independent assignedpending. LastindependentlyverifiedartFood68/87. Noaudio/production/4.5."
+  },
+  "spotMoonOriginalSurfacePrototype": {
+    "sourceSha": "05e0dcd",
+    "origin": "http://127.0.0.1:5323",
+    "identity": "docs/qa-evidence/spot-moon-original-colours-identity-20261004.json",
+    "scope": "Three tight SVG colour-change clips use original source surfaces: rocketporthole,roverpanel,habitatwindow. Generated B is nottransplanted; dish replaced bywindow toavoidgeometrydrift.14Spot tests/scopedlint/configuredbuild pass. Independent shape alignment/extra-change and normalUIcontrols desktop390 pending. No visual/audio/production/4.5 acceptance."
   }
 }

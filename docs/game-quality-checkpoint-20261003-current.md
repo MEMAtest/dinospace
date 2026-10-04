@@ -192,3 +192,11 @@ PID18781 remains live. Run126 at05:46:54 UTC reports **3,390 pending**, zero ret
 Independent5321 checks confirmed the hard sky patch edge at desktop and390px. Pointer targets, hints, misses, held fact, Next, reload and9hashes pass; visual acceptance is rejected. Root implemented soft SVG masks in `9ddfb4f`, froze5322 and saved identity.13Spot tests, scopedlint and configured build pass. Independent visual/control delta is underway; no release or acceptance.
 
 Root reviewed crawler builder report `f5a789e`, source `4f6d481`, frozen5319: normal earnedLevels1–8 and completeGarden17pairs atboth widths,82pxmobile captions/face-down/reload/guards/hash/console pass.15focusedtests/lint/buildpass. Builder art inventory is72/87; independent review is assigned. The last independently checked package remainsFood68/87. Next four vehicle illustrations are assigned to the Luna builder. All26contracts remain published;4recordedaccepted/22inprogress.
+
+## Current delta — 4 October, original-surface Moon prototype
+
+Root read full5321 failure report `138c854`: the hard sky seam rejects visual acceptance; actual three targets, misses, distinct hints, held fact, Next, reload and nine served hashes pass at desktop and390px. Soft-mask5322 independent review continues.
+
+Root implemented `05e0dcd`, Moon Camp original-surface colour edits: SVG masks change only the rocket porthole, rover panel and habitat window using the original image. This avoids transplanting the generated full scene; the proposed dish edit is replaced by a window edit to avoid geometry drift. The prepared generatedB is retained as an excluded experiment. Fourteen Spot tests, scopedlint and configured build pass; candidate5323 and its identity are frozen. Independent mask alignment, unintended-colour islands and actual controls are pending. This is a local prototype, not visual acceptance or release.
+
+Narration PID18781 verifiedlive: run128 at05:57UTC reports3,361pending, zero retries and expectedrequestwindowwait. The previous goal turn made concrete progress (source repair, new frozen candidates and completed independent evidence), rather than a status-only wait. All26contracts remainpublished;4recordedaccepted/22inprogress.
