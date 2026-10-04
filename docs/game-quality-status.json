@@ -327,14 +327,15 @@
     "remaining": 22,
     "narrationWorker": {
       "pid": 18781,
-      "run": 306,
-      "generatedLastRun": 13,
-      "reused": 4414,
-      "pending": 819,
+      "run": 310,
+      "generatedLastRun": 12,
+      "reused": 4463,
+      "pending": 771,
       "state": "live waiting_request_window; no restart or concurrent paid job"
     },
     "canonical": "dpl_7wFmajPYqR6CPrTLFksm4dkGzppv unchanged",
-    "scope": "Published all26contracts. Narrow source-bound repairs and independent QA continue; production target Count candidate building, canonical unchanged."
+    "scope": "Published all26contracts. Narrow source-bound repairs and independent QA continue; production target Count candidate building, canonical unchanged.",
+    "diskRecovery": "Disk full blocked evidence commit. Disposable npmcache cleared;1.6GiBfree and paidworkerPID18781live unchanged. Generated assets,voices and QA preserved."
   },
   "pendingReleaseCandidates": [
     {
@@ -1641,6 +1642,12 @@
         "id": "dpl_HCEz1pyWWjqAhaLCbwYqqg8C28v4",
         "url": "https://dinospace-etwsszjnp-memas-projects-23a0001d.vercel.app",
         "state": "READY source bytes match frozen40c; canonical not promoted. Independentlocaldelta found singlearray receives two-groupclue; scopedlayoutcluerepairassigned, liveacceptance held."
+      },
+      "independentReport": "docs/qa-evidence/count-scene-variety-20261004/independent/report.md",
+      "clueRepair": {
+        "source": "79a719e91e727f09d1f78cf890acd7e671cab381",
+        "origin": "http://127.0.0.1:5395/",
+        "state": "Root reviewed actual arrangement classifier against coordinates,8focusedtests passed. Existingthreehintlines reused, no newnarrationkeys. Freeze/independentactualclueQA pending; not deployed."
       }
     }
   },
