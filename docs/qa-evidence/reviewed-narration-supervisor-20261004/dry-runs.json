@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-10-04T16:33:57.565Z",
+  "mode": "read-only dry-run",
+  "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+  "b4WorkerPid": 18781,
+  "b4WorkerLive": true,
+  "observedFileHashes": {
+    "candidateManifest": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7",
+    "sharedRequestJournal": "611d6c1234bc601232780b54325319a10f43bb448cec1537f9c865cb0c7ad255",
+    "b4Manifest": "1dd3a86cce642a883c5478fc9e8a5d55f174e7a58d4e469351df8cc00121ce8b"
+  },
+  "jobs": [
+    {
+      "job": "b5-reasoning",
+      "requested": 310,
+      "packagedCandidateReusable": 23,
+      "pending": 287,
+      "pendingKeysSha256": "50b9755704ae11375b0b1361f2f9a3e32ad86421fdb7461b7fe8c90950fa52ce"
+    },
+    {
+      "job": "b5-literacy",
+      "requested": 659,
+      "packagedCandidateReusable": 11,
+      "pending": 648,
+      "pendingKeysSha256": "6d647d308a65c44bbd0e7ac2092507df7243f374607a590530201309e731c4ca"
+    },
+    {
+      "job": "b6",
+      "requested": 378,
+      "packagedCandidateReusable": 1,
+      "pending": 377,
+      "pendingKeysSha256": "79f530a16c0834db5818b0cc9f60f088c514b27fb6634dc0639d4312d1b66fb3"
+    },
+    {
+      "job": "b7-solar",
+      "requested": 127,
+      "packagedCandidateReusable": 111,
+      "pending": 16,
+      "pendingKeysSha256": "653ecd134807ceb3f2da58ecf342bcdcc33577197098f0e02488c62b41825226"
+    },
+    {
+      "job": "b7-memory",
+      "requested": 183,
+      "packagedCandidateReusable": 2,
+      "pending": 181,
+      "pendingKeysSha256": "4c582a7f36ccaf0e214538239fa3156d3b32297a6bf0262812916f839f493705"
+    }
+  ],
+  "interpretation": "Candidate reusability uses pinned inventory byte hashes or this tool's local receipt. It does not prove decoding, pronunciation, playback, or human listening."
+}
