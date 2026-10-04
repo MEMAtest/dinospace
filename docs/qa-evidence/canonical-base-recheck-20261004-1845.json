@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-04T18:44:00.810104+00:00",
+  "scope": "Read-only canonical identity and eight byte hashes. Verifies the clean integration base is still current; not a new gameplay or audio acceptance.",
+  "source": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+  "url": "https://dinospace-eight.vercel.app",
+  "canonicalProvider": {
+    "id": "dpl_7wFmajPYqR6CPrTLFksm4dkGzppv",
+    "url": "dinospace-eeblb91eh-memas-projects-23a0001d.vercel.app",
+    "readyState": "READY",
+    "target": "production"
+  },
+  "files": [
+    {
+      "path": "assets/AmariCountTheStars-DIu-ySqi.js",
+      "status": 200,
+      "expected": "5832a6cc8c6578bbdc6b5e218d378a03f68cdc974fff997182aff83d9a7fc7a3",
+      "sha256": "5832a6cc8c6578bbdc6b5e218d378a03f68cdc974fff997182aff83d9a7fc7a3",
+      "matches": true
+    },
+    {
+      "path": "assets/AmariLetterTrace-DEl6E761.js",
+      "status": 200,
+      "expected": "0f1ad2ffbdda54419a0abe902d19a99e929dee5951f295901a29355520173f2e",
+      "sha256": "0f1ad2ffbdda54419a0abe902d19a99e929dee5951f295901a29355520173f2e",
+      "matches": true
+    },
+    {
+      "path": "assets/SolarSystem-DuYdtK28.js",
+      "status": 200,
+      "expected": "0bba0263d63f0ac6e2531738a0d9b01dcd124a10a60782e6d2cadc3b88c41161",
+      "sha256": "0bba0263d63f0ac6e2531738a0d9b01dcd124a10a60782e6d2cadc3b88c41161",
+      "matches": true
+    },
+    {
+      "path": "assets/index-BdCzVji4.js",
+      "status": 200,
+      "expected": "42f6cd825c240d4cae7e6001cc8aadbc4e5e51b70f11acc86805c7edb86ecd26",
+      "sha256": "42f6cd825c240d4cae7e6001cc8aadbc4e5e51b70f11acc86805c7edb86ecd26",
+      "matches": true
+    },
+    {
+      "path": "assets/index-vOQrpuVv.css",
+      "status": 200,
+      "expected": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "matches": true
+    },
+    {
+      "path": "assets/web-DM1jY3FU.js",
+      "status": 200,
+      "expected": "7d42aa088133d5e31c30e901a38d62971ac210d066f12a9904ebdad72c59fe14",
+      "sha256": "7d42aa088133d5e31c30e901a38d62971ac210d066f12a9904ebdad72c59fe14",
+      "matches": true
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "expected": "5525f8651f637c0dae620bbc73da3626773be4861fe8b689e8d4b20cc85e6ba3",
+      "sha256": "5525f8651f637c0dae620bbc73da3626773be4861fe8b689e8d4b20cc85e6ba3",
+      "matches": true
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "expected": "cafd35992488976e57a486b3421abef5f5a1edf14a15dbdeda002dada092f469",
+      "sha256": "cafd35992488976e57a486b3421abef5f5a1edf14a15dbdeda002dada092f469",
+      "matches": true
+    }
+  ],
+  "providerMatches": true,
+  "allFilesMatch": true
+}

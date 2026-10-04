@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T18:40:04.811262+00:00",
+  "updatedAt": "2026-10-04T18:46:26.160815+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -994,7 +994,7 @@
     "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
     "report": "docs/qa-evidence/batch3-independent-editorial-assessment-20261004.md",
     "listeningSheet": "docs/qa-evidence/batch3-human-listening-sheet-20261004.md",
-    "decision": "Supported non-audio components assessed. Dino age6 teaching rated4.0 for unexplained terms; two fact rewrites are local only. Formal audio dimension and overall acceptance pending.",
+    "decision": "Independent current-canonical reconciliation supports 4.5 in teaching, progression, correctness and reliability for Count, Trace and Cosmic. Canonical Dino teaching remains 4.0; local two-fact candidate teaching is 4.5. Combined feedback/audio/visual and overall acceptance remain unscored until listening and missing local recordings pass.",
     "localCandidate": {
       "source": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
       "change": "Two Dino Detective world facts simplified",
@@ -1020,7 +1020,9 @@
       "baselineSource": "653633f73cd97fcd297c592e1139c17ddb0b3855",
       "canonicalSource": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
       "scope": "Root fullread rendered desktop/390 six-round progression/replay evidence. Queue and progress modules byte-identical; component intervening changes limited to packaged narration and plural noun copy with retained production deltas. No missing rendered-quota gate; no new audio or overall acceptance."
-    }
+    },
+    "canonicalSource": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+    "currentReconciliationReport": "docs/qa-evidence/batch3-current-canonical-score-reconciliation-20261004.md"
   },
   "batch4CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch4-independent-editorial-assessment-20261004.md",
@@ -1194,23 +1196,23 @@
     }
   },
   "batch4NarrationCheckpoint": {
-    "updatedAt": "2026-10-04T15:21:54.494Z",
+    "updatedAt": "2026-10-04T18:43:43.678Z",
     "pid": 18781,
     "status": "waiting_request_window",
-    "run": 240,
+    "run": 280,
     "cooldownRetries": 0,
-    "waitUntil": "2026-10-04T15:31:46.492Z",
-    "requestsInWindow": 28,
-    "availableCalls": 2,
+    "waitUntil": "2026-10-04T18:53:36.291Z",
+    "requestsInWindow": 30,
+    "availableCalls": 0,
     "minimumBatch": 10,
     "lastResult": {
       "exitCode": 0,
-      "generated": 15,
-      "reused": 3475,
-      "pending": 1756,
+      "generated": 17,
+      "reused": 4053,
+      "pending": 1176,
       "stoppedAt": null
     },
-    "scope": "PID18781 confirmed live. Last completed run240:15generated,3475reused,1756pending,exit0; expected request window wait. No concurrent paid generation or restart. Not audio acceptance."
+    "scope": "PID 18781 confirmed live at this check. Expected request-window waiting is normal; no restart or concurrent paid job. This checkpoint is generation progress, not audio acceptance."
   },
   "batch7CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch7-independent-editorial-assessment-20261004.md",
@@ -1392,7 +1394,7 @@
     "scope": "Canonical0d plus reviewed four game components and restored router glue.26 focused tests/build and5879 served byte matches. Independent5383 actual controls pass both-width clock return/reload and desktop earned Addition badge persistence/sibling isolation. Retained5227 full chapter matrix; no new full matrix/audio/release claim.",
     "independentReport": "docs/qa-evidence/batch4-clock-route-independent-qa-20261004/report.md"
   },
-  "canonicalLatestBaseRecheck": "docs/qa-evidence/canonical-base-recheck-20261004-1740.json",
+  "canonicalLatestBaseRecheck": "docs/qa-evidence/canonical-base-recheck-20261004-1845.json",
   "batch4GrammarRepair": {
     "source": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
     "origin": "http://127.0.0.1:5384",
