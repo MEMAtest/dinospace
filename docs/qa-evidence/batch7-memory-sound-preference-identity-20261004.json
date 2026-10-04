@@ -1,0 +1,49 @@
+{
+  "createdAt": "2026-10-04T08:25:14.919359+00:00",
+  "sourceSha": "1410edb79f0105f25a3cbfd5c9a4c7626140ae1d",
+  "origin": "http://127.0.0.1:5335",
+  "frozenDist": "tmp/batch7-memory-sound-preference/dist",
+  "scope": "Exact existing canonical c478 sound preference fix cherry-picked into final Memory87 branch as1410edb. Game/data/art unchanged from7fbbfef full desktop/mobile baseline92c7048. Scoped App lint/configured build pass. Independent two-way sound reload/profile switch and muted gameplay delta pending. No audio listening/production/4.5 acceptance.",
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "7eb172bb38778d73b56e6e5d36821252b4dc0613424e51452a5d880c9faae9fa"
+    },
+    {
+      "path": "/assets/SolarSystem-BrbCYAJv.js",
+      "bytes": 565035,
+      "sha256": "c3e25042ac3281fc61ea6ccd167e58dea84d43bfdf7c92eb63c03c90b26ef4cd"
+    },
+    {
+      "path": "/assets/index-WwSS5QjF.js",
+      "bytes": 1190168,
+      "sha256": "0372826133d59939868edbadfeb680de37bd2906479a47a16194fd119462b93c"
+    },
+    {
+      "path": "/assets/web-VPARv6G6.js",
+      "bytes": 842,
+      "sha256": "68a6e33ccc8d3e15209c598eccb90ed0675225fa05a250bc541f2fee92ab77b8"
+    },
+    {
+      "path": "/assets/index-CYWTXfuY.css",
+      "bytes": 213139,
+      "sha256": "251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d"
+    },
+    {
+      "path": "/assets/dinosaur-nest-v1-card-ChEJNs5k.webp",
+      "bytes": 63568,
+      "sha256": "d9b9c4639df9490cd587e0480054ba784e92be3be4e8cc34fc175c1b257986fc"
+    },
+    {
+      "path": "/assets/speedboat-v1-card-CagVNCP2.webp",
+      "bytes": 31062,
+      "sha256": "57965f3dc77a6ea545f7f44cba103f4eff17f936c3528d673b7cf86061177f55"
+    },
+    {
+      "path": "/assets/water-lily-v1-card-DbLYxK0O.webp",
+      "bytes": 37998,
+      "sha256": "7062e68d7b67608bb209e4016c5313deda328b101439234446c7ec15260062a2"
+    }
+  ]
+}
