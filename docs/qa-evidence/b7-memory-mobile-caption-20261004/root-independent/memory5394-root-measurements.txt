@@ -1,0 +1,6 @@
+### Result
+[{"text":"Monkey","font":"12px","width":66,"height":34,"scrollWidth":66,"scrollHeight":34,"document":360,"viewport":360},{"text":"Monkey","font":"12px","width":72,"height":34,"scrollWidth":72,"scrollHeight":34,"document":390,"viewport":390}]
+### Ran Playwright code
+```js
+await (async page=>{const observations=[];for(const width of [360,390]){await page.setViewportSize({width,height:844});const face=page.getByRole("button",{name:"monkey card",exact:true});await face.waitFor({state:"visible"});observations.push(await face.locator(".memory-card-label").evaluate(e=>({text:e.innerText,font:getComputedStyle(e).fontSize,width:e.clientWidth,height:e.clientHeight,scrollWidth:e.scrollWidth,scrollHeight:e.scrollHeight,document:document.documentElement.scrollWidth,viewport:innerWidth})));await page.screenshot({path:`output/playwright/memory5394-root-stable-${width}.png`});}return observations;})(page);
+```
