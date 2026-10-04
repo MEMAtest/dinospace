@@ -60,6 +60,10 @@ import fossilBoneArt from '../../assets/memory-match/fossil-bone-v1-card.webp';
 import dinosaurToothArt from '../../assets/memory-match/dinosaur-tooth-v1-card.webp';
 import fossilDigPickArt from '../../assets/memory-match/fossil-dig-pick-v1-card.webp';
 import fossilRockArt from '../../assets/memory-match/fossil-rock-v1-card.webp';
+import gardenBeeArt from '../../assets/memory-match/garden-bee-v1-card.webp';
+import gardenButterflyArt from '../../assets/memory-match/garden-butterfly-v1-card.webp';
+import gardenLadybirdArt from '../../assets/memory-match/garden-ladybird-v1-card.webp';
+import gardenSnailArt from '../../assets/memory-match/garden-snail-v1-card.webp';
 import jellyfishArt from '../../assets/memory-match/jellyfish-v1-card.webp';
 import crabArt from '../../assets/memory-match/crab-v1-card.webp';
 import squidArt from '../../assets/memory-match/squid-v1-card.webp';
@@ -134,6 +138,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/dinosaur-tooth-v1-card.webp': dinosaurToothArt,
   'memory-match/fossil-dig-pick-v1-card.webp': fossilDigPickArt,
   'memory-match/fossil-rock-v1-card.webp': fossilRockArt,
+  'memory-match/garden-bee-v1-card.webp': gardenBeeArt,
+  'memory-match/garden-butterfly-v1-card.webp': gardenButterflyArt,
+  'memory-match/garden-ladybird-v1-card.webp': gardenLadybirdArt,
+  'memory-match/garden-snail-v1-card.webp': gardenSnailArt,
   'memory-match/jellyfish-v1-card.webp': jellyfishArt,
   'memory-match/crab-v1-card.webp': crabArt,
   'memory-match/squid-v1-card.webp': squidArt,
