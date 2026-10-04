@@ -31,4 +31,4 @@ Reloading at mobile width returned to the existing Amari Memory journey; Dinosau
 
 The two 403 endpoint guards stayed installed; the browser request list showed no voice/story requests. Console errors, warnings and other messages: zero. Every path in the frozen identity report was fetched from port 5317 and compared to both the report and frozen dist. Root HTML, JS, CSS and all four new WebPs matched the expected and frozen SHA-256 values.
 
-The known separate builder gate is 23 of 87 unique Memory tokens illustrated after this delta, with narration readiness, Askia parity, broader human/device acceptance, production and overall quality scoring still open.
+The builder-recorded read-only inventory reports 64 of 87 unique Memory tokens illustrated after this delta, with 23 remaining. This independent Party-art check did not audit that full inventory. Narration readiness, Askia parity, broader human/device acceptance, production and overall quality scoring remain open.
