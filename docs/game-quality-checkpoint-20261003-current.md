@@ -656,3 +656,8 @@ The narration supervisor now has eight selectors, including the exact 47 correct
 A component-only candidate at port 5385 adds visible `0 (empty)` after a correct zero answer, while keeping the tray blank before selection. The builder's desktop zero check and root visual review pass. The independent ordinary run completed five questions without producing zero, but did observe corrected `1 remains` naturally. A separate candidate at port 5386 fixes faint group labels by fading only the illustrations. Its 249 existing tests, build, lint and three core hashes pass; independent desktop and 390px label checks are underway. Earlier frozen candidates remain retained. These are local improvements; no overall 4.5 score or production acceptance is recorded.
 
 Independent editorial reconciliation continues in four-game sets for batches 3 and 5 using retained evidence tied to its source. Audio, native playback, listening and production gates remain open. The accepted count remains 4/26.
+
+
+## 4 October current B5 component reconciliation
+
+Root read and preserved the [independent integrated score worksheet](qa-evidence/batch5-current-integration-score-reconciliation-20261004.md). Spelling Studio, Colour Mixing Lab and Odd One Out support provisional 4.5 on the four non-audio dimensions; Sound Safari supports 4.0 while all 37 essential pure phoneme clips remain absent and mobile audio-dependent chapters are unverified. The historical assessment remains intact. All combined feedback/audio/visual scores and overall release acceptance remain open. Recorded accepted count remains 4/26.

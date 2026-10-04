@@ -1065,7 +1065,7 @@
   },
   "batch5CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch5-independent-editorial-assessment-20261004.md",
-    "decision": "Plain-language Spelling and clean four-game integration independently passed bounded desktop/mobile controls. Saved sound preference survives both mute/unmute reloads. Separate pure phoneme inventory 0/37 and narration gaps remain; no overall award or release.",
+    "decision": "Independent current integrated reconciliation: Spelling Studio, Colour Mixing Lab and Odd One Out each provisionally 4.5 on four non-audio dimensions. Sound Safari each 4.0 with 37 required phoneme assets missing and mobile audio-dependent chapters unverified. Combined feedback/audio/visual unscored; no overall award or release.",
     "localSpellingCandidate": {
       "source": "d7c66992cba8cdfa78a985b26e8aa561b1ec33cf",
       "origin": "http://127.0.0.1:5362/",
@@ -1123,7 +1123,9 @@
       "commit": "a9c7910",
       "report": "https://github.com/MEMAtest/dinospace/blob/a9c7910/docs/qa-evidence/batch5-integration-independent-20261004/route-ownership-followup.md",
       "scope": "Root read report. Ordinary Amari CountStars/LetterTraceentry+parentreturn pass bothwidths; Askia legacySound/Spelling resolve only throughinternalroutes, notlinkedfromLittleHome. No discovery/fullcollection/audioacceptanceclaim."
-    }
+    },
+    "currentReconciliationReport": "docs/qa-evidence/batch5-current-integration-score-reconciliation-20261004.md",
+    "currentReconciliationCommit": "629c5eb6a1b450ba6f2465ce79f432f0f5f5509f"
   },
   "batch6CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch6-independent-editorial-assessment-20261004.md",
@@ -1321,7 +1323,41 @@
         "Colour Mixing Lab reliability": 4.5,
         "Odd One Out reliability": 4.5
       },
-      "scope": "Supported component recommendations from reviewed source-bound copy/reliability and clean persisted-preference integration deltas. Sound Safari auditory delivery and formal audio/overall release gates remain open."
+      "scope": "Source-bound independent reconciliation against b198dbf/5368 and retained full matrices/deltas. No numeric combined audio/visual score, overall mean, acceptance or production release.",
+      "currentReconciliationReport": "docs/qa-evidence/batch5-current-integration-score-reconciliation-20261004.md",
+      "nonAudioDimensions": [
+        "age-6 teaching",
+        "meaningful progression",
+        "correctness and fair variation",
+        "reliability/navigation/persistence"
+      ],
+      "currentRecommendations": {
+        "Sound Safari": [
+          4.0,
+          4.0,
+          4.0,
+          4.0
+        ],
+        "Spelling Studio": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "Colour Mixing Lab": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "Odd One Out": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ]
+      },
+      "feedbackAudioVisual": null
     },
     "batch6": {
       "source": "2a82fd8fd17d9e76ec4310f2fecf489291f5bbff",
