@@ -45,3 +45,12 @@ test('Dino instruction, wrong, completion, world facts, world hints and directio
     for (const round of run.rounds) assert.ok(has('dino', round.hintText));
   }
 });
+
+test('wetland and cave facts use concrete age-6 wording while preserving the science', () => {
+  const swamp = DINO_DETECTIVE_WORLDS.find(({ id }) => id === 'swamp');
+  const cave = DINO_DETECTIVE_WORLDS.find(({ id }) => id === 'cave');
+  assert.equal(swamp.sceneFact, 'A wetland is a place where the ground stays very wet. Some wetlands dry out for part of the year.');
+  assert.equal(cave.sceneFact, 'Water can slowly dissolve (wear away) limestone rock and help caves form.');
+  assert.ok(has('dino', swamp.sceneFact));
+  assert.ok(has('dino', cave.sceneFact));
+});
