@@ -306,9 +306,9 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
 
   return (
     <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-orange-100 via-amber-50 to-red-100 px-2 pb-8 pt-2 text-slate-900 sm:px-5 sm:pt-4">
-      <header className="mx-auto flex max-w-5xl items-center gap-2 rounded-3xl border-2 border-white/80 bg-white/90 p-2.5 shadow-lg sm:gap-4 sm:p-3">
+      <header className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-2 rounded-3xl border-2 border-white/80 bg-white/90 p-2.5 shadow-lg sm:flex-nowrap sm:gap-4 sm:p-3">
         <button type="button" onClick={leaveGame} className="game-icon-button shrink-0 !bg-orange-700 !text-white" aria-label="Back to learning world"><ArrowLeft /></button>
-        <div className="min-w-0 flex-1 text-center"><p className="truncate text-[10px] font-black uppercase tracking-widest text-orange-700 sm:text-xs">Episode {episodeIndex + 1} · {episode.title}</p><h1 className="truncate text-xl font-black sm:text-2xl">Monster Math</h1></div>
+        <div className="order-1 w-full min-w-0 text-center sm:order-none sm:w-auto sm:flex-1"><p className="text-[10px] font-black uppercase leading-snug tracking-widest text-orange-700 sm:text-xs">Episode {episodeIndex + 1} · {episode.title}</p><h1 className="text-xl font-black sm:text-2xl">Monster Math</h1></div>
         <span className="shrink-0 rounded-full bg-orange-100 px-2 py-1 text-xs font-black sm:px-3 sm:text-sm">Question {roundIndex + 1}/6</span>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
