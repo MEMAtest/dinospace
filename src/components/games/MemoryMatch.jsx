@@ -41,6 +41,10 @@ import flyingSaucerArt from '../../assets/memory-match/flying-saucer-v1-card.web
 import alienArt from '../../assets/memory-match/alien-v1-card.webp';
 import galaxyArt from '../../assets/memory-match/galaxy-v1-card.webp';
 import telescopeArt from '../../assets/memory-match/telescope-v1-card.webp';
+import starArt from '../../assets/memory-match/star-v1-card.webp';
+import glowingStarArt from '../../assets/memory-match/glowing-star-v1-card.webp';
+import shootingStarArt from '../../assets/memory-match/shooting-star-v1-card.webp';
+import sunFaceArt from '../../assets/memory-match/sun-face-v1-card.webp';
 import jellyfishArt from '../../assets/memory-match/jellyfish-v1-card.webp';
 import crabArt from '../../assets/memory-match/crab-v1-card.webp';
 import squidArt from '../../assets/memory-match/squid-v1-card.webp';
@@ -95,6 +99,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/alien-v1-card.webp': alienArt,
   'memory-match/galaxy-v1-card.webp': galaxyArt,
   'memory-match/telescope-v1-card.webp': telescopeArt,
+  'memory-match/star-v1-card.webp': starArt,
+  'memory-match/glowing-star-v1-card.webp': glowingStarArt,
+  'memory-match/shooting-star-v1-card.webp': shootingStarArt,
+  'memory-match/sun-face-v1-card.webp': sunFaceArt,
   'memory-match/jellyfish-v1-card.webp': jellyfishArt,
   'memory-match/crab-v1-card.webp': crabArt,
   'memory-match/squid-v1-card.webp': squidArt,
