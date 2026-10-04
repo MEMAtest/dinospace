@@ -638,3 +638,12 @@ Root caught the clean B4 integration omitting actual router calls to the existin
 B4 finite narration worker PID18781 was live at the 17:12:56Z snapshot, run262: 15 newly generated, 3,794 reused, 1,437 pending, expected request-window wait and zero cooldown retries. These time-bound counts may advance; no concurrent paid job or restart was launched. Final corpus/readiness, playback/listening, release and production deltas remain open.
 
 Dino revised fact copy has completed independent ordinary desktop/390px visible QA, with held facts/Next and Explore return. Two exact local fact recordings remain missing and the copy is not canonical. The gap ledger now reflects this completed visible check. Production remains audited0d3ef056; no new release or overall quality award occurred in this delta.
+
+
+## 4 October independent route and grammar reconciliation
+
+All 26 contracts remain published; recorded accepted count stays 4/26. The independent frozen5383 delta confirms both-width clock-origin returns/reload, desktop Addition chapter award persistence and Askia isolation. See [route and badge report](qa-evidence/batch4-clock-route-independent-qa-20261004/report.md).
+
+The frozen5384 grammar repair now has independent source/corpus and rendered-copy evidence: exactly47 replacements/5199 unchanged; visible singular-start and zero-remainder feedback confirmed. Unobserved one-remainder and compare singular-space strings are source-covered, not UI claims. See [corpus review](qa-evidence/batch4-grammar-corpus-delta-review-20261004.md) and [browser delta](qa-evidence/batch4-grammar-independent-qa-20261004/report.md). New47 clips, native playback/cancellation, listening and production gates remain open. The historical ac3 listening worksheet records the original bad strings and must use a corrected-source overlay before later audio acceptance.
+
+Narration worker PID18781 remains live: checkpoint18:03:20Z run272 recorded3935 reused,17 newly generated and1294 pending. This is progress only, not completed audio QA. No provider job was restarted or production deployment made in this reconciliation.

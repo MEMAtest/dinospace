@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T17:59:52.579547+00:00",
+  "updatedAt": "2026-10-04T18:13:09.475466+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1386,8 +1386,9 @@
     "source": "aa1627216907ae1612e1bdbb309764000a995ae6",
     "origin": "http://127.0.0.1:5383",
     "worktree": "work/dinospace-batch4-clean-integration",
-    "identity": "work/dinospace-batch4-clean-integration/docs/qa-evidence/batch4-clock-route-repair-identity-20261004.json",
-    "scope": "Canonical0d base plus exactac3 four components; rootcaught5382 omitted router glue, reviewed8bb hook restored.26 focused tests/lint/build,5879 served byte matches. Independent actual controls QA underway. Baseline-only narration65/5246; local/no release."
+    "identity": "docs/qa-evidence/batch4-clock-route-repair-identity-20261004.json",
+    "scope": "Canonical0d plus reviewed four game components and restored router glue.26 focused tests/build and5879 served byte matches. Independent5383 actual controls pass both-width clock return/reload and desktop earned Addition badge persistence/sibling isolation. Retained5227 full chapter matrix; no new full matrix/audio/release claim.",
+    "independentReport": "docs/qa-evidence/batch4-clock-route-independent-qa-20261004/report.md"
   },
   "canonicalLatestBaseRecheck": "docs/qa-evidence/canonical-base-recheck-20261004-1740.json",
   "batch4GrammarRepair": {
@@ -1396,11 +1397,14 @@
     "report": "docs/qa-evidence/batch4-grammar-repair-20261004/report.md",
     "affectedUniquePhrases": 47,
     "unchangedUniquePhrases": 5199,
-    "scope": "Independent source audit found singular agreement defects; root corrected data, exact segment helpers and inventory.18 focused tests/lint/configured build/eight runtime hashes pass. Source/corpus and rendered copy review pending. No worker or manifest mutation;47 replacement recordings/audio QA required after original worker terminal. No new score or release."
+    "scope": "Independent regeneration confirms5246 phrases both sides,5199 unchanged and47 exact replacements.18 focused tests/lint/configured build/eight served runtime hashes pass. Independent5384 visible singular starting-object and zero-remainder copy pass; one-remains/compare one-space not naturally UI observed, finite source checks cover those. Recordings/native playback/listening and production acceptance remain pending.",
+    "independentCorpusReport": "docs/qa-evidence/batch4-grammar-corpus-delta-review-20261004.md",
+    "independentBrowserReport": "docs/qa-evidence/batch4-grammar-independent-qa-20261004/report.md"
   },
   "phonemePilotPrepared": {
     "source": "6b052cc65f1eee05eea6a825d32b9949d9d1bb39",
     "report": "work/dinospace-phoneme-qa-pilot/docs/phoneme-qa-pilot-preparation-20261004.md",
     "scope": "Builder source-only three-sound experiment prepared, root review pending. No provider call/runtime sound asset; worker live guard. SSML support does not prove isolated phoneme quality."
-  }
+  },
+  "batch4ListeningWorksheet": "docs/qa-evidence/batch4-representative-listening-worksheet-20261004.md"
 }
