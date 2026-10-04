@@ -20,4 +20,6 @@ A wrong9 answer was followed by the actual Try the jumps button. Two real “Jum
 
 Screenshots: `subtraction-before.png`, `subtraction-jumps.png`, `subtraction-held-correct.png`. Root visually reviewed the held-correct full-page screenshot.
 
+Header Back opened Leave the game; the rendered confirmation control with accessible name “Back to world” returned to `#/world/maths` / Maths Missions. The initial automated lookup used visible tooltip “World” instead of that accessible button name and timed out; inspection of rendered accessible names resolved the harness error. The sound toggle label was “Turn sound off”, indicating sound enabled, but playback/listening was not measured.
+
 No separate console/media instrumentation was attached for this targeted run. Sound state and narration quality were not certified. These observations narrow episode/subtraction proof gaps; they do not replace independent full-batch evidence, human listening or4.5 acceptance.
