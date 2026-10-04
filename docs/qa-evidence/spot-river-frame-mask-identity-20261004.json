@@ -1,0 +1,55 @@
+{
+  "createdAt": "2026-10-04T06:07:30.582969+00:00",
+  "sourceSha": "94c4614aa894fc5ee72409522d25c6a5b045d4f3",
+  "origin": "http://127.0.0.1:5325",
+  "frozenDist": "tmp/spot-river-frame-mask/dist",
+  "scope": "River bounded mask extends beyondcanvas top/rightedges toavoidoriginalsunray leakage.14Spot tests/scopedlint/configbuildpass;independent visual delta pending. RetainsMoon05e0dcd. No release/4.5.",
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "560be4c9d8ee85dcd22d48447c2dbf7e283baffa7556cc882c98ddf3d64ee257"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-C8R3dyCd.js",
+      "bytes": 18854,
+      "sha256": "3c40e99a98d08df1bcb4cfa8120e797ddaadf60ef97d2372b6b23229e6e13847"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-DuNTsBVZ.js",
+      "bytes": 19956,
+      "sha256": "a5e6ebf3828ab41f84058ec3cac049035e8b2b845eedd2db7f33fc0ee9de77ed"
+    },
+    {
+      "path": "/assets/SolarSystem-ze1ZguYw.js",
+      "bytes": 563158,
+      "sha256": "487eba2a7e238d59862ca2f3a1f9925e705e5643d1ef5f4fb873c25f65bba202"
+    },
+    {
+      "path": "/assets/index-Dn3x4qad.js",
+      "bytes": 1241262,
+      "sha256": "ab65a290bd9a4d3245c03e32179fde07536bea299fb09df67234c65504ed4cf8"
+    },
+    {
+      "path": "/assets/web-5eiuxtMr.js",
+      "bytes": 842,
+      "sha256": "c84f6b458d156cab406876f015aed95cd152a373b8a1649d8c7e36beab9b87ae"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/river-valley-pair-b-v1-BvZSBbF5.webp",
+      "bytes": 353174,
+      "sha256": "9b254a872bf0d3d01489333ae7da8dd5aba52f04c3e4c367c3b12a66eb9ead5b"
+    },
+    {
+      "path": "/assets/dino-river-3d-DS1Pw89d.webp",
+      "bytes": 415714,
+      "sha256": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8"
+    }
+  ],
+  "originNote": "5324 was already occupied; no listener was replaced. Candidate serves only at5325."
+}

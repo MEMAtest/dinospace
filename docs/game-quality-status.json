@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T06:01:41.917223+00:00",
+  "updatedAt": "2026-10-04T06:10:18.604493+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "PID18781 confirmed live;05:57:00Zrun128reports1805reused3361pending,last15generated,zero retries,expected request-windowwait. No restart/concurrentpaidworker.",
+    "voiceCoverage": "PID18781 confirmedlive;06:07:04Zrun130reports1834reused3333pending,last14generated,zero retries,expectedrequestwindowwait. No restart/concurrentpaidworker.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -651,7 +651,9 @@
     "sourceSha": "9ddfb4f",
     "origin": "http://127.0.0.1:5322",
     "identity": "docs/qa-evidence/spot-river-feather-identity-20261004.json",
-    "scope": "Soft SVG masks blend edges inside3boundedclips over unchangedoriginalA.13Spot tests/scopedlint/configuredbuildpass. Independent actualvisual and desktop390controlQA underway. Missinghint/audio and broader8scene repair remain open;no release/4.5."
+    "scope": "Independent desktop390: hard seam fixed; visual FAIL on residual original sun rays at top. Flower/bridge look integrated. Actual3pointertargets,miss,two distincthints,heldfact,Next,reload,56px bounds,9hashes,guards/consolepass. Not accepted; preservefailure.",
+    "report": "docs/qa-evidence/spot-river-feather-5322-review-20261004/report.md",
+    "commit": "4cf2329"
   },
   "memoryGardenCrawlersCandidate": {
     "sourceSha": "4f6d48122e65d861e73bb2ff0d7e446b845521e9",
@@ -667,5 +669,11 @@
     "scope": "Three tight SVG colour-change clips use original source surfaces: rocketporthole,roverpanel,habitatwindow. Generated B is nottransplanted; dish replaced bywindow toavoidgeometrydrift.14Spot tests/scopedlint/configuredbuild pass. Independent shape alignment/extra-change and normalUIcontrols desktop390 pending. No visual/audio/production/4.5 acceptance.",
     "narrationExistence": "docs/qa-evidence/spot-moon-source-batch2-narration-existence-20261004.json",
     "narrationScope": "Local05e0dcd corpus1372unique lines:1368exist,4missing (3PuzzleDinoParktitle,1Spotmiddlehint). Fileexistence only;no decode/listening/provider calls. Mustpackage afterauthorizedworkerterminal;notreadyforrelease."
+  },
+  "spotRiverFrameMaskPrototype": {
+    "sourceSha": "94c4614",
+    "origin": "http://127.0.0.1:5325",
+    "identity": "docs/qa-evidence/spot-river-frame-mask-identity-20261004.json",
+    "scope": "Mask white area extends beyondtop/rightcanvas edges topreventoriginalsunray blending. Interiorregionfeather unchanged;14Spot tests/scopedlint/configuredbuildpass. Independent visual/control delta queuedafterMoon5323. Port5324 wasoccupied; old listener preserved. No release/4.5."
   }
 }

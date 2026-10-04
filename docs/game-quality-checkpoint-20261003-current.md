@@ -202,3 +202,11 @@ Root implemented `05e0dcd`, Moon Camp original-surface colour edits: SVG masks c
 Narration PID18781 verifiedlive: run128 at05:57UTC reports3,361pending, zero retries and expectedrequestwindowwait. The previous goal turn made concrete progress (source repair, new frozen candidates and completed independent evidence), rather than a status-only wait. All26contracts remainpublished;4recordedaccepted/22inprogress.
 
 Read-only narration existence audit on05e0dcd finds1,372uniqueBatch2lines and4missing: the3DinoParktitle lines plusSpot middle-area hint. Other1,368existlocally; this does not establish decoding or human listening. No provider calls were made.
+
+## Current delta — 4 October, ray leakage repair
+
+Root read independent5322report `4cf2329`: feathering removes the hard rectangle, and flower/bridge look integrated; original sun-ray traces remain at the sky’s top edge, so visual acceptance is rejected. Actual3pointer targets, miss, distincthints, heldfact, Next, reload,56pxgeometry and9hashes pass atboth widths; guards/API/console clean.
+
+Root implemented `94c4614` to extend the mask’s white interior beyond canvas top/right edges, preventing those edges from fading back to original sun details. Fourteen focusedSpot tests, scopedlint and configured build pass. New frozen candidate uses5325;5324 wasoccupied and its listener was preserved. Independent visual delta is queued afterMoon5323; no release/acceptance.
+
+PID18781 verifiedlive; run130 at06:07UTC reports3,333pending, zero retries, expectedrequestwindowwait. Work remains active with26publishedcontracts and4recordedaccepted/22inprogress.
