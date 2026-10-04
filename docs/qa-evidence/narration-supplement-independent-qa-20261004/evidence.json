@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-04T17:10:53Z",
+  "candidate": {
+    "commit": "bf3a76dabd2d95e17d37723215ac6a3ae1bf7c30",
+    "branch": "codex/narration-supplement-20261004",
+    "baseSafetyCommit": "afbbf01",
+    "supplementalInventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+    "b5b7InventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227"
+  },
+  "sourceProvenanceHashesVerified": {
+    "94d44d031d5835d0d9fa2128064ff83ba5880a62:src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "94d44d031d5835d0d9fa2128064ff83ba5880a62:src/data/puzzlePopBatch2.js": "74b63dd135836f58a9322f835e1a05411cbff6be49fea007e466dad9ffb59e56",
+    "94d44d031d5835d0d9fa2128064ff83ba5880a62:src/data/spotDifferenceBatch2.js": "5f8a2916eb1fad79a7913deae73404eb9155826683279f14b348f4441696b98c",
+    "94d44d031d5835d0d9fa2128064ff83ba5880a62:src/data/voiceKey.js": "d013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f",
+    "e2aee30169f6ade67f7948b0088a895a9cb119c3:src/data/batch3Narration.js": "8944c5fb6315e7751c15521826d603e4c9d1245503dde17e7c235edbf31a0d33",
+    "e2aee30169f6ade67f7948b0088a895a9cb119c3:src/data/dinoDetectiveBatch3.js": "1bf0d3074ad7e3cba4df6ae701eeec22b9b71745017be9112592aa5b9d500749"
+  },
+  "tests": {
+    "command": "node --test scripts/reviewedNarrationJobs.test.mjs",
+    "passed": 14,
+    "failed": 0
+  },
+  "dryRuns": [
+    { "job": "b5-reasoning", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 310, "reusable": 23, "pending": 287 },
+    { "job": "b5-literacy", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 659, "reusable": 11, "pending": 648 },
+    { "job": "b6", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 378, "reusable": 1, "pending": 377 },
+    { "job": "b7-solar", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 127, "reusable": 111, "pending": 16 },
+    { "job": "b7-memory", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 183, "reusable": 2, "pending": 181 },
+    { "job": "b2-supplement", "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd", "requested": 5, "reusable": 0, "pending": 5, "pendingKeys": ["5866151d", "9685e0ac", "a39b3546", "a44acc87", "e077fcc0"] },
+    { "job": "b3-dino-facts", "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd", "requested": 2, "reusable": 0, "pending": 2, "pendingKeys": ["0f0204e5", "f6991245"] }
+  ],
+  "unchangedSharedFiles": {
+    "candidateManifestSha256": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7",
+    "sharedRequestJournalSha256": "48c0e501fb3afc791aa82ed1120ce0496cde8ba4f9a0d2d9a1263964261083a2",
+    "b4ManifestSha256": "acf5ca46e6278f9008be6846c1f615aefe7697d7aafe2ed4fb0eafc34b402a27"
+  },
+  "b4WorkerPid": 18781,
+  "b4WorkerLiveAtCheck": true,
+  "temporaryReceiptIsolationFixture": {
+    "exactSupplementalReceiptAccepted": true,
+    "sameReceiptWithB5B7InventoryShaRejected": true,
+    "sameReceiptWithWrongSourceCommitRejected": true,
+    "temporaryFilesRemoved": true
+  },
+  "paidOrProviderRequests": 0,
+  "audioPlaybackOrListening": false,
+  "legacyUnsuffixedReceiptFilePresentInThisCheckout": false,
+  "limitations": [
+    "No paid execution or external provider request was made.",
+    "Legacy migration from tmp/reviewed-narration-provenance.json to inventory-SHA receipt files is not verified.",
+    "Separate runner-response audit-fixture coverage is handled by another reviewer."
+  ]
+}
