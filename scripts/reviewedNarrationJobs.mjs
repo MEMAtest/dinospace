@@ -4,6 +4,19 @@ import { dirname, resolve } from 'node:path';
 import { voiceClipKey, normalizeVoiceText } from '../src/data/voiceKey.js';
 
 export const PINNED_INVENTORY_SHA256 = 'aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227';
+export const SUPPLEMENTAL_INVENTORY_SHA256 = '0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd';
+export const SUPPLEMENTAL_SOURCE_COMMITS = Object.freeze({
+  2: '94d44d031d5835d0d9fa2128064ff83ba5880a62',
+  3: 'e2aee30169f6ade67f7948b0088a895a9cb119c3',
+});
+export const SUPPLEMENTAL_SOURCE_HASHES = Object.freeze({
+  'src/data/batch2Narration.js': '979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14',
+  'src/data/puzzlePopBatch2.js': '74b63dd135836f58a9322f835e1a05411cbff6be49fea007e466dad9ffb59e56',
+  'src/data/spotDifferenceBatch2.js': '5f8a2916eb1fad79a7913deae73404eb9155826683279f14b348f4441696b98c',
+  'src/data/batch3Narration.js': '8944c5fb6315e7751c15521826d603e4c9d1245503dde17e7c235edbf31a0d33',
+  'src/data/dinoDetectiveBatch3.js': '1bf0d3074ad7e3cba4df6ae701eeec22b9b71745017be9112592aa5b9d500749',
+  'src/data/voiceKey.js': 'd013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f',
+});
 export const B4_SOURCE_COMMIT = 'ac3b3ccaf03107749d865f8d79557e872a06c881';
 export const B4_WORKER_PID = 18781;
 export const RATE_WINDOW_MS = 10 * 60 * 1000;
@@ -20,6 +33,8 @@ export const JOBS = Object.freeze({
   b6: Object.freeze({ owner: 'B6', label: 'B6 Amari narration' }),
   'b7-solar': Object.freeze({ owner: 'B7_solar', label: 'B7 Solar narration' }),
   'b7-memory': Object.freeze({ owner: 'B7_memory', label: 'B7 Memory narration' }),
+  'b2-supplement': Object.freeze({ ledger: 'supplemental', batch: 2, label: 'B2 released narration supplement' }),
+  'b3-dino-facts': Object.freeze({ ledger: 'supplemental', batch: 3, game: 'dino', label: 'B3 revised Dino fact narration' }),
 });
 
 export const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
@@ -37,26 +52,67 @@ export function validateBudgets({ maxCalls, maxRuns, paid }) {
   return { maxCalls, maxRuns };
 }
 
-export async function loadPinnedInventory({ inventoryPath, suppliedSha256 }) {
-  if (suppliedSha256 !== PINNED_INVENTORY_SHA256) {
-    throw new Error(`Inventory SHA argument must equal reviewed SHA ${PINNED_INVENTORY_SHA256}.`);
+export async function loadPinnedInventory({ inventoryPath, suppliedSha256, expectedSha256 = PINNED_INVENTORY_SHA256 }) {
+  if (suppliedSha256 !== expectedSha256) {
+    throw new Error(`Inventory SHA argument must equal reviewed SHA ${expectedSha256}.`);
   }
   const bytes = await readFile(inventoryPath);
   const actualSha256 = sha256(bytes);
-  if (actualSha256 !== PINNED_INVENTORY_SHA256) {
-    throw new Error(`Inventory content SHA mismatch: expected ${PINNED_INVENTORY_SHA256}, got ${actualSha256}.`);
+  if (actualSha256 !== expectedSha256) {
+    throw new Error(`Inventory content SHA mismatch: expected ${expectedSha256}, got ${actualSha256}.`);
   }
   const inventory = JSON.parse(bytes.toString('utf8'));
-  if (!Array.isArray(inventory.items) || inventory.uniqueVoiceKeys !== inventory.items.length) {
+  const expectedCount = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 ? 7 : inventory.items?.length;
+  const countIsValid = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256
+    ? inventory.requested === expectedCount
+    : inventory.uniqueVoiceKeys === inventory.items?.length;
+  if (!Array.isArray(inventory.items) || !countIsValid || inventory.items.length !== expectedCount) {
     throw new Error('Reviewed inventory structure is not the pinned key ledger format.');
   }
+  if (expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256) validateSupplementalProvenance(inventory);
   return { inventory, actualSha256 };
+}
+
+export function validateSupplementalProvenance(inventory) {
+  const provenance = inventory.provenance || {};
+  const expectedPaths = Object.keys(SUPPLEMENTAL_SOURCE_HASHES).sort();
+  if (Object.keys(provenance).sort().join('\n') !== expectedPaths.join('\n')) throw new Error('Supplemental ledger source provenance paths changed.');
+  for (const path of expectedPaths) {
+    const batch = path.includes('batch2') || path.includes('puzzlePopBatch2') || path.includes('spotDifferenceBatch2') || path.includes('voiceKey') ? 2 : 3;
+    const expected = provenance[path];
+    if (expected.source !== SUPPLEMENTAL_SOURCE_COMMITS[batch] || expected.sha256 !== SUPPLEMENTAL_SOURCE_HASHES[path]) {
+      throw new Error(`Supplemental source provenance mismatch for ${path}.`);
+    }
+  }
+  return true;
 }
 
 export function selectJobItems(inventory, jobName) {
   const job = JOBS[jobName];
   if (!job) throw new Error(`Unknown job selector. Choose one of: ${Object.keys(JOBS).join(', ')}.`);
   const selected = new Map();
+  if (job.ledger === 'supplemental') {
+    const records = inventory.items?.filter((entry) => entry.batch === job.batch && (!job.game || entry.game === job.game)) || [];
+    const expectedCount = jobName === 'b2-supplement' ? 5 : 2;
+    if (records.length !== expectedCount) throw new Error(`${jobName} ledger must contain exactly ${expectedCount} reviewed phrases.`);
+    for (const entry of records) {
+      if (entry.source !== SUPPLEMENTAL_SOURCE_COMMITS[entry.batch]) throw new Error(`Supplemental source commit mismatch for ${entry.key}.`);
+      if (entry.language !== 'en' || entry.voice !== 'matilda') throw new Error(`Supplemental language or voice mismatch for ${entry.key}.`);
+      if (entry.key !== voiceClipKey(entry.text, 'en-US')) throw new Error(`Supplemental key does not match its exact reviewed phrase: ${entry.key}.`);
+      if (entry.path !== `/audio/en/${entry.key}-matilda.mp3`) throw new Error(`Supplemental output path mismatch for ${entry.key}.`);
+      if (entry.mapped !== null || entry.fileBytes !== null) throw new Error(`Supplemental phrase ${entry.key} was not missing at review time; reconcile its exact bytes before scheduling.`);
+      if (selected.has(entry.key)) throw new Error(`Duplicate supplemental key ${entry.key}.`);
+      selected.set(entry.key, Object.freeze({
+        key: entry.key,
+        text: entry.text,
+        path: entry.path,
+        owners: Object.freeze([`B${entry.batch}_${entry.game}`]),
+        expectedCandidateSha256: null,
+        sourceCommit: entry.source,
+      }));
+    }
+    return [...selected.values()].sort((a, b) => a.key.localeCompare(b.key));
+  }
   for (const entry of inventory.items) {
     if (!entry.owners?.includes(job.owner)) continue;
     const candidates = [entry.text, ...(entry.textVariants || [])];
@@ -189,12 +245,13 @@ export async function getCandidateReusablePath(root, manifest, item) {
   return null;
 }
 
-export async function isCandidateReusable(root, manifest, item, receipt = null) {
+export async function isCandidateReusable(root, manifest, item, receipt = null, expectedInventorySha256 = PINNED_INVENTORY_SHA256) {
   const receiptMatches = receipt
-    && receipt.inventorySha256 === PINNED_INVENTORY_SHA256
+    && receipt.inventorySha256 === expectedInventorySha256
     && receipt.producer === 'reviewedNarrationSupervisorV1'
     && receipt.key === item.key
     && receipt.path === item.path
+    && receipt.sourceCommit === (item.sourceCommit || null)
     && receipt.voice === 'matilda'
     && receipt.contentType === 'audio/mpeg'
     && Number.isSafeInteger(receipt.bytes) && receipt.bytes > 1000
@@ -210,9 +267,9 @@ export async function isCandidateReusable(root, manifest, item, receipt = null) 
   return getCandidateReusablePath(root, manifest, item);
 }
 
-export async function isPackagedCandidate(root, manifest, item, receipt = null) {
+export async function isPackagedCandidate(root, manifest, item, receipt = null, expectedInventorySha256 = PINNED_INVENTORY_SHA256) {
   const packagedPath = manifest instanceof Map ? manifest.get(item.key) : manifest[item.key];
-  return Boolean(packagedPath && (await isCandidateReusable(root, manifest, item, receipt)) === packagedPath);
+  return Boolean(packagedPath && (await isCandidateReusable(root, manifest, item, receipt, expectedInventorySha256)) === packagedPath);
 }
 
 export async function requestNarration(item, fetchImpl = fetch, timeoutMs = MAX_REQUEST_TIMEOUT_MS) {

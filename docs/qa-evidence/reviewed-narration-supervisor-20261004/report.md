@@ -4,6 +4,8 @@
 
 This branch adds a finite command-line supervisor for the pinned B5–B7 narration ledger only. It does not generate audio during review. The pinned input is `docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json`, SHA-256 `aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227`. Selectors are `b5-reasoning`, `b5-literacy`, `b6`, `b7-solar`, and `b7-memory`; pure phoneme files and story/image work have no selector.
 
+The follow-up commit adds two separately pinned selectors for the seven phrases in `docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json`, SHA-256 `0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd`: `b2-supplement` (5 missing B2 released lines) and `b3-dino-facts` (2 revised Dino facts). This ledger is copied byte-for-byte from the reviewed source; it pins the B2 source files to commit `94d44d031d5835d0d9fa2128064ff83ba5880a62` and the revised B3 Dino files to `e2aee30169f6ade67f7948b0088a895a9cb119c3`, with file-level hashes. Every phrase's key is re-derived from its exact text and its en/Matilda/path values are checked. Supplemental receipts use their own inventory-SHA-named file and do not change the B5–B7 ledger or receipts.
+
 The ledger records integrated runtime lineage B5 `b198dbf49a5023e1b50181a9ef2a3eabd4c80a35`, B6 `2a82fd8fd17d9e76ec4310f2fecf489291f5bbff`, and B7 `c4db1d4b3e469bf71409ec7d859a05a2c7fa9301`. It records the currently changing B4 corpus as a separate predecessor snapshot. Execution requires a terminal, reconciled B4 status file naming the expected source commit, worker PID, manifest path, and exact current manifest hash.
 
 ## Safety behavior
@@ -28,11 +30,35 @@ See [dry-runs.json](dry-runs.json). At capture time PID 18781 was live, so the p
 | B7 Solar | 127 | 111 | 16 |
 | B7 Memory | 183 | 2 | 181 |
 
-The candidate manifest hash was `674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7`; shared request-journal hash was `611d6c1234bc601232780b54325319a10f43bb448cec1537f9c865cb0c7ad255`; B4 manifest hash was `1dd3a86cce642a883c5478fc9e8a5d55f174e7a58d4e469351df8cc00121ce8b`.
+
+## Supplemental queue
+
+See [supplemental-dry-runs.json](supplemental-dry-runs.json). All seven entries were still pending at capture, with zero byte-hash candidates to reuse. This matches the reviewed ledger's `mapped: null` and `fileBytes: null` for each. The exact source phrases are:
+
+| Selector | Key | Source batch | Reviewed phrase |
+| --- | --- | ---: | --- |
+| `b2-supplement` | `a39b3546` | 2 | Build the Dino Park picture. Choose a piece, then tap its matching space. |
+| `b2-supplement` | `9685e0ac` | 2 | Next picture. Build Dino Park. Compare each piece with the preview. |
+| `b2-supplement` | `e077fcc0` | 2 | Puzzle Pop. Picture Pioneers. Match big picture pieces and spot the main shapes. Build the Dino Park picture. |
+| `b2-supplement` | `a44acc87` | 2 | Look near the middle area of Picture B. |
+| `b2-supplement` | `5866151d` | 2 | Look near the middle bottom of Picture B. |
+| `b3-dino-facts` | `f6991245` | 3 | A wetland is a place where the ground stays very wet. Some wetlands dry out for part of the year. |
+| `b3-dino-facts` | `0f0204e5` | 3 | Water can slowly dissolve (wear away) limestone rock and help caves form. |
+
+Read-only examples:
+
+```sh
+node scripts/run-reviewed-narration-job.mjs --job=b2-supplement --inventory-sha256=0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd
+node scripts/run-reviewed-narration-job.mjs --job=b3-dino-facts --inventory-sha256=0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd
+```
+
+The B5–B7 plans remained unchanged after adding these selectors. The candidate manifest, shared request journal, and B4 manifest had identical before/after hashes over all seven dry-runs. These later hashes supersede the earlier B5–B7-only snapshot above because the active B4 worker can update its manifest and shared request journal between capture times. PID 18781 remained live, so no paid work was attempted. The 37 pure phoneme paths/32 sounds remain a separate gate and are not included in the voice selectors.
+
+When B4 is terminal and reconciled, the finite follow-on queue should process the seven earlier fixes first (`b2-supplement`, then `b3-dino-facts`) before opening the larger B5–B7 selectors. Each later run still requires its own authorized paid invocation and the same live-predecessor, shared-lock, journal, and budget checks. This report only prepares that sequence; it does not authorize or perform calls.
 
 ## Verification
 
-- `node --test scripts/reviewedNarrationJobs.test.mjs`: 12 passed.
+- `node --test scripts/reviewedNarrationJobs.test.mjs`: 14 passed.
 - ESLint passed for all three new scripts.
-- Tests cover exact inventory/job selection, finite limits, terminal predecessor and PID checks, the exact B3 producer lock conflict path, journal schema and concurrent-change detection, mapped and unmapped byte-hash reuse, receipt binding, injected-fetch endpoint/body/timeout behavior, unchanged files in dry-run, and rejection of paid mode with a live process or missing explicit caps.
+- Tests cover both inventory digests and unchanged B5–B7 selection counts, exact supplemental source hashes/text-derived keys/paths, finite limits, terminal predecessor and PID checks, the exact B3 producer lock conflict path, journal schema and concurrent-change detection, mapped and unmapped byte-hash reuse, receipt binding, injected-fetch endpoint/body/timeout behavior, unchanged files in dry-run, and rejection of paid mode with a live process or missing explicit caps.
 - Tests and dry-runs made no provider calls. Paid execution was not run. The terminal-worker path still needs review after B4 stops and is reconciled; the separate agent should review this supervisor before any later execution is authorized.
