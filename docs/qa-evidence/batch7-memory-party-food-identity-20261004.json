@@ -1,0 +1,75 @@
+{
+  "createdAt": "2026-10-04T04:00:00Z",
+  "scope": "Bind four supplied transparent party/food illustrations to their existing Amari Memory tokens using 512px alpha-preserving WebP assets. Preserve original PNGs and provenance, all 87 authored tokens, ten board pair counts, progress semantics, face-down behavior, and Askia.",
+  "sourceCommit": "725830f0b7cb72ee9eff83b61de9871fb8ebcf29",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5313",
+    "frozenDist": "tmp/batch7-memory-party-food-final/dist",
+    "priorFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-frog-grid-fix-final/dist",
+      "tmp/batch7-memory-vehicles-final/dist",
+      "tmp/batch7-memory-ocean-completion-final/dist",
+      "tmp/batch7-memory-fruit-art-final-v3/dist",
+      "tmp/batch7-memory-space-objects-final/dist",
+      "tmp/batch7-memory-star-sun-final/dist"
+    ]
+  },
+  "integratedTokens": [
+    {"token": "🍓", "label": "Strawberry", "original": "src/assets/memory-match/strawberry-v1.png", "originalSha256": "209f9d68061b0894e8799a2f0b4a7fa5c732be3d47ed77f0bc6133b946813a11", "webp": "/assets/strawberry-v1-card-ogD4ZXXQ.webp", "bytes": 47602, "webpSha256": "944cf5c855e9caaf2e1bbe9da2a4e1d1129a414215783e71c1b7fc7fc5e0f93b"},
+    {"token": "🍕", "label": "Pizza", "original": "src/assets/memory-match/pizza-v1.png", "originalSha256": "051143d7f9e208e5144d8ef3b1d028a43fceaaea7866947e699149bcaafc9aca", "webp": "/assets/pizza-v1-card-BZrP566V.webp", "bytes": 55374, "webpSha256": "5a086d1e5189266e290497ff4644ee18e546fa8866ef58aa8d3984a694f24850"},
+    {"token": "🍩", "label": "Doughnut", "original": "src/assets/memory-match/doughnut-v1.png", "originalSha256": "2092cd899bebbf48f85ada21c58d20b1d6242b414a6e83870ce5d7d29e60a687", "webp": "/assets/doughnut-v1-card-ChblbG2e.webp", "bytes": 40104, "webpSha256": "0f8879f8688a7c4852a7ff0f36b7e79ba34eb340c418d7ee1cb5aea7ba69e4ed"},
+    {"token": "🧁", "label": "Cupcake", "original": "src/assets/memory-match/cupcake-v1.png", "originalSha256": "b000e3e33b76567be6a887f437275e18369ce905531bf2e6f2abd08ebe27db8d", "webp": "/assets/cupcake-v1-card-aGYX69F4.webp", "bytes": 32580, "webpSha256": "e9ddbfc5ba29263686e4521ccf435d670eec97aaad4895a960caacbe09f9e906"}
+  ],
+  "renderedUiChecks": {
+    "profileAndProgression": "Fresh isolated Playwright profile. Selected Amari through the visible chooser and completed levels 1–7 in order through visible card flips and the Next/unlocked-level controls. The automation read only each card's accessible label after flipping it; it did not read hidden fronts, React state, seeded answers, or alter saved progress directly. The test profile's earned local progress is synthetic.",
+    "partyBoard": {
+      "name": "Party & Treats",
+      "level": 4,
+      "pairs": 12,
+      "cards": 24,
+      "desktop1280": {"viewport": [1280, 800], "documentWidth": 1280, "card": [182, 182], "artRow": [172, 109.3], "captionRow": [172, 20.95], "newAssetCards": 8, "loaded512pxImages": 8, "fullCaptions": ["Cupcake", "Pizza", "Doughnut", "Strawberry"], "artCaptionOverlap": false, "screenshot": "docs/qa-evidence/batch7-memory-party-food-builder-images/party-desktop-1280-completed.png"},
+      "mobile390": {"viewport": [390, 844], "documentWidth": 390, "card": [82, 82], "artRow": [72, 30.4], "captionRow": [72, 17.2], "newAssetCards": 8, "loaded512pxImages": 8, "fullCaptions": ["Cupcake", "Pizza", "Doughnut", "Strawberry"], "artCaptionOverlap": false, "screenshot": "docs/qa-evidence/batch7-memory-party-food-builder-images/party-mobile-390-completed.png"},
+      "faceDown": {"desktop1280": {"cards": 24, "faceDown": 24, "mountedImages": 0, "screenshot": "docs/qa-evidence/batch7-memory-party-food-builder-images/party-desktop-1280-facedown.png"}, "mobile390": {"cards": 24, "faceDown": 24, "mountedImages": 0, "screenshot": "docs/qa-evidence/batch7-memory-party-food-builder-images/party-mobile-390-facedown.png"}}
+    },
+    "foodBoard": {
+      "name": "Yummy Feast",
+      "level": 7,
+      "pairs": 15,
+      "cards": 30,
+      "desktop1280": {"viewport": [1280, 800], "documentWidth": 1280, "card": [182, 182], "artRow": [172, 109.3], "captionRow": [172, 20.95], "newAssetCards": 8, "loaded512pxImages": 8, "fullCaptions": ["Cupcake", "Pizza", "Doughnut", "Strawberry"], "artCaptionOverlap": false, "screenshot": "docs/qa-evidence/batch7-memory-party-food-builder-images/food-desktop-1280-completed.png"},
+      "mobile390": {"viewport": [390, 844], "documentWidth": 390, "card": [82, 82], "artRow": [72, 30.4], "captionRow": [72, 17.2], "newAssetCards": 8, "loaded512pxImages": 8, "fullCaptions": ["Cupcake", "Pizza", "Doughnut", "Strawberry"], "artCaptionOverlap": false, "screenshot": "docs/qa-evidence/batch7-memory-party-food-builder-images/food-mobile-390-completed.png"},
+      "faceDown": {"desktop1280": {"cards": 30, "faceDown": 30, "mountedImages": 0, "screenshot": "docs/qa-evidence/batch7-memory-party-food-builder-images/food-desktop-1280-facedown.png"}, "mobile390": {"cards": 30, "faceDown": 30, "mountedImages": 0, "screenshot": "docs/qa-evidence/batch7-memory-party-food-builder-images/food-mobile-390-facedown.png"}}
+    },
+    "faceUpAssetCheck": "All eight newly illustrated cards per board were visible as separate matching pairs with semantic art and complete labels. On both viewports their images were loaded at 512×512; the fixed caption row stayed below the art row with no overlap."
+  },
+  "networkAndConsole": {
+    "preNavigationRoutes": [
+      {"pattern": "/api/voice", "responseStatus": 204},
+      {"pattern": "/api/story", "responseStatus": 204}
+    ],
+    "observedVoiceOrStoryRequests": 0,
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "servedIdentity": {
+    "/": {"sha256": "0d1a5658b2985dbcda31c14cce0f67fe6fb8eed9cac239d84ea103cfe27cfbd1", "bytes": 1100, "matchesFrozenDist": true},
+    "/assets/index-BYLRN8y_.js": {"sha256": "91471a9410793e95b054f03d48b43f784e059c04f6393dbbff1ba4b74929ffbf", "bytes": 1184123, "matchesFrozenDist": true},
+    "/assets/index-CYWTXfuY.css": {"sha256": "251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d", "bytes": 213139, "matchesFrozenDist": true},
+    "/assets/strawberry-v1-card-ogD4ZXXQ.webp": {"sha256": "944cf5c855e9caaf2e1bbe9da2a4e1d1129a414215783e71c1b7fc7fc5e0f93b", "bytes": 47602, "matchesFrozenDist": true},
+    "/assets/pizza-v1-card-BZrP566V.webp": {"sha256": "5a086d1e5189266e290497ff4644ee18e546fa8866ef58aa8d3984a694f24850", "bytes": 55374, "matchesFrozenDist": true},
+    "/assets/doughnut-v1-card-ChblbG2e.webp": {"sha256": "0f8879f8688a7c4852a7ff0f36b7e79ba34eb340c418d7ee1cb5aea7ba69e4ed", "bytes": 40104, "matchesFrozenDist": true},
+    "/assets/cupcake-v1-card-aGYX69F4.webp": {"sha256": "e9ddbfc5ba29263686e4521ccf435d670eec97aaad4895a960caacbe09f9e906", "bytes": 32580, "matchesFrozenDist": true}
+  },
+  "sourceGates": {
+    "focusedTests": "10 passed: test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs",
+    "lint": "passed",
+    "productionConfigBuild": "passed with explicit voice and story configuration; unchanged stale Browserslist database and large-chunk warnings remain",
+    "frozenBundleMatchesProductionBuild": true,
+    "illustrationInventory": "51 of 87 unique Memory tokens illustrated; 36 remain without dedicated art"
+  },
+  "limits": [
+    "Builder-rendered verification only; independent QA is pending.",
+    "This does not certify remaining Memory art, Askia parity review, audio quality, human/device acceptance, production, or a 4.5 rating."
+  ]
+}
