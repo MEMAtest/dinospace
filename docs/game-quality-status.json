@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T12:40:15.007730+00:00",
+  "updatedAt": "2026-10-04T12:50:05.026064+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1042,6 +1042,17 @@
       "origin": "http://127.0.0.1:5362/",
       "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-spelling-pool-copy-20261004/report.md",
       "scope": "Display-only start and pool wording; existing four tests, scoped lint and configured build pass. Independent actual-control QA assigned; narration keys unchanged and audio/release acceptance open."
+    },
+    "spellingCopyQa": {
+      "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-spelling-pool-copy-independent-20261004/report.md",
+      "commit": "463bdfc",
+      "scope": "Plain copy/heldwrongretry/Next/BackKeep atbothwidths; intendedCopy modelword visible, Chapter2 completedwordhidden. ObservedzeroChapter2pool diagnosed separately."
+    },
+    "phase2DefaultRepair": {
+      "source": "f9d398281b86fde8d41a719f54137ab6d835d70a",
+      "origin": "http://127.0.0.1:5364/",
+      "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-phase2-default-20261004/report.md",
+      "decision": "Confirmedfreshdefault mismatch:literacy12starting sounds versus settings23Phase2. CanonicalPHASE_SOUNDS[2] shared default fixes source, explicitprofiles preserved.26focusedtests/lint/configbuildpass;3criticalservedhashesmatch. IndependentfreshUIretestassigned; noaudio/releaseacceptance."
     }
   },
   "batch6CurrentEditorialReview": {
@@ -1066,5 +1077,10 @@
     "contractsPublished": 26,
     "currentReviewCoverage": 26,
     "scope": "Batch1 recorded acceptance plus fresh evidence-linked reviews for remaining22. Published per-game deficits and acceptance instructions; not26 accepted games."
+  },
+  "batch5SoundPreferenceFinding": {
+    "source": "99ed1955131bd53b9738264edcde4e2091ad6e5e",
+    "origin": "http://127.0.0.1:5255/",
+    "scope": "IndependentolderB5candidate lost mute onreload; keepconfirmedlocalfinding. Rootcurrentcanonical alreadyhaspersistedfix; selectiveB5integrationmustpreserveit. No currentproductionregressioninferred."
   }
 }

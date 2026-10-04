@@ -505,3 +505,10 @@ Independent local report `f898043` on frozen5360 source8bb8d4 passes the assigne
 This is integration evidence with unchanged-game-component lineage to the retained full matrix, not an earned integrated-badge test, audio check, release or4.5 award. The frozen snapshot has65/5246 narration files; the separate live finite worker checkpoint12:30UTC has2237 pending and PID18781 confirmed live. Its working progress must not be confused with frozen readiness.
 
 Spelling’s initial copying stage deliberately displays a model word. Root checked the authored Copy→missing sound→independent assembly contract and source condition; the reviewer withdrew an incorrect pre-answer-leak classification for that supported stage. The later two stages require separate exposure checks. B6 authored clue review also caught semantic answer paraphrases during implementation, and the builder is tightening those before freeze.
+
+
+## Fresh-profile eligibility defect repaired — 4 October
+
+Independent Spelling report463bdfc passed the display-copy and held retry/Next scope but observed zeroChapter2 eligible words despite Grown-ups showing allPhase2 selected. Root traced two absent-profile defaults: literacy12starting sounds versus learningProgress/settings23Phase2. Sourcef9d3982 now shares canonical PHASE_SOUNDS[2]; explicitselected/legacytaughtprofiles stay respected and Phase3 stays gated. A meaningful regression covers settings/eligibility agreement without a settings save.26focusedtests, scopedlint and configuredbuild pass; frozen5364 criticalindex/JS/CSS HTTP200hashesmatch. Original5362 and observation preserved. Independent ordinaryfreshprofile Chapter1→Chapter2 retest assigned, no release/audio acceptance.
+
+The older5255 B5 candidate also loses visible mute onreload; retained rootcanonical alreadyhas the persistedsoundrepair. This localfinding is an integration requirement, not a claimed currentproductionregression. Astronaut clue implementation review caught absentglobe/diagramreferences; builder is adding actualcluevisuals before independenttest.
