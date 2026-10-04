@@ -1,0 +1,504 @@
+{
+  "source": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+  "base": "ac3b3ccaf03107749d865f8d79557e872a06c881",
+  "scope": "Exact finite source-corpus copy delta. No active worker/manifest/audio mutation. Shared keys retain their original paths; added phrases need new recordings after predecessor completion.",
+  "sourceHashes": {
+    "scripts/batch4NarrationInventory.mjs": {
+      "base": "05ba5040f1e283bf2ba9bfa8ebb27d36e52e9e717217d7b00a9ca6c84a02a8ff",
+      "candidate": "e404d0f2304e1c3aafc8e0dbcda3e798251436db53897428b6a66e40e32e968b"
+    },
+    "src/data/arithmeticAdventure.js": {
+      "base": "8af2a63db93503b50453e9b4c0598c5c861de2bbb3d3c9cb3e8d2719bcd38840",
+      "candidate": "5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7"
+    },
+    "src/data/timeLineAdventure.js": {
+      "base": "8462b67afdacac54f1a68404b636d8120fd9833daf53e355e0f01104c15b0ee0",
+      "candidate": "c1297de04359a2c337ba13c9480387fcae71f23dbe04041354aefcc1dca6f941"
+    },
+    "src/data/batch4Narration.js": {
+      "base": "9b12d51368d7abc8c31e0e1eddabfc6dda20eb434939828203c7ad8193010f04",
+      "candidate": "88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d"
+    },
+    "src/data/voiceKey.js": {
+      "base": "d013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f",
+      "candidate": "d013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f"
+    }
+  },
+  "oldUnique": 5246,
+  "newUnique": 5246,
+  "unchanged": 5199,
+  "removed": [
+    {
+      "text": "1 remain.",
+      "key": "26cdd055",
+      "path": "/audio/en/26cdd055-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 1.",
+      "key": "1bf7eb29",
+      "path": "/audio/en/1bf7eb29-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 10.",
+      "key": "2e3823db",
+      "path": "/audio/en/2e3823db-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 11.",
+      "key": "0c35afbe",
+      "path": "/audio/en/0c35afbe-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 12.",
+      "key": "ae3d6a89",
+      "path": "/audio/en/ae3d6a89-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 13.",
+      "key": "8c3af66c",
+      "path": "/audio/en/8c3af66c-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 14.",
+      "key": "8e2e2d9f",
+      "path": "/audio/en/8e2e2d9f-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 15.",
+      "key": "ac2c1e42",
+      "path": "/audio/en/ac2c1e42-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 16.",
+      "key": "2e33a6ad",
+      "path": "/audio/en/2e33a6ad-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 17.",
+      "key": "ac309b70",
+      "path": "/audio/en/ac309b70-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 18.",
+      "key": "2e249c23",
+      "path": "/audio/en/2e249c23-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 19.",
+      "key": "0c222806",
+      "path": "/audio/en/0c222806-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 2.",
+      "key": "f9f0f9de",
+      "path": "/audio/en/f9f0f9de-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 20.",
+      "key": "e6724336",
+      "path": "/audio/en/e6724336-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 3.",
+      "key": "1bf36dfb",
+      "path": "/audio/en/1bf36dfb-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 4.",
+      "key": "99ebe590",
+      "path": "/audio/en/99ebe590-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 5.",
+      "key": "9bee274d",
+      "path": "/audio/en/9bee274d-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 6.",
+      "key": "19e69ee2",
+      "path": "/audio/en/19e69ee2-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 7.",
+      "key": "7be977bf",
+      "path": "/audio/en/7be977bf-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 8.",
+      "key": "19e221b4",
+      "path": "/audio/en/19e221b4-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 spaces and landed on 9.",
+      "key": "fbe43111",
+      "path": "/audio/en/fbe43111-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 1.",
+      "key": "87b25c84",
+      "path": "/audio/en/87b25c84-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 10.",
+      "key": "e7d65308",
+      "path": "/audio/en/e7d65308-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 11.",
+      "key": "49d92be5",
+      "path": "/audio/en/49d92be5-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 12.",
+      "key": "e7d1d5da",
+      "path": "/audio/en/e7d1d5da-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 13.",
+      "key": "c9d3e537",
+      "path": "/audio/en/c9d3e537-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 14.",
+      "key": "c7e0ae04",
+      "path": "/audio/en/c7e0ae04-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 15.",
+      "key": "e9e32221",
+      "path": "/audio/en/e9e32221-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 16.",
+      "key": "67db99b6",
+      "path": "/audio/en/67db99b6-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 17.",
+      "key": "49dda913",
+      "path": "/audio/en/49dda913-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 18.",
+      "key": "47ea71e0",
+      "path": "/audio/en/47ea71e0-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 19.",
+      "key": "49ecb39d",
+      "path": "/audio/en/49ecb39d-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 2.",
+      "key": "09af5793",
+      "path": "/audio/en/09af5793-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 20.",
+      "key": "5c515759",
+      "path": "/audio/en/5c515759-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 3.",
+      "key": "27ad4836",
+      "path": "/audio/en/27ad4836-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 4.",
+      "key": "09aada65",
+      "path": "/audio/en/09aada65-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 5.",
+      "key": "a7a80188",
+      "path": "/audio/en/a7a80188-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 6.",
+      "key": "89a593b7",
+      "path": "/audio/en/89a593b7-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 7.",
+      "key": "a7a3845a",
+      "path": "/audio/en/a7a3845a-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 8.",
+      "key": "89c825f9",
+      "path": "/audio/en/89c825f9-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 spaces and landed on 9.",
+      "key": "a7c6169c",
+      "path": "/audio/en/a7c6169c-matilda.mp3"
+    },
+    {
+      "text": "There are 1 apple.",
+      "key": "a381b377",
+      "path": "/audio/en/a381b377-matilda.mp3"
+    },
+    {
+      "text": "There are 1 cookie.",
+      "key": "81617cd7",
+      "path": "/audio/en/81617cd7-matilda.mp3"
+    },
+    {
+      "text": "There are 1 flower.",
+      "key": "1e9710cc",
+      "path": "/audio/en/1e9710cc-matilda.mp3"
+    },
+    {
+      "text": "There are 1 gem.",
+      "key": "917e0a82",
+      "path": "/audio/en/917e0a82-matilda.mp3"
+    },
+    {
+      "text": "There are 1 shell.",
+      "key": "be290349",
+      "path": "/audio/en/be290349-matilda.mp3"
+    },
+    {
+      "text": "There are 1 star.",
+      "key": "89c03231",
+      "path": "/audio/en/89c03231-matilda.mp3"
+    }
+  ],
+  "added": [
+    {
+      "text": "1 remains.",
+      "key": "0e404090",
+      "path": "/audio/en/0e404090-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 1.",
+      "key": "62b6bfac",
+      "path": "/audio/en/62b6bfac-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 10.",
+      "key": "67e65d20",
+      "path": "/audio/en/67e65d20-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 11.",
+      "key": "69e89edd",
+      "path": "/audio/en/69e89edd-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 12.",
+      "key": "e7e11672",
+      "path": "/audio/en/e7e11672-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 13.",
+      "key": "09e38a8f",
+      "path": "/audio/en/09e38a8f-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 14.",
+      "key": "07f0535c",
+      "path": "/audio/en/07f0535c-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 15.",
+      "key": "e9f262b9",
+      "path": "/audio/en/e9f262b9-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 16.",
+      "key": "87eb0cae",
+      "path": "/audio/en/87eb0cae-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 17.",
+      "key": "e9ede58b",
+      "path": "/audio/en/e9ede58b-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 18.",
+      "key": "07d23e48",
+      "path": "/audio/en/07d23e48-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 19.",
+      "key": "69d51725",
+      "path": "/audio/en/69d51725-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 2.",
+      "key": "04b3ed1b",
+      "path": "/audio/en/04b3ed1b-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 20.",
+      "key": "fc11e1f1",
+      "path": "/audio/en/fc11e1f1-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 3.",
+      "key": "e2b178fe",
+      "path": "/audio/en/e2b178fe-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 4.",
+      "key": "04af6fed",
+      "path": "/audio/en/04af6fed-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 5.",
+      "key": "82ac64b0",
+      "path": "/audio/en/82ac64b0-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 6.",
+      "key": "64a9f6df",
+      "path": "/audio/en/64a9f6df-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 7.",
+      "key": "82a7e782",
+      "path": "/audio/en/82a7e782-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 8.",
+      "key": "64a579b1",
+      "path": "/audio/en/64a579b1-matilda.mp3"
+    },
+    {
+      "text": "A moved 1 space and landed on 9.",
+      "key": "02a2a0d4",
+      "path": "/audio/en/02a2a0d4-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 1.",
+      "key": "cbd5b3bb",
+      "path": "/audio/en/cbd5b3bb-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 10.",
+      "key": "d63d2b11",
+      "path": "/audio/en/d63d2b11-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 11.",
+      "key": "f43b1bb4",
+      "path": "/audio/en/f43b1bb4-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 12.",
+      "key": "763816c3",
+      "path": "/audio/en/763816c3-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 13.",
+      "key": "5435a2a6",
+      "path": "/audio/en/5435a2a6-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 14.",
+      "key": "76339995",
+      "path": "/audio/en/76339995-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 15.",
+      "key": "54312578",
+      "path": "/audio/en/54312578-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 16.",
+      "key": "f62e52e7",
+      "path": "/audio/en/f62e52e7-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 17.",
+      "key": "d42bdeca",
+      "path": "/audio/en/d42bdeca-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 18.",
+      "key": "f650e529",
+      "path": "/audio/en/f650e529-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 19.",
+      "key": "d44e710c",
+      "path": "/audio/en/d44e710c-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 2.",
+      "key": "a9d7bccc",
+      "path": "/audio/en/a9d7bccc-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 20.",
+      "key": "40d471c0",
+      "path": "/audio/en/40d471c0-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 3.",
+      "key": "cbda30e9",
+      "path": "/audio/en/cbda30e9-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 4.",
+      "key": "c9c8e4a2",
+      "path": "/audio/en/c9c8e4a2-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 5.",
+      "key": "2bcbbd7f",
+      "path": "/audio/en/2bcbbd7f-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 6.",
+      "key": "49ce2b50",
+      "path": "/audio/en/49ce2b50-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 7.",
+      "key": "4bd06d0d",
+      "path": "/audio/en/4bd06d0d-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 8.",
+      "key": "29beee66",
+      "path": "/audio/en/29beee66-matilda.mp3"
+    },
+    {
+      "text": "B moved 1 space and landed on 9.",
+      "key": "4bc16283",
+      "path": "/audio/en/4bc16283-matilda.mp3"
+    },
+    {
+      "text": "There is 1 apple.",
+      "key": "3352ee11",
+      "path": "/audio/en/3352ee11-matilda.mp3"
+    },
+    {
+      "text": "There is 1 cookie.",
+      "key": "11d1317d",
+      "path": "/audio/en/11d1317d-matilda.mp3"
+    },
+    {
+      "text": "There is 1 flower.",
+      "key": "b04f8552",
+      "path": "/audio/en/b04f8552-matilda.mp3"
+    },
+    {
+      "text": "There is 1 gem.",
+      "key": "47902350",
+      "path": "/audio/en/47902350-matilda.mp3"
+    },
+    {
+      "text": "There is 1 shell.",
+      "key": "84bd0c17",
+      "path": "/audio/en/84bd0c17-matilda.mp3"
+    },
+    {
+      "text": "There is 1 star.",
+      "key": "d067b8a7",
+      "path": "/audio/en/d067b8a7-matilda.mp3"
+    }
+  ]
+}

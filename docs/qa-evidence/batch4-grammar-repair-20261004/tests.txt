@@ -1,0 +1,26 @@
+✔ addition: seeded runs have six distinct bounded valid models and unique shuffled choices (35.35475ms)
+✔ subtraction: seeded runs have six distinct bounded valid models and unique shuffled choices (38.504917ms)
+✔ addition includes empty groups, zero totals, bonds and held context-specific stories (1.846791ms)
+✔ subtraction includes zero/equality and comparison is a distinct unmatched model (5.715208ms)
+✔ run validation only accepts six exact canonical questions and bounded integer options (0.58425ms)
+✔ completion score counts each correct result once; a hinted answer is not independent (0.159042ms)
+✔ reusable narration segments are exact and stay inside the finite inventory (0.278125ms)
+✔ progress is child scoped, contiguous, rejects corrupted and locked chapter awards, and never inflates stars (0.878125ms)
+✔ started but abandoned queue enters canonical recent history and prevents immediate replay repeats (1.540292ms)
+✔ runtime arithmetic helper covers canonical questions without eager whole-pool maps (41.59675ms)
+✔ runtime time and number-line helpers cover seeded questions with exact phrase joins (4.729584ms)
+✔ offline inventory exhaustively deduplicates finite phrases and keeps coverage outside runtime module (2.380375ms)
+✔ singular subtraction and frog-distance speech remains grammatical across the finite corpus (0.856209ms)
+✔ clock angle and label model covers all 48 allowed hour/minute pairs and twelve-hour wrap (0.857916ms)
+✔ seeded clock missions stay distinct, have one unique valid answer and set/read models (10.821708ms)
+✔ number line missions keep equations, hops, landings, comparisons and answer choices aligned (17.401292ms)
+✔ time and number line progress is child scoped, contiguous, rejects corruption, orphaned and future credit (1.42225ms)
+✔ moving clock hands preserves elapsed time across hour and twelve-hour boundaries (0.438166ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 501.0255

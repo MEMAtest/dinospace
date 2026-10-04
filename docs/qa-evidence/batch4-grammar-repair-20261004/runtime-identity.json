@@ -1,0 +1,65 @@
+{
+  "checkedAt": "2026-10-04T17:55:10.202598+00:00",
+  "source": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+  "origin": "http://127.0.0.1:5384",
+  "scope": "Exact frozen configured build runtime files (JS/CSS/HTML). Existing static public assets and manifest are unchanged from canonical-base5383. No production/audio acceptance.",
+  "files": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256": "b285d828435323e5537043323e23fbf985d923d7fc4df7a6d5c09c918c1c5fbd",
+      "servedSha256": "b285d828435323e5537043323e23fbf985d923d7fc4df7a6d5c09c918c1c5fbd",
+      "matches": true
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "sha256": "12537dac5f701f67175c0fd414960266902429d036343205b47c55d62ea3e200",
+      "servedSha256": "12537dac5f701f67175c0fd414960266902429d036343205b47c55d62ea3e200",
+      "matches": true
+    },
+    {
+      "path": "assets/web-Bl6DXr9N.js",
+      "status": 200,
+      "sha256": "fefb3bebb3766b24fd6df601dbb91d3553030a1bdbb2ec6b31ddfc8be4b8ea66",
+      "servedSha256": "fefb3bebb3766b24fd6df601dbb91d3553030a1bdbb2ec6b31ddfc8be4b8ea66",
+      "matches": true
+    },
+    {
+      "path": "assets/AmariLetterTrace-C4Uyl_Db.js",
+      "status": 200,
+      "sha256": "397732734be9b5416614b804bbf9cef409132d5d49f8627cbb7cedfebe794c8f",
+      "servedSha256": "397732734be9b5416614b804bbf9cef409132d5d49f8627cbb7cedfebe794c8f",
+      "matches": true
+    },
+    {
+      "path": "assets/index-D8VKzb1f.js",
+      "status": 200,
+      "sha256": "ae1abe569aa69150c337f9e652585a998b35afcb6515b823261122a084322b38",
+      "servedSha256": "ae1abe569aa69150c337f9e652585a998b35afcb6515b823261122a084322b38",
+      "matches": true
+    },
+    {
+      "path": "assets/SolarSystem-CFuC5i5t.js",
+      "status": 200,
+      "sha256": "0fa2dc81bfaf2cc6ba6190e00166f64ad1f43568f5a1be56c7abb33cae4966cc",
+      "servedSha256": "0fa2dc81bfaf2cc6ba6190e00166f64ad1f43568f5a1be56c7abb33cae4966cc",
+      "matches": true
+    },
+    {
+      "path": "assets/AmariCountTheStars-BKb34PB7.js",
+      "status": 200,
+      "sha256": "90a77d9334c16ae1a3f8fc8b75f851245a57e4c96bff2029cef81f1211adb3de",
+      "servedSha256": "90a77d9334c16ae1a3f8fc8b75f851245a57e4c96bff2029cef81f1211adb3de",
+      "matches": true
+    },
+    {
+      "path": "assets/index-DfQzAFle.css",
+      "status": 200,
+      "sha256": "5c2ff79af8b1a94d5dfc51bb92e2c301a1d0be013bafeb366bd415b9f7b801e7",
+      "servedSha256": "5c2ff79af8b1a94d5dfc51bb92e2c301a1d0be013bafeb366bd415b9f7b801e7",
+      "matches": true
+    }
+  ],
+  "allMatch": true
+}
