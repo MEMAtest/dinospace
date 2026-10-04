@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-04T04:13:29.446699+00:00",
+  "method": "Built-in image_gen; one call per distinct asset, transparent_background=true; final originals copied unchanged. No creative bitmap editing or provider-key CLI.",
+  "scope": "Originals only; no runtime/release/4.5 acceptance.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/garden-bee-v1.png",
+      "token": "\ud83d\udc1d",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-ede239ae-966d-4d5b-b62d-96cc722275ea.png",
+      "sha256": "6b5eff887825d9bc08cd73d70ff200f590ecce49756d8e068d69ada72899f44e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Single friendly rounded yellow-black bee, pale blue wings, complete six-legged insect silhouette, alpha, no scene or halo.",
+      "rootReview": "Generated original visually reviewed: recognizable complete distinct garden animal, no scene/frame/text. Original copied unchanged; mobile silhouette/readability and independent rendered QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/garden-butterfly-v1.png",
+      "token": "\ud83e\udd8b",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-5b7a45e6-bbea-4811-9dc3-73c1be84868b.png",
+      "sha256": "0952744c29ed047fec0a2976aace08867ca43d288c25a2c95463766d5efc2713",
+      "dimensions": [
+        1379,
+        1141
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Single orange butterfly with four spread wings, navy edges and cream spots, alpha, complete distinct silhouette, no flower or scene.",
+      "rootReview": "Generated original visually reviewed: recognizable complete distinct garden animal, no scene/frame/text. Original copied unchanged; mobile silhouette/readability and independent rendered QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/garden-ladybird-v1.png",
+      "token": "\ud83d\udc1e",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-705b68e0-bcef-41ac-89ca-01ba4807001b.png",
+      "sha256": "042ebe18c89437075e8fba4d021afc66aed6cc089082a6ee603683f7d09bf29e",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Single friendly red domed ladybird, black spots and seam, short legs and antennae, alpha, no leaf/scene/halo.",
+      "rootReview": "Generated original visually reviewed: recognizable complete distinct garden animal, no scene/frame/text. Original copied unchanged; mobile silhouette/readability and independent rendered QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/garden-snail-v1.png",
+      "token": "\ud83d\udc0c",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-77bb7afa-3559-40a3-8261-8963928eafef.png",
+      "sha256": "f8166e1e2be9c50908aba469e37950ea7b2046b7bb096956e3c9a0afba2ca836",
+      "dimensions": [
+        1368,
+        1150
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Single friendly pale mint snail, warm orange spiral shell and two eye stalks/tiny lower tentacles, complete silhouette with alpha, no ground/scene.",
+      "rootReview": "Generated original visually reviewed: recognizable complete distinct garden animal, no scene/frame/text. Original copied unchanged; mobile silhouette/readability and independent rendered QA pending."
+    }
+  ]
+}
