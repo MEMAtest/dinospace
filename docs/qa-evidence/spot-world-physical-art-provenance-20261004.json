@@ -1,0 +1,19 @@
+{
+  "createdAt": "2026-10-04T08:24:22.495Z",
+  "mode": "Built-in precise-object edit; preserve original source and selected PNG. Encoding-only WebP. Raw B not accepted or integrated; needs bounded-region composition and independent exact seven-difference review.",
+  "reference": "src/assets/puzzle-pop/world-explorer-map-3d.webp",
+  "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-53628e8a-6f3b-4eca-8acc-9c137c134638.png",
+  "prompt": "Precise-object edit for a premium children's spot-the-difference game. This supplied square illustration is the EDIT TARGET. Keep exact square framing, camera, all background jungle/volcano/river/sun/foliage, wooden hut and desk, map terrain/water/route, and all other objects/pixels closely registered and unchanged. Change ONLY these SEVEN physical pictured details: 1 Globe at upper-left: its BLUE OCEANS become PURPLE, keep land continents, outline and stand unchanged. 2 Actual large binoculars on right: green BODY surfaces become RED, keep lenses/gold rims and pose unchanged. 3 Actual telescope lying behind binoculars: its brown textured main barrel becomes BLUE, keep brass ends and pose unchanged. 4 Wooden bridge PRINTED ON MAP near middle: add ONE extra vertical railing post, keep bridge size/position and river unchanged. 5 Native RED X destination mark PRINTED on map at right-lower area becomes a RED FIVE-POINT STAR in the SAME footprint. 6 Large magnifying glass at lower-left: its circular gold lens rim becomes a rounded SQUARE gold lens rim of same overall size, retain handle connection and same magnified forest view. 7 Actual compass rose PRINTED near bottom-center/right of map: its long gold north/up point now points RIGHT, keeping round white compass background/other printed features in same position. These are genuine shape/count/direction/colour differences to existing objects, no new badges or floating symbols. No extra icons/text/objects, no missing or moved other props, no random recolours or texture redraws. Preserve all areas outside the seven details.",
+  "files": {
+    "png": "src/assets/spot-difference/world-physical-b-v1.png",
+    "webp": "src/assets/spot-difference/world-physical-b-v1.webp",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sourcePngSha256": "c36fe262e5e931787547953ddca4e5ec681c9ce7590e8ef54060f0dfc2955eda",
+    "copiedPngSha256": "c36fe262e5e931787547953ddca4e5ec681c9ce7590e8ef54060f0dfc2955eda",
+    "webpSha256": "ced84c32d3d38c12c3fe932d0fa33b842a814dca4c399b4bd3bf5ae727045af9",
+    "encoding": "Pillow WebP quality96/method6; no crop/recolour/resize/compositing"
+  }
+}
