@@ -4,6 +4,7 @@ import { BATCH5_NARRATION, BATCH5_SPELLING_BANDS, BATCH5_SPELLING_WORDS, PURE_PH
 import { createSoundSafariPool, createSoundSafariRun, createSpellingRun, getEligibleSpellingWords, isCanonicalBatch5QuestionId } from '../src/data/batch5LiteracyPools.js';
 import { getBatch5LiteracyProgress, recordBatch5LiteracyCompletion, rememberBatch5LiteracyRun } from '../src/data/batch5LiteracyProgress.js';
 import { PHASE_GROUPS } from '../src/data/literacy.js';
+import { PHASE_SOUNDS } from '../src/data/learningProgress.js';
 import { playerStorageKey } from '../src/data/players.js';
 import { buildBatch5LiteracyNarrationInventory } from '../scripts/batch5LiteracyNarrationInventory.mjs';
 
@@ -28,12 +29,13 @@ test('eligible spelling pools are strictly taught, finite and at least twenty wo
 test('all sound and spelling runs are deterministic, six rounds, answerable, and avoid repeats until the pool cycles', () => {
   for (let chapter = 0; chapter < 3; chapter += 1) {
     const taught = fullTaught(chapter);
-    const soundPool = createSoundSafariPool(chapter, taught);
+    const soundTaught = chapter < 2 ? PHASE_SOUNDS[2] : [...PHASE_SOUNDS[2], ...PHASE_SOUNDS[3]];
+    const soundPool = createSoundSafariPool(chapter, soundTaught);
     const spellingPool = getEligibleSpellingWords(chapter, taught).map((item) => `spell:${item.id}`);
     assert.ok(soundPool.length >= 20);
-    const firstSound = createSoundSafariRun(chapter, taught, 9100 + chapter);
+    const firstSound = createSoundSafariRun(chapter, soundTaught, 9100 + chapter);
     const firstSpelling = createSpellingRun(chapter, taught, 9100 + chapter);
-    assert.deepEqual(firstSound, createSoundSafariRun(chapter, taught, 9100 + chapter));
+    assert.deepEqual(firstSound, createSoundSafariRun(chapter, soundTaught, 9100 + chapter));
     assert.deepEqual(firstSpelling, createSpellingRun(chapter, taught, 9100 + chapter));
     assert.equal(firstSound.length, 6);
     assert.equal(firstSpelling.length, 6);
@@ -54,7 +56,7 @@ test('all sound and spelling runs are deterministic, six rounds, answerable, and
     const soundSeen = new Set(firstSound.map((item) => item.id));
     const spellingSeen = new Set(firstSpelling.map((item) => item.id));
     for (let seed = 1; soundSeen.size < soundPool.length || spellingSeen.size < spellingPool.length; seed += 1) {
-      const nextSound = createSoundSafariRun(chapter, taught, seed, [...soundSeen]);
+      const nextSound = createSoundSafariRun(chapter, soundTaught, seed, [...soundSeen]);
       const nextSpelling = createSpellingRun(chapter, taught, seed, [...spellingSeen]);
       assert.equal(nextSound.length, 6);
       assert.equal(nextSpelling.length, 6);
@@ -65,7 +67,7 @@ test('all sound and spelling runs are deterministic, six rounds, answerable, and
     assert.equal(soundSeen.size, soundPool.length);
     assert.equal(spellingSeen.size, spellingPool.length);
   }
-  assert.deepEqual(createSoundSafariRun(0, fullTaught(0), 1, []), createSoundSafariRun(0, fullTaught(0), 1, []));
+  assert.deepEqual(createSoundSafariRun(0, PHASE_SOUNDS[2], 1, []), createSoundSafariRun(0, PHASE_SOUNDS[2], 1, []));
 });
 
 test('progress is Amari scoped, sanitizes corrupt chapters and awards only best-star improvements', () => {

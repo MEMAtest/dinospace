@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Lightbulb, Volume2 } from 'lucide-react';
 import { BATCH5_NARRATION, BATCH5_SOUND_SAFARI_CHAPTERS } from '../../data/batch5Literacy.js';
 import { createSoundSafariPool, createSoundSafariRun } from '../../data/batch5LiteracyPools.js';
+import { soundSafariChapterArtReady } from '../../data/batch5SoundSafariPictureWords.js';
 import { getBatch5LiteracyProgress, recordBatch5LiteracyCompletion, rememberBatch5LiteracyRun } from '../../data/batch5LiteracyProgress.js';
 import { getTaughtGraphemes } from '../../data/literacy.js';
 import { SoundToggle } from '../shared/index.jsx';
@@ -37,6 +38,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
   const { play: playPhonemes, cancelAll: stopNarration, missingClip } = useAmariPhonemeAudio({ soundOn, cancelNarration: () => cancelRef.current?.() });
   const question = run[cursor];
   const chapter = BATCH5_SOUND_SAFARI_CHAPTERS[chapterIndex];
+  const chapterArtReady = soundSafariChapterArtReady(chapterIndex);
   useEffect(() => { onPhaseChange(stage === 'play' ? 'play' : stage === 'finish' ? 'done' : 'start'); }, [stage, onPhaseChange]);
   const visibleTaught = useMemo(() => [...getTaughtGraphemes()], []);
   const potentialPool = useMemo(() => createSoundSafariPool(chapterIndex, visibleTaught), [chapterIndex, visibleTaught]);
@@ -45,6 +47,10 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
   const clearAnswer = () => { setLocked(false); setFeedback(''); setHintVisible(false); setHintCount(0); setAttempted(false); };
   const start = (index = chapterIndex, replay = false) => {
     stopNarration();
+    if (!soundSafariChapterArtReady(index)) {
+      setPoolMessage('The picture cards for this chapter are still being prepared.');
+      return;
+    }
     const taught = [...getTaughtGraphemes()];
     const chapterPool = createSoundSafariPool(index, taught);
     if (chapterPool.length < 20) {
@@ -147,8 +153,9 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
       <p className="max-w-2xl rounded-2xl bg-white/90 p-4 font-bold">Hear taught speech sounds, blend them into words, and find sounds in spoken words. A sound is a speech sound, not a letter name.</p>
       <div className="mt-4 grid w-full gap-3 sm:grid-cols-3">{BATCH5_SOUND_SAFARI_CHAPTERS.map((item, index) => <button key={item.id} type="button" disabled={index > progress.unlockedChapter} onClick={() => { setChapterIndex(index); setPoolMessage(''); }} aria-pressed={chapterIndex === index} className={`min-h-20 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-40 ${chapterIndex === index ? 'border-emerald-700 bg-emerald-100' : 'border-white bg-white/90'}`}><span className="block text-xs uppercase">Chapter {index + 1} {progress.completedChapterIds.includes(index) ? '· Badge earned' : index > progress.unlockedChapter ? '· Locked' : ''}</span>{item.title}<span className="mt-1 block text-xs font-semibold">{item.skill}</span>{progress.bestStars[index] ? <span className="block text-xs">Best: {'★'.repeat(progress.bestStars[index])}</span> : null}</button>)}</div>
       <p className="mt-4 rounded-xl bg-white/90 p-3">This chapter has {potentialPool.length} taught-sound questions available. It needs at least 20.</p>
+      {!chapterArtReady && <p role="status" className="mt-3 rounded-xl bg-sky-100 p-3 font-bold">The picture cards for this chapter are still being prepared.</p>}
       {poolMessage && <p role="status" className="mt-3 rounded-xl bg-amber-100 p-3 font-bold">{poolMessage}</p>}
-      {stage === 'finish' ? <><p className="mt-5 text-2xl font-black">Chapter complete!</p><p className="mt-2 font-semibold">Your fact stays here. Replay with a new question order or continue when you are ready.</p><button type="button" onClick={() => start(chapterIndex, true)} className="mt-4 min-h-12 rounded-xl bg-emerald-700 px-6 font-black text-white">Replay chapter</button>{progress.unlockedChapter > chapterIndex && <button type="button" onClick={() => { setStage('start'); setChapterIndex(progress.unlockedChapter); }} className="mt-3 min-h-12 rounded-xl bg-white px-6 font-black">Next chapter</button>}</> : <button type="button" onClick={() => start(chapterIndex)} className="mt-5 min-h-14 w-full max-w-lg rounded-2xl bg-emerald-800 text-lg font-black text-white">Start {chapter?.title}</button>}
+      {stage === 'finish' ? <><p className="mt-5 text-2xl font-black">Chapter complete!</p><p className="mt-2 font-semibold">Your fact stays here. Replay with a new question order or continue when you are ready.</p><button type="button" disabled={!chapterArtReady} onClick={() => start(chapterIndex, true)} className="mt-4 min-h-12 rounded-xl bg-emerald-700 px-6 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Replay chapter</button>{progress.unlockedChapter > chapterIndex && <button type="button" onClick={() => { setStage('start'); setChapterIndex(progress.unlockedChapter); }} className="mt-3 min-h-12 rounded-xl bg-white px-6 font-black">Next chapter</button>}</> : <button type="button" disabled={!chapterArtReady} onClick={() => start(chapterIndex)} className="mt-5 min-h-14 w-full max-w-lg rounded-2xl bg-emerald-800 text-lg font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Start {chapter?.title}</button>}
     </main></div>;
 
   const prompt = promptFor(question);

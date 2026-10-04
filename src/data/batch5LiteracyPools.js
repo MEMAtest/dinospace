@@ -1,5 +1,7 @@
 import { BATCH5_SPELLING_BANDS, BATCH5_SPELLING_WORDS, SPELLING_WORDS_BY_BAND } from './batch5Literacy.js';
 import { PHASE_GROUPS } from './literacy.js';
+import { PHASE_SOUNDS } from './learningProgress.js';
+import { getSoundSafariPictureWords, SOUND_SAFARI_DEFAULT_TAUGHT } from './batch5SoundSafariPictureWords.js';
 
 const hash = (text) => [...String(text)].reduce((result, char) => Math.imul(result ^ char.charCodeAt(0), 16777619), 2166136261) >>> 0;
 const randomFor = (seed) => { let state = seed >>> 0; return () => { state += 0x6d2b79f5; let value = state; value = Math.imul(value ^ value >>> 15, value | 1); value ^= value + Math.imul(value ^ value >>> 7, value | 61); return ((value ^ value >>> 14) >>> 0) / 4294967296; }; };
@@ -18,39 +20,55 @@ export const getEligibleSpellingWords = (bandIndex, taught) => {
 const canonicalSoundPoolCache = new Map();
 const getCanonicalSoundIds = (chapterIndex) => {
   if (!canonicalSoundPoolCache.has(chapterIndex)) {
-    const taught = PHASE_GROUPS.slice(0, chapterIndex + 1).flatMap((group) => group.graphemes);
+    const taught = chapterIndex < 2 ? PHASE_SAFES[2] : PHASE_SAFES[3];
     canonicalSoundPoolCache.set(chapterIndex, new Set(createSoundSafariPool(chapterIndex, taught).map((item) => item.id)));
   }
   return canonicalSoundPoolCache.get(chapterIndex);
 };
+const PHASE_SAFES = Object.freeze({
+  2: SOUND_SAFARI_DEFAULT_TAUGHT.phase2,
+  3: SOUND_SAFARI_DEFAULT_TAUGHT.phase3,
+});
 const distinctPhonemes = (words) => [...new Set(words.flatMap((item) => item.phonemes))];
 const takeOptions = (answer, tokens, seed) => {
   const decoys = seededLiteracyShuffle(tokens.filter((token) => token !== answer), seed).slice(0, 3);
   return decoys.length === 3 ? seededLiteracyShuffle([answer, ...decoys], seed ^ 0x4f1bbcdc) : [];
 };
-const rime = (item) => item.graphemes.slice(1).join('');
-
 export const createSoundSafariPool = (chapterIndex, taughtInput) => {
   const taught = taughtSet(taughtInput);
   if (chapterIndex === 0) {
-    const words = getEligibleSpellingWords(0, taught);
-    const groups = new Map();
-    for (const item of words) { const key = rime(item); groups.set(key, [...(groups.get(key) || []), item]); }
-    return [...groups.values()].map((group) => group.filter((item, index) => group.findIndex((other) => other.phonemes[0] === item.phonemes[0]) === index)).filter((group) => group.length >= 3).flatMap((group) => group.map((target) => ({
-      id: `match:${target.id}`, type: 'match', target, answerId: target.phonemes[0],
-      options: group.map((item) => ({ id: item.id, word: item.word, emoji: item.emoji, firstSound: item.phonemes[0] })),
-    })));
+    const words = getSoundSafariPictureWords(0, taught);
+    return words.map((target) => {
+      const byFirstSound = new Map();
+      for (const item of words) {
+        if (item.phonemes[0] !== target.phonemes[0] && !byFirstSound.has(item.phonemes[0])) {
+          byFirstSound.set(item.phonemes[0], item);
+        }
+      }
+      const options = [target, ...byFirstSound.values()].map((item) => ({
+        id: item.id,
+        word: item.word,
+        emoji: item.emoji,
+        firstSound: item.phonemes[0],
+      }));
+      return {
+        id: `match:${target.id}`, type: 'match', target, answerId: target.phonemes[0], options,
+      };
+    }).filter((item) => item.options.length >= 4);
   }
   if (chapterIndex === 1) {
-    const words = getEligibleSpellingWords(1, taught);
+    const words = getSoundSafariPictureWords(1, taught);
     return words.map((target) => ({ id: `blend:${target.id}`, type: 'blend', target, answerId: target.id,
-      options: words.filter((item) => item.graphemes.length === target.graphemes.length).map((item) => ({ id: item.id, word: item.word, emoji: item.emoji })) }));
+      options: words.filter((item) => item.graphemes.length === target.graphemes.length).map((item) => ({ id: item.id, word: item.word, emoji: item.emoji })) }))
+      .filter((item) => item.options.length >= 4);
   }
   if (chapterIndex === 2) {
-    const words = getEligibleSpellingWords(2, taught);
+    const words = getSoundSafariPictureWords(2, taught).filter((item) => item.graphemes.length === item.phonemes.length && item.phonemes.length >= 3);
     const tokens = distinctPhonemes(words);
-    return words.flatMap((target) => ['first', 'middle', 'last'].map((position) => {
-      const index = position === 'first' ? 0 : position === 'last' ? target.graphemes.length - 1 : Math.floor(target.graphemes.length / 2);
+    return words.flatMap((target) => ['first', ...(target.phonemes.length % 2 === 1 ? ['middle'] : []), 'last'].map((position) => {
+      // A middle sound is unambiguous only for odd-length sound sequences.
+      // First and last questions still use every otherwise eligible target.
+      const index = position === 'first' ? 0 : position === 'last' ? target.phonemes.length - 1 : Math.floor(target.phonemes.length / 2);
       const answerId = target.phonemes[index];
       return { id: `segment:${target.id}:${position}`, type: 'segment', target, position, index, answerId, options: takeOptions(answerId, tokens, hash(`${target.id}:${position}`)) };
     })).filter((item) => item.options.length === 4);
@@ -103,13 +121,14 @@ export const createSpellingRun = (chapterIndex, taughtInput, seed, recentIds = [
 export const isCanonicalBatch5QuestionId = (game, chapterIndex, id) => {
   if (typeof id !== 'string') return false;
   const [kind, wordId, position] = id.split(':');
-  const band = game === 'spelling' ? BATCH5_SPELLING_BANDS[chapterIndex]?.id
-    : chapterIndex === 0 ? BATCH5_SPELLING_BANDS[0].id : chapterIndex === 1 ? BATCH5_SPELLING_BANDS[1].id : chapterIndex === 2 ? BATCH5_SPELLING_BANDS[2].id : null;
-  if (!band || !BATCH5_SPELLING_WORDS.some((item) => item.id === wordId)) return false;
-  const wordPool = SPELLING_WORDS_BY_BAND[band];
-  if (!wordPool.some((item) => item.id === wordId)) return false;
-  if (game === 'spelling') return chapterIndex >= 0 && chapterIndex <= 2 && kind === 'spell' && id === `spell:${wordId}`;
-  if (chapterIndex < 0 || chapterIndex > 2) return false;
+  if (!Number.isInteger(chapterIndex) || chapterIndex < 0 || chapterIndex > 2) return false;
+  if (game === 'spelling') {
+    const band = BATCH5_SPELLING_BANDS[chapterIndex]?.id;
+    if (!band || !BATCH5_SPELLING_WORDS.some((item) => item.id === wordId)) return false;
+    return SPELLING_WORDS_BY_BAND[band].some((item) => item.id === wordId)
+      && kind === 'spell' && id === `spell:${wordId}`;
+  }
+  if (game !== 'soundSafari') return false;
   return getCanonicalSoundIds(chapterIndex).has(id)
     && (chapterIndex !== 2 || ['first', 'middle', 'last'].includes(position));
 };
