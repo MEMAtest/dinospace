@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T07:54:28.267542+00:00",
+  "updatedAt": "2026-10-04T08:07:06.395062+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -771,7 +771,10 @@
     "narrationScope": "Read-only77940e9corpus1373unique/1368exist/5missing:3PuzzleDinoParktitle,Spotmiddlearea a44acc87 andnewSpotmiddlebottom5866151d. No decoding/playback/listening/providercalls. PackageonlyafterauthorizedB4workerterminal;currentlocalreleasegateopen.",
     "patternIndependentCommit": "ae69729",
     "patternIndependentReport": "docs/qa-evidence/spot-pattern-landscape-5350-review-20261004/report.md",
-    "patternScope": "Scoped local pass at 1280/390: five genuine pictured-object recolours visible and directly tapped, no apparent spill/seams/unregistered changes. Blank misses, two distinct hints and held fact pass both widths. Mobile Next, Growing 4/4/reload/parent return pass; desktop Next not clicked. Eleven identity hashes match, console/API request lists clean; script-route enumeration limitation retained. No Observatory/audio/production/full 4.5 acceptance."
+    "patternScope": "Scoped local pass at 1280/390: five genuine pictured-object recolours visible and directly tapped, no apparent spill/seams/unregistered changes. Blank misses, two distinct hints and held fact pass both widths. Mobile Next, Growing 4/4/reload/parent return pass; desktop Next not clicked. Eleven identity hashes match, console/API request lists clean; script-route enumeration limitation retained. No Observatory/audio/production/full 4.5 acceptance.",
+    "observatoryIndependentCommit": "329f600",
+    "observatoryIndependentReport": "docs/qa-evidence/spot-growing-landscape-5350-independent-20261004/report.md",
+    "observatoryScope": "Root-read scoped local pass at1280/390: five actual-object recolours discernible, telescope subtle but visible; no obvious mask spill/fringe/clipping. Five target hits, blank miss, hint, held fact/Next, advancement and reload Growing1/4 pass. Eleven files match, guards verified aftergoto, console/API0. No audio, production or4.5."
   },
   "spotSafariSquareWingPrototype": {
     "sourceSha": "aea335f",
@@ -816,5 +819,18 @@
     "origin": "http://127.0.0.1:5352",
     "identity": "docs/qa-evidence/spot-challenge-leaf-shape-identity-20261004.json",
     "scope": "Root confirmed round/pointed Robin leaf variants formerly rendered identical SVG path and rotation. Distinct broad round and pointed blade paths repair this definite source defect; other visual variants unchanged.20 focused tests, scoped lint and configured build pass. Independent5351 Challenge full visual/control review retains old failure; new5352 narrow Robin shape delta both widths queued. No visual, audio, production or4.5 acceptance."
+  },
+  "spotChallenge5351Review": {
+    "sourceSha": "aea335f28ba5c0143349baedd43cb44a49be39ea",
+    "independentCommit": "864e22c",
+    "report": "docs/qa-evidence/spot-challenge-5351-review-20261004/report.md",
+    "scope": "REJECTED History Hall before interaction: flat pictogram badges float over sky/ruins/terrain instead of genuine pictured-object changes. Desktop World Explorer/Nature Lab contextual visual observations and direct7hits/miss/hints/fact pass narrow scope; no mobileChallenge in this report. Root read full report and inspected failedHistoryscreenshot. Separate oldRobin no-shape-change observation pendingreport. No acceptance."
+  },
+  "spotHistoryPhysicalArtifactsPrototype": {
+    "sourceSha": "0b45ed6f8914d442d265124511ed5a9c3ece7c6c",
+    "origin": "http://127.0.0.1:5353",
+    "identity": "docs/qa-evidence/spot-history-physical-artifacts-identity-20261004.json",
+    "provenance": "docs/qa-evidence/spot-history-physical-art-provenance-20261004.json",
+    "scope": "Seven physically placed desk artifacts now vary by shape/count/direction, preserving Challenge skill: openbook,3archways,rightneedle,squarestone,2flames,rolledscroll,4grooves. Built-in generatedA+preciseBedit originalsunchanged andencoding-onlyWebP. Runtime composesB onlyinside7boundedregions to preserveoutsideunchangedscene.21focusedtests/scopedlint/configbuildpass aftercolumnedge56pxfix. IncludesRobin75dshape repair. Independent exact7/noincidentalchanges/maskedges/mobilevisibility/actualtaps+controlchecks assigned. No visual/audio/production/4.5 acceptance."
   }
 }
