@@ -59,8 +59,8 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const [routeStarted, setRouteStarted] = useState(false);
   const [trails, setTrails] = useState([]);
   const [visitedByPath, setVisitedByPath] = useState([]);
-  const [attemptedMoves, setAttemptedMoves] = useState(0);
-  const [onRouteMoves, setOnRouteMoves] = useState(0);
+  const [, setAttemptedMoves] = useState(0);
+  const [, setOnRouteMoves] = useState(0);
   const [traceReady, setTraceReady] = useState(false);
   const [missionAccuracy, setMissionAccuracy] = useState(0);
   const [missionStars, setMissionStars] = useState(1);
@@ -442,7 +442,6 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
 
   const totalPathCount = mission?.paths.length || 0;
   const starsShown = traceReady ? missionStars : 0;
-  const roundedAccuracy = attemptedMoves ? Math.round((onRouteMoves / attemptedMoves) * 100) : 0;
   const activePath = guidePaths[pathIndex] || [];
   const hotPoint = activePath[cursorIndex] || activePath[0] || [500, 330];
 
@@ -527,7 +526,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
           </div>
           <p className="mt-3 text-xs font-bold text-sky-50">Keyboard: focus the outline, press Enter to begin, then press Space, Enter, or an arrow key to guide the jet along the glowing dots.</p>
         </div>
-        <div className="sr-only" aria-live="polite">{`Guide ${pathIndex + 1} of ${totalPathCount}; ${roundedAccuracy}% of sampled moves are on the guide.`}</div>
+        <div className="sr-only" aria-live="polite">{traceReady ? 'Flight finished. Your stars are saved.' : `Part ${pathIndex + 1} of ${totalPathCount}. Follow the glowing dots to the flag.`}</div>
       </main>
     </div>
   );
