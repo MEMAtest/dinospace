@@ -1,0 +1,147 @@
+{
+  "sourceCommit": "8fecff6e4dc36bac8c6628c9c68818e2ba71c86e",
+  "liveWorkerPid": 18781,
+  "realWorkerObservedAlive": true,
+  "livePid": {
+    "exitCode": 1,
+    "stderr": "Stopped safely: B4 predecessor PID 32095 is still live; refusing paid execution.",
+    "blockedBeforeLockOrJournalWrite": true,
+    "before": {
+      "journal": {
+        "exists": true,
+        "sha256": "da8f5f7824bc2f89900a19dbbf9f9aea33e7e09b2ba00d90f356c73fef0658eb"
+      },
+      "b4Manifest": {
+        "exists": true,
+        "sha256": "6c0fe649a72ef03a1b02e67541530c0ed942057b6e28fa80e539e762c55d7190"
+      },
+      "runnerManifest": {
+        "exists": true,
+        "sha256": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7"
+      },
+      "producerLock": {
+        "exists": false,
+        "sha256": null
+      },
+      "audit": {
+        "exists": false,
+        "sha256": null
+      }
+    },
+    "after": {
+      "journal": {
+        "exists": true,
+        "sha256": "da8f5f7824bc2f89900a19dbbf9f9aea33e7e09b2ba00d90f356c73fef0658eb"
+      },
+      "b4Manifest": {
+        "exists": true,
+        "sha256": "6c0fe649a72ef03a1b02e67541530c0ed942057b6e28fa80e539e762c55d7190"
+      },
+      "runnerManifest": {
+        "exists": true,
+        "sha256": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7"
+      },
+      "producerLock": {
+        "exists": false,
+        "sha256": null
+      },
+      "audit": {
+        "exists": false,
+        "sha256": null
+      }
+    }
+  },
+  "success": {
+    "mode": "success",
+    "exitCode": 2,
+    "fakeFetchCalls": 1,
+    "pending": 46,
+    "receiptOutcome": {
+      "accepted": true,
+      "fakeBytesOnly": true,
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+      "key": "02a2a0d4",
+      "path": "/audio/en/02a2a0d4-matilda.mp3",
+      "bytes": 1201
+    },
+    "audit": {
+      "job": "b4-grammar",
+      "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+      "requested": 47,
+      "configuredMaxCallsPerRun": 1,
+      "configuredMaxRuns": 1,
+      "maximumProviderRequests": 1,
+      "runs": 1,
+      "providerRequestsAttempted": 1,
+      "providerResponsesAccepted": 1,
+      "generated": 1,
+      "reused": 0,
+      "stoppedAt": null,
+      "failure": null,
+      "manifestBeforeSha256": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
+      "manifestAfterSha256": "5cc7bdae9a52293a67bd4fce55f027a3272c31736c1e4589feb7e8d8a9617919",
+      "auditPath": "/private/var/folders/t_/nqjg355s26x2smr80s78_1_r0000gn/T/b4-selector-success-FLYMvk/dinospace-b4-grammar-narration/tmp/reviewed-narration-audit-b4-grammar.json",
+      "manifestChangedKeys": [
+        "02a2a0d4"
+      ],
+      "changedFiles": [
+        {
+          "path": "/audio/en/02a2a0d4-matilda.mp3",
+          "key": "02a2a0d4",
+          "text": "A moved 1 space and landed on 9.",
+          "owners": [
+            "B4_grammar"
+          ],
+          "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+          "bytes": 1201,
+          "sha256": "9e4a5a138eff82244338e1b37c265aa99ca519bfb83d53fb8bb2b90a6f0384aa"
+        }
+      ],
+      "completedAt": "2026-10-04T18:31:56.211Z"
+    },
+    "manifestBefore": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
+    "manifestAfter": "5cc7bdae9a52293a67bd4fce55f027a3272c31736c1e4589feb7e8d8a9617919",
+    "journalRequests": 1,
+    "producerLockReleased": true
+  },
+  "rejected": {
+    "mode": "reject-provider",
+    "exitCode": 1,
+    "fakeFetchCalls": 1,
+    "pending": 47,
+    "receiptOutcome": {
+      "accepted": false,
+      "noReceiptWritten": true,
+      "noAudioWritten": true,
+      "stopReason": "Provider header was not verified; response discarded."
+    },
+    "audit": {
+      "job": "b4-grammar",
+      "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+      "requested": 47,
+      "configuredMaxCallsPerRun": 1,
+      "configuredMaxRuns": 1,
+      "maximumProviderRequests": 1,
+      "runs": 1,
+      "providerRequestsAttempted": 1,
+      "providerResponsesAccepted": 0,
+      "generated": 0,
+      "reused": 0,
+      "stoppedAt": "Provider header was not verified; response discarded.",
+      "failure": null,
+      "manifestBeforeSha256": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
+      "manifestAfterSha256": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
+      "auditPath": "/private/var/folders/t_/nqjg355s26x2smr80s78_1_r0000gn/T/b4-selector-reject-provider-EuxiVs/dinospace-b4-grammar-narration/tmp/reviewed-narration-audit-b4-grammar.json",
+      "manifestChangedKeys": [],
+      "changedFiles": [],
+      "completedAt": "2026-10-04T18:31:56.312Z"
+    },
+    "manifestBefore": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
+    "manifestAfter": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
+    "journalRequests": 1,
+    "producerLockReleased": true
+  },
+  "realProviderCalls": 0,
+  "productionManifestsOrJournalChanged": false
+}
