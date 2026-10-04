@@ -23,6 +23,22 @@ test('each harder count survey reliably teaches its new range and organised grou
   }
 });
 
+test('ordinary seeded runs spread all five authored scenes and vary counts while honoring recent IDs', () => {
+  for (let episode = 0; episode < COUNT_THE_STARS_EPISODES.length; episode += 1) {
+    let recent = [];
+    for (let seed = 1; seed <= 500; seed += 1) {
+      const run = createCountTheStarsRun(episode, seed, recent);
+      assert.equal(run.rounds.length, 6);
+      assert.equal(new Set(run.rounds.map(({ id }) => id)).size, 6);
+      assert.equal(new Set(run.rounds.map(({ scene }) => scene.id)).size, 5);
+      assert.ok(new Set(run.rounds.map(({ count }) => count)).size >= (episode === 0 ? 5 : 6));
+      assert.ok(run.rounds.every(({ id }) => !recent.includes(id)));
+      assert.ok(run.rounds.every(({ options, count }) => options.length === 4 && new Set(options).size === 4 && options.includes(count)));
+      recent = [...recent, ...run.rounds.map(({ id }) => id)].slice(-8);
+    }
+  }
+});
+
 test('count episodes provide six stable unique questions and safe visible object sets', () => {
   for (let episode = 0; episode < COUNT_THE_STARS_EPISODES.length; episode += 1) {
     const first = createCountTheStarsRun(episode, 2718);

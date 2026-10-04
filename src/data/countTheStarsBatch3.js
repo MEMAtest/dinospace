@@ -173,22 +173,28 @@ export const createCountTheStarsRun = (episodeIndex, seed, recentQuestionIds = [
   if (eligible.length < 6) eligible = pool;
   const shuffled = shuffleWith(eligible, random);
   const chosen = [];
+  const choose = (predicate) => {
+    const available = shuffled.filter((entry) => predicate(entry) && !chosen.some(({ id }) => id === entry.id));
+    if (!available.length) return false;
+    const usedScenes = new Set(chosen.map(({ scene }) => scene.id));
+    const usedCounts = new Set(chosen.map(({ count }) => count));
+    const freshSceneAndCount = available.find(({ scene, count }) => !usedScenes.has(scene.id) && !usedCounts.has(count));
+    const freshScene = available.find(({ scene }) => !usedScenes.has(scene.id));
+    const freshCount = available.find(({ count }) => !usedCounts.has(count));
+    chosen.push(freshSceneAndCount || freshScene || freshCount || available[0]);
+    return true;
+  };
   if (episodeIndex > 0) {
     const threshold = episodeIndex === 1 ? 5 : 10;
-    const take = (predicate) => {
-      const matches = shuffled.filter((entry) => predicate(entry) && !chosen.some(({ id }) => id === entry.id));
-      const entry = matches.find(({ count }) => !chosen.some((picked) => picked.count === count)) || matches[0];
-      if (entry) chosen.push(entry);
-    };
     // A harder chapter must practise its new range every run, even when
     // random selection would otherwise draw only Starter-sized quantities.
-    take(({ count, layoutVariant }) => count > threshold && layoutVariant === 'grouped');
-    take(({ count, layoutVariant }) => count > threshold && layoutVariant === 'grouped');
-    take(({ count }) => count > threshold);
-    take(({ count }) => count <= threshold);
-    while (chosen.length < 6) take(() => true);
+    choose(({ count, layoutVariant }) => count > threshold && layoutVariant === 'grouped');
+    choose(({ count, layoutVariant }) => count > threshold && layoutVariant === 'grouped');
+    choose(({ count }) => count > threshold);
+    choose(({ count }) => count <= threshold);
   }
-  const selected = episodeIndex > 0 ? shuffleWith(chosen, random) : shuffled.slice(0, 6);
+  while (chosen.length < 6) choose(() => true);
+  const selected = shuffleWith(chosen, random);
   const queue = selected.map((entry) => {
     const objects = buildCountObjects(entry.count, seed, entry.id, entry.layoutVariant);
     return freeze({
