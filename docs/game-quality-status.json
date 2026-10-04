@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-04T03:27:05.191296+00:00",
+  "updatedAt": "2026-10-04T03:39:46.046752+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "484addf2e76be849845f508bdc9fc5e1325b51b7",
+  "canonicalRelease": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -369,7 +369,7 @@
       "uniqueTokens": 87,
       "missingTokens": 40,
       "builderEvidence": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-art-identity-20261004.json",
-      "scope": "Builder normal Level6desktop390/fullcaptions/face-downhide/identity/tests/lint/build passed; independentfourvehicle review underway. EarlierSpace/Star/Froggeometry independent gates retained separately. No production/audio/4.5."
+      "scope": "Vehicle builderpass and independent32aebafrenderedbothwidths/persist/48controls/asset checks retained; replacementbrowser initiallyloaded app beforeguards, so new freshguarded normalunlock repeat underway. Geometryrepair3931 independentlypassed21b1117; remaining scenicFrog/Monkey style replacementoriginals being prepared. No production/listening/4.5."
     },
     "memoryFruitIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md",
     "memoryOceanGardenIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md",
@@ -391,7 +391,8 @@
       "source": "4e53d04",
       "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-party-food-art-provenance-20261004.json",
       "scope": "Strawberry/pizza/doughnut/cupcake originals saved unchanged, runtime integration underway."
-    }
+    },
+    "memoryVehicleIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicles-independent-a59482a7-20261004/report.md"
   },
   "monsterClueRepair": {
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
@@ -464,10 +465,12 @@
     "sourceSha": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
     "identity": "docs/qa-evidence/sound-preference-identity-20261004.json",
     "origin": "http://127.0.0.1:5311",
-    "scope": "Independentlocal81e2c5apassed normalmute/unmute reload/profile-switch and sampledmutednativeactions. ImmutableVercelcandidate READY exactc478archive/providerbindings/7hashmatch; independentlivecontrolsunderway. Canonicalremains484. No humaudio/4.5.",
+    "scope": "Promoted exactc478 afterindependentlocal81e2c5a andimmutableproduction1dcdb36two-wayreload/profile-switch/mutednativechecks passed. Providercanonicalalias+all7runtimehashesmatch dpl_2wMjWv6KPJ4QPMKrSJLWinefowDz. Freshcanonicalbrowserdelta underway; no humanlistening/4.5.",
     "localIndependentReport": "docs/qa-evidence/sound-preference-5311-local-20261004/report.md",
     "candidateDeployment": "dpl_2wMjWv6KPJ4QPMKrSJLWinefowDz",
     "candidateUrl": "https://dinospace-iw0e236dn-memas-projects-23a0001d.vercel.app",
-    "candidateIdentity": "docs/qa-evidence/sound-preference-production-candidate-20261004.json"
+    "candidateIdentity": "docs/qa-evidence/sound-preference-production-candidate-20261004.json",
+    "candidateIndependentReport": "docs/qa-evidence/sound-preference-production-candidate-20261004/report.md",
+    "canonicalIdentity": "docs/qa-evidence/sound-preference-canonical-identity-20261004.json"
   }
 }
