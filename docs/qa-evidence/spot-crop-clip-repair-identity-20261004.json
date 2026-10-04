@@ -1,0 +1,80 @@
+{
+  "createdAt": "2026-10-04T07:02:32.442654+00:00",
+  "sourceSha": "b032b081d60dedfa86eab831b3d76822fafe67fe",
+  "origin": "http://127.0.0.1:5332",
+  "frozenDist": "tmp/spot-crop-clip-repair/dist",
+  "scope": "Correct invalid nested g in clipPath: normalized crop scale now belongs to clipPath transform and actual Shape is direct child. Includes Treehouse and Safari real object edits plus prior Starter corrections.18focusedtests/scopedlint/configuredbuildpass. Independent allStarter+Treehouse+Safari visual/control delta required bothwidths;5329/5330 are rejected. No audio/production/4.5 acceptance.",
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "41511bed2fb284407802e83946db0b424811880d5160ca83ee491bb040ef6bde"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-JbLc8QN3.js",
+      "bytes": 18854,
+      "sha256": "405777839686c1a0213a40887343290e9d8551e3681de2cb0222c2b57c664ae5"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-C6-un_vB.js",
+      "bytes": 19956,
+      "sha256": "22613af7dc712ca98898e5a455a81eb8a3f81f1ba62a2d4aedb84cdee4403051"
+    },
+    {
+      "path": "/assets/SolarSystem-D6ZtbFyb.js",
+      "bytes": 563158,
+      "sha256": "381fa9369e6dbb24d0961c4619814e4a86330f972c28396de7cb312274082697"
+    },
+    {
+      "path": "/assets/index-DVJTR-VO.js",
+      "bytes": 1249337,
+      "sha256": "69b32e378214624a3265aa68cc8202f3ac22c75a562c6c6c64c5dfff497153c0"
+    },
+    {
+      "path": "/assets/web-BoFDdUcm.js",
+      "bytes": 842,
+      "sha256": "d31fbcbfa0d2b040d43d51998d355ce0612295e5ec778c2a190638cab5d1464f"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/treehouse-robots-3d-s6y8m7qr.webp",
+      "bytes": 288118,
+      "sha256": "e065b1e9a1573ef09f5af86f88d0c84a3ffb0da022037561525351db25317f33"
+    },
+    {
+      "path": "/assets/sound-safari-animals-3d-DxBjyDMU.webp",
+      "bytes": 414986,
+      "sha256": "dad91b003b2810eaf0b6c4577caf27c8090daaa503bf9b2013172a46cb68e3bf"
+    },
+    {
+      "path": "/assets/dino-park-CfXqz-J3.jpg",
+      "bytes": 285218,
+      "sha256": "9cd2ce5eb1abbd0bcb28e2ed5f639b6f2590f4db173ef45d3d94a7702d4ec7a1"
+    },
+    {
+      "path": "/assets/superhero-city-DPTOkgpV.webp",
+      "bytes": 194200,
+      "sha256": "c9205d316ee832981f816af002cd57ea22d50b6a6a84231a646f639385634b22"
+    },
+    {
+      "path": "/assets/dino-moon-3d-f1vVSf2r.webp",
+      "bytes": 401560,
+      "sha256": "a8c15f541d45125fd165e6d126ffe1d67f2d61c78b38d148067c5a553f934c1e"
+    },
+    {
+      "path": "/assets/dino-river-3d-DS1Pw89d.webp",
+      "bytes": 415714,
+      "sha256": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8"
+    },
+    {
+      "path": "/assets/river-valley-pair-b-v1-BvZSBbF5.webp",
+      "bytes": 353174,
+      "sha256": "9b254a872bf0d3d01489333ae7da8dd5aba52f04c3e4c367c3b12a66eb9ead5b"
+    }
+  ],
+  "portNote": "5331 was already occupied by Memory four-art candidate; listener preserved. No Spot candidate served there."
+}

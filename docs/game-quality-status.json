@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T06:59:44.660417+00:00",
+  "updatedAt": "2026-10-04T07:15:13.951042+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -703,9 +703,10 @@
     "sourceSha": "a86a9b9",
     "origin": "http://127.0.0.1:5328",
     "identity": "docs/qa-evidence/spot-park-tight-mask-identity-20261004.json",
-    "scope": "Independent local scoped visual/pointer PASS at1280/390: no crown sky tab, water/foot block, cyan spill or detached island; protected belly/eyes/teeth. Actual head hit, neutral body repeat after credit, blank miss, flower/sun, held fact/Next and mobile3/4 reload lock state pass. Eight hashes match, API network zero and console clean. CLI open-versus-goto guard continuity audit pending; no continuous guard claim until corrected. No audio, full matrix, production or 4.5 acceptance.",
+    "scope": "Scoped visual/pointer PASS at1280/390, exact eighthashes andzeroobservedAPIresources/console. Guardaddendum: retainedscreenshots/snapshotslackcommandtranscript/postnavroute-list, thereforecontinuousguardclaimnotproved; do notuse5328asprovider-isolationacceptance. Freshguarded5332regressionassigned. Noaudio/production/fullgame4.5.",
     "independentCommit": "33c630e",
-    "independentReport": "docs/qa-evidence/spot-park-tight-mask-5328-review-20261004/report.md"
+    "independentReport": "docs/qa-evidence/spot-park-tight-mask-5328-review-20261004/report.md",
+    "guardAudit": "docs/qa-evidence/spot-park-tight-mask-5328-review-20261004/guard-audit-addendum.md"
   },
   "memoryVehicleFourCandidate": {
     "sourceSha": "357f24cf13b1b8ddcde474f0b7628f3dad11ebf0",
@@ -721,16 +722,44 @@
     "sourceSha": "88ca034",
     "origin": "http://127.0.0.1:5329",
     "identity": "docs/qa-evidence/spot-treehouse-real-objects-identity-20261004.json",
-    "scope": "Five actual depicted colour changes replace generic Growing badges: left arrow block, up-arrow block, plant pot, robot eyes/smile and shelf house roof. SVG layer matches centered object-cover for square/portrait originals; shared-renderer Starter regression and Treehouse visual/control QA assigned at both widths. Seventeen focused tests, scoped lint and configured build pass. No visual/audio/production or 4.5 acceptance."
+    "scope": "REJECTED: desktopTreehousefiveobjectedits invisible; labeledtargetstillscored1/5. SharedStartervisualfailforDino/City/Moon, Rivervisibleeditsremain. MobilematrixandoptionalTreehousefact/reloadstoppeduntested.12hashes/guardedgoto/API0/consoleclean. Sourceg-insideclipPathinvalid, rootrepairb032b08 frozen5332. Noacceptance.",
+    "independentCommit": "ba93b5f",
+    "independentReport": "docs/qa-evidence/spot-treehouse-real-objects-5329-review-20261004/report.md"
   },
   "spotSafariRealObjectsPrototype": {
     "sourceSha": "810478a",
     "origin": "http://127.0.0.1:5330",
     "identity": "docs/qa-evidence/spot-safari-real-objects-identity-20261004.json",
-    "scope": "Five actual object colour changes replace Growing generic badges: elephant inner ear/toenails, parrot tail feathers, monkey tummy and frog skin. Original square scene is preserved with matched centered crop. Eighteen focused tests/scoped lint/configured build pass. Independent early visual fidelity/legibility/alignment and normal controls atbothwidths assigned, guards-before-goto explicitly required. No acceptance yet."
+    "scope": "REJECTED at1280/390: A/Bvisuallyidenticalandfiveexpectedobjectcolourchangesabsent, targetalignmentcannotbeaccepted. Eightidentityhashes/guardedgoto/APIaudio0/consoleclean. StoppedbeforeGrowingcontrols/hints/factNext/reload. Sharedcliprendererrepairb032b08 frozen5332assigned;noacceptance.",
+    "independentCommit": "0c8c875",
+    "independentReport": "docs/qa-evidence/spot-safari-5330-independent-20261004/report.md"
   },
   "qaBrowserGuardCorrection": {
     "discoveredAt": "2026-10-04T06:59:44.660635+00:00",
     "scope": "Playwright CLI open <appURL> recreates context and drops routes installed on prior about:blank. Correct workflow opens blank, installs guards, uses goto, and verifies route-list after app navigation. Active reviewers/builders instructed to audit/correct unsupported continuity claims and use corrected workflow. Observed zero API network URLs remain factual; they do not prove guard continuity or heard audio quality."
+  },
+  "spotCropClipRepairPrototype": {
+    "sourceSha": "b032b08",
+    "origin": "http://127.0.0.1:5332",
+    "identity": "docs/qa-evidence/spot-crop-clip-repair-identity-20261004.json",
+    "scope": "Movesnormalizedscalefrominvalidnestedg toclipPathtransform withShape directchild. IncludesStarter/Treehouse/Safari;18focusedtests/scopedlint/configuredbuildpass. Independent allStarter+Treehouse andSafari visual/controlregressionatbothwidths inprogress.5331Memorylistenerpreservedafterportcollision;noSpotserverthere. Noacceptance."
+  },
+  "memoryFourTokenCandidate": {
+    "sourceSha": "382945e78752e2f4e532ac6d0f92c13458ccfb4d",
+    "builderCommit": "d942964c91bac396858cd6eb2b8823f01d6f36be",
+    "origin": "http://127.0.0.1:5331",
+    "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-mountain-tulip-lolly-chips-identity-20261004.json",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-mountain-tulip-lolly-chips-builder-report-20261004.md",
+    "scope": "Builder80/87illustrated: Mountain/Tulip/Lolly/Chips actualDino/Garden/Party/Foodboards at1280/390, normal-earned1\u20139/replays,82pxcards/face-downhiding/captions. Finalguardedblank+gotorecaptures supersedeinitialopenresetpreliminaryevidence.17tests/lint/configuredbuildpass. MemoryMatch.jsx onlyimports/mapadditions;progressionunchanged. Sevenremainingracingcar/drink/partyface/duck/waterlily/dinonest/speedboat. Independentreviewqueued; noaudio/production/4.5."
+  },
+  "spotGrowingLandscapePrototype": {
+    "sourceSha": "77940e9",
+    "origin": "http://127.0.0.1:5350",
+    "identity": "docs/qa-evidence/spot-growing-landscape-identity-20261004.json",
+    "provenance": [
+      "docs/qa-evidence/spot-pattern-landscape-art-provenance-20261004.json",
+      "docs/qa-evidence/spot-observatory-landscape-art-provenance-20261004.json"
+    ],
+    "scope": "Twofreshlandscape1448x1086premiumsourcescorrectportraitframingwithoutchangingoldsharedassets. Fivepictured-objecteditsperpair replacefloatingbadges. PNGselectedoriginalsunchanged/WebPencodingonly,prompt/hashprovenance.20focusedtests/scopedlint/configuredbuildpass. Earlyvisualfidelity/discernibility/targetalignbothwidths andcontrols/factNext/reloadassignedafter5332. Sharedrendereridentityb032retained;noacceptance."
   }
 }
