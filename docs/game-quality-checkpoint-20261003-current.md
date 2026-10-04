@@ -570,3 +570,14 @@ Root mobile Chess evidence `9051d47` proves a fresh retry run earned 2 global st
 Independent diagram report `5cefecd` closes the two previously unobserved Earth/Venus UI cases through normal later chapters. Root read the report and inspected the mobile Venus diagram. Both requested clues render useful models; wrong answers retain retry without revealing facts, correct answers hold the NASA fact/source, and Next clears it. Saved chapter results and 24 facts survive reload. No audio or overall award.
 
 A clean Batch 6 integration checkout now starts from canonical `0d3ef05`. Selective integration is assigned after the Astronaut teaching repair freeze; it must preserve current sound preferences, Batch 3 behavior and legacy Askia paths. B5 and B7 independent reviews continue. Counts remain 4 recorded accepted and 22 in progress.
+
+## 4 October 2026 — independent teaching and clean integration progress
+
+Counts remain 4 recorded accepted / 22 in progress. Canonical shared-default functional release remains0d; no new release or overall award.
+
+- Root completed independent5370 Astronaut teaching delta (`0a651ed`): ordinary six assisted Starter missions gave one star, six facts in passport, explicit Learn clue vs reasoning label, wrong retry/held fact/Next. Mars clue rendered at both sizes; five served hashes match. Combined all36 source review and retained matrices/diagrams supports teaching component4.5 recommendation, not overall acceptance.
+- Root read B6 reliability follow-up (`ed1bba6`): chapter/fact retention and positive/lower replay credit with prior root Chess controls. Old5363 sound reset limits reliability to provisional4.0. Global Askia separation is not full collection proof.
+- Clean B6 integration (`2a82fd8`, docs`e46fab6`) is frozen5371:236tests, scoped lint/configbuild,5879 served hashes. Independent bounded integration UI is assigned to a separate Luna reviewer. Canonical preference fix and legacy Askia/B3 paths retained.
+- Root read B5 independent reports (`645053a`): clean5368 shared settings and two-way mute/unmute reload checks plus four Amari game entry/sample controls passed. The muted-disabled pure-sound button does not itself establish missing-asset detection; separate pure phoneme inventory0/37 remains the audio blocker. Report correction requested.
+- B7 repaired5369 independent QA continues; a separate clean canonical B7 integration is assigned.
+- Paid finite narration PID18781 remains live; last completed run240 produced15 clips with1756 phrases remaining, no errors. No second provider job or restart. Full corpus decode/listening/release gates remain pending.

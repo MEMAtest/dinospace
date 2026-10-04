@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T15:03:15.506183+00:00",
+  "updatedAt": "2026-10-04T15:28:10.188615+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "PID18781 confirmedlive;06:07:04Zrun130reports1834reused3333pending,last14generated,zero retries,expectedrequestwindowwait. No restart/concurrentpaidworker.",
+    "voiceCoverage": "PID18781 confirmed live. Last completed run240:15generated,3475reused,1756pending,exit0; expected request window wait. No concurrent paid generation or restart. Not audio acceptance.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -307,8 +307,8 @@
     "branch": "codex/amari-batch6-quality-20261003",
     "base": "0d11256",
     "plan": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md",
-    "scope": "Full original chapter matrices retained; independent5275 visible clue/letter delta passed. Newf8f9f7a sound wiring passed187 tests, changed-file lint and configured build. Dedicated IPv4 origin5295 serves five matching frozen assets; independent actual WebAudio QA is underway. Narration:435 phrases,1 valid clip,434 missing. Listening, editorial and production gates remain open.",
-    "source": "3a0da1b",
+    "scope": "Full retained chapter matrices plus independent teaching/reliability deltas. Clean integrated5371 source2a82 built236tests; independent UI running.378 phrases1ready377missing. Teaching component recommendation only; audio/listening/production/overall remain open.",
+    "source": "764b2ff49b6c40c13df928b4449d0a1f68fbe660",
     "identity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-narration-repair-identity-20261003.json",
     "soundRepairSource": "f8f9f7a938870e415e0feac69761e1c18d7d10ad",
     "soundRepairIdentity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-progress-sounds-identity-20261003.json",
@@ -1051,7 +1051,7 @@
   },
   "batch5CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch5-independent-editorial-assessment-20261004.md",
-    "decision": "Spelling child-facing jargon repaired in local a779 candidate; independent integration QA in progress. Colour/Odd reliability 4.0 is tied to observed older-candidate mute reset, not missing optional coverage. Sound Safari auditory acceptance requires isolated phoneme assets. No overall awards.",
+    "decision": "Plain-language Spelling and clean four-game integration independently passed bounded desktop/mobile controls. Saved sound preference survives both mute/unmute reloads. Separate pure phoneme inventory 0/37 and narration gaps remain; no overall award or release.",
     "localSpellingCandidate": {
       "source": "d7c66992cba8cdfa78a985b26e8aa561b1ec33cf",
       "origin": "http://127.0.0.1:5362/",
@@ -1088,24 +1088,28 @@
       "evidenceCommit": "5f0893a9f30fe523bf56dcb52064cf326cbba163",
       "origin": "http://127.0.0.1:5367/",
       "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-spelling-plain-language-20261004/report.md",
-      "scope": "Remaining visible/accessible grapheme jargon and legacy header replaced with child language. 4 existing tests, lint/build and 5,610 builder HTTP/hash matches pass; narration unchanged. Independent UI pending."
+      "scope": "Remaining visible/accessible grapheme jargon and legacy header replaced with child language. 4 existing tests, lint/build and 5,610 builder HTTP/hash matches pass; narration unchanged. Independent UI pending.",
+      "independentReport": "../dinospace-batch5-integration/docs/qa-evidence/batch5-spelling-copy-independent-20261004/independent-report.md",
+      "independentCommit": "645053a"
     },
     "integrationPreparation": {
       "worktree": "work/dinospace-batch5-integration",
       "branch": "codex/amari-batch5-integration-20261004",
       "baseSource": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
-      "scope": "Selective four-game integration on canonical0d reviewed by root; 24 B5/ownership and16 shared diagnostic/learning tests, lint/configured build pass,5879 served hashes match. Independent UI assigned. Narration and pure phoneme assets remain incomplete; not released.",
+      "scope": "Root read reports: four Amari entries and sampled actual wrong/retry/held/Next/parent Back controls at desktop/390; shared restriction and two-way sound preference persist through reload. Askia/B3 preservation is source/test evidence only in this report. Audio and release acceptance remain open. Muted-disabled Hear button is not evidence of missing-file detection.",
       "source": "b198dbf49a5023e1b50181a9ef2a3eabd4c80a35",
       "evidenceCommit": "d6361a62f64283235e9b8a36f0a484dcfe23e9d4",
       "origin": "http://127.0.0.1:5368/",
-      "report": "../dinospace-batch5-integration/docs/qa-evidence/batch5-integration-20261004/report.md"
+      "report": "../dinospace-batch5-integration/docs/qa-evidence/batch5-integration-20261004/report.md",
+      "independentReport": "../dinospace-batch5-integration/docs/qa-evidence/batch5-integration-independent-20261004/independent-report.md",
+      "independentCommit": "645053a"
     },
     "phonemeFeasibilityResearch": "docs/qa-evidence/batch5-phoneme-provider-feasibility-20261004.md"
   },
   "batch6CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch6-independent-editorial-assessment-20261004.md",
     "evidenceCommit": "a8e9bab24883346240786f3529cd985cb6077e2f",
-    "decision": "Observed teaching deficits in all four; Astronaut pre-answer clue repeats answer-bearing fact. Concrete repair instructions published. Reliability unscored pending targeted reload/replay/sibling evidence; formal audio pending. No overall awards.",
+    "decision": "Teaching repairs support component 4.5 recommendations for all four, including revised Astronaut Learn clue assistance. Old5363 reliability rated4.0 for repeated mute reset; clean5371 integration independent QA is running. Missing narration/listening prevent overall awards.",
     "localCandidate": {
       "source": "60f362368d5eedb3b43dedc4fa95eb3097672d7e",
       "origin": "http://127.0.0.1:5363/",
@@ -1149,16 +1153,45 @@
       "branch": "codex/amari-batch6-integration-20261004",
       "worktree": "work/dinospace-batch6-integration",
       "baseSource": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
-      "scope": "Clean checkout created. Selective integration assigned after Astronaut source freeze, preserving canonical sound preferences/B3/shareddefault/legacyAskia. No integration source or5371freeze yet."
+      "scope": "Root read builder report: clean0d base, reviewed764 B6 owned files byte-match, Amari progression ownership and canonical soundprefs/B3/Askia retained;236 tests and lint/configbuild pass,5879 hashes match. Independent bounded UI assigned. No narration or release acceptance.",
+      "source": "2a82fd8fd17d9e76ec4310f2fecf489291f5bbff",
+      "evidenceCommit": "e46fab6",
+      "origin": "http://127.0.0.1:5371/",
+      "report": "../dinospace-batch6-integration/docs/qa-evidence/batch6-integration-20261004/report.md"
+    },
+    "reliabilityFollowup": {
+      "commit": "ed1bba6",
+      "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-followup-20261004/report.md",
+      "scope": "Root read report. Astronaut fact/best reload, Pattern best-star improvement, Hangman lower replay best retention plus root Chess desktop/mobile reliability pass. Old5363 mute reset leaves provisional reliability4.0. Askia global totals only; full game collection isolation not claimed."
+    },
+    "astronautTeachingRepair": {
+      "source": "764b2ff49b6c40c13df928b4449d0a1f68fbe660",
+      "builderCommit": "37ff9df",
+      "independentCommit": "0a651ed",
+      "origin": "http://127.0.0.1:5370/",
+      "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-astronaut-teaching-independent-20261004/report.md",
+      "componentRecommendation": 4.5,
+      "scope": "All36 source review plus bounded ordinary six-question Starter UI; Learn clue vs reasoning label, wrong/retry, held fact/Next and one-star assisted completion with6 saved facts. Mars clue rendered at desktop and390. Five served hashes match, no console errors/broken passport images/mobile overflow. Not all36 new clues clicked; no audio/overall/release award."
     }
   },
   "batch4NarrationCheckpoint": {
-    "updatedAt": "2026-10-04T14:31:30.104Z",
+    "updatedAt": "2026-10-04T15:21:54.494Z",
     "pid": 18781,
-    "run": 230,
     "status": "waiting_request_window",
-    "pending": 1896,
-    "scope": "Live PID confirmed;11 newly generated,3309 reused in last run, expected request-window wait. No restart or concurrent paid generation. Not audio acceptance."
+    "run": 240,
+    "cooldownRetries": 0,
+    "waitUntil": "2026-10-04T15:31:46.492Z",
+    "requestsInWindow": 28,
+    "availableCalls": 2,
+    "minimumBatch": 10,
+    "lastResult": {
+      "exitCode": 0,
+      "generated": 15,
+      "reused": 3475,
+      "pending": 1756,
+      "stoppedAt": null
+    },
+    "scope": "PID18781 confirmed live. Last completed run240:15generated,3475reused,1756pending,exit0; expected request window wait. No concurrent paid generation or restart. Not audio acceptance."
   },
   "batch7CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch7-independent-editorial-assessment-20261004.md",
