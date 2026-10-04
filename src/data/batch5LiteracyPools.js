@@ -25,14 +25,17 @@ export const getEligibleSpellingWords = (bandIndex, taught) => {
 const canonicalSoundPoolCache = new Map();
 const getCanonicalSoundIds = (chapterIndex) => {
   if (!canonicalSoundPoolCache.has(chapterIndex)) {
-    const taught = chapterIndex < 2 ? PHASE_SAFES[2] : PHASE_SAFES[3];
+    const taught = PHASE_SAFES[chapterIndex];
     canonicalSoundPoolCache.set(chapterIndex, new Set(createSoundSafariPool(chapterIndex, taught).map((item) => item.id)));
   }
   return canonicalSoundPoolCache.get(chapterIndex);
 };
 const PHASE_SAFES = Object.freeze({
-  2: SOUND_SAFARI_DEFAULT_TAUGHT.phase2,
-  3: SOUND_SAFARI_DEFAULT_TAUGHT.phase3,
+  // Canonical persistence validates against each chapter's maximum authored set.
+  // Actual runs still use the learner's saved taught set and omit unavailable IDs.
+  0: SOUND_SAFARI_DEFAULT_TAUGHT.phase2,
+  1: SOUND_SAFARI_DEFAULT_TAUGHT.phase3,
+  2: SOUND_SAFARI_DEFAULT_TAUGHT.phase3,
 });
 const distinctPhonemes = (words) => [...new Set(words.flatMap((item) => item.phonemes))];
 const takeOptions = (answer, tokens, seed) => {

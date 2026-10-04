@@ -5,6 +5,7 @@ import { createSoundSafariPool, createSoundSafariRun } from '../../data/batch5Li
 import { soundSafariChapterArtReady, soundSafariWholeWordAudioReady } from '../../data/batch5SoundSafariPictureWords.js';
 import { getSoundSafariPictureArt } from '../../data/batch5SoundSafariPictureArt.js';
 import { soundSafariSoundLabel } from '../../data/batch5SoundSafariLabels.js';
+import { soundSafariHintSpeechSegments, soundSafariHintText, soundSafariPrompt, soundSafariPraise, soundSafariRetryText, soundSafariSpokenFeedback, soundSafariVisibleAnswerFact } from '../../data/batch5SoundSafariNarration.js';
 import { getBatch5LiteracyProgress, recordBatch5LiteracyCompletion, rememberBatch5LiteracyRun } from '../../data/batch5LiteracyProgress.js';
 import { getTaughtGraphemes } from '../../data/literacy.js';
 import { SoundToggle } from '../shared/index.jsx';
@@ -13,14 +14,6 @@ import { batch5AttemptMetrics } from './batch5AttemptMetrics.js';
 
 const noop = () => {};
 const randomSeed = () => globalThis.crypto?.getRandomValues ? globalThis.crypto.getRandomValues(new Uint32Array(1))[0] || 1 : Math.floor(Math.random() * 0xffffffff) || 1;
-const promptFor = (question) => question.type === 'match' ? BATCH5_NARRATION.prompts[0]
-  : question.type === 'blend' ? BATCH5_NARRATION.prompts[1]
-    : question.type === 'minimalPair' ? question.prompt
-    : `Listen to the word. Which sound do you hear at the ${question.position}?`;
-const praiseFor = (question) => question.type === 'match' ? BATCH5_NARRATION.praise[0]
-  : question.type === 'blend' ? BATCH5_NARRATION.praise[3]
-    : question.type === 'minimalPair' ? BATCH5_NARRATION.praise[0] : BATCH5_NARRATION.praise[2];
-
 export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundOn = true, onToggleSound = noop, speak = noop, cancelNarration = noop, onCelebrate = noop, onGameEvent = noop, onPhaseChange = noop, playerId = 'amari' }) {
   const [progress, setProgress] = useState(() => getBatch5LiteracyProgress('soundSafari', playerId));
   const [chapterIndex, setChapterIndex] = useState(() => getBatch5LiteracyProgress('soundSafari', playerId).unlockedChapter);
@@ -99,7 +92,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
       : question.type === 'blend' || question.type === 'minimalPair' ? option.id === question.answerId : option === question.answerId;
     setAttempted(true);
     if (!correct) {
-      const retryCopy = question.type === 'minimalPair' ? BATCH5_NARRATION.retry[1] : BATCH5_NARRATION.retry[0];
+      const retryCopy = soundSafariRetryText(question);
       setFeedback(retryCopy);
       tell(retryCopy);
       setResults((previous) => previous.map((item, index) => index === cursor ? { ...item, firstTry: false } : item));
@@ -113,16 +106,15 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
       return;
     }
     setLocked(true);
-    setFeedback(praiseFor(question));
+    const spokenFeedback = soundSafariSpokenFeedback(question);
+    const praise = soundSafariPraise(question);
+    setFeedback(praise);
     setResults((previous) => {
       const next = [...previous];
       next[cursor] = { id: question.id, firstTry: !attempted, hintCount };
       return next;
     });
-    const fact = question.type === 'match' ? `The word is ${question.target.word}.`
-      : question.type === 'blend' ? `The word is ${question.target.word}.`
-        : question.type === 'minimalPair' ? question.afterAnswer : 'You found the sound.';
-    tell(`${praiseFor(question)} ${fact}`, [praiseFor(question), fact]);
+    tell(spokenFeedback.text, spokenFeedback.segments);
     onGameEvent?.('phonics', 'answer_correct', { level: chapterIndex, round: cursor, seed,
       skill: question.type === 'match' ? 'phoneme-recognition' : question.type === 'blend' ? 'blending' : question.type === 'minimalPair' ? 'whole-word-discrimination' : 'phoneme-segmentation',
       item: question.type === 'blend' || question.type === 'minimalPair' ? question.target.word : question.answerId,
@@ -143,7 +135,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
     });
     if (question.type === 'match') playPhonemes(question.target.phonemes[0]);
     else if (question.type === 'blend') playPhonemes(question.target.phonemes);
-    else tell(question.target.word, [question.target.word]);
+    else tell(question.target.word, soundSafariHintSpeechSegments(question));
     onGameEvent?.('phonics', 'hint', { level: chapterIndex, round: cursor, seed, hints: hintCount + 1, hintType: 'clue' });
   };
 
@@ -180,10 +172,8 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
       {stage === 'finish' ? <><p className="mt-5 text-2xl font-black">Chapter complete!</p><p className="mt-2 font-semibold">Your fact stays here. Replay with a new question order or continue when you are ready.</p><button type="button" disabled={!chapterReady} onClick={() => start(chapterIndex, true)} className="mt-4 min-h-12 rounded-xl bg-emerald-700 px-6 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Replay chapter</button>{progress.unlockedChapter > chapterIndex && <button type="button" onClick={() => { setStage('start'); setChapterIndex(progress.unlockedChapter); }} className="mt-3 min-h-12 rounded-xl bg-white px-6 font-black">Next chapter</button>}</> : <button type="button" disabled={!chapterReady} onClick={() => start(chapterIndex)} className="mt-5 min-h-14 w-full max-w-lg rounded-2xl bg-emerald-800 text-lg font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Start {chapter?.title}</button>}
     </main></div>;
 
-  const prompt = promptFor(question);
-  const hintText = question.type === 'match' ? BATCH5_NARRATION.hints[2] : question.type === 'blend' ? BATCH5_NARRATION.hints[0]
-    : question.type === 'minimalPair' ? 'Listen to the whole word again, then choose the picture that matches.'
-      : `Say ${question.target.word} slowly, then listen for the ${question.position} sound.`;
+  const prompt = soundSafariPrompt(question);
+  const hintText = soundSafariHintText(question);
   return <div className="amari-scene flex flex-col" aria-label="Amari Sound Safari">
     <header className="amari-scene-header relative z-20"><button type="button" onClick={onBack} className="game-icon-button" aria-label="Back to learning world"><ArrowLeft /></button><div className="amari-scene-title"><p className="text-xs font-black uppercase">Chapter {chapterIndex + 1} · Question {cursor + 1} of 6</p><h1 className="text-lg font-black sm:text-2xl">{chapter.title}</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>
     <main className="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col items-center px-4 py-6 text-center">
@@ -193,7 +183,7 @@ export default function AmariSoundSafari({ onBack = noop, playSfx = noop, soundO
         {question.type === 'segment' && <><p className="mt-4 flex justify-center"><img className="h-[82px] w-[82px] object-contain" src={getSoundSafariPictureArt(question.target.id) || ''} alt="" aria-hidden="true" /></p><p className="mt-2 font-bold">{question.target.clue}</p><button type="button" onClick={() => tell(question.target.word, [question.target.word])} className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-4 font-black"><Volume2 size={19} /> Hear the word</button></>}
       </section>
       {question.type !== 'segment' ? <div className={`mt-4 grid w-full gap-3 ${question.type === 'minimalPair' ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'}`} role="group" aria-label={question.type === 'minimalPair' ? 'Choose the picture matching the whole word' : 'Choose a picture'}>{question.options.map((option) => <button key={option.id} type="button" disabled={locked} onClick={() => answer(option)} aria-label={`Picture option ${option.word}`} className="amari-choice flex min-h-28 flex-col items-center justify-center p-3 disabled:opacity-60">{option.imageSrc ? <img className="h-[82px] w-[82px] object-contain drop-shadow-sm" src={option.imageSrc} alt="" aria-hidden="true" /> : <span className="text-5xl" aria-hidden="true">{option.emoji}</span>}</button>)}</div> : <div className="mt-4 grid w-full grid-cols-2 gap-3 sm:grid-cols-4" role="group" aria-label="Choose the speech sound">{question.options.map((option) => <button key={option} type="button" disabled={locked} onClick={() => answer(option)} aria-label={`Sound ${soundSafariSoundLabel(option)}`} className="min-h-14 rounded-2xl bg-white px-2 py-2 text-center text-sm font-black leading-tight shadow disabled:opacity-60 sm:text-base">{soundSafariSoundLabel(option)}</button>)}</div>}
-      {feedback && <p role="status" className={`mt-4 w-full rounded-xl p-4 text-lg font-black ${locked ? 'bg-emerald-100' : 'bg-amber-100'}`}>{feedback}{locked && <span className="mt-2 block text-base font-semibold">{question.type === 'match' ? `The word ${question.target.word} starts with the ${soundSafariSoundLabel(question.answerId)}.` : question.type === 'blend' ? `You blended the sounds to say ${question.target.word}.` : question.type === 'minimalPair' ? question.afterAnswer : `The ${question.position} sound is the ${soundSafariSoundLabel(question.answerId)}.`}</span>}</p>}
+      {feedback && <p role="status" className={`mt-4 w-full rounded-xl p-4 text-lg font-black ${locked ? 'bg-emerald-100' : 'bg-amber-100'}`}>{feedback}{locked && <span className="mt-2 block text-base font-semibold">{soundSafariVisibleAnswerFact(question)}</span>}</p>}
       {missingClip && <p role="status" className="mt-2 rounded-lg bg-amber-100 p-2 text-sm font-bold">The recording for {soundSafariSoundLabel(missingClip)} is not packaged yet.</p>}
       {hintVisible && <p className="mt-2 rounded-xl bg-white/90 p-3 font-semibold">{hintText}</p>}
       {!locked && <button type="button" onClick={hint} className="mt-4 inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-white px-5 font-black"><Lightbulb size={19} /> Use a hint</button>}

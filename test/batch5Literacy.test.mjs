@@ -7,6 +7,8 @@ import { PHASE_GROUPS } from '../src/data/literacy.js';
 import { PHASE_SOUNDS } from '../src/data/learningProgress.js';
 import { playerStorageKey } from '../src/data/players.js';
 import { buildBatch5LiteracyNarrationInventory } from '../scripts/batch5LiteracyNarrationInventory.mjs';
+import { SOUND_SAFARI_DEFAULT_TAUGHT } from '../src/data/batch5SoundSafariPictureWords.js';
+import { soundSafariPrompt, soundSafariRetryText, soundSafariSpokenFeedback } from '../src/data/batch5SoundSafariNarration.js';
 
 const fullTaught = (chapter) => PHASE_GROUPS.slice(0, chapter + 1).flatMap((group) => group.graphemes);
 const memoryStorage = () => {
@@ -43,8 +45,8 @@ test('all sound and spelling runs are deterministic, six rounds, answerable, and
     assert.equal(new Set(firstSpelling.map((item) => item.id)).size, 6);
     for (const item of firstSound) {
       assert.ok(isCanonicalBatch5QuestionId('soundSafari', chapter, item.id));
-      assert.ok(item.options.length >= 3);
-      const answers = item.options.filter((option) => item.type === 'match' ? option.firstSound === item.answerId : item.type === 'blend' ? option.id === item.answerId : option === item.answerId);
+      assert.ok(item.options.length >= (item.type === 'minimalPair' ? 2 : 3));
+      const answers = item.options.filter((option) => item.type === 'match' ? option.firstSound === item.answerId : item.type === 'blend' || item.type === 'minimalPair' ? option.id === item.answerId : option === item.answerId);
       assert.equal(answers.length, 1, `${chapter}:${item.id} has one correct option`);
     }
     for (const item of firstSpelling) {
@@ -110,4 +112,48 @@ test('narration inventory includes exact finite runtime speech and phoneme recor
   }
   assert.ok(Object.keys(PURE_PHONEME_CLIP_PATHS).every((phoneme) => PURE_PHONEME_CLIP_PATHS[phoneme].startsWith('/audio/phonemes/en/')));
   assert.ok(inventory.phonemes.length >= 20);
+  assert.equal(inventory.soundSafari.wholeWordRecordingIds.length, 10);
+  assert.equal(inventory.soundSafari.phase2MinimalPairDirectionCount, 12);
+  assert.equal(inventory.soundSafari.phase2BlendQuestionCount, 23);
+  assert.equal(inventory.soundSafari.phase3PositionQuestionCount, 81);
+  const actualSoundSafari = [
+    ...createSoundSafariPool(0, SOUND_SAFARI_DEFAULT_TAUGHT.phase2),
+    ...createSoundSafariPool(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase2),
+    ...createSoundSafariPool(2, SOUND_SAFARI_DEFAULT_TAUGHT.phase3),
+  ];
+  for (const question of actualSoundSafari) {
+    const speech = soundSafariSpokenFeedback(question);
+    assert.ok(texts.has(soundSafariPrompt(question)), `${question.id} prompt is inventoried`);
+    assert.ok(texts.has(soundSafariRetryText(question)), `${question.id} retry is inventoried`);
+    assert.ok(speech.segments.every((segment) => texts.has(segment)), `${question.id} feedback segments are inventoried`);
+    assert.ok(texts.has(speech.text), `${question.id} joined feedback is inventoried`);
+  }
+  for (const id of inventory.soundSafari.wholeWordRecordingIds) assert.ok(texts.has(id.startsWith('safari-') ? id.slice(7) : id));
+});
+
+test('Growing canonical history accepts advanced blend IDs while restricted taught sets still exclude them', () => {
+  const storage = memoryStorage();
+  const starterPool = createSoundSafariPool(0, SOUND_SAFARI_DEFAULT_TAUGHT.phase2);
+  const starterIds = starterPool.map(({ id }) => id);
+  const starterRun = createSoundSafariRun(0, SOUND_SAFARI_DEFAULT_TAUGHT.phase2, 851);
+  recordBatch5LiteracyCompletion('soundSafari', 0, 2, starterRun.map(({ id }) => id), starterIds, 'amari', storage);
+
+  const advancedPool = createSoundSafariPool(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase3);
+  const advancedIds = advancedPool.map(({ id }) => id);
+  const targetRecent = ['blend:safari-plant', 'blend:safari-raft', 'blend:safari-plank'];
+  for (const id of targetRecent) assert.ok(isCanonicalBatch5QuestionId('soundSafari', 1, id), `${id} is a canonical Growing ID`);
+  const completeRecent = [...targetRecent, ...advancedIds.filter((id) => !targetRecent.includes(id)).slice(0, 3)];
+  assert.ok(rememberBatch5LiteracyRun('soundSafari', 1, completeRecent, advancedIds, 'amari', storage));
+
+  const reloadedProgress = getBatch5LiteracyProgress('soundSafari', 'amari', storage);
+  assert.ok(targetRecent.every((id) => reloadedProgress.recentQuestionIds[1].includes(id)));
+  const nextAdvancedRun = createSoundSafariRun(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase3, 852, reloadedProgress.recentQuestionIds[1]);
+  assert.ok(nextAdvancedRun.length === 6 && targetRecent.every((id) => !nextAdvancedRun.some((item) => item.id === id)));
+
+  const restrictedPool = createSoundSafariPool(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase2);
+  const restrictedIds = new Set(restrictedPool.map(({ id }) => id));
+  assert.ok(targetRecent.every((id) => !restrictedIds.has(id)));
+  const restrictedRun = createSoundSafariRun(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase2, 853, reloadedProgress.recentQuestionIds[1]);
+  assert.equal(restrictedRun.length, 6);
+  assert.ok(targetRecent.every((id) => !restrictedRun.some((item) => item.id === id)));
 });
