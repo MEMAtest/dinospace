@@ -1,0 +1,31 @@
+{
+  "candidate": "Batch 7 Memory/Solar teaching-copy builder candidate",
+  "sourceBranch": "codex/amari-batch7-quality-20261003",
+  "sourceCommit": "18e3c30636ecd46dfc8a06fbbfb75451c915338e",
+  "build": {
+    "command": "npm run build:android",
+    "env": {
+      "VITE_ELEVENLABS_ENABLED": "true",
+      "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+      "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+    },
+    "result": "passed",
+    "notes": [
+      "Browserslist dataset is stale.",
+      "Vite warns that some chunks exceed 500 kB."
+    ]
+  },
+  "frozenDist": "tmp/batch7-editorial-teaching-20261004/dist",
+  "origin": "http://127.0.0.1:5366",
+  "servedIdentity": {
+    "manifest": "tmp/batch7-editorial-teaching-20261004/build-manifest.json",
+    "manifestSha256": "99149dbed7d8ad52ea5e91e5279ea898ed787dbb0ec8092ab52038d3f964cdb1",
+    "files": 5694,
+    "servedHttp200AndSha256Matches": 5694,
+    "mismatches": 0,
+    "indexHtmlSha256": "dcd22c7683297edc63a122ec3637029bd60eed2aff8254610df3c7d110dcaf46"
+  },
+  "acceptanceState": "Builder verification only; separate focused browser QA pending. Not a production release and no 4.5 score is assigned.",
+  "providerCalls": 0,
+  "narration": "No generation, playback, or human listening check was performed."
+}
