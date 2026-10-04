@@ -49,6 +49,10 @@ import aeroplaneArt from '../../assets/memory-match/aeroplane-v1-card.webp';
 import helicopterArt from '../../assets/memory-match/helicopter-v1-card.webp';
 import steamTrainArt from '../../assets/memory-match/steam-train-v1-card.webp';
 import passengerTrainArt from '../../assets/memory-match/passenger-train-v1-card.webp';
+import strawberryArt from '../../assets/memory-match/strawberry-v1-card.webp';
+import pizzaArt from '../../assets/memory-match/pizza-v1-card.webp';
+import doughnutArt from '../../assets/memory-match/doughnut-v1-card.webp';
+import cupcakeArt from '../../assets/memory-match/cupcake-v1-card.webp';
 import jellyfishArt from '../../assets/memory-match/jellyfish-v1-card.webp';
 import crabArt from '../../assets/memory-match/crab-v1-card.webp';
 import squidArt from '../../assets/memory-match/squid-v1-card.webp';
@@ -111,6 +115,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/helicopter-v1-card.webp': helicopterArt,
   'memory-match/steam-train-v1-card.webp': steamTrainArt,
   'memory-match/passenger-train-v1-card.webp': passengerTrainArt,
+  'memory-match/strawberry-v1-card.webp': strawberryArt,
+  'memory-match/pizza-v1-card.webp': pizzaArt,
+  'memory-match/doughnut-v1-card.webp': doughnutArt,
+  'memory-match/cupcake-v1-card.webp': cupcakeArt,
   'memory-match/jellyfish-v1-card.webp': jellyfishArt,
   'memory-match/crab-v1-card.webp': crabArt,
   'memory-match/squid-v1-card.webp': squidArt,

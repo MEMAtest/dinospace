@@ -73,6 +73,10 @@ export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🚁': Object.freeze({ asset: 'memory-match/helicopter-v1-card.webp' }),
   '🚂': Object.freeze({ asset: 'memory-match/steam-train-v1-card.webp' }),
   '🚆': Object.freeze({ asset: 'memory-match/passenger-train-v1-card.webp' }),
+  '🍓': Object.freeze({ asset: 'memory-match/strawberry-v1-card.webp' }),
+  '🍕': Object.freeze({ asset: 'memory-match/pizza-v1-card.webp' }),
+  '🍩': Object.freeze({ asset: 'memory-match/doughnut-v1-card.webp' }),
+  '🧁': Object.freeze({ asset: 'memory-match/cupcake-v1-card.webp' }),
 });
 
 // The same fish token appears on two boards, but it represents distinct
