@@ -1,0 +1,138 @@
+{
+  "checkedAt": "2026-10-04T11:44:27.291103+00:00",
+  "origin": "https://dinospace-eight.vercel.app",
+  "deploymentId": "dpl_Dypi5oGP3et3yxgQiGjDqYpfCFMg",
+  "sourceSha": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+  "identityFile": "docs/qa-evidence/batch2-functional-release-94d44d0-canonical-20261004.json",
+  "files": [
+    {
+      "path": "/assets/AmariCountTheStars-CktDWEr1.js",
+      "status": 200,
+      "bytes": 18854,
+      "sha256": "95f2bc2709a6da404f7627041baaaaf238b7792f418062b58e262c557d753fef",
+      "expectedSha256": "95f2bc2709a6da404f7627041baaaaf238b7792f418062b58e262c557d753fef",
+      "matches": true
+    },
+    {
+      "path": "/assets/AmariLetterTrace-BoRU_pnd.js",
+      "status": 200,
+      "bytes": 19956,
+      "sha256": "35c9b0ccfc07561db2d19620049795941239d02515e860d1346e2ca466f40849",
+      "expectedSha256": "35c9b0ccfc07561db2d19620049795941239d02515e860d1346e2ca466f40849",
+      "matches": true
+    },
+    {
+      "path": "/assets/SolarSystem-BuG1HOEI.js",
+      "status": 200,
+      "bytes": 563158,
+      "sha256": "c8a7bc09ac6723495339fe11d806cfd9b6375601b41607490a5db9ad65b36a8c",
+      "expectedSha256": "c8a7bc09ac6723495339fe11d806cfd9b6375601b41607490a5db9ad65b36a8c",
+      "matches": true
+    },
+    {
+      "path": "/assets/history-artifacts-a-v1-C8Vpi_9u.webp",
+      "status": 200,
+      "bytes": 493680,
+      "sha256": "33725a924c5e3a8abcdea59b15eabe1007c1a09d3b279c602dfbc9ac908d2401",
+      "expectedSha256": "33725a924c5e3a8abcdea59b15eabe1007c1a09d3b279c602dfbc9ac908d2401",
+      "matches": true
+    },
+    {
+      "path": "/assets/history-artifacts-b-v1-DDMoz3YU.webp",
+      "status": 200,
+      "bytes": 456304,
+      "sha256": "b9291087e9e91c65aacfbc288b11ed3b321f12aa37660418dfabfdd790102fb7",
+      "expectedSha256": "b9291087e9e91c65aacfbc288b11ed3b321f12aa37660418dfabfdd790102fb7",
+      "matches": true
+    },
+    {
+      "path": "/assets/index-J4yEjPQ6.js",
+      "status": 200,
+      "bytes": 1260274,
+      "sha256": "4ef67e535943fc31ce42f84589116c4f3d62d50219b918008acaaf870ffcf8e5",
+      "expectedSha256": "4ef67e535943fc31ce42f84589116c4f3d62d50219b918008acaaf870ffcf8e5",
+      "matches": true
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "status": 200,
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "expectedSha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "matches": true
+    },
+    {
+      "path": "/assets/nature-lab-leaves-3d-DDByeZD_.webp",
+      "status": 200,
+      "bytes": 424104,
+      "sha256": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20",
+      "expectedSha256": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20",
+      "matches": true
+    },
+    {
+      "path": "/assets/nature-lab-leaves-3d-variant-b-CXJZfOks.webp",
+      "status": 200,
+      "bytes": 484288,
+      "sha256": "b5facad979d38fc8576f29c7592a640d5d68eacfc1276f36ffb515eb2abdaf11",
+      "expectedSha256": "b5facad979d38fc8576f29c7592a640d5d68eacfc1276f36ffb515eb2abdaf11",
+      "matches": true
+    },
+    {
+      "path": "/assets/robin-physical-b-v1-BTnMGf7t.webp",
+      "status": 200,
+      "bytes": 501260,
+      "sha256": "ae3305296bb3627b115d7cd5516e90c878356bae299c6899fb3095c2611c1eab",
+      "expectedSha256": "ae3305296bb3627b115d7cd5516e90c878356bae299c6899fb3095c2611c1eab",
+      "matches": true
+    },
+    {
+      "path": "/assets/robin-tree-3d-C6X3IbOn.webp",
+      "status": 200,
+      "bytes": 407546,
+      "sha256": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932",
+      "expectedSha256": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932",
+      "matches": true
+    },
+    {
+      "path": "/assets/web-St9LU1ir.js",
+      "status": 200,
+      "bytes": 842,
+      "sha256": "6eb7ace5094efce60fbaa77a23bc79f4216687e1c8d863ab7f561a3991b63074",
+      "expectedSha256": "6eb7ace5094efce60fbaa77a23bc79f4216687e1c8d863ab7f561a3991b63074",
+      "matches": true
+    },
+    {
+      "path": "/assets/world-explorer-map-3d-BiOIYdoV.webp",
+      "status": 200,
+      "bytes": 411940,
+      "sha256": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23",
+      "expectedSha256": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23",
+      "matches": true
+    },
+    {
+      "path": "/assets/world-physical-b-v1-DAEPy57E.webp",
+      "status": 200,
+      "bytes": 483148,
+      "sha256": "ced84c32d3d38c12c3fe932d0fa33b842a814dca4c399b4bd3bf5ae727045af9",
+      "expectedSha256": "ced84c32d3d38c12c3fe932d0fa33b842a814dca4c399b4bd3bf5ae727045af9",
+      "matches": true
+    },
+    {
+      "path": "/index.html",
+      "status": 200,
+      "bytes": 1100,
+      "sha256": "ba0109a83a64df276f24d5abd64274c02eb9dce8503d4a3d2668ef29069156c8",
+      "expectedSha256": "ba0109a83a64df276f24d5abd64274c02eb9dce8503d4a3d2668ef29069156c8",
+      "matches": true
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "bytes": 199772,
+      "sha256": "e8dd6efbf58d92d2f26778f472968e8a4c26646660967f73649fc2201293f86e",
+      "expectedSha256": "e8dd6efbf58d92d2f26778f472968e8a4c26646660967f73649fc2201293f86e",
+      "matches": true
+    }
+  ],
+  "allMatch": true
+}
