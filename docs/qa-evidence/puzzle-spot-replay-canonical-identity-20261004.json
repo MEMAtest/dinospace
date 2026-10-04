@@ -9,52 +9,66 @@
       "sha256": "fe0b32ee04e9a38b2e619c0d1ef3125c10076c9b3a3ba832052b000518a780b4",
       "bytes": 1100,
       "servedSha256": "fe0b32ee04e9a38b2e619c0d1ef3125c10076c9b3a3ba832052b000518a780b4",
-      "matchesFrozen": true
+      "matchesFrozen": true,
+      "servedHttpStatus": 200,
+      "servedBytes": 1100
     },
     {
       "path": "assets/AmariCountTheStars-BK1ic25Z.js",
       "sha256": "8fb6349c2d74ce2fd380c69d59b18b22a10adc625895cb77e4ba63bf51a072cf",
       "bytes": 18854,
       "servedSha256": "8fb6349c2d74ce2fd380c69d59b18b22a10adc625895cb77e4ba63bf51a072cf",
-      "matchesFrozen": true
+      "matchesFrozen": true,
+      "servedHttpStatus": 200,
+      "servedBytes": 18854
     },
     {
       "path": "assets/AmariLetterTrace-e7yvzSjo.js",
       "sha256": "826ad2435ebdfdf9617f247a22d662ae21c617eba4f48054657e10464672c576",
       "bytes": 19956,
       "servedSha256": "826ad2435ebdfdf9617f247a22d662ae21c617eba4f48054657e10464672c576",
-      "matchesFrozen": true
+      "matchesFrozen": true,
+      "servedHttpStatus": 200,
+      "servedBytes": 19956
     },
     {
       "path": "assets/SolarSystem-CfmWOVsL.js",
       "sha256": "b3b5c70c97ae76f1849a691e9886eca9becb77842a632623c210efa187d9fb1a",
       "bytes": 563158,
       "servedSha256": "b3b5c70c97ae76f1849a691e9886eca9becb77842a632623c210efa187d9fb1a",
-      "matchesFrozen": true
+      "matchesFrozen": true,
+      "servedHttpStatus": 200,
+      "servedBytes": 563158
     },
     {
       "path": "assets/index-D0R3WDmV.js",
       "sha256": "25133a08c106e70130802603fc334a83d141bea4dbbb33eaeb877686af77f312",
       "bytes": 1237516,
       "servedSha256": "25133a08c106e70130802603fc334a83d141bea4dbbb33eaeb877686af77f312",
-      "matchesFrozen": true
+      "matchesFrozen": true,
+      "servedHttpStatus": 200,
+      "servedBytes": 1237516
     },
     {
       "path": "assets/web-McM7gb6B.js",
       "sha256": "0fdde3185b8d48943043548492600b4455a3b5919673c7800bb497c9787c22e5",
       "bytes": 842,
       "servedSha256": "0fdde3185b8d48943043548492600b4455a3b5919673c7800bb497c9787c22e5",
-      "matchesFrozen": true
+      "matchesFrozen": true,
+      "servedHttpStatus": 200,
+      "servedBytes": 842
     },
     {
       "path": "assets/index-CohPvEcn.css",
       "sha256": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
       "bytes": 205826,
       "servedSha256": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
-      "matchesFrozen": true
+      "matchesFrozen": true,
+      "servedHttpStatus": 200,
+      "servedBytes": 205826
     }
   ],
-  "scope": "Canonical promoted after independent immutable production candidate replay QA. All seven served runtime/index files match frozen2952958. Fresh canonical visible controls pending.",
+  "scope": "Canonical bounded desktop/mobile UI proof added after candidate promotion: fresh Puzzle Hint/placement/fact/Next/parent navigation and Spot compare/Magnifier/visible target/fact/Next/parent navigation. Original replay matrix remains unpromoted-candidate evidence.",
   "providerIdentity": {
     "id": "dpl_FjAsdFFoZqPXLM1EbfnLW4Sy59s5",
     "readyState": "READY",
@@ -68,5 +82,6 @@
     "alias": "dinospace-eight.vercel.app",
     "deploymentId": "dpl_FjAsdFFoZqPXLM1EbfnLW4Sy59s5",
     "url": "dinospace-qfb174zn5-memas-projects-23a0001d.vercel.app"
-  }
+  },
+  "verifiedAt": "2026-10-04T02:24Z"
 }
