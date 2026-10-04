@@ -1,0 +1,22 @@
+- generic "Amari Sound Safari" [ref=f2e734]:
+  - banner [ref=f2e735]:
+    - button "Back to learning world" [ref=f2e736] [cursor=pointer]
+    - generic [ref=f2e739]:
+      - paragraph [ref=f2e761]: Chapter 1 · Question 1 of 6
+      - heading "Hear and match" [level=1] [ref=f2e762]
+    - button "Turn sound on" [ref=f2e742] [cursor=pointer]
+  - main [ref=f2e747]:
+    - generic [ref=f2e763]:
+      - paragraph [ref=f2e764]: Listen for the sound. Which picture begins with it?
+      - button "Hear instructions" [ref=f2e765] [cursor=pointer]
+      - button "Hear the pure sound" [disabled] [ref=f2e770]
+    - group "Choose a picture" [ref=f2e775]:
+      - button "Picture option pot" [ref=f2e776] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f2e777]: 🪴
+      - button "Picture option not" [ref=f2e778] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f2e779]: 🚫
+      - button "Picture option cot" [ref=f2e780] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f2e781]: 🛏️
+      - button "Picture option got" [ref=f2e782] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f2e783]: 🎁
+    - button "Use a hint" [ref=f2e784] [cursor=pointer]

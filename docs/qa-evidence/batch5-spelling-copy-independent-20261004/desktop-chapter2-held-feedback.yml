@@ -1,0 +1,32 @@
+- generic "Amari Spelling Studio" [ref=e406]:
+  - banner [ref=e407]:
+    - button "Back to learning world" [ref=e408] [cursor=pointer]
+    - generic [ref=e411]:
+      - paragraph [ref=e580]: Chapter 2 · Word 1 of 6
+      - heading "More Phase 2 sounds" [level=1] [ref=e581]
+    - button "Turn sound on" [ref=e414] [cursor=pointer]
+  - main [ref=e419]:
+    - generic [ref=e582]:
+      - paragraph [ref=e583]: One sound is missing. Choose the sound that completes the word.
+      - button "Hear instructions" [ref=e584] [cursor=pointer]
+      - button "Hear picture clue" [ref=e589] [cursor=pointer]
+      - generic [aria-hidden] [ref=e594]: 🐦
+      - paragraph [ref=e595]: A quick little bird tap
+      - generic [ref=e596]:
+        - generic [ref=e597]: p
+        - generic [ref=e598]: e
+        - generic [ref=e599]: ck
+      - paragraph [ref=e600]: Choose the letters for the missing sound.
+    - group "Choose the letters for the missing sound" [ref=e601]:
+      - button "d" [disabled] [ref=e602]
+      - button "p" [disabled] [ref=e603]
+      - button "ck" [disabled] [ref=e604]
+      - button "h" [disabled] [ref=e605]
+    - status [ref=e609]:
+      - text: Well done. You built the word.
+      - paragraph [ref=e610]: PECK has 3 sounds.
+      - generic "Sound sequence" [ref=e611]:
+        - generic [ref=e612]: /p/
+        - generic [ref=e613]: /e/
+        - generic [ref=e614]: /ck/
+    - button "Next word" [ref=e615] [cursor=pointer]

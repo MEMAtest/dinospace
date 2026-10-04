@@ -1,0 +1,32 @@
+- generic "Amari Spelling Studio" [ref=e394]:
+  - banner [ref=e395]:
+    - button "Back to learning world" [ref=e396] [cursor=pointer]
+    - generic [ref=e399]:
+      - paragraph [ref=e568]: Chapter 2 · Word 1 of 6
+      - heading "More Phase 2 sounds" [level=1] [ref=e569]
+    - button "Turn sound on" [ref=e402] [cursor=pointer]
+  - main [ref=e407]:
+    - generic [ref=e570]:
+      - paragraph [ref=e571]: One sound is missing. Choose the sound that completes the word.
+      - button "Hear instructions" [ref=e572] [cursor=pointer]
+      - button "Hear picture clue" [ref=e577] [cursor=pointer]
+      - generic [aria-hidden] [ref=e582]: 🔴
+      - paragraph [ref=e583]: The colour of a stop sign
+      - generic [ref=e584]:
+        - generic [ref=e585]: r
+        - generic [ref=e586]: e
+        - generic [ref=e587]: d
+      - paragraph [ref=e588]: Choose the letters for the missing sound.
+    - group "Choose the letters for the missing sound" [ref=e589]:
+      - button "e" [disabled] [ref=e590]
+      - button "t" [disabled] [ref=e591]
+      - button "g" [disabled] [ref=e592]
+      - button "ff" [disabled] [ref=e593]
+    - status [ref=e597]:
+      - text: Well done. You built the word.
+      - paragraph [ref=e598]: RED has 3 sounds.
+      - generic "Sound sequence" [ref=e599]:
+        - generic [ref=e600]: /r/
+        - generic [ref=e601]: /e/
+        - generic [ref=e602]: /d/
+    - button "Next word" [ref=e603] [cursor=pointer]

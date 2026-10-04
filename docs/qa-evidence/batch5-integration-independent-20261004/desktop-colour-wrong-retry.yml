@@ -1,0 +1,35 @@
+- generic "Amari Colour Mixing Lab" [ref=f2e1659]:
+  - banner [ref=f2e1660]:
+    - button "Back to Creative Lab" [ref=f2e1661] [cursor=pointer]
+    - generic [ref=f2e1664]:
+      - paragraph [ref=f2e1699]: Chapter 1 · Recipe 2 of 6
+      - heading "Discover Colour" [level=1] [ref=f2e1700]
+    - button "Turn sound on" [ref=f2e1667] [cursor=pointer]
+  - main [ref=f2e1672]:
+    - generic [ref=f2e1701]:
+      - paragraph [ref=f2e1702]: What will red and blue make in our lab?
+      - button "Hear the brief" [ref=f2e1703] [cursor=pointer]
+      - paragraph [ref=f2e1708]: Use the named colours. The recipe uses one part of each.
+      - generic "Named colour recipe inputs" [ref=f2e1709]:
+        - generic [ref=f2e1710]:
+          - img "Red" [ref=f2e1711]
+          - generic [ref=f2e1713]: Red
+        - generic [ref=f2e1714]: +
+        - generic [ref=f2e1750]:
+          - img "Blue" [ref=f2e1751]
+          - generic [ref=f2e1753]: Blue
+      - generic "Empty mixing beaker" [ref=f2e1754]:
+        - img "Empty beaker" [ref=f2e1755]
+        - generic [ref=f2e1722]: 1 part + 1 part
+    - group "Choose a colour" [ref=f2e1723]:
+      - button "Choose Purple" [ref=f2e1756] [cursor=pointer]:
+        - img "Purple" [ref=f2e1757]
+        - generic [ref=f2e1759]: Purple
+      - button "Choose Orange" [active] [ref=f2e1760] [cursor=pointer]:
+        - img "Orange" [ref=f2e1761]
+        - generic [ref=f2e1763]: Orange
+      - button "Choose Green" [ref=f2e1764] [cursor=pointer]:
+        - img "Green" [ref=f2e1765]
+        - generic [ref=f2e1767]: Green
+    - button "Use one hint" [ref=f2e1768] [cursor=pointer]
+    - status [ref=f2e1771]: Try again. Use the colour names and compare the recipe.

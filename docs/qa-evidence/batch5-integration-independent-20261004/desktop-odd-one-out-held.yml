@@ -1,0 +1,29 @@
+- generic "Amari Odd One Out" [ref=f2e2501]:
+  - banner [ref=f2e2502]:
+    - button "Back to Thinking and Play" [ref=f2e2503] [cursor=pointer]
+    - generic [ref=f2e2506]:
+      - paragraph [ref=f2e2527]: Chapter 1 · Puzzle 1 of 6
+      - heading "Picture Groups" [level=1] [ref=f2e2528]
+    - button "Turn sound on" [ref=f2e2509] [cursor=pointer]
+  - main [ref=f2e2514]:
+    - generic [ref=f2e2529]:
+      - paragraph [ref=f2e2530]: Three pictures show animals. Find the one that does not belong to that group.
+      - button "Hear the rule" [ref=f2e2531] [cursor=pointer]
+      - paragraph [ref=f2e2536]: You chose this picture. Now choose the reason that follows the rule.
+    - group "Choose why the selected item does not follow the rule" [ref=f2e2574]:
+      - button "Fish Fish" [disabled] [ref=f2e2538]:
+        - img "Fish" [ref=f2e2539]
+        - generic [ref=f2e2545]: Fish
+      - button "Cat Cat" [disabled] [ref=f2e2546]:
+        - img "Cat" [ref=f2e2547]
+        - generic [ref=f2e2554]: Cat
+      - button "Rabbit Rabbit" [disabled] [ref=f2e2555]:
+        - img "Rabbit" [ref=f2e2556]
+        - generic [ref=f2e2563]: Rabbit
+      - button "Tree Tree" [disabled] [pressed] [ref=f2e2564]:
+        - img "Tree" [ref=f2e2565]
+        - generic [ref=f2e2569]: Tree
+    - status [ref=f2e2582]:
+      - text: Use the named group. Three items belong to it and one does not. It does not belong to the named animal group.
+      - button "Hear why" [ref=f2e2583] [cursor=pointer]
+    - button "Next puzzle" [ref=f2e2588] [cursor=pointer]

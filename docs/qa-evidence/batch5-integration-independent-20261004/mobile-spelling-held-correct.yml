@@ -1,0 +1,29 @@
+- generic "Amari Spelling Studio" [ref=f3e819]:
+  - banner [ref=f3e820]:
+    - button "Back to learning world" [ref=f3e821] [cursor=pointer]
+    - generic [ref=f3e824]:
+      - paragraph [ref=f3e849]: Chapter 1 · Word 1 of 6
+      - heading "First sounds" [level=1] [ref=f3e850]
+    - button "Turn sound on" [ref=f3e827] [cursor=pointer]
+  - main [ref=f3e832]:
+    - generic [ref=f3e851]:
+      - paragraph [ref=f3e852]: Build the word that matches the picture.
+      - button "Hear instructions" [ref=f3e853] [cursor=pointer]
+      - button "Hear picture clue" [ref=f3e858] [cursor=pointer]
+      - generic [aria-hidden] [ref=f3e863]: 🔝
+      - paragraph [ref=f3e864]: The highest part
+      - paragraph [ref=f3e865]: top
+      - paragraph [ref=f3e866]: Look, say the sounds, then build the word.
+    - group "Tiles for building the word" [ref=f3e867]:
+      - button "d" [disabled] [ref=f3e870]
+      - button "m" [disabled] [ref=f3e871]
+      - button "n" [disabled] [ref=f3e872]
+    - status [ref=f3e881]:
+      - text: Well done. You built the word.
+      - paragraph [ref=f3e882]: TOP has 3 sounds.
+      - generic "Sound sequence" [ref=f3e883]:
+        - generic [ref=f3e884]: /t/
+        - generic [ref=f3e885]: /o/
+        - generic [ref=f3e886]: /p/
+    - button "Next word" [ref=f3e887] [cursor=pointer]
+    - paragraph [ref=f3e877]: Repeated letters use separate tiles.

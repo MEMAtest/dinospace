@@ -1,0 +1,40 @@
+- generic [ref=f2e2]:
+  - generic "Amari Spelling Studio" [ref=f2e977]:
+    - banner [ref=f2e978]:
+      - button "Back to learning world" [ref=f2e979] [cursor=pointer]
+      - generic [ref=f2e982]:
+        - paragraph [ref=f2e1007]: Chapter 1 · Word 1 of 6
+        - heading "First sounds" [level=1] [ref=f2e1008]
+      - button "Turn sound on" [ref=f2e985] [cursor=pointer]
+    - main [ref=f2e990]:
+      - generic [ref=f2e1009]:
+        - paragraph [ref=f2e1010]: Build the word that matches the picture.
+        - button "Hear instructions" [ref=f2e1011] [cursor=pointer]
+        - button "Hear picture clue" [ref=f2e1016] [cursor=pointer]
+        - generic [aria-hidden] [ref=f2e1021]: 🥫
+        - paragraph [ref=f2e1022]: A metal container
+        - paragraph [ref=f2e1023]: can
+        - paragraph [ref=f2e1024]: Look, say the sounds, then build the word.
+      - group "Tiles for building the word" [ref=f2e1025]:
+        - button "p" [disabled] [ref=f2e1026]
+        - button "o" [disabled] [ref=f2e1027]
+        - button "g" [disabled] [ref=f2e1031]
+      - status [ref=f2e1040]:
+        - text: Well done. You built the word.
+        - paragraph [ref=f2e1041]: CAN has 3 sounds.
+        - generic "Sound sequence" [ref=f2e1042]:
+          - generic [ref=f2e1043]: /c/
+          - generic [ref=f2e1044]: /a/
+          - generic [ref=f2e1045]: /n/
+      - button "Next word" [ref=f2e1046] [cursor=pointer]
+      - paragraph [ref=f2e1035]: Repeated letters use separate tiles.
+  - dialog [ref=f2e1047]:
+    - generic [ref=f2e1048]:
+      - heading "Leave the game?" [level=2] [ref=f2e1049]
+      - generic [ref=f2e1050]:
+        - generic [ref=f2e1051]:
+          - button "Keep playing" [active] [ref=f2e1052] [cursor=pointer]
+          - generic [ref=f2e1055]: Keep playing
+        - generic [ref=f2e1056]:
+          - button "Back to world" [ref=f2e1057] [cursor=pointer]
+          - generic [ref=f2e1060]: World

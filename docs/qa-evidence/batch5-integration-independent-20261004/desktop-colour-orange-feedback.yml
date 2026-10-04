@@ -1,0 +1,34 @@
+- generic "Amari Colour Mixing Lab" [ref=f2e1659]:
+  - banner [ref=f2e1660]:
+    - button "Back to Creative Lab" [ref=f2e1661] [cursor=pointer]
+    - generic [ref=f2e1664]:
+      - paragraph [ref=f2e1699]: Chapter 1 · Recipe 1 of 6
+      - heading "Discover Colour" [level=1] [ref=f2e1700]
+    - button "Turn sound on" [ref=f2e1667] [cursor=pointer]
+  - main [ref=f2e1672]:
+    - generic [ref=f2e1701]:
+      - paragraph [ref=f2e1702]: You have red. What should you add to make orange?
+      - button "Hear the brief" [ref=f2e1703] [cursor=pointer]
+      - paragraph [ref=f2e1708]: Use the named colours. The recipe uses one part of each.
+      - generic "Named colour recipe inputs" [ref=f2e1709]:
+        - generic [ref=f2e1710]:
+          - img "Red" [ref=f2e1711]
+          - generic [ref=f2e1713]: Red
+        - generic [ref=f2e1714]: +
+        - generic [ref=f2e1735]:
+          - img "Yellow" [ref=f2e1736]
+          - generic [ref=f2e1738]: Added Yellow
+      - generic "Mixed Orange" [ref=f2e1739]:
+        - img "Orange mixed paint" [ref=f2e1740]
+        - generic [ref=f2e1722]: Orange
+    - group "Choose a colour" [ref=f2e1723]:
+      - button "Choose Yellow" [disabled] [ref=f2e1724]:
+        - img "Yellow" [ref=f2e1725]
+        - generic [ref=f2e1727]: Yellow
+        - generic [ref=f2e1742]: Makes Yellow
+      - button "Choose Blue" [disabled] [ref=f2e1728]:
+        - img "Blue" [ref=f2e1729]
+        - generic [ref=f2e1731]: Blue
+    - button "Hear the colour fact" [ref=f2e1743] [cursor=pointer]
+    - status [ref=f2e1748]: Red and yellow make orange in our colour lab.
+    - button "Next recipe" [ref=f2e1749] [cursor=pointer]

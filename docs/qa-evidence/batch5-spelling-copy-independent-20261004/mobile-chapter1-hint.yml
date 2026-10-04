@@ -1,0 +1,26 @@
+- generic "Amari Spelling Studio" [ref=e394]:
+  - banner [ref=e395]:
+    - button "Back to learning world" [ref=e396] [cursor=pointer]
+    - generic [ref=e399]:
+      - paragraph [ref=e424]: Chapter 1 · Word 1 of 6
+      - heading "First sounds" [level=1] [ref=e425]
+    - button "Turn sound on" [ref=e402] [cursor=pointer]
+  - main [ref=e407]:
+    - generic [ref=e426]:
+      - paragraph [ref=e427]: Build the word that matches the picture.
+      - button "Hear instructions" [ref=e428] [cursor=pointer]
+      - button "Hear picture clue" [ref=e433] [cursor=pointer]
+      - generic [aria-hidden] [ref=e438]: 🐶
+      - paragraph [ref=e439]: A pet that barks
+      - paragraph [ref=e440]: dog
+      - paragraph [ref=e441]: Look, say the sounds, then build the word.
+    - group "Tiles for building the word" [ref=e442]:
+      - button "p" [ref=e443] [cursor=pointer]
+      - button "o" [ref=e444] [cursor=pointer]
+      - button "d" [ref=e445] [cursor=pointer]
+      - button "g" [ref=e446] [cursor=pointer]
+      - button "m" [ref=e447] [cursor=pointer]
+      - button "a" [ref=e448] [cursor=pointer]
+    - paragraph [ref=e456]: Look at the model word. Copy each box in order, even if the same letters appear again.
+    - button "Hear sounds as a hint" [active] [ref=e449] [cursor=pointer]
+    - paragraph [ref=e452]: Repeated letters use separate tiles.
