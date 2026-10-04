@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Check, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import { skyShapeNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
@@ -78,6 +78,10 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const overallProgress = skyTraceProgressPercent(guidePaths, pathIndex, cursorIndex, traceReady);
 
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
+
+  useLayoutEffect(() => {
+    if (phase === 'play') window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [phase]);
 
   useEffect(() => {
     speakPackagedBatch2Line(speak, skyShapeNarration.choose);
