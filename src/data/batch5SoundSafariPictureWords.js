@@ -1,7 +1,8 @@
 import { BATCH5_SPELLING_WORDS } from './batch5Literacy.js';
 import { PHASE_SOUNDS } from './learningProgress.js';
+import { SOUND_SAFARI_PICTURE_ART } from './batch5SoundSafariPictureArt.js';
 
-const soundOnly = (id, word, graphemes, phonemes, clue, artSubject, phase = 2) => Object.freeze({
+const soundOnly = (id, word, graphemes, phonemes, clue, artSubject, phase = 2, ukIpa = null, requiredSoundKeys = []) => Object.freeze({
   id: `safari-${id}`,
   word,
   graphemes: Object.freeze(graphemes.split(' ')),
@@ -9,6 +10,8 @@ const soundOnly = (id, word, graphemes, phonemes, clue, artSubject, phase = 2) =
   clue,
   artSubject,
   phase,
+  ...(ukIpa ? { ukIpa } : {}),
+  ...(requiredSoundKeys.length ? { requiredSoundKeys: Object.freeze([...requiredSoundKeys]) } : {}),
   soundSafariOnly: true,
 });
 
@@ -25,6 +28,8 @@ const additions = [
   soundOnly('rat', 'rat', 'r a t', 'r a t', 'A rat is a small animal with a long tail.', 'One friendly rat, distinct from a mouse and with a long tail.'),
   soundOnly('tag', 'tag', 't a g', 't a g', 'A tag is a small label attached to something.', 'One blank paper tag with a string loop; no letters or numbers.'),
   soundOnly('tub', 'tub', 't u b', 't u b', 'A tub holds water for a bath.', 'One small child bath tub, empty and isolated.'),
+  soundOnly('stamp', 'stamp', 's t a m p', 's t a m p', 'A stamp is a small sticky picture you put on a letter.', 'One postage stamp with a simple picture and perforated edges, with no letters or numbers.', 2, '/stæmp/'),
+  soundOnly('clamp', 'clamp', 'c l a m p', 'c l a m p', 'A clamp holds things tightly together.', 'One clear C-clamp with a screw handle, isolated and not clamping another object.', 2, '/klæmp/'),
   soundOnly('truck', 'truck', 't r u ck', 't r u ck', 'A truck carries things on the road.', 'One friendly delivery truck, no driver, road or cargo text.'),
   soundOnly('brick', 'brick', 'b r i ck', 'b r i ck', 'A brick is a block used to build walls.', 'One red building brick, viewed clearly from the front.'),
   soundOnly('crab', 'crab', 'c r a b', 'c r a b', 'A crab has claws and walks sideways.', 'One cheerful crab with two claws and eight walking legs.'),
@@ -32,14 +37,14 @@ const additions = [
   soundOnly('frog', 'frog', 'f r o g', 'f r o g', 'A frog is an animal that can hop.', 'One friendly green frog, with four legs and no pond.'),
   soundOnly('drum', 'drum', 'd r u m', 'd r u m', 'A drum is an instrument you can tap.', 'One small toy hand drum with two drumsticks beside it.'),
   soundOnly('clock', 'clock', 'c l o ck', 'c l o ck', 'A clock shows the time.', 'One round clock with simple hands and no numerals or words.'),
-  soundOnly('plant', 'plant', 'p l a n t', 'p l a n t', 'A plant grows from roots and has leaves.', 'One small leafy plant with visible stem and leaves in a plain pot.'),
+  soundOnly('plant', 'plant', 'p l a n t', 'p l ar n t', 'A plant grows from roots and has leaves.', 'One small leafy plant with visible stem and leaves in a plain pot.', 3, '/plɑːnt/'),
   soundOnly('sack', 'sack', 's a ck', 's a ck', 'A sack is a large bag made from cloth.', 'One tied cloth sack; no printed mark or contents visible.'),
   soundOnly('tent', 'tent', 't e n t', 't e n t', 'A tent is a fabric shelter.', 'One small camping tent, closed, with no people or landscape.'),
   soundOnly('belt', 'belt', 'b e l t', 'b e l t', 'A belt goes around your waist.', 'One simple belt with a visible buckle.'),
   soundOnly('pond', 'pond', 'p o n d', 'p o n d', 'A pond is a small pool of water.', 'One small oval pond with a clear water edge; no animals.'),
   soundOnly('nest', 'nest', 'n e s t', 'n e s t', 'A nest is a bird’s home.', 'One woven bird nest with two eggs; no bird or tree scene.'),
-  soundOnly('raft', 'raft', 'r a f t', 'r a f t', 'A raft floats on water.', 'One simple wooden raft, isolated with no people or water scene.'),
-  soundOnly('plank', 'plank', 'p l a n k', 'p l a n k', 'A plank is a long flat piece of wood.', 'One long, flat wooden plank, shown by itself.'),
+  soundOnly('raft', 'raft', 'r a f t', 'r ar f t', 'A raft floats on water.', 'One simple wooden raft, isolated with no people or water scene.', 3, '/rɑːft/'),
+  soundOnly('plank', 'plank', 'p l a n k', 'p l a ng k', 'A plank is a long flat piece of wood.', 'One long, flat wooden plank, shown by itself.', 3, '/plæŋk/', ['nk']),
   soundOnly('crust', 'crust', 'c r u s t', 'c r u s t', 'Crust is the firm outside edge of bread.', 'One slice of bread with the crust clearly visible.'),
   soundOnly('stump', 'stump', 's t u m p', 's t u m p', 'A stump is the short base left when a tree is cut.', 'One short tree stump with visible cut rings; no forest scene.'),
   soundOnly('chain', 'chain', 'ch ai n', 'ch ai n', 'A chain is made from linked metal loops.', 'One short metal chain with a few clearly linked loops.', 3),
@@ -60,6 +65,31 @@ const additions = [
 ];
 
 const allById = new Map([...BATCH5_SPELLING_WORDS, ...additions].map((item) => [item.id, item]));
+const taughtSoundKeys = new Set([...PHASE_SOUNDS[2], ...PHASE_SOUNDS[3]]);
+export const SOUND_SAFARI_PHONEME_TAUGHT_EQUIVALENCES = Object.freeze({
+  'oo-long': 'oo',
+  'oo-short': 'oo',
+  'th-voiced': 'th',
+  'th-unvoiced': 'th',
+});
+const taughtKeyForPhoneme = (phoneme) => {
+  const exactKey = String(phoneme).toLowerCase();
+  if (Object.hasOwn(SOUND_SAFARI_PHONEME_TAUGHT_EQUIVALENCES, exactKey)) {
+    return SOUND_SAFARI_PHONEME_TAUGHT_EQUIVALENCES[exactKey];
+  }
+  return taughtSoundKeys.has(exactKey) ? exactKey : null;
+};
+export const isSoundSafariWordTaught = (item, taughtInput) => {
+  const taught = taughtInput instanceof Set
+    ? taughtInput
+    : new Set((taughtInput || []).map((value) => String(value).toLowerCase()));
+  return item.graphemes.every((grapheme) => taught.has(grapheme))
+    && (item.requiredSoundKeys || []).every((soundKey) => taught.has(soundKey))
+    && item.phonemes.every((phoneme) => {
+      const taughtKey = taughtKeyForPhoneme(phoneme);
+      return Boolean(taughtKey && taught.has(taughtKey));
+    });
+};
 const idsToWords = (ids) => Object.freeze(ids.map((id) => {
   const item = allById.get(id);
   if (!item) throw new Error(`Unknown Sound Safari picture word: ${id}`);
@@ -76,7 +106,7 @@ const stageOneWords = idsToWords([
 ]);
 
 const stageTwoWords = idsToWords([
-  'duck', 'dock', 'rock', 'sock', 'lock', 'bell', 'hill',
+  'duck', 'dock', 'rock', 'sock', 'lock', 'bell', 'hill', 'safari-stamp', 'safari-clamp',
   'safari-truck', 'safari-brick', 'safari-crab', 'safari-flag', 'safari-frog',
   'safari-drum', 'safari-clock', 'safari-plant', 'safari-sack', 'safari-tent',
   'safari-belt', 'safari-pond', 'safari-nest', 'safari-raft', 'safari-plank',
@@ -97,22 +127,10 @@ export const SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER = Object.freeze([
   stageThreeWords,
 ]);
 
-// Paths are source/provenance references only. The pre-art candidate deliberately
-// does not import cross-worktree files or render emoji fallbacks. `packaged` is
-// set only when an approved local derivative has actually been copied and wired.
-const approvedReuse = (path, sourceWorktree) => Object.freeze({ status: 'reuse-approved', path, sourceWorktree });
-const inspectReuse = (path, sourceWorktree, note) => Object.freeze({ status: 'reuse-inspected-candidate', path, sourceWorktree, note });
 const needsOriginal = (visualDescription) => Object.freeze({ status: 'missing-original', visualDescription });
 
-const ART_ENTRIES = {
-  map: approvedReuse('src/assets/curriculum/continent-map.svg', 'B5 same repository'),
-  duck: approvedReuse('src/assets/memory-match/duck-v1-card.webp', 'B7 approved Memory art'),
-  rock: approvedReuse('src/assets/memory-match/fossil-rock-v1-card.webp', 'B7 approved Memory art'),
-  fish: approvedReuse('src/assets/memory-match/pond-fish-v1-card.webp', 'B7 approved Memory art'),
-  moon: approvedReuse('src/assets/memory-match/crescent-moon-v1-card.webp', 'B7 approved Memory art'),
-  'safari-star': inspectReuse('src/assets/memory-match/star-v1-card.webp', 'B7 approved Memory art', 'Inspected at 82px; recognizable as a plain five-point star.'),
-  'safari-snail': inspectReuse('src/assets/memory-match/garden-snail-v1-card.webp', 'B7 approved Memory art', 'Inspected at 82px; recognizable as a snail with shell and eye stalks.'),
-};
+const ART_ENTRIES = Object.fromEntries(Object.entries(SOUND_SAFARI_PICTURE_ART)
+  .map(([wordId, image]) => [wordId, Object.freeze({ status: 'packaged', image })]));
 
 for (const word of [...stageOneWords, ...stageTwoWords, ...stageThreeWords]) {
   ART_ENTRIES[word.id] ||= needsOriginal(word.artSubject || word.clue || `One clear, isolated picture of ${word.word}.`);
@@ -126,12 +144,22 @@ export const getSoundSafariPictureWords = (chapterIndex, taughtInput) => {
   const taught = taughtInput instanceof Set
     ? taughtInput
     : new Set((taughtInput || []).map((item) => String(item).toLowerCase()));
-  return authored.filter((item) => item.graphemes.every((grapheme) => taught.has(grapheme)));
+  return authored.filter((item) => isSoundSafariWordTaught(item, taught));
 };
 
 export const soundSafariChapterArtReady = (chapterIndex) => {
   const words = SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER[chapterIndex];
   return Boolean(words?.length && words.every((item) => SOUND_SAFARI_PICTURE_ART_MANIFEST[item.id]?.status === 'packaged'));
+};
+
+// Complete spoken-word clips for whole-word discrimination are a separate
+// finite local-audio gate. This stays empty until reviewed recordings are
+// packaged; the game must not substitute TTS or a provider at runtime.
+export const SOUND_SAFARI_WHOLE_WORD_RECORDINGS = Object.freeze({});
+export const soundSafariWholeWordAudioReady = (chapterIndex) => {
+  if (chapterIndex !== 0) return true;
+  return ['cat', 'safari-bat', 'safari-rat', 'cap', 'hen', 'safari-pen', 'duck', 'dock', 'sock', 'rock']
+    .every((wordId) => typeof SOUND_SAFARI_WHOLE_WORD_RECORDINGS[wordId] === 'string');
 };
 
 export const SOUND_SAFARI_ART_REUSE_SOURCE_HASHES = Object.freeze({
@@ -142,6 +170,7 @@ export const SOUND_SAFARI_ART_REUSE_SOURCE_HASHES = Object.freeze({
   'safari-star': '751db3be916edeb4f468d1f2b15c889e96d82e288dc24f54046d9ae9b042827a',
   'safari-snail': '7f746f3c82559ab610af117b8dd590563ed921e8bbccf3daa7bb4f4d45157be1',
   map: 'f2cf031eea577a99c379e5d0a9afcd29757c23d1b13c0812ed29ac5621428a5f',
+  dog: '83bcda5739193672999b3c23c2a7e29b9cdd26aabceaa1d940804af5c36cd5a9',
 });
 
 export const SOUND_SAFARI_DEFAULT_TAUGHT = Object.freeze({

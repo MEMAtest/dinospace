@@ -1,14 +1,22 @@
 import test from 'node:test';
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import assert from 'node:assert/strict';
 import { BATCH5_SPELLING_WORDS, PURE_PHONEME_CLIP_PATHS } from '../src/data/batch5Literacy.js';
 import { getTaughtGraphemes, LITERACY_PROFILE_KEY } from '../src/data/literacy.js';
 import { PHASE_SOUNDS } from '../src/data/learningProgress.js';
-import { createSoundSafariPool, createSoundSafariRun, getEligibleSpellingWords, isCanonicalBatch5QuestionId } from '../src/data/batch5LiteracyPools.js';
+import { createSoundSafariPool, createSoundSafariRun, getEligibleSpellingWords, getSoundSafariMinimalPairDefinitions, isCanonicalBatch5QuestionId } from '../src/data/batch5LiteracyPools.js';
+import { SOUND_SAFARI_PICTURE_ART } from '../src/data/batch5SoundSafariPictureArt.js';
+import { soundSafariSoundLabel } from '../src/data/batch5SoundSafariLabels.js';
 import {
   getSoundSafariPictureWords,
   SOUND_SAFARI_PICTURE_ART_MANIFEST,
   SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER,
+  SOUND_SAFARI_PHONEME_TAUGHT_EQUIVALENCES,
+  isSoundSafariWordTaught,
   soundSafariChapterArtReady,
+  SOUND_SAFARI_WHOLE_WORD_RECORDINGS,
+  soundSafariWholeWordAudioReady,
 } from '../src/data/batch5SoundSafariPictureWords.js';
 
 const defaultTaught = (chapter) => chapter < 2 ? PHASE_SOUNDS[2] : [...PHASE_SOUNDS[2], ...PHASE_SOUNDS[3]];
@@ -21,7 +29,7 @@ const memoryStorage = () => {
 };
 
 test('each controlled picture pool has at least twenty default-taught targets and uses only taught phonemes', () => {
-  assert.deepEqual(SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER.map((items) => items.length), [26, 24, 29]);
+  assert.deepEqual(SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER.map((items) => items.length), [26, 26, 29]);
   for (let chapter = 0; chapter < 3; chapter += 1) {
     const taught = new Set(defaultTaught(chapter));
     const words = getSoundSafariPictureWords(chapter, taught);
@@ -40,23 +48,25 @@ test('each controlled picture pool has at least twenty default-taught targets an
 
 test('match distractors have distinct first sounds and blending choices stay within one grapheme length', () => {
   const phase2 = PHASE_SOUNDS[2];
-  const matchPool = createSoundSafariPool(0, phase2);
+  const matchPool = createSoundSafariPool(0, phase2).filter((question) => question.type === 'match');
   for (const question of matchPool) {
     assert.equal(question.type, 'match');
     assert.ok(question.options.length >= 4);
     assert.equal(new Set(question.options.map((option) => option.firstSound)).size, question.options.length);
     assert.equal(question.options.filter((option) => option.firstSound === question.answerId).length, 1);
   }
-  const matchRun = createSoundSafariRun(0, phase2, 721);
-  assert.equal(matchRun.length, 6);
-  for (const question of matchRun) {
+  const mixedRun = createSoundSafariRun(0, phase2, 721);
+  assert.equal(mixedRun.length, 6);
+  assert.equal(mixedRun.filter((question) => question.type === 'minimalPair').length, 2);
+  assert.equal(mixedRun.filter((question) => question.type === 'match').length, 4);
+  for (const question of mixedRun.filter((item) => item.type === 'match')) {
     assert.equal(question.options.length, 4);
     assert.equal(new Set(question.options.map((option) => option.firstSound)).size, 4);
     assert.equal(question.options.filter((option) => option.firstSound === question.answerId).length, 1);
   }
 
   const blendPool = createSoundSafariPool(1, phase2);
-  assert.equal(blendPool.length, 24);
+  assert.equal(blendPool.length, 23);
   for (const question of blendPool) {
     assert.equal(question.type, 'blend');
     assert.ok(question.options.length >= 4);
@@ -120,6 +130,65 @@ test('persisted partial taught-sound selections filter picture targets without f
   }
 });
 
+test('persisted ar-off selection excludes UK /ɑː/ targets and answer options even when spelling uses a', () => {
+  const taught = new Set([...PHASE_SOUNDS[2], ...PHASE_SOUNDS[3].filter((sound) => sound !== 'ar')]);
+  const words = getSoundSafariPictureWords(2, taught);
+  assert.ok(taught.has('a'));
+  assert.equal(taught.has('ar'), false);
+  assert.ok(words.every((word) => isSoundSafariWordTaught(word, taught)));
+  assert.ok(words.every((word) => !word.phonemes.includes('ar')));
+  assert.ok(!words.some((word) => ['branch', 'grass', 'shark', 'star'].includes(word.word)));
+  const questions = createSoundSafariPool(2, taught);
+  assert.ok(questions.length >= 20);
+  assert.ok(questions.every((question) => question.answerId !== 'ar' && !question.options.includes('ar')));
+
+  const limited = new Set(['a', 't', 'o']);
+  assert.equal(isSoundSafariWordTaught({ graphemes: ['a'], phonemes: ['unknown-phoneme'] }, limited), false);
+  assert.equal(isSoundSafariWordTaught({ graphemes: ['t', 'oo'], phonemes: ['t', 'oo-long'] }, limited), false);
+  assert.equal(SOUND_SAFARI_PHONEME_TAUGHT_EQUIVALENCES['oo-long'], 'oo');
+  assert.equal(SOUND_SAFARI_PHONEME_TAUGHT_EQUIVALENCES['th-unvoiced'], 'th');
+});
+
+test('UK plant and raft require taught /ɑː/ while retaining their authored spellings', () => {
+  const phase2 = new Set(PHASE_SOUNDS[2]);
+  const phase3 = new Set([...PHASE_SOUNDS[2], ...PHASE_SOUNDS[3]]);
+  const phase2Words = getSoundSafariPictureWords(1, phase2);
+  assert.equal(phase2Words.length, 23);
+  assert.ok(!phase2Words.some((word) => ['plant', 'raft'].includes(word.word)));
+  const phase3Words = getSoundSafariPictureWords(1, phase3);
+  assert.equal(phase3Words.length, 26);
+  for (const word of phase3Words.filter((item) => ['plant', 'raft'].includes(item.word))) {
+    assert.ok(word.graphemes.includes('a'));
+    assert.ok(word.phonemes.includes('ar'));
+    assert.equal(word.phase, 3);
+    assert.ok(word.ukIpa);
+  }
+  const arOff = new Set([...PHASE_SOUNDS[2], ...PHASE_SOUNDS[3].filter((sound) => sound !== 'ar')]);
+  const arOffPool = createSoundSafariPool(1, arOff);
+  assert.ok(arOffPool.every((question) => !['plant', 'raft'].includes(question.target.word)));
+  assert.ok(arOffPool.every((question) => question.options.every((option) => !['plant', 'raft'].includes(option.word))));
+  const arOnPool = createSoundSafariPool(1, phase3);
+  assert.ok(arOnPool.some((question) => question.target.word === 'plant'));
+  assert.ok(arOnPool.some((question) => question.target.word === 'raft'));
+  assert.ok(arOnPool.some((question) => question.target.word === 'plank'));
+  assert.ok(arOnPool.some((question) => question.options.some((option) => option.word === 'plank')));
+  assert.equal(createSoundSafariPool(1, phase2).some((question) => question.target.word === 'plank'), false);
+  const ngOff = new Set([...PHASE_SOUNDS[2], ...PHASE_SOUNDS[3].filter((sound) => sound !== 'ng')]);
+  const ngOffPool = createSoundSafariPool(1, ngOff);
+  assert.equal(ngOffPool.some((question) => question.target.word === 'plank'), false);
+  assert.ok(ngOffPool.every((question) => question.options.every((option) => option.word !== 'plank')));
+  const fiveGraphemeTargets = createSoundSafariPool(1, phase2).filter((question) => question.target.graphemes.length === 5);
+  assert.equal(fiveGraphemeTargets.length, 4);
+  assert.ok(fiveGraphemeTargets.every((question) => question.options.length === 4 && question.options.every((option) => option.word.length === 5)));
+  // ng authorizes the /ŋ/ phoneme, while written nk remains a separately
+  // taught spelling cluster; both must be selected before plank can appear.
+  const nkOff = new Set([...phase3].filter((sound) => sound !== 'nk'));
+  const nkOffPool = createSoundSafariPool(1, nkOff);
+  assert.ok(nkOff.has('ng'));
+  assert.equal(nkOffPool.some((question) => question.target.word === 'plank'), false);
+  assert.ok(nkOffPool.every((question) => question.options.every((option) => option.word !== 'plank')));
+});
+
 test('sound-only picture vocabulary stays out of spelling and missing artwork keeps the game closed', () => {
   const spellingIds = new Set(BATCH5_SPELLING_WORDS.map((item) => item.id));
   const pictureIds = new Set(SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER.flatMap((items) => items.map((item) => item.id)));
@@ -131,12 +200,100 @@ test('sound-only picture vocabulary stays out of spelling and missing artwork ke
   for (const words of SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER) {
     for (const word of words) assert.ok(SOUND_SAFARI_PICTURE_ART_MANIFEST[word.id]);
   }
-  assert.equal(soundSafariChapterArtReady(0), false);
+  assert.equal(soundSafariChapterArtReady(0), true);
   assert.equal(soundSafariChapterArtReady(1), false);
   assert.equal(soundSafariChapterArtReady(2), false);
-  assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST.map.status, 'reuse-approved');
-  assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST.duck.status, 'reuse-approved');
-  assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST['safari-star'].status, 'reuse-inspected-candidate');
-  assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST['safari-snail'].status, 'reuse-inspected-candidate');
-  assert.ok(Object.entries(SOUND_SAFARI_PICTURE_ART_MANIFEST).filter(([, entry]) => entry.status === 'missing-original').length >= 70);
+  assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST.map.status, 'packaged');
+  assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST.duck.status, 'packaged');
+  assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST['safari-star'].status, 'packaged');
+  assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST['safari-snail'].status, 'packaged');
+  assert.ok(Object.entries(SOUND_SAFARI_PICTURE_ART_MANIFEST).filter(([, entry]) => entry.status === 'missing-original').length > 0);
+});
+
+
+test('starter run has two distinct whole-word contrasts and four first-sound questions with no pre-answer word leaks', () => {
+  const taught = PHASE_SOUNDS[2];
+  const pool = createSoundSafariPool(0, taught);
+  const pairQuestions = pool.filter((question) => question.type === 'minimalPair');
+  const definitions = getSoundSafariMinimalPairDefinitions();
+  assert.equal(definitions.length, 6);
+  assert.deepEqual(new Set(definitions.map((pair) => pair.id)), new Set(['cat-bat', 'cat-rat', 'cat-cap', 'hen-pen', 'duck-dock', 'sock-rock']));
+  assert.equal(pairQuestions.length, definitions.length * 2);
+  for (const question of pairQuestions) {
+    assert.equal(question.options.length, 2);
+    assert.equal(new Set(question.options.map((option) => option.id)).size, 2);
+    assert.equal(new Set(question.options.map((option) => option.imageSrc)).size, 2);
+    assert.equal(question.options.filter((option) => option.id === question.answerId).length, 1);
+    assert.equal(question.target.id, question.answerId);
+    assert.ok(question.prompt.toLowerCase().includes('whole spoken word'));
+    assert.ok(!question.prompt.toLowerCase().includes(question.target.word.toLowerCase()));
+    const changedPositions = question.target.phonemes.flatMap((phoneme, index) => phoneme === question.otherWord.phonemes[index] ? [] : [index]);
+    assert.deepEqual(changedPositions, [question.contrastIndex]);
+    assert.ok(question.afterAnswer.includes(question.target.word));
+    assert.ok(question.afterAnswer.includes(question.otherWord.word));
+    assert.ok(question.afterAnswer.includes(question.contextFact));
+    const expectedPosition = question.contrastIndex === 0 ? 'first sound' : question.contrastIndex === question.target.phonemes.length - 1 ? 'last sound' : 'middle sound';
+    assert.ok(question.afterAnswer.includes(expectedPosition));
+    assert.ok(!question.afterAnswer.includes('starts with /'));
+    assert.ok(!question.afterAnswer.includes(`/${question.target.phonemes[question.contrastIndex]}/`));
+    for (const option of question.options) assert.ok(option.imageSrc);
+  }
+  for (let seed = 1; seed <= 100; seed += 1) {
+    const run = createSoundSafariRun(0, taught, seed);
+    assert.equal(run.length, 6);
+    assert.equal(run.filter((question) => question.type === 'minimalPair').length, 2);
+    assert.equal(run.filter((question) => question.type === 'match').length, 4);
+    const pairs = run.filter((question) => question.type === 'minimalPair');
+    assert.equal(new Set(pairs.map((question) => question.pairId)).size, 2);
+    assert.equal(new Set(run.map((question) => question.id)).size, 6);
+    assert.deepEqual(pairs.map((question) => question.leftCorrect).sort(), [false, true]);
+    for (const question of pairs) {
+      assert.equal(question.options[0].id === question.answerId, question.leftCorrect);
+      assert.ok(question.options.every((option) => existsSync(fileURLToPath(SOUND_SAFARI_PICTURE_ART[option.id]))));
+    }
+  }
+  assert.equal(SOUND_SAFARI_WHOLE_WORD_RECORDINGS.cat, undefined);
+  assert.equal(soundSafariWholeWordAudioReady(0), false);
+});
+
+test('child-facing sound names describe all authored phonemes instead of exposing storage keys', () => {
+  const phonemes = new Set(SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER.flatMap((words) => words.flatMap((word) => word.phonemes)));
+  for (const phoneme of phonemes) assert.notEqual(soundSafariSoundLabel(phoneme), 'a speech sound', `missing child label for ${phoneme}`);
+  assert.equal(soundSafariSoundLabel('c'), 'k sound');
+  assert.equal(soundSafariSoundLabel('ck'), 'k sound');
+  assert.equal(soundSafariSoundLabel('sh'), 'sh sound, as in ship');
+  assert.equal(soundSafariSoundLabel('ch'), 'ch sound, as in chip');
+  assert.equal(soundSafariSoundLabel('ll'), 'l sound');
+  assert.equal(soundSafariSoundLabel('ss'), 's sound');
+  assert.equal(soundSafariSoundLabel('ng'), 'ng sound, as in sing');
+  assert.equal(soundSafariSoundLabel('u'), 'short u sound, as in up');
+  assert.equal(soundSafariSoundLabel('o'), 'short o sound, as in dog');
+  assert.equal(soundSafariSoundLabel('x'), 'k sound then s sound, as in fox');
+  assert.equal(soundSafariSoundLabel('qu'), 'k sound then w sound, as in queen');
+});
+
+test('recent whole-word pair signatures rotate across the finite pair pool before reuse', () => {
+  const taught = PHASE_SOUNDS[2];
+  const first = createSoundSafariRun(0, taught, 901);
+  const firstPairIds = new Set(first.filter((item) => item.type === 'minimalPair').map((item) => item.pairId));
+  const second = createSoundSafariRun(0, taught, 902, first.map((item) => item.id));
+  const secondPairIds = new Set(second.filter((item) => item.type === 'minimalPair').map((item) => item.pairId));
+  assert.equal(second.length, 6);
+  assert.equal([...firstPairIds].some((id) => secondPairIds.has(id)), false);
+  const third = createSoundSafariRun(0, taught, 903, [...first, ...second].map((item) => item.id));
+  assert.equal(third.length, 6);
+});
+
+test('every starter picture URL resolves to a local file and artwork readiness follows each full chapter pool', () => {
+  const starter = SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER[0];
+  assert.equal(starter.length, 26);
+  for (const word of starter) {
+    const url = SOUND_SAFARI_PICTURE_ART[word.id];
+    assert.ok(url, `${word.id} has a static art URL`);
+    assert.ok(existsSync(fileURLToPath(url)), `${word.id} art file exists`);
+    assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST[word.id].status, 'packaged');
+  }
+  assert.equal(soundSafariChapterArtReady(0), true);
+  assert.equal(soundSafariChapterArtReady(1), false);
+  assert.equal(soundSafariChapterArtReady(2), false);
 });

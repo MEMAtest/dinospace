@@ -1,7 +1,12 @@
 import { BATCH5_SPELLING_BANDS, BATCH5_SPELLING_WORDS, SPELLING_WORDS_BY_BAND } from './batch5Literacy.js';
 import { PHASE_GROUPS } from './literacy.js';
 import { PHASE_SOUNDS } from './learningProgress.js';
-import { getSoundSafariPictureWords, SOUND_SAFARI_DEFAULT_TAUGHT } from './batch5SoundSafariPictureWords.js';
+import {
+  getSoundSafariPictureWords,
+  SOUND_SAFARI_DEFAULT_TAUGHT,
+} from './batch5SoundSafariPictureWords.js';
+import { getSoundSafariPictureArt } from './batch5SoundSafariPictureArt.js';
+import { soundSafariSoundLabel } from './batch5SoundSafariLabels.js';
 
 const hash = (text) => [...String(text)].reduce((result, char) => Math.imul(result ^ char.charCodeAt(0), 16777619), 2166136261) >>> 0;
 const randomFor = (seed) => { let state = seed >>> 0; return () => { state += 0x6d2b79f5; let value = state; value = Math.imul(value ^ value >>> 15, value | 1); value ^= value + Math.imul(value ^ value >>> 7, value | 61); return ((value ^ value >>> 14) >>> 0) / 4294967296; }; };
@@ -34,10 +39,49 @@ const takeOptions = (answer, tokens, seed) => {
   const decoys = seededLiteracyShuffle(tokens.filter((token) => token !== answer), seed).slice(0, 3);
   return decoys.length === 3 ? seededLiteracyShuffle([answer, ...decoys], seed ^ 0x4f1bbcdc) : [];
 };
+const MINIMAL_PAIR_RECORDS = Object.freeze([
+  Object.freeze({ id: 'cat-bat', wordIds: Object.freeze(['cat', 'safari-bat']), contextWordId: 'safari-bat', contextFact: 'A bat is an animal that flies.' }),
+  Object.freeze({ id: 'cat-rat', wordIds: Object.freeze(['cat', 'safari-rat']), contextWordId: 'safari-rat', contextFact: 'A rat is a small animal with a long tail.' }),
+  Object.freeze({ id: 'cat-cap', wordIds: Object.freeze(['cat', 'cap']), contextWordId: 'cat', contextFact: 'A cat is a furry pet that may say meow.' }),
+  Object.freeze({ id: 'hen-pen', wordIds: Object.freeze(['hen', 'safari-pen']), contextWordId: 'hen', contextFact: 'A hen is a bird that lays eggs.' }),
+  Object.freeze({ id: 'duck-dock', wordIds: Object.freeze(['duck', 'dock']), contextWordId: 'duck', contextFact: 'A duck is a bird with webbed feet that help it paddle.' }),
+  Object.freeze({ id: 'sock-rock', wordIds: Object.freeze(['sock', 'rock']), contextWordId: 'rock', contextFact: 'A rock is a hard piece of stone.' }),
+]);
+const minimalPairQuestions = (words) => {
+  const byId = new Map(words.map((item) => [item.id, item]));
+  return MINIMAL_PAIR_RECORDS.flatMap((pair) => {
+    const pairWords = pair.wordIds.map((id) => byId.get(id));
+    if (pairWords.some((item) => !item || !getSoundSafariPictureArt(item.id))) return [];
+    const [left, right] = pairWords;
+    if (left.phonemes.length !== right.phonemes.length) return [];
+    const differences = left.phonemes.flatMap((phoneme, index) => phoneme === right.phonemes[index] ? [] : [index]);
+    if (differences.length !== 1) return [];
+    return pairWords.map((target) => {
+      const otherWord = target.id === left.id ? right : left;
+      return Object.freeze({
+        id: `minimal:${pair.id}:${target.id}`,
+        type: 'minimalPair',
+        pairId: pair.id,
+        pairWordIds: pair.wordIds,
+        target,
+        otherWord,
+        contextWord: byId.get(pair.contextWordId),
+        contextFact: pair.contextFact,
+        contrastIndex: differences[0],
+        answerId: target.id,
+        prompt: 'Listen to the whole spoken word. Which picture matches?',
+        afterAnswer: `${pair.contextFact} The ${differences[0] === 0 ? 'first' : differences[0] === left.phonemes.length - 1 ? 'last' : 'middle'} sound in ${left.word} is the ${soundSafariSoundLabel(left.phonemes[differences[0]])}; in ${right.word} it is the ${soundSafariSoundLabel(right.phonemes[differences[0]])}.`,
+        options: Object.freeze(pairWords.map((item) => Object.freeze({ id: item.id, word: item.word, imageSrc: getSoundSafariPictureArt(item.id) }))),
+      });
+    });
+  });
+};
+export const getSoundSafariMinimalPairDefinitions = () => MINIMAL_PAIR_RECORDS;
 export const createSoundSafariPool = (chapterIndex, taughtInput) => {
   const taught = taughtSet(taughtInput);
   if (chapterIndex === 0) {
     const words = getSoundSafariPictureWords(0, taught);
+    const phaseTwoPairWords = [...words, ...getSoundSafariPictureWords(1, taught)];
     return words.map((target) => {
       const byFirstSound = new Map();
       for (const item of words) {
@@ -49,17 +93,18 @@ export const createSoundSafariPool = (chapterIndex, taughtInput) => {
         id: item.id,
         word: item.word,
         emoji: item.emoji,
+        imageSrc: getSoundSafariPictureArt(item.id),
         firstSound: item.phonemes[0],
       }));
       return {
         id: `match:${target.id}`, type: 'match', target, answerId: target.phonemes[0], options,
       };
-    }).filter((item) => item.options.length >= 4);
+    }).filter((item) => item.options.length >= 4).concat(minimalPairQuestions(phaseTwoPairWords));
   }
   if (chapterIndex === 1) {
     const words = getSoundSafariPictureWords(1, taught);
     return words.map((target) => ({ id: `blend:${target.id}`, type: 'blend', target, answerId: target.id,
-      options: words.filter((item) => item.graphemes.length === target.graphemes.length).map((item) => ({ id: item.id, word: item.word, emoji: item.emoji })) }))
+      options: words.filter((item) => item.graphemes.length === target.graphemes.length).map((item) => ({ id: item.id, word: item.word, emoji: item.emoji, imageSrc: getSoundSafariPictureArt(item.id) })) }))
       .filter((item) => item.options.length >= 4);
   }
   if (chapterIndex === 2) {
@@ -79,6 +124,41 @@ export const createSoundSafariPool = (chapterIndex, taughtInput) => {
 export const createSoundSafariRun = (chapterIndex, taught, seed, recentIds = []) => {
   const pool = createSoundSafariPool(chapterIndex, taught);
   if (pool.length < 20 || !Number.isInteger(seed)) return [];
+  if (chapterIndex === 0) {
+    const matches = pool.filter((item) => item.type === 'match');
+    const pairs = pool.filter((item) => item.type === 'minimalPair');
+    const recentPairIds = new Set(recentIds.map((id) => pool.find((item) => item.id === id)?.pairId).filter(Boolean));
+    const pairGroups = new Map();
+    for (const item of pairs) pairGroups.set(item.pairId, [...(pairGroups.get(item.pairId) || []), item]);
+    const pairPool = [...pairGroups.entries()];
+    const freshPairs = seededLiteracyShuffle(pairPool.filter(([pairId]) => !recentPairIds.has(pairId)), seed);
+    const fallbackPairs = seededLiteracyShuffle(pairPool.filter(([pairId]) => recentPairIds.has(pairId)), seed ^ 0x77391);
+    const selectedPairs = [...freshPairs, ...fallbackPairs].slice(0, 2);
+    if (selectedPairs.length !== 2) return [];
+    const selected = selectedPairs.map(([, directions], index) => {
+      const direction = seededLiteracyShuffle(directions, seed + (index + 1) * 65537)[0];
+      const leftCorrect = (seed + index) % 2 === 0;
+      const targetIsInitiallyLeft = direction.options[0]?.id === direction.target.id;
+      const keepInitialOrder = targetIsInitiallyLeft === leftCorrect;
+      const options = keepInitialOrder ? direction.options : [...direction.options].reverse();
+      return Object.freeze({ ...direction, options: Object.freeze(options), leftCorrect });
+    });
+    const recentMatchIds = new Set(recentIds.filter((id) => id.startsWith('match:')));
+    const freshMatches = seededLiteracyShuffle(matches.filter((item) => !recentMatchIds.has(item.id)), seed ^ 0x9e3779b9);
+    const fallbackMatches = seededLiteracyShuffle(matches.filter((item) => recentMatchIds.has(item.id)), seed ^ 0x4f1bbcdc);
+    const selectedMatches = [...freshMatches, ...fallbackMatches].slice(0, 4).map((item, index) => {
+      const correct = item.options.find((option) => option.firstSound === item.answerId);
+      const decoys = item.options.filter((option) => option.firstSound !== item.answerId);
+      return { ...item, options: seededLiteracyShuffle([correct, ...seededLiteracyShuffle(decoys, seed + index * 31627).slice(0, 3)], seed ^ (index * 97 + 5)) };
+    });
+    if (selectedMatches.length !== 4) return [];
+    return seededLiteracyShuffle([...selected, ...selectedMatches], seed ^ 0x71f3).map((item) => Object.freeze({
+      ...item,
+      options: Object.freeze([...item.options]),
+      graphemes: Object.freeze([...item.target.graphemes]),
+      phonemes: Object.freeze([...item.target.phonemes]),
+    }));
+  }
   const poolIds = new Set(pool.map((item) => item.id));
   const recent = new Set(recentIds.filter((id) => poolIds.has(id)));
   let available = pool.filter((item) => !recent.has(item.id));
