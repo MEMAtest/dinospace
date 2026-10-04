@@ -1,3 +1,5 @@
+> Latest release update (4 October2026,22:40UTC): Count functional correction1accc99 promoted asdpl_5cKFB6U489CLoEPucaY9pDarcHsp; immutable production desktop/390pxcontrols passed and fourcanonicalhashes match. Canonical UI delta check pending. Formal4/26unchanged. Sound Safari source decb60c independently underreview; dockart ambiguity is being repaired. Batch4worker live, latest592pending. See [Count production report](qa-evidence/count-scatter-strategy-5396/production/report.md). Earlier snapshots below remain historical.
+
 # Amari quality checkpoint — current verified state
 
 Updated 4 October 2026, canonical repair acceptance checkpoint. Goal active. **26 acceptance contracts published; 4 recorded accepted, 22 in progress.** No new editorial score is awarded.
