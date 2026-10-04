@@ -341,6 +341,7 @@
 .memory-card-art { display: grid; flex: 1; min-height: 0; width: 100%; place-items: end center; padding-top: 9%; font-size: clamp(1.75rem, 4.5vw, 4rem); line-height: 1; filter: drop-shadow(0 4px 2px rgb(15 41 66 / 15%)); }
 .memory-card-art-image { display: block; width: 88%; height: 90%; object-fit: contain; }
 .memory-card-art-ocean { width: 78%; height: 76%; }
+.memory-card-art-dolphin { height: 62%; }
 .memory-card-art-sprite { display: block; width: 88%; height: 90%; background-repeat: no-repeat; background-size: 390% 390%; filter: drop-shadow(0 4px 2px rgb(15 41 66 / 16%)); }
 .memory-card-art-monkey { background-position: 88% 38%; }
 .memory-card-art-frog { background-position: 95% 86%; }

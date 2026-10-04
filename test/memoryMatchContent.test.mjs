@@ -79,6 +79,7 @@ test('Memory illustration inventory distinguishes each authored crop and reports
   const newPremiumTokens = ['🐶', '🦊', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🐳', '🐬', '🦈', '🐢'];
   assert.equal(new Set(newPremiumTokens.map((emoji) => MEMORY_CARD_ILLUSTRATIONS[emoji].asset)).size, newPremiumTokens.length);
   assert.deepEqual(['🐳', '🐬', '🦈', '🐢'].map((emoji) => memoryCardLabel(emoji)), ['whale', 'dolphin', 'shark', 'turtle']);
-  assert.ok(['🐳', '🐬', '🦈', '🐢'].every((emoji) => MEMORY_CARD_ILLUSTRATIONS[emoji].className === 'memory-card-art-image memory-card-art-ocean'));
+  assert.ok(['🐳', '🦈', '🐢'].every((emoji) => MEMORY_CARD_ILLUSTRATIONS[emoji].className === 'memory-card-art-image memory-card-art-ocean'));
+  assert.equal(MEMORY_CARD_ILLUSTRATIONS['🐬'].className, 'memory-card-art-image memory-card-art-ocean memory-card-art-dolphin');
   assert.ok(audit.some(({ emoji, labels }) => emoji === '🦷' && labels.includes('dinosaur tooth') && !MEMORY_CARD_ILLUSTRATIONS[emoji]));
 });
