@@ -21,6 +21,14 @@ export const SUPPLEMENTAL_SOURCE_HASHES = Object.freeze({
 export const B4_GRAMMAR_SOURCE_COMMIT = 'fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128';
 export const B4_GRAMMAR_BASE_COMMIT = 'ac3b3ccaf03107749d865f8d79557e872a06c881';
 export const B4_GRAMMAR_DELTA_SHA256 = '8049920284e5b9273552f4381043bfb0182acda3e2d699c0df1509d06d6c76f8';
+export const B7_SOLAR_TEACHING_INVENTORY_SHA256 = 'da8d0fa36700cb7703678243640a82740ea05c5f17170b76c073f76ca51998d5';
+export const B7_SOLAR_TEACHING_SOURCE_COMMIT = '21ee7b240b271c5d775e4ebca3b5f29e0ad63ade';
+export const B7_SOLAR_TEACHING_BASE_COMMIT = 'c4db1d4b3e469bf71409ec7d859a05a2c7fa9301';
+export const B7_SOLAR_TEACHING_SOURCE_HASHES = Object.freeze({
+  'src/data/index.js': 'f7dfc08370d14127394f31301c9404aee5498d2389cf75e664bdbaa58c4d0a2e',
+  'src/data/offlineVoiceManifest.js': '674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7',
+  'src/data/voiceKey.js': 'd013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f',
+});
 export const B4_GRAMMAR_SOURCE_HASHES = Object.freeze({
   'scripts/batch4NarrationInventory.mjs': 'e404d0f2304e1c3aafc8e0dbcda3e798251436db53897428b6a66e40e32e968b',
   'src/data/arithmeticAdventure.js': '5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7',
@@ -43,6 +51,7 @@ export const JOBS = Object.freeze({
   'b5-literacy': Object.freeze({ owner: 'B5_literacy', label: 'B5 literacy narration' }),
   b6: Object.freeze({ owner: 'B6', label: 'B6 Amari narration' }),
   'b7-solar': Object.freeze({ owner: 'B7_solar', label: 'B7 Solar narration' }),
+  'b7-solar-teaching': Object.freeze({ ledger: 'b7-solar-teaching', batch: 7, label: 'B7 Solar teaching-copy narration' }),
   'b7-memory': Object.freeze({ owner: 'B7_memory', label: 'B7 Memory narration' }),
   'b2-supplement': Object.freeze({ ledger: 'supplemental', batch: 2, label: 'B2 released narration supplement' }),
   'b3-dino-facts': Object.freeze({ ledger: 'supplemental', batch: 3, game: 'dino', label: 'B3 revised Dino fact narration' }),
@@ -76,8 +85,10 @@ export async function loadPinnedInventory({ inventoryPath, suppliedSha256, expec
   const inventory = JSON.parse(bytes.toString('utf8'));
   const expectedCount = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 ? 7
     : expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256 ? 47
+      : expectedSha256 === B7_SOLAR_TEACHING_INVENTORY_SHA256 ? 127
       : inventory.items?.length;
   const countIsValid = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 || expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256
+    || expectedSha256 === B7_SOLAR_TEACHING_INVENTORY_SHA256
     ? inventory.requested === expectedCount
     : inventory.uniqueVoiceKeys === inventory.items?.length;
   if (!Array.isArray(inventory.items) || !countIsValid || inventory.items.length !== expectedCount) {
@@ -85,7 +96,56 @@ export async function loadPinnedInventory({ inventoryPath, suppliedSha256, expec
   }
   if (expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256) validateSupplementalProvenance(inventory);
   if (expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256) validateB4GrammarProvenance(inventory);
+  if (expectedSha256 === B7_SOLAR_TEACHING_INVENTORY_SHA256) validateB7SolarTeachingProvenance(inventory);
   return { inventory, actualSha256 };
+}
+
+export function validateB7SolarTeachingProvenance(inventory) {
+  if (inventory.source !== B7_SOLAR_TEACHING_SOURCE_COMMIT || inventory.base !== B7_SOLAR_TEACHING_BASE_COMMIT
+      || inventory.uniqueVoiceKeys !== 127 || inventory.readyAtCandidateSnapshot !== 75
+      || inventory.pendingAtCandidateSnapshot !== 52 || inventory.factsEdited !== 22
+      || inventory.changedFactVoiceKeysAdded !== 44 || inventory.changedFactVoiceKeysRemoved !== 44
+      || inventory.pendingBreakdown?.newCopyKeys !== 44 || inventory.pendingBreakdown?.unchangedPriorMissingKeys !== 8
+      || inventory.budget?.maximumRequests !== 52 || inventory.budget?.maximumRequestsPerRun !== 10
+      || inventory.budget?.maximumRuns !== 6 || inventory.budget?.plannedSingleRunCaps?.join(',') !== '10,10,10,10,10,2'
+      || inventory.budget?.rollingWindowLimit !== REQUEST_LIMIT || inventory.budget?.rollingWindowMinutes !== 10) {
+    throw new Error('B7 Solar teaching ledger source or exact corpus/readiness totals changed.');
+  }
+  const provenance = inventory.sourceHashes || {};
+  const expectedPaths = Object.keys(B7_SOLAR_TEACHING_SOURCE_HASHES).sort();
+  if (Object.keys(provenance).sort().join('\n') !== expectedPaths.join('\n')) throw new Error('B7 Solar teaching ledger source provenance paths changed.');
+  for (const path of expectedPaths) {
+    if (provenance[path] !== B7_SOLAR_TEACHING_SOURCE_HASHES[path]) throw new Error(`B7 Solar teaching source provenance mismatch for ${path}.`);
+  }
+  if (inventory.items?.length !== 127) throw new Error('B7 Solar teaching ledger must contain exactly 127 runtime phrases.');
+  const seen = new Set();
+  const pending = new Set();
+  let ready = 0;
+  for (const entry of inventory.items) {
+    if (entry.owners?.length !== 1 || entry.owners[0] !== 'B7_solar' || entry.path !== `/audio/en/${entry.key}-matilda.mp3`) {
+      throw new Error(`B7 Solar ownership or output path mismatch for ${entry.key}.`);
+    }
+    if (entry.key !== voiceClipKey(entry.text, 'en-US')) throw new Error(`B7 Solar key does not match exact reviewed phrase: ${entry.key}.`);
+    if (entry.textVariants?.length !== 1 || entry.textVariants[0] !== entry.text) throw new Error(`B7 Solar text variants are not exact for ${entry.key}.`);
+    if (seen.has(entry.key)) throw new Error(`Duplicate B7 Solar key ${entry.key}.`);
+    seen.add(entry.key);
+    const status = entry.candidateStatus?.B7_solar;
+    if (!status || typeof status.manifestMatches !== 'boolean' || typeof status.fileExists !== 'boolean') throw new Error(`B7 Solar candidate status is incomplete for ${entry.key}.`);
+    if (status.fileExists && status.manifestMatches && /^[a-f0-9]{64}$/.test(status.sha256 || '')) ready += 1;
+    else if (!status.fileExists && !status.manifestMatches && status.sha256 === null) pending.add(entry.key);
+    else throw new Error(`B7 Solar candidate bytes have ambiguous provenance for ${entry.key}.`);
+  }
+  if (ready !== 75 || pending.size !== 52) throw new Error('B7 Solar current candidate statuses do not match 75 ready / 52 pending.');
+  const newKeys = [...inventory.newCopyKeys].sort();
+  const retainedMissing = [...inventory.unchangedPriorMissingKeys].sort();
+  if (newKeys.length !== 44 || new Set(newKeys).size !== 44 || retainedMissing.length !== 8 || new Set(retainedMissing).size !== 8) {
+    throw new Error('B7 Solar new-copy or retained-missing key sets have invalid sizes.');
+  }
+  for (const key of [...newKeys, ...retainedMissing]) if (!pending.has(key)) throw new Error(`B7 Solar expected pending key is not pending: ${key}.`);
+  if (newKeys.some((key) => retainedMissing.includes(key)) || pending.size !== new Set([...newKeys, ...retainedMissing]).size) {
+    throw new Error('B7 Solar pending keys do not equal the exact 44 new-copy plus 8 retained set.');
+  }
+  return true;
 }
 
 export function validateB4GrammarProvenance(inventory) {
@@ -133,6 +193,21 @@ export function selectJobItems(inventory, jobName) {
   const job = JOBS[jobName];
   if (!job) throw new Error(`Unknown job selector. Choose one of: ${Object.keys(JOBS).join(', ')}.`);
   const selected = new Map();
+  if (job.ledger === 'b7-solar-teaching') {
+    validateB7SolarTeachingProvenance(inventory);
+    for (const entry of inventory.items) {
+      const candidate = entry.candidateStatus.B7_solar;
+      selected.set(entry.key, Object.freeze({
+        key: entry.key,
+        text: entry.text,
+        path: entry.path,
+        owners: Object.freeze(['B7_solar']),
+        expectedCandidateSha256: candidate.fileExists && candidate.manifestMatches ? candidate.sha256 : null,
+        sourceCommit: B7_SOLAR_TEACHING_SOURCE_COMMIT,
+      }));
+    }
+    return [...selected.values()].sort((a, b) => a.key.localeCompare(b.key));
+  }
   if (job.ledger === 'b4-grammar') {
     validateB4GrammarProvenance(inventory);
     for (const entry of inventory.items) {

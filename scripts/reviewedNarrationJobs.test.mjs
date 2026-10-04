@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, mkdtemp, readFile, realpath, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
-  B4_GRAMMAR_INVENTORY_SHA256, B4_GRAMMAR_SOURCE_COMMIT, B4_GRAMMAR_SOURCE_HASHES, B4_SOURCE_COMMIT, B4_WORKER_PID, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
+  B4_GRAMMAR_INVENTORY_SHA256, B4_GRAMMAR_SOURCE_COMMIT, B4_GRAMMAR_SOURCE_HASHES, B4_SOURCE_COMMIT, B4_WORKER_PID, B7_SOLAR_TEACHING_BASE_COMMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_SOURCE_COMMIT, B7_SOLAR_TEACHING_SOURCE_HASHES, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
   acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord,
   availableCalls, getCandidateReusablePath, isCandidateReusable, isPackagedCandidate,
   loadPinnedInventory, producerLockPathForJournal, readRequestJournal, requestNarration, selectJobItems,
@@ -16,6 +16,7 @@ const root = resolve(import.meta.dirname, '..');
 const inventoryPath = resolve(root, 'docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json');
 const supplementalInventoryPath = resolve(root, 'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json');
 const b4GrammarInventoryPath = resolve(root, 'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json');
+const b7SolarTeachingInventoryPath = resolve(root, 'docs/qa-evidence/b7-solar-teaching-narration-jobs-20261004.json');
 const cliPath = resolve(root, 'scripts/run-reviewed-narration-job.mjs');
 const sharedJournal = resolve(root, '../dinospace-batch3-quality/tmp/offline-voice-request-state.json');
 const b4Manifest = resolve(root, '../dinospace-batch4-quality/src/data/offlineVoiceManifest.js');
@@ -23,10 +24,80 @@ const b4Manifest = resolve(root, '../dinospace-batch4-quality/src/data/offlineVo
 const tempDir = async () => mkdtemp(resolve(tmpdir(), 'reviewed-voice-test-'));
 const deadPidProbe = () => { throw Object.assign(new Error('not running'), { code: 'ESRCH' }); };
 
+async function createCliFixture() {
+  const temp = await tempDir();
+  const fixtureRoot = resolve(temp, 'dinospace-game-editor-fixes');
+  const batch3Root = resolve(temp, 'dinospace-batch3-quality');
+  const batch4Root = resolve(temp, 'dinospace-batch4-quality');
+  const fixtureJournal = resolve(batch3Root, 'tmp/offline-voice-request-state.json');
+  const fixtureB4Manifest = resolve(batch4Root, 'src/data/offlineVoiceManifest.js');
+  const fixtureManifest = resolve(fixtureRoot, 'src/data/offlineVoiceManifest.js');
+  const fixtureCliPath = resolve(fixtureRoot, 'scripts/run-reviewed-narration-job.mjs');
+  const originalConsolidated = JSON.parse(await readFile(inventoryPath, 'utf8'));
+  const originalSolar = JSON.parse(await readFile(b7SolarTeachingInventoryPath, 'utf8'));
+  const originalManifestSource = await readFile(resolve(root, 'src/data/offlineVoiceManifest.js'), 'utf8');
+  const manifestObject = JSON.parse(originalManifestSource.match(/export const OFFLINE_VOICE_MANIFEST = (\{[\s\S]*\});\s*$/)[1]);
+  const sourceCandidates = [root, resolve(root, '../dinospace-batch7-teaching-readability')];
+  const paths = [
+    'scripts/reviewedNarrationJobs.mjs',
+    'scripts/run-reviewed-narration-job.mjs',
+    'src/data/voiceKey.js',
+    'src/data/offlineVoiceManifest.js',
+    'docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json',
+    'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json',
+    'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json',
+    'docs/qa-evidence/b7-solar-teaching-narration-jobs-20261004.json',
+  ];
+  for (const path of paths) {
+    const destination = resolve(fixtureRoot, path);
+    await mkdir(resolve(destination, '..'), { recursive: true });
+    await copyFile(resolve(root, path), destination);
+  }
+  await writeFile(resolve(fixtureRoot, 'package.json'), '{"type":"module"}\n');
+  await mkdir(resolve(fixtureRoot, 'public/audio/en'), { recursive: true });
+  const candidateItems = new Map();
+  for (const item of [...originalConsolidated.items.filter((entry) => entry.owners?.includes('B7_solar')), ...originalSolar.items]) {
+    const status = item.candidateStatus?.B7_solar;
+    if (status?.fileExists && status.manifestMatches && status.sha256) candidateItems.set(item.key, { ...item, status });
+  }
+  for (const [key, item] of candidateItems) {
+    const publicPath = manifestObject[key];
+    if (!publicPath) throw new Error(`CLI fixture cannot find manifest path for ${key}.`);
+    const destination = resolve(fixtureRoot, 'public', publicPath.slice(1));
+    await mkdir(resolve(destination, '..'), { recursive: true });
+    let copied = false;
+    for (const sourceRoot of sourceCandidates) {
+      const source = resolve(sourceRoot, 'public', publicPath.slice(1));
+      try {
+        const bytes = await readFile(source);
+        if (sha256(bytes) !== item.status.sha256) continue;
+        await writeFile(destination, bytes);
+        copied = true;
+        break;
+      } catch (error) { if (error.code !== 'ENOENT') throw error; }
+    }
+    if (!copied) throw new Error(`CLI fixture cannot locate exact ready bytes for ${key}.`);
+  }
+  await mkdir(resolve(fixtureJournal, '..'), { recursive: true });
+  await copyFile(sharedJournal, fixtureJournal);
+  await mkdir(resolve(fixtureB4Manifest, '..'), { recursive: true });
+  await copyFile(b4Manifest, fixtureB4Manifest);
+  const canonicalFixtureRoot = await realpath(fixtureRoot);
+  return {
+    temp,
+    root: canonicalFixtureRoot,
+    cliPath: await realpath(fixtureCliPath),
+    manifest: await realpath(fixtureManifest),
+    journal: await realpath(fixtureJournal),
+    b4Manifest: await realpath(fixtureB4Manifest),
+    cleanup: () => rm(temp, { recursive: true, force: true }),
+  };
+}
+
 test('pins exact reviewed ledger and derives only approved owner keys', async () => {
   const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: PINNED_INVENTORY_SHA256 });
   assert.equal(actualSha256, PINNED_INVENTORY_SHA256);
-  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b6', 'b7-solar', 'b7-memory', 'b2-supplement', 'b3-dino-facts', 'b4-grammar']);
+  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b6', 'b7-solar', 'b7-solar-teaching', 'b7-memory', 'b2-supplement', 'b3-dino-facts', 'b4-grammar']);
   assert.equal(selectJobItems(inventory, 'b5-reasoning').length, 310);
   assert.equal(selectJobItems(inventory, 'b5-literacy').length, 659);
   assert.equal(selectJobItems(inventory, 'b6').length, 378);
@@ -34,6 +105,71 @@ test('pins exact reviewed ledger and derives only approved owner keys', async ()
   assert.equal(selectJobItems(inventory, 'b7-memory').length, 183);
   assert.ok(selectJobItems(inventory, 'b7-solar').every((item) => item.owners.includes('B7_solar') && !item.owners.includes('B4')));
   await assert.rejects(() => loadPinnedInventory({ inventoryPath, suppliedSha256: '0'.repeat(64) }), /must equal reviewed SHA/);
+});
+
+test('B7 Solar teaching ledger binds 22 edited facts, 44 changed keys and the exact 75/52 readiness snapshot', async () => {
+  const sourceRoot = resolve(root, '../dinospace-batch7-teaching-readability');
+  const { inventory, actualSha256 } = await loadPinnedInventory({
+    inventoryPath: b7SolarTeachingInventoryPath,
+    suppliedSha256: B7_SOLAR_TEACHING_INVENTORY_SHA256,
+    expectedSha256: B7_SOLAR_TEACHING_INVENTORY_SHA256,
+  });
+  assert.equal(actualSha256, B7_SOLAR_TEACHING_INVENTORY_SHA256);
+  assert.equal(inventory.source, B7_SOLAR_TEACHING_SOURCE_COMMIT);
+  assert.equal(inventory.base, B7_SOLAR_TEACHING_BASE_COMMIT);
+  assert.equal(inventory.requested, 127);
+  assert.equal(inventory.readyAtCandidateSnapshot, 75);
+  assert.equal(inventory.pendingAtCandidateSnapshot, 52);
+  assert.equal(inventory.newCopyKeys.length, 44);
+  assert.equal(inventory.unchangedPriorMissingKeys.length, 8);
+  for (const [path, expected] of Object.entries(B7_SOLAR_TEACHING_SOURCE_HASHES)) {
+    const result = spawnSync('git', ['-C', sourceRoot, 'show', `${B7_SOLAR_TEACHING_SOURCE_COMMIT}:${path}`], { encoding: 'buffer' });
+    assert.equal(result.status, 0, `could not read source-pinned file ${path}`);
+    assert.equal(sha256(result.stdout), expected, `source bytes changed: ${path}`);
+  }
+  const selected = selectJobItems(inventory, 'b7-solar-teaching');
+  assert.equal(selected.length, 127);
+  assert.equal(selected.filter((item) => item.expectedCandidateSha256).length, 75);
+  assert.ok(selected.every((item) => item.sourceCommit === B7_SOLAR_TEACHING_SOURCE_COMMIT && item.path === `/audio/en/${item.key}-matilda.mp3`));
+  const auditPath = resolve(sourceRoot, 'docs/qa-evidence/batch7-teaching-readability-20261004/fact-and-voice-audit.json');
+  const auditBytes = await readFile(auditPath);
+  assert.equal(sha256(auditBytes), inventory.factAuditSha256);
+  const audit = JSON.parse(auditBytes.toString('utf8'));
+  const auditedNew = audit.rows.filter((row) => row.changed).flatMap((row) => row.newUtterances.map((utterance) => utterance.key)).sort();
+  assert.deepEqual([...inventory.newCopyKeys].sort(), auditedNew);
+  const altered = structuredClone(inventory);
+  altered.sourceHashes['src/data/index.js'] = '0'.repeat(64);
+  assert.throws(() => selectJobItems(altered, 'b7-solar-teaching'), /source provenance mismatch/);
+  const alteredStatus = structuredClone(inventory);
+  const changedStatus = alteredStatus.items.find((item) => inventory.newCopyKeys.includes(item.key)).candidateStatus.B7_solar;
+  changedStatus.fileExists = true;
+  changedStatus.manifestMatches = true;
+  changedStatus.sha256 = 'a'.repeat(64);
+  assert.throws(() => selectJobItems(alteredStatus, 'b7-solar-teaching'), /75 ready \/ 52 pending/);
+});
+
+test('B7 Solar teaching selector dry-run reports 127 current phrases and keeps all ledgers and shared files read-only', async () => {
+  const fixture = await createCliFixture();
+  try {
+    const beforeManifest = sha256(await readFile(fixture.manifest));
+    const beforeJournal = sha256(await readFile(fixture.journal));
+    const beforeB4Manifest = sha256(await readFile(fixture.b4Manifest));
+    const result = spawnSync(process.execPath, [fixture.cliPath, '--job=b7-solar-teaching', `--inventory-sha256=${B7_SOLAR_TEACHING_INVENTORY_SHA256}`], { cwd: fixture.root, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr);
+    assert.ok(result.stdout.trim(), JSON.stringify({ stderr: result.stderr, error: result.error?.message, signal: result.signal, status: result.status, cwd: fixture.root, cli: fixture.cliPath }));
+    const summary = JSON.parse(result.stdout);
+    const ledger = JSON.parse(await readFile(resolve(fixture.root, 'docs/qa-evidence/b7-solar-teaching-narration-jobs-20261004.json'), 'utf8'));
+    assert.equal(summary.mode, 'dry-run');
+    assert.equal(summary.readOnly, true);
+    assert.equal(summary.inventorySha256, B7_SOLAR_TEACHING_INVENTORY_SHA256);
+    assert.equal(summary.requested, 127);
+    assert.equal(summary.packagedCandidateReusable, 75);
+    assert.equal(summary.pending, 52);
+    assert.deepEqual(summary.pendingKeys, ledger.items.filter((item) => !item.candidateStatus.B7_solar.fileExists).map(({ key }) => key).sort());
+    assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
+    assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+    assert.equal(sha256(await readFile(fixture.b4Manifest)), beforeB4Manifest);
+  } finally { await fixture.cleanup(); }
 });
 
 test('B4 grammar selector pins all 47 exact additions to fe5 source files and expected voice paths', async () => {
@@ -74,22 +210,25 @@ test('B4 grammar selector pins all 47 exact additions to fe5 source files and ex
 });
 
 test('B4 grammar default plan is the exact 47 phrase set and remains read-only', async () => {
-  const beforeManifest = sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js')));
-  const beforeJournal = sha256(await readFile(sharedJournal));
-  const beforeB4Manifest = sha256(await readFile(b4Manifest));
-  const result = spawnSync(process.execPath, [cliPath, '--job=b4-grammar', `--inventory-sha256=${B4_GRAMMAR_INVENTORY_SHA256}`], { cwd: root, encoding: 'utf8' });
-  assert.equal(result.status, 0, result.stderr);
-  const summary = JSON.parse(result.stdout);
-  const ledger = JSON.parse(await readFile(b4GrammarInventoryPath, 'utf8'));
-  assert.equal(summary.mode, 'dry-run');
-  assert.equal(summary.readOnly, true);
-  assert.equal(summary.inventorySha256, B4_GRAMMAR_INVENTORY_SHA256);
-  assert.equal(summary.requested, 47);
-  assert.equal(summary.pending, 47);
-  assert.deepEqual(summary.pendingKeys, ledger.items.map(({ key }) => key).sort());
-  assert.equal(sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js'))), beforeManifest);
-  assert.equal(sha256(await readFile(sharedJournal)), beforeJournal);
-  assert.equal(sha256(await readFile(b4Manifest)), beforeB4Manifest);
+  const fixture = await createCliFixture();
+  try {
+    const beforeManifest = sha256(await readFile(fixture.manifest));
+    const beforeJournal = sha256(await readFile(fixture.journal));
+    const beforeB4Manifest = sha256(await readFile(fixture.b4Manifest));
+    const result = spawnSync(process.execPath, [fixture.cliPath, '--job=b4-grammar', `--inventory-sha256=${B4_GRAMMAR_INVENTORY_SHA256}`], { cwd: fixture.root, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr);
+    const summary = JSON.parse(result.stdout);
+    const ledger = JSON.parse(await readFile(resolve(fixture.root, 'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json'), 'utf8'));
+    assert.equal(summary.mode, 'dry-run');
+    assert.equal(summary.readOnly, true);
+    assert.equal(summary.inventorySha256, B4_GRAMMAR_INVENTORY_SHA256);
+    assert.equal(summary.requested, 47);
+    assert.equal(summary.pending, 47);
+    assert.deepEqual(summary.pendingKeys, ledger.items.map(({ key }) => key).sort());
+    assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
+    assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+    assert.equal(sha256(await readFile(fixture.b4Manifest)), beforeB4Manifest);
+  } finally { await fixture.cleanup(); }
 });
 
 test('supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths', async () => {
@@ -116,26 +255,29 @@ test('supplemental selectors bind exact reviewed source hashes, voice keys, phra
 });
 
 test('supplemental dry-runs keep exact pending sets and do not alter either ledger family or shared files', async () => {
-  const beforeManifest = sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js')));
-  const beforeJournal = sha256(await readFile(sharedJournal));
-  const beforeB4Manifest = sha256(await readFile(b4Manifest));
-  for (const [job, requested, keys] of [
-    ['b2-supplement', 5, ['5866151d', '9685e0ac', 'a39b3546', 'a44acc87', 'e077fcc0']],
-    ['b3-dino-facts', 2, ['0f0204e5', 'f6991245']],
-  ]) {
-    const result = spawnSync(process.execPath, [cliPath, `--job=${job}`, `--inventory-sha256=${SUPPLEMENTAL_INVENTORY_SHA256}`], { cwd: root, encoding: 'utf8' });
-    assert.equal(result.status, 0, result.stderr);
-    const summary = JSON.parse(result.stdout);
-    assert.equal(summary.mode, 'dry-run');
-    assert.equal(summary.inventorySha256, SUPPLEMENTAL_INVENTORY_SHA256);
-    assert.equal(summary.requested, requested);
-    assert.equal(summary.packagedCandidateReusable, 0);
-    assert.equal(summary.pending, requested);
-    assert.deepEqual(summary.pendingKeys, keys);
-  }
-  assert.equal(sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js'))), beforeManifest);
-  assert.equal(sha256(await readFile(sharedJournal)), beforeJournal);
-  assert.equal(sha256(await readFile(b4Manifest)), beforeB4Manifest);
+  const fixture = await createCliFixture();
+  try {
+    const beforeManifest = sha256(await readFile(fixture.manifest));
+    const beforeJournal = sha256(await readFile(fixture.journal));
+    const beforeB4Manifest = sha256(await readFile(fixture.b4Manifest));
+    for (const [job, requested, keys] of [
+      ['b2-supplement', 5, ['5866151d', '9685e0ac', 'a39b3546', 'a44acc87', 'e077fcc0']],
+      ['b3-dino-facts', 2, ['0f0204e5', 'f6991245']],
+    ]) {
+      const result = spawnSync(process.execPath, [fixture.cliPath, `--job=${job}`, `--inventory-sha256=${SUPPLEMENTAL_INVENTORY_SHA256}`], { cwd: fixture.root, encoding: 'utf8' });
+      assert.equal(result.status, 0, result.stderr);
+      const summary = JSON.parse(result.stdout);
+      assert.equal(summary.mode, 'dry-run');
+      assert.equal(summary.inventorySha256, SUPPLEMENTAL_INVENTORY_SHA256);
+      assert.equal(summary.requested, requested);
+      assert.equal(summary.packagedCandidateReusable, 0);
+      assert.equal(summary.pending, requested);
+      assert.deepEqual(summary.pendingKeys, keys);
+    }
+    assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
+    assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+    assert.equal(sha256(await readFile(fixture.b4Manifest)), beforeB4Manifest);
+  } finally { await fixture.cleanup(); }
 });
 
 test('rejects jobs, call rates and run counts outside finite reviewed bounds', () => {
@@ -267,39 +409,42 @@ test('request helper sends only the approved voice payload and enforces a finite
 });
 
 test('dry-run reports exact pending keys and leaves package and shared journal untouched', async () => {
-  const beforeManifest = sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js')));
-  const beforeJournal = sha256(await readFile(sharedJournal));
-  const beforeB4Manifest = sha256(await readFile(b4Manifest));
-  const result = spawnSync(process.execPath, [cliPath, '--job=b7-solar', `--inventory-sha256=${PINNED_INVENTORY_SHA256}`], { cwd: root, encoding: 'utf8' });
-  assert.equal(result.status, 0, result.stderr);
-  const summary = JSON.parse(result.stdout);
-  assert.equal(summary.mode, 'dry-run');
-  assert.equal(summary.readOnly, true);
-  assert.equal(summary.requested, 127);
-  assert.equal(summary.packagedCandidateReusable, 111);
-  assert.equal(summary.pending, 16);
-  assert.equal(summary.pendingKeys.length, 16);
-  assert.equal(sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js'))), beforeManifest);
-  assert.equal(sha256(await readFile(sharedJournal)), beforeJournal);
-  assert.equal(sha256(await readFile(b4Manifest)), beforeB4Manifest);
+  const fixture = await createCliFixture();
+  try {
+    const beforeManifest = sha256(await readFile(fixture.manifest));
+    const beforeJournal = sha256(await readFile(fixture.journal));
+    const beforeB4Manifest = sha256(await readFile(fixture.b4Manifest));
+    const result = spawnSync(process.execPath, [fixture.cliPath, '--job=b7-solar', `--inventory-sha256=${PINNED_INVENTORY_SHA256}`], { cwd: fixture.root, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr);
+    const summary = JSON.parse(result.stdout);
+    assert.equal(summary.mode, 'dry-run');
+    assert.equal(summary.readOnly, true);
+    assert.equal(summary.requested, 127);
+    assert.equal(summary.packagedCandidateReusable, 111);
+    assert.equal(summary.pending, 16);
+    assert.equal(summary.pendingKeys.length, 16);
+    assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
+    assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+    assert.equal(sha256(await readFile(fixture.b4Manifest)), beforeB4Manifest);
+  } finally { await fixture.cleanup(); }
 });
 
 test('paid mode across both ledgers cannot pass a live predecessor PID even with an apparently terminal record', async () => {
-  const dir = await tempDir();
+  const fixture = await createCliFixture();
   try {
-    const bytes = await readFile(b4Manifest);
-    const statusPath = resolve(dir, 'live-predecessor.json');
-    await writeFile(statusPath, JSON.stringify({ workerPid: process.pid, sourceCommit: B4_SOURCE_COMMIT, status: 'completed', terminal: true, reconciled: true, exitCode: 0, finishedAt: new Date().toISOString(), finalManifestPath: b4Manifest, finalManifestSha256: sha256(bytes) }));
-    const beforeManifest = sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js')));
-    const beforeJournal = sha256(await readFile(sharedJournal));
+    const bytes = await readFile(fixture.b4Manifest);
+    const statusPath = resolve(fixture.temp, 'live-predecessor.json');
+    await writeFile(statusPath, JSON.stringify({ workerPid: process.pid, sourceCommit: B4_SOURCE_COMMIT, status: 'completed', terminal: true, reconciled: true, exitCode: 0, finishedAt: new Date().toISOString(), finalManifestPath: fixture.b4Manifest, finalManifestSha256: sha256(bytes) }));
+    const beforeManifest = sha256(await readFile(fixture.manifest));
+    const beforeJournal = sha256(await readFile(fixture.journal));
     for (const [job, inventorySha] of [['b7-solar', PINNED_INVENTORY_SHA256], ['b2-supplement', SUPPLEMENTAL_INVENTORY_SHA256]]) {
-      const result = spawnSync(process.execPath, [cliPath, `--job=${job}`, `--inventory-sha256=${inventorySha}`, '--execute-paid', '--max-calls=1', '--max-runs=1', `--request-journal=${sharedJournal}`, `--predecessor-status=${statusPath}`], { cwd: root, encoding: 'utf8' });
+      const result = spawnSync(process.execPath, [fixture.cliPath, `--job=${job}`, `--inventory-sha256=${inventorySha}`, '--execute-paid', '--max-calls=1', '--max-runs=1', `--request-journal=${fixture.journal}`, `--predecessor-status=${statusPath}`], { cwd: fixture.root, encoding: 'utf8' });
       assert.notEqual(result.status, 0);
       assert.match(result.stderr, /still live/);
     }
-    assert.equal(sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js'))), beforeManifest);
-    assert.equal(sha256(await readFile(sharedJournal)), beforeJournal);
-  } finally { await rm(dir, { recursive: true, force: true }); }
+    assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
+    assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+  } finally { await fixture.cleanup(); }
 });
 
 test('CLI refuses a modified inventory digest before selecting or writing', () => {

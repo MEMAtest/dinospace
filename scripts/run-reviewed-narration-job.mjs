@@ -2,7 +2,7 @@ import { mkdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promis
 import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
-  B4_GRAMMAR_INVENTORY_SHA256, JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS, SUPPLEMENTAL_INVENTORY_SHA256,
+  B4_GRAMMAR_INVENTORY_SHA256, B7_SOLAR_TEACHING_INVENTORY_SHA256, JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS, SUPPLEMENTAL_INVENTORY_SHA256,
   acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished,
   availableCalls, isCandidateReusable, isPackagedCandidate, loadPinnedInventory, readRequestJournal,
   requestNarration, selectJobItems, sha256, validateBudgets,
@@ -12,6 +12,7 @@ const root = resolve(import.meta.dirname, '..');
 const batch5To7InventoryPath = resolve(root, 'docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json');
 const supplementalInventoryPath = resolve(root, 'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json');
 const b4GrammarInventoryPath = resolve(root, 'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json');
+const b7SolarTeachingInventoryPath = resolve(root, 'docs/qa-evidence/b7-solar-teaching-narration-jobs-20261004.json');
 const manifestPath = resolve(root, 'src/data/offlineVoiceManifest.js');
 const expectedJournalPath = resolve(root, '../dinospace-batch3-quality/tmp/offline-voice-request-state.json');
 const expectedB4ManifestPath = resolve(root, '../dinospace-batch4-quality/src/data/offlineVoiceManifest.js');
@@ -32,7 +33,7 @@ function parseArgs(argv) {
   return result;
 }
 
-const help = `Reviewed narration job packager\n\nRead-only default (B5–B7):\n  node scripts/run-reviewed-narration-job.mjs --job=<b5-reasoning|b5-literacy|b6|b7-solar|b7-memory> --inventory-sha256=${PINNED_INVENTORY_SHA256}\n\nRead-only default (supplemental B2/B3):\n  node scripts/run-reviewed-narration-job.mjs --job=<b2-supplement|b3-dino-facts> --inventory-sha256=${SUPPLEMENTAL_INVENTORY_SHA256}\n\nRead-only default (B4 grammar corrections):\n  node scripts/run-reviewed-narration-job.mjs --job=b4-grammar --inventory-sha256=${B4_GRAMMAR_INVENTORY_SHA256}\n\nPaid voice execution requires all of:\n  --execute-paid --max-calls=1..20 --max-runs=1..100\n  --request-journal=<the shared B3 request journal>\n  --predecessor-status=<terminal, reconciled B4 status JSON>\n\nThe only endpoint is the reviewed voice endpoint. There is no story, image, or arbitrary-text selector.\n`;
+const help = `Reviewed narration job packager\n\nRead-only default (B5–B7):\n  node scripts/run-reviewed-narration-job.mjs --job=<b5-reasoning|b5-literacy|b6|b7-solar|b7-memory> --inventory-sha256=${PINNED_INVENTORY_SHA256}\n\nRead-only default (source-bound B7 Solar teaching-copy update):\n  node scripts/run-reviewed-narration-job.mjs --job=b7-solar-teaching --inventory-sha256=${B7_SOLAR_TEACHING_INVENTORY_SHA256}\n\nRead-only default (supplemental B2/B3):\n  node scripts/run-reviewed-narration-job.mjs --job=<b2-supplement|b3-dino-facts> --inventory-sha256=${SUPPLEMENTAL_INVENTORY_SHA256}\n\nRead-only default (B4 grammar corrections):\n  node scripts/run-reviewed-narration-job.mjs --job=b4-grammar --inventory-sha256=${B4_GRAMMAR_INVENTORY_SHA256}\n\nPaid voice execution requires all of:\n  --execute-paid --max-calls=1..20 --max-runs=1..100\n  --request-journal=<the shared B3 request journal>\n  --predecessor-status=<terminal, reconciled B4 status JSON>\n\nThe only endpoint is the reviewed voice endpoint. There is no story, image, or arbitrary-text selector.\n`;
 
 function absolutePublicPath(publicPath) {
   if (!publicPath.startsWith('/audio/en/') || publicPath.includes('..')) throw new Error(`Refusing non-English narration path: ${publicPath}`);
@@ -268,9 +269,11 @@ async function main() {
   const ledger = JOBS[args.job].ledger;
   const expectedInventorySha256 = ledger === 'supplemental' ? SUPPLEMENTAL_INVENTORY_SHA256
     : ledger === 'b4-grammar' ? B4_GRAMMAR_INVENTORY_SHA256
+      : ledger === 'b7-solar-teaching' ? B7_SOLAR_TEACHING_INVENTORY_SHA256
       : PINNED_INVENTORY_SHA256;
   const inventoryPath = ledger === 'supplemental' ? supplementalInventoryPath
     : ledger === 'b4-grammar' ? b4GrammarInventoryPath
+      : ledger === 'b7-solar-teaching' ? b7SolarTeachingInventoryPath
       : batch5To7InventoryPath;
   const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: args['inventory-sha256'], expectedSha256: expectedInventorySha256 });
   const items = selectJobItems(inventory, args.job);

@@ -1,0 +1,2963 @@
+{
+  "schemaVersion": 1,
+  "scope": "B7 Solar System narration ledger for the age-6 teaching-copy source; source-bound follow-up to the original consolidated inventory. Candidate byte availability only; not decode, playback, listening or release acceptance.",
+  "source": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+  "base": "c4db1d4b3e469bf71409ec7d859a05a2c7fa9301",
+  "sourceHashes": {
+    "src/data/index.js": "f7dfc08370d14127394f31301c9404aee5498d2389cf75e664bdbaa58c4d0a2e",
+    "src/data/offlineVoiceManifest.js": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7",
+    "src/data/voiceKey.js": "d013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f"
+  },
+  "priorInventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+  "factAuditSha256": "2e9c96d40095c0a0dcd195a911431873c95cc24f6b0e41ee99b6ba6dc658b8ae",
+  "factsEdited": 22,
+  "factsUnchanged": 32,
+  "changedFactIds": [
+    "earth-fact-5",
+    "earth-fact-6",
+    "jupiter-fact-2",
+    "jupiter-fact-6",
+    "mars-fact-4",
+    "mars-fact-5",
+    "mars-fact-6",
+    "mercury-fact-2",
+    "mercury-fact-4",
+    "mercury-fact-6",
+    "neptune-fact-3",
+    "neptune-fact-4",
+    "pluto-fact-2",
+    "pluto-fact-4",
+    "pluto-fact-6",
+    "saturn-fact-2",
+    "saturn-fact-3",
+    "saturn-fact-4",
+    "uranus-fact-1",
+    "uranus-fact-2",
+    "venus-fact-3",
+    "venus-fact-4"
+  ],
+  "changedFactVoiceKeysAdded": 44,
+  "changedFactVoiceKeysRemoved": 44,
+  "uniqueVoiceKeys": 127,
+  "readyAtCandidateSnapshot": 75,
+  "pendingAtCandidateSnapshot": 52,
+  "pendingBreakdown": {
+    "newCopyKeys": 44,
+    "unchangedPriorMissingKeys": 8
+  },
+  "budget": {
+    "maximumRequests": 52,
+    "maximumRequestsPerRun": 10,
+    "maximumRuns": 6,
+    "plannedSingleRunCaps": [
+      10,
+      10,
+      10,
+      10,
+      10,
+      2
+    ],
+    "rollingWindowLimit": 30,
+    "rollingWindowMinutes": 10,
+    "note": "The exact pending set contains 52 keys. A conservative finite execution plan uses six explicitly capped one-run invocations (10+10+10+10+10+2), with no retries; stop and reconcile after any failed request. The shared rolling journal permits at most 30 requests per 10 minutes, so the plan must span at least two rolling windows. This is a planning cap only; no paid execution is authorized by this ledger."
+  },
+  "items": [
+    {
+      "key": "00567b7b",
+      "text": "Long cliffs formed as Mercury cooled and shrank.",
+      "normalized": "long cliffs formed as mercury cooled and shrank.",
+      "textVariants": [
+        "Long cliffs formed as Mercury cooled and shrank."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/00567b7b-matilda.mp3"
+    },
+    {
+      "key": "01c83e21",
+      "text": "Discovery 4. Rust in Mars’s rocks and dust makes the planet look red.",
+      "normalized": "discovery 4. rust in mars’s rocks and dust makes the planet look red.",
+      "textVariants": [
+        "Discovery 4. Rust in Mars’s rocks and dust makes the planet look red."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/01c83e21-matilda.mp3"
+    },
+    {
+      "key": "01ed35af",
+      "text": "Discovery 5. Huge pieces of Earth’s rocky surface move slowly and reshape the land.",
+      "normalized": "discovery 5. huge pieces of earth’s rocky surface move slowly and reshape the land.",
+      "textVariants": [
+        "Discovery 5. Huge pieces of Earth’s rocky surface move slowly and reshape the land."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/01ed35af-matilda.mp3"
+    },
+    {
+      "key": "02c91cf7",
+      "text": "Discovery 1. Farthest planet from the Sun.",
+      "normalized": "discovery 1. farthest planet from the sun.",
+      "textVariants": [
+        "Discovery 1. Farthest planet from the Sun."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "6e460969ead0e8284289028123a5007409a42daf38c034afc3ab1492235f947e"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "6e460969ead0e8284289028123a5007409a42daf38c034afc3ab1492235f947e"
+      },
+      "path": "/audio/en/02c91cf7-matilda.mp3"
+    },
+    {
+      "key": "03f0bf00",
+      "text": "Venus can look like a bright star near sunrise or sunset.",
+      "normalized": "venus can look like a bright star near sunrise or sunset.",
+      "textVariants": [
+        "Venus can look like a bright star near sunrise or sunset."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/03f0bf00-matilda.mp3"
+    },
+    {
+      "key": "047b2fb2",
+      "text": "Mercury is nearest to the Sun and moves around it faster than any other planet.",
+      "normalized": "mercury is nearest to the sun and moves around it faster than any other planet.",
+      "textVariants": [
+        "Mercury is nearest to the Sun and moves around it faster than any other planet."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/047b2fb2-matilda.mp3"
+    },
+    {
+      "key": "04c269c2",
+      "text": "Discovery 4. A year on Neptune lasts about 165 Earth years.",
+      "normalized": "discovery 4. a year on neptune lasts about 165 earth years.",
+      "textVariants": [
+        "Discovery 4. A year on Neptune lasts about 165 Earth years."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/04c269c2-matilda.mp3"
+    },
+    {
+      "key": "073546c2",
+      "text": "One big Moon lights up our night sky.",
+      "normalized": "one big moon lights up our night sky.",
+      "textVariants": [
+        "One big Moon lights up our night sky."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "f6e373ca70b23f4a2c6ede6a19c7518305ce2a67dd368a6f367ff9fb02758065"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "f6e373ca70b23f4a2c6ede6a19c7518305ce2a67dd368a6f367ff9fb02758065"
+      },
+      "path": "/audio/en/073546c2-matilda.mp3"
+    },
+    {
+      "key": "073c68ed",
+      "text": "Only planet we know with life.",
+      "normalized": "only planet we know with life.",
+      "textVariants": [
+        "Only planet we know with life."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "89deee7b6c461c029a2ab4a69ebbba0c11a0cebc08895bc83b42842766df7d49"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "89deee7b6c461c029a2ab4a69ebbba0c11a0cebc08895bc83b42842766df7d49"
+      },
+      "path": "/audio/en/073c68ed-matilda.mp3"
+    },
+    {
+      "key": "098230ce",
+      "text": "Farthest planet from the Sun.",
+      "normalized": "farthest planet from the sun.",
+      "textVariants": [
+        "Farthest planet from the Sun."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "7439fb41036e910519dc9ae9277eebccebf05dba9bc4c8e4fd5b234ef7975abc"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "7439fb41036e910519dc9ae9277eebccebf05dba9bc4c8e4fd5b234ef7975abc"
+      },
+      "path": "/audio/en/098230ce-matilda.mp3"
+    },
+    {
+      "key": "0e75e069",
+      "text": "Its seasons each last about 21 Earth years.",
+      "normalized": "its seasons each last about 21 earth years.",
+      "textVariants": [
+        "Its seasons each last about 21 Earth years."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "46b0f7657788264719c7657b0ad99e918c2b5f39049e660f84e72002f5a76d17"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "46b0f7657788264719c7657b0ad99e918c2b5f39049e660f84e72002f5a76d17"
+      },
+      "path": "/audio/en/0e75e069-matilda.mp3"
+    },
+    {
+      "key": "140a117d",
+      "text": "Discovery 2. Spins backwards compared to most planets.",
+      "normalized": "discovery 2. spins backwards compared to most planets.",
+      "textVariants": [
+        "Discovery 2. Spins backwards compared to most planets."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "0cd2e2b6e3200479db89689a6da153ba9fe7e12884d244e740c86e110d4f1b18"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "0cd2e2b6e3200479db89689a6da153ba9fe7e12884d244e740c86e110d4f1b18"
+      },
+      "path": "/audio/en/140a117d-matilda.mp3"
+    },
+    {
+      "key": "1470011f",
+      "text": "Discovery 6. Mars has seasons and ice caps at its poles, like Earth.",
+      "normalized": "discovery 6. mars has seasons and ice caps at its poles, like earth.",
+      "textVariants": [
+        "Discovery 6. Mars has seasons and ice caps at its poles, like Earth."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/1470011f-matilda.mp3"
+    },
+    {
+      "key": "156ce467",
+      "text": "Discovery 1. Home to plants, animals, and you!",
+      "normalized": "discovery 1. home to plants, animals, and you!",
+      "textVariants": [
+        "Discovery 1. Home to plants, animals, and you!"
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "52dac8f8f4d8416c4f2d926bfa0f442a26894de8e72ec8ed130e3ed025c519c0"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "52dac8f8f4d8416c4f2d926bfa0f442a26894de8e72ec8ed130e3ed025c519c0"
+      },
+      "path": "/audio/en/156ce467-matilda.mp3"
+    },
+    {
+      "key": "1839a150",
+      "text": "Discovery 1. Dusty and rocky with huge volcanoes.",
+      "normalized": "discovery 1. dusty and rocky with huge volcanoes.",
+      "textVariants": [
+        "Discovery 1. Dusty and rocky with huge volcanoes."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "8bb6afc35d36b0796c61dfe2ef61c9f6a4dd1a6a4863c55685e898f1acf26744"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "8bb6afc35d36b0796c61dfe2ef61c9f6a4dd1a6a4863c55685e898f1acf26744"
+      },
+      "path": "/audio/en/1839a150-matilda.mp3"
+    },
+    {
+      "key": "19681350",
+      "text": "Has a heart-shaped ice spot.",
+      "normalized": "has a heart-shaped ice spot.",
+      "textVariants": [
+        "Has a heart-shaped ice spot."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "d5f93665c594bddc812f0b15418c788efb898bb241ff64d612f75856dfafd677"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "d5f93665c594bddc812f0b15418c788efb898bb241ff64d612f75856dfafd677"
+      },
+      "path": "/audio/en/19681350-matilda.mp3"
+    },
+    {
+      "key": "19aefa66",
+      "text": "Earth. Our bright blue home. Find the blue oceans that cover most of Earth.",
+      "normalized": "earth. our bright blue home. find the blue oceans that cover most of earth.",
+      "textVariants": [
+        "Earth. Our bright blue home. Find the blue oceans that cover most of Earth."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "5d72d537312ca71eed2917b4b7d539b6da6fed816fdf3d465a0b396b0fd3746c"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "5d72d537312ca71eed2917b4b7d539b6da6fed816fdf3d465a0b396b0fd3746c"
+      },
+      "path": "/audio/en/19aefa66-matilda.mp3"
+    },
+    {
+      "key": "1d29868e",
+      "text": "Discovery 1. Uranus spins almost on its side like a rolling ball.",
+      "normalized": "discovery 1. uranus spins almost on its side like a rolling ball.",
+      "textVariants": [
+        "Discovery 1. Uranus spins almost on its side like a rolling ball."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/1d29868e-matilda.mp3"
+    },
+    {
+      "key": "1e62dbc2",
+      "text": "Earth acts like a giant invisible magnet. It can steer some tiny bits from the Sun away from Earth.",
+      "normalized": "earth acts like a giant invisible magnet. it can steer some tiny bits from the sun away from earth.",
+      "textVariants": [
+        "Earth acts like a giant invisible magnet. It can steer some tiny bits from the Sun away from Earth."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/1e62dbc2-matilda.mp3"
+    },
+    {
+      "key": "1f3ec839",
+      "text": "Uranus spins almost on its side like a rolling ball.",
+      "normalized": "uranus spins almost on its side like a rolling ball.",
+      "textVariants": [
+        "Uranus spins almost on its side like a rolling ball."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/1f3ec839-matilda.mp3"
+    },
+    {
+      "key": "220af871",
+      "text": "Discovery 1. Small, icy world far from the Sun.",
+      "normalized": "discovery 1. small, icy world far from the sun.",
+      "textVariants": [
+        "Discovery 1. Small, icy world far from the Sun."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "157bd31ba0886effa988ee8afc6b761bead9bfaad3e47105e8160776cc2ca536"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "157bd31ba0886effa988ee8afc6b761bead9bfaad3e47105e8160776cc2ca536"
+      },
+      "path": "/audio/en/220af871-matilda.mp3"
+    },
+    {
+      "key": "222d672b",
+      "text": "Very cold and far from the Sun.",
+      "normalized": "very cold and far from the sun.",
+      "textVariants": [
+        "Very cold and far from the Sun."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "6903df1fce25c076cc65d9874d8b4039cc113a074451eb337beee2e193faa8ce"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "6903df1fce25c076cc65d9874d8b4039cc113a074451eb337beee2e193faa8ce"
+      },
+      "path": "/audio/en/222d672b-matilda.mp3"
+    },
+    {
+      "key": "258091e0",
+      "text": "Mercury. The speedy little planet. Find the tiny grey planet racing closest to the Sun.",
+      "normalized": "mercury. the speedy little planet. find the tiny grey planet racing closest to the sun.",
+      "textVariants": [
+        "Mercury. The speedy little planet. Find the tiny grey planet racing closest to the Sun."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "5c3ba1deef18d4bf79597a89530fe280db2ce54370efa608935dbb1f4ef7e02d"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "5c3ba1deef18d4bf79597a89530fe280db2ce54370efa608935dbb1f4ef7e02d"
+      },
+      "path": "/audio/en/258091e0-matilda.mp3"
+    },
+    {
+      "key": "269719b8",
+      "text": "Correct. On its side.",
+      "normalized": "correct. on its side.",
+      "textVariants": [
+        "Correct. On its side."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "44c62f38fce4c3fee387f21783ae8ebbfb5d7f490f77c96233e9f591f4f3cdf5"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "44c62f38fce4c3fee387f21783ae8ebbfb5d7f490f77c96233e9f591f4f3cdf5"
+      },
+      "path": "/audio/en/269719b8-matilda.mp3"
+    },
+    {
+      "key": "29e5342f",
+      "text": "Has faint rings around it.",
+      "normalized": "has faint rings around it.",
+      "textVariants": [
+        "Has faint rings around it."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "7447f3ddec0854e3a04e6042d05df6882b5b82f70fa80cf3868ee85290dc873a"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "7447f3ddec0854e3a04e6042d05df6882b5b82f70fa80cf3868ee85290dc873a"
+      },
+      "path": "/audio/en/29e5342f-matilda.mp3"
+    },
+    {
+      "key": "2b8dee0e",
+      "text": "Mars. The red explorer. Search the red surface for the giant Olympus Mons volcano.",
+      "normalized": "mars. the red explorer. search the red surface for the giant olympus mons volcano.",
+      "textVariants": [
+        "Mars. The red explorer. Search the red surface for the giant Olympus Mons volcano."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "0d9991e52c51ca408aa5b8d748d2a0054d384defbbef729c43a6a2bdcdbc39e6"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "0d9991e52c51ca408aa5b8d748d2a0054d384defbbef729c43a6a2bdcdbc39e6"
+      },
+      "path": "/audio/en/2b8dee0e-matilda.mp3"
+    },
+    {
+      "key": "2d6972da",
+      "text": "Discovery 6. The Sun rises in the west because Venus spins backwards.",
+      "normalized": "discovery 6. the sun rises in the west because venus spins backwards.",
+      "textVariants": [
+        "Discovery 6. The Sun rises in the west because Venus spins backwards."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "b11b33520e0be5ab9b40056ccf144fbcf2a9746f25b2bcead3839c57faef8192"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "b11b33520e0be5ab9b40056ccf144fbcf2a9746f25b2bcead3839c57faef8192"
+      },
+      "path": "/audio/en/2d6972da-matilda.mp3"
+    },
+    {
+      "key": "30e7478d",
+      "text": "Discovery 2. Lots of water makes it look blue.",
+      "normalized": "discovery 2. lots of water makes it look blue.",
+      "textVariants": [
+        "Discovery 2. Lots of water makes it look blue."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "35b821fa1bcd24a2abf97532ab9365565d2150e3cec44c9eb03e4ecefe40d5fb"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "35b821fa1bcd24a2abf97532ab9365565d2150e3cec44c9eb03e4ecefe40d5fb"
+      },
+      "path": "/audio/en/30e7478d-matilda.mp3"
+    },
+    {
+      "key": "316bac69",
+      "text": "Some ring pieces are tiny grains; others are house-sized.",
+      "normalized": "some ring pieces are tiny grains; others are house-sized.",
+      "textVariants": [
+        "Some ring pieces are tiny grains; others are house-sized."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "f634c91fc6752335acf5b8da4272b157415251f82e2e5a48aa11f0cb900febb4"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "f634c91fc6752335acf5b8da4272b157415251f82e2e5a48aa11f0cb900febb4"
+      },
+      "path": "/audio/en/316bac69-matilda.mp3"
+    },
+    {
+      "key": "3534e9e8",
+      "text": "Discovery 6. Earth acts like a giant invisible magnet. It can steer some tiny bits from the Sun away from Earth.",
+      "normalized": "discovery 6. earth acts like a giant invisible magnet. it can steer some tiny bits from the sun away from earth.",
+      "textVariants": [
+        "Discovery 6. Earth acts like a giant invisible magnet. It can steer some tiny bits from the Sun away from Earth."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/3534e9e8-matilda.mp3"
+    },
+    {
+      "key": "35eb916f",
+      "text": "Correct. A dwarf planet.",
+      "normalized": "correct. a dwarf planet.",
+      "textVariants": [
+        "Correct. A dwarf planet."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "84da4046a3341c5c7e42f2091c88c6de2b7a16e14ba7cbaa220848648c0319dd"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "84da4046a3341c5c7e42f2091c88c6de2b7a16e14ba7cbaa220848648c0319dd"
+      },
+      "path": "/audio/en/35eb916f-matilda.mp3"
+    },
+    {
+      "key": "379f60fd",
+      "text": "Discovery 2. Robots explore Mars for us!",
+      "normalized": "discovery 2. robots explore mars for us!",
+      "textVariants": [
+        "Discovery 2. Robots explore Mars for us!"
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "7cb724cdb9563306267a03c0f550383a75340a5ae425f68999a39013252ddb50"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "7cb724cdb9563306267a03c0f550383a75340a5ae425f68999a39013252ddb50"
+      },
+      "path": "/audio/en/379f60fd-matilda.mp3"
+    },
+    {
+      "key": "37fb67c6",
+      "text": "Its Great Red Spot is a storm larger than Earth.",
+      "normalized": "its great red spot is a storm larger than earth.",
+      "textVariants": [
+        "Its Great Red Spot is a storm larger than Earth."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "6af6a0494bb657bd7c36f9f29751fdfa2d41c8e2324537a80ecb0d9244bbf73b"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "6af6a0494bb657bd7c36f9f29751fdfa2d41c8e2324537a80ecb0d9244bbf73b"
+      },
+      "path": "/audio/en/37fb67c6-matilda.mp3"
+    },
+    {
+      "key": "3a9562f8",
+      "text": "Discovery 4. Venus can look like a bright star near sunrise or sunset.",
+      "normalized": "discovery 4. venus can look like a bright star near sunrise or sunset.",
+      "textVariants": [
+        "Discovery 4. Venus can look like a bright star near sunrise or sunset."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/3a9562f8-matilda.mp3"
+    },
+    {
+      "key": "3bb1df64",
+      "text": "Discovery 4. Made of gas, so there is no solid ground.",
+      "normalized": "discovery 4. made of gas, so there is no solid ground.",
+      "textVariants": [
+        "Discovery 4. Made of gas, so there is no solid ground."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "55aae24ec57857fe22b19f00aff36a054a61b21e28426fc709be6e7b8546d1e9"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "55aae24ec57857fe22b19f00aff36a054a61b21e28426fc709be6e7b8546d1e9"
+      },
+      "path": "/audio/en/3bb1df64-matilda.mp3"
+    },
+    {
+      "key": "3df486dd",
+      "text": "Mars has seasons and ice caps at its poles, like Earth.",
+      "normalized": "mars has seasons and ice caps at its poles, like earth.",
+      "textVariants": [
+        "Mars has seasons and ice caps at its poles, like Earth."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/3df486dd-matilda.mp3"
+    },
+    {
+      "key": "44288563",
+      "text": "Discovery 4. Saturn spins quickly, so it bulges around its middle.",
+      "normalized": "discovery 4. saturn spins quickly, so it bulges around its middle.",
+      "textVariants": [
+        "Discovery 4. Saturn spins quickly, so it bulges around its middle."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/44288563-matilda.mp3"
+    },
+    {
+      "key": "50a0cc69",
+      "text": "Charon is Pluto’s biggest moon. They pull on each other and travel around the same point between them.",
+      "normalized": "charon is pluto’s biggest moon. they pull on each other and travel around the same point between them.",
+      "textVariants": [
+        "Charon is Pluto’s biggest moon. They pull on each other and travel around the same point between them."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/50a0cc69-matilda.mp3"
+    },
+    {
+      "key": "5105e122",
+      "text": "Venus. The hottest planet. Spot the yellow world hidden beneath thick clouds.",
+      "normalized": "venus. the hottest planet. spot the yellow world hidden beneath thick clouds.",
+      "textVariants": [
+        "Venus. The hottest planet. Spot the yellow world hidden beneath thick clouds."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "a17130d0c488ad70491f207213e62b3cd9db5de44239ab6c8a68521bf734af71"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "a17130d0c488ad70491f207213e62b3cd9db5de44239ab6c8a68521bf734af71"
+      },
+      "path": "/audio/en/5105e122-matilda.mp3"
+    },
+    {
+      "key": "51e16e66",
+      "text": "Discovery 3. Has a giant storm called the Great Red Spot.",
+      "normalized": "discovery 3. has a giant storm called the great red spot.",
+      "textVariants": [
+        "Discovery 3. Has a giant storm called the Great Red Spot."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "f7f1b549e0f9fa6f629b8223c288682a0f8086107a8191d8f49ed83f3e4983c6"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "f7f1b549e0f9fa6f629b8223c288682a0f8086107a8191d8f49ed83f3e4983c6"
+      },
+      "path": "/audio/en/51e16e66-matilda.mp3"
+    },
+    {
+      "key": "52a257d4",
+      "text": "Discovery 5. Its seasons each last about 21 Earth years.",
+      "normalized": "discovery 5. its seasons each last about 21 earth years.",
+      "textVariants": [
+        "Discovery 5. Its seasons each last about 21 Earth years."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "25322ac024142e47fa23baa2fb5a45ca70382f6a6b4241216984cdaf39a06681"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "25322ac024142e47fa23baa2fb5a45ca70382f6a6b4241216984cdaf39a06681"
+      },
+      "path": "/audio/en/52a257d4-matilda.mp3"
+    },
+    {
+      "key": "52b0d4d5",
+      "text": "Discovery 5. Its Great Red Spot is a storm larger than Earth.",
+      "normalized": "discovery 5. its great red spot is a storm larger than earth.",
+      "textVariants": [
+        "Discovery 5. Its Great Red Spot is a storm larger than Earth."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "a58e475347838366a472cc25e70b43a560a19004262ec86b3aa946b0d2d3bc06"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "a58e475347838366a472cc25e70b43a560a19004262ec86b3aa946b0d2d3bc06"
+      },
+      "path": "/audio/en/52b0d4d5-matilda.mp3"
+    },
+    {
+      "key": "531a6fbc",
+      "text": "The Sun rises in the west because Venus spins backwards.",
+      "normalized": "the sun rises in the west because venus spins backwards.",
+      "textVariants": [
+        "The Sun rises in the west because Venus spins backwards."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "8232a6647c19749f22687a4c89abc7b18a96f5b8e1d9e5be2352b4c3d1a6e289"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "8232a6647c19749f22687a4c89abc7b18a96f5b8e1d9e5be2352b4c3d1a6e289"
+      },
+      "path": "/audio/en/531a6fbc-matilda.mp3"
+    },
+    {
+      "key": "5348478a",
+      "text": "Home to the biggest volcano: Olympus Mons.",
+      "normalized": "home to the biggest volcano: olympus mons.",
+      "textVariants": [
+        "Home to the biggest volcano: Olympus Mons."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "1adfb93df47f69cc30477b00f8dc95af0ed8ea11969b18a78fc3c57234b24168"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "1adfb93df47f69cc30477b00f8dc95af0ed8ea11969b18a78fc3c57234b24168"
+      },
+      "path": "/audio/en/5348478a-matilda.mp3"
+    },
+    {
+      "key": "55a55c2d",
+      "text": "Discovery 1. Rings are made of ice and rock chunks.",
+      "normalized": "discovery 1. rings are made of ice and rock chunks.",
+      "textVariants": [
+        "Discovery 1. Rings are made of ice and rock chunks."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "229091967ed05a9da35c9e6f1fdc1f780952464bf61ef474254d0fc5e0ee6e50"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "229091967ed05a9da35c9e6f1fdc1f780952464bf61ef474254d0fc5e0ee6e50"
+      },
+      "path": "/audio/en/55a55c2d-matilda.mp3"
+    },
+    {
+      "key": "578085d8",
+      "text": "Discovery 3. A gas called methane in Neptune’s air helps make it look blue.",
+      "normalized": "discovery 3. a gas called methane in neptune’s air helps make it look blue.",
+      "textVariants": [
+        "Discovery 3. A gas called methane in Neptune’s air helps make it look blue."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/578085d8-matilda.mp3"
+    },
+    {
+      "key": "5a35ed3c",
+      "text": "Saturn. The ringed planet. Tilt the view and inspect Saturn’s icy rings.",
+      "normalized": "saturn. the ringed planet. tilt the view and inspect saturn’s icy rings.",
+      "textVariants": [
+        "Saturn. The ringed planet. Tilt the view and inspect Saturn’s icy rings."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "508e19722272d0c4345525469b2ed5a56fffdb28c34ee8fc6d53581a29598b49"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "508e19722272d0c4345525469b2ed5a56fffdb28c34ee8fc6d53581a29598b49"
+      },
+      "path": "/audio/en/5a35ed3c-matilda.mp3"
+    },
+    {
+      "key": "5c81c59a",
+      "text": "Discovery 4. One big Moon lights up our night sky.",
+      "normalized": "discovery 4. one big moon lights up our night sky.",
+      "textVariants": [
+        "Discovery 4. One big Moon lights up our night sky."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "c75ee77773ab6afe5612d1a79c594165fe1605031b8b9239d49ae95f1e955acb"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "c75ee77773ab6afe5612d1a79c594165fe1605031b8b9239d49ae95f1e955acb"
+      },
+      "path": "/audio/en/5c81c59a-matilda.mp3"
+    },
+    {
+      "key": "5d7d3a39",
+      "text": "Pluto was once called the ninth planet. Today it is called a dwarf planet.",
+      "normalized": "pluto was once called the ninth planet. today it is called a dwarf planet.",
+      "textVariants": [
+        "Pluto was once called the ninth planet. Today it is called a dwarf planet."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/5d7d3a39-matilda.mp3"
+    },
+    {
+      "key": "601ec7d6",
+      "text": "Hottest planet in the whole solar system.",
+      "normalized": "hottest planet in the whole solar system.",
+      "textVariants": [
+        "Hottest planet in the whole solar system."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "31209cf865ddd595284e7aab01dc1ce71f983837f55fdc1c6f270ec36b9f13c0"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "31209cf865ddd595284e7aab01dc1ce71f983837f55fdc1c6f270ec36b9f13c0"
+      },
+      "path": "/audio/en/601ec7d6-matilda.mp3"
+    },
+    {
+      "key": "6373319e",
+      "text": "Small, icy world far from the Sun.",
+      "normalized": "small, icy world far from the sun.",
+      "textVariants": [
+        "Small, icy world far from the Sun."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "7a666ac4a41f9e0a608060f6f5c0f9090bd90137451344426e8fc5e2b4cb7e90"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "7a666ac4a41f9e0a608060f6f5c0f9090bd90137451344426e8fc5e2b4cb7e90"
+      },
+      "path": "/audio/en/6373319e-matilda.mp3"
+    },
+    {
+      "key": "64cb52ab",
+      "text": "Discovery 5. Its heart-shaped region is called Tombaugh Regio.",
+      "normalized": "discovery 5. its heart-shaped region is called tombaugh regio.",
+      "textVariants": [
+        "Discovery 5. Its heart-shaped region is called Tombaugh Regio."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "1d4c4e3865e3fbcec810569de03deddec301333c5c325281dbf49e392d1ddcdd"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "1d4c4e3865e3fbcec810569de03deddec301333c5c325281dbf49e392d1ddcdd"
+      },
+      "path": "/audio/en/64cb52ab-matilda.mp3"
+    },
+    {
+      "key": "65927997",
+      "text": "Discovery 4. Has faint rings around it.",
+      "normalized": "discovery 4. has faint rings around it.",
+      "textVariants": [
+        "Discovery 4. Has faint rings around it."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "e91ef892a4e7ddfa82bc3958b8697ab46d0ac271e86b3a0884e921149bcaa3ea"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "e91ef892a4e7ddfa82bc3958b8697ab46d0ac271e86b3a0884e921149bcaa3ea"
+      },
+      "path": "/audio/en/65927997-matilda.mp3"
+    },
+    {
+      "key": "67be40e4",
+      "text": "Discovery 6. Scientists think it may rain diamonds deep inside.",
+      "normalized": "discovery 6. scientists think it may rain diamonds deep inside.",
+      "textVariants": [
+        "Discovery 6. Scientists think it may rain diamonds deep inside."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "54cb29cb7368381e31074896eea2ddb0df5742027ce38c84a026b2287c807e40"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "54cb29cb7368381e31074896eea2ddb0df5742027ce38c84a026b2287c807e40"
+      },
+      "path": "/audio/en/67be40e4-matilda.mp3"
+    },
+    {
+      "key": "68e808f6",
+      "text": "Discovery 6. Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes.",
+      "normalized": "discovery 6. titan is one of saturn’s moons. it is so cold that methane, a gas on earth, falls there as rain and fills lakes.",
+      "textVariants": [
+        "Discovery 6. Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/68e808f6-matilda.mp3"
+    },
+    {
+      "key": "6a81b32d",
+      "text": "A gas called methane in Neptune’s air helps make it look blue.",
+      "normalized": "a gas called methane in neptune’s air helps make it look blue.",
+      "textVariants": [
+        "A gas called methane in Neptune’s air helps make it look blue."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/6a81b32d-matilda.mp3"
+    },
+    {
+      "key": "6b52016b",
+      "text": "Robots explore Mars for us!",
+      "normalized": "robots explore mars for us!",
+      "textVariants": [
+        "Robots explore Mars for us!"
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "1d4cd01827a50cd6762b8a9085d601ecdb4b034b08457ea08bf3a4979d7f74e0"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "1d4cd01827a50cd6762b8a9085d601ecdb4b034b08457ea08bf3a4979d7f74e0"
+      },
+      "path": "/audio/en/6b52016b-matilda.mp3"
+    },
+    {
+      "key": "6c0595dc",
+      "text": "Discovery 4. It takes Pluto 248 Earth years to go around the Sun.",
+      "normalized": "discovery 4. it takes pluto 248 earth years to go around the sun.",
+      "textVariants": [
+        "Discovery 4. It takes Pluto 248 Earth years to go around the Sun."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/6c0595dc-matilda.mp3"
+    },
+    {
+      "key": "6c098802",
+      "text": "Scientists think it may rain diamonds deep inside.",
+      "normalized": "scientists think it may rain diamonds deep inside.",
+      "textVariants": [
+        "Scientists think it may rain diamonds deep inside."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "fa89c95f68b1f23b9c12ff4cb7d5bf8c9b89d50d7716f48ce06a9ca8fbe81115"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "fa89c95f68b1f23b9c12ff4cb7d5bf8c9b89d50d7716f48ce06a9ca8fbe81115"
+      },
+      "path": "/audio/en/6c098802-matilda.mp3"
+    },
+    {
+      "key": "6c1e333d",
+      "text": "Discovery 5. Its winds can race faster than 2,000 kilometres per hour.",
+      "normalized": "discovery 5. its winds can race faster than 2,000 kilometres per hour.",
+      "textVariants": [
+        "Discovery 5. Its winds can race faster than 2,000 kilometres per hour."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "91f0903bc51ecd1497df146b273d0fcd8ffa66039b4f28310e6b76316b49cb19"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "91f0903bc51ecd1497df146b273d0fcd8ffa66039b4f28310e6b76316b49cb19"
+      },
+      "path": "/audio/en/6c1e333d-matilda.mp3"
+    },
+    {
+      "key": "6d2a9c4b",
+      "text": "Mercury is baking hot by day and freezing cold at night.",
+      "normalized": "mercury is baking hot by day and freezing cold at night.",
+      "textVariants": [
+        "Mercury is baking hot by day and freezing cold at night."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/6d2a9c4b-matilda.mp3"
+    },
+    {
+      "key": "6d4ad978",
+      "text": "A thick layer of gas around Venus traps heat like a blanket.",
+      "normalized": "a thick layer of gas around venus traps heat like a blanket.",
+      "textVariants": [
+        "A thick layer of gas around Venus traps heat like a blanket."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/6d4ad978-matilda.mp3"
+    },
+    {
+      "key": "6d6518dd",
+      "text": "From one sunrise to the next takes 176 Earth days.",
+      "normalized": "from one sunrise to the next takes 176 earth days.",
+      "textVariants": [
+        "From one sunrise to the next takes 176 Earth days."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/6d6518dd-matilda.mp3"
+    },
+    {
+      "key": "6d672f2c",
+      "text": "Discovery 5. Its clouds contain drops of strong acid.",
+      "normalized": "discovery 5. its clouds contain drops of strong acid.",
+      "textVariants": [
+        "Discovery 5. Its clouds contain drops of strong acid."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "31a9af7d9fab7dd01f0127aa3522aa9a1c6081a9fa7cab2e638b7f82eb715b90"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "31a9af7d9fab7dd01f0127aa3522aa9a1c6081a9fa7cab2e638b7f82eb715b90"
+      },
+      "path": "/audio/en/6d672f2c-matilda.mp3"
+    },
+    {
+      "key": "6fcd80c6",
+      "text": "Rings are made of ice and rock chunks.",
+      "normalized": "rings are made of ice and rock chunks.",
+      "textVariants": [
+        "Rings are made of ice and rock chunks."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "0b430c08ef36f99b8f4a9c8754d250a6ff8cff95cabec764e10788c5c48c949e"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "0b430c08ef36f99b8f4a9c8754d250a6ff8cff95cabec764e10788c5c48c949e"
+      },
+      "path": "/audio/en/6fcd80c6-matilda.mp3"
+    },
+    {
+      "key": "7147a9a3",
+      "text": "Dusty and rocky with huge volcanoes.",
+      "normalized": "dusty and rocky with huge volcanoes.",
+      "textVariants": [
+        "Dusty and rocky with huge volcanoes."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "5e67eff8f88b366e3571d35a6ef96a2af495c875bae9a59edcc5e8b4321f71f8"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "5e67eff8f88b366e3571d35a6ef96a2af495c875bae9a59edcc5e8b4321f71f8"
+      },
+      "path": "/audio/en/7147a9a3-matilda.mp3"
+    },
+    {
+      "key": "73786862",
+      "text": "Correct. It has no air.",
+      "normalized": "correct. it has no air.",
+      "textVariants": [
+        "Correct. It has no air."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "a5240288d1f199b3d746c4b5ba9f773a053868144921626ab2b936b5fd3f5ce3"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "a5240288d1f199b3d746c4b5ba9f773a053868144921626ab2b936b5fd3f5ce3"
+      },
+      "path": "/audio/en/73786862-matilda.mp3"
+    },
+    {
+      "key": "76416705",
+      "text": "Jupiter. The giant gas planet. Find the striped giant and its enormous red storm.",
+      "normalized": "jupiter. the giant gas planet. find the striped giant and its enormous red storm.",
+      "textVariants": [
+        "Jupiter. The giant gas planet. Find the striped giant and its enormous red storm."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "ecd4003686f79ff9f15e9597b37cd4e8c2ed351306c7f5dc57011965f5e1f2fd"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "ecd4003686f79ff9f15e9597b37cd4e8c2ed351306c7f5dc57011965f5e1f2fd"
+      },
+      "path": "/audio/en/76416705-matilda.mp3"
+    },
+    {
+      "key": "7ba99977",
+      "text": "Spins backwards compared to most planets.",
+      "normalized": "spins backwards compared to most planets.",
+      "textVariants": [
+        "Spins backwards compared to most planets."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "ab6a96bdb1038acba84cb1c92665fafbfd82b79ee6247c5d10630ef6eb17b909"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "ab6a96bdb1038acba84cb1c92665fafbfd82b79ee6247c5d10630ef6eb17b909"
+      },
+      "path": "/audio/en/7ba99977-matilda.mp3"
+    },
+    {
+      "key": "7c46e826",
+      "text": "Mercury has almost no air, so sound cannot travel through its sky like it does on Earth.",
+      "normalized": "mercury has almost no air, so sound cannot travel through its sky like it does on earth.",
+      "textVariants": [
+        "Mercury has almost no air, so sound cannot travel through its sky like it does on Earth."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/7c46e826-matilda.mp3"
+    },
+    {
+      "key": "7cf44cd6",
+      "text": "Discovery 1. Largest planet in our solar system.",
+      "normalized": "discovery 1. largest planet in our solar system.",
+      "textVariants": [
+        "Discovery 1. Largest planet in our solar system."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "266528e257b6698f85a8f3963a0522f62e5cc1b2abdc51af913ce19213ac73eb"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "266528e257b6698f85a8f3963a0522f62e5cc1b2abdc51af913ce19213ac73eb"
+      },
+      "path": "/audio/en/7cf44cd6-matilda.mp3"
+    },
+    {
+      "key": "8363d10a",
+      "text": "Home to plants, animals, and you!",
+      "normalized": "home to plants, animals, and you!",
+      "textVariants": [
+        "Home to plants, animals, and you!"
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "3d2f3786724b03cda035df75265714f59d3a42e4f95b98cf5eed9e8c134d4899"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "3d2f3786724b03cda035df75265714f59d3a42e4f95b98cf5eed9e8c134d4899"
+      },
+      "path": "/audio/en/8363d10a-matilda.mp3"
+    },
+    {
+      "key": "89bd4948",
+      "text": "Not quite. Check the discoveries and try again.",
+      "normalized": "not quite. check the discoveries and try again.",
+      "textVariants": [
+        "Not quite. Check the discoveries and try again."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "ee56df7fed64118c8ae217ebe668626f2dbcd930a42715af57efd3ce43c459d6"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "ee56df7fed64118c8ae217ebe668626f2dbcd930a42715af57efd3ce43c459d6"
+      },
+      "path": "/audio/en/89bd4948-matilda.mp3"
+    },
+    {
+      "key": "8bb2eabf",
+      "text": "Discovery 2. Pluto was once called the ninth planet. Today it is called a dwarf planet.",
+      "normalized": "discovery 2. pluto was once called the ninth planet. today it is called a dwarf planet.",
+      "textVariants": [
+        "Discovery 2. Pluto was once called the ninth planet. Today it is called a dwarf planet."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/8bb2eabf-matilda.mp3"
+    },
+    {
+      "key": "8cb073c6",
+      "text": "Discovery 2. A gas called methane in Uranus’s air helps make it look blue-green.",
+      "normalized": "discovery 2. a gas called methane in uranus’s air helps make it look blue-green.",
+      "textVariants": [
+        "Discovery 2. A gas called methane in Uranus’s air helps make it look blue-green."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/8cb073c6-matilda.mp3"
+    },
+    {
+      "key": "8cce21bb",
+      "text": "Its clouds contain drops of strong acid.",
+      "normalized": "its clouds contain drops of strong acid.",
+      "textVariants": [
+        "Its clouds contain drops of strong acid."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "82d4de00187c78937efa5a9ac0b63ca66b41fbfd39a3226b75af0068f8f9d653"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "82d4de00187c78937efa5a9ac0b63ca66b41fbfd39a3226b75af0068f8f9d653"
+      },
+      "path": "/audio/en/8cce21bb-matilda.mp3"
+    },
+    {
+      "key": "8dd8c17a",
+      "text": "Neptune. The windy blue world. Travel to the far blue world and look for storm bands.",
+      "normalized": "neptune. the windy blue world. travel to the far blue world and look for storm bands.",
+      "textVariants": [
+        "Neptune. The windy blue world. Travel to the far blue world and look for storm bands."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "cf5973ac3870f8579f73ca1979c1836991389b4c150ad0bacfacfaac6267d87b"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "cf5973ac3870f8579f73ca1979c1836991389b4c150ad0bacfacfaac6267d87b"
+      },
+      "path": "/audio/en/8dd8c17a-matilda.mp3"
+    },
+    {
+      "key": "8e85998b",
+      "text": "Has a giant storm called the Great Red Spot.",
+      "normalized": "has a giant storm called the great red spot.",
+      "textVariants": [
+        "Has a giant storm called the Great Red Spot."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "76a8028e5ae382de8f6d564c3b176ce9b72fc921df445d85de2c484e51f2ba84"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "76a8028e5ae382de8f6d564c3b176ce9b72fc921df445d85de2c484e51f2ba84"
+      },
+      "path": "/audio/en/8e85998b-matilda.mp3"
+    },
+    {
+      "key": "8f43359e",
+      "text": "Its heart-shaped region is called Tombaugh Regio.",
+      "normalized": "its heart-shaped region is called tombaugh regio.",
+      "textVariants": [
+        "Its heart-shaped region is called Tombaugh Regio."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "9507c6b5edb66301d9cd46e3ba6174d07617d063cc0dbc4fa4e58825d89f50c4"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "9507c6b5edb66301d9cd46e3ba6174d07617d063cc0dbc4fa4e58825d89f50c4"
+      },
+      "path": "/audio/en/8f43359e-matilda.mp3"
+    },
+    {
+      "key": "92542509",
+      "text": "Discovery 3. For its size, Saturn weighs less than an equal-sized amount of water. It could float in a pretend bathtub big enough to hold it.",
+      "normalized": "discovery 3. for its size, saturn weighs less than an equal-sized amount of water. it could float in a pretend bathtub big enough to hold it.",
+      "textVariants": [
+        "Discovery 3. For its size, Saturn weighs less than an equal-sized amount of water. It could float in a pretend bathtub big enough to hold it."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/92542509-matilda.mp3"
+    },
+    {
+      "key": "94e99828",
+      "text": "Discovery 3. From one sunrise to the next takes 176 Earth days.",
+      "normalized": "discovery 3. from one sunrise to the next takes 176 earth days.",
+      "textVariants": [
+        "Discovery 3. From one sunrise to the next takes 176 Earth days."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/94e99828-matilda.mp3"
+    },
+    {
+      "key": "95f43c1c",
+      "text": "Made of gas, so there is no solid ground.",
+      "normalized": "made of gas, so there is no solid ground.",
+      "textVariants": [
+        "Made of gas, so there is no solid ground."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "ad7077e26d58568dc9b8112581b4ae45e2f1e3766dc33d1c214fc2d9602bfd6c"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "ad7077e26d58568dc9b8112581b4ae45e2f1e3766dc33d1c214fc2d9602bfd6c"
+      },
+      "path": "/audio/en/95f43c1c-matilda.mp3"
+    },
+    {
+      "key": "979edef1",
+      "text": "Discovery 2. Super windy with giant storms.",
+      "normalized": "discovery 2. super windy with giant storms.",
+      "textVariants": [
+        "Discovery 2. Super windy with giant storms."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "bb93bd5d0a877620a14e77d17a7d0e8cd05da32aa012bbc8d6f5b5791acf5623"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "bb93bd5d0a877620a14e77d17a7d0e8cd05da32aa012bbc8d6f5b5791acf5623"
+      },
+      "path": "/audio/en/979edef1-matilda.mp3"
+    },
+    {
+      "key": "98a4ee7d",
+      "text": "Olympus Mons is much taller than Mount Everest, Earth’s tallest mountain.",
+      "normalized": "olympus mons is much taller than mount everest, earth’s tallest mountain.",
+      "textVariants": [
+        "Olympus Mons is much taller than Mount Everest, Earth’s tallest mountain."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/98a4ee7d-matilda.mp3"
+    },
+    {
+      "key": "98d8ef65",
+      "text": "Discovery 6. Jupiter has faint rings made of tiny, dark bits of dust.",
+      "normalized": "discovery 6. jupiter has faint rings made of tiny, dark bits of dust.",
+      "textVariants": [
+        "Discovery 6. Jupiter has faint rings made of tiny, dark bits of dust."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/98d8ef65-matilda.mp3"
+    },
+    {
+      "key": "9ac7eb38",
+      "text": "For its size, Saturn weighs less than an equal-sized amount of water. It could float in a pretend bathtub big enough to hold it.",
+      "normalized": "for its size, saturn weighs less than an equal-sized amount of water. it could float in a pretend bathtub big enough to hold it.",
+      "textVariants": [
+        "For its size, Saturn weighs less than an equal-sized amount of water. It could float in a pretend bathtub big enough to hold it."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/9ac7eb38-matilda.mp3"
+    },
+    {
+      "key": "9bb2befc",
+      "text": "Its winds can race faster than 2,000 kilometres per hour.",
+      "normalized": "its winds can race faster than 2,000 kilometres per hour.",
+      "textVariants": [
+        "Its winds can race faster than 2,000 kilometres per hour."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "9d395944cb3ac46449d7c601ee775c4f55d4cf4b3a75e963e6312e614e8e86b5"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "9d395944cb3ac46449d7c601ee775c4f55d4cf4b3a75e963e6312e614e8e86b5"
+      },
+      "path": "/audio/en/9bb2befc-matilda.mp3"
+    },
+    {
+      "key": "9bb97653",
+      "text": "Lots of water makes it look blue.",
+      "normalized": "lots of water makes it look blue.",
+      "textVariants": [
+        "Lots of water makes it look blue."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "b86d3846d291306e505d3c4b9554785ac936320f6d9248363e52f6be8104f80d"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "b86d3846d291306e505d3c4b9554785ac936320f6d9248363e52f6be8104f80d"
+      },
+      "path": "/audio/en/9bb97653-matilda.mp3"
+    },
+    {
+      "key": "9c98dcb8",
+      "text": "Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes.",
+      "normalized": "titan is one of saturn’s moons. it is so cold that methane, a gas on earth, falls there as rain and fills lakes.",
+      "textVariants": [
+        "Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/9c98dcb8-matilda.mp3"
+    },
+    {
+      "key": "a2b823b4",
+      "text": "Discovery 5. Long cliffs formed as Mercury cooled and shrank.",
+      "normalized": "discovery 5. long cliffs formed as mercury cooled and shrank.",
+      "textVariants": [
+        "Discovery 5. Long cliffs formed as Mercury cooled and shrank."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/a2b823b4-matilda.mp3"
+    },
+    {
+      "key": "a401d59e",
+      "text": "Smallest planet in our solar system.",
+      "normalized": "smallest planet in our solar system.",
+      "textVariants": [
+        "Smallest planet in our solar system."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "a280e9a6c24a065ed747d1223604f2bbe9cf5f6dbe588527e87ab38246410613"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "a280e9a6c24a065ed747d1223604f2bbe9cf5f6dbe588527e87ab38246410613"
+      },
+      "path": "/audio/en/a401d59e-matilda.mp3"
+    },
+    {
+      "key": "a416b33b",
+      "text": "Discovery 3. Home to the biggest volcano: Olympus Mons.",
+      "normalized": "discovery 3. home to the biggest volcano: olympus mons.",
+      "textVariants": [
+        "Discovery 3. Home to the biggest volcano: Olympus Mons."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "c4f23f133be35a64981238643041d1ece4b0242b7550fb4a1fbc22b1a5e8741d"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "c4f23f133be35a64981238643041d1ece4b0242b7550fb4a1fbc22b1a5e8741d"
+      },
+      "path": "/audio/en/a416b33b-matilda.mp3"
+    },
+    {
+      "key": "a5aba058",
+      "text": "Jupiter is bigger than all the other planets put together.",
+      "normalized": "jupiter is bigger than all the other planets put together.",
+      "textVariants": [
+        "Jupiter is bigger than all the other planets put together."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/a5aba058-matilda.mp3"
+    },
+    {
+      "key": "abf9e3bf",
+      "text": "Jupiter has faint rings made of tiny, dark bits of dust.",
+      "normalized": "jupiter has faint rings made of tiny, dark bits of dust.",
+      "textVariants": [
+        "Jupiter has faint rings made of tiny, dark bits of dust."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/abf9e3bf-matilda.mp3"
+    },
+    {
+      "key": "b07aaa0e",
+      "text": "Saturn has many moons.",
+      "normalized": "saturn has many moons.",
+      "textVariants": [
+        "Saturn has many moons."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/b07aaa0e-matilda.mp3"
+    },
+    {
+      "key": "b334baf4",
+      "text": "Discovery 5. Olympus Mons is much taller than Mount Everest, Earth’s tallest mountain.",
+      "normalized": "discovery 5. olympus mons is much taller than mount everest, earth’s tallest mountain.",
+      "textVariants": [
+        "Discovery 5. Olympus Mons is much taller than Mount Everest, Earth’s tallest mountain."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/b334baf4-matilda.mp3"
+    },
+    {
+      "key": "b41ab7b4",
+      "text": "Discovery 3. Only planet we know with life.",
+      "normalized": "discovery 3. only planet we know with life.",
+      "textVariants": [
+        "Discovery 3. Only planet we know with life."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "1f4d1f6d47e1e0cbaa9254152e934d05018b80287461c0f9880b12f69f2c7254"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "1f4d1f6d47e1e0cbaa9254152e934d05018b80287461c0f9880b12f69f2c7254"
+      },
+      "path": "/audio/en/b41ab7b4-matilda.mp3"
+    },
+    {
+      "key": "b7096764",
+      "text": "It takes Pluto 248 Earth years to go around the Sun.",
+      "normalized": "it takes pluto 248 earth years to go around the sun.",
+      "textVariants": [
+        "It takes Pluto 248 Earth years to go around the Sun."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/b7096764-matilda.mp3"
+    },
+    {
+      "key": "ba1ac8aa",
+      "text": "A year on Neptune lasts about 165 Earth years.",
+      "normalized": "a year on neptune lasts about 165 earth years.",
+      "textVariants": [
+        "A year on Neptune lasts about 165 Earth years."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/ba1ac8aa-matilda.mp3"
+    },
+    {
+      "key": "ba87e11c",
+      "text": "Huge pieces of Earth’s rocky surface move slowly and reshape the land.",
+      "normalized": "huge pieces of earth’s rocky surface move slowly and reshape the land.",
+      "textVariants": [
+        "Huge pieces of Earth’s rocky surface move slowly and reshape the land."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/ba87e11c-matilda.mp3"
+    },
+    {
+      "key": "babf7e1d",
+      "text": "Discovery 1. Smallest planet in our solar system.",
+      "normalized": "discovery 1. smallest planet in our solar system.",
+      "textVariants": [
+        "Discovery 1. Smallest planet in our solar system."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "1603c923aad1a5376089c86aa8e93926ff0446eb73602afcb87af6c3ac18acd3"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "1603c923aad1a5376089c86aa8e93926ff0446eb73602afcb87af6c3ac18acd3"
+      },
+      "path": "/audio/en/babf7e1d-matilda.mp3"
+    },
+    {
+      "key": "bacb26a9",
+      "text": "Correct. Its oceans.",
+      "normalized": "correct. its oceans.",
+      "textVariants": [
+        "Correct. Its oceans."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "77a68c1936f3ec9b58d82fb197ee3df51dc234ebf53377238aac6e9344d32122"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "77a68c1936f3ec9b58d82fb197ee3df51dc234ebf53377238aac6e9344d32122"
+      },
+      "path": "/audio/en/bacb26a9-matilda.mp3"
+    },
+    {
+      "key": "bb180373",
+      "text": "Correct. Super-fast winds.",
+      "normalized": "correct. super-fast winds.",
+      "textVariants": [
+        "Correct. Super-fast winds."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "fb19154401b1b58007d478080941f1c5b3486f981234a0881321f2928f07b5a1"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "fb19154401b1b58007d478080941f1c5b3486f981234a0881321f2928f07b5a1"
+      },
+      "path": "/audio/en/bb180373-matilda.mp3"
+    },
+    {
+      "key": "bb4b4778",
+      "text": "Discovery 2. Mercury is nearest to the Sun and moves around it faster than any other planet.",
+      "normalized": "discovery 2. mercury is nearest to the sun and moves around it faster than any other planet.",
+      "textVariants": [
+        "Discovery 2. Mercury is nearest to the Sun and moves around it faster than any other planet."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/bb4b4778-matilda.mp3"
+    },
+    {
+      "key": "bdae78c9",
+      "text": "Correct. Venus.",
+      "normalized": "correct. venus.",
+      "textVariants": [
+        "Correct. Venus."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "4e40881a535610032ddc5d9516fd615747083775fc8f781bc563405f0ae2f824"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "4e40881a535610032ddc5d9516fd615747083775fc8f781bc563405f0ae2f824"
+      },
+      "path": "/audio/en/bdae78c9-matilda.mp3"
+    },
+    {
+      "key": "bed17da3",
+      "text": "Largest planet in our solar system.",
+      "normalized": "largest planet in our solar system.",
+      "textVariants": [
+        "Largest planet in our solar system."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "0c222ada5145b08bf5c5f9531c610e7b271cfba2dbcd431e0cddbaed47642041"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "0c222ada5145b08bf5c5f9531c610e7b271cfba2dbcd431e0cddbaed47642041"
+      },
+      "path": "/audio/en/bed17da3-matilda.mp3"
+    },
+    {
+      "key": "c54f10d9",
+      "text": "Rust in Mars’s rocks and dust makes the planet look red.",
+      "normalized": "rust in mars’s rocks and dust makes the planet look red.",
+      "textVariants": [
+        "Rust in Mars’s rocks and dust makes the planet look red."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/c54f10d9-matilda.mp3"
+    },
+    {
+      "key": "cd8b1f6a",
+      "text": "Discovery 2. Jupiter is bigger than all the other planets put together.",
+      "normalized": "discovery 2. jupiter is bigger than all the other planets put together.",
+      "textVariants": [
+        "Discovery 2. Jupiter is bigger than all the other planets put together."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/cd8b1f6a-matilda.mp3"
+    },
+    {
+      "key": "d0def2d7",
+      "text": "Super windy with giant storms.",
+      "normalized": "super windy with giant storms.",
+      "textVariants": [
+        "Super windy with giant storms."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "7184248d115b54504edabccb6885776159580d9b42094266f22e221242a26272"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "7184248d115b54504edabccb6885776159580d9b42094266f22e221242a26272"
+      },
+      "path": "/audio/en/d0def2d7-matilda.mp3"
+    },
+    {
+      "key": "d0fac1fe",
+      "text": "Discovery 4. Mercury has almost no air, so sound cannot travel through its sky like it does on Earth.",
+      "normalized": "discovery 4. mercury has almost no air, so sound cannot travel through its sky like it does on earth.",
+      "textVariants": [
+        "Discovery 4. Mercury has almost no air, so sound cannot travel through its sky like it does on Earth."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/d0fac1fe-matilda.mp3"
+    },
+    {
+      "key": "d1b02131",
+      "text": "Pluto. The tiny icy dwarf planet. Find the tiny icy world beyond Neptune.",
+      "normalized": "pluto. the tiny icy dwarf planet. find the tiny icy world beyond neptune.",
+      "textVariants": [
+        "Pluto. The tiny icy dwarf planet. Find the tiny icy world beyond Neptune."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "7103d23d8e23679755ba2295cd831b02fec6ac92a89b7f40194ba76a252f3883"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "7103d23d8e23679755ba2295cd831b02fec6ac92a89b7f40194ba76a252f3883"
+      },
+      "path": "/audio/en/d1b02131-matilda.mp3"
+    },
+    {
+      "key": "daa1096c",
+      "text": "Uranus. The sideways spinner. Find the pale planet rolling around the Sun on its side.",
+      "normalized": "uranus. the sideways spinner. find the pale planet rolling around the sun on its side.",
+      "textVariants": [
+        "Uranus. The sideways spinner. Find the pale planet rolling around the Sun on its side."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "a763532d572ea18973d860fe6267381f553afb74e10d646b72268a45c8b3547b"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "a763532d572ea18973d860fe6267381f553afb74e10d646b72268a45c8b3547b"
+      },
+      "path": "/audio/en/daa1096c-matilda.mp3"
+    },
+    {
+      "key": "dc40c993",
+      "text": "Discovery 1. Hottest planet in the whole solar system.",
+      "normalized": "discovery 1. hottest planet in the whole solar system.",
+      "textVariants": [
+        "Discovery 1. Hottest planet in the whole solar system."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "8f131dbd23f304349ae0eaa90d9be2b4591b8a988d5ce3643398a7df00c126bb"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "8f131dbd23f304349ae0eaa90d9be2b4591b8a988d5ce3643398a7df00c126bb"
+      },
+      "path": "/audio/en/dc40c993-matilda.mp3"
+    },
+    {
+      "key": "dd05ecbb",
+      "text": "Discovery 6. Charon is Pluto’s biggest moon. They pull on each other and travel around the same point between them.",
+      "normalized": "discovery 6. charon is pluto’s biggest moon. they pull on each other and travel around the same point between them.",
+      "textVariants": [
+        "Discovery 6. Charon is Pluto’s biggest moon. They pull on each other and travel around the same point between them."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/dd05ecbb-matilda.mp3"
+    },
+    {
+      "key": "e7b8a110",
+      "text": "Discovery 5. Some ring pieces are tiny grains; others are house-sized.",
+      "normalized": "discovery 5. some ring pieces are tiny grains; others are house-sized.",
+      "textVariants": [
+        "Discovery 5. Some ring pieces are tiny grains; others are house-sized."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "6c3e23df29c6efe75eae02bd936b38bbed1986176f7ae3d7a0c3c17b20eec80d"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "6c3e23df29c6efe75eae02bd936b38bbed1986176f7ae3d7a0c3c17b20eec80d"
+      },
+      "path": "/audio/en/e7b8a110-matilda.mp3"
+    },
+    {
+      "key": "e808d0e5",
+      "text": "Discovery 3. Has a heart-shaped ice spot.",
+      "normalized": "discovery 3. has a heart-shaped ice spot.",
+      "textVariants": [
+        "Discovery 3. Has a heart-shaped ice spot."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "75116819a1529d77b9b0fe7b43b184f6fa177e33034e4b5359f89a9592bf68fe"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "75116819a1529d77b9b0fe7b43b184f6fa177e33034e4b5359f89a9592bf68fe"
+      },
+      "path": "/audio/en/e808d0e5-matilda.mp3"
+    },
+    {
+      "key": "e8d9104f",
+      "text": "Correct. Rusty dust.",
+      "normalized": "correct. rusty dust.",
+      "textVariants": [
+        "Correct. Rusty dust."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "b3389c7fce6f41e7e210542a49227a20996f716b5dfc97106dfe12ca3f537573"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "b3389c7fce6f41e7e210542a49227a20996f716b5dfc97106dfe12ca3f537573"
+      },
+      "path": "/audio/en/e8d9104f-matilda.mp3"
+    },
+    {
+      "key": "ea947e80",
+      "text": "A gas called methane in Uranus’s air helps make it look blue-green.",
+      "normalized": "a gas called methane in uranus’s air helps make it look blue-green.",
+      "textVariants": [
+        "A gas called methane in Uranus’s air helps make it look blue-green."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/ea947e80-matilda.mp3"
+    },
+    {
+      "key": "f10aabfd",
+      "text": "Discovery 6. Mercury is baking hot by day and freezing cold at night.",
+      "normalized": "discovery 6. mercury is baking hot by day and freezing cold at night.",
+      "textVariants": [
+        "Discovery 6. Mercury is baking hot by day and freezing cold at night."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/f10aabfd-matilda.mp3"
+    },
+    {
+      "key": "f60cfac8",
+      "text": "Discovery 3. Very cold and far from the Sun.",
+      "normalized": "discovery 3. very cold and far from the sun.",
+      "textVariants": [
+        "Discovery 3. Very cold and far from the Sun."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "b4ff5ce34230d3d80396619046de74f44a28f17c8d81324ae51b3442d132e76c"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "b4ff5ce34230d3d80396619046de74f44a28f17c8d81324ae51b3442d132e76c"
+      },
+      "path": "/audio/en/f60cfac8-matilda.mp3"
+    },
+    {
+      "key": "f98dd31b",
+      "text": "Saturn spins quickly, so it bulges around its middle.",
+      "normalized": "saturn spins quickly, so it bulges around its middle.",
+      "textVariants": [
+        "Saturn spins quickly, so it bulges around its middle."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/f98dd31b-matilda.mp3"
+    },
+    {
+      "key": "fc455483",
+      "text": "Correct. A giant storm.",
+      "normalized": "correct. a giant storm.",
+      "textVariants": [
+        "Correct. A giant storm."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "e67583beabc638f254fbc2d7edd8d5a6af288963c6a17f7ca483251658e8db55"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "e67583beabc638f254fbc2d7edd8d5a6af288963c6a17f7ca483251658e8db55"
+      },
+      "path": "/audio/en/fc455483-matilda.mp3"
+    },
+    {
+      "key": "fce2de6e",
+      "text": "Discovery 6. Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins.",
+      "normalized": "discovery 6. triton is a moon of neptune. it goes around neptune in the direction opposite to the way neptune spins.",
+      "textVariants": [
+        "Discovery 6. Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/fce2de6e-matilda.mp3"
+    },
+    {
+      "key": "fdbf8a67",
+      "text": "Correct. Ice and rock.",
+      "normalized": "correct. ice and rock.",
+      "textVariants": [
+        "Correct. Ice and rock."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": true,
+          "fileExists": true,
+          "sha256": "a428c269326375b33d71ba3cdfc9f045c79d876cde2a291d05a5acd31d143438"
+        }
+      },
+      "b4ActiveStatus": {
+        "manifestMatches": true,
+        "fileExists": true,
+        "sha256": "a428c269326375b33d71ba3cdfc9f045c79d876cde2a291d05a5acd31d143438"
+      },
+      "path": "/audio/en/fdbf8a67-matilda.mp3"
+    },
+    {
+      "key": "fe22b571",
+      "text": "Discovery 3. A thick layer of gas around Venus traps heat like a blanket.",
+      "normalized": "discovery 3. a thick layer of gas around venus traps heat like a blanket.",
+      "textVariants": [
+        "Discovery 3. A thick layer of gas around Venus traps heat like a blanket."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/fe22b571-matilda.mp3"
+    },
+    {
+      "key": "fe913cbc",
+      "text": "Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins.",
+      "normalized": "triton is a moon of neptune. it goes around neptune in the direction opposite to the way neptune spins.",
+      "textVariants": [
+        "Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/fe913cbc-matilda.mp3"
+    },
+    {
+      "key": "ff00da80",
+      "text": "Discovery 2. Saturn has many moons.",
+      "normalized": "discovery 2. saturn has many moons.",
+      "textVariants": [
+        "Discovery 2. Saturn has many moons."
+      ],
+      "owners": [
+        "B7_solar"
+      ],
+      "candidateStatus": {
+        "B7_solar": {
+          "manifestMatches": false,
+          "fileExists": false,
+          "sha256": null
+        }
+      },
+      "b4ActiveStatus": null,
+      "path": "/audio/en/ff00da80-matilda.mp3"
+    }
+  ],
+  "newCopyKeys": [
+    "01c83e21",
+    "01ed35af",
+    "03f0bf00",
+    "047b2fb2",
+    "04c269c2",
+    "1470011f",
+    "1d29868e",
+    "1e62dbc2",
+    "1f3ec839",
+    "3534e9e8",
+    "3a9562f8",
+    "3df486dd",
+    "44288563",
+    "50a0cc69",
+    "578085d8",
+    "5d7d3a39",
+    "6a81b32d",
+    "6c0595dc",
+    "6d2a9c4b",
+    "6d4ad978",
+    "7c46e826",
+    "8bb2eabf",
+    "8cb073c6",
+    "92542509",
+    "98a4ee7d",
+    "98d8ef65",
+    "9ac7eb38",
+    "a5aba058",
+    "abf9e3bf",
+    "b07aaa0e",
+    "b334baf4",
+    "b7096764",
+    "ba1ac8aa",
+    "ba87e11c",
+    "bb4b4778",
+    "c54f10d9",
+    "cd8b1f6a",
+    "d0fac1fe",
+    "dd05ecbb",
+    "ea947e80",
+    "f10aabfd",
+    "f98dd31b",
+    "fe22b571",
+    "ff00da80"
+  ],
+  "unchangedPriorMissingKeys": [
+    "00567b7b",
+    "68e808f6",
+    "6d6518dd",
+    "94e99828",
+    "9c98dcb8",
+    "a2b823b4",
+    "fce2de6e",
+    "fe913cbc"
+  ],
+  "requested": 127
+}
