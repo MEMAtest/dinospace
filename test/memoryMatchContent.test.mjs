@@ -64,19 +64,18 @@ test('every authored Memory narration names the displayed strategy or visible ca
   }
 });
 
-test('Memory illustration inventory distinguishes each authored crop and reports unillustrated tokens', () => {
+test('Memory illustration inventory distinguishes each picture and reports unillustrated tokens', () => {
   const audit = memoryIllustrationAudit(MEMORY_LEVELS);
   assert.equal(audit.length, new Set(MEMORY_LEVELS.flatMap(({ emojis }) => emojis)).size);
-  assert.deepEqual(Object.keys(MEMORY_CARD_ILLUSTRATIONS), ['🐶', '🦊', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🦕', '🦖', '🚀', '🚒', '🚗', '🐵', '🐸', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁']);
+  assert.deepEqual(Object.keys(MEMORY_CARD_ILLUSTRATIONS), ['🐶', '🦊', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🦕', '🦖', '🚀', '🚒', '🚗', '🐵', '🐸', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁', '👨‍🚀']);
   assert.notEqual(MEMORY_CARD_ILLUSTRATIONS['🦕'].asset, MEMORY_CARD_ILLUSTRATIONS['🦖'].asset);
-  assert.equal(MEMORY_CARD_ILLUSTRATIONS['🐵'].asset, MEMORY_CARD_ILLUSTRATIONS['🐸'].asset);
-  assert.notEqual(MEMORY_CARD_ILLUSTRATIONS['🐵'].crop, MEMORY_CARD_ILLUSTRATIONS['🐸'].crop);
+  assert.notEqual(MEMORY_CARD_ILLUSTRATIONS['🐵'].asset, MEMORY_CARD_ILLUSTRATIONS['🐸'].asset);
   for (const emoji of ['🐶', '🦊', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🍓', '🍕', '🍩', '🧁']) {
     const entry = audit.find((item) => item.emoji === emoji);
     assert.ok(entry, `${emoji} should remain on an authored Amari board`);
     assert.ok(entry.illustration?.asset, `${emoji} should use matching generated or reviewed art`);
   }
-  const newPremiumTokens = ['🐶', '🦊', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁'];
+  const newPremiumTokens = ['🐶', '🦊', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁', '🐸', '🐵', '👨‍🚀'];
   assert.equal(new Set(newPremiumTokens.map((emoji) => MEMORY_CARD_ILLUSTRATIONS[emoji].asset)).size, newPremiumTokens.length);
   assert.deepEqual(['🐳', '🐬', '🦈', '🐢'].map((emoji) => memoryCardLabel(emoji)), ['whale', 'dolphin', 'shark', 'turtle']);
   assert.ok(['🐳', '🦈', '🐢'].every((emoji) => MEMORY_CARD_ILLUSTRATIONS[emoji].className === 'memory-card-art-image memory-card-art-ocean'));
@@ -114,7 +113,7 @@ test('Memory illustration inventory distinguishes each authored crop and reports
 });
 
 test('ocean and pond fish use distinct board-specific art while preserving the shared token and labels', () => {
-  assert.deepEqual(Object.keys(MEMORY_CARD_CONTEXT_ILLUSTRATIONS), ['ocean', 'garden']);
+  assert.deepEqual(Object.keys(MEMORY_CARD_CONTEXT_ILLUSTRATIONS), ['ocean', 'garden', 'astronaut', 'cosmic-challenge']);
   assert.equal(memoryCardLabel('🐟', 'ocean'), 'fish');
   assert.equal(memoryCardLabel('🐟', 'garden'), 'pond fish');
   assert.equal(memoryCardIllustration('🐟', 'ocean')?.asset, 'memory-match/ocean-fish-v1-card.webp');
@@ -131,4 +130,26 @@ test('ocean and pond fish use distinct board-specific art while preserving the s
     assert.equal(memoryCardIllustration(emoji, 'ocean')?.asset, `memory-match/${species}-v1-card.webp`);
   }
   assert.equal(new Set(['🐟', '🪼', '🦀', '🦑'].map((emoji) => memoryCardIllustration(emoji, 'ocean')?.asset)).size, 4);
+});
+
+test('isolated animal and Amari art stays semantically distinct and rock art is context-scoped', () => {
+  assert.equal(memoryCardIllustration('🐸', 'garden')?.asset, 'memory-match/isolated-frog-v1-card.webp');
+  assert.equal(memoryCardIllustration('🐵')?.asset, 'memory-match/isolated-monkey-v1-card.webp');
+  assert.equal(memoryCardIllustration('🐸')?.asset, 'memory-match/isolated-frog-v1-card.webp');
+  assert.notEqual(memoryCardIllustration('🐵')?.asset, memoryCardIllustration('🐸')?.asset);
+  assert.deepEqual(['👨‍🚀', '🪨'].map((emoji) => memoryCardIllustration(emoji, 'astronaut')?.asset), [
+    'memory-match/astronaut-amari-v1-card.webp',
+    'memory-match/moon-rock-v1-card.webp',
+  ]);
+  assert.equal(memoryCardIllustration('👨‍🚀', 'cosmic-challenge')?.asset, 'memory-match/astronaut-amari-v1-card.webp');
+  assert.equal(memoryCardIllustration('🪨', 'cosmic-challenge')?.asset, 'memory-match/moon-rock-v1-card.webp');
+  assert.equal(memoryCardIllustration('🪨'), null, 'moon-rock art must remain contextual');
+  assert.equal(memoryCardIllustration('🪨', 'dinos'), null, 'moon-rock art must not depict a fossil dig rock');
+  const rockAudit = memoryIllustrationAudit(MEMORY_LEVELS).find(({ emoji }) => emoji === '🪨');
+  assert.equal(rockAudit.illustration, null, 'partial board-context art does not count as a complete token illustration');
+  assert.deepEqual(rockAudit.illustrationsByBoard.map(({ levelId, asset }) => [levelId, asset || null]), [
+    ['dinos', null],
+    ['astronaut', 'memory-match/moon-rock-v1-card.webp'],
+    ['cosmic-challenge', 'memory-match/moon-rock-v1-card.webp'],
+  ]);
 });

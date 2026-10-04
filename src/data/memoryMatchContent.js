@@ -28,7 +28,7 @@ const CONTEXTUAL_LABELS = Object.freeze({
 
 // Only art with a confirmed semantic match is listed here. Similar cards keep
 // their own art token or remain clearly named emoji until matching artwork is
-// available; sprite crops are explicitly distinguished by `crop`.
+// available.
 export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🐶': Object.freeze({ asset: 'memory-match/dog-v1.webp' }),
   '🦊': Object.freeze({ asset: 'memory-match/fox-v1.webp' }),
@@ -51,8 +51,8 @@ export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🚀': Object.freeze({ asset: 'little/fuel-rocket.webp' }),
   '🚒': Object.freeze({ asset: 'little/rescue-firetruck.webp' }),
   '🚗': Object.freeze({ asset: 'german-garage/friendly-car.png' }),
-  '🐵': Object.freeze({ asset: 'spot-difference/sound-safari-animals-3d.webp', crop: 'monkey' }),
-  '🐸': Object.freeze({ asset: 'spot-difference/sound-safari-animals-3d.webp', crop: 'frog' }),
+  '🐵': Object.freeze({ asset: 'memory-match/isolated-monkey-v1-card.webp' }),
+  '🐸': Object.freeze({ asset: 'memory-match/isolated-frog-v1-card.webp' }),
   '🐳': Object.freeze({ asset: 'memory-match/whale-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
   '🐬': Object.freeze({ asset: 'memory-match/dolphin-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean memory-card-art-dolphin' }),
   '🦈': Object.freeze({ asset: 'memory-match/shark-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
@@ -77,6 +77,7 @@ export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🍕': Object.freeze({ asset: 'memory-match/pizza-v1-card.webp' }),
   '🍩': Object.freeze({ asset: 'memory-match/doughnut-v1-card.webp' }),
   '🧁': Object.freeze({ asset: 'memory-match/cupcake-v1-card.webp' }),
+  '👨‍🚀': Object.freeze({ asset: 'memory-match/astronaut-amari-v1-card.webp' }),
 });
 
 // The same fish token appears on two boards, but it represents distinct
@@ -90,6 +91,13 @@ export const MEMORY_CARD_CONTEXT_ILLUSTRATIONS = Object.freeze({
   }),
   garden: Object.freeze({
     '🐟': Object.freeze({ asset: 'memory-match/pond-fish-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
+    '🐸': Object.freeze({ asset: 'memory-match/isolated-frog-v1-card.webp' }),
+  }),
+  astronaut: Object.freeze({
+    '🪨': Object.freeze({ asset: 'memory-match/moon-rock-v1-card.webp' }),
+  }),
+  'cosmic-challenge': Object.freeze({
+    '🪨': Object.freeze({ asset: 'memory-match/moon-rock-v1-card.webp' }),
   }),
 });
 

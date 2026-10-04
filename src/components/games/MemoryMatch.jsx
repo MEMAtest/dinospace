@@ -12,7 +12,6 @@ import fireEngineArt from '../../assets/little/rescue-firetruck.webp';
 import trexArt from '../../assets/little/detective-trex.webp';
 import brontoArt from '../../assets/little/detective-bronto.webp';
 import friendlyCarArt from '../../assets/german-garage/friendly-car.png';
-import safariAnimalsArt from '../../assets/spot-difference/sound-safari-animals-3d.webp';
 import dogArt from '../../assets/memory-match/dog-v1.webp';
 import foxArt from '../../assets/memory-match/fox-v1.webp';
 import dinosaurEggArt from '../../assets/memory-match/dinosaur-egg-v1.webp';
@@ -53,6 +52,10 @@ import strawberryArt from '../../assets/memory-match/strawberry-v1-card.webp';
 import pizzaArt from '../../assets/memory-match/pizza-v1-card.webp';
 import doughnutArt from '../../assets/memory-match/doughnut-v1-card.webp';
 import cupcakeArt from '../../assets/memory-match/cupcake-v1-card.webp';
+import isolatedFrogArt from '../../assets/memory-match/isolated-frog-v1-card.webp';
+import isolatedMonkeyArt from '../../assets/memory-match/isolated-monkey-v1-card.webp';
+import astronautAmariArt from '../../assets/memory-match/astronaut-amari-v1-card.webp';
+import moonRockArt from '../../assets/memory-match/moon-rock-v1-card.webp';
 import jellyfishArt from '../../assets/memory-match/jellyfish-v1-card.webp';
 import crabArt from '../../assets/memory-match/crab-v1-card.webp';
 import squidArt from '../../assets/memory-match/squid-v1-card.webp';
@@ -119,6 +122,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/pizza-v1-card.webp': pizzaArt,
   'memory-match/doughnut-v1-card.webp': doughnutArt,
   'memory-match/cupcake-v1-card.webp': cupcakeArt,
+  'memory-match/isolated-frog-v1-card.webp': isolatedFrogArt,
+  'memory-match/isolated-monkey-v1-card.webp': isolatedMonkeyArt,
+  'memory-match/astronaut-amari-v1-card.webp': astronautAmariArt,
+  'memory-match/moon-rock-v1-card.webp': moonRockArt,
   'memory-match/jellyfish-v1-card.webp': jellyfishArt,
   'memory-match/crab-v1-card.webp': crabArt,
   'memory-match/squid-v1-card.webp': squidArt,
@@ -129,13 +136,10 @@ const MEMORY_ASSET_BY_PATH = {
   'little/fuel-rocket.webp': rocketArt,
   'little/rescue-firetruck.webp': fireEngineArt,
   'german-garage/friendly-car.png': friendlyCarArt,
-  'spot-difference/sound-safari-animals-3d.webp': safariAnimalsArt,
 };
 const AMARI_CARD_ART = Object.fromEntries(Object.entries(MEMORY_CARD_ILLUSTRATIONS).map(([emoji, art]) => [
   emoji,
-  art.crop
-    ? { type: 'sprite', className: `memory-card-art-sprite memory-card-art-${art.crop}` }
-    : { type: 'image', src: MEMORY_ASSET_BY_PATH[art.asset], className: art.className || 'memory-card-art-image' },
+  { type: 'image', src: MEMORY_ASSET_BY_PATH[art.asset], className: art.className || 'memory-card-art-image' },
 ]));
 const AMARI_CONTEXT_CARD_ART = Object.fromEntries(Object.entries(MEMORY_CARD_CONTEXT_ILLUSTRATIONS).map(([levelId, cards]) => [
   levelId,
@@ -335,9 +339,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                 : card.emoji === '⭐️'
                   ? <Star aria-hidden="true" className="memory-little-star-art" fill="currentColor" />
               : card.emoji) : isFaceUp ? <><span className="memory-card-art" aria-hidden="true">{art
-                ? art.type === 'image'
-                  ? <img className={art.className} src={art.src} alt="" draggable="false" decoding="async" />
-                  : <span className={art.className} style={{ backgroundImage: `url("${safariAnimalsArt}")` }} />
+                ? <img className={art.className} src={art.src} alt="" draggable="false" decoding="async" />
                 : card.emoji}</span><span className="memory-card-label" aria-hidden="true">{cardName(card.emoji, level.id)}</span></> : null}
             </div>
           </div>
