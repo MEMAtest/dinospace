@@ -112,3 +112,11 @@ The audit preserves the canonical Picnic title defect and excludes the local `20
 Four garden originals — bee, butterfly, ladybird and snail — were saved unchanged with alpha and provenance in `e1a0ba4`. They are queued after the previous Memory candidate and fossil illustrations. This is original artwork preparation, without a rendered QA or release claim.
 
 Worker PID 18781 was confirmed live at 04:07 UTC. Its 04:06:03 UTC, run 106 status reports 3,679 clips pending, zero retries and the expected request-window wait. The accepted count remains **4/26**.
+
+## Current delta — 4 October, replay investigation and Party originals
+
+The independent Puzzle reviewer reported two immediate replay boundary repeats on canonical c478: Starter after its completed fourth picture, and Challenge after its completed fourth picture and parent-world return. Root is reconciling the exact held-fact/replay screenshots, UI steps and executing runtime identity. The c478 source and frozen bundle contain the completed-scene save and queue rotation, so the repair decision needs the actual failing runtime path. No speculative runtime edit or new release has been made. Earlier passed replay evidence remains under its original scope.
+
+Four additional Party originals — balloon, party popper, whole cake and wrapped sweet — are saved unchanged with alpha and provenance in `9aa97b1`. They are queued for integration and rendered independent QA. The isolated animal/astronaut/Moonrock builder is finishing its earned later-board checks before its frozen identity handoff.
+
+Worker PID 18781 was confirmed live; run 108 reports 3,649 clips pending with zero retries and the expected request-window wait. The overall goal remains active, with **4 recorded accepted and 22 in progress**.

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T04:15:21.917885+00:00",
+  "updatedAt": "2026-10-04T04:27:48.566317+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "PID18781 confirmedlive04:07UTC. Status04:06:03Zrun106:1486reused3679pending,last16generated,zero cooldownretries; expectedrequestwindowwait. No restart/concurrentpaidworker.",
+    "voiceCoverage": "PID18781 confirmed live at04:17UTC;04:16:08Zrun108status1516reused3649pending,last16generated,zero cooldownretries,expectedrequest-windowwait. No restart/concurrent paidworker.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -405,6 +405,11 @@
       "commit": "e1a0ba4",
       "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-garden-creatures-art-provenance-20261004.json",
       "scope": "Four distinct isolated bee/butterfly/ladybird/snail originals copiedunchanged; queuedafterisolatedanimalsastro/Moonrock and4fossils. Originalartonly; renderedQA/integrationpending."
+    },
+    "queuedPartyOriginals": {
+      "commit": "9aa97b1",
+      "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-party-decoration-art-provenance-20261004.json",
+      "scope": "Four separate transparent originals: balloon, party popper, whole cake, wrapped sweet. Queued for mapped WebP integration and independent mobile/desktop rendering after existing candidates. No runtime/release acceptance."
     }
   },
   "monsterClueRepair": {
@@ -497,5 +502,12 @@
     "sourceSha": "2084095",
     "report": "docs/qa-evidence/puzzle-pop-title-repair-local-20261004.md",
     "scope": "Dino Park Picnic\u2192Dino Park to match art.12focusedtests/lint/build passed.1371 corpus unique lines,3changed lines missing packaged media. Local only; no release before media/readiness/independent delta. Canonical c478 audit retains old title."
+  },
+  "puzzleReplayInvestigation": {
+    "canonicalSource": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
+    "status": "under investigation",
+    "reportedBehavior": "Independent tester reported Starter and Challenge replay beginning with the final completed scene. Root requested paired held-fact and first replay screenshots, exact UI steps, loaded runtime identity and context continuity before selecting a repair.",
+    "sourceTriage": "Frozen c478 source and minified bundle include completed-scene history and queue boundary rotation. Pure algorithm avoids boundary repeats when supplied with matching history; runtime evidence must locate the failure path.",
+    "scope": "No new repair or release claim; preserve earlier passed scoped evidence and new failure evidence separately."
   }
 }
