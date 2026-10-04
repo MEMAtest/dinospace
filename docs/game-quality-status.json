@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T11:49:13.097037+00:00",
+  "updatedAt": "2026-10-04T12:01:30.404103+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -996,5 +996,36 @@
       ],
       "releaseStatus": "Not deployed; package clips and independently retest held fact/Next at desktop390 before release"
     }
+  },
+  "batch4CurrentEditorialReview": {
+    "report": "docs/qa-evidence/batch4-independent-editorial-assessment-20261004.md",
+    "assessedSource": "ac3b3cc",
+    "baseline": "01e10f75d3658133db4b3a1ffd269f0ee34c7c35",
+    "decision": "All four supported non-audio components rate4.5; no formal audio score or overall acceptance. Retained local full matrix, no production evidence.",
+    "integrationWorktree": "work/dinospace-batch4-integration",
+    "integrationBranch": "codex/amari-batch4-integration-20261004",
+    "integrationBase": "23bb5e1",
+    "integrationStatus": "Selective integration underway; preserve current sound preferences, Batch3 progression and collections, and current artwork."
+  },
+  "batch5SoundSafariAssetAudit": {
+    "report": "docs/qa-evidence/batch5-sound-safari-mobile-audit-20261004.md",
+    "source": "c2818da44b59c75134c11824a32fda29695f76ed",
+    "narration": {
+      "required": 659,
+      "present": 11,
+      "pending": 648
+    },
+    "purePhonemeFiles": {
+      "requiredPaths": 37,
+      "distinctSounds": 32,
+      "present": 0
+    },
+    "decision": "Auditory mobile Chapter2/3 acceptance remains open; finite recording-source research underway, no imported or accepted sounds."
+  },
+  "batch6MobileAbbDelta": {
+    "source": "f8f9f7a938870e415e0feac69761e1c18d7d10ad",
+    "evidenceCommit": "098b1b9",
+    "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-abb-mobile-20261004/report.md",
+    "decision": "Mobile ABB clue/answer/heldNext passed on frozen5295 with five matching files and guards; no audio or4.5 award."
   }
 }

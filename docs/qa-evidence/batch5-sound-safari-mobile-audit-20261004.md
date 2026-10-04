@@ -4,7 +4,7 @@
 
 - Audited B5 worktree HEAD: `work/dinospace-batch5-quality`, `c2818da44b59c75134c11824a32fda29695f76ed`.
 - Latest B5 runtime candidate remains `99ed1955131bd53b9738264edcde4e2091ad6e5e`; `git diff 99ed195..c2818da -- src` is empty. The intervening commits are documentation-only.
-- Frozen desktop/mobile baseline: [5241 report and identity](work/dinospace-batch5-quality/docs/qa-evidence/batch5-final-candidate-local-20261003/report.md); bounded mobile repair: [5255 report and identity](work/dinospace-batch5-quality/docs/qa-evidence/batch5-mobile-repair-local-20261003/report.md).
+- Frozen desktop/mobile baseline: [5241 report and identity](../../../dinospace-batch5-quality/docs/qa-evidence/batch5-final-candidate-local-20261003/report.md); bounded mobile repair: [5255 report and identity](../../../dinospace-batch5-quality/docs/qa-evidence/batch5-mobile-repair-local-20261003/report.md).
 - This is a source/evidence audit only. No provider/audio calls, source changes, or browser run were made.
 
 ## Current mechanics and mobile evidence
