@@ -464,7 +464,10 @@
     "sourceSha": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
     "identity": "docs/qa-evidence/sound-preference-identity-20261004.json",
     "origin": "http://127.0.0.1:5311",
-    "scope": "Independent81e2c5a local5311 normalUI mute/unmute reload and muted profile-switch desktop390 passed; sampled muted actions nativeprobeempty, sevenhash match/console0. Exactcleanarchive immutableVercelcandidate building; canonical484unchanged. Not productionaccepted/humanlistened/4.5.",
-    "localIndependentReport": "docs/qa-evidence/sound-preference-5311-local-20261004/report.md"
+    "scope": "Independentlocal81e2c5apassed normalmute/unmute reload/profile-switch and sampledmutednativeactions. ImmutableVercelcandidate READY exactc478archive/providerbindings/7hashmatch; independentlivecontrolsunderway. Canonicalremains484. No humaudio/4.5.",
+    "localIndependentReport": "docs/qa-evidence/sound-preference-5311-local-20261004/report.md",
+    "candidateDeployment": "dpl_2wMjWv6KPJ4QPMKrSJLWinefowDz",
+    "candidateUrl": "https://dinospace-iw0e236dn-memas-projects-23a0001d.vercel.app",
+    "candidateIdentity": "docs/qa-evidence/sound-preference-production-candidate-20261004.json"
   }
 }
