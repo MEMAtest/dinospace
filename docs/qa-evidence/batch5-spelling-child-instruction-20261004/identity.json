@@ -1,0 +1,39 @@
+{
+  "scope": "Amari Spelling Studio child-facing instruction copy delta; local-only candidate",
+  "builtAt": "2026-10-04",
+  "sourceBranch": "codex/amari-batch5-quality-20261003",
+  "sourceCommit": "77e86a0c19297c52c8b8d41575405b10dd4dffcd",
+  "baseCommit": "7909f9bc9903cee7cb8f932d880fd7bce1d80cdb",
+  "buildCommand": "npm run build:android",
+  "buildEnvironment": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "sourceDelta": {
+    "file": "src/components/games/AmariSpellingStudio.jsx",
+    "sha256": "3bb70e9f2403272e592b910e7354f9d295dc75aa882334eebc27767d562b7744",
+    "changedRuntimeTextIsNarrated": false,
+    "spokenNarrationSourceUnchanged": true,
+    "taughtSoundFilterUnchanged": true,
+    "adultSettingsUnchanged": true
+  },
+  "frozenDirectory": "tmp/batch5-spelling-copy-20261004/dist",
+  "candidateUrl": "http://127.0.0.1:5361/",
+  "serverBind": "127.0.0.1",
+  "servedAssetCount": 5610,
+  "servedHashManifest": "docs/qa-evidence/batch5-spelling-child-instruction-20261004/served-assets-sha256.txt",
+  "servedHashVerification": {
+    "checked": 5610,
+    "httpErrors": 0,
+    "sha256Mismatches": 0,
+    "indexStatus": 200,
+    "result": "pass"
+  },
+  "readiness": {
+    "narration": { "uniqueClips": 659, "ready": 11, "pending": 648 },
+    "purePhonemeClips": { "required": 37, "ready": 0, "pending": 37 },
+    "scope": "Read-only file-presence inventory, not decode, playback or human listening"
+  },
+  "releaseStatus": "not approved; existing audio gates remain open and this is not a deployment"
+}
