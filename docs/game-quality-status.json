@@ -420,6 +420,8 @@
   "monsterHeaderCandidate": {
     "sourceSha": "484addf2e76be849845f508bdc9fc5e1325b51b7",
     "identity": "docs/qa-evidence/monster-header-identity-20261004.json",
-    "scope": "Frozen5307 only. Independent reviewer reports full titles and ordinary Counting6/Growing6/Story6 at both widths, report pending. Not deployed."
+    "scope": "Frozen5307localpass; immutable production candidate being built, not canonical.",
+    "localPlaywright": "Independent5486b2e: mobile Counting6/Growing6 normalunlock, Story6 both390/1280, full mobile episode3 title,48pxheadercontrols, saved rewards/parentBack/console0.",
+    "evidence": "docs/qa-evidence/monster-header-484addf-independent-20261004/report.md"
   }
 }
