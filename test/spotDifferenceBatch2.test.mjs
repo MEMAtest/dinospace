@@ -186,3 +186,17 @@ test('River edits are limited to three bounded regions containing their own targ
     assert.ok(target.x >= x && target.x <= x + width && target.y >= y && target.y <= y + height);
   });
 });
+
+// Colour changes must preserve the source image and remain reachable on a small phone.
+test('Moon Camp edits original object surfaces with three nonoverlapping reachable targets', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === 'spot-4');
+  assert.equal(scene.pairedArt, true);
+  assert.equal(scene.imageB, undefined);
+  assert.equal(scene.colorEdits.length, 3);
+  assert.deepEqual(scene.colorEdits.map(({ shape }) => shape), ['ellipse', 'path', 'rect']);
+  const centers = scene.differences.map(({ x, y }) => ({ x: x * 2.8, y: y * 2.1 }));
+  for (const [index, center] of centers.entries()) {
+    assert.ok(center.x >= 28 && center.x <= 252 && center.y >= 28 && center.y <= 182);
+    for (const other of centers.slice(index + 1)) assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
+  }
+});

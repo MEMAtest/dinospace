@@ -66,6 +66,21 @@ const DifferenceVisual = ({ type }) => {
   return <span className={cls} aria-hidden="true">{icons[type] || '✨'}</span>;
 };
 
+const SceneColorEditLayer = ({ scene }) => {
+  const layerId = `scene-colour-${useId().replaceAll(':', '')}`;
+  return <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
+    <defs>{scene.colorEdits.map(({ shape, hue, ...geometry }, index) => {
+      const id = `${layerId}-${index}`;
+      const Shape = shape;
+      return <g key={id}>
+        <clipPath id={`${id}-clip`}><Shape {...geometry} /></clipPath>
+        <filter id={`${id}-colour`} colorInterpolationFilters="sRGB"><feColorMatrix type="hueRotate" values={hue} /></filter>
+      </g>;
+    })}</defs>
+    {scene.colorEdits.map((edit, index) => <image key={index} href={scene.image} x="0" y="0" width="100" height="100" preserveAspectRatio="none" clipPath={`url(#${layerId}-${index}-clip)`} filter={`url(#${layerId}-${index}-colour)`} />)}
+  </svg>;
+};
+
 const SceneEditLayer = ({ scene }) => {
   const layerId = `scene-edit-${useId().replaceAll(':', '')}`;
   return <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
@@ -239,6 +254,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
           <div className="grid gap-4 lg:grid-cols-2">
             {[false, true].map((changed) => <section key={String(changed)} className="min-w-0 rounded-3xl border-4 border-white bg-white p-3 shadow-xl"><h2 className="mb-2 text-center text-lg font-black text-indigo-800">Picture {changed ? 'B · Find changes here' : 'A · Look carefully'}</h2><div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-sky-100"><img src={changed && scene.imageB && !scene.editRegions ? scene.imageB : scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
               {changed && scene.editRegions && <SceneEditLayer scene={scene} />}
+              {changed && scene.colorEdits && <SceneColorEditLayer scene={scene} />}
               {scene.differences.map((difference) => { const visible = changed ? difference.visual : difference.normalVisual; const done = found.includes(difference.id); const bespoke = visible.startsWith('prop:'); if (changed && done) return <span key={difference.id} aria-label="Found difference" className="pointer-events-none absolute z-10 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-100/95 ring-4 ring-emerald-500" style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><Check className="text-emerald-800" /></span>; if (scene.pairedArt) return null; return <span key={difference.id} aria-hidden="true" className={`pointer-events-none absolute z-[1] grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full ${bespoke ? '' : 'bg-white/90 shadow'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><DifferenceVisual type={visible} /></span>; })}
               {changed && <button type="button" onClick={inspectPicture} aria-label="Search Picture B for a change" className={`absolute inset-0 z-10 h-full w-full cursor-crosshair bg-transparent ${wrongTap ? 'ring-4 ring-inset ring-rose-400' : ''}`} />}
               {changed && scene.differences.map((difference) => !found.includes(difference.id) && <button key={`hot-${difference.id}`} type="button" onClick={() => handleFind(difference)} aria-label={`Check ${difference.x < 35 ? 'left' : difference.x > 65 ? 'right' : 'middle'} ${difference.y < 35 ? 'top' : difference.y > 65 ? 'bottom' : 'middle'} detail`} className={`absolute z-20 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 focus-visible:border-indigo-600 focus-visible:bg-indigo-200/40 focus-visible:outline-none ${hintTarget === difference.id ? 'animate-pulse border-amber-500 bg-amber-200/40' : 'border-transparent bg-transparent'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }} />)}

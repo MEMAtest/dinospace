@@ -102,7 +102,7 @@ const makeScene = (chapterIndex, sceneIndex, title, image, alt, fact, pair = nul
     image,
     alt,
     fact,
-    ...(pair ? { imageB: pair.imageB, pairedArt: true, ...(pair.editRegions ? { editRegions: Object.freeze(pair.editRegions.map((region) => Object.freeze(region))) } : {}) } : {}),
+    ...(pair ? { ...(pair.imageB ? { imageB: pair.imageB } : {}), pairedArt: true, ...(pair.colorEdits ? { colorEdits: Object.freeze(pair.colorEdits.map((edit) => Object.freeze(edit))) } : {}), ...(pair.editRegions ? { editRegions: Object.freeze(pair.editRegions.map((region) => Object.freeze(region))) } : {}) } : {}),
     differences: Object.freeze(pair?.differences || makeDifferences(sceneIndex, chapter.differenceCount)),
   });
 };
@@ -125,7 +125,19 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
       Object.freeze({ id: 'river-bridge', label: 'one upright bridge railing post is missing', normalVisual: 'scene:bridge-post', visual: 'scene:no-post', x: 41, y: 49, radius: 8 }),
     ],
   }),
-  makeScene(0, 3, 'Moon Camp', dinoMoon, 'A dinosaur exploring a moon camp', 'The Moon is a rocky world that travels around Earth.'),
+  makeScene(0, 3, 'Moon Camp', dinoMoon, 'A dinosaur exploring a moon camp', 'The Moon is a rocky world that travels around Earth.', {
+    // Change only original object surfaces. Preserve silhouettes, highlights and surroundings.
+    colorEdits: [
+      { shape: 'ellipse', cx: 15.8, cy: 20.8, rx: 3.6, ry: 5.0, hue: 220 },
+      { shape: 'path', d: 'M54.4 63.5 L60.8 63.3 L62.1 67.1 L55.8 67.4 Z', hue: 150 },
+      { shape: 'rect', x: 85.6, y: 53.7, width: 2.7, height: 4.3, rx: 0.4, hue: 60 },
+    ],
+    differences: [
+      Object.freeze({ id: 'moon-porthole', label: 'the rocket window glass changed colour', normalVisual: 'scene:blue-glass', visual: 'scene:green-glass', x: 16, y: 21, radius: 8 }),
+      Object.freeze({ id: 'moon-panel', label: 'the rover solar panel changed colour', normalVisual: 'scene:blue-panel', visual: 'scene:orange-panel', x: 58, y: 65, radius: 8 }),
+      Object.freeze({ id: 'moon-window', label: 'the habitat window changed colour', normalVisual: 'scene:yellow-window', visual: 'scene:green-window', x: 87, y: 56, radius: 8 }),
+    ],
+  }),
   makeScene(1, 4, 'Treehouse Team', treehouse, 'A young astronaut and robot sharing arrow blocks in a treehouse workshop', 'Taking turns helps everyone share a game or a job.'),
   makeScene(1, 5, 'Sound Safari', soundSafari, 'An elephant, monkey, bird and frog making sounds beside a waterfall', 'Animals use different sounds to communicate with one another.'),
   makeScene(1, 6, 'Pattern Parade', patternParade, 'A colourful parade with repeating shapes', 'Repeating patterns follow a rule that we can describe.'),
