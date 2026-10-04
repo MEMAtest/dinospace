@@ -1577,9 +1577,10 @@
       "game": "Memory Match",
       "report": "docs/qa-evidence/batch7-editorial-reconciliation-20261004.md",
       "finding": "Late390px six-column board captions too small at captured scale. Increase card/caption readability without reducing18pairs.",
-      "state": "19focusedtests and5963static hash checks passed; independent fresh390ordinary progression reviewing13-18pair caption layout. No release or overallaward.",
+      "state": "Independent ordinary390px play earned all10levels, completed/replayed18pairs and replayedLevel1;10stickers retained. Levels5/9/10 show4columns,12px captions, no horizontal clipping. Desktop18pair presentation sample fits butcaption~10px remains polish finding. SoundtogglemistakeLevel1 documented; guardsactive/no provider calls. Rootreadreport/viewedscreenshots. No production/overallaward.",
       "candidateSource": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
-      "origin": "http://127.0.0.1:5391/"
+      "origin": "http://127.0.0.1:5391/",
+      "independentReport": "docs/qa-evidence/batch7-teaching-readability-independent-20261004/report.md"
     },
     "solarTeaching": {
       "game": "Solar System",
