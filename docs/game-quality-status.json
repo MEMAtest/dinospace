@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T08:15:30.534730+00:00",
+  "updatedAt": "2026-10-04T08:27:26.196295+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -812,7 +812,10 @@
     "origin": "http://127.0.0.1:5334",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-waterlily-dinonest-speedboat-identity-20261004.json",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-waterlily-dinonest-speedboat-builder-report-20261004.md",
-    "scope": "Builder final water lily/dinosaur nest/speedboat maps complete 87/87 art coverage. 19 focused tests, lint/configured build and served identity pass. Normal earned 1\u20139 and three actual target boards completed both widths; 82px mobile cards and 26/28/34 face-down counts with zero fronts before/after visible selector/reload. Final independent full ten-level desktop/mobile review queued after Observatory; no audio/production/4.5 acceptance."
+    "scope": "Builder final water lily/dinosaur nest/speedboat maps complete 87/87 art coverage. 19 focused tests, lint/configured build and served identity pass. Normal earned 1\u20139 and three actual target boards completed both widths; 82px mobile cards and 26/28/34 face-down counts with zero fronts before/after visible selector/reload. Final independent full ten-level desktop/mobile review queued after Observatory; no audio/production/4.5 acceptance.",
+    "independentCommit": "92c7048",
+    "independentReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-final87-independent-20261004/report.md",
+    "independentScope": "Full ten-level ordinary desktop/mobile gameplay passes:10/10stickers/Played10, Level5retains26cards13pairs, targetboards26/28/34cardsandGalaxy36, 82pxmobilecards/48pxcontrols, threefinalart+Ocean/Fossil/Mooncontextfidelity andselectedreloadface-downprivacy pass. Sixidentityfilesmatch, guards/API/consoleclean. Soundresetsenabledafterreloadonthisstalebranch: independentlyobservedregression, rootcarriedcanonicalc478fixinto1410edb/frozen5335. No all87premiumart/humanlistening/production/4.5 acceptance."
   },
   "spotChallengeLeafShapePrototype": {
     "sourceSha": "75d4cbf9b93a2c49384748217daa42d65dde7db8",
@@ -836,5 +839,15 @@
     "scope": "Seven physically placed desk artifacts now vary by shape/count/direction, preserving Challenge skill: openbook,3archways,rightneedle,squarestone,2flames,rolledscroll,4grooves. Built-in generatedA+preciseBedit originalsunchanged andencoding-onlyWebP. Runtime composesB onlyinside7boundedregions to preserveoutsideunchangedscene.21focusedtests/scopedlint/configbuildpass aftercolumnedge56pxfix. IncludesRobin75dshape repair. Independent exact7/noincidentalchanges/maskedges/mobilevisibility/actualtaps+controlchecks assigned. No visual/audio/production/4.5 acceptance.",
     "narrationExistence": "docs/qa-evidence/spot-history-source-narration-existence-20261004.json",
     "narrationScope": "Read-only current runtime0b45ed6 corpus1373unique/1368existing/5missing. Same3Puzzletitle and2Spothint lines as779. No new decode/listening/provider calls."
+  },
+  "memorySoundPreferenceCandidate": {
+    "sourceSha": "1410edb79f0105f25a3cbfd5c9a4c7626140ae1d",
+    "origin": "http://127.0.0.1:5335",
+    "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-sound-preference-identity-20261004.json",
+    "scope": "Exact c478 canonical sound preference repair cherry-picked into B7. Only Appdeviceprefchanges, gameplay/art untouched from7fbbfef92cfullbaseline. Scopedlint/configuredbuildpass. Two-wayreload/profile/mutedplay/8hash independentdeltaassigned; no release/4.5."
+  },
+  "spotWorldPhysicalArtPreparation": {
+    "provenance": "docs/qa-evidence/spot-world-physical-art-provenance-20261004.json",
+    "scope": "Built-in preciseBedit originalPNGcopiedunchanged/encoding-onlyWebP. Sevenactual globe/binocular/telescope/bridge/marker/magnifier/printed-compass details. RawB notintegratedoraccepted:outside-targetdrift must beexcludedwithruntimecomposition; truthfulness/exact7/mobilefidelity pending. PreservesoriginalsquareA."
   }
 }
