@@ -1,9 +1,9 @@
-import { mkdir, open, readFile, realpath, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS,
-  assertJournalPath, assertJournalSnapshot, assertPredecessorFinished,
+  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished,
   availableCalls, isCandidateReusable, isPackagedCandidate, loadPinnedInventory, readRequestJournal,
   requestNarration, selectJobItems, sha256, validateBudgets,
 } from './reviewedNarrationJobs.mjs';
@@ -88,22 +88,7 @@ async function writeAudit(auditPath, audit) {
 }
 
 async function execute(args, items, manifest, journalPath, auditPath, manifestBeforeSha256, initialReady) {
-  const lockPaths = [resolve(root, 'tmp/offline-voice-generator.lock'), `${journalPath}.reviewed-narration.lock`];
-  const locks = [];
-  try {
-    for (const lockPath of lockPaths) {
-      await mkdir(dirname(lockPath), { recursive: true });
-      const lock = await open(lockPath, 'wx').catch((error) => {
-        if (error.code === 'EEXIST') throw new Error(`Narration lock exists at ${lockPath}; inspect its recorded PID before removing it.`);
-        throw error;
-      });
-      locks.push({ lock, path: lockPath });
-      await lock.writeFile(`${JSON.stringify({ pid: process.pid, job: args.job, startedAt: new Date().toISOString() })}\n`);
-    }
-  } catch (error) {
-    for (const held of locks) { await held.lock.close(); await rm(held.path, { force: true }); }
-    throw error;
-  }
+  const heldLock = await acquireProducerLock(journalPath, { pid: process.pid, job: args.job, startedAt: new Date().toISOString() });
   const changedFiles = [];
   const manifestChangedKeys = [];
   let stopReason = null;
@@ -259,7 +244,8 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       completedAt: new Date().toISOString(),
       });
     } finally {
-      for (const held of locks) { await held.lock.close(); await rm(held.path, { force: true }); }
+      await heldLock.lock.close();
+      await rm(heldLock.path, { force: true });
     }
   }
 }
