@@ -1,0 +1,27 @@
+{
+  "candidate": "B7 Memory Match back mark and desktop caption polish",
+  "sourceCommit": "4bdcb7b9769d0f25c493995d016f9eef38968e12",
+  "baseSourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+  "preview": "http://127.0.0.1:5392/",
+  "frozenDist": "tmp/b7-memory-backmark-caption-polish-4bdcb7b/dist",
+  "build": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build",
+  "checks": {
+    "eslint": "npx eslint src/components/games/MemoryMatch.jsx",
+    "productionBuild": "passed",
+    "fullServedAssetHashList": "docs/qa-evidence/b7-memory-backmark-caption-polish-20261004/served-assets-sha256.txt",
+    "servedAssetHashListSha256": "085af6aeb24b8b6b535c859cab9082aff358decf21885a6b801a2274da50dfb6",
+    "servedIndexHtmlSha256": "8911999e1aad5131f530e96710594d0bf5de113dcce1c8e63aae7bc249a42383",
+    "servedMainJsSha256": "1b12fbfbae95550b16a28da2801c1ae8a6c2286f41e8bb9291696593377ef34b",
+    "servedMainCssSha256": "20eac0aefe4dcbc6afa079d5358ca5fcaef1eec82feda24c9c1d9dec1adb5c70"
+  },
+  "scope": [
+    "Replace Memory full-mode back-face platform emoji with Lucide Sparkles vector.",
+    "Remove emoji inversion filter.",
+    "Raise desktop face-up card label minimum to 12px and allow a taller wrapped label row.",
+    "Mobile four-column layout and its caption rules are unchanged."
+  ],
+  "notVerified": [
+    "No browser QA in this builder pass.",
+    "No human audio or release acceptance."
+  ]
+}
