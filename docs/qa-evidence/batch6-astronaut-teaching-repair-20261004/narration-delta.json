@@ -1,0 +1,572 @@
+{
+  "checkedAt": "2026-10-04T14:59:03.915Z",
+  "scope": "Read-only offline corpus comparison against the exact 60f362 runtime and current B6 source. No audio files or offline voice manifest were written.",
+  "baselineSource": "60f362368d5eedb3b43dedc4fa95eb3097672d7e",
+  "currentRuntimeSource": "764b2ff49b6c40c13df928b4449d0a1f68fbe660",
+  "oldUniquePhraseCount": 378,
+  "currentUniquePhraseCount": 378,
+  "addedUniquePhraseCount": 92,
+  "removedUniquePhraseCount": 92,
+  "readOnlyCorpusReadiness": {
+    "requested": 378,
+    "ready": 1,
+    "missing": 377,
+    "invalid": 0
+  },
+  "newPhrases": [
+    {
+      "text": "Good try. Use the clue and try another answer.",
+      "key": "c912513c",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Imagine standing in sunlight and then in shade. What faraway object is sending the light?",
+      "key": "b8f460c0",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. The Moon travels around Earth.",
+      "key": "b6dc01ad",
+      "packaged": false
+    },
+    {
+      "text": "Tiny iron-rich grains in Mars dust help give the planet its rusty colour.",
+      "key": "db274471",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. People call Mars the Red Planet because some of its dust looks rusty.",
+      "key": "d463446d",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Tiny iron-rich grains in Mars dust help give the planet its rusty colour.",
+      "key": "0cf5c9a9",
+      "packaged": false
+    },
+    {
+      "text": "A spacesuit gives astronauts air to breathe and helps keep their bodies safe.",
+      "key": "3f1e2fad",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. A spacesuit gives an astronaut air to breathe and helps protect their body in space.",
+      "key": "ca0f13e8",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. A spacesuit gives astronauts air to breathe and helps keep their bodies safe.",
+      "key": "78b4d2a5",
+      "packaged": false
+    },
+    {
+      "text": "Solar panels change sunlight into electricity that can run spacecraft tools and systems.",
+      "key": "6fd4587f",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Spacecraft need power for their lights, computers, and tools. What kind of power can sunlight provide?",
+      "key": "f9703846",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Solar panels change sunlight into electricity that can run spacecraft tools and systems.",
+      "key": "8eb14cd7",
+      "packaged": false
+    },
+    {
+      "text": "Rover wheels let the robot roll over rocky ground on Mars.",
+      "key": "f5cb8bc4",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. A rover rolls across Mars instead of flying. What job can its wheels help it do?",
+      "key": "08f786cb",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Rover wheels let the robot roll over rocky ground on Mars.",
+      "key": "736ccfcc",
+      "packaged": false
+    },
+    {
+      "text": "The Moon does not make its own light; it bounces sunlight back toward us.",
+      "key": "73b5783f",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Watch the Moon’s bright part over time. Which other bright object could be lighting it?",
+      "key": "71ff494c",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. The Moon does not make its own light; it bounces sunlight back toward us.",
+      "key": "ed701387",
+      "packaged": false
+    },
+    {
+      "text": "Most of Earth’s surface is water that is not frozen; it is in the oceans.",
+      "key": "8726ac57",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Picture Earth from space. Compare the blue and brown areas: which choice covers the larger part?",
+      "key": "541ffef2",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Most of Earth’s surface is water that is not frozen; it is in the oceans.",
+      "key": "5e77954f",
+      "packaged": false
+    },
+    {
+      "text": "Rover cameras take pictures so teams can study the ground and plan safe drives.",
+      "key": "edd9b39d",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Before scientists plan a rover’s next move, what could help them see the ground ahead?",
+      "key": "155a052a",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Rover cameras take pictures so teams can study the ground and plan safe drives.",
+      "key": "8dd6fc15",
+      "packaged": false
+    },
+    {
+      "text": "Earth is almost a ball. It is a little wider around the middle.",
+      "key": "e324d25e",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Imagine Earth from far away. Which choice has a curved outside all around, without corners?",
+      "key": "70dad952",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Earth is almost a ball. It is a little wider around the middle.",
+      "key": "a44436a6",
+      "packaged": false
+    },
+    {
+      "text": "A rocket engine pushes hot gas downward. That push moves the rocket upward.",
+      "key": "bf29b1aa",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Let go of an inflated balloon without tying it. What comes out as the balloon darts away?",
+      "key": "2704f176",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. A rocket engine pushes hot gas downward. That push moves the rocket upward.",
+      "key": "2b975e72",
+      "packaged": false
+    },
+    {
+      "text": "Earth’s atmosphere is the layer of gases around our planet.",
+      "key": "5cc546f1",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. The atmosphere is the layer of gases all around Earth.",
+      "key": "df3923e4",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Earth’s atmosphere is the layer of gases around our planet.",
+      "key": "10eedbc9",
+      "packaged": false
+    },
+    {
+      "text": "Mars has water ice at its north and south poles and in some places under its ground.",
+      "key": "0dc98c97",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Water can stay frozen in very cold places. Think about the cold top and bottom ends of a planet, and places under its ground.",
+      "key": "be8ad40f",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Mars has water ice at its north and south poles and in some places under its ground.",
+      "key": "0d4eaa8f",
+      "packaged": false
+    },
+    {
+      "text": "A heat shield is a protective covering that helps keep a spacecraft from getting too hot as it moves through a planet’s air.",
+      "key": "35e4f702",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. A heat shield is a protective covering that helps keep a spacecraft from getting too hot as it moves through a planet’s air.",
+      "key": "be8d203f",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. A heat shield is a protective covering that helps keep a spacecraft from getting too hot as it moves through a planet’s air.",
+      "key": "8c44f81a",
+      "packaged": false
+    },
+    {
+      "text": "A parachute catches air. The air pushes back and helps slow a lander as it comes down.",
+      "key": "14628a30",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Watch what happens when a falling leaf spreads out and catches air. How might catching air slow something down?",
+      "key": "477f47b7",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. A parachute catches air. The air pushes back and helps slow a lander as it comes down.",
+      "key": "ac0fb8e8",
+      "packaged": false
+    },
+    {
+      "text": "An antenna sends radio messages from a spacecraft. Equipment on Earth receives them.",
+      "key": "e988cfb4",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. A rover cannot drive its messages back to Earth. Which part might send them through space?",
+      "key": "17d9309c",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. An antenna sends radio messages from a spacecraft. Equipment on Earth receives them.",
+      "key": "ed9be0ec",
+      "packaged": false
+    },
+    {
+      "text": "Earth’s axis, the imaginary line it spins around, is tilted. As Earth goes around the Sun, the tilt changes which half gets more direct sunlight. That makes seasons.",
+      "key": "5c521ee2",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Compare how directly sunlight shines on the top and bottom halves of Earth at different times of year.",
+      "key": "d175cd75",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Earth’s axis, the imaginary line it spins around, is tilted. As Earth goes around the Sun, the tilt changes which half gets more direct sunlight. That makes seasons.",
+      "key": "dce7162a",
+      "packaged": false
+    },
+    {
+      "text": "How many small moons travel around Mars?",
+      "key": "f5cd7293",
+      "packaged": false
+    },
+    {
+      "text": "Rover cameras take pictures. The rover’s computer can use them to spot rocks and plan a safe route.",
+      "key": "8dedef71",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Before crossing a rocky patch, what could show the rover where the rock is?",
+      "key": "c0ab03f2",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Rover cameras take pictures. The rover’s computer can use them to spot rocks and plan a safe route.",
+      "key": "10d03b49",
+      "packaged": false
+    },
+    {
+      "text": "Landing legs help a lander stand steadily and hold its weight on the ground.",
+      "key": "1d0413cc",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Imagine a lander touching down on rough ground. How could strong legs help it stay upright?",
+      "key": "eff76ff2",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Landing legs help a lander stand steadily and hold its weight on the ground.",
+      "key": "d4c4f994",
+      "packaged": false
+    },
+    {
+      "text": "An orbit is the path one object follows around another in space.",
+      "key": "844bdab5",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. An orbit is the path one object follows around another in space.",
+      "key": "eb9a427c",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. An orbit is the path one object follows around another in space.",
+      "key": "ee6bc0fd",
+      "packaged": false
+    },
+    {
+      "text": "Radio messages take time to travel between Earth and Mars, so rovers follow some planned steps while they wait for the next message.",
+      "key": "cab67667",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. A command has to travel from Earth to Mars before the rover can act. What does the rover need while it waits?",
+      "key": "6375b445",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Radio messages take time to travel between Earth and Mars, so rovers follow some planned steps while they wait for the next message.",
+      "key": "0057a74f",
+      "packaged": false
+    },
+    {
+      "text": "Venus has a very thick layer of gas around it. The gas carbon dioxide helps hold heat in.",
+      "key": "cf9b1477",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. Venus has very thick air that holds heat close to the planet.",
+      "key": "d36e54de",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Venus has a very thick layer of gas around it. The gas carbon dioxide helps hold heat in.",
+      "key": "7bfa037f",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. Jupiter is the largest planet in our solar system.",
+      "key": "7cb6ed32",
+      "packaged": false
+    },
+    {
+      "text": "Scientists have evidence that Jupiter’s moon Europa may have salty water under its icy outer shell.",
+      "key": "db549f42",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. Europa is Jupiter’s icy moon. Scientists have evidence that salty water may be under its ice.",
+      "key": "d5f60aae",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Scientists have evidence that Jupiter’s moon Europa may have salty water under its icy outer shell.",
+      "key": "043a2e6a",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. A wide parachute catches more air than a narrow one. What might catching more air do to a lander’s fall?",
+      "key": "dbf84591",
+      "packaged": false
+    },
+    {
+      "text": "Some Mars rovers use a nuclear-powered system that turns heat into electricity when sunlight is limited.",
+      "key": "b34e0494",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Compare what a rover could use when sunlight is weak with what it could use near the bright Sun.",
+      "key": "b0da93cb",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Some Mars rovers use a nuclear-powered system that turns heat into electricity when sunlight is limited.",
+      "key": "8a42c21c",
+      "packaged": false
+    },
+    {
+      "text": "Radio messages take several minutes to travel between Earth and Mars. The rover follows some planned steps while it waits for the next message.",
+      "key": "7f017724",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. A message to Mars travels much farther than a message across a room. Would both arrive right away?",
+      "key": "69f7e8e1",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Radio messages take several minutes to travel between Earth and Mars. The rover follows some planned steps while it waits for the next message.",
+      "key": "03a46eec",
+      "packaged": false
+    },
+    {
+      "text": "Saturn’s rings are made mostly of bits of ice and rock.",
+      "key": "fbc5b51c",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. Saturn is the planet famous for its bright rings.",
+      "key": "1f0777f8",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Saturn’s rings are made mostly of bits of ice and rock.",
+      "key": "b54455a4",
+      "packaged": false
+    },
+    {
+      "text": "NASA teams call one Mars day a sol. It lasts about 24 hours and 39 minutes.",
+      "key": "2aa8dbaf",
+      "packaged": false
+    },
+    {
+      "text": "Learn clue. NASA teams call one Mars day a sol.",
+      "key": "81a73562",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. NASA teams call one Mars day a sol. It lasts about 24 hours and 39 minutes.",
+      "key": "18a98207",
+      "packaged": false
+    },
+    {
+      "text": "Perseverance closes pieces of rock and soil in clean tubes so scientists can study them later. They may be brought back to Earth in a future mission.",
+      "key": "04c3061a",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. A rover collects small pieces for scientists to study later. What kind of container could keep them closed and clean?",
+      "key": "33e62c0e",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Perseverance closes pieces of rock and soil in clean tubes so scientists can study them later. They may be brought back to Earth in a future mission.",
+      "key": "de314a72",
+      "packaged": false
+    },
+    {
+      "text": "Solar panels change sunlight into electricity. Mission planners choose a spacecraft’s power source based on where it travels.",
+      "key": "f5f7c641",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Spacecraft near the Sun can collect more sunlight than spacecraft far away. Which choice can collect sunlight?",
+      "key": "ce8de89c",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Solar panels change sunlight into electricity. Mission planners choose a spacecraft’s power source based on where it travels.",
+      "key": "92136139",
+      "packaged": false
+    },
+    {
+      "text": "Venus spins in the opposite direction to most planets.",
+      "key": "cabaf103",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Venus spins in the opposite direction to most planets.",
+      "key": "a155313b",
+      "packaged": false
+    },
+    {
+      "text": "Perseverance uses pictures to make a map of nearby ground and avoid rocks.",
+      "key": "beb4906d",
+      "packaged": false
+    },
+    {
+      "text": "Mission clue. Before a rover rolls ahead, what could show it where rocks and open ground are?",
+      "key": "a69007d9",
+      "packaged": false
+    },
+    {
+      "text": "You remembered this from before. Perseverance uses pictures to make a map of nearby ground and avoid rocks.",
+      "key": "b9a53c65",
+      "packaged": false
+    }
+  ],
+  "removedPhrases": [
+    "Good try. Use the picture clues, then try another answer.",
+    "Mission clue. Think about the brightest thing we see in daytime and how it warms the ground.",
+    "Mission clue. The Moon travels near one of these objects. Which choice is the planet where we live?",
+    "Iron minerals in Martian dust give Mars much of its rusty red colour.",
+    "Mission clue. The nickname comes from the rusty colour of its dusty ground. Which planet in the choices fits?",
+    "You remembered this from before. Iron minerals in Martian dust give Mars much of its rusty red colour.",
+    "A spacesuit supplies oxygen and helps protect an astronaut.",
+    "Mission clue. Astronauts have a special name for the clothing they wear outside a spacecraft.",
+    "You remembered this from before. A spacesuit supplies oxygen and helps protect an astronaut.",
+    "Solar panels collect energy from sunlight and convert it to electricity for spacecraft systems.",
+    "Mission clue. Spacecraft need power for many systems. Look at how sunlight is collected.",
+    "You remembered this from before. Solar panels collect energy from sunlight and convert it to electricity for spacecraft systems.",
+    "Rover wheels help robot explorers cross rocky ground on Mars.",
+    "Mission clue. Compare a rover with a flying robot: which one explores the surface?",
+    "You remembered this from before. Rover wheels help robot explorers cross rocky ground on Mars.",
+    "The Moon does not make its own light; it reflects sunlight.",
+    "Mission clue. Look at where the Moon is in relation to the Sun and Earth.",
+    "You remembered this from before. The Moon does not make its own light; it reflects sunlight.",
+    "Most of Earth’s surface is covered by liquid water.",
+    "Mission clue. Most of Earth’s surface is ocean. Think about what oceans are made of.",
+    "You remembered this from before. Most of Earth’s surface is covered by liquid water.",
+    "Rover cameras take images that help teams study terrain and plan drives.",
+    "Mission clue. What information could help scientists plan a rover’s next move?",
+    "You remembered this from before. Rover cameras take images that help teams study terrain and plan drives.",
+    "Earth is nearly spherical, a little wider around its middle.",
+    "Mission clue. Earth from space has no corners. Which shape choice fits a world like that?",
+    "You remembered this from before. Earth is nearly spherical, a little wider around its middle.",
+    "A rocket engine pushes exhaust downward; that push moves the rocket upward.",
+    "Mission clue. At launch, watch the direction the rocket rises and the direction its exhaust travels.",
+    "You remembered this from before. A rocket engine pushes exhaust downward; that push moves the rocket upward.",
+    "Earth’s atmosphere is a layer of gases around our planet.",
+    "Mission clue. Think about the layer a spacecraft travels through before reaching space.",
+    "You remembered this from before. Earth’s atmosphere is a layer of gases around our planet.",
+    "Mars has water ice in polar caps and beneath parts of its surface.",
+    "Mission clue. Think about how water can stay frozen in cold places, including places hidden from view.",
+    "You remembered this from before. Mars has water ice in polar caps and beneath parts of its surface.",
+    "A heat shield protects a spacecraft from the heat of atmospheric entry.",
+    "Mission clue. A spacecraft becomes very hot as it enters a planet’s air. What could help it survive?",
+    "You remembered this from before. A heat shield protects a spacecraft from the heat of atmospheric entry.",
+    "A parachute creates drag and helps slow a descending spacecraft.",
+    "Mission clue. Watch what happens when a falling leaf spreads out and catches air.",
+    "You remembered this from before. A parachute creates drag and helps slow a descending spacecraft.",
+    "Spacecraft antennas send radio signals to Earth-based receivers.",
+    "Mission clue. Look at the rover’s communication equipment, not the parts that touch the ground.",
+    "You remembered this from before. Spacecraft antennas send radio signals to Earth-based receivers.",
+    "Earth’s tilt changes how directly sunlight reaches each hemisphere during the year.",
+    "Mission clue. Think about how sunlight reaches different parts of Earth during the year.",
+    "You remembered this from before. Earth’s tilt changes how directly sunlight reaches each hemisphere during the year.",
+    "How many small moons orbit Mars?",
+    "Rover cameras help teams and onboard software see hazards and plan a safe route.",
+    "Mission clue. Before crossing a rocky patch, what information would help a rover choose a safe direction?",
+    "You remembered this from before. Rover cameras help teams and onboard software see hazards and plan a safe route.",
+    "Landing systems need a stable way to touch down and support their spacecraft.",
+    "Mission clue. Imagine a lander touching down on rough ground. What could stop it wobbling?",
+    "You remembered this from before. Landing systems need a stable way to touch down and support their spacecraft.",
+    "An orbit is the path an object follows around another object in space.",
+    "Mission clue. Imagine tracing a curved route around a star or planet. Which choice names that kind of route?",
+    "You remembered this from before. An orbit is the path an object follows around another object in space.",
+    "Because radio signals take time to cross the distance, rovers carry out planned commands.",
+    "Mission clue. Think about the long distance between Earth and Mars when a command is sent.",
+    "You remembered this from before. Because radio signals take time to cross the distance, rovers carry out planned commands.",
+    "Venus has a dense carbon-dioxide atmosphere that traps heat.",
+    "Mission clue. The choices have very different air and surface temperatures. Which one has the thickest, hottest air?",
+    "You remembered this from before. Venus has a dense carbon-dioxide atmosphere that traps heat.",
+    "Mission clue. One choice is a giant planet, while the other two are rocky worlds. Which is the largest?",
+    "Evidence suggests Jupiter’s moon Europa has a salty ocean beneath its ice.",
+    "Mission clue. The question is about an icy moon, not a planet. Which moon fits the description?",
+    "You remembered this from before. Evidence suggests Jupiter’s moon Europa has a salty ocean beneath its ice.",
+    "Mission clue. Think about what changes when a parachute has a wider canopy.",
+    "Some Mars rovers use radioisotope power systems to make electricity when sunlight is limited.",
+    "Mission clue. Compare power sources used by spacecraft in places with little sunlight.",
+    "You remembered this from before. Some Mars rovers use radioisotope power systems to make electricity when sunlight is limited.",
+    "Radio signals take several minutes to travel between Earth and Mars, so rovers need onboard plans.",
+    "Mission clue. Think about the great distance a radio message must cross between Earth and Mars.",
+    "You remembered this from before. Radio signals take several minutes to travel between Earth and Mars, so rovers need onboard plans.",
+    "Saturn’s rings are made mostly of pieces of ice and rock.",
+    "Mission clue. One of these planets is easy to recognize by the bright bands around it.",
+    "You remembered this from before. Saturn’s rings are made mostly of pieces of ice and rock.",
+    "Mars scientists call one Martian day a sol; it lasts about 24 hours and 39 minutes.",
+    "Mission clue. Mars teams use a special word when planning a rover’s daily schedule.",
+    "You remembered this from before. Mars scientists call one Martian day a sol; it lasts about 24 hours and 39 minutes.",
+    "Perseverance seals rock and soil samples in clean tubes for possible future return.",
+    "Mission clue. A rover collects small pieces for scientists to study later. What could keep one safe?",
+    "You remembered this from before. Perseverance seals rock and soil samples in clean tubes for possible future return.",
+    "Solar arrays turn sunlight into electricity; mission planners choose power for where a spacecraft travels.",
+    "Mission clue. Compare the power sources spacecraft can use when they travel close to the Sun.",
+    "You remembered this from before. Solar arrays turn sunlight into electricity; mission planners choose power for where a spacecraft travels.",
+    "Venus rotates in the opposite direction to most planets.",
+    "You remembered this from before. Venus rotates in the opposite direction to most planets.",
+    "Perseverance can use onboard navigation to map nearby terrain and avoid hazards.",
+    "Mission clue. Look at the ground around a rover and decide what information a route planner needs.",
+    "You remembered this from before. Perseverance can use onboard navigation to map nearby terrain and avoid hazards."
+  ]
+}\n
