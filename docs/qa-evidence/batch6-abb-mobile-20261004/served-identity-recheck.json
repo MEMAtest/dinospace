@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-10-04T11:54:18.567748+00:00",
+  "url": "http://127.0.0.1:5295",
+  "sourceSha": "f8f9f7a938870e415e0feac69761e1c18d7d10ad",
+  "identityFile": "docs/qa-evidence/batch6-progress-sounds-identity-20261003.json",
+  "files": [
+    {
+      "path": "sw.js",
+      "status": 200,
+      "bytes": 190755,
+      "sha256": "797c6e016c4c67e252b4304543fbd4213995be4bee16e1022892ecfd9e0a1aed",
+      "expected": "797c6e016c4c67e252b4304543fbd4213995be4bee16e1022892ecfd9e0a1aed",
+      "matches": true
+    },
+    {
+      "path": "assets/SolarSystem-CHOhSTvx.js",
+      "status": 200,
+      "bytes": 563158,
+      "sha256": "e48c49128f7a54ec9a8fe53283fb0b1352651df6fe766fa93641094ece425d0e",
+      "expected": "e48c49128f7a54ec9a8fe53283fb0b1352651df6fe766fa93641094ece425d0e",
+      "matches": true
+    },
+    {
+      "path": "assets/index-CZIXwkmD.css",
+      "status": 200,
+      "bytes": 200040,
+      "sha256": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+      "expected": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+      "matches": true
+    },
+    {
+      "path": "assets/index-DnTp545C.js",
+      "status": 200,
+      "bytes": 1237966,
+      "sha256": "ed2bb6c0c45595804f55b07a4d4587469db87a3e1798d37594237e55687afdc6",
+      "expected": "ed2bb6c0c45595804f55b07a4d4587469db87a3e1798d37594237e55687afdc6",
+      "matches": true
+    },
+    {
+      "path": "assets/web-CsKejXOe.js",
+      "status": 200,
+      "bytes": 842,
+      "sha256": "f47014c6ed96870f30f33beb3d09c911d91b19f09df5416dda3ebb2d29391932",
+      "expected": "f47014c6ed96870f30f33beb3d09c911d91b19f09df5416dda3ebb2d29391932",
+      "matches": true
+    }
+  ],
+  "allMatch": true
+}
