@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T00:01:41.985449+00:00",
+  "updatedAt": "2026-10-04T00:09:00.902759+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -358,7 +358,9 @@
     "memoryRepairIdentity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-visual-identity-20261004.json",
     "memoryRepairScope": "Builder44 candidate5288 passed nine focused tests, lint and configured build. Ten48px level pills wrap into visible rows; the active Memory phase hides the intercepting mission CTA. Exact authored tips and card names use packaged-only speech. Independent actual mobile delta is running. Artwork:7/87 illustrated tokens. Narration:2/183 packaged lines. Four new space illustrations are saved and awaiting builder integration into the next art delta; no new premium acceptance.",
     "nextArtwork": "Eight new dog/fox/egg/volcano and space pictures mapped and builder-reviewed in actual390px cards; coverage15/87, missing72. Separate candidate freeze/independent review pending. Four astronomy and four Garden/Dino originals saved in eaf0a7e/9209328 for later integration; no new premium acceptance.",
-    "gardenArtworkProvenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-garden-art-provenance-20261004.json"
+    "gardenArtworkProvenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-garden-art-provenance-20261004.json",
+    "memoryArtworkSource": "ee38737b1bbb2dbfc7a158c796ea1f18289f40df",
+    "memoryArtworkScope": "Eight new illustrations builder-reviewed on actual390px cards, face-down fronts absent. Coverage15/87. Nine focused tests/lint/configured build passed. Frozen ee38737; independent art QA pending. Separate eight astronomy/Garden assets integration underway, no new acceptance."
   },
   "monsterClueRepair": {
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
@@ -386,5 +388,10 @@
       "patchProductionEvidence": "docs/qa-evidence/batch3-copy-keyboard-production-delta-20261003/report.md"
     }
   ],
-  "canonicalRuntimeRecheck": "docs/qa-evidence/canonical-runtime-recheck-20261004.json"
+  "canonicalRuntimeRecheck": "docs/qa-evidence/canonical-runtime-recheck-20261004.json",
+  "skyAccessibleCopyCandidate": {
+    "sourceSha": "2923ca6e10c46609504f41529bf46286e17f8434",
+    "identity": "docs/qa-evidence/sky-accessible-progress-identity-20261004.json",
+    "scope": "Screen-reader-only technical live-region wording replaced with child-readable part/finish announcements. Scoring/controls/narration preserved. Lint,19 focused tests and clean configured build pass; independent local and production deltas pending."
+  }
 }
