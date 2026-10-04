@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T13:23:19.640541+00:00",
+  "updatedAt": "2026-10-04T13:45:04.986701+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1011,7 +1011,9 @@
     "integrationReport": "../dinospace-batch4-integration/docs/qa-evidence/batch4-integration-20261004/report.md",
     "integrationQaReport": "../dinospace-batch4-integration/docs/qa-evidence/batch4-integration-independent-qa-20261004/report.md",
     "integrationQaCommit": "f898043",
-    "integrationQaScope": "First chapters of all four at1280/390, wrong/clue/correct/heldNext, BackKeep/Maths return; distinct TimeDetectives return after reload ondesktop; two-way sound persistence desktop; B3+B4 unearned collection catalog coexistence. Earned integrated badges and audio not tested."
+    "integrationQaScope": "First chapters of all four at1280/390, wrong/clue/correct/heldNext, BackKeep/Maths return; distinct TimeDetectives return after reload ondesktop; two-way sound persistence desktop; B3+B4 unearned collection catalog coexistence. Earned integrated badges and audio not tested.",
+    "nextIntegrationSource": "5cd98bc",
+    "nextIntegrationScope": "Carries the identical shared phonics default fix, with 12 literacy/learning tests passing. Frozen 5360 and its previous QA remain bound to 8bb8d4; no new freeze or release."
   },
   "batch5SoundSafariAssetAudit": {
     "report": "docs/qa-evidence/batch5-sound-safari-mobile-audit-20261004.md",
@@ -1060,7 +1062,7 @@
       "source": "99ed1955131bd53b9738264edcde4e2091ad6e5e",
       "evidenceCommit": "df63c64",
       "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-reliability-qa-20261004/report.md",
-      "scope": "Colour palette/badge/best/unlock reload atbothwidths, desktop equal/lower and +2higherbest replay; Oddbadge/best/unlock reloadboth anddesktop equal/lower replay. Global3vs0 siblingstarsonly, per-gamecollectionisolationunproven. Mobile replays/Oddhigherpending. Old5255mutereset preservedcandidate-local."
+      "scope": "Colour palette/badge/best/unlock reload at both widths, desktop equal/lower and +2 higher-best replay; Odd badge/best/unlock reload at both widths and desktop equal/lower replay. Global sibling stars 3 vs 0 only; per-game collection isolation unproven. Mobile replays and Odd higher replay pending. Old 5255 mute reset remains candidate-local."
     }
   },
   "batch6CurrentEditorialReview": {
@@ -1072,15 +1074,21 @@
       "origin": "http://127.0.0.1:5363/",
       "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-editorial-copy-20261004/report.md",
       "scope": "Fourteachingfixes/separate36clues/twoactualcluediagrams.187fulltests8focusedlintbuildpass;5610servedhashmatch. IndependentUIpending.378phrases1present377pending;64newchangedallmissing. Notreleased."
+    },
+    "localBrowserDelta": {
+      "source": "60f362368d5eedb3b43dedc4fa95eb3097672d7e",
+      "commit": "48925ea6b7e6ff7f93213fa38cce6541e2a21b15",
+      "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-editorial-copy-browser-20261004/report.md",
+      "scope": "Observed Pattern AB/AAB/ABB, regular Hangman first word and Chess rook/disclosure at both widths; sampled Astronaut mobile six missions and desktop Growing first mission. Exact Earth/Venus diagram missions not yet observed. No audio or 4.5 acceptance."
     }
   },
   "batch4NarrationCheckpoint": {
-    "updatedAt": "2026-10-04T13:10:44.635Z",
+    "updatedAt": "2026-10-04T13:41:00.611Z",
     "pid": 18781,
-    "run": 214,
+    "run": 220,
     "status": "waiting_request_window",
-    "pending": 2122,
-    "scope": "Existing finite worker; no restart or parallel generation. Not corpus readiness or listening acceptance."
+    "pending": 2034,
+    "scope": "PID confirmed live. Existing finite worker, no restart or concurrent generation. This is progress, not readiness or listening acceptance."
   },
   "batch7CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch7-independent-editorial-assessment-20261004.md",
@@ -1090,7 +1098,7 @@
       "source": "18e3c30636ecd46dfc8a06fbbfb75451c915338e",
       "origin": "http://127.0.0.1:5366/",
       "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-editorial-teaching-20261004/report.md",
-      "scope": "ConcreteMemoryrowstrategy/fourNASAsourcedSolarfirst-use explanations.15focusedtests/lint/configbuildpass; fullsuite197of198 withnarrationgate18missing.5694builderHTTPmatches. IndependentUI/audio/releaseacceptancepending."
+      "scope": "Concrete Memory row strategy and four NASA-sourced Solar first-use explanations. 15 focused tests, lint and configured build pass; full suite 197/198 with the narration gate reporting 18 missing clips. 5,694 builder HTTP/hash matches. Independent UI, audio and release acceptance pending."
     }
   },
   "editorialCategorisation": {
@@ -1110,9 +1118,9 @@
     "report": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/report.md",
     "scope": "Shareddefaultonly;22tests/lint/configbuild115LetterLaunchpromptfilespresent. Mobilelocalcontrolspass. Stagedproduction8hashmatchREADY; independentdesktop/livepending, canonicalunchanged.",
     "localQa": {
-      "commit": "c390b56",
+      "commit": "09dd355",
       "report": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/independent/report.md",
-      "scope": "390pxdefault23/restrictedff22persistreentry, LetterLaunch/SpellingwrongcorrectheldNextparentBackpass; desktopinprogress."
+      "scope": "Both desktop and 390px pass default 23 sounds, restricted ff 22 after reentry, and Letter Launch/Spelling wrong retry, correct held feedback, Next and parent Back. Root read corrected round evidence and inspected desktop held Ball/mobile settings screenshots. Live QA is in progress."
     },
     "productionCandidate": {
       "url": "https://dinospace-eeblb91eh-memas-projects-23a0001d.vercel.app",
