@@ -1,0 +1,24 @@
+- generic [ref=e480]:
+  - banner [ref=e481]:
+    - button "Back to Maths Missions" [ref=e482] [cursor=pointer]
+    - generic [ref=e501]:
+      - paragraph [ref=e502]: Chapter 1 of 3 · Question 4 of 6
+      - heading "Subtraction Station" [level=1] [ref=e503]
+    - button "Turn sound on" [ref=e486] [cursor=pointer]
+  - main [ref=e491]:
+    - paragraph [ref=e492]: There are 7 gems. Take away 4. How many are left?
+    - button "Hear question" [ref=e504] [cursor=pointer]
+    - generic [ref=e509]:
+      - group "Starting group, 7 gems, 4 marked for removal" [ref=e645]:
+        - paragraph [ref=e511]: "Starting group: 7"
+      - generic [aria-hidden] [ref=e562]: −
+      - group "Take away, 4 gems" [ref=e661]:
+        - paragraph [ref=e564]: "Take away: 4"
+      - generic [aria-hidden] [ref=e574]: →
+      - group "Empty remaining tray" [ref=e669]: Remaining
+    - group "Choose the answer" [ref=e577]:
+      - button "Answer 7" [ref=e670] [cursor=pointer]: "7"
+      - button "Answer 0" [ref=e637] [cursor=pointer]: "0"
+      - button "Answer 2" [ref=e634] [cursor=pointer]: "2"
+      - button "Answer 3" [ref=e671] [cursor=pointer]: "3"
+    - button "Use one hint" [ref=e672] [cursor=pointer]
