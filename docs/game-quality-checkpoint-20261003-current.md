@@ -385,3 +385,10 @@ The independent canonical check reproduced a clipped Sky entry state at 390px on
 Luna implemented `4fcb80d`: a phase-to-play layout effect resets window scroll immediately, without changing queues, missions or scores. File-scoped lint and configured production build pass. Frozen5357 has 16 runtime/art identities; an independent mobile transition and desktop regression check is assigned. This candidate is unreleased.
 
 Independent Spot audit `f3c9935` measures map, active, held fact/replay and leave controls at390px: all actionable targets meet48px and document width remains390px. Small numbered indicators are noninteractive. The retained earned profile does not re-measure locked chapter selectors.
+
+
+## Monster bounded sampler evidence limitation — 4 October
+
+Reports `be76aa2` and `4b713fb` bind the canonical alias to `c478` with all seven served hashes. The visible-only sampler had a 60-run cap, but its returned question rows and tool session output were not retained. Its final 6/6 panel and several visible equation observations do not prove all 360 individual questions. No reliable frequency or ordered `10 + 2` conclusion is available. The exact `2 + 10` question was not captured and its specific gate remains open; no product defect is inferred from that absence.
+
+The initial guarded profile was unintentionally unmuted and fetched static MP3 resources. A fresh profile was explicitly muted before Amari selection, but no further Growing run was spent beyond the cap. No provider requests or human listening claim. The evidence limitation is preserved rather than reconstructing results or spending another broad random sample. An independent updated four-game editorial worksheet is assigned against the existing evidence.

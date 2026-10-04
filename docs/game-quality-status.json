@@ -907,5 +907,14 @@
     "identity": "docs/qa-evidence/sky-entry-scroll-repair-identity-20261004.json",
     "origin": "http://127.0.0.1:5357",
     "scope": "Phase-to-play immediate window scroll reset only; no queue or scoring changes. Scopedlint/configuredbuildpass. IndependentlocaltransitionQAassigned, unreleased; not4.5acceptance."
+  },
+  "monsterExactCaseBoundedProductionReview": {
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/monster-growing-2plus10-canonical-20261004/report.md",
+    "evidenceCommits": [
+      "be76aa2",
+      "4b713fb"
+    ],
+    "canonicalSource": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
+    "scope": "Attempted visible-only sampler capped at60 Growing runs. Its row-level return/session output was not retained, so360 individual questions and operation-frequency conclusions are not auditable. Visible spot observations and final6/6panel retained; exact2+10 was not captured and remains unverified. Initial profile unmuted with staticMP3fetches; guards prevented providercalls. Freshmutedmap verified without new Growing sample. Seven served hashes matchcanonical; no overallacceptance."
   }
 }
