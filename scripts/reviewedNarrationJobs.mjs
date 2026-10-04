@@ -5,6 +5,7 @@ import { voiceClipKey, normalizeVoiceText } from '../src/data/voiceKey.js';
 
 export const PINNED_INVENTORY_SHA256 = 'aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227';
 export const SUPPLEMENTAL_INVENTORY_SHA256 = '0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd';
+export const B4_GRAMMAR_INVENTORY_SHA256 = '9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001';
 export const SUPPLEMENTAL_SOURCE_COMMITS = Object.freeze({
   2: '94d44d031d5835d0d9fa2128064ff83ba5880a62',
   3: 'e2aee30169f6ade67f7948b0088a895a9cb119c3',
@@ -15,6 +16,16 @@ export const SUPPLEMENTAL_SOURCE_HASHES = Object.freeze({
   'src/data/spotDifferenceBatch2.js': '5f8a2916eb1fad79a7913deae73404eb9155826683279f14b348f4441696b98c',
   'src/data/batch3Narration.js': '8944c5fb6315e7751c15521826d603e4c9d1245503dde17e7c235edbf31a0d33',
   'src/data/dinoDetectiveBatch3.js': '1bf0d3074ad7e3cba4df6ae701eeec22b9b71745017be9112592aa5b9d500749',
+  'src/data/voiceKey.js': 'd013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f',
+});
+export const B4_GRAMMAR_SOURCE_COMMIT = 'fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128';
+export const B4_GRAMMAR_BASE_COMMIT = 'ac3b3ccaf03107749d865f8d79557e872a06c881';
+export const B4_GRAMMAR_DELTA_SHA256 = '8049920284e5b9273552f4381043bfb0182acda3e2d699c0df1509d06d6c76f8';
+export const B4_GRAMMAR_SOURCE_HASHES = Object.freeze({
+  'scripts/batch4NarrationInventory.mjs': 'e404d0f2304e1c3aafc8e0dbcda3e798251436db53897428b6a66e40e32e968b',
+  'src/data/arithmeticAdventure.js': '5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7',
+  'src/data/batch4Narration.js': '88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d',
+  'src/data/timeLineAdventure.js': 'c1297de04359a2c337ba13c9480387fcae71f23dbe04041354aefcc1dca6f941',
   'src/data/voiceKey.js': 'd013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f',
 });
 export const B4_SOURCE_COMMIT = 'ac3b3ccaf03107749d865f8d79557e872a06c881';
@@ -35,6 +46,7 @@ export const JOBS = Object.freeze({
   'b7-memory': Object.freeze({ owner: 'B7_memory', label: 'B7 Memory narration' }),
   'b2-supplement': Object.freeze({ ledger: 'supplemental', batch: 2, label: 'B2 released narration supplement' }),
   'b3-dino-facts': Object.freeze({ ledger: 'supplemental', batch: 3, game: 'dino', label: 'B3 revised Dino fact narration' }),
+  'b4-grammar': Object.freeze({ ledger: 'b4-grammar', batch: 4, label: 'B4 singular-agreement grammar narration' }),
 });
 
 export const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
@@ -62,15 +74,45 @@ export async function loadPinnedInventory({ inventoryPath, suppliedSha256, expec
     throw new Error(`Inventory content SHA mismatch: expected ${expectedSha256}, got ${actualSha256}.`);
   }
   const inventory = JSON.parse(bytes.toString('utf8'));
-  const expectedCount = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 ? 7 : inventory.items?.length;
-  const countIsValid = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256
+  const expectedCount = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 ? 7
+    : expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256 ? 47
+      : inventory.items?.length;
+  const countIsValid = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 || expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256
     ? inventory.requested === expectedCount
     : inventory.uniqueVoiceKeys === inventory.items?.length;
   if (!Array.isArray(inventory.items) || !countIsValid || inventory.items.length !== expectedCount) {
     throw new Error('Reviewed inventory structure is not the pinned key ledger format.');
   }
   if (expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256) validateSupplementalProvenance(inventory);
+  if (expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256) validateB4GrammarProvenance(inventory);
   return { inventory, actualSha256 };
+}
+
+export function validateB4GrammarProvenance(inventory) {
+  if (inventory.source !== B4_GRAMMAR_SOURCE_COMMIT || inventory.base !== B4_GRAMMAR_BASE_COMMIT
+      || inventory.deltaSha256 !== B4_GRAMMAR_DELTA_SHA256
+      || inventory.removed !== 47 || inventory.unchanged !== 5199 || inventory.requested !== 47) {
+    throw new Error('B4 grammar ledger source or exact corpus-delta totals changed.');
+  }
+  const provenance = inventory.sourceHashes || {};
+  const expectedPaths = Object.keys(B4_GRAMMAR_SOURCE_HASHES).sort();
+  if (Object.keys(provenance).sort().join('\n') !== expectedPaths.join('\n')) throw new Error('B4 grammar ledger source provenance paths changed.');
+  for (const path of expectedPaths) {
+    if (provenance[path] !== B4_GRAMMAR_SOURCE_HASHES[path]) throw new Error(`B4 grammar source provenance mismatch for ${path}.`);
+  }
+  if (inventory.items?.length !== 47) throw new Error('B4 grammar ledger must contain exactly 47 additions.');
+  const seen = new Set();
+  for (const entry of inventory.items) {
+    if (entry.batch !== 4 || entry.source !== B4_GRAMMAR_SOURCE_COMMIT || entry.language !== 'en' || entry.voice !== 'matilda') {
+      throw new Error(`B4 grammar metadata mismatch for ${entry.key}.`);
+    }
+    if (entry.key !== voiceClipKey(entry.text, 'en-US')) throw new Error(`B4 grammar key does not match exact reviewed phrase: ${entry.key}.`);
+    if (entry.path !== `/audio/en/${entry.key}-matilda.mp3`) throw new Error(`B4 grammar output path mismatch for ${entry.key}.`);
+    if (entry.mapped !== null || entry.fileBytes !== null) throw new Error(`B4 grammar phrase ${entry.key} was not missing at review time; reconcile its exact bytes before scheduling.`);
+    if (seen.has(entry.key)) throw new Error(`Duplicate B4 grammar key ${entry.key}.`);
+    seen.add(entry.key);
+  }
+  return true;
 }
 
 export function validateSupplementalProvenance(inventory) {
@@ -91,6 +133,20 @@ export function selectJobItems(inventory, jobName) {
   const job = JOBS[jobName];
   if (!job) throw new Error(`Unknown job selector. Choose one of: ${Object.keys(JOBS).join(', ')}.`);
   const selected = new Map();
+  if (job.ledger === 'b4-grammar') {
+    validateB4GrammarProvenance(inventory);
+    for (const entry of inventory.items) {
+      selected.set(entry.key, Object.freeze({
+        key: entry.key,
+        text: entry.text,
+        path: entry.path,
+        owners: Object.freeze(['B4_grammar']),
+        expectedCandidateSha256: null,
+        sourceCommit: entry.source,
+      }));
+    }
+    return [...selected.values()].sort((a, b) => a.key.localeCompare(b.key));
+  }
   if (job.ledger === 'supplemental') {
     const records = inventory.items?.filter((entry) => entry.batch === job.batch && (!job.game || entry.game === job.game)) || [];
     const expectedCount = jobName === 'b2-supplement' ? 5 : 2;
