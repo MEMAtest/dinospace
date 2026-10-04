@@ -1,0 +1,24 @@
+- generic [ref=e480]:
+  - banner [ref=e481]:
+    - button "Back to Maths Missions" [ref=e482] [cursor=pointer]
+    - generic [ref=e501]:
+      - paragraph [ref=e502]: Chapter 1 of 3 · Question 2 of 6
+      - heading "Subtraction Station" [level=1] [ref=e503]
+    - button "Turn sound on" [ref=e486] [cursor=pointer]
+  - main [ref=e491]:
+    - paragraph [ref=e492]: There are 9 apples. Take away 9. How many are left?
+    - button "Hear question" [ref=e504] [cursor=pointer]
+    - generic [ref=e509]:
+      - group "Starting group, 9 apples, 9 marked for removal" [ref=e566]:
+        - paragraph [ref=e511]: "Starting group: 9"
+      - generic [aria-hidden] [ref=e540]: −
+      - group "Take away, 9 apples" [ref=e576]:
+        - paragraph [ref=e542]: "Take away: 9"
+      - generic [aria-hidden] [ref=e543]: →
+      - group "Empty remaining tray" [ref=e605]: Remaining
+    - group "Choose the answer" [ref=e546]:
+      - button "Answer 4" [ref=e606] [cursor=pointer]: "4"
+      - button "Answer 3" [ref=e607] [cursor=pointer]: "3"
+      - button "Answer 0" [ref=e608] [cursor=pointer]: "0"
+      - button "Answer 2" [ref=e609] [cursor=pointer]: "2"
+    - button "Use one hint" [ref=e610] [cursor=pointer]
