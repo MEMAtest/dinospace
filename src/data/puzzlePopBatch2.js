@@ -17,7 +17,7 @@ export const PUZZLE_POP_CHAPTERS = Object.freeze([
     skill: 'Match big picture pieces and spot the main shapes.',
     visualTip: 'Compare a piece’s corner or edge with the same spot in the preview.',
     scenes: Object.freeze([
-      { id: 'dino-park', title: 'Dino Park Picnic', image: dinoPark, alt: 'Friendly dinosaurs enjoying a sunny park', fact: 'Some dinosaurs ate plants, and some ate meat. Their teeth helped scientists learn what they ate.' },
+      { id: 'dino-park', title: 'Dino Park', image: dinoPark, alt: 'Friendly dinosaurs enjoying a sunny park', fact: 'Some dinosaurs ate plants, and some ate meat. Their teeth helped scientists learn what they ate.' },
       { id: 'river-valley', title: 'River Valley', image: dinoRiver, alt: 'A friendly dinosaur beside a sparkling river', fact: 'Rivers carry fresh water across the land and create homes for plants and animals.' },
       { id: 'moon-camp', title: 'Moon Camp', image: dinoMoon, alt: 'A friendly dinosaur exploring a moon camp', fact: 'The Moon shines because sunlight bounces off its rocky surface.' },
       { id: 'robin-tree', title: 'Robin’s Tree', image: robin, alt: 'A robin and woodland details in a green habitat', fact: 'Robins use their beaks to find small insects and worms in the soil.' },
