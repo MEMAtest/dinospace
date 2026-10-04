@@ -130,3 +130,13 @@ A fresh guarded profile completed Starter normally, ending with **Moon Camp** on
 ### Isolated Memory art candidate handed to independent QA
 
 Source `dadb0eb3c6f4e454b3db6b975266cc3600c103e0` is frozen at `http://127.0.0.1:5314`; its identity and builder evidence were committed as `a5e6e0ba943cf72bc0f297b90c46f6a11de78144`. The builder completed Levels 1–9 through visible card flips, and checked the isolated Frog/Monkey and Amari astronaut/Moon rock art at desktop and 390px. Mobile cards remain 82px; captions do not overlap, face-down cards mount no front images, and runtime hashes and guards pass. Independent QA is underway. The separate fossil candidate is next; 5314 will remain unchanged. This candidate is not production or 4.5 acceptance.
+
+## Current delta — 4 October, Food originals and finite Solar audio inventory
+
+Four Food originals — carrot, corn, biscuit and cheese — are saved unchanged with alpha and provenance in `959a9ac`, queued for independent rendered checks after the preceding Memory candidates.
+
+Root added a read-only Solar narration inventory in `5124a94`. Its exact spoken controls cover nine destinations and 54 discoveries: **127 unique phrases, 117 packaged, 10 missing**. This is file-existence evidence, not decoding or listening acceptance. The full suite's 189/190 failure includes these ten reviewed Solar phrases and two legacy Memory phrases; the current 183-line Memory corpus remains a separate gate. No provider generation or runtime changed.
+
+The Puzzle reviewer reports keyboard completion at 2×2, 3×3 and 5×5 at both widths, with held facts and Next controls; the evidence report is being assembled and root has not yet accepted it. The earlier replay concern remains withdrawn after the clean immediate-boundary test. Puzzle title/narration and listening gates remain open.
+
+Narration worker PID 18781 remains live. The 04:36:20 UTC, run 112 status reports 3,591 clips pending, zero retries and an expected request-window wait. No second paid worker was started. The goal remains active at **4 recorded accepted, 22 in progress**.

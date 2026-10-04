@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T04:33:51.813376+00:00",
+  "updatedAt": "2026-10-04T04:46:52.779718+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "PID18781 confirmed live at04:17UTC;04:16:08Zrun108status1516reused3649pending,last16generated,zero cooldownretries,expectedrequest-windowwait. No restart/concurrent paidworker.",
+    "voiceCoverage": "PID18781 confirmedlive thisturn;04:36:20Zrun112reports1575reused3591pending,last15generated,zero retries,expectedrequestwindowwait. No restart/concurrentpaidworker.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -417,6 +417,19 @@
       "origin": "http://127.0.0.1:5314",
       "identity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-isolated-space-identity-20261004.json",
       "scope": "Builder normal earned Levels1\u20139 and selected desktop390px Forest/Astronaut/Garden art/captions/82px/face-down hide/hash/guard checks passed. Independent review underway.52/87 fully illustrated; Moon rock remains only Astronaut/Cosmic until separate Dinosaur fossil context added. No production/audio/4.5 claim."
+    },
+    "queuedFoodProduceOriginals": {
+      "commit": "959a9ac",
+      "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-food-produce-art-provenance-20261004.json",
+      "scope": "Four separate transparent carrot/corn/biscuit/cheese originals copied unchanged, queued for mapped WebP integration and independent FoodL7 mobile/desktop rendering. Originals only, no runtime acceptance."
+    },
+    "solarNarrationReadiness": {
+      "auditCommit": "5124a94",
+      "report": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-solar-audio-gate-20261004.md",
+      "phrases": 127,
+      "packaged": 117,
+      "missing": 10,
+      "scope": "Exact Solar spoken controls for9destinations54discoveries; read-only manifest/file existence, no decode/listening/release claim. Full189/190suite failure includes these10plus2legacyMemorylines; current183Memorycorpus separate. No paidjobbeforeB4terminal."
     }
   },
   "monsterClueRepair": {
