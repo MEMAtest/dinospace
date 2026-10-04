@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-04T00:09:00.902759+00:00",
+  "updatedAt": "2026-10-04T00:39:30.189518+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
+  "canonicalRelease": "2923ca6e10c46609504f41529bf46286e17f8434",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -335,17 +335,14 @@
     }
   ],
   "latestFunctionalRelease": {
-    "batch": 2,
-    "game": "Monster Math",
-    "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
-    "deploymentId": "dpl_2STuJZUmaGLU6Vpvj5sb6uSj4B7t",
+    "sourceSha": "2923ca6e10c46609504f41529bf46286e17f8434",
+    "deploymentId": "dpl_31hURucAfoMNNhQMJpKBGvcAkX6u",
     "url": "https://dinospace-eight.vercel.app",
-    "renderedAssetsMatched": 7,
-    "productionPlaywright": "Independent fresh canonical checks passed at1280\u00d7800 and390\u00d7844: ordinary unlock, clue once, wrong retry, held correct explanation, Next reset, Keep playing and confirmed Back to Maths. The56px mobile Next control is reachable by scrolling with no horizontal overflow; console clean. Exact2+10 did not appear naturally. Sound was off; no new playback or listening claim.",
+    "renderedAssetsMatched": 8,
+    "scope": "Sky Shapes child-readable screen-reader progress copy on the retained Monster/Count/Trace source. Independent local and immutable production desktop/390px controls pass. Canonical promoted, READY and byte-bound; fresh canonical delta underway.",
     "editorialAccepted": false,
-    "identityEvidence": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json",
-    "candidateProductionEvidence": "docs/qa-evidence/monster-clue-once-vercel-candidate-20261003/report.md",
-    "productionEvidence": "docs/qa-evidence/monster-clue-canonical-20261004/report.md"
+    "identityEvidence": "docs/qa-evidence/sky-accessible-progress-canonical-identity-20261004.json",
+    "candidateProductionEvidence": "docs/qa-evidence/sky-accessible-progress-production-20261004/report.md"
   },
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
@@ -356,11 +353,12 @@
     "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7",
     "memoryRepairSource": "44b9807eeec169cc5d48809c8c5a5eff29297c5f",
     "memoryRepairIdentity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-visual-identity-20261004.json",
-    "memoryRepairScope": "Builder44 candidate5288 passed nine focused tests, lint and configured build. Ten48px level pills wrap into visible rows; the active Memory phase hides the intercepting mission CTA. Exact authored tips and card names use packaged-only speech. Independent actual mobile delta is running. Artwork:7/87 illustrated tokens. Narration:2/183 packaged lines. Four new space illustrations are saved and awaiting builder integration into the next art delta; no new premium acceptance.",
+    "memoryRepairScope": "Independent44/5288 actual390px earned Levels1\u20135 and flipped former blocked card24 in place. Ten53.5\u00d748 level pills visible, no overflow, no Daily Mission interception; four existing frog/monkey/dinosaur pictures observed. Level6 vehicles unobserved in this narrowdelta. New15/87 artwork freeze is under separate independent QA;183-line audio corpus2 ready/181 missing. No4.5 acceptance.",
     "nextArtwork": "Eight new dog/fox/egg/volcano and space pictures mapped and builder-reviewed in actual390px cards; coverage15/87, missing72. Separate candidate freeze/independent review pending. Four astronomy and four Garden/Dino originals saved in eaf0a7e/9209328 for later integration; no new premium acceptance.",
     "gardenArtworkProvenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-garden-art-provenance-20261004.json",
     "memoryArtworkSource": "ee38737b1bbb2dbfc7a158c796ea1f18289f40df",
-    "memoryArtworkScope": "Eight new illustrations builder-reviewed on actual390px cards, face-down fronts absent. Coverage15/87. Nine focused tests/lint/configured build passed. Frozen ee38737; independent art QA pending. Separate eight astronomy/Garden assets integration underway, no new acceptance."
+    "memoryArtworkScope": "Eight new illustrations builder-reviewed on actual390px cards, face-down fronts absent. Coverage15/87. Nine focused tests/lint/configured build passed. Frozen ee38737; independent art QA pending. Separate eight astronomy/Garden assets integration underway, no new acceptance.",
+    "memoryRepairIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-visual-independent-20261004/report.md"
   },
   "monsterClueRepair": {
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
@@ -386,12 +384,26 @@
       "productionEvidence": "docs/qa-evidence/batch3-canonical-production-independent-20261003/report.md",
       "identityEvidence": "docs/qa-evidence/batch3-copy-keyboard-canonical-identity-20261003.json",
       "patchProductionEvidence": "docs/qa-evidence/batch3-copy-keyboard-production-delta-20261003/report.md"
+    },
+    {
+      "batch": 2,
+      "game": "Monster Math",
+      "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
+      "deploymentId": "dpl_2STuJZUmaGLU6Vpvj5sb6uSj4B7t",
+      "url": "https://dinospace-eight.vercel.app",
+      "renderedAssetsMatched": 7,
+      "productionPlaywright": "Independent fresh canonical checks passed at1280\u00d7800 and390\u00d7844: ordinary unlock, clue once, wrong retry, held correct explanation, Next reset, Keep playing and confirmed Back to Maths. The56px mobile Next control is reachable by scrolling with no horizontal overflow; console clean. Exact2+10 did not appear naturally. Sound was off; no new playback or listening claim.",
+      "editorialAccepted": false,
+      "identityEvidence": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json",
+      "candidateProductionEvidence": "docs/qa-evidence/monster-clue-once-vercel-candidate-20261003/report.md",
+      "productionEvidence": "docs/qa-evidence/monster-clue-canonical-20261004/report.md"
     }
   ],
-  "canonicalRuntimeRecheck": "docs/qa-evidence/canonical-runtime-recheck-20261004.json",
+  "canonicalRuntimeRecheck": "docs/qa-evidence/sky-accessible-progress-canonical-identity-20261004.json",
   "skyAccessibleCopyCandidate": {
     "sourceSha": "2923ca6e10c46609504f41529bf46286e17f8434",
     "identity": "docs/qa-evidence/sky-accessible-progress-identity-20261004.json",
-    "scope": "Screen-reader-only technical live-region wording replaced with child-readable part/finish announcements. Scoring/controls/narration preserved. Lint,19 focused tests and clean configured build pass; independent local and production deltas pending."
-  }
+    "scope": "Functional repair promoted with exact eight-file canonical identity after independent local and immutable production desktop/390px controls. Fresh canonical delta and complete390px control sweep underway; no new4.5 acceptance."
+  },
+  "monsterNaturalQueueEvidence": "docs/qa-evidence/monster-natural-queue-20261004/report.md"
 }
