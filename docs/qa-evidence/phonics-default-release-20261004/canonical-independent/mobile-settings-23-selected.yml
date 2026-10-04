@@ -1,0 +1,312 @@
+- generic [ref=e245]:
+  - banner [ref=e247]:
+    - button "Back to home" [ref=e248] [cursor=pointer]
+    - generic [ref=e251]:
+      - heading "Amari’s progress" [level=1] [ref=e252]
+      - paragraph [ref=e253]: For grown-ups
+  - generic [ref=e254]:
+    - generic [ref=e255]:
+      - generic [ref=e256]: ⭐
+      - generic [ref=e257]: "0"
+      - generic [ref=e258]: Total Stars
+    - generic [ref=e259]:
+      - generic [ref=e260]: 🎮
+      - generic [ref=e261]: "0"
+      - generic [ref=e262]: Games Played
+    - generic [ref=e263]:
+      - generic [ref=e264]: 🔥
+      - generic [ref=e265]: "1"
+      - generic [ref=e266]: Day Streak
+    - generic [ref=e267]:
+      - generic [ref=e268]: 🧑‍🚀
+      - generic [ref=e269]: Space Cadet
+      - generic [ref=e270]: Rank
+  - group [ref=e271]:
+    - generic "Game troubleshooting" [ref=e272] [cursor=pointer]
+  - region [ref=e273]:
+    - generic [ref=e274]:
+      - generic [ref=e275]:
+        - heading "🌱 What I am learning" [level=3] [ref=e276]
+        - paragraph [ref=e277]: Learning evidence is separate from stars and game plays.
+      - generic [ref=e278]:
+        - generic [ref=e279]:
+          - strong [ref=e280]: "0"
+          - text: Secure
+        - generic [ref=e281]:
+          - strong [ref=e282]: "0"
+          - text: Practising
+    - list [ref=e283]:
+      - listitem [ref=e284]: Recognises 0 of 23 selected sounds.
+      - listitem [ref=e285]: Blending evidence will appear after the first practice.
+      - listitem [ref=e286]: Independent spelling families will appear after two successful days.
+      - listitem [ref=e287]: No repeated sound confusions recorded yet.
+  - group [ref=e288]:
+    - generic "Grown-up learning settings Phase 2 · age 5-6" [active] [ref=e289] [cursor=pointer]:
+      - text: Grown-up learning settings
+      - generic [ref=e293]: Phase 2 · age 5-6
+    - generic [ref=e418]:
+      - heading "Sounds being taught" [level=3] [ref=e419]
+      - paragraph [ref=e420]: Choose only sounds introduced at school. Games remain freely available.
+      - generic "Phonics phase" [ref=e421]:
+        - button "Phase 2" [pressed] [ref=e422] [cursor=pointer]
+        - button "Phase 3" [ref=e423] [cursor=pointer]
+      - generic [ref=e424]:
+        - paragraph [ref=e425]: Phase 2 sounds
+        - generic [ref=e426]:
+          - button "s" [pressed] [ref=e427] [cursor=pointer]
+          - button "a" [pressed] [ref=e428] [cursor=pointer]
+          - button "t" [pressed] [ref=e429] [cursor=pointer]
+          - button "p" [pressed] [ref=e430] [cursor=pointer]
+          - button "i" [pressed] [ref=e431] [cursor=pointer]
+          - button "n" [pressed] [ref=e432] [cursor=pointer]
+          - button "m" [pressed] [ref=e433] [cursor=pointer]
+          - button "d" [pressed] [ref=e434] [cursor=pointer]
+          - button "g" [pressed] [ref=e435] [cursor=pointer]
+          - button "o" [pressed] [ref=e436] [cursor=pointer]
+          - button "c" [pressed] [ref=e437] [cursor=pointer]
+          - button "k" [pressed] [ref=e438] [cursor=pointer]
+          - button "ck" [pressed] [ref=e439] [cursor=pointer]
+          - button "e" [pressed] [ref=e440] [cursor=pointer]
+          - button "u" [pressed] [ref=e441] [cursor=pointer]
+          - button "r" [pressed] [ref=e442] [cursor=pointer]
+          - button "h" [pressed] [ref=e443] [cursor=pointer]
+          - button "b" [pressed] [ref=e444] [cursor=pointer]
+          - button "f" [pressed] [ref=e445] [cursor=pointer]
+          - button "ff" [pressed] [ref=e446] [cursor=pointer]
+          - button "l" [pressed] [ref=e447] [cursor=pointer]
+          - button "ll" [pressed] [ref=e448] [cursor=pointer]
+          - button "ss" [pressed] [ref=e449] [cursor=pointer]
+      - generic [ref=e450]:
+        - heading "Game difficulty" [level=3] [ref=e451]
+        - paragraph [ref=e452]: On Auto, named levels introduce new challenges. A fixed band keeps a game at your chosen difficulty. Picture boards and little-explorer games use their own saved levels.
+        - generic [ref=e453]:
+          - generic [ref=e454]:
+            - generic [ref=e455]: Solar System
+            - combobox "Solar System difficulty" [ref=e456]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e457]:
+            - generic [ref=e458]: Dino Detective
+            - combobox "Dino Detective difficulty" [ref=e459]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e460]:
+            - generic [ref=e461]: German Garage
+            - combobox "German Garage difficulty" [ref=e462]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e463]:
+            - generic [ref=e464]: Letter Launch
+            - combobox "Letter Launch difficulty" [ref=e465]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e466]:
+            - generic [ref=e467]: Pattern Parade
+            - combobox "Pattern Parade difficulty" [ref=e468]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e469]:
+            - generic [ref=e470]: Letter Trace
+            - combobox "Letter Trace difficulty" [ref=e471]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e472]:
+            - generic [ref=e473]: Sound Safari
+            - combobox "Sound Safari difficulty" [ref=e474]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e475]:
+            - generic [ref=e476]: Addition Adventure
+            - combobox "Addition Adventure difficulty" [ref=e477]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e478]:
+            - generic [ref=e479]: Subtraction Station
+            - combobox "Subtraction Station difficulty" [ref=e480]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e481]:
+            - generic [ref=e482]: Astronaut Academy
+            - combobox "Astronaut Academy difficulty" [ref=e483]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e484]:
+            - generic [ref=e485]: Curriculum Quest
+            - combobox "Curriculum Quest difficulty" [ref=e486]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e487]:
+            - generic [ref=e488]: Count the Stars
+            - combobox "Count the Stars difficulty" [ref=e489]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e490]:
+            - generic [ref=e491]: Spelling Studio
+            - combobox "Spelling Studio difficulty" [ref=e492]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e493]:
+            - generic [ref=e494]: Color Mixing Lab
+            - combobox "Color Mixing Lab difficulty" [ref=e495]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e496]:
+            - generic [ref=e497]: Odd One Out
+            - combobox "Odd One Out difficulty" [ref=e498]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e499]:
+            - generic [ref=e500]: Time Teller
+            - combobox "Time Teller difficulty" [ref=e501]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e502]:
+            - generic [ref=e503]: Number Line Jump
+            - combobox "Number Line Jump difficulty" [ref=e504]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+          - generic [ref=e505]:
+            - generic [ref=e506]: Chess Explorers
+            - combobox "Chess Explorers difficulty" [ref=e507]:
+              - option "Auto" [selected]
+              - option "Starter"
+              - option "Growing"
+              - option "Challenge"
+  - generic [ref=e294]:
+    - heading "🏆 Achievements (0/17)" [level=3] [ref=e295]
+    - generic [ref=e296]:
+      - generic [ref=e297]:
+        - generic [ref=e298]: 👣
+        - generic [ref=e299]:
+          - generic [ref=e300]: First Steps
+          - generic [ref=e301]: Play your first game
+      - generic [ref=e302]:
+        - generic [ref=e303]: 🧙
+        - generic [ref=e304]:
+          - generic [ref=e305]: Math Wizard
+          - generic [ref=e306]: Answer 50 maths questions
+      - generic [ref=e307]:
+        - generic [ref=e308]: 🧠
+        - generic [ref=e309]:
+          - generic [ref=e310]: Memory Pro
+          - generic [ref=e311]: Play Memory Match 10 times
+      - generic [ref=e312]:
+        - generic [ref=e313]: 🦖
+        - generic [ref=e314]:
+          - generic [ref=e315]: Dino Hunter
+          - generic [ref=e316]: Find 20 dinosaurs
+      - generic [ref=e317]:
+        - generic [ref=e318]: 📝
+        - generic [ref=e319]:
+          - generic [ref=e320]: Word Smith
+          - generic [ref=e321]: Build 10 words
+      - generic [ref=e322]:
+        - generic [ref=e323]: 🧭
+        - generic [ref=e324]:
+          - generic [ref=e325]: Explorer
+          - generic [ref=e326]: Try 8 different games
+      - generic [ref=e327]:
+        - generic [ref=e328]: 💯
+        - generic [ref=e329]:
+          - generic [ref=e330]: Star Collector
+          - generic [ref=e331]: Earn 100 stars
+      - generic [ref=e332]:
+        - generic [ref=e333]: 🌟
+        - generic [ref=e334]:
+          - generic [ref=e335]: Superstar
+          - generic [ref=e336]: Earn 300 stars
+      - generic [ref=e337]:
+        - generic [ref=e338]: 🔥
+        - generic [ref=e339]:
+          - generic [ref=e340]: On Fire
+          - generic [ref=e341]: Get a 5-day streak
+      - generic [ref=e342]:
+        - generic [ref=e343]: ⚡
+        - generic [ref=e344]:
+          - generic [ref=e345]: Unstoppable
+          - generic [ref=e346]: Get a 10-day streak
+      - generic [ref=e347]:
+        - generic [ref=e348]: 🎨
+        - generic [ref=e349]:
+          - generic [ref=e350]: Color Scientist
+          - generic [ref=e351]: Mix 10 colors
+      - generic [ref=e352]:
+        - generic [ref=e353]: 👁️
+        - generic [ref=e354]:
+          - generic [ref=e355]: Sharp Eye
+          - generic [ref=e356]: Find 15 odd ones out
+      - generic [ref=e357]:
+        - generic [ref=e358]: 🎓
+        - generic [ref=e359]:
+          - generic [ref=e360]: Space Graduate
+          - generic [ref=e361]: Complete all Astronaut missions
+      - generic [ref=e362]:
+        - generic [ref=e363]: 👑
+        - generic [ref=e364]:
+          - generic [ref=e365]: Puzzle King
+          - generic [ref=e366]: Complete 10 puzzles
+      - generic [ref=e367]:
+        - generic [ref=e368]: ⭕
+        - generic [ref=e369]:
+          - generic [ref=e370]: Grid Master
+          - generic [ref=e371]: Win 5 tic-tac-toe rounds
+      - generic [ref=e372]:
+        - generic [ref=e373]: 🛟
+        - generic [ref=e374]:
+          - generic [ref=e375]: Word Rescuer
+          - generic [ref=e376]: Rescue 8 Hangman words
+      - generic [ref=e377]:
+        - generic [ref=e378]: 🏅
+        - generic [ref=e379]:
+          - generic [ref=e380]: All Rounder
+          - generic [ref=e381]: Try every game
+  - heading "📊 Games Breakdown" [level=3] [ref=e383]
+  - generic [ref=e384]:
+    - generic [ref=e386]:
+      - generic [ref=e391]:
+        - generic [ref=e392]:
+          - heading "Narrator voice" [level=3] [ref=e393]
+          - generic [ref=e394]: ElevenLabs narrator ready to try
+        - paragraph [ref=e398]: Packaged narration works offline. New literacy clips are added only after voice review.
+      - generic [ref=e399]:
+        - generic "Selected narrator" [ref=e400]: ElevenLabs · Matilda
+        - button "Hear it" [ref=e401] [cursor=pointer]
+    - generic [ref=e413]:
+      - heading "Install Amari Discovery" [level=3] [ref=e414]
+      - paragraph [ref=e415]: Play full-screen from this device and keep your games ready for offline adventures.
+      - paragraph [ref=e416]: Look for Install app or Add to Home screen in your browser menu.
+    - button "Switch player" [ref=e417] [cursor=pointer]
