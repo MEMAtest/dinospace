@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "experiment": "sound-safari-phoneme-qa-pilot-20261004",
+  "language": "en",
+  "modelId": "eleven_flash_v2",
+  "voice": {
+    "name": "Matilda",
+    "id": "XrExE9yKIg1WjnnlVkGX",
+    "sourceRepositoryCommit": "85eee97bbc2910e83b38ec5deea2f45cdb773e83",
+    "sourcePath": "api/voice.js",
+    "sourceLine": 6,
+    "sourceSha256": "92a1c5d0b565e1b8842bcefa41e5b5b31b6f83b4a374b821e7d904533e8740e9"
+  },
+  "phonemeAlphabet": "ipa",
+  "outputFormat": "mp3_44100_128",
+  "maximumProviderRequests": 3,
+  "retries": 0,
+  "items": [
+    {
+      "id": "pilot-01-sustained-fricative-s",
+      "phoneme": "/s/",
+      "ipa": "s",
+      "grapheme": "s",
+      "ssml": "<phoneme alphabet=\"ipa\" ph=\"s\">s</phoneme>",
+      "outputFile": "pilot-01-sustained-fricative-s.mp3"
+    },
+    {
+      "id": "pilot-02-short-vowel-a",
+      "phoneme": "/æ/",
+      "ipa": "æ",
+      "grapheme": "a",
+      "ssml": "<phoneme alphabet=\"ipa\" ph=\"æ\">a</phoneme>",
+      "outputFile": "pilot-02-short-vowel-a.mp3"
+    },
+    {
+      "id": "pilot-03-stop-consonant-t",
+      "phoneme": "/t/",
+      "ipa": "t",
+      "grapheme": "t",
+      "ssml": "<phoneme alphabet=\"ipa\" ph=\"t\">t</phoneme>",
+      "outputFile": "pilot-03-stop-consonant-t.mp3"
+    }
+  ]
+}
