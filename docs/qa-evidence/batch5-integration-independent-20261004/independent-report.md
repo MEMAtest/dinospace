@@ -12,7 +12,7 @@ This is a selective integration delta. Full Batch 5 game matrices and the separa
 
 Used fresh Playwright profiles at desktop 1280×800 and mobile 390×844. Each started at `about:blank`; voice and story API routes returned 403 and were verified before the first app navigation. Sound settings were changed only with visible controls. The child profile was synthetic and progress/answers/browser state were not seeded. No provider calls, generated stories, or sound-provider jobs were made.
 
-Both profiles had zero browser console errors/warnings, no broken images, and no horizontal overflow (document width matched viewport). Network summaries omitted only static requests (38 desktop, 30 mobile); no non-static request output appeared. API guards remained installed. The copy candidate and integrated source readiness inventories report 37 pure phoneme clips absent; this run did not infer answers from audio or make auditory claims.
+Both profiles had zero browser console errors/warnings, no broken images, and no horizontal overflow (document width matched viewport). Network summaries omitted only static requests (38 desktop, 30 mobile); no non-static request output appeared. API guards remained installed. The copy candidate and integrated source readiness inventories report 37 pure phoneme clips absent. That is a separate package-readiness finding; this run did not infer answers from audio or make auditory claims.
 
 ## Shared settings and reload
 
@@ -25,7 +25,7 @@ Both profiles had zero browser console errors/warnings, no broken images, and no
 
 ### Sound Safari — Read & Write
 
-Opened the Amari Sound Safari entry, saw the three chapter controls with later chapters locked, selected Chapter 1, and entered Question 1. The rendered instruction asks for a taught sound, but `Hear the pure sound` was disabled. I did not guess an answer or attempt to generate missing media. Back displayed the leave confirmation; confirmed Back to world returned to Read & Write.
+Opened the Amari Sound Safari entry, saw the three chapter controls with later chapters locked, selected Chapter 1, and entered Question 1. The profile was muted, so `Hear the pure sound` was disabled by the sound-off state. I did not unmute or guess an answer; this observation does not establish whether the control becomes available with sound on. The independent readiness inventory separately reports 37 pure phoneme clips absent. Back displayed the leave confirmation; confirmed Back to world returned to Read & Write.
 
 ### Spelling Studio — Read & Write
 
@@ -49,4 +49,4 @@ Opened the chapter selector and Chapter 1 Puzzle 1. The visible rule named three
 
 ## Remaining gate
 
-Sound Safari's first question cannot be independently completed because its pure-sound control is disabled; the separate pure-phoneme package is known to be absent. This run therefore verifies integration, route ownership, guarded APIs, visible settings persistence and the available visual control flows only. It does not verify spoken instructions, phoneme recognition, pronunciation, human listening quality, or overall 4.5 acceptance.
+This run did not complete Sound Safari's first question: its pure-sound control was disabled while the profile was muted, and no sound-on interaction was attempted. Separately, the candidate readiness inventory reports the pure-phoneme package absent. This run verifies integration, route ownership, guarded APIs, visible settings persistence and the available visual control flows only. It does not verify whether the pure-sound control works when unmuted, spoken instructions, phoneme recognition, pronunciation, human listening quality, or overall 4.5 acceptance.
