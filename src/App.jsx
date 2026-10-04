@@ -33,6 +33,7 @@ import { getGame } from './gameCatalog.jsx';
 
 const BONUS_GAME_IDS = new Set(BONUS_GAME_ID_LIST);
 const MAX_RECENT_GAMES = 4;
+const SOUND_PREFERENCE_KEY = 'amari-sound-on';
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
 // after this long, a "leave the game?" check protects the child's progress.
 const CONFIRM_LEAVE_AFTER_MS = 10000;
@@ -409,7 +410,7 @@ const BreakWatcher = ({ onBreak }) => {
 
 export default function App() {
   const { route, navigate, back, backToStart, setLeaveGuard } = useHashRouter();
-  const [soundOn, setSoundOn] = useState(true);
+  const [soundOn, setSoundOn] = useState(() => loadSaved(SOUND_PREFERENCE_KEY, true) !== false);
   const [playerId, setPlayerId] = useState(() => loadSaved(ACTIVE_PLAYER_KEY, null));
   const [grownUpsUnlocked, setGrownUpsUnlocked] = useState(false);
   const playSfx = useSfx(soundOn);
@@ -421,6 +422,7 @@ export default function App() {
   const installPrompt = useInstallPrompt();
   const player = getPlayer(playerId);
   const toggleSound = useCallback(() => setSoundOn((prev) => !prev), []);
+  useEffect(() => { saveSafe(SOUND_PREFERENCE_KEY, soundOn); }, [soundOn]);
   const routeRef = useRef(route);
   useEffect(() => { routeRef.current = route; }, [route]);
 
