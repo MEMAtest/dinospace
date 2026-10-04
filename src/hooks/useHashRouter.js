@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { parentRoute, parseRoute, routeHash } from '../navigation.js';
+import { gameReturnRoute, nextRouteHistoryState, parseRoute, routeHash } from '../navigation.js';
 
 const currentDepth = () => {
   const depth = window.history.state?.depth;
@@ -15,6 +15,7 @@ const currentDepth = () => {
 export const useHashRouter = () => {
   const [route, setRoute] = useState(() => parseRoute(window.location.hash));
   const routeRef = useRef(route);
+  const routeStateRef = useRef(window.history.state);
   const guardRef = useRef(null);
   const bypassGuardRef = useRef(false);
 
@@ -35,11 +36,14 @@ export const useHashRouter = () => {
       const from = routeRef.current;
       if (!bypassGuardRef.current && guardRef.current?.(from, next)) {
         // Undo the browser's step so the child stays where they were.
-        window.history.pushState({ depth: currentDepth() + 1 }, '', routeHash(from));
+        const restoredState = { ...routeStateRef.current, depth: currentDepth() + 1 };
+        window.history.pushState(restoredState, '', routeHash(from));
+        routeStateRef.current = restoredState;
         return;
       }
       bypassGuardRef.current = false;
       routeRef.current = next;
+      routeStateRef.current = window.history.state;
       setRoute(next);
     };
     window.addEventListener('popstate', onPopState);
@@ -50,7 +54,9 @@ export const useHashRouter = () => {
     const hash = routeHash(next);
     if (!replace && hash === routeHash(routeRef.current)) return;
     const depth = replace ? currentDepth() : currentDepth() + 1;
-    window.history[replace ? 'replaceState' : 'pushState']({ depth }, '', hash);
+    const nextState = nextRouteHistoryState(routeRef.current, next, routeStateRef.current, depth);
+    window.history[replace ? 'replaceState' : 'pushState'](nextState, '', hash);
+    routeStateRef.current = nextState;
     const parsed = parseRoute(hash);
     routeRef.current = parsed;
     setRoute(parsed);
@@ -58,7 +64,7 @@ export const useHashRouter = () => {
 
   const back = useCallback(({ force = false, toParent = false } = {}) => {
     const from = routeRef.current;
-    const parent = parentRoute(from);
+    const parent = gameReturnRoute(from, routeStateRef.current);
     if (!force && guardRef.current?.(from, parent)) return;
     if (toParent && parent) {
       navigate(parent, { replace: true });

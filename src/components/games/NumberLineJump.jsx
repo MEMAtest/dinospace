@@ -1,163 +1,259 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { Home } from 'lucide-react';
-import { getPraise } from '../../utils.js';
-import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
-import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-import { NUMBER_LINE_LIMITS } from '../../data/gameDifficulty.js';
+import { createArithmeticSeed } from '../../data/arithmeticAdventure.js';
+import { useEffect, useState } from 'react';
+import { ArrowLeft, Lightbulb, Volume2 } from 'lucide-react';
+import { NUMBER_LINE_CHAPTERS, createNumberLineRun } from '../../data/timeLineAdventure.js';
+import { numberLineNarrationSegments, numberLineNarrationText } from '../../data/batch4Narration.js';
+import { getTimeLineProgress, rememberTimeLineRun, saveTimeLineRun } from '../../data/timeLineProgress.js';
+import { SoundToggle } from '../shared/index.jsx';
+const Frog = () => <svg viewBox="0 0 80 64" aria-hidden="true" className="h-12 w-14 drop-shadow-sm">
+  <ellipse cx="40" cy="45" rx="30" ry="16" fill="#15803d" />
+  <ellipse cx="40" cy="34" rx="27" ry="22" fill="#4ade80" />
+  <ellipse cx="40" cy="45" rx="18" ry="12" fill="#d9f99d" />
+  <circle cx="24" cy="17" r="13" fill="#4ade80" /><circle cx="56" cy="17" r="13" fill="#4ade80" />
+  <circle cx="24" cy="16" r="8" fill="white" /><circle cx="56" cy="16" r="8" fill="white" />
+  <circle cx="26" cy="17" r="4" fill="#173b37" /><circle cx="54" cy="17" r="4" fill="#173b37" />
+  <path d="M27 34 Q40 44 53 34" fill="none" stroke="#166534" strokeWidth="3" strokeLinecap="round" />
+  <ellipse cx="16" cy="55" rx="13" ry="6" fill="#22c55e" /><ellipse cx="64" cy="55" rx="13" ry="6" fill="#22c55e" />
+</svg>;
 
-const makeProblem = (difficulty, maxNum) => {
-  const op = difficulty === 'starter' ? '+' : Math.random() > 0.5 ? '+' : '-';
-  let a, b;
-  if (op === '+') {
-    a = Math.ceil(Math.random() * Math.max(2, Math.floor(maxNum * 0.55)));
-    b = Math.ceil(Math.random() * (maxNum - a));
-  } else {
-    a = Math.ceil(Math.random() * (maxNum - 2)) + 2;
-    b = Math.ceil(Math.random() * (a - 1)) + 1;
-  }
-  return { a, b, op };
-};
-
-const NumberLineJump = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const difficulty = useGameDifficulty('numberline');
-  const maxNum = NUMBER_LINE_LIMITS[difficulty] || 10;
-  const [problem, setProblem] = useState(() => makeProblem(difficulty, maxNum));
-  const [feedback, setFeedback] = useState('');
-  const [shake, setShake] = useState(false);
-  const [score, setScore] = useState(0);
-  const [jumperPos, setJumperPos] = useState(() => problem.a);
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [jumpTrail, setJumpTrail] = useState([]);
-  const [skillRun, setSkillRun] = useState(0);
+const tell = (speak, line, segments) => speak?.(line, { premium: false, segments });
+const noopCancel = () => {};
+const ChapterButton = ({
+  c,
+  i,
+  selected,
+  complete,
+  locked,
+  onClick
+}) => <button type="button" disabled={locked} onClick={onClick} aria-pressed={selected} className={`min-h-16 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-50 ${selected ? 'border-orange-700 bg-orange-100' : 'border-white bg-white'}`}><span className="block text-xs uppercase">World {i + 1}{complete ? ' · Badge earned' : locked ? ' · Locked' : ''}</span>{c.title}</button>;
+export default function NumberLineJump({
+  onBack,
+  playSfx = () => {},
+  soundOn,
+  onToggleSound,
+  speak = () => {},
+  cancelNarration = noopCancel,
+  onCelebrate = () => {},
+  onGameEvent,
+  onPhaseChange,
+  playerId = 'amari'
+}) {
+  const [progress, setProgress] = useState(() => getTimeLineProgress('numberline', playerId));
+  const [chapterIndex, setChapterIndex] = useState(() => getTimeLineProgress('numberline', playerId).unlockedChapter);
+  const [phase, setPhase] = useState('start');
+  const [seed, setSeed] = useState(null);
+  const [run, setRun] = useState([]);
+  const [ri, setRi] = useState(0);
+  const [mistake, setMistake] = useState(false);
+  const [hintUsed, setHintUsed] = useState(false);
   const [locked, setLocked] = useState(false);
-  const [hadMistake, setHadMistake] = useState(false);
-  const [animating, setAnimating] = useState(false);
-  const animationTimerRef = useRef(null);
-  const nextRoundTimerRef = useRef(null);
-  const problemDifficultyRef = useRef(difficulty);
-
-  const answer = problem.op === '+' ? problem.a + problem.b : problem.a - problem.b;
-
-  const newProblem = useCallback(() => {
-    clearTimeout(animationTimerRef.current);
-    clearTimeout(nextRoundTimerRef.current);
-    const next = makeProblem(difficulty, maxNum);
-    setProblem(next);
-    setJumperPos(next.a);
-    setShowAnswer(false);
-    setFeedback('');
-    setJumpTrail([]);
-    setLocked(false);
-    setHadMistake(false);
-    setAnimating(false);
-    setSkillRun((current) => current >= 5 ? 0 : current);
-  }, [difficulty, maxNum]);
-
+  const [first, setFirst] = useState(0);
+  const [feedback, setFeedback] = useState('');
+  const [position, setPosition] = useState(0);
+  const [trail, setTrail] = useState([]);
+  const chapter = NUMBER_LINE_CHAPTERS[chapterIndex],
+    q = run[ri];
+  useEffect(() => () => cancelNarration(), [cancelNarration]);
   useEffect(() => {
-    // The first problem comes from the lazy initialiser; only rebuild when the
-    // difficulty actually changes so the child hears a single prompt.
-    if (problemDifficultyRef.current === difficulty) return;
-    problemDifficultyRef.current = difficulty;
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    newProblem();
-  }, [difficulty]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  useEffect(() => () => {
-    clearTimeout(animationTimerRef.current);
-    clearTimeout(nextRoundTimerRef.current);
-  }, []);
-
+    onPhaseChange?.(phase === 'done' ? 'finish' : phase === 'start' ? 'intro' : 'play');
+  }, [phase, onPhaseChange]);
   useEffect(() => {
-    speak(`What is ${problem.a} ${problem.op === '+' ? 'plus' : 'minus'} ${problem.b}?`);
-  }, [problem, speak]);
-
-  const handleTapNumber = (n) => {
-    if (locked) return;
-    if (n === answer) {
-      const praise = getPraise();
-      setFeedback(praise);
-      setScore((s) => s + 1);
-      setSkillRun((current) => Math.min(current + 1, 5));
-      setLocked(true);
-      const direction = problem.op === '+' ? 1 : -1;
-      const trail = Array.from({ length: problem.b + 1 }, (_, index) => problem.a + index * direction);
-      setJumpTrail(trail);
-      setAnimating(true);
-      playSfx('success');
-      onCelebrate(praise, 4, 200);
-      onGameEvent?.('numberline', 'answer_correct', { skill: 'number-line', item: `${problem.a}${problem.op}${problem.b}`, response: n, expected: answer, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
-      const animateJump = (step) => {
-        setJumperPos(trail[step]);
-        if (step < trail.length - 1) {
-          animationTimerRef.current = setTimeout(() => animateJump(step + 1), 260);
-        } else {
-          setShowAnswer(true);
-          setAnimating(false);
-          // Keep the spoken feedback short and fully packageable offline. The
-          // animated number line already demonstrates each jump; narration
-          // only needs to confirm the result after the animation.
-          speak(`The answer is ${answer}.`);
-          nextRoundTimerRef.current = setTimeout(newProblem, 900);
-        }
-      };
-      animationTimerRef.current = setTimeout(() => animateJump(1), 220);
-    } else {
-      setHadMistake(true);
-      setShake(true);
-      playSfx('wrong');
-      setFeedback('Try again!');
-      setTimeout(() => { setShake(false); setFeedback(''); }, 800);
+    if (phase === 'play' && q) {
+      onGameEvent?.('numberline', 'question', {
+        level: chapterIndex,
+        round: ri,
+        seed,
+        difficulty: chapter.id
+      });
+      tell(speak, numberLineNarrationText(q), numberLineNarrationSegments(q));
     }
+  }, [phase, q, chapterIndex, ri, seed, chapter.id, speak, onGameEvent]);
+  const start = (index = chapterIndex) => {
+    cancelNarration();
+    const s = createArithmeticSeed();
+    const recent = getTimeLineProgress('numberline', playerId).recentQuestionIds[index] || [];
+    const next = createNumberLineRun({
+      chapter: index,
+      seed: s,
+      recentIds: recent
+    });
+    rememberTimeLineRun('numberline', playerId, index, next);
+    setChapterIndex(index);
+    setSeed(s);
+    setRun(next);
+    setRi(0);
+    setMistake(false);
+    setHintUsed(false);
+    setLocked(false);
+    setFirst(0);
+    setFeedback('');
+    setTrail([]);
+    setPosition(next[0]?.a || next[0]?.start || 0);
+    setPhase('play');
+    onGameEvent?.('numberline', 'start', {
+      level: index,
+      seed: s,
+      difficulty: NUMBER_LINE_CHAPTERS[index].id
+    });
   };
+  const answer = value => {
+    if (!q || locked) return;
+    const ok = value === q.answer;
+    onGameEvent?.('numberline', 'answer_attempt', {
+      level: chapterIndex,
+      round: ri,
+      seed,
+      difficulty: chapter.id,
+      item: q.id,
+      response: value,
+      correct: ok,
+      diagnosticOnly: ok,
+      skill: q.type,
+      firstAttempt: !mistake
+    });
+    if (!ok) {
+      setMistake(true);
+      setFeedback(q.clue);
+      tell(speak, q.clue, numberLineNarrationSegments(q, 'clue'));
+      playSfx('wrong');
+      return;
+    }
+    setLocked(true);
+    setFeedback(q.explanation);
+    setFirst(n => n + (!mistake && !hintUsed ? 1 : 0));
+    playSfx('success');
+    onGameEvent?.('numberline', 'answer_correct', {
+      level: chapterIndex,
+      round: ri,
+      seed,
+      difficulty: chapter.id,
+      skill: q.type,
+      item: q.id,
+      response: value,
+      expected: q.answer,
+      correct: true,
+      firstAttempt: !mistake,
+      independent: !mistake && !hintUsed,
+      hints: hintUsed ? 1 : 0
+    });
+    tell(speak, q.explanation, numberLineNarrationSegments(q, 'explanation'));
+  };
+  const hopTo = value => {
+    if (!q || locked || q.type !== 'hop') return;
+    const dir = q.direction;
+    const next = position + dir;
+    if (next < 0 || next > 10 || trail.length >= q.b) return;
+    if (value !== next) {
+      onGameEvent?.('numberline', 'answer_attempt', {
+        level: chapterIndex, round: ri, seed, difficulty: chapter.id,
+        skill: 'hop', item: q.id, response: value, correct: false, firstAttempt: !mistake,
+      });
+      setMistake(true);
+      setFeedback('Take one number at a time in the direction shown.');
+      tell(speak, q.clue, numberLineNarrationSegments(q, 'clue'));
+      playSfx('wrong');
+      return;
+    }
+    const nextTrail = [...trail, next];
+    setTrail(nextTrail);
+    setPosition(next);
+    onGameEvent?.('numberline', 'hop', {
+      level: chapterIndex,
+      round: ri,
+      seed,
+      difficulty: chapter.id,
+      step: nextTrail.length
+    });
+    if (nextTrail.length === q.b) answer(next);
+  };
+  const hint = () => {
+    if (!q || locked || hintUsed) return;
+    setHintUsed(true);
+    setFeedback(q.clue);
+    tell(speak, q.clue, numberLineNarrationSegments(q, 'clue'));
+    onGameEvent?.('numberline', 'hint', {
+      level: chapterIndex,
+      round: ri,
+      seed,
+      difficulty: chapter.id,
+      hintType: 'hop-clue'
+    });
+  };
+  const next = () => {
+    if (!locked) return;
+    cancelNarration();
+    if (ri < 5) {
+      const index = ri + 1;
+      setRi(index);
+      setMistake(false);
+      setHintUsed(false);
+      setLocked(false);
+      setFeedback('');
+      setTrail([]);
+      setPosition(run[index].a || run[index].start || 0);
+      return;
+    }
+    const stars = first >= 5 ? 3 : first >= 3 ? 2 : 1;
+    const result = saveTimeLineRun('numberline', playerId, chapterIndex, run, stars);
+    if (!result) return;
+    setProgress(result.progress);
+    if (result.awardedStars > 0) onCelebrate(`${chapter.title} complete!`, result.awardedStars * 4, 0, 'numberline');
+    onGameEvent?.('numberline', 'level_complete', {
+      level: chapterIndex,
+      round: 5,
+      seed,
+      difficulty: chapter.id
+    });
+    setFeedback(result.newlyCompleted
+      ? `${chapter.title} complete. You earned ${stars} ${stars === 1 ? 'star' : 'stars'}.`
+      : `Replay complete. Your best is ${result.progress.bestStars[chapter.id]} ${result.progress.bestStars[chapter.id] === 1 ? 'star' : 'stars'}.`);
+    setPhase('done');
+    playSfx('complete');
+  };
+  const leave = () => {
+    if (phase === 'play') onGameEvent?.('numberline', 'leave', {
+      level: chapterIndex,
+      round: ri,
+      seed,
+      difficulty: chapter.id
+    });
+    onBack?.();
+  };
+  const line = (limit, markers = {}) => <div className="relative h-36 px-6" style={{
+    minWidth: Math.max(760, (limit + 1) * 54)
+  }} role="group" aria-label={`Number line from 0 to ${limit}`}><div className="absolute bottom-7 left-6 right-6 h-1 rounded-full bg-orange-400" />
+    {q?.type === 'hop' && <div key={q.id} className="absolute top-4 -translate-x-1/2 transition-[left] duration-300 motion-reduce:transition-none" style={{left: `${4 + (position / limit) * 92}%`}}><Frog /></div>}{Array.from({
+      length: limit + 1
+    }, (_, n) => <div key={n} className="absolute bottom-2 flex -translate-x-1/2 flex-col items-center" style={{
+      left: `${4 + n / limit * 92}%`
+    }}><span className={`mb-1 grid h-11 min-w-11 place-items-center rounded-full border-2 text-sm font-black ${q?.type === 'hop' && (trail.includes(n) || position === n) ? 'border-orange-600 bg-orange-500 text-white' : 'border-orange-200 bg-white text-slate-800'}`}>{n}{markers[n] && <span className="ml-0.5 text-[9px]">{markers[n]}</span>}</span><span className="h-4 w-0.5 bg-orange-400" /></div>)}</div>;
+  const markers = {};
+  const mark = (value, label) => { markers[value] = markers[value] ? `${markers[value]}/${label}` : label; };
+  if (q?.type === 'hop') mark(position, 'F');
+  if (q?.type === 'missing') {
+    if (q.missing !== 0) mark(q.start, 'S');
+    if (q.missing !== 2) mark(q.end, 'L');
+  }
+  if (q?.type === 'compare') {
+    mark(q.start1, 'A'); mark(q.end1, 'A');
+    mark(q.start2, 'B'); mark(q.end2, 'B');
+  }
 
-  return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-orange-100 via-amber-100 to-orange-200 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-8 right-8 w-40 h-40 bg-white/70 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-200/60 rounded-full blur-3xl" />
-      </div>
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
-        <div className="text-center">
-          <h2 className="text-3xl font-black text-orange-700">Number Line Jump</h2>
-          <p className="text-orange-700/70 font-semibold">Score: {score}</p>
-        </div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </div>
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-        <PracticeProgress skill="Use jumps to add and subtract" completed={skillRun} accent="orange" />
-        <div className={`text-center mb-8 ${shake ? 'animate-shake' : ''}`}>
-          <div className="inline-flex items-center gap-3 text-5xl font-black text-slate-800">
-            <span className="bg-white px-4 py-2 rounded-2xl shadow-lg">{problem.a}</span>
-            <span className="text-orange-500">{problem.op === '+' ? '+' : '−'}</span>
-            <span className="bg-white px-4 py-2 rounded-2xl shadow-lg">{problem.b}</span>
-            <span>=</span>
-            <span className="bg-white px-4 py-2 rounded-2xl shadow-lg text-slate-400">{showAnswer ? answer : '?'}</span>
-          </div>
-        </div>
-        <div className="mb-6 w-full max-w-5xl overflow-x-auto rounded-[2rem] border-4 border-white/80 bg-white/45 shadow-xl">
-          <div className="relative h-44 px-5" style={{ minWidth: `${(maxNum + 1) * 56}px` }}>
-            <div className="absolute bottom-8 left-0 right-0 h-2 bg-orange-300 rounded-full" />
-            {Array.from({ length: maxNum + 1 }, (_, i) => (
-              <button key={i} disabled={locked} onClick={() => handleTapNumber(i)}
-                className={`absolute bottom-7 h-11 w-11 rounded-full flex items-center justify-center text-sm font-black transition-all ${
-                  i === jumperPos ? 'bg-orange-500 text-white scale-125 shadow-lg' : 'bg-white text-slate-600 shadow border-2 border-orange-200'
-                } ${i === answer && showAnswer ? 'ring-4 ring-green-400' : ''}`}
-                style={{ left: `${(i / maxNum) * 92 + 4}%`, transform: 'translateX(-50%)' }}>{i}</button>
-            ))}
-            <div className="absolute text-5xl transition-all duration-[250ms] ease-in-out" aria-label={`Frog at ${jumperPos}`} style={{ left: `${(jumperPos / maxNum) * 92 + 4}%`, bottom: '76px', transform: 'translateX(-50%)' }}>🐸</div>
-          </div>
-        </div>
-        <p className="text-slate-500 font-semibold mb-2">{animating ? 'Watch the frog make each jump!' : 'Tap the number where the frog should land!'}</p>
-        {jumpTrail.length > 0 && (
-          <p className="mb-2 rounded-full bg-white/80 px-4 py-2 text-center font-black text-orange-700 shadow-sm" aria-live="polite">
-            {problem.op === '+' ? 'Jump forward' : 'Jump back'} {problem.b} spaces: {jumpTrail.join(' → ')}
-          </p>
-        )}
-        {feedback && <div className="mt-2 text-2xl font-black text-orange-600 animate-bounce">{feedback}</div>}
-      </div>
-    </div>
-  );
-};
-
-export default NumberLineJump;
+  if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-orange-100 via-amber-50 to-teal-100 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Number Line Jump</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>{phase === 'start' ? <main className="mx-auto mt-5 max-w-4xl"><p className="mb-4 rounded-2xl bg-white p-4 text-center font-bold">Make each hop, find missing numbers, and compare number line journeys. Each world has six missions; explanations stay until Next.</p><div className="grid gap-3 sm:grid-cols-3">{NUMBER_LINE_CHAPTERS.map((c, i) => <ChapterButton key={c.id} c={c} i={i} selected={i === chapterIndex} complete={progress.completedChapterIds.includes(c.id)} locked={i > progress.unlockedChapter} onClick={() => setChapterIndex(i)} />)}</div><button onClick={() => start()} className="mt-5 min-h-14 w-full rounded-2xl bg-orange-700 px-5 text-lg font-black text-white">Start {chapter.title}</button></main> : <main className="mx-auto mt-8 max-w-2xl rounded-3xl bg-white p-6 text-center shadow-xl"><p className="text-2xl font-black">{feedback}</p><p className="mt-3">{progress.completedChapterIds.length < 3 ? 'Choose the next unlocked world or replay this one.' : 'All three worlds are complete. Replay any world.'}</p><button className="mt-5 min-h-14 w-full rounded-2xl bg-orange-700 font-black text-white" onClick={() => {
+        cancelNarration();
+        setChapterIndex(progress.unlockedChapter);
+        setPhase('start');
+      }}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white font-black text-orange-900 ring-2 ring-orange-700" onClick={() => start(chapterIndex)}>Replay {chapter.title}</button></main>}</div>;
+  const limit = chapter.max;
+  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-orange-100 via-amber-50 to-teal-100 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">World {chapterIndex + 1} of 3 · Mission {ri + 1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Number Line Jump</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-2 text-lg font-bold" aria-live="polite">{q.prompt}</p><button className="mb-4 inline-flex min-h-12 items-center gap-2 rounded-xl bg-orange-100 px-4 font-black" onClick={() => tell(speak, numberLineNarrationText(q), numberLineNarrationSegments(q))}><Volume2 size={20} /> Hear mission</button>{q.type === 'hop' && <p className="mb-3 font-black text-orange-800">Start at {q.a}. Make {q.b} hop{q.b === 1 ? '' : 's'} {q.direction > 0 ? 'forward →' : 'back ←'}.</p>}{q.type === 'missing' && <p className="mb-3 font-black text-orange-800">The line shows 0 to 20. Find the missing part of the equation.</p>}{q.type === 'compare' && <div className="mb-3 grid gap-2 sm:grid-cols-2"><p className="rounded-xl bg-orange-50 p-3 font-bold">A: {q.start1} → {q.end1} ({q.hops1} hops)</p><p className="rounded-xl bg-teal-50 p-3 font-bold">B: {q.start2} → {q.end2} ({q.hops2} hops)</p></div>}<p className="mb-1 text-xs font-bold text-slate-600">Scroll along the number line. Use Enter, Space, or the arrow keys on the hop buttons.</p><div className="mb-3 overflow-x-auto rounded-2xl border-2 border-orange-200 bg-orange-50" tabIndex="0" aria-label="Scrollable number line from zero to the chapter limit">{line(limit, markers)}</div>{q.type === 'hop' ? <><p className="mb-2 font-bold" aria-live="polite">Frog at {position} · {trail.length} of {q.b} hops made</p><div className="grid grid-cols-2 gap-2"><button disabled={locked || position >= 10 || trail.length >= q.b} onClick={() => hopTo(position + 1)} onKeyDown={e => {
+            if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              hopTo(position + 1);
+            }
+          }} className="min-h-14 rounded-2xl bg-orange-600 font-black text-white disabled:opacity-50">Hop forward →</button><button disabled={locked || position <= 0 || trail.length >= q.b} onClick={() => hopTo(position - 1)} onKeyDown={e => {
+            if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              hopTo(position - 1);
+            }
+          }} className="min-h-14 rounded-2xl bg-teal-700 font-black text-white disabled:opacity-50">← Hop back</button></div><div className="sr-only" aria-live="polite">Accepted hops: {trail.join(', ') || 'none'}</div></> : <div className="my-4 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Choose the answer">{q.options.map(o => <button key={o} disabled={locked} onClick={() => answer(o)} className="min-h-14 rounded-2xl bg-orange-700 px-3 text-xl font-black text-white disabled:opacity-60">{o === 'same' ? 'Same' : o}</button>)}</div>}{feedback && <p role="status" className="mx-auto mb-3 max-w-2xl rounded-xl bg-orange-50 p-3 font-bold">{feedback}</p>}{!locked && <button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20} />{hintUsed ? 'Hint used' : 'Use one hint'}</button>}{locked && <button onClick={next} className="mt-3 min-h-14 w-full rounded-2xl bg-orange-800 text-lg font-black text-white">{ri === 5 ? 'Finish world' : 'Next mission'}</button>}</main></div>;
+}
