@@ -17,6 +17,8 @@ import foxArt from '../../assets/memory-match/fox-v1.webp';
 import partyBalloonArt from '../../assets/memory-match/party-balloon-v1-card.webp';
 import partyPopperArt from '../../assets/memory-match/party-popper-v1-card.webp';
 import partyCakeArt from '../../assets/memory-match/party-cake-v1-card.webp';
+import lollyArt from '../../assets/memory-match/lolly-v1-card.webp';
+import chipsArt from '../../assets/memory-match/chips-v1-card.webp';
 import wrappedSweetArt from '../../assets/memory-match/wrapped-sweet-v1-card.webp';
 import foodCarrotArt from '../../assets/memory-match/food-carrot-v1-card.webp';
 import foodCornArt from '../../assets/memory-match/food-corn-v1-card.webp';
@@ -36,6 +38,8 @@ import seedlingArt from '../../assets/memory-match/seedling-v1-card.webp';
 import treeArt from '../../assets/memory-match/tree-v1-card.webp';
 import leafSprigArt from '../../assets/memory-match/leaf-sprig-v1-card.webp';
 import mushroomArt from '../../assets/memory-match/mushroom-v1-card.webp';
+import tulipArt from '../../assets/memory-match/tulip-v1-card.webp';
+import mountainArt from '../../assets/memory-match/mountain-v1-card.webp';
 import whaleArt from '../../assets/memory-match/whale-v1-card.webp';
 import dolphinArt from '../../assets/memory-match/dolphin-v1-card.webp';
 import sharkArt from '../../assets/memory-match/shark-v1-card.webp';
@@ -111,6 +115,8 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/party-balloon-v1-card.webp': partyBalloonArt,
   'memory-match/party-popper-v1-card.webp': partyPopperArt,
   'memory-match/party-cake-v1-card.webp': partyCakeArt,
+  'memory-match/lolly-v1-card.webp': lollyArt,
+  'memory-match/chips-v1-card.webp': chipsArt,
   'memory-match/wrapped-sweet-v1-card.webp': wrappedSweetArt,
   'memory-match/food-carrot-v1-card.webp': foodCarrotArt,
   'memory-match/food-corn-v1-card.webp': foodCornArt,
@@ -130,6 +136,8 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/tree-v1-card.webp': treeArt,
   'memory-match/leaf-sprig-v1-card.webp': leafSprigArt,
   'memory-match/mushroom-v1-card.webp': mushroomArt,
+  'memory-match/tulip-v1-card.webp': tulipArt,
+  'memory-match/mountain-v1-card.webp': mountainArt,
   'memory-match/whale-v1-card.webp': whaleArt,
   'memory-match/dolphin-v1-card.webp': dolphinArt,
   'memory-match/shark-v1-card.webp': sharkArt,

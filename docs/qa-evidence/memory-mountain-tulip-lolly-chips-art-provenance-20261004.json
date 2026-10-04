@@ -1,0 +1,165 @@
+{
+  "createdAt": "2026-10-04",
+  "method": "Built-in image_gen; one transparent-background call per distinct asset. Originals copied unchanged into project. WebP derivatives use established 512x512 RGBA contain pipeline (LANCZOS, quality 88, alpha quality 95, method 6). No API-key CLI or paid voice/story provider used.",
+  "scope": "Builder implementation and UI check complete; independent QA, production, release, deployment and overall score remain separate gates.",
+  "assets": [
+    {
+      "token": "⛰️",
+      "label": "dinos",
+      "boards": [
+        "dinos"
+      ],
+      "original": {
+        "path": "src/assets/memory-match/mountain-v1.png",
+        "sha256": "f2c8d1be98c68d0e3f5e98e03de138f11d71fb5cc32f794809f50d9bb9248895",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "bytes": 934588
+      },
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-04e46d5d-d3bf-4365-b00d-1b55483eb9bb.png",
+      "prompt": "One friendly green mountain peak with a clean white snow cap and simple foothills. Glossy 3D toy picture-card, isolated transparent background, child-safe, readable at small card size, no scenery, halo, or text.",
+      "derivative": {
+        "path": "src/assets/memory-match/mountain-v1-card.webp",
+        "sha256": "a9c0307ffdabd80ecb98c0613e0352a4761e4f01a032cefa445b10efdb3719fa",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "bytes": 27150
+      },
+      "review": "Original alpha is valid; exact token label/board mapping verified; ordinary game UI matched pair confirmed at desktop and 390px in frozen candidate. Independent rendered review pending."
+    },
+    {
+      "token": "🌷",
+      "label": "tulip",
+      "boards": [
+        "garden"
+      ],
+      "original": {
+        "path": "src/assets/memory-match/tulip-v1.png",
+        "sha256": "b8b3344a5940627f9011680a9830518f08cc2e58a583347f6cb0932ccec6a79e",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "bytes": 922093
+      },
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-669a7113-cf69-4cf2-8dbd-cb32524af889.png",
+      "prompt": "One upright pink tulip with recognizable cup-shaped bloom, green stem and two leaves. Glossy 3D toy picture-card, isolated transparent background, no pot, ground, other flowers, or text.",
+      "derivative": {
+        "path": "src/assets/memory-match/tulip-v1-card.webp",
+        "sha256": "4b7b981eea2a097dec15a694cf998a7231e8884037a784bd3a0e0824b84b8b98",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "bytes": 35034
+      },
+      "review": "Original alpha is valid; exact token label/board mapping verified; ordinary game UI matched pair confirmed at desktop and 390px in frozen candidate. Independent rendered review pending."
+    },
+    {
+      "token": "🍭",
+      "label": "lolly",
+      "boards": [
+        "party",
+        "food"
+      ],
+      "original": {
+        "path": "src/assets/memory-match/lolly-v1.png",
+        "sha256": "9587daf0646b027da18a74205f9abaf13b71c96588cfdb90d28da255059822cd",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "bytes": 972852
+      },
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-6affe649-dd64-43f2-a68f-99ea85b9523d.png",
+      "prompt": "One classic round pink-and-lemon spiral lollipop on a short white stick. Glossy 3D toy picture-card, straight-on, isolated transparent background, distinct from wrapped sweet and doughnut, no wrapper or text.",
+      "derivative": {
+        "path": "src/assets/memory-match/lolly-v1-card.webp",
+        "sha256": "750c18df29ba0d9907c200b44870f6acf3d12ef698dee711ee563120777f1760",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "bytes": 35334
+      },
+      "review": "Original alpha is valid; exact token label/board mapping verified; ordinary game UI matched pair confirmed at desktop and 390px in frozen candidate. Independent rendered review pending."
+    },
+    {
+      "token": "🍟",
+      "label": "chips",
+      "boards": [
+        "party",
+        "food"
+      ],
+      "original": {
+        "path": "src/assets/memory-match/chips-v1.png",
+        "sha256": "77329be83cd42c2b834ee1b5edc1734f6147624efc71512e75af97dad83dbd83",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "bytes": 1813650
+      },
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-6df2f6b6-ae92-4d50-af4c-7d7d4baf5b8d.png",
+      "prompt": "A small portion of chunky thick-cut golden potato chips in a plain teal carton. Glossy 3D toy picture-card, isolated transparent background, distinct potato pieces, no other food or text.",
+      "derivative": {
+        "path": "src/assets/memory-match/chips-v1-card.webp",
+        "sha256": "bf3844a6ba160e4caf22a405717988510d7b8215b94814180c77d293b0f9967a",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "bytes": 54548
+      },
+      "review": "Original alpha is valid; exact token label/board mapping verified; ordinary game UI matched pair confirmed at desktop and 390px in frozen candidate. Independent rendered review pending."
+    }
+  ],
+  "renderedBuilderCheck": {
+    "candidate": "http://127.0.0.1:5331",
+    "viewports": [
+      "1280x800",
+      "390x844"
+    ],
+    "interaction": "Progressed through levels 1–9 with actual visible card flips and Next Level; replayed unlocked target boards via level selector. Did not inject storage, deck data, or hidden answers.",
+    "targetCards": "Mountain on Dinosaur Discovery (level 5), tulip on Garden & Pond Life (level 9), lolly and chips on Party & Treats (level 4) and Yummy Feast (level 7).",
+    "metrics": "Desktop card boxes 149–182px, phone card boxes 82x82px; face-up art loaded at 512x512 source size; labels Mountain/Tulip/Lolly/Chips fully readable. Face-down checks found zero descendant img elements on 24/26/30/34 cards respectively.",
+    "providerGuards": "Fresh session route-list confirmed 403 guards for **/api/voice and **/api/story before and after goto to the candidate; no dynamic requests, console errors, or warnings appeared in guarded replay.",
+    "harnessLimitation": "An earlier preliminary run used CLI open to navigate after installing routes on about:blank, which recreated the context and dropped those routes. Those screenshots are superseded; final evidence was recaptured after verifying persistent guards using goto."
+  }
+}
