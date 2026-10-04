@@ -74,7 +74,7 @@ const SceneColorEditLayer = ({ scene }) => {
       const id = `${layerId}-${index}`;
       const Shape = shape;
       return <g key={id}>
-        <clipPath id={`${id}-clip`}><g transform="scale(1 0.75)"><Shape {...geometry} /></g></clipPath>
+        <clipPath id={`${id}-clip`} transform="scale(1 0.75)"><Shape {...geometry} /></clipPath>
         <filter id={`${id}-colour`} colorInterpolationFilters="sRGB"><feColorMatrix type="hueRotate" values={hue} /></filter>
         {alphaMatrix && <>
           <filter id={`${id}-selection`} colorInterpolationFilters="sRGB"><feColorMatrix type="matrix" values={alphaMatrix} /></filter>
