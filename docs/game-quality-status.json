@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T10:39:42.803877+00:00",
+  "updatedAt": "2026-10-04T10:46:10.497733+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -936,6 +936,15 @@
     "origin": "http://127.0.0.1:5358",
     "identity": "docs/qa-evidence/monster-entry-scroll-repair-identity-20261004.json",
     "findingReport": "docs/qa-evidence/monster-actionable-control-audit-20261004/report.md",
-    "scope": "Independent candidate4f mobile audit retained all18 visible prompt/result rows, actual control bounds, clues, heldfacts, wrongretry, numberline step/reset, completion/unlock/replay; confirmed headercrop inall3episodes. Root read full report and inspected clippedGrowing/Story screenshots. Minimal94 source resets scroll onlywhenphaseentersplay, 14focusedtests/scopedlint/configuredcleanarchivebuildpass. Frozen5358 independent transitionQA assigned. No release/4.5/audioacceptance; exact2+10 remainsunobserved."
+    "scope": "Independent candidate4f mobile audit retained all18 visible prompt/result rows, actual control bounds, clues, heldfacts, wrongretry, numberline step/reset, completion/unlock/replay; confirmed headercrop inall3episodes. Root read full report and inspected clippedGrowing/Story screenshots. Minimal94 source resets scroll onlywhenphaseentersplay, 14focusedtests/scopedlint/configuredcleanarchivebuildpass. Frozen5358 independent transitionQA assigned. No release/4.5/audioacceptance; exact2+10 remainsunobserved. Independent local5358 passes natural mobile/desktopStart atscroll0,48pxBacksound,wrongretry/heldNext/BackKeep/reentry and16hashes;rootreadreportandviewednormal390active. Localroute-listinitiallydidnotshowpageguards, persistentCLIguardsinstalledsubsequently; noAPIrequestsobserved.",
+    "localReport": "docs/qa-evidence/monster-entry-scroll-repair-local-20261004/report.md",
+    "localEvidenceCommit": "1e92878"
+  },
+  "batch2StagedMonsterRepairRelease": {
+    "sourceSha": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+    "deploymentId": "dpl_Dypi5oGP3et3yxgQiGjDqYpfCFMg",
+    "url": "https://dinospace-bjwogjr64-memas-projects-23a0001d.vercel.app",
+    "identity": "docs/qa-evidence/monster-entry-production-candidate-identity-20261004.json",
+    "scope": "READY immutable productioncandidate. Provider auditedarchive/githubsource94;automaticgitcheckoutafc3docs differs.16/16filesmatchclean5358archive.OnlyMonster6linehookdiffersfrom4f;retained4fSpot/Sky/Puzzlelivechecksapplytounchangedart/logic. IndependentliveMonsterdeltaassigned;canonicalstillc478,nopromotionor4.5/audioacceptance."
   }
 }
