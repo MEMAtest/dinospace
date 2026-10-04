@@ -1,0 +1,114 @@
+- generic [ref=f1e2]:
+  - generic [ref=f1e325]:
+    - banner [ref=f1e326]:
+      - button "Back to learning world" [ref=f1e327] [cursor=pointer]
+      - generic [ref=f1e330]:
+        - paragraph [ref=f1e331]: Curriculum Quest · Module 2
+        - heading "Time Detectives" [level=1] [ref=f1e332]: 🕰️ Time Detectives
+        - text: Put clues from the past in order
+      - button "Turn sound on" [ref=f1e333] [cursor=pointer]
+    - main [ref=f1e338]:
+      - navigation "Curriculum modules" [ref=f1e339]:
+        - button "Continents & Oceans Explore our shared world" [ref=f1e340] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e341]: 🌍
+          - generic [ref=f1e342]:
+            - strong [ref=f1e343]: Continents & Oceans
+            - generic [ref=f1e344]: Explore our shared world
+        - button "Time Detectives Put clues from the past in order" [pressed] [ref=f1e347] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e348]: 🕰️
+          - generic [ref=f1e349]:
+            - strong [ref=f1e350]: Time Detectives
+            - generic [ref=f1e351]: Put clues from the past in order
+        - button "Nature Lab Sort, predict, observe and explain" [ref=f1e354] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e355]: 🔬
+          - generic [ref=f1e356]:
+            - strong [ref=f1e357]: Nature Lab
+            - generic [ref=f1e358]: Sort, predict, observe and explain
+      - region [ref=f1e361]:
+        - generic [ref=f1e362]:
+          - generic [ref=f1e363]: Year 1 discovery
+          - generic [ref=f1e364]:
+            - generic [ref=f1e365]:
+              - generic [ref=f1e366]:
+                - paragraph [ref=f1e367]: Skill run
+                - paragraph [ref=f1e368]: history:chronology
+              - generic [ref=f1e369]: 0/5
+            - progressbar "history:chronology skill run" [ref=f1e370]
+          - button "Try this round again" [ref=f1e371] [cursor=pointer]
+        - generic [ref=f1e375]:
+          - heading "Put these ways to send a message from oldest to newest." [level=2] [ref=f1e376]
+          - 'button "Hear prompt: Put these ways to send a message from oldest to newest." [disabled] [ref=f1e377]': Hear prompt
+        - generic [ref=f1e380]:
+          - generic [ref=f1e381]: Round 1 of 5 · Learn first, then try it independently.
+          - 'button "Hear instructions: Learn first, then try it independently." [disabled] [ref=f1e382]': Hear instructions
+        - generic [ref=f1e385]:
+          - generic "Choose a curriculum level" [ref=f1e386]:
+            - generic [ref=f1e387]: "Choose a level:"
+            - button "Starter" [pressed] [ref=f1e388] [cursor=pointer]
+            - button "Growing" [ref=f1e389] [cursor=pointer]
+            - button "Challenge" [ref=f1e390] [cursor=pointer]
+          - generic [ref=f1e391]:
+            - generic [ref=f1e392]:
+              - generic [ref=f1e393]: 🔎 Clues from the past
+              - generic "Historical clues in time order" [ref=f1e394]:
+                - generic [ref=f1e395]:
+                  - strong [ref=f1e398]: Handwritten letter
+                  - generic [ref=f1e399]: "1"
+                - generic [ref=f1e400]:
+                  - strong [ref=f1e403]: Landline telephone
+                  - generic [ref=f1e404]: "2"
+                - generic [ref=f1e405]:
+                  - strong [ref=f1e408]: Smartphone message
+                  - generic [ref=f1e409]: "3"
+              - paragraph [ref=f1e410]: Look at each clue. What came first?
+            - complementary [ref=f1e411]:
+              - paragraph [ref=f1e412]: Learn & explore
+              - heading "Your explorer words" [level=3] [ref=f1e413]
+              - generic [ref=f1e414]:
+                - generic [ref=f1e415]:
+                  - strong [ref=f1e416]: past
+                  - 'button "Hear word: past" [disabled] [ref=f1e417]': Hear word
+                - generic [ref=f1e420]:
+                  - strong [ref=f1e421]: present
+                  - 'button "Hear word: present" [disabled] [ref=f1e422]': Hear word
+                - generic [ref=f1e425]:
+                  - strong [ref=f1e426]: evidence
+                  - 'button "Hear word: evidence" [disabled] [ref=f1e427]': Hear word
+                - generic [ref=f1e430]:
+                  - strong [ref=f1e431]: sequence
+                  - 'button "Hear word: sequence" [disabled] [ref=f1e432]': Hear word
+              - paragraph [ref=f1e435]: The past is what happened before now. Evidence is a clue that helps us learn. A sequence puts events in order.
+              - generic "Related Year 1 school topics" [ref=f1e436]:
+                - generic [ref=f1e437]: Spring 1 · A Day in the Life
+                - generic [ref=f1e438]: Spring 2 · Time Travellers
+          - generic [ref=f1e439]:
+            - 'button "Hear lesson: The past is what happened before now. Evidence is a clue that helps us learn. A sequence puts events in order." [disabled] [ref=f1e440]': Hear lesson
+            - button "Practise telling the time" [ref=f1e443] [cursor=pointer]
+            - button "Start this round" [ref=f1e447] [cursor=pointer]
+      - region "Curriculum explorer badges" [ref=f1e454]:
+        - generic [ref=f1e455]:
+          - heading "Explorer badges" [level=3] [ref=f1e456]
+          - generic [ref=f1e457]: 0 / 3 collected
+        - generic [ref=f1e458]:
+          - 'generic "Starter time detective: finish this path to collect" [ref=f1e459]':
+            - generic [ref=f1e460]: "1"
+            - strong [ref=f1e465]: Starter time detective
+            - generic [ref=f1e466]: Complete this path
+          - 'generic "Growing time detective: finish this path to collect" [ref=f1e467]':
+            - generic [ref=f1e468]: "2"
+            - strong [ref=f1e473]: Growing time detective
+            - generic [ref=f1e474]: Complete this path
+          - 'generic "Challenge time detective: finish this path to collect" [ref=f1e475]':
+            - generic [ref=f1e476]: "3"
+            - strong [ref=f1e481]: Challenge time detective
+            - generic [ref=f1e482]: Complete this path
+  - dialog [ref=f1e483]:
+    - generic [ref=f1e484]:
+      - heading "Leave the game?" [level=2] [ref=f1e485]
+      - generic [ref=f1e486]:
+        - generic [ref=f1e487]:
+          - button "Keep playing" [active] [ref=f1e488] [cursor=pointer]
+          - generic [ref=f1e491]: Keep playing
+        - generic [ref=f1e492]:
+          - button "Back to world" [ref=f1e493] [cursor=pointer]
+          - generic [ref=f1e496]: World
