@@ -1,0 +1,57 @@
+{
+  "createdAt": "2026-10-04T05:37:00Z",
+  "scope": "Add supplied carrot, corn, biscuit, and cheese art to their corresponding existing Amari Memory Match tokens on Yummy Feast. Preserve board content, labels, pair counts, progress, face-down hiding, and Askia.",
+  "sourceCommit": "af84ae26525b1349e309b904058bc5b18d1d7daa",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5318",
+    "frozenDist": "tmp/batch7-memory-food-four-final/dist",
+    "priorFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-party-decorations-final/dist",
+      "tmp/batch7-memory-garden-creatures-final/dist",
+      "tmp/batch7-memory-fossils-final/dist",
+      "tmp/batch7-memory-isolated-space-final/dist"
+    ]
+  },
+  "integratedTokens": [
+    {"token":"🥕","label":"Carrot","original":"src/assets/memory-match/food-carrot-v1.png","originalSha256":"1084b9d3aa61e41b123400b0e533c219e318ec02838de4a1abf9c18bfe1ab9e2","webp":"/assets/food-carrot-v1-card-6d4Ukk7P.webp","dimensions":[512,427],"bytes":26688,"webpSha256":"df570a197d8fc4081142af8644e451fc7089df82ef96ede24dfc8e3c97c8dce7","contexts":["Yummy Feast"]},
+    {"token":"🌽","label":"Corn","original":"src/assets/memory-match/food-corn-v1.png","originalSha256":"9d6657142adfccdfe6d09276e4966f0706affabc52263f983dc508c665623e3a","webp":"/assets/food-corn-v1-card-nvYIFSbv.webp","dimensions":[512,512],"bytes":30692,"webpSha256":"c08c0d4961191324773a051c126932b350ac1cfb8784e606072e1fa78db55e36","contexts":["Yummy Feast"]},
+    {"token":"🍪","label":"Biscuit","original":"src/assets/memory-match/food-biscuit-v1.png","originalSha256":"38bffe2ebe4dab7293a936116896fbb1042eb03824f89cbfa274bb65326ccac8","webp":"/assets/food-biscuit-v1-card-Cm91L4EQ.webp","dimensions":[512,512],"bytes":50480,"webpSha256":"2d16983034b316d9c6e31b94c731bbb4c3c47a5a0f1406d746411fd6f2facb54","contexts":["Yummy Feast"]},
+    {"token":"🧀","label":"Cheese","original":"src/assets/memory-match/food-cheese-v1.png","originalSha256":"e8ad5902aa0d919ce65287eed7ae19914c922ab0f672837c2c012ef2145ecfa5","webp":"/assets/food-cheese-v1-card-BR0OxYvC.webp","dimensions":[512,427],"bytes":16626,"webpSha256":"276155c36d0a2e89b5ad2660e01f91634d03e908771f86584adc58295a8c9dbb","contexts":["Yummy Feast"]}
+  ],
+  "renderedUiChecks": {
+    "profileAndProgression":"Fresh isolated Playwright CLI session with voice/story guards installed before app navigation. Selected Amari using the visible chooser, entered Thinking & Play > Memory Match, then completed Levels 1–6 through actual card buttons and visible Next controls before unlocking Yummy Feast. No injected progress or hidden card data was used.",
+    "earnedLevels":{"forestFriendsPairs":4,"oceanSplashPairs":8,"spaceSparklePairs":10,"partyPairs":12,"dinosaurDiscoveryPairs":13,"vehiclesPairs":14,"yummyFeastPairs":15,"foodCards":30},
+    "food1280":{"viewport":[1280,800],"documentWidth":1280,"card":[182,182],"artRow":[172,109.28],"captionRow":[172,20.95],"newArtCards":8,"captions":["carrot","corn","biscuit","cheese"],"allNewImagesLoaded":true,"screenshot":"docs/qa-evidence/batch7-memory-food-four-builder-images/food-desktop.png"},
+    "food390":{"viewport":[390,844],"documentWidth":390,"card":[82,82],"artRow":[72,30.4],"captionRow":[72,17.19],"newArtCards":8,"captions":["carrot","corn","biscuit","cheese"],"allNewImagesLoaded":true,"screenshot":"docs/qa-evidence/batch7-memory-food-four-builder-images/food-mobile.png"},
+    "faceDown1280":{"cards":30,"card":[182,182],"mountedImages":0,"mountedFrontLabels":0,"screenshot":"docs/qa-evidence/batch7-memory-food-four-builder-images/food-desktop-facedown.png"},
+    "faceDown390":{"cards":30,"card":[82,82],"documentWidth":390,"mountedImages":0,"mountedFrontLabels":0,"screenshot":"docs/qa-evidence/batch7-memory-food-four-builder-images/food-mobile-facedown.png"},
+    "reloadPersistence":"After earning Yummy Feast, reload resumed at the next unlocked Astronaut Mission board. Returned to Food through its visible level selector for the face-down check."
+  },
+  "networkAndConsole": {
+    "preNavigationRoutes":[{"pattern":"**/api/voice","responseStatus":204},{"pattern":"**/api/story","responseStatus":204}],
+    "observedVoiceOrStoryRequests":0,
+    "consoleErrors":0,
+    "consoleWarnings":0
+  },
+  "servedIdentity": {
+    "/":{"sha256":"f0824ba562b58f0173076bc74d51c31a41644e61ce6017943929c96403a591d8","bytes":1100,"matchesFrozenDist":true},
+    "/assets/index-DJ3m_CKY.js":{"sha256":"01faeeef577836011b8226f7c4d0891bef3e9b0e9e9e5d9d9376769295900d42","bytes":1187178,"matchesFrozenDist":true},
+    "/assets/index-CYWTXfuY.css":{"sha256":"251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d","bytes":213139,"matchesFrozenDist":true},
+    "/assets/food-carrot-v1-card-6d4Ukk7P.webp":{"sha256":"df570a197d8fc4081142af8644e451fc7089df82ef96ede24dfc8e3c97c8dce7","bytes":26688,"matchesFrozenDist":true},
+    "/assets/food-corn-v1-card-nvYIFSbv.webp":{"sha256":"c08c0d4961191324773a051c126932b350ac1cfb8784e606072e1fa78db55e36","bytes":30692,"matchesFrozenDist":true},
+    "/assets/food-biscuit-v1-card-Cm91L4EQ.webp":{"sha256":"2d16983034b316d9c6e31b94c731bbb4c3c47a5a0f1406d746411fd6f2facb54","bytes":50480,"matchesFrozenDist":true},
+    "/assets/food-cheese-v1-card-BR0OxYvC.webp":{"sha256":"276155c36d0a2e89b5ad2660e01f91634d03e908771f86584adc58295a8c9dbb","bytes":16626,"matchesFrozenDist":true}
+  },
+  "sourceGates": {
+    "focusedTests":"14 passed across test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs.",
+    "lint":"passed.",
+    "productionConfigBuild":"npm run build:android passed with explicit production voice/story configuration. Existing stale Browserslist data and large-chunk warnings remain.",
+    "illustrationInventory":"Read-only scripts/memory-art-readiness.mjs reports 68/87 unique Memory tokens illustrated after this delta; 19 remain.",
+    "frozenBundleMatchesProductionBuild":true
+  },
+  "limits":[
+    "Builder-rendered verification only; independent review is pending.",
+    "This does not certify remaining illustrations, Askia parity, narration readiness, broader human/device acceptance, production, or any overall quality score."
+  ]
+}
