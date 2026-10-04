@@ -19,15 +19,15 @@ An independent editor scores five equally weighted dimensions from 0–5: age-6 
 
 Keep three separate fields in each batch scorecard: historical review baseline; published editorial acceptance and its tested release lineage; fresh canonical production verification and its scope. The existing Batch 1 verdict below is its recorded acceptance, not a new full retest under these clarifications. Health samples do not re-certify it. The last batch contains two games because the catalog has exactly 26.
 
-## Current acceptance status — 3 October 2026
+## Current acceptance status — 4 October 2026
 
 [Per-game status inventory](game-quality-status.json): **4 recorded verified, 22 in progress, 0 not started**. All remaining games now have implementations in isolated batch checkouts. Implementation does not count as tested acceptance. The [current checkpoint](game-quality-checkpoint-20261003-current.md) supersedes the dated implementation snapshots below; those snapshots remain as evidence of the work sequence.
 
-**Verified 4.5:** Curriculum Quest, Storybook Studio, Letter Launch and German Garage. Independent reasons and exact production evidence are recorded in [batch 1 editor scorecard](batch1-editor-scorecard.md). Current canonical archive source is `2923ca6e10c46609504f41529bf46286e17f8434`; the Sky accessible-progress copy repair is promoted with [eight exact runtime/index files](qa-evidence/sky-accessible-progress-canonical-identity-20261004.json), following independent local and immutable production desktop/390px controls. [Fresh canonical desktop/390px checks passed](qa-evidence/sky-accessible-progress-canonical-qa-20261004/report.md); the complete mobile control sweep and broader editorial/audio gates remain open. The earlier Monster clue repair has separate [fresh canonical control evidence](qa-evidence/monster-clue-canonical-20261004/report.md). Historical Batch2 canonical source was `3cdfc426e91b46a855448690278ceb6590280b68`; the Batch 1 gameplay acceptance evidence is separated between the full `86e3ecf` baseline, `7d9d961` telemetry follow-up and `b6360bb` mobile overlay repair. The later `aeea9e7` release added shared progress/success sounds. Batch 2 initially released at `20ff27d`; `8499e15` fixes duplicate-world Home navigation and limits repeated voice failures. Rotating production health reports do not replace full gameplay acceptance.
+**Verified 4.5:** Curriculum Quest, Storybook Studio, Letter Launch and German Garage. Independent reasons and exact production evidence are recorded in [batch 1 editor scorecard](batch1-editor-scorecard.md). Current canonical archive source is `2952958fe41de443a8dfeabbbe0bb54d96e572ad`, deployment `dpl_FjAsdFFoZqPXLM1EbfnLW4Sy59s5`. The Puzzle/Spot completed-picture replay repair was promoted after independent local and immutable production desktop/390px replay checks; [fresh canonical controls](qa-evidence/puzzle-spot-replay-canonical-20261004/report.md) and [seven-file/provider identity](qa-evidence/puzzle-spot-replay-canonical-identity-20261004.json) passed. These are functional repair checks, not new editorial acceptance. The archive retains earlier Sky accessible-progress, Monster clue and Count/Trace repairs; [Sky canonical evidence](qa-evidence/sky-accessible-progress-canonical-qa-20261004/report.md) and [Monster clue evidence](qa-evidence/monster-clue-canonical-20261004/report.md) retain their original identities. The additional Monster mobile full-title repair `484addf` has independent local normal-unlock/Story checks but remains an unpromoted immutable production candidate. Audio listening, full content/interaction coverage and final editorial scoring remain separate gates. Historical Batch2 canonical source was `3cdfc426e91b46a855448690278ceb6590280b68`; the Batch 1 gameplay acceptance evidence is separated between the full `86e3ecf` baseline, `7d9d961` telemetry follow-up and `b6360bb` mobile overlay repair. The later `aeea9e7` release added shared progress/success sounds. Batch 2 initially released at `20ff27d`; `8499e15` fixes duplicate-world Home navigation and limits repeated voice failures. Rotating production health reports do not replace full gameplay acceptance.
 
 **Historical Batch2 narrow repair:** deployment `dpl_DGLGVkaMikT5GPntS6YThDsesHyx` runs `6b84554e7a1d21b3db658d213a2298462c78599e`. It includes the earlier `9cc4331` reward/model/settings repairs, saves Sky completion before navigation, separates accuracy from newly credited stars, and prevents Puzzle retry timers overwriting successful feedback or picture facts. Clean candidate: 149 tests, lint/build and both independent local repair gates passed. Root verified Vercel identity and exact production-config bundle bytes; independent production Puzzle timing/facts, Spot attempt diagnostics and Sky immediate-save/chapter/replay control deltas passed. See [repair and release lineage](batch2-reward-model-repair-20261003.md). This is not a Batch 2 4.5 acceptance.
 
-**Not yet accepted:** the remaining 22 games below. Their scores remain historical review baselines. **Batch 2 released, acceptance incomplete:** Puzzle Pop, Spot the Difference, Sky Shapes and Monster Math have expanded chapter/episode structures. The earlier 2 October production baseline ran `d31239453edf438b5a88ab788db942f2dae76fea`, deployment `dpl_H9rc2Rinyamg7bCf7WdcHeWDVFmz`. The reproduced Sky pointer focus, Sky/Monster leave-cancellation and Monster star-accounting defects have been repaired, independently checked locally at desktop/390px and deployed. Production desktop/mobile Monster completion now displays and persists 3 stars after reload; mobile Sky focus/cancel checks also passed. See [production unblock evidence](batch2-unblock-production-mobile-20261002.md). Candidate gate: 144 tests, lint and build pass. Packaged narration generation completed at 09:08 UTC on 3 October: the final 1,371-line corpus has zero pending clips. All 1,371 clips pass full decoding, and the frozen clean candidate matches their audited bytes. Actual packaged runtime, human listening and final production deltas remain separate acceptance gates. At the 3 October 07:14 UTC read-only audit, 1,058 of 1,359 clips decoded successfully, 301 Monster Math clips remained, and no existing clip was invalid. Local source `70108cb` repairs narration continuing after route exit; independent runtime deltas are retained in the [audio preflight](batch2-audio-runtime-preflight-20261003.md). Readiness is complete; audible review and production audio QA are still required. All 24 baseline game/band/viewport rows are retained; failed rows require the released repair deltas and audio acceptance; no Batch 2 4.5 claim is made. Next batch after acceptance: Count the Stars, Letter Trace, Cosmic Tic-Tac-Toe and Dino Detective; their implementation plans are prepared. Historical custom storybooks have not been recovered; the seven-title curated shelf includes four newly added titles.
+**Not yet accepted:** the remaining 22 games below. Their scores remain historical review baselines. **Batch 2 released, acceptance incomplete:** Puzzle Pop, Spot the Difference, Sky Shapes and Monster Math have expanded chapter/episode structures. The earlier 2 October production baseline ran `d31239453edf438b5a88ab788db942f2dae76fea`, deployment `dpl_H9rc2Rinyamg7bCf7WdcHeWDVFmz`. The reproduced Sky pointer focus, Sky/Monster leave-cancellation and Monster star-accounting defects have been repaired, independently checked locally at desktop/390px and deployed. Production desktop/mobile Monster completion now displays and persists 3 stars after reload; mobile Sky focus/cancel checks also passed. See [production unblock evidence](batch2-unblock-production-mobile-20261002.md). Candidate gate: 144 tests, lint and build pass. Packaged narration generation completed at 09:08 UTC on 3 October: the final 1,371-line corpus has zero pending clips. All 1,371 clips pass full decoding, and the frozen clean candidate matches their audited bytes. Actual packaged runtime, human listening and final production deltas remain separate acceptance gates. At the 3 October 07:14 UTC read-only audit, 1,058 of 1,359 clips decoded successfully, 301 Monster Math clips remained, and no existing clip was invalid. Local source `70108cb` repairs narration continuing after route exit; independent runtime deltas are retained in the [audio preflight](batch2-audio-runtime-preflight-20261003.md). Readiness is complete; audible review and production audio QA are still required. All 24 baseline game/band/viewport rows are retained; failed rows require the released repair deltas and audio acceptance; no Batch 2 4.5 claim is made. Batch 3 (Count the Stars, Letter Trace, Cosmic Tic-Tac-Toe and Dino Detective) has since received a functional production release and separate [independent production evidence](qa-evidence/batch3-canonical-production-independent-20261003/report.md); its remaining listening/editorial gates stay open. Batches 4–7 have implementations and scoped local evidence in isolated checkouts, with further art/audio and production gates still open. Historical custom storybooks have not been recovered; the seven-title curated shelf includes four newly added titles.
 
 ### Sky Shapes comparable learning route
 
@@ -35,7 +35,7 @@ The independent [3 October teaching review](qa-evidence/sky-teaching-20261003/qa
 
 ## Batch 1 — critical foundations
 
-| Game | Last score | Work required for 4.5/5 | Acceptance evidence |
+| Game | Historical review baseline | Work required for 4.5/5 | Acceptance evidence |
 |---|---:|---|---|
 | Curriculum Quest | 1/5 (prior live baseline; re-score after current fix) | Freeze difficulty and question queue at Start; keep each map/sequence/science explanation and visual fact card open until Next; add facts for continents, oceans, chronology, and science; make each module a three-band skill path; link Time Detectives to Time Teller. | Cross the adaptive threshold during a run without resetting; answer five geography prompts and see five distinct facts; complete history/science facts; verify related-game link, rewards, restart, and 390px navigation. |
 | Storybook Studio | 2/5 | Keep the three shipped books and restore/add at least four curated age-appropriate books; provide durable profile-based save/restore or an explicit export/import recovery path for browser-local custom books; add 3-step comprehension paths, word help, narration replay, and resumable page progress. Do not claim old browser-local stories have been recovered until they are actually imported. | Seven available curated stories with all assets; read, reload, and resume; complete randomized comprehension; verify persistence in a fresh browser or explicit recovery workflow and show missing legacy items clearly. |
@@ -44,7 +44,7 @@ The independent [3 October teaching review](qa-evidence/sky-teaching-20261003/qa
 
 ## Batch 2 — shallow game upgrades
 
-| Game | Last score | Work required for 4.5/5 | Acceptance evidence |
+| Game | Historical review baseline | Work required for 4.5/5 | Acceptance evidence |
 |---|---:|---|---|
 | Puzzle Pop | 2.5/5 | Add 12 illustrated scenes over three chapters; increase board sizes from 2×2 through 5×5; add picture preview, gentle edge/next-piece hint, scene fact, and unlock/replay flow. | All 12 scenes, four per chapter, have valid art/facts and solvable shuffled trays; preview, tray and board share the same undistorted crop for landscape, portrait and wide sources at 2×2/3×3/5×5; chapter strategies/full scene titles; one held fact; touch/keyboard play; distinct restart order; mobile completion and next-scene unlock. |
 | Spot the Difference | 2.5/5 | Add 12 paired scenes; progress from 3 to 5 to 7 differences; add magnifier/hint tokens, clear found counter, completion reveal, and a scene fact. | Hotspots at least 48px on mobile; shuffled scene/target order; visible amber hints select distinct unfinished details even with no intervening find; top/middle/bottom comparison routine; one held fact; gentle missed-tap feedback; find, reveal, next, restart, and back all work. |
@@ -53,7 +53,7 @@ The independent [3 October teaching review](qa-evidence/sky-teaching-20261003/qa
 
 ## Batch 3 — core variety and skill feedback
 
-| Game | Last score | Work required for 4.5/5 | Acceptance evidence |
+| Game | Historical review baseline | Work required for 4.5/5 | Acceptance evidence |
 |---|---:|---|---|
 | Count the Stars | 3/5 | Add 15 countable scenes; mark each tapped object; bands cover 1–5, 1–10, and 1–20; turn collected totals into a constellation book. | Rendered object count equals answer; objects do not overlap or become untappable; scene/count/options vary; counted items visibly/audibly mark. |
 | Letter Trace | 3/5 | Animate stroke order and start dots; add uppercase/lowercase, forgiving-to-precise stroke bands, simple CVC extension, and clue-based retry. | Three bands and eight letters per band; touch/mouse trace; score uses safe tolerance; persisted letter badges and retry guidance. |
@@ -62,7 +62,7 @@ The independent [3 October teaching review](qa-evidence/sky-teaching-20261003/qa
 
 ## Batch 4 — maths depth and time link
 
-| Game | Last score | Work required for 4.5/5 | Acceptance evidence |
+| Game | Historical review baseline | Work required for 4.5/5 | Acceptance evidence |
 |---|---:|---|---|
 | Addition Adventure | 3.5/5 | Three chapters: combine groups, number bonds, and short story problems; animate manipulatives into the result. | Band limits respected; visual count equals equation; six unique questions per run; explanation remains until Next. |
 | Subtraction Station | 3.5/5 | Three chapters: remove objects, compare groups, and story problems; animate removal; avoid negatives until an explicitly older band. | Generated model matches equation; six unique questions per run; wrong feedback shows which group is removed; replay and progression pass. |
@@ -71,7 +71,7 @@ The independent [3 October teaching review](qa-evidence/sky-teaching-20261003/qa
 
 ## Batch 5 — literacy and reasoning polish
 
-| Game | Last score | Work required for 4.5/5 | Acceptance evidence |
+| Game | Historical review baseline | Work required for 4.5/5 | Acceptance evidence |
 |---|---:|---|---|
 | Sound Safari | 3.5/5 | Add phoneme habitats, blend/segment tasks, and minimal-pair listening; use the animal context to explain the sound. | Audio, image, and answer agree; shuffled options; three bands with six rounds; restart avoids recent repeats. |
 | Spelling Studio | 3.5/5 | Stage grapheme teaching, picture/context sentence, sound-by-sound assembly, readable correction, and 20+ decodable words per band. | Required graphemes always available; tile positions shuffle; words do not repeat before a full pool cycle; collection persists. |
@@ -80,7 +80,7 @@ The independent [3 October teaching review](qa-evidence/sky-teaching-20261003/qa
 
 ## Batch 6 — thinking and world-story progression
 
-| Game | Last score | Work required for 4.5/5 | Acceptance evidence |
+| Game | Historical review baseline | Work required for 4.5/5 | Acceptance evidence |
 |---|---:|---|---|
 | Pattern Parade | 3.5/5 | Build a festival route with AB/AAB/ABB/ABC/growing patterns, objects/sounds/movement, and rule explanation. | Generator validates answer and enough sequence terms; no repeated pattern signature in eight runs; three bands/six rounds. |
 | Dino Hangman | 3.5/5 | Use decodable word families, picture clues, and a positive rescue meter that never shames; reward completed dino facts. | Starter words are age-6 decodable; hints/retry work; session words do not repeat; success/failure recover safely. |
@@ -89,7 +89,7 @@ The independent [3 October teaching review](qa-evidence/sky-teaching-20261003/qa
 
 ## Batch 7 — preserve strong mechanics and finish
 
-| Game | Last score | Work required for 4.5/5 | Acceptance evidence |
+| Game | Historical review baseline | Work required for 4.5/5 | Acceptance evidence |
 |---|---:|---|---|
 | Memory Match | 4/5 | Keep the verified rising pair count; add simple visual memory strategies, themed animated boards, next-session-only adaptation, and a board fact/sticker. | Existing L1–L5 counts remain 4→8→10→12→13; 10 seeded decks have pair integrity and distinct layouts; no completion reset; mobile cards stay tappable. |
 | Solar System | 4/5 | Keep fact deck/missions/back target; make the mobile planet strip visibly navigable; add guided first mission and a persistent discovery passport. | All 9 planet tabs work at desktop/390px without trapped navigation; three discoveries and valid challenges per planet; passport persists; Back returns to Explore. |
@@ -131,7 +131,11 @@ These clarify the rows above. They are acceptance instructions, not claims of co
 | Memory Match | Preserve 4→8→10→12→13 pairs; teach scan/group/recall strategies as boards grow. Check pair integrity, distinct layouts, no level-5 regression, later-run adaptation and persisted stickers. |
 | Solar System | Comparable discovery → compare → challenge route across eight planets plus Pluto, a dwarf planet. Verify all nine destinations, mobile strip cues, seeded missions and saved discovery passport. |
 
-## Latest Batch 2 packaging checkpoint — 3 October, 09:09 UTC
+## Historical implementation snapshots — superseded
+
+The dated records below retain their original candidate/deployment identities and findings. Their present-tense statements, counts and pending work describe those dates, not the current release. Use the current acceptance status above and [current checkpoint](game-quality-checkpoint-20261003-current.md) for live status. The per-game acceptance requirements above remain unchanged.
+
+### Batch 2 packaging checkpoint — 3 October, 09:09 UTC
 
 All 1,371 Batch 2 narration clips are packaged in source `ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630`; the final [readiness](qa-evidence/batch2-final-readiness-20261003.json) and [decode audit](qa-evidence/batch2-corpus-final-decode-20261003.json) have zero missing/invalid clips. All 4,150 existing manifest mappings are preserved, and all 5,305 final manifest paths exist in the frozen clean package. Source test gate: 164/164, lint and build pass. The [complete candidate identity](qa-evidence/batch2-complete-candidate-identity-20261003.json) is local only.
 
@@ -139,14 +143,14 @@ Independent narrow production [Puzzle geometry QA](qa-evidence/puzzle-mobile-con
 
 The accepted count remains **4/26**. Sky narrated-fact runtime passes its bounded native playback/held fact/active Back checks at both widths; complete-corpus Sky mute/Keep playing checks also pass locally at both widths. Monster packaged runtime controls pass their bounded checks at both widths. Independent editorial review then reproduced invisible/repeated Spot magnifier hints; those are being repaired before acceptance. See the [current gate matrix](batch2-remaining-gates-20261003.md). Root's audio input is unsupported, so [human listening](batch2-listening-review-20261003.md) remains explicitly pending. No later local source or packaged audio has been deployed to canonical production; final audio/mechanics production regression deltas and independent editorial scoring still gate Batch 2.
 
-## Batch 3 isolated implementation started — 3 October 2026
+### Batch 3 isolated implementation started — 3 October 2026
 
 The Batch 2 runtime candidate is frozen at83149d for independent final controls; human listening and canonical production acceptance are pending. To continue the full26-game objective, Count the Stars, Letter Trace, Cosmic Tic-Tac-Toe and Dino Detective now have a separate implementation branch, `codex/amari-batch3-quality-20261003`, based on974cf18. Luna builders own the four components and data; root owns routing/collection integration. Root's initial route ownership checks pass2/2: Amari games own their chapter flow, while Askia counting retains exact4/5/5targets and3/5/7bounds. New components are being built; the incomplete branch is not a build-pass, browser, release or4.5claim. Batch2source/preview/profiles remain isolated.
 
-## Functional production release — 3 October 2026
+### Functional production release — 3 October 2026
 
 Batch 2 runtime repairs are now canonical production at `3cdfc426e91b46a855448690278ceb6590280b68`, deployment `dpl_Yw6eFRkrTbgF7b9hw2oyUdSXJA9W`. Vercel reports READY production with the canonical alias assigned, and the served JS/CSS hashes match frozen runtime `83149d` exactly. See [production identity](qa-evidence/batch2-functional-production-identity-20261003.json). Final independent production Playwright controls are in progress; human listening and final editorial acceptance remain pending. This supersedes older current-release statements while preserving their historical evidence. Accepted count remains 4/26. Batch 3 stays isolated and unreleased.
 
-## Batch 3 candidate and Batch 4 preparation — 3 October 2026
+### Batch 3 candidate and Batch 4 preparation — 3 October 2026
 
 The separate Batch 3 branch has a frozen local candidate `7c79f47154d97f877858bd3d5124c37cf23bb5e6` passing 198/198 tests, lint and build. Independent Luna reviewers are exercising its four games at desktop and 390px. Narration packaging/runtime wiring and all production/editorial acceptance remain pending; it is not deployed. The next four games now have a [concrete arithmetic and time implementation plan](batch4-arithmetic-time-implementation-plan-20261003.md), based on a source audit. Plans alone leave their status not started. Counts remain 4 accepted, 8 in progress, 14 not started.
