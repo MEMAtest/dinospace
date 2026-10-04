@@ -1,0 +1,66 @@
+{
+  "candidate": "Amari Memory Match eight-face illustration update",
+  "sourceSha": "ee38737b1bbb2dbfc7a158c796ea1f18289f40df",
+  "sourceBranch": "codex/amari-batch7-quality-20261003",
+  "frozenDist": "tmp/batch7-memory-premium-ee38737/dist",
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build",
+    "result": "pass",
+    "indexHtmlSha256": "4ccba8ca1e4b162496e85c0187189a121af98c2d3bc7bfb469e9a1619b5e53b6",
+    "javascript": {
+      "path": "assets/index-C0iIS2aw.js",
+      "sha256": "aa14481c0e7d9e88cf1f290f9c98bff4c7fd926976bbd1584b1517a3a7bc946b"
+    },
+    "stylesheet": {
+      "path": "assets/index-DjnU_ouj.css",
+      "sha256": "82f0502380f5be8bc50f3fb50da2db24bfc899e6765dc345cf107458c9473726"
+    },
+    "warnings": [
+      "Browserslist data is nine months old.",
+      "The existing main application and SolarSystem chunks exceed 500 kB."
+    ]
+  },
+  "sourceGates": {
+    "focusedTests": "pass: node --test test/memoryMatchContent.test.mjs test/batch7Progress.test.mjs (9/9)",
+    "lint": "pass: npm run lint",
+    "productionConfigBuild": "pass",
+    "memoryIllustrationInventory": {
+      "uniqueTokens": 87,
+      "illustrated": 15,
+      "missing": 72,
+      "report": "docs/qa-evidence/batch7-memory-premium-art-inventory-20261004.json"
+    }
+  },
+  "builderBrowserChecks": {
+    "profile": "fresh isolated local browser profile; requests to /api/voice and /api/story guarded before navigation",
+    "viewport": "390x844 CSS pixels",
+    "reducedMotion": "emulated; Memory card transition resolved to 0.00001s",
+    "chapterSelector": "All ten chapter pills visible across two rows; each measured 54x48 CSS pixels; document scroll width 390px",
+    "dailyMissionOverlay": "not present during active Memory gameplay",
+    "deferredFaceImages": "No face images mounted while Level 1 is face down; flipping one card mounted one face image",
+    "renderedNewFaces": [
+      "dog and fox on Forest",
+      "egg and volcano on Dinosaur Discovery",
+      "ringed planet, moon, comet and satellite on space boards"
+    ],
+    "cardSize": "82x82 CSS pixels; face images were visible and paired with their existing matching accessible card names",
+    "screenshots": "Builder-only screenshots remain in ignored .playwright-cli; they are not independent acceptance evidence."
+  },
+  "behaviorPreservation": {
+    "boardTokensAndPairCounts": "unchanged; all ten authored levels remain covered by test/memoryMatchContent.test.mjs",
+    "progressKeysAndPassport": "unchanged",
+    "askiaRendering": "unchanged branch and card rendering path",
+    "newAssets": 8,
+    "deferredImages": "Amari art images are mounted only when a card is face up."
+  },
+  "externalAndAcceptanceGates": {
+    "providerGeneration": "none",
+    "deployment": "none",
+    "childDataMutation": "none",
+    "independentBrowserReview": "pending",
+    "humanVisualReview": "pending",
+    "audioCertification": "not performed; packaged narration coverage remains separately inventoried and incomplete",
+    "premiumIllustrationGate": "open: 72 of 87 unique Amari card tokens still lack matching illustrations",
+    "gameQualityScore": "not assigned"
+  }
+}
