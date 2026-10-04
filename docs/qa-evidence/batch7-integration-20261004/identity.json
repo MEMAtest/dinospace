@@ -1,0 +1,29 @@
+{
+  "candidate": "Canonical Batch 7 Memory and Solar integration; builder freeze, independent integration review pending",
+  "sourceCommit": "c4db1d4b3e469bf71409ec7d859a05a2c7fa9301",
+  "sourceBranch": "codex/amari-batch7-integration-20261004",
+  "baseCommit": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+  "integratedBatch7Runtime": "b6976948cf61147491e3658a5ce2e249a91bca09",
+  "builtWith": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build:android",
+  "buildEnvironment": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "origin": "http://127.0.0.1:5372",
+  "frozenDist": "tmp/batch7-integration-c4db1d4/dist",
+  "filesServed": 5963,
+  "hashMatches": 5963,
+  "hashFailures": 0,
+  "servedManifest": "tmp/batch7-integration-c4db1d4/served-manifest.json",
+  "servedManifestSha256": "097d9e2262161c15fa8832bc39c51e021fcfcfedd76addd0f394684c16e49584",
+  "httpVerification": "tmp/batch7-integration-c4db1d4/http-verification.json",
+  "primaryBundles": {
+    "index.html": "1f147cbe2b47d9a501fdc384f5b9fd094481becf523df50b340b9011e66da822",
+    "assets/index-eATcoIE3.js": "1c6f54d25d4a63774f8dda2c68995452afb0044f6bf3a149421bea9bf8905fb3",
+    "assets/index-DCVyJgNQ.css": "6e0e6d0c3c5b57fcc471c22285300c15ee14d66596c86dceda2020a7a2564e77",
+    "assets/web-DzK_mapn.js": "54a060643849f135c2903747e10c74d04b48f817475d7cbf949996a3827f2285",
+    "assets/SolarSystem-CA0tDDN0.js": "09a61bf4d809573fe48c6a340037f31c8436f8b9779aed4485199f3828a41237"
+  },
+  "scope": "Builder integration, configured build, and served-file identity only. Separate independent integration UI review, audio readiness/listening, release, and production checks remain open."
+}
