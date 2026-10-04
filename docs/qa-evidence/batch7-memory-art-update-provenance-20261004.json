@@ -1,0 +1,45 @@
+{
+  "scope": "Integrate the eight existing astronomy and Garden/Dino Memory illustrations. Original assets, authored tokens, accessible labels, board arrays, pair counts, progress identifiers and Askia code path remain unchanged.",
+  "inputProvenance": [
+    "docs/qa-evidence/memory-astronomy-art-provenance-20261004.json",
+    "docs/qa-evidence/memory-garden-art-provenance-20261004.json"
+  ],
+  "conversion": {
+    "pipeline": "Pillow: convert to RGBA, proportionally fit within 512x512 using Lanczos, save WebP quality 88, alpha_quality 95, method 6.",
+    "pixelsRetouched": false,
+    "sourcePngsModified": false,
+    "convertedAlphaExtrema": "All eight WebPs retained alpha extrema [0, 255].",
+    "assets": [
+      { "token": "🌍", "label": "Earth", "source": "src/assets/memory-match/earth-v1.png", "sourceSha256": "158300705b07ac48a8bac314488c92f3d3d761cd21868b09d875c2f171554592", "asset": "src/assets/memory-match/earth-v1-card.webp", "sha256": "802b5ba0b35a7e8b8bd9cf8eff5f598c0fd72826d377af3d50ff572dbbbc3a82" },
+      { "token": "🌕", "label": "full moon", "source": "src/assets/memory-match/full-moon-v1.png", "sourceSha256": "9b0fc0c45db4ed1183c3e96b9959d98e6a165c0c2b85138eca49cd749955017d", "asset": "src/assets/memory-match/full-moon-v1-card.webp", "sha256": "d781df0bdd29e05db60c68f86772b276f4f24e3b885d8285dd08aa260f653366" },
+      { "token": "🌑", "label": "new moon", "source": "src/assets/memory-match/new-moon-v1.png", "sourceSha256": "1f66e9ede340e07b2af9fe7a6853416b45fc25a1d35134dce3e8de9923491337", "asset": "src/assets/memory-match/new-moon-v1-card.webp", "sha256": "89e4468bc76493d69a3e5143e5abbacc521ae4004306ed0e5bdb277b14c1c554" },
+      { "token": "☀️", "label": "Sun", "source": "src/assets/memory-match/sun-v1.png", "sourceSha256": "e10d18651c40e84f449607ee2febed3e3b7d04f8ca41e8aa9679fdb26605831b", "asset": "src/assets/memory-match/sun-v1-card.webp", "sha256": "6142c92659f7af17fbcc5d99f17763f962208c4e9c317f104eb5e4e78ed27d77" },
+      { "token": "🌱", "label": "seedling", "source": "src/assets/memory-match/seedling-v1.png", "sourceSha256": "852f5879bdd47a02504d08a0e46ef41e28760e64e45515d0b1851eca4f54f015", "asset": "src/assets/memory-match/seedling-v1-card.webp", "sha256": "00feb9ae26329e93a66fd837190de9598bca6c63588cb068eca5e314b574fc60" },
+      { "token": "🌳", "label": "tree", "source": "src/assets/memory-match/tree-v1.png", "sourceSha256": "a272427a5c9dba58685af87df95bda45f254cb63ace6e40e0bcc8c05edfedc39", "asset": "src/assets/memory-match/tree-v1-card.webp", "sha256": "c8d3b4456a711df09a6a1f9aa1c9e7ceeb4c0b67c8a7a958ad5e2e4d106e8596" },
+      { "token": "🌿", "label": "leaf", "source": "src/assets/memory-match/leaf-sprig-v1.png", "sourceSha256": "4133f3829a864fa6d152f6201bf6779e47bf9bd35dde5681d0aaf1197c9b6567", "asset": "src/assets/memory-match/leaf-sprig-v1-card.webp", "sha256": "e09ef2b1f919a4d4d4227a8d4641cffe1e28ceaec4f0d7d460b89bc068825ae8" },
+      { "token": "🍄", "label": "mushroom", "source": "src/assets/memory-match/mushroom-v1.png", "sourceSha256": "0035f74a465c5188c5da719aaceb29b7e0569d3ced68c54e68fbfe71b7cdbe6a", "asset": "src/assets/memory-match/mushroom-v1-card.webp", "sha256": "3dd98dc44c9ee13f26c6a8d581a12f57b25657d31113d036d50d157c0755c128" }
+    ]
+  },
+  "builderUiReview": {
+    "viewport": "390x844 CSS pixels",
+    "profile": "fresh isolated Playwright session with /api/voice and /api/story routes mocked before navigation",
+    "progression": "Earned levels 1 through 10 by clicking the real visible Memory cards and enabled Next level controls; later replayed already-unlocked target levels by clicking their real level controls.",
+    "observationMethod": "Read only a card button's accessible name after its face was turned up. No seeded answers, hidden DOM descriptions, application deck data or progress injection were read or used.",
+    "targets": {
+      "astronaut": "Level 8 showed Earth, Sun and Moon pictures with matching accessible names on the 82px cards. Earth remained clearly a globe, and the Sun had eight rays with no face, distinct from Sun with a face.",
+      "garden": "Level 9 names included leaf, seedling and mushroom. At 390px, the three-leaf sprig, two-leaf seedling rooted in soil, and red-capped mushroom were visually distinct.",
+      "dinosaur": "Level 5 names included seedling, tree and leaf. At 390px, seedling shows two leaves and soil; the separate tree art shows a trunk with a broad mature canopy; leaf art is a loose sprig.",
+      "moonPhases": "Level 10 names included moon, full moon and new moon. At 390px, crescent, bright textured full disk, and dark disk with a thin rim were distinguishable."
+    },
+    "layout": { "documentWidth": 390, "viewportWidth": 390, "horizontalOverflow": false },
+    "screenshots": [
+      "docs/qa-evidence/batch7-memory-art-update-images/dinosaur-discovery-390-builder.png",
+      "docs/qa-evidence/batch7-memory-art-update-images/garden-and-pond-390-builder.png",
+      "docs/qa-evidence/batch7-memory-art-update-images/galaxy-moon-phases-390-builder.png",
+      "docs/qa-evidence/batch7-memory-art-update-images/astronaut-mission-390-builder.png"
+    ],
+    "console": "No browser console errors or warnings.",
+    "requests": "No /api/voice or /api/story requests observed; both routes were mocked before navigation."
+  },
+  "acceptance": "Builder checks only. Independent review remains pending. Illustration coverage is partial; no 4.5 score or release claim is made."
+}

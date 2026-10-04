@@ -21,6 +21,14 @@ import ringedPlanetArt from '../../assets/memory-match/ringed-planet-v1-card.web
 import crescentMoonArt from '../../assets/memory-match/crescent-moon-v1-card.webp';
 import cometArt from '../../assets/memory-match/comet-v1-card.webp';
 import satelliteArt from '../../assets/memory-match/satellite-v1-card.webp';
+import earthArt from '../../assets/memory-match/earth-v1-card.webp';
+import fullMoonArt from '../../assets/memory-match/full-moon-v1-card.webp';
+import newMoonArt from '../../assets/memory-match/new-moon-v1-card.webp';
+import sunArt from '../../assets/memory-match/sun-v1-card.webp';
+import seedlingArt from '../../assets/memory-match/seedling-v1-card.webp';
+import treeArt from '../../assets/memory-match/tree-v1-card.webp';
+import leafSprigArt from '../../assets/memory-match/leaf-sprig-v1-card.webp';
+import mushroomArt from '../../assets/memory-match/mushroom-v1-card.webp';
 import memoryCoachArt from '../../assets/little/askia-detective.webp';
 import './memoryMatch.css';
 import { buildSeededMemoryDeck, memoryStrategy, readMemoryPassport, completeMemoryBoard } from '../../data/batch7Progress.js';
@@ -50,6 +58,14 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/crescent-moon-v1-card.webp': crescentMoonArt,
   'memory-match/comet-v1-card.webp': cometArt,
   'memory-match/satellite-v1-card.webp': satelliteArt,
+  'memory-match/earth-v1-card.webp': earthArt,
+  'memory-match/full-moon-v1-card.webp': fullMoonArt,
+  'memory-match/new-moon-v1-card.webp': newMoonArt,
+  'memory-match/sun-v1-card.webp': sunArt,
+  'memory-match/seedling-v1-card.webp': seedlingArt,
+  'memory-match/tree-v1-card.webp': treeArt,
+  'memory-match/leaf-sprig-v1-card.webp': leafSprigArt,
+  'memory-match/mushroom-v1-card.webp': mushroomArt,
   'little/detective-bronto.webp': brontoArt,
   'little/detective-trex.webp': trexArt,
   'little/fuel-rocket.webp': rocketArt,
