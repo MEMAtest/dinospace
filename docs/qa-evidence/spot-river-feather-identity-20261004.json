@@ -1,0 +1,54 @@
+{
+  "createdAt": "2026-10-04T05:52:32.162970+00:00",
+  "sourceSha": "9ddfb4f738584002bf20d0bf67f758c48237812a",
+  "origin": "http://127.0.0.1:5322",
+  "frozenDist": "tmp/spot-river-feather/dist",
+  "scope": "Soft SVG mask per bounded edit region over unchanged A;13Spot tests,scopedlint,configuredbuild pass. Visual seams/unintended changes independent QA pending;no release/acceptance. Prior5320/5321 retained.",
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "f979f997ff621fe8e71a471f4b401eafa84b2aaf1ff10916941d4c88dce11e7a"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-HlkVByF4.js",
+      "bytes": 18854,
+      "sha256": "2daa86569598efb6e3756711dcbd45af38c5ce0fb842d49ed0f4b0659f680cec"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-CSWHn89X.js",
+      "bytes": 19956,
+      "sha256": "b4846d94818c876b1edd49d0db2b8055806f96a4d7dd01191c92cd46cc392aaa"
+    },
+    {
+      "path": "/assets/SolarSystem-CzzO86jb.js",
+      "bytes": 563158,
+      "sha256": "94ebdc6721c7e792f20e9f96486d741da839350c63127bbf7633b61aed77fcf9"
+    },
+    {
+      "path": "/assets/index-AXS4OFKu.js",
+      "bytes": 1239618,
+      "sha256": "cb0a8dae81f0468f5b94c3005a1622a2ca13b2fe7b28b845548effb7fc969d45"
+    },
+    {
+      "path": "/assets/web-BgmcLZsa.js",
+      "bytes": 842,
+      "sha256": "c0249ee7f110ed1c0fe7f190ffe0c5cedb51b1d9a971a4081d5e32c1178ed38c"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/river-valley-pair-b-v1-BvZSBbF5.webp",
+      "bytes": 353174,
+      "sha256": "9b254a872bf0d3d01489333ae7da8dd5aba52f04c3e4c367c3b12a66eb9ead5b"
+    },
+    {
+      "path": "/assets/dino-river-3d-DS1Pw89d.webp",
+      "bytes": 415714,
+      "sha256": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8"
+    }
+  ]
+}

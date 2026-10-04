@@ -186,3 +186,9 @@ Root read Spot canonical report `2c052ab`: all 12 scenes completed at both width
 The raw River prototype `0246a5c` at5320 is rejected: independent review found unintended dinosaur/background changes. Root repaired composition in `bff12e2`: unchanged original A plus three bounded edit regions. Frozen5321 retains19 focused test, lint and build passes; independent seam/unwanted-change and control QA is pending. One middle-area hint still needs packaged audio. Prepared City/Dino Park/Moon Camp edited originals in `1d2d691` are not runtime-integrated and do not yet have visual acceptance. All old evidence/origins remain preserved.
 
 PID18781 remains live. Run126 at05:46:54 UTC reports **3,390 pending**, zero retries and expected request-window wait. No paid worker restarted. Overall status remains **4 recorded accepted,22 in progress**.
+
+### River seam rejection and crawler handoff
+
+Independent5321 checks confirmed the hard sky patch edge at desktop and390px. Pointer targets, hints, misses, held fact, Next, reload and9hashes pass; visual acceptance is rejected. Root implemented soft SVG masks in `9ddfb4f`, froze5322 and saved identity.13Spot tests, scopedlint and configured build pass. Independent visual/control delta is underway; no release or acceptance.
+
+Root reviewed crawler builder report `f5a789e`, source `4f6d481`, frozen5319: normal earnedLevels1–8 and completeGarden17pairs atboth widths,82pxmobile captions/face-down/reload/guards/hash/console pass.15focusedtests/lint/buildpass. Builder art inventory is72/87; independent review is assigned. The last independently checked package remainsFood68/87. Next four vehicle illustrations are assigned to the Luna builder. All26contracts remain published;4recordedaccepted/22inprogress.

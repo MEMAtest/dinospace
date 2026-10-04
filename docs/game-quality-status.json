@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T05:48:43.003474+00:00",
+  "updatedAt": "2026-10-04T05:56:40.393936+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -638,11 +638,24 @@
     "sourceSha": "bff12e2025a3d45b123a23a7f838d36500772a0e",
     "origin": "http://127.0.0.1:5321",
     "identity": "docs/qa-evidence/spot-river-regions-identity-20261004.json",
-    "scope": "Original A base plus3clipped sky/flower/bridge edit regions;19focusedtests/scopedlint/build pass. Independent visible seams/unintended changes and actual controls pending. One middle-area hint missing packaged narration. Local only; no release/4.5 acceptance."
+    "scope": "Independent desktop/mobile controls passed but VISUAL REJECTED: hard sky rectangle seam at75percentwidth persists atbothsizes. Other scopedtargets/hints/miss/heldfact/Next/reload/hash/guards/console pass. Preserve5321 failure lineage;notaccepted."
   },
   "spotStarterPreparedArt": {
     "commit": "1d2d691",
     "provenance": "docs/qa-evidence/spot-starter-three-art-provenance-20261004.json",
     "scope": "City/DinoPark/MoonCamp original edited PNGs retained unchanged with encoding-only WebP derivatives. Not wired into runtime; integration waits for bounded-region visual acceptance. Full-image redraws are not accepted."
+  },
+  "spotFeatheredRegionPrototype": {
+    "sourceSha": "9ddfb4f",
+    "origin": "http://127.0.0.1:5322",
+    "identity": "docs/qa-evidence/spot-river-feather-identity-20261004.json",
+    "scope": "Soft SVG masks blend edges inside3boundedclips over unchangedoriginalA.13Spot tests/scopedlint/configuredbuildpass. Independent actualvisual and desktop390controlQA underway. Missinghint/audio and broader8scene repair remain open;no release/4.5."
+  },
+  "memoryGardenCrawlersCandidate": {
+    "sourceSha": "4f6d48122e65d861e73bb2ff0d7e446b845521e9",
+    "commit": "f5a789ebcff694af4b3200363332346ff64669dc",
+    "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-identity-20261004.json",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-report-20261004.md",
+    "scope": "Builder normalearned1-8/fullGarden17pairsbothwidths,82pxmobile/captions/face-down/reload/hash/guards/console pass;15focusedtests/lint/buildpass. Builderinventory72/87; independent assignedpending. LastindependentlyverifiedartFood68/87. Noaudio/production/4.5."
   }
 }
