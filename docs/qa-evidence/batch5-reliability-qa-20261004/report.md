@@ -33,14 +33,24 @@ All five served identity assets were freshly fetched from 5255 and SHA-256 match
 ### Odd One Out — desktop 1280×800
 
 - Completed Chapter 1 “Picture Groups” through normal controls. The first run included wrong item and reason choices, retries, and hints. The map showed Badge earned, `Best: ★`, and Chapter 2 unlocked.
-- Replayed Chapter 1 with fresh visible puzzles, using hints and retries. The chapter still showed `Best: ★`; completing the replay did not increase the best or grant a duplicate chapter badge. This is desktop same-band no-extra-credit evidence.
+- Replayed Chapter 1 with fresh visible puzzles, using hints and retries. The chapter still showed `Best: ★`; completing the replay did not increase the best or grant a duplicate chapter badge. This is desktop same-band no-extra-credit evidence. A later bounded follow-up below then improved this best through ordinary UI.
 - Reloaded the Odd One Out route with handlers installed. Badge, `Best: ★`, Chapter 2 unlock, and selected Chapter 2 remained in the map. No claim is made that individual question answers or hint states are stored across reloads.
-- A higher-scoring Odd One Out replay was not performed; positive best-star delta is demonstrated for Colour Mixing only.
+- The bounded follow-up below includes a higher-scoring desktop replay, improving the chapter best from ★ to ★★★. No claim is made about per-question history persisting across reloads.
 
 ### Odd One Out — mobile 390×844
 
 - Completed Chapter 1 “Picture Groups” with visible semantic choices and reasons. Two rounds used the one-use hint; the resulting map showed Badge earned, `Best: ★★`, and Chapter 2 unlocked.
-- Reload preserved the Badge, `Best: ★★`, and Chapter 2 unlock. This is a fresh mobile completion/persistence delta, not a mobile replay or full 3×6 matrix.
+- Reload preserved the Badge, `Best: ★★`, and Chapter 2 unlock. This is a fresh mobile completion/persistence delta, not a full 3×6 matrix. A later mobile replay at the same profile's ★★★ cap kept that best unchanged; see below.
+
+### Bounded follow-up, 4 October 2026
+
+A separate fresh Playwright CLI session began at `about:blank`. `/api/voice` and `/api/story` route handlers were installed before the first app navigation, and `route-list` confirmed both handlers before and after navigation. Sound was muted through the visible control and remained muted for this session. This session did not reload the page.
+
+- **Desktop Odd One Out:** From the visible Amari UI, completed Chapter 1 with a wrong item/reason and retry plus a hint. The map showed `Best: ★`. Replayed using the visible “Replay with new puzzles” control and answered the visible challenges correctly. The chapter best rose to `Best: ★★★` (+2 best stars); Chapter 2 was unlocked and no duplicate badge appeared. Screenshots: [before replay](screenshots/desktop-oddoneout-low-best-before-replay-followup.png) and [after replay](screenshots/desktop-oddoneout-best-three-after-replay-followup.png).
+- **Mobile Odd One Out, 390×844:** In the same profile, replayed the chapter after the desktop run had already reached the ★★★ cap. The first visible item was answered incorrectly, the game showed its retry guidance, and the correct visible choice was then selected; the remaining visible questions were completed through UI controls. The map remained `Best: ★★★`; home showed three global stars. This is an equal-best capped replay observation, not evidence of sibling isolation or a mobile positive best delta. Screenshot: [mobile result](screenshots/mobile-oddoneout-best-three-after-replay-followup.png).
+- **Bounded scope:** A mobile higher-best Odd One Out replay was not attempted because this profile was already at the three-star maximum. Mobile Colour Mixing same-band/equal-or-lower/higher replay remains untested. No fresh profile was created to fill a viewport/replay cross-product.
+- **Identity and runtime checks:** Frozen source remained `99ed1955131bd53b9738264edcde4e2091ad6e5e`; all five served identity assets returned 200 and matched their frozen SHA-256 values. Static request inspection showed 10 successful static requests and no dynamic API requests. The two route handlers remained listed after navigation. Browser console had zero messages, errors, or warnings.
+- No hidden state, storage, seed, answer, or progress injection/read was used; no provider call, narration playback, or listening judgment was made.
 
 ### Sibling-profile isolation — limited observation
 
@@ -61,9 +71,9 @@ No narration was played or judged. Existing missing packaged audio remains a sep
 | Colour Mix equal/lower replay no extra best | Pass desktop | Mobile replay untested |
 | Colour Mix positive best-star delta | Pass desktop, ★→★★★ (+2) | Mobile delta untested |
 | Odd One Out Badge/best/unlock reload | Pass desktop and mobile | Per-question history is not claimed persisted |
-| Odd One Out equal/lower replay | Pass desktop; Best remains ★ | Mobile replay and higher-best replay untested |
+| Odd One Out equal/lower replay | Desktop first replay ★→★; follow-up replay ★→★★★ (+2); mobile capped replay remained ★★★ | Mobile higher-best delta not separately tested; no per-question persistence claim |
 | Sibling separation | Visible Amari/Askia global star display remained 3 vs 0 | Does not establish B5 collection/palette/rule isolation |
-| Voice/story safety and console | Guard callbacks installed before first nav; zero dynamic API requests; zero console errors/warnings | Playwright route-list was empty after reload, so no continuous interception claim |
+| Voice/story safety and console | Earlier sessions: guards reinstalled before reload, no dynamic API requests. Follow-up: both guards installed before first navigation and remained listed; no dynamic API requests; zero console messages/errors/warnings | Earlier reload sessions do not claim continuous interception; the follow-up did not reload |
 | Audio and 4.5 acceptance | Not accepted | Human listening and remaining mandatory audio evidence are still open |
 
 This is a reliability delta, not full Batch 5 or 4.5 acceptance. Do not convert untested cells into passes.
@@ -73,3 +83,6 @@ This is a reliability delta, not full Batch 5 or 4.5 acceptance. Do not convert 
 - [`desktop-oddoneout-equal-replay-best-star.png`](screenshots/desktop-oddoneout-equal-replay-best-star.png) — completed replay map, Best remains one star.
 - [`mobile-colour-palette-after-reload.png`](screenshots/mobile-colour-palette-after-reload.png) — saved recipes, chapter badge/best and next chapter visible after reload.
 - [`mobile-oddoneout-progress-after-reload.png`](screenshots/mobile-oddoneout-progress-after-reload.png) — Badge, Best, and Chapter 2 unlock after reload.
+- [`desktop-oddoneout-low-best-before-replay-followup.png`](screenshots/desktop-oddoneout-low-best-before-replay-followup.png) — desktop chapter at one-star best before the clean replay.
+- [`desktop-oddoneout-best-three-after-replay-followup.png`](screenshots/desktop-oddoneout-best-three-after-replay-followup.png) — desktop best rises to three stars after replay.
+- [`mobile-oddoneout-best-three-after-replay-followup.png`](screenshots/mobile-oddoneout-best-three-after-replay-followup.png) — mobile replay at the profile's three-star cap.
