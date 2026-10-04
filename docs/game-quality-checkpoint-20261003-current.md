@@ -376,3 +376,12 @@ The authorized narration worker, PID 18781, is live at run 170 with 2,747 lines 
 Independent report `da983b7` verifies seven depicted-object changes and seven direct Picture B taps at 1280px and 390px on frozen source `b7b9f10`. Root read the report and inspected normal desktop/mobile screenshots. The report records misses, hints, held fact, Next, parent return, reload persistence and all 15 served hashes. No badges, obvious seams, color spill or residual worm body were observed. This closes the Robin local visual delta; it does not certify audio, production or the overall 4.5 bar.
 
 A narrow 390px audit of actionable control sizes and states is assigned on the same frozen candidate. The small numbered progress indicators are noninteractive spans; their size is not an interactive-target failure.
+
+
+## Confirmed Sky mobile entry defect and candidate repair — 4 October
+
+The independent canonical check reproduced a clipped Sky entry state at 390px on `c478`: the Start button lies below the map fold at y=1084; a normal click scrolls to it, then the new flight retains scrollY=62. Back and sound end up at y=-42. Scrolling upward recovers them. This contradicts clean mobile entry acceptance, despite the controls themselves meeting 48px. The canonical finding and crop/control report are being preserved.
+
+Luna implemented `4fcb80d`: a phase-to-play layout effect resets window scroll immediately, without changing queues, missions or scores. File-scoped lint and configured production build pass. Frozen5357 has 16 runtime/art identities; an independent mobile transition and desktop regression check is assigned. This candidate is unreleased.
+
+Independent Spot audit `f3c9935` measures map, active, held fact/replay and leave controls at390px: all actionable targets meet48px and document width remains390px. Small numbered indicators are noninteractive. The retained earned profile does not re-measure locked chapter selectors.

@@ -1,0 +1,89 @@
+{
+  "createdAt": "2026-10-04T09:47:11.656892+00:00",
+  "sourceSha": "4fcb80d34bb2e9cfdb587f40ec61f44a6ae75f55",
+  "origin": "http://127.0.0.1:5357",
+  "frozenDist": "tmp/sky-entry-scroll-repair/dist",
+  "scope": "Sky internal map-to-play transition resets window scroll before paint. Includes unchanged independently reviewed Robin/Nature/World art. Scoped lint and production-config build pass. Independent transition regression pending; no release/overall4.5 acceptance.",
+  "files": [
+    {
+      "path": "/assets/AmariCountTheStars-BYm06Bop.js",
+      "bytes": 18854,
+      "sha256": "e608ed408dd1222b6ddc01be44bb1a15a9c4f7d696d442fc9e4cb0885e43d17c"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-BQocO7D_.js",
+      "bytes": 19956,
+      "sha256": "3d355af297b7ee735b41672958fef520b380f85dccac8b258023f30886ebb23e"
+    },
+    {
+      "path": "/assets/SolarSystem-BTaRdxEo.js",
+      "bytes": 563158,
+      "sha256": "791cf0e00372c292d8a7b883391219ddf66aed3af59f0731cd4717ebcccbbfcb"
+    },
+    {
+      "path": "/assets/history-artifacts-a-v1-C8Vpi_9u.webp",
+      "bytes": 493680,
+      "sha256": "33725a924c5e3a8abcdea59b15eabe1007c1a09d3b279c602dfbc9ac908d2401"
+    },
+    {
+      "path": "/assets/history-artifacts-b-v1-DDMoz3YU.webp",
+      "bytes": 456304,
+      "sha256": "b9291087e9e91c65aacfbc288b11ed3b321f12aa37660418dfabfdd790102fb7"
+    },
+    {
+      "path": "/assets/index-CCiowOYE.js",
+      "bytes": 1260182,
+      "sha256": "816cdbbdb15aaf6f6b4af78705fd38ca670c9004dfea62b01d76eef9c340640d"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/nature-lab-leaves-3d-DDByeZD_.webp",
+      "bytes": 424104,
+      "sha256": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20"
+    },
+    {
+      "path": "/assets/nature-lab-leaves-3d-variant-b-CXJZfOks.webp",
+      "bytes": 484288,
+      "sha256": "b5facad979d38fc8576f29c7592a640d5d68eacfc1276f36ffb515eb2abdaf11"
+    },
+    {
+      "path": "/assets/robin-physical-b-v1-BTnMGf7t.webp",
+      "bytes": 501260,
+      "sha256": "ae3305296bb3627b115d7cd5516e90c878356bae299c6899fb3095c2611c1eab"
+    },
+    {
+      "path": "/assets/robin-tree-3d-C6X3IbOn.webp",
+      "bytes": 407546,
+      "sha256": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932"
+    },
+    {
+      "path": "/assets/web-CJQiTnnT.js",
+      "bytes": 842,
+      "sha256": "a46d74366464e1dcccad370db5a4768ab45fc2e4e368fd4c564d289ba3b3c146"
+    },
+    {
+      "path": "/assets/world-explorer-map-3d-BiOIYdoV.webp",
+      "bytes": 411940,
+      "sha256": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23"
+    },
+    {
+      "path": "/assets/world-physical-b-v1-DAEPy57E.webp",
+      "bytes": 483148,
+      "sha256": "ced84c32d3d38c12c3fe932d0fa33b842a814dca4c399b4bd3bf5ae727045af9"
+    },
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "ae66b4e668cb8448d6ac9ad891e6fb9de47d88d0dace6a2385e54568e853aa2f"
+    },
+    {
+      "path": "/sw.js",
+      "bytes": 199772,
+      "sha256": "5170f692612bcbb0f0e8c6ff3cb5b88b802c8ccf124deda7d99f321b9f0cfd5f"
+    }
+  ]
+}

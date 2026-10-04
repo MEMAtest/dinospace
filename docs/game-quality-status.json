@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T09:23:58.000703+00:00",
+  "updatedAt": "2026-10-04T09:48:21.730534+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -884,7 +884,9 @@
     "status": "independent local visual and gameplay delta passed; not production/4.5",
     "scope": "Seven depicted-object changes and direct Picture B taps passed at1280px and390px. Root read the full report and inspected normal desktop/mobile screenshots. Miss, hints, held fact, Next, parent navigation, reload and15 served hashes are recorded. No badges, obvious seams or spill observed. Separate390px actionable-control measurements are underway. No narration, production or4.5 acceptance.",
     "independentReport": "docs/qa-evidence/spot-robin-physical-5356-review-20261004/report.md",
-    "evidenceCommit": "da983b7"
+    "evidenceCommit": "da983b7",
+    "controlAudit": "docs/qa-evidence/spot-robin-physical-5356-review-20261004/control-size-audit.md",
+    "controlAuditScope": "Independent390px map/active/held/replay/leave actionable controls meet48px, document390px withnooverflow. Numbered indicators noninteractive. Retained earned profile doesnot cover freshlockedselector state."
   },
   "batch2BoundedGateAudit": {
     "report": "docs/qa-evidence/batch2-bounded-gate-audit-20261004/report.md",
@@ -897,5 +899,13 @@
     "scope": "87 tokens,127 authored contexts,89 unchanged assets. The99 earlier focused contexts and28 followup contexts have scoped rendered review. Root read13debe2 report and inspected normal390px Space,Party and Astronaut boards. Combined evidence closes this art-context coverage gap; it does not certify narration, production or overall4.5 quality.",
     "followupReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-28-context-closeout-20261004/report.md",
     "followupCommit": "13debe2"
+  },
+  "skyEntryScrollRepair": {
+    "canonicalSource": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
+    "finding": "At390px normal below-fold Start click leaves scrollY62 and Back/sound y=-42; upwardscroll recovers. Independent reproduction received, report being saved.",
+    "candidateSource": "4fcb80d34bb2e9cfdb587f40ec61f44a6ae75f55",
+    "identity": "docs/qa-evidence/sky-entry-scroll-repair-identity-20261004.json",
+    "origin": "http://127.0.0.1:5357",
+    "scope": "Phase-to-play immediate window scroll reset only; no queue or scoring changes. Scopedlint/configuredbuildpass. IndependentlocaltransitionQAassigned, unreleased; not4.5acceptance."
   }
 }
