@@ -200,3 +200,15 @@ test('Moon Camp edits original object surfaces with three nonoverlapping reachab
     for (const other of centers.slice(index + 1)) assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
   }
 });
+
+test('City original-surface changes retain three separated in-frame targets', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === 'spot-1');
+  assert.equal(scene.pairedArt, true);
+  assert.equal(scene.imageB, undefined);
+  assert.equal(scene.colorEdits.length, 3);
+  const centers = scene.differences.map(({ x, y }) => ({ x: x * 2.8, y: y * 2.1 }));
+  for (const [index, center] of centers.entries()) {
+    assert.ok(center.x >= 28 && center.x <= 252 && center.y >= 28 && center.y <= 182);
+    for (const other of centers.slice(index + 1)) assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
+  }
+});

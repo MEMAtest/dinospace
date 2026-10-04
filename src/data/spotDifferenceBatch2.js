@@ -108,7 +108,18 @@ const makeScene = (chapterIndex, sceneIndex, title, image, alt, fact, pair = nul
 };
 
 export const SPOT_DIFFERENCE_SCENES = Object.freeze([
-  makeScene(0, 0, 'Superhero City', city, 'A colourful city with friendly heroes', 'People help their community by sharing and caring for the places where they live.'),
+  makeScene(0, 0, 'Superhero City', city, 'A colourful city with friendly heroes', 'People help their community by sharing and caring for the places where they live.', {
+    colorEdits: [
+      { shape: 'path', d: 'M65.4 19.0 C66.5 17.8 67.3 15.5 70.3 14.5 C72.1 13.8 73.8 14.5 74.3 15.8 C72.0 16.0 71.5 17.4 71.5 19.3 C71.6 21.5 70.9 22.6 68.3 23.3 L65.3 22.2 Z', hue: 45 },
+      { shape: 'path', d: 'M18.0 23.4 C18.5 20.0 20.1 18.2 22.2 18.2 C24.6 18.2 26.1 20.2 26.5 23.4 L24.0 22.8 L22.5 21.9 L20.4 22.7 Z', hue: 210 },
+      { shape: 'path', d: 'M66.8 73.6 L75.3 73.6 L76.1 78.3 L66.1 78.3 L66.1 75.2 Z', hue: 125 },
+    ],
+    differences: [
+      Object.freeze({ id: 'city-cape', label: 'the flying hero cape changed colour', normalVisual: 'scene:red-cape', visual: 'scene:gold-cape', x: 70, y: 18, radius: 8 }),
+      Object.freeze({ id: 'city-dome', label: 'the tower dome changed colour', normalVisual: 'scene:red-dome', visual: 'scene:blue-dome', x: 22, y: 21, radius: 8 }),
+      Object.freeze({ id: 'city-awning', label: 'the shop awning changed colour', normalVisual: 'scene:red-awning', visual: 'scene:green-awning', x: 71, y: 76, radius: 8 }),
+    ],
+  }),
   makeScene(0, 1, 'Dino Park', dinoPark, 'Friendly dinosaurs in a sunny park', 'Fossils are clues that help scientists learn about dinosaurs.'),
   makeScene(0, 2, 'River Valley', dinoRiver, 'A dinosaur beside a sparkling river', 'A clean river gives plants and animals a place to find fresh water.', {
     imageB: dinoRiverB,
