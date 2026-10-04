@@ -1,3 +1,5 @@
+import { PHASE_SOUNDS } from './learningProgress.js';
+
 export const LITERACY_PROFILE_KEY = 'amari_child_learning_profile_v1';
 export const WRITING_SAMPLES_KEY = 'amari_writing_samples_v1';
 
@@ -7,7 +9,8 @@ export const PHASE_GROUPS = [
   { id: 'phase3', label: 'Phase 3', graphemes: ['j', 'v', 'w', 'x', 'y', 'z', 'zz', 'qu', 'ch', 'sh', 'th', 'ng', 'ai', 'ee', 'igh', 'oa', 'oo', 'ar', 'or', 'ur', 'ow', 'oi', 'ear', 'air', 'er'] },
 ];
 
-export const DEFAULT_TAUGHT_GRAPHEMES = PHASE_GROUPS[0].graphemes;
+// Match the Phase 2 selection shown by Grown-ups before a profile is saved.
+export const DEFAULT_TAUGHT_GRAPHEMES = PHASE_SOUNDS[2];
 
 export const getTaughtGraphemes = () => {
   let profile = {};

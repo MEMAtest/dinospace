@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { getLearningProfile } from '../src/data/learningProgress.js';
+import { getEligibleSpellingWords } from '../src/data/batch5LiteracyPools.js';
 import {
   DEFAULT_TAUGHT_GRAPHEMES,
   LITERACY_PROFILE_KEY,
@@ -26,6 +28,17 @@ test('uses the canonical selectedSounds profile field', () => {
 test('falls back safely when profile storage is unavailable or invalid', () => {
   globalThis.localStorage = makeStorage({ [LITERACY_PROFILE_KEY]: '{bad json' });
   assert.deepEqual([...getTaughtGraphemes()], DEFAULT_TAUGHT_GRAPHEMES);
+});
+
+test('fresh Phase 2 settings and spelling eligibility agree without a settings save', () => {
+  const storage = makeStorage();
+  globalThis.localStorage = storage;
+  const shownSettings = getLearningProfile(storage);
+  const taught = [...getTaughtGraphemes()];
+  assert.equal(shownSettings.activePhase, 2);
+  assert.deepEqual(taught, shownSettings.selectedSounds);
+  assert.ok(getEligibleSpellingWords(1, taught).length >= 20);
+  assert.equal(getEligibleSpellingWords(2, taught).length, 0);
 });
 
 test('Phase 3 words require their complete grapheme set', () => {
