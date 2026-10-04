@@ -184,7 +184,9 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
       <span aria-hidden="true" className="text-2xl">→</span>
       <div role="group" aria-label={locked ? `Remaining tray, ${question.answer} ${question.answer === 1 ? question.one : question.many}` : 'Empty remaining tray'} className="min-w-24 rounded-2xl border-2 border-dashed border-violet-500 bg-violet-50 p-3">
         <b>Remaining</b>
-        <div className="mt-1 flex max-w-56 flex-wrap gap-1" aria-hidden="true">{locked && Array.from({ length: question.answer }, (_, i) => <span key={i} className={`h-5 w-5 rounded-full ${colorClass[question.color] || colorClass.teal}`} />)}</div>
+        <div className="mt-1 flex min-h-7 max-w-56 flex-wrap items-center gap-1" aria-hidden="true">
+          {locked && question.answer === 0 ? <span className="text-sm font-black text-violet-900">0 (empty)</span> : locked && Array.from({ length: question.answer }, (_, i) => <span key={i} className={`h-5 w-5 rounded-full ${colorClass[question.color] || colorClass.teal}`} />)}
+        </div>
       </div>
     </div>;
   }, [question, locked, motion]);
