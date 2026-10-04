@@ -1,0 +1,9 @@
+- generic [ref=f5e407]:
+  - button "Back to home" [ref=f5e409] [cursor=pointer]
+  - generic [ref=f5e413]:
+    - img "Pattern shapes" [ref=f5e415]
+    - heading "Pattern Parade" [level=1] [ref=f5e427]
+    - paragraph [ref=f5e428]: "Level 1 of 3: Two take turns"
+    - paragraph [ref=f5e429]: Find what comes next in a two-colour pattern.
+    - generic "4 to finish" [ref=f5e430]
+    - button "Play Pattern Parade level 1" [ref=f5e435] [cursor=pointer]

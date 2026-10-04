@@ -1,0 +1,30 @@
+- main [ref=f3e731]:
+  - generic [ref=f3e732]:
+    - button "Back" [ref=f3e733] [cursor=pointer]
+    - generic [ref=f3e736]:
+      - heading "Dino Hangman" [level=1] [ref=f3e737]
+      - paragraph [ref=f3e738]: Rescue a word
+    - button "Turn sound on" [ref=f3e739] [cursor=pointer]
+  - generic [ref=f3e1090]:
+    - heading "Choose a word rescue" [level=2] [ref=f3e1091]
+    - paragraph [ref=f3e1092]: Choose a chapter. Finish each one to open the next.
+    - generic [ref=f3e1093]:
+      - button "🏅 Same word ending Find words that share the same ending. ★★★" [ref=f3e1094] [cursor=pointer]:
+        - generic [ref=f3e1095]: 🏅
+        - generic [ref=f3e1096]:
+          - strong [ref=f3e1097]: Same word ending
+          - generic [ref=f3e1098]: Find words that share the same ending.
+        - generic [ref=f3e1099]: ★★★
+      - button "🧩 Picture-clue rescue Use a picture clue to build a word with sounds you have learned. ☆☆☆" [ref=f3e1100] [cursor=pointer]:
+        - generic [ref=f3e1101]: 🧩
+        - generic [ref=f3e1102]:
+          - strong [ref=f3e1103]: Picture-clue rescue
+          - generic [ref=f3e1104]: Use a picture clue to build a word with sounds you have learned.
+        - generic [ref=f3e1105]: ☆☆☆
+      - button "🌟 Independent rescue Finish the chapter before this one ☆☆☆" [disabled] [ref=f3e1106]:
+        - generic [ref=f3e1107]: 🌟
+        - generic [ref=f3e1108]:
+          - strong [ref=f3e1109]: Independent rescue
+          - generic [ref=f3e1110]: Finish the chapter before this one
+        - generic [ref=f3e1111]: ☆☆☆
+    - button "Back to games" [ref=f3e1112] [cursor=pointer]

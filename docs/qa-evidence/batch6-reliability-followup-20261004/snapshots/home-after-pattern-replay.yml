@@ -1,0 +1,103 @@
+- generic [ref=f3e308]:
+  - banner [ref=f3e309]:
+    - button "Amari is playing. Tap to change player" [ref=f3e310] [cursor=pointer]:
+      - generic [ref=f3e312]: Amari
+    - generic [ref=f3e313]:
+      - generic [ref=f3e314]: ⭐ 11
+      - generic [ref=f3e315]: 🔥 1 day
+      - button "Turn sound on" [ref=f3e316] [cursor=pointer]
+  - generic [ref=f3e321]:
+    - img "Amari the astronaut with a friendly learning robot" [ref=f3e322]
+    - generic [ref=f3e323]:
+      - heading "Hi Amari!" [level=2] [ref=f3e324]
+      - paragraph [ref=f3e325]: 🧑‍🚀 Space Cadet · 14 stars to Star Collector
+      - generic [ref=f3e326]:
+        - generic [aria-hidden] [ref=f3e327]: 🏆
+        - generic [ref=f3e328]:
+          - paragraph [ref=f3e329]: Daily challenge
+          - paragraph [ref=f3e330]: Solve 3 patterns
+          - progressbar "Daily challenge progress" [ref=f3e331]
+  - region [ref=f3e333]:
+    - heading "Choose a world" [level=2] [ref=f3e334]
+    - generic [ref=f3e335]:
+      - button [ref=f3e336] [cursor=pointer]:
+        - img "Read & Write icon" [ref=f3e339]
+        - strong [ref=f3e350]: Read & Write
+        - generic [ref=f3e351]:
+          - text: 6 games
+          - generic [aria-hidden] [ref=f3e352]: →
+      - button [ref=f3e353] [cursor=pointer]:
+        - img "Maths Missions icon" [ref=f3e356]:
+          - img [aria-hidden] [ref=f3e357]:
+            - generic [ref=f3e358]:
+              - generic [ref=f3e360]: "2"
+              - generic [ref=f3e365]: "5"
+              - generic [ref=f3e371]: +
+        - strong [ref=f3e372]: Maths Missions
+        - generic [ref=f3e373]:
+          - text: 8 games
+          - generic [aria-hidden] [ref=f3e374]: →
+      - button [ref=f3e375] [cursor=pointer]:
+        - img "Explore & Languages icon" [ref=f3e378]
+        - strong [ref=f3e389]: Explore & Languages
+        - generic [ref=f3e390]:
+          - text: 5 games
+          - generic [aria-hidden] [ref=f3e391]: →
+      - button [ref=f3e392] [cursor=pointer]:
+        - img "Creative Lab icon" [ref=f3e395]
+        - strong [ref=f3e410]: Creative Lab
+        - generic [ref=f3e411]:
+          - text: 5 games
+          - generic [aria-hidden] [ref=f3e412]: →
+      - button [ref=f3e413] [cursor=pointer]:
+        - img "Thinking & Play icon" [ref=f3e416]
+        - strong [ref=f3e426]: Thinking & Play
+        - generic [ref=f3e427]:
+          - text: 8 games
+          - generic [aria-hidden] [ref=f3e428]: →
+  - region [ref=f3e429]:
+    - generic [ref=f3e430]:
+      - generic [ref=f3e431]:
+        - heading "Today’s practice" [level=2] [ref=f3e432]
+        - paragraph [ref=f3e433]: Three quick games · about 8 minutes
+      - button "▶ Start" [ref=f3e434] [cursor=pointer]
+    - generic [ref=f3e435]:
+      - button "Step 1 Sound Safari" [ref=f3e436] [cursor=pointer]:
+        - generic [ref=f3e449]:
+          - generic [ref=f3e450]: Step 1
+          - strong [ref=f3e451]: Sound Safari
+      - button "Step 2 Addition Adventure" [ref=f3e452] [cursor=pointer]:
+        - img [ref=f3e455]:
+          - img [aria-hidden] [ref=f3e456]:
+            - generic [ref=f3e461]: +
+        - generic [ref=f3e467]:
+          - generic [ref=f3e468]: Step 2
+          - strong [ref=f3e469]: Addition Adventure
+      - button "Step 3 Pattern Parade" [ref=f3e470] [cursor=pointer]:
+        - generic [ref=f3e485]:
+          - generic [ref=f3e486]: Step 3
+          - strong [ref=f3e487]: Pattern Parade
+  - region [ref=f3e488]:
+    - heading "Play again" [level=2] [ref=f3e489]
+    - generic [ref=f3e490]:
+      - button [ref=f3e491] [cursor=pointer]:
+        - generic [ref=f3e506]:
+          - strong [ref=f3e507]: Pattern Parade
+          - text: ↺ Recent
+      - button [ref=f3e508] [cursor=pointer]:
+        - generic [ref=f3e522]:
+          - strong [ref=f3e523]: Astronaut Academy
+          - text: ↺ Recent
+      - button [ref=f3e524] [cursor=pointer]:
+        - generic [ref=f3e533]:
+          - strong [ref=f3e534]: Dino Hangman
+          - text: ↺ Recent
+      - button [ref=f3e535] [cursor=pointer]:
+        - generic [ref=f3e547]:
+          - strong [ref=f3e548]: Chess Explorers
+          - text: ↺ Recent
+  - navigation "More" [ref=f3e549]:
+    - button "Stickers" [ref=f3e550] [cursor=pointer]:
+      - generic [aria-hidden] [ref=f3e551]: 🏅
+      - text: Stickers
+    - button "Grown-ups" [ref=f3e552] [cursor=pointer]

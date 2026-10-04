@@ -1,0 +1,30 @@
+- main [ref=f3e3]:
+  - generic [ref=f3e4]:
+    - button "Back" [ref=f3e5] [cursor=pointer]
+    - generic [ref=f3e8]:
+      - heading "Pattern Parade" [level=1] [ref=f3e9]
+      - paragraph [ref=f3e10]: Festival of patterns
+    - button "Turn sound off" [ref=f3e11] [cursor=pointer]
+  - generic [ref=f3e17]:
+    - heading "Choose a pattern chapter" [level=2] [ref=f3e18]
+    - paragraph [ref=f3e19]: Choose a chapter. Finish each one to open the next.
+    - generic [ref=f3e20]:
+      - 'button "🏅 Repeat it Repeat it: spot the two-part or three-part unit. ★★★" [ref=f3e21] [cursor=pointer]':
+        - generic [ref=f3e22]: 🏅
+        - generic [ref=f3e23]:
+          - strong [ref=f3e24]: Repeat it
+          - generic [ref=f3e25]: "Repeat it: spot the two-part or three-part unit."
+        - generic [ref=f3e26]: ★★★
+      - 'button "🧩 Change the rule Change the rule: follow colours, sounds and growing steps. ☆☆☆" [ref=f3e27] [cursor=pointer]':
+        - generic [ref=f3e28]: 🧩
+        - generic [ref=f3e29]:
+          - strong [ref=f3e30]: Change the rule
+          - generic [ref=f3e31]: "Change the rule: follow colours, sounds and growing steps."
+        - generic [ref=f3e32]: ☆☆☆
+      - button "🌟 Growing festival Finish the chapter before this one ☆☆☆" [disabled] [ref=f3e33]:
+        - generic [ref=f3e34]: 🌟
+        - generic [ref=f3e35]:
+          - strong [ref=f3e36]: Growing festival
+          - generic [ref=f3e37]: Finish the chapter before this one
+        - generic [ref=f3e38]: ☆☆☆
+    - button "Back to games" [ref=f3e39] [cursor=pointer]
