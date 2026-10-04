@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T10:09:03.821350+00:00",
+  "updatedAt": "2026-10-04T10:23:00Z",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -925,7 +925,10 @@
     "url": "https://dinospace-51fgt6ny5-memas-projects-23a0001d.vercel.app",
     "identity": "docs/qa-evidence/sky-spot-production-candidate-identity-20261004.json",
     "archiveProof": "docs/qa-evidence/sky-entry-clean-archive-match-20261004.json",
-    "scope": "Clean tracked runtime archive.16/16 servedbytes/hashmatch localfrozen5357. Canonical remainsc478. Livecombined12Spot,Skyphaseonly andPuzzleDinoParktitle deltas assigned. Monster/API/progress/audio/Appunchanged pergitdiff. Nooverall4.5orlisteningacceptance."
+    "scope": "Clean tracked runtime archive;16/16 served byte/hash matches. Canonical remains c478. Independent live combined12Spot and Sky phase-entry deltas passed; root read full Spot report and reviewed all12 normal390 A/B pairs. Puzzle title delta and adjacent reported repeat are being reconciled through fresh retained same-session play. Monster unchanged runtime exposes reproducible clipped390 entry and is being repaired. No promotion, overall4.5 or listening acceptance.",
+    "spotReport": "docs/qa-evidence/spot-production-candidate-20261004/report.md",
+    "skyReport": "docs/qa-evidence/sky-entry-scroll-production-qa-20261004/report.md",
+    "releaseHold": "Monster mobile entry crop confirmed; Puzzle adjacent repeat observation under reproduction. Hold canonical promotion until repairs and source-bound independent deltas."
   },
   "batch2CurrentIndependentWorksheet": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md"
 }

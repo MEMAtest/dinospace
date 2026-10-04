@@ -403,3 +403,12 @@ Source comparison c478→4f shows only Spot artwork/renderer/data, the Sky phase
 Root read the updated independent four-game worksheet `a1e70a8`. It retains historical scores and leaves new scores unassigned. The contract permits retained full baselines plus source-bound regression deltas; a new SHA alone does not require replaying every unchanged mechanic. The new combined Spot art does require a single integrated production review, now assigned.
 
 Narration PID18781 remains live at run176, with2663 lines pending, zero cooldown retries, and last generation successful. It is waiting for the normal shared request window; no restart or additional paid job.
+
+
+## Staged live review and adjacent findings — 4 October
+
+Root read independent consolidated Spot report `c82524a` and reviewed all twelve normal390px A/B pairs. All16 served hashes match the immutable4f candidate; ordinary visible controls completed all three four-picture chapters at both widths. Images decoded before captures. No detached badges or obvious mask spill was observed. The report explicitly retains direct-picture-coordinate tests under their earlier local identities; it makes no listening or4.5 award. Independent Sky staged report `1068b93` passes natural below-fold Start, Keep playing, restart and saved replay at both widths.
+
+Canonical remains c478. The Monster390 audit reproduced an adjacent unchanged-runtime entry crop: Counting starts at scrollY37 with Back/sound y=-17, and Growing at scrollY151 with Back/sound y=-131. Upward scrolling recovers them. Minimal phase-entry repair is assigned with retained visible prompt/result rows. Puzzle title QA observed Moon Camp at Picture4of4 after an asserted earlier Moon Camp; source inspection shows an immutable distinct-ID queue. A fresh same-session visible Starter run is assigned to reconcile the observation before any speculative source change. Promotion is held pending these functional findings and source-bound QA.
+
+Narration PID18781 is live at run180, lastgeneration12/reused2560/pending2609, zero cooldown retries and expected shared-window wait. No restart or additional paid worker. All26 instructions remain published; recorded acceptance count remains4, with22 in progress.
