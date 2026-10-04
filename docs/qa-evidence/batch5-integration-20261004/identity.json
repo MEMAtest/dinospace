@@ -1,0 +1,51 @@
+{
+  "scope": "Four Amari Batch 5 chapter games integrated into the current shared application; local-only candidate",
+  "builtAt": "2026-10-04",
+  "sourceBranch": "codex/amari-batch5-integration-20261004",
+  "sourceCommit": "b198dbf49a5023e1b50181a9ef2a3eabd4c80a35",
+  "baseCommit": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+  "gameSourceCommit": "a7790ea9c8611d4152da6e660cb46bd02511ac7a",
+  "buildCommand": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story ./node_modules/.bin/vite build --outDir tmp/batch5-integration-20261004/dist",
+  "buildEnvironment": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "candidateUrl": "http://127.0.0.1:5368/",
+  "frozenDirectory": "tmp/batch5-integration-20261004/dist",
+  "serverBind": "127.0.0.1",
+  "servedAssetCount": 5879,
+  "servedHashManifest": "docs/qa-evidence/batch5-integration-20261004/served-assets-sha256.txt",
+  "servedHashVerification": {
+    "checked": 5879,
+    "httpErrors": 0,
+    "sha256Mismatches": 0,
+    "indexStatus": 200,
+    "result": "pass"
+  },
+  "keyAssets": {
+    "assets/index-BtXmNbIK.js": "6aa1df07be18555938b2435da89d597085ce1c3beb54f06e34a6058d78c7dd59",
+    "assets/SolarSystem-BjbEj8c9.js": "fbea4e1961f30b65627263517f6ec2fbb47a8f042e50cf64f9923478dcc48884",
+    "assets/web-CJ5_35FP.js": "4ff8e90cfdee7743dd33a0ce5eb8f79522ef54d6dc372075fc4e8e5045af47b8",
+    "assets/index-WxyBCWUX.css": "3868b0277ac29c2e2f48a3b3199d7d6e56149d8e6d6c93f3222f93a6409c1111"
+  },
+  "integratedComponents": {
+    "src/components/games/AmariColorMixingLab.jsx": "dfe0dd256002effc729c23dc4c6976ff771355f37809cac00b584260805e6110",
+    "src/components/games/AmariOddOneOut.jsx": "1187afc68ce4787f56260c9c1f7c014ef4a19862863c49b4e1f0d0db593bc566",
+    "src/components/games/AmariSoundSafari.jsx": "975ec23641a0686630188d4e644b2d6bb3b882f0ed30ce4f759c4a55b0ee1ed9",
+    "src/components/games/AmariSpellingStudio.jsx": "bd80ee469e7c8dffc82d5e341387207fd5e6ff19d6e4734916f631f6cd0ab36b"
+  },
+  "checks": {
+    "focusedBatch5AndOwnershipTests": "24 passed, 0 failed",
+    "sharedDiagnosticsAndLearningTests": "16 passed, 0 failed",
+    "scopedLint": "passed",
+    "productionConfigBuild": "passed"
+  },
+  "audioReadiness": {
+    "literacyNarration": { "uniqueClips": 659, "ready": 11, "pending": 648 },
+    "purePhonemeClips": { "required": 37, "ready": 0, "pending": 37 },
+    "reasoningNarration": { "uniqueClips": 310, "ready": 23, "pending": 287 },
+    "scope": "Read-only manifest/file-presence inventory; not decode, playback or human listening"
+  },
+  "releaseStatus": "not approved; independent UI QA and audio gates remain open; not deployed"
+}
