@@ -1,0 +1,39 @@
+{
+  "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+  "origin": "http://127.0.0.1:5381",
+  "candidateDist": "/tmp/batch3-dino-fact-e2aee30/dist",
+  "buildCommand": "npm run build:android",
+  "servedFileCount": 5879,
+  "hashMatches": 5879,
+  "hashFailures": 0,
+  "primaryBundles": {
+    "assets/index-BHZ5oHUE.js": "d23cc1e1cf023becc25a89d156159a1405b7edac9b15e7afe652ef5e4889a51f",
+    "assets/index-vOQrpuVv.css": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+    "assets/web-Bhnm7b4q.js": "8e70108723e8ee6e106f4821ee6598f573ea4476cc60debc09bf6957d059765d",
+    "index.html": "13cc38977ca79c73ec69f5e4637f648309658da3e457686fb059931b953fc1c8"
+  },
+  "sourceFile": {
+    "path": "src/data/dinoDetectiveBatch3.js",
+    "gitBlobAtCandidate": "124ea15e934afde6f4ae68ba00357ff4e333469e"
+  },
+  "browserQA": {
+    "viewports": [
+      "1280x800",
+      "390x844"
+    ],
+    "voiceGuardBeforeFirstAppNavigation": {
+      "status": 403,
+      "body": "QA guard: no voice provider call"
+    },
+    "storyGuardBeforeFirstAppNavigation": {
+      "status": 403,
+      "body": "QA guard: no story provider call"
+    },
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "browserStaticHttpErrors": 0,
+    "providerRequestsEscaped": 0,
+    "audioControlsActivated": 0,
+    "guardsStillActiveAfterAppNavigationAndReload": true
+  }
+}
