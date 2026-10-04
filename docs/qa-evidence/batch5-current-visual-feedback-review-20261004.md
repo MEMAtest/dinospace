@@ -2,7 +2,7 @@
 
 Date: 4 October 2026  
 Candidate reviewed: local frozen integration `http://127.0.0.1:5368/`, source `b198dbf49a5023e1b50181a9ef2a3eabd4c80a35`.  
-Identity: [`batch5-integration-20261004/identity.json`](batch5-integration-20261004/identity.json), including served file hashes and integrated component hashes.
+Identity: [`batch5-integration-20261004/identity.json`](../../../dinospace-batch5-integration/docs/qa-evidence/batch5-integration-20261004/identity.json), including served file hashes and integrated component hashes.
 
 This is a visual and visible-feedback follow-up for Sound Safari, Spelling Studio, Colour Mixing Lab and Odd One Out. It does not assign a combined feedback/audio/visual score, an overall score, or release acceptance. No new gameplay matrix or provider request was performed.
 

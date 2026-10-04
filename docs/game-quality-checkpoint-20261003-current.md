@@ -666,3 +666,10 @@ Root read and preserved the [independent integrated score worksheet](qa-evidence
 ## 4 October B4 and B6 current independent score reconciliation
 
 Root read and imported [B4 current review](qa-evidence/batch4-current-editorial-reconciliation-20261004.md) and [B6 independent review](qa-evidence/batch6-current-integration-independent-review-20261004.md), keeping the B6 builder-overlap worksheet separately attributed. Each of these eight games supports four provisional non-audio components at 4.5. B6 mobile screenshots were reviewed for sequence priority, readable Hangman tiles, active-piece Chess guidance and held Astronaut fact/diagram; no new visual repair was found in those samples. Audio, human listening and production gates remain open. These recommendations do not change the recorded 4/26 accepted count.
+
+
+## 4 October visual review: concrete repair work
+
+Root inspected retained Count/Trace/Number Line mobile screenshots and found the solar-panel counting motif showed two panel wings per counted object. Isolated source e067 on canonical0d now draws one bounded panel; configuredbuild/scopedlint/threeprimaryhashes pass, and ordinary independent QA is assigned on5387. No data,narrationkey,score or difficulty changed.
+
+Independent [B5 visual review](qa-evidence/batch5-current-visual-feedback-review-20261004.md) found ambiguous platform-emoji SoundSafari pictures; controlled-art inventory/build is assigned. Independent [B7 reconciliation](qa-evidence/batch7-editorial-reconciliation-20261004.md) keeps Solar teaching at4.0 for demanding copy and identifies small late Memory captions; all54 Solar factcopyreview and larger mobilecard repair are assigned. These concrete findings remain release blockers; no overall score or accepted-count change.

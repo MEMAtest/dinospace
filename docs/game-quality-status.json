@@ -1262,7 +1262,9 @@
       "commit": "4794142",
       "report": "https://github.com/MEMAtest/dinospace/blob/4794142/docs/qa-evidence/solar-parent-root-20261004/report.md",
       "scope": "Freshguarded390 ordinarySolarFact6\u2192delayedBack\u2192dialogconfirm returnsExploreworld. Apparentpickerissuewithdrawn, notconfirmeddefect."
-    }
+    },
+    "currentReconciliationReport": "docs/qa-evidence/batch7-editorial-reconciliation-20261004.md",
+    "currentReconciliationDecision": "Memory four non-audio recommendations4.5; Solar teaching4.0 and otherthree4.5. Concrete Solar teaching and Memory caption repairs assigned. Combined feedback/audio/visual unscored and no overall award."
   },
   "editorialCategorisation": {
     "contractsPublished": 26,
@@ -1542,5 +1544,35 @@
     "report": "docs/qa-evidence/b4-zero-remain-5386-20261004-report.md",
     "scope": "The result labels remain fully opaque while only illustrations fade. Independent ordinary two-question run confirms positive and zero held results at desktop and 390px in the same profile. Root reviewed mobile zero screenshot. Retained full mechanics and route baselines still apply; no audio or production acceptance.",
     "independentReport": "docs/qa-evidence/b4-zero-opacity-5386-independent-20261004/report.md"
+  },
+  "currentVisualRepairFindings": {
+    "countingPanel": {
+      "game": "Count the Stars",
+      "canonicalSource": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+      "finding": "Solar panel noun counts one satellite illustration containing two visibly separate panel wings as one panel. One pictured counting object should be one bounded panel.",
+      "candidateSource": "e067e3d389ad2f1ec1a8583535c07edd4b83268e",
+      "origin": "http://127.0.0.1:5387/",
+      "report": "docs/qa-evidence/count-single-panel-art-20261004/builder-report.md",
+      "state": "Component-only candidate built/linted; independent ordinary UI check assigned. Not released. Previous correctness recommendation qualified pending closure."
+    },
+    "soundSafariPictures": {
+      "game": "Sound Safari",
+      "report": "docs/qa-evidence/batch5-current-visual-feedback-review-20261004.md",
+      "finding": "Emoji-only pictured vocabulary varies by platform and contains ambiguous person/beach umbrella glyphs. Controlled semantically exact illustrated assets required.",
+      "state": "Builder audit assigned; separate37purephonemeaudio blocker remains."
+    },
+    "memoryCaptionReadability": {
+      "game": "Memory Match",
+      "report": "docs/qa-evidence/batch7-editorial-reconciliation-20261004.md",
+      "finding": "Late390px six-column board captions too small at captured scale. Increase card/caption readability without reducing18pairs.",
+      "state": "Isolated repair assigned; no release."
+    },
+    "solarTeaching": {
+      "game": "Solar System",
+      "report": "docs/qa-evidence/batch7-editorial-reconciliation-20261004.md",
+      "teachingRecommendation": 4.0,
+      "finding": "Demanding terms/long facts including magnetosphere,methane,sharedcentreofgravity require concise concrete age6 explanations.",
+      "state": "All54factcopyreview/targetedrepair assigned; audio delta and independent UI required."
+    }
   }
 }

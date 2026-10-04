@@ -2,7 +2,7 @@
 
 Date: 2026-10-04  
 Current candidate: source `c4db1d4b3e469bf71409ec7d859a05a2c7fa9301`, integration evidence commit `4e59cd0b8fabd69ff5beeccd87a6d09c49d290c5`, local origin `http://127.0.0.1:5372`  
-Identity: [`batch7-integration-20261004/identity.json`](batch7-integration-20261004/identity.json)
+Identity: [`batch7-integration-20261004/identity.json`](../../../dinospace-batch7-integration/docs/qa-evidence/batch7-integration-20261004/identity.json)
 
 This is a reasoned current-candidate review using the retained full local matrices and bounded source-matched deltas. It preserves the roadmap’s historical 4/5 review baselines. These provisional dimension scores do not change `game-quality-status.json`, do not constitute a production result, and do not claim an overall mean or 4.5 acceptance.
 
