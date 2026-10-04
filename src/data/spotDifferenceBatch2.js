@@ -117,6 +117,11 @@ const DINO_PARK_OUTLINE = Object.freeze([
   [15.7, 28.1], [14.3, 25.1], [12.4, 24.1],
 ].map((point) => Object.freeze(point)));
 
+// Trace in native source pixels: the visual boundary excludes the sky above
+// the crown and the water gaps between the feet. The touch polygon remains
+// generous so a child can select any part of the depicted dinosaur.
+const DINO_PARK_COLOUR_PATH = 'M141 265 C149 261 164 261 176 263 C201 267 220 296 239 338 C257 396 269 485 283 547 C294 579 303 589 319 593 C361 585 394 593 431 608 C481 630 512 657 538 685 C581 731 619 771 650 782 L649 823 C616 821 581 809 546 793 C545 820 557 854 557 888 C556 896 547 899 534 900 L488 900 C481 899 481 890 485 879 C491 868 492 860 488 845 L477 809 C451 810 420 807 397 805 L389 849 L381 871 L350 882 L321 899 L304 901 C302 896 306 884 311 877 L320 856 L324 802 L303 796 C299 817 296 839 294 858 L291 886 C290 897 281 900 270 900 L212 898 C210 891 213 881 220 872 L231 852 L233 726 C221 694 214 642 209 587 L199 478 C194 425 185 386 174 368 C157 376 139 377 120 371 C110 368 110 357 117 353 C103 352 97 348 94 341 C90 329 94 311 103 302 C114 294 125 294 132 285 Z';
+
 export const SPOT_DIFFERENCE_SCENES = Object.freeze([
   makeScene(0, 0, 'Superhero City', city, 'A colourful city with friendly heroes', 'People help their community by sharing and caring for the places where they live.', {
     colorEdits: [
@@ -133,7 +138,7 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
   makeScene(0, 1, 'Dino Park', dinoPark, 'Friendly dinosaurs in a sunny park', 'Fossils are clues that help scientists learn about dinosaurs.', {
     colorEdits: [
       // Colour selection protects the pale underside, eyes and neighbouring plants.
-      { shape: 'path', d: `M${DINO_PARK_OUTLINE.map((point) => point.join(' ')).join(' L')} Z`, hue: 70, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
+      { shape: 'path', d: DINO_PARK_COLOUR_PATH, transform: 'scale(0.06906077348 0.09208103131)', hue: 70, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
       { shape: 'ellipse', cx: 86.5, cy: 14.4, rx: 4.2, ry: 5.7, hue: -30 },
       { shape: 'rect', x: 12.2, y: 87.5, width: 8.8, height: 10.5, hue: 150, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 4 -8 4 0 -0.8' },
     ],
