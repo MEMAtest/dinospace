@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { MEMORY_LEVELS } from '../src/data/index.js';
-import { MEMORY_CARD_ILLUSTRATIONS, MEMORY_CARD_LABELS, MEMORY_STRATEGY_LINES, memoryCardLabel, memoryIllustrationAudit, memoryNarrationLines } from '../src/data/memoryMatchContent.js';
+import { MEMORY_CARD_ILLUSTRATIONS, MEMORY_CARD_CONTEXT_ILLUSTRATIONS, MEMORY_CARD_LABELS, MEMORY_STRATEGY_LINES, memoryCardIllustration, memoryCardLabel, memoryIllustrationAudit, memoryNarrationLines } from '../src/data/memoryMatchContent.js';
 import { memoryStrategy } from '../src/data/batch7Progress.js';
 
 test('the Memory Match redesign preserves all canonical levels and pair counts', () => {
@@ -83,4 +83,24 @@ test('Memory illustration inventory distinguishes each authored crop and reports
   assert.equal(MEMORY_CARD_ILLUSTRATIONS['🐬'].className, 'memory-card-art-image memory-card-art-ocean memory-card-art-dolphin');
   assert.deepEqual(['🍎', '🍌', '🍇', '🍉'].map((emoji) => memoryCardLabel(emoji)), ['apple', 'banana', 'grapes', 'watermelon']);
   assert.ok(audit.some(({ emoji, labels }) => emoji === '🦷' && labels.includes('dinosaur tooth') && !MEMORY_CARD_ILLUSTRATIONS[emoji]));
+});
+
+test('ocean and pond fish use distinct board-specific art while preserving the shared token and labels', () => {
+  assert.deepEqual(Object.keys(MEMORY_CARD_CONTEXT_ILLUSTRATIONS), ['ocean', 'garden']);
+  assert.equal(memoryCardLabel('🐟', 'ocean'), 'fish');
+  assert.equal(memoryCardLabel('🐟', 'garden'), 'pond fish');
+  assert.equal(memoryCardIllustration('🐟', 'ocean')?.asset, 'memory-match/ocean-fish-v1-card.webp');
+  assert.equal(memoryCardIllustration('🐟', 'garden')?.asset, 'memory-match/pond-fish-v1-card.webp');
+  assert.notEqual(memoryCardIllustration('🐟', 'ocean')?.asset, memoryCardIllustration('🐟', 'garden')?.asset);
+  assert.equal(memoryCardIllustration('🐟', 'party'), null);
+  const fishAudit = memoryIllustrationAudit(MEMORY_LEVELS).find(({ emoji }) => emoji === '🐟');
+  assert.deepEqual(fishAudit.illustration.contexts.map(({ levelId, asset }) => [levelId, asset]), [
+    ['ocean', 'memory-match/ocean-fish-v1-card.webp'],
+    ['garden', 'memory-match/pond-fish-v1-card.webp'],
+  ]);
+  for (const [emoji, species, label] of [['🪼', 'jellyfish', 'jellyfish'], ['🦀', 'crab', 'crab'], ['🦑', 'squid', 'squid']]) {
+    assert.equal(memoryCardLabel(emoji, 'ocean'), label);
+    assert.equal(memoryCardIllustration(emoji, 'ocean')?.asset, `memory-match/${species}-v1-card.webp`);
+  }
+  assert.equal(new Set(['🐟', '🪼', '🦀', '🦑'].map((emoji) => memoryCardIllustration(emoji, 'ocean')?.asset)).size, 4);
 });

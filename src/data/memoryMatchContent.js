@@ -63,6 +63,24 @@ export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🍉': Object.freeze({ asset: 'memory-match/watermelon-v1-card.webp' }),
 });
 
+// The same fish token appears on two boards, but it represents distinct
+// species in each setting. Keep those illustrations scoped to their boards.
+export const MEMORY_CARD_CONTEXT_ILLUSTRATIONS = Object.freeze({
+  ocean: Object.freeze({
+    '🐟': Object.freeze({ asset: 'memory-match/ocean-fish-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
+    '🪼': Object.freeze({ asset: 'memory-match/jellyfish-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
+    '🦀': Object.freeze({ asset: 'memory-match/crab-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
+    '🦑': Object.freeze({ asset: 'memory-match/squid-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
+  }),
+  garden: Object.freeze({
+    '🐟': Object.freeze({ asset: 'memory-match/pond-fish-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
+  }),
+});
+
+export function memoryCardIllustration(emoji, levelId) {
+  return MEMORY_CARD_CONTEXT_ILLUSTRATIONS[levelId]?.[emoji] || MEMORY_CARD_ILLUSTRATIONS[emoji] || null;
+}
+
 export function memoryCardLabel(emoji, levelId) {
   return CONTEXTUAL_LABELS[levelId]?.[emoji] || MEMORY_CARD_LABELS[emoji] || 'unlabelled card';
 }
@@ -90,12 +108,22 @@ export function memoryIllustrationAudit(levels) {
   const usages = new Map();
   levels.forEach((level) => level.emojis.forEach((emoji) => {
     if (!usages.has(emoji)) usages.set(emoji, []);
-    usages.get(emoji).push({ levelId: level.id, label: memoryCardLabel(emoji, level.id) });
+    usages.get(emoji).push({
+      levelId: level.id,
+      label: memoryCardLabel(emoji, level.id),
+      illustration: memoryCardIllustration(emoji, level.id),
+    });
   }));
-  return [...usages.entries()].map(([emoji, boards]) => ({
-    emoji,
-    labels: [...new Set(boards.map(({ label }) => label))],
-    boards: boards.map(({ levelId }) => levelId),
-    illustration: MEMORY_CARD_ILLUSTRATIONS[emoji] || null,
-  })).sort((a, b) => a.emoji.localeCompare(b.emoji));
+  return [...usages.entries()].map(([emoji, boards]) => {
+    const globalIllustration = MEMORY_CARD_ILLUSTRATIONS[emoji] || null;
+    const contextualIllustrations = boards.map(({ levelId, illustration }) => ({ levelId, ...illustration }));
+    const contextComplete = contextualIllustrations.every(({ asset }) => Boolean(asset));
+    return {
+      emoji,
+      labels: [...new Set(boards.map(({ label }) => label))],
+      boards: boards.map(({ levelId }) => levelId),
+      illustration: globalIllustration || (contextComplete ? { contexts: contextualIllustrations } : null),
+      illustrationsByBoard: contextualIllustrations,
+    };
+  }).sort((a, b) => a.emoji.localeCompare(b.emoji));
 }

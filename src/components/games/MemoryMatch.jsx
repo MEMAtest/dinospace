@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Sparkles, Star, Volume2 } from 'lucide-react';
 import { MEMORY_LEVELS } from '../../data/index.js';
-import { memoryCardLabel, MEMORY_CARD_ILLUSTRATIONS } from '../../data/memoryMatchContent.js';
+import { memoryCardLabel, memoryCardIllustration, MEMORY_CARD_ILLUSTRATIONS, MEMORY_CARD_CONTEXT_ILLUSTRATIONS } from '../../data/memoryMatchContent.js';
 import { getPraise, loadSaved, saveSafe } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { getGameLevel, nextGameLevelIndex, saveGameLevel } from '../../data/sessionLevels.js';
@@ -37,6 +37,11 @@ import appleArt from '../../assets/memory-match/apple-v1-card.webp';
 import bananaArt from '../../assets/memory-match/banana-v1-card.webp';
 import grapesArt from '../../assets/memory-match/grapes-v1-card.webp';
 import watermelonArt from '../../assets/memory-match/watermelon-v1-card.webp';
+import jellyfishArt from '../../assets/memory-match/jellyfish-v1-card.webp';
+import crabArt from '../../assets/memory-match/crab-v1-card.webp';
+import squidArt from '../../assets/memory-match/squid-v1-card.webp';
+import oceanFishArt from '../../assets/memory-match/ocean-fish-v1-card.webp';
+import pondFishArt from '../../assets/memory-match/pond-fish-v1-card.webp';
 import memoryCoachArt from '../../assets/little/askia-detective.webp';
 import './memoryMatch.css';
 import { buildSeededMemoryDeck, memoryStrategy, readMemoryPassport, completeMemoryBoard } from '../../data/batch7Progress.js';
@@ -82,6 +87,11 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/banana-v1-card.webp': bananaArt,
   'memory-match/grapes-v1-card.webp': grapesArt,
   'memory-match/watermelon-v1-card.webp': watermelonArt,
+  'memory-match/jellyfish-v1-card.webp': jellyfishArt,
+  'memory-match/crab-v1-card.webp': crabArt,
+  'memory-match/squid-v1-card.webp': squidArt,
+  'memory-match/ocean-fish-v1-card.webp': oceanFishArt,
+  'memory-match/pond-fish-v1-card.webp': pondFishArt,
   'little/detective-bronto.webp': brontoArt,
   'little/detective-trex.webp': trexArt,
   'little/fuel-rocket.webp': rocketArt,
@@ -95,6 +105,14 @@ const AMARI_CARD_ART = Object.fromEntries(Object.entries(MEMORY_CARD_ILLUSTRATIO
     ? { type: 'sprite', className: `memory-card-art-sprite memory-card-art-${art.crop}` }
     : { type: 'image', src: MEMORY_ASSET_BY_PATH[art.asset], className: art.className || 'memory-card-art-image' },
 ]));
+const AMARI_CONTEXT_CARD_ART = Object.fromEntries(Object.entries(MEMORY_CARD_CONTEXT_ILLUSTRATIONS).map(([levelId, cards]) => [
+  levelId,
+  Object.fromEntries(Object.entries(cards).map(([emoji, art]) => [
+    emoji,
+    { type: 'image', src: MEMORY_ASSET_BY_PATH[art.asset], className: art.className || 'memory-card-art-image' },
+  ])),
+]));
+const amariCardArt = (emoji, levelId) => AMARI_CONTEXT_CARD_ART[levelId]?.[emoji] || AMARI_CARD_ART[emoji];
 
 const cardName = (emoji, levelId) => memoryCardLabel(emoji, levelId);
 const spokenCardName = (emoji, levelId) => cardName(emoji, levelId);
@@ -252,6 +270,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   const renderCard = (card, index) => {
     const isFaceUp = card.flipped || card.matched;
+    const art = memoryCardIllustration(card.emoji, level.id) ? amariCardArt(card.emoji, level.id) : null;
     return (
       <div key={card.id} style={{ perspective: '900px' }}>
         <button
@@ -283,10 +302,10 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                 ? <img src={ASKIA_CARD_ART[card.emoji]} alt="" draggable="false" />
                 : card.emoji === '⭐️'
                   ? <Star aria-hidden="true" className="memory-little-star-art" fill="currentColor" />
-              : card.emoji) : isFaceUp ? <><span className="memory-card-art" aria-hidden="true">{AMARI_CARD_ART[card.emoji]
-                ? AMARI_CARD_ART[card.emoji].type === 'image'
-                  ? <img className={AMARI_CARD_ART[card.emoji].className} src={AMARI_CARD_ART[card.emoji].src} alt="" draggable="false" decoding="async" />
-                  : <span className={AMARI_CARD_ART[card.emoji].className} style={{ backgroundImage: `url("${safariAnimalsArt}")` }} />
+              : card.emoji) : isFaceUp ? <><span className="memory-card-art" aria-hidden="true">{art
+                ? art.type === 'image'
+                  ? <img className={art.className} src={art.src} alt="" draggable="false" decoding="async" />
+                  : <span className={art.className} style={{ backgroundImage: `url("${safariAnimalsArt}")` }} />
                 : card.emoji}</span><span className="memory-card-label" aria-hidden="true">{cardName(card.emoji, level.id)}</span></> : null}
             </div>
           </div>
