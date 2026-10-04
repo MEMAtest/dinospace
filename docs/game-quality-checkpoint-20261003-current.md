@@ -360,3 +360,12 @@ RootwiderRobin5353screenshotinspection foundallseven goldbadge overlays despite 
 Batch2read-onlyaudit `b7ec97a` confirmsremainingexact2+10case isnaturallyeligible, plusPuzzleportrait2x2/wide3x3crop and390control-state evidence gaps. AssignedfinitecanonicalPlaywrightchecks: up to60normalGrowingMonster runs, no seed/stateinjection; Puzzlecroppairs andPuzzle/Skycontrolclass/state measurements withretainedfullbaseline. Physicalhandsetcertification isnot anadditionalmandatoryscope.
 
 Memorycoverage `2e3c9b0` root-read:87tokens/127authoredcontextplacements/89assetsmatch7fand1410; onlyAppsound preferencechangedbetween.99contexts hadfocusedartreview;28usedfullrunrenderedevidence. Independentfollowup `13debe2` nowreviews/captures those28contexts normally; rootfullreportreviewstillrequired beforeclaimingthatboundedvisualscopeclosed. No narration/production/editorial4.5claim.
+
+
+## Root evidence reconciliation — 4 October
+
+Root read the complete5355 Nature/World report and inspected normal390px A/B screenshots: seven native object changes remain visible at that width. The retained independent direct-picture taps and navigation/persistence results close these specific local visual repairs, without audio or production acceptance.
+
+Root read13debe2 Memory28-context report and inspected normal390px Space,Party and Astronaut boards. Together with earlier99 focused contexts, all127 authored placements now have scoped rendered review against the unchanged87-token/89-asset candidate. This closes the art-context evidence gap only; packaged narration, listening, production and editorial scoring remain separate.
+
+Authorized narration worker18781 is live at run170, with2747 lines pending and zero cooldown retries; last generation succeeded and the worker is waiting for its normal request window. No job restarted.

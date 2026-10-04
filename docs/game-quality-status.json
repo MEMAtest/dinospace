@@ -855,7 +855,7 @@
     "origin": "http://127.0.0.1:5355",
     "identity": "docs/qa-evidence/spot-nature-world-mask-repair-identity-20261004.json",
     "status": "independent local delta passed; not production/4.5",
-    "scope": "5354 observed first leaf/seedling clipping and partial explorer-tool hue concerns repaired.24focused tests/lint/configured build pass. Independent rendered exact7/bothwidth/directpicturedtap QA pending; no audio/production/4.5.",
+    "scope": "Independent 5355 review verifies seven visible physical-object changes and seven direct picture taps per scene at desktop and 390px, plus miss, hints, held fact, Next, parent navigation, reload and all14 identity hashes. Root read full report and inspected normal mobile A/B screenshots. Local delta only; no audio, production or 4.5 acceptance.",
     "independentReport": "docs/qa-evidence/spot-nature-world-5355-review-20261004/report.md",
     "evidenceCommit": "314121f"
   },
@@ -892,6 +892,8 @@
   "memoryVisualCoverageReconciliation": {
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-visual-coverage-reconciliation-20261004/report.md",
     "coverageCommit": "2e3c9b0",
-    "scope": "87tokens/127contexts/89unchangedassets.99focusedcontexts plus28broadfullruncontexts nowhaveexplicitfollowup13debe2; rootfullfollowupreportreviewpending. Notaudio/prod/overallscore."
+    "scope": "87 tokens,127 authored contexts,89 unchanged assets. The99 earlier focused contexts and28 followup contexts have scoped rendered review. Root read13debe2 report and inspected normal390px Space,Party and Astronaut boards. Combined evidence closes this art-context coverage gap; it does not certify narration, production or overall4.5 quality.",
+    "followupReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-28-context-closeout-20261004/report.md",
+    "followupCommit": "13debe2"
   }
 }
