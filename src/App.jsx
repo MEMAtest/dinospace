@@ -34,10 +34,11 @@ import { getGame } from './gameCatalog.jsx';
 const BONUS_GAME_IDS = new Set(BONUS_GAME_ID_LIST);
 const MAX_RECENT_GAMES = 4;
 const SOUND_PREFERENCE_KEY = 'amari-sound-on';
+const AMARI_CHAPTER_GAME_IDS = new Set(['pattern', 'hangman', 'chess', 'astronaut']);
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
 // after this long, a "leave the game?" check protects the child's progress.
 const CONFIRM_LEAVE_AFTER_MS = 10000;
-const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino']);
+const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino', ...AMARI_CHAPTER_GAME_IDS]);
 const AmariCountTheStars = lazy(() => import('./components/games/AmariCountTheStars.jsx'));
 const AmariLetterTrace = lazy(() => import('./components/games/AmariLetterTrace.jsx'));
 
@@ -59,7 +60,7 @@ const GameLoading = () => (
 // reloads that child's saved progress.
 const PlayerSession = ({
   player, route, navigate, back, setLeaveGuard, soundOn, onToggleSound, playSfx, speak, voice, installPrompt,
-  grownUpsUnlocked, onUnlockGrownUps, onSwitchPlayer, onBreakRequested,
+  cancelNarration, grownUpsUnlocked, onUnlockGrownUps, onSwitchPlayer, onBreakRequested,
 }) => {
   const little = isLittleExplorer(player);
   const [favouriteGames, setFavouriteGames] = useState(() => loadPlayerValue(player.id, 'favourite_games', []));
@@ -231,6 +232,7 @@ const PlayerSession = ({
   let content;
 
   if (route.name === 'game' && currentGame) {
+    const amariChapterFlow = !little && AMARI_CHAPTER_GAME_IDS.has(currentGame.id);
     const GameComponent = little && currentGame.id === 'dino' ? LittleDinoDetective
       : !little && currentGame.id === 'counting' ? AmariCountTheStars
         : !little && currentGame.id === 'trace' ? AmariLetterTrace
@@ -239,11 +241,14 @@ const PlayerSession = ({
     const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
     const sessionRule = currentGame.little || ownsGameProgression(currentGame.id, little) ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
-      onBack: () => back({ toParent: !little }),
+      onBack: () => {
+        if (amariChapterFlow) cancelNarration();
+        back({ force: amariChapterFlow, toParent: !little });
+      },
       onLaunchGame: launchGame,
       playSfx,
       speak,
-      cancelNarration: voice.cancel,
+      cancelNarration: amariChapterFlow ? cancelNarration : voice.cancel,
       // The older games award 4–14 stars per answer, which emptied the
       // sticker shelf within days; scale them to match the newer games.
       onCelebrate: currentGame.little ? celebrate : scaledCelebrate,
@@ -481,6 +486,7 @@ export default function App() {
       onToggleSound={toggleSound}
       playSfx={playSfx}
       speak={voice.speak}
+      cancelNarration={cancelNarration}
       voice={voice}
       installPrompt={installPrompt}
       grownUpsUnlocked={grownUpsUnlocked}
