@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-04",
+  "url": "https://dinospace-eight.vercel.app",
+  "deploymentId": "dpl_5cKFB6U489CLoEPucaY9pDarcHsp",
+  "auditedRuntimeSource": "40c053408d47ca76ff26cc8ae5c2e8ad9bb99d70",
+  "session": "count-prod-scatter-qa-20261004",
+  "viewports": ["1280x800", "390x844"],
+  "voiceStoryGuards": {"installedBeforeCanonicalNavigation": true, "voiceStatus": 403, "storyStatus": 403, "providerCalls": 0},
+  "soundMutedViaVisibleControl": true,
+  "completedRounds": [
+    {"round": 1, "scene": "Moon Berries", "count": 3, "viewport": "1280x800", "heldCorrectFeedback": true},
+    {"round": 2, "scene": "Comet Seeds", "count": 1, "viewport": "390x844", "arrangement": "scattered one by one"},
+    {"round": 3, "scene": "Rocket Lights", "count": 4, "viewport": "390x844", "arrangement": "rows/array"},
+    {"round": 4, "scene": "Moon Berries", "count": 5, "viewport": "390x844", "arrangement": "rows/array"},
+    {"round": 5, "scene": "Tiny Planets", "count": 5, "viewport": "390x844", "arrangement": "scattered one by one"},
+    {"round": 6, "scene": "Firefly Meadow", "count": 2, "viewport": "390x844", "arrangement": "scattered one by one", "heldCorrectFeedback": true}
+  ],
+  "completion": {"bestStars": 3, "bookProgress": "1/3", "reloadRetained": true, "growingUnlocked": true, "galaxyLocked": true},
+  "parentReturn": "#/world/maths",
+  "console": {"errors": 0, "warnings": 0},
+  "staticRequests": {"count": 18, "allStatus200": true, "countChunk": "AmariCountTheStars-CsClYaHL.js"},
+  "audioClaim": "none; muted; no human listening assessment",
+  "scope": "bounded canonical smoke; retained full candidate matrix remains separate"
+}
