@@ -1,0 +1,49 @@
+{
+  "createdAt": "2026-10-04T07:25:25.478067+00:00",
+  "sourceSha": "aea335f28ba5c0143349baedd43cb44a49be39ea",
+  "origin": "http://127.0.0.1:5351",
+  "frozenDist": "tmp/spot-safari-square-wing/dist",
+  "scope": "Scene-specific square Safari frame preserves original full animal composition instead of cropping parrot. Replaces tiny tail hue with larger left wing feathers hue. Native square masks and five targets remapped. Default4:3 frame/viewheight retained forother scenes.20focusedtests/scopedlint/configuredbuildpass. Independent Safari five-difference unaided390readability/alignment/spill/controls/reload plus narrowdefault4:3 regression needed.5350landscapeand5332renderer scopes remainseparate. Noaudio/production/4.5acceptance.",
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "8fda9e79ad398de819ac4c2dad74c476b159a78956b269f9e614703618976202"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-D8hkr-vx.js",
+      "bytes": 18854,
+      "sha256": "146d2cc9c05cb7f4173e2089f5f3e9e1349e4e56f46de23b32d8875a8b0a5102"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-CrOGJsM-.js",
+      "bytes": 19956,
+      "sha256": "cb120188ec825a4781e651dfab509d05d477de6b8c94d934e4c2cb5b63cfb2b1"
+    },
+    {
+      "path": "/assets/SolarSystem-rTl0NGV2.js",
+      "bytes": 563158,
+      "sha256": "7eeabf33da521d84466c5915072e35525f5be10f3aede0d0101b53305ec1f0d7"
+    },
+    {
+      "path": "/assets/index-UEdeB1Dr.js",
+      "bytes": 1253201,
+      "sha256": "866b20662047b791f717351f788b623702e4870e566e72efc68e4fcb12e834c2"
+    },
+    {
+      "path": "/assets/web-BpruA6RP.js",
+      "bytes": 842,
+      "sha256": "e8a6de9d19d25ed33cd13c0b2a17d86b91f3aeece82984b70846b4089e48dc57"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/sound-safari-animals-3d-DxBjyDMU.webp",
+      "bytes": 414986,
+      "sha256": "dad91b003b2810eaf0b6c4577caf27c8090daaa503bf9b2013172a46cb68e3bf"
+    }
+  ]
+}
