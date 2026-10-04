@@ -420,8 +420,10 @@
   "monsterHeaderCandidate": {
     "sourceSha": "484addf2e76be849845f508bdc9fc5e1325b51b7",
     "identity": "docs/qa-evidence/monster-header-identity-20261004.json",
-    "scope": "Frozen5307localpass; immutable production candidate being built, not canonical.",
+    "scope": "Immutable Vercel candidate READY, provider binds exact484addf archive and all seven files match local5307. Independent live controls queued after currentcanonical295boundeddelta. Not canonical; no new4.5/listening acceptance.",
     "localPlaywright": "Independent5486b2e: mobile Counting6/Growing6 normalunlock, Story6 both390/1280, full mobile episode3 title,48pxheadercontrols, saved rewards/parentBack/console0.",
-    "evidence": "docs/qa-evidence/monster-header-484addf-independent-20261004/report.md"
+    "evidence": "docs/qa-evidence/monster-header-484addf-independent-20261004/report.md",
+    "deploymentId": "dpl_J3KZBY4qUa8CvBSGzKy3KmWmyiPB",
+    "productionCandidateIdentity": "docs/qa-evidence/monster-header-production-candidate-20261004.json"
   }
 }
