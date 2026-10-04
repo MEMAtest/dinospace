@@ -72,6 +72,10 @@ import gardenBeeArt from '../../assets/memory-match/garden-bee-v1-card.webp';
 import gardenButterflyArt from '../../assets/memory-match/garden-butterfly-v1-card.webp';
 import gardenLadybirdArt from '../../assets/memory-match/garden-ladybird-v1-card.webp';
 import gardenSnailArt from '../../assets/memory-match/garden-snail-v1-card.webp';
+import gardenCaterpillarArt from '../../assets/memory-match/garden-caterpillar-v1-card.webp';
+import gardenEarthwormArt from '../../assets/memory-match/garden-earthworm-v1-card.webp';
+import gardenAntArt from '../../assets/memory-match/garden-ant-v1-card.webp';
+import gardenSpiderArt from '../../assets/memory-match/garden-spider-v1-card.webp';
 import jellyfishArt from '../../assets/memory-match/jellyfish-v1-card.webp';
 import crabArt from '../../assets/memory-match/crab-v1-card.webp';
 import squidArt from '../../assets/memory-match/squid-v1-card.webp';
@@ -158,6 +162,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/garden-butterfly-v1-card.webp': gardenButterflyArt,
   'memory-match/garden-ladybird-v1-card.webp': gardenLadybirdArt,
   'memory-match/garden-snail-v1-card.webp': gardenSnailArt,
+  'memory-match/garden-caterpillar-v1-card.webp': gardenCaterpillarArt,
+  'memory-match/garden-earthworm-v1-card.webp': gardenEarthwormArt,
+  'memory-match/garden-ant-v1-card.webp': gardenAntArt,
+  'memory-match/garden-spider-v1-card.webp': gardenSpiderArt,
   'memory-match/jellyfish-v1-card.webp': jellyfishArt,
   'memory-match/crab-v1-card.webp': crabArt,
   'memory-match/squid-v1-card.webp': squidArt,
