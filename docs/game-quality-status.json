@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T07:46:37.924427+00:00",
+  "updatedAt": "2026-10-04T07:49:19.592848+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -768,7 +768,10 @@
     ],
     "scope": "Twofreshlandscape1448x1086premiumsourcescorrectportraitframingwithoutchangingoldsharedassets. Fivepictured-objecteditsperpair replacefloatingbadges. PNGselectedoriginalsunchanged/WebPencodingonly,prompt/hashprovenance.20focusedtests/scopedlint/configuredbuildpass. Earlyvisualfidelity/discernibility/targetalignbothwidths andcontrols/factNext/reloadassignedafter5332. Sharedrendereridentityb032retained;noacceptance.",
     "narrationExistence": "docs/qa-evidence/spot-landscape-source-narration-existence-20261004.json",
-    "narrationScope": "Read-only77940e9corpus1373unique/1368exist/5missing:3PuzzleDinoParktitle,Spotmiddlearea a44acc87 andnewSpotmiddlebottom5866151d. No decoding/playback/listening/providercalls. PackageonlyafterauthorizedB4workerterminal;currentlocalreleasegateopen."
+    "narrationScope": "Read-only77940e9corpus1373unique/1368exist/5missing:3PuzzleDinoParktitle,Spotmiddlearea a44acc87 andnewSpotmiddlebottom5866151d. No decoding/playback/listening/providercalls. PackageonlyafterauthorizedB4workerterminal;currentlocalreleasegateopen.",
+    "patternIndependentCommit": "ae69729",
+    "patternIndependentReport": "docs/qa-evidence/spot-pattern-landscape-5350-review-20261004/report.md",
+    "patternScope": "Scoped local pass at 1280/390: five genuine pictured-object recolours visible and directly tapped, no apparent spill/seams/unregistered changes. Blank misses, two distinct hints and held fact pass both widths. Mobile Next, Growing 4/4/reload/parent return pass; desktop Next not clicked. Eleven identity hashes match, console/API request lists clean; script-route enumeration limitation retained. No Observatory/audio/production/full 4.5 acceptance."
   },
   "spotSafariSquareWingPrototype": {
     "sourceSha": "aea335f",
@@ -799,5 +802,13 @@
     "missingFiles": 0,
     "missingComponentMappings": 0,
     "scope": "Root read-only exact authored board asset and runtime component-map coverage. Final three are water lily, dinosaur nest and speedboat. File/hash coverage does not establish image fidelity or browser/editorial acceptance. Final frozen builder report and independent full journey remain pending; no release."
+  },
+  "memoryFinalThreeCandidate": {
+    "sourceSha": "7fbbfef9454a8d1e709cbcab5c8ae72c239e7dfb",
+    "builderCommit": "918f8091b8e4d38ff8c8b60898935ad444f376cc",
+    "origin": "http://127.0.0.1:5334",
+    "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-waterlily-dinonest-speedboat-identity-20261004.json",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-waterlily-dinonest-speedboat-builder-report-20261004.md",
+    "scope": "Builder final water lily/dinosaur nest/speedboat maps complete 87/87 art coverage. 19 focused tests, lint/configured build and served identity pass. Normal earned 1\u20139 and three actual target boards completed both widths; 82px mobile cards and 26/28/34 face-down counts with zero fronts before/after visible selector/reload. Final independent full ten-level desktop/mobile review queued after Observatory; no audio/production/4.5 acceptance."
   }
 }
