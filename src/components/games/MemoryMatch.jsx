@@ -85,7 +85,7 @@ const AMARI_CARD_ART = Object.fromEntries(Object.entries(MEMORY_CARD_ILLUSTRATIO
   emoji,
   art.crop
     ? { type: 'sprite', className: `memory-card-art-sprite memory-card-art-${art.crop}` }
-    : { type: 'image', src: MEMORY_ASSET_BY_PATH[art.asset], className: 'memory-card-art-image' },
+    : { type: 'image', src: MEMORY_ASSET_BY_PATH[art.asset], className: art.className || 'memory-card-art-image' },
 ]));
 
 const cardName = (emoji, levelId) => memoryCardLabel(emoji, levelId);
