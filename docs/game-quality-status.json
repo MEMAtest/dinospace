@@ -1563,8 +1563,9 @@
         "gitCommitSha": "602f236d8cf85c8eb0e9a7b0978379c5e08eb02e",
         "auditedRuntimeSource": "e067e3d389ad2f1ec1a8583535c07edd4b83268e",
         "identity": "docs/qa-evidence/count-single-panel-art-20261004/production-candidate-identity.json",
-        "state": "READY candidate; independent ordinary unlocks and one6-roundChallenge passed progression, 3star persistence, reload and1280/390parent shelf. Satellite Panels did not occur, so target-render production gap remains; one further bounded naturally-earned Challenge assigned. Canonical unchanged.",
-        "independentReport": "docs/qa-evidence/count-single-panel-production-candidate-20261004/report.md"
+        "state": "READY immutable candidate. Independent ordinary Starter/Growing unlocks, two bounded six-round Challenge runs, 3-star persistence, reload and parent shelf passed. Satellite Panels did not occur in either Challenge run; live target-render gap remains. Local target rendering passed and primary served bytes match. Canonical provider rechecked READY dpl_7wFmajPYqR6CPrTLFksm4dkGzppv /0d, unchanged. No overall award or promotion.",
+        "independentReport": "docs/qa-evidence/count-single-panel-production-candidate-20261004/report.md",
+        "additionalBoundedReport": "docs/qa-evidence/count-single-panel-art-20261004/production-extra-challenge-run/report.md"
       }
     },
     "soundSafariPictures": {
