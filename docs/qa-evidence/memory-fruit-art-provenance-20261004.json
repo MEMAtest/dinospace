@@ -1,0 +1,76 @@
+{
+  "createdAt": "2026-10-04T01:00:04.922837+00:00",
+  "method": "Built-in image_gen, four separate transparent cutout calls; originals copied unchanged",
+  "scope": "Four fruit source assets only. Root visually inspected full generated outputs. Small-card integration and independent gameplay review pending; no new 4.5 acceptance.",
+  "promptSet": "Premium rounded glossy 3D single fruit cutouts, no faces or text, true transparent background, clear margins and silhouettes readable inside 82px cards. Apple red; banana yellow unpeeled; grapes purple bunch; watermelon red seeded triangular slice with green rind.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/apple-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-f138e7e2-01f5-48a3-a7bd-b98cc182e3b5.png",
+      "token": "\ud83c\udf4e",
+      "meaning": "red apple with stem and leaf",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "d24913d1390fb7bb3cbe2bbc4c96d73080cf5d2a09ea26aee59620c0413b55a6",
+      "bytes": 1235789
+    },
+    {
+      "asset": "src/assets/memory-match/banana-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-bd2691d3-0068-4e52-b4db-dce004df05b4.png",
+      "token": "\ud83c\udf4c",
+      "meaning": "single curved yellow banana",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "cd9ed44c0442e233af892e9a164745a0897d43191dfcc802ff5c0fe8058581cf",
+      "bytes": 636272
+    },
+    {
+      "asset": "src/assets/memory-match/grapes-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-7ac32ef6-a4e9-441b-a434-5557d93418c2.png",
+      "token": "\ud83c\udf47",
+      "meaning": "purple grape bunch with green leaf",
+      "dimensions": [
+        1247,
+        1261
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "f0d66de2474a6a8755f1032748411b832c519bb1978bb2f89d3219db98719090",
+      "bytes": 1157304
+    },
+    {
+      "asset": "src/assets/memory-match/watermelon-v1.png",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-041e15c9-c5d9-4933-90c6-fbb838c2181e.png",
+      "token": "\ud83c\udf49",
+      "meaning": "red triangular slice with black seeds and green rind",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "sha256": "5cdef2220de4e569be8e7af73beddda23e19ad8ae20199db0a8513b68d0a9bba",
+      "bytes": 1480518
+    }
+  ]
+}
