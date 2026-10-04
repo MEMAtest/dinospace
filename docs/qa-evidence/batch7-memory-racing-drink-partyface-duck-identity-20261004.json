@@ -1,0 +1,187 @@
+{
+  "createdAt": "2026-10-04",
+  "source": {
+    "branch": "codex/amari-batch7-quality-20261003",
+    "sha": "d1c35b1c35a799acfab69cf263a598e9dd6c9421",
+    "commit": "Add four missing Memory Match illustrations"
+  },
+  "candidate": {
+    "origin": "http://127.0.0.1:5333",
+    "immutableDist": "tmp/batch7-memory-racing-drink-partyface-duck/dist",
+    "method": "Exact production-config build copied once to a new immutable local candidate and served on explicit IPv4 loopback. Served HTML, application JS/CSS and four new WebPs SHA-256 matched local copy; no deployment."
+  },
+  "buildConfiguration": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "servedFiles": [
+    {
+      "path": "/index.html",
+      "sha256": "37ecf497b450a38fed48b2d13396afe4bbddc2d554e113e1ddf7a942fc2e00ee",
+      "bytes": 1100
+    },
+    {
+      "path": "/assets/index-BihUZBzP.js",
+      "sha256": "27e9d354c1d5468f31f7e10e8712dfe72bbd9d620577f90c922232b69306d6ab",
+      "bytes": 1189617
+    },
+    {
+      "path": "/assets/index-CYWTXfuY.css",
+      "sha256": "251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d",
+      "bytes": 213139
+    },
+    {
+      "path": "/assets/racing-car-v1-card-DM6E6n_y.webp",
+      "sha256": "1db6a05d85a68aee8ddc5e0f5500c102254fda5d38dda3e9b9fd383f8381af84",
+      "bytes": 33508
+    },
+    {
+      "path": "/assets/drink-v1-card-BBnsTrrc.webp",
+      "sha256": "a6577ccc6aec1343bea1adf0930fb378cbe4e431c204daf94b8b9f5ad04b8748",
+      "bytes": 28182
+    },
+    {
+      "path": "/assets/party-face-v1-card-C50AnVua.webp",
+      "sha256": "a08fbbdbc71246715f1d808e1bfe47c9b845b82cc15703fc5168d7bcaa672674",
+      "bytes": 30566
+    },
+    {
+      "path": "/assets/duck-v1-card-DhrJ_HIL.webp",
+      "sha256": "c9757ab5f08889deadbdced454db71158a1f859290b08e558e6662e2ce9278ca",
+      "bytes": 39032
+    }
+  ],
+  "checks": {
+    "focusedTests": "node --test test/memoryMatchContent.test.mjs test/batch7Progress.test.mjs: 18 passed",
+    "lint": "npm run lint: passed",
+    "productionBuild": "npm run build:android: passed; stale Browserslist and >500KB chunk-size advisory warnings only",
+    "contentAudit": {
+      "uniqueTokens": 87,
+      "illustrated": 84,
+      "remainingMissing": [
+        "water lily (garden)",
+        "dinosaur nest (dinos)",
+        "speedboat (vehicles)"
+      ]
+    }
+  },
+  "browser": {
+    "viewports": [
+      "1280x800",
+      "390x844"
+    ],
+    "journey": "Selected Amari through the normal UI, entered Thinking & Play and Memory Match. Earned levels 1–9 with real card flips and Next Level controls at 1280x800, then replayed earned target boards using level selector buttons at 390x844. For memory, observed only face-down accessible indexes before flips and accessible names after flips; no progress/deck/hidden-face injection.",
+    "targetProof": {
+      "party face": "Party & Treats level 4",
+      "racing car": "All Kinds of Vehicles level 6",
+      "drink": "Yummy Feast level 7",
+      "duck": "Garden & Pond Life level 9"
+    },
+    "layout": "Target cards at mobile were 82x82px; all four loaded 512px natural width artwork. Target visible captions were Party Face, Racing Car, Drink, Duck. Each target board completed at its authored pair count. The target board at desktop had 24/28/30/34 cards respectively; mobile repeated same. Face-down checks on mobile after completion found zero descendant img and zero face-down cards; target screenshots show actual matched cards.",
+    "mobileMeasurements": [
+      {
+        "board": "Party & Treats",
+        "target": "party face card",
+        "card": [
+          82,
+          82
+        ],
+        "art": [
+          58.73,
+          30.32
+        ],
+        "naturalWidth": 512,
+        "caption": "Party Face"
+      },
+      {
+        "board": "All Kinds of Vehicles",
+        "target": "racing car card",
+        "card": [
+          82,
+          82
+        ],
+        "art": [
+          52.66,
+          29.69
+        ],
+        "naturalWidth": 512,
+        "caption": "Racing Car"
+      },
+      {
+        "board": "Yummy Feast",
+        "target": "drink card",
+        "card": [
+          82,
+          82
+        ],
+        "art": [
+          60.13,
+          30.32
+        ],
+        "naturalWidth": 512,
+        "caption": "Drink"
+      },
+      {
+        "board": "Garden & Pond Life",
+        "target": "duck card",
+        "card": [
+          82,
+          82
+        ],
+        "art": [
+          58.73,
+          30.32
+        ],
+        "naturalWidth": 512,
+        "caption": "Duck"
+      }
+    ],
+    "guards": "Fresh isolated CLI browser session began at about:blank; 403 routes for **/api/voice and **/api/story were installed and route-list confirmed before goto, after goto, and after both desktop/mobile journeys. Final route list still showed both routes. No matching API request observed in requests (CLI omitted static requests by default). Console reported 0 messages, errors, and warnings.",
+    "guardLimitation": "This group used open about:blank, installed both routes, then goto target origin. Guard routes persisted through final checks."
+  },
+  "runtimeDelta": "MemoryMatch.jsx adds imports and static path mappings only for these four WebP files. memoryMatchContent.js binds existing authored tokens to matching illustrations. No board definitions, game mechanics, card semantics, progress, persistence, or Askia rendering/art map changed.",
+  "screenshots": [
+    {
+      "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/food-390.png",
+      "sha256": "cb82743dcf6f7867b0f083bf29b9281d36557f932703ee4ba8aadd9ac6579817",
+      "bytes": 226666
+    },
+    {
+      "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/food-desktop.png",
+      "sha256": "ec89c12a4ee80aa5168bbcbb3cefa32a239b425b6cb908ebe46417d96d54a531",
+      "bytes": 564193
+    },
+    {
+      "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/garden-390.png",
+      "sha256": "c36a5c5f2807fcb9b155023d1076fde1ebb09fd4ce6f8b1211f30ed1f036e465",
+      "bytes": 254811
+    },
+    {
+      "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/garden-desktop.png",
+      "sha256": "63131bc22f1abdfe01f27f6a149fe2d180da766ca54f090a0e80e7c716eb8785",
+      "bytes": 594266
+    },
+    {
+      "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/party-390.png",
+      "sha256": "305145de7c2469fccf565f563adec2a07de982be9fddff61f336c95edcffa2b9",
+      "bytes": 228366
+    },
+    {
+      "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/party-desktop.png",
+      "sha256": "998f53e4f5c611489a55ef0fe5a259bb9a866ab205e07066381c1002a9580168",
+      "bytes": 422719
+    },
+    {
+      "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/vehicles-390.png",
+      "sha256": "1e6a0064e96e9331c98894fe2c066f32fcc549898416ca6f406f0fbb96687cff",
+      "bytes": 186270
+    },
+    {
+      "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/vehicles-desktop.png",
+      "sha256": "6c5f3ae9b8f516b2a0692c6bf3a87e0d04e428454b761bf1b1dbc7596d68ddce",
+      "bytes": 572609
+    }
+  ],
+  "scope": "Builder evidence only. Independent visual/gameplay review and remaining art/audio gates, human listening, production, release and 4.5 score remain open."
+}
