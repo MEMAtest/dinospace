@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { ArrowLeft, Sparkles, Star, Volume2 } from 'lucide-react';
 import { MEMORY_LEVELS } from '../../data/index.js';
 import { memoryCardLabel, memoryCardIllustration, MEMORY_CARD_ILLUSTRATIONS, MEMORY_CARD_CONTEXT_ILLUSTRATIONS } from '../../data/memoryMatchContent.js';
@@ -246,6 +246,9 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const completePanelRef = useRef(null);
 
   useEffect(() => () => clearTimeout(mismatchRef.current), []);
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [levelIndex]);
   useEffect(() => { onPhaseChange?.(showLevelComplete ? 'done' : 'play'); }, [onPhaseChange, showLevelComplete]);
 
   // One timer per play-through: restarts on every startLevel (runId) and stops once the level is complete.
