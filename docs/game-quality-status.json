@@ -1673,8 +1673,17 @@
     "source": "decb60c4c816a24df875044df0d589b90f814f15",
     "report": "docs/qa-evidence/batch5-soundsafari-phonics-source-independent-20261004.md",
     "artReport": "docs/qa-evidence/batch5-soundsafari-starter-art-v2-independent-20261004.md",
-    "scope": "81 authored mappings and 11 tests passed. Dock artwork correction passed independent 82px static review on02911814. Runtime, missing later art, audio and overall acceptance remain pending.",
+    "scope": "81 authored mappings and 11 focused tests passed. Dock correction passed independent 82px review. Growing26 art mapping/build/tests pass; independent visual review pending. Challenge25 images, audio inventory/runtime/listening and overall acceptance remain pending.",
     "artCorrectionSource": "02911814ce9a62a65bc35bdd2cfacb88c31ee808",
-    "artCorrectionReport": "docs/qa-evidence/batch5-soundsafari-dock-art-v2-independent-20261004.md"
+    "artCorrectionReport": "docs/qa-evidence/batch5-soundsafari-dock-art-v2-independent-20261004.md",
+    "growingArtSource": "d4a5363551b5702e8040422908b821b2bee2aa0c",
+    "artCounts": {
+      "starterMapped": 26,
+      "starterTotal": 26,
+      "growingMapped": 26,
+      "growingTotal": 26,
+      "challengeMapped": 4,
+      "challengeTotal": 29
+    }
   }
 }
