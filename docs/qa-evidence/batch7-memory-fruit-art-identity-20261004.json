@@ -1,0 +1,109 @@
+{
+  "createdAt": "2026-10-04",
+  "candidate": {
+    "sourceCommit": "e7714415d47f4fdc9adaadb060b8b544cefd3206",
+    "branch": "codex/amari-batch7-quality-20261003",
+    "frozenBundle": "tmp/batch7-memory-fruit-art-final-v3/dist",
+    "origin": "http://127.0.0.1:5305",
+    "listener": "127.0.0.1:5305 IPv4",
+    "bundleReadOnly": true
+  },
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build",
+    "result": "passed; working-tree dist is byte-identical to frozen candidate bundle",
+    "warnings": [
+      "caniuse-lite data is 9 months old",
+      "Vite reports large chunks above 500 kB"
+    ]
+  },
+  "sourceGates": {
+    "tests": "node --test test/memoryMatchContent.test.mjs test/batch7Progress.test.mjs: 9 passed, 0 failed",
+    "lint": "npm run lint: passed"
+  },
+  "servedIdentity": [
+    {
+      "path": "index.html",
+      "httpStatus": 200,
+      "bytes": 1100,
+      "sha256": "dca44403e38304aab9db9810777c52f049cfa90b147439cd19fd1b99e2bd5b48",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-B_ndpz2b.js",
+      "httpStatus": 200,
+      "bytes": 1180292,
+      "sha256": "c9f1e6c2a2cdd04cafa1a8340f779b5504800275d1e6f47d7b27a911037e11de",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-DUgIWs2Y.css",
+      "httpStatus": 200,
+      "bytes": 213103,
+      "sha256": "e6d43dde40a6169e3c8901869cb9a168586a2605b9e75c04c3835fb43ad0022d",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/apple-v1-card-BD02LGg1.webp",
+      "httpStatus": 200,
+      "bytes": 34798,
+      "sha256": "89d08d129bc36a6cf22c9d9f8bbad3bcc98c4875d261350af1490d9d97a32f6c",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/banana-v1-card-CgkfGi1b.webp",
+      "httpStatus": 200,
+      "bytes": 21868,
+      "sha256": "d1dac6ddc12e05492f817e3000d795137e45e16c72e51455f03385a73627954b",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/grapes-v1-card-DCoNiqmx.webp",
+      "httpStatus": 200,
+      "bytes": 36618,
+      "sha256": "bcc34b7b05b062410d391545fcb4ec4e4340ce2df7ee5e4586b9470917e81565",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/watermelon-v1-card-D24Dsdg_.webp",
+      "httpStatus": 200,
+      "bytes": 54960,
+      "sha256": "e62202164182b43a257f4df67d234b495e879d776fddbdc26a960314e9cea03e",
+      "matchesFrozen": true
+    }
+  ],
+  "content": {
+    "authoredMemoryTokens": 87,
+    "illustratedTokensAfterFruit": 31,
+    "missingIllustrations": 56,
+    "mappedTokens": ["🍎", "🍌", "🍇", "🍉"],
+    "accessibleLabels": ["apple", "banana", "grapes", "watermelon"],
+    "webpTotalBytes": 148244,
+    "sourcePngsPreserved": true,
+    "sourcePngsAndWebpsHaveAlpha": true,
+    "authoredBoardsAndPairCountsChanged": false,
+    "askiaPathChanged": false
+  },
+  "uiBuilderReview": {
+    "profile": "Fresh isolated browser origin selected Amari through the visible profile chooser; all-level progress was earned through actual UI play and was not injected.",
+    "routes": "/api/voice and /api/story were blocked before first navigation. No matching provider requests were observed.",
+    "ordinaryUiFlows": [
+      "Completed all ten Memory boards in order, using real card flips and only reading a card name after it was face up; each enabled Next level control was followed.",
+      "At 390x844, completed Yummy Feast: 30 cards, 15 pairs. Apple, banana, grapes and watermelon images loaded on the revealed cards with matching labels.",
+      "At 1280x800, completed Yummy Feast: 30 cards, 15 pairs; fruit art matched names on its authored board.",
+      "At 390x844, completed Ocean Splash as a Dolphin regression: 16 cards, 8 pairs; dolphin, shark, whale and turtle matched names and retained 82x82 cards.",
+      "At 1280x800, completed Galaxy Challenge: 36 cards, 18 pairs. All ten level controls measured 48x48, full captions had no ellipsis, and document horizontal overflow was zero.",
+      "At 390x844, completed Galaxy Challenge: 36 cards, 18 pairs. All ten level controls were visible in two rows at 53.5x48, full captions had no ellipsis, cards were 82x82, and document horizontal overflow was zero.",
+      "Face-down cards showed the card back with no mounted illustration image; reload preserved earned level progress."
+    ],
+    "viewportsAndScreenshots": [
+      {"width": 1280, "height": 800, "screenshot": "docs/qa-evidence/batch7-memory-fruit-art-builder-images/galaxy-challenge-desktop-final.png"},
+      {"width": 390, "height": 844, "screenshot": "docs/qa-evidence/batch7-memory-fruit-art-builder-images/galaxy-challenge-390-final.png"},
+      {"width": 1280, "height": 800, "screenshot": "docs/qa-evidence/batch7-memory-fruit-art-builder-images/yummy-feast-desktop-final.png"},
+      {"width": 390, "height": 844, "screenshot": "docs/qa-evidence/batch7-memory-fruit-art-builder-images/yummy-feast-390-final.png"},
+      {"width": 390, "height": 844, "screenshot": "docs/qa-evidence/batch7-memory-fruit-art-builder-images/ocean-splash-dolphin-390-final.png"}
+    ],
+    "console": "0 errors, 0 warnings",
+    "reviewLimit": "Builder checks only. Independent browser review, human visual review, and narration/audio certification remain pending."
+  },
+  "acceptance": "Fruit integration and caption/selector fixes are frozen for independent QA. This report does not certify every Memory illustration, premium visual acceptance, production behavior, or a 4.5 score."
+}
