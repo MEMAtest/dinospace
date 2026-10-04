@@ -76,3 +76,9 @@ Batch7reviewer reports all10Memoryboards atbothwidths, all54Solarfacts and9chall
 ## Current delta — 4 October, Monster promotion and Memory reviews
 
 Fruit independent report: `../../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md`. Ocean/Garden independent report: `../../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md`. WorkerPID18781 live at run90, updated02:45:20Z,3907pending; expected request-window wait, no restart.
+
+## Current delta — 4 October, Memory art and sound persistence
+
+Space c1d58ec independentabd43b3 and Star/Sun db0a9c1 independentbd6ab1d passed their scoped desktop/390px actual-card checks; complete reports stay in Batch7. Inventory43/87 illustrated. Frog/Monkey implicit grid shrink repaired in3931a3b, frozen5310, builder passed and independent QA underway. Four vehicle originals/provenance saved unchanged in8c2d22a, integration queued.
+
+Canonical reviewer reproduced muted sound resetting on reload twice. Sourcec478644 saves device sound preference through existing safe helpers. Clean archive configured build/lint and [seven matching frozen files](qa-evidence/sound-preference-identity-20261004.json) passed at5311; independent local regression checks queued. Canonical remains484addf until acceptance/release. WorkerPID18781 verified live at run92, updated02:55:26Z,3877pending; expected request-window wait, no restart. No new4.5/listening acceptance.

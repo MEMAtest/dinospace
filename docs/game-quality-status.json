@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T02:56:04.382833+00:00",
+  "updatedAt": "2026-10-04T03:12:37.591301+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -369,10 +369,23 @@
       "uniqueTokens": 87,
       "missingTokens": 44,
       "builderEvidence": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-star-sun-identity-20261004.json",
-      "scope": "Builder-only relevant ordinary desktop/390 controls, focusedtests/lint/build/identity passed. Independent Space5308 thenStar/Sun5309 queued; Frog repair separately triaged. Older freezes preserved."
+      "scope": "Star/Sundb0 independentbd6ab1d passed targetfaces/fullcaptions/48pxselectors/normal tenlevel unlocks/reload/face-downhide both widths. Spacec1 independentabd43b3 passed separate L3/L8 bothwidth delta.43/87inventory,44missing. Frog grid3931 frozen5310 builder-passed, independent QA underway. Older freezes preserved; no production/audio/4.5."
     },
     "memoryFruitIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md",
-    "memoryOceanGardenIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md"
+    "memoryOceanGardenIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md",
+    "memorySpaceIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-space-objects-independent-c1d58ec-20261004/report.md",
+    "memoryStarSunIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-star-sun-independent-db0a9c1-20261004/report.md",
+    "memoryFrogGridRepair": {
+      "sourceSha": "3931a3b485356ab968b9197fec8d273f223517b0",
+      "origin": "http://127.0.0.1:5310",
+      "identity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-frog-grid-fix-identity-20261004.json",
+      "scope": "Explicit fullwidth grid column repairs narrow Frog/Monkey sprite; normal builder controls bothwidths passed, independent QA underway."
+    },
+    "memoryNextVehicleOriginals": {
+      "source": "8c2d22a",
+      "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-vehicle-art-provenance-20261004.json",
+      "scope": "Four distinct selected RGBA aeroplane/helicopter/steamtrain/passengertrain originals saved unchanged; runtime integration queued after separate Frog repair."
+    }
   },
   "monsterClueRepair": {
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
@@ -439,5 +452,11 @@
     "productionCandidateIdentity": "docs/qa-evidence/monster-header-production-candidate-20261004.json",
     "candidatePlaywrightEvidence": "docs/qa-evidence/monster-header-production-candidate-20261004/report.md",
     "canonicalIdentity": "docs/qa-evidence/monster-header-canonical-identity-20261004.json"
+  },
+  "soundPreferenceRepair": {
+    "sourceSha": "c478644",
+    "identity": "docs/qa-evidence/sound-preference-identity-20261004.json",
+    "origin": "http://127.0.0.1:5311",
+    "scope": "Canonical independent reviewer reproduced mute lost on reload twice. Device soundsetting persistrepair lint/cleanconfiguredbuild/sevenhash passed; independent local ordinaryUI regression checks queued. Not deployed; no4.5/listening."
   }
 }

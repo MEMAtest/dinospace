@@ -1,0 +1,50 @@
+{
+  "sourceSha": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
+  "origin": "http://127.0.0.1:5311",
+  "createdAt": "2026-10-04T03:11:35.418660+00:00",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "a918266173f9f33f9a44044d119b9684b0570520024faa4b5f16e6fd28f38395",
+      "bytes": 1100,
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/AmariCountTheStars-DFHvOsa3.js",
+      "sha256": "a9ff5871bf63b570ec823c3cfa40f0f38e8b79aecbbf4f832fa6b7b8c0a4ed89",
+      "bytes": 18854,
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/AmariLetterTrace-DR9jRT5R.js",
+      "sha256": "1e5a0521814267c0075b35a6b7edb9fa4f8cbbfc9041eccc2d1703d607439e65",
+      "bytes": 19956,
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/SolarSystem-D7jLFU4_.js",
+      "sha256": "3fb3a8f036c17c7355b9da54b5123a2319bc239f18b35fe5627ab219b276674a",
+      "bytes": 563158,
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-OBlrKkfR.js",
+      "sha256": "26b9490f6f2882d2c1b9b1842a881ff466df872f3814184596e046784a740a66",
+      "bytes": 1237668,
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/web-Dw00SBgi.js",
+      "sha256": "285bb4cda978d67cbeebd2d17ec3ea758df8cee768c316c6a97bb58fcd77f2c4",
+      "bytes": 842,
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-vOQrpuVv.css",
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "bytes": 205877,
+      "matchesFrozen": true
+    }
+  ],
+  "scope": "Local immutable clean-archive configured build, changed App lint passed. Device-global sound preference initialized before voice/SFX hooks, saved through existing safe storage helper. Independent normalUI mute/reload/unmute/reload/profile-switch QA pending. Not deployed or4.5."
+}
