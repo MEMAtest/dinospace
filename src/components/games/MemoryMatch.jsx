@@ -18,6 +18,10 @@ import partyBalloonArt from '../../assets/memory-match/party-balloon-v1-card.web
 import partyPopperArt from '../../assets/memory-match/party-popper-v1-card.webp';
 import partyCakeArt from '../../assets/memory-match/party-cake-v1-card.webp';
 import wrappedSweetArt from '../../assets/memory-match/wrapped-sweet-v1-card.webp';
+import foodCarrotArt from '../../assets/memory-match/food-carrot-v1-card.webp';
+import foodCornArt from '../../assets/memory-match/food-corn-v1-card.webp';
+import foodBiscuitArt from '../../assets/memory-match/food-biscuit-v1-card.webp';
+import foodCheeseArt from '../../assets/memory-match/food-cheese-v1-card.webp';
 import dinosaurEggArt from '../../assets/memory-match/dinosaur-egg-v1.webp';
 import volcanoArt from '../../assets/memory-match/volcano-v1.webp';
 import ringedPlanetArt from '../../assets/memory-match/ringed-planet-v1-card.webp';
@@ -100,6 +104,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/party-popper-v1-card.webp': partyPopperArt,
   'memory-match/party-cake-v1-card.webp': partyCakeArt,
   'memory-match/wrapped-sweet-v1-card.webp': wrappedSweetArt,
+  'memory-match/food-carrot-v1-card.webp': foodCarrotArt,
+  'memory-match/food-corn-v1-card.webp': foodCornArt,
+  'memory-match/food-biscuit-v1-card.webp': foodBiscuitArt,
+  'memory-match/food-cheese-v1-card.webp': foodCheeseArt,
   'memory-match/dinosaur-egg-v1.webp': dinosaurEggArt,
   'memory-match/volcano-v1.webp': volcanoArt,
   'memory-match/ringed-planet-v1-card.webp': ringedPlanetArt,
