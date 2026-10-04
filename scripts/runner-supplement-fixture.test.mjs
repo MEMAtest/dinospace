@@ -21,7 +21,16 @@ const sourceHashes = {
 };
 
 const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
-const source = async (path) => readFile(resolve(repoRoot, path));
+// Execute this retained bf3 fixture against its immutable reviewed bytes.
+// Later selectors need separately bound current-candidate fixture coverage.
+const source = async (path) => {
+  const result = spawnSync('git', ['show', `${reviewedCommit}:${path}`], {
+    cwd: repoRoot, maxBuffer: 32 * 1024 * 1024,
+  });
+  assert.equal(result.error, undefined, `could not read reviewed archive: ${path}`);
+  assert.equal(result.status, 0, `missing reviewed archive input: ${path}`);
+  return result.stdout;
+};
 const exists = async (path) => stat(path).then(() => true, () => false);
 
 async function prepareFixture(mode, job) {
