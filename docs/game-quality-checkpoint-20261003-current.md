@@ -349,3 +349,14 @@ IndependentMemory8token report `0042176` isroot-read, includingnormal390Garden34
 ## Canonical identity refresh — 4 October
 
 Read-only Vercel inspection and authenticated deployment metadata still selectREADYproduction `dpl_2wMjWv6KPJ4QPMKrSJLWinefowDz`, auditedarchive/githubsource `c47864404cff1f31c9cefe9b8a363d0ba5542b24`. Automaticgitcheckoutmetadata remains `81e2c5a` and isnot thearchive identity. Freshcanonicalfetches matchallseven5311runtime/index/csshashes. Evidence `qa-evidence/canonical-runtime-refresh-20261004T0903.json`. This isprovider/bytesproofonly, notnewgameplay/audio4.5 acceptance;5355stilllocal.
+
+
+## Nature/World local pass and Robin full object repair — 4 October
+
+Independent5355report `314121f` verifies cleanNature/World seven actual pictured-objectchanges and directtaps at1280/390. Bothnormalfact/hint/miss/Nextflows, mobileBack/reloadPlayed3/nooverflow,identity has14files, all14servedhashesmatch, guard/consolechecks pass. Source `8af6d07`, noaudio/production/4.5claim. Rootreadnormaldesktop images andprior5354failure report.
+
+RootwiderRobin5353screenshotinspection foundallseven goldbadge overlays despite thenarrowround/pointed leafrepair. The75dsourcefix and5353targetpass remain validbut donotacceptthoseplacements againstthegenuinepictured-objectcontract. Source `b7b9f10` usesnewactualRobinB andfiveboundedshape/countregions plusoriginal-source flower/cancolourmasks: canopy/fallenleafshapes, daisy petals, nativebugextra spot, nativewormreversebend, flowers/can colour. OriginalselectedPNGunchanged/encoding-onlyWebP, exactprompt/hashprovenance retained.25focusedtests/lint/configuredbuildpass. Frozen5356has15identityfiles; independentsevenactualchanges, edges, nativecounts anddirectpicturetaps atbothwidths underway. Other11picturesunchanged.
+
+Batch2read-onlyaudit `b7ec97a` confirmsremainingexact2+10case isnaturallyeligible, plusPuzzleportrait2x2/wide3x3crop and390control-state evidence gaps. AssignedfinitecanonicalPlaywrightchecks: up to60normalGrowingMonster runs, no seed/stateinjection; Puzzlecroppairs andPuzzle/Skycontrolclass/state measurements withretainedfullbaseline. Physicalhandsetcertification isnot anadditionalmandatoryscope.
+
+Memorycoverage `2e3c9b0` root-read:87tokens/127authoredcontextplacements/89assetsmatch7fand1410; onlyAppsound preferencechangedbetween.99contexts hadfocusedartreview;28usedfullrunrenderedevidence. Independentfollowup `13debe2` nowreviews/captures those28contexts normally; rootfullreportreviewstillrequired beforeclaimingthatboundedvisualscopeclosed. No narration/production/editorial4.5claim.
