@@ -1,0 +1,289 @@
+{
+  "createdAt": "2026-10-04T06:29:57Z",
+  "scope": "Integrate glossy transparent card art for the existing bus, tractor, bicycle, and scooter tokens in Amari Memory Match Level 6 (All Kinds of Vehicles). Preserve all tokens, labels, 14 pairs, unlocks, progress, face-down hiding, and Askia.",
+  "sourceCommit": "357f24cf13b1b8ddcde474f0b7628f3dad11ebf0",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5324",
+    "frozenDist": "tmp/batch7-memory-vehicle-four-final/dist",
+    "priorFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-garden-crawlers-final/dist",
+      "tmp/batch7-memory-food-four-final/dist",
+      "tmp/batch7-memory-party-decorations-final/dist",
+      "tmp/batch7-memory-garden-creatures-final/dist"
+    ]
+  },
+  "provenance": "docs/qa-evidence/batch7-memory-vehicle-four-provenance-20261004.json",
+  "integratedTokens": [
+    {
+      "token": "🚌",
+      "label": "bus",
+      "original": "src/assets/memory-match/bus-v1.png",
+      "originalSha256": "ce02fb8cddd01f2f556d23fc8f21574cfe08185a1ac356f50cb62e2bb2a59af8",
+      "webp": "/assets/bus-v1-card-D2nBAiP5.webp",
+      "dimensions": [
+        512,
+        341
+      ],
+      "bytes": 38274,
+      "webpSha256": "3a8213ab52095736b577ab5c79ac1b15ccfa993b2e473cc62eebf2347ad2741d"
+    },
+    {
+      "token": "🚜",
+      "label": "tractor",
+      "original": "src/assets/memory-match/tractor-v1.png",
+      "originalSha256": "9939606825fde136c66483f6a84224a5a3a52220ba79ac7e59812c70b0edddf7",
+      "webp": "/assets/tractor-v1-card-DH552bj6.webp",
+      "dimensions": [
+        512,
+        427
+      ],
+      "bytes": 55294,
+      "webpSha256": "4b2be21e3aecce7b663852fa48cdec50c29e9c5d1088090d28ae2800e1b45119"
+    },
+    {
+      "token": "🚲",
+      "label": "bicycle",
+      "original": "src/assets/memory-match/bicycle-v1.png",
+      "originalSha256": "98e8994a6a48829a4643c85c5966b751abe153ca0f19f063d657078fec69d4aa",
+      "webp": "/assets/bicycle-v1-card-DBjH_Pdn.webp",
+      "dimensions": [
+        512,
+        341
+      ],
+      "bytes": 60994,
+      "webpSha256": "97c8c8390353d0629705cebc39ca4afdb80347ebcfd7244be97b2cf3dc8a38e8"
+    },
+    {
+      "token": "🛵",
+      "label": "scooter",
+      "original": "src/assets/memory-match/scooter-v1.png",
+      "originalSha256": "c2aec4baa77d0850db68e5cb5f8936525ef104706bbeb1f709216b2fa09f838d",
+      "webp": "/assets/scooter-v1-card-BaFkDk96.webp",
+      "dimensions": [
+        512,
+        430
+      ],
+      "bytes": 53296,
+      "webpSha256": "85c0c78dddd861b36571c27ef2575248ebcb229c89bd6caa2bff86546f1b5d96"
+    }
+  ],
+  "renderedUiChecks": {
+    "session": "Fresh isolated Playwright CLI session. Selected Amari via the visible chooser, opened Thinking & Play → Memory Match, and completed Forest Friends (4 pairs), Ocean Splash (8), Space Sparkle (10), Party & Treats (12), Dinosaur Discovery (13), and Vehicles (14) using actual visible card flips and Next level controls. Matching helper reads only visible face-down card numbers and accessible names after a real flip; no storage edits, hidden card faces, React state, or deck data were read.",
+    "vehiclesLevel6": {
+      "name": "All Kinds of Vehicles",
+      "pairs": 14,
+      "cards": 28,
+      "visibleNames": [
+        "flying saucer card",
+        "rocket card",
+        "speedboat card",
+        "scooter card",
+        "aeroplane card",
+        "fire engine card",
+        "bus card",
+        "bicycle card",
+        "racing car card",
+        "car card",
+        "passenger train card",
+        "tractor card",
+        "helicopter card",
+        "steam train card"
+      ],
+      "newArtOccurrences": {
+        "bus": 2,
+        "tractor": 2,
+        "bicycle": 2,
+        "scooter": 2
+      },
+      "completionPanelVisible": true
+    },
+    "desktop1280": {
+      "viewport": [
+        1280,
+        800
+      ],
+      "documentWidth": 1280,
+      "cards": 28,
+      "cardSize": [
+        182,
+        182
+      ],
+      "newArtLoaded": true,
+      "fullCaptions": [
+        "Bus",
+        "Tractor",
+        "Bicycle",
+        "Scooter"
+      ],
+      "captionOverflow": false,
+      "artCaptionOverlap": false,
+      "selectors": [
+        48,
+        48
+      ],
+      "screenshot": "docs/qa-evidence/batch7-memory-vehicle-four-builder-images/vehicles-desktop-1280-full.png"
+    },
+    "mobile390": {
+      "viewport": [
+        390,
+        844
+      ],
+      "documentWidth": 390,
+      "documentHeight": 1306,
+      "cards": 28,
+      "cardSize": [
+        82,
+        82
+      ],
+      "newArtBox": [
+        63.36,
+        30.41
+      ],
+      "captionBox": [
+        72,
+        17.19
+      ],
+      "newArtLoaded": true,
+      "newArtOccurrences": {
+        "bus": 2,
+        "tractor": 2,
+        "bicycle": 2,
+        "scooter": 2
+      },
+      "captionOverflow": false,
+      "artCaptionOverlap": false,
+      "levelSelectors": [
+        53.5,
+        48
+      ],
+      "screenshot": "docs/qa-evidence/batch7-memory-vehicle-four-builder-images/vehicles-mobile-390-full.png"
+    },
+    "reloadFaceDown": {
+      "selectedLevel": "All Kinds of Vehicles",
+      "viewportResults": [
+        {
+          "viewport": [
+            390,
+            844
+          ],
+          "cards": 28,
+          "cardSize": [
+            82,
+            82
+          ],
+          "faceDown": 28,
+          "mountedImages": 0,
+          "frontLabels": 0,
+          "documentWidth": 390,
+          "screenshot": "docs/qa-evidence/batch7-memory-vehicle-four-builder-images/vehicles-mobile-390-facedown.png"
+        },
+        {
+          "viewport": [
+            1280,
+            800
+          ],
+          "cards": 28,
+          "cardSize": [
+            182,
+            182
+          ],
+          "faceDown": 28,
+          "mountedImages": 0,
+          "frontLabels": 0,
+          "documentWidth": 1280,
+          "screenshot": "docs/qa-evidence/batch7-memory-vehicle-four-builder-images/vehicles-desktop-1280-facedown.png"
+        }
+      ]
+    },
+    "visibleArtReview": "At 82px, bus, bicycle, tractor, and step-through scooter silhouettes remain distinct, with their full matching captions on a reserved label row."
+  },
+  "networkAndConsole": {
+    "preNavigationRoutes": [
+      {
+        "pattern": "**/api/voice",
+        "responseStatus": 204
+      },
+      {
+        "pattern": "**/api/story",
+        "responseStatus": 204
+      }
+    ],
+    "matchingVoiceOrStoryRequestsObserved": 0,
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "servedIdentity": [
+    {
+      "route": "/",
+      "sha256": "03a41b771f2b47cc870ab6e5fc8b3e942883a239598cb02dec390f46e7eeab61",
+      "bytes": 1100,
+      "matchesFrozenDist": true
+    },
+    {
+      "route": "/assets/index-fTlVLAtb.js",
+      "sha256": "0463b312e9dd89b1cdb94bced4b4038991e78c195c5bb8f00d397cf7da606335",
+      "bytes": 1188440,
+      "matchesFrozenDist": true
+    },
+    {
+      "route": "/assets/index-CYWTXfuY.css",
+      "sha256": "251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d",
+      "bytes": 213139,
+      "matchesFrozenDist": true
+    },
+    {
+      "route": "/assets/bus-v1-card-D2nBAiP5.webp",
+      "sha256": "3a8213ab52095736b577ab5c79ac1b15ccfa993b2e473cc62eebf2347ad2741d",
+      "bytes": 38274,
+      "matchesFrozenDist": true
+    },
+    {
+      "route": "/assets/tractor-v1-card-DH552bj6.webp",
+      "sha256": "4b2be21e3aecce7b663852fa48cdec50c29e9c5d1088090d28ae2800e1b45119",
+      "bytes": 55294,
+      "matchesFrozenDist": true
+    },
+    {
+      "route": "/assets/bicycle-v1-card-DBjH_Pdn.webp",
+      "sha256": "97c8c8390353d0629705cebc39ca4afdb80347ebcfd7244be97b2cf3dc8a38e8",
+      "bytes": 60994,
+      "matchesFrozenDist": true
+    },
+    {
+      "route": "/assets/scooter-v1-card-BaFkDk96.webp",
+      "sha256": "85c0c78dddd861b36571c27ef2575248ebcb229c89bd6caa2bff86546f1b5d96",
+      "bytes": 53296,
+      "matchesFrozenDist": true
+    }
+  ],
+  "sourceGates": {
+    "focusedTests": "16 passed across test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs.",
+    "lint": "npm run lint passed.",
+    "productionConfigBuild": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build:android passed. Existing stale Browserslist data and large-chunk warnings remain.",
+    "illustrationInventory": {
+      "uniqueTokens": 87,
+      "illustrated": 76,
+      "missing": 11,
+      "missingTokens": [
+        "⛰️ mountain",
+        "🌷 tulip",
+        "🍟 chips",
+        "🍭 lolly",
+        "🏎️ racing car",
+        "🥤 drink",
+        "🥳 party face",
+        "🦆 duck",
+        "🪷 water lily",
+        "🪺 dinosaur nest",
+        "🚤 speedboat"
+      ]
+    },
+    "frozenBundleMatchesProductionBuild": true
+  },
+  "limits": [
+    "Builder-rendered evidence only; independent review is pending.",
+    "No Askia-specific parity, full narration readiness, broader human/device acceptance, production deployment, or overall quality score is claimed.",
+    "No voice/story generation, paid API-key scripts, or deployment was used."
+  ]
+}
