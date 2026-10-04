@@ -1033,7 +1033,13 @@
   },
   "batch5CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch5-independent-editorial-assessment-20261004.md",
-    "decision": "Spelling age teaching has an observed jargon deficit; a local copy candidate is under revision. Reliability gaps for Spelling, Colour Mixing and Odd One Out remain unscored. Sound Safari recognition acceptance waits for isolated phoneme assets. No overall awards."
+    "decision": "Spelling age teaching has an observed jargon deficit; a local copy candidate is under revision. Reliability gaps for Spelling, Colour Mixing and Odd One Out remain unscored. Sound Safari recognition acceptance waits for isolated phoneme assets. No overall awards.",
+    "localSpellingCandidate": {
+      "source": "d7c66992cba8cdfa78a985b26e8aa561b1ec33cf",
+      "origin": "http://127.0.0.1:5362/",
+      "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-spelling-pool-copy-20261004/report.md",
+      "scope": "Display-only start and pool wording; existing four tests, scoped lint and configured build pass. Independent actual-control QA assigned; narration keys unchanged and audio/release acceptance open."
+    }
   },
   "batch6CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch6-independent-editorial-assessment-20261004.md",
