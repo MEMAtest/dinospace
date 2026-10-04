@@ -14,6 +14,10 @@ import brontoArt from '../../assets/little/detective-bronto.webp';
 import friendlyCarArt from '../../assets/german-garage/friendly-car.png';
 import dogArt from '../../assets/memory-match/dog-v1.webp';
 import foxArt from '../../assets/memory-match/fox-v1.webp';
+import partyBalloonArt from '../../assets/memory-match/party-balloon-v1-card.webp';
+import partyPopperArt from '../../assets/memory-match/party-popper-v1-card.webp';
+import partyCakeArt from '../../assets/memory-match/party-cake-v1-card.webp';
+import wrappedSweetArt from '../../assets/memory-match/wrapped-sweet-v1-card.webp';
 import dinosaurEggArt from '../../assets/memory-match/dinosaur-egg-v1.webp';
 import volcanoArt from '../../assets/memory-match/volcano-v1.webp';
 import ringedPlanetArt from '../../assets/memory-match/ringed-planet-v1-card.webp';
@@ -92,6 +96,10 @@ const ASKIA_CARD_ART = {
 const MEMORY_ASSET_BY_PATH = {
   'memory-match/dog-v1.webp': dogArt,
   'memory-match/fox-v1.webp': foxArt,
+  'memory-match/party-balloon-v1-card.webp': partyBalloonArt,
+  'memory-match/party-popper-v1-card.webp': partyPopperArt,
+  'memory-match/party-cake-v1-card.webp': partyCakeArt,
+  'memory-match/wrapped-sweet-v1-card.webp': wrappedSweetArt,
   'memory-match/dinosaur-egg-v1.webp': dinosaurEggArt,
   'memory-match/volcano-v1.webp': volcanoArt,
   'memory-match/ringed-planet-v1-card.webp': ringedPlanetArt,

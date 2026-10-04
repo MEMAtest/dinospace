@@ -32,6 +32,10 @@ const CONTEXTUAL_LABELS = Object.freeze({
 export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🐶': Object.freeze({ asset: 'memory-match/dog-v1.webp' }),
   '🦊': Object.freeze({ asset: 'memory-match/fox-v1.webp' }),
+  '🎈': Object.freeze({ asset: 'memory-match/party-balloon-v1-card.webp' }),
+  '🎉': Object.freeze({ asset: 'memory-match/party-popper-v1-card.webp' }),
+  '🎂': Object.freeze({ asset: 'memory-match/party-cake-v1-card.webp' }),
+  '🍬': Object.freeze({ asset: 'memory-match/wrapped-sweet-v1-card.webp' }),
   '🥚': Object.freeze({ asset: 'memory-match/dinosaur-egg-v1.webp' }),
   '🌋': Object.freeze({ asset: 'memory-match/volcano-v1.webp' }),
   '🪐': Object.freeze({ asset: 'memory-match/ringed-planet-v1-card.webp' }),
