@@ -1,0 +1,24 @@
+- generic [ref=e829]:
+  - banner [ref=e830]:
+    - button "Back to Maths Missions" [ref=e831] [cursor=pointer]
+    - generic [ref=e850]:
+      - paragraph [ref=e851]: Chapter 1 of 3 · Question 1 of 6
+      - heading "Subtraction Station" [level=1] [ref=e852]
+    - button "Turn sound on" [ref=e835] [cursor=pointer]
+  - main [ref=e840]:
+    - paragraph [ref=e841]: There are 10 cookies. Take away 8. How many are left?
+    - button "Hear question" [ref=e853] [cursor=pointer]
+    - generic [ref=e858]:
+      - group "Starting group, 10 cookies, 8 marked for removal" [ref=e859]:
+        - paragraph [ref=e860]: "Starting group: 10"
+      - generic [aria-hidden] [ref=e950]: −
+      - group "Take away, 8 cookies" [ref=e951]:
+        - paragraph [ref=e952]: "Take away: 8"
+      - generic [aria-hidden] [ref=e1018]: →
+      - group "Empty remaining tray" [ref=e1019]: Remaining
+    - group "Choose the answer" [ref=e1021]:
+      - button "Answer 5" [ref=e1022] [cursor=pointer]: "5"
+      - button "Answer 1" [ref=e1023] [cursor=pointer]: "1"
+      - button "Answer 3" [ref=e1024] [cursor=pointer]: "3"
+      - button "Answer 2" [ref=e1025] [cursor=pointer]: "2"
+    - button "Use one hint" [ref=e1026] [cursor=pointer]
