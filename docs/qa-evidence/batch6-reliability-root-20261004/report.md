@@ -17,3 +17,14 @@ Fresh named Playwright profile `root-b6-reliability-20261004`, 1280×800. Opened
 ## Limits and next action
 
 Desktop bounded saved chapter/equal replay evidence only. No higher-best delta was attempted after a three-star first run, no mobile check, no native listening, no full collection-isolation UI proof and no reliability or overall score assigned. The shared completion helper stores records under player and game and awards only a positive best-star delta; that source evidence complements, but does not replace, the observations above. Preserve this frozen origin while the Astronaut copy repair is built.
+
+
+## Fresh mobile positive-delta follow-up
+
+A separate fresh profile `root-b6-chess-mobile-20261004` began at about:blank, with both provider guards installed and listed before first navigation. Viewport 390×844; visible mute, Amari, Thinking & Play and Chess controls were used. No stored state or answers were injected.
+
+The first five-move chapter deliberately tried the far-away a5 square for the king at d3, then corrected to d2. Retry kept the mission active. The remaining queen, rook, bishop and knight moves were completed from visible outlined pieces and gold goals. [Complete first-run observations](mobile-first-run-output.txt) retain each rendered mission, retry, held explanation and Next. Completion was ★★☆; [Home](mobile-first-home.yml) showed 2 global stars.
+
+Reentered through Play again. A clean five-move replay showed a different queue and ★★★. [Replay observations](mobile-improved-run-output.txt) retain all five prompts and held feedback. Reload retained ★★★ and Safe captures unlocked: [snapshot](mobile-improved-reload.yml). The old candidate again lost mute on reload; root muted immediately through the visible control. Home then showed 3 global stars, proving the improvement credited only +1 rather than a new +3: [rendered output](mobile-improved-home-output.txt), [screenshot](mobile-improved-home.png). Console errors/warnings were zero; Home had no broken images or horizontal overflow (document375 ≤ viewport390). These layout observations concern the captured Home state, not a new all-game layout matrix.
+
+Combined with the retained full mechanics baseline, this adds mobile saved-best/positive-delta evidence and desktop equal-replay evidence. It does not add a mandatory viewport cross-product. The concrete old-candidate mute reset still prevents a top reliability rating until selective integration and its source-specific checks preserve the current canonical fix. No formal audio or overall award is assigned.

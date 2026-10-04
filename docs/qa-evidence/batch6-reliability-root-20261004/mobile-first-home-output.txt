@@ -1,0 +1,9 @@
+### Result
+"Amari\n⭐ 2\nHi Amari!\n\n🧑‍🚀 Space Cadet · 23 stars to Star Collector\n\n🔷\n\nDAILY CHALLENGE\n\nSolve 3 patterns\n\nChoose a world\nRead & Write\n6 games\n→\n2\n5\n+\nMaths Missions\n8 games\n→\nExplore & Languages\n5 games\n→\nCreative Lab\n5 games\n→\nThinking & Play\n8 games\n→\nToday’s practice\n\nThree quick games · about 8 minutes\n\n▶ Start\nSTEP 1\nSound Safari\n+\nSTEP 2\nAddition Adventure\nSTEP 3\nPattern Parade\nPlay again\nChess Explorers\n↺ Recent\n🏅\nStickers\nGrown-ups"
+### Ran Playwright code
+```js
+await (async page=>{await page.getByRole('button',{name:'Chapter map',exact:true}).click();await page.getByRole('button',{name:'Back to games',exact:true}).click();await page.getByRole('button',{name:'Back to home',exact:true}).click();return await page.locator('body').innerText();})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5363/#/home
+- Page Title: Amari Discovery
