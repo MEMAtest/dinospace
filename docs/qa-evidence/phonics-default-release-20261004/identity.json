@@ -1,0 +1,39 @@
+{
+  "sourceCommit": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+  "baseProductionArchive": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+  "candidateUrl": "http://127.0.0.1:5365/",
+  "buildCommand": "npm run build:android",
+  "frozenDirectory": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-phonics-default-release/tmp/phonics-default-release-20261004/dist",
+  "generatedFileCount": 5879,
+  "criticalHashes": {
+    "assets/index-BdCzVji4.js": "42f6cd825c240d4cae7e6001cc8aadbc4e5e51b70f11acc86805c7edb86ecd26",
+    "assets/index-vOQrpuVv.css": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+    "index.html": "5525f8651f637c0dae620bbc73da3626773be4861fe8b689e8d4b20cc85e6ba3"
+  },
+  "tests": {
+    "pass": 22,
+    "fail": 0
+  },
+  "lint": "scoped pass",
+  "scope": "Shared default only; no unfinished B4-B7 or local Dino fact changes included. Not deployed.",
+  "criticalServedVerification": [
+    {
+      "file": "assets/index-BdCzVji4.js",
+      "status": 200,
+      "sha256": "42f6cd825c240d4cae7e6001cc8aadbc4e5e51b70f11acc86805c7edb86ecd26",
+      "matched": true
+    },
+    {
+      "file": "assets/index-vOQrpuVv.css",
+      "status": 200,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "matched": true
+    },
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "5525f8651f637c0dae620bbc73da3626773be4861fe8b689e8d4b20cc85e6ba3",
+      "matched": true
+    }
+  ]
+}
