@@ -1,0 +1,181 @@
+{
+  "createdAt": "2026-10-04",
+  "method": "Built-in image_gen, one call per object with transparent_background=true. Selected original PNGs copied unchanged. WebP derivatives proportionally fit within 512x512 via Pillow RGBA/LANCZOS; quality 88, alpha_quality 95, method 6. No raw provider or paid story/voice generation.",
+  "scope": "Final three previously unillustrated Amari Memory tokens: 🪷 water lily (Garden), 🪺 dinosaur nest (Dinos), and 🚤 speedboat (Vehicles). Runtime changes bind these existing tokens only. The shared audit now finds matching art for all 87 unique authored tokens when complete board-specific illustrations are included.",
+  "assets": [
+    {
+      "token": "🪷",
+      "label": "water lily",
+      "board": "garden",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-a96a0c0f-fbd3-4b2e-af24-b7df64ca6b0f.png",
+      "prompt": "One isolated pink water lily flower on a green lily pad, viewed slightly from above, with a clear flower and pad silhouette. Glossy polished 3D children’s toy render for a premium educational picture card. Centered, transparent padding. No water, pond, reeds, frog, insect, text, border, background, halo or extra object.",
+      "original": {
+        "path": "src/assets/memory-match/water-lily-v1.png",
+        "sha256": "1752828f567ca96ae8c3b112ff8133cbce065283818df64150c6c01908cc3910",
+        "dimensions": [
+          1374,
+          1145
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "alphaBoundingBox": [
+          0,
+          45,
+          1368,
+          1145
+        ],
+        "bytes": 1327712
+      },
+      "derivative": {
+        "path": "src/assets/memory-match/water-lily-v1-card.webp",
+        "sha256": "7062e68d7b67608bb209e4016c5313deda328b101439234446c7ec15260062a2",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "alphaBoundingBox": [
+          0,
+          73,
+          493,
+          463
+        ],
+        "bytes": 37998
+      },
+      "review": "Inspected in visible matched cards on desktop and 390px mobile. Subject and full matching caption are distinct at the 82x82px mobile card size; natural image width is 512px. Face-down/reload privacy check is recorded in the builder report."
+    },
+    {
+      "token": "🪺",
+      "label": "dinosaur nest",
+      "board": "dinos",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-c5850984-ef3f-4a34-b1a8-7f45cfdf7361.png",
+      "prompt": "One small dinosaur nest with exactly two intact speckled teal-green eggs in one simple brown twig nest, friendly preschool science prop. Glossy polished 3D children’s toy render for a premium educational picture card. Clear silhouette, transparent padding. No hatchlings, dinosaur, leaves, landscape, rock, text, border, background, glow, halo or extra objects.",
+      "original": {
+        "path": "src/assets/memory-match/dinosaur-nest-v1.png",
+        "sha256": "144840ebd8bd0361c1d271c640ff5fb504638740095b7da674071ce2cd7984cd",
+        "dimensions": [
+          1348,
+          1167
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "alphaBoundingBox": [
+          17,
+          56,
+          1305,
+          1151
+        ],
+        "bytes": 1959922
+      },
+      "derivative": {
+        "path": "src/assets/memory-match/dinosaur-nest-v1-card.webp",
+        "sha256": "d9b9c4639df9490cd587e0480054ba784e92be3be4e8cc34fc175c1b257986fc",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "alphaBoundingBox": [
+          15,
+          85,
+          497,
+          462
+        ],
+        "bytes": 63568
+      },
+      "review": "Inspected in visible matched cards on desktop and 390px mobile. Subject and full matching caption are distinct at the 82x82px mobile card size; natural image width is 512px. Face-down/reload privacy check is recorded in the builder report."
+    },
+    {
+      "token": "🚤",
+      "label": "speedboat",
+      "board": "vehicles",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-9d80f52c-a474-45a6-993b-8c6478daaaa2.png",
+      "prompt": "One small bright blue and white motor speedboat with a single rear outboard motor, simple windshield and pointed bow, side three-quarter view; unmistakably motorboat, not sailboat. Glossy 3D toy render for a premium educational picture card. Clear silhouette, transparent padding. No water, wake, sea, person, flag, text, border, background, glow, halo or extra objects.",
+      "original": {
+        "path": "src/assets/memory-match/speedboat-v1.png",
+        "sha256": "8336a78acdba7dd10496b1a1352fd0dadebeddccd1065f102840f30051fe7f02",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "alphaBoundingBox": [
+          39,
+          8,
+          1520,
+          1008
+        ],
+        "bytes": 1443961
+      },
+      "derivative": {
+        "path": "src/assets/memory-match/speedboat-v1-card.webp",
+        "sha256": "57965f3dc77a6ea545f7f44cba103f4eff17f936c3528d673b7cf86061177f55",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "alphaBoundingBox": [
+          16,
+          88,
+          506,
+          402
+        ],
+        "bytes": 31062
+      },
+      "review": "Inspected in visible matched cards on desktop and 390px mobile. Subject and full matching caption are distinct at the 82x82px mobile card size; natural image width is 512px. Face-down/reload privacy check is recorded in the builder report."
+    }
+  ]
+}

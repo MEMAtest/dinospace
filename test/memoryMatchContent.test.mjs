@@ -67,15 +67,20 @@ test('every authored Memory narration names the displayed strategy or visible ca
 test('Memory illustration inventory distinguishes each picture and reports unillustrated tokens', () => {
   const audit = memoryIllustrationAudit(MEMORY_LEVELS);
   assert.equal(audit.length, new Set(MEMORY_LEVELS.flatMap(({ emojis }) => emojis)).size);
-  assert.deepEqual(Object.keys(MEMORY_CARD_ILLUSTRATIONS), ['🐶', '🦊', '🎈', '🎉', '🥳', '🎂', '🍭', '🍬', '🍟', '🥤', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🌷', '🦆', '🍄', '⛰️', '🦕', '🦖', '🚀', '🚒', '🚗', '🏎️', '🐵', '🐸', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁', '👨‍🚀', '🦴', '🦷', '⛏️', '🐝', '🦋', '🐞', '🐌', '🐛', '🪱', '🐜', '🕷️', '🚌', '🚜', '🚲', '🛵']);
+  const unillustrated = audit.filter(({ illustration }) => {
+    if (!illustration || illustration.asset) return !illustration;
+    return !illustration.contexts?.length || !illustration.contexts.every(({ asset }) => Boolean(asset));
+  });
+  assert.deepEqual(unillustrated.map(({ emoji }) => emoji), [], 'every authored Memory token needs matching global or complete board-specific art');
+  assert.deepEqual(Object.keys(MEMORY_CARD_ILLUSTRATIONS), ['🐶', '🦊', '🎈', '🎉', '🥳', '🎂', '🍭', '🍬', '🍟', '🥤', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🌷', '🦆', '🪷', '🍄', '⛰️', '🦕', '🦖', '🪺', '🚀', '🚒', '🚗', '🏎️', '🚤', '🐵', '🐸', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁', '👨‍🚀', '🦴', '🦷', '⛏️', '🐝', '🦋', '🐞', '🐌', '🐛', '🪱', '🐜', '🕷️', '🚌', '🚜', '🚲', '🛵']);
   assert.notEqual(MEMORY_CARD_ILLUSTRATIONS['🦕'].asset, MEMORY_CARD_ILLUSTRATIONS['🦖'].asset);
   assert.notEqual(MEMORY_CARD_ILLUSTRATIONS['🐵'].asset, MEMORY_CARD_ILLUSTRATIONS['🐸'].asset);
-  for (const emoji of ['🐶', '🦊', '🎈', '🎉', '🥳', '🎂', '🍭', '🍬', '🍟', '🥤', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🌷', '🦆', '🍄', '⛰️', '🏎️', '🐛', '🪱', '🐜', '🕷️', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🍓', '🍕', '🍩', '🧁']) {
+  for (const emoji of ['🐶', '🦊', '🎈', '🎉', '🥳', '🎂', '🍭', '🍬', '🍟', '🥤', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🌷', '🦆', '🪷', '🍄', '⛰️', '🏎️', '🚤', '🪺', '🐛', '🪱', '🐜', '🕷️', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🍓', '🍕', '🍩', '🧁']) {
     const entry = audit.find((item) => item.emoji === emoji);
     assert.ok(entry, `${emoji} should remain on an authored Amari board`);
     assert.ok(entry.illustration?.asset, `${emoji} should use matching generated or reviewed art`);
   }
-  const newPremiumTokens = ['🐶', '🦊', '🎈', '🎉', '🥳', '🎂', '🍭', '🍬', '🍟', '🥤', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🌷', '🦆', '🍄', '⛰️', '🐛', '🪱', '🐜', '🕷️', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🏎️', '🍓', '🍕', '🍩', '🧁', '🐸', '🐵', '👨‍🚀', '🦴', '🦷', '⛏️', '🐝', '🦋', '🐞', '🐌', '🚌', '🚜', '🚲', '🛵'];
+  const newPremiumTokens = ['🐶', '🦊', '🎈', '🎉', '🥳', '🎂', '🍭', '🍬', '🍟', '🥤', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🌷', '🦆', '🪷', '🍄', '⛰️', '🪺', '🚤', '🐛', '🪱', '🐜', '🕷️', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🏎️', '🍓', '🍕', '🍩', '🧁', '🐸', '🐵', '👨‍🚀', '🦴', '🦷', '⛏️', '🐝', '🦋', '🐞', '🐌', '🚌', '🚜', '🚲', '🛵'];
   assert.equal(new Set(newPremiumTokens.map((emoji) => MEMORY_CARD_ILLUSTRATIONS[emoji].asset)).size, newPremiumTokens.length);
   assert.deepEqual(['🐳', '🐬', '🦈', '🐢'].map((emoji) => memoryCardLabel(emoji)), ['whale', 'dolphin', 'shark', 'turtle']);
   assert.ok(['🐳', '🦈', '🐢'].every((emoji) => MEMORY_CARD_ILLUSTRATIONS[emoji].className === 'memory-card-art-image memory-card-art-ocean'));
@@ -260,6 +265,24 @@ test('racing car, drink, party face, and duck art map only to their authored boa
     assert.equal(entry?.illustration?.asset, asset);
   }
   assert.equal(new Set(expected.map(([, , , asset]) => asset)).size, expected.length);
+});
+
+test('water lily, dinosaur nest, and speedboat art map only to their authored boards', () => {
+  const expected = [
+    ['🪷', 'water lily', 'garden', 'memory-match/water-lily-v1-card.webp'],
+    ['🪺', 'dinosaur nest', 'dinos', 'memory-match/dinosaur-nest-v1-card.webp'],
+    ['🚤', 'speedboat', 'vehicles', 'memory-match/speedboat-v1-card.webp'],
+  ];
+  const audit = memoryIllustrationAudit(MEMORY_LEVELS);
+  for (const [emoji, label, board, asset] of expected) {
+    assert.equal(memoryCardLabel(emoji), label);
+    assert.equal(memoryCardIllustration(emoji)?.asset, asset);
+    assert.ok(MEMORY_LEVELS.find(({ id }) => id === board)?.emojis.includes(emoji));
+    const entry = audit.find((item) => item.emoji === emoji);
+    assert.deepEqual(entry?.boards, [board]);
+    assert.equal(entry?.illustration?.asset, asset);
+  }
+  assert.equal(audit.filter((item) => expected.some(([emoji]) => item.emoji === emoji && item.illustration?.asset)).length, expected.length);
 });
 
 test('Yummy Feast produce and biscuits have unique matching illustrations', () => {

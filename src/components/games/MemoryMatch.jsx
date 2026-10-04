@@ -27,6 +27,7 @@ import foodBiscuitArt from '../../assets/memory-match/food-biscuit-v1-card.webp'
 import foodCheeseArt from '../../assets/memory-match/food-cheese-v1-card.webp';
 import foodDrinkArt from '../../assets/memory-match/drink-v1-card.webp';
 import dinosaurEggArt from '../../assets/memory-match/dinosaur-egg-v1.webp';
+import dinosaurNestArt from '../../assets/memory-match/dinosaur-nest-v1-card.webp';
 import volcanoArt from '../../assets/memory-match/volcano-v1.webp';
 import ringedPlanetArt from '../../assets/memory-match/ringed-planet-v1-card.webp';
 import crescentMoonArt from '../../assets/memory-match/crescent-moon-v1-card.webp';
@@ -41,6 +42,7 @@ import treeArt from '../../assets/memory-match/tree-v1-card.webp';
 import leafSprigArt from '../../assets/memory-match/leaf-sprig-v1-card.webp';
 import mushroomArt from '../../assets/memory-match/mushroom-v1-card.webp';
 import duckArt from '../../assets/memory-match/duck-v1-card.webp';
+import waterLilyArt from '../../assets/memory-match/water-lily-v1-card.webp';
 import tulipArt from '../../assets/memory-match/tulip-v1-card.webp';
 import mountainArt from '../../assets/memory-match/mountain-v1-card.webp';
 import whaleArt from '../../assets/memory-match/whale-v1-card.webp';
@@ -68,6 +70,7 @@ import tractorArt from '../../assets/memory-match/tractor-v1-card.webp';
 import bicycleArt from '../../assets/memory-match/bicycle-v1-card.webp';
 import scooterArt from '../../assets/memory-match/scooter-v1-card.webp';
 import racingCarArt from '../../assets/memory-match/racing-car-v1-card.webp';
+import speedboatArt from '../../assets/memory-match/speedboat-v1-card.webp';
 import strawberryArt from '../../assets/memory-match/strawberry-v1-card.webp';
 import pizzaArt from '../../assets/memory-match/pizza-v1-card.webp';
 import doughnutArt from '../../assets/memory-match/doughnut-v1-card.webp';
@@ -129,6 +132,7 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/food-cheese-v1-card.webp': foodCheeseArt,
   'memory-match/drink-v1-card.webp': foodDrinkArt,
   'memory-match/dinosaur-egg-v1.webp': dinosaurEggArt,
+  'memory-match/dinosaur-nest-v1-card.webp': dinosaurNestArt,
   'memory-match/volcano-v1.webp': volcanoArt,
   'memory-match/ringed-planet-v1-card.webp': ringedPlanetArt,
   'memory-match/crescent-moon-v1-card.webp': crescentMoonArt,
@@ -143,6 +147,7 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/leaf-sprig-v1-card.webp': leafSprigArt,
   'memory-match/mushroom-v1-card.webp': mushroomArt,
   'memory-match/duck-v1-card.webp': duckArt,
+  'memory-match/water-lily-v1-card.webp': waterLilyArt,
   'memory-match/tulip-v1-card.webp': tulipArt,
   'memory-match/mountain-v1-card.webp': mountainArt,
   'memory-match/whale-v1-card.webp': whaleArt,
@@ -170,6 +175,7 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/bicycle-v1-card.webp': bicycleArt,
   'memory-match/scooter-v1-card.webp': scooterArt,
   'memory-match/racing-car-v1-card.webp': racingCarArt,
+  'memory-match/speedboat-v1-card.webp': speedboatArt,
   'memory-match/strawberry-v1-card.webp': strawberryArt,
   'memory-match/pizza-v1-card.webp': pizzaArt,
   'memory-match/doughnut-v1-card.webp': doughnutArt,
