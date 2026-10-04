@@ -1,0 +1,73 @@
+{
+  "candidateSource": "79a719e91e727f09d1f78cf890acd7e671cab381",
+  "preview": "http://127.0.0.1:5395/",
+  "viewport": "390x844",
+  "session": "count5395-clue-qa-20261004",
+  "guarding": {
+    "startedAt": "about:blank",
+    "voice": 403,
+    "story": 403,
+    "verifiedBeforeFirstAppNavigation": true,
+    "providersCalled": false
+  },
+  "progression": {
+    "entry": "Amari > Maths Missions > Count the Stars",
+    "normalRoundsCompletedBeforeChallenge": 12,
+    "progressOrAnswerInjection": false,
+    "challengeRoundsObserved": 3
+  },
+  "arrangements": [
+    {
+      "kind": "row-or-array",
+      "observedRounds": [
+        "Starter Moon Berries (3)",
+        "Growing Satellite Bolts (5)",
+        "Challenge Planet Rings (8)"
+      ],
+      "clue": "Read one row at a time, and use each badge to keep your place."
+    },
+    {
+      "kind": "split-groups",
+      "observedRound": "Challenge Crater Gems (15; visibly separated groups)",
+      "clue": "Count one visible group, then the other group. Add the two totals.",
+      "wrongRetry": "Answered 14; visible feedback asked to check count badges.",
+      "correctHeld": "Answered 15; held copy: There are 15 crater gems. You counted each one once.",
+      "nextUsed": true,
+      "screenshot": "screenshots/crater-gems-mobile-held.jpg"
+    },
+    {
+      "kind": "scattered",
+      "observedRounds": [
+        "Starter Rocket Lights (3)",
+        "Starter Firefly Meadow (2)",
+        "Starter Tiny Planets (5)",
+        "Challenge Satellite Panels (3)"
+      ],
+      "clue": "Point to each shape once. The numbered badges keep your place.",
+      "screenshot": "screenshots/satellite-panels-mobile-scattered-clue.jpg",
+      "remainingEpisodeBanner": "Count along a row, or count each group and put the totals together.",
+      "defect": "Challenge strategy banner contradicts the scattered Satellite Panels layout."
+    }
+  ],
+  "hintAsset": {
+    "mutedThenUnmutedViaVisibleControl": true,
+    "visibleAction": "Show a clue on Challenge Satellite Panels",
+    "request": "/audio/en/03a953b6-matilda.mp3",
+    "httpStatus": 200,
+    "mappedText": "Point to each shape once. The numbered badges keep your place.",
+    "mediaElementExposed": false,
+    "playbackOrCancellationVerified": false,
+    "humanListeningClaim": false,
+    "returnedToMutedViaVisibleControl": true
+  },
+  "console": {
+    "messages": 0,
+    "errors": 0,
+    "warnings": 0
+  },
+  "acceptance": {
+    "arrangementSpecificPerQuestionClues": "observed working for the three sampled arrangement classes",
+    "challengeStrategyBannerOnScatteredBoard": "fail",
+    "productionAcceptance": "held pending banner repair"
+  }
+}
