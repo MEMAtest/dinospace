@@ -1040,7 +1040,10 @@
     "integrationQaCommit": "f898043",
     "integrationQaScope": "First chapters of all four at1280/390, wrong/clue/correct/heldNext, BackKeep/Maths return; distinct TimeDetectives return after reload ondesktop; two-way sound persistence desktop; B3+B4 unearned collection catalog coexistence. Earned integrated badges and audio not tested.",
     "nextIntegrationSource": "5cd98bc",
-    "nextIntegrationScope": "Carries the identical shared phonics default fix, with 12 literacy/learning tests passing. Frozen 5360 and its previous QA remain bound to 8bb8d4; no new freeze or release."
+    "nextIntegrationScope": "Carries the identical shared phonics default fix, with 12 literacy/learning tests passing. Frozen 5360 and its previous QA remain bound to 8bb8d4; no new freeze or release.",
+    "currentReconciliationReport": "docs/qa-evidence/batch4-current-editorial-reconciliation-20261004.md",
+    "currentReconciliationCommit": "6a39daef50b80f74c9f77042703d3d656eef8b9e",
+    "currentReconciliationDecision": "Independent current-source review supports four non-audio components at 4.5 each. Combined feedback/audio/visual remains unscored, no overall award or production release."
   },
   "batch5SoundSafariAssetAudit": {
     "report": "docs/qa-evidence/batch5-sound-safari-mobile-audit-20261004.md",
@@ -1195,7 +1198,11 @@
       "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-astronaut-teaching-independent-20261004/report.md",
       "componentRecommendation": 4.5,
       "scope": "All36 source review plus bounded ordinary six-question Starter UI; Learn clue vs reasoning label, wrong/retry, held fact/Next and one-star assisted completion with6 saved facts. Mars clue rendered at desktop and390. Five served hashes match, no console errors/broken passport images/mobile overflow. Not all36 new clues clicked; no audio/overall/release award."
-    }
+    },
+    "currentReconciliationReport": "docs/qa-evidence/batch6-current-integration-independent-review-20261004.md",
+    "currentReconciliationCommit": "7e3167b4045dcda85d3733707b9678076b226e8e",
+    "currentReconciliationDecision": "Independent current-source review supports four non-audio components at 4.5 each. Combined feedback/audio/visual remains unscored, no overall award or production release.",
+    "builderReconciliationReport": "docs/qa-evidence/batch6-current-integration-score-reconciliation-20261004.md"
   },
   "batch4NarrationCheckpoint": {
     "updatedAt": "2026-10-04T18:43:43.678Z",
@@ -1369,7 +1376,41 @@
         "Chess Explorers",
         "Astronaut Academy"
       ],
-      "scope": "Old5363 mute-reset4.0 remains historical. Current clean5371 preference/reentry delta plus retained namespaced gameplay/reward/reload evidence supports current component4.5; no expanded all-game active or sibling collection UI claim, audio/overall/production pending."
+      "scope": "Independent current-source reconciliation of retained full matrices and bounded exact-source deltas. Local only; no overall mean, acceptance, or production release.",
+      "currentReconciliationReport": "docs/qa-evidence/batch6-current-integration-independent-review-20261004.md",
+      "currentRecommendations": {
+        "Pattern Parade": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "Dino Hangman": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "Chess Explorers": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "Astronaut Academy": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ]
+      },
+      "nonAudioDimensions": [
+        "age-6 teaching",
+        "meaningful progression",
+        "correctness and fair variation",
+        "reliability/navigation/persistence"
+      ],
+      "feedbackAudioVisual": null
     },
     "batch2": {
       "source": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
@@ -1396,6 +1437,44 @@
       "deployedAgeTeaching": 4.0,
       "report": "docs/qa-evidence/batch3-independent-editorial-assessment-20261004.md",
       "scope": "Independent rendered two-fact delta plus retained12-world baseline; local wording only. Two recordings, listening and canonical promotion pending; no overall score."
+    },
+    "batch4": {
+      "source": "9c594dd0e49f5a84588787a084a55aefeec4cdc0",
+      "currentReconciliationReport": "docs/qa-evidence/batch4-current-editorial-reconciliation-20261004.md",
+      "currentRecommendations": {
+        "Addition Adventure": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "Subtraction Station": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "Time Teller": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ],
+        "Number Line Jump": [
+          4.5,
+          4.5,
+          4.5,
+          4.5
+        ]
+      },
+      "nonAudioDimensions": [
+        "age-6 teaching",
+        "meaningful progression",
+        "correctness and fair variation",
+        "reliability/navigation/persistence"
+      ],
+      "feedbackAudioVisual": null,
+      "scope": "Independent current-source reconciliation of retained full matrices and bounded exact-source deltas. Local only; no overall mean, acceptance, or production release."
     }
   },
   "batch4InterimDecode": {

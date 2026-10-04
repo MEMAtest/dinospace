@@ -661,3 +661,8 @@ Independent editorial reconciliation continues in four-game sets for batches 3 a
 ## 4 October current B5 component reconciliation
 
 Root read and preserved the [independent integrated score worksheet](qa-evidence/batch5-current-integration-score-reconciliation-20261004.md). Spelling Studio, Colour Mixing Lab and Odd One Out support provisional 4.5 on the four non-audio dimensions; Sound Safari supports 4.0 while all 37 essential pure phoneme clips remain absent and mobile audio-dependent chapters are unverified. The historical assessment remains intact. All combined feedback/audio/visual scores and overall release acceptance remain open. Recorded accepted count remains 4/26.
+
+
+## 4 October B4 and B6 current independent score reconciliation
+
+Root read and imported [B4 current review](qa-evidence/batch4-current-editorial-reconciliation-20261004.md) and [B6 independent review](qa-evidence/batch6-current-integration-independent-review-20261004.md), keeping the B6 builder-overlap worksheet separately attributed. Each of these eight games supports four provisional non-audio components at 4.5. B6 mobile screenshots were reviewed for sequence priority, readable Hangman tiles, active-piece Chess guidance and held Astronaut fact/diagram; no new visual repair was found in those samples. Audio, human listening and production gates remain open. These recommendations do not change the recorded 4/26 accepted count.

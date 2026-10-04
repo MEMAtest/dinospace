@@ -3,7 +3,7 @@
 Date: 4 October 2026  
 Candidate runtime source: `2a82fd8fd17d9e76ec4310f2fecf489291f5bbff`  
 Integrated Batch 6 source: `764b2ff49b6c40c13df928b4449d0a1f68fbe660`  
-Candidate: frozen local build `http://127.0.0.1:5371/`; identity: [`batch6-integration-20261004/identity.json`](batch6-integration-20261004/identity.json).
+Candidate: frozen local build `http://127.0.0.1:5371/`; identity: [`batch6-integration-20261004/identity.json`](../../../dinospace-batch6-integration/docs/qa-evidence/batch6-integration-20261004/identity.json).
 
 ## Scope and independence
 
@@ -44,7 +44,7 @@ The retained full desktop and mobile gameplay lineage covers Pattern 3×6 rounds
 
 The old `5363` candidate has a reproduced mute preference reset after reload; its historical 4.0 reliability assessment remains accurate for that candidate only. The current canonical integration retains the saved sound preference. Independent UI at `5371` toggled sound both ways and confirmed persistence through reload and route re-entry at desktop and 390px; it also opened all four Amari chapter maps, exercised Pattern wrong/retry/held-success/Next/confirmed parent return, and verified that Askia still reaches its separate legacy Pattern flow. The retained per-game reliability controls additionally establish normal replay credit and reload outcomes: Pattern best-star gain persisted; a clue-assisted lower Hangman replay left its best record unchanged; Chess equal replay yielded no extra stars and its mobile improvement credited only +1; Astronaut's passport and chapter records survived reload. The progress helper namespaces records by player and game and awards only a positive best-star delta.
 
-This is a 4.5 recommendation, not 5: the integrated-candidate UI delta did not play all four active flows through a full chapter, and ordinary Askia UI comparison proves visible global-star separation rather than every same-game badge/fact collection boundary. Source ownership tests support those boundaries. The current B6 UI evidence is bounded and does not assert a fresh, like-for-like sibling collection test for each game. See [`batch6-integration-browser-20261004/report.md`](batch6-integration-browser-20261004/report.md), [`batch6-reliability-followup-20261004/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-followup-20261004/report.md), and [`batch6-reliability-root-20261004/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-root-20261004/report.md). Root owns the Chess reliability report; these are attributed evidence, not my browser observations.
+This is a 4.5 recommendation, not 5: the integrated-candidate UI delta did not play all four active flows through a full chapter, and ordinary Askia UI comparison proves visible global-star separation rather than every same-game badge/fact collection boundary. Source ownership tests support those boundaries. The current B6 UI evidence is bounded and does not assert a fresh, like-for-like sibling collection test for each game. See [`batch6-integration-browser-20261004/report.md`](../../../dinospace-batch6-integration/docs/qa-evidence/batch6-integration-browser-20261004/report.md), [`batch6-reliability-followup-20261004/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-followup-20261004/report.md), and [`batch6-reliability-root-20261004/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-root-20261004/report.md). Root owns the Chess reliability report; these are attributed evidence, not my browser observations.
 
 ## Unscored and open gates
 
@@ -54,8 +54,8 @@ The integration candidate is a configured local build, not production. The separ
 
 ## Evidence references
 
-- Integrated builder report and full identity: [`batch6-integration-20261004/report.md`](batch6-integration-20261004/report.md) and [`identity.json`](batch6-integration-20261004/identity.json).
-- Independent integration delta: [`batch6-integration-browser-20261004/report.md`](batch6-integration-browser-20261004/report.md).
+- Integrated builder report and full identity: [`batch6-integration-20261004/report.md`](../../../dinospace-batch6-integration/docs/qa-evidence/batch6-integration-20261004/report.md) and [`identity.json`](../../../dinospace-batch6-integration/docs/qa-evidence/batch6-integration-20261004/identity.json).
+- Independent integration delta: [`batch6-integration-browser-20261004/report.md`](../../../dinospace-batch6-integration/docs/qa-evidence/batch6-integration-browser-20261004/report.md).
 - Full game matrix and candidate-specific failures/repairs: [`batch6-full-local-20261003/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-full-local-20261003/report.md).
 - Editorial and Astronaut clue controls: [`batch6-editorial-copy-browser-20261004/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-editorial-copy-browser-20261004/report.md), [`batch6-astronaut-teaching-independent-20261004/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-astronaut-teaching-independent-20261004/report.md), and [`batch6-astronaut-diagram-followup-20261004/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-astronaut-diagram-followup-20261004/report.md).
 - Reliability and replay controls: [`batch6-reliability-followup-20261004/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-followup-20261004/report.md) and [`batch6-reliability-root-20261004/report.md`](../../../dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-root-20261004/report.md).
