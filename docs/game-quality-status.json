@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T06:45:30.172083+00:00",
+  "updatedAt": "2026-10-04T06:49:36.116933+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -712,5 +712,11 @@
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-report-20261004.md",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-identity-20261004.json",
     "scope": "Builder normal-earned Levels 1-6 and full Vehicles 14 pairs at both widths; Bus/Tractor/Bicycle/Scooter captions, 82px cards, 48px selectors, face-down zero images/front labels, reload and hashes pass. Guarded APIs and console errors zero; sixteen tests/lint/build pass. Builder inventory 76/87, eleven remaining. Independent review running; no audio, production or overall 4.5 acceptance."
+  },
+  "spotTreehouseRealObjectsPrototype": {
+    "sourceSha": "88ca034",
+    "origin": "http://127.0.0.1:5329",
+    "identity": "docs/qa-evidence/spot-treehouse-real-objects-identity-20261004.json",
+    "scope": "Five actual depicted colour changes replace generic Growing badges: left arrow block, up-arrow block, plant pot, robot eyes/smile and shelf house roof. SVG layer matches centered object-cover for square/portrait originals; shared-renderer Starter regression and Treehouse visual/control QA assigned at both widths. Seventeen focused tests, scoped lint and configured build pass. No visual/audio/production or 4.5 acceptance."
   }
 }

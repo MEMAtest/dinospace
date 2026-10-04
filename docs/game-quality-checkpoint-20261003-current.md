@@ -236,3 +236,9 @@ Dino5327 report00bce19 rejects the visual mask: a purple crown/sky tab and water
 Root read vehicle builder reportab6ce142 on357f24cf/frozen5324: four illustrations (Bus, Tractor, Bicycle, Scooter), normal-earned fullVehicles14pairs both widths,82px mobile cards,48px selectors, reload, face-down hiding, hashes and guard/console checks pass. Builder inventory76/87 with11remaining; independent review is running. Next four illustrations are in progress.
 
 Authorized narration workerPID18781 verified live;run136 at06:37UTC reports3,243pending and zero retries during expected request-window wait. No paid worker restarted. All26acceptance contracts remain published;4recordedaccepted/22inprogress. No new production release or overall4.5 claim.
+
+### First Growing real-object candidate
+
+Root implemented88ca034: Treehouse Team replaces five generic floating badges with colour changes on actual left-arrow/up-arrow blocks, the plant pot, robot eyes/smile and shelf toy-house roof. Original square raster remains unchanged. The SVG composition now matches the base object-cover crop, fixing the square/portrait alignment prerequisite; four Starter pairs therefore require a shared-renderer visual/control delta.17focusedtests/scopedlint/configured build pass; frozen5329 identity saved. Independent normal-earned Treehouse and Starter checks are assigned after5328. No visual acceptance yet.
+
+The independent5328 Dino reviewer reports the desktop crown and feet/water artifacts are removed, with pale belly and facial details protected; mobile and controls still pending. This early observation is not a completed acceptance report.

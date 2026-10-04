@@ -1,0 +1,74 @@
+{
+  "createdAt": "2026-10-04T06:48:41.161241+00:00",
+  "sourceSha": "88ca034948958a48aa3d3fde66aa6bde18720ada",
+  "origin": "http://127.0.0.1:5329",
+  "frozenDist": "tmp/spot-treehouse-real-objects/dist",
+  "scope": "Treehouse five real object colours with original 1254-square centered crop; SVG image fit matches base object-cover. Shared renderer changed; full Starter visual/control regression delta required at both widths in addition to Treehouse. 17 focused tests/scoped lint/configured build pass. No visual/audio/production/4.5 acceptance.",
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "2e7b6f8b27f424945c87da589b0b256d47909346f4b16ca68ce2c32502f1fe85"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-CA0tG9eJ.js",
+      "bytes": 18854,
+      "sha256": "1f20c542655f276f0522084e04fc0d495fc2ec52cf13662b0deedec23ddaa3b9"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-CBXkm0rI.js",
+      "bytes": 19956,
+      "sha256": "d0716e76b50cf3b468d3782ff9bbbbeb359bc0231aab79f7592c9f8c27579bdd"
+    },
+    {
+      "path": "/assets/SolarSystem-DxR3TPjN.js",
+      "bytes": 563158,
+      "sha256": "9664b9501c38b211e361ec56912559605168331c09099b3a6edbbd9cb146c943"
+    },
+    {
+      "path": "/assets/index-hO2eEsPY.js",
+      "bytes": 1246979,
+      "sha256": "eed16cf657b5bf1d6371ac986ca7b5c6bbfb48245e0bd56261c9603b64e53e58"
+    },
+    {
+      "path": "/assets/web-BcNVzwRq.js",
+      "bytes": 842,
+      "sha256": "8eb684d3ccb92544d8dcc29cfc64efe8b4546c51e49e9289216e18245128ebd5"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/treehouse-robots-3d-s6y8m7qr.webp",
+      "bytes": 288118,
+      "sha256": "e065b1e9a1573ef09f5af86f88d0c84a3ffb0da022037561525351db25317f33"
+    },
+    {
+      "path": "/assets/dino-park-CfXqz-J3.jpg",
+      "bytes": 285218,
+      "sha256": "9cd2ce5eb1abbd0bcb28e2ed5f639b6f2590f4db173ef45d3d94a7702d4ec7a1"
+    },
+    {
+      "path": "/assets/superhero-city-DPTOkgpV.webp",
+      "bytes": 194200,
+      "sha256": "c9205d316ee832981f816af002cd57ea22d50b6a6a84231a646f639385634b22"
+    },
+    {
+      "path": "/assets/dino-moon-3d-f1vVSf2r.webp",
+      "bytes": 401560,
+      "sha256": "a8c15f541d45125fd165e6d126ffe1d67f2d61c78b38d148067c5a553f934c1e"
+    },
+    {
+      "path": "/assets/dino-river-3d-DS1Pw89d.webp",
+      "bytes": 415714,
+      "sha256": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8"
+    },
+    {
+      "path": "/assets/river-valley-pair-b-v1-BvZSBbF5.webp",
+      "bytes": 353174,
+      "sha256": "9b254a872bf0d3d01489333ae7da8dd5aba52f04c3e4c367c3b12a66eb9ead5b"
+    }
+  ]
+}
