@@ -1,0 +1,774 @@
+{
+  "scope": "Solar System only; read-only manifest/file existence, not decode, listening or release acceptance",
+  "language": "en-US",
+  "destinations": 9,
+  "discoveries": 54,
+  "phrases": 127,
+  "packaged": 111,
+  "missing": 16,
+  "readiness": "incomplete",
+  "entries": [
+    {
+      "text": "Mercury. The speedy little planet. Find the tiny grey planet racing closest to the Sun.",
+      "key": "258091e0",
+      "path": "/audio/en/258091e0-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Smallest planet in our solar system.",
+      "key": "a401d59e",
+      "path": "/audio/en/a401d59e-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 1. Smallest planet in our solar system.",
+      "key": "babf7e1d",
+      "path": "/audio/en/babf7e1d-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Closest to the Sun and very speedy.",
+      "key": "2cf8204c",
+      "path": "/audio/en/2cf8204c-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 2. Closest to the Sun and very speedy.",
+      "key": "23b76d42",
+      "path": "/audio/en/23b76d42-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "From one sunrise to the next takes 176 Earth days.",
+      "key": "6d6518dd",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Discovery 3. From one sunrise to the next takes 176 Earth days.",
+      "key": "94e99828",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "No air to breathe, so it is quiet.",
+      "key": "53a1cf52",
+      "path": "/audio/en/53a1cf52-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 4. No air to breathe, so it is quiet.",
+      "key": "4e2cff5a",
+      "path": "/audio/en/4e2cff5a-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Long cliffs formed as Mercury cooled and shrank.",
+      "key": "00567b7b",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Discovery 5. Long cliffs formed as Mercury cooled and shrank.",
+      "key": "a2b823b4",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Temperatures swing from baking hot to freezing cold.",
+      "key": "6f1f06ff",
+      "path": "/audio/en/6f1f06ff-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 6. Temperatures swing from baking hot to freezing cold.",
+      "key": "40d33725",
+      "path": "/audio/en/40d33725-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Correct. It has no air.",
+      "key": "73786862",
+      "path": "/audio/en/73786862-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Venus. The hottest planet. Spot the yellow world hidden beneath thick clouds.",
+      "key": "5105e122",
+      "path": "/audio/en/5105e122-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Hottest planet in the whole solar system.",
+      "key": "601ec7d6",
+      "path": "/audio/en/601ec7d6-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 1. Hottest planet in the whole solar system.",
+      "key": "dc40c993",
+      "path": "/audio/en/dc40c993-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Spins backwards compared to most planets.",
+      "key": "7ba99977",
+      "path": "/audio/en/7ba99977-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 2. Spins backwards compared to most planets.",
+      "key": "140a117d",
+      "path": "/audio/en/140a117d-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Thick clouds trap heat like a blanket.",
+      "key": "b7596ac9",
+      "path": "/audio/en/b7596ac9-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 3. Thick clouds trap heat like a blanket.",
+      "key": "19b4a178",
+      "path": "/audio/en/19b4a178-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Looks like a bright evening star.",
+      "key": "c7e7b6da",
+      "path": "/audio/en/c7e7b6da-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 4. Looks like a bright evening star.",
+      "key": "1ae913b2",
+      "path": "/audio/en/1ae913b2-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Its clouds contain drops of strong acid.",
+      "key": "8cce21bb",
+      "path": "/audio/en/8cce21bb-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 5. Its clouds contain drops of strong acid.",
+      "key": "6d672f2c",
+      "path": "/audio/en/6d672f2c-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "The Sun rises in the west because Venus spins backwards.",
+      "key": "531a6fbc",
+      "path": "/audio/en/531a6fbc-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 6. The Sun rises in the west because Venus spins backwards.",
+      "key": "2d6972da",
+      "path": "/audio/en/2d6972da-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Correct. Venus.",
+      "key": "bdae78c9",
+      "path": "/audio/en/bdae78c9-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Earth. Our bright blue home. Find the blue oceans that cover most of Earth.",
+      "key": "19aefa66",
+      "path": "/audio/en/19aefa66-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Home to plants, animals, and you!",
+      "key": "8363d10a",
+      "path": "/audio/en/8363d10a-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 1. Home to plants, animals, and you!",
+      "key": "156ce467",
+      "path": "/audio/en/156ce467-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Lots of water makes it look blue.",
+      "key": "9bb97653",
+      "path": "/audio/en/9bb97653-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 2. Lots of water makes it look blue.",
+      "key": "30e7478d",
+      "path": "/audio/en/30e7478d-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Only planet we know with life.",
+      "key": "073c68ed",
+      "path": "/audio/en/073c68ed-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 3. Only planet we know with life.",
+      "key": "b41ab7b4",
+      "path": "/audio/en/b41ab7b4-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "One big Moon lights up our night sky.",
+      "key": "073546c2",
+      "path": "/audio/en/073546c2-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 4. One big Moon lights up our night sky.",
+      "key": "5c81c59a",
+      "path": "/audio/en/5c81c59a-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Earth’s moving plates slowly reshape its surface.",
+      "key": "ea957222",
+      "path": "/audio/en/ea957222-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 5. Earth’s moving plates slowly reshape its surface.",
+      "key": "f723f3a3",
+      "path": "/audio/en/f723f3a3-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Earth acts like a giant magnet. Its invisible magnetic field turns many tiny bits from the Sun away from Earth. The space around Earth that the field controls is called the magnetosphere.",
+      "key": "ade6cb63",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Discovery 6. Earth acts like a giant magnet. Its invisible magnetic field turns many tiny bits from the Sun away from Earth. The space around Earth that the field controls is called the magnetosphere.",
+      "key": "71829c71",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Correct. Its oceans.",
+      "key": "bacb26a9",
+      "path": "/audio/en/bacb26a9-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Mars. The red explorer. Search the red surface for the giant Olympus Mons volcano.",
+      "key": "2b8dee0e",
+      "path": "/audio/en/2b8dee0e-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Dusty and rocky with huge volcanoes.",
+      "key": "7147a9a3",
+      "path": "/audio/en/7147a9a3-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 1. Dusty and rocky with huge volcanoes.",
+      "key": "1839a150",
+      "path": "/audio/en/1839a150-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Robots explore Mars for us!",
+      "key": "6b52016b",
+      "path": "/audio/en/6b52016b-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 2. Robots explore Mars for us!",
+      "key": "379f60fd",
+      "path": "/audio/en/379f60fd-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Home to the biggest volcano: Olympus Mons.",
+      "key": "5348478a",
+      "path": "/audio/en/5348478a-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 3. Home to the biggest volcano: Olympus Mons.",
+      "key": "a416b33b",
+      "path": "/audio/en/a416b33b-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Looks red because of rusty dust.",
+      "key": "5b3fb063",
+      "path": "/audio/en/5b3fb063-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 4. Looks red because of rusty dust.",
+      "key": "f0c1b4ab",
+      "path": "/audio/en/f0c1b4ab-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Olympus Mons is nearly three times taller than Everest.",
+      "key": "29d91254",
+      "path": "/audio/en/29d91254-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 5. Olympus Mons is nearly three times taller than Everest.",
+      "key": "d09bba31",
+      "path": "/audio/en/d09bba31-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Mars has seasons and polar ice caps like Earth.",
+      "key": "105bfb6d",
+      "path": "/audio/en/105bfb6d-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 6. Mars has seasons and polar ice caps like Earth.",
+      "key": "ab68b85b",
+      "path": "/audio/en/ab68b85b-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Correct. Rusty dust.",
+      "key": "e8d9104f",
+      "path": "/audio/en/e8d9104f-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Jupiter. The giant gas planet. Find the striped giant and its enormous red storm.",
+      "key": "76416705",
+      "path": "/audio/en/76416705-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Largest planet in our solar system.",
+      "key": "bed17da3",
+      "path": "/audio/en/bed17da3-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 1. Largest planet in our solar system.",
+      "key": "7cf44cd6",
+      "path": "/audio/en/7cf44cd6-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Bigger than all the other planets combined.",
+      "key": "67a352d9",
+      "path": "/audio/en/67a352d9-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 2. Bigger than all the other planets combined.",
+      "key": "443652b7",
+      "path": "/audio/en/443652b7-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Has a giant storm called the Great Red Spot.",
+      "key": "8e85998b",
+      "path": "/audio/en/8e85998b-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 3. Has a giant storm called the Great Red Spot.",
+      "key": "51e16e66",
+      "path": "/audio/en/51e16e66-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Made of gas, so there is no solid ground.",
+      "key": "95f43c1c",
+      "path": "/audio/en/95f43c1c-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 4. Made of gas, so there is no solid ground.",
+      "key": "3bb1df64",
+      "path": "/audio/en/3bb1df64-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Its Great Red Spot is a storm larger than Earth.",
+      "key": "37fb67c6",
+      "path": "/audio/en/37fb67c6-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 5. Its Great Red Spot is a storm larger than Earth.",
+      "key": "52b0d4d5",
+      "path": "/audio/en/52b0d4d5-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Jupiter also has faint rings made of tiny dark particles.",
+      "key": "0fe0928c",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Discovery 6. Jupiter also has faint rings made of tiny dark particles.",
+      "key": "257b6d0e",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Correct. A giant storm.",
+      "key": "fc455483",
+      "path": "/audio/en/fc455483-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Saturn. The ringed planet. Tilt the view and inspect Saturn’s icy rings.",
+      "key": "5a35ed3c",
+      "path": "/audio/en/5a35ed3c-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Rings are made of ice and rock chunks.",
+      "key": "6fcd80c6",
+      "path": "/audio/en/6fcd80c6-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 1. Rings are made of ice and rock chunks.",
+      "key": "55a55c2d",
+      "path": "/audio/en/55a55c2d-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Has lots of moons to discover.",
+      "key": "2a3411f7",
+      "path": "/audio/en/2a3411f7-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 2. Has lots of moons to discover.",
+      "key": "f8712cf9",
+      "path": "/audio/en/f8712cf9-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Could float in water because it is light.",
+      "key": "97e380c8",
+      "path": "/audio/en/97e380c8-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 3. Could float in water because it is light.",
+      "key": "814f5717",
+      "path": "/audio/en/814f5717-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Spins so fast it looks squished.",
+      "key": "35b065cc",
+      "path": "/audio/en/35b065cc-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 4. Spins so fast it looks squished.",
+      "key": "95a31cf4",
+      "path": "/audio/en/95a31cf4-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Some ring pieces are tiny grains; others are house-sized.",
+      "key": "316bac69",
+      "path": "/audio/en/316bac69-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 5. Some ring pieces are tiny grains; others are house-sized.",
+      "key": "e7b8a110",
+      "path": "/audio/en/e7b8a110-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes.",
+      "key": "9c98dcb8",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Discovery 6. Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes.",
+      "key": "68e808f6",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Correct. Ice and rock.",
+      "key": "fdbf8a67",
+      "path": "/audio/en/fdbf8a67-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Uranus. The sideways spinner. Find the pale planet rolling around the Sun on its side.",
+      "key": "daa1096c",
+      "path": "/audio/en/daa1096c-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Spins on its side like a rolling ball.",
+      "key": "fcccce75",
+      "path": "/audio/en/fcccce75-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 1. Spins on its side like a rolling ball.",
+      "key": "e618738e",
+      "path": "/audio/en/e618738e-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Pale blue-green color from methane gas.",
+      "key": "59a795fc",
+      "path": "/audio/en/59a795fc-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 2. Pale blue-green color from methane gas.",
+      "key": "a058fad6",
+      "path": "/audio/en/a058fad6-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Very cold and far from the Sun.",
+      "key": "222d672b",
+      "path": "/audio/en/222d672b-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 3. Very cold and far from the Sun.",
+      "key": "f60cfac8",
+      "path": "/audio/en/f60cfac8-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Has faint rings around it.",
+      "key": "29e5342f",
+      "path": "/audio/en/29e5342f-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 4. Has faint rings around it.",
+      "key": "65927997",
+      "path": "/audio/en/65927997-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Its seasons each last about 21 Earth years.",
+      "key": "0e75e069",
+      "path": "/audio/en/0e75e069-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 5. Its seasons each last about 21 Earth years.",
+      "key": "52a257d4",
+      "path": "/audio/en/52a257d4-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Scientists think it may rain diamonds deep inside.",
+      "key": "6c098802",
+      "path": "/audio/en/6c098802-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 6. Scientists think it may rain diamonds deep inside.",
+      "key": "67be40e4",
+      "path": "/audio/en/67be40e4-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Correct. On its side.",
+      "key": "269719b8",
+      "path": "/audio/en/269719b8-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Neptune. The windy blue world. Travel to the far blue world and look for storm bands.",
+      "key": "8dd8c17a",
+      "path": "/audio/en/8dd8c17a-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Farthest planet from the Sun.",
+      "key": "098230ce",
+      "path": "/audio/en/098230ce-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 1. Farthest planet from the Sun.",
+      "key": "02c91cf7",
+      "path": "/audio/en/02c91cf7-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Super windy with giant storms.",
+      "key": "d0def2d7",
+      "path": "/audio/en/d0def2d7-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 2. Super windy with giant storms.",
+      "key": "979edef1",
+      "path": "/audio/en/979edef1-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Methane gas helps give Neptune its blue colour.",
+      "key": "35106371",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Discovery 3. Methane gas helps give Neptune its blue colour.",
+      "key": "35fa6542",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "A year there is very, very long.",
+      "key": "8e7132aa",
+      "path": "/audio/en/8e7132aa-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 4. A year there is very, very long.",
+      "key": "a256ff62",
+      "path": "/audio/en/a256ff62-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Its winds can race faster than 2,000 kilometres per hour.",
+      "key": "9bb2befc",
+      "path": "/audio/en/9bb2befc-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 5. Its winds can race faster than 2,000 kilometres per hour.",
+      "key": "6c1e333d",
+      "path": "/audio/en/6c1e333d-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins.",
+      "key": "fe913cbc",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Discovery 6. Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins.",
+      "key": "fce2de6e",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Correct. Super-fast winds.",
+      "key": "bb180373",
+      "path": "/audio/en/bb180373-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Pluto. The tiny icy dwarf planet. Find the tiny icy world beyond Neptune.",
+      "key": "d1b02131",
+      "path": "/audio/en/d1b02131-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Small, icy world far from the Sun.",
+      "key": "6373319e",
+      "path": "/audio/en/6373319e-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 1. Small, icy world far from the Sun.",
+      "key": "220af871",
+      "path": "/audio/en/220af871-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Used to be called the 9th planet.",
+      "key": "b09949f4",
+      "path": "/audio/en/b09949f4-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 2. Used to be called the 9th planet.",
+      "key": "07fa5f5a",
+      "path": "/audio/en/07fa5f5a-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Has a heart-shaped ice spot.",
+      "key": "19681350",
+      "path": "/audio/en/19681350-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 3. Has a heart-shaped ice spot.",
+      "key": "e808d0e5",
+      "path": "/audio/en/e808d0e5-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Takes 248 years to go around the Sun.",
+      "key": "0433bb6f",
+      "path": "/audio/en/0433bb6f-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 4. Takes 248 years to go around the Sun.",
+      "key": "4a047c77",
+      "path": "/audio/en/4a047c77-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Its heart-shaped region is called Tombaugh Regio.",
+      "key": "8f43359e",
+      "path": "/audio/en/8f43359e-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Discovery 5. Its heart-shaped region is called Tombaugh Regio.",
+      "key": "64cb52ab",
+      "path": "/audio/en/64cb52ab-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Charon is Pluto’s largest moon. Pluto and Charon travel around one point between them. This point is their shared centre of gravity.",
+      "key": "4ce4761a",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Discovery 6. Charon is Pluto’s largest moon. Pluto and Charon travel around one point between them. This point is their shared centre of gravity.",
+      "key": "93930f34",
+      "path": null,
+      "packaged": false
+    },
+    {
+      "text": "Correct. A dwarf planet.",
+      "key": "35eb916f",
+      "path": "/audio/en/35eb916f-matilda.mp3",
+      "packaged": true
+    },
+    {
+      "text": "Not quite. Check the discoveries and try again.",
+      "key": "89bd4948",
+      "path": "/audio/en/89bd4948-matilda.mp3",
+      "packaged": true
+    }
+  ]
+}

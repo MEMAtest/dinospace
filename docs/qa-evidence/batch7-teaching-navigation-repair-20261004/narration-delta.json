@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-04",
+  "sourceCommit": "b6976948cf61147491e3658a5ce2e249a91bca09",
+  "scope": "Read-only manifest and file-existence checks. No audio generation, manifest mutation, decode, playback, provider request or listening.",
+  "memory": {
+    "baseline": {
+      "phrases": 183,
+      "packaged": 2,
+      "missing": 181
+    },
+    "candidate": {
+      "phrases": 183,
+      "packaged": 2,
+      "missing": 181
+    },
+    "strategyTextChangedInThisRepair": false,
+    "previousCandidateStrategy": "Scan one row at a time. When you turn a picture, remember its row and place. If you see it again, look for the place where its partner appeared.",
+    "currentStrategy": "Scan one row at a time. When you turn a picture, remember its row and place. If you see it again, look for the place where its partner appeared."
+  },
+  "solar": {
+    "baseline": {
+      "phrases": 127,
+      "packaged": 111,
+      "missing": 16
+    },
+    "candidate": {
+      "phrases": 127,
+      "packaged": 111,
+      "missing": 16
+    },
+    "updatedCurrentEntries": [
+      {
+        "text": "Earth acts like a giant magnet. Its invisible magnetic field turns many tiny bits from the Sun away from Earth. The space around Earth that the field controls is called the magnetosphere.",
+        "key": "ade6cb63",
+        "path": null,
+        "packaged": false
+      },
+      {
+        "text": "Discovery 6. Earth acts like a giant magnet. Its invisible magnetic field turns many tiny bits from the Sun away from Earth. The space around Earth that the field controls is called the magnetosphere.",
+        "key": "71829c71",
+        "path": null,
+        "packaged": false
+      },
+      {
+        "text": "Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes.",
+        "key": "9c98dcb8",
+        "path": null,
+        "packaged": false
+      },
+      {
+        "text": "Discovery 6. Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes.",
+        "key": "68e808f6",
+        "path": null,
+        "packaged": false
+      },
+      {
+        "text": "Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins.",
+        "key": "fe913cbc",
+        "path": null,
+        "packaged": false
+      },
+      {
+        "text": "Discovery 6. Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins.",
+        "key": "fce2de6e",
+        "path": null,
+        "packaged": false
+      },
+      {
+        "text": "Charon is Pluto’s largest moon. Pluto and Charon travel around one point between them. This point is their shared centre of gravity.",
+        "key": "4ce4761a",
+        "path": null,
+        "packaged": false
+      },
+      {
+        "text": "Discovery 6. Charon is Pluto’s largest moon. Pluto and Charon travel around one point between them. This point is their shared centre of gravity.",
+        "key": "93930f34",
+        "path": null,
+        "packaged": false
+      }
+    ]
+  }
+}

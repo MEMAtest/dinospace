@@ -1,0 +1,26 @@
+{
+  "candidate": "Batch 7 Solar teaching and Memory level-transition repair",
+  "sourceCommit": "b6976948cf61147491e3658a5ce2e249a91bca09",
+  "sourceBranch": "codex/amari-batch7-quality-20261003",
+  "origin": "http://127.0.0.1:5369",
+  "frozenDist": "tmp/batch7-teaching-scroll-b697694/source/dist",
+  "build": {
+    "command": "npm run build:android",
+    "cleanSource": "git archive b6976948cf61147491e3658a5ce2e249a91bca09",
+    "result": "passed",
+    "environment": {
+      "VITE_ELEVENLABS_ENABLED": "true",
+      "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+      "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+    }
+  },
+  "servedIdentity": {
+    "files": 5694,
+    "http200AndSha256Match": 5694,
+    "mismatchesOrErrors": 0,
+    "hashList": "served-assets-sha256.txt",
+    "hashListSha256": "e84a3c36de38bfda4bd68e87b9edfbceed01c928dbf98dc712cca0b6dc9a583d"
+  },
+  "providerCalls": 0,
+  "narration": "Read-only package/file-existence inventory only; no generation, playback, or listening."
+}
