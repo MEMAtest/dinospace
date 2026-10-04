@@ -1,0 +1,61 @@
+{
+  "createdAt": "2026-10-04T05:41:50.461349+00:00",
+  "method": "Built-in image_gen edit, one call per scene with previously inspected original reference; selected outputs copied unchanged. WebP derivatives are encoding only.",
+  "scope": "Prepared originals for remaining three Starter scenes, not runtime integration or visual acceptance. River raw full-image failure requires bounded-region composition before these can enter gameplay.",
+  "assets": [
+    {
+      "asset": "src/assets/spot-difference/superhero-city-pair-b-v1.png",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-64c32b0c-c54f-44dd-9c85-b17c907b67bb.png",
+      "reference": "src/assets/spot-difference/superhero-city.webp",
+      "sha256": "98942674a70fc660295a2336742b7f5ac42414b0dcfda9b7f9640d3498eb5c19",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "promptSummary": "Standing hero purple shirt/trousers to green; flying hero red cape to gold; tower red dome to blue. Preserve all other scene details.",
+      "deliveryDerivative": {
+        "asset": "src/assets/spot-difference/superhero-city-pair-b-v1.webp",
+        "method": "cwebp -q90 encoding only, no crop/resize/creative edit",
+        "bytes": 190512,
+        "sha256": "bcd2bfbeb33bfc0dd2a58b6dafcf925b561f5d463ef439d3c63790bc26c89dd3"
+      },
+      "rootReview": "Three intended changes visible. Full generated raster is NOT accepted as a pair because incidental redraws may occur; integrate only through validated localized regions and independently check seams and unwanted differences."
+    },
+    {
+      "asset": "src/assets/spot-difference/dino-park-pair-b-v1.png",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-9b59bb82-e50a-4c18-8bca-94d76f60fac6.png",
+      "reference": "src/assets/puzzle-pop/dino-park.jpg",
+      "sha256": "973007e89b015e5ceeabc45b8c7612543bcc8b2830345475c965cb1d850773ba",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "promptSummary": "Left blue dinosaur to purple, central palm canopy to gold, lower-left pink flower petals to white; preserve all other scene details.",
+      "deliveryDerivative": {
+        "asset": "src/assets/spot-difference/dino-park-pair-b-v1.webp",
+        "method": "cwebp -q90 encoding only, no crop/resize/creative edit",
+        "bytes": 200298,
+        "sha256": "b21123ef8434f87a9d5f8103f71cf2bd8dd231eaa06b56bca5bc8d64551d3db6"
+      },
+      "rootReview": "Three intended changes visible. Full generated raster is NOT accepted as a pair because incidental redraws may occur; integrate only through validated localized regions and independently check seams and unwanted differences."
+    },
+    {
+      "asset": "src/assets/spot-difference/moon-camp-pair-b-v1.png",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-88e2159c-1b9f-4554-9198-2a3476846e0b.png",
+      "reference": "src/assets/puzzle-pop/dino-moon-3d.webp",
+      "sha256": "34d8629bd57c1537dcf889f3611add884ee9216905538503d450b391a8d51b8e",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "promptSummary": "Rocket window glass to green, rover solar-panel surface to orange, dish tilted the other way on same mount; preserve all other scene details.",
+      "deliveryDerivative": {
+        "asset": "src/assets/spot-difference/moon-camp-pair-b-v1.webp",
+        "method": "cwebp -q90 encoding only, no crop/resize/creative edit",
+        "bytes": 344374,
+        "sha256": "945295a0bb62b4a54b3de634e96942364f4cde8d49a58ffe82e823b3169ee264"
+      },
+      "rootReview": "Three intended changes visible. Full generated raster is NOT accepted as a pair because incidental redraws may occur; integrate only through validated localized regions and independently check seams and unwanted differences."
+    }
+  ]
+}
