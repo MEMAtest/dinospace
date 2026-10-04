@@ -1,0 +1,62 @@
+{
+  "sourceCommit": "4a9ae1cd4cd1293aafae4c10877d5cb6cf8ae029",
+  "baseCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+  "branch": "codex/b4-zero-remain-tray-20261004",
+  "sourceFile": "src/components/games/SubtractionStation.jsx",
+  "candidate": "http://127.0.0.1:5385/",
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story vite build --outDir tmp/b4-zero-remain-5385/dist",
+    "configured": true,
+    "result": "success",
+    "largeChunkWarning": true
+  },
+  "servedCoreFiles": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 1100,
+      "sha256": "47f04c31b43b615659eb2ef7436152d17a06febb32632cabf4ac228c38996284",
+      "matchesLocalBuild": true
+    },
+    {
+      "path": "/assets/index-QPYHMgEj.js",
+      "status": 200,
+      "bytes": 1310620,
+      "sha256": "84759ed9a5d6d6ca9636368217d4d0e1580bd3b2276231854724ba2d5d99c5be",
+      "matchesLocalBuild": true
+    },
+    {
+      "path": "/assets/index-CkEtjja8.css",
+      "status": 200,
+      "bytes": 205637,
+      "sha256": "1fc250ee9b2df6ef6f45c6e42b37f13e7ce78edfa266449ba0f7e320ee15d118",
+      "matchesLocalBuild": true
+    }
+  ],
+  "browserCheck": {
+    "engine": "Playwright CLI Chromium",
+    "session": "b4zero5385",
+    "providerRoutesInstalledBeforeNavigation": [
+      { "pattern": "**/api/voice*", "status": 403 },
+      { "pattern": "**/api/story*", "status": 403 }
+    ],
+    "requests": "14 static requests observed; page, JS, CSS, app illustrations and icons returned 200; no provider call observed",
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "sound": "muted in app"
+  },
+  "observations": {
+    "desktop": "1280x720. Ordinary first question 'There are 5 gems. Take away 5. How many are left?' showed an empty remaining tray before answering. After selecting visible answer 0, the locked tray displayed '0 (empty)' and remained on the same held question until Next question.",
+    "mobile": "390x844. Ordinary pre-answer question 'There are 10 cookies. Take away 8. How many are left?' showed the tray blank and exposed no remaining count before answer selection.",
+    "limitations": [
+      "Builder check only; independent UI review remains pending.",
+      "Mobile zero-result state was not exercised in this builder check.",
+      "No audio quality or production acceptance is claimed."
+    ]
+  },
+  "evidence": {
+    "desktopBeforeAnswer": "b4-zero-remain-5385-20261004/desktop-before-answer.yml",
+    "desktopZeroResult": "b4-zero-remain-5385-20261004/desktop-zero-result.png",
+    "mobileBeforeAnswer": "b4-zero-remain-5385-20261004/mobile-pre-answer.png"
+  }
+}
