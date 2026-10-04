@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T11:36:39.512914+00:00",
+  "updatedAt": "2026-10-04T11:49:13.097037+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -975,6 +975,26 @@
     "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
     "report": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md",
     "provenance": "docs/qa-evidence/batch2-provenance-audit-20261004/report.md",
-    "decision": "Supported non-audio components assessed; formal combined feedback/audio/visual score pending human listening. No new acceptance. Monster exact 2 + 10 remains unobserved; repaired Sky Challenge completion gap assigned."
+    "decision": "Supported non-audio components assessed; formal combined feedback/audio/visual score pending human listening. No new acceptance. Monster exact 2 + 10 remains unobserved; repaired Sky Challenge completion coverage is closed by canonical report48798a3."
+  },
+  "batch3CurrentEditorialReview": {
+    "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+    "report": "docs/qa-evidence/batch3-independent-editorial-assessment-20261004.md",
+    "listeningSheet": "docs/qa-evidence/batch3-human-listening-sheet-20261004.md",
+    "decision": "Supported non-audio components assessed. Dino age6 teaching rated4.0 for unexplained terms; two fact rewrites are local only. Formal audio dimension and overall acceptance pending.",
+    "localCandidate": {
+      "source": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "change": "Two Dino Detective world facts simplified",
+      "readiness": {
+        "requested": 275,
+        "ready": 273,
+        "pending": 2
+      },
+      "missingKeys": [
+        "f6991245",
+        "0f0204e5"
+      ],
+      "releaseStatus": "Not deployed; package clips and independently retest held fact/Next at desktop390 before release"
+    }
   }
 }

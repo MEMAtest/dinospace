@@ -8,7 +8,7 @@ Rubric: [Amari games: 4.5/5 quality roadmap](../game-quality-4.5-roadmap.md)
 
 These are current editorial ratings against the five equally weighted roadmap dimensions, informed by authored content, retained full local runs, and source-bound production checks. They are not new gameplay runs. The production deltas are bound to the promoted Batch 3 runtime and its seven served asset hashes; the full local matrices remain attached to their original candidate identities. The roadmap permits those retained baselines plus narrow, explicit deltas when the intervening source changes are reconciled.
 
-This assessment scores the Dino Detective wording in audited production archive 94. A separate source commit, `f609cc1`, has since applied the proposed swamp/cave wording and added a narration-lookup test. That edit is outside the assessed archive and has not had a rendered browser check here; it receives no updated rating in this report.
+This assessment scores the Dino Detective wording in audited production archive 94. A separate source commit, `f609cc1`, has since applied the proposed swamp/cave wording. Its final source tip `e2aee30` retains the existing test suite; the copy-only test added initially was removed. That edit is outside the assessed archive and has not had a rendered browser check here; it receives no updated rating in this report.
 
 | Game | Age-6 teaching | Meaningful progression | Correctness and fair variation | Feedback / audio / visual usability | Reliability / navigation / persistence | Measured visible-feedback / visual component |
 |---|---:|---:|---:|---|---:|---:|
