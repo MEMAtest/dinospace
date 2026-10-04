@@ -126,3 +126,7 @@ Worker PID 18781 was confirmed live; run 108 reports 3,649 clips pending with ze
 The independent tester withdrew the earlier failure classification after reconstructing the actual chapter history: the earlier replay attempts followed completion of other chapters. They therefore did not demonstrate repetition of the immediately preceding global completed picture.
 
 A fresh guarded profile completed Starter normally, ending with **Moon Camp** on the held 4/4 chapter fact. Activating the visible **Replay pictures** control immediately began **River Valley**, correctly avoiding Moon Camp. The reviewer preserved the paired screenshots and is assembling the report. **No c478 replay regression is confirmed.** The source is unchanged; there was no repair, deployment or recovery. This correction supersedes the investigation paragraph above while retaining its audit trail.
+
+### Isolated Memory art candidate handed to independent QA
+
+Source `dadb0eb3c6f4e454b3db6b975266cc3600c103e0` is frozen at `http://127.0.0.1:5314`; its identity and builder evidence were committed as `a5e6e0ba943cf72bc0f297b90c46f6a11de78144`. The builder completed Levels 1–9 through visible card flips, and checked the isolated Frog/Monkey and Amari astronaut/Moon rock art at desktop and 390px. Mobile cards remain 82px; captions do not overlap, face-down cards mount no front images, and runtime hashes and guards pass. Independent QA is underway. The separate fossil candidate is next; 5314 will remain unchanged. This candidate is not production or 4.5 acceptance.
