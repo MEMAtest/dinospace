@@ -210,3 +210,9 @@ Root read independent5322report `4cf2329`: feathering removes the hard rectangle
 Root implemented `94c4614` to extend the mask’s white interior beyond canvas top/right edges, preventing those edges from fading back to original sun details. Fourteen focusedSpot tests, scopedlint and configured build pass. New frozen candidate uses5325;5324 wasoccupied and its listener was preserved. Independent visual delta is queued afterMoon5323; no release/acceptance.
 
 PID18781 verifiedlive; run130 at06:07UTC reports3,333pending, zero retries, expectedrequestwindowwait. Work remains active with26publishedcontracts and4recordedaccepted/22inprogress.
+
+### City source candidate and early Moon/crawler observations
+
+Root implemented City source `c89d695`: original-source SVG hue masks for flying cape, tower dome and shop awning. The generatedB is not used; the proposed standing-hero suit change is replaced by a shop awning edit.15focusedSpot tests, scopedlint and configured build pass. Candidate5326 and identity are frozen; independent silhouette/colour spill and actual three-target controls are queued. No visual acceptance or release is claimed.
+
+The independent Moon5323 reviewer reports its three edits look confined and integrated atdesktop1280; mobile and control evidence remains pending. The independent Garden5319 tester reports eight spider/six ant legs and distinct caterpillar/worm at82pxmobile without visible halos; final persistence/hash/guard and fullreport remain pending. These observations guide next work and do not replace completed scoped reports or quality acceptance.

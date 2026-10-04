@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T06:10:18.604493+00:00",
+  "updatedAt": "2026-10-04T06:13:54.502659+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -668,12 +668,19 @@
     "identity": "docs/qa-evidence/spot-moon-original-colours-identity-20261004.json",
     "scope": "Three tight SVG colour-change clips use original source surfaces: rocketporthole,roverpanel,habitatwindow. Generated B is nottransplanted; dish replaced bywindow toavoidgeometrydrift.14Spot tests/scopedlint/configuredbuild pass. Independent shape alignment/extra-change and normalUIcontrols desktop390 pending. No visual/audio/production/4.5 acceptance.",
     "narrationExistence": "docs/qa-evidence/spot-moon-source-batch2-narration-existence-20261004.json",
-    "narrationScope": "Local05e0dcd corpus1372unique lines:1368exist,4missing (3PuzzleDinoParktitle,1Spotmiddlehint). Fileexistence only;no decode/listening/provider calls. Mustpackage afterauthorizedworkerterminal;notreadyforrelease."
+    "narrationScope": "Local05e0dcd corpus1372unique lines:1368exist,4missing (3PuzzleDinoParktitle,1Spotmiddlehint). Fileexistence only;no decode/listening/provider calls. Mustpackage afterauthorizedworkerterminal;notreadyforrelease.",
+    "earlyIndependentObservation": "Reviewer reports desktop1280 three edits are confined to intended surfaces without obvious spill/extraisland/backgroundchange; mobile and fullcontrols pending. Early observation only,notcompleteacceptance."
   },
   "spotRiverFrameMaskPrototype": {
     "sourceSha": "94c4614",
     "origin": "http://127.0.0.1:5325",
     "identity": "docs/qa-evidence/spot-river-frame-mask-identity-20261004.json",
     "scope": "Mask white area extends beyondtop/rightcanvas edges topreventoriginalsunray blending. Interiorregionfeather unchanged;14Spot tests/scopedlint/configuredbuildpass. Independent visual/control delta queuedafterMoon5323. Port5324 wasoccupied; old listener preserved. No release/4.5."
+  },
+  "spotCityOriginalSurfacePrototype": {
+    "sourceSha": "c89d695",
+    "origin": "http://127.0.0.1:5326",
+    "identity": "docs/qa-evidence/spot-city-original-colours-identity-20261004.json",
+    "scope": "Original-source SVG hue paths: flying cape, tower dome, shop awning. Generated B notused.15focusedSpot tests/scopedlint/configuredbuildpassed. Independent actual fullobject maskalignment/spill and pointercontrols bothwidths queued. No visual/audio/production/4.5 acceptance."
   }
 }

@@ -1,0 +1,49 @@
+{
+  "createdAt": "2026-10-04T06:13:05.838371+00:00",
+  "sourceSha": "c89d69519cef3036a0bd20ada0f6fac8e0cbc683",
+  "origin": "http://127.0.0.1:5326",
+  "frozenDist": "tmp/spot-city-original-colours/dist",
+  "scope": "City original-source surface changes: flyingcape,dome,shopawning. TightSVGpaths,hue filter; generatedB notused.15Spot tests/scopedlint/configuredbuildpass. Independentalignment/spill/3actualtarget controls pending. No release or4.5. RetainsMoon05e0dcdandRiver94c4614underseparatereview.",
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "c46a726b7c59c6579db483585f4c74ffbe57d9f659a76808f5f07b66b41b640b"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-4KDTvgMa.js",
+      "bytes": 18854,
+      "sha256": "3f76c90fd20a46c70b8ff14ff8ca0259ccf81bce85726ae6d319833b9470ea71"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-Bn5OPjVX.js",
+      "bytes": 19956,
+      "sha256": "0c6b428e64b6c2434b67a4a6a776113517447f7cacc1434500f84a16a19aa49a"
+    },
+    {
+      "path": "/assets/SolarSystem-HaIzSQkm.js",
+      "bytes": 563158,
+      "sha256": "71ad01abdbffa084364d6ca6ab8d2e09654fa4adb0953af9fc3be54141e89f50"
+    },
+    {
+      "path": "/assets/index-zkCgnrpp.js",
+      "bytes": 1242130,
+      "sha256": "4454160d4fa1a4f7d75c5368ac3bddb99f476f31bab7a81822d3db338ef9c3ce"
+    },
+    {
+      "path": "/assets/web-BY5RfdC0.js",
+      "bytes": 842,
+      "sha256": "356f2ab19ad96651886cbab52dacb913a7c8c3f040b02371ca3f4ac103c1d995"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/superhero-city-DPTOkgpV.webp",
+      "bytes": 194200,
+      "sha256": "c9205d316ee832981f816af002cd57ea22d50b6a6a84231a646f639385634b22"
+    }
+  ]
+}
