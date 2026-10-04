@@ -1,0 +1,30 @@
+{
+  "id": "dpl_CCGt8DGLLuhbRTSZxPq65vCZAdAs",
+  "url": "https://dinospace-3fqi1u5v3-memas-projects-23a0001d.vercel.app",
+  "readyState": "READY",
+  "target": "production",
+  "providerCommit": "79a719e91e727f09d1f78cf890acd7e671cab381",
+  "auditedRuntimeSource": "79a719e91e727f09d1f78cf890acd7e671cab381",
+  "canonicalBaseline": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+  "assets": [
+    {
+      "path": "index.html",
+      "http": 200,
+      "sha256": "4fa668b607b1883ae85f2accaaba3c2c22ee78691299b51acea3530d7b048285",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/index-DazE49pk.js",
+      "http": 200,
+      "sha256": "b81163cc8cf2ecd8f3c3dd101979d4c6e0437c031372b4aacb30721fdb76f41b",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/index-vOQrpuVv.css",
+      "http": 200,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "matchesLocal": true
+    }
+  ],
+  "scope": "Immutable production candidate, no canonical promotion; independent actual clue and live controls acceptance pending."
+}
