@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T08:07:06.395062+00:00",
+  "updatedAt": "2026-10-04T08:15:30.534730+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -818,19 +818,23 @@
     "sourceSha": "75d4cbf9b93a2c49384748217daa42d65dde7db8",
     "origin": "http://127.0.0.1:5352",
     "identity": "docs/qa-evidence/spot-challenge-leaf-shape-identity-20261004.json",
-    "scope": "Root confirmed round/pointed Robin leaf variants formerly rendered identical SVG path and rotation. Distinct broad round and pointed blade paths repair this definite source defect; other visual variants unchanged.20 focused tests, scoped lint and configured build pass. Independent5351 Challenge full visual/control review retains old failure; new5352 narrow Robin shape delta both widths queued. No visual, audio, production or4.5 acceptance."
+    "scope": "Root confirmed round/pointed Robin leaf variants formerly rendered identical SVG path and rotation. Distinct broad round and pointed blade paths repair this definite source defect; other visual variants unchanged.20 focused tests, scoped lint and configured build pass. Independent5351 Challenge full visual/control review retains old failure; new5352 narrow Robin shape delta both widths queued. No visual, audio, production or4.5 acceptance.",
+    "reviewerLocationCorrection": "Reviewer withdrew preliminary5353 silhouette-failure call: comparison had been top-left vein-count leaf x17/y18, whose shape is intentionally unchanged. Actual round/pointed leaf is right-middle x77/y51. Old5351 same-top-left observation likewise does not independently prove shape failure; root source identical-path defect remains verified. Exact rendered shape delta pending at correct location."
   },
   "spotChallenge5351Review": {
     "sourceSha": "aea335f28ba5c0143349baedd43cb44a49be39ea",
     "independentCommit": "864e22c",
     "report": "docs/qa-evidence/spot-challenge-5351-review-20261004/report.md",
-    "scope": "REJECTED History Hall before interaction: flat pictogram badges float over sky/ruins/terrain instead of genuine pictured-object changes. Desktop World Explorer/Nature Lab contextual visual observations and direct7hits/miss/hints/fact pass narrow scope; no mobileChallenge in this report. Root read full report and inspected failedHistoryscreenshot. Separate oldRobin no-shape-change observation pendingreport. No acceptance."
+    "scope": "REJECTED History Hall before interaction: flat pictogram badges float over sky/ruins/terrain instead of genuine pictured-object changes. Desktop World Explorer/Nature Lab contextual visual observations and direct7hits/miss/hints/fact pass narrow scope; no mobileChallenge in this report. Root read full report and inspected failedHistoryscreenshot. Separate oldRobin no-shape-change observation pendingreport. No acceptance.",
+    "rootVisualFollowup": "Root independently inspected World/Nature screenshots: Nature icons do not visibly alter underlying plants and some labels may refer to icon variants rather than physical pictured objects; World compass floats outside the map and tiny binoculars do not alter the actual large binoculars. Existing desktop observations remain provisional, not mandatoryvisualpasses. Reviewer assigned exact position/label/mobile fidelity checks. Nature actual-object B art preparation assigned to Luna; no runtime integration yet."
   },
   "spotHistoryPhysicalArtifactsPrototype": {
     "sourceSha": "0b45ed6f8914d442d265124511ed5a9c3ece7c6c",
     "origin": "http://127.0.0.1:5353",
     "identity": "docs/qa-evidence/spot-history-physical-artifacts-identity-20261004.json",
     "provenance": "docs/qa-evidence/spot-history-physical-art-provenance-20261004.json",
-    "scope": "Seven physically placed desk artifacts now vary by shape/count/direction, preserving Challenge skill: openbook,3archways,rightneedle,squarestone,2flames,rolledscroll,4grooves. Built-in generatedA+preciseBedit originalsunchanged andencoding-onlyWebP. Runtime composesB onlyinside7boundedregions to preserveoutsideunchangedscene.21focusedtests/scopedlint/configbuildpass aftercolumnedge56pxfix. IncludesRobin75dshape repair. Independent exact7/noincidentalchanges/maskedges/mobilevisibility/actualtaps+controlchecks assigned. No visual/audio/production/4.5 acceptance."
+    "scope": "Seven physically placed desk artifacts now vary by shape/count/direction, preserving Challenge skill: openbook,3archways,rightneedle,squarestone,2flames,rolledscroll,4grooves. Built-in generatedA+preciseBedit originalsunchanged andencoding-onlyWebP. Runtime composesB onlyinside7boundedregions to preserveoutsideunchangedscene.21focusedtests/scopedlint/configbuildpass aftercolumnedge56pxfix. IncludesRobin75dshape repair. Independent exact7/noincidentalchanges/maskedges/mobilevisibility/actualtaps+controlchecks assigned. No visual/audio/production/4.5 acceptance.",
+    "narrationExistence": "docs/qa-evidence/spot-history-source-narration-existence-20261004.json",
+    "narrationScope": "Read-only current runtime0b45ed6 corpus1373unique/1368existing/5missing. Same3Puzzletitle and2Spothint lines as779. No new decode/listening/provider calls."
   }
 }
