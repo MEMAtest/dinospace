@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { getLearningProfile } from '../src/data/learningProgress.js';
 import {
   DEFAULT_TAUGHT_GRAPHEMES,
   LITERACY_PROFILE_KEY,
@@ -26,6 +27,17 @@ test('uses the canonical selectedSounds profile field', () => {
 test('falls back safely when profile storage is unavailable or invalid', () => {
   globalThis.localStorage = makeStorage({ [LITERACY_PROFILE_KEY]: '{bad json' });
   assert.deepEqual([...getTaughtGraphemes()], DEFAULT_TAUGHT_GRAPHEMES);
+});
+
+test('fresh literacy defaults agree with displayed Phase 2 settings without saving', () => {
+  const storage = makeStorage();
+  globalThis.localStorage = storage;
+  const shownSettings = getLearningProfile(storage);
+  const taught = [...getTaughtGraphemes()];
+  assert.equal(shownSettings.activePhase, 2);
+  assert.deepEqual(taught, shownSettings.selectedSounds);
+  assert.ok(taught.includes('ck') && taught.includes('ss'));
+  assert.ok(!taught.includes('sh') && !taught.includes('ee'));
 });
 
 test('Phase 3 words require their complete grapheme set', () => {
