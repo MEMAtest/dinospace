@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { ArrowLeft, Lightbulb, RotateCcw, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import { monsterMathNarration } from '../../data/batch2Narration.js';
@@ -118,6 +118,11 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
   const question = rounds[roundIndex] || null;
 
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
+
+  useLayoutEffect(() => {
+    if (phase === 'play') window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [phase]);
+
   useEffect(() => () => clearInterval(animationTimerRef.current), []);
 
   useEffect(() => {
