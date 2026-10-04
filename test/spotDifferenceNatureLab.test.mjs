@@ -33,3 +33,16 @@ test('Nature Lab pairs the seven physical edits with bounded, reachable regions'
     }
   }
 });
+
+
+test('Nature masks contain the original heart specimen and the complete fourth seedling footprint', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ title }) => title === 'Nature Lab');
+  // Native-source inspection bounds, rather than target-centre assertions:
+  // partial masks previously left heart/sprout pixels visible in Picture B.
+  for (const [regionIndex, bounds] of [[0, [129, 997, 305, 1135]], [2, [220, 737, 275, 785]]]) {
+    const region = scene.editRegions[regionIndex];
+    const [left, top, right, bottom] = bounds.map((value) => value / 1254 * 100);
+    assert.ok(region.x <= left && region.y <= top);
+    assert.ok(region.x + region.width >= right && region.y + region.height >= bottom);
+  }
+});

@@ -250,18 +250,18 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
   makeScene(2, 9, 'World Explorer', geography, 'An explorer workbench with a globe, telescope, binoculars and a printed map', 'Maps use symbols and labels to show useful information about places.', {
     aspectRatio: 1,
     imageB: geographyB,
-    // Keep A outside the four changed physical map details. Colour edits use
-    // A itself so the globe land and object geometry remain unchanged.
+    // Keep A outside the changed physical map and tool details. The globe
+    // colour edit uses A itself so its land geometry remains unchanged.
     editRegions: [
       { x: 40, y: 62, width: 13, height: 6, feather: 0.3 },
       { x: 68, y: 68, width: 12, height: 7, feather: 0.3 },
       { x: 11, y: 64, width: 24, height: 17, feather: 0.4 },
       { x: 63, y: 80, width: 13, height: 11, feather: 0.3 },
+      { x: 66, y: 38, width: 34, height: 17, feather: 0.4 },
+      { x: 68, y: 49, width: 32, height: 23, feather: 0.4 },
     ],
     colorEdits: [
       { shape: 'ellipse', cx: 445, cy: 342, rx: 174, ry: 174, transform: 'scale(0.07974481659)', hue: 70, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
-      { shape: 'path', d: 'M864 490 Q875 482 896 491 L984 524 L965 601 L873 564 Q850 550 852 524 Z M1010 536 L1100 571 L1082 640 L989 607 Z', transform: 'scale(0.07974481659)', hue: 190 },
-      { shape: 'path', d: 'M1020 632 Q1044 637 1089 666 L1134 687 Q1186 670 1238 710 L1220 797 Q1175 869 1099 868 L1092 773 L1028 703 L1000 710 L966 748 L909 719 L933 660 Z', transform: 'scale(0.07974481659)', hue: 230, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -3 5 -2 0 -0.3' },
     ],
     differences: [
       { id: 'world-globe', label: 'the globe ocean colour changed', normalVisual: 'scene:blue-oceans', visual: 'scene:purple-oceans', x: 36, y: 27, radius: 8 },
@@ -298,9 +298,9 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
     aspectRatio: 1,
     imageB: natureB,
     editRegions: [
-      { x: 11, y: 78, width: 11, height: 15, feather: 0.25 }, // left book specimen
+      { x: 9, y: 78, width: 16, height: 15, feather: 0.25 }, // left book specimen
       { x: 23, y: 78, width: 11, height: 17, feather: 0.25 }, // next book specimen
-      { x: 20, y: 56, width: 9, height: 14, feather: 0.25 }, // removed rightmost seedling cell
+      { x: 17, y: 58, width: 6, height: 7, feather: 0.2 }, // removed rightmost seedling cell
       { x: 55, y: 46, width: 18, height: 26, feather: 0.25 }, // teal herb foliage
       { x: 88.5, y: 47, width: 11.5, height: 29, feather: 0.25 }, // red can body, clear of jar
       { x: 74, y: 56, width: 14.5, height: 22, feather: 0.25 }, // tan roots inside jar
