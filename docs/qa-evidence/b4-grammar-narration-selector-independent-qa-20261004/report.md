@@ -29,3 +29,8 @@ From the retained 5383 profile earned through ordinary UI, I scrolled the visibl
 ## Limits
 
 No paid/provider request was made. No production or B4 manifest, shared journal, lock, worker, source, or audio asset was changed. Fake fixture bytes establish receipt and failure-path mechanics only. They do not establish valid audio, pronunciation, playback, listening quality, packaged completeness, or release readiness. The actual live B4 worker remains a hard execution precondition until its terminal status and final manifest are reconciled.
+
+
+## Root integration
+
+Root imported exact8fec source/ledger and this independent evidence. The combined integrated supervisor/phoneme suites passed27/27 (retained [output](root-tests.txt)); no provider or worker mutation. Current fixture pinning/network-denial follow-up is being reviewed separately before future runner revisions. Root visually checked the scrolled earned Addition badge image. Audio/decode/listening and production gates remain open.

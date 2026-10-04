@@ -1,0 +1,35 @@
+✔ pinned pilot is exactly three fixed English targets with reviewed Matilda provenance (5.042125ms)
+✔ dry-run plan is fixed and keeps candidate files outside runtime audio and manifests (1.143166ms)
+✔ inventory hash and explicit paid limits fail closed (0.416458ms)
+✔ pilot serializes with the actual B3 generator lock and shared journal (1.253875ms)
+✔ a live B4 PID blocks paid execution before the current manifest is read (3.510125ms)
+✔ runner stops at its live-worker gate before acquiring the journal or calling the provider (3.361791ms)
+✔ an existing candidate directory blocks a second run before journal access or provider calls (2.80825ms)
+✔ request payload is the exact pinned SSML and one fake success is one request (25.875958ms)
+✔ provider failure, wrong MIME, and undersized audio fail once without retries (1.253625ms)
+✔ oversized response is cut off during streaming and never retried (1.874375ms)
+✔ request timeout aborts both a pending response and a response body read (12.467083ms)
+✔ pins exact reviewed ledger and derives only approved owner keys (43.107583ms)
+✔ B4 grammar selector pins all 47 exact additions to fe5 source files and expected voice paths (6.632917ms)
+✔ B4 grammar default plan is the exact 47 phrase set and remains read-only (94.468292ms)
+✔ supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths (0.9695ms)
+✔ supplemental dry-runs keep exact pending sets and do not alter either ledger family or shared files (168.246792ms)
+✔ rejects jobs, call rates and run counts outside finite reviewed bounds (0.232542ms)
+✔ requires a terminal reconciled B4 record tied to the current manifest and dead worker PID (4.057625ms)
+✔ requires the explicit shared journal and fails closed on invalid journal state or concurrent edits (2.951958ms)
+✔ uses and honors the exact exclusive lock held by the shared B3 producer (2.08925ms)
+✔ only reuses a packaged candidate when reviewed bytes match, including an unmapped exact file (2.814834ms)
+✔ a generated file is reusable only with a matching local receipt and exact text/inventory binding (2.731792ms)
+✔ request helper sends only the approved voice payload and enforces a finite timeout through injected fetch (12.461542ms)
+✔ dry-run reports exact pending keys and leaves package and shared journal untouched (150.79825ms)
+✔ paid mode across both ledgers cannot pass a live predecessor PID even with an apparently terminal record (194.57875ms)
+✔ CLI refuses a modified inventory digest before selecting or writing (68.343333ms)
+✔ paid mode requires explicit per-run and total-run caps (68.752ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 918.942083

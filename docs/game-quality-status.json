@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T18:25:03.330846+00:00",
+  "updatedAt": "2026-10-04T18:36:22.097015+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1369,9 +1369,9 @@
     "scope": "64 most recent exact mapped B4 corpus clips, full decode/duration/stable bytes pass. Interim subset while PID18781 live; no full readiness/playback/listening/release claim."
   },
   "reviewedNarrationSupervisor": {
-    "source": "bf3a76dabd2d95e17d37723215ac6a3ae1bf7c30",
+    "source": "8fecff6e4dc36bac8c6628c9c68818e2ba71c86e",
     "branch": "codex/narration-packager-20261004",
-    "scope": "Integrated pinned B5-B7 and five B2/two Dino selectors with exact shared producer lock. Independent/root16 helper and isolated CLI fixture tests pass (eight predecessor and nine supplemental response scenarios). Predecessor fixture reads its immutable afbb archive; current fixture byte-pins bf. No real paid execution; B4 worker is live, terminal gate closed.",
+    "scope": "Integrated eight pinned selectors including47 B4 grammar replacements, with shared B3 producer lock/predecessor gate and source-bound receipts. Independent16 helper tests and fake47-selector one-call success/rejection fixtures pass; root27 combined supervisor/phoneme tests pass. Retainedbf supplemental fixture reads immutablearchive. No realpaid execution; liveB4 worker gate closed.",
     "independentFinding": "Must acquire exact B3 producer lock for its shared request journal, not only a private reviewed-narration lock.",
     "independentCommit": "24db1a7",
     "independentReport": "docs/qa-evidence/reviewed-narration-supervisor-independent-qa-20261004/report.md",
@@ -1379,7 +1379,8 @@
     "supplementIndependentCommit": "61ad1d3",
     "supplementIndependentReport": "docs/qa-evidence/narration-supplement-independent-qa-20261004/report.md",
     "runnerFixtureCommit": "e6f96d2",
-    "runnerFixtureReport": "docs/qa-evidence/reviewed-narration-supplement-runner-fixture-qa-20261004/report.md"
+    "runnerFixtureReport": "docs/qa-evidence/reviewed-narration-supplement-runner-fixture-qa-20261004/report.md",
+    "grammarIndependentReport": "docs/qa-evidence/b4-grammar-narration-selector-independent-qa-20261004/report.md"
   },
   "canonicalLateRevalidation": "docs/qa-evidence/canonical-provider-hash-recheck-20261004-late.json",
   "batch4CleanIntegration": {
@@ -1407,5 +1408,11 @@
     "independentReport": "docs/qa-evidence/phoneme-qa-pilot-runner-independent-review-20261004.md",
     "scope": "Reviewed source-only three-sound pilot integrated; repeat-run defect repaired before any paid execution. Independent and root11 fixtures pass. No recordings generated, no pure-phoneme listening or runtime acceptance. Existing liveB4 worker gate remains closed."
   },
-  "batch4ListeningWorksheet": "docs/qa-evidence/batch4-representative-listening-worksheet-20261004.md"
+  "batch4ListeningWorksheet": "docs/qa-evidence/batch4-representative-listening-worksheet-20261004.md",
+  "batch4ZeroTrayRepair": {
+    "source": "4a9ae1cd4cd1293aafae4c10877d5cb6cf8ae029",
+    "origin": "http://127.0.0.1:5385",
+    "report": "docs/qa-evidence/b4-zero-remain-5385-report-20261004.md",
+    "scope": "Component-only result marker appearsafterlockedzero, neverbeforeanswer. Builderdesktopzero/390preanswer checks and corehashes pass; rootviewedzero screenshot. Independentbounded5385Chapter1 didnotnaturallyproducezero in completedquestions. Group-label contrast followupbeingbuiltseparately. No data/narrationkey oraudio/prod change."
+  }
 }
