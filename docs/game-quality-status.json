@@ -1572,7 +1572,22 @@
       "report": "docs/qa-evidence/batch7-editorial-reconciliation-20261004.md",
       "teachingRecommendation": 4.0,
       "finding": "Demanding terms/long facts including magnetosphere,methane,sharedcentreofgravity require concise concrete age6 explanations.",
-      "state": "All54factcopyreview/targetedrepair assigned; audio delta and independent UI required."
+      "state": "All54factcopyreview/targetedrepair assigned; audio delta and independent UI required.",
+      "primarySourceClarifications": [
+        {
+          "issue": "Venus243Earthdaysisrotationperiod;useOnespinlabel",
+          "source": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html"
+        },
+        {
+          "issue": "Saturnfloatexampleisaverage-densitycomparisonandhypotheticalgiantbath;avoidlowmassexplanation",
+          "source": "https://science.nasa.gov/saturn/facts/"
+        }
+      ]
     }
+  },
+  "batch2CurrentVisualReview": {
+    "report": "docs/qa-evidence/batch2-current-visible-feedback-visual-review-20261004.md",
+    "independentCommit": "550e9a180638ab81227833650f215a038fb0ae69",
+    "rootReview": "Root read full report. Current94/0dDinoPark title verified by reviewer; olderc478Picnic screenshot historical. Reviewer corrected unsupported message allegation that current worksheet said undeployed. Sampled taskmatched mobile art/feedback adequate; optionalrecaps notblockers. Combinedaudio/visual remainsunscored, no newproductionrun."
   }
 }
