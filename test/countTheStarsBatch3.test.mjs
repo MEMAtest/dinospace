@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   COUNT_THE_STARS_EPISODES, COUNT_THE_STARS_NARRATION, buildCountObjects, countCentersAreSafe,
-  countQuestionPool, createCountTheStarsRun, getCountQuestionArrangement,
+  countQuestionPool, createCountTheStarsRun, getCountQuestionArrangement, getCountQuestionStrategy,
 } from '../src/data/countTheStarsBatch3.js';
 
 test('counting strategy follows the rendered question arrangement across all bands', () => {
@@ -24,6 +24,13 @@ test('counting strategy follows the rendered question arrangement across all ban
   ));
   assert.equal(getCountQuestionArrangement(satelliteArray), 'array');
   assert.equal(getCountQuestionArrangement(satelliteGroups), 'split-groups');
+  assert.equal(getCountQuestionStrategy(satelliteArray, COUNT_THE_STARS_EPISODES[2]), COUNT_THE_STARS_EPISODES[2].strategy);
+  assert.equal(getCountQuestionStrategy(satelliteGroups, COUNT_THE_STARS_EPISODES[2]), COUNT_THE_STARS_EPISODES[2].strategy);
+  const scatteredChallenge = countQuestionPool(2).find(({ count, layoutVariant }) => count === 3 && layoutVariant === 'orbit');
+  assert.equal(getCountQuestionArrangement(scatteredChallenge), 'scattered');
+  assert.equal(getCountQuestionStrategy(scatteredChallenge, COUNT_THE_STARS_EPISODES[2]), COUNT_THE_STARS_EPISODES[0].strategy);
+  assert.equal(getCountQuestionStrategy(null, COUNT_THE_STARS_EPISODES[2]), COUNT_THE_STARS_EPISODES[2].strategy);
+  assert.equal(getCountQuestionStrategy(scatteredChallenge, null), '');
   assert.equal(COUNT_THE_STARS_NARRATION.hints[2], 'Read one row at a time, and use each badge to keep your place.');
   assert.equal(COUNT_THE_STARS_NARRATION.hints[0], 'Count one visible group, then the other group. Add the two totals.');
   assert.equal(getCountQuestionArrangement(null), null);

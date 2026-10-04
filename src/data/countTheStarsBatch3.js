@@ -173,6 +173,13 @@ export const getCountQuestionArrangement = (round) => {
   return 'array';
 };
 
+export const getCountQuestionStrategy = (round, episode) => {
+  if (!episode?.strategy) return '';
+  return getCountQuestionArrangement(round) === 'scattered'
+    ? COUNT_THE_STARS_EPISODES[0].strategy
+    : episode.strategy;
+};
+
 export const createCountTheStarsRun = (episodeIndex, seed, recentQuestionIds = []) => {
   const episode = COUNT_THE_STARS_EPISODES[episodeIndex];
   if (!episode || !Number.isSafeInteger(seed) || seed < 0) return null;

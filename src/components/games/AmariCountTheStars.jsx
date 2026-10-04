@@ -4,7 +4,7 @@ import { SoundToggle } from '../shared/index.jsx';
 import { countAnswerNarration, countCorrectNarration } from '../../data/batch3Narration.js';
 import {
   COUNT_CONSTELLATION_PAGES, COUNT_THE_STARS_EPISODES, COUNT_THE_STARS_NARRATION,
-  createCountRunSeed, createCountTheStarsRun, getCountQuestionArrangement,
+  createCountRunSeed, createCountTheStarsRun, getCountQuestionArrangement, getCountQuestionStrategy,
 } from '../../data/countTheStarsBatch3.js';
 import {
   getCountTheStarsProgress, recordCountTheStarsCompletion, rememberCountTheStarsRun, recentCountQuestionIds,
@@ -70,6 +70,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
   const episode = COUNT_THE_STARS_EPISODES[episodeIndex] || COUNT_THE_STARS_EPISODES[0];
   const round = run?.rounds[roundIndex] || null;
   const arrangement = getCountQuestionArrangement(round);
+  const strategy = getCountQuestionStrategy(round, episode);
   const layoutDescription = arrangement === 'split-groups' ? 'two visible groups'
     : arrangement === 'scattered' ? 'scattered one by one'
       : arrangement === 'array' ? 'organized rows or an array' : '';
@@ -244,7 +245,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
             <div><p className="text-xs font-black uppercase tracking-widest text-white/70">{episode.name} · {episode.band}</p><h2 className="text-2xl font-black sm:text-3xl">{round.scene.title}</h2></div>
             <div aria-hidden="true" className="text-4xl">{round.scene.decoration}</div>
           </div>
-          <p className="mt-2 rounded-xl bg-black/20 px-3 py-2 text-sm font-bold text-white/90">{episode.strategy}</p>
+          <p className="mt-2 rounded-xl bg-black/20 px-3 py-2 text-sm font-bold text-white/90">{strategy}</p>
           <div className="relative mx-auto mt-4 aspect-square w-full max-w-[440px] rounded-3xl border border-white/25 bg-black/15" data-layout-variant={round.layoutVariant} role="group" aria-label={`Counting board for ${round.scene.title}; ${layoutDescription}`}>
             {round.objects.map((object, index) => {
               const countedIndex = tappedIds.indexOf(object.id);
