@@ -604,3 +604,10 @@ Root full-read the Count the Stars quota UI report: harder-band six-round queues
 The [supplemental narration ledger](qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json) pins exactly five released Batch2 phrases and the two local revised Dino facts, verifies owned source bytes and voice keys, and confirms all seven packaged files are absent. It is read-only preparation, not generation or audio acceptance. A separate agent is checking the two local Dino facts through normal guarded desktop/390px reveal flows. The existing B4 worker continues; no parallel paid job was started.
 
 The B5/B6/B7 release-order summary now reflects completed independent integration checks. A newly drafted22-game gap ledger used stale copied status and is being corrected against root's current reports before publication. Accepted count remains4/26.
+
+
+## 4 October — corrected22-game ledger and current component reconciliation
+
+Root reviewed and imported independent ledger `be17e26`, correcting stale candidate reports against current canonical0d and completed integration outcomes. Sky Challenge and Count quota checks are already covered; Monster's unobserved2+10 example remains a confidence note, not a new contract gate. The ledger gives the next finite acceptance action per remaining game.
+
+Current supported component recommendations now reconcile repaired candidate defects: Spelling teaching4.5, Colour/Odd reliability4.5, and all four B6 reliability4.5 after clean persisted-preference QA. The old mute-reset4.0 ratings remain explicitly historical. These are component recommendations based on exact-source deltas and retained mechanics/reward evidence; formal feedback/audio/visual, overall means and production acceptance remain open. No new game was accepted:4/26.

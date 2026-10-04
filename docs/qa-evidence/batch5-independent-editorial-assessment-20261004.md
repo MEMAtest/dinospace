@@ -75,3 +75,17 @@ Reliability is unscored for Spelling Studio, Colour Mixing Lab, and Odd One Out 
 2. Have a person review representative packaged narration for pronunciation, pacing, clipping, age fit and clarity. Source inventory, a 404/200 response, full decode, and no provider call are not listening evidence.
 3. Keep the per-game replay/star, sibling isolation and reload checks as explicit evidence gaps for Spelling Studio, Colour Mixing Lab, and Odd One Out; leave reliability unscored until that minimal ordinary-UI scope is documented at both widths. Use targeted checks rather than repeat the retained full chapter matrices solely because the narrow 5255 repair changed shared tracker visibility and Colour recipe rendering.
 4. Preserve local candidate evidence as candidate evidence. No production identity, production Playwright acceptance, or Batch 5 4.5 award is claimed. The authoritative verified count remains 4.
+
+
+## Current integration reconciliation — 4 October 2026
+
+The earlier table remains a review of its stated candidate. Current source `b198dbf49a5023e1b50181a9ef2a3eabd4c80a35` at5368 retains canonical0d and has a completed [independent integration check](https://github.com/MEMAtest/dinospace/blob/645053a/docs/qa-evidence/batch5-integration-independent-20261004/independent-report.md) plus [ownership follow-up](https://github.com/MEMAtest/dinospace/blob/a9c7910/docs/qa-evidence/batch5-integration-independent-20261004/route-ownership-followup.md). Root read both reports. The full game matrices remain attached to their original sources; the integration adds ordinary route/settings and sampled gameplay deltas, not a replacement full matrix.
+
+| Game | Current supported component | Current acceptance action |
+|---|---|---|
+| Spelling Studio | Teaching4.5 recommendation: plain child-facing copy and the ordinary Phase2/restricted-sound defaults were independently checked at both widths. | Retain full tile/chapter mechanics evidence. Complete actual phoneme-hint playback, narration/listening and exact production release. This update does not invent a new per-game replay/reward check. |
+| Colour Mixing Lab | Reliability4.5 recommendation: retained positive/equal/lower best-star credit and palette/badge/reload evidence plus current two-way sound preference persistence resolve the old mute-reset4.0 finding. | Keep recipe/full chapter baseline and current sampled integration controls; complete narration/listening and production acceptance. |
+| Odd One Out | Reliability4.5 recommendation: retained best-star improvement/capped replay and saved unlock/badge evidence plus current two-way sound preference persistence resolve the old mute-reset4.0 finding. | Keep named-property and full chapter baseline; complete narration/listening and production acceptance. |
+| Sound Safari | Core auditory delivery remains open:0/37 isolated-sound paths. The muted Hear button being disabled is expected mute behavior, not a missing-file test. | Package and independently hear the isolated sounds, then finish ordinary recognition/blending/segmentation controls, including mobile later chapters. |
+
+Current ownership evidence confirms ordinary Amari entries and parent return. Askia Sound/Spelling checks used direct legacy routes; they are not a claim of discoverability on Askia home or full earned-collection isolation. Formal feedback/audio/visual scores and all overall means remain unaccepted. No production release or additional4.5 award is claimed.
