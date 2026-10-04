@@ -478,3 +478,14 @@ Independent Batch 4 assessment `2abb893c` rates supported non-audio dimensions 4
 Root read independent B6 report `098b1b9` and inspected the held mobile ABB result. The clue, purple answer, rule and Next are consistent; five frozen5295 hashes, guards and console pass. This closes its scoped mobile evidence gap, not audio or acceptance.
 
 Read-only B5 audit `98468d7` distinguishes 659 narration phrases (11 present) from 37 pure phoneme paths (zero present, 32 distinct sounds). Sound Safari’s mobile auditory Chapter2/3 checks remain open. Primary recording-source research is underway; no external recording has been imported, generated or accepted. Recorded counts remain4 accepted/22 in progress.
+
+
+## Frozen integration and observed teaching repairs — 4 October
+
+Batch 4 selective integration source `8bb8d4` is frozen at local5360. Its four game components match the reviewed ac3 source; shared integration preserves root sound preferences and Batch3 routes/collections. Existing focused tests25/25, scoped lint and configured build pass. The frozen corpus remains incomplete; no release is authorized from this readiness state. Independent actual-control desktop/mobile deltas are underway, with desktop Addition/Subtraction/Number Line controls passing so far. These are interim observations, not completed acceptance.
+
+Independent Batch5 assessment identifies Spelling Studio child-facing jargon; the initial plain instruction candidate77e86a0 has existing focused tests4/4, lint and build pass. The remaining child-facing pool wording is being revised on a separate frozen candidate. Missing reliability evidence for three games remains unscored. Sound Safari still has no accepted isolated phoneme assets.
+
+Independent Batch6 assessment `a8e9bab` records concrete teaching deficits: Pattern prelabels its rule, Hangman leaves the shared ending unexplained, Chess presents all-piece rules at once, and Astronaut shows its answer-bearing fact as a pre-answer clue. The visible and spoken clue paths both require correction. Repair instructions and bounded acceptance deltas are published; reliability and formal audio remain unscored/pending. No new overall4.5 awards.
+
+The finite narration worker checkpoint12:20UTC is run204, expected request-window wait,2265 clips pending. Recorded accepted counts remain4/26; this is active work, not completion.

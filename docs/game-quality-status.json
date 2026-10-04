@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T12:01:30.404103+00:00",
+  "updatedAt": "2026-10-04T12:24:02.557303+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1005,7 +1005,10 @@
     "integrationWorktree": "work/dinospace-batch4-integration",
     "integrationBranch": "codex/amari-batch4-integration-20261004",
     "integrationBase": "23bb5e1",
-    "integrationStatus": "Selective integration underway; preserve current sound preferences, Batch3 progression and collections, and current artwork."
+    "integrationStatus": "Selective configured integration frozen; 25 focused tests and lint pass. Independent desktop/mobile controls underway; no release or audio acceptance.",
+    "integrationSource": "8bb8d4bb5b3a28383fbf3ca4639553e8cb5b2cf2",
+    "integrationOrigin": "http://127.0.0.1:5360/",
+    "integrationReport": "../dinospace-batch4-integration/docs/qa-evidence/batch4-integration-20261004/report.md"
   },
   "batch5SoundSafariAssetAudit": {
     "report": "docs/qa-evidence/batch5-sound-safari-mobile-audit-20261004.md",
@@ -1027,5 +1030,22 @@
     "evidenceCommit": "098b1b9",
     "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-abb-mobile-20261004/report.md",
     "decision": "Mobile ABB clue/answer/heldNext passed on frozen5295 with five matching files and guards; no audio or4.5 award."
+  },
+  "batch5CurrentEditorialReview": {
+    "report": "docs/qa-evidence/batch5-independent-editorial-assessment-20261004.md",
+    "decision": "Spelling age teaching has an observed jargon deficit; a local copy candidate is under revision. Reliability gaps for Spelling, Colour Mixing and Odd One Out remain unscored. Sound Safari recognition acceptance waits for isolated phoneme assets. No overall awards."
+  },
+  "batch6CurrentEditorialReview": {
+    "report": "docs/qa-evidence/batch6-independent-editorial-assessment-20261004.md",
+    "evidenceCommit": "a8e9bab24883346240786f3529cd985cb6077e2f",
+    "decision": "Observed teaching deficits in all four; Astronaut pre-answer clue repeats answer-bearing fact. Concrete repair instructions published. Reliability unscored pending targeted reload/replay/sibling evidence; formal audio pending. No overall awards."
+  },
+  "batch4NarrationCheckpoint": {
+    "updatedAt": "2026-10-04T12:20:19.003Z",
+    "pid": 18781,
+    "run": 204,
+    "status": "waiting_request_window",
+    "pending": 2265,
+    "scope": "Existing finite worker; no restart or parallel generation. Not corpus readiness or listening acceptance."
   }
 }
