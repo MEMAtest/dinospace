@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-10-04T07:08:35.968Z",
+  "tool": "builtin image_gen",
+  "intent": "new landscape source scene, portrait used only as style/world reference",
+  "prompt": "Use case: stylized-concept. Asset type: ONE premium landscape 4:3 background for an age-6 Spot the Difference game in Amari Discovery HQ. Input image is a STYLE AND SETTING REFERENCE ONLY. Create a bright, welcoming magical space observatory classroom, glossy rounded 3D children's adventure style matching the reference: golden wood trim, indigo-blue starry domed glass windows, distant warm sunset, lush small plants, bookshelves. Compose the scene specifically for a small 334px-wide landscape game frame, with five distinct fully visible objects spread far apart: upper-left a hanging golden ringed planet model centered roughly25%across/20%down; lower-left a large Earth globe on a golden stand centered25%/72%; middle-right a deep-blue telescope with gold rings on its tripod centered76%/48%; lower-middle a neat stack of three brightly coloured chunky books centered51%/84%; lower-right a friendly large glass hourglass with purple sand and gold frame centered82%/84%. Keep each complete object inside the central84%frame, no cropped globe/telescope/planet/hourglass, clear silhouettes with space between them. Landscape camera shows room width, not tall empty floor. No people, no writing, no UI, no floating answer badges, no arrows, no watermark, no split panels or asset sheet. This is a new full scene source Picture A; the reference stays unchanged. Premium coherent high quality materials and perspective, playful rich colour, calm age-appropriate educational atmosphere.",
+  "reference": "src/assets/game-scenes/time-observatory.webp",
+  "selectedGeneratedOriginal": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-ac2e7215-3b11-4af1-9010-bd7b9ebd13fb.png",
+  "original": "src/assets/spot-difference/time-observatory-landscape-v1.png",
+  "delivery": "src/assets/spot-difference/time-observatory-landscape-v1.webp",
+  "processing": "Original copied unchanged; WebP encoding only quality96/method6; no creative bitmap processing. Original shared portrait remains unchanged.",
+  "review": "Root inspected full generated landscape: complete hanging planet model, Earth globe, telescope, books and hourglass, coherent premium scene; runtime masks and independent QA pending.",
+  "originalSha256": "1adce3c9a0d9741bd0b9d09d8241738db1391095109f93ba34fe6db04a260770",
+  "deliverySha256": "edccaa6ac60883f9be074601e7a171eefba67f3ccfd3de764f3d45a1a8351384",
+  "dimensions": [
+    1448,
+    1086
+  ]
+}

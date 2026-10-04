@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-10-04T07:04:21.477Z",
+  "tool": "builtin image_gen",
+  "intent": "new landscape source scene using original portrait as style/world reference; not a comparison-B edit",
+  "prompt": "Use case: stylized-concept. Asset type: single landscape background for an age-6 Spot the Difference game in Amari Discovery HQ. Input image is STYLE AND WORLD REFERENCE ONLY, not an exact edit target. Create a premium polished playful rounded 3D festival castle courtyard in LANDSCAPE 4:3 composition, full scene edge to edge. Closely match reference purple-and-gold castle towers, glossy friendly colours, leafy gardens and sunny blue sky. Arrange clear objects across the whole landscape with generous separation: left foreground purple hanging pennant with one gold star; upper central curved bridge arch with gold star medallion; right foreground three balloons (blue, pink, yellow) on strings; lower central small parade drum red body with gold trim standing on paving; right middle building pink-and-white shop awning. Keep all five objects entirely inside the central 80% image area, individually recognizable at 334px wide. Additional festive repeating star bunting along upper background, and small flowerpots. Courtyard should occupy lower third, no huge empty pavement. Attractive bright tactile materials, high quality coherent lighting and perspective, soft rounded edges, appropriate and welcoming for young children. No people, no UI, no written words, no floating badges, no arrows, no logos, no watermark. Generate exactly ONE landscape scene, not two comparison panels or a sheet. This will be a new source Picture A; original reference remains untouched.",
+  "reference": "src/assets/game-scenes/pattern-parade.webp",
+  "selectedGeneratedOriginal": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-75648ac2-7e35-441d-9622-e20fc6f560b6.png",
+  "original": "src/assets/spot-difference/pattern-parade-landscape-v1.png",
+  "delivery": "src/assets/spot-difference/pattern-parade-landscape-v1.webp",
+  "processing": "PNG copied unchanged. WebP encoding only, quality96/method6; no crop/resize/retouch/redraw. Previous shared portrait asset remains unchanged.",
+  "review": "Root inspected generated source: landscape framing with complete foreground pennant, central arch star, right balloons, lower drum, right shop awning. Runtime integration/masked changes and independent QA pending.",
+  "originalSha256": "513dcc0d61ca542ef856ceb3ad9da2bdba094dfa8731fc11c64263be3a05bd82",
+  "deliverySha256": "fc03fbe6508a62f65503351f81bb3342905a916fd558785d605b19cf235344b0",
+  "dimensions": [
+    1448,
+    1086
+  ]
+}

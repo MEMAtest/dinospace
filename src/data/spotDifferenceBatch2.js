@@ -5,8 +5,8 @@ const dinoRiverB = new URL('../assets/spot-difference/river-valley-pair-b-v1.web
 const dinoMoon = new URL('../assets/puzzle-pop/dino-moon-3d.webp', import.meta.url).href;
 const treehouse = new URL('../assets/puzzle-pop/treehouse-robots-3d.webp', import.meta.url).href;
 const soundSafari = new URL('../assets/spot-difference/sound-safari-animals-3d.webp', import.meta.url).href;
-const patternParade = new URL('../assets/game-scenes/pattern-parade.webp', import.meta.url).href;
-const timeObservatory = new URL('../assets/game-scenes/time-observatory.webp', import.meta.url).href;
+const patternParade = new URL('../assets/spot-difference/pattern-parade-landscape-v1.webp', import.meta.url).href;
+const timeObservatory = new URL('../assets/spot-difference/time-observatory-landscape-v1.webp', import.meta.url).href;
 const robin = new URL('../assets/puzzle-pop/robin-tree-3d.webp', import.meta.url).href;
 const geography = new URL('../assets/puzzle-pop/world-explorer-map-3d.webp', import.meta.url).href;
 const history = new URL('../assets/curriculum/history-world.webp', import.meta.url).href;
@@ -209,8 +209,38 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
       Object.freeze({ id: 'safari-toes', label: 'the elephant toenails changed colour', normalVisual: 'scene:cream-toes', visual: 'scene:green-toes', x: 35, y: 86, radius: 8 }),
     ],
   }),
-  makeScene(1, 6, 'Pattern Parade', patternParade, 'A colourful parade with repeating shapes', 'Repeating patterns follow a rule that we can describe.'),
-  makeScene(1, 7, 'Time Observatory', timeObservatory, 'An observatory with a telescope, Earth globe, stars and sunset', 'Earth turns once each day, bringing daylight and darkness.'),
+  makeScene(1, 6, 'Pattern Parade', patternParade, 'A sunny festival courtyard with star pennants, an arch, balloons, a parade drum and a shop canopy', 'Repeating patterns follow a rule that we can describe.', {
+    colorEdits: [
+      { shape: 'path', d: 'M155 164 L301 177 L293 525 L231 464 L165 529 Z', transform: 'scale(0.06906077348 0.09208103131)', hue: 110, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -1 -4 5 0 -0.4' },
+      { shape: 'ellipse', cx: 733, cy: 320, rx: 44, ry: 44, transform: 'scale(0.06906077348 0.09208103131)', hue: 120, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -1 -4 5 0 -0.4' },
+      { shape: 'path', d: 'M1179 482 C1234 482 1262 603 1234 640 C1214 667 1175 661 1148 636 C1109 603 1099 540 1110 509 C1121 484 1149 475 1179 482 Z', transform: 'scale(0.06906077348 0.09208103131)', hue: 100, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
+      { shape: 'path', d: 'M737 842 Q825 855 911 841 L901 936 Q826 961 747 942 Z', transform: 'scale(0.06906077348 0.09208103131)', hue: 190, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 4 -2 -2 0 -0.4' },
+      { shape: 'path', d: 'M1320 258 L1448 232 L1448 428 Q1437 437 1420 420 Q1399 449 1375 423 Q1352 454 1328 432 Q1300 466 1275 440 Q1246 467 1229 446 Q1201 457 1186 433 L1186 387 Z', transform: 'scale(0.06906077348 0.09208103131)', hue: 150, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 4 -8 4 0 -0.8' },
+    ],
+    differences: [
+      Object.freeze({ id: 'parade-pennant', label: 'the large left pennant cloth changed colour', normalVisual: 'scene:purple-cloth', visual: 'scene:teal-cloth', x: 16, y: 32, radius: 8 }),
+      Object.freeze({ id: 'parade-medallion', label: 'the round arch medallion behind the star changed colour', normalVisual: 'scene:purple-medallion', visual: 'scene:teal-medallion', x: 51, y: 29, radius: 8 }),
+      Object.freeze({ id: 'parade-balloon', label: 'the blue balloon changed colour', normalVisual: 'scene:blue-balloon', visual: 'scene:purple-balloon', x: 81, y: 53, radius: 8 }),
+      Object.freeze({ id: 'parade-drum', label: 'the parade drum body changed colour', normalVisual: 'scene:red-drum', visual: 'scene:blue-drum', x: 57, y: 81, radius: 8 }),
+      Object.freeze({ id: 'parade-awning', label: 'the pink shop canopy stripes changed colour', normalVisual: 'scene:pink-canopy', visual: 'scene:green-canopy', x: 90, y: 25, radius: 8 }),
+    ],
+  }),
+  makeScene(1, 7, 'Time Observatory', timeObservatory, 'A landscape observatory with a hanging planet model, Earth globe, telescope, books and an hourglass', 'Earth turns once each day, bringing daylight and darkness.', {
+    colorEdits: [
+      { shape: 'ellipse', cx: 411, cy: 206, rx: 64, ry: 65, transform: 'scale(0.06906077348 0.09208103131)', hue: 150 },
+      { shape: 'ellipse', cx: 357, cy: 674, rx: 126, ry: 128, transform: 'scale(0.06906077348 0.09208103131)', hue: 90, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
+      { shape: 'path', d: 'M969 405 L1023 435 L1001 478 L953 448 Z', transform: 'scale(0.06906077348 0.09208103131)', hue: 120, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
+      { shape: 'path', d: 'M636 783 L791 772 L857 783 L854 822 L794 839 L640 827 Q627 820 629 798 Z', transform: 'scale(0.06906077348 0.09208103131)', hue: 160, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
+      { shape: 'path', d: 'M1170 716 Q1228 726 1284 716 L1264 755 L1233 793 L1263 856 L1283 893 Q1228 912 1171 892 L1192 851 L1217 793 L1194 751 Z', transform: 'scale(0.06906077348 0.09208103131)', hue: 110, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -1 -4 5 0 -0.4' },
+    ],
+    differences: [
+      Object.freeze({ id: 'observatory-model', label: 'the hanging planet model changed colour', normalVisual: 'scene:gold-planet', visual: 'scene:cyan-planet', x: 28, y: 19, radius: 8 }),
+      Object.freeze({ id: 'observatory-globe', label: 'the globe ocean colour changed', normalVisual: 'scene:blue-oceans', visual: 'scene:purple-oceans', x: 25, y: 63, radius: 8 }),
+      Object.freeze({ id: 'observatory-telescope', label: 'the large telescope barrel changed colour', normalVisual: 'scene:blue-barrel', visual: 'scene:green-barrel', x: 69, y: 40, radius: 8 }),
+      Object.freeze({ id: 'observatory-book', label: 'the top book cover changed colour', normalVisual: 'scene:blue-book', visual: 'scene:red-book', x: 51, y: 75, radius: 8 }),
+      Object.freeze({ id: 'observatory-sand', label: 'the hourglass sand changed colour', normalVisual: 'scene:purple-sand', visual: 'scene:cyan-sand', x: 85, y: 73, radius: 8 }),
+    ],
+  }),
   makeScene(2, 8, 'Robin’s Woodland', robin, 'A robin pecking at soil beneath a tree among flowers and woodland plants', 'Robins use their beaks to find food and build safe nests.'),
   makeScene(2, 9, 'World Explorer', geography, 'An explorer workbench with a picture-symbol map and an Earth globe', 'Maps use symbols and labels to show useful information about places.'),
   makeScene(2, 10, 'History Hall', history, 'Ancient ruins with books, maps and a compass', 'Old objects can be clues about how people lived long ago.'),

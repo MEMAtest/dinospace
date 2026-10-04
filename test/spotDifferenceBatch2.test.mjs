@@ -249,3 +249,27 @@ test('Sound Safari five depicted-object targets stay separated and inside the mi
     for (const other of centers.slice(index + 1)) assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
   }
 });
+
+
+test('Pattern Parade landscape has five separated in-frame depicted-object targets', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === 'spot-7');
+  assert.equal(scene.pairedArt, true);
+  assert.equal(scene.differences.length, 5);
+  const centers = scene.differences.map(({ x, y }) => ({ x: x * 2.8, y: y * 2.1 }));
+  for (const [index, center] of centers.entries()) {
+    assert.ok(center.x >= 28 && center.x <= 252 && center.y >= 28 && center.y <= 182);
+    for (const other of centers.slice(index + 1)) assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
+  }
+});
+
+
+test('Time Observatory landscape has five reachable nonoverlapping depicted-object targets', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === 'spot-8');
+  assert.equal(scene.pairedArt, true);
+  assert.equal(scene.differences.length, 5);
+  const centers = scene.differences.map(({ x, y }) => ({ x: x * 2.8, y: y * 2.1 }));
+  for (const [index, center] of centers.entries()) {
+    assert.ok(center.x >= 28 && center.x <= 252 && center.y >= 28 && center.y <= 182);
+    for (const other of centers.slice(index + 1)) assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
+  }
+});
