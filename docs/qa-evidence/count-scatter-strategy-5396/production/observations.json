@@ -1,0 +1,120 @@
+{
+  "deployment": "dpl_5cKFB6U489CLoEPucaY9pDarcHsp",
+  "url": "https://dinospace-3sqfand4s-memas-projects-23a0001d.vercel.app",
+  "runtimeSource": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "archiveCommit": "22d805b67ced8b36f45d0f5c547bfe67c5dded88",
+  "candidateIdentity": "../production-identity.json",
+  "session": {
+    "name": "count-prod-scatter-qa-20261004",
+    "browserPid": 73608,
+    "viewports": ["1280x800", "390x844"],
+    "oneSessionResized": true
+  },
+  "guards": {
+    "initialUrl": "about:blank",
+    "voice": 403,
+    "story": 403,
+    "verifiedBeforeFirstAppNavigation": true,
+    "remainedActiveThroughCompletionAndParentNavigation": true,
+    "providerRequestsObserved": false
+  },
+  "normalProgression": {
+    "profile": "Amari",
+    "path": "Maths Missions > Count the Stars",
+    "starterCompleted": 6,
+    "growingCompleted": 6,
+    "challengeCompleted": 6,
+    "challengeReplay": false,
+    "injectedState": false
+  },
+  "challengeLayouts": [
+    {
+      "round": 1,
+      "title": "Satellite Panels",
+      "count": 18,
+      "layout": "organized rows or an array",
+      "banner": "Count along a row, or count each group and put the totals together."
+    },
+    {
+      "round": 2,
+      "title": "Constellation Maps",
+      "count": 1,
+      "layout": "scattered one by one",
+      "banner": "Count each glowing object once. A number badge keeps your place.",
+      "clue": "Point to each shape once. The numbered badges keep your place.",
+      "clueActivatedViaVisibleControl": true,
+      "wrongAnswer": 2,
+      "wrongFeedback": "Check your count badges once more.",
+      "correctAnswer": 1,
+      "heldFeedback": "There is 1 map star. You counted each one once.",
+      "nextWorked": true,
+      "screenshots": [
+        "screenshots/scattered-desktop-clue.png",
+        "screenshots/scattered-mobile-clue.png",
+        "screenshots/scattered-mobile-wrong-retry.png",
+        "screenshots/scattered-mobile-held-correct.png"
+      ]
+    },
+    {
+      "round": 4,
+      "title": "Crater Gems",
+      "count": 14,
+      "layout": "two visible groups",
+      "banner": "Count along a row, or count each group and put the totals together."
+    },
+    {
+      "round": 5,
+      "title": "Planet Rings",
+      "count": 4,
+      "layout": "scattered one by one",
+      "strategyBannerCaptured": false
+    },
+    {
+      "round": 6,
+      "title": "Nebula Dots",
+      "count": 11,
+      "layout": "two visible groups",
+      "banner": "Count along a row, or count each group and put the totals together."
+    }
+  ],
+  "completionPersistenceAndNavigation": {
+    "completion": "Galaxy Survey complete!",
+    "bestStars": 2,
+    "constellationPageEarned": true,
+    "surveyMapBeforeReload": "3/3 pages; Galaxy Survey Best: 2 stars",
+    "surveyMapAfterReload": "3/3 pages; Galaxy Survey Best: 2 stars",
+    "reenteredAfterReload": true,
+    "backDestination": "Maths Missions world",
+    "screenshots": [
+      "screenshots/challenge-completion.png",
+      "screenshots/persistent-survey-map-after-reload.png",
+      "screenshots/parent-maths-return.png"
+    ]
+  },
+  "audio": {
+    "unmutedByVisibleControl": true,
+    "visibleAction": "Show a clue on scattered Constellation Maps",
+    "request": "/audio/en/03a953b6-matilda.mp3",
+    "httpStatus": 206,
+    "manifestKey": "03a953b6",
+    "manifestText": "Point to each shape once. The numbered badges keep your place.",
+    "htmlMediaElementVisible": false,
+    "playbackTimeVerified": false,
+    "nextCancellationVerified": false,
+    "additionalPackagedNarrationRequestsDuringChallenge": true,
+    "returnedToMutedViaVisibleControl": true,
+    "humanListeningClaim": false
+  },
+  "diagnostics": {
+    "consoleMessages": 0,
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "shellCssJsChunkAndImages": "HTTP 200 for listed visible requests",
+    "providerCalls": 0
+  },
+  "acceptance": {
+    "scatteredBannerAndClue": "pass for observed scattered Constellation Maps board at desktop and mobile",
+    "productionPromotion": "not performed",
+    "overallQualityScore": "not assigned"
+  }
+}
