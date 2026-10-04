@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T12:24:02.557303+00:00",
+  "updatedAt": "2026-10-04T12:40:15.007730+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1005,10 +1005,13 @@
     "integrationWorktree": "work/dinospace-batch4-integration",
     "integrationBranch": "codex/amari-batch4-integration-20261004",
     "integrationBase": "23bb5e1",
-    "integrationStatus": "Selective configured integration frozen; 25 focused tests and lint pass. Independent desktop/mobile controls underway; no release or audio acceptance.",
+    "integrationStatus": "Bounded independent local desktop/mobile integration checks passed; full retained mechanics baseline applies to identical game components. No release or audio acceptance.",
     "integrationSource": "8bb8d4bb5b3a28383fbf3ca4639553e8cb5b2cf2",
     "integrationOrigin": "http://127.0.0.1:5360/",
-    "integrationReport": "../dinospace-batch4-integration/docs/qa-evidence/batch4-integration-20261004/report.md"
+    "integrationReport": "../dinospace-batch4-integration/docs/qa-evidence/batch4-integration-20261004/report.md",
+    "integrationQaReport": "../dinospace-batch4-integration/docs/qa-evidence/batch4-integration-independent-qa-20261004/report.md",
+    "integrationQaCommit": "f898043",
+    "integrationQaScope": "First chapters of all four at1280/390, wrong/clue/correct/heldNext, BackKeep/Maths return; distinct TimeDetectives return after reload ondesktop; two-way sound persistence desktop; B3+B4 unearned collection catalog coexistence. Earned integrated badges and audio not tested."
   },
   "batch5SoundSafariAssetAudit": {
     "report": "docs/qa-evidence/batch5-sound-safari-mobile-audit-20261004.md",
@@ -1047,11 +1050,11 @@
     "decision": "Observed teaching deficits in all four; Astronaut pre-answer clue repeats answer-bearing fact. Concrete repair instructions published. Reliability unscored pending targeted reload/replay/sibling evidence; formal audio pending. No overall awards."
   },
   "batch4NarrationCheckpoint": {
-    "updatedAt": "2026-10-04T12:20:19.003Z",
+    "updatedAt": "2026-10-04T12:30:24.300Z",
     "pid": 18781,
-    "run": 204,
+    "run": 206,
     "status": "waiting_request_window",
-    "pending": 2265,
+    "pending": 2237,
     "scope": "Existing finite worker; no restart or parallel generation. Not corpus readiness or listening acceptance."
   },
   "batch7CurrentEditorialReview": {
