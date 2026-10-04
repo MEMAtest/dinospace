@@ -6,8 +6,8 @@ Date: 2026-10-04. This is a bounded live canonical-alias smoke for the promoted 
 
 - URL: `https://dinospace-eight.vercel.app`
 - Vercel deployment: `dpl_5cKFB6U489CLoEPucaY9pDarcHsp` (READY; confirmed by release owner)
-- Audited runtime source: `40c053408d47ca76ff26cc8ae5c2e8ad9bb99d70` (`1accc99`)
-- The release owner verified the canonical alias resolves to that deployment and all four canonical runtime assets match the frozen candidate. The canonical URL, deployment, source, and four asset hashes are recorded in `identity.json`; candidate-specific identity is in `../production-candidate-identity.json`.
+- Audited runtime source: `1accc99e89be303678ead99def6a3095ab1cb886`
+- The release owner verified the canonical alias resolves to that deployment and all four canonical runtime assets match the frozen candidate. The canonical URL, deployment, source, and four asset hashes are recorded in `identity.json`; candidate-specific identity is in `../../count-scatter-strategy-5396/production-identity.json`.
 
 ## Method and results
 
