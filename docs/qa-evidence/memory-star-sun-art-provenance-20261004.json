@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-04T02:34:12.728924+00:00",
+  "method": "Built-in image_gen, one call per distinct asset with transparent_background=true. Selected originals copied unchanged; no bitmap edits/provider-keyCLI/atlas.",
+  "scope": "Original art only; not runtime integration/QA/release/4.5 acceptance.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/star-v1.png",
+      "token": "⭐️",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-b10456c1-c816-4533-ac23-50fcdcc28bbb.png",
+      "sha256": "42446692dd77f03648401d720ca903b552fb8218a255c5038536fc3cb38d038e",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Plain glossy golden five-point star; rounded points, central bevel, clean highlights, no face/rays/sparkles/glow/trail. Compact72% canvas, ample transparent margins for82px card, polished Amari Discovery HQ style. No words/badge/border/halo/shadow/floor/scene.",
+      "rootReview": "Original visually reviewed. Distinct shape/color cues, complete object and transparent margin;82px rendered acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/glowing-star-v1.png",
+      "token": "🌟",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-77b3b3fc-870d-4da7-b3cf-962339a44c6c.png",
+      "sha256": "83a8b38e29b5cfe3b183fc9dfc0a0bbb42af28956b4c3e214bf807c66bc76a61",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Electric-cyan five-point glowing star with bright inner-star highlight and five detached radiant rays. Real transparent gaps, no opaque haze. Distinct from plain gold and gold shooting-star trail. Compact75% canvas, tiny82px readability, no face/trail/text/badge/shadow/floor/scene.",
+      "rootReview": "Original visually reviewed. Distinct shape/color cues, complete object and transparent margin;82px rendered acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/shooting-star-v1.png",
+      "token": "🌠",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-eb1af036-e790-4e3b-a7cf-f9abe2d9351a.png",
+      "sha256": "f881f09cf5a517350f2a7b44cc7810aea9a9c6a4caa1b25cd58712fe51ec7128",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Golden five-point star at lower-left leading end with three compact curved trailing ribbons toward upper-right in magenta/violet/cyan. Compact diagonal glossy near-square symbol, transparent gaps/margins, distinct from plain gold/cyan glowing/rocky comet. No face/text/badge/scatteredstars/halo/shadow/floor/scene.",
+      "rootReview": "Original visually reviewed. Distinct shape/color cues, complete object and transparent margin;82px rendered acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/sun-face-v1.png",
+      "token": "🌞",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-5ced0dd6-f26f-4159-a2fc-ded35f63dfe1.png",
+      "sha256": "4aea2826a9a8d4cf4fa2623b40469ba25a4a58216b3a687775f6fdefee5f4c47",
+      "size": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Round yellow solar disk, eight short chunky triangular orange rays, friendly dark eyes, wide happy smile/rosycheeks; circular solar face differs from facelessSun andfive-pointstar. Compact72% canvas, transparent margins, tiny82px readable. No text/badge/trail/surroundingstars/halo/shadow/floor/scene.",
+      "rootReview": "Original visually reviewed. Distinct shape/color cues, complete object and transparent margin;82px rendered acceptance pending."
+    }
+  ]
+}
