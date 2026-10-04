@@ -9,7 +9,7 @@
 - Served identity: [identity.json](identity.json); [full served asset SHA-256 list](served-assets-sha256.txt)
 - The configured build succeeded. All 5,879 files in the built `dist` returned HTTP 200 and matched their local SHA-256. Both browser viewports had zero console messages and no static HTTP 4xx/5xx responses.
 
-The first Playwright launch attempt requested an absent Chrome for Testing binary and stopped before app navigation. The browser was then started with the installed Chrome channel. In each new test context, the voice and story routes were set to 403 and verified on `about:blank` before the first app navigation; they remained active. No provider request escaped the guards. “Hear instructions”, “Read clue”, and “Listen” were not activated. Mobile gameplay was visibly muted from the start. On desktop, ordinary unlock clicks began while the app's default sound control showed sound on; before both changed-copy held-fact rechecks, I switched sound off through the visible control. This is not audio playback or listening evidence.
+The first Playwright launch attempt requested an absent Chrome for Testing binary and stopped before app navigation. The browser was then started with the installed Chrome channel. In each new test context, the voice and story routes were set to 403 and verified on `about:blank` before the first app navigation; they remained active. No provider request escaped the guards. “Hear instructions”, “Read clue”, and “Listen” were not activated. In the separate fresh mobile context, I changed the visible sound control from on to off before selecting Amari; that context supplied the muted Swamp mobile check. In the desktop progression context, normal unlock actions began with sound on. I changed its visible sound control to off for the held-fact rechecks at desktop size, then resized that same context to 390×844 for the Cave mobile capture while sound was on again; the Cave mobile screenshot visibly shows the speaker with sound waves. These states are recorded separately below and in `identity.json`. This is not audio playback or listening evidence.
 
 ## Ordinary unlock and reveal path
 
@@ -25,12 +25,12 @@ At both widths, the held Crystal Cave card showed the target fact “Velocirapto
 
 > Water can slowly dissolve (wear away) limestone rock and help caves form.
 
-In each case, the find result stayed on screen with the target fact and world fact until the visible “Next find” control was activated. That tap cleared the facts and moved the visible progress from Find 1 to Find 2. There was no automatic advance. The Dino Detective back control opened the normal Leave the game dialog; selecting its exact “Back to world” action returned to `#/world/explore` at both sizes.
+In each case, the find result stayed on screen with the target fact and world fact until the visible “Next find” control was activated. There was no automatic advance. On the fresh mobile Swamp run and the muted desktop held-fact rechecks, the visible progress moved from Find 1 to Find 2 after Next. The Cave mobile screenshot was taken from the desktop-origin context after its first Next, so it shows the held fact at Find 2; its subsequent Next moved to Find 3. The Dino Detective back control opened the normal Leave the game dialog; selecting its exact “Back to world” action returned to `#/world/explore` at both sizes.
 
 Evidence screenshots:
 
-- Swamp: [desktop held fact with sound muted](screenshots/swamp-desktop-held-muted.png), [mobile starting scene](screenshots/swamp-mobile-start.png), [mobile held fact](screenshots/swamp-mobile-held.png)
-- Cave: [desktop held fact with sound muted](screenshots/cave-desktop-held-muted.png), [mobile held fact](screenshots/cave-mobile-held.png), [mobile scrolled to Next](screenshots/cave-mobile-next-scrolled.png)
+- Swamp: [desktop held fact with sound muted](screenshots/swamp-desktop-held-muted.png), [fresh mobile starting scene](screenshots/swamp-mobile-start.png), [fresh mobile held fact with sound muted](screenshots/swamp-mobile-held.png)
+- Cave: [desktop held fact with sound muted](screenshots/cave-desktop-held-muted.png), [390px held fact from the desktop-origin context, sound on](screenshots/cave-mobile-held.png), [same Cave state scrolled to Next](screenshots/cave-mobile-next-scrolled.png)
 - Additional map/reveal captures are in this folder.
 
 At 390px, the held card is taller than one viewport. The “Next find” button sits at y=877 in the 844px viewport; document scroll width stays 390px, while document height is 1,031px. Ordinary vertical scrolling exposed the whole held card and the button, and its tap cleared the card. There is no horizontal overflow. The revised world facts wrap to a few readable lines, with “wear away” displayed beside “dissolve” to explain that word.
