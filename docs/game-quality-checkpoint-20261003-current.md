@@ -105,6 +105,10 @@ Puzzle canonical twelve-scene audit found one clear title-art mismatch: Dino Par
 
 ## Current delta — 4 October, Puzzle editorial audit and garden originals
 
-Independent [Puzzle canonical audit](qa-evidence/puzzle-canonical-editorial-keyboard-20261004/report.md),333fb0e, confirms all12servedsceneimagesHTTP200/hashmatchc478 and one desktop2×2keyboardcompletion with heldfact/Next, guardsbeforefirstnav/API0console0. It preserves the canonicalPicnictitledefect and explicitly excludes local2084095. Reviewer is extending keyboard coverage across2×2/3×3/5×5 atbothwidths and reconciling retainedfullbaseline+explicitregressiondeltas against the roadmap's allowed lineage; oldrunswillnotbecountedasfresh. Listening andtitlemediagate remainopen.
+The independent [Puzzle canonical audit](qa-evidence/puzzle-canonical-editorial-keyboard-20261004/report.md), commit `333fb0e`, confirms that all 12 served scene images return HTTP 200 and match the c478 source bytes. It also records one desktop 2×2 puzzle completed by keyboard, reaching the held fact and Next control. Provider guards were installed before navigation; no API requests or console messages occurred.
 
-Four Garden bee/butterfly/ladybird/snail originals savedunchangedwithalpha/provenance ine1a0ba4, queuedafterpreviousMemorycandidateandfossils. No renderedQA/release claim. Worker18781 confirmedlive at04:07UTC;04:06:03Zrun106status3679pending,zeroretries,expectedrequestwindowwait. Acceptedcountremains4/26.
+The audit preserves the canonical Picnic title defect and excludes the local `2084095` correction. The reviewer is extending keyboard coverage across 2×2, 3×3 and 5×5 at both widths, and reconciling the retained full baseline with the explicit regression checks allowed by the roadmap. Older runs will not be counted as fresh. Listening and the title correction's three missing narration clips remain open gates.
+
+Four garden originals — bee, butterfly, ladybird and snail — were saved unchanged with alpha and provenance in `e1a0ba4`. They are queued after the previous Memory candidate and fossil illustrations. This is original artwork preparation, without a rendered QA or release claim.
+
+Worker PID 18781 was confirmed live at 04:07 UTC. Its 04:06:03 UTC, run 106 status reports 3,679 clips pending, zero retries and the expected request-window wait. The accepted count remains **4/26**.
