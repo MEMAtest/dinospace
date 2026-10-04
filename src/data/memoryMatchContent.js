@@ -57,6 +57,10 @@ export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🐬': Object.freeze({ asset: 'memory-match/dolphin-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean memory-card-art-dolphin' }),
   '🦈': Object.freeze({ asset: 'memory-match/shark-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
   '🐢': Object.freeze({ asset: 'memory-match/turtle-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
+  '🍎': Object.freeze({ asset: 'memory-match/apple-v1-card.webp' }),
+  '🍌': Object.freeze({ asset: 'memory-match/banana-v1-card.webp' }),
+  '🍇': Object.freeze({ asset: 'memory-match/grapes-v1-card.webp' }),
+  '🍉': Object.freeze({ asset: 'memory-match/watermelon-v1-card.webp' }),
 });
 
 export function memoryCardLabel(emoji, levelId) {

@@ -320,7 +320,7 @@
 .memory-match-app[data-theme='space'] .memory-play-area, .memory-match-app[data-theme='astronaut'] .memory-play-area, .memory-match-app[data-theme='cosmic'] .memory-play-area { background: linear-gradient(150deg, rgb(255 255 255 / 14%), rgb(255 255 255 / 8%)); border-color: rgb(255 255 255 / 22%); }
 .memory-play-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 15px; }
 .memory-level-nav { display: flex; max-width: 100%; gap: 4px; overflow-x: auto; padding: 3px 3px 6px; scrollbar-width: thin; }
-.memory-level-step { flex: 0 0 44px; width: 44px; height: 44px; border: 2px solid rgb(255 255 255 / 90%); border-radius: 15px; background: rgb(255 255 255 / 66%); box-shadow: 0 3px 0 rgb(49 90 132 / 16%); color: var(--memory-accent-dark); font-size: .96rem; font-weight: 950; cursor: pointer; touch-action: manipulation; }
+.memory-level-step { flex: 0 0 48px; width: 48px; height: 48px; border: 2px solid rgb(255 255 255 / 90%); border-radius: 15px; background: rgb(255 255 255 / 66%); box-shadow: 0 3px 0 rgb(49 90 132 / 16%); color: var(--memory-accent-dark); font-size: .96rem; font-weight: 950; cursor: pointer; touch-action: manipulation; }
 .memory-level-step[aria-current='step'] { transform: translateY(-2px); border-color: white; background: var(--memory-accent); box-shadow: 0 5px 0 var(--memory-accent-dark); color: white; }
 .memory-level-step:disabled { opacity: .4; cursor: not-allowed; filter: grayscale(.7); }
 .memory-stats { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
@@ -337,15 +337,15 @@
 .memory-card-back::after { inset: 13%; border-style: dashed; opacity: .7; }
 .memory-card-back-mark { z-index: 1; font-size: clamp(1.6rem, 3.6vw, 3.1rem); filter: grayscale(1) brightness(0) invert(1) drop-shadow(0 2px 1px rgb(0 0 0 / 18%)); opacity: .92; }
 .memory-card-back-label { z-index: 1; margin-top: 4px; font-size: clamp(.48rem, .72vw, .64rem); font-weight: 1000; letter-spacing: .16em; opacity: .86; }
-.memory-card-front { gap: 2px; transform: rotateY(180deg); border: 2px solid rgb(255 255 255 / 94%); background: radial-gradient(ellipse at 30% 13%, white, transparent 48%), linear-gradient(150deg, #fff, color-mix(in srgb, var(--memory-glow) 80%, white)); box-shadow: 0 5px 0 rgb(68 106 145 / 33%), 0 9px 15px rgb(31 57 83 / 17%), inset 0 1px 0 white; color: #193856; }
-.memory-card-art { display: grid; flex: 1; min-height: 0; width: 100%; place-items: end center; padding-top: 9%; font-size: clamp(1.75rem, 4.5vw, 4rem); line-height: 1; filter: drop-shadow(0 4px 2px rgb(15 41 66 / 15%)); }
-.memory-card-art-image { display: block; width: 88%; height: 90%; object-fit: contain; }
-.memory-card-art-ocean { width: 78%; height: 76%; }
-.memory-card-art-dolphin { height: 52%; transform: translateY(-20%); }
+.memory-card-front { display: grid; grid-template-rows: minmax(0, 1fr) minmax(2.1em, 32%); gap: 7px; justify-items: center; align-items: center; padding: 4px 3px 3px; box-sizing: border-box; transform: rotateY(180deg); border: 2px solid rgb(255 255 255 / 94%); background: radial-gradient(ellipse at 30% 13%, white, transparent 48%), linear-gradient(150deg, #fff, color-mix(in srgb, var(--memory-glow) 80%, white)); box-shadow: 0 5px 0 rgb(68 106 145 / 33%), 0 9px 15px rgb(31 57 83 / 17%), inset 0 1px 0 white; color: #193856; }
+.memory-card-art { display: grid; min-height: 0; width: 100%; height: 100%; place-items: center; padding: 0; font-size: clamp(1.75rem, 4.5vw, 4rem); line-height: 1; filter: drop-shadow(0 4px 2px rgb(15 41 66 / 15%)); }
+.memory-card-art-image { display: block; width: 88%; height: 100%; min-width: 0; min-height: 0; object-fit: contain; }
+.memory-card-art-ocean { width: 78%; height: 92%; }
+.memory-card-art-dolphin { height: 68%; transform: translateY(-7%); }
 .memory-card-art-sprite { display: block; width: 88%; height: 90%; background-repeat: no-repeat; background-size: 390% 390%; filter: drop-shadow(0 4px 2px rgb(15 41 66 / 16%)); }
 .memory-card-art-monkey { background-position: 88% 38%; }
 .memory-card-art-frog { background-position: 95% 86%; }
-.memory-card-label { display: block; max-width: 94%; min-height: 1.1em; overflow: hidden; padding: 2px 2px 7%; color: var(--memory-accent-dark); font-size: clamp(.55rem, .92vw, .74rem); font-weight: 950; line-height: 1.05; text-align: center; text-overflow: ellipsis; text-transform: capitalize; white-space: nowrap; }
+.memory-card-label { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 2.1em; overflow: visible; padding: 0 1px; color: var(--memory-accent-dark); font-size: clamp(.46rem, .78vw, .66rem); font-weight: 950; line-height: 1.02; text-align: center; text-wrap: balance; text-transform: capitalize; white-space: normal; }
 .memory-card.is-matched .memory-card-front { border-color: #ffe275; box-shadow: 0 5px 0 #d79a19, 0 0 19px rgb(255 211 76 / 52%), inset 0 1px 0 white; animation: memory-match-pop .4s ease-out both; }
 @keyframes memory-match-pop { 0% { transform: rotateY(180deg) scale(.94); } 55% { transform: rotateY(180deg) scale(1.045); } 100% { transform: rotateY(180deg) scale(1); } }
 .memory-board-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 13px 2px 0; color: var(--memory-accent-dark); font-size: .82rem; font-weight: 800; }
@@ -388,7 +388,7 @@
   .memory-card-back::after { border-radius: 7px; }
   .memory-card-back-label { font-size: .43rem; }
   .memory-card-art { font-size: clamp(1.8rem, 9vw, 2.7rem); }
-  .memory-card-label { font-size: clamp(.52rem, 2.5vw, .67rem); }
+  .memory-card-label { font-size: clamp(.5rem, 2.1vw, .64rem); }
   .memory-board-footer { align-items: flex-start; font-size: .7rem; }
   .memory-complete-panel { padding: 15px 14px; border-radius: 22px; }
   .memory-complete-panel h3 { font-size: 1.4rem; }
@@ -397,7 +397,7 @@
   .memory-stats { gap: 3px; }
   .memory-stats span { min-width: 43px; }
   .memory-board { gap: 6px; }
-  .memory-card-label { font-size: .49rem; }
+  .memory-card-label { font-size: .48rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .memory-match-app *, .memory-match-app *::before, .memory-match-app *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
