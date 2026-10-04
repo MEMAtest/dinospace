@@ -28,6 +28,7 @@ The voice is pinned to Matilda (`XrExE9yKIg1WjnnlVkGX`) using the existing Engli
 - The B3 journal must have room for all three requests and no active cooldown; otherwise it stops without making a partial run. Calls are sequential, one per fixed item, with one 90-second timeout and no retries. A failure stops the experiment.
 - The only provider destination is `api.elevenlabs.io/v1/text-to-speech/XrExE9yKIg1WjnnlVkGX?output_format=mp3_44100_128`, with redirects rejected.
 - MP3 candidates and their audit are written only under `tmp/phoneme-qa-pilot/<ledger-sha>/`. The response must be `audio/mpeg`, between 1,001 bytes and 2 MiB; the audit records the exact request, voice/model/source, HTTP/MIME, byte count, SHA-256, and fixed decode/duration/waveform/listening fields. A candidate is never marked accepted for runtime.
+- A paid attempt fails closed if the hash-bound candidate directory already exists, checking both before touching the shared journal and again after acquiring the shared lock. It will not issue a second set of requests or overwrite a prior audit/candidate. The fixtures cover this repeat guard and timeouts both before response headers and while reading a response body.
 - There is no path from this tool to `public/audio/phonemes/en/`, `offlineVoiceManifest.js`, the production voice API, or story/image generation.
 
 ## Current state and future use
