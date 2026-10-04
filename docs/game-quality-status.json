@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T05:05:42.446889+00:00",
+  "updatedAt": "2026-10-04T05:08:57.866713+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -348,7 +348,7 @@
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
     "runtimeSource": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
-    "scope": "Full ten-board Memory and54 Solar facts/nine challenges local baseline retained. Scoped art/layout deltas through Party/Food725830f0 independently passed,51/87 illustrated36missing. Remaining premium artwork and audio/editorial/release acceptance open.",
+    "scope": "Full ten-board Memory and 54 Solar facts/nine challenges local baseline retained. Scoped art/layout deltas through fossil 0d519939 independently passed; 56/87 illustrated,31 missing in that frozen package. Newer Garden candidate remains unaccepted. Remaining artwork, audio, editorial and release gates open.",
     "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md",
     "memory374IndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-premium-independent-20261003/report.md",
     "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7",
@@ -363,15 +363,15 @@
     "nextArtworkSource": "200bdcc2b75fdaefa37a2787b974bf6d093dbe89",
     "nextArtworkIdentity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-art-update-identity-200bdcc.json",
     "memoryCurrentFrozenArtwork": {
-      "sourceSha": "725830f0b7cb72ee9eff83b61de9871fb8ebcf29",
-      "origin": "http://127.0.0.1:5313",
-      "illustratedTokens": 51,
+      "sourceSha": "0d519939042dc8269ff759e3fe0afa6002b1c70c",
+      "origin": "http://127.0.0.1:5315",
+      "illustratedTokens": 56,
       "uniqueTokens": 87,
-      "missingTokens": 36,
-      "builderEvidence": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-party-food-identity-20261004.json",
-      "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md",
-      "independentCommit": "3c13bba",
-      "scope": "Independent guarded normal earned Levels1\u20137 and complete Party/Food both widths passed; captions/readable distinct art/82px/mobile48px selectors/face-down no images/reload unlocks/hashes/API0console0. Isolated Frog/Monkey/Amari astronaut/context Moon rock queued, followed by four Dino originals bc4462d. No production/audio/4.5 acceptance."
+      "missingTokens": 31,
+      "builderEvidence": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-fossils-identity-20261004.json",
+      "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-fossils-independent-0d519939-20261004/report.md",
+      "independentCommit": "74d8b9b",
+      "scope": "Latest independently checked local artwork identity. Scoped full Dinosaur desktop/mobile and retained Moon Rock contexts passed. Full baseline and prior deltas retain their exact scopes. Garden source 8ff59e4 at 5316 remains builder verification in progress. No production/audio/4.5 acceptance."
     },
     "memoryFruitIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md",
     "memoryOceanGardenIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md",
@@ -404,7 +404,7 @@
     "queuedGardenOriginals": {
       "commit": "e1a0ba4",
       "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-garden-creatures-art-provenance-20261004.json",
-      "scope": "Four distinct isolated bee/butterfly/ladybird/snail originals copiedunchanged; queuedafterisolatedanimalsastro/Moonrock and4fossils. Originalartonly; renderedQA/integrationpending."
+      "scope": "Garden originals integrated in source8ff59e4, frozen5316; builder normal-earned verification is in progress. Independent verification, release and 4.5 remain pending."
     },
     "queuedPartyOriginals": {
       "commit": "9aa97b1",
@@ -416,7 +416,8 @@
       "evidenceCommit": "a5e6e0ba943cf72bc0f297b90c46f6a11de78144",
       "origin": "http://127.0.0.1:5314",
       "identity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-isolated-space-identity-20261004.json",
-      "scope": "Builder normal earned Levels1\u20139 and selected desktop390px Forest/Astronaut/Garden art/captions/82px/face-down hide/hash/guard checks passed. Independent review underway.52/87 fully illustrated; Moon rock remains only Astronaut/Cosmic until separate Dinosaur fossil context added. No production/audio/4.5 claim."
+      "scope": "Independent guarded normal-earned Levels 1-10; complete Forest, Garden, Astronaut and Galaxy boards at both widths. Isolated Frog/Monkey, Amari astronaut and context-specific Moon rock pass. Dinosaur board does not use Moon rock. Full captions, 82px mobile cards, 48px controls, face-down zero front images, reload unlocks and served hashes pass; API/console errors zero. Frozen local candidate only: 52/87 illustrated, 35 missing under this identity. No production, listening or 4.5 acceptance.",
+      "independentReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-isolated-space-independent-dadb0eb3-20261004/report.md"
     },
     "queuedFoodProduceOriginals": {
       "commit": "959a9ac",
@@ -430,6 +431,22 @@
       "packaged": 117,
       "missing": 10,
       "scope": "Exact Solar spoken controls for9destinations54discoveries; read-only manifest/file existence, no decode/listening/release claim. Full189/190suite failure includes these10plus2legacyMemorylines; current183Memorycorpus separate. No paidjobbeforeB4terminal."
+    },
+    "historicalPartyFoodFrozenArtwork": {
+      "sourceSha": "725830f0b7cb72ee9eff83b61de9871fb8ebcf29",
+      "origin": "http://127.0.0.1:5313",
+      "illustratedTokens": 51,
+      "uniqueTokens": 87,
+      "missingTokens": 36,
+      "builderEvidence": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-party-food-identity-20261004.json",
+      "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md",
+      "independentCommit": "3c13bba",
+      "scope": "Historical Party/Food 5313 candidate: scoped independent checks passed; superseded for current local artwork by fossil 5315. Original evidence retained, no production/audio/4.5 acceptance."
+    },
+    "queuedCaterpillarOriginal": {
+      "commit": "ccc2592",
+      "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-caterpillar-art-provenance-20261004.json",
+      "scope": "One selected original copied unchanged; queued after existing candidates. Ant/spider/worm attempts rejected and not integrated."
     }
   },
   "monsterClueRepair": {
