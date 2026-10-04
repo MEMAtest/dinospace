@@ -24,6 +24,9 @@ export const B4_GRAMMAR_DELTA_SHA256 = '8049920284e5b9273552f4381043bfb0182acda3
 export const B7_SOLAR_TEACHING_INVENTORY_SHA256 = 'da8d0fa36700cb7703678243640a82740ea05c5f17170b76c073f76ca51998d5';
 export const B7_SOLAR_TEACHING_SOURCE_COMMIT = '21ee7b240b271c5d775e4ebca3b5f29e0ad63ade';
 export const B7_SOLAR_TEACHING_BASE_COMMIT = 'c4db1d4b3e469bf71409ec7d859a05a2c7fa9301';
+export const B7_SOLAR_TEACHING_REQUEST_LIMIT = 52;
+export const B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN = 10;
+export const B7_SOLAR_TEACHING_MAX_RUNS = 6;
 export const B7_SOLAR_TEACHING_SOURCE_HASHES = Object.freeze({
   'src/data/index.js': 'f7dfc08370d14127394f31301c9404aee5498d2389cf75e664bdbaa58c4d0a2e',
   'src/data/offlineVoiceManifest.js': '674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7',
@@ -71,6 +74,45 @@ export function validateBudgets({ maxCalls, maxRuns, paid }) {
     throw new Error('Paid execution requires explicit --max-calls and --max-runs values.');
   }
   return { maxCalls, maxRuns };
+}
+
+export function validateB7SolarTeachingExecutionCaps({ maxCalls, maxRuns, maxTotalCalls, paid }) {
+  if (!paid) return true;
+  if (!Number.isInteger(maxCalls) || maxCalls < 1 || maxCalls > B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN) {
+    throw new Error(`B7 Solar teaching max-calls must be from 1 to ${B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN}.`);
+  }
+  if (!Number.isInteger(maxRuns) || maxRuns < 1 || maxRuns > B7_SOLAR_TEACHING_MAX_RUNS) {
+    throw new Error(`B7 Solar teaching max-runs must be from 1 to ${B7_SOLAR_TEACHING_MAX_RUNS}.`);
+  }
+  if (!Number.isInteger(maxTotalCalls) || maxTotalCalls < 1 || maxTotalCalls > B7_SOLAR_TEACHING_REQUEST_LIMIT) {
+    throw new Error(`B7 Solar teaching max-total-calls must be from 1 to ${B7_SOLAR_TEACHING_REQUEST_LIMIT}.`);
+  }
+  return true;
+}
+
+export function validateB7SolarTeachingBudgetState(state, inventorySha256 = B7_SOLAR_TEACHING_INVENTORY_SHA256, allowedKeys = null) {
+  if (!state || state.inventorySha256 !== inventorySha256 || !Number.isInteger(state.runs) || state.runs < 0 || state.runs > B7_SOLAR_TEACHING_MAX_RUNS || !Array.isArray(state.attemptedKeys)
+      || state.attemptedKeys.length > B7_SOLAR_TEACHING_REQUEST_LIMIT
+      || state.attemptedKeys.some((key) => !/^[a-f0-9]{8}$/.test(key))
+      || new Set(state.attemptedKeys).size !== state.attemptedKeys.length
+      || (allowedKeys && state.attemptedKeys.some((key) => !allowedKeys.has(key)))) {
+    throw new Error('B7 Solar teaching attempt ledger is invalid or does not match the pinned inventory.');
+  }
+  return true;
+}
+
+export function claimB7SolarTeachingRun(state) {
+  validateB7SolarTeachingBudgetState(state);
+  if (state.runs >= B7_SOLAR_TEACHING_MAX_RUNS) throw new Error('B7 Solar teaching six-run cap is exhausted; stopping without retry.');
+  return { ...state, runs: state.runs + 1 };
+}
+
+export function claimB7SolarTeachingAttempt(state, key) {
+  validateB7SolarTeachingBudgetState(state);
+  if (state.attemptedKeys.includes(key)) throw new Error(`B7 Solar teaching request ${key} was already attempted; automatic retries are disabled.`);
+  if (state.attemptedKeys.length >= B7_SOLAR_TEACHING_REQUEST_LIMIT) throw new Error('B7 Solar teaching 52-request inventory cap is exhausted; stopping without retry.');
+  if (!/^[a-f0-9]{8}$/.test(key)) throw new Error('B7 Solar teaching request key is invalid.');
+  return { ...state, attemptedKeys: [...state.attemptedKeys, key].sort() };
 }
 
 export async function loadPinnedInventory({ inventoryPath, suppliedSha256, expectedSha256 = PINNED_INVENTORY_SHA256 }) {

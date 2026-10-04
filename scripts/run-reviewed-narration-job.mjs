@@ -2,10 +2,10 @@ import { mkdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promis
 import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
-  B4_GRAMMAR_INVENTORY_SHA256, B7_SOLAR_TEACHING_INVENTORY_SHA256, JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS, SUPPLEMENTAL_INVENTORY_SHA256,
-  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished,
+  B4_GRAMMAR_INVENTORY_SHA256, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_REQUEST_LIMIT, JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS, SUPPLEMENTAL_INVENTORY_SHA256,
+  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, claimB7SolarTeachingAttempt, claimB7SolarTeachingRun,
   availableCalls, isCandidateReusable, isPackagedCandidate, loadPinnedInventory, readRequestJournal,
-  requestNarration, selectJobItems, sha256, validateBudgets,
+  requestNarration, selectJobItems, sha256, validateB7SolarTeachingBudgetState, validateB7SolarTeachingExecutionCaps, validateBudgets,
 } from './reviewedNarrationJobs.mjs';
 
 const root = resolve(import.meta.dirname, '..');
@@ -27,6 +27,7 @@ function parseArgs(argv) {
     const [, name, value] = match;
     if (name === 'max-calls') { result.maxCalls = Number(value); result.maxCallsExplicit = true; }
     else if (name === 'max-runs') { result.maxRuns = Number(value); result.maxRunsExplicit = true; }
+    else if (name === 'max-total-calls') { result.maxTotalCalls = Number(value); result.maxTotalCallsExplicit = true; }
     else if (['job', 'inventory-sha256', 'request-journal', 'predecessor-status'].includes(name)) result[name] = value;
     else throw new Error(`Unsupported argument: ${name}`);
   }
@@ -85,6 +86,42 @@ async function writeProvenance(receipts, inventorySha256) {
   await rename(temp, provenancePath);
 }
 
+function b7BudgetPath(inventorySha256) {
+  return resolve(root, `tmp/reviewed-narration-b7-budget-${inventorySha256}.json`);
+}
+
+async function readB7Budget(inventorySha256, allowedKeys) {
+  try {
+    const state = JSON.parse(await readFile(b7BudgetPath(inventorySha256), 'utf8'));
+    validateB7SolarTeachingBudgetState(state, inventorySha256, allowedKeys);
+    return state;
+  } catch (error) {
+    if (error.code === 'ENOENT') return { inventorySha256, attemptedKeys: [], runs: 0 };
+    throw error;
+  }
+}
+
+async function writeB7Budget(inventorySha256, state) {
+  validateB7SolarTeachingBudgetState(state, inventorySha256);
+  const path = b7BudgetPath(inventorySha256);
+  await mkdir(dirname(path), { recursive: true });
+  const temp = `${path}.${process.pid}.tmp`;
+  await writeFile(temp, `${JSON.stringify(state, null, 2)}\n`);
+  await rename(temp, path);
+}
+
+async function claimB7Run(inventorySha256, budget) {
+  const next = claimB7SolarTeachingRun(budget);
+  Object.assign(budget, next);
+  await writeB7Budget(inventorySha256, budget);
+}
+
+async function claimB7Attempt(inventorySha256, budget, key) {
+  const next = claimB7SolarTeachingAttempt(budget, key);
+  Object.assign(budget, next);
+  await writeB7Budget(inventorySha256, budget);
+}
+
 async function saveJournal(journalPath, journal) {
   const temp = `${journalPath}.${process.pid}.tmp`;
   await writeFile(temp, `${JSON.stringify({ requests: journal.requests, blockedUntil: journal.blockedUntil }, null, 2)}\n`);
@@ -108,7 +145,12 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
   let providerResponsesAccepted = 0;
   let auditFailure = null;
   let receipts = new Map();
+  let b7Budget = { inventorySha256, attemptedKeys: [], runs: 0 };
   try {
+    if (args.job === 'b7-solar-teaching') {
+      const allowedKeys = new Set(items.filter((item) => !item.expectedCandidateSha256).map((item) => item.key));
+      b7Budget = await readB7Budget(inventorySha256, allowedKeys);
+    }
     receipts = await readProvenance(inventorySha256);
     const currentManifest = await readManifest();
     if (currentManifest.sha256 !== manifestBeforeSha256) {
@@ -120,10 +162,19 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
     while (runs < args.maxRuns) {
       await assertPredecessorFinished(args['predecessor-status'], expectedB4ManifestPath);
       pending = [];
-      for (const item of items) if (!(await isPackagedCandidate(root, manifest, item, receipts.get(item.key), inventorySha256))) pending.push(item);
+      for (const item of items) {
+        if (b7Budget.attemptedKeys.includes(item.key)) continue;
+        if (!(await isPackagedCandidate(root, manifest, item, receipts.get(item.key), inventorySha256))) pending.push(item);
+      }
       if (!pending.length) break;
       let capacity = availableCalls(journal);
-      const targetCapacity = Math.min(10, args.maxCalls, pending.length);
+      const remainingInvocationBudget = args.job === 'b7-solar-teaching' ? args.maxTotalCalls - providerRequestsAttempted : Infinity;
+      if (remainingInvocationBudget <= 0) { stopReason = 'Configured B7 Solar teaching invocation cap reached; no retry was attempted.'; break; }
+      if (args.job === 'b7-solar-teaching' && b7Budget.runs >= 6) {
+        stopReason = 'B7 Solar teaching six-run cap is exhausted; no retry was attempted.';
+        break;
+      }
+      const targetCapacity = Math.min(10, args.maxCalls, pending.length, remainingInvocationBudget);
       while (capacity < targetCapacity) {
         const now = Date.now();
         if (journal.blockedUntil > now) await new Promise((resolveDelay) => setTimeout(resolveDelay, journal.blockedUntil - now + 1000));
@@ -138,7 +189,8 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
         capacity = availableCalls(journal);
       }
       runs += 1;
-      const runBudget = Math.min(args.maxCalls, capacity);
+      if (args.job === 'b7-solar-teaching') await claimB7Run(inventorySha256, b7Budget);
+      const runBudget = Math.min(args.maxCalls, capacity, remainingInvocationBudget);
       let usedThisRun = 0;
       let reusedThisRun = 0;
       for (const item of pending) {
@@ -173,6 +225,7 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
           throw new Error('Shared request journal changed outside this run; stopping before the next request.');
         }
         journal = freshJournal;
+        if (args.job === 'b7-solar-teaching') await claimB7Attempt(inventorySha256, b7Budget, item.key);
         journal.requests.push({ at: Date.now() });
         await saveJournal(journalPath, journal);
         expectedJournalSha256 = sha256(await readFile(journalPath));
@@ -220,9 +273,15 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       if (usedThisRun === 0 && reusedThisRun === 0 && pending.length) throw new Error('No progress in a finite run; stopping safely.');
     }
     pending = [];
-    for (const item of items) if (!(await isPackagedCandidate(root, manifest, item, receipts.get(item.key), inventorySha256))) pending.push(item.key);
+    for (const item of items) {
+      if (!(await isPackagedCandidate(root, manifest, item, receipts.get(item.key), inventorySha256))) pending.push(item.key);
+    }
+    if (args.job === 'b7-solar-teaching' && b7Budget.attemptedKeys.length > 0) {
+      const failedAttempted = pending.filter((key) => b7Budget.attemptedKeys.includes(key));
+      if (failedAttempted.length && !stopReason) stopReason = `Previously attempted B7 Solar teaching keys remain unavailable; automatic retry was refused (${failedAttempted.length}).`;
+    }
     const manifestAfterSha256 = sha256(await readFile(manifestPath));
-    const summary = { job: args.job, inventorySha256, requested: items.length, runs, generated, reused, candidateReusableAtEnd: items.length - pending.length, pendingKeys: pending.length, stoppedAt: stopReason, manifestBeforeSha256, manifestAfterSha256, manifestChangedKeys, changedFiles, auditPath };
+    const summary = { job: args.job, inventorySha256, requested: items.length, runs, generated, reused, candidateReusableAtEnd: items.length - pending.length, pendingKeys: pending.length, configuredTotalCallCap: args.job === 'b7-solar-teaching' ? args.maxTotalCalls : null, b7AttemptedCount: args.job === 'b7-solar-teaching' ? b7Budget.attemptedKeys.length : null, b7CumulativeRunCount: args.job === 'b7-solar-teaching' ? b7Budget.runs : null, stoppedAt: stopReason, manifestBeforeSha256, manifestAfterSha256, manifestChangedKeys, changedFiles, auditPath };
     console.log(JSON.stringify(summary, null, 2));
     if (stopReason || pending.length) process.exitCode = stopReason ? 1 : 2;
   } catch (error) {
@@ -237,7 +296,10 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       requested: items.length,
       configuredMaxCallsPerRun: args.maxCalls,
       configuredMaxRuns: args.maxRuns,
-      maximumProviderRequests: args.maxCalls * args.maxRuns,
+      maximumProviderRequests: args.job === 'b7-solar-teaching' ? Math.min(args.maxCalls * args.maxRuns, args.maxTotalCalls, B7_SOLAR_TEACHING_REQUEST_LIMIT) : args.maxCalls * args.maxRuns,
+      configuredTotalCallCap: args.job === 'b7-solar-teaching' ? args.maxTotalCalls : null,
+      b7AttemptedCount: args.job === 'b7-solar-teaching' ? b7Budget.attemptedKeys.length : null,
+      b7CumulativeRunCount: args.job === 'b7-solar-teaching' ? b7Budget.runs : null,
       runs,
       providerRequestsAttempted,
       providerResponsesAccepted,
@@ -266,6 +328,10 @@ async function main() {
   if (!args['inventory-sha256']) throw new Error('Provide the reviewed --inventory-sha256 for this exact ledger.');
   validateBudgets({ maxCalls: args.maxCalls, maxRuns: args.maxRuns, paid: args.paid });
   if (args.paid && (!args.maxCallsExplicit || !args.maxRunsExplicit)) throw new Error('Paid execution requires explicit --max-calls and --max-runs flags.');
+  if (args.job === 'b7-solar-teaching') {
+    if (args.paid && !args.maxTotalCallsExplicit) throw new Error('B7 Solar teaching paid execution requires explicit --max-total-calls.');
+    validateB7SolarTeachingExecutionCaps({ maxCalls: args.maxCalls, maxRuns: args.maxRuns, maxTotalCalls: args.maxTotalCalls, paid: args.paid });
+  }
   const ledger = JOBS[args.job].ledger;
   const expectedInventorySha256 = ledger === 'supplemental' ? SUPPLEMENTAL_INVENTORY_SHA256
     : ledger === 'b4-grammar' ? B4_GRAMMAR_INVENTORY_SHA256
@@ -285,7 +351,7 @@ async function main() {
     if (await isPackagedCandidate(root, manifest, item, existingReceipts.get(item.key), actualSha256)) packagedCandidateReusable += 1;
     else missing.push(item);
   }
-  const jobPlan = { job: args.job, label: JOBS[args.job].label, inventorySha256: actualSha256, requested: items.length, packagedCandidateReusable, pending: missing.length, maxCallsPerRun: args.maxCalls, maxRuns: args.maxRuns };
+  const jobPlan = { job: args.job, label: JOBS[args.job].label, inventorySha256: actualSha256, requested: items.length, packagedCandidateReusable, pending: missing.length, maxCallsPerRun: args.maxCalls, maxRuns: args.maxRuns, maxTotalCalls: args.job === 'b7-solar-teaching' ? args.maxTotalCalls ?? B7_SOLAR_TEACHING_REQUEST_LIMIT : undefined };
   if (!args.paid) { console.log(JSON.stringify({ mode: 'dry-run', readOnly: true, ...jobPlan, pendingKeys: missing.map((item) => item.key) }, null, 2)); return; }
 
   if (!args['predecessor-status']) throw new Error('Paid execution requires explicit --predecessor-status from the terminal B4 run.');

@@ -5,11 +5,11 @@ import { copyFile, mkdir, mkdtemp, readFile, realpath, rm, writeFile } from 'nod
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
-  B4_GRAMMAR_INVENTORY_SHA256, B4_GRAMMAR_SOURCE_COMMIT, B4_GRAMMAR_SOURCE_HASHES, B4_SOURCE_COMMIT, B4_WORKER_PID, B7_SOLAR_TEACHING_BASE_COMMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_SOURCE_COMMIT, B7_SOLAR_TEACHING_SOURCE_HASHES, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
-  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord,
+  B4_GRAMMAR_INVENTORY_SHA256, B4_GRAMMAR_SOURCE_COMMIT, B4_GRAMMAR_SOURCE_HASHES, B4_SOURCE_COMMIT, B4_WORKER_PID, B7_SOLAR_TEACHING_BASE_COMMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN, B7_SOLAR_TEACHING_MAX_RUNS, B7_SOLAR_TEACHING_REQUEST_LIMIT, B7_SOLAR_TEACHING_SOURCE_COMMIT, B7_SOLAR_TEACHING_SOURCE_HASHES, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
+  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord, claimB7SolarTeachingAttempt, claimB7SolarTeachingRun,
   availableCalls, getCandidateReusablePath, isCandidateReusable, isPackagedCandidate,
   loadPinnedInventory, producerLockPathForJournal, readRequestJournal, requestNarration, selectJobItems,
-  sha256, validateBudgets,
+  sha256, validateB7SolarTeachingBudgetState, validateB7SolarTeachingExecutionCaps, validateBudgets,
 } from './reviewedNarrationJobs.mjs';
 
 const root = resolve(import.meta.dirname, '..');
@@ -130,6 +130,10 @@ test('B7 Solar teaching ledger binds 22 edited facts, 44 changed keys and the ex
   const selected = selectJobItems(inventory, 'b7-solar-teaching');
   assert.equal(selected.length, 127);
   assert.equal(selected.filter((item) => item.expectedCandidateSha256).length, 75);
+  const budgetAllowedKeys = new Set(selected.filter((item) => !item.expectedCandidateSha256).map((item) => item.key));
+  assert.equal(budgetAllowedKeys.size, 52);
+  assert.equal(validateB7SolarTeachingBudgetState({ inventorySha256: actualSha256, runs: 0, attemptedKeys: [] }, actualSha256, budgetAllowedKeys), true);
+  assert.throws(() => validateB7SolarTeachingBudgetState({ inventorySha256: actualSha256, runs: 0, attemptedKeys: [selected.find((item) => item.expectedCandidateSha256).key] }, actualSha256, budgetAllowedKeys), /invalid or does not match/);
   assert.ok(selected.every((item) => item.sourceCommit === B7_SOLAR_TEACHING_SOURCE_COMMIT && item.path === `/audio/en/${item.key}-matilda.mp3`));
   const auditPath = resolve(sourceRoot, 'docs/qa-evidence/batch7-teaching-readability-20261004/fact-and-voice-audit.json');
   const auditBytes = await readFile(auditPath);
@@ -170,6 +174,54 @@ test('B7 Solar teaching selector dry-run reports 127 current phrases and keeps a
     assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
     assert.equal(sha256(await readFile(fixture.b4Manifest)), beforeB4Manifest);
   } finally { await fixture.cleanup(); }
+});
+
+test('B7 Solar teaching paid caps reject excessive per-run, run-count and total budgets before execution', async () => {
+  const fixture = await createCliFixture();
+  try {
+    const beforeManifest = sha256(await readFile(fixture.manifest));
+    const beforeJournal = sha256(await readFile(fixture.journal));
+    const beforeB4Manifest = sha256(await readFile(fixture.b4Manifest));
+    const missingTotal = spawnSync(process.execPath, [fixture.cliPath, '--job=b7-solar-teaching', `--inventory-sha256=${B7_SOLAR_TEACHING_INVENTORY_SHA256}`, '--execute-paid', '--max-calls=10', '--max-runs=6'], { cwd: fixture.root, encoding: 'utf8' });
+    assert.equal(missingTotal.status, 1);
+    assert.match(missingTotal.stderr, /requires explicit --max-total-calls/);
+    for (const [extraArgs, expected] of [
+      [['--max-calls=11', '--max-runs=1', '--max-total-calls=52'], /max-calls must be from 1 to 10/],
+      [['--max-calls=10', '--max-runs=7', '--max-total-calls=52'], /max-runs must be from 1 to 6/],
+      [['--max-calls=10', '--max-runs=6', '--max-total-calls=53'], /max-total-calls must be from 1 to 52/],
+    ]) {
+      const result = spawnSync(process.execPath, [fixture.cliPath, '--job=b7-solar-teaching', `--inventory-sha256=${B7_SOLAR_TEACHING_INVENTORY_SHA256}`, '--execute-paid', ...extraArgs], { cwd: fixture.root, encoding: 'utf8' });
+      assert.equal(result.status, 1);
+      assert.match(result.stderr, expected);
+      assert.doesNotMatch(result.stderr, /fetch|HTTP|provider request/i);
+      assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
+      assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+      assert.equal(sha256(await readFile(fixture.b4Manifest)), beforeB4Manifest);
+    }
+    assert.equal(B7_SOLAR_TEACHING_REQUEST_LIMIT, 52);
+    assert.equal(B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN, 10);
+    assert.equal(B7_SOLAR_TEACHING_MAX_RUNS, 6);
+    assert.throws(() => validateB7SolarTeachingExecutionCaps({ maxCalls: 20, maxRuns: 1, maxTotalCalls: 52, paid: true }), /max-calls/);
+    assert.throws(() => validateB7SolarTeachingExecutionCaps({ maxCalls: 10, maxRuns: 7, maxTotalCalls: 52, paid: true }), /max-runs/);
+    assert.throws(() => validateB7SolarTeachingExecutionCaps({ maxCalls: 10, maxRuns: 6, maxTotalCalls: 53, paid: true }), /max-total-calls/);
+  } finally { await fixture.cleanup(); }
+});
+
+test('B7 Solar attempt ledger is inventory-bound, unique and capped at 52 keys', () => {
+  let state = { inventorySha256: B7_SOLAR_TEACHING_INVENTORY_SHA256, runs: 0, attemptedKeys: [] };
+  for (let index = 0; index < 6; index += 1) state = claimB7SolarTeachingRun(state);
+  assert.equal(validateB7SolarTeachingBudgetState(state), true);
+  assert.throws(() => claimB7SolarTeachingRun(state), /six-run cap/);
+  const keys = Array.from({ length: 52 }, (_, index) => index.toString(16).padStart(8, '0'));
+  for (const key of keys) state = claimB7SolarTeachingAttempt(state, key);
+  assert.equal(validateB7SolarTeachingBudgetState(state), true);
+  assert.throws(() => claimB7SolarTeachingAttempt(state, keys[0]), /already attempted/);
+  assert.throws(() => claimB7SolarTeachingAttempt(state, 'fffffff0'), /52-request inventory cap/);
+  assert.throws(() => validateB7SolarTeachingBudgetState({ inventorySha256: '0'.repeat(64), runs: 0, attemptedKeys: [] }), /invalid or does not match/);
+  assert.throws(() => validateB7SolarTeachingBudgetState({ inventorySha256: B7_SOLAR_TEACHING_INVENTORY_SHA256, runs: 7, attemptedKeys: [] }), /invalid or does not match/);
+  assert.throws(() => validateB7SolarTeachingBudgetState({ inventorySha256: B7_SOLAR_TEACHING_INVENTORY_SHA256, runs: 0, attemptedKeys: [...keys, 'fffffff0'] }), /invalid or does not match/);
+  assert.throws(() => validateB7SolarTeachingBudgetState({ inventorySha256: B7_SOLAR_TEACHING_INVENTORY_SHA256, runs: 0, attemptedKeys: [keys[0], keys[0]] }), /invalid or does not match/);
+  assert.throws(() => validateB7SolarTeachingBudgetState({ inventorySha256: B7_SOLAR_TEACHING_INVENTORY_SHA256, runs: 0, attemptedKeys: [keys[0]] }, B7_SOLAR_TEACHING_INVENTORY_SHA256, new Set([keys[1]])), /invalid or does not match/);
 });
 
 test('B4 grammar selector pins all 47 exact additions to fe5 source files and expected voice paths', async () => {
