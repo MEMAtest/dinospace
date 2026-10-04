@@ -17,64 +17,323 @@
     ]
   },
   "integratedTokens": [
-    {"token":"🐸","label":"Frog","original":"src/assets/memory-match/isolated-frog-v1.png","originalSha256":"6b6db013ae711fd12feaf3d622dae2889fd3eb7c51456d4e3cec6fd43542367c","webp":"/assets/isolated-frog-v1-card-89MVsj26.webp","bytes":47384,"webpSha256":"9a0cc2706b20109095fcb36852750aee0a9b8456d677e697d433eebc1bb3f622","contexts":["Forest Friends","Garden & Pond Life"]},
-    {"token":"🐵","label":"Monkey","original":"src/assets/memory-match/isolated-monkey-v1.png","originalSha256":"80b035bf1df362cbaf5d6e97d567470669f2fff2d66c714d51674ad192b9d339","webp":"/assets/isolated-monkey-v1-card-IlBechiJ.webp","bytes":32568,"webpSha256":"e6aebcf179052aff994510d2ee5a25411d65be475b8695dde3f701201e638489","contexts":["Forest Friends"]},
-    {"token":"👨‍🚀","label":"Suited Astronaut (Amari)","original":"src/assets/memory-match/astronaut-amari-v1.png","originalSha256":"fb527da6707d1f9189856ecd4bf4e488f7bd2b86d5d1a0cbbab9fbd804c92c34","webp":"/assets/astronaut-amari-v1-card-DUS_392h.webp","bytes":40646,"webpSha256":"b916a317eaf876b7d315731f3148b47bf16e44aa14c7447747394e3e51f62ca7","contexts":["Astronaut Mission"]},
-    {"token":"🪨","label":"Moon Rock","original":"src/assets/memory-match/moon-rock-v1.png","originalSha256":"3541ea4dfc4e1ff4f66456b34e32d8c3ca7dc7e08e9f14492ea314ccff04260e","webp":"/assets/moon-rock-v1-card-BGXR3Tx2.webp","bytes":67516,"webpSha256":"67992a1b6786c13ee43fab5859a0173e895edb6a9ed2a7e9cc30744022aa205a","contexts":["Astronaut Mission","Cosmic Challenge"],"dinosaurDiscovery":"Unmapped pending context-specific fossil rock art"}
+    {
+      "token": "🐸",
+      "label": "Frog",
+      "original": "src/assets/memory-match/isolated-frog-v1.png",
+      "originalSha256": "6b6db013ae711fd12feaf3d622dae2889fd3eb7c51456d4e3cec6fd43542367c",
+      "webp": "/assets/isolated-frog-v1-card-89MVsj26.webp",
+      "bytes": 47384,
+      "webpSha256": "9a0cc2706b20109095fcb36852750aee0a9b8456d677e697d433eebc1bb3f622",
+      "contexts": [
+        "Forest Friends",
+        "Garden & Pond Life"
+      ]
+    },
+    {
+      "token": "🐵",
+      "label": "Monkey",
+      "original": "src/assets/memory-match/isolated-monkey-v1.png",
+      "originalSha256": "80b035bf1df362cbaf5d6e97d567470669f2fff2d66c714d51674ad192b9d339",
+      "webp": "/assets/isolated-monkey-v1-card-IlBechiJ.webp",
+      "bytes": 32568,
+      "webpSha256": "e6aebcf179052aff994510d2ee5a25411d65be475b8695dde3f701201e638489",
+      "contexts": [
+        "Forest Friends"
+      ]
+    },
+    {
+      "token": "👨‍🚀",
+      "label": "Suited Astronaut (Amari)",
+      "original": "src/assets/memory-match/astronaut-amari-v1.png",
+      "originalSha256": "fb527da6707d1f9189856ecd4bf4e488f7bd2b86d5d1a0cbbab9fbd804c92c34",
+      "webp": "/assets/astronaut-amari-v1-card-DUS_392h.webp",
+      "bytes": 40646,
+      "webpSha256": "b916a317eaf876b7d315731f3148b47bf16e44aa14c7447747394e3e51f62ca7",
+      "contexts": [
+        "Astronaut Mission"
+      ]
+    },
+    {
+      "token": "🪨",
+      "label": "Moon Rock",
+      "original": "src/assets/memory-match/moon-rock-v1.png",
+      "originalSha256": "3541ea4dfc4e1ff4f66456b34e32d8c3ca7dc7e08e9f14492ea314ccff04260e",
+      "webp": "/assets/moon-rock-v1-card-BGXR3Tx2.webp",
+      "bytes": 67516,
+      "webpSha256": "67992a1b6786c13ee43fab5859a0173e895edb6a9ed2a7e9cc30744022aa205a",
+      "contexts": [
+        "Astronaut Mission",
+        "Cosmic Challenge"
+      ],
+      "dinosaurDiscovery": "Unmapped pending context-specific fossil rock art"
+    }
   ],
   "renderedUiChecks": {
-    "profileAndProgression":"Fresh isolated Playwright CLI session. Selected Amari using the visible chooser and entered Memory Match through Thinking & Play. Completed Levels 1–9 using visible card buttons and the unlocked level/Next controls. The browser automation read each card's accessible label only after flipping it, then used the observed labels to match pairs. It did not inspect hidden fronts, React state, seeded answers, or write progress directly. The local profile and earned progress are synthetic QA data.",
-    "completedBoards":[
-      {"level":1,"name":"Forest Friends","pairs":4,"cards":8,"visibleMatching":"Frog, Monkey, fox, and dog cards completed normally."},
-      {"level":2,"name":"Ocean Splash","pairs":8,"cards":16},
-      {"level":3,"name":"Space Sparkle","pairs":10,"cards":20},
-      {"level":4,"name":"Party & Treats","pairs":12,"cards":24},
-      {"level":5,"name":"Dinosaur Discovery","pairs":13,"cards":26},
-      {"level":6,"name":"All Kinds of Vehicles","pairs":14,"cards":28},
-      {"level":7,"name":"Yummy Feast","pairs":15,"cards":30},
-      {"level":8,"name":"Astronaut Mission","pairs":16,"cards":32},
-      {"level":9,"name":"Garden & Pond Life","pairs":17,"cards":34}
+    "profileAndProgression": "Fresh isolated Playwright CLI session. Selected Amari using the visible chooser and entered Memory Match through Thinking & Play. Completed Levels 1–9 using visible card buttons and the unlocked level/Next controls. The browser automation read each card's accessible label only after flipping it, then used the observed labels to match pairs. It did not inspect hidden fronts, React state, seeded answers, or write progress directly. The local profile and earned progress are synthetic QA data.",
+    "completedBoards": [
+      {
+        "level": 1,
+        "name": "Forest Friends",
+        "pairs": 4,
+        "cards": 8,
+        "visibleMatching": "Frog, Monkey, fox, and dog cards completed normally."
+      },
+      {
+        "level": 2,
+        "name": "Ocean Splash",
+        "pairs": 8,
+        "cards": 16
+      },
+      {
+        "level": 3,
+        "name": "Space Sparkle",
+        "pairs": 10,
+        "cards": 20
+      },
+      {
+        "level": 4,
+        "name": "Party & Treats",
+        "pairs": 12,
+        "cards": 24
+      },
+      {
+        "level": 5,
+        "name": "Dinosaur Discovery",
+        "pairs": 13,
+        "cards": 26
+      },
+      {
+        "level": 6,
+        "name": "All Kinds of Vehicles",
+        "pairs": 14,
+        "cards": 28
+      },
+      {
+        "level": 7,
+        "name": "Yummy Feast",
+        "pairs": 15,
+        "cards": 30
+      },
+      {
+        "level": 8,
+        "name": "Astronaut Mission",
+        "pairs": 16,
+        "cards": 32
+      },
+      {
+        "level": 9,
+        "name": "Garden & Pond Life",
+        "pairs": 17,
+        "cards": 34
+      }
     ],
     "forestFriends": {
-      "desktop1280": {"viewport":[1280,800],"cards":[8,231.25],"newArtCards":4,"captions":["frog","monkey"],"loaded512pxImages":4,"artCaptionOverlap":false,"screenshot":"docs/qa-evidence/batch7-memory-isolated-space-builder-images/forest-desktop-complete.png"},
-      "mobile390": {"viewport":[390,844],"documentWidth":390,"cards":[82,82],"artRow":[72,30.4],"captionRow":[72,17.2],"newArtCards":4,"captions":["frog","monkey"],"loaded512pxImages":4,"artCaptionOverlap":false,"screenshot":"docs/qa-evidence/batch7-memory-isolated-space-builder-images/forest-mobile-complete.png"}
+      "desktop1280": {
+        "viewport": [
+          1280,
+          800
+        ],
+        "cards": [
+          8,
+          231.25
+        ],
+        "newArtCards": 4,
+        "captions": [
+          "frog",
+          "monkey"
+        ],
+        "loaded512pxImages": 4,
+        "artCaptionOverlap": false,
+        "screenshot": "docs/qa-evidence/batch7-memory-isolated-space-builder-images/forest-desktop-complete.png"
+      },
+      "mobile390": {
+        "viewport": [
+          390,
+          844
+        ],
+        "documentWidth": 390,
+        "cards": [
+          82,
+          82
+        ],
+        "artRow": [
+          72,
+          30.4
+        ],
+        "captionRow": [
+          72,
+          17.2
+        ],
+        "newArtCards": 4,
+        "captions": [
+          "frog",
+          "monkey"
+        ],
+        "loaded512pxImages": 4,
+        "artCaptionOverlap": false,
+        "screenshot": "docs/qa-evidence/batch7-memory-isolated-space-builder-images/forest-mobile-complete.png"
+      }
     },
     "astronautMission": {
-      "desktop1280": {"viewport":[1280,800],"cards":[32,149.16],"newArtCards":4,"captions":["moon rock","suited astronaut"],"loaded512pxImages":4,"artCaptionOverlap":false,"screenshot":"docs/qa-evidence/batch7-memory-isolated-space-builder-images/astronaut-desktop-complete.png"},
-      "mobile390": {"viewport":[390,844],"documentWidth":390,"cards":[82,82],"artRow":[72,30.4],"captionRow":[72,17.2],"newArtCards":4,"captions":["moon rock","suited astronaut"],"loaded512pxImages":4,"artCaptionOverlap":false,"fullPageHeight":1396,"screenshot":"docs/qa-evidence/batch7-memory-isolated-space-builder-images/astronaut-mobile-complete.png"},
-      "faceDown": {"cards":32,"faceDown":32,"mountedImages":0,"mountedFrontLabels":0,"screenshot":"docs/qa-evidence/batch7-memory-isolated-space-builder-images/astronaut-mobile-facedown.png"}
+      "desktop1280": {
+        "viewport": [
+          1280,
+          800
+        ],
+        "cards": [
+          32,
+          149.16
+        ],
+        "newArtCards": 4,
+        "captions": [
+          "moon rock",
+          "suited astronaut"
+        ],
+        "loaded512pxImages": 4,
+        "artCaptionOverlap": false,
+        "screenshot": "docs/qa-evidence/batch7-memory-isolated-space-builder-images/astronaut-desktop-complete.png"
+      },
+      "mobile390": {
+        "viewport": [
+          390,
+          844
+        ],
+        "documentWidth": 390,
+        "cards": [
+          82,
+          82
+        ],
+        "artRow": [
+          72,
+          30.4
+        ],
+        "captionRow": [
+          72,
+          17.2
+        ],
+        "newArtCards": 4,
+        "captions": [
+          "moon rock",
+          "suited astronaut"
+        ],
+        "loaded512pxImages": 4,
+        "artCaptionOverlap": false,
+        "fullPageHeight": 1396,
+        "screenshot": "docs/qa-evidence/batch7-memory-isolated-space-builder-images/astronaut-mobile-complete.png"
+      },
+      "faceDown": {
+        "cards": 32,
+        "faceDown": 32,
+        "mountedImages": 0,
+        "mountedFrontLabels": 0,
+        "screenshot": "docs/qa-evidence/batch7-memory-isolated-space-builder-images/astronaut-mobile-facedown.png"
+      }
     },
     "gardenAndPond": {
-      "desktop1280": {"viewport":[1280,800],"newFrogArtCards":2,"pondFishArtContext":"Existing Garden-specific goldfish illustration retained; no relabeling or global fish substitution.","screenshot":"docs/qa-evidence/batch7-memory-isolated-space-builder-images/garden-desktop-complete.png"},
-      "mobile390": {"viewport":[390,844],"documentWidth":390,"cards":[82,82],"artRow":[72,30.4],"captionRow":[72,17.2],"newFrogArtCards":2,"captions":["frog","pond fish"],"loaded512pxImages":4,"artCaptionOverlap":false,"fullPageHeight":null,"screenshot":"docs/qa-evidence/batch7-memory-isolated-space-builder-images/garden-mobile-complete.png"}
+      "desktop1280": {
+        "viewport": [
+          1280,
+          800
+        ],
+        "newFrogArtCards": 2,
+        "pondFishArtContext": "Existing Garden-specific goldfish illustration retained; no relabeling or global fish substitution.",
+        "screenshot": "docs/qa-evidence/batch7-memory-isolated-space-builder-images/garden-desktop-complete.png"
+      },
+      "mobile390": {
+        "viewport": [
+          390,
+          844
+        ],
+        "documentWidth": 390,
+        "cards": [
+          82,
+          82
+        ],
+        "artRow": [
+          72,
+          30.4
+        ],
+        "captionRow": [
+          72,
+          17.2
+        ],
+        "newFrogArtCards": 2,
+        "captions": [
+          "frog",
+          "pond fish"
+        ],
+        "loaded512pxImages": 4,
+        "artCaptionOverlap": false,
+        "fullPageHeight": null,
+        "screenshot": "docs/qa-evidence/batch7-memory-isolated-space-builder-images/garden-mobile-complete.png"
+      }
     },
-    "reloadPersistence":"After normal completion through Level 9, a browser reload restored Level 9 and its unlocked progression. Level 8 was reselected using the visible level control and re-completed for art checks.",
-    "faceDown":"After selecting Level 8 from the visible level row, all 32 cards were face-down; none of the new card images or front labels were mounted in the card DOM. 390px document width remained 390px."
+    "reloadPersistence": "After normal completion through Level 9, a browser reload restored Level 9 and its unlocked progression. Level 8 was reselected using the visible level control and re-completed for art checks.",
+    "faceDown": "After selecting Level 8 from the visible level row, all 32 cards were face-down; none of the new card images or front labels were mounted in the card DOM. 390px document width remained 390px."
   },
   "networkAndConsole": {
-    "preNavigationRoutes":[{"pattern":"/api/voice","responseStatus":204},{"pattern":"/api/story","responseStatus":204}],
-    "observedVoiceOrStoryRequests":0,
-    "dynamicRequests":"None reported; 364 expected static requests were omitted by the CLI summary.",
-    "consoleErrors":0,
-    "consoleWarnings":0
+    "preNavigationRoutes": [
+      {
+        "pattern": "/api/voice",
+        "responseStatus": 204
+      },
+      {
+        "pattern": "/api/story",
+        "responseStatus": 204
+      }
+    ],
+    "observedVoiceOrStoryRequests": 0,
+    "dynamicRequests": "None reported; 364 expected static requests were omitted by the CLI summary.",
+    "consoleErrors": 0,
+    "consoleWarnings": 0
   },
   "servedIdentity": {
-    "/":{"sha256":"9ca5f66f0431c9ac04f7859764e1954a0ecf655a84bb899c709ea9ce6f10710a","bytes":1100,"matchesFrozenDist":true},
-    "/assets/index-CePJy1y6.js":{"sha256":"2503d7d7e42201e617a19b2ab9c5fe4ebcbb079535729f8636f37c6906b5ca8f","bytes":1184536,"matchesFrozenDist":true},
-    "/assets/index-CYWTXfuY.css":{"sha256":"251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d","bytes":213139,"matchesFrozenDist":true},
-    "/assets/isolated-frog-v1-card-89MVsj26.webp":{"sha256":"9a0cc2706b20109095fcb36852750aee0a9b8456d677e697d433eebc1bb3f622","bytes":47384,"matchesFrozenDist":true},
-    "/assets/isolated-monkey-v1-card-IlBechiJ.webp":{"sha256":"e6aebcf179052aff994510d2ee5a25411d65be475b8695dde3f701201e638489","bytes":32568,"matchesFrozenDist":true},
-    "/assets/astronaut-amari-v1-card-DUS_392h.webp":{"sha256":"b916a317eaf876b7d315731f3148b47bf16e44aa14c7447747394e3e51f62ca7","bytes":40646,"matchesFrozenDist":true},
-    "/assets/moon-rock-v1-card-BGXR3Tx2.webp":{"sha256":"67992a1b6786c13ee43fab5859a0173e895edb6a9ed2a7e9cc30744022aa205a","bytes":67516,"matchesFrozenDist":true}
+    "/": {
+      "sha256": "9ca5f66f0431c9ac04f7859764e1954a0ecf655a84bb899c709ea9ce6f10710a",
+      "bytes": 1100,
+      "matchesFrozenDist": true
+    },
+    "/assets/index-CePJy1y6.js": {
+      "sha256": "2503d7d7e42201e617a19b2ab9c5fe4ebcbb079535729f8636f37c6906b5ca8f",
+      "bytes": 1184536,
+      "matchesFrozenDist": true
+    },
+    "/assets/index-CYWTXfuY.css": {
+      "sha256": "251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d",
+      "bytes": 213139,
+      "matchesFrozenDist": true
+    },
+    "/assets/isolated-frog-v1-card-89MVsj26.webp": {
+      "sha256": "9a0cc2706b20109095fcb36852750aee0a9b8456d677e697d433eebc1bb3f622",
+      "bytes": 47384,
+      "matchesFrozenDist": true
+    },
+    "/assets/isolated-monkey-v1-card-IlBechiJ.webp": {
+      "sha256": "e6aebcf179052aff994510d2ee5a25411d65be475b8695dde3f701201e638489",
+      "bytes": 32568,
+      "matchesFrozenDist": true
+    },
+    "/assets/astronaut-amari-v1-card-DUS_392h.webp": {
+      "sha256": "b916a317eaf876b7d315731f3148b47bf16e44aa14c7447747394e3e51f62ca7",
+      "bytes": 40646,
+      "matchesFrozenDist": true
+    },
+    "/assets/moon-rock-v1-card-BGXR3Tx2.webp": {
+      "sha256": "67992a1b6786c13ee43fab5859a0173e895edb6a9ed2a7e9cc30744022aa205a",
+      "bytes": 67516,
+      "matchesFrozenDist": true
+    }
   },
   "sourceGates": {
-    "focusedTests":"11 passed, including token, context, and illustration audit checks.",
-    "lint":"passed",
-    "productionConfigBuild":"passed with explicit production voice/story configuration; existing stale Browserslist database and large-chunk warnings remain.",
-    "frozenBundleMatchesProductionBuild":true,
-    "illustrationInventory":"52 of 87 unique Memory tokens illustrated; Frog and Monkey received replacement art, suited astronaut art was added, and Moon Rock remains a contextual mapping. Dino fossil rock remains unmapped."
+    "focusedTests": "11 passed, including token, context, and illustration audit checks.",
+    "lint": "passed",
+    "productionConfigBuild": "passed with explicit production voice/story configuration; existing stale Browserslist database and large-chunk warnings remain.",
+    "frozenBundleMatchesProductionBuild": true,
+    "illustrationInventory": "52 of 87 unique Memory tokens illustrated; Frog and Monkey received replacement art, suited astronaut art was added, and Moon Rock remains a contextual mapping. Dino fossil rock remains unmapped.",
+    "fullTestSuite": "189/190 passed on the full suite. The sole failure is test/offlineVoice.test.mjs:8:1: 12 missing manifest clips, enumerated by key and text in the parent status; serial rerun reproduced the source gate. The Vite dependency-scan/port warning appeared only in the earlier parallel run and is not treated as a test failure."
   },
-  "limits":[
+  "limits": [
     "This is builder-rendered verification; independent QA is pending.",
     "Other unillustrated Memory tokens, Askia visual parity review, premium audio, human/device acceptance, production, and any overall quality score remain open."
   ]

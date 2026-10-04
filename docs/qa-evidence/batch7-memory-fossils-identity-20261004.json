@@ -1,0 +1,67 @@
+{
+  "createdAt": "2026-10-04T04:47:00Z",
+  "scope": "Integrate supplied isolated fossil bone, conical dinosaur tooth, dig pick, and fern-imprint fossil rock art into existing Memory tokens. Fossil rock is restricted to Dinosaur Discovery; Astronaut/Cosmic retain their separate Moon Rock art. No board, token, progress, or Askia changes.",
+  "sourceCommit": "0d519939042dc8269ff759e3fe0afa6002b1c70c",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5315",
+    "frozenDist": "tmp/batch7-memory-fossils-final/dist",
+    "priorFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-frog-grid-fix-final/dist",
+      "tmp/batch7-memory-vehicles-final/dist",
+      "tmp/batch7-memory-ocean-completion-final/dist",
+      "tmp/batch7-memory-fruit-art-final-v3/dist",
+      "tmp/batch7-memory-space-objects-final/dist",
+      "tmp/batch7-memory-star-sun-final/dist",
+      "tmp/batch7-memory-party-food-final/dist",
+      "tmp/batch7-memory-isolated-space-final/dist"
+    ]
+  },
+  "integratedTokens": [
+    {"token":"🦴","label":"Bone","original":"src/assets/memory-match/fossil-bone-v1.png","originalSha256":"1372627befaecc4b3e567dab9c247e9df38b9e1b7e61be18b2e7b62bccff5838","webp":"/assets/fossil-bone-v1-card-BUMeRZq_.webp","webpDimensions":[512,512],"bytes":37318,"webpSha256":"f4bdfc74f1ef81e48d4d7ad49317867351fb5525e9d4a082fcf119d1db34c0b4","contexts":["Dinosaur Discovery"]},
+    {"token":"🦷","label":"Dinosaur tooth","original":"src/assets/memory-match/dinosaur-tooth-v1.png","originalSha256":"068b6bf5abf972f39a1ab216f8cc778d52b5abd839a970b7227841570daf2b70","webp":"/assets/dinosaur-tooth-v1-card-Drg14Xva.webp","webpDimensions":[484,512],"bytes":40008,"webpSha256":"bbe1f801ed4c4f99dad942e4080f1b3df64a9e72607ea5f31d646cd7f584518d","contexts":["Dinosaur Discovery"],"shape":"Conical tooth; not a human molar"},
+    {"token":"⛏️","label":"Fossil dig pick","original":"src/assets/memory-match/fossil-dig-pick-v1.png","originalSha256":"558cf1460b4f74b084898b067db02416248a80e0f188502dc6eb5dc9c6382fd5","webp":"/assets/fossil-dig-pick-v1-card-HvBtVLaL.webp","webpDimensions":[480,512],"bytes":25506,"webpSha256":"e654667b1836edc5963c7679e787a9cbc2797c7ea746a84690ced0565c597c0a","contexts":["Dinosaur Discovery"]},
+    {"token":"🪨","label":"Fossil dig rock","original":"src/assets/memory-match/fossil-rock-v1.png","originalSha256":"10866cf618181d2a0e7702e1ec071535da557f7c4ede65eb30d85537853d2eb3","webp":"/assets/fossil-rock-v1-card-DKsVUfPs.webp","webpDimensions":[512,461],"bytes":83952,"webpSha256":"8512f5b929dd781e88e0a44e1bbc4332dcaa03d634e7ab20917357f7b37daf46","contexts":["Dinosaur Discovery only"],"astronautAndCosmic":"Existing Moon Rock art remains mapped to those boards"}
+  ],
+  "renderedUiChecks": {
+    "profileAndProgression":"Fresh isolated Playwright CLI profile. Selected Amari with the visible chooser, entered Thinking & Play and Memory Match, then completed Levels 1–5 using visible card buttons, the Next controls, and accessible labels read only after a flip. The profile's earned progress is synthetic. No hidden fronts, React state, seeded deck answers, or direct progress writes were used.",
+    "dinosaurDiscovery": {
+      "level":5,
+      "pairs":13,
+      "cards":26,
+      "desktop1280":{"viewport":[1280,800],"documentWidth":1280,"card":[182,182],"artRow":[172,109.3],"captionRow":[172,20.95],"newArtCards":8,"fullCaptions":["bone","dinosaur tooth","fossil dig pick","fossil dig rock"],"naturalImageDimensions":[[512,512],[484,512],[480,512],[512,461]],"artCaptionOverlap":false,"screenshot":"docs/qa-evidence/batch7-memory-fossils-builder-images/dino-desktop-complete.png"},
+      "mobile390":{"viewport":[390,844],"documentWidth":390,"fullPageHeight":1306,"card":[82,82],"artRow":[72,30.4],"captionRow":[72,17.2],"newArtCards":8,"fullCaptions":["bone","dinosaur tooth","fossil dig pick","fossil dig rock"],"allImagesLoaded":true,"artCaptionOverlap":false,"screenshot":"docs/qa-evidence/batch7-memory-fossils-builder-images/dino-mobile-complete.png"},
+      "faceDown":{"viewport":[390,844],"documentWidth":390,"cards":26,"faceDown":26,"mountedImages":0,"mountedFrontLabels":0,"screenshot":"docs/qa-evidence/batch7-memory-fossils-builder-images/dino-mobile-facedown.png"}
+    },
+    "reloadPersistence":"After completing Dinosaur Discovery, reload resumed at the next unlocked Vehicles level. Level 5 was revisited using its visible level button for the face-down check.",
+    "contextValidation":"Focused tests and rendered Dino labels confirm 🪨 resolves to fossil dig rock in Dinosaur Discovery and to the existing Moon Rock illustration in Astronaut/Cosmic. The global 🪨 illustration remains unset. The distinct fossil and Moon Rock source images were visually reviewed side by side."
+  },
+  "networkAndConsole": {
+    "preNavigationRoutes":[{"pattern":"**/api/voice","responseStatus":204},{"pattern":"**/api/story","responseStatus":204}],
+    "observedVoiceOrStoryRequests":0,
+    "consoleErrors":0,
+    "consoleWarnings":0
+  },
+  "servedIdentity": {
+    "/":{"sha256":"b401c45ae38a40752308a01f34f2eca7e2a554e5cbefa18d6967078d533e1400","bytes":1100,"matchesFrozenDist":true},
+    "/assets/index-CUPCXagM.js":{"sha256":"446d0749dfb056c1e2ce1f9c58943cba8365cd7945c8af4e90517c80df6fe260","bytes":1185222,"matchesFrozenDist":true},
+    "/assets/index-CYWTXfuY.css":{"sha256":"251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d","bytes":213139,"matchesFrozenDist":true},
+    "/assets/fossil-bone-v1-card-BUMeRZq_.webp":{"sha256":"f4bdfc74f1ef81e48d4d7ad49317867351fb5525e9d4a082fcf119d1db34c0b4","bytes":37318,"matchesFrozenDist":true},
+    "/assets/dinosaur-tooth-v1-card-Drg14Xva.webp":{"sha256":"bbe1f801ed4c4f99dad942e4080f1b3df64a9e72607ea5f31d646cd7f584518d","bytes":40008,"matchesFrozenDist":true},
+    "/assets/fossil-dig-pick-v1-card-HvBtVLaL.webp":{"sha256":"e654667b1836edc5963c7679e787a9cbc2797c7ea746a84690ced0565c597c0a","bytes":25506,"matchesFrozenDist":true},
+    "/assets/fossil-rock-v1-card-DKsVUfPs.webp":{"sha256":"8512f5b929dd781e88e0a44e1bbc4332dcaa03d634e7ab20917357f7b37daf46","bytes":83952,"matchesFrozenDist":true},
+    "/assets/moon-rock-v1-card-BGXR3Tx2.webp":{"sha256":"67992a1b6786c13ee43fab5859a0173e895edb6a9ed2a7e9cc30744022aa205a","bytes":67516,"matchesFrozenDist":true}
+  },
+  "sourceGates": {
+    "focusedTests":"11 passed across test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs.",
+    "lint":"passed.",
+    "productionConfigBuild":"npm run build:android passed with explicit production voice/story configuration. Existing stale Browserslist and large-chunk warnings remain.",
+    "fullTestSuite":"Serial full test run: 189/190 passed. Sole failure: every reviewed app narration prompt has a packaged clip. Missing keys are 00567b7b (Long cliffs formed as Mercury cooled and shrank.), 09180a2a (Pluto and Charon both move around a shared centre between them.), 0fe0928c (Jupiter also has faint rings made of tiny dark particles.), 257b6d0e (Discovery 6. Jupiter also has faint rings made of tiny dark particles.), 34575f84 (Discovery 6. Pluto and Charon both move around a shared centre between them.), 35106371 (Methane gas helps give Neptune its blue colour.), 35fa6542 (Discovery 3. Methane gas helps give Neptune its blue colour.), 6d6518dd (From one sunrise to the next takes 176 Earth days.), 94e99828 (Discovery 3. From one sunrise to the next takes 176 Earth days.), a2b823b4 (Discovery 5. Long cliffs formed as Mercury cooled and shrank.), e21cd2db (You found a picture. Remember where it is.), and e8218a44 (A pair of pictures!). The full failure is outside fossil art scope; no audio generation or manifest changes were made.",
+    "frozenBundleMatchesProductionBuild":true,
+    "illustrationInventory":"56 of 87 unique Memory tokens have complete art after this delta. Fossil rock contributes full context coverage for 🪨 only because Dino, Astronaut, and Cosmic now each resolve to their correct distinct context-specific illustration."
+  },
+  "limits":[
+    "This is builder-rendered verification. Independent review of this candidate is pending.",
+    "Remaining Memory illustration, independent Askia parity, audio readiness, human/device acceptance, production, and any overall quality score remain open."
+  ]
+}
