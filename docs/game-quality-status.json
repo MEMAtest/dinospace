@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T07:15:13.951042+00:00",
+  "updatedAt": "2026-10-04T07:31:04.110275+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -742,7 +742,10 @@
     "sourceSha": "b032b08",
     "origin": "http://127.0.0.1:5332",
     "identity": "docs/qa-evidence/spot-crop-clip-repair-identity-20261004.json",
-    "scope": "Movesnormalizedscalefrominvalidnestedg toclipPathtransform withShape directchild. IncludesStarter/Treehouse/Safari;18focusedtests/scopedlint/configuredbuildpass. Independent allStarter+Treehouse andSafari visual/controlregressionatbothwidths inprogress.5331Memorylistenerpreservedafterportcollision;noSpotserverthere. Noacceptance."
+    "scope": "Movesnormalizedscalefrominvalidnestedg toclipPathtransform withShape directchild. IncludesStarter/Treehouse/Safari;18focusedtests/scopedlint/configuredbuildpass. Independent allStarter+Treehouse andSafari visual/controlregressionatbothwidths inprogress.5331Memorylistenerpreservedafterportcollision;noSpotserverthere. Noacceptance.",
+    "safariIndependentCommit": "15d216f",
+    "safariIndependentReport": "docs/qa-evidence/spot-crop-clip-repair-5332-independent-20261004/report.md",
+    "safariScope": "Rendererrestoresfourclearchangesbutfifthparrottailnotreasonablydiscernibleatnormal390anddifficultdesktopbecausecrop. Holdvisualacceptance. Fivehotspots/hint/factheldNext/reload4of4Starter+1of4Growing/parentBack/14hashes/guardedgoto/API0/consolecleanpass. ElevenlocalMP3GETsduetesteraccidentaltoggle; noaudio-silent/listeningclaim. Misshandlingnottested. Treehouse/Starterindependentmatrixseparatepending."
   },
   "memoryFourTokenCandidate": {
     "sourceSha": "382945e78752e2f4e532ac6d0f92c13458ccfb4d",
@@ -760,6 +763,22 @@
       "docs/qa-evidence/spot-pattern-landscape-art-provenance-20261004.json",
       "docs/qa-evidence/spot-observatory-landscape-art-provenance-20261004.json"
     ],
-    "scope": "Twofreshlandscape1448x1086premiumsourcescorrectportraitframingwithoutchangingoldsharedassets. Fivepictured-objecteditsperpair replacefloatingbadges. PNGselectedoriginalsunchanged/WebPencodingonly,prompt/hashprovenance.20focusedtests/scopedlint/configuredbuildpass. Earlyvisualfidelity/discernibility/targetalignbothwidths andcontrols/factNext/reloadassignedafter5332. Sharedrendereridentityb032retained;noacceptance."
+    "scope": "Twofreshlandscape1448x1086premiumsourcescorrectportraitframingwithoutchangingoldsharedassets. Fivepictured-objecteditsperpair replacefloatingbadges. PNGselectedoriginalsunchanged/WebPencodingonly,prompt/hashprovenance.20focusedtests/scopedlint/configuredbuildpass. Earlyvisualfidelity/discernibility/targetalignbothwidths andcontrols/factNext/reloadassignedafter5332. Sharedrendereridentityb032retained;noacceptance.",
+    "narrationExistence": "docs/qa-evidence/spot-landscape-source-narration-existence-20261004.json",
+    "narrationScope": "Read-only77940e9corpus1373unique/1368exist/5missing:3PuzzleDinoParktitle,Spotmiddlearea a44acc87 andnewSpotmiddlebottom5866151d. No decoding/playback/listening/providercalls. PackageonlyafterauthorizedB4workerterminal;currentlocalreleasegateopen."
+  },
+  "spotSafariSquareWingPrototype": {
+    "sourceSha": "aea335f",
+    "origin": "http://127.0.0.1:5351",
+    "identity": "docs/qa-evidence/spot-safari-square-wing-identity-20261004.json",
+    "scope": "Safari-only1:1framepreservesfullanimalartinstead4:3croppingparrot. Largerleftbluewingfeathersreplaceinvisiblecroppedtaildifference; othernativegeometryandtargetsremappedtosquare. Sharedlayerdynamicviewheight/default4:3unchangedmathematically.20tests/scopedlint/configuredbuildpass. Independentfive-objectunaided390visibility/maskfidelity/actualcontrolsandreloadplusnarrowdefault4:3regressionassigned. Noacceptance."
+  },
+  "memoryRacingDrinkPartyFaceDuckCandidate": {
+    "sourceSha": "d1c35b1c35a799acfab69cf263a598e9dd6c9421",
+    "builderCommit": "c22a370799a6c56744e0444a0d559c3e20d023a7",
+    "origin": "http://127.0.0.1:5333",
+    "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-identity-20261004.json",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-report-20261004.md",
+    "scope": "Builder84/87tokensillustrated: RacingCar/Drink/PartyFace/Duck imports/maponly;18tests/lint/configuredbuildpass. Normalearned1\u20139andfulltargetParty/Vehicles/Food/Gardenboardsatbothwidths,82pxmobilecards/captions/hashes/guardedgoto/API0/consolecleanreported. Postcompletionface-downcheckhaszeroface-downcardssoisvacuous; rootrequestedvisibleboardselect+reloadactualface-downcount/imagesdelta. Independentart/controlreviewpending. Remainingwaterlily/dinonest/speedboatbuilderassigned; noaudio/production/4.5."
   }
 }
