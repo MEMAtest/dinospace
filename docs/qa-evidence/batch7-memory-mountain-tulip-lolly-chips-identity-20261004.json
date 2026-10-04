@@ -1,0 +1,124 @@
+{
+  "createdAt": "2026-10-04",
+  "source": {
+    "branch": "codex/amari-batch7-quality-20261003",
+    "sha": "382945e78752e2f4e532ac6d0f92c13458ccfb4d",
+    "commit": "Add mountain tulip and treats Memory art"
+  },
+  "candidate": {
+    "origin": "http://127.0.0.1:5331",
+    "immutableDist": "tmp/batch7-memory-mountain-tulip-lolly-chips/dist",
+    "method": "Production-config build:android output copied once; preview served from frozen copy on explicit IPv4 loopback; no deployment.",
+    "servedFiles": [
+      {
+        "path": "/index.html",
+        "sha256": "cc4eb17e8d2921aeab99fc6054d04b7a1189eef3f468572a509ed0434322ebba",
+        "bytes": 1100
+      },
+      {
+        "path": "/assets/index-C3DBMvmy.js",
+        "sha256": "3a1a2c0abfa2e243dd4e64eb5c71ecb7ad9901b0263080f1d4377fdaa0f1e044",
+        "bytes": 1189019
+      },
+      {
+        "path": "/assets/index-CYWTXfuY.css",
+        "sha256": "251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d",
+        "bytes": 213139
+      },
+      {
+        "path": "/assets/mountain-v1-card-Drqj0UDs.webp",
+        "sha256": "a9c0307ffdabd80ecb98c0613e0352a4761e4f01a032cefa445b10efdb3719fa",
+        "bytes": 27150
+      },
+      {
+        "path": "/assets/tulip-v1-card-DtYEAub1.webp",
+        "sha256": "4b7b981eea2a097dec15a694cf998a7231e8884037a784bd3a0e0824b84b8b98",
+        "bytes": 35034
+      },
+      {
+        "path": "/assets/lolly-v1-card-zD3R71Yr.webp",
+        "sha256": "750c18df29ba0d9907c200b44870f6acf3d12ef698dee711ee563120777f1760",
+        "bytes": 35334
+      },
+      {
+        "path": "/assets/chips-v1-card-D6PHqvmn.webp",
+        "sha256": "bf3844a6ba160e4caf22a405717988510d7b8215b94814180c77d293b0f9967a",
+        "bytes": 54548
+      }
+    ]
+  },
+  "buildConfiguration": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "checks": {
+    "focusedTests": "node --test test/memoryMatchContent.test.mjs test/batch7Progress.test.mjs: 17 passed",
+    "lint": "npm run lint: passed",
+    "productionBuild": "npm run build:android: passed; stale Browserslist data and >500kB chunk-size advisory warnings only",
+    "contentAudit": {
+      "uniqueTokens": 87,
+      "illustrated": 80,
+      "remainingMissing": [
+        "racing car (vehicles)",
+        "drink (food)",
+        "party face (party)",
+        "duck (garden)",
+        "water lily (garden)",
+        "dinosaur nest (dinos)",
+        "speedboat (vehicles)"
+      ]
+    }
+  },
+  "browser": {
+    "viewports": [
+      "1280x800",
+      "390x844"
+    ],
+    "journey": "Normal UI: selected Amari and Memory Match; earned levels 1-9 using visible card flips and Next Level; replayed earned Party, Dino, Food, and Garden boards using visible level controls. No progress/deck/hidden-face injection.",
+    "targetProof": {
+      "mountain": "Dinosaur Discovery, level 5",
+      "tulip": "Garden & Pond Life, level 9",
+      "lolly": "Party & Treats, level 4; Yummy Feast, level 7",
+      "chips": "Party & Treats, level 4; Yummy Feast, level 7"
+    },
+    "layout": "1280 desktop target cards 149-182px; 390 mobile target cards 82x82px. Each new 512px art image appeared after a real flip with its matching caption. Face-down checks covered 24, 26, 30, and 34 cards; all had no descendant img.",
+    "guards": "Final guarded context used 403 routes for **/api/voice and **/api/story. Route list verified before and after goto and after the target replays. Current request listing showed only static requests omitted from default display; console had 0 errors, 0 warnings.",
+    "guardLimitation": "An earlier preliminary run used open <appURL> after routing about:blank; open recreated the context and dropped those guards. That preliminary run is superseded. The final captured replay used goto with both routes confirmed active."
+  },
+  "screenshots": {
+    "dinosaur-discovery-390.png": {
+      "sha256": "465478b5d690c1b81ce0f871336b8fe6c447426c09f25e07fdec2d428f81af83",
+      "bytes": 233796
+    },
+    "dinosaur-discovery-desktop.png": {
+      "sha256": "15fc37de903d0f8148b70293d7083b0dcac5142ac560bcaf3ef7e892d4d224bc",
+      "bytes": 562176
+    },
+    "garden-pond-life-390.png": {
+      "sha256": "4de02ec79f5482567688ea509f29b3528544315cc2820af93e69dedbbbb710dc",
+      "bytes": 274001
+    },
+    "garden-pond-life-desktop.png": {
+      "sha256": "d8bef10d49ad24e90b98e71e9cd31225186916511d4b79b319f7a9afd441b3bc",
+      "bytes": 544620
+    },
+    "party-treats-390.png": {
+      "sha256": "f90b1a28c2aea32d2d3be141dfbdcc7a1c41ed749b4d43d252c20e65b6d4cae7",
+      "bytes": 223766
+    },
+    "party-treats-desktop.png": {
+      "sha256": "561b5fbddccca9d7122553421ea2ea13fbe276caed83aa08433a38fac17f2e71",
+      "bytes": 517032
+    },
+    "yummy-feast-390.png": {
+      "sha256": "10021d86eb5d674ed95206a7d7ae8de9d7b30846296474a9ace113b36fb25b65",
+      "bytes": 238837
+    },
+    "yummy-feast-desktop.png": {
+      "sha256": "e30a9bfc9dd86970599c46dae6f7c5dd63eb4fe2b57f3ba133275b75a8915a93",
+      "bytes": 469298
+    }
+  },
+  "scope": "Builder evidence only. Independent rendered QA, human listening, full premium-art gate, release, deployment, and 4.5 score remain open."
+}
