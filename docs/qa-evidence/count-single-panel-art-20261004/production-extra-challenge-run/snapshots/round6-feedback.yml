@@ -1,0 +1,55 @@
+- generic [ref=f1e343]:
+  - banner [ref=f1e344]:
+    - button "Back to Maths Missions" [ref=f1e345] [cursor=pointer]
+    - generic [ref=f1e349]:
+      - heading "Count the Stars" [level=1] [ref=f1e350]
+      - paragraph [ref=f1e351]: Galaxy Survey · Round 6 of 6
+    - button "Turn sound on" [ref=f1e352] [cursor=pointer]
+  - main [ref=f1e429]:
+    - generic [ref=f1e430]:
+      - generic [ref=f1e431]:
+        - generic [ref=f1e432]:
+          - paragraph [ref=f1e433]: Galaxy Survey · challenge
+          - heading "Crater Gems" [level=2] [ref=f1e801]
+        - generic [aria-hidden] [ref=f1e435]: 🌑
+      - paragraph [ref=f1e436]: Count along a row, or count each group and put the totals together.
+      - group "Counting board for Crater Gems; two visible groups" [ref=f1e802]:
+        - button "crater gem 1, counted number 1" [disabled] [pressed] [ref=f1e878]:
+          - generic [ref=f1e879]: "1"
+        - button "crater gem 2, counted number 2" [disabled] [pressed] [ref=f1e880]:
+          - generic [ref=f1e881]: "2"
+        - button "crater gem 3, counted number 3" [disabled] [pressed] [ref=f1e882]:
+          - generic [ref=f1e883]: "3"
+        - button "crater gem 4, counted number 4" [disabled] [pressed] [ref=f1e884]:
+          - generic [ref=f1e885]: "4"
+        - button "crater gem 5, counted number 5" [disabled] [pressed] [ref=f1e886]:
+          - generic [ref=f1e887]: "5"
+        - button "crater gem 6, counted number 6" [disabled] [pressed] [ref=f1e888]:
+          - generic [ref=f1e889]: "6"
+        - button "crater gem 7, counted number 7" [disabled] [pressed] [ref=f1e890]:
+          - generic [ref=f1e891]: "7"
+        - button "crater gem 8, counted number 8" [disabled] [pressed] [ref=f1e892]:
+          - generic [ref=f1e893]: "8"
+        - button "crater gem 9, counted number 9" [disabled] [pressed] [ref=f1e894]:
+          - generic [ref=f1e895]: "9"
+        - button "crater gem 10, counted number 10" [disabled] [pressed] [ref=f1e896]:
+          - generic [ref=f1e897]: "10"
+        - button "crater gem 11, counted number 11" [disabled] [pressed] [ref=f1e898]:
+          - generic [ref=f1e899]: "11"
+        - button "crater gem 12, counted number 12" [disabled] [pressed] [ref=f1e900]:
+          - generic [ref=f1e901]: "12"
+        - button "crater gem 13, counted number 13" [disabled] [pressed] [ref=f1e902]:
+          - generic [ref=f1e903]: "13"
+        - button "crater gem 14, counted number 14" [disabled] [pressed] [ref=f1e904]:
+          - generic [ref=f1e905]: "14"
+        - button "crater gem 15, counted number 15" [disabled] [pressed] [ref=f1e906]:
+          - generic [ref=f1e907]: "15"
+      - generic [ref=f1e503]:
+        - paragraph [ref=f1e504]: Count complete
+        - generic [ref=f1e505]:
+          - button "Hear instructions" [ref=f1e506] [cursor=pointer]
+          - button "Show a clue" [disabled] [ref=f1e511]
+      - status [ref=f1e925]:
+        - paragraph [ref=f1e926]: Brilliant counting!
+        - paragraph [ref=f1e927]: There are 15 crater gems. You counted each one once.
+        - button "Next" [ref=f1e928] [cursor=pointer]

@@ -1,0 +1,51 @@
+- generic [ref=f1e343]:
+  - banner [ref=f1e344]:
+    - button "Back to Maths Missions" [ref=f1e345] [cursor=pointer]
+    - generic [ref=f1e349]:
+      - heading "Count the Stars" [level=1] [ref=f1e350]
+      - paragraph [ref=f1e351]: Galaxy Survey · Round 1 of 6
+    - button "Turn sound on" [ref=f1e352] [cursor=pointer]
+  - main [ref=f1e429]:
+    - generic [ref=f1e430]:
+      - generic [ref=f1e431]:
+        - generic [ref=f1e432]:
+          - paragraph [ref=f1e433]: Galaxy Survey · challenge
+          - heading "Constellation Maps" [level=2] [ref=f1e434]
+        - generic [aria-hidden] [ref=f1e435]: 🗺️
+      - paragraph [ref=f1e436]: Count along a row, or count each group and put the totals together.
+      - group "Counting board for Constellation Maps; two visible groups" [ref=f1e437]:
+        - button "map star 1, counted number 1" [disabled] [pressed] [ref=f1e514]:
+          - generic [ref=f1e515]: "1"
+        - button "map star 2, counted number 8" [disabled] [pressed] [ref=f1e528]:
+          - generic [ref=f1e529]: "8"
+        - button "map star 3, counted number 2" [disabled] [pressed] [ref=f1e516]:
+          - generic [ref=f1e517]: "2"
+        - button "map star 4, counted number 9" [disabled] [pressed] [ref=f1e530]:
+          - generic [ref=f1e531]: "9"
+        - button "map star 5, counted number 3" [disabled] [pressed] [ref=f1e518]:
+          - generic [ref=f1e519]: "3"
+        - button "map star 6, counted number 10" [disabled] [pressed] [ref=f1e532]:
+          - generic [ref=f1e533]: "10"
+        - button "map star 7, counted number 4" [disabled] [pressed] [ref=f1e520]:
+          - generic [ref=f1e521]: "4"
+        - button "map star 8, counted number 11" [disabled] [pressed] [ref=f1e534]:
+          - generic [ref=f1e535]: "11"
+        - button "map star 9, counted number 5" [disabled] [pressed] [ref=f1e522]:
+          - generic [ref=f1e523]: "5"
+        - button "map star 10, counted number 12" [disabled] [pressed] [ref=f1e536]:
+          - generic [ref=f1e537]: "12"
+        - button "map star 11, counted number 6" [disabled] [pressed] [ref=f1e524]:
+          - generic [ref=f1e525]: "6"
+        - button "map star 12, counted number 13" [disabled] [pressed] [ref=f1e538]:
+          - generic [ref=f1e539]: "13"
+        - button "map star 13, counted number 7" [disabled] [pressed] [ref=f1e526]:
+          - generic [ref=f1e527]: "7"
+      - generic [ref=f1e503]:
+        - paragraph [ref=f1e504]: Count complete
+        - generic [ref=f1e505]:
+          - button "Hear instructions" [ref=f1e506] [cursor=pointer]
+          - button "Show a clue" [disabled] [ref=f1e511]
+      - status [ref=f1e548]:
+        - paragraph [ref=f1e549]: Brilliant counting!
+        - paragraph [ref=f1e550]: There are 13 map stars. You counted each one once.
+        - button "Next" [ref=f1e551] [cursor=pointer]

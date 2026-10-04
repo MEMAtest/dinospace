@@ -1,0 +1,28 @@
+- generic [ref=f1e343]:
+  - banner [ref=f1e344]:
+    - button "Back to Maths Missions" [ref=f1e345] [cursor=pointer]
+    - generic [ref=f1e349]:
+      - heading "Count the Stars" [level=1] [ref=f1e350]
+      - paragraph [ref=f1e351]: Galaxy Survey · Round 4 of 6
+    - button "Turn sound on" [ref=f1e352] [cursor=pointer]
+  - main [ref=f1e429]:
+    - generic [ref=f1e430]:
+      - generic [ref=f1e431]:
+        - generic [ref=f1e432]:
+          - paragraph [ref=f1e433]: Galaxy Survey · challenge
+          - heading "Constellation Maps" [level=2] [ref=f1e678]
+        - generic [aria-hidden] [ref=f1e435]: 🗺️
+      - paragraph [ref=f1e436]: Count along a row, or count each group and put the totals together.
+      - group "Counting board for Constellation Maps; organized rows or an array" [ref=f1e679]:
+        - button "map star 1, not counted yet" [ref=f1e699] [cursor=pointer]
+        - button "map star 2, not counted yet" [ref=f1e704] [cursor=pointer]
+        - button "map star 3, not counted yet" [ref=f1e709] [cursor=pointer]
+        - button "map star 4, not counted yet" [ref=f1e714] [cursor=pointer]
+        - button "map star 5, not counted yet" [ref=f1e719] [cursor=pointer]
+        - button "map star 6, not counted yet" [ref=f1e724] [cursor=pointer]
+        - button "map star 7, not counted yet" [ref=f1e729] [cursor=pointer]
+      - generic [ref=f1e503]:
+        - paragraph [ref=f1e504]: Tap each object once to count it.
+        - generic [ref=f1e505]:
+          - button "Hear instructions" [ref=f1e506] [cursor=pointer]
+          - button "Show a clue" [ref=f1e511] [cursor=pointer]
