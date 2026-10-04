@@ -1,0 +1,31 @@
+{
+  "source": "e067e3d389ad2f1ec1a8583535c07edd4b83268e",
+  "base": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+  "origin": "http://127.0.0.1:5387/",
+  "scope": "Configured frozen local component-only solar-panel art repair; index and referenced primary assets byte checked. No full asset/browser/audio/production acceptance.",
+  "assets": [
+    {
+      "path": "index.html",
+      "http": 200,
+      "localSha256": "210515f8e1364395a5f68c11a539d635cddc13aee311c3a74eb374251639e437",
+      "servedSha256": "210515f8e1364395a5f68c11a539d635cddc13aee311c3a74eb374251639e437",
+      "match": true
+    },
+    {
+      "path": "/assets/index-BMoO_oDa.js",
+      "http": 200,
+      "localSha256": "dd7a8381c22287ea4d7bcf812233e72bd74175fe5d1c297e4f24cab8be2d34b5",
+      "servedSha256": "dd7a8381c22287ea4d7bcf812233e72bd74175fe5d1c297e4f24cab8be2d34b5",
+      "match": true
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "http": 200,
+      "localSha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "servedSha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "match": true
+    }
+  ],
+  "componentSha256": "29aa66224ad11db79fd693f73b5de69542ceaf1ee267b415a1531c008aabcab2",
+  "dataSha256": "3234f7a1e730987954980684939002ecbee27766c94a7688e619465abdf2fd75"
+}
