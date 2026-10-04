@@ -8,10 +8,12 @@ const soundSafari = new URL('../assets/spot-difference/sound-safari-animals-3d.w
 const patternParade = new URL('../assets/spot-difference/pattern-parade-landscape-v1.webp', import.meta.url).href;
 const timeObservatory = new URL('../assets/spot-difference/time-observatory-landscape-v1.webp', import.meta.url).href;
 const robin = new URL('../assets/puzzle-pop/robin-tree-3d.webp', import.meta.url).href;
+const geographyB = new URL('../assets/spot-difference/world-physical-b-v1.webp', import.meta.url).href;
 const geography = new URL('../assets/puzzle-pop/world-explorer-map-3d.webp', import.meta.url).href;
 const history = new URL('../assets/spot-difference/history-artifacts-a-v1.webp', import.meta.url).href;
 const historyB = new URL('../assets/spot-difference/history-artifacts-b-v1.webp', import.meta.url).href;
 const nature = new URL('../assets/puzzle-pop/nature-lab-leaves-3d.webp', import.meta.url).href;
+const natureB = new URL('../assets/puzzle-pop/nature-lab-leaves-3d-variant-b.webp', import.meta.url).href;
 
 export const SPOT_DIFFERENCE_CHAPTERS = Object.freeze([
   Object.freeze({ id: 'starter', name: 'Bright-Eyed Beginners', band: 'starter', differenceCount: 3, hintTokens: 2, skill: 'Compare the big shapes and colours in both pictures.' }),
@@ -245,7 +247,32 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
     ],
   }),
   makeScene(2, 8, 'Robin’s Woodland', robin, 'A robin pecking at soil beneath a tree among flowers and woodland plants', 'Robins use their beaks to find food and build safe nests.'),
-  makeScene(2, 9, 'World Explorer', geography, 'An explorer workbench with a picture-symbol map and an Earth globe', 'Maps use symbols and labels to show useful information about places.'),
+  makeScene(2, 9, 'World Explorer', geography, 'An explorer workbench with a globe, telescope, binoculars and a printed map', 'Maps use symbols and labels to show useful information about places.', {
+    aspectRatio: 1,
+    imageB: geographyB,
+    // Keep A outside the four changed physical map details. Colour edits use
+    // A itself so the globe land and object geometry remain unchanged.
+    editRegions: [
+      { x: 40, y: 62, width: 13, height: 6, feather: 0.3 },
+      { x: 68, y: 68, width: 12, height: 7, feather: 0.3 },
+      { x: 11, y: 64, width: 24, height: 17, feather: 0.4 },
+      { x: 63, y: 80, width: 13, height: 11, feather: 0.3 },
+    ],
+    colorEdits: [
+      { shape: 'ellipse', cx: 445, cy: 342, rx: 174, ry: 174, transform: 'scale(0.07974481659)', hue: 70, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
+      { shape: 'path', d: 'M864 490 Q875 482 896 491 L984 524 L965 601 L873 564 Q850 550 852 524 Z M1010 536 L1100 571 L1082 640 L989 607 Z', transform: 'scale(0.07974481659)', hue: 190 },
+      { shape: 'path', d: 'M1020 632 Q1044 637 1089 666 L1134 687 Q1186 670 1238 710 L1220 797 Q1175 869 1099 868 L1092 773 L1028 703 L1000 710 L966 748 L909 719 L933 660 Z', transform: 'scale(0.07974481659)', hue: 230, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -3 5 -2 0 -0.3' },
+    ],
+    differences: [
+      { id: 'world-globe', label: 'the globe ocean colour changed', normalVisual: 'scene:blue-oceans', visual: 'scene:purple-oceans', x: 36, y: 27, radius: 8 },
+      { id: 'world-telescope', label: 'the telescope barrel changed colour', normalVisual: 'scene:brown-barrel', visual: 'scene:blue-barrel', x: 80, y: 38, radius: 8 },
+      { id: 'world-binoculars', label: 'the binocular body changed colour', normalVisual: 'scene:green-binoculars', visual: 'scene:red-binoculars', x: 90, y: 59, radius: 8 },
+      { id: 'world-bridge', label: 'the bridge has a different number of railing posts', normalVisual: 'scene:bridge-posts-a', visual: 'scene:bridge-posts-b', x: 46, y: 64, radius: 8 },
+      { id: 'world-marker', label: 'the red map cross became a star', normalVisual: 'scene:cross', visual: 'scene:star', x: 69, y: 69.5, radius: 8 },
+      { id: 'world-magnifier', label: 'the magnifying glass has a different shape', normalVisual: 'scene:round-magnifier', visual: 'scene:square-magnifier', x: 23, y: 72, radius: 8 },
+      { id: 'world-compass', label: 'the printed compass gold point faces right instead of up', normalVisual: 'scene:compass-up', visual: 'scene:compass-right', x: 69, y: 90, radius: 8 },
+    ],
+  }),
   makeScene(2, 10, 'History Hall', history, 'Seven historical artifacts resting on a museum display desk', 'Old objects can be clues about how people lived long ago.', {
     imageB: historyB,
     editRegions: [
@@ -267,7 +294,28 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
       { id: 'history-column', label: 'the column has four grooves instead of two', normalVisual: 'scene:two-grooves', visual: 'scene:four-grooves', x: 90, y: 69, radius: 8 },
     ].map((difference) => Object.freeze(difference)),
   }),
-  makeScene(2, 11, 'Nature Lab', nature, 'A sunny plant workbench with differently shaped leaves, seedlings and roots', 'Plants need light and water to grow.'),
+  makeScene(2, 11, 'Nature Lab', nature, 'A sunny plant workbench with differently shaped leaves, seedlings and roots', 'Plants need light and water to grow.', {
+    aspectRatio: 1,
+    imageB: natureB,
+    editRegions: [
+      { x: 11, y: 78, width: 11, height: 15, feather: 0.25 }, // left book specimen
+      { x: 23, y: 78, width: 11, height: 17, feather: 0.25 }, // next book specimen
+      { x: 20, y: 56, width: 9, height: 14, feather: 0.25 }, // removed rightmost seedling cell
+      { x: 55, y: 46, width: 18, height: 26, feather: 0.25 }, // teal herb foliage
+      { x: 88.5, y: 47, width: 11.5, height: 29, feather: 0.25 }, // red can body, clear of jar
+      { x: 74, y: 56, width: 14.5, height: 22, feather: 0.25 }, // tan roots inside jar
+      { x: 34, y: 7, width: 14, height: 19, feather: 0.25 }, // central plant upper leaf
+    ],
+    differences: [
+      { id: 'nature-book-oak', label: 'the book leaf is oak-shaped instead of heart-shaped', normalVisual: 'scene:book-heart-leaf', visual: 'scene:book-oak-leaf', x: 13, y: 82, radius: 10 },
+      { id: 'nature-book-round', label: 'the next book leaf is round instead of narrow', normalVisual: 'scene:book-narrow-leaf', visual: 'scene:book-round-leaf', x: 33, y: 89, radius: 10 },
+      { id: 'nature-tray-seedling', label: 'one seedling is missing from the tray', normalVisual: 'scene:four-seedlings', visual: 'scene:three-seedlings', x: 22, y: 60, radius: 10 },
+      { id: 'nature-herb-teal', label: 'the small potted herb has teal leaves instead of green', normalVisual: 'scene:green-herb-leaves', visual: 'scene:teal-herb-leaves', x: 60, y: 48, radius: 10 },
+      { id: 'nature-can-red', label: 'the watering can is red instead of blue', normalVisual: 'scene:blue-watering-can', visual: 'scene:red-watering-can', x: 90, y: 56, radius: 10 },
+      { id: 'nature-roots-tan', label: 'the roots in the jar are tan instead of ivory', normalVisual: 'scene:ivory-roots', visual: 'scene:tan-roots', x: 78, y: 76, radius: 10 },
+      { id: 'nature-lance-leaf', label: 'the large leaf is long and pointed instead of heart-shaped', normalVisual: 'scene:heart-shaped-leaf', visual: 'scene:lance-shaped-leaf', x: 42, y: 16, radius: 10 },
+    ].map((difference) => Object.freeze(difference)),
+  }),
 ]);
 
 export const resolveSpotDifferenceTap = (differences, foundIds, x, y) => {

@@ -1,0 +1,214 @@
+{
+  "title": "Spot Nature Lab actual-object variant B source asset",
+  "created_date": "2026-10-04",
+  "scope": "Asset and provenance only. No runtime, game data, routing, or other source files changed.",
+  "source_A": {
+    "path": "src/assets/puzzle-pop/nature-lab-leaves-3d.webp",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGB",
+    "sha256": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20"
+  },
+  "selected_B_original": {
+    "path": "src/assets/puzzle-pop/nature-lab-leaves-3d-variant-b.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "mode": "RGB",
+    "generated_source_path": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-95f4481b-c69f-406b-b057-212b84825392.png",
+    "generated_source_sha256": "d8a3250fb06b4d24a81438dac0501c52f9f72362a84568bfa2ed77396fb211ed",
+    "copied_byte_for_byte_from_generated_source": true
+  },
+  "selected_B_webp": {
+    "path": "src/assets/puzzle-pop/nature-lab-leaves-3d-variant-b.webp",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "b5facad979d38fc8576f29c7592a640d5d68eacfc1276f36ffb515eb2abdaf11",
+    "conversion": "Pillow RGB -> WebP; quality=95, method=6; no resize, crop, compositing, or retouching. This is a lossy encoding derivative."
+  },
+  "generation": {
+    "tool": "built-in image_gen image edit",
+    "api_or_paid_cli_used": false,
+    "first_edit": {
+      "reference": "source A",
+      "prompt_verbatim": "Edit the referenced square children's nature-lab illustration into a tightly registered Variant B. Preserve the exact 1:1 framing, object positions, perspective, full garden-workbench background, lighting, and existing premium glossy 3D style. Keep all objects and plants exactly as shown except for the seven edits listed below. Make ONLY these seven visible changes, with no markers, badges, new objects, or other alterations:\n1) In the shallow seedling tray at lower left, source A shows exactly four visible seedlings. Remove the small rightmost seedling from its soil cell, leaving exactly three seedlings; fill that cell with ordinary soil matching the neighboring cells.\n2) On the open book at the bottom, change the isolated leftmost heart-shaped leaf sample into a clearly recognizable oak-shaped lobed leaf.\n3) On the same book, change the isolated narrow blade-shaped leaf sample immediately to its right into a simple rounded oval leaf.\n4) In the small foreground herb pot near lower center-right, recolor only the plant foliage from green to a natural blue-teal. Preserve its size, leaf count, shape, veins, stems, and terracotta pot.\n5) Recolor only the main body of the actual blue watering can at far right from cobalt blue to bright red. Preserve its exact watering-can shape, handle, spout, perforated sprinkler head, perspective, and position; do not replace it.\n6) The clear root jar has no cap. Recolor its actual branching root system from ivory to warm light ochre/tan, preserving the same root count, branching forms, submerged placement, jar, waterline, and seedling.\n7) On the large broadleaf plant in the central terracotta pot, change only its clearly isolated uppermost large heart-shaped leaf into a distinct elongated oval-lanceolate silhouette with a pointed tip and natural central vein. Keep it in the same place and scale, with realistic green leaf texture. Do not add an icon or badge.\nEverything outside those seven target details must remain as close to source A as possible. No additional color changes, foliage changes, object movement, crop changes, extra plants, extra props, text, labels, symbols, or visual callouts.",
+      "reference_path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/src/assets/puzzle-pop/nature-lab-leaves-3d.webp"
+    },
+    "corrective_edit": {
+      "reference": "first generated B",
+      "prompt_verbatim": "Make a tightly controlled correction to this existing premium 3D children's botanical workbench illustration. Preserve its square composition, lighting, background, style, and every successful edit already present. Change only these two details: (1) on the open book at the lower left, change the SECOND pressed-leaf sample from the left (the narrow blade-shaped leaf immediately to the right of the oak-shaped sample) into a clearly round, broad oval leaf with a smooth rounded outline, visibly different from the oak sample; (2) recolor ONLY the watering can's loop handle to the original cobalt blue, matching its blue spout/nozzle, while keeping the watering can body bright red and preserving the exact metal can shape. Do not change any other objects or colors: keep exactly three seedlings in the tray; keep the first book sample oak-shaped and the third oak sample and fourth round-leaf sprig; keep the foreground herb leaves teal; keep the root jar roots warm tan; keep the center plant's top large leaf elongated and lance-shaped. Do not add objects or labels. The handle is the arched loop above the can body; the body stays red.",
+      "selected_output_path": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-95f4481b-c69f-406b-b057-212b84825392.png"
+    },
+    "first_generated_intermediate_source": {
+      "path": "docs/qa-evidence/spot-nature-lab-variant-b-20261004/generation-source-edit-1.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "a69f02c30501caabd772c7056153a47b174466f80d448e79ecbb3b0b8d8283d9",
+      "original_tool_output_path": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-f963589d-f339-44c9-a4b3-9755bd0ac995.png",
+      "note": "This intermediate was retained separately from selected B. It missed the rounded book sample and colored the can handle red; the second built-in edit corrected those details."
+    },
+    "prompt_recovery": {
+      "source": "Local Codex session rollout JSONL",
+      "session_file": "/Users/omosanya_main/.codex/sessions/2026/10/03/rollout-2026-10-03T19-46-29-01a10316-d352-7663-a5c2-1eccdc3a4fb8.jsonl",
+      "turn_id": "01a105f9-38aa-7d02-8cc1-244873cdfa9f",
+      "tool_call_id": "call_IBNfbacb3laGVOMa0FCASC3t",
+      "status": "Exact first and corrective prompts recovered from tool-call records."
+    }
+  },
+  "inspected_object_deltas": [
+    {
+      "id": "book-left-specimen",
+      "before": "heart-shaped specimen",
+      "after": "oak-lobed specimen",
+      "approx_bbox_px": [
+        115,
+        985,
+        280,
+        1160
+      ]
+    },
+    {
+      "id": "book-second-specimen",
+      "before": "narrow lance-shaped specimen",
+      "after": "broad rounded oval specimen",
+      "approx_bbox_px": [
+        285,
+        975,
+        410,
+        1195
+      ]
+    },
+    {
+      "id": "seed-tray",
+      "before": "4 visible seedlings",
+      "after": "3 visible seedlings; rightmost seedling removed",
+      "approx_bbox_px": [
+        0,
+        700,
+        360,
+        880
+      ]
+    },
+    {
+      "id": "small-herb-pot",
+      "before": "green foliage",
+      "after": "blue-teal foliage",
+      "approx_bbox_px": [
+        690,
+        590,
+        910,
+        900
+      ]
+    },
+    {
+      "id": "watering-can",
+      "before": "blue body and blue loop handle",
+      "after": "red body, cobalt-blue loop handle; blue spout/head retained",
+      "approx_bbox_px": [
+        960,
+        490,
+        1254,
+        900
+      ]
+    },
+    {
+      "id": "root-jar",
+      "before": "ivory roots; jar has no cap",
+      "after": "warm ochre/tan roots; no cap added",
+      "approx_bbox_px": [
+        930,
+        690,
+        1155,
+        1010
+      ]
+    },
+    {
+      "id": "central-plant-upper-leaf",
+      "before": "broad heart-like upper leaf",
+      "after": "elongated lance-shaped upper leaf",
+      "approx_bbox_px": [
+        440,
+        80,
+        625,
+        300
+      ]
+    }
+  ],
+  "visual_review_caveat": "Full-frame raw A/B inspection shows the main workbench remains square and closely registered, with the same objects, broad layout, lighting, and background theme. Image editing also caused small untargeted foliage/texture variations outside the seven requested regions. The generated B is therefore a visually reviewed candidate, not a pixel-localized or acceptance-tested edit. Seven requested differences are visibly present in the selected output.",
+  "comparison_image": "docs/qa-evidence/spot-nature-lab-variant-b-20261004/side-by-side.png",
+  "suggested_separated_hit_regions_px": [
+    {
+      "id": "book-heart-to-oak",
+      "bbox": [
+        115,
+        985,
+        280,
+        1160
+      ]
+    },
+    {
+      "id": "book-narrow-to-round",
+      "bbox": [
+        285,
+        975,
+        410,
+        1195
+      ]
+    },
+    {
+      "id": "tray-seedling-removal",
+      "bbox": [
+        0,
+        700,
+        360,
+        880
+      ]
+    },
+    {
+      "id": "herb-teal",
+      "bbox": [
+        690,
+        590,
+        910,
+        900
+      ]
+    },
+    {
+      "id": "can-red-body-blue-handle",
+      "bbox": [
+        960,
+        490,
+        1254,
+        900
+      ]
+    },
+    {
+      "id": "jar-roots-ochre",
+      "bbox": [
+        930,
+        690,
+        1155,
+        1010
+      ]
+    },
+    {
+      "id": "central-lance-leaf",
+      "bbox": [
+        440,
+        80,
+        625,
+        300
+      ]
+    }
+  ],
+  "acceptance": "This deliverable is preparatory source art only. Root owns composing and integrating a bounded game variant. No gameplay, puzzle uniqueness, UI target geometry, production, or child-facing acceptance is claimed.",
+  "comparison_image_full_resolution": "docs/qa-evidence/spot-nature-lab-variant-b-20261004/side-by-side-full.png"
+}

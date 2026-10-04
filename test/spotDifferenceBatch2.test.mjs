@@ -57,9 +57,9 @@ test('History Hall edits seven physical artifact regions with separated reachabl
   });
 });
 
-test('Spot Challenge 56px hit targets stay inside and do not overlap in a 280x210 image frame', () => {
-  const frame = { width: 280, height: 210, target: 56 };
+test('Spot Challenge 56px hit targets stay inside and do not overlap in each authored minimum phone frame', () => {
   for (const scene of SPOT_DIFFERENCE_SCENES.filter(({ chapterIndex }) => chapterIndex === 2)) {
+    const frame = { width: 280, height: 280 / (scene.aspectRatio || 4 / 3), target: 56 };
     const centers = scene.differences.map(({ x, y }) => ({ x: (x / 100) * frame.width, y: (y / 100) * frame.height }));
     for (const [index, center] of centers.entries()) {
       assert.ok(center.x >= frame.target / 2 && center.x <= frame.width - frame.target / 2, `${scene.title} target ${index + 1} fits horizontally`);
@@ -285,4 +285,18 @@ test('Time Observatory landscape has five reachable nonoverlapping depicted-obje
     assert.ok(center.x >= 28 && center.x <= 252 && center.y >= 28 && center.y <= 182);
     for (const other of centers.slice(index + 1)) assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
   }
+});
+
+test('World Explorer accepts taps on the pictured objects while keeping blank sky neutral', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ title }) => title === 'World Explorer');
+  assert.equal(scene.aspectRatio, 1);
+  assert.equal(scene.pairedArt, true);
+  assert.equal(scene.editRegions.length + scene.colorEdits.length, 7);
+  for (const [id, x, y] of [
+    ['world-globe', 36, 27], ['world-telescope', 80, 44],
+    ['world-binoculars', 88, 59], ['world-bridge', 46, 64],
+    ['world-marker', 76, 71], ['world-magnifier', 23, 72],
+    ['world-compass', 69, 85],
+  ]) assert.equal(resolveSpotDifferenceTap(scene.differences, [], x, y).difference?.id, id);
+  assert.equal(resolveSpotDifferenceTap(scene.differences, [], 65, 15).kind, 'miss');
 });
