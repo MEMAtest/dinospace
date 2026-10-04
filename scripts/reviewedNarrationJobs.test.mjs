@@ -5,7 +5,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
-  B4_SOURCE_COMMIT, B4_WORKER_PID, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
+  B4_GRAMMAR_INVENTORY_SHA256, B4_GRAMMAR_SOURCE_COMMIT, B4_GRAMMAR_SOURCE_HASHES, B4_SOURCE_COMMIT, B4_WORKER_PID, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
   acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord,
   availableCalls, getCandidateReusablePath, isCandidateReusable, isPackagedCandidate,
   loadPinnedInventory, producerLockPathForJournal, readRequestJournal, requestNarration, selectJobItems,
@@ -15,6 +15,7 @@ import {
 const root = resolve(import.meta.dirname, '..');
 const inventoryPath = resolve(root, 'docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json');
 const supplementalInventoryPath = resolve(root, 'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json');
+const b4GrammarInventoryPath = resolve(root, 'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json');
 const cliPath = resolve(root, 'scripts/run-reviewed-narration-job.mjs');
 const sharedJournal = resolve(root, '../dinospace-batch3-quality/tmp/offline-voice-request-state.json');
 const b4Manifest = resolve(root, '../dinospace-batch4-quality/src/data/offlineVoiceManifest.js');
@@ -25,7 +26,7 @@ const deadPidProbe = () => { throw Object.assign(new Error('not running'), { cod
 test('pins exact reviewed ledger and derives only approved owner keys', async () => {
   const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: PINNED_INVENTORY_SHA256 });
   assert.equal(actualSha256, PINNED_INVENTORY_SHA256);
-  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b6', 'b7-solar', 'b7-memory', 'b2-supplement', 'b3-dino-facts']);
+  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b6', 'b7-solar', 'b7-memory', 'b2-supplement', 'b3-dino-facts', 'b4-grammar']);
   assert.equal(selectJobItems(inventory, 'b5-reasoning').length, 310);
   assert.equal(selectJobItems(inventory, 'b5-literacy').length, 659);
   assert.equal(selectJobItems(inventory, 'b6').length, 378);
@@ -33,6 +34,62 @@ test('pins exact reviewed ledger and derives only approved owner keys', async ()
   assert.equal(selectJobItems(inventory, 'b7-memory').length, 183);
   assert.ok(selectJobItems(inventory, 'b7-solar').every((item) => item.owners.includes('B7_solar') && !item.owners.includes('B4')));
   await assert.rejects(() => loadPinnedInventory({ inventoryPath, suppliedSha256: '0'.repeat(64) }), /must equal reviewed SHA/);
+});
+
+test('B4 grammar selector pins all 47 exact additions to fe5 source files and expected voice paths', async () => {
+  const { inventory, actualSha256 } = await loadPinnedInventory({
+    inventoryPath: b4GrammarInventoryPath,
+    suppliedSha256: B4_GRAMMAR_INVENTORY_SHA256,
+    expectedSha256: B4_GRAMMAR_INVENTORY_SHA256,
+  });
+  assert.equal(actualSha256, B4_GRAMMAR_INVENTORY_SHA256);
+  assert.equal(inventory.source, B4_GRAMMAR_SOURCE_COMMIT);
+  assert.equal(inventory.removed, 47);
+  assert.equal(inventory.unchanged, 5199);
+  const sourceRoot = resolve(root, '../dinospace-batch4-grammar');
+  const sourceDeltaBytes = await readFile(resolve(sourceRoot, 'docs/qa-evidence/batch4-grammar-repair-20261004/corpus-delta.json'));
+  assert.equal(sha256(sourceDeltaBytes), inventory.deltaSha256);
+  const sourceDelta = JSON.parse(sourceDeltaBytes.toString('utf8'));
+  assert.equal(sourceDelta.added.length, 47);
+  assert.equal(sourceDelta.removed.length, 47);
+  assert.equal(sourceDelta.unchanged, 5199);
+  assert.deepEqual(
+    inventory.items.map(({ text, key, path }) => ({ text, key, path })).sort((a, b) => a.key.localeCompare(b.key)),
+    sourceDelta.added.map(({ text, key, path }) => ({ text, key, path })).sort((a, b) => a.key.localeCompare(b.key)),
+  );
+  for (const [path, expected] of Object.entries(B4_GRAMMAR_SOURCE_HASHES)) {
+    assert.equal(sha256(await readFile(resolve(sourceRoot, path))), expected, `source bytes changed: ${path}`);
+  }
+  const selected = selectJobItems(inventory, 'b4-grammar');
+  assert.equal(selected.length, 47);
+  assert.equal(new Set(selected.map(({ key }) => key)).size, 47);
+  assert.ok(selected.every((item) => item.sourceCommit === B4_GRAMMAR_SOURCE_COMMIT && item.owners.includes('B4_grammar') && item.path === `/audio/en/${item.key}-matilda.mp3`));
+  assert.deepEqual(selected.map(({ text }) => text).sort(), inventory.items.map(({ text }) => text).sort());
+  const changed = structuredClone(inventory);
+  changed.sourceHashes['src/data/timeLineAdventure.js'] = '0'.repeat(64);
+  assert.throws(() => selectJobItems(changed, 'b4-grammar'), /source provenance mismatch/);
+  const changedText = structuredClone(inventory);
+  changedText.items[0].text += ' altered';
+  assert.throws(() => selectJobItems(changedText, 'b4-grammar'), /key does not match/);
+});
+
+test('B4 grammar default plan is the exact 47 phrase set and remains read-only', async () => {
+  const beforeManifest = sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js')));
+  const beforeJournal = sha256(await readFile(sharedJournal));
+  const beforeB4Manifest = sha256(await readFile(b4Manifest));
+  const result = spawnSync(process.execPath, [cliPath, '--job=b4-grammar', `--inventory-sha256=${B4_GRAMMAR_INVENTORY_SHA256}`], { cwd: root, encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stderr);
+  const summary = JSON.parse(result.stdout);
+  const ledger = JSON.parse(await readFile(b4GrammarInventoryPath, 'utf8'));
+  assert.equal(summary.mode, 'dry-run');
+  assert.equal(summary.readOnly, true);
+  assert.equal(summary.inventorySha256, B4_GRAMMAR_INVENTORY_SHA256);
+  assert.equal(summary.requested, 47);
+  assert.equal(summary.pending, 47);
+  assert.deepEqual(summary.pendingKeys, ledger.items.map(({ key }) => key).sort());
+  assert.equal(sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js'))), beforeManifest);
+  assert.equal(sha256(await readFile(sharedJournal)), beforeJournal);
+  assert.equal(sha256(await readFile(b4Manifest)), beforeB4Manifest);
 });
 
 test('supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths', async () => {
