@@ -37,6 +37,10 @@ import appleArt from '../../assets/memory-match/apple-v1-card.webp';
 import bananaArt from '../../assets/memory-match/banana-v1-card.webp';
 import grapesArt from '../../assets/memory-match/grapes-v1-card.webp';
 import watermelonArt from '../../assets/memory-match/watermelon-v1-card.webp';
+import flyingSaucerArt from '../../assets/memory-match/flying-saucer-v1-card.webp';
+import alienArt from '../../assets/memory-match/alien-v1-card.webp';
+import galaxyArt from '../../assets/memory-match/galaxy-v1-card.webp';
+import telescopeArt from '../../assets/memory-match/telescope-v1-card.webp';
 import jellyfishArt from '../../assets/memory-match/jellyfish-v1-card.webp';
 import crabArt from '../../assets/memory-match/crab-v1-card.webp';
 import squidArt from '../../assets/memory-match/squid-v1-card.webp';
@@ -87,6 +91,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/banana-v1-card.webp': bananaArt,
   'memory-match/grapes-v1-card.webp': grapesArt,
   'memory-match/watermelon-v1-card.webp': watermelonArt,
+  'memory-match/flying-saucer-v1-card.webp': flyingSaucerArt,
+  'memory-match/alien-v1-card.webp': alienArt,
+  'memory-match/galaxy-v1-card.webp': galaxyArt,
+  'memory-match/telescope-v1-card.webp': telescopeArt,
   'memory-match/jellyfish-v1-card.webp': jellyfishArt,
   'memory-match/crab-v1-card.webp': crabArt,
   'memory-match/squid-v1-card.webp': squidArt,
