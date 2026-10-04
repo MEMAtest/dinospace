@@ -1,0 +1,167 @@
+{
+  "candidate": {
+    "url": "https://dinospace-eight.vercel.app",
+    "deploymentId": "dpl_5cKFB6U489CLoEPucaY9pDarcHsp",
+    "runtimeSourceCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+    "canonicalIdentity": "canonical-identity.json"
+  },
+  "session": "count-prod-scatter-qa-20261004",
+  "routeGuards": [
+    {
+      "pattern": "/api/voice",
+      "status": 403,
+      "body": "QA guard"
+    },
+    {
+      "pattern": "/api/story",
+      "status": 403,
+      "body": "QA guard"
+    }
+  ],
+  "viewports": [
+    "1280x800",
+    "390x844"
+  ],
+  "events": [
+    {
+      "game": "trace",
+      "viewport": "1280x800",
+      "control": "Hear the tracing instruction again",
+      "clip": "7b4cce67-matilda.mp3",
+      "text": "Follow the dotted path in order. Start at the green number and move toward the arrow.",
+      "playCallMs": 2338238,
+      "playingMs": 2338257,
+      "durationSeconds": 5.108,
+      "endedMs": 2343584,
+      "outcome": "natural end"
+    },
+    {
+      "game": "trace",
+      "viewport": "1280x800",
+      "control": "Hear the tracing instruction again then Sound on",
+      "clip": "7b4cce67-matilda.mp3",
+      "playCallMs": 2366554,
+      "playingMs": 2366571,
+      "durationSeconds": 5.108,
+      "pauseCallMs": 2366687,
+      "pauseMs": 2366702,
+      "currentTimeAtPauseCallSeconds": 0.074,
+      "outcome": "visible mute interrupted playback"
+    },
+    {
+      "game": "trace",
+      "viewport": "1280x800",
+      "control": "Show this stroke",
+      "clip": "7e216f14-matilda.mp3",
+      "text": "Show me a stroke.",
+      "durationSeconds": 1.115,
+      "outcome": "natural end"
+    },
+    {
+      "game": "trace",
+      "viewport": "1280x800",
+      "control": "Visible keyboard trace then Check shape",
+      "clip": "435f52be-matilda.mp3",
+      "text": "You followed the letter. Great tracing!",
+      "durationSeconds": 2.322,
+      "outcome": "natural end; feedback held until Next"
+    },
+    {
+      "game": "trace",
+      "viewport": "390x844",
+      "control": "Hear the tracing instruction again then Sound on",
+      "clip": "7b4cce67-matilda.mp3",
+      "text": "Follow the dotted path in order. Start at the green number and move toward the arrow.",
+      "playCallMs": 2905249,
+      "playingMs": 2905266,
+      "durationSeconds": 5.108,
+      "pauseCallMs": 2905383,
+      "pauseMs": 2905397,
+      "currentTimeAtPauseCallSeconds": 0.023,
+      "outcome": "visible mute interrupted playback"
+    },
+    {
+      "game": "tictactoe",
+      "viewport": "1280x800",
+      "control": "Enter Make a line board 1",
+      "clip": "66dd46ca-matilda.mp3",
+      "text": "Two Dino marks are waiting. Find the square that makes three in a row.",
+      "playCallMs": 2444857,
+      "playingMs": 2444922,
+      "durationSeconds": 3.808,
+      "endedMs": 2448748,
+      "outcome": "natural end"
+    },
+    {
+      "game": "tictactoe",
+      "viewport": "1280x800",
+      "control": "Correct visible row 1 column 3 move",
+      "clip": "e7e450d7-matilda.mp3",
+      "text": "Three Dino marks now make a line.",
+      "playCallMs": 2482520,
+      "playingMs": 2482552,
+      "durationSeconds": 1.997,
+      "endedMs": 2484565,
+      "outcome": "natural end; held feedback"
+    },
+    {
+      "game": "tictactoe",
+      "viewport": "1280x800",
+      "control": "Next tactic board",
+      "clip": "66dd46ca-matilda.mp3",
+      "text": "Two Dino marks are waiting. Find the square that makes three in a row.",
+      "playCallMs": 2507599,
+      "playingMs": 2507616,
+      "durationSeconds": 3.808,
+      "endedMs": 2511439,
+      "outcome": "natural end on board 2"
+    },
+    {
+      "game": "tictactoe",
+      "viewport": "1280x800",
+      "control": "Show hint on board 2",
+      "clip": "66dd46ca-matilda.mp3",
+      "text": "Two Dino marks are waiting. Find the square that makes three in a row.",
+      "playCallMs": 2518859,
+      "playingMs": 2518869,
+      "durationSeconds": 3.808,
+      "endedMs": 2522725,
+      "outcome": "natural end; UI hint highlighted row 3 column 1"
+    },
+    {
+      "game": "tictactoe",
+      "viewport": "390x844",
+      "control": "Correct visible row 1 column 1 move then Turn sound off",
+      "clip": "e7e450d7-matilda.mp3",
+      "text": "Three Dino marks now make a line.",
+      "playCallMs": 2775721,
+      "playingMs": 2775739,
+      "durationSeconds": 1.997,
+      "pauseCallMs": 2775872,
+      "pauseMs": 2775887,
+      "currentTimeAtPauseCallSeconds": 0.128,
+      "outcome": "visible mute interrupted playback; held feedback remained rendered"
+    },
+    {
+      "game": "trace",
+      "viewport": "390x844",
+      "control": "Chapter start then prompt replay then Sound on",
+      "clip": "7b4cce67-matilda.mp3",
+      "text": "Follow the dotted path in order. Start at the green number and move toward the arrow.",
+      "playCallMs": 2905249,
+      "playingMs": 2905266,
+      "durationSeconds": 5.108,
+      "pauseCallMs": 2905383,
+      "pauseMs": 2905397,
+      "currentTimeAtPauseCallSeconds": 0.023,
+      "outcome": "visible mute interrupted playback"
+    }
+  ],
+  "observer": {
+    "installed": true,
+    "removed": true,
+    "nativePlayPauseRestored": true,
+    "audioElementsRemainingAfterNavigation": 0
+  },
+  "humanListening": "pending; no person-level audio judgment made"
+}
