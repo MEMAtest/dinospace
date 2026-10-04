@@ -1,0 +1,21 @@
+{
+  "candidate": "Batch 6 bounded editorial source candidate",
+  "sourceCommit": "60f362368d5eedb3b43dedc4fa95eb3097672d7e",
+  "sourceBranch": "codex/amari-batch6-quality-20261003",
+  "builtWith": "npm run build:android",
+  "buildEnvironment": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "origin": "http://127.0.0.1:5363",
+  "frozenDist": "tmp/batch6-editorial-copy-20261004/dist",
+  "filesServed": 5610,
+  "hashMatches": 5610,
+  "hashFailures": 0,
+  "servedManifest": "tmp/batch6-editorial-copy-20261004/served-manifest.json",
+  "servedManifestSha256": "b3acce8f692710aca4c947609f0063458e5f6d7e938f6b646bda4cc8c504a78b",
+  "httpVerification": "tmp/batch6-editorial-copy-20261004/http-verification.json",
+  "httpVerificationSha256": "7be76a604d81748c7d9f4e8192a77a88ee8ff5c8b0b2175febdebbbc0f18ae08",
+  "qaStatus": "Builder source/build/hash verification only; independent UI review pending; not a production release or 4.5 acceptance."
+}
