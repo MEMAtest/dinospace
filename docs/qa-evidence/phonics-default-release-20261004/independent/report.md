@@ -40,6 +40,6 @@ Initial Grown-ups state showed `Phase 2 · age 5-6`, `0 of 23 selected sounds`, 
 
 Letter Launch Level 1 showed a visible `L`/`N` pair. Choosing `L` produced retry feedback `Not quite. Listen for the first sound in Net again.` Choosing `N` held `Well done! Net starts with the n sound.` and `Next mission`; Next mission showed a new choice pair. Confirmed Back to world returned to Read & Write. In a second held-state capture, the visible word Ball was accepted by `B`, with `Super! Ball starts with the b sound.` Screenshot: [desktop Letter Launch held Ball](screenshots/desktop-letter-launch-held-ball.png).
 
-Spelling Studio Level 1 showed the Copy mode and visible word `SAT`. At a visible `PAT` round, tapping `t` when `s` was expected left the slots unchanged and said `The next letter is s`. Selecting `s`, `a`, `t` produced held `Great job!` with Next word. Next word reset the prompt; confirmed Back to world returned to Read & Write.
+Spelling Studio Level 1 showed the Copy mode and visible word `SAT`. On the visible `SAT` round, tapping `t` when `s` was expected left the slots unchanged and said `The next letter is s`. Selecting `s`, `a`, `t` produced held `Great job!` with Next word. Next word reset the prompt; confirmed Back to world returned to Read & Write.
 
 Desktop console: 0 errors and 0 warnings. Network summary showed 25 static requests and no non-static requests; both provider guards remained installed. This continuation is local-only and does not establish human listening quality, provider audio, deployment, or full-game acceptance.
