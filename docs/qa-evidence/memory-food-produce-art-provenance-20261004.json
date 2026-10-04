@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-04T04:40:13.011428+00:00",
+  "method": "Built-in image_gen, one call per distinct asset, transparent_background=true. Selected final originals copied unchanged; no creative bitmap editing or provider-key CLI.",
+  "scope": "Originals only; no runtime/release/4.5 acceptance.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/food-carrot-v1.png",
+      "token": "\ud83e\udd55",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-a344fada-94ec-4dcf-a972-71f87e8f80a1.png",
+      "sha256": "1084b9d3aa61e41b123400b0e533c219e318ec02838de4a1abf9c18bfe1ab9e2",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "One chunky orange carrot with green leafy top, complete tapered silhouette; transparent margin, no scene/frame/text/halo.",
+      "rootReview": "Original visually reviewed: recognizable complete distinct food object, no scene/frame/text. Copied unchanged; rendered mobile82px/caption readability and independent QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/food-corn-v1.png",
+      "token": "\ud83c\udf3d",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-93434f7e-8c87-41c9-81e9-5454a851e9b1.png",
+      "sha256": "9d6657142adfccdfe6d09276e4966f0706affabc52263f983dc508c665623e3a",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "One golden corn cob with large kernels and two partly peeled green husk leaves, complete silhouette and alpha, no scene/plate/text.",
+      "rootReview": "Original visually reviewed: recognizable complete distinct food object, no scene/frame/text. Copied unchanged; rendered mobile82px/caption readability and independent QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/food-biscuit-v1.png",
+      "token": "\ud83c\udf6a",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-44f439d1-689d-4546-b2de-6e374c64bc4f.png",
+      "sha256": "38bffe2ebe4dab7293a936116896fbb1042eb03824f89cbfa274bb65326ccac8",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "One whole round golden biscuit with scalloped edge and five large chocolate chips; distinct from doughnut/cake, isolated alpha, no crumbs/scene.",
+      "rootReview": "Original visually reviewed: recognizable complete distinct food object, no scene/frame/text. Copied unchanged; rendered mobile82px/caption readability and independent QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/food-cheese-v1.png",
+      "token": "\ud83e\uddc0",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-e1cdab0f-bf06-4288-90f4-04b9427a96e1.png",
+      "sha256": "e8ad5902aa0d919ce65287eed7ae19914c922ab0f672837c2c012ef2145ecfa5",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "One chunky triangular yellow cheese wedge with thick side and three large holes, complete readable silhouette and alpha, no plate/mouse/scene.",
+      "rootReview": "Original visually reviewed: recognizable complete distinct food object, no scene/frame/text. Copied unchanged; rendered mobile82px/caption readability and independent QA pending."
+    }
+  ]
+}
