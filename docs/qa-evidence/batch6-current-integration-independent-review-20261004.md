@@ -1,0 +1,59 @@
+# Batch 6 current integration: independent editorial review
+
+Date: 4 October 2026  
+Candidate: local frozen integration, source `2a82fd8fd17d9e76ec4310f2fecf489291f5bbff`, at `http://127.0.0.1:5371/`.  
+Owned game source: `764b2ff49b6c40c13df928b4449d0a1f68fbe660`.
+
+This review considers the current authored content and retained browser evidence for Amari's Pattern Parade, Dino Hangman, Chess Explorers and Astronaut Academy. It is an editorial component recommendation, not a gameplay rerun or release decision. I read the current roadmap and source, the retained full desktop/mobile chapter matrices and their exact repair deltas, the 5371 identity/build report, and the independent 5371 integration browser report. The integration report records byte comparison of the four owned game components/data with the reviewed source. It also verifies the Amari routes, Pattern retry/held-success/Next/parent return at both widths, the legacy Askia Pattern route, and two-way sound preference persistence. The older failures remain attributable to their frozen candidates.
+
+## Component recommendations
+
+| Game | Age-6 teaching | Meaningful progression | Correctness and fair variation | Reliability / navigation / persistence | Combined feedback / audio / visual |
+|---|---:|---:|---:|---:|---|
+| Pattern Parade | 4.5 | 4.5 | 4.5 | 4.5 | Unscored: packaged narration and human listening remain open |
+| Dino Hangman | 4.5 | 4.5 | 4.5 | 4.5 | Unscored: packaged narration and human listening remain open |
+| Chess Explorers | 4.5 | 4.5 | 4.5 | 4.5 | Unscored: packaged narration and human listening remain open |
+| Astronaut Academy | 4.5 | 4.5 | 4.5 | 4.5 | Unscored: packaged narration and human listening remain open |
+
+These are supported component recommendations for this local integrated candidate, not formal ratings in the quality status file. I do not calculate a mean or award overall 4.5. The current B6 inventory reports 378 requested narration phrases, 1 ready and 377 missing. This establishes package incompleteness only; no human listening or spoken-quality judgment is claimed. Visual layout is considered within this combined pending dimension, not scored separately here.
+
+## Per-game basis
+
+### Pattern Parade
+
+- **Teaching — 4.5.** The current question is the neutral “What comes next?”; it no longer names the pattern rule before the child answers. The visible sequence and available clue leave the pattern to infer, and successful feedback names the rule and explains the sequence. The retained AB/AAB/ABB and mobile ABB evidence checks that the clue describes a full three-term unit where required. The mobile screen gives the sequence and choices visual priority; its small festival art does not obstruct them.
+- **Progression — 4.5.** `Repeat it`, `Change the rule` and `Growing festival` move from repeating units to changing/growing rules. Retained matrices complete three six-question chapters at desktop and mobile; the independent 5371 run confirms the current Amari map/locks and an ordinary Next transition. A repeat-signature queue prevents recent identical full-content runs, with the documented finite-pool exception.
+- **Correctness and variation — 4.5.** Source validation binds each complete sequence signature to its rule, answer and options. The earlier AAB clue defect is preserved against 5259; later rendered AAB and ABB checks show a three-term unit description. Full matrices and replay evidence cover answer progression and variation. Current integration reuses the byte-matched reviewed game source.
+- **Reliability — 4.5.** Retained ordinary replay improved saved stars from one to three, increased the global total only by the two-star best-score delta, and survived reload. The 5371 check separately verifies current two-way sound preference across reload and re-entry plus the Amari route and confirmed return. Askia's legacy Pattern flow remains distinct. Evidence demonstrates profile-level totals and source namespacing, not a like-for-like UI comparison of every same-game collection between profiles.
+
+### Dino Hangman
+
+- **Teaching — 4.5.** The first two chapters use child-facing “The hidden word ends in … Look for words with the same ending”; the independent copy review separately checked that the picture/letter clues distinguish what they reveal. The final chapter shifts to initial blends, and completion explains a word family in terms of shared ending spelling and sound. Letter clues identify letter names rather than claiming to provide isolated phonemes.
+- **Progression — 4.5.** The route changes support from shared word endings, to picture-supported clues, to independent rescue. The retained 3×6 desktop/mobile matrix exercises wrong letters, hint use, zero-supply recovery and held completed words. The current integration confirms the Amari map and unlock order.
+- **Correctness and variation — 4.5.** The eligible pool is filtered against taught graphemes and the chapter will not start unless six eligible words are available. The retained runs cover decodable word families, the letter-clue correction and same-word retry without losing the prompt. Fresh queues and shuffled letter choices provide variation; unique word IDs and replay evidence preserve the tested word set.
+- **Reliability — 4.5.** A clean run's three-star best remained after a clue-assisted one-star same-band replay and reload; the replay did not add duplicate global stars. Current integration preserves the game component and shared saved-sound preference, and confirms the route is owned by Amari while Askia remains on its separate menu. The sibling comparison supports global star separation; full same-game fact-collection isolation is not asserted from that UI comparison.
+
+### Chess Explorers
+
+- **Teaching — 4.5.** Each puzzle gives one goal and a concise active-piece instruction. Other piece rules sit behind “How other pieces move”; the board states the mini-board limits (no check, castling or promotion). The retained mobile rook screen demonstrates this is legible alongside legal-square highlighting. This keeps the lesson focused on movement, safe capture and then a mini-puzzle.
+- **Progression — 4.5.** `Piece moves`, `Safe captures` and `Mini-puzzles` form a concrete step-up. The retained full matrix covers five puzzles in each chapter at both widths, and root's exact-source-bound replay checks cover reload and improved-score behavior. Current integration confirms the Chess chapter map entry and lock order.
+- **Correctness and variation — 4.5.** Puzzle validation and retained rendered moves cover legal movement, board bounds, blockers, occupied friendly squares and defended captures. A blocked knight square was not offered, a wrong legal destination remained retryable, a correct move cleared stale error feedback, and a safe capture removed the piece. Replay uses a changed puzzle order while preserving the same objectives.
+- **Reliability — 4.5.** On the retained same-source candidate, an equal replay added no stars; a mobile run improving two stars to three credited only +1, and the best/unlock survived reload. The root integration reconciliation combines that source-bound evidence with current 5371 route and sound-preference checks. The Askia UI check establishes separate displayed global totals, not every game-specific collection comparison.
+
+### Astronaut Academy
+
+- **Teaching — 4.5.** The current source distinguishes “Learn clue” from “Mission clue”: labelled Learn clues can teach a recall fact and mark the run assisted, while reasoning clues scaffold without substituting for the answer. The answer/source fact is held after a correct response. The independent teaching review checked ordinary wrong/retry/correct/Next and passport behavior; the Earth/Venus diagram follow-up confirms diagrams appear with clues, not as answer-free decorative requirements. This supersedes the earlier blanket objection to any answer-bearing clue.
+- **Progression — 4.5.** Space science, mission engineering and review form an observe/explain/design path. Missed mission IDs are held and added to a later run's review queue; successful review resolves them. Retained full chapter matrices cover six missions per chapter at desktop/mobile, and separate UI checks verify six distinct saved facts and later review behavior.
+- **Correctness and variation — 4.5.** Mission validation requires a unique answer among options, a nonempty clue/fact and an allowed source URL. The source audit covers all 36 missions and differentiates answer-bearing teaching clues from inference clues. Retained browser evidence includes wrong retry, answer/fact/source held until Next, and changed replay content. Current copied game data preserves the reviewed source and option rotation.
+- **Reliability — 4.5.** Ordinary replay retained 29 passport facts and the saved chapter map through reload on the reviewed same-source candidate. Current integration confirms the Amari route and saved sound preference across both tested widths. The passport/map evidence is source-bound; the new 5371 integration interaction did not replay all six Astronaut questions.
+
+## Evidence lineage and boundaries
+
+- Current local identity: [`identity.json`](batch6-integration-20261004/identity.json); independent current integration UI: [`report.md`](batch6-integration-browser-20261004/report.md). The latter exercised all four Amari map entries at desktop and 390px, but active gameplay only for Pattern Parade. It is not presented as four fresh full-game runs.
+- Retained full mechanics baseline and candidate-specific repairs: [`batch6-full-local-20261003/report.md`](../../../../work/dinospace-batch6-quality/docs/qa-evidence/batch6-full-local-20261003/report.md), [`batch6-editorial-copy-browser-20261004/report.md`](../../../../work/dinospace-batch6-quality/docs/qa-evidence/batch6-editorial-copy-browser-20261004/report.md), [`batch6-astronaut-teaching-independent-20261004/report.md`](../../../../work/dinospace-batch6-quality/docs/qa-evidence/batch6-astronaut-teaching-independent-20261004/report.md), [`batch6-astronaut-diagram-followup-20261004/report.md`](../../../../work/dinospace-batch6-quality/docs/qa-evidence/batch6-astronaut-diagram-followup-20261004/report.md), [`batch6-reliability-followup-20261004/report.md`](../../../../work/dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-followup-20261004/report.md), and [`batch6-reliability-root-20261004/report.md`](../../../../work/dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-root-20261004/report.md). The historical 5259/5265 tracker, hint and clue failures remain tied to their own frozen identities; later repair evidence does not relabel them as passes on those failed candidates.
+- The route/fact/reward integration is local at 5371. No production identity or release acceptance is claimed. The current report's rating recommendations combine this exact integrated source check with source-bound retained mechanics/replay evidence; they do not claim unchanged flows were re-run solely because the integration SHA changed.
+- Human comprehension testing, packaged narration completion, pronunciation, pacing and native playback acceptance remain open. The current UI's sound toggle persistence is a preference check, not evidence that the missing clips play.
+
+## Remaining actions
+
+There is no newly observed non-audio defect below the 4.5 component target in the reviewed current source and evidence. Keep the formal combined feedback/audio/visual dimension unscored until the narration package and human listening review are complete. Keep overall scores and release acceptance unset until the required gates are satisfied. No broad gameplay rerun is indicated by this editorial review; any future narrow check should target a concrete changed behavior or evidence gap.
