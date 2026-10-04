@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T03:12:37.591301+00:00",
+  "updatedAt": "2026-10-04T03:15:56.395303+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -445,13 +445,14 @@
   "monsterHeaderCandidate": {
     "sourceSha": "484addf2e76be849845f508bdc9fc5e1325b51b7",
     "identity": "docs/qa-evidence/monster-header-identity-20261004.json",
-    "scope": "Promoted after independent immutable candidate QA 6ad072d. Provider canonical alias and seven runtime/index hashes match484addf. Fresh canonical controls underway; no new4.5/listening acceptance.",
+    "scope": "Canonical484addf independently checked063358a: all active titles both widths, normal fullStarter/Growing desktop1200, bounded desktop390 Challenge wrong/clue/reset/held/Next/parent/persist checks; seven files match. No exact2+10/fullChallenge/human audio/4.5 claim. Separate mute-reset regression reproduced and repairc478 local QA underway.",
     "localPlaywright": "Independent5486b2e: mobile Counting6/Growing6 normalunlock, Story6 both390/1280, full mobile episode3 title,48pxheadercontrols, saved rewards/parentBack/console0.",
     "evidence": "docs/qa-evidence/monster-header-484addf-independent-20261004/report.md",
     "deploymentId": "dpl_J3KZBY4qUa8CvBSGzKy3KmWmyiPB",
     "productionCandidateIdentity": "docs/qa-evidence/monster-header-production-candidate-20261004.json",
     "candidatePlaywrightEvidence": "docs/qa-evidence/monster-header-production-candidate-20261004/report.md",
-    "canonicalIdentity": "docs/qa-evidence/monster-header-canonical-identity-20261004.json"
+    "canonicalIdentity": "docs/qa-evidence/monster-header-canonical-identity-20261004.json",
+    "canonicalPlaywrightEvidence": "docs/qa-evidence/monster-header-canonical-20261004/report.md"
   },
   "soundPreferenceRepair": {
     "sourceSha": "c478644",
