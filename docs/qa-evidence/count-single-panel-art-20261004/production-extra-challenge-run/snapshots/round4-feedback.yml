@@ -1,0 +1,39 @@
+- generic [ref=f1e343]:
+  - banner [ref=f1e344]:
+    - button "Back to Maths Missions" [ref=f1e345] [cursor=pointer]
+    - generic [ref=f1e349]:
+      - heading "Count the Stars" [level=1] [ref=f1e350]
+      - paragraph [ref=f1e351]: Galaxy Survey · Round 4 of 6
+    - button "Turn sound on" [ref=f1e352] [cursor=pointer]
+  - main [ref=f1e429]:
+    - generic [ref=f1e430]:
+      - generic [ref=f1e431]:
+        - generic [ref=f1e432]:
+          - paragraph [ref=f1e433]: Galaxy Survey · challenge
+          - heading "Constellation Maps" [level=2] [ref=f1e678]
+        - generic [aria-hidden] [ref=f1e435]: 🗺️
+      - paragraph [ref=f1e436]: Count along a row, or count each group and put the totals together.
+      - group "Counting board for Constellation Maps; organized rows or an array" [ref=f1e679]:
+        - button "map star 1, counted number 1" [disabled] [pressed] [ref=f1e734]:
+          - generic [ref=f1e735]: "1"
+        - button "map star 2, counted number 2" [disabled] [pressed] [ref=f1e736]:
+          - generic [ref=f1e737]: "2"
+        - button "map star 3, counted number 3" [disabled] [pressed] [ref=f1e738]:
+          - generic [ref=f1e739]: "3"
+        - button "map star 4, counted number 4" [disabled] [pressed] [ref=f1e740]:
+          - generic [ref=f1e741]: "4"
+        - button "map star 5, counted number 5" [disabled] [pressed] [ref=f1e742]:
+          - generic [ref=f1e743]: "5"
+        - button "map star 6, counted number 6" [disabled] [pressed] [ref=f1e744]:
+          - generic [ref=f1e745]: "6"
+        - button "map star 7, counted number 7" [disabled] [pressed] [ref=f1e746]:
+          - generic [ref=f1e747]: "7"
+      - generic [ref=f1e503]:
+        - paragraph [ref=f1e504]: Count complete
+        - generic [ref=f1e505]:
+          - button "Hear instructions" [ref=f1e506] [cursor=pointer]
+          - button "Show a clue" [disabled] [ref=f1e511]
+      - status [ref=f1e756]:
+        - paragraph [ref=f1e757]: Brilliant counting!
+        - paragraph [ref=f1e758]: There are 7 map stars. You counted each one once.
+        - button "Next" [ref=f1e759] [cursor=pointer]

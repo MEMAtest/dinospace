@@ -1,0 +1,36 @@
+- generic [ref=f1e343]:
+  - banner [ref=f1e344]:
+    - button "Back to Maths Missions" [ref=f1e345] [cursor=pointer]
+    - generic [ref=f1e349]:
+      - heading "Count the Stars" [level=1] [ref=f1e350]
+      - paragraph [ref=f1e351]: Galaxy Survey · Round 6 of 6
+    - button "Turn sound on" [ref=f1e352] [cursor=pointer]
+  - main [ref=f1e429]:
+    - generic [ref=f1e430]:
+      - generic [ref=f1e431]:
+        - generic [ref=f1e432]:
+          - paragraph [ref=f1e433]: Galaxy Survey · challenge
+          - heading "Crater Gems" [level=2] [ref=f1e801]
+        - generic [aria-hidden] [ref=f1e435]: 🌑
+      - paragraph [ref=f1e436]: Count along a row, or count each group and put the totals together.
+      - group "Counting board for Crater Gems; two visible groups" [ref=f1e802]:
+        - button "crater gem 1, not counted yet" [ref=f1e803] [cursor=pointer]
+        - button "crater gem 2, not counted yet" [ref=f1e808] [cursor=pointer]
+        - button "crater gem 3, not counted yet" [ref=f1e813] [cursor=pointer]
+        - button "crater gem 4, not counted yet" [ref=f1e818] [cursor=pointer]
+        - button "crater gem 5, not counted yet" [ref=f1e823] [cursor=pointer]
+        - button "crater gem 6, not counted yet" [ref=f1e828] [cursor=pointer]
+        - button "crater gem 7, not counted yet" [ref=f1e833] [cursor=pointer]
+        - button "crater gem 8, not counted yet" [ref=f1e838] [cursor=pointer]
+        - button "crater gem 9, not counted yet" [ref=f1e843] [cursor=pointer]
+        - button "crater gem 10, not counted yet" [ref=f1e848] [cursor=pointer]
+        - button "crater gem 11, not counted yet" [ref=f1e853] [cursor=pointer]
+        - button "crater gem 12, not counted yet" [ref=f1e858] [cursor=pointer]
+        - button "crater gem 13, not counted yet" [ref=f1e863] [cursor=pointer]
+        - button "crater gem 14, not counted yet" [ref=f1e868] [cursor=pointer]
+        - button "crater gem 15, not counted yet" [ref=f1e873] [cursor=pointer]
+      - generic [ref=f1e503]:
+        - paragraph [ref=f1e504]: Tap each object once to count it.
+        - generic [ref=f1e505]:
+          - button "Hear instructions" [ref=f1e506] [cursor=pointer]
+          - button "Show a clue" [ref=f1e511] [cursor=pointer]
