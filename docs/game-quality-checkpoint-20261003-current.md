@@ -627,3 +627,14 @@ Root imported and read [Dino copy QAf630017](qa-evidence/batch3-dino-fact-ui-202
 Root selectively integrated finite narration supervisor0d66 and exact shared-lock repairafbb, retaining [independentQA24db](qa-evidence/reviewed-narration-supervisor-independent-qa-20261004/report.md). Root's12 focused tests and read-only Solar plan pass. The shared-journal concurrency defect is closed; an isolated fixture follow-up now covers the remaining provider/MIME rejection and request-error audit branches. No paidjob ran, and B4terminal gate remains closed while its worker is live.
 
 Canonical provider still resolves to dpl_7wFmajPYqR6CPrTLFksm4dkGzppv/0d, READYproduction, and all8 runtime files byte-match in the [late recheck](qa-evidence/canonical-provider-hash-recheck-20261004-late.json). This is identity revalidation, not a new game/browser acceptance run. Accepted count remains4/26.
+
+
+## Current delta — 4 October 17:24 UTC
+
+Recorded acceptance remains **4/26**, with all 26 contracts published and 22 games in progress. Root integrated independently reviewed supplemental narration selectors (five released B2 phrases and two local revised Dino facts), with 16 passing helper/CLI fixture tests. The retained predecessor fixture is explicitly archive-bound; current supplementary receipts bind the inventory and source commit. No provider request was made.
+
+Root caught the clean B4 integration omitting actual router calls to the existing clock-origin helpers, despite helper tests passing. Luna restored the reviewed hook glue in aa1627216907ae1612e1bdbb309764000a995ae6; 26 focused tests/lint/configured build pass, and all 5,879 served files on frozen5383 match. Independent desktop/390px actual-control QA is underway, including Time Detectives clock practice, reload, and confirmed Back. Frozen5382 is preserved and superseded; neither candidate is production.
+
+B4 finite narration worker PID18781 was live at the 17:12:56Z snapshot, run262: 15 newly generated, 3,794 reused, 1,437 pending, expected request-window wait and zero cooldown retries. These time-bound counts may advance; no concurrent paid job or restart was launched. Final corpus/readiness, playback/listening, release and production deltas remain open.
+
+Dino revised fact copy has completed independent ordinary desktop/390px visible QA, with held facts/Next and Explore return. Two exact local fact recordings remain missing and the copy is not canonical. The gap ledger now reflects this completed visible check. Production remains audited0d3ef056; no new release or overall quality award occurred in this delta.

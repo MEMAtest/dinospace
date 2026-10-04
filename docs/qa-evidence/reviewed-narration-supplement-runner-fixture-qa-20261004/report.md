@@ -35,3 +35,7 @@ The previous `afbbf01` fixture evidence remains separate and unchanged. This sup
 - Fixture suite: 1 test passed; all 9 scenarios passed.
 - Scoped ESLint (`no-unused-vars`, `no-undef` on the fixture test): passed.
 - No paid calls, provider calls, live worker interaction, audio decoding, or playback/listening were performed.
+
+## Root integration check
+
+Root integrated bf3a76d and both independent QA reports on 4 October 2026. The combined helper/retained-predecessor/current-supplement suites passed 16 tests (including eight predecessor and nine supplemental CLI response scenarios). The predecessor fixture now reads its immutable afbbf01 Git archive; the supplemental fixture verifies the current integrated bf3a76d byte hashes. Synthetic requests stayed inside disposable fixtures. No real paid execution occurred.

@@ -1,0 +1,261 @@
+✔ pins exact reviewed ledger and derives only approved owner keys (41.181375ms)
+✔ supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths (1.555584ms)
+✔ supplemental dry-runs keep exact pending sets and do not alter either ledger family or shared files (185.182459ms)
+✔ rejects jobs, call rates and run counts outside finite reviewed bounds (0.26ms)
+✔ requires a terminal reconciled B4 record tied to the current manifest and dead worker PID (6.952875ms)
+✔ requires the explicit shared journal and fails closed on invalid journal state or concurrent edits (3.221458ms)
+✔ uses and honors the exact exclusive lock held by the shared B3 producer (2.254709ms)
+✔ only reuses a packaged candidate when reviewed bytes match, including an unmapped exact file (2.643958ms)
+✔ a generated file is reusable only with a matching local receipt and exact text/inventory binding (4.605666ms)
+✔ request helper sends only the approved voice payload and enforces a finite timeout through injected fetch (12.585375ms)
+✔ dry-run reports exact pending keys and leaves package and shared journal untouched (164.231958ms)
+✔ paid mode across both ledgers cannot pass a live predecessor PID even with an apparently terminal record (227.000541ms)
+✔ CLI refuses a modified inventory digest before selecting or writing (74.64275ms)
+✔ paid mode requires explicit per-run and total-run caps (79.022708ms)
+{
+  "reviewedCommit": "afbbf01deb48b70b25797ec8fdbd698ed59ffa0c",
+  "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+  "scenarios": [
+    {
+      "mode": "wrong-provider",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "failure": "Provider header was not verified; response discarded."
+    },
+    {
+      "mode": "wrong-mime",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "failure": "MIME type was not audio/mpeg; response discarded."
+    },
+    {
+      "mode": "tiny",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "failure": "Audio response was too small; response discarded."
+    },
+    {
+      "mode": "http500",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "failure": "HTTP 500; no retry was attempted."
+    },
+    {
+      "mode": "http204",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": true,
+      "lockReleased": true,
+      "failure": "HTTP 204; no retry was attempted."
+    },
+    {
+      "mode": "http429",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": true,
+      "lockReleased": true,
+      "failure": "HTTP 429; no retry was attempted."
+    },
+    {
+      "mode": "throw",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "failure": "fixture transport failure"
+    },
+    {
+      "mode": "success",
+      "exitCode": 2,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 1,
+      "generated": 1,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "failure": null
+    }
+  ],
+  "note": "Fixture-only bytes; no provider request, media decode, listening, or quality claim."
+}
+✔ runner keeps failures audited and accepts only fixture-verified provider/MIME responses (1926.680166ms)
+{
+  "reviewedCommit": "bf3a76dabd2d95e17d37723215ac6a3ae1bf7c30",
+  "b5b7InventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+  "supplementalInventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+  "scenarios": [
+    {
+      "job": "b3-dino-facts",
+      "mode": "wrong-provider",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "failure": "Provider header was not verified; response discarded."
+    },
+    {
+      "job": "b3-dino-facts",
+      "mode": "wrong-mime",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "failure": "MIME type was not audio/mpeg; response discarded."
+    },
+    {
+      "job": "b3-dino-facts",
+      "mode": "tiny",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "failure": "Audio response was too small; response discarded."
+    },
+    {
+      "job": "b3-dino-facts",
+      "mode": "http500",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "failure": "HTTP 500; no retry was attempted."
+    },
+    {
+      "job": "b3-dino-facts",
+      "mode": "http204",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": true,
+      "lockReleased": true,
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "failure": "HTTP 204; no retry was attempted."
+    },
+    {
+      "job": "b3-dino-facts",
+      "mode": "http429",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": true,
+      "lockReleased": true,
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "failure": "HTTP 429; no retry was attempted."
+    },
+    {
+      "job": "b3-dino-facts",
+      "mode": "throw",
+      "exitCode": 1,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 0,
+      "generated": 0,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "failure": "fixture transport failure"
+    },
+    {
+      "job": "b2-supplement",
+      "mode": "success",
+      "exitCode": 2,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 1,
+      "generated": 1,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "failure": null
+    },
+    {
+      "job": "b3-dino-facts",
+      "mode": "success",
+      "exitCode": 2,
+      "fetches": 1,
+      "attempted": 1,
+      "accepted": 1,
+      "generated": 1,
+      "journalRequests": 1,
+      "blocked": false,
+      "lockReleased": true,
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "failure": null
+    }
+  ],
+  "note": "Fixture-only synthetic bytes; no provider request, media decode, listening, or quality claim."
+}
+✔ runner keeps failures audited and accepts only fixture-verified provider/MIME responses (1138.796292ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2021.818125
