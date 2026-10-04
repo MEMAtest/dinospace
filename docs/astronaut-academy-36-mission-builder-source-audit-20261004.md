@@ -57,6 +57,6 @@ Primary sources consulted:
 - [NASA JPL: NASA Tests Future Mars Landing Technology](https://www.jpl.nasa.gov/news/nasa-tests-future-mars-landing-technology/) — larger parachutes are part of technology intended to enable larger payloads and must be developed/tested.
 - [NASA Space Place: How Do We Launch Things Into Space?](https://spaceplace.nasa.gov/launching-into-space/en/) — exhaust pushed down produces the opposite/upward rocket motion.
 - [NASA Science: Facts About Earth](https://science.nasa.gov/earth/facts/) — most of Earth is covered in liquid water; Earth’s axial tilt causes the yearly seasons.
-- The per-mission NASA, NASA JPL, or NASA Ames links in the source column of each authored mission record are the authoritative fact references for the remaining entries; see [the source-gate inventory](batch6-source-gate-report-20261003.md#fact-source-review).
+- The per-mission NASA, NASA JPL, or NASA Ames links on each authored mission record are the authoritative fact references for the remaining entries; see [the source-gate inventory](batch6-source-gate-report-20261003.md).
 
 No runtime files, frozen candidate `5363`, tests, narration assets, or manifests were modified for this audit. No provider or narration calls were made. This report is not independent acceptance, listening certification, release approval, or a 4.5 score.
