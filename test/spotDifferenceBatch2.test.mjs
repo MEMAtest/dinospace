@@ -40,9 +40,21 @@ test('Spot challenge differences are bespoke shape or count variants across alig
     assert.ok(scene.image.endsWith('.webp'), `${scene.title} uses aligned WebP art`);
     assert.equal(scene.differences.length, 7);
     assert.ok(scene.differences.every(({ normalVisual, visual, label }) => (
-      normalVisual.startsWith('prop:') && visual.startsWith('prop:') && normalVisual !== visual && label
+      normalVisual.startsWith(scene.pairedArt ? 'scene:' : 'prop:') && visual.startsWith(scene.pairedArt ? 'scene:' : 'prop:') && normalVisual !== visual && label
     )), `${scene.title} uses seven paired, named scene props`);
   }
+});
+
+test('History Hall edits seven physical artifact regions with separated reachable targets', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ title }) => title === 'History Hall');
+  assert.ok(scene.pairedArt && scene.imageB && scene.image !== scene.imageB);
+  assert.equal(scene.editRegions.length, 7);
+  scene.editRegions.forEach((region, index) => {
+    const target = scene.differences[index];
+    assert.ok(target.x >= region.x && target.x <= region.x + region.width);
+    assert.ok(target.y >= region.y && target.y <= region.y + region.height);
+    assert.ok(region.x >= 0 && region.y >= 0 && region.x + region.width <= 100 && region.y + region.height <= 100);
+  });
 });
 
 test('Spot Challenge 56px hit targets stay inside and do not overlap in a 280x210 image frame', () => {

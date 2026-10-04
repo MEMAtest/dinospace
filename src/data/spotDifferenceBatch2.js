@@ -9,7 +9,8 @@ const patternParade = new URL('../assets/spot-difference/pattern-parade-landscap
 const timeObservatory = new URL('../assets/spot-difference/time-observatory-landscape-v1.webp', import.meta.url).href;
 const robin = new URL('../assets/puzzle-pop/robin-tree-3d.webp', import.meta.url).href;
 const geography = new URL('../assets/puzzle-pop/world-explorer-map-3d.webp', import.meta.url).href;
-const history = new URL('../assets/curriculum/history-world.webp', import.meta.url).href;
+const history = new URL('../assets/spot-difference/history-artifacts-a-v1.webp', import.meta.url).href;
+const historyB = new URL('../assets/spot-difference/history-artifacts-b-v1.webp', import.meta.url).href;
 const nature = new URL('../assets/puzzle-pop/nature-lab-leaves-3d.webp', import.meta.url).href;
 
 export const SPOT_DIFFERENCE_CHAPTERS = Object.freeze([
@@ -245,7 +246,27 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
   }),
   makeScene(2, 8, 'Robin’s Woodland', robin, 'A robin pecking at soil beneath a tree among flowers and woodland plants', 'Robins use their beaks to find food and build safe nests.'),
   makeScene(2, 9, 'World Explorer', geography, 'An explorer workbench with a picture-symbol map and an Earth globe', 'Maps use symbols and labels to show useful information about places.'),
-  makeScene(2, 10, 'History Hall', history, 'Ancient ruins with books, maps and a compass', 'Old objects can be clues about how people lived long ago.'),
+  makeScene(2, 10, 'History Hall', history, 'Seven historical artifacts resting on a museum display desk', 'Old objects can be clues about how people lived long ago.', {
+    imageB: historyB,
+    editRegions: [
+      { x: 0, y: 30, width: 37, height: 21, feather: 0.6 },
+      { x: 37, y: 25, width: 28, height: 24, feather: 0.6 },
+      { x: 71, y: 24, width: 23, height: 27, feather: 0.6 },
+      { x: 3, y: 56, width: 20, height: 25, feather: 0.6 },
+      { x: 27, y: 48, width: 15, height: 34, feather: 0.6 },
+      { x: 44, y: 58, width: 39, height: 25, feather: 0.6 },
+      { x: 83, y: 53, width: 14, height: 29, feather: 0.6 },
+    ],
+    differences: [
+      { id: 'history-book', label: 'the book is open instead of closed', normalVisual: 'scene:closed-book', visual: 'scene:open-book', x: 20, y: 42, radius: 8 },
+      { id: 'history-arches', label: 'the model has three archways instead of two', normalVisual: 'scene:two-arches', visual: 'scene:three-arches', x: 52, y: 39, radius: 8 },
+      { id: 'history-compass', label: 'the compass needle points right instead of up', normalVisual: 'scene:needle-up', visual: 'scene:needle-right', x: 82, y: 39, radius: 8 },
+      { id: 'history-stone', label: 'the stone is square instead of round', normalVisual: 'scene:round-stone', visual: 'scene:square-stone', x: 13, y: 69, radius: 8 },
+      { id: 'history-lantern', label: 'the lantern has two flames instead of one', normalVisual: 'scene:one-flame', visual: 'scene:two-flames', x: 34, y: 69, radius: 8 },
+      { id: 'history-scroll', label: 'the scroll is rolled instead of open', normalVisual: 'scene:open-scroll', visual: 'scene:rolled-scroll', x: 62, y: 71, radius: 8 },
+      { id: 'history-column', label: 'the column has four grooves instead of two', normalVisual: 'scene:two-grooves', visual: 'scene:four-grooves', x: 90, y: 69, radius: 8 },
+    ].map((difference) => Object.freeze(difference)),
+  }),
   makeScene(2, 11, 'Nature Lab', nature, 'A sunny plant workbench with differently shaped leaves, seedlings and roots', 'Plants need light and water to grow.'),
 ]);
 

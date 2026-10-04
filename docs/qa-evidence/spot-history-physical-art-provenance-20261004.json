@@ -1,0 +1,37 @@
+{
+  "createdAt": "2026-10-04T08:01:30.367Z",
+  "mode": "Built-in imagegen: new A scene using historical-world style reference, followed by precise-object B edit. Originals copied unchanged; WebP encoding-only derivatives. Runtime must compose only seven bounded physical-object regions so unrelated image drift cannot become incidental differences.",
+  "reference": "src/assets/curriculum/history-world.webp",
+  "sourceA": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-c67f84ea-b789-4edf-bb0c-1faa18eca8f1.png",
+  "sourceB": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-5db5a6a1-8fef-4894-956c-fb839456e6ec.png",
+  "promptA": "Use case: children's educational game illustration, premium glossy 3D style. Create ONE brand-new 4:3 landscape image for Amari Discovery HQ's History Hall spot-the-difference game. The supplied image is ONLY a style and historical-world reference, not an edit target. A cozy museum archaeology study with warm sunset through stone arches, lush greenery outside and hints of pyramids and Roman ruins in distant background. Main composition: a broad wooden artifact display desk and low shelf, front facing, occupying most of frame. SEVEN large separated physical artifacts, all resting plausibly on desk or shelf with contact shadows: top-left a CLOSED royal blue book with gold edging; top-middle a small sandstone architectural model with EXACTLY TWO open archways; top-right a large round brass compass whose red needle points UP; lower-left a ROUND smooth grey artifact stone; lower-middle-left a bronze glass lantern with EXACTLY ONE candle/flame; lower-middle-right an UNROLLED parchment scroll, held by cylindrical rollers, plain no writing; lower-right a small sandstone COLUMN with EXACTLY TWO visible vertical grooves. Keep each of these seven objects separate with clear empty margins, fully inside image, large enough to compare on mobile at 334px image width. Broad round shapes, rich dimensional materials and cheerful polished children's learning adventure style consistent with reference. Warm cream/gold/blue palette. No people, no labels, no text, no UI, no floating icons or badges. Do not duplicate the seven artifacts elsewhere. No extra foreground props. Prioritize clear silhouettes and physical placement.",
+  "promptB": "Precise-object edit of supplied image for a children's spot-the-difference pair. Preserve the exact 4:3 dimensions, camera, perspective, lighting, background landscape, architecture, foliage, window arches, desk/shelves/woodgrain and ALL unrelated pixels. Change ONLY these seven large physical desk artifacts, staying in the same positions and keeping each bounding footprint close to original: 1 top-left CLOSED blue book becomes an OPEN blue book with clearly visible cream pages. 2 top-middle sandstone architectural model's TWO arch openings become THREE openings; keep same outer footprint/material. 3 top-right compass red needle now points RIGHT instead of UP, same compass dial/case. 4 lower-left ROUND grey artifact stone becomes a SQUARE rounded-corner grey stone, same size/texture. 5 lower-middle-left bronze lantern now contains TWO clearly separate small candle flames instead of one, same lantern/case. 6 lower-middle-right unrolled parchment scroll becomes a tightly ROLLED parchment scroll resting horizontally in same area; same cream parchment and rollers. 7 lower-right sandstone column now has FOUR visible vertical grooves instead of TWO, same outer column silhouette/material. No added props/icons/badges/text. No shifts or color/texture changes to anything else. Each difference is a real physical object variation. Keep the image closely registered to the original for exact A/B matching, and background/desk completely unchanged.",
+  "files": [
+    {
+      "side": "A",
+      "png": "src/assets/spot-difference/history-artifacts-a-v1.png",
+      "webp": "src/assets/spot-difference/history-artifacts-a-v1.webp",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sourceSha256": "cbf363cab5aac219b968a45f669f441e41c997a72843d536c6ae21d0c254bc06",
+      "copiedPngSha256": "cbf363cab5aac219b968a45f669f441e41c997a72843d536c6ae21d0c254bc06",
+      "webpSha256": "33725a924c5e3a8abcdea59b15eabe1007c1a09d3b279c602dfbc9ac908d2401",
+      "encoding": "Pillow WebP quality96/method6; no crop/recolour/resize/compositing"
+    },
+    {
+      "side": "B",
+      "png": "src/assets/spot-difference/history-artifacts-b-v1.png",
+      "webp": "src/assets/spot-difference/history-artifacts-b-v1.webp",
+      "dimensions": [
+        1448,
+        1086
+      ],
+      "sourceSha256": "bd81cb130e196a8ee7724e8ec3874466db7940fc48f44e1d5bde30b7d17128a7",
+      "copiedPngSha256": "bd81cb130e196a8ee7724e8ec3874466db7940fc48f44e1d5bde30b7d17128a7",
+      "webpSha256": "b9291087e9e91c65aacfbc288b11ed3b321f12aa37660418dfabfdd790102fb7",
+      "encoding": "Pillow WebP quality96/method6; no crop/recolour/resize/compositing"
+    }
+  ]
+}
