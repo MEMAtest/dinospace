@@ -71,3 +71,12 @@ To move these ratings to an acceptance decision:
 3. Freeze the completed audio source, bind the exact candidate/served assets, and run the required canonical production regression. There is currently no Batch 4 production deployment evidence.
 
 These gates do not alter the supported local non-audio scores above. They keep the formal feedback/audio/visual score and overall 4.5 acceptance open. The authoritative verified count remains 4.
+
+
+## Subsequent singular-agreement finding and repair — 4 October 2026
+
+Independent preparation of the exact listening worksheet found three authored agreement defects that the earlier non-audio assessment did not flag: Take Away “There are 1 apple,” remaining-count “1 remain,” and Number Line comparison “1 spaces.” These defects are concrete authored-copy findings; the old table is retained as its earlier assessment, not a claim that these phrases are acceptable.
+
+Root repair fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128 corrects the data, exact narration helper segments and finite inventory. The [repair report](batch4-grammar-repair-20261004/report.md) and exact corpus delta retain 5,199 unchanged phrases and identify 47 corrected additions. Question IDs, maths, difficulty, progression and reward logic are unchanged. Eighteen focused tests/lint/configured build and all eight served runtime hashes passed on frozen5384. Independent source/rendered review remains pending; no new teaching score or overall award is recorded here.
+
+The live ac3 narration worker remains immutable and may generate those old phrases. They will be unused by the corrected B4 source; the 47 exact replacements must be packaged after that worker is terminal, then decoded and verified through actual native sequence/cancellation and listening. Neither the old generated corpus nor the source repair alone closes audio or production acceptance.

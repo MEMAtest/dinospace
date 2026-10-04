@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T17:29:55.271841+00:00",
+  "updatedAt": "2026-10-04T17:59:52.579547+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1389,5 +1389,18 @@
     "identity": "work/dinospace-batch4-clean-integration/docs/qa-evidence/batch4-clock-route-repair-identity-20261004.json",
     "scope": "Canonical0d base plus exactac3 four components; rootcaught5382 omitted router glue, reviewed8bb hook restored.26 focused tests/lint/build,5879 served byte matches. Independent actual controls QA underway. Baseline-only narration65/5246; local/no release."
   },
-  "canonicalLatestBaseRecheck": "docs/qa-evidence/canonical-base-recheck-20261004-1740.json"
+  "canonicalLatestBaseRecheck": "docs/qa-evidence/canonical-base-recheck-20261004-1740.json",
+  "batch4GrammarRepair": {
+    "source": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+    "origin": "http://127.0.0.1:5384",
+    "report": "docs/qa-evidence/batch4-grammar-repair-20261004/report.md",
+    "affectedUniquePhrases": 47,
+    "unchangedUniquePhrases": 5199,
+    "scope": "Independent source audit found singular agreement defects; root corrected data, exact segment helpers and inventory.18 focused tests/lint/configured build/eight runtime hashes pass. Source/corpus and rendered copy review pending. No worker or manifest mutation;47 replacement recordings/audio QA required after original worker terminal. No new score or release."
+  },
+  "phonemePilotPrepared": {
+    "source": "6b052cc65f1eee05eea6a825d32b9949d9d1bb39",
+    "report": "work/dinospace-phoneme-qa-pilot/docs/phoneme-qa-pilot-preparation-20261004.md",
+    "scope": "Builder source-only three-sound experiment prepared, root review pending. No provider call/runtime sound asset; worker live guard. SSML support does not prove isolated phoneme quality."
+  }
 }
