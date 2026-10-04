@@ -1,0 +1,36 @@
+{
+  "candidate": "Batch 7 Solar copy and Memory late mobile captions",
+  "baseRuntimeCommit": "c4db1d4b3e469bf71409ec7d859a05a2c7fa9301",
+  "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+  "branch": "codex/batch7-teaching-readability-20261004",
+  "previewUrl": "http://127.0.0.1:5391",
+  "previewType": "isolated localhost Vite preview; not deployed",
+  "buildCommand": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build:android",
+  "servedFiles": 5963,
+  "matchedFiles": 5963,
+  "failedFiles": 0,
+  "servedAssetSha256Manifest": "served-assets-sha256.txt",
+  "servedAssetManifestSha256": "e0e9273d1a3cc73c9d9a47d1eccaaa5045ac3ab10d8c76a8224195cf2f249b15",
+  "planetFactsReviewed": 54,
+  "planetFactsEdited": 22,
+  "planetFactsUnchanged": 32,
+  "fullSolarVoiceCorpus": {
+    "uniqueBefore": 127,
+    "readyBefore": 111,
+    "missingBefore": 16,
+    "uniqueAfter": 127,
+    "readyAfter": 75,
+    "missingAfter": 52,
+    "additionalSharedRuntimeLine": {
+      "text": "Not quite. Check the discoveries and try again.",
+      "key": "89bd4948",
+      "manifestPath": "/audio/en/89bd4948-matilda.mp3",
+      "unchanged": true
+    },
+    "basis": "126 planet intro/fact/Discovery/quiz lines plus one shared wrong-quiz feedback utterance used by Solar"
+  },
+  "voiceManifestModified": false,
+  "voiceGenerationRun": false,
+  "staticAssetOnlyHashProbe": true,
+  "remoteVoiceOrStoryApiRequested": false
+}
