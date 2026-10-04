@@ -1,0 +1,2726 @@
+{
+  "generatedAt": "2026-10-04",
+  "sourceCandidates": {
+    "baseline": "7fbbfef9454a8d1e709cbcab5c8ae72c239e7dfb",
+    "soundPreferencePatch": "1410edb79f0105f25a3cbfd5c9a4c7626140ae1d"
+  },
+  "inventory": {
+    "levelCount": 10,
+    "pairPlacements": 127,
+    "uniqueTokens": 87,
+    "illustratedTokens": 87,
+    "unillustratedTokens": 0,
+    "distinctContextAssetPaths": 89,
+    "contextAssetUsages": 127,
+    "cardFaceInstances": 254
+  },
+  "broadIndependentGameplayEvidence": [
+    "docs/qa-evidence/batch7-memory-premium-independent-20261003/report.md",
+    "docs/qa-evidence/batch7-memory-final87-independent-20261004/report.md"
+  ],
+  "interpretation": "Full ten-level visible-play reports establish that every authored pair placement was revealed during ordinary gameplay on the cited candidate. A token-specific focused delta is stronger art observation, not a proxy for human subjective acceptance. Coverage tier names below distinguish these evidence types.",
+  "focusedDeltaGroups": [
+    {
+      "report": "docs/qa-evidence/batch7-memory-art-ee38737-independent-20261004/report.md",
+      "source": "ee38737b1bbb2dbfc7a158c796ea1f18289f40df",
+      "byLevel": {
+        "forest": [
+          "dog",
+          "fox"
+        ],
+        "space": [
+          "moon",
+          "ringed planet",
+          "comet",
+          "satellite"
+        ],
+        "dinos": [
+          "egg",
+          "volcano"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md",
+      "source": "200bdcc2b75fdaefa37a2787b974bf6d093dbe89",
+      "byLevel": {
+        "dinos": [
+          "tree",
+          "seedling",
+          "leaf"
+        ],
+        "garden": [
+          "seedling",
+          "leaf",
+          "mushroom"
+        ],
+        "astronaut": [
+          "earth",
+          "sun"
+        ],
+        "cosmic-challenge": [
+          "full moon",
+          "new moon"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-ocean-art-3a2d367-independent-20261004/report.md",
+      "source": "3a2d367b1bbb2dbfc7a158c796ea1f18289f40df",
+      "byLevel": {
+        "ocean": [
+          "whale",
+          "dolphin",
+          "shark",
+          "turtle"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md",
+      "source": "2e348c04933243c81d95414365ba631880163293",
+      "byLevel": {
+        "ocean": [
+          "fish",
+          "jellyfish",
+          "crab",
+          "squid"
+        ],
+        "garden": [
+          "pond fish"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-star-sun-independent-db0a9c1-20261004/report.md",
+      "source": "db0a9c18b253cc24f879e87c0ea2050c64d5bc8c",
+      "byLevel": {
+        "cosmic-challenge": [
+          "star",
+          "glowing star",
+          "shooting star",
+          "sun with a face"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-space-objects-independent-c1d58ec-20261004/report.md",
+      "source": "c1d58ecb50f8dbfb42c1a356b9377a2cd4d63da9",
+      "byLevel": {
+        "space": [
+          "flying saucer",
+          "alien",
+          "galaxy"
+        ],
+        "astronaut": [
+          "flying saucer",
+          "alien",
+          "galaxy",
+          "telescope"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-frog-grid-independent-3931a3b-20261004/report.md",
+      "source": "3931a3b485356ab968b9197fec8d273f223517b0",
+      "byLevel": {
+        "forest": [
+          "frog",
+          "monkey"
+        ],
+        "garden": [
+          "frog"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-visual-independent-20261004/report.md",
+      "source": "44b9807eeec169cc5d48809c8c5a5eff29297c5f",
+      "byLevel": {
+        "forest": [
+          "frog",
+          "monkey"
+        ],
+        "dinos": [
+          "long-neck dinosaur",
+          "t-rex"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-final87-independent-20261004/report.md",
+      "source": "7fbbfef9454a8d1e709cbcab5c8ae72c239e7dfb",
+      "byLevel": {
+        "dinos": [
+          "dinosaur nest"
+        ],
+        "vehicles": [
+          "speedboat"
+        ],
+        "garden": [
+          "water lily"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-garden-creatures-independent-8ff59e48-20261004/report.md",
+      "source": "8ff59e48f0248bac8e4410a008c8b7a0d9f03f7f",
+      "byLevel": {
+        "garden": [
+          "bee",
+          "butterfly",
+          "ladybird",
+          "snail"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-garden-crawlers-independent-20261004/report.md",
+      "source": "4f6d48122e65d861e73bb2ff0d7e446b845521e9",
+      "byLevel": {
+        "garden": [
+          "caterpillar",
+          "worm",
+          "ant",
+          "spider"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-vehicles-independent-a59482a7-20261004/report.md",
+      "source": "a59482a7a47a59bea733abc097efa02bbd0153c0",
+      "byLevel": {
+        "vehicles": [
+          "aeroplane",
+          "helicopter",
+          "steam train",
+          "passenger train"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-vehicle-four-independent-20261004/report.md",
+      "source": "357f24cf13b1b8ddcde474f0b7628f3dad11ebf0",
+      "byLevel": {
+        "vehicles": [
+          "bus",
+          "tractor",
+          "bicycle",
+          "scooter"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-party-decorations-independent-eb869cd7-20261004/report.md",
+      "source": "eb869cd76eebbe906afc59bd55a9f54c67eb1307",
+      "byLevel": {
+        "party": [
+          "balloon",
+          "sweet",
+          "cake",
+          "party popper"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md",
+      "source": "725830f0b7cb72ee9eff83b61de9871fb8ebcf29",
+      "byLevel": {
+        "party": [
+          "strawberry",
+          "pizza",
+          "doughnut",
+          "cupcake"
+        ],
+        "food": [
+          "strawberry",
+          "pizza",
+          "doughnut",
+          "cupcake"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-food-four-independent-af84ae26-20261004/report.md",
+      "source": "af84ae26525b1349e309b904058bc5b18d1d7daa",
+      "byLevel": {
+        "food": [
+          "carrot",
+          "corn",
+          "biscuit",
+          "cheese"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md",
+      "source": "e7714415d47f4fdc9adaadb060b8b544cefd3206",
+      "byLevel": {
+        "food": [
+          "apple",
+          "banana",
+          "grapes",
+          "watermelon"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-fossils-independent-0d519939-20261004/report.md",
+      "source": "0d519939042dc8269ff759e3fe0afa6002b1c70c",
+      "byLevel": {
+        "dinos": [
+          "bone",
+          "dinosaur tooth",
+          "fossil dig pick",
+          "fossil dig rock"
+        ],
+        "astronaut": [
+          "moon rock"
+        ],
+        "cosmic-challenge": [
+          "moon rock"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-isolated-space-independent-dadb0eb3-20261004/report.md",
+      "source": "dadb0eb3c6f4e454b3db6b975266cc3600c103e0",
+      "byLevel": {
+        "forest": [
+          "frog",
+          "monkey"
+        ],
+        "garden": [
+          "frog"
+        ],
+        "astronaut": [
+          "suited astronaut",
+          "moon rock"
+        ],
+        "cosmic-challenge": [
+          "moon rock"
+        ]
+      }
+    },
+    {
+      "report": "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md",
+      "source": "7fbbfef9454a8d1e709cbcab5c8ae72c239e7dfb",
+      "byLevel": {
+        "dinos": [
+          "mountain"
+        ],
+        "garden": [
+          "tulip",
+          "duck"
+        ],
+        "party": [
+          "lolly",
+          "chips",
+          "party face"
+        ],
+        "food": [
+          "lolly",
+          "chips",
+          "drink"
+        ],
+        "vehicles": [
+          "racing car"
+        ]
+      }
+    }
+  ],
+  "focusedContextCount": 99,
+  "baselineRenderedOnlyContextCount": 28,
+  "tokenContexts": [
+    {
+      "labels": [
+        "Sun"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/sun-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "comet"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "memory-match/comet-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-ee38737-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "comet"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/comet-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "comet"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/comet-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "fossil dig pick"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/fossil-dig-pick-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fossils-independent-0d519939-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "mountain"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/mountain-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "aeroplane"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/aeroplane-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-vehicles-independent-a59482a7-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "star"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "memory-match/star-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "star"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/star-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "star"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/star-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-star-sun-independent-db0a9c1-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "volcano"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/volcano-v1.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-ee38737-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "galaxy"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "memory-match/galaxy-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-space-objects-independent-c1d58ec-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "galaxy"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/galaxy-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-space-objects-independent-c1d58ec-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "galaxy"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/galaxy-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "Earth"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/earth-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "Earth"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/earth-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "new moon"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/new-moon-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "full moon"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/full-moon-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "moon"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "memory-match/crescent-moon-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-ee38737-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "moon"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/crescent-moon-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "moon"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/crescent-moon-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "Sun with a face"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/sun-face-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-star-sun-independent-db0a9c1-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "glowing star"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "memory-match/glowing-star-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "glowing star"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/glowing-star-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "glowing star"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/glowing-star-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-star-sun-independent-db0a9c1-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "shooting star"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/shooting-star-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "shooting star"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/shooting-star-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-star-sun-independent-db0a9c1-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "seedling"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/seedling-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "seedling"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/seedling-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "tree"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/tree-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "tulip"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/tulip-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "corn"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/food-corn-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-food-four-independent-af84ae26-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "leaf"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/leaf-sprig-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "leaf"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/leaf-sprig-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "mushroom"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/mushroom-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-update-200bdcc-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "grapes"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/grapes-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "watermelon"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/watermelon-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "watermelon"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/watermelon-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "banana"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/banana-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "apple"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/apple-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "strawberry"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/strawberry-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "strawberry"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/strawberry-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "pizza"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/pizza-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "pizza"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/pizza-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "chips"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/chips-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "chips"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/chips-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "doughnut"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/doughnut-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "doughnut"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/doughnut-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "biscuit"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/food-biscuit-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-food-four-independent-af84ae26-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "sweet"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/wrapped-sweet-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-decorations-independent-eb869cd7-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "lolly"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/lolly-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "lolly"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/lolly-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "cake"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/party-cake-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-decorations-independent-eb869cd7-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "balloon"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/party-balloon-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-decorations-independent-eb869cd7-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "party popper"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/party-popper-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-decorations-independent-eb869cd7-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "racing car"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/racing-car-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "snail"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/garden-snail-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-garden-creatures-independent-8ff59e48-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "caterpillar"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/garden-caterpillar-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-garden-crawlers-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "ant"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/garden-ant-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-garden-crawlers-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "bee"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/garden-bee-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-garden-creatures-independent-8ff59e48-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "ladybird"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/garden-ladybird-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-garden-creatures-independent-8ff59e48-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "fish",
+        "pond fish"
+      ],
+      "levelId": "ocean",
+      "levelName": "Ocean Splash",
+      "asset": "memory-match/ocean-fish-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "fish",
+        "pond fish"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/pond-fish-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "turtle"
+      ],
+      "levelId": "ocean",
+      "levelName": "Ocean Splash",
+      "asset": "memory-match/turtle-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-ocean-art-3a2d367-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "turtle"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/turtle-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "dolphin"
+      ],
+      "levelId": "ocean",
+      "levelName": "Ocean Splash",
+      "asset": "memory-match/dolphin-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-ocean-art-3a2d367-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "whale"
+      ],
+      "levelId": "ocean",
+      "levelName": "Ocean Splash",
+      "asset": "memory-match/whale-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-ocean-art-3a2d367-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "monkey"
+      ],
+      "levelId": "forest",
+      "levelName": "Forest Friends",
+      "asset": "memory-match/isolated-monkey-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-frog-grid-independent-3931a3b-20261004/report.md",
+        "docs/qa-evidence/batch7-memory-visual-independent-20261004/report.md",
+        "docs/qa-evidence/batch7-memory-isolated-space-independent-dadb0eb3-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "dog"
+      ],
+      "levelId": "forest",
+      "levelName": "Forest Friends",
+      "asset": "memory-match/dog-v1.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-ee38737-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "frog"
+      ],
+      "levelId": "forest",
+      "levelName": "Forest Friends",
+      "asset": "memory-match/isolated-frog-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-frog-grid-independent-3931a3b-20261004/report.md",
+        "docs/qa-evidence/batch7-memory-visual-independent-20261004/report.md",
+        "docs/qa-evidence/batch7-memory-isolated-space-independent-dadb0eb3-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "frog"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/isolated-frog-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-frog-grid-independent-3931a3b-20261004/report.md",
+        "docs/qa-evidence/batch7-memory-isolated-space-independent-dadb0eb3-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "suited astronaut"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/astronaut-amari-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-isolated-space-independent-dadb0eb3-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "suited astronaut"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/astronaut-amari-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "alien"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "memory-match/alien-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-space-objects-independent-c1d58ec-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "alien"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/alien-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-space-objects-independent-c1d58ec-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "alien"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/alien-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "telescope"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/telescope-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-space-objects-independent-c1d58ec-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "telescope"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/telescope-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "spider"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/garden-spider-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-garden-crawlers-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "carrot"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/food-carrot-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-food-four-independent-af84ae26-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "egg"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/dinosaur-egg-v1.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-ee38737-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "drink"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/drink-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "party face"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/party-face-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "crab"
+      ],
+      "levelId": "ocean",
+      "levelName": "Ocean Splash",
+      "asset": "memory-match/crab-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "duck"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/duck-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-eight-art-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "shark"
+      ],
+      "levelId": "ocean",
+      "levelName": "Ocean Splash",
+      "asset": "memory-match/shark-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-ocean-art-3a2d367-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "fox"
+      ],
+      "levelId": "forest",
+      "levelName": "Forest Friends",
+      "asset": "memory-match/fox-v1.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-ee38737-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "butterfly"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/garden-butterfly-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-garden-creatures-independent-8ff59e48-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "squid"
+      ],
+      "levelId": "ocean",
+      "levelName": "Ocean Splash",
+      "asset": "memory-match/squid-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "long-neck dinosaur"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "little/detective-bronto.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-visual-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "T-rex"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "little/detective-trex.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-visual-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "bone"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/fossil-bone-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fossils-independent-0d519939-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "dinosaur tooth"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/dinosaur-tooth-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fossils-independent-0d519939-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "cheese"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/food-cheese-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-food-four-independent-af84ae26-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "cupcake"
+      ],
+      "levelId": "party",
+      "levelName": "Party & Treats",
+      "asset": "memory-match/cupcake-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "cupcake"
+      ],
+      "levelId": "food",
+      "levelName": "Yummy Feast",
+      "asset": "memory-match/cupcake-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "ringed planet"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "memory-match/ringed-planet-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-ee38737-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "ringed planet"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/ringed-planet-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "ringed planet"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/ringed-planet-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "fossil dig rock",
+        "moon rock"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/fossil-rock-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fossils-independent-0d519939-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "fossil dig rock",
+        "moon rock"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/moon-rock-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fossils-independent-0d519939-20261004/report.md",
+        "docs/qa-evidence/batch7-memory-isolated-space-independent-dadb0eb3-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "fossil dig rock",
+        "moon rock"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/moon-rock-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-fossils-independent-0d519939-20261004/report.md",
+        "docs/qa-evidence/batch7-memory-isolated-space-independent-dadb0eb3-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "worm"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/garden-earthworm-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-garden-crawlers-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "water lily"
+      ],
+      "levelId": "garden",
+      "levelName": "Garden & Pond Life",
+      "asset": "memory-match/water-lily-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-final87-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "dinosaur nest"
+      ],
+      "levelId": "dinos",
+      "levelName": "Dinosaur Discovery",
+      "asset": "memory-match/dinosaur-nest-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-final87-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "jellyfish"
+      ],
+      "levelId": "ocean",
+      "levelName": "Ocean Splash",
+      "asset": "memory-match/jellyfish-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "rocket"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "little/fuel-rocket.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "rocket"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "little/fuel-rocket.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "rocket"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "little/fuel-rocket.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "rocket"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "little/fuel-rocket.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "helicopter"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/helicopter-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-vehicles-independent-a59482a7-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "steam train"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/steam-train-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-vehicles-independent-a59482a7-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "passenger train"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/passenger-train-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-vehicles-independent-a59482a7-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "bus"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/bus-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-vehicle-four-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "fire engine"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "little/rescue-firetruck.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "car"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "german-garage/friendly-car.png",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "tractor"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/tractor-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-vehicle-four-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "speedboat"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/speedboat-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-final87-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "bicycle"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/bicycle-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-vehicle-four-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "satellite"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "memory-match/satellite-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-art-ee38737-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "satellite"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/satellite-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "satellite"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/satellite-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "scooter"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/scooter-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-vehicle-four-independent-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "flying saucer"
+      ],
+      "levelId": "space",
+      "levelName": "Space Sparkle",
+      "asset": "memory-match/flying-saucer-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-space-objects-independent-c1d58ec-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "flying saucer"
+      ],
+      "levelId": "vehicles",
+      "levelName": "All Kinds of Vehicles",
+      "asset": "memory-match/flying-saucer-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    },
+    {
+      "labels": [
+        "flying saucer"
+      ],
+      "levelId": "astronaut",
+      "levelName": "Astronaut Mission",
+      "asset": "memory-match/flying-saucer-v1-card.webp",
+      "focusedReports": [
+        "docs/qa-evidence/batch7-memory-space-objects-independent-c1d58ec-20261004/report.md"
+      ],
+      "coverage": "focused-art-delta"
+    },
+    {
+      "labels": [
+        "flying saucer"
+      ],
+      "levelId": "cosmic-challenge",
+      "levelName": "Galaxy Challenge",
+      "asset": "memory-match/flying-saucer-v1-card.webp",
+      "focusedReports": [],
+      "coverage": "full-run-rendered-only"
+    }
+  ],
+  "sourceIntegrity": {
+    "sourceDataAndRendererFilesUnchanged": true,
+    "changedSourcePaths": [
+      "src/App.jsx"
+    ],
+    "all89AssetsPresent": true,
+    "all89AssetGitBlobsIdenticalAcrossCandidates": true,
+    "assetDetails": [
+      {
+        "asset": "german-garage/friendly-car.png",
+        "sha256": "755322122df5504afae09e3c5dc969688239390d8ac30e9d11143a1253151bc1",
+        "gitBlob7f": "bbd2af25b89829bb2245367271c19bcf3e3f393c",
+        "gitBlob1410": "bbd2af25b89829bb2245367271c19bcf3e3f393c",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "car"
+        ]
+      },
+      {
+        "asset": "little/detective-bronto.webp",
+        "sha256": "3e40c262ad4dd85ec97fa68c3fc1a5b274f790f954e7b86823a4bb4ad1886f0c",
+        "gitBlob7f": "793314ffc78897a0dd61182ce509c6fe0600dfb8",
+        "gitBlob1410": "793314ffc78897a0dd61182ce509c6fe0600dfb8",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "long-neck dinosaur"
+        ]
+      },
+      {
+        "asset": "little/detective-trex.webp",
+        "sha256": "46bbe5b38addcceb5b0c24bd31af47033addbc4cc5ed54761c5e5dcb5082c3ea",
+        "gitBlob7f": "ea9f1cd72c85b68c593da485b834fa947b7f6e45",
+        "gitBlob1410": "ea9f1cd72c85b68c593da485b834fa947b7f6e45",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "T-rex"
+        ]
+      },
+      {
+        "asset": "little/fuel-rocket.webp",
+        "sha256": "2d4bd4a6b52197f9b402595e9baac34e5b7094a98be1b364e525dc59b9a36db1",
+        "gitBlob7f": "ed33cf2f6e90607439860008a943e931e77da04f",
+        "gitBlob1410": "ed33cf2f6e90607439860008a943e931e77da04f",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "rocket"
+        ]
+      },
+      {
+        "asset": "little/rescue-firetruck.webp",
+        "sha256": "14654bb186584643bb10eae2160fff5fef25534a6e1a455981645541cf15fe4c",
+        "gitBlob7f": "17028dee562f22d61a91228353d29075db1dc700",
+        "gitBlob1410": "17028dee562f22d61a91228353d29075db1dc700",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "fire engine"
+        ]
+      },
+      {
+        "asset": "memory-match/aeroplane-v1-card.webp",
+        "sha256": "8f45a3c6795eaeeeb710f12d9ea8b11ad42dd0c182b69e807596329bb28042cb",
+        "gitBlob7f": "0e85e986fbf289dc358bde5d19856f81ecbd9d23",
+        "gitBlob1410": "0e85e986fbf289dc358bde5d19856f81ecbd9d23",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "aeroplane"
+        ]
+      },
+      {
+        "asset": "memory-match/alien-v1-card.webp",
+        "sha256": "4d60d5c9f0a8fe68f0199612247858cced56f1e819998d8d0636a724182c1e09",
+        "gitBlob7f": "ac12aa9f07baa3e16f58d0f76382965b31bfc8f8",
+        "gitBlob1410": "ac12aa9f07baa3e16f58d0f76382965b31bfc8f8",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "alien"
+        ]
+      },
+      {
+        "asset": "memory-match/apple-v1-card.webp",
+        "sha256": "89d08d129bc36a6cf22c9d9f8bbad3bcc98c4875d261350af1490d9d97a32f6c",
+        "gitBlob7f": "97b37b64cb59a579efef104da5577bd954364a78",
+        "gitBlob1410": "97b37b64cb59a579efef104da5577bd954364a78",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "apple"
+        ]
+      },
+      {
+        "asset": "memory-match/astronaut-amari-v1-card.webp",
+        "sha256": "b916a317eaf876b7d315731f3148b47bf16e44aa14c7447747394e3e51f62ca7",
+        "gitBlob7f": "5f50dc8068743bce9f67e1fc8e221fc29148dc1a",
+        "gitBlob1410": "5f50dc8068743bce9f67e1fc8e221fc29148dc1a",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "suited astronaut"
+        ]
+      },
+      {
+        "asset": "memory-match/banana-v1-card.webp",
+        "sha256": "d1dac6ddc12e05492f817e3000d795137e45e16c72e51455f03385a73627954b",
+        "gitBlob7f": "f8450d800dd7cc07d2050d23b61cfe6dc052cc48",
+        "gitBlob1410": "f8450d800dd7cc07d2050d23b61cfe6dc052cc48",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "banana"
+        ]
+      },
+      {
+        "asset": "memory-match/bicycle-v1-card.webp",
+        "sha256": "97c8c8390353d0629705cebc39ca4afdb80347ebcfd7244be97b2cf3dc8a38e8",
+        "gitBlob7f": "8688c3e9cc4564229605c5227f0deeb79535d417",
+        "gitBlob1410": "8688c3e9cc4564229605c5227f0deeb79535d417",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "bicycle"
+        ]
+      },
+      {
+        "asset": "memory-match/bus-v1-card.webp",
+        "sha256": "3a8213ab52095736b577ab5c79ac1b15ccfa993b2e473cc62eebf2347ad2741d",
+        "gitBlob7f": "2294c7ea64178ddf40892a0f936955efd85b99d6",
+        "gitBlob1410": "2294c7ea64178ddf40892a0f936955efd85b99d6",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "bus"
+        ]
+      },
+      {
+        "asset": "memory-match/chips-v1-card.webp",
+        "sha256": "bf3844a6ba160e4caf22a405717988510d7b8215b94814180c77d293b0f9967a",
+        "gitBlob7f": "45e421ea05c4c309cdfdc0a17c5a18a1e0b040d2",
+        "gitBlob1410": "45e421ea05c4c309cdfdc0a17c5a18a1e0b040d2",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "chips"
+        ]
+      },
+      {
+        "asset": "memory-match/comet-v1-card.webp",
+        "sha256": "f37aa7714bb66ff09047a24ad2fd1676134bd623fae9109894eeef1c3a5bc545",
+        "gitBlob7f": "f1abde2e28d81b1931402c7f05c83842596eae3a",
+        "gitBlob1410": "f1abde2e28d81b1931402c7f05c83842596eae3a",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "comet"
+        ]
+      },
+      {
+        "asset": "memory-match/crab-v1-card.webp",
+        "sha256": "f57e58620a27c0c4ae414d8bcd756fc951b518d34af6f4b29eafa3b4905d87a6",
+        "gitBlob7f": "6682dd51c9290b7ef52f741fc6039c1e7a16333b",
+        "gitBlob1410": "6682dd51c9290b7ef52f741fc6039c1e7a16333b",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "crab"
+        ]
+      },
+      {
+        "asset": "memory-match/crescent-moon-v1-card.webp",
+        "sha256": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b",
+        "gitBlob7f": "3d2f76149fdc9376b1905f9541a9b7a4aad070dc",
+        "gitBlob1410": "3d2f76149fdc9376b1905f9541a9b7a4aad070dc",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "moon"
+        ]
+      },
+      {
+        "asset": "memory-match/cupcake-v1-card.webp",
+        "sha256": "e9ddbfc5ba29263686e4521ccf435d670eec97aaad4895a960caacbe09f9e906",
+        "gitBlob7f": "378be64cc144c5ac152b3b763170ea72ba12ac83",
+        "gitBlob1410": "378be64cc144c5ac152b3b763170ea72ba12ac83",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "cupcake"
+        ]
+      },
+      {
+        "asset": "memory-match/dinosaur-egg-v1.webp",
+        "sha256": "c99a86c61b8a4f075787793a4d25fc6bf83f5b357623fd1afbd2fbfeeeb6159a",
+        "gitBlob7f": "75c62d0090ed7a470273fa80c94c54f826f7971d",
+        "gitBlob1410": "75c62d0090ed7a470273fa80c94c54f826f7971d",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "egg"
+        ]
+      },
+      {
+        "asset": "memory-match/dinosaur-nest-v1-card.webp",
+        "sha256": "d9b9c4639df9490cd587e0480054ba784e92be3be4e8cc34fc175c1b257986fc",
+        "gitBlob7f": "ee4f67f47f2ccfc58de532aa10ac6a2c5c153935",
+        "gitBlob1410": "ee4f67f47f2ccfc58de532aa10ac6a2c5c153935",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "dinosaur nest"
+        ]
+      },
+      {
+        "asset": "memory-match/dinosaur-tooth-v1-card.webp",
+        "sha256": "bbe1f801ed4c4f99dad942e4080f1b3df64a9e72607ea5f31d646cd7f584518d",
+        "gitBlob7f": "faa34ebad383d3b5fc8dd4f846f8cbe6d2f3713f",
+        "gitBlob1410": "faa34ebad383d3b5fc8dd4f846f8cbe6d2f3713f",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "dinosaur tooth"
+        ]
+      },
+      {
+        "asset": "memory-match/dog-v1.webp",
+        "sha256": "83bcda5739193672999b3c23c2a7e29b9cdd26aabceaa1d940804af5c36cd5a9",
+        "gitBlob7f": "8b3b2397b7a5859c07ca00eada84a2b308156c38",
+        "gitBlob1410": "8b3b2397b7a5859c07ca00eada84a2b308156c38",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "dog"
+        ]
+      },
+      {
+        "asset": "memory-match/dolphin-v1-card.webp",
+        "sha256": "e7540e73db278604645668f97a5fc3aabf55bbabe04972ea2cc29fd130a226b8",
+        "gitBlob7f": "f4c210005003fa290ef408b8165f1ec40e651c7a",
+        "gitBlob1410": "f4c210005003fa290ef408b8165f1ec40e651c7a",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "dolphin"
+        ]
+      },
+      {
+        "asset": "memory-match/doughnut-v1-card.webp",
+        "sha256": "0f8879f8688a7c4852a7ff0f36b7e79ba34eb340c418d7ee1cb5aea7ba69e4ed",
+        "gitBlob7f": "8c9e5ebd709f04ae7b86d06bd5470a51c6438580",
+        "gitBlob1410": "8c9e5ebd709f04ae7b86d06bd5470a51c6438580",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "doughnut"
+        ]
+      },
+      {
+        "asset": "memory-match/drink-v1-card.webp",
+        "sha256": "a6577ccc6aec1343bea1adf0930fb378cbe4e431c204daf94b8b9f5ad04b8748",
+        "gitBlob7f": "5ead7a7547cc4e8c8afb123601d8032102a06aad",
+        "gitBlob1410": "5ead7a7547cc4e8c8afb123601d8032102a06aad",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "drink"
+        ]
+      },
+      {
+        "asset": "memory-match/duck-v1-card.webp",
+        "sha256": "c9757ab5f08889deadbdced454db71158a1f859290b08e558e6662e2ce9278ca",
+        "gitBlob7f": "f11bec0cf80ec65125fddf7a2ed2fd55f9ed3211",
+        "gitBlob1410": "f11bec0cf80ec65125fddf7a2ed2fd55f9ed3211",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "duck"
+        ]
+      },
+      {
+        "asset": "memory-match/earth-v1-card.webp",
+        "sha256": "802b5ba0b35a7e8b8bd9cf8eff5f598c0fd72826d377af3d50ff572dbbbc3a82",
+        "gitBlob7f": "066a86843fb2718565d52f976df7a6ca84ab574e",
+        "gitBlob1410": "066a86843fb2718565d52f976df7a6ca84ab574e",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "Earth"
+        ]
+      },
+      {
+        "asset": "memory-match/flying-saucer-v1-card.webp",
+        "sha256": "7255a04859d7df5ca260cc197250b30583787a28782b7e549773940d11e482f9",
+        "gitBlob7f": "3e2289007163d1ac7d457d65964257d3f1bed6eb",
+        "gitBlob1410": "3e2289007163d1ac7d457d65964257d3f1bed6eb",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "flying saucer"
+        ]
+      },
+      {
+        "asset": "memory-match/food-biscuit-v1-card.webp",
+        "sha256": "2d16983034b316d9c6e31b94c731bbb4c3c47a5a0f1406d746411fd6f2facb54",
+        "gitBlob7f": "400d12a7611e7a1db494350ade1576fc72b1553d",
+        "gitBlob1410": "400d12a7611e7a1db494350ade1576fc72b1553d",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "biscuit"
+        ]
+      },
+      {
+        "asset": "memory-match/food-carrot-v1-card.webp",
+        "sha256": "df570a197d8fc4081142af8644e451fc7089df82ef96ede24dfc8e3c97c8dce7",
+        "gitBlob7f": "72cd710b0f2bb7fe5b5eb234d049dff8c8b5cd39",
+        "gitBlob1410": "72cd710b0f2bb7fe5b5eb234d049dff8c8b5cd39",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "carrot"
+        ]
+      },
+      {
+        "asset": "memory-match/food-cheese-v1-card.webp",
+        "sha256": "276155c36d0a2e89b5ad2660e01f91634d03e908771f86584adc58295a8c9dbb",
+        "gitBlob7f": "de7c73fbea3c6a02bce0d4cc8e8a25215ff46202",
+        "gitBlob1410": "de7c73fbea3c6a02bce0d4cc8e8a25215ff46202",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "cheese"
+        ]
+      },
+      {
+        "asset": "memory-match/food-corn-v1-card.webp",
+        "sha256": "c08c0d4961191324773a051c126932b350ac1cfb8784e606072e1fa78db55e36",
+        "gitBlob7f": "f6357624968ef82f4b1aabd39634141251ac0222",
+        "gitBlob1410": "f6357624968ef82f4b1aabd39634141251ac0222",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "corn"
+        ]
+      },
+      {
+        "asset": "memory-match/fossil-bone-v1-card.webp",
+        "sha256": "f4bdfc74f1ef81e48d4d7ad49317867351fb5525e9d4a082fcf119d1db34c0b4",
+        "gitBlob7f": "f6770e1e96d52bcbb49fbbaaf153271c31c318df",
+        "gitBlob1410": "f6770e1e96d52bcbb49fbbaaf153271c31c318df",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "bone"
+        ]
+      },
+      {
+        "asset": "memory-match/fossil-dig-pick-v1-card.webp",
+        "sha256": "e654667b1836edc5963c7679e787a9cbc2797c7ea746a84690ced0565c597c0a",
+        "gitBlob7f": "456329732585a877e623893b1ddf140a50cfe4ce",
+        "gitBlob1410": "456329732585a877e623893b1ddf140a50cfe4ce",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "fossil dig pick"
+        ]
+      },
+      {
+        "asset": "memory-match/fossil-rock-v1-card.webp",
+        "sha256": "8512f5b929dd781e88e0a44e1bbc4332dcaa03d634e7ab20917357f7b37daf46",
+        "gitBlob7f": "9fb51b4d2d348c40b5f8010da5796bf28263d8f8",
+        "gitBlob1410": "9fb51b4d2d348c40b5f8010da5796bf28263d8f8",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "fossil dig rock / moon rock"
+        ]
+      },
+      {
+        "asset": "memory-match/fox-v1.webp",
+        "sha256": "c39fa13217b454f27bbb1f9dff7bbd1e6aa0640d0c288a7432560c9f7447da1b",
+        "gitBlob7f": "04d61e091bf7d5339cf52617916932192b4661ae",
+        "gitBlob1410": "04d61e091bf7d5339cf52617916932192b4661ae",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "fox"
+        ]
+      },
+      {
+        "asset": "memory-match/full-moon-v1-card.webp",
+        "sha256": "d781df0bdd29e05db60c68f86772b276f4f24e3b885d8285dd08aa260f653366",
+        "gitBlob7f": "17590169d638830ebeb0bfb06f6240bc2755585c",
+        "gitBlob1410": "17590169d638830ebeb0bfb06f6240bc2755585c",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "full moon"
+        ]
+      },
+      {
+        "asset": "memory-match/galaxy-v1-card.webp",
+        "sha256": "997e31a6e9f8daeb51c69672084f5bb1299fc0c7499c922da994199e44661aa1",
+        "gitBlob7f": "b1376bd888909170d85669fc828336e83b6703e5",
+        "gitBlob1410": "b1376bd888909170d85669fc828336e83b6703e5",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "galaxy"
+        ]
+      },
+      {
+        "asset": "memory-match/garden-ant-v1-card.webp",
+        "sha256": "8767544186dd5af5545a1f631eaf82faf789efc0017c5438d32f1e6ba8237ac7",
+        "gitBlob7f": "00e0b9f537a1d969af64ce87101feed67281f9d5",
+        "gitBlob1410": "00e0b9f537a1d969af64ce87101feed67281f9d5",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "ant"
+        ]
+      },
+      {
+        "asset": "memory-match/garden-bee-v1-card.webp",
+        "sha256": "d0171f8e5eff142ad547902bbd3f51946c40f8005eab5959df7306d72485e58b",
+        "gitBlob7f": "f743b511d372d0c5375558d3c57e6480d704e2d0",
+        "gitBlob1410": "f743b511d372d0c5375558d3c57e6480d704e2d0",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "bee"
+        ]
+      },
+      {
+        "asset": "memory-match/garden-butterfly-v1-card.webp",
+        "sha256": "0b2073bd929753a37cbfdb67fa2ff4061e282748b2af1434392ec05c7bc03d82",
+        "gitBlob7f": "32a019df18045f4787f2a67ff12d0bcd28066dda",
+        "gitBlob1410": "32a019df18045f4787f2a67ff12d0bcd28066dda",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "butterfly"
+        ]
+      },
+      {
+        "asset": "memory-match/garden-caterpillar-v1-card.webp",
+        "sha256": "2793a1c4f8a0cd4e54e87263cbde42c98066e9cd434263e7a97672206134d465",
+        "gitBlob7f": "fade831601bbab612d8c1f7392d6f6299bd6d12e",
+        "gitBlob1410": "fade831601bbab612d8c1f7392d6f6299bd6d12e",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "caterpillar"
+        ]
+      },
+      {
+        "asset": "memory-match/garden-earthworm-v1-card.webp",
+        "sha256": "1ab120b6a10116a13fda280962aef109aae8e836de8168f4edbc8430d04b0ae6",
+        "gitBlob7f": "58ef2c46cfbe8f734ae548a1de92ab58d88d8b54",
+        "gitBlob1410": "58ef2c46cfbe8f734ae548a1de92ab58d88d8b54",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "worm"
+        ]
+      },
+      {
+        "asset": "memory-match/garden-ladybird-v1-card.webp",
+        "sha256": "2901711ae6a1a7507921806f426bafec36cd24b07a214c4c1328a6387d207640",
+        "gitBlob7f": "f50163f79f0766bb40276742e1b7a670e6c9f02d",
+        "gitBlob1410": "f50163f79f0766bb40276742e1b7a670e6c9f02d",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "ladybird"
+        ]
+      },
+      {
+        "asset": "memory-match/garden-snail-v1-card.webp",
+        "sha256": "7f746f3c82559ab610af117b8dd590563ed921e8bbccf3daa7bb4f4d45157be1",
+        "gitBlob7f": "b0f1e9c91ff719a622350569d3ba5411c31e4cda",
+        "gitBlob1410": "b0f1e9c91ff719a622350569d3ba5411c31e4cda",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "snail"
+        ]
+      },
+      {
+        "asset": "memory-match/garden-spider-v1-card.webp",
+        "sha256": "422648f2d182ff85f5a044be7e5e7e4ccf9536187e851f61e290ae9c39a7975c",
+        "gitBlob7f": "d43ce78d5b03f82d934db6ce2fe8f157c7b776bb",
+        "gitBlob1410": "d43ce78d5b03f82d934db6ce2fe8f157c7b776bb",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "spider"
+        ]
+      },
+      {
+        "asset": "memory-match/glowing-star-v1-card.webp",
+        "sha256": "5ae930823017d2575b1249b5f0caf160e1b567437426996b4ebee23107064298",
+        "gitBlob7f": "6464db9dc80ea5f23ec0f246fe16caa229d781a6",
+        "gitBlob1410": "6464db9dc80ea5f23ec0f246fe16caa229d781a6",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "glowing star"
+        ]
+      },
+      {
+        "asset": "memory-match/grapes-v1-card.webp",
+        "sha256": "bcc34b7b05b062410d391545fcb4ec4e4340ce2df7ee5e4586b9470917e81565",
+        "gitBlob7f": "3986126d3f9085870781ff75a9e359db0dd404ba",
+        "gitBlob1410": "3986126d3f9085870781ff75a9e359db0dd404ba",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "grapes"
+        ]
+      },
+      {
+        "asset": "memory-match/helicopter-v1-card.webp",
+        "sha256": "5a7d33f9a8f67450e9d7e0837c8350da133db11ba6c1f65449bc0f2ea66305d8",
+        "gitBlob7f": "b22e41ce6abf72714dd6cfadbb9a49b5e483e54e",
+        "gitBlob1410": "b22e41ce6abf72714dd6cfadbb9a49b5e483e54e",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "helicopter"
+        ]
+      },
+      {
+        "asset": "memory-match/isolated-frog-v1-card.webp",
+        "sha256": "9a0cc2706b20109095fcb36852750aee0a9b8456d677e697d433eebc1bb3f622",
+        "gitBlob7f": "dc4e8d47029c3e550ece392e86dcc199f681d841",
+        "gitBlob1410": "dc4e8d47029c3e550ece392e86dcc199f681d841",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "frog"
+        ]
+      },
+      {
+        "asset": "memory-match/isolated-monkey-v1-card.webp",
+        "sha256": "e6aebcf179052aff994510d2ee5a25411d65be475b8695dde3f701201e638489",
+        "gitBlob7f": "effc961016923dfe023d8e51faa6145cc359f9ff",
+        "gitBlob1410": "effc961016923dfe023d8e51faa6145cc359f9ff",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "monkey"
+        ]
+      },
+      {
+        "asset": "memory-match/jellyfish-v1-card.webp",
+        "sha256": "bcbf1eeb321bd1591b0e8a6fba7626d035391998db2ddf629a33219592ac46f2",
+        "gitBlob7f": "5fe60effb1344ed5044d71acf6a5b3be5c67bd51",
+        "gitBlob1410": "5fe60effb1344ed5044d71acf6a5b3be5c67bd51",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "jellyfish"
+        ]
+      },
+      {
+        "asset": "memory-match/leaf-sprig-v1-card.webp",
+        "sha256": "e09ef2b1f919a4d4d4227a8d4641cffe1e28ceaec4f0d7d460b89bc068825ae8",
+        "gitBlob7f": "04f5b377824ec40419cce171f6a77c9ee450d42f",
+        "gitBlob1410": "04f5b377824ec40419cce171f6a77c9ee450d42f",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "leaf"
+        ]
+      },
+      {
+        "asset": "memory-match/lolly-v1-card.webp",
+        "sha256": "750c18df29ba0d9907c200b44870f6acf3d12ef698dee711ee563120777f1760",
+        "gitBlob7f": "ac7ff8fc3afc4039b2df1e96ebbc7a533515003e",
+        "gitBlob1410": "ac7ff8fc3afc4039b2df1e96ebbc7a533515003e",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "lolly"
+        ]
+      },
+      {
+        "asset": "memory-match/moon-rock-v1-card.webp",
+        "sha256": "67992a1b6786c13ee43fab5859a0173e895edb6a9ed2a7e9cc30744022aa205a",
+        "gitBlob7f": "dfd9e38165f60f24dd2b21ff74d0e7836d2c56f7",
+        "gitBlob1410": "dfd9e38165f60f24dd2b21ff74d0e7836d2c56f7",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "fossil dig rock / moon rock"
+        ]
+      },
+      {
+        "asset": "memory-match/mountain-v1-card.webp",
+        "sha256": "a9c0307ffdabd80ecb98c0613e0352a4761e4f01a032cefa445b10efdb3719fa",
+        "gitBlob7f": "a15b8850225fb2847ae5d4afeada716dd42b1fda",
+        "gitBlob1410": "a15b8850225fb2847ae5d4afeada716dd42b1fda",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "mountain"
+        ]
+      },
+      {
+        "asset": "memory-match/mushroom-v1-card.webp",
+        "sha256": "3dd98dc44c9ee13f26c6a8d581a12f57b25657d31113d036d50d157c0755c128",
+        "gitBlob7f": "067836d20fa71fb16dd1bfcd6bbfbd09c841e98a",
+        "gitBlob1410": "067836d20fa71fb16dd1bfcd6bbfbd09c841e98a",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "mushroom"
+        ]
+      },
+      {
+        "asset": "memory-match/new-moon-v1-card.webp",
+        "sha256": "89e4468bc76493d69a3e5143e5abbacc521ae4004306ed0e5bdb277b14c1c554",
+        "gitBlob7f": "e800d29c188d2739e29e39e1868987f123e6237c",
+        "gitBlob1410": "e800d29c188d2739e29e39e1868987f123e6237c",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "new moon"
+        ]
+      },
+      {
+        "asset": "memory-match/ocean-fish-v1-card.webp",
+        "sha256": "7f6c5bc67a07b7f878e5841f2229d096a82f7b2e47f0acec364368ddc33fb287",
+        "gitBlob7f": "171a71a870d8d402c433d210872d85a29c0bc1b9",
+        "gitBlob1410": "171a71a870d8d402c433d210872d85a29c0bc1b9",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "fish / pond fish"
+        ]
+      },
+      {
+        "asset": "memory-match/party-balloon-v1-card.webp",
+        "sha256": "7d1461090d5f7aaf58d143112cffb4bbedd4b0343424c75c4fb4c937dd98168c",
+        "gitBlob7f": "c99fc00859b5a6d37fb505928c8cc5912f3ba761",
+        "gitBlob1410": "c99fc00859b5a6d37fb505928c8cc5912f3ba761",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "balloon"
+        ]
+      },
+      {
+        "asset": "memory-match/party-cake-v1-card.webp",
+        "sha256": "7bb6895c8210f2fbb170bb5471b2e1025a82203bd2a1a52e0fafa979877a1aa3",
+        "gitBlob7f": "04509ef61c93216a72271151d583b0b07112d4f8",
+        "gitBlob1410": "04509ef61c93216a72271151d583b0b07112d4f8",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "cake"
+        ]
+      },
+      {
+        "asset": "memory-match/party-face-v1-card.webp",
+        "sha256": "a08fbbdbc71246715f1d808e1bfe47c9b845b82cc15703fc5168d7bcaa672674",
+        "gitBlob7f": "328132ed4cf82d8d837f542b87fef1e03daef467",
+        "gitBlob1410": "328132ed4cf82d8d837f542b87fef1e03daef467",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "party face"
+        ]
+      },
+      {
+        "asset": "memory-match/party-popper-v1-card.webp",
+        "sha256": "679bbb0a6696619f39be25068161e67c7cd7879fdef40cbecc28438917818337",
+        "gitBlob7f": "97e10f68555e14033667bda4a47db0f367f6d4f7",
+        "gitBlob1410": "97e10f68555e14033667bda4a47db0f367f6d4f7",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "party popper"
+        ]
+      },
+      {
+        "asset": "memory-match/passenger-train-v1-card.webp",
+        "sha256": "d97ddbb06ce047755d7ce4dd41f1b30a48670ff5bb90d2b756aabde6457614e9",
+        "gitBlob7f": "0fe9f7091d6223de793c11fcc296c27148421036",
+        "gitBlob1410": "0fe9f7091d6223de793c11fcc296c27148421036",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "passenger train"
+        ]
+      },
+      {
+        "asset": "memory-match/pizza-v1-card.webp",
+        "sha256": "5a086d1e5189266e290497ff4644ee18e546fa8866ef58aa8d3984a694f24850",
+        "gitBlob7f": "2231a2f97fc6d52cf94f23e6c4c1ea18d64ce235",
+        "gitBlob1410": "2231a2f97fc6d52cf94f23e6c4c1ea18d64ce235",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "pizza"
+        ]
+      },
+      {
+        "asset": "memory-match/pond-fish-v1-card.webp",
+        "sha256": "498f5a27ddccd8c2d037234bed47627dcf888675efd4dd54d7bdb48453ba7a45",
+        "gitBlob7f": "cd0c5ec46d040535bdac1dc7c196cf88b9497b37",
+        "gitBlob1410": "cd0c5ec46d040535bdac1dc7c196cf88b9497b37",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "fish / pond fish"
+        ]
+      },
+      {
+        "asset": "memory-match/racing-car-v1-card.webp",
+        "sha256": "1db6a05d85a68aee8ddc5e0f5500c102254fda5d38dda3e9b9fd383f8381af84",
+        "gitBlob7f": "cedbf92b959c297abc916a7eeac49b647066b56f",
+        "gitBlob1410": "cedbf92b959c297abc916a7eeac49b647066b56f",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "racing car"
+        ]
+      },
+      {
+        "asset": "memory-match/ringed-planet-v1-card.webp",
+        "sha256": "c43b301bf67b11165b2a39d3313c40dae3c85af9be127afc20423e96f39f236a",
+        "gitBlob7f": "2b34d69eb23307e212701d35b30a9a43a236b65b",
+        "gitBlob1410": "2b34d69eb23307e212701d35b30a9a43a236b65b",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "ringed planet"
+        ]
+      },
+      {
+        "asset": "memory-match/satellite-v1-card.webp",
+        "sha256": "88b89a91788453d131df79df0637c58d6edebf5df6fbfc1ef8307c66307d9da9",
+        "gitBlob7f": "f879a2d4b4ee0e2e58c0c383fe5732431190f81c",
+        "gitBlob1410": "f879a2d4b4ee0e2e58c0c383fe5732431190f81c",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "satellite"
+        ]
+      },
+      {
+        "asset": "memory-match/scooter-v1-card.webp",
+        "sha256": "85c0c78dddd861b36571c27ef2575248ebcb229c89bd6caa2bff86546f1b5d96",
+        "gitBlob7f": "eca23c449d907186b7484c7737e13af2f4a89a69",
+        "gitBlob1410": "eca23c449d907186b7484c7737e13af2f4a89a69",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "scooter"
+        ]
+      },
+      {
+        "asset": "memory-match/seedling-v1-card.webp",
+        "sha256": "00feb9ae26329e93a66fd837190de9598bca6c63588cb068eca5e314b574fc60",
+        "gitBlob7f": "5b3893a1bf849f63490ca2947b74efe5c9df13c0",
+        "gitBlob1410": "5b3893a1bf849f63490ca2947b74efe5c9df13c0",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "seedling"
+        ]
+      },
+      {
+        "asset": "memory-match/shark-v1-card.webp",
+        "sha256": "6198a359eba1b1f828a812114e05b0f5f0f5d0c31a63f58e04b8bd0ea41be56f",
+        "gitBlob7f": "7b9b597b8b28b416de6e53d50ba810dd5f7bafaa",
+        "gitBlob1410": "7b9b597b8b28b416de6e53d50ba810dd5f7bafaa",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "shark"
+        ]
+      },
+      {
+        "asset": "memory-match/shooting-star-v1-card.webp",
+        "sha256": "7bd240e6b4c286fefd4ef27e85f8c2c2efc8a9335c03cef31546e67e632e5fa1",
+        "gitBlob7f": "79e14881768e782877651a4c1fb02f1a54f803c8",
+        "gitBlob1410": "79e14881768e782877651a4c1fb02f1a54f803c8",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "shooting star"
+        ]
+      },
+      {
+        "asset": "memory-match/speedboat-v1-card.webp",
+        "sha256": "57965f3dc77a6ea545f7f44cba103f4eff17f936c3528d673b7cf86061177f55",
+        "gitBlob7f": "ee999ec42e30644184285fa2ec311f71e0e22e9e",
+        "gitBlob1410": "ee999ec42e30644184285fa2ec311f71e0e22e9e",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "speedboat"
+        ]
+      },
+      {
+        "asset": "memory-match/squid-v1-card.webp",
+        "sha256": "454fc45891abb5cde13865cc566bdc6fade7eae1478f2e0bcbf31fff00e6fb7c",
+        "gitBlob7f": "7bee871404312e048220491ff5fe327cad359af8",
+        "gitBlob1410": "7bee871404312e048220491ff5fe327cad359af8",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "squid"
+        ]
+      },
+      {
+        "asset": "memory-match/star-v1-card.webp",
+        "sha256": "751db3be916edeb4f468d1f2b15c889e96d82e288dc24f54046d9ae9b042827a",
+        "gitBlob7f": "47c6fde18a6e37a0c1d9dd3e62101b2e94a3670e",
+        "gitBlob1410": "47c6fde18a6e37a0c1d9dd3e62101b2e94a3670e",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "star"
+        ]
+      },
+      {
+        "asset": "memory-match/steam-train-v1-card.webp",
+        "sha256": "ac3797f937eb9ff4b8ede0175755e345190b73e8e86d963670ffae804d7620b1",
+        "gitBlob7f": "0ff1a0a0bb7e7654847aff65d02795a80d753cd0",
+        "gitBlob1410": "0ff1a0a0bb7e7654847aff65d02795a80d753cd0",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "steam train"
+        ]
+      },
+      {
+        "asset": "memory-match/strawberry-v1-card.webp",
+        "sha256": "944cf5c855e9caaf2e1bbe9da2a4e1d1129a414215783e71c1b7fc7fc5e0f93b",
+        "gitBlob7f": "bd8782d0a99430325c12d14a582e4f2af26a51a0",
+        "gitBlob1410": "bd8782d0a99430325c12d14a582e4f2af26a51a0",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "strawberry"
+        ]
+      },
+      {
+        "asset": "memory-match/sun-face-v1-card.webp",
+        "sha256": "df180ada899f275569e78740079d8cefafea3bf18a72123d9a4940fc56ba6e8a",
+        "gitBlob7f": "252c1b6b8246717d90f8d4f912a45537843791c0",
+        "gitBlob1410": "252c1b6b8246717d90f8d4f912a45537843791c0",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "Sun with a face"
+        ]
+      },
+      {
+        "asset": "memory-match/sun-v1-card.webp",
+        "sha256": "6142c92659f7af17fbcc5d99f17763f962208c4e9c317f104eb5e4e78ed27d77",
+        "gitBlob7f": "e78941fd625f39c07a79d8b8795feb08c246caef",
+        "gitBlob1410": "e78941fd625f39c07a79d8b8795feb08c246caef",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "Sun"
+        ]
+      },
+      {
+        "asset": "memory-match/telescope-v1-card.webp",
+        "sha256": "6008432058634e738f9de424d81855d794f83fba7998b72288d75c480c3755be",
+        "gitBlob7f": "a4914d1de0ae817f8ba7fa948bafca7fd01279b0",
+        "gitBlob1410": "a4914d1de0ae817f8ba7fa948bafca7fd01279b0",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "telescope"
+        ]
+      },
+      {
+        "asset": "memory-match/tractor-v1-card.webp",
+        "sha256": "4b2be21e3aecce7b663852fa48cdec50c29e9c5d1088090d28ae2800e1b45119",
+        "gitBlob7f": "5ffe5869e90bc6b0ae9eed530fea795627f44215",
+        "gitBlob1410": "5ffe5869e90bc6b0ae9eed530fea795627f44215",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "tractor"
+        ]
+      },
+      {
+        "asset": "memory-match/tree-v1-card.webp",
+        "sha256": "c8d3b4456a711df09a6a1f9aa1c9e7ceeb4c0b67c8a7a958ad5e2e4d106e8596",
+        "gitBlob7f": "834fe44d3d1d762b9239007a1cb628838f35dcfb",
+        "gitBlob1410": "834fe44d3d1d762b9239007a1cb628838f35dcfb",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "tree"
+        ]
+      },
+      {
+        "asset": "memory-match/tulip-v1-card.webp",
+        "sha256": "4b7b981eea2a097dec15a694cf998a7231e8884037a784bd3a0e0824b84b8b98",
+        "gitBlob7f": "91e936750524c4b67b1a5571508271d2b46a6a55",
+        "gitBlob1410": "91e936750524c4b67b1a5571508271d2b46a6a55",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "tulip"
+        ]
+      },
+      {
+        "asset": "memory-match/turtle-v1-card.webp",
+        "sha256": "d56223ea96bac66678ccc15f62df30b4a364f9e8085961935b02077c0a124bb7",
+        "gitBlob7f": "e23b9b9c7ff78ed1bee0b316a2ec85b82b077a80",
+        "gitBlob1410": "e23b9b9c7ff78ed1bee0b316a2ec85b82b077a80",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "turtle"
+        ]
+      },
+      {
+        "asset": "memory-match/volcano-v1.webp",
+        "sha256": "4115ad55de4ef013f711e3bca03da1b26c7cabd4eede6358e332af25804e778d",
+        "gitBlob7f": "c17b1ebda6213484b385847e996541a1538eb35f",
+        "gitBlob1410": "c17b1ebda6213484b385847e996541a1538eb35f",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "volcano"
+        ]
+      },
+      {
+        "asset": "memory-match/water-lily-v1-card.webp",
+        "sha256": "7062e68d7b67608bb209e4016c5313deda328b101439234446c7ec15260062a2",
+        "gitBlob7f": "870dcea6baadbea2e46f75901dd34c1efa4b5691",
+        "gitBlob1410": "870dcea6baadbea2e46f75901dd34c1efa4b5691",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "water lily"
+        ]
+      },
+      {
+        "asset": "memory-match/watermelon-v1-card.webp",
+        "sha256": "e62202164182b43a257f4df67d234b495e879d776fddbdc26a960314e9cea03e",
+        "gitBlob7f": "e710a2cb15fd226869e52017770d4f8e2878c1d9",
+        "gitBlob1410": "e710a2cb15fd226869e52017770d4f8e2878c1d9",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "watermelon"
+        ]
+      },
+      {
+        "asset": "memory-match/whale-v1-card.webp",
+        "sha256": "0edd405b5a8a2aa8bd7c51d8814781961c765b56ca773d6cb2b7ed0e0ef86d8e",
+        "gitBlob7f": "f46b175b43bf2f043f4477600ee205f6086ffbe0",
+        "gitBlob1410": "f46b175b43bf2f043f4477600ee205f6086ffbe0",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "whale"
+        ]
+      },
+      {
+        "asset": "memory-match/wrapped-sweet-v1-card.webp",
+        "sha256": "9224959de0e1c35b077200453a26c2efc9a48afc88a5e43399a6ede50068fd77",
+        "gitBlob7f": "d0b49050b799bb90dd6645212cdb74e172002c30",
+        "gitBlob1410": "d0b49050b799bb90dd6645212cdb74e172002c30",
+        "unchangedBetweenSourceCandidates": true,
+        "usedBy": [
+          "sweet"
+        ]
+      }
+    ]
+  },
+  "uncovered": {
+    "unrenderedTokenContexts": [],
+    "reason": "The full-run report records all ten levels completed at both viewport sizes with actual visible face-up flips. Context-specific focal art review is not present for every placement; baseline-rendered-only contexts are enumerated, not elevated to focused/subjective acceptance."
+  },
+  "gatesNotEstablished": [
+    "human subjective acceptance for every illustration",
+    "packaged narration and human listening",
+    "production or release acceptance",
+    "overall 4.5 acceptance"
+  ]
+}
