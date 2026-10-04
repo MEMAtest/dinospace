@@ -120,3 +120,9 @@ The independent Puzzle reviewer reported two immediate replay boundary repeats o
 Four additional Party originals — balloon, party popper, whole cake and wrapped sweet — are saved unchanged with alpha and provenance in `9aa97b1`. They are queued for integration and rendered independent QA. The isolated animal/astronaut/Moonrock builder is finishing its earned later-board checks before its frozen identity handoff.
 
 Worker PID 18781 was confirmed live; run 108 reports 3,649 clips pending with zero retries and the expected request-window wait. The overall goal remains active, with **4 recorded accepted and 22 in progress**.
+
+### Replay investigation correction — 04:30 UTC
+
+The independent tester withdrew the earlier failure classification after reconstructing the actual chapter history: the earlier replay attempts followed completion of other chapters. They therefore did not demonstrate repetition of the immediately preceding global completed picture.
+
+A fresh guarded profile completed Starter normally, ending with **Moon Camp** on the held 4/4 chapter fact. Activating the visible **Replay pictures** control immediately began **River Valley**, correctly avoiding Moon Camp. The reviewer preserved the paired screenshots and is assembling the report. **No c478 replay regression is confirmed.** The source is unchanged; there was no repair, deployment or recovery. This correction supersedes the investigation paragraph above while retaining its audit trail.

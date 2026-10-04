@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T04:27:48.566317+00:00",
+  "updatedAt": "2026-10-04T04:32:10.780240+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -505,9 +505,10 @@
   },
   "puzzleReplayInvestigation": {
     "canonicalSource": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
-    "status": "under investigation",
+    "status": "closed: initial observations misclassified; no regression confirmed",
     "reportedBehavior": "Independent tester reported Starter and Challenge replay beginning with the final completed scene. Root requested paired held-fact and first replay screenshots, exact UI steps, loaded runtime identity and context continuity before selecting a repair.",
     "sourceTriage": "Frozen c478 source and minified bundle include completed-scene history and queue boundary rotation. Pure algorithm avoids boundary repeats when supplied with matching history; runtime evidence must locate the failure path.",
-    "scope": "No new repair or release claim; preserve earlier passed scoped evidence and new failure evidence separately."
+    "scope": "No new repair or release claim; preserve earlier passed scoped evidence and new failure evidence separately.",
+    "resolution": "Independent tester withdrew earlier failure after reconstructing chapter history: other chapters had been completed between the reported final scene and replay. Fresh guarded normal Starter completion ended Moon Camp; immediate visible Replay pictures began River Valley, correctly avoiding the immediate global boundary. Source unchanged; no repair/deployment/recovery claim. Paired screenshot evidence being assembled by reviewer."
   }
 }
