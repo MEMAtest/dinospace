@@ -561,3 +561,12 @@ Root reviewed the complete 36-mission builder source audit `07ba3aa`. Several cl
 Root's exact frozen 5363 Chess check `2114ced` earned ★★★ in five ordinary moves, retained stars and Safe captures unlock after reload, and kept global stars at 3 after an equal five-move replay. Askia showed 0 global stars, which does not prove all collection isolation. The older candidate resets mute after reload; current canonical has a separately verified fix, so future selective integration must preserve it. This evidence narrows the reliability gap without assigning a whole-game score.
 
 B5 integration and B7 teaching/navigation independent reviews remain in progress. Worker PID 18781 is live at the current check; run 230 reports 1,896 narration clips pending, with expected request-window waiting and no new error. Overall counts remain 4 accepted and 22 in progress.
+
+
+## Mobile Chess delta and later diagrams completed — 4 October
+
+Root mobile Chess evidence `9051d47` proves a fresh retry run earned 2 global stars; a clean randomized replay improved the best to 3 and awarded only +1. Reload retained the improved best and chapter unlock. This complements the desktop equal replay and source completion helper; no unnecessary outcome/viewport cross-product. The older local App still resets mute on reload, so that concrete integration repair remains required.
+
+Independent diagram report `5cefecd` closes the two previously unobserved Earth/Venus UI cases through normal later chapters. Root read the report and inspected the mobile Venus diagram. Both requested clues render useful models; wrong answers retain retry without revealing facts, correct answers hold the NASA fact/source, and Next clears it. Saved chapter results and 24 facts survive reload. No audio or overall award.
+
+A clean Batch 6 integration checkout now starts from canonical `0d3ef05`. Selective integration is assigned after the Astronaut teaching repair freeze; it must preserve current sound preferences, Batch 3 behavior and legacy Askia paths. B5 and B7 independent reviews continue. Counts remain 4 recorded accepted and 22 in progress.

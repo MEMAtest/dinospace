@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T14:48:26.668374+00:00",
+  "updatedAt": "2026-10-04T15:03:15.506183+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1137,7 +1137,19 @@
     "chessReliabilityDelta": {
       "commit": "2114ced",
       "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-root-20261004/report.md",
-      "scope": "Fresh guarded desktop ordinary first5-move chapter/reload retains3stars+unlock; equal5-move replay globalstars stays3. Askia0globalstars only, not collection-isolation proof. Observed old5363 mute reset; preserve canonical soundfix in integration. No score or release."
+      "scope": "Fresh guarded desktop first5 chapter/reload retains3stars+unlock; equal replay stays3. Separate fresh390 first retryrun earns2stars, clean randomized replay raisesbest3, reload retains+unlock, Homeglobal3(+1 only). Actual old5363 mute resetbothwidths remains. Source-specific report; no full siblingcollection proof/audio/overall score.",
+      "mobileCommit": "9051d47"
+    },
+    "diagramFollowup": {
+      "commit": "5cefecd",
+      "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-astronaut-diagram-followup-20261004/report.md",
+      "scope": "Root read full report and viewed mobile Venus diagram. Both conditional diagrams reached in one ordinary run per later band. Desktop/mobile clue render, wrong retry with no fact, correct held fact+source and Next clearing pass. Saved chapters/facts reload. Old candidate mute resets; no listening or overall award."
+    },
+    "integrationPreparation": {
+      "branch": "codex/amari-batch6-integration-20261004",
+      "worktree": "work/dinospace-batch6-integration",
+      "baseSource": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+      "scope": "Clean checkout created. Selective integration assigned after Astronaut source freeze, preserving canonical sound preferences/B3/shareddefault/legacyAskia. No integration source or5371freeze yet."
     }
   },
   "batch4NarrationCheckpoint": {
