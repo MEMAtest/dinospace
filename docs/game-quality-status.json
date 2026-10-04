@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T18:49:08.778470+00:00",
+  "updatedAt": "2026-10-04T21:09:00Z",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -321,7 +321,21 @@
     "plan": "work/dinospace-batch4-quality/docs/batch4-finite-narration-packaging-plan-20261003.md",
     "state": "Finite worker PID18781 confirmed live at23:36UTC; shared journal limit30 calls per10 minutes, maximum520 runs. No concurrent raw ElevenLabs job."
   },
-  "latestWorkCheckpoint": "docs/game-quality-checkpoint-20261003-current.md",
+  "latestWorkCheckpoint": {
+    "at": "2026-10-04T21:09:00Z",
+    "formalAccepted": 4,
+    "remaining": 22,
+    "narrationWorker": {
+      "pid": 18781,
+      "run": 306,
+      "generatedLastRun": 13,
+      "reused": 4414,
+      "pending": 819,
+      "state": "live waiting_request_window; no restart or concurrent paid job"
+    },
+    "canonical": "dpl_7wFmajPYqR6CPrTLFksm4dkGzppv unchanged",
+    "scope": "Published all26contracts. Narrow source-bound repairs and independent QA continue; production target Count candidate building, canonical unchanged."
+  },
   "pendingReleaseCandidates": [
     {
       "batch": 3,
@@ -1572,7 +1586,9 @@
       "game": "Sound Safari",
       "report": "docs/qa-evidence/batch5-current-visual-feedback-review-20261004.md",
       "finding": "Emoji-only pictured vocabulary varies by platform and contains ambiguous person/beach umbrella glyphs. Controlled semantically exact illustrated assets required.",
-      "state": "Curated28/24/31 concrete targets proposed; root approved widening stage1 to default taughtPhase2 inventory with strict persisted sound filtering. Separate vocabulary/decoy source implementation assigned before bitmap generation. Spelling vocabulary unchanged; no art/provider generation."
+      "state": "79concretewords authored on frozen29392bb/5388, starter26. Separateartcandidate generating controlledglossyobjects/reusing approved exactsubjects. Independentactualphonemeeligibility ar-off defect and minimalpairmissing found; builder repairing strictactualphonemefilter and two wholewordpairs+fourfirstsound startermix. Art/audio gates remain; no canonical release.",
+      "sourceReview": "docs/qa-evidence/batch5-soundsafari-phoneme-eligibility-review-20261004.md",
+      "minimalPairDesign": "docs/qa-evidence/batch5-soundsafari-minimal-pair-design-review-20261004.md"
     },
     "memoryCaptionReadability": {
       "game": "Memory Match",
@@ -1581,14 +1597,20 @@
       "state": "Independent ordinary390px play earned all10levels, completed/replayed18pairs and replayedLevel1;10stickers retained. Levels5/9/10 show4columns,12px captions, no horizontal clipping. Desktop18pair presentation sample fits butcaption~10px remains polish finding. SoundtogglemistakeLevel1 documented; guardsactive/no provider calls. Rootreadreport/viewedscreenshots. No production/overallaward.",
       "candidateSource": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
       "origin": "http://127.0.0.1:5391/",
-      "independentReport": "docs/qa-evidence/batch7-teaching-readability-independent-20261004/report.md"
+      "independentReport": "docs/qa-evidence/batch7-teaching-readability-independent-20261004/report.md",
+      "desktopPolish": {
+        "candidateSource": "4bdcb7b9769d0f25c493995d016f9eef38968e12",
+        "origin": "http://127.0.0.1:5392/",
+        "report": "docs/qa-evidence/b7-memory-backmark-caption-polish-20261004/independent/report.md",
+        "state": "Independentfirstboarddesktopvectorbacks/12pxmonkeypass; sameprofile390initialcaption8.19px remains too small. Rootviewedmobile. New isolatedearlymobile12pxrepairassigned; retained5391fulltenlevelsunchanged."
+      }
     },
     "solarTeaching": {
       "game": "Solar System",
       "report": "docs/qa-evidence/batch7-editorial-reconciliation-20261004.md",
       "teachingRecommendation": 4.5,
       "finding": "Demanding terms/long facts including magnetosphere,methane,sharedcentreofgravity require concise concrete age6 explanations.",
-      "state": "22targetedfactedits/54NASAauditedfacts; root independent54factbuttonreview1280then390samefreshguardedprofile;16px text andboundedcards, VenusOnespin243stat,54passportreload andconfirmedparentreturn pass. Localcomponentrecommendation only; newsource75/127ready52missing and44replacementkeys. Preparedledger rebind assigned, no release or overallaward.",
+      "state": "22targetedfactedits/54NASAauditedfacts; root independent54factbuttonreview1280then390samefreshguardedprofile;16px text andboundedcards, VenusOnespin243stat,54passportreload andconfirmedparentreturn pass. Localcomponentrecommendation only; newsource75/127ready52missing and44replacementkeys. Preparedledger rebind assigned, no release or overallaward. Source-bound127utteranceledger ready75pending52 now prepared with explicit cumulative52calls/6runs and shared producer lock;20meaningfultests pass. No paidcalls or overallaward.",
       "primarySourceClarifications": [
         {
           "issue": "Venus243Earthdaysisrotationperiod;useOnespinlabel",
@@ -1602,6 +1624,13 @@
       "candidateSource": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
       "origin": "http://127.0.0.1:5391/",
       "independentReport": "docs/qa-evidence/batch7-solar-copy-independent-20261004/report.md"
+    },
+    "countingVariety": {
+      "game": "Count the Stars",
+      "candidateSource": "40c053408d47ca76ff26cc8ae5c2e8ad9bb99d70",
+      "origin": "http://127.0.0.1:5393/",
+      "report": "docs/qa-evidence/count-scene-variety-20261004/root-browser/report.md",
+      "state": "Root ordinary18rounds passed with all5motifs per6question band, Growing/Challenge distinctcounts, singlepanel naturalround2desktop+sameprofile390held, all3pages/stars persistedreload, parentMaths andconsole0. Independentdelta underway; isolated production target building, no canonical promotion or overall award."
     }
   },
   "batch2CurrentVisualReview": {
