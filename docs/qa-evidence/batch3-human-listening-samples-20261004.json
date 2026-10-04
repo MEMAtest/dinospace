@@ -1,6 +1,5 @@
 {
   "createdAt": "2026-10-04T11:39:08.332Z",
-  "sourceCommit": "5a0724b371a4af2751267c6ec8a4a4ef595814ac",
   "sourceFiles": {
     "src/data/countTheStarsBatch3.js": "3234f7a1e730987954980684939002ecbee27766c94a7688e619465abdf2fd75",
     "src/data/dinoDetectiveBatch3.js": "50532b857b067ae72134c9b0b5e5d06e15ebe3b820ab1592e0eb69491a73a6fa",
@@ -25,7 +24,17 @@
       "trackedHeadSha256": "7501616e1d059281876fdf4e46a5b3fde4fbfc434c74c00201508191d95e6138",
       "durationSeconds": 1.996916,
       "freshDecode": "passed",
-      "manifestMatch": true
+      "manifestMatch": true,
+      "canonicalHttp": {
+        "status": 200,
+        "finalUrl": "https://dinospace-eight.vercel.app/audio/en/93fa9195-matilda.mp3",
+        "bytes": 33062,
+        "sha256": "7501616e1d059281876fdf4e46a5b3fde4fbfc434c74c00201508191d95e6138",
+        "archiveSha256": "7501616e1d059281876fdf4e46a5b3fde4fbfc434c74c00201508191d95e6138",
+        "localSha256": "7501616e1d059281876fdf4e46a5b3fde4fbfc434c74c00201508191d95e6138",
+        "matchLocal": true,
+        "matchArchive": true
+      }
     },
     {
       "game": "Count the Stars",
@@ -40,7 +49,17 @@
       "trackedHeadSha256": "d971fe9d04045dae395ba76e2b65df27054753dcae9b379413994fe598f9104a",
       "durationSeconds": 3.436553,
       "freshDecode": "passed",
-      "manifestMatch": true
+      "manifestMatch": true,
+      "canonicalHttp": {
+        "status": 200,
+        "finalUrl": "https://dinospace-eight.vercel.app/audio/en/9fd58454-matilda.mp3",
+        "bytes": 56050,
+        "sha256": "d971fe9d04045dae395ba76e2b65df27054753dcae9b379413994fe598f9104a",
+        "archiveSha256": "d971fe9d04045dae395ba76e2b65df27054753dcae9b379413994fe598f9104a",
+        "localSha256": "d971fe9d04045dae395ba76e2b65df27054753dcae9b379413994fe598f9104a",
+        "matchLocal": true,
+        "matchArchive": true
+      }
     },
     {
       "game": "Dino Detective",
@@ -55,7 +74,17 @@
       "trackedHeadSha256": "dc3b843738d6d9d4e695e7aa9a1520adf9009d75b99b554952d8558304cc2ce4",
       "durationSeconds": 3.993832,
       "freshDecode": "passed",
-      "manifestMatch": true
+      "manifestMatch": true,
+      "canonicalHttp": {
+        "status": 200,
+        "finalUrl": "https://dinospace-eight.vercel.app/audio/en/d579cda9-matilda.mp3",
+        "bytes": 64827,
+        "sha256": "dc3b843738d6d9d4e695e7aa9a1520adf9009d75b99b554952d8558304cc2ce4",
+        "archiveSha256": "dc3b843738d6d9d4e695e7aa9a1520adf9009d75b99b554952d8558304cc2ce4",
+        "localSha256": "dc3b843738d6d9d4e695e7aa9a1520adf9009d75b99b554952d8558304cc2ce4",
+        "matchLocal": true,
+        "matchArchive": true
+      }
     },
     {
       "game": "Dino Detective",
@@ -70,7 +99,17 @@
       "trackedHeadSha256": "d27ced5745a667d0f6fc90ffa2a7ecc7ab078589bf68ace4e77cbfe876734045",
       "durationSeconds": 2.693515,
       "freshDecode": "passed",
-      "manifestMatch": true
+      "manifestMatch": true,
+      "canonicalHttp": {
+        "status": 200,
+        "finalUrl": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+        "bytes": 44347,
+        "sha256": "d27ced5745a667d0f6fc90ffa2a7ecc7ab078589bf68ace4e77cbfe876734045",
+        "archiveSha256": "d27ced5745a667d0f6fc90ffa2a7ecc7ab078589bf68ace4e77cbfe876734045",
+        "localSha256": "d27ced5745a667d0f6fc90ffa2a7ecc7ab078589bf68ace4e77cbfe876734045",
+        "matchLocal": true,
+        "matchArchive": true
+      }
     },
     {
       "game": "Letter Trace",
@@ -85,7 +124,17 @@
       "trackedHeadSha256": "bd222e8197e128ba398d5592310310270acccff7069ce89ecfdb4d54adaf37a8",
       "durationSeconds": 5.10839,
       "freshDecode": "passed",
-      "manifestMatch": true
+      "manifestMatch": true,
+      "canonicalHttp": {
+        "status": 200,
+        "finalUrl": "https://dinospace-eight.vercel.app/audio/en/7b4cce67-matilda.mp3",
+        "bytes": 82799,
+        "sha256": "bd222e8197e128ba398d5592310310270acccff7069ce89ecfdb4d54adaf37a8",
+        "archiveSha256": "bd222e8197e128ba398d5592310310270acccff7069ce89ecfdb4d54adaf37a8",
+        "localSha256": "bd222e8197e128ba398d5592310310270acccff7069ce89ecfdb4d54adaf37a8",
+        "matchLocal": true,
+        "matchArchive": true
+      }
     },
     {
       "game": "Letter Trace",
@@ -100,7 +149,17 @@
       "trackedHeadSha256": "f25b148ff81b8c4c3a84b0a3711625af66186364fdae8f74c186ec04008b5532",
       "durationSeconds": 4.597551,
       "freshDecode": "passed",
-      "manifestMatch": true
+      "manifestMatch": true,
+      "canonicalHttp": {
+        "status": 200,
+        "finalUrl": "https://dinospace-eight.vercel.app/audio/en/6d8b847b-matilda.mp3",
+        "bytes": 74440,
+        "sha256": "f25b148ff81b8c4c3a84b0a3711625af66186364fdae8f74c186ec04008b5532",
+        "archiveSha256": "f25b148ff81b8c4c3a84b0a3711625af66186364fdae8f74c186ec04008b5532",
+        "localSha256": "f25b148ff81b8c4c3a84b0a3711625af66186364fdae8f74c186ec04008b5532",
+        "matchLocal": true,
+        "matchArchive": true
+      }
     },
     {
       "game": "Cosmic Tic-Tac-Toe",
@@ -115,7 +174,17 @@
       "trackedHeadSha256": "65f6c05e0e5a4b03609d05f7544f7813ae10589c2068897d71cebd7dc44c91e3",
       "durationSeconds": 3.808073,
       "freshDecode": "passed",
-      "manifestMatch": true
+      "manifestMatch": true,
+      "canonicalHttp": {
+        "status": 200,
+        "finalUrl": "https://dinospace-eight.vercel.app/audio/en/66dd46ca-matilda.mp3",
+        "bytes": 61902,
+        "sha256": "65f6c05e0e5a4b03609d05f7544f7813ae10589c2068897d71cebd7dc44c91e3",
+        "archiveSha256": "65f6c05e0e5a4b03609d05f7544f7813ae10589c2068897d71cebd7dc44c91e3",
+        "localSha256": "65f6c05e0e5a4b03609d05f7544f7813ae10589c2068897d71cebd7dc44c91e3",
+        "matchLocal": true,
+        "matchArchive": true
+      }
     },
     {
       "game": "Cosmic Tic-Tac-Toe",
@@ -130,7 +199,60 @@
       "trackedHeadSha256": "b09edac722499b757bf1530efe104f8bd78cb89c22ab9d6ee55037cd01f48e8d",
       "durationSeconds": 5.15483,
       "freshDecode": "passed",
-      "manifestMatch": true
+      "manifestMatch": true,
+      "canonicalHttp": {
+        "status": 200,
+        "finalUrl": "https://dinospace-eight.vercel.app/audio/en/95f7c1f0-matilda.mp3",
+        "bytes": 83635,
+        "sha256": "b09edac722499b757bf1530efe104f8bd78cb89c22ab9d6ee55037cd01f48e8d",
+        "archiveSha256": "b09edac722499b757bf1530efe104f8bd78cb89c22ab9d6ee55037cd01f48e8d",
+        "localSha256": "b09edac722499b757bf1530efe104f8bd78cb89c22ab9d6ee55037cd01f48e8d",
+        "matchLocal": true,
+        "matchArchive": true
+      }
     }
-  ]
+  ],
+  "workspaceDocumentationHead": "72db0c16bf9c86cad27c9b886421b3bbde5b7c9e",
+  "canonicalRuntimeArchiveSha": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+  "canonicalDeploymentId": "dpl_Dypi5oGP3et3yxgQiGjDqYpfCFMg",
+  "canonicalUrl": "https://dinospace-eight.vercel.app",
+  "authoredSourceArchiveComparison": {
+    "src/data/countTheStarsBatch3.js": {
+      "localSha256": "3234f7a1e730987954980684939002ecbee27766c94a7688e619465abdf2fd75",
+      "archiveSha256": "3234f7a1e730987954980684939002ecbee27766c94a7688e619465abdf2fd75",
+      "match": true
+    },
+    "src/data/dinoDetectiveBatch3.js": {
+      "localSha256": "50532b857b067ae72134c9b0b5e5d06e15ebe3b820ab1592e0eb69491a73a6fa",
+      "archiveSha256": "50532b857b067ae72134c9b0b5e5d06e15ebe3b820ab1592e0eb69491a73a6fa",
+      "match": true
+    },
+    "src/data/letterTraceLearning.js": {
+      "localSha256": "3be47faf95d1a6eae76f97608b45f297c9f2ae42ffeb71d2fc6e09f51c585053",
+      "archiveSha256": "3be47faf95d1a6eae76f97608b45f297c9f2ae42ffeb71d2fc6e09f51c585053",
+      "match": true
+    },
+    "src/data/cosmicTactics.js": {
+      "localSha256": "6d7eec878bd43af5577bb436bd8399bd3a8df0dd77741886eb99541bf9c1910c",
+      "archiveSha256": "6d7eec878bd43af5577bb436bd8399bd3a8df0dd77741886eb99541bf9c1910c",
+      "match": true
+    },
+    "src/data/batch3Narration.js": {
+      "localSha256": "8944c5fb6315e7751c15521826d603e4c9d1245503dde17e7c235edbf31a0d33",
+      "archiveSha256": "8944c5fb6315e7751c15521826d603e4c9d1245503dde17e7c235edbf31a0d33",
+      "match": true
+    },
+    "src/data/offlineVoiceManifest.js": {
+      "localSha256": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7",
+      "archiveSha256": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7",
+      "match": true
+    },
+    "src/data/voiceKey.js": {
+      "localSha256": "d013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f",
+      "archiveSha256": "d013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f",
+      "match": true
+    }
+  },
+  "workspaceHeadAtSamplePreparation": "5a0724b371a4af2751267c6ec8a4a4ef595814ac",
+  "priorSheetDocumentationCommit": "72db0c16bf9c86cad27c9b886421b3bbde5b7c9e"
 }
