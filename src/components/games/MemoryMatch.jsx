@@ -16,6 +16,7 @@ import dogArt from '../../assets/memory-match/dog-v1.webp';
 import foxArt from '../../assets/memory-match/fox-v1.webp';
 import partyBalloonArt from '../../assets/memory-match/party-balloon-v1-card.webp';
 import partyPopperArt from '../../assets/memory-match/party-popper-v1-card.webp';
+import partyFaceArt from '../../assets/memory-match/party-face-v1-card.webp';
 import partyCakeArt from '../../assets/memory-match/party-cake-v1-card.webp';
 import lollyArt from '../../assets/memory-match/lolly-v1-card.webp';
 import chipsArt from '../../assets/memory-match/chips-v1-card.webp';
@@ -24,6 +25,7 @@ import foodCarrotArt from '../../assets/memory-match/food-carrot-v1-card.webp';
 import foodCornArt from '../../assets/memory-match/food-corn-v1-card.webp';
 import foodBiscuitArt from '../../assets/memory-match/food-biscuit-v1-card.webp';
 import foodCheeseArt from '../../assets/memory-match/food-cheese-v1-card.webp';
+import foodDrinkArt from '../../assets/memory-match/drink-v1-card.webp';
 import dinosaurEggArt from '../../assets/memory-match/dinosaur-egg-v1.webp';
 import volcanoArt from '../../assets/memory-match/volcano-v1.webp';
 import ringedPlanetArt from '../../assets/memory-match/ringed-planet-v1-card.webp';
@@ -38,6 +40,7 @@ import seedlingArt from '../../assets/memory-match/seedling-v1-card.webp';
 import treeArt from '../../assets/memory-match/tree-v1-card.webp';
 import leafSprigArt from '../../assets/memory-match/leaf-sprig-v1-card.webp';
 import mushroomArt from '../../assets/memory-match/mushroom-v1-card.webp';
+import duckArt from '../../assets/memory-match/duck-v1-card.webp';
 import tulipArt from '../../assets/memory-match/tulip-v1-card.webp';
 import mountainArt from '../../assets/memory-match/mountain-v1-card.webp';
 import whaleArt from '../../assets/memory-match/whale-v1-card.webp';
@@ -64,6 +67,7 @@ import busArt from '../../assets/memory-match/bus-v1-card.webp';
 import tractorArt from '../../assets/memory-match/tractor-v1-card.webp';
 import bicycleArt from '../../assets/memory-match/bicycle-v1-card.webp';
 import scooterArt from '../../assets/memory-match/scooter-v1-card.webp';
+import racingCarArt from '../../assets/memory-match/racing-car-v1-card.webp';
 import strawberryArt from '../../assets/memory-match/strawberry-v1-card.webp';
 import pizzaArt from '../../assets/memory-match/pizza-v1-card.webp';
 import doughnutArt from '../../assets/memory-match/doughnut-v1-card.webp';
@@ -114,6 +118,7 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/fox-v1.webp': foxArt,
   'memory-match/party-balloon-v1-card.webp': partyBalloonArt,
   'memory-match/party-popper-v1-card.webp': partyPopperArt,
+  'memory-match/party-face-v1-card.webp': partyFaceArt,
   'memory-match/party-cake-v1-card.webp': partyCakeArt,
   'memory-match/lolly-v1-card.webp': lollyArt,
   'memory-match/chips-v1-card.webp': chipsArt,
@@ -122,6 +127,7 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/food-corn-v1-card.webp': foodCornArt,
   'memory-match/food-biscuit-v1-card.webp': foodBiscuitArt,
   'memory-match/food-cheese-v1-card.webp': foodCheeseArt,
+  'memory-match/drink-v1-card.webp': foodDrinkArt,
   'memory-match/dinosaur-egg-v1.webp': dinosaurEggArt,
   'memory-match/volcano-v1.webp': volcanoArt,
   'memory-match/ringed-planet-v1-card.webp': ringedPlanetArt,
@@ -136,6 +142,7 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/tree-v1-card.webp': treeArt,
   'memory-match/leaf-sprig-v1-card.webp': leafSprigArt,
   'memory-match/mushroom-v1-card.webp': mushroomArt,
+  'memory-match/duck-v1-card.webp': duckArt,
   'memory-match/tulip-v1-card.webp': tulipArt,
   'memory-match/mountain-v1-card.webp': mountainArt,
   'memory-match/whale-v1-card.webp': whaleArt,
@@ -162,6 +169,7 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/tractor-v1-card.webp': tractorArt,
   'memory-match/bicycle-v1-card.webp': bicycleArt,
   'memory-match/scooter-v1-card.webp': scooterArt,
+  'memory-match/racing-car-v1-card.webp': racingCarArt,
   'memory-match/strawberry-v1-card.webp': strawberryArt,
   'memory-match/pizza-v1-card.webp': pizzaArt,
   'memory-match/doughnut-v1-card.webp': doughnutArt,

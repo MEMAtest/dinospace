@@ -1,0 +1,199 @@
+{
+  "createdAt": "2026-10-04",
+  "method": "Built-in image_gen, one call per new object, transparent_background=true. Original PNGs copied without editing. Derived 512x512 transparent WebP from established contain pipeline (LANCZOS, quality 88, alpha quality 95, method 6). No provider-key CLI or paid voice/story request.",
+  "scope": "Four remaining Amari Memory tokens: racing car, drink, party face and duck. Only Amari visual asset mapping changed; board tokens, progress logic, counts, and Askia art/rendering remain unchanged. Builder checks complete; independent QA, full art/audio gate, production, release and score pending.",
+  "assets": [
+    {
+      "token": "🏎️",
+      "label": "racing car",
+      "boards": [
+        "vehicles"
+      ],
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-0654216d-3f78-4e68-aecb-69b255d2c0f0.png",
+      "prompt": "One small bright red and cobalt-blue toy racing car, low sleek aerodynamic body, four chunky black wheels, rear spoiler and pointed nose; three-quarter side view; no number, logo, sponsor marks, driver, road or halo.",
+      "original": {
+        "path": "src/assets/memory-match/racing-car-v1.png",
+        "sha256": "be797f8f31af75805056e6e6ad34e5718f58b9a09f03be997b62100f7855930c",
+        "dimensions": [
+          1536,
+          1024
+        ],
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bytes": 1744131
+      },
+      "derivative": {
+        "path": "src/assets/memory-match/racing-car-v1-card.webp",
+        "sha256": "1db6a05d85a68aee8ddc5e0f5500c102254fda5d38dda3e9b9fd383f8381af84",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bytes": 33508
+      },
+      "review": "Reviewed as a visible matched card through ordinary play at desktop and 390px. Distinct subject and matching caption visible; mobile card was 82x82px and derived artwork loaded at 512px natural width."
+    },
+    {
+      "token": "🥤",
+      "label": "drink",
+      "boards": [
+        "food"
+      ],
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-6bb3350e-317f-49bb-b953-7de9f6ee993e.png",
+      "prompt": "One clear cup of orange juice with a rounded lid and a turquoise straw; glossy 3D toy render, front three-quarter view; no fruit, snack, hand, table, label or halo.",
+      "original": {
+        "path": "src/assets/memory-match/drink-v1.png",
+        "sha256": "d428706d9e157539a6a96ee54e9592a4b242f2bfbe589242902f627201b703cb",
+        "dimensions": [
+          1024,
+          1536
+        ],
+        "alphaExtrema": [
+          0,
+          254
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bytes": 1456911
+      },
+      "derivative": {
+        "path": "src/assets/memory-match/drink-v1-card.webp",
+        "sha256": "a6577ccc6aec1343bea1adf0930fb378cbe4e431c204daf94b8b9f5ad04b8748",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bytes": 28182
+      },
+      "review": "Reviewed as a visible matched card through ordinary play at desktop and 390px. Distinct subject and matching caption visible; mobile card was 82x82px and derived artwork loaded at 512px natural width."
+    },
+    {
+      "token": "🥳",
+      "label": "party face",
+      "boards": [
+        "party"
+      ],
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-8649a969-6adf-493f-8ae8-e8e36f63b391.png",
+      "prompt": "One cheerful round golden-yellow party face with closed smiling eyes, happy open smile, rosy cheeks and bright pink-and-blue cone party hat with pompom; no body, hands, balloons, confetti, text or halo.",
+      "original": {
+        "path": "src/assets/memory-match/party-face-v1.png",
+        "sha256": "c897539758e76ee1714122e33371bfe641cbab96c64e5432cb0cf6ca077c6783",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bytes": 887042
+      },
+      "derivative": {
+        "path": "src/assets/memory-match/party-face-v1-card.webp",
+        "sha256": "a08fbbdbc71246715f1d808e1bfe47c9b845b82cc15703fc5168d7bcaa672674",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bytes": 30566
+      },
+      "review": "Reviewed as a visible matched card through ordinary play at desktop and 390px. Distinct subject and matching caption visible; mobile card was 82x82px and derived artwork loaded at 512px natural width."
+    },
+    {
+      "token": "🦆",
+      "label": "duck",
+      "boards": [
+        "garden"
+      ],
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-db968f28-40cd-423e-aae0-584df8764c60.png",
+      "prompt": "One small cheerful yellow duckling with rounded body, orange duck bill, webbed feet and tiny wings; glossy 3D toy render, three-quarter view; no pond, nest, eggs, reeds, other animals or halo.",
+      "original": {
+        "path": "src/assets/memory-match/duck-v1.png",
+        "sha256": "07d7b9f60a7bb994cd0ddc8858aea14f155408c92c94d1baa3556ef87a7a2525",
+        "dimensions": [
+          1200,
+          1310
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bytes": 1004279
+      },
+      "derivative": {
+        "path": "src/assets/memory-match/duck-v1-card.webp",
+        "sha256": "c9757ab5f08889deadbdced454db71158a1f859290b08e558e6662e2ce9278ca",
+        "dimensions": [
+          512,
+          512
+        ],
+        "alphaExtrema": [
+          0,
+          255
+        ],
+        "alphaCorners": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bytes": 39032
+      },
+      "review": "Reviewed as a visible matched card through ordinary play at desktop and 390px. Distinct subject and matching caption visible; mobile card was 82x82px and derived artwork loaded at 512px natural width."
+    }
+  ]
+}
