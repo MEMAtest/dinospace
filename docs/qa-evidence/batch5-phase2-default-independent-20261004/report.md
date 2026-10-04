@@ -23,7 +23,7 @@ Chapter 2 displayed 31 eligible words. Started normally; the first visible promp
 
 ## Runtime observations and limits
 
-- Both fresh sessions independently reached the Chapter 2 start state with a 31-word eligible pool without changing settings. This addresses the earlier 0-pool observation recorded separately in [the 5362 independent copy report](../../batch5-spelling-pool-copy-independent-20261004/report.md); that report and its observation remain unchanged.
+- Both fresh sessions independently reached the Chapter 2 start state with a 31-word eligible pool without changing settings. This addresses the earlier 0-pool observation recorded separately in [the 5362 independent copy report](../batch5-spelling-pool-copy-independent-20261004/report.md); that report and its observation remain unchanged.
 - The visible Chapter 2 prompts use grapheme choices available in the fresh default pool and support wrong-answer recovery, a held correct result, and Next.
 - Browser console: 0 errors and 0 warnings in each session. Network summary showed 12 static requests and no non-static requests; provider routes remained guarded. No narration playback or human listening quality was evaluated.
 - Scope is the fresh Phase 2 default flow, ordinary Chapter 1 unlock, and one Chapter 2 wrong/correct held round at each viewport. This is not a full Spelling Studio matrix or overall game acceptance.
