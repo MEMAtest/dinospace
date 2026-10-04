@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T16:34:34.803166+00:00",
+  "updatedAt": "2026-10-04T16:43:32.075668+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1327,5 +1327,19 @@
       ],
       "scope": "Old5363 mute-reset4.0 remains historical. Current clean5371 preference/reentry delta plus retained namespaced gameplay/reward/reload evidence supports current component4.5; no expanded all-game active or sibling collection UI claim, audio/overall/production pending."
     }
+  },
+  "batch4InterimDecode": {
+    "report": "docs/qa-evidence/batch4-interim-recent-decode-20261004/report.md",
+    "source": "ac3b3ccaf03107749d865f8d79557e872a06c881",
+    "selected": 64,
+    "valid": 64,
+    "invalid": 0,
+    "scope": "64 most recent exact mapped B4 corpus clips, full decode/duration/stable bytes pass. Interim subset while PID18781 live; no full readiness/playback/listening/release claim."
+  },
+  "reviewedNarrationSupervisor": {
+    "source": "0d66b35ed8c80618fe05d1ac344372af81225750",
+    "branch": "codex/narration-packager-20261004",
+    "scope": "New finite pinned B5-B7 job supervisor; default read-only, no actual paid execution. Independent review identified P1 non-cooperating shared journal writer lock; repair pending before use. Existing B4 worker unaffected. Supplemental5+2 selectors being prepared separately.",
+    "independentFinding": "Must acquire exact B3 producer lock for its shared request journal, not only a private reviewed-narration lock."
   }
 }

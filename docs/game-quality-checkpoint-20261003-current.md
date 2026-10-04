@@ -611,3 +611,10 @@ The B5/B6/B7 release-order summary now reflects completed independent integratio
 Root reviewed and imported independent ledger `be17e26`, correcting stale candidate reports against current canonical0d and completed integration outcomes. Sky Challenge and Count quota checks are already covered; Monster's unobserved2+10 example remains a confidence note, not a new contract gate. The ledger gives the next finite acceptance action per remaining game.
 
 Current supported component recommendations now reconcile repaired candidate defects: Spelling teaching4.5, Colour/Odd reliability4.5, and all four B6 reliability4.5 after clean persisted-preference QA. The old mute-reset4.0 ratings remain explicitly historical. These are component recommendations based on exact-source deltas and retained mechanics/reward evidence; formal feedback/audio/visual, overall means and production acceptance remain open. No new game was accepted:4/26.
+
+
+## 4 October — interim decode and packager independent finding
+
+Root's [64 recent B4 clip check](qa-evidence/batch4-interim-recent-decode-20261004/report.md) fully decoded every selected file, verified positive duration and stable bytes, with no invalid clip. This is a bounded changing-corpus subset while the finite worker remains live; hashes can be reconciled after completion. It closes no listening or full corpus gate. No provider call, manifest write or worker restart occurred.
+
+The new pinned B5–B7 supervisor source0d66b35 passed11 builder tests and dry-run plans, but separate QA found aP1 journal-lock coordination flaw: its private locks do not conflict with the existing B3 writer's lock. The builder is repairing that exact concurrency gap before use. Paid execution has not occurred. A separate finite supplemental selector for the five released B2 and two local Dino phrases is also in preparation; both require independent acceptance and the B4 terminal/dead-worker check before any generation. Accepted count remains4/26.
