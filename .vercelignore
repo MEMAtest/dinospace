@@ -6,3 +6,9 @@ node_modules/**
 .env
 .env.*
 *.local
+
+# Deploy runtime inputs; preserve QA evidence and frozen builds in the repository.
+docs/**
+dist/**
+android/**
+test/**
