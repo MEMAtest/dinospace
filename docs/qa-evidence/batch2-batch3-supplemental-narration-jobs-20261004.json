@@ -1,0 +1,117 @@
+{
+  "checkedAt": "2026-10-04T16:24:37.925Z",
+  "scope": "Read-only exact pending Batch2 released phrases and Batch3 local revised Dino facts. No paid calls, file generation, manifest mutation, decoding, playback or listening. Independent visible Dino delta still pending.",
+  "requested": 7,
+  "provenance": {
+    "src/data/batch2Narration.js": {
+      "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "sha256": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14"
+    },
+    "src/data/puzzlePopBatch2.js": {
+      "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "sha256": "74b63dd135836f58a9322f835e1a05411cbff6be49fea007e466dad9ffb59e56"
+    },
+    "src/data/spotDifferenceBatch2.js": {
+      "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "sha256": "5f8a2916eb1fad79a7913deae73404eb9155826683279f14b348f4441696b98c"
+    },
+    "src/data/batch3Narration.js": {
+      "source": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "sha256": "8944c5fb6315e7751c15521826d603e4c9d1245503dde17e7c235edbf31a0d33"
+    },
+    "src/data/dinoDetectiveBatch3.js": {
+      "source": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "sha256": "1bf0d3074ad7e3cba4df6ae701eeec22b9b71745017be9112592aa5b9d500749"
+    },
+    "src/data/voiceKey.js": {
+      "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "sha256": "d013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f"
+    }
+  },
+  "items": [
+    {
+      "game": "puzzlePop",
+      "key": "a39b3546",
+      "text": "Build the Dino Park picture. Choose a piece, then tap its matching space.",
+      "batch": 2,
+      "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/a39b3546-matilda.mp3",
+      "mapped": null,
+      "fileBytes": null
+    },
+    {
+      "game": "puzzlePop",
+      "key": "9685e0ac",
+      "text": "Next picture. Build Dino Park. Compare each piece with the preview.",
+      "batch": 2,
+      "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/9685e0ac-matilda.mp3",
+      "mapped": null,
+      "fileBytes": null
+    },
+    {
+      "game": "puzzlePop",
+      "key": "e077fcc0",
+      "text": "Puzzle Pop. Picture Pioneers. Match big picture pieces and spot the main shapes. Build the Dino Park picture.",
+      "batch": 2,
+      "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/e077fcc0-matilda.mp3",
+      "mapped": null,
+      "fileBytes": null
+    },
+    {
+      "game": "spotDifference",
+      "key": "a44acc87",
+      "text": "Look near the middle area of Picture B.",
+      "batch": 2,
+      "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/a44acc87-matilda.mp3",
+      "mapped": null,
+      "fileBytes": null
+    },
+    {
+      "game": "spotDifference",
+      "key": "5866151d",
+      "text": "Look near the middle bottom of Picture B.",
+      "batch": 2,
+      "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/5866151d-matilda.mp3",
+      "mapped": null,
+      "fileBytes": null
+    },
+    {
+      "text": "A wetland is a place where the ground stays very wet. Some wetlands dry out for part of the year.",
+      "key": "f6991245",
+      "path": "/audio/en/f6991245-matilda.mp3",
+      "game": "dino",
+      "batch": 3,
+      "source": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "language": "en",
+      "voice": "matilda",
+      "mapped": null,
+      "fileBytes": null
+    },
+    {
+      "text": "Water can slowly dissolve (wear away) limestone rock and help caves form.",
+      "key": "0f0204e5",
+      "path": "/audio/en/0f0204e5-matilda.mp3",
+      "game": "dino",
+      "batch": 3,
+      "source": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "language": "en",
+      "voice": "matilda",
+      "mapped": null,
+      "fileBytes": null
+    }
+  ]
+}

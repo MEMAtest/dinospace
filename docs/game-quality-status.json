@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T16:00:03.930811+00:00",
+  "updatedAt": "2026-10-04T16:25:35.115236+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1008,6 +1008,12 @@
         "0f0204e5"
       ],
       "releaseStatus": "Not deployed; package clips and independently retest held fact/Next at desktop390 before release"
+    },
+    "countQuotaReconciliation": {
+      "report": "docs/qa-evidence/batch3-count-quota-ui-20261003/REPORT.md",
+      "baselineSource": "653633f73cd97fcd297c592e1139c17ddb0b3855",
+      "canonicalSource": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+      "scope": "Root fullread rendered desktop/390 six-round progression/replay evidence. Queue and progress modules byte-identical; component intervening changes limited to packaged narration and plural noun copy with retained production deltas. No missing rendered-quota gate; no new audio or overall acceptance."
     }
   },
   "batch4CurrentEditorialReview": {
@@ -1285,5 +1291,12 @@
     "ledger": "docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json",
     "scope": "Read-only exactsourceB5/B6/B7 inventories deduplicate10caseonlyB5keys:1647unique,147present,1500missing. Separate37purephonemepaths32soundsallmissing. B4worker snapshotchanging1699pending at15:46;142sharedfilesalreadycandidatepresent,noextraB4bytesreusefound. Presence/hashnotdecode/listening. Serialnextjobplanonly."
   },
-  "canonicalBaseRevalidation": "docs/qa-evidence/canonical-integration-base-revalidation-20261004.json"
+  "canonicalBaseRevalidation": "docs/qa-evidence/canonical-integration-base-revalidation-20261004.json",
+  "batch2Batch3SupplementalNarrationJobs": {
+    "report": "docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json",
+    "sha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+    "requested": 7,
+    "existing": 0,
+    "scope": "Five exact released Batch2 phrases plus two local revised Dino facts. Source bytes/key/text verified. Read-only ledger only; no paid calls or manifest changes. Await predecessor worker terminal state before bounded generation."
+  }
 }

@@ -595,3 +595,12 @@ Root read B7 integrated5372 report1bcec42; reviewed corrected4e59cd0 narration l
 Root read B5a9c7910 routefollowup: normal Amari Count/Trace parentnavigation pass bothwidths. Askia legacySound/Spelling only direct internalroute rendering, notdiscoverableHome controls; preserve this scope.
 
 Sourcebound deduplicated narration inventory40b3b44 is imported/published here. B5–B7 contain1647unique keys,147present and1500missing, with37separate purephonemepaths32targets missing. No newly reusable B4bytes found. B4snapshotchanging and PIDlive; no concurrentgeneration. Canonical provider+eight hashes freshlymatch0d, separate fromnewcandidateUI. An independent remaining22-game mandatory-gap audit is underway to establish nextactions beyondaudio. Counts4recordedaccepted/22inprogress remain.
+
+
+## 4 October — current quota reconciliation and finite supplemental narration
+
+Root full-read the Count the Stars quota UI report: harder-band six-round queues, grouped totals, replay novelty, three-page collection/reload and sibling separation already passed at desktop and390px. The queue and progress modules remain byte-identical from its653633f source to canonical0d; narration and noun-copy component deltas have retained production evidence. The independent editorial report now links that later result, closing its stale claim that no rendered quota queue existed. No duplicate full queue run is required by this unchanged source.
+
+The [supplemental narration ledger](qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json) pins exactly five released Batch2 phrases and the two local revised Dino facts, verifies owned source bytes and voice keys, and confirms all seven packaged files are absent. It is read-only preparation, not generation or audio acceptance. A separate agent is checking the two local Dino facts through normal guarded desktop/390px reveal flows. The existing B4 worker continues; no parallel paid job was started.
+
+The B5/B6/B7 release-order summary now reflects completed independent integration checks. A newly drafted22-game gap ledger used stale copied status and is being corrected against root's current reports before publication. Accepted count remains4/26.

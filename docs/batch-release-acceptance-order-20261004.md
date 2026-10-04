@@ -7,9 +7,9 @@ Current canonical runtime is0d3ef056 (shared default functional repair). The roo
 | Batch | Games | Source / immutable local origin | Current acceptance work |
 |---|---|---|---|
 | 4 | Addition Adventure, Subtraction Station, Time Teller, Number Line Jump | Reviewed sourceac3b3cc; old frozen5360 integration predates shared default | Finite narration worker PID18781, then source-bound complete corpus verification, playback/cancellation and listening; integrate onto then-current canonical before release. |
-| 5 | Sound Safari, Spelling Studio, Colour Mixing Lab, Odd One Out | b198dbf /5368 | Bounded Amari UI and preference checks passed; legacy Askia/B3 follow-up in progress. Narration and isolated phoneme auditory checks incomplete. |
-| 6 | Pattern Parade, Dino Hangman, Chess Explorers, Astronaut Academy | 2a82fd8 /5371 | Reviewed teaching/reliability lineage; independent clean integration checks underway. Narration incomplete. |
-| 7 | Memory Match, Solar System | c4db1d4 /5372 | Root reviewed additive integration diff. Separate source5369 review underway, integrated5372 UI still required. Narration incomplete. |
+| 5 | Sound Safari, Spelling Studio, Colour Mixing Lab, Odd One Out | b198dbf /5368 | Bounded Amari UI and preference checks passed; legacy Askia direct-route and ordinary B3 entry follow-up passed with its documented scope. Narration and isolated phoneme auditory checks incomplete. |
+| 6 | Pattern Parade, Dino Hangman, Chess Explorers, Astronaut Academy | 2a82fd8 /5371 | Reviewed teaching/reliability lineage; independent clean integration checks passed on5371; narration and release gates remain open. Narration incomplete. |
+| 7 | Memory Match, Solar System | c4db1d4 /5372 | Root reviewed additive integration diff. Independent source5369 and integrated5372 UI checks passed; root independently confirmed Solar parent return. Narration incomplete. |
 
 Batches2–3 retain their released functional repairs and exact production evidence; final audio/listening/editorial acceptance remains open. Batch2 exact2+10 post-repair independent case is still unobserved; a nearby case is not its proof. The final batch has two games because the catalog is26.
 
