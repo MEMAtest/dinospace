@@ -1,0 +1,70 @@
+- generic [ref=e1442]:
+  - banner [ref=e1443]:
+    - button "Back to home" [ref=e1444] [cursor=pointer]
+    - generic [ref=e1447]:
+      - heading "Read & Write" [level=1] [ref=e1448]
+      - paragraph [ref=e1449]: Sounds, spelling, stories and handwriting
+    - button "Turn sound on" [ref=e1450] [cursor=pointer]
+  - button "🎲 Surprise me" [ref=e1456] [cursor=pointer]
+  - generic [ref=e1457]:
+    - generic [ref=e1458]:
+      - button "Letter launch rocket Words Letter Launch Letters and sounds" [ref=e1459] [cursor=pointer]:
+        - generic [ref=e1462]:
+          - img "Letter launch rocket" [ref=e1464]
+          - generic [ref=e1470]:
+            - generic [ref=e1471]: Words
+            - heading "Letter Launch" [level=2] [ref=e1472]
+            - paragraph [ref=e1473]: Letters and sounds
+      - button "Add Letter Launch to favourites" [ref=e1477] [cursor=pointer]: ☆
+    - generic [ref=e1478]:
+      - button "Hear the sounds Words Sound Safari Match the sounds" [ref=e1479] [cursor=pointer]:
+        - generic [ref=e1482]:
+          - img "Hear the sounds" [ref=e1484]
+          - generic [ref=e1494]:
+            - generic [ref=e1495]: Words
+            - heading "Sound Safari" [level=2] [ref=e1496]
+            - paragraph [ref=e1497]: Match the sounds
+      - button "Add Sound Safari to favourites" [ref=e1501] [cursor=pointer]: ☆
+    - generic [ref=e1502]:
+      - button "Spelling letters Words Spelling Studio Learn sounds and spell!" [ref=e1503] [cursor=pointer]:
+        - generic [ref=e1506]:
+          - img "Spelling letters" [ref=e1508]:
+            - img [aria-hidden] [ref=e1509]:
+              - generic [ref=e1514]:
+                - generic [ref=e1515]: A
+                - generic [ref=e1518]: B
+                - generic [ref=e1521]: C
+          - generic [ref=e1524]:
+            - generic [ref=e1525]: Words
+            - heading "Spelling Studio" [level=2] [ref=e1526]
+            - paragraph [ref=e1527]: Learn sounds and spell!
+      - button "Add Spelling Studio to favourites" [ref=e1531] [cursor=pointer]: ☆
+    - generic [ref=e1532]:
+      - button "Letter tracing pencil Words Letter Trace Trace big and small letters" [ref=e1533] [cursor=pointer]:
+        - generic [ref=e1536]:
+          - img "Letter tracing pencil" [ref=e1538]
+          - generic [ref=e1549]:
+            - generic [ref=e1550]: Words
+            - heading "Letter Trace" [level=2] [ref=e1551]
+            - paragraph [ref=e1552]: Trace big and small letters
+      - button "Add Letter Trace to favourites" [ref=e1556] [cursor=pointer]: ☆
+    - generic [ref=e1557]:
+      - button "PRACTICE Rex the dinosaur Bonus play Dino Hangman Rescue dinosaur words!" [ref=e1558] [cursor=pointer]:
+        - generic [ref=e1561]: PRACTICE
+        - generic [ref=e1563]:
+          - img "Rex the dinosaur" [ref=e1565]
+          - generic [ref=e1571]:
+            - generic [ref=e1572]: Bonus play
+            - heading "Dino Hangman" [level=2] [ref=e1573]
+            - paragraph [ref=e1574]: Rescue dinosaur words!
+      - button "Add Dino Hangman to favourites" [ref=e1578] [cursor=pointer]: ☆
+    - generic [ref=e1579]:
+      - button "NEW Storybook library Words Storybook Studio Read, listen and explore!" [ref=e1580] [cursor=pointer]:
+        - generic [ref=e1583]: NEW
+        - generic [ref=e1585]:
+          - img "Storybook library" [ref=e1587]
+          - generic [ref=e1598]:
+            - generic [ref=e1599]: Words
+            - heading "Storybook Studio" [level=2] [ref=e1600]
+            - paragraph [ref=e1601]: Read, listen and explore!
+      - button "Add Storybook Studio to favourites" [ref=e1605] [cursor=pointer]: ☆

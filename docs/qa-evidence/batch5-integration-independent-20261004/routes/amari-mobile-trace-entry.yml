@@ -1,0 +1,19 @@
+- generic [ref=e1606]:
+  - banner [ref=e1607]:
+    - button "Back to learning world" [ref=e1608] [cursor=pointer]
+    - generic [ref=e1611]:
+      - paragraph [ref=e1612]: Words · age-six practice
+      - paragraph [ref=e1613]: Letter Trace
+    - button "Sound off" [ref=e1614] [cursor=pointer]
+  - main [ref=e1619]:
+    - generic [aria-hidden] [ref=e1620]: ✍️
+    - paragraph [ref=e1621]: Chapter 1 of 3
+    - heading "Follow the path" [level=1] [ref=e1622]
+    - paragraph [ref=e1623]: Trace eight big letters, one careful stroke at a time.
+    - paragraph [ref=e1624]: 0 chapters earned · 0 letters independently mastered
+    - generic "Trace chapters" [ref=e1625]:
+      - button "Follow the path" [pressed] [ref=e1626] [cursor=pointer]
+      - button "Big and little, locked" [disabled] [ref=e1627]: Big and little
+      - button "Trace and read, locked" [disabled] [ref=e1628]: Trace and read
+    - button "Start chapter" [ref=e1629] [cursor=pointer]
+  - contentinfo [ref=e1630]: Pointer completion records letter mastery only after an unhinted, first-try hand trace. Keyboard practice can complete the chapter without recording handwriting mastery.

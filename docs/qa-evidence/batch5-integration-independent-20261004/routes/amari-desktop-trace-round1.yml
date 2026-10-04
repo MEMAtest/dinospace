@@ -1,0 +1,28 @@
+- generic [ref=e2427]:
+  - banner [ref=e2428]:
+    - button "Back to learning world" [ref=e2429] [cursor=pointer]
+    - generic [ref=e2432]:
+      - paragraph [ref=e2433]: Words · age-six practice
+      - paragraph [ref=e2434]: Letter Trace
+    - button "Sound off" [ref=e2435] [cursor=pointer]
+  - main [ref=e2452]:
+    - generic [ref=e2453]:
+      - generic [ref=e2454]:
+        - paragraph [ref=e2455]: Follow the path · round 1 of 8
+        - heading "Trace B · Ball" [level=1] [ref=e2456]
+      - generic [ref=e2457]:
+        - button "Hear the tracing instruction again" [ref=e2458] [cursor=pointer]
+        - button "Sound off" [ref=e2463] [cursor=pointer]
+    - region "Letter tracing exercise" [ref=e2464]:
+      - generic [ref=e2465]:
+        - paragraph [ref=e2466]: Start at green 1; follow the arrows.
+        - paragraph [ref=e2467]: 0% traced
+      - progressbar "Letter path progress" [ref=e2468]
+      - img "B letter guide. Trace B. Stroke 1 of 3." [ref=e2470]
+      - generic [ref=e2471]:
+        - button "Show this stroke" [ref=e2472] [cursor=pointer]
+        - button "Retry trace" [ref=e2475] [cursor=pointer]
+        - button "Use keyboard" [ref=e2479] [cursor=pointer]
+        - button "Check shape" [disabled] [ref=e2480]
+    - paragraph [ref=e2483]: Follow the dotted path in order. Start at the green number and move toward the arrow.
+  - contentinfo [ref=e2451]: Pointer completion records letter mastery only after an unhinted, first-try hand trace. Keyboard practice can complete the chapter without recording handwriting mastery.

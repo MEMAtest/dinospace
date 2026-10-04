@@ -1,0 +1,29 @@
+- generic [ref=e1696]:
+  - banner [ref=e1697]:
+    - button "Back to Maths Missions" [ref=e1698] [cursor=pointer]
+    - generic [ref=e1702]:
+      - heading "Count the Stars" [level=1] [ref=e1703]
+      - paragraph [ref=e1704]: Star Garden
+    - button "Turn sound on" [ref=e1705] [cursor=pointer]
+  - main [ref=e1710]:
+    - paragraph [ref=e1711]: Count one object at a time. Collected totals light up a constellation page.
+    - generic [ref=e1712]:
+      - article [ref=e1713]:
+        - img "Star Garden Constellation star map" [ref=e1714]
+        - heading "Star Garden" [level=2] [ref=e1726]
+        - paragraph [ref=e1727]: Count from 1 to 5. Six rounds · starter band.
+        - paragraph [ref=e1728]: Touch each object once, then choose how many you counted.
+        - button "Start survey" [ref=e1729] [cursor=pointer]
+      - article [ref=e1730]:
+        - img "Constellation Workshop Constellation star map" [ref=e1731]
+        - heading "Constellation Workshop" [level=2] [ref=e1747]
+        - paragraph [ref=e1748]: Count from 1 to 10. Six rounds · growing band.
+        - paragraph [ref=e1749]: Count an organised group, then check each marked object once.
+        - button "Locked" [disabled] [ref=e1750]
+      - article [ref=e1751]:
+        - img "Galaxy Survey Constellation star map" [ref=e1752]
+        - heading "Galaxy Survey" [level=2] [ref=e1772]
+        - paragraph [ref=e1773]: Count from 1 to 20. Six rounds · challenge band.
+        - paragraph [ref=e1774]: Count a full array or combine two visible groups.
+        - button "Locked" [disabled] [ref=e1775]
+    - button "Constellation book (0/3)" [ref=e1776] [cursor=pointer]

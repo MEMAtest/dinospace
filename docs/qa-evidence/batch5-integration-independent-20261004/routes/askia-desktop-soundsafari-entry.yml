@@ -1,0 +1,9 @@
+- generic [ref=e164]:
+  - button "Back to home" [ref=e166] [cursor=pointer]
+  - generic [ref=e170]:
+    - img "Hear the sounds" [ref=e172]
+    - heading "Sound Safari" [level=1] [ref=e182]
+    - paragraph [ref=e183]: "Level 0 of 0:"
+    - paragraph [ref=e184]: Match the sounds.
+    - generic "8 to finish" [ref=e185]
+    - button "Play Sound Safari level 0" [ref=e194] [cursor=pointer]

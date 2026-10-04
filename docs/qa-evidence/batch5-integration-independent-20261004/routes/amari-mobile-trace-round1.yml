@@ -1,0 +1,28 @@
+- generic [ref=e1606]:
+  - banner [ref=e1607]:
+    - button "Back to learning world" [ref=e1608] [cursor=pointer]
+    - generic [ref=e1611]:
+      - paragraph [ref=e1612]: Words · age-six practice
+      - paragraph [ref=e1613]: Letter Trace
+    - button "Sound off" [ref=e1614] [cursor=pointer]
+  - main [ref=e1631]:
+    - generic [ref=e1632]:
+      - generic [ref=e1633]:
+        - paragraph [ref=e1634]: Follow the path · round 1 of 8
+        - heading "Trace I · Ice cream" [level=1] [ref=e1635]
+      - generic [ref=e1636]:
+        - button "Hear the tracing instruction again" [ref=e1637] [cursor=pointer]
+        - button "Sound off" [ref=e1642] [cursor=pointer]
+    - region "Letter tracing exercise" [ref=e1643]:
+      - generic [ref=e1644]:
+        - paragraph [ref=e1645]: Start at green 1; follow the arrows.
+        - paragraph [ref=e1646]: 0% traced
+      - progressbar "Letter path progress" [ref=e1647]
+      - img "I letter guide. Trace I. Stroke 1 of 3." [ref=e1649]
+      - generic [ref=e1650]:
+        - button "Show this stroke" [ref=e1651] [cursor=pointer]
+        - button "Retry trace" [ref=e1654] [cursor=pointer]
+        - button "Use keyboard" [ref=e1658] [cursor=pointer]
+        - button "Check shape" [disabled] [ref=e1659]
+    - paragraph [ref=e1662]: Follow the dotted path in order. Start at the green number and move toward the arrow.
+  - contentinfo [ref=e1630]: Pointer completion records letter mastery only after an unhinted, first-try hand trace. Keyboard practice can complete the chapter without recording handwriting mastery.

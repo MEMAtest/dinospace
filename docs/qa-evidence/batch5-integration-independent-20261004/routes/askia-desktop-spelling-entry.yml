@@ -1,0 +1,14 @@
+- generic [ref=e366]:
+  - button "Back to home" [ref=e368] [cursor=pointer]
+  - generic [ref=e372]:
+    - img "Spelling letters" [ref=e374]:
+      - img [aria-hidden] [ref=e375]:
+        - generic [ref=e380]:
+          - generic [ref=e381]: A
+          - generic [ref=e384]: B
+          - generic [ref=e387]: C
+    - heading "Spelling Studio" [level=1] [ref=e390]
+    - paragraph [ref=e391]: "Level 0 of 0:"
+    - paragraph [ref=e392]: Build the word with the sounds.
+    - generic "6 to finish" [ref=e393]
+    - button "Play Spelling Studio level 0" [ref=e400] [cursor=pointer]
