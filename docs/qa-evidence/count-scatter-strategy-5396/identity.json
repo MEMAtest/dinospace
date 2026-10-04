@@ -1,0 +1,49 @@
+{
+  "candidate": "Count the Stars scattered-board strategy correction",
+  "date": "2026-10-04",
+  "url": "http://127.0.0.1:5396/",
+  "status": "local immutable preview; not deployed",
+  "sourceCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "baseCommit": "79a719e91e727f09d1f78cf890acd7e671cab381",
+  "changedFiles": [
+    "src/components/games/AmariCountTheStars.jsx",
+    "src/data/countTheStarsBatch3.js",
+    "test/countTheStarsBatch3.test.mjs"
+  ],
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build",
+    "result": "passed"
+  },
+  "checks": {
+    "focusedTests": "node --test test/countTheStarsBatch3.test.mjs; 6 passed, 0 failed",
+    "scopedLint": "npx eslint src/data/countTheStarsBatch3.js src/components/games/AmariCountTheStars.jsx test/countTheStarsBatch3.test.mjs; passed",
+    "diffCheck": "git diff --check; passed"
+  },
+  "servedAssets": [
+    {
+      "path": "/",
+      "http": 200,
+      "sha256": "2e748948880b91d40506124b861e3dabf96c129be8ad07552dbf6cfce0e859b5",
+      "matchesLocalBuild": true
+    },
+    {
+      "path": "/assets/index-BISzYVQf.js",
+      "http": 200,
+      "sha256": "5af0093999f66d016cfbed296bc4a79271d316c94f16414f5189e8a92f737222",
+      "matchesLocalBuild": true
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "http": 200,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "matchesLocalBuild": true
+    },
+    {
+      "path": "/assets/AmariCountTheStars-CsClYaHL.js",
+      "http": 200,
+      "sha256": "a8e614d0c393821723a2f33d41dd235fa58a9dbb072dabfa7ab7e5611b74abe5",
+      "matchesLocalBuild": true
+    }
+  ],
+  "scope": "A scattered arrangement selects the existing Starter strategy regardless of band. Array and split-group arrangements retain the current band strategy. Spoken clues remain selected by the same rendered arrangement. No narration keys, progress logic, or count mechanics changed."
+}
