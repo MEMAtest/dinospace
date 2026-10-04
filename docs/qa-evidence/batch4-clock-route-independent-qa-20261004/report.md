@@ -32,7 +32,7 @@ After Amari’s ordinary Addition Chapter 1 completion, the Amari badge shelf di
 
 ## Limits
 
-- The test covers a focused wrong/clue/correct/held-Next slice across all four Amari maths games and both-width clock-route checks. It does not repeat all 18 chapters or the full round matrix at both widths.
+- The test covers a focused wrong/clue/correct/held-Next slice across all four Amari maths games and both-width clock-route checks. It does not repeat all 12 chapters or every chapter's six rounds at both widths.
 - This local candidate is not the production alias. The report establishes local browser behavior and candidate asset identity only.
 - Voice and story APIs were guarded; no provider calls were made. No human listening assessment was performed, and packaged narration/audio quality remains a separate gate.
 - The earlier retained full 5227 matrix remains the evidence for full chapter mechanics; this delta is limited to the route-state fix, representative controls, and the shared badge-shelf integration.
