@@ -78,7 +78,7 @@
       "drink": "Yummy Feast level 7",
       "duck": "Garden & Pond Life level 9"
     },
-    "layout": "Target cards at mobile were 82x82px; all four loaded 512px natural width artwork. Target visible captions were Party Face, Racing Car, Drink, Duck. Each target board completed at its authored pair count. The target board at desktop had 24/28/30/34 cards respectively; mobile repeated same. Face-down checks on mobile after completion found zero descendant img and zero face-down cards; target screenshots show actual matched cards.",
+    "layout": "Target cards at mobile were 82x82px and each loaded 512px natural-width artwork. Visible target captions were Party Face, Racing Car, Drink and Duck. All target boards completed at authored pair counts on both viewports. Separate hidden-face checks used visible level-selector buttons to start a fresh round on all four earned boards, then reloaded each selected round: respectively 24/28/30/34 cards remained face down, with zero descendant images, zero .memory-card-label nodes, and accessible names limited to face-down index labels.",
     "mobileMeasurements": [
       {
         "board": "Party & Treats",
@@ -138,7 +138,45 @@
       }
     ],
     "guards": "Fresh isolated CLI browser session began at about:blank; 403 routes for **/api/voice and **/api/story were installed and route-list confirmed before goto, after goto, and after both desktop/mobile journeys. Final route list still showed both routes. No matching API request observed in requests (CLI omitted static requests by default). Console reported 0 messages, errors, and warnings.",
-    "guardLimitation": "This group used open about:blank, installed both routes, then goto target origin. Guard routes persisted through final checks."
+    "guardLimitation": "This group used open about:blank, installed both routes, then goto target origin. Guard routes persisted through final checks.",
+    "reloadResetVerification": [
+      {
+        "board": "Party & Treats",
+        "cards": 24,
+        "selectorRoundFaceDown": 24,
+        "afterReloadFaceDown": 24,
+        "imageDescendants": 0,
+        "frontLabelNodes": 0,
+        "accessibleLabels": "Face-down memory card 1…24"
+      },
+      {
+        "board": "All Kinds of Vehicles",
+        "cards": 28,
+        "selectorRoundFaceDown": 28,
+        "afterReloadFaceDown": 28,
+        "imageDescendants": 0,
+        "frontLabelNodes": 0,
+        "accessibleLabels": "Face-down memory card 1…28"
+      },
+      {
+        "board": "Yummy Feast",
+        "cards": 30,
+        "selectorRoundFaceDown": 30,
+        "afterReloadFaceDown": 30,
+        "imageDescendants": 0,
+        "frontLabelNodes": 0,
+        "accessibleLabels": "Face-down memory card 1…30"
+      },
+      {
+        "board": "Garden & Pond Life",
+        "cards": 34,
+        "selectorRoundFaceDown": 34,
+        "afterReloadFaceDown": 34,
+        "imageDescendants": 0,
+        "frontLabelNodes": 0,
+        "accessibleLabels": "Face-down memory card 1…34"
+      }
+    ]
   },
   "runtimeDelta": "MemoryMatch.jsx adds imports and static path mappings only for these four WebP files. memoryMatchContent.js binds existing authored tokens to matching illustrations. No board definitions, game mechanics, card semantics, progress, persistence, or Askia rendering/art map changed.",
   "screenshots": [
@@ -181,6 +219,11 @@
       "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/vehicles-desktop.png",
       "sha256": "6c5f3ae9b8f516b2a0692c6bf3a87e0d04e428454b761bf1b1dbc7596d68ddce",
       "bytes": 572609
+    },
+    {
+      "path": "docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-images/garden-face-down-after-reload-390.png",
+      "sha256": "4c32153de5983aa944c22838a099f896139f5810eb5fa6d59fa933bae1ef52c9",
+      "bytes": 185149
     }
   ],
   "scope": "Builder evidence only. Independent visual/gameplay review and remaining art/audio gates, human listening, production, release and 4.5 score remain open."
