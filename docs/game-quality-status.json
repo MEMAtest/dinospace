@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T04:05:31.273920+00:00",
+  "updatedAt": "2026-10-04T04:15:21.917885+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "Worker status2026-10-04T03:55:57Z run104:1460 reused,3709 pending,last12generated,zero cooldown retries; waiting expected request window. No restart or concurrent paid voice worker.",
+    "voiceCoverage": "PID18781 confirmedlive04:07UTC. Status04:06:03Zrun106:1486reused3679pending,last16generated,zero cooldownretries; expectedrequestwindowwait. No restart/concurrentpaidworker.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -400,6 +400,11 @@
       "source": "6e4383e",
       "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-isolated-animals-astronaut-rock-provenance-20261004.json",
       "scope": "FourRGBAoriginalscopiedunchanged: Frog/Monkeyreplace sceniccrops, exactsuitedAstronautAmarireference, Moonrockonlyastronaut/cosmiccontexts (dinosfossilrockstillmissing). IntegrationqueuedafterFood."
+    },
+    "queuedGardenOriginals": {
+      "commit": "e1a0ba4",
+      "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-garden-creatures-art-provenance-20261004.json",
+      "scope": "Four distinct isolated bee/butterfly/ladybird/snail originals copiedunchanged; queuedafterisolatedanimalsastro/Moonrock and4fossils. Originalartonly; renderedQA/integrationpending."
     }
   },
   "monsterClueRepair": {
@@ -484,7 +489,9 @@
   },
   "nextIndependentEditorialWork": {
     "game": "Puzzle Pop",
-    "scope": "Fullauthored12scene age6/names/facts/art/crop audit plus missinginteraction/keyboardproof on currentcanonical withretainedfullbaseline/delta lineage; independentreviewunderway. Missinghumanaudio andothergatesnotwaived/no4.5yet."
+    "report": "docs/qa-evidence/puzzle-canonical-editorial-keyboard-20261004/report.md",
+    "commit": "333fb0e",
+    "scope": "Canonicalc47812scene servedasset/editorial audit plus desktop2x2keyboardheldfact passed; titlePicnicunsupportedcanonical/local2084095repairpending3clips. Reviewer nowclosing2x2/3x3/5x5keyboardbothwidths and reconciling retainedfullbaseline+explicitdeltas perroadmap, withoutmislabelingoldrunsasnew. No listening/4.5 acceptance."
   },
   "puzzleTitleRepair": {
     "sourceSha": "2084095",
