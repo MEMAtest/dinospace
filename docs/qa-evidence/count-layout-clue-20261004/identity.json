@@ -1,0 +1,44 @@
+{
+  "candidate": "Count the Stars layout-specific clue correction",
+  "sourceCommit": "79a719e91e727f09d1f78cf890acd7e671cab381",
+  "baseSourceCommit": "40c053408d47ca76ff26cc8ae5c2e8ad9bb99d70",
+  "preview": "http://127.0.0.1:5395/",
+  "frozenDist": "tmp/count-layout-clue-5395/dist",
+  "servedFiles": 5879,
+  "servedAssetsManifestSha256": "99051c33640eae13f232222a2c3bc2430fec72111862550b0877fd8d17b5a833",
+  "scope": [
+    "Visible count arrangement description and counting clue share one classifier derived from the actual count and layoutVariant.",
+    "Orbit layouts with 1\u20135 objects use the scattered strategy; Orbit layouts above five use the regular array strategy; Grouped layouts above ten use the two-group strategy; all other layouts use the row/array strategy.",
+    "Existing three hint phrases, narration keys, question IDs, question generation, scoring and progress are unchanged."
+  ],
+  "checks": {
+    "focusedTests": "node --test test/countTheStarsBatch3.test.mjs test/countTheStarsProgress.test.mjs (8 passed)",
+    "eslint": "src/components/games/AmariCountTheStars.jsx src/data/countTheStarsBatch3.js test/countTheStarsBatch3.test.mjs (passed)",
+    "productionBuild": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build (passed)"
+  },
+  "notVerified": [
+    "No production deployment or acceptance score.",
+    "No provider calls or human listening; the three existing hint lines and their readiness were unchanged.",
+    "No final guarded-session visual screenshot for the scattered \u22645 branch; its mapping is covered by the new exhaustive pool test.",
+    "An earlier exploratory profile with programmatic page.route setup was discarded when the CLI route-list did not show those routes; its request log was unavailable after close. It is excluded from accepted evidence and has no claim attached to its API history."
+  ],
+  "independentBrowserChecks": {
+    "tool": "Playwright CLI",
+    "session": "count-layout-clue-5395-guarded (fresh isolated session)",
+    "guardProcedure": "Opened about:blank; added CLI route **/api/voice** status 403 and **/api/story** status 403; route-list showed both active before first app goto and again after load. App was muted through visible Turn sound off control.",
+    "routeStatusAfterInteractions": "Both guards remained active. The request summary reported 14 static requests and no non-static API requests.",
+    "console": "0 messages, 0 errors, 0 warnings.",
+    "ordinaryUi": "Completed Starter and Growing via visible object buttons, visible answer choices, and Next to earn ordinary unlocks; completed one Challenge survey then used ordinary Challenge replay. No state/seed/answer injection.",
+    "visibleFindings": [
+      "Challenge Satellite Panels, 12 visible objects in regular rows, group label \"organized rows or an array\"; Show a clue displayed \"Read one row at a time, and use each badge to keep your place.\"",
+      "Challenge Crater Gems, 15 visible objects in regular 5\u00d73 rows; same row clue. This is the same high-count regular-array layout class that triggered the reported defect.",
+      "Challenge Constellation Maps, 17 visible objects in two separated groups; group label \"two visible groups\" and Show a clue displayed \"Count one visible group, then the other group. Add the two totals.\""
+    ],
+    "screenshots": [
+      "screenshots/satellite-panels-array-row-clue-guarded.png",
+      "screenshots/challenge-15-array-row-clue-guarded.png",
+      "screenshots/challenge-split-groups-clue-guarded.png"
+    ],
+    "scatteredBranch": "Classifier unit coverage spans every question pool; no final guarded-session screenshot was captured for a scattered \u22645 clue."
+  }
+}
