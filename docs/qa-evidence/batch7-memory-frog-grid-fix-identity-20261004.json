@@ -1,0 +1,88 @@
+{
+  "createdAt": "2026-10-04T03:05:00Z",
+  "scope": "Fix Memory card-front grid sizing so sprite art crops do not shrink to intrinsic text width. No Memory content, illustration mapping, pair counts, progression, passport, or Askia changes.",
+  "sourceCommit": "3931a3b",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5310",
+    "frozenDist": "tmp/batch7-memory-frog-grid-fix-final/dist",
+    "priorFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-ocean-completion-final/dist",
+      "tmp/batch7-memory-fruit-art-final-v3/dist",
+      "tmp/batch7-memory-space-objects-final/dist",
+      "tmp/batch7-memory-star-sun-final/dist"
+    ]
+  },
+  "rootCause": "The front grid had implicit auto columns. Because a CSS-background sprite has no intrinsic width, the auto track collapsed to approximately 20px in an 82px mobile card, clipping the Frog crop into a narrow strip. An explicit minmax(0, 1fr) front column lets both sprite crops use the card's available width.",
+  "renderedUiChecks": {
+    "profileAndProgression": "Selected Amari through the visible chooser. Started with an empty local profile and completed levels 1–8 through visible card flips and Next controls, then completed Garden & Pond Life at level 9. No hidden answer, saved-progress, or storage injection.",
+    "spriteCrops": ["🐸 Frog", "🐵 Monkey"],
+    "measurementsCssPx": {
+      "forestDesktop1280": {
+        "card": [231.25, 231.25],
+        "frontGridColumn": 221.25,
+        "artContainer": [221.25, 143],
+        "spriteCrop": [195, 129],
+        "caption": [221.25, 21],
+        "visibleNames": ["Frog", "Monkey"]
+      },
+      "forestMobile390": {
+        "card": [82, 82],
+        "frontGridColumn": 72,
+        "artContainer": [72, 30.4],
+        "spriteCrop": [63.4, 27.4],
+        "caption": [72, 17.2],
+        "visibleNames": ["Frog", "Monkey"]
+      },
+      "gardenDesktop1280": {
+        "card": [149.17, 149.17],
+        "frontGridColumn": 139.17,
+        "artContainer": [139.17, 86.97],
+        "spriteCrop": [122.47, 78.27],
+        "caption": [139.17, 20.95],
+        "visibleNames": ["Frog", "Frog"]
+      },
+      "gardenMobile390": {
+        "card": [82, 82],
+        "frontGridColumn": 72,
+        "artContainer": [72, 30.4],
+        "spriteCrop": [63.4, 27.4],
+        "caption": [72, 17.2],
+        "visibleNames": ["Frog", "Frog"]
+      }
+    },
+    "captionRows": "Stayed in a separate row below the crop; all rendered labels remained visible with no overlap.",
+    "documentWidth": "390px at 390px viewport; 1280px at 1280px viewport.",
+    "screenshots": [
+      "docs/qa-evidence/batch7-memory-frog-grid-fix-builder-images/forest-desktop-1280-completed.png",
+      "docs/qa-evidence/batch7-memory-frog-grid-fix-builder-images/forest-mobile-390-completed.png",
+      "docs/qa-evidence/batch7-memory-frog-grid-fix-builder-images/garden-desktop-1280-completed.png",
+      "docs/qa-evidence/batch7-memory-frog-grid-fix-builder-images/garden-mobile-390-completed.png"
+    ]
+  },
+  "networkAndConsole": {
+    "preNavigationRoutes": [
+      {"pattern": "/api/voice", "responseStatus": 204},
+      {"pattern": "/api/story", "responseStatus": 204}
+    ],
+    "observedVoiceOrStoryRequests": 0,
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "servedIdentity": {
+    "/": {"sha256": "a32115e0dd233f2d4553ce3bfdbf2c9b55d9e8feddda4a471697d205e7a55627", "matchesFrozenDist": true},
+    "/assets/index-CAeuOh0u.js": {"sha256": "0433b37b5d3a097588e84f4caff8ad4d3941f0e65c7750a5f55ef41d7534e1f3", "matchesFrozenDist": true},
+    "/assets/index-CYWTXfuY.css": {"sha256": "251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d", "matchesFrozenDist": true},
+    "/assets/sound-safari-animals-3d-DxBjyDMU.webp": {"sha256": "dad91b003b2810eaf0b6c4577caf27c8090daaa503bf9b2013172a46cb68e3bf", "bytes": 414986, "matchesFrozenDist": true}
+  },
+  "sourceGates": {
+    "focusedTests": "10 passed: test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs",
+    "lint": "passed",
+    "productionConfigBuild": "passed with explicit voice and story config; existing stale Browserslist data and large-chunk warnings remain",
+    "frozenBundleMatchesProductionBuild": true
+  },
+  "limits": [
+    "Builder-rendered regression check only; independent browser regression review is pending.",
+    "This is not full Memory art, audio, human, device, production, or 4.5 acceptance."
+  ]
+}
