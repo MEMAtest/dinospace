@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T11:19:28.741450+00:00",
+  "updatedAt": "2026-10-04T11:36:39.512914+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -970,5 +970,11 @@
     "listeningSheet": "docs/batch2-current-listening-review-20261004.md",
     "listeningSamples": "docs/qa-evidence/batch2-current-listening-samples-20261004.json",
     "scope": "Nine authoredcurrent samplesfreshfull-decode/staticproductionhashmatches. All1368existingcurrentcorpusbytesmatchpreviousvalidfull-decoderesults. No provider calls,manifestwritesorhumanlisteningverdict. ObsoleteDinoParkPicnicpromptnotusedforcurrentlistening. FiveclipdebtremainsuntilauthorizedgenerationavailableafterliveB4workerterminal."
+  },
+  "batch2CurrentEditorialReview": {
+    "source": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+    "report": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md",
+    "provenance": "docs/qa-evidence/batch2-provenance-audit-20261004/report.md",
+    "decision": "Supported non-audio components assessed; formal combined feedback/audio/visual score pending human listening. No new acceptance. Monster exact 2 + 10 remains unobserved; repaired Sky Challenge completion gap assigned."
   }
 }
