@@ -350,16 +350,17 @@
     }
   ],
   "latestFunctionalRelease": {
-    "sourceSha": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
-    "baselineArchive": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
-    "deploymentId": "dpl_7wFmajPYqR6CPrTLFksm4dkGzppv",
+    "sourceSha": "1accc99e89be303678ead99def6a3095ab1cb886",
+    "archiveSha": "22d805b67ced8b36f45d0f5c547bfe67c5dded88",
+    "baselineRuntime": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+    "deploymentId": "dpl_5cKFB6U489CLoEPucaY9pDarcHsp",
     "url": "https://dinospace-eight.vercel.app",
-    "renderedAssetsMatched": 8,
-    "scope": "Shared fresh-profile phonics default repair only. Independent immutable baseline and canonical desktop/390px default, saved restriction, wrong/retry/held/Next and parent Back controls pass with zero console errors, broken images or horizontal overflow. No new editorial acceptance.",
+    "renderedAssetsMatched": 4,
+    "scope": "Count panel artwork, scene/count variety, layout-specific clues and scattered strategy. Source ancestry retains prior canonical release. Independent immutable desktop/390px controls pass; provider and canonical byte identity confirmed. Canonical UI check pending. Audio/listening and overall acceptance remain open.",
     "editorialAccepted": false,
-    "identityEvidence": "docs/qa-evidence/phonics-default-release-20261004/canonical-identity.json",
-    "candidateProductionEvidence": "docs/qa-evidence/phonics-default-release-20261004/independent-live/report.md",
-    "productionEvidence": "docs/qa-evidence/phonics-default-release-20261004/canonical-independent/report.md"
+    "identityEvidence": "docs/qa-evidence/count-scatter-strategy-5396/canonical-identity.json",
+    "candidateProductionEvidence": "docs/qa-evidence/count-scatter-strategy-5396/production/report.md",
+    "productionEvidence": null
   },
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
@@ -562,6 +563,18 @@
       "identityEvidence": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/canonical-identity.json",
       "candidateProductionEvidence": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/independent-live/report.md",
       "productionEvidence": null
+    },
+    {
+      "sourceSha": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+      "baselineArchive": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "deploymentId": "dpl_7wFmajPYqR6CPrTLFksm4dkGzppv",
+      "url": "https://dinospace-eight.vercel.app",
+      "renderedAssetsMatched": 8,
+      "scope": "Shared fresh-profile phonics default repair only. Independent immutable baseline and canonical desktop/390px default, saved restriction, wrong/retry/held/Next and parent Back controls pass with zero console errors, broken images or horizontal overflow. No new editorial acceptance.",
+      "editorialAccepted": false,
+      "identityEvidence": "docs/qa-evidence/phonics-default-release-20261004/canonical-identity.json",
+      "candidateProductionEvidence": "docs/qa-evidence/phonics-default-release-20261004/independent-live/report.md",
+      "productionEvidence": "docs/qa-evidence/phonics-default-release-20261004/canonical-independent/report.md"
     }
   ],
   "canonicalRuntimeRecheck": "docs/qa-evidence/phonics-default-release-20261004/canonical-identity.json",
@@ -1655,5 +1668,11 @@
     "report": "docs/qa-evidence/batch2-current-visible-feedback-visual-review-20261004.md",
     "independentCommit": "550e9a180638ab81227833650f215a038fb0ae69",
     "rootReview": "Root read full report. Current94/0dDinoPark title verified by reviewer; olderc478Picnic screenshot historical. Reviewer corrected unsupported message allegation that current worksheet said undeployed. Sampled taskmatched mobile art/feedback adequate; optionalrecaps notblockers. Combinedaudio/visual remainsunscored, no newproductionrun."
+  },
+  "soundSafariFrozenSourceReview": {
+    "source": "decb60c4c816a24df875044df0d589b90f814f15",
+    "report": "docs/qa-evidence/batch5-soundsafari-phonics-source-independent-20261004.md",
+    "artReport": "docs/qa-evidence/batch5-soundsafari-starter-art-v2-independent-20261004.md",
+    "scope": "81 authored mappings and 11 tests passed. Dock artwork contextual ambiguity remains; narrow correction underway. Runtime, audio and overall acceptance pending."
   }
 }
