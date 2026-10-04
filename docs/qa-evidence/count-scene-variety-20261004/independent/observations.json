@@ -1,0 +1,61 @@
+{
+  "candidateSource": "40c053408d47ca76ff26cc8ae5c2e8ad9bb99d70",
+  "preview": "http://127.0.0.1:5393/",
+  "session": "count5393-indep-20261004",
+  "profile": "fresh isolated profile; normal Amari UI progression",
+  "guards": {
+    "installedBeforeFirstAppNavigation": true,
+    "routes": ["/api/voice -> 403", "/api/story -> 403"],
+    "visibleSound": "muted",
+    "providerCalls": 0
+  },
+  "viewport": "390x844",
+  "rounds": {
+    "starter": [
+      {"round": 1, "scene": "Tiny Planets", "visibleObjectCount": 5},
+      {"round": 2, "scene": "Firefly Meadow", "visibleObjectCount": 1},
+      {"round": 3, "scene": "Moon Berries", "visibleObjectCount": 2},
+      {"round": 4, "scene": "Comet Seeds", "visibleObjectCount": 3},
+      {"round": 5, "scene": "Rocket Lights", "visibleObjectCount": 4},
+      {"round": 6, "scene": "Rocket Lights", "visibleObjectCount": 3}
+    ],
+    "growing": [
+      {"round": 1, "scene": "Meteor Trails", "visibleObjectCount": 10},
+      {"round": 2, "scene": "Meteor Trails", "visibleObjectCount": 6},
+      {"round": 3, "scene": "Observatory Windows", "visibleObjectCount": 5},
+      {"round": 4, "scene": "Moon Rocks", "visibleObjectCount": 9},
+      {"round": 5, "scene": "Star Clusters", "visibleObjectCount": 7},
+      {"round": 6, "scene": "Satellite Bolts", "visibleObjectCount": 1}
+    ],
+    "challenge": [
+      {"round": 1, "scene": "Crater Gems", "visibleObjectCount": 7},
+      {"round": 2, "scene": "Constellation Maps", "visibleObjectCount": 3},
+      {"round": 3, "scene": "Crater Gems", "visibleObjectCount": 1},
+      {"round": 4, "scene": "Planet Rings", "visibleObjectCount": 17},
+      {"round": 5, "scene": "Satellite Panels", "visibleObjectCount": 15},
+      {"round": 6, "scene": "Nebula Dots", "visibleObjectCount": 14}
+    ]
+  },
+  "targetCheck": {
+    "scene": "Satellite Panels",
+    "chapter": "Challenge",
+    "round": 5,
+    "layout": "5x3 distinct panel icons; each panel's art contains a 3x3 cell pattern",
+    "visibleTargetsCounted": 15,
+    "wrongChoice": 14,
+    "wrongFeedback": "Check your count badges once more.",
+    "clue": "Count one visible group, then the other group. Add the two totals.",
+    "correctChoice": 15,
+    "heldFeedback": "There are 15 solar panels. You counted each one once.",
+    "clueMismatch": "This board is a single visible 5x3 array with no division into two groups."
+  },
+  "earnedPages": {"starter": true, "growing": true, "challenge": true},
+  "console": {"messages": 0, "errors": 0, "warnings": 0},
+  "screenshot": "screenshots/satellite-panels-mobile-held.jpg",
+  "limits": [
+    "Single normal UI run per band; not a full repeated mechanics matrix.",
+    "No reload persistence verification in this pass.",
+    "No audio or human-listening judgment.",
+    "No production acceptance or release claim."
+  ]
+}
