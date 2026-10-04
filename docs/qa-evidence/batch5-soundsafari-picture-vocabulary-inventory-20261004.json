@@ -1,0 +1,2355 @@
+{
+  "schema": "soundsafari-controlled-picture-words-v1",
+  "baselineCommit": "b198dbf49a5023e1b50181a9ef2a3eabd4c80a35",
+  "purpose": "Pre-art authored vocabulary and exact-art reuse inventory. Word-picture chapters remain closed until all targets have packaged images.",
+  "totals": {
+    "chapterTargets": [
+      26,
+      24,
+      29
+    ],
+    "chapterDefaultQuestions": [
+      26,
+      24,
+      81
+    ],
+    "stage3DefaultPositionQuestions": {
+      "first": 29,
+      "middleOddCountOnly": 23,
+      "last": 29
+    },
+    "uniqueWordIds": 79,
+    "soundOnlyIds": 44,
+    "stableSpellingIds": 35,
+    "approvedReusePendingCopy": 5,
+    "inspectedReuseCandidatesPendingApproval": 2,
+    "missingOriginals": 72,
+    "packagedInThisCandidate": 0
+  },
+  "defaultSounds": {
+    "phase2": [
+      "s",
+      "a",
+      "t",
+      "p",
+      "i",
+      "n",
+      "m",
+      "d",
+      "g",
+      "o",
+      "c",
+      "k",
+      "ck",
+      "e",
+      "u",
+      "r",
+      "h",
+      "b",
+      "f",
+      "ff",
+      "l",
+      "ll",
+      "ss"
+    ],
+    "phase3IncludesPhase2": [
+      "s",
+      "a",
+      "t",
+      "p",
+      "i",
+      "n",
+      "m",
+      "d",
+      "g",
+      "o",
+      "c",
+      "k",
+      "ck",
+      "e",
+      "u",
+      "r",
+      "h",
+      "b",
+      "f",
+      "ff",
+      "l",
+      "ll",
+      "ss",
+      "j",
+      "v",
+      "w",
+      "x",
+      "y",
+      "z",
+      "zz",
+      "qu",
+      "ch",
+      "sh",
+      "th",
+      "ng",
+      "nk",
+      "ai",
+      "ee",
+      "igh",
+      "oa",
+      "oo",
+      "ar",
+      "or",
+      "ur",
+      "ow",
+      "oi",
+      "ear",
+      "air",
+      "er"
+    ]
+  },
+  "pronunciationAndFairnessNotes": [
+    "Pronunciation basis is contemporary non-rhotic Southern British English.",
+    "branch and grass use /ɑː/ in the selected UK pronunciation. Their spelling grapheme a is retained, and the matching existing ar sound key is used for the spoken phoneme.",
+    "flower is excluded because its non-rhotic final unstressed vowel has no matching packaged sound key; snow is excluded because ow lacks a complete sound path here.",
+    "cheese is excluded because final s is /z/ and the available pure-sound inventory does not represent that voiced consonant. Ambiguous actions, people, and function words are excluded from picture-only targets.",
+    "Sound positions follow phoneme order. First/last questions use all eligible words. Middle questions use odd phoneme counts only; even-count words have no middle question.",
+    "Persisted selectedSounds are applied to every grapheme in each target and each picture decoy. There is no fallback to words outside the saved taught-sound set."
+  ],
+  "missingArtIds": [
+    "safari-ant",
+    "safari-bag",
+    "safari-bat",
+    "safari-cab",
+    "can",
+    "cap",
+    "cat",
+    "cot",
+    "dog",
+    "hen",
+    "log",
+    "mat",
+    "mop",
+    "safari-mug",
+    "safari-net",
+    "pan",
+    "safari-pen",
+    "safari-pig",
+    "pin",
+    "pot",
+    "safari-rag",
+    "safari-rat",
+    "safari-tag",
+    "tap",
+    "safari-tub",
+    "dock",
+    "sock",
+    "lock",
+    "bell",
+    "hill",
+    "safari-truck",
+    "safari-brick",
+    "safari-crab",
+    "safari-flag",
+    "safari-frog",
+    "safari-drum",
+    "safari-clock",
+    "safari-plant",
+    "safari-sack",
+    "safari-tent",
+    "safari-belt",
+    "safari-pond",
+    "safari-nest",
+    "safari-raft",
+    "safari-plank",
+    "safari-crust",
+    "safari-stump",
+    "ship",
+    "shop",
+    "chip",
+    "ring",
+    "rain",
+    "seed",
+    "feet",
+    "green",
+    "boat",
+    "coat",
+    "book",
+    "fork",
+    "safari-chain",
+    "safari-chess",
+    "safari-tooth",
+    "safari-brush",
+    "safari-sheep",
+    "safari-shell",
+    "safari-spoon",
+    "safari-shark",
+    "safari-train",
+    "safari-wheel",
+    "safari-branch",
+    "safari-grass",
+    "safari-teeth"
+  ],
+  "items": [
+    {
+      "id": "safari-ant",
+      "word": "ant",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "a",
+        "n",
+        "t"
+      ],
+      "phonemes": [
+        "a",
+        "n",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A small insect with six legs.",
+      "artDescription": "One friendly ant, clearly showing six legs.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-bag",
+      "word": "bag",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "b",
+        "a",
+        "g"
+      ],
+      "phonemes": [
+        "b",
+        "a",
+        "g"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A bag can carry things.",
+      "artDescription": "One small handled bag, with its shape clearly visible.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-bat",
+      "word": "bat",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "b",
+        "a",
+        "t"
+      ],
+      "phonemes": [
+        "b",
+        "a",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A bat is a flying animal.",
+      "artDescription": "One small flying bat with visible wings; depict the animal sense.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-cab",
+      "word": "cab",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "c",
+        "a",
+        "b"
+      ],
+      "phonemes": [
+        "c",
+        "a",
+        "b"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A cab is a taxi car.",
+      "artDescription": "One small yellow taxi cab, with no road or people.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "can",
+      "word": "can",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "c",
+        "a",
+        "n"
+      ],
+      "phonemes": [
+        "c",
+        "a",
+        "n"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A metal container",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "cap",
+      "word": "cap",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "c",
+        "a",
+        "p"
+      ],
+      "phonemes": [
+        "c",
+        "a",
+        "p"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A kind of hat",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "cat",
+      "word": "cat",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "c",
+        "a",
+        "t"
+      ],
+      "phonemes": [
+        "c",
+        "a",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A furry pet that says meow",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "cot",
+      "word": "cot",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "c",
+        "o",
+        "t"
+      ],
+      "phonemes": [
+        "c",
+        "o",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A small bed",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "dog",
+      "word": "dog",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "d",
+        "o",
+        "g"
+      ],
+      "phonemes": [
+        "d",
+        "o",
+        "g"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A pet that barks",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "hen",
+      "word": "hen",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "h",
+        "e",
+        "n"
+      ],
+      "phonemes": [
+        "h",
+        "e",
+        "n"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A chicken that lays eggs",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "log",
+      "word": "log",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "l",
+        "o",
+        "g"
+      ],
+      "phonemes": [
+        "l",
+        "o",
+        "g"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A thick piece of a tree",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "mat",
+      "word": "mat",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "m",
+        "a",
+        "t"
+      ],
+      "phonemes": [
+        "m",
+        "a",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A soft floor covering",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "map",
+      "word": "map",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "m",
+        "a",
+        "p"
+      ],
+      "phonemes": [
+        "m",
+        "a",
+        "p"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "It shows where to go",
+      "defaultQuestionCount": 1,
+      "artStatus": "reuse-approved",
+      "artSourcePath": "src/assets/curriculum/continent-map.svg",
+      "artSourceWorktree": "B5 same repository",
+      "inspection": null,
+      "sourceSha256": "f2cf031eea577a99c379e5d0a9afcd29757c23d1b13c0812ed29ac5621428a5f",
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "mop",
+      "word": "mop",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "m",
+        "o",
+        "p"
+      ],
+      "phonemes": [
+        "m",
+        "o",
+        "p"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A tool for cleaning a floor",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-mug",
+      "word": "mug",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "m",
+        "u",
+        "g"
+      ],
+      "phonemes": [
+        "m",
+        "u",
+        "g"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A mug holds a drink.",
+      "artDescription": "One handled ceramic mug, empty and viewed from the side.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-net",
+      "word": "net",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "n",
+        "e",
+        "t"
+      ],
+      "phonemes": [
+        "n",
+        "e",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A net has many little holes.",
+      "artDescription": "One small fishing net, shown as a single object.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "pan",
+      "word": "pan",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "p",
+        "a",
+        "n"
+      ],
+      "phonemes": [
+        "p",
+        "a",
+        "n"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A pot used for frying",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-pen",
+      "word": "pen",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "p",
+        "e",
+        "n"
+      ],
+      "phonemes": [
+        "p",
+        "e",
+        "n"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A pen makes marks with ink.",
+      "artDescription": "One capped pen, clearly separate from a pencil.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-pig",
+      "word": "pig",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "p",
+        "i",
+        "g"
+      ],
+      "phonemes": [
+        "p",
+        "i",
+        "g"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A pig is a farm animal with a round nose.",
+      "artDescription": "One friendly pink pig, shown alone.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "pin",
+      "word": "pin",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "p",
+        "i",
+        "n"
+      ],
+      "phonemes": [
+        "p",
+        "i",
+        "n"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A tiny point that holds paper",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "pot",
+      "word": "pot",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "p",
+        "o",
+        "t"
+      ],
+      "phonemes": [
+        "p",
+        "o",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A container for a plant",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-rag",
+      "word": "rag",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "r",
+        "a",
+        "g"
+      ],
+      "phonemes": [
+        "r",
+        "a",
+        "g"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A rag is an old cloth used for wiping.",
+      "artDescription": "One folded cleaning cloth, visibly soft and frayed.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-rat",
+      "word": "rat",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "r",
+        "a",
+        "t"
+      ],
+      "phonemes": [
+        "r",
+        "a",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A rat is a small animal with a long tail.",
+      "artDescription": "One friendly rat, distinct from a mouse and with a long tail.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-tag",
+      "word": "tag",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "t",
+        "a",
+        "g"
+      ],
+      "phonemes": [
+        "t",
+        "a",
+        "g"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A tag is a small label attached to something.",
+      "artDescription": "One blank paper tag with a string loop; no letters or numbers.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "tap",
+      "word": "tap",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "t",
+        "a",
+        "p"
+      ],
+      "phonemes": [
+        "t",
+        "a",
+        "p"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "Water comes out of it",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-tub",
+      "word": "tub",
+      "chapter": 1,
+      "chapterTask": "Sound starter: match the first sound",
+      "graphemes": [
+        "t",
+        "u",
+        "b"
+      ],
+      "phonemes": [
+        "t",
+        "u",
+        "b"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A tub holds water for a bath.",
+      "artDescription": "One small child bath tub, empty and isolated.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "duck",
+      "word": "duck",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "d",
+        "u",
+        "ck"
+      ],
+      "phonemes": [
+        "d",
+        "u",
+        "ck"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A bird that swims",
+      "defaultQuestionCount": 1,
+      "artStatus": "reuse-approved",
+      "artSourcePath": "src/assets/memory-match/duck-v1-card.webp",
+      "artSourceWorktree": "B7 approved Memory art",
+      "inspection": null,
+      "sourceSha256": "c9757ab5f08889deadbdced454db71158a1f859290b08e558e6662e2ce9278ca",
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "dock",
+      "word": "dock",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "d",
+        "o",
+        "ck"
+      ],
+      "phonemes": [
+        "d",
+        "o",
+        "ck"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A place where boats stop",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "rock",
+      "word": "rock",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "r",
+        "o",
+        "ck"
+      ],
+      "phonemes": [
+        "r",
+        "o",
+        "ck"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A hard piece of stone",
+      "defaultQuestionCount": 1,
+      "artStatus": "reuse-approved",
+      "artSourcePath": "src/assets/memory-match/fossil-rock-v1-card.webp",
+      "artSourceWorktree": "B7 approved Memory art",
+      "inspection": null,
+      "sourceSha256": "8512f5b929dd781e88e0a44e1bbc4332dcaa03d634e7ab20917357f7b37daf46",
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "sock",
+      "word": "sock",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "s",
+        "o",
+        "ck"
+      ],
+      "phonemes": [
+        "s",
+        "o",
+        "ck"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "Clothing for a foot",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "lock",
+      "word": "lock",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "l",
+        "o",
+        "ck"
+      ],
+      "phonemes": [
+        "l",
+        "o",
+        "ck"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "It keeps a door shut",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "bell",
+      "word": "bell",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "b",
+        "e",
+        "ll"
+      ],
+      "phonemes": [
+        "b",
+        "e",
+        "ll"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "It rings to make a sound",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "hill",
+      "word": "hill",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "h",
+        "i",
+        "ll"
+      ],
+      "phonemes": [
+        "h",
+        "i",
+        "ll"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": false,
+      "clue": "A small raised piece of land",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-truck",
+      "word": "truck",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "t",
+        "r",
+        "u",
+        "ck"
+      ],
+      "phonemes": [
+        "t",
+        "r",
+        "u",
+        "ck"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A truck carries things on the road.",
+      "artDescription": "One friendly delivery truck, no driver, road or cargo text.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-brick",
+      "word": "brick",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "b",
+        "r",
+        "i",
+        "ck"
+      ],
+      "phonemes": [
+        "b",
+        "r",
+        "i",
+        "ck"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A brick is a block used to build walls.",
+      "artDescription": "One red building brick, viewed clearly from the front.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-crab",
+      "word": "crab",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "c",
+        "r",
+        "a",
+        "b"
+      ],
+      "phonemes": [
+        "c",
+        "r",
+        "a",
+        "b"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A crab has claws and walks sideways.",
+      "artDescription": "One cheerful crab with two claws and eight walking legs.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-flag",
+      "word": "flag",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "f",
+        "l",
+        "a",
+        "g"
+      ],
+      "phonemes": [
+        "f",
+        "l",
+        "a",
+        "g"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A flag is cloth on a pole.",
+      "artDescription": "One plain bright flag on a short pole; no symbols or words.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-frog",
+      "word": "frog",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "f",
+        "r",
+        "o",
+        "g"
+      ],
+      "phonemes": [
+        "f",
+        "r",
+        "o",
+        "g"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A frog is an animal that can hop.",
+      "artDescription": "One friendly green frog, with four legs and no pond.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-drum",
+      "word": "drum",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "d",
+        "r",
+        "u",
+        "m"
+      ],
+      "phonemes": [
+        "d",
+        "r",
+        "u",
+        "m"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A drum is an instrument you can tap.",
+      "artDescription": "One small toy hand drum with two drumsticks beside it.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-clock",
+      "word": "clock",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "c",
+        "l",
+        "o",
+        "ck"
+      ],
+      "phonemes": [
+        "c",
+        "l",
+        "o",
+        "ck"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A clock shows the time.",
+      "artDescription": "One round clock with simple hands and no numerals or words.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-plant",
+      "word": "plant",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "p",
+        "l",
+        "a",
+        "n",
+        "t"
+      ],
+      "phonemes": [
+        "p",
+        "l",
+        "a",
+        "n",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A plant grows from roots and has leaves.",
+      "artDescription": "One small leafy plant with visible stem and leaves in a plain pot.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-sack",
+      "word": "sack",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "s",
+        "a",
+        "ck"
+      ],
+      "phonemes": [
+        "s",
+        "a",
+        "ck"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A sack is a large bag made from cloth.",
+      "artDescription": "One tied cloth sack; no printed mark or contents visible.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-tent",
+      "word": "tent",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "t",
+        "e",
+        "n",
+        "t"
+      ],
+      "phonemes": [
+        "t",
+        "e",
+        "n",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A tent is a fabric shelter.",
+      "artDescription": "One small camping tent, closed, with no people or landscape.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-belt",
+      "word": "belt",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "b",
+        "e",
+        "l",
+        "t"
+      ],
+      "phonemes": [
+        "b",
+        "e",
+        "l",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A belt goes around your waist.",
+      "artDescription": "One simple belt with a visible buckle.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-pond",
+      "word": "pond",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "p",
+        "o",
+        "n",
+        "d"
+      ],
+      "phonemes": [
+        "p",
+        "o",
+        "n",
+        "d"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A pond is a small pool of water.",
+      "artDescription": "One small oval pond with a clear water edge; no animals.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-nest",
+      "word": "nest",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "n",
+        "e",
+        "s",
+        "t"
+      ],
+      "phonemes": [
+        "n",
+        "e",
+        "s",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A nest is a bird’s home.",
+      "artDescription": "One woven bird nest with two eggs; no bird or tree scene.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-raft",
+      "word": "raft",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "r",
+        "a",
+        "f",
+        "t"
+      ],
+      "phonemes": [
+        "r",
+        "a",
+        "f",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A raft floats on water.",
+      "artDescription": "One simple wooden raft, isolated with no people or water scene.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-plank",
+      "word": "plank",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "p",
+        "l",
+        "a",
+        "n",
+        "k"
+      ],
+      "phonemes": [
+        "p",
+        "l",
+        "a",
+        "n",
+        "k"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A plank is a long flat piece of wood.",
+      "artDescription": "One long, flat wooden plank, shown by itself.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-crust",
+      "word": "crust",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "c",
+        "r",
+        "u",
+        "s",
+        "t"
+      ],
+      "phonemes": [
+        "c",
+        "r",
+        "u",
+        "s",
+        "t"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "Crust is the firm outside edge of bread.",
+      "artDescription": "One slice of bread with the crust clearly visible.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-stump",
+      "word": "stump",
+      "chapter": 2,
+      "chapterTask": "Blend the sounds",
+      "graphemes": [
+        "s",
+        "t",
+        "u",
+        "m",
+        "p"
+      ],
+      "phonemes": [
+        "s",
+        "t",
+        "u",
+        "m",
+        "p"
+      ],
+      "phase": 2,
+      "soundOnlyAddition": true,
+      "clue": "A stump is the short base left when a tree is cut.",
+      "artDescription": "One short tree stump with visible cut rings; no forest scene.",
+      "defaultQuestionCount": 1,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "fish",
+      "word": "fish",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "f",
+        "i",
+        "sh"
+      ],
+      "phonemes": [
+        "f",
+        "i",
+        "sh"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "It swims in water",
+      "defaultQuestionCount": 3,
+      "artStatus": "reuse-approved",
+      "artSourcePath": "src/assets/memory-match/pond-fish-v1-card.webp",
+      "artSourceWorktree": "B7 approved Memory art",
+      "inspection": null,
+      "sourceSha256": "498f5a27ddccd8c2d037234bed47627dcf888675efd4dd54d7bdb48453ba7a45",
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "ship",
+      "word": "ship",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "sh",
+        "i",
+        "p"
+      ],
+      "phonemes": [
+        "sh",
+        "i",
+        "p"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "A big boat",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "shop",
+      "word": "shop",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "sh",
+        "o",
+        "p"
+      ],
+      "phonemes": [
+        "sh",
+        "o",
+        "p"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "A place to buy things",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "chip",
+      "word": "chip",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "ch",
+        "i",
+        "p"
+      ],
+      "phonemes": [
+        "ch",
+        "i",
+        "p"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "A small piece of potato",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "ring",
+      "word": "ring",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "r",
+        "i",
+        "ng"
+      ],
+      "phonemes": [
+        "r",
+        "i",
+        "ng"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "A circle worn on a finger",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "rain",
+      "word": "rain",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "r",
+        "ai",
+        "n"
+      ],
+      "phonemes": [
+        "r",
+        "ai",
+        "n"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "Water drops from clouds",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "seed",
+      "word": "seed",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "s",
+        "ee",
+        "d"
+      ],
+      "phonemes": [
+        "s",
+        "ee",
+        "d"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "A tiny part that can grow",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "feet",
+      "word": "feet",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "f",
+        "ee",
+        "t"
+      ],
+      "phonemes": [
+        "f",
+        "ee",
+        "t"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "You stand on these",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "green",
+      "word": "green",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "g",
+        "r",
+        "ee",
+        "n"
+      ],
+      "phonemes": [
+        "g",
+        "r",
+        "ee",
+        "n"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "The colour of grass",
+      "defaultQuestionCount": 2,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "boat",
+      "word": "boat",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "b",
+        "oa",
+        "t"
+      ],
+      "phonemes": [
+        "b",
+        "oa",
+        "t"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "It travels on water",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "coat",
+      "word": "coat",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "c",
+        "oa",
+        "t"
+      ],
+      "phonemes": [
+        "c",
+        "oa",
+        "t"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "Clothing worn outdoors",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "moon",
+      "word": "moon",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "m",
+        "oo",
+        "n"
+      ],
+      "phonemes": [
+        "m",
+        "oo-long",
+        "n"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "It shines in the night sky",
+      "defaultQuestionCount": 3,
+      "artStatus": "reuse-approved",
+      "artSourcePath": "src/assets/memory-match/crescent-moon-v1-card.webp",
+      "artSourceWorktree": "B7 approved Memory art",
+      "inspection": null,
+      "sourceSha256": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b",
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "book",
+      "word": "book",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "b",
+        "oo",
+        "k"
+      ],
+      "phonemes": [
+        "b",
+        "oo-short",
+        "k"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "A story or facts to read",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "fork",
+      "word": "fork",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "f",
+        "or",
+        "k"
+      ],
+      "phonemes": [
+        "f",
+        "or",
+        "k"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": false,
+      "clue": "A tool with points for eating",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-chain",
+      "word": "chain",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "ch",
+        "ai",
+        "n"
+      ],
+      "phonemes": [
+        "ch",
+        "ai",
+        "n"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A chain is made from linked metal loops.",
+      "artDescription": "One short metal chain with a few clearly linked loops.",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-chess",
+      "word": "chess",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "ch",
+        "e",
+        "ss"
+      ],
+      "phonemes": [
+        "ch",
+        "e",
+        "ss"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "Chess is a board game played with pieces.",
+      "artDescription": "One small chessboard with contrasting pieces; no letters or numbers.",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-tooth",
+      "word": "tooth",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "t",
+        "oo",
+        "th"
+      ],
+      "phonemes": [
+        "t",
+        "oo-long",
+        "th-unvoiced"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A tooth helps you bite and chew.",
+      "artDescription": "One friendly clean tooth, clearly a single tooth.",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-brush",
+      "word": "brush",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "b",
+        "r",
+        "u",
+        "sh"
+      ],
+      "phonemes": [
+        "b",
+        "r",
+        "u",
+        "sh"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A brush has bristles on a handle.",
+      "artDescription": "One simple handled brush with a clear bristle head.",
+      "defaultQuestionCount": 2,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-snail",
+      "word": "snail",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "s",
+        "n",
+        "ai",
+        "l"
+      ],
+      "phonemes": [
+        "s",
+        "n",
+        "ai",
+        "l"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A snail has a shell and moves slowly.",
+      "artDescription": "One small friendly snail with shell and eye stalks.",
+      "defaultQuestionCount": 2,
+      "artStatus": "reuse-inspected-candidate",
+      "artSourcePath": "src/assets/memory-match/garden-snail-v1-card.webp",
+      "artSourceWorktree": "B7 approved Memory art",
+      "inspection": "Inspected at 82px; recognizable as a snail with shell and eye stalks.",
+      "sourceSha256": "7f746f3c82559ab610af117b8dd590563ed921e8bbccf3daa7bb4f4d45157be1",
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-sheep",
+      "word": "sheep",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "sh",
+        "ee",
+        "p"
+      ],
+      "phonemes": [
+        "sh",
+        "ee",
+        "p"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A sheep has a woolly coat.",
+      "artDescription": "One fluffy sheep standing alone.",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-shell",
+      "word": "shell",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "sh",
+        "e",
+        "ll"
+      ],
+      "phonemes": [
+        "sh",
+        "e",
+        "ll"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A shell is a hard outer covering.",
+      "artDescription": "One ridged seashell, isolated with no beach scene.",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-spoon",
+      "word": "spoon",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "s",
+        "p",
+        "oo",
+        "n"
+      ],
+      "phonemes": [
+        "s",
+        "p",
+        "oo-long",
+        "n"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A spoon is used for eating or stirring.",
+      "artDescription": "One metal spoon viewed from above.",
+      "defaultQuestionCount": 2,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-shark",
+      "word": "shark",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "sh",
+        "ar",
+        "k"
+      ],
+      "phonemes": [
+        "sh",
+        "ar",
+        "k"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A shark is a large fish with fins.",
+      "artDescription": "One friendly small shark, clear side view and no water scene.",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-star",
+      "word": "star",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "s",
+        "t",
+        "ar"
+      ],
+      "phonemes": [
+        "s",
+        "t",
+        "ar"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A star shines in the night sky.",
+      "artDescription": "One simple five-point star, without a face or trail.",
+      "defaultQuestionCount": 3,
+      "artStatus": "reuse-inspected-candidate",
+      "artSourcePath": "src/assets/memory-match/star-v1-card.webp",
+      "artSourceWorktree": "B7 approved Memory art",
+      "inspection": "Inspected at 82px; recognizable as a plain five-point star.",
+      "sourceSha256": "751db3be916edeb4f468d1f2b15c889e96d82e288dc24f54046d9ae9b042827a",
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-train",
+      "word": "train",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "t",
+        "r",
+        "ai",
+        "n"
+      ],
+      "phonemes": [
+        "t",
+        "r",
+        "ai",
+        "n"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A train carries people or things on tracks.",
+      "artDescription": "One friendly passenger train with several connected cars.",
+      "defaultQuestionCount": 2,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-wheel",
+      "word": "wheel",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "w",
+        "ee",
+        "l"
+      ],
+      "phonemes": [
+        "w",
+        "ee",
+        "l"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A wheel is a round part that helps something roll.",
+      "artDescription": "One round rubber wheel with a clear hub.",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-branch",
+      "word": "branch",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "b",
+        "r",
+        "a",
+        "n",
+        "ch"
+      ],
+      "phonemes": [
+        "b",
+        "r",
+        "ar",
+        "n",
+        "ch"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "A branch grows out from a tree trunk.",
+      "artDescription": "One leafy tree branch, shown by itself.",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-grass",
+      "word": "grass",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "g",
+        "r",
+        "a",
+        "ss"
+      ],
+      "phonemes": [
+        "g",
+        "r",
+        "ar",
+        "ss"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "Grass is a short green plant that covers the ground.",
+      "artDescription": "One small tuft of grass, isolated with clear blades.",
+      "defaultQuestionCount": 2,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    },
+    {
+      "id": "safari-teeth",
+      "word": "teeth",
+      "chapter": 3,
+      "chapterTask": "Find a sound in the word",
+      "graphemes": [
+        "t",
+        "ee",
+        "th"
+      ],
+      "phonemes": [
+        "t",
+        "ee",
+        "th-unvoiced"
+      ],
+      "phase": 3,
+      "soundOnlyAddition": true,
+      "clue": "Teeth are the hard parts inside your mouth.",
+      "artDescription": "A small friendly row of several teeth, clearly plural.",
+      "defaultQuestionCount": 3,
+      "artStatus": "missing-original",
+      "artSourcePath": null,
+      "artSourceWorktree": null,
+      "inspection": null,
+      "sourceSha256": null,
+      "packagedInThisCandidate": false
+    }
+  ],
+  "reuseSourceHashes": {
+    "duck": "c9757ab5f08889deadbdced454db71158a1f859290b08e558e6662e2ce9278ca",
+    "fish": "498f5a27ddccd8c2d037234bed47627dcf888675efd4dd54d7bdb48453ba7a45",
+    "moon": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b",
+    "rock": "8512f5b929dd781e88e0a44e1bbc4332dcaa03d634e7ab20917357f7b37daf46",
+    "safari-star": "751db3be916edeb4f468d1f2b15c889e96d82e288dc24f54046d9ae9b042827a",
+    "safari-snail": "7f746f3c82559ab610af117b8dd590563ed921e8bbccf3daa7bb4f4d45157be1",
+    "map": "f2cf031eea577a99c379e5d0a9afcd29757c23d1b13c0812ed29ac5621428a5f"
+  },
+  "rolloutGate": "NO-GO until a reviewed picture asset is packaged for every target in a chapter and ordinary rendered QA confirms the art at card size. Start and Replay are disabled in this pre-art candidate."
+}

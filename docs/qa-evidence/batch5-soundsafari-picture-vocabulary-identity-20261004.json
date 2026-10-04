@@ -1,0 +1,350 @@
+{
+  "candidate": "Sound Safari controlled picture vocabulary pre-art source candidate",
+  "sourceCommit": "29392bb1b8acec5b847c3f129431edf4aa5d44dd",
+  "baseCommit": "b198dbf49a5023e1b50181a9ef2a3eabd4c80a35",
+  "url": "http://127.0.0.1:5388",
+  "server": "Python static server bound to 127.0.0.1:5388, serving copied immutable dist snapshot",
+  "buildCommand": "npm run build:android",
+  "scope": "source validation only; artwork absent and chapter Start/Replay disabled",
+  "verification": {
+    "staticFilesFetched": 5879,
+    "http200": 5879,
+    "servedSha256MatchesFrozenSnapshot": 5879,
+    "allFilesManifestSha256": "dee305efb1a9908b006f288eab6da985d57b86db0713a8179bbec7510fcd78b5",
+    "runtimeProviderRequests": 0,
+    "note": "A static verifier fetched each file and compared its response hash to the copied dist snapshot. The hash inventory is represented by the deterministic aggregate and the complete emitted assets/ list below."
+  },
+  "indexHtmlSha256": "3b5e47c38b906715fce89f7c3b72521ef07e66a7dcebd3253457d9c719dfd96d",
+  "emittedAssets": [
+    {
+      "path": "assets/AmariCountTheStars-CvG_6s-q.js",
+      "sha256": "c32cdea9896124738675ca5ba9b87ce4fd7be8f6a4af43155a0bf58d10a7af87",
+      "bytes": 18854
+    },
+    {
+      "path": "assets/AmariLetterTrace-CuukRQDT.js",
+      "sha256": "8a98dc9d6e732eeace12a89c249821acd70a1ace8a6e44a857865ac7cee210b5",
+      "bytes": 19956
+    },
+    {
+      "path": "assets/SolarSystem-CVjvESLE.js",
+      "sha256": "e5966dae670ead73454695ce36fa4e37986afaa46b6b820894f1da95f94cbc22",
+      "bytes": 563158
+    },
+    {
+      "path": "assets/amari-astronaut-robot-Dj0NBZLZ.png",
+      "sha256": "a45b3476e486ef4c590708206730655e9f0d7d566e65ad80a4d980dd32561a19",
+      "bytes": 961973
+    },
+    {
+      "path": "assets/animals-DK_E9PyW.webp",
+      "sha256": "111a1d7796b38cdeefb99c88aec15628e8013f9ccbd33d54dc1dddcd69a03233",
+      "bytes": 83846
+    },
+    {
+      "path": "assets/askia-detective-CPOpmaoU.webp",
+      "sha256": "6d4735d2526907eea26ae8603163b4afec2a8ad056045d80ad1067fa6909ebbd",
+      "bytes": 152718
+    },
+    {
+      "path": "assets/askia-memory-treehouse-Cw_L04Vp.webp",
+      "sha256": "c281caa6fb18d6670907e622f583352222147a5344333fd60a9d1e1d073af6a8",
+      "bytes": 229792
+    },
+    {
+      "path": "assets/bg-dino-DtQjoH27.webp",
+      "sha256": "c1f5675ee2984536c395b8631ee15f439ae2aac7f2596e2b5cff3352edd6ed58",
+      "bytes": 289530
+    },
+    {
+      "path": "assets/bg-dino-portrait-DGfbO86R.webp",
+      "sha256": "3f66496af145ada8c480953aa1944abc8fecd6f3af2bbfb0caccd9e1351f1cce",
+      "bytes": 239676
+    },
+    {
+      "path": "assets/bg-fuelup-Cgvw5K-0.webp",
+      "sha256": "25abd46d7424b23bd5040516da6ccfa0b5b3c9b665a2102164bad22d7f41ed49",
+      "bytes": 145118
+    },
+    {
+      "path": "assets/body-BawHkq4O.webp",
+      "sha256": "fa1bde2d90e434719ea3d8588c5b77d6e280cf72215b2f1d148185ffcb4809c9",
+      "bytes": 55050
+    },
+    {
+      "path": "assets/continent-map-Byxkyp1W.svg",
+      "sha256": "f2cf031eea577a99c379e5d0a9afcd29757c23d1b13c0812ed29ac5621428a5f",
+      "bytes": 161460
+    },
+    {
+      "path": "assets/detective-ankylo-BG-VzdVP.webp",
+      "sha256": "56ec84f2ed2c2ac997c986b2c9b212ab83fe80d5d3f26783a03f00db1e79257d",
+      "bytes": 168702
+    },
+    {
+      "path": "assets/detective-bronto-DE0_3OFI.webp",
+      "sha256": "3e40c262ad4dd85ec97fa68c3fc1a5b274f790f954e7b86823a4bb4ad1886f0c",
+      "bytes": 111864
+    },
+    {
+      "path": "assets/detective-stego-Dl69iVLb.webp",
+      "sha256": "47fdd4d94f4527ea6801c728acb67b2ece9961f7a54255b3e7ba45d8de3033df",
+      "bytes": 138044
+    },
+    {
+      "path": "assets/detective-trex-C6vbBK-A.webp",
+      "sha256": "46bbe5b38addcceb5b0c24bd31af47033addbc4cc5ed54761c5e5dcb5082c3ea",
+      "bytes": 130362
+    },
+    {
+      "path": "assets/detective-trike-CrguLdmy.webp",
+      "sha256": "70bcf8f59f3a376c14c75484eaf1f2e16ff15d42bd65cee226d72c49aeadb343",
+      "bytes": 157140
+    },
+    {
+      "path": "assets/dino-character-stickers-ZEH8lmaY.png",
+      "sha256": "ac4070939a62857c9a543514ce01dac2dd6b2f03d40880c212efd0eb8bd5405d",
+      "bytes": 2236074
+    },
+    {
+      "path": "assets/dino-moon-3d-f1vVSf2r.webp",
+      "sha256": "a8c15f541d45125fd165e6d126ffe1d67f2d61c78b38d148067c5a553f934c1e",
+      "bytes": 401560
+    },
+    {
+      "path": "assets/dino-park-CfXqz-J3.jpg",
+      "sha256": "9cd2ce5eb1abbd0bcb28e2ed5f639b6f2590f4db173ef45d3d94a7702d4ec7a1",
+      "bytes": 285218
+    },
+    {
+      "path": "assets/dino-river-3d-DS1Pw89d.webp",
+      "sha256": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8",
+      "bytes": 415714
+    },
+    {
+      "path": "assets/empty-garage-Dh7_uG_S.png",
+      "sha256": "01529ff5be44c0458c5bce0b35bc1930b18a3ca3b158abc4e8deae02e726ff5b",
+      "bytes": 1713322
+    },
+    {
+      "path": "assets/fire-house-Byz950kD.webp",
+      "sha256": "f4d1cf9404276f898463f60168847132febe0012c7bee6542aa904abe8fae000",
+      "bytes": 166182
+    },
+    {
+      "path": "assets/foods-BVVcqlHm.webp",
+      "sha256": "bc046b2a13f235ee8644a2f6715e26f19a5941d6a89306b0b265201a95d0c4a7",
+      "bytes": 68524
+    },
+    {
+      "path": "assets/friendly-car-B5B45Yht.png",
+      "sha256": "755322122df5504afae09e3c5dc969688239390d8ac30e9d11143a1253151bc1",
+      "bytes": 1435023
+    },
+    {
+      "path": "assets/fuel-can-bG4-uy-5.webp",
+      "sha256": "b3a16e18c3201d34aec053f97f90c7be88fd0b1386a40a393ccf1e6a0c679d13",
+      "bytes": 122150
+    },
+    {
+      "path": "assets/fuel-rocket-C-kzj_uU.webp",
+      "sha256": "2d4bd4a6b52197f9b402595e9baac34e5b7094a98be1b364e525dc59b9a36db1",
+      "bytes": 104260
+    },
+    {
+      "path": "assets/garage-WPCnaFvh.webp",
+      "sha256": "86632f23b10043e45f9251ab5cd46ee8f6aa006eed08b1a611474c3ee0d4704d",
+      "bytes": 75008
+    },
+    {
+      "path": "assets/geography-world-Iq2wULHl.webp",
+      "sha256": "7bac360632289260a8196127564faf12a74e51060a4d09f89ff4c1977976f38e",
+      "bytes": 126632
+    },
+    {
+      "path": "assets/greetings-C8xVisw4.webp",
+      "sha256": "2a92b19b49726a72d7c6d7babaed8ac03f97de1ba7774e91294d680fe4c78196",
+      "bytes": 77734
+    },
+    {
+      "path": "assets/guides-PFBoQ5gz.webp",
+      "sha256": "8cf3410c0b6429a567569d00d3f50a0e6cac635e433a7e22e34d5ad12978cf5c",
+      "bytes": 237084
+    },
+    {
+      "path": "assets/history-artifacts-a-v1-C8Vpi_9u.webp",
+      "sha256": "33725a924c5e3a8abcdea59b15eabe1007c1a09d3b279c602dfbc9ac908d2401",
+      "bytes": 493680
+    },
+    {
+      "path": "assets/history-artifacts-b-v1-DDMoz3YU.webp",
+      "sha256": "b9291087e9e91c65aacfbc288b11ed3b321f12aa37660418dfabfdd790102fb7",
+      "bytes": 456304
+    },
+    {
+      "path": "assets/history-clues-CvoRkM6w.webp",
+      "sha256": "33269e8531443ad8d1f65611fa35135816aa99b374c01307715f5e50fe4e763e",
+      "bytes": 181674
+    },
+    {
+      "path": "assets/history-world-CCqb-QTZ.webp",
+      "sha256": "625fec4ac49c2dbfb24a2e9f28c5c0309f4395a249887c812d77b326419f2b4e",
+      "bytes": 206950
+    },
+    {
+      "path": "assets/index-C_W4vMTP.js",
+      "sha256": "b0cc6a6bd2f21cfcf377c9068517df5d16ae1eb8bf8d610d3757377ef65d5e7f",
+      "bytes": 1361126
+    },
+    {
+      "path": "assets/index-U7EYwFIQ.css",
+      "sha256": "a0b41a6aae10cca2cfd7b59bc2708eedc9f2bea1f196e0cf8fce16e952ff4e97",
+      "bytes": 210953
+    },
+    {
+      "path": "assets/more-dino-character-stickers-transparent-D96ZzMuU.png",
+      "sha256": "868e42666b91ec9c327856cadeaa598da5ff40ea0a25fae99ef6636e2a855b93",
+      "bytes": 1480253
+    },
+    {
+      "path": "assets/nature-lab-leaves-3d-DDByeZD_.webp",
+      "sha256": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20",
+      "bytes": 424104
+    },
+    {
+      "path": "assets/nature-lab-leaves-3d-variant-b-CXJZfOks.webp",
+      "sha256": "b5facad979d38fc8576f29c7592a640d5d68eacfc1276f36ffb515eb2abdaf11",
+      "bytes": 484288
+    },
+    {
+      "path": "assets/nature-specimens-COeDdiwv.webp",
+      "sha256": "6e1ff5fe28461e0aafad04a95ce5e2b9423341902dece559344135a4635e1da9",
+      "bytes": 285102
+    },
+    {
+      "path": "assets/nature-world-BS2Jz_Ma.webp",
+      "sha256": "8da4c3c34f1d14bab194dcb07387266b359a8d7dc69f09e43f21351bacda9bdf",
+      "bytes": 212536
+    },
+    {
+      "path": "assets/numbers-BdlzaUgD.webp",
+      "sha256": "2724f5ad4c907429a5be10d3cfd593e58c9dbf1db8e60ebf30ea0271b96b371b",
+      "bytes": 71784
+    },
+    {
+      "path": "assets/pattern-parade-Dnq7n0ru.webp",
+      "sha256": "3806f741aa6b39c2be05da6a908ced80afefba10c4ae0ae3bb2bdd623d049a00",
+      "bytes": 130370
+    },
+    {
+      "path": "assets/pattern-parade-landscape-v1-DYMpV3b1.webp",
+      "sha256": "fc03fbe6508a62f65503351f81bb3342905a916fd558785d605b19cf235344b0",
+      "bytes": 437570
+    },
+    {
+      "path": "assets/rescue-firetruck-BlvwvPhV.webp",
+      "sha256": "14654bb186584643bb10eae2160fff5fef25534a6e1a455981645541cf15fe4c",
+      "bytes": 181296
+    },
+    {
+      "path": "assets/rescue-flame-D58aTqgB.webp",
+      "sha256": "197279bd1acd9fe4617f4af8ba08b5542d4f057569c1b7e4bf37fd57fb94338e",
+      "bytes": 104764
+    },
+    {
+      "path": "assets/reward-stickers-y1PduhfE.png",
+      "sha256": "65e0a329702110ddad3954b1206807d36b8782e1942dc78ac52eac3b663507da",
+      "bytes": 2202919
+    },
+    {
+      "path": "assets/river-valley-pair-b-v1-BvZSBbF5.webp",
+      "sha256": "9b254a872bf0d3d01489333ae7da8dd5aba52f04c3e4c367c3b12a66eb9ead5b",
+      "bytes": 353174
+    },
+    {
+      "path": "assets/robin-DEL_wsI-.webp",
+      "sha256": "c967a8c5a97727bc3e989e5a01d9aa3fd6853c87a9f3bbc7acc67adca9dc63a0",
+      "bytes": 209424
+    },
+    {
+      "path": "assets/robin-physical-b-v1-BTnMGf7t.webp",
+      "sha256": "ae3305296bb3627b115d7cd5516e90c878356bae299c6899fb3095c2611c1eab",
+      "bytes": 501260
+    },
+    {
+      "path": "assets/robin-tree-3d-C6X3IbOn.webp",
+      "sha256": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932",
+      "bytes": 407546
+    },
+    {
+      "path": "assets/shapes-DrmRE4jM.webp",
+      "sha256": "d824f3d3f3e5bf457f30349f0f0b6ba814e5f7ae7b54d1490d3d667079e79809",
+      "bytes": 63936
+    },
+    {
+      "path": "assets/sound-safari-CRJmreSh.webp",
+      "sha256": "6298ba430aed520ed44d22252ad5452a5e01746a68529b0f85093af0ac8056f0",
+      "bytes": 202126
+    },
+    {
+      "path": "assets/sound-safari-animals-3d-DxBjyDMU.webp",
+      "sha256": "dad91b003b2810eaf0b6c4577caf27c8090daaa503bf9b2013172a46cb68e3bf",
+      "bytes": 414986
+    },
+    {
+      "path": "assets/spelling-studio-BJFyq3Z4.webp",
+      "sha256": "4c927dc3485547931c9615bb630f43f57288981694d10e079c64ec23424eed0c",
+      "bytes": 104734
+    },
+    {
+      "path": "assets/superhero-city-DPTOkgpV.webp",
+      "sha256": "c9205d316ee832981f816af002cd57ea22d50b6a6a84231a646f639385634b22",
+      "bytes": 194200
+    },
+    {
+      "path": "assets/time-observatory-BK3ZKZ4R.webp",
+      "sha256": "54f2db7d523a0e226edbe605e84df308e75799d4bb7878705b8d279b0281ff34",
+      "bytes": 144224
+    },
+    {
+      "path": "assets/time-observatory-landscape-v1-DPQ_LihJ.webp",
+      "sha256": "edccaa6ac60883f9be074601e7a171eefba67f3ccfd3de764f3d45a1a8351384",
+      "bytes": 444526
+    },
+    {
+      "path": "assets/title-trex-BqmwhQpe.png",
+      "sha256": "d0156ac1e432936a70b5f11a191295868aa2a27f658920f84dc4abb0a0204f82",
+      "bytes": 59279
+    },
+    {
+      "path": "assets/title-trike-CN4sx7TF.png",
+      "sha256": "078497908d2ae171ba8a2b729cca343768bcff52aad5916e763dcdf46275e3a5",
+      "bytes": 97008
+    },
+    {
+      "path": "assets/treehouse-robots-3d-s6y8m7qr.webp",
+      "sha256": "e065b1e9a1573ef09f5af86f88d0c84a3ffb0da022037561525351db25317f33",
+      "bytes": 288118
+    },
+    {
+      "path": "assets/vehicles-CP9CNLzZ.webp",
+      "sha256": "16f0624891584733f5a73c7332fc392b074f217f15e2cf09644390c8ff8e9934",
+      "bytes": 84170
+    },
+    {
+      "path": "assets/web-n6snyoal.js",
+      "sha256": "7da47423264341d117deaa2ad889b91f374a375e4b2a47a59046ebe5dc17d5e0",
+      "bytes": 842
+    },
+    {
+      "path": "assets/world-explorer-map-3d-BiOIYdoV.webp",
+      "sha256": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23",
+      "bytes": 411940
+    },
+    {
+      "path": "assets/world-physical-b-v1-DAEPy57E.webp",
+      "sha256": "ced84c32d3d38c12c3fe932d0fa33b842a814dca4c399b4bd3bf5ae727045af9",
+      "bytes": 483148
+    }
+  ]
+}
