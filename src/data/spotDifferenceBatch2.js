@@ -1,6 +1,7 @@
 const city = new URL('../assets/spot-difference/superhero-city.webp', import.meta.url).href;
 const dinoPark = new URL('../assets/puzzle-pop/dino-park.jpg', import.meta.url).href;
 const dinoRiver = new URL('../assets/puzzle-pop/dino-river-3d.webp', import.meta.url).href;
+const dinoRiverB = new URL('../assets/spot-difference/river-valley-pair-b-v1.webp', import.meta.url).href;
 const dinoMoon = new URL('../assets/puzzle-pop/dino-moon-3d.webp', import.meta.url).href;
 const treehouse = new URL('../assets/puzzle-pop/treehouse-robots-3d.webp', import.meta.url).href;
 const soundSafari = new URL('../assets/spot-difference/sound-safari-animals-3d.webp', import.meta.url).href;
@@ -91,7 +92,7 @@ const makeDifferences = (sceneIndex, count) => Array.from({ length: count }, (_,
   });
 });
 
-const makeScene = (chapterIndex, sceneIndex, title, image, alt, fact) => {
+const makeScene = (chapterIndex, sceneIndex, title, image, alt, fact, pair = null) => {
   const chapter = SPOT_DIFFERENCE_CHAPTERS[chapterIndex];
   return Object.freeze({
     id: `spot-${sceneIndex + 1}`,
@@ -101,14 +102,22 @@ const makeScene = (chapterIndex, sceneIndex, title, image, alt, fact) => {
     image,
     alt,
     fact,
-    differences: Object.freeze(makeDifferences(sceneIndex, chapter.differenceCount)),
+    ...(pair ? { imageB: pair.imageB, pairedArt: true } : {}),
+    differences: Object.freeze(pair?.differences || makeDifferences(sceneIndex, chapter.differenceCount)),
   });
 };
 
 export const SPOT_DIFFERENCE_SCENES = Object.freeze([
   makeScene(0, 0, 'Superhero City', city, 'A colourful city with friendly heroes', 'People help their community by sharing and caring for the places where they live.'),
   makeScene(0, 1, 'Dino Park', dinoPark, 'Friendly dinosaurs in a sunny park', 'Fossils are clues that help scientists learn about dinosaurs.'),
-  makeScene(0, 2, 'River Valley', dinoRiver, 'A dinosaur beside a sparkling river', 'A clean river gives plants and animals a place to find fresh water.'),
+  makeScene(0, 2, 'River Valley', dinoRiver, 'A dinosaur beside a sparkling river', 'A clean river gives plants and animals a place to find fresh water.', {
+    imageB: dinoRiverB,
+    differences: [
+      Object.freeze({ id: 'river-sky', label: 'the sun became a crescent moon', normalVisual: 'scene:sun', visual: 'scene:crescent', x: 87, y: 14, radius: 8 }),
+      Object.freeze({ id: 'river-flower', label: 'the flower petals changed from pink to yellow', normalVisual: 'scene:pink-flower', visual: 'scene:yellow-flower', x: 13, y: 86, radius: 8 }),
+      Object.freeze({ id: 'river-bridge', label: 'one upright bridge railing post is missing', normalVisual: 'scene:bridge-post', visual: 'scene:no-post', x: 41, y: 49, radius: 8 }),
+    ],
+  }),
   makeScene(0, 3, 'Moon Camp', dinoMoon, 'A dinosaur exploring a moon camp', 'The Moon is a rocky world that travels around Earth.'),
   makeScene(1, 4, 'Treehouse Team', treehouse, 'A young astronaut and robot sharing arrow blocks in a treehouse workshop', 'Taking turns helps everyone share a game or a job.'),
   makeScene(1, 5, 'Sound Safari', soundSafari, 'An elephant, monkey, bird and frog making sounds beside a waterfall', 'Animals use different sounds to communicate with one another.'),

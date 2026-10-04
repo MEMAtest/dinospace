@@ -160,3 +160,19 @@ test('Spot records each actual completed pair independently for the child during
     assert.notEqual(createSpotDifferenceRun(0, seed, [], first.id)[0].id, first.id);
   }
 });
+
+// Real paired art must keep every actual object target reachable after the mobile crop.
+test('River Valley authored pair has distinct scene art and three separated in-frame touch targets', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === 'spot-3');
+  assert.equal(scene.pairedArt, true);
+  assert.ok(scene.imageB && scene.imageB !== scene.image);
+  assert.equal(scene.differences.length, 3);
+  const centers = scene.differences.map(({ x, y }) => ({ x: x * 2.8, y: y * 2.1 }));
+  for (const [index, center] of centers.entries()) {
+    assert.ok(center.x >= 28 && center.x <= 252);
+    assert.ok(center.y >= 28 && center.y <= 182);
+    for (const other of centers.slice(index + 1)) {
+      assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
+    }
+  }
+});

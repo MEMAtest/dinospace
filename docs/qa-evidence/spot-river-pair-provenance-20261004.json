@@ -1,0 +1,16 @@
+{
+  "createdAt": "2026-10-04T05:22:29.777689+00:00",
+  "method": "Built-in image_gen edit with original River Valley reference; selected output copied unchanged.",
+  "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-d04b21b6-86b3-4a8e-a4f1-f1d08a3f9311.png",
+  "asset": "src/assets/spot-difference/river-valley-pair-b-v1.png",
+  "sha256": "893e990ec1f9582dc09f77daee189237e33b272fccfc5cbd217a6e3c71b404fb",
+  "reference": "src/assets/puzzle-pop/dino-river-3d.webp",
+  "prompt": "Preserve exact scene composition except three local edits: upper-right sun becomes crescent; large lower-left flower petals pink to yellow; remove central bridge upright post. No other objects changed, no badges.",
+  "scope": "One authored pair prototype. Root visual inspection finds the three intended scene changes; independent side-by-side review must reject unintended visible differences before acceptance. No release or overall 4.5 claim.",
+  "deliveryDerivative": {
+    "asset": "src/assets/spot-difference/river-valley-pair-b-v1.webp",
+    "method": "cwebp -q 90 encoding only; no crop, resize or creative changes. Original PNG retained unchanged.",
+    "bytes": 353174,
+    "sha256": "9b254a872bf0d3d01489333ae7da8dd5aba52f04c3e4c367c3b12a66eb9ead5b"
+  }
+}
