@@ -1,0 +1,636 @@
+{
+  "checkedAt": "2026-10-04T07:45:17.325Z",
+  "sourceSha": "7fbbfef9454a8d1e709cbcab5c8ae72c239e7dfb",
+  "scope": "Read-only exact authored board/art file and component-map coverage. No browser, image decoding, audio, network or editorial acceptance.",
+  "uniqueTokens": 87,
+  "boardTokenUsages": 127,
+  "missingBoardMappings": [],
+  "assetFiles": 89,
+  "missingFiles": [],
+  "missingComponentMappings": [],
+  "files": [
+    {
+      "asset": "memory-match/sun-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 36184,
+      "sha256": "6142c92659f7af17fbcc5d99f17763f962208c4e9c317f104eb5e4e78ed27d77"
+    },
+    {
+      "asset": "memory-match/comet-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 41692,
+      "sha256": "f37aa7714bb66ff09047a24ad2fd1676134bd623fae9109894eeef1c3a5bc545"
+    },
+    {
+      "asset": "memory-match/fossil-dig-pick-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 25506,
+      "sha256": "e654667b1836edc5963c7679e787a9cbc2797c7ea746a84690ced0565c597c0a"
+    },
+    {
+      "asset": "memory-match/mountain-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 27150,
+      "sha256": "a9c0307ffdabd80ecb98c0613e0352a4761e4f01a032cefa445b10efdb3719fa"
+    },
+    {
+      "asset": "memory-match/aeroplane-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 33702,
+      "sha256": "8f45a3c6795eaeeeb710f12d9ea8b11ad42dd0c182b69e807596329bb28042cb"
+    },
+    {
+      "asset": "memory-match/star-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 21242,
+      "sha256": "751db3be916edeb4f468d1f2b15c889e96d82e288dc24f54046d9ae9b042827a"
+    },
+    {
+      "asset": "memory-match/volcano-v1.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 32096,
+      "sha256": "4115ad55de4ef013f711e3bca03da1b26c7cabd4eede6358e332af25804e778d"
+    },
+    {
+      "asset": "memory-match/galaxy-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 78964,
+      "sha256": "997e31a6e9f8daeb51c69672084f5bb1299fc0c7499c922da994199e44661aa1"
+    },
+    {
+      "asset": "memory-match/earth-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 72698,
+      "sha256": "802b5ba0b35a7e8b8bd9cf8eff5f598c0fd72826d377af3d50ff572dbbbc3a82"
+    },
+    {
+      "asset": "memory-match/new-moon-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 23424,
+      "sha256": "89e4468bc76493d69a3e5143e5abbacc521ae4004306ed0e5bdb277b14c1c554"
+    },
+    {
+      "asset": "memory-match/full-moon-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 44998,
+      "sha256": "d781df0bdd29e05db60c68f86772b276f4f24e3b885d8285dd08aa260f653366"
+    },
+    {
+      "asset": "memory-match/crescent-moon-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 22552,
+      "sha256": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b"
+    },
+    {
+      "asset": "memory-match/sun-face-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 29546,
+      "sha256": "df180ada899f275569e78740079d8cefafea3bf18a72123d9a4940fc56ba6e8a"
+    },
+    {
+      "asset": "memory-match/glowing-star-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 31414,
+      "sha256": "5ae930823017d2575b1249b5f0caf160e1b567437426996b4ebee23107064298"
+    },
+    {
+      "asset": "memory-match/shooting-star-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 33380,
+      "sha256": "7bd240e6b4c286fefd4ef27e85f8c2c2efc8a9335c03cef31546e67e632e5fa1"
+    },
+    {
+      "asset": "memory-match/seedling-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 32572,
+      "sha256": "00feb9ae26329e93a66fd837190de9598bca6c63588cb068eca5e314b574fc60"
+    },
+    {
+      "asset": "memory-match/tree-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 57798,
+      "sha256": "c8d3b4456a711df09a6a1f9aa1c9e7ceeb4c0b67c8a7a958ad5e2e4d106e8596"
+    },
+    {
+      "asset": "memory-match/tulip-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 35034,
+      "sha256": "4b7b981eea2a097dec15a694cf998a7231e8884037a784bd3a0e0824b84b8b98"
+    },
+    {
+      "asset": "memory-match/food-corn-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 30692,
+      "sha256": "c08c0d4961191324773a051c126932b350ac1cfb8784e606072e1fa78db55e36"
+    },
+    {
+      "asset": "memory-match/leaf-sprig-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 34840,
+      "sha256": "e09ef2b1f919a4d4d4227a8d4641cffe1e28ceaec4f0d7d460b89bc068825ae8"
+    },
+    {
+      "asset": "memory-match/mushroom-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 26286,
+      "sha256": "3dd98dc44c9ee13f26c6a8d581a12f57b25657d31113d036d50d157c0755c128"
+    },
+    {
+      "asset": "memory-match/grapes-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 36618,
+      "sha256": "bcc34b7b05b062410d391545fcb4ec4e4340ce2df7ee5e4586b9470917e81565"
+    },
+    {
+      "asset": "memory-match/watermelon-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 54960,
+      "sha256": "e62202164182b43a257f4df67d234b495e879d776fddbdc26a960314e9cea03e"
+    },
+    {
+      "asset": "memory-match/banana-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 21868,
+      "sha256": "d1dac6ddc12e05492f817e3000d795137e45e16c72e51455f03385a73627954b"
+    },
+    {
+      "asset": "memory-match/apple-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 34798,
+      "sha256": "89d08d129bc36a6cf22c9d9f8bbad3bcc98c4875d261350af1490d9d97a32f6c"
+    },
+    {
+      "asset": "memory-match/strawberry-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 47602,
+      "sha256": "944cf5c855e9caaf2e1bbe9da2a4e1d1129a414215783e71c1b7fc7fc5e0f93b"
+    },
+    {
+      "asset": "memory-match/pizza-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 55374,
+      "sha256": "5a086d1e5189266e290497ff4644ee18e546fa8866ef58aa8d3984a694f24850"
+    },
+    {
+      "asset": "memory-match/chips-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 54548,
+      "sha256": "bf3844a6ba160e4caf22a405717988510d7b8215b94814180c77d293b0f9967a"
+    },
+    {
+      "asset": "memory-match/doughnut-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 40104,
+      "sha256": "0f8879f8688a7c4852a7ff0f36b7e79ba34eb340c418d7ee1cb5aea7ba69e4ed"
+    },
+    {
+      "asset": "memory-match/food-biscuit-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 50480,
+      "sha256": "2d16983034b316d9c6e31b94c731bbb4c3c47a5a0f1406d746411fd6f2facb54"
+    },
+    {
+      "asset": "memory-match/wrapped-sweet-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 19998,
+      "sha256": "9224959de0e1c35b077200453a26c2efc9a48afc88a5e43399a6ede50068fd77"
+    },
+    {
+      "asset": "memory-match/lolly-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 35334,
+      "sha256": "750c18df29ba0d9907c200b44870f6acf3d12ef698dee711ee563120777f1760"
+    },
+    {
+      "asset": "memory-match/party-cake-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 26356,
+      "sha256": "7bb6895c8210f2fbb170bb5471b2e1025a82203bd2a1a52e0fafa979877a1aa3"
+    },
+    {
+      "asset": "memory-match/party-balloon-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 17972,
+      "sha256": "7d1461090d5f7aaf58d143112cffb4bbedd4b0343424c75c4fb4c937dd98168c"
+    },
+    {
+      "asset": "memory-match/party-popper-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 39324,
+      "sha256": "679bbb0a6696619f39be25068161e67c7cd7879fdef40cbecc28438917818337"
+    },
+    {
+      "asset": "memory-match/racing-car-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 33508,
+      "sha256": "1db6a05d85a68aee8ddc5e0f5500c102254fda5d38dda3e9b9fd383f8381af84"
+    },
+    {
+      "asset": "memory-match/garden-snail-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 47838,
+      "sha256": "7f746f3c82559ab610af117b8dd590563ed921e8bbccf3daa7bb4f4d45157be1"
+    },
+    {
+      "asset": "memory-match/garden-caterpillar-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 24982,
+      "sha256": "2793a1c4f8a0cd4e54e87263cbde42c98066e9cd434263e7a97672206134d465"
+    },
+    {
+      "asset": "memory-match/garden-ant-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 40302,
+      "sha256": "8767544186dd5af5545a1f631eaf82faf789efc0017c5438d32f1e6ba8237ac7"
+    },
+    {
+      "asset": "memory-match/garden-bee-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 49152,
+      "sha256": "d0171f8e5eff142ad547902bbd3f51946c40f8005eab5959df7306d72485e58b"
+    },
+    {
+      "asset": "memory-match/garden-ladybird-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 29902,
+      "sha256": "2901711ae6a1a7507921806f426bafec36cd24b07a214c4c1328a6387d207640"
+    },
+    {
+      "asset": "memory-match/ocean-fish-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 27238,
+      "sha256": "7f6c5bc67a07b7f878e5841f2229d096a82f7b2e47f0acec364368ddc33fb287"
+    },
+    {
+      "asset": "memory-match/pond-fish-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 26178,
+      "sha256": "498f5a27ddccd8c2d037234bed47627dcf888675efd4dd54d7bdb48453ba7a45"
+    },
+    {
+      "asset": "memory-match/turtle-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 33402,
+      "sha256": "d56223ea96bac66678ccc15f62df30b4a364f9e8085961935b02077c0a124bb7"
+    },
+    {
+      "asset": "memory-match/dolphin-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 34770,
+      "sha256": "e7540e73db278604645668f97a5fc3aabf55bbabe04972ea2cc29fd130a226b8"
+    },
+    {
+      "asset": "memory-match/whale-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 34594,
+      "sha256": "0edd405b5a8a2aa8bd7c51d8814781961c765b56ca773d6cb2b7ed0e0ef86d8e"
+    },
+    {
+      "asset": "memory-match/isolated-monkey-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 32568,
+      "sha256": "e6aebcf179052aff994510d2ee5a25411d65be475b8695dde3f701201e638489"
+    },
+    {
+      "asset": "memory-match/dog-v1.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 57006,
+      "sha256": "83bcda5739193672999b3c23c2a7e29b9cdd26aabceaa1d940804af5c36cd5a9"
+    },
+    {
+      "asset": "memory-match/isolated-frog-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 47384,
+      "sha256": "9a0cc2706b20109095fcb36852750aee0a9b8456d677e697d433eebc1bb3f622"
+    },
+    {
+      "asset": "memory-match/astronaut-amari-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 40646,
+      "sha256": "b916a317eaf876b7d315731f3148b47bf16e44aa14c7447747394e3e51f62ca7"
+    },
+    {
+      "asset": "memory-match/alien-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 30140,
+      "sha256": "4d60d5c9f0a8fe68f0199612247858cced56f1e819998d8d0636a724182c1e09"
+    },
+    {
+      "asset": "memory-match/telescope-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 35712,
+      "sha256": "6008432058634e738f9de424d81855d794f83fba7998b72288d75c480c3755be"
+    },
+    {
+      "asset": "memory-match/garden-spider-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 44318,
+      "sha256": "422648f2d182ff85f5a044be7e5e7e4ccf9536187e851f61e290ae9c39a7975c"
+    },
+    {
+      "asset": "memory-match/food-carrot-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 26688,
+      "sha256": "df570a197d8fc4081142af8644e451fc7089df82ef96ede24dfc8e3c97c8dce7"
+    },
+    {
+      "asset": "memory-match/dinosaur-egg-v1.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 25844,
+      "sha256": "c99a86c61b8a4f075787793a4d25fc6bf83f5b357623fd1afbd2fbfeeeb6159a"
+    },
+    {
+      "asset": "memory-match/drink-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 28182,
+      "sha256": "a6577ccc6aec1343bea1adf0930fb378cbe4e431c204daf94b8b9f5ad04b8748"
+    },
+    {
+      "asset": "memory-match/party-face-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 30566,
+      "sha256": "a08fbbdbc71246715f1d808e1bfe47c9b845b82cc15703fc5168d7bcaa672674"
+    },
+    {
+      "asset": "memory-match/crab-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 59334,
+      "sha256": "f57e58620a27c0c4ae414d8bcd756fc951b518d34af6f4b29eafa3b4905d87a6"
+    },
+    {
+      "asset": "memory-match/duck-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 39032,
+      "sha256": "c9757ab5f08889deadbdced454db71158a1f859290b08e558e6662e2ce9278ca"
+    },
+    {
+      "asset": "memory-match/shark-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 25008,
+      "sha256": "6198a359eba1b1f828a812114e05b0f5f0f5d0c31a63f58e04b8bd0ea41be56f"
+    },
+    {
+      "asset": "memory-match/fox-v1.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 53634,
+      "sha256": "c39fa13217b454f27bbb1f9dff7bbd1e6aa0640d0c288a7432560c9f7447da1b"
+    },
+    {
+      "asset": "memory-match/garden-butterfly-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 51948,
+      "sha256": "0b2073bd929753a37cbfdb67fa2ff4061e282748b2af1434392ec05c7bc03d82"
+    },
+    {
+      "asset": "memory-match/squid-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 41374,
+      "sha256": "454fc45891abb5cde13865cc566bdc6fade7eae1478f2e0bcbf31fff00e6fb7c"
+    },
+    {
+      "asset": "little/detective-bronto.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 111864,
+      "sha256": "3e40c262ad4dd85ec97fa68c3fc1a5b274f790f954e7b86823a4bb4ad1886f0c"
+    },
+    {
+      "asset": "little/detective-trex.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 130362,
+      "sha256": "46bbe5b38addcceb5b0c24bd31af47033addbc4cc5ed54761c5e5dcb5082c3ea"
+    },
+    {
+      "asset": "memory-match/fossil-bone-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 37318,
+      "sha256": "f4bdfc74f1ef81e48d4d7ad49317867351fb5525e9d4a082fcf119d1db34c0b4"
+    },
+    {
+      "asset": "memory-match/dinosaur-tooth-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 40008,
+      "sha256": "bbe1f801ed4c4f99dad942e4080f1b3df64a9e72607ea5f31d646cd7f584518d"
+    },
+    {
+      "asset": "memory-match/food-cheese-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 16626,
+      "sha256": "276155c36d0a2e89b5ad2660e01f91634d03e908771f86584adc58295a8c9dbb"
+    },
+    {
+      "asset": "memory-match/cupcake-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 32580,
+      "sha256": "e9ddbfc5ba29263686e4521ccf435d670eec97aaad4895a960caacbe09f9e906"
+    },
+    {
+      "asset": "memory-match/ringed-planet-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 30586,
+      "sha256": "c43b301bf67b11165b2a39d3313c40dae3c85af9be127afc20423e96f39f236a"
+    },
+    {
+      "asset": "memory-match/fossil-rock-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 83952,
+      "sha256": "8512f5b929dd781e88e0a44e1bbc4332dcaa03d634e7ab20917357f7b37daf46"
+    },
+    {
+      "asset": "memory-match/moon-rock-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 67516,
+      "sha256": "67992a1b6786c13ee43fab5859a0173e895edb6a9ed2a7e9cc30744022aa205a"
+    },
+    {
+      "asset": "memory-match/garden-earthworm-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 25736,
+      "sha256": "1ab120b6a10116a13fda280962aef109aae8e836de8168f4edbc8430d04b0ae6"
+    },
+    {
+      "asset": "memory-match/water-lily-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 37998,
+      "sha256": "7062e68d7b67608bb209e4016c5313deda328b101439234446c7ec15260062a2"
+    },
+    {
+      "asset": "memory-match/dinosaur-nest-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 63568,
+      "sha256": "d9b9c4639df9490cd587e0480054ba784e92be3be4e8cc34fc175c1b257986fc"
+    },
+    {
+      "asset": "memory-match/jellyfish-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 46790,
+      "sha256": "bcbf1eeb321bd1591b0e8a6fba7626d035391998db2ddf629a33219592ac46f2"
+    },
+    {
+      "asset": "little/fuel-rocket.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 104260,
+      "sha256": "2d4bd4a6b52197f9b402595e9baac34e5b7094a98be1b364e525dc59b9a36db1"
+    },
+    {
+      "asset": "memory-match/helicopter-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 37924,
+      "sha256": "5a7d33f9a8f67450e9d7e0837c8350da133db11ba6c1f65449bc0f2ea66305d8"
+    },
+    {
+      "asset": "memory-match/steam-train-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 58640,
+      "sha256": "ac3797f937eb9ff4b8ede0175755e345190b73e8e86d963670ffae804d7620b1"
+    },
+    {
+      "asset": "memory-match/passenger-train-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 30128,
+      "sha256": "d97ddbb06ce047755d7ce4dd41f1b30a48670ff5bb90d2b756aabde6457614e9"
+    },
+    {
+      "asset": "memory-match/bus-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 38274,
+      "sha256": "3a8213ab52095736b577ab5c79ac1b15ccfa993b2e473cc62eebf2347ad2741d"
+    },
+    {
+      "asset": "little/rescue-firetruck.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 181296,
+      "sha256": "14654bb186584643bb10eae2160fff5fef25534a6e1a455981645541cf15fe4c"
+    },
+    {
+      "asset": "german-garage/friendly-car.png",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 1435023,
+      "sha256": "755322122df5504afae09e3c5dc969688239390d8ac30e9d11143a1253151bc1"
+    },
+    {
+      "asset": "memory-match/tractor-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 55294,
+      "sha256": "4b2be21e3aecce7b663852fa48cdec50c29e9c5d1088090d28ae2800e1b45119"
+    },
+    {
+      "asset": "memory-match/speedboat-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 31062,
+      "sha256": "57965f3dc77a6ea545f7f44cba103f4eff17f936c3528d673b7cf86061177f55"
+    },
+    {
+      "asset": "memory-match/bicycle-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 60994,
+      "sha256": "97c8c8390353d0629705cebc39ca4afdb80347ebcfd7244be97b2cf3dc8a38e8"
+    },
+    {
+      "asset": "memory-match/satellite-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 34286,
+      "sha256": "88b89a91788453d131df79df0637c58d6edebf5df6fbfc1ef8307c66307d9da9"
+    },
+    {
+      "asset": "memory-match/scooter-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 53296,
+      "sha256": "85c0c78dddd861b36571c27ef2575248ebcb229c89bd6caa2bff86546f1b5d96"
+    },
+    {
+      "asset": "memory-match/flying-saucer-v1-card.webp",
+      "exists": true,
+      "componentMapped": true,
+      "bytes": 29708,
+      "sha256": "7255a04859d7df5ca260cc197250b30583787a28782b7e549773940d11e482f9"
+    }
+  ]
+}
