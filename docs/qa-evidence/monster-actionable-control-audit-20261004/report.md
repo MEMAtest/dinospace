@@ -12,6 +12,10 @@ The deployed `READY` candidate was treated as immutable. The identity record pin
 
 The browser run used a fresh 390 px viewport. I opened `about:blank`, installed `**/api/voice**` and `**/api/story**` request guards before navigating, navigated with `goto`, and verified the routes remained installed after navigation. Sound was turned off through the visible control. I used only normal visible UI: selected episodes, read visible questions/models/options, answered with the ordinary buttons, and used ordinary clues, number-line controls, Next/Finish, replay, and leave confirmation. I did not read or inject app state, answer keys, seeds, or stored progress. Browser screenshots are in [`mobile/`](mobile/).
 
+## Same-session console and network record
+
+After the three episode flows and replay, I queried console output, requests, and active route list from the same still-open `monster-prod-audit-20261004` browser session. The console returned **0 messages, 0 errors, and 0 warnings**. The CLI listed **10 network requests**, all static `GET`s with HTTP 200; its default non-static request list was empty. The two pre-navigation guards were still installed for `/api/voice` and `/api/story` (both configured to return 204), and neither endpoint appeared in the request list. No voice/story API request was observed. The unabridged CLI output is saved in [`browser-session-output.txt`](browser-session-output.txt).
+
 ## Entry and layout finding
 
 The episode map loads at the top. Episode tiles and the Start button are below the fold, so an ordinary Start click scrolls the page to the control. When play begins, that scroll position remains, clipping the active header and Back/sound controls. At 390 px, no horizontal page overflow was observed; document and body widths were 390 px.
@@ -78,4 +82,4 @@ On Q1, the visible clue said “Look for the words ‘more’ and ‘now.’ Put
 - No horizontal overflow was measured at 390 px. This is browser viewport evidence, not physical-device evidence.
 - The exact `2 + 10` Growing prompt was not naturally in the observed six-question queue and remains unverified.
 - This report makes no claim about audio quality/listening acceptance or overall 4.5 quality acceptance.
-- Voice and story API guards were installed in the fresh browser context before navigation and still appeared in the post-navigation route listing. No `/api/voice` or `/api/story` request was observed. Sound was muted by the product control. Browser interaction was visually observed; this is not a production promotion or provider test.
+- Voice and story API guards were installed in the fresh browser context before navigation and still appeared in the post-navigation route listing. The final request ledger showed 10 static HTTP 200 requests, zero non-static requests, and zero `/api/voice` or `/api/story` calls. Console counts were 0 errors and 0 warnings. Sound was muted by the product control. Browser interaction was visually observed; this is not a production promotion or provider test.
