@@ -1,0 +1,954 @@
+{
+  "scope": "Amari Memory Match token artwork; read-only source inventory, no media generation or network requests",
+  "uniqueTokens": 87,
+  "illustrated": 15,
+  "missing": 72,
+  "illustratedTokens": [
+    {
+      "emoji": "☄️",
+      "labels": [
+        "comet"
+      ],
+      "boards": [
+        "space",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": {
+        "asset": "memory-match/comet-v1-card.webp"
+      }
+    },
+    {
+      "emoji": "🌋",
+      "labels": [
+        "volcano"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": {
+        "asset": "memory-match/volcano-v1.webp"
+      }
+    },
+    {
+      "emoji": "🌙",
+      "labels": [
+        "moon"
+      ],
+      "boards": [
+        "space",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": {
+        "asset": "memory-match/crescent-moon-v1-card.webp"
+      }
+    },
+    {
+      "emoji": "🐵",
+      "labels": [
+        "monkey"
+      ],
+      "boards": [
+        "forest"
+      ],
+      "illustration": {
+        "asset": "spot-difference/sound-safari-animals-3d.webp",
+        "crop": "monkey"
+      }
+    },
+    {
+      "emoji": "🐶",
+      "labels": [
+        "dog"
+      ],
+      "boards": [
+        "forest"
+      ],
+      "illustration": {
+        "asset": "memory-match/dog-v1.webp"
+      }
+    },
+    {
+      "emoji": "🐸",
+      "labels": [
+        "frog"
+      ],
+      "boards": [
+        "forest",
+        "garden"
+      ],
+      "illustration": {
+        "asset": "spot-difference/sound-safari-animals-3d.webp",
+        "crop": "frog"
+      }
+    },
+    {
+      "emoji": "🥚",
+      "labels": [
+        "egg"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": {
+        "asset": "memory-match/dinosaur-egg-v1.webp"
+      }
+    },
+    {
+      "emoji": "🦊",
+      "labels": [
+        "fox"
+      ],
+      "boards": [
+        "forest"
+      ],
+      "illustration": {
+        "asset": "memory-match/fox-v1.webp"
+      }
+    },
+    {
+      "emoji": "🦕",
+      "labels": [
+        "long-neck dinosaur"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": {
+        "asset": "little/detective-bronto.webp"
+      }
+    },
+    {
+      "emoji": "🦖",
+      "labels": [
+        "T-rex"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": {
+        "asset": "little/detective-trex.webp"
+      }
+    },
+    {
+      "emoji": "🪐",
+      "labels": [
+        "ringed planet"
+      ],
+      "boards": [
+        "space",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": {
+        "asset": "memory-match/ringed-planet-v1-card.webp"
+      }
+    },
+    {
+      "emoji": "🚀",
+      "labels": [
+        "rocket"
+      ],
+      "boards": [
+        "space",
+        "vehicles",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": {
+        "asset": "little/fuel-rocket.webp"
+      }
+    },
+    {
+      "emoji": "🚒",
+      "labels": [
+        "fire engine"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": {
+        "asset": "little/rescue-firetruck.webp"
+      }
+    },
+    {
+      "emoji": "🚗",
+      "labels": [
+        "car"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": {
+        "asset": "german-garage/friendly-car.png"
+      }
+    },
+    {
+      "emoji": "🛰️",
+      "labels": [
+        "satellite"
+      ],
+      "boards": [
+        "space",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": {
+        "asset": "memory-match/satellite-v1-card.webp"
+      }
+    }
+  ],
+  "missingTokens": [
+    {
+      "emoji": "☀️",
+      "labels": [
+        "Sun"
+      ],
+      "boards": [
+        "astronaut"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "⛏️",
+      "labels": [
+        "fossil dig pick"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "⛰️",
+      "labels": [
+        "mountain"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "✈️",
+      "labels": [
+        "aeroplane"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "⭐️",
+      "labels": [
+        "star"
+      ],
+      "boards": [
+        "space",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌌",
+      "labels": [
+        "galaxy"
+      ],
+      "boards": [
+        "space",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌍",
+      "labels": [
+        "Earth"
+      ],
+      "boards": [
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌑",
+      "labels": [
+        "new moon"
+      ],
+      "boards": [
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌕",
+      "labels": [
+        "full moon"
+      ],
+      "boards": [
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌞",
+      "labels": [
+        "Sun with a face"
+      ],
+      "boards": [
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌟",
+      "labels": [
+        "glowing star"
+      ],
+      "boards": [
+        "space",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌠",
+      "labels": [
+        "shooting star"
+      ],
+      "boards": [
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌱",
+      "labels": [
+        "seedling"
+      ],
+      "boards": [
+        "dinos",
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌳",
+      "labels": [
+        "tree"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌷",
+      "labels": [
+        "tulip"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌽",
+      "labels": [
+        "corn"
+      ],
+      "boards": [
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🌿",
+      "labels": [
+        "leaf"
+      ],
+      "boards": [
+        "dinos",
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍄",
+      "labels": [
+        "mushroom"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍇",
+      "labels": [
+        "grapes"
+      ],
+      "boards": [
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍉",
+      "labels": [
+        "watermelon"
+      ],
+      "boards": [
+        "party",
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍌",
+      "labels": [
+        "banana"
+      ],
+      "boards": [
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍎",
+      "labels": [
+        "apple"
+      ],
+      "boards": [
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍓",
+      "labels": [
+        "strawberry"
+      ],
+      "boards": [
+        "party",
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍕",
+      "labels": [
+        "pizza"
+      ],
+      "boards": [
+        "party",
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍟",
+      "labels": [
+        "chips"
+      ],
+      "boards": [
+        "party",
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍩",
+      "labels": [
+        "doughnut"
+      ],
+      "boards": [
+        "party",
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍪",
+      "labels": [
+        "biscuit"
+      ],
+      "boards": [
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍬",
+      "labels": [
+        "sweet"
+      ],
+      "boards": [
+        "party"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🍭",
+      "labels": [
+        "lolly"
+      ],
+      "boards": [
+        "party",
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🎂",
+      "labels": [
+        "cake"
+      ],
+      "boards": [
+        "party"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🎈",
+      "labels": [
+        "balloon"
+      ],
+      "boards": [
+        "party"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🎉",
+      "labels": [
+        "party popper"
+      ],
+      "boards": [
+        "party"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🏎️",
+      "labels": [
+        "racing car"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🐌",
+      "labels": [
+        "snail"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🐛",
+      "labels": [
+        "caterpillar"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🐜",
+      "labels": [
+        "ant"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🐝",
+      "labels": [
+        "bee"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🐞",
+      "labels": [
+        "ladybird"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🐟",
+      "labels": [
+        "fish",
+        "pond fish"
+      ],
+      "boards": [
+        "ocean",
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🐢",
+      "labels": [
+        "turtle"
+      ],
+      "boards": [
+        "ocean",
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🐬",
+      "labels": [
+        "dolphin"
+      ],
+      "boards": [
+        "ocean"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🐳",
+      "labels": [
+        "whale"
+      ],
+      "boards": [
+        "ocean"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "👨‍🚀",
+      "labels": [
+        "suited astronaut"
+      ],
+      "boards": [
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "👽",
+      "labels": [
+        "alien"
+      ],
+      "boards": [
+        "space",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🔭",
+      "labels": [
+        "telescope"
+      ],
+      "boards": [
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🕷️",
+      "labels": [
+        "spider"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🥕",
+      "labels": [
+        "carrot"
+      ],
+      "boards": [
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🥤",
+      "labels": [
+        "drink"
+      ],
+      "boards": [
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🥳",
+      "labels": [
+        "party face"
+      ],
+      "boards": [
+        "party"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🦀",
+      "labels": [
+        "crab"
+      ],
+      "boards": [
+        "ocean"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🦆",
+      "labels": [
+        "duck"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🦈",
+      "labels": [
+        "shark"
+      ],
+      "boards": [
+        "ocean"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🦋",
+      "labels": [
+        "butterfly"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🦑",
+      "labels": [
+        "squid"
+      ],
+      "boards": [
+        "ocean"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🦴",
+      "labels": [
+        "bone"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🦷",
+      "labels": [
+        "dinosaur tooth"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🧀",
+      "labels": [
+        "cheese"
+      ],
+      "boards": [
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🧁",
+      "labels": [
+        "cupcake"
+      ],
+      "boards": [
+        "party",
+        "food"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🪨",
+      "labels": [
+        "fossil dig rock",
+        "moon rock"
+      ],
+      "boards": [
+        "dinos",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🪱",
+      "labels": [
+        "worm"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🪷",
+      "labels": [
+        "water lily"
+      ],
+      "boards": [
+        "garden"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🪺",
+      "labels": [
+        "dinosaur nest"
+      ],
+      "boards": [
+        "dinos"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🪼",
+      "labels": [
+        "jellyfish"
+      ],
+      "boards": [
+        "ocean"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🚁",
+      "labels": [
+        "helicopter"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🚂",
+      "labels": [
+        "steam train"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🚆",
+      "labels": [
+        "passenger train"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🚌",
+      "labels": [
+        "bus"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🚜",
+      "labels": [
+        "tractor"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🚤",
+      "labels": [
+        "speedboat"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🚲",
+      "labels": [
+        "bicycle"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🛵",
+      "labels": [
+        "scooter"
+      ],
+      "boards": [
+        "vehicles"
+      ],
+      "illustration": null
+    },
+    {
+      "emoji": "🛸",
+      "labels": [
+        "flying saucer"
+      ],
+      "boards": [
+        "space",
+        "vehicles",
+        "astronaut",
+        "cosmic-challenge"
+      ],
+      "illustration": null
+    }
+  ]
+}

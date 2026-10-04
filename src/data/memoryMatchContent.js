@@ -30,6 +30,14 @@ const CONTEXTUAL_LABELS = Object.freeze({
 // their own art token or remain clearly named emoji until matching artwork is
 // available; sprite crops are explicitly distinguished by `crop`.
 export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
+  '🐶': Object.freeze({ asset: 'memory-match/dog-v1.webp' }),
+  '🦊': Object.freeze({ asset: 'memory-match/fox-v1.webp' }),
+  '🥚': Object.freeze({ asset: 'memory-match/dinosaur-egg-v1.webp' }),
+  '🌋': Object.freeze({ asset: 'memory-match/volcano-v1.webp' }),
+  '🪐': Object.freeze({ asset: 'memory-match/ringed-planet-v1-card.webp' }),
+  '🌙': Object.freeze({ asset: 'memory-match/crescent-moon-v1-card.webp' }),
+  '☄️': Object.freeze({ asset: 'memory-match/comet-v1-card.webp' }),
+  '🛰️': Object.freeze({ asset: 'memory-match/satellite-v1-card.webp' }),
   '🦕': Object.freeze({ asset: 'little/detective-bronto.webp' }),
   '🦖': Object.freeze({ asset: 'little/detective-trex.webp' }),
   '🚀': Object.freeze({ asset: 'little/fuel-rocket.webp' }),

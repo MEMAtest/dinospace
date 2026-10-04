@@ -1,0 +1,90 @@
+{
+  "scope": "Eight additional semantically matched Memory Match faces for existing Amari tokens; no authored board tokens, pair counts, progress IDs or Askia content changed.",
+  "tool": "Built-in image_gen for the four newly authored animal/learning-object pictures; no image API key, CLI, voice or story generation used.",
+  "processing": "Each selected source was resized proportionally to fit within 512x512, converted to WebP quality 88 with alpha quality 95. Original generated/source PNGs were retained outside or inside the workspace as provenance. No artwork pixels were retouched or composed.",
+  "newAssets": [
+    {
+      "token": "🐶",
+      "label": "dog",
+      "asset": "src/assets/memory-match/dog-v1.webp",
+      "sha256": "83bcda5739193672999b3c23c2a7e29b9cdd26aabceaa1d940804af5c36cd5a9"
+    },
+    {
+      "token": "🦊",
+      "label": "fox",
+      "asset": "src/assets/memory-match/fox-v1.webp",
+      "sha256": "c39fa13217b454f27bbb1f9dff7bbd1e6aa0640d0c288a7432560c9f7447da1b"
+    },
+    {
+      "token": "🥚",
+      "label": "egg",
+      "asset": "src/assets/memory-match/dinosaur-egg-v1.webp",
+      "sha256": "c99a86c61b8a4f075787793a4d25fc6bf83f5b357623fd1afbd2fbfeeeb6159a"
+    },
+    {
+      "token": "🌋",
+      "label": "volcano",
+      "asset": "src/assets/memory-match/volcano-v1.webp",
+      "sha256": "4115ad55de4ef013f711e3bca03da1b26c7cabd4eede6358e332af25804e778d"
+    },
+    {
+      "token": "🪐",
+      "label": "ringed planet",
+      "asset": "src/assets/memory-match/ringed-planet-v1-card.webp",
+      "sha256": "c43b301bf67b11165b2a39d3313c40dae3c85af9be127afc20423e96f39f236a",
+      "sourceProvenance": "memory-space-art-provenance-20261004.json"
+    },
+    {
+      "token": "🌙",
+      "label": "moon",
+      "asset": "src/assets/memory-match/crescent-moon-v1-card.webp",
+      "sha256": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b",
+      "sourceProvenance": "memory-space-art-provenance-20261004.json"
+    },
+    {
+      "token": "☄️",
+      "label": "comet",
+      "asset": "src/assets/memory-match/comet-v1-card.webp",
+      "sha256": "f37aa7714bb66ff09047a24ad2fd1676134bd623fae9109894eeef1c3a5bc545",
+      "sourceProvenance": "memory-space-art-provenance-20261004.json"
+    },
+    {
+      "token": "🛰️",
+      "label": "satellite",
+      "asset": "src/assets/memory-match/satellite-v1-card.webp",
+      "sha256": "88b89a91788453d131df79df0637c58d6edebf5df6fbfc1ef8307c66307d9da9",
+      "sourceProvenance": "memory-space-art-provenance-20261004.json"
+    }
+  ],
+  "animalAndObjectPrompts": {
+    "dog": "A single cute golden puppy character for a preschool picture-card game. Full-body sitting dog with floppy ears, red collar, friendly curious face; unmistakably a puppy. Glossy polished 3D children's illustration, soft studio highlights, clean rounded shapes, colorful and premium. Centered large on a square canvas with all paws and tail visible and generous transparent margin, designed to read clearly when scaled to a small card. Transparent background only. No scenery, no other objects, no text, no logo, no watermark.",
+    "fox": "A single cute red fox character for a preschool picture-card game. Full-body seated fox with large pointed ears, rust-orange coat, cream chest and muzzle, dark paws, and a clearly bushy tail with a white tip; unmistakably a fox, not a dog or cat. Glossy polished 3D children's illustration, soft studio highlights, clean rounded forms, gentle alert expression. Centered large on a square canvas with full tail and paws visible, generous transparent margin, readable when scaled to a small card. Transparent background only. No forest scene, no other objects, no text, no logo, no watermark.",
+    "egg": "A large pale mint-green dinosaur egg with gentle olive speckles and a tiny harmless hairline hatch crack, egg shape unmistakable, no animal emerging. Glossy polished 3D children's picture-card art, soft rounded surface, delicate softbox highlights, friendly educational look. Centered isolated object on square transparent canvas with margins, visually clear when shown at 82px. Transparent background only. No nest, no character, no scene, no fire, no text, no logo, no watermark.",
+    "volcano": "One tiny friendly volcano model: unmistakable rounded cone-shaped mountain with a visible summit crater, layered earthy brown and soft green slopes, a small gentle curl of pale steam, and just a muted orange glow inside the crater (no eruption). Glossy polished 3D children's picture-card art, soft highlights, rounded toy-like geology model, calm and safe. Centered isolated object on square transparent canvas with margin, clear at 82px. Transparent background only. No lava flow, no flames, no rocks flying, no people, no scene, no text, no logo, no watermark."
+  },
+  "renderReview": {
+    "builderViewport": "390x844 CSS pixels; fresh guarded local profile; reduced motion emulated.",
+    "faceDownLoading": "Level 1 began with zero Memory front images mounted. After flipping one card, one image mounted; repeated-face assets are fetched only when those Amari cards turn face up.",
+    "observedCards": {
+      "dogAndFox": "Both rendered on 82x82 cards; each 512px WebP loaded at approximately 69x62 CSS pixels inside the face.",
+      "eggAndVolcano": "Both rendered on the 13-pair Dinosaur Discovery board; each 512px WebP loaded at 42x62 CSS pixels. A screenshot showed each object clearly with its matching label.",
+      "planetMoonCometSatellite": "All four rendered on Space Sparkle. Each 512px WebP loaded at 69x46 to 69x62 CSS pixels. Satellite is the smallest visual subject, paired with its visible label."
+    },
+    "builderScreenshots": [
+      ".playwright-cli/b7-memory-dog-390-card-builder.png",
+      ".playwright-cli/b7-memory-fox-390-card-builder.png",
+      ".playwright-cli/b7-memory-premium-egg-390-builder-rendered.png",
+      ".playwright-cli/b7-memory-ringed-planet-390-card-builder.png",
+      ".playwright-cli/b7-memory-moon-390-card-builder.png",
+      ".playwright-cli/b7-memory-comet-390-card-builder.png",
+      ".playwright-cli/b7-memory-satellite-390-card-builder.png"
+    ],
+    "acceptance": "Builder inspection only. A separate reviewer must assess consistency against the supplied picture-card style and child-sized visibility. Premium art is not complete: 72 of 87 unique Amari tokens still lack matching illustrations."
+  },
+  "generatedSources": {
+    "dog": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-8d2a304e-6797-4d15-a9ce-d5fd31dd0fee.png",
+    "fox": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-57502f97-f87b-464f-97e1-a49625342fc5.png",
+    "egg": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-9f6c05e7-1b08-4433-b4ab-8a9d919cb836.png",
+    "volcano": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-9a90080f-72d3-4e0a-832c-d6c8d0ab6c5a.png"
+  }
+}

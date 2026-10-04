@@ -13,6 +13,14 @@ import trexArt from '../../assets/little/detective-trex.webp';
 import brontoArt from '../../assets/little/detective-bronto.webp';
 import friendlyCarArt from '../../assets/german-garage/friendly-car.png';
 import safariAnimalsArt from '../../assets/spot-difference/sound-safari-animals-3d.webp';
+import dogArt from '../../assets/memory-match/dog-v1.webp';
+import foxArt from '../../assets/memory-match/fox-v1.webp';
+import dinosaurEggArt from '../../assets/memory-match/dinosaur-egg-v1.webp';
+import volcanoArt from '../../assets/memory-match/volcano-v1.webp';
+import ringedPlanetArt from '../../assets/memory-match/ringed-planet-v1-card.webp';
+import crescentMoonArt from '../../assets/memory-match/crescent-moon-v1-card.webp';
+import cometArt from '../../assets/memory-match/comet-v1-card.webp';
+import satelliteArt from '../../assets/memory-match/satellite-v1-card.webp';
 import memoryCoachArt from '../../assets/little/askia-detective.webp';
 import './memoryMatch.css';
 import { buildSeededMemoryDeck, memoryStrategy, readMemoryPassport, completeMemoryBoard } from '../../data/batch7Progress.js';
@@ -34,6 +42,14 @@ const ASKIA_CARD_ART = {
 };
 
 const MEMORY_ASSET_BY_PATH = {
+  'memory-match/dog-v1.webp': dogArt,
+  'memory-match/fox-v1.webp': foxArt,
+  'memory-match/dinosaur-egg-v1.webp': dinosaurEggArt,
+  'memory-match/volcano-v1.webp': volcanoArt,
+  'memory-match/ringed-planet-v1-card.webp': ringedPlanetArt,
+  'memory-match/crescent-moon-v1-card.webp': crescentMoonArt,
+  'memory-match/comet-v1-card.webp': cometArt,
+  'memory-match/satellite-v1-card.webp': satelliteArt,
   'little/detective-bronto.webp': brontoArt,
   'little/detective-trex.webp': trexArt,
   'little/fuel-rocket.webp': rocketArt,
@@ -235,11 +251,11 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
                 ? <img src={ASKIA_CARD_ART[card.emoji]} alt="" draggable="false" />
                 : card.emoji === '⭐️'
                   ? <Star aria-hidden="true" className="memory-little-star-art" fill="currentColor" />
-              : card.emoji) : <><span className="memory-card-art" aria-hidden="true">{AMARI_CARD_ART[card.emoji]
+              : card.emoji) : isFaceUp ? <><span className="memory-card-art" aria-hidden="true">{AMARI_CARD_ART[card.emoji]
                 ? AMARI_CARD_ART[card.emoji].type === 'image'
-                  ? <img className={AMARI_CARD_ART[card.emoji].className} src={AMARI_CARD_ART[card.emoji].src} alt="" draggable="false" />
+                  ? <img className={AMARI_CARD_ART[card.emoji].className} src={AMARI_CARD_ART[card.emoji].src} alt="" draggable="false" decoding="async" />
                   : <span className={AMARI_CARD_ART[card.emoji].className} style={{ backgroundImage: `url("${safariAnimalsArt}")` }} />
-                : card.emoji}</span><span className="memory-card-label" aria-hidden="true">{cardName(card.emoji, level.id)}</span></>}
+                : card.emoji}</span><span className="memory-card-label" aria-hidden="true">{cardName(card.emoji, level.id)}</span></> : null}
             </div>
           </div>
         </button>
