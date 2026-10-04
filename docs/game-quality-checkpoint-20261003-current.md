@@ -489,3 +489,10 @@ Independent Batch5 assessment identifies Spelling Studio child-facing jargon; th
 Independent Batch6 assessment `a8e9bab` records concrete teaching deficits: Pattern prelabels its rule, Hangman leaves the shared ending unexplained, Chess presents all-piece rules at once, and Astronaut shows its answer-bearing fact as a pre-answer clue. The visible and spoken clue paths both require correction. Repair instructions and bounded acceptance deltas are published; reliability and formal audio remain unscored/pending. No new overall4.5 awards.
 
 The finite narration worker checkpoint12:20UTC is run204, expected request-window wait,2265 clips pending. Recorded accepted counts remain4/26; this is active work, not completion.
+
+
+## Final two games freshly categorised — 4 October
+
+Independent Batch7 assessment `bcc9bca` covers Memory Match and Solar System, completing current evidence-linked review coverage for all remaining22 games alongside recorded Batch1 acceptance. Root read the report. Retained exact-source ordinary desktop/mobile runs show Memory Level5 at26cards/13pairs; the suspected regression is not reproduced in that local candidate. Both games have supported progression/correctness/reliability/visible components4.5, with concrete teaching4.0 deficits: Memory’s later strategy is vague and Solar terms need explanations. Formal audio remains pending; neither game has production acceptance.
+
+Spelling’s revised candidate `d7c6699` at5362 replaces the remaining pool jargon as well as its start instruction. Root read the exact diff and verification report: learned-sound filtering and20-word/six-question requirements unchanged, spoken inventory unchanged, existing4tests/lint/configuredbuild pass. Independent rendered QA is assigned; source checking alone does not close its teaching gate.

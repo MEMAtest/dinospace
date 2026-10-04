@@ -1053,5 +1053,15 @@
     "status": "waiting_request_window",
     "pending": 2265,
     "scope": "Existing finite worker; no restart or parallel generation. Not corpus readiness or listening acceptance."
+  },
+  "batch7CurrentEditorialReview": {
+    "report": "docs/qa-evidence/batch7-independent-editorial-assessment-20261004.md",
+    "evidenceCommit": "bcc9bca576fd57b115ce0d6c3b04cdf2d957ee75",
+    "decision": "Both games have supported progression/correctness/reliability/visible components4.5; teaching4.0 for Memory strategy and unexplained Solar terminology. Level5 is13pairs atbothwidths in retained candidate evidence. Formal audio pending, no overall awards or production acceptance."
+  },
+  "editorialCategorisation": {
+    "contractsPublished": 26,
+    "currentReviewCoverage": 26,
+    "scope": "Batch1 recorded acceptance plus fresh evidence-linked reviews for remaining22. Published per-game deficits and acceptance instructions; not26 accepted games."
   }
 }
