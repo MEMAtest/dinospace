@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-04T02:43:26.762862+00:00",
+  "updatedAt": "2026-10-04T02:56:04.382833+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "2952958fe41de443a8dfeabbbe0bb54d96e572ad",
+  "canonicalRelease": "484addf2e76be849845f508bdc9fc5e1325b51b7",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -348,14 +348,14 @@
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
     "runtimeSource": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
-    "scope": "Original fullten-board Memory and54 Solar facts/nine challenges local desktop/mobile baseline retained. Overlay repair44 has independent390px pass; ee/200/Ocean3a art deltas independently passed with separate caption and44px desktopselector findings. Fruit e771 repairs fullcaptions/reservedart/48pxselectors, builderpass and independentQA underway. Ocean2e and Spacec1 newer frozen art candidates builderpass, independentqueue. No production/audio/premium/editorial/4.5 acceptance.",
+    "scope": "Original full ten-board Memory and54 Solar facts/nine challenges local baseline retained. Fruit e771 caption/48pxselector and Ocean2e/Gardenpond deltas independently passed; new Spacec1 and Star/Sundb0 frozen deltas builder-passed, independent QA queued. Existing Garden Frog narrow-strip rendering newly flagged; builder triage underway. No production/audio/premium/editorial/4.5 acceptance.",
     "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md",
     "memory374IndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-premium-independent-20261003/report.md",
     "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7",
     "memoryRepairSource": "44b9807eeec169cc5d48809c8c5a5eff29297c5f",
     "memoryRepairIdentity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-visual-identity-20261004.json",
     "memoryRepairScope": "Independent44/5288 actual390px earned Levels1\u20135 and formerblockedcard24 flippedinplace, ten53.5x48pills/nooverlay/console0. Vehicles unobserved inthat narrowdelta. Subsequentart/e771caption-selector candidates retainseparate evidence;183-line narration isnotyetaccepted.",
-    "nextArtwork": "Historical200bdcc eight astronomy/Garden art-specificdelta independentlypassed f16160c; rootseparatecaptiondefect subsequentlyrepaired in e771, independentrepairQA underway.",
+    "nextArtwork": "Fruit e771 independently passed1b009f9: ordinary Fruit and later8/9/10 boards both widths, full long captions and48pxdesktopselectors. Dolphin was not independently repeated in this delta.",
     "gardenArtworkProvenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-garden-art-provenance-20261004.json",
     "memoryArtworkSource": "ee38737b1bbb2dbfc7a158c796ea1f18289f40df",
     "memoryArtworkScope": "Historical ee38737 eight-face art-specific delta independentlypassed ca7a7bd; preserved source/scope. Not a currentcompletepremium/4.5 acceptance.",
@@ -363,14 +363,16 @@
     "nextArtworkSource": "200bdcc2b75fdaefa37a2787b974bf6d093dbe89",
     "nextArtworkIdentity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-art-update-identity-200bdcc.json",
     "memoryCurrentFrozenArtwork": {
-      "sourceSha": "c1d58ecb50f8dbfb42c1a356b9377a2cd4d63da9",
-      "origin": "http://127.0.0.1:5308",
-      "illustratedTokens": 39,
+      "sourceSha": "db0a9c18b253cc24f879e87c0ea2050c64d5bc8c",
+      "origin": "http://127.0.0.1:5309",
+      "illustratedTokens": 43,
       "uniqueTokens": 87,
-      "missingTokens": 48,
-      "builderEvidence": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-space-objects-identity-20261004.json",
-      "scope": "Builder-only relevantnormalUI atdesktop390,10focusedtests/lint/configbuild/servedidentity passed. IndependentFruit5305 thenOcean5306 thenSpace5308 queued. Frozenorigins preserved."
-    }
+      "missingTokens": 44,
+      "builderEvidence": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-star-sun-identity-20261004.json",
+      "scope": "Builder-only relevant ordinary desktop/390 controls, focusedtests/lint/build/identity passed. Independent Space5308 thenStar/Sun5309 queued; Frog repair separately triaged. Older freezes preserved."
+    },
+    "memoryFruitIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md",
+    "memoryOceanGardenIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md"
   },
   "monsterClueRepair": {
     "sourceSha": "f72f59edf2c4df00d3f4649e22310bbf2281c9a0",
@@ -430,10 +432,12 @@
   "monsterHeaderCandidate": {
     "sourceSha": "484addf2e76be849845f508bdc9fc5e1325b51b7",
     "identity": "docs/qa-evidence/monster-header-identity-20261004.json",
-    "scope": "Immutable Vercel candidate READY, provider binds exact484addf archive and all seven files match local5307. Independent live controls queued after currentcanonical295boundeddelta. Not canonical; no new4.5/listening acceptance.",
+    "scope": "Promoted after independent immutable candidate QA 6ad072d. Provider canonical alias and seven runtime/index hashes match484addf. Fresh canonical controls underway; no new4.5/listening acceptance.",
     "localPlaywright": "Independent5486b2e: mobile Counting6/Growing6 normalunlock, Story6 both390/1280, full mobile episode3 title,48pxheadercontrols, saved rewards/parentBack/console0.",
     "evidence": "docs/qa-evidence/monster-header-484addf-independent-20261004/report.md",
     "deploymentId": "dpl_J3KZBY4qUa8CvBSGzKy3KmWmyiPB",
-    "productionCandidateIdentity": "docs/qa-evidence/monster-header-production-candidate-20261004.json"
+    "productionCandidateIdentity": "docs/qa-evidence/monster-header-production-candidate-20261004.json",
+    "candidatePlaywrightEvidence": "docs/qa-evidence/monster-header-production-candidate-20261004/report.md",
+    "canonicalIdentity": "docs/qa-evidence/monster-header-canonical-identity-20261004.json"
   }
 }

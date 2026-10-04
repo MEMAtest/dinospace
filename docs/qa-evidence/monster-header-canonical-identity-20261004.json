@@ -1,0 +1,95 @@
+{
+  "createdAt": "2026-10-04T02:23:25.602662+00:00",
+  "sourceSha": "484addf2e76be849845f508bdc9fc5e1325b51b7",
+  "origin": "http://127.0.0.1:5307",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "013b0077936f281e0bdcf2742112f815a4c8da93b703d37324f8a687d418090f",
+      "servedSha256": "013b0077936f281e0bdcf2742112f815a4c8da93b703d37324f8a687d418090f",
+      "matchesFrozen": true,
+      "bytes": 1100,
+      "canonicalStatus": 200,
+      "canonicalSha256": "013b0077936f281e0bdcf2742112f815a4c8da93b703d37324f8a687d418090f",
+      "canonicalMatchesFrozen": true
+    },
+    {
+      "path": "assets/AmariCountTheStars-CJB_K6c6.js",
+      "sha256": "e1c2542c30ac7da3bf4c1ee1bfb2e81cc07c01681324aa320c1d7713701b7266",
+      "servedSha256": "e1c2542c30ac7da3bf4c1ee1bfb2e81cc07c01681324aa320c1d7713701b7266",
+      "matchesFrozen": true,
+      "bytes": 18854,
+      "canonicalStatus": 200,
+      "canonicalSha256": "e1c2542c30ac7da3bf4c1ee1bfb2e81cc07c01681324aa320c1d7713701b7266",
+      "canonicalMatchesFrozen": true
+    },
+    {
+      "path": "assets/AmariLetterTrace-CI8OE72h.js",
+      "sha256": "5d9c22616cd722c5839c871ea98446d677cd95295e11945cc6ef397f47a1900c",
+      "servedSha256": "5d9c22616cd722c5839c871ea98446d677cd95295e11945cc6ef397f47a1900c",
+      "matchesFrozen": true,
+      "bytes": 19956,
+      "canonicalStatus": 200,
+      "canonicalSha256": "5d9c22616cd722c5839c871ea98446d677cd95295e11945cc6ef397f47a1900c",
+      "canonicalMatchesFrozen": true
+    },
+    {
+      "path": "assets/SolarSystem-BfzR6uCE.js",
+      "sha256": "377b53967c962816dcb5903dedb859f61b01fb29efa3e650e688639b8c308ba3",
+      "servedSha256": "377b53967c962816dcb5903dedb859f61b01fb29efa3e650e688639b8c308ba3",
+      "matchesFrozen": true,
+      "bytes": 563158,
+      "canonicalStatus": 200,
+      "canonicalSha256": "377b53967c962816dcb5903dedb859f61b01fb29efa3e650e688639b8c308ba3",
+      "canonicalMatchesFrozen": true
+    },
+    {
+      "path": "assets/index-DDcV_2G9.js",
+      "sha256": "ccfa018ac99d5e610602a34ca440ebafe63c3b069b00617b77e94fd747a31c09",
+      "servedSha256": "ccfa018ac99d5e610602a34ca440ebafe63c3b069b00617b77e94fd747a31c09",
+      "matchesFrozen": true,
+      "bytes": 1237594,
+      "canonicalStatus": 200,
+      "canonicalSha256": "ccfa018ac99d5e610602a34ca440ebafe63c3b069b00617b77e94fd747a31c09",
+      "canonicalMatchesFrozen": true
+    },
+    {
+      "path": "assets/web-CjHUl9ED.js",
+      "sha256": "236ab5f22e5bdd70c2ea48089c261bb945afd016b184b52c245b22177dc14c85",
+      "servedSha256": "236ab5f22e5bdd70c2ea48089c261bb945afd016b184b52c245b22177dc14c85",
+      "matchesFrozen": true,
+      "bytes": 842,
+      "canonicalStatus": 200,
+      "canonicalSha256": "236ab5f22e5bdd70c2ea48089c261bb945afd016b184b52c245b22177dc14c85",
+      "canonicalMatchesFrozen": true
+    },
+    {
+      "path": "assets/index-vOQrpuVv.css",
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "servedSha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "matchesFrozen": true,
+      "bytes": 205877,
+      "canonicalStatus": 200,
+      "canonicalSha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "canonicalMatchesFrozen": true
+    }
+  ],
+  "scope": "Promoted after independent candidate QA 6ad072d. Provider canonical alias and all seven runtime/index hashes match archive484addf. Fresh canonical control QA pending; no 4.5 or listening acceptance.",
+  "url": "https://dinospace-eight.vercel.app",
+  "providerIdentity": {
+    "id": "dpl_J3KZBY4qUa8CvBSGzKy3KmWmyiPB",
+    "readyState": "READY",
+    "target": "production",
+    "url": "dinospace-n67vr8wze-memas-projects-23a0001d.vercel.app",
+    "source": "484addf2e76be849845f508bdc9fc5e1325b51b7",
+    "githubCommitSha": "484addf2e76be849845f508bdc9fc5e1325b51b7",
+    "gitCommitSha": "5486b2e54787efe5212c9f6865d2152ad2c5f450",
+    "note": "Explicit auditedArchiveSourceSha/githubCommitSha bind exact clean archive484addf; automatic gitCommitSha names surrounding QA docs checkout5486b2e."
+  },
+  "deploymentId": "dpl_J3KZBY4qUa8CvBSGzKy3KmWmyiPB",
+  "verifiedAt": "2026-10-04T02:53:12.574607+00:00",
+  "canonicalAlias": {
+    "alias": "dinospace-eight.vercel.app",
+    "deploymentId": "dpl_J3KZBY4qUa8CvBSGzKy3KmWmyiPB"
+  }
+}
