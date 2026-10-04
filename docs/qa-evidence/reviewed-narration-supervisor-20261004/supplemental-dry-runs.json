@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-10-04T16:55:01.859Z",
+  "mode": "read-only dry-run only",
+  "ledgers": {
+    "b5b7": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+    "supplemental": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd"
+  },
+  "b4WorkerPid": 18781,
+  "b4WorkerLive": true,
+  "fileHashesBefore": {
+    "candidateManifest": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7",
+    "sharedRequestJournal": "fe81313b9dc772a73a62b0f39a18a76a35fb7784cab17a62f3b435bdc94da828",
+    "b4Manifest": "9ddacba097c212070a90220c31f07b4a6b03c30e2dc9c10b20ec19234622243a"
+  },
+  "fileHashesAfter": {
+    "candidateManifest": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7",
+    "sharedRequestJournal": "fe81313b9dc772a73a62b0f39a18a76a35fb7784cab17a62f3b435bdc94da828",
+    "b4Manifest": "9ddacba097c212070a90220c31f07b4a6b03c30e2dc9c10b20ec19234622243a"
+  },
+  "dryRuns": [
+    { "job": "b5-reasoning", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 310, "packagedCandidateReusable": 23, "pending": 287, "pendingKeysSha256": "50b9755704ae11375b0b1361f2f9a3e32ad86421fdb7461b7fe8c90950fa52ce" },
+    { "job": "b5-literacy", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 659, "packagedCandidateReusable": 11, "pending": 648, "pendingKeysSha256": "6d647d308a65c44bbd0e7ac2092507df7243f374607a590530201309e731c4ca" },
+    { "job": "b6", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 378, "packagedCandidateReusable": 1, "pending": 377, "pendingKeysSha256": "79f530a16c0834db5818b0cc9f60f088c514b27fb6634dc0639d4312d1b66fb3" },
+    { "job": "b7-solar", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 127, "packagedCandidateReusable": 111, "pending": 16, "pendingKeysSha256": "653ecd134807ceb3f2da58ecf342bcdcc33577197098f0e02488c62b41825226" },
+    { "job": "b7-memory", "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227", "requested": 183, "packagedCandidateReusable": 2, "pending": 181, "pendingKeysSha256": "4c582a7f36ccaf0e214538239fa3156d3b32297a6bf0262812916f839f493705" },
+    { "job": "b2-supplement", "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd", "requested": 5, "packagedCandidateReusable": 0, "pending": 5, "pendingKeysSha256": "8730614febccf99c3df66501efe7de87d6848868b466bfac6aa5d0aae5d21dd7" },
+    { "job": "b3-dino-facts", "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd", "requested": 2, "packagedCandidateReusable": 0, "pending": 2, "pendingKeysSha256": "c8da67e9ef481379942ea2816e52002c8bd7f534c3a0854a012555a966c28bc7" }
+  ],
+  "interpretation": "Candidate reusability is limited to exact byte matches against a pinned ledger or this supervisor's local receipt. It does not prove decode, pronunciation, playback, or human listening."
+}

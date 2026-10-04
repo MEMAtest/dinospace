@@ -5,7 +5,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
-  B4_SOURCE_COMMIT, B4_WORKER_PID, JOBS, PINNED_INVENTORY_SHA256,
+  B4_SOURCE_COMMIT, B4_WORKER_PID, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
   acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord,
   availableCalls, getCandidateReusablePath, isCandidateReusable, isPackagedCandidate,
   loadPinnedInventory, producerLockPathForJournal, readRequestJournal, requestNarration, selectJobItems,
@@ -14,6 +14,7 @@ import {
 
 const root = resolve(import.meta.dirname, '..');
 const inventoryPath = resolve(root, 'docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json');
+const supplementalInventoryPath = resolve(root, 'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json');
 const cliPath = resolve(root, 'scripts/run-reviewed-narration-job.mjs');
 const sharedJournal = resolve(root, '../dinospace-batch3-quality/tmp/offline-voice-request-state.json');
 const b4Manifest = resolve(root, '../dinospace-batch4-quality/src/data/offlineVoiceManifest.js');
@@ -24,7 +25,7 @@ const deadPidProbe = () => { throw Object.assign(new Error('not running'), { cod
 test('pins exact reviewed ledger and derives only approved owner keys', async () => {
   const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: PINNED_INVENTORY_SHA256 });
   assert.equal(actualSha256, PINNED_INVENTORY_SHA256);
-  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b6', 'b7-solar', 'b7-memory']);
+  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b6', 'b7-solar', 'b7-memory', 'b2-supplement', 'b3-dino-facts']);
   assert.equal(selectJobItems(inventory, 'b5-reasoning').length, 310);
   assert.equal(selectJobItems(inventory, 'b5-literacy').length, 659);
   assert.equal(selectJobItems(inventory, 'b6').length, 378);
@@ -32,6 +33,52 @@ test('pins exact reviewed ledger and derives only approved owner keys', async ()
   assert.equal(selectJobItems(inventory, 'b7-memory').length, 183);
   assert.ok(selectJobItems(inventory, 'b7-solar').every((item) => item.owners.includes('B7_solar') && !item.owners.includes('B4')));
   await assert.rejects(() => loadPinnedInventory({ inventoryPath, suppliedSha256: '0'.repeat(64) }), /must equal reviewed SHA/);
+});
+
+test('supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths', async () => {
+  const { inventory, actualSha256 } = await loadPinnedInventory({
+    inventoryPath: supplementalInventoryPath,
+    suppliedSha256: SUPPLEMENTAL_INVENTORY_SHA256,
+    expectedSha256: SUPPLEMENTAL_INVENTORY_SHA256,
+  });
+  assert.equal(actualSha256, SUPPLEMENTAL_INVENTORY_SHA256);
+  const batch2 = selectJobItems(inventory, 'b2-supplement');
+  const batch3 = selectJobItems(inventory, 'b3-dino-facts');
+  assert.equal(batch2.length, 5);
+  assert.equal(batch3.length, 2);
+  assert.ok(batch2.every((item) => item.sourceCommit === '94d44d031d5835d0d9fa2128064ff83ba5880a62' && item.path === `/audio/en/${item.key}-matilda.mp3`));
+  assert.ok(batch3.every((item) => item.sourceCommit === 'e2aee30169f6ade67f7948b0088a895a9cb119c3' && item.path === `/audio/en/${item.key}-matilda.mp3`));
+  assert.deepEqual(batch3.map((item) => item.text), [
+    'Water can slowly dissolve (wear away) limestone rock and help caves form.',
+    'A wetland is a place where the ground stays very wet. Some wetlands dry out for part of the year.',
+  ].sort((a, b) => batch3.find((item) => item.text === a).key.localeCompare(batch3.find((item) => item.text === b).key)));
+  const changed = structuredClone(inventory);
+  changed.items[0].text += ' Changed.';
+  assert.throws(() => selectJobItems(changed, 'b2-supplement'), /key does not match/);
+  await assert.rejects(() => loadPinnedInventory({ inventoryPath: supplementalInventoryPath, suppliedSha256: PINNED_INVENTORY_SHA256, expectedSha256: SUPPLEMENTAL_INVENTORY_SHA256 }), /must equal reviewed SHA/);
+});
+
+test('supplemental dry-runs keep exact pending sets and do not alter either ledger family or shared files', async () => {
+  const beforeManifest = sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js')));
+  const beforeJournal = sha256(await readFile(sharedJournal));
+  const beforeB4Manifest = sha256(await readFile(b4Manifest));
+  for (const [job, requested, keys] of [
+    ['b2-supplement', 5, ['5866151d', '9685e0ac', 'a39b3546', 'a44acc87', 'e077fcc0']],
+    ['b3-dino-facts', 2, ['0f0204e5', 'f6991245']],
+  ]) {
+    const result = spawnSync(process.execPath, [cliPath, `--job=${job}`, `--inventory-sha256=${SUPPLEMENTAL_INVENTORY_SHA256}`], { cwd: root, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr);
+    const summary = JSON.parse(result.stdout);
+    assert.equal(summary.mode, 'dry-run');
+    assert.equal(summary.inventorySha256, SUPPLEMENTAL_INVENTORY_SHA256);
+    assert.equal(summary.requested, requested);
+    assert.equal(summary.packagedCandidateReusable, 0);
+    assert.equal(summary.pending, requested);
+    assert.deepEqual(summary.pendingKeys, keys);
+  }
+  assert.equal(sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js'))), beforeManifest);
+  assert.equal(sha256(await readFile(sharedJournal)), beforeJournal);
+  assert.equal(sha256(await readFile(b4Manifest)), beforeB4Manifest);
 });
 
 test('rejects jobs, call rates and run counts outside finite reviewed bounds', () => {
@@ -131,7 +178,7 @@ test('a generated file is reusable only with a matching local receipt and exact 
     const audioPath = resolve(dir, 'public', item.path.slice(1));
     await mkdir(resolve(dir, 'public/audio/en'), { recursive: true });
     await writeFile(audioPath, bytes);
-    const receipt = { producer: 'reviewedNarrationSupervisorV1', inventorySha256: PINNED_INVENTORY_SHA256, key: item.key, path: item.path, textSha256: sha256(Buffer.from(item.text)), voice: 'matilda', contentType: 'audio/mpeg', bytes: bytes.length, audioSha256: sha256(bytes) };
+    const receipt = { producer: 'reviewedNarrationSupervisorV1', inventorySha256: PINNED_INVENTORY_SHA256, key: item.key, path: item.path, sourceCommit: null, textSha256: sha256(Buffer.from(item.text)), voice: 'matilda', contentType: 'audio/mpeg', bytes: bytes.length, audioSha256: sha256(bytes) };
     assert.equal(await isCandidateReusable(dir, new Map(), item, receipt), item.path);
     assert.equal(await isCandidateReusable(dir, new Map(), item, { ...receipt, textSha256: '0'.repeat(64) }), null);
     await writeFile(audioPath, Buffer.alloc(1400, 0x42));
@@ -180,7 +227,7 @@ test('dry-run reports exact pending keys and leaves package and shared journal u
   assert.equal(sha256(await readFile(b4Manifest)), beforeB4Manifest);
 });
 
-test('paid mode cannot pass a live predecessor PID even with an apparently terminal record', async () => {
+test('paid mode across both ledgers cannot pass a live predecessor PID even with an apparently terminal record', async () => {
   const dir = await tempDir();
   try {
     const bytes = await readFile(b4Manifest);
@@ -188,9 +235,11 @@ test('paid mode cannot pass a live predecessor PID even with an apparently termi
     await writeFile(statusPath, JSON.stringify({ workerPid: process.pid, sourceCommit: B4_SOURCE_COMMIT, status: 'completed', terminal: true, reconciled: true, exitCode: 0, finishedAt: new Date().toISOString(), finalManifestPath: b4Manifest, finalManifestSha256: sha256(bytes) }));
     const beforeManifest = sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js')));
     const beforeJournal = sha256(await readFile(sharedJournal));
-    const result = spawnSync(process.execPath, [cliPath, '--job=b7-solar', `--inventory-sha256=${PINNED_INVENTORY_SHA256}`, '--execute-paid', '--max-calls=1', '--max-runs=1', `--request-journal=${sharedJournal}`, `--predecessor-status=${statusPath}`], { cwd: root, encoding: 'utf8' });
-    assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /still live/);
+    for (const [job, inventorySha] of [['b7-solar', PINNED_INVENTORY_SHA256], ['b2-supplement', SUPPLEMENTAL_INVENTORY_SHA256]]) {
+      const result = spawnSync(process.execPath, [cliPath, `--job=${job}`, `--inventory-sha256=${inventorySha}`, '--execute-paid', '--max-calls=1', '--max-runs=1', `--request-journal=${sharedJournal}`, `--predecessor-status=${statusPath}`], { cwd: root, encoding: 'utf8' });
+      assert.notEqual(result.status, 0);
+      assert.match(result.stderr, /still live/);
+    }
     assert.equal(sha256(await readFile(resolve(root, 'src/data/offlineVoiceManifest.js'))), beforeManifest);
     assert.equal(sha256(await readFile(sharedJournal)), beforeJournal);
   } finally { await rm(dir, { recursive: true, force: true }); }

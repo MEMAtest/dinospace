@@ -2,18 +2,18 @@ import { mkdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promis
 import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
-  JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS,
+  JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS, SUPPLEMENTAL_INVENTORY_SHA256,
   acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished,
   availableCalls, isCandidateReusable, isPackagedCandidate, loadPinnedInventory, readRequestJournal,
   requestNarration, selectJobItems, sha256, validateBudgets,
 } from './reviewedNarrationJobs.mjs';
 
 const root = resolve(import.meta.dirname, '..');
-const inventoryPath = resolve(root, 'docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json');
+const batch5To7InventoryPath = resolve(root, 'docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json');
+const supplementalInventoryPath = resolve(root, 'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json');
 const manifestPath = resolve(root, 'src/data/offlineVoiceManifest.js');
 const expectedJournalPath = resolve(root, '../dinospace-batch3-quality/tmp/offline-voice-request-state.json');
 const expectedB4ManifestPath = resolve(root, '../dinospace-batch4-quality/src/data/offlineVoiceManifest.js');
-const provenancePath = resolve(root, 'tmp/reviewed-narration-provenance.json');
 
 function parseArgs(argv) {
   const result = { paid: false, help: false, maxCalls: 20, maxRuns: 1, maxCallsExplicit: false, maxRunsExplicit: false };
@@ -31,7 +31,7 @@ function parseArgs(argv) {
   return result;
 }
 
-const help = `Reviewed narration job packager\n\nRead-only default:\n  node scripts/run-reviewed-narration-job.mjs --job=<${Object.keys(JOBS).join('|')}> --inventory-sha256=${PINNED_INVENTORY_SHA256}\n\nPaid voice execution requires all of:\n  --execute-paid --max-calls=1..20 --max-runs=1..100\n  --request-journal=<the shared B3 request journal>\n  --predecessor-status=<terminal, reconciled B4 status JSON>\n\nThe only endpoint is the reviewed voice endpoint. There is no story, image, or arbitrary-text selector.\n`;
+const help = `Reviewed narration job packager\n\nRead-only default (B5–B7):\n  node scripts/run-reviewed-narration-job.mjs --job=<b5-reasoning|b5-literacy|b6|b7-solar|b7-memory> --inventory-sha256=${PINNED_INVENTORY_SHA256}\n\nRead-only default (supplemental B2/B3):\n  node scripts/run-reviewed-narration-job.mjs --job=<b2-supplement|b3-dino-facts> --inventory-sha256=${SUPPLEMENTAL_INVENTORY_SHA256}\n\nPaid voice execution requires all of:\n  --execute-paid --max-calls=1..20 --max-runs=1..100\n  --request-journal=<the shared B3 request journal>\n  --predecessor-status=<terminal, reconciled B4 status JSON>\n\nThe only endpoint is the reviewed voice endpoint. There is no story, image, or arbitrary-text selector.\n`;
 
 function absolutePublicPath(publicPath) {
   if (!publicPath.startsWith('/audio/en/') || publicPath.includes('..')) throw new Error(`Refusing non-English narration path: ${publicPath}`);
@@ -55,10 +55,16 @@ async function readManifest() {
   return { manifest: new Map(Object.entries(object)), sha256: sha256(bytes) };
 }
 
-async function readProvenance() {
+function provenancePathFor(inventorySha256) {
+  if (!/^[a-f0-9]{64}$/.test(inventorySha256)) throw new Error('Refusing invalid inventory SHA for narration receipt path.');
+  return resolve(root, `tmp/reviewed-narration-provenance-${inventorySha256}.json`);
+}
+
+async function readProvenance(inventorySha256) {
+  const provenancePath = provenancePathFor(inventorySha256);
   try {
     const parsed = JSON.parse(await readFile(provenancePath, 'utf8'));
-    if (parsed.inventorySha256 !== PINNED_INVENTORY_SHA256 || !parsed.entries || typeof parsed.entries !== 'object' || Array.isArray(parsed.entries)) {
+    if (parsed.inventorySha256 !== inventorySha256 || !parsed.entries || typeof parsed.entries !== 'object' || Array.isArray(parsed.entries)) {
       throw new Error('Narration provenance receipt does not match the pinned inventory.');
     }
     return new Map(Object.entries(parsed.entries));
@@ -68,11 +74,12 @@ async function readProvenance() {
   }
 }
 
-async function writeProvenance(receipts) {
+async function writeProvenance(receipts, inventorySha256) {
+  const provenancePath = provenancePathFor(inventorySha256);
   await mkdir(dirname(provenancePath), { recursive: true });
   const temp = `${provenancePath}.${process.pid}.tmp`;
   const entries = Object.fromEntries([...receipts.entries()].sort(([a], [b]) => a.localeCompare(b)));
-  await writeFile(temp, `${JSON.stringify({ inventorySha256: PINNED_INVENTORY_SHA256, entries }, null, 2)}\n`);
+  await writeFile(temp, `${JSON.stringify({ inventorySha256, entries }, null, 2)}\n`);
   await rename(temp, provenancePath);
 }
 
@@ -87,7 +94,7 @@ async function writeAudit(auditPath, audit) {
   await writeFile(auditPath, `${JSON.stringify(audit, null, 2)}\n`);
 }
 
-async function execute(args, items, manifest, journalPath, auditPath, manifestBeforeSha256, initialReady) {
+async function execute(args, items, manifest, journalPath, auditPath, manifestBeforeSha256, initialReady, inventorySha256) {
   const heldLock = await acquireProducerLock(journalPath, { pid: process.pid, job: args.job, startedAt: new Date().toISOString() });
   const changedFiles = [];
   const manifestChangedKeys = [];
@@ -100,7 +107,7 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
   let auditFailure = null;
   let receipts = new Map();
   try {
-    receipts = await readProvenance();
+    receipts = await readProvenance(inventorySha256);
     const currentManifest = await readManifest();
     if (currentManifest.sha256 !== manifestBeforeSha256) {
       throw new Error('Candidate voice manifest changed after preflight; refusing to overwrite concurrent work.');
@@ -111,7 +118,7 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
     while (runs < args.maxRuns) {
       await assertPredecessorFinished(args['predecessor-status'], expectedB4ManifestPath);
       pending = [];
-      for (const item of items) if (!(await isPackagedCandidate(root, manifest, item, receipts.get(item.key)))) pending.push(item);
+      for (const item of items) if (!(await isPackagedCandidate(root, manifest, item, receipts.get(item.key), inventorySha256))) pending.push(item);
       if (!pending.length) break;
       let capacity = availableCalls(journal);
       const targetCapacity = Math.min(10, args.maxCalls, pending.length);
@@ -134,7 +141,7 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       let reusedThisRun = 0;
       for (const item of pending) {
         if (usedThisRun >= runBudget) break;
-        const reusablePath = await isCandidateReusable(root, manifest, item, receipts.get(item.key));
+        const reusablePath = await isCandidateReusable(root, manifest, item, receipts.get(item.key), inventorySha256);
         if (reusablePath) {
           if (manifest.get(item.key) !== reusablePath) {
             manifest.set(item.key, reusablePath);
@@ -197,12 +204,12 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
         await writeFile(tempOutput, bytes);
         await rename(tempOutput, outputPath);
         const audioSha256 = sha256(bytes);
-        const receipt = { producer: 'reviewedNarrationSupervisorV1', inventorySha256: PINNED_INVENTORY_SHA256, key: item.key, path: item.path, textSha256: sha256(Buffer.from(item.text, 'utf8')), voice: 'matilda', audioSha256, bytes: bytes.length, contentType: 'audio/mpeg', generatedAt: new Date().toISOString() };
+        const receipt = { producer: 'reviewedNarrationSupervisorV1', inventorySha256, key: item.key, path: item.path, sourceCommit: item.sourceCommit || null, textSha256: sha256(Buffer.from(item.text, 'utf8')), voice: 'matilda', audioSha256, bytes: bytes.length, contentType: 'audio/mpeg', generatedAt: new Date().toISOString() };
         receipts.set(item.key, receipt);
-        await writeProvenance(receipts);
+        await writeProvenance(receipts, inventorySha256);
         manifest.set(item.key, item.path);
         await writeManifest(manifest);
-        changedFiles.push({ path: item.path, key: item.key, text: item.text, owners: item.owners, bytes: bytes.length, sha256: audioSha256 });
+        changedFiles.push({ path: item.path, key: item.key, text: item.text, owners: item.owners, sourceCommit: item.sourceCommit || null, bytes: bytes.length, sha256: audioSha256 });
         manifestChangedKeys.push(item.key);
         generated += 1;
         providerResponsesAccepted += 1;
@@ -211,9 +218,9 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       if (usedThisRun === 0 && reusedThisRun === 0 && pending.length) throw new Error('No progress in a finite run; stopping safely.');
     }
     pending = [];
-    for (const item of items) if (!(await isPackagedCandidate(root, manifest, item, receipts.get(item.key)))) pending.push(item.key);
+    for (const item of items) if (!(await isPackagedCandidate(root, manifest, item, receipts.get(item.key), inventorySha256))) pending.push(item.key);
     const manifestAfterSha256 = sha256(await readFile(manifestPath));
-    const summary = { job: args.job, inventorySha256: PINNED_INVENTORY_SHA256, requested: items.length, runs, generated, reused, candidateReusableAtEnd: items.length - pending.length, pendingKeys: pending.length, stoppedAt: stopReason, manifestBeforeSha256, manifestAfterSha256, manifestChangedKeys, changedFiles, auditPath };
+    const summary = { job: args.job, inventorySha256, requested: items.length, runs, generated, reused, candidateReusableAtEnd: items.length - pending.length, pendingKeys: pending.length, stoppedAt: stopReason, manifestBeforeSha256, manifestAfterSha256, manifestChangedKeys, changedFiles, auditPath };
     console.log(JSON.stringify(summary, null, 2));
     if (stopReason || pending.length) process.exitCode = stopReason ? 1 : 2;
   } catch (error) {
@@ -224,7 +231,7 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
     try {
       await writeAudit(auditPath, {
       job: args.job,
-      inventorySha256: PINNED_INVENTORY_SHA256,
+      inventorySha256,
       requested: items.length,
       configuredMaxCallsPerRun: args.maxCalls,
       configuredMaxRuns: args.maxRuns,
@@ -257,14 +264,16 @@ async function main() {
   if (!args['inventory-sha256']) throw new Error('Provide the reviewed --inventory-sha256 for this exact ledger.');
   validateBudgets({ maxCalls: args.maxCalls, maxRuns: args.maxRuns, paid: args.paid });
   if (args.paid && (!args.maxCallsExplicit || !args.maxRunsExplicit)) throw new Error('Paid execution requires explicit --max-calls and --max-runs flags.');
-  const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: args['inventory-sha256'] });
+  const expectedInventorySha256 = JOBS[args.job].ledger === 'supplemental' ? SUPPLEMENTAL_INVENTORY_SHA256 : PINNED_INVENTORY_SHA256;
+  const inventoryPath = JOBS[args.job].ledger === 'supplemental' ? supplementalInventoryPath : batch5To7InventoryPath;
+  const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: args['inventory-sha256'], expectedSha256: expectedInventorySha256 });
   const items = selectJobItems(inventory, args.job);
   const { manifest, sha256: manifestBeforeSha256 } = await readManifest();
-  const existingReceipts = await readProvenance();
+  const existingReceipts = await readProvenance(actualSha256);
   const missing = [];
   let packagedCandidateReusable = 0;
   for (const item of items) {
-    if (await isPackagedCandidate(root, manifest, item, existingReceipts.get(item.key))) packagedCandidateReusable += 1;
+    if (await isPackagedCandidate(root, manifest, item, existingReceipts.get(item.key), actualSha256)) packagedCandidateReusable += 1;
     else missing.push(item);
   }
   const jobPlan = { job: args.job, label: JOBS[args.job].label, inventorySha256: actualSha256, requested: items.length, packagedCandidateReusable, pending: missing.length, maxCallsPerRun: args.maxCalls, maxRuns: args.maxRuns };
@@ -277,7 +286,7 @@ async function main() {
   const journal = await readRequestJournal(journalPath);
   if (journal.blockedUntil > Date.now()) throw new Error(`Shared voice cooldown is active until ${new Date(journal.blockedUntil).toISOString()}.`);
   const auditPath = resolve(root, `tmp/reviewed-narration-audit-${args.job}.json`);
-  await execute(args, items, manifest, journalPath, auditPath, manifestBeforeSha256, packagedCandidateReusable);
+  await execute(args, items, manifest, journalPath, auditPath, manifestBeforeSha256, packagedCandidateReusable, actualSha256);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
