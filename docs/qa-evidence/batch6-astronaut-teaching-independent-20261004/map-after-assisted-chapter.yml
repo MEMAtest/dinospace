@@ -1,0 +1,31 @@
+- main [ref=e371]:
+  - generic [ref=e372]:
+    - button "Back" [ref=e373] [cursor=pointer]
+    - generic [ref=e376]:
+      - heading "Astronaut Academy" [level=1] [ref=e377]
+      - paragraph [ref=e378]: Mission control
+    - button "Turn sound on" [ref=e379] [cursor=pointer]
+  - generic [ref=e506]:
+    - heading "Mission map" [level=2] [ref=e507]
+    - paragraph [ref=e508]: Choose a chapter. Finish each one to open the next.
+    - generic [ref=e509]:
+      - 'button "🏅 Space science Space science: observe the Sun, Moon and Mars; learn simple tools. ★☆☆" [ref=e510] [cursor=pointer]':
+        - generic [ref=e511]: 🏅
+        - generic [ref=e512]:
+          - strong [ref=e513]: Space science
+          - generic [ref=e514]: "Space science: observe the Sun, Moon and Mars; learn simple tools."
+        - generic [ref=e515]: ★☆☆
+      - 'button "🧩 Mission engineering Mission engineering: protect and power a spacecraft. ☆☆☆" [ref=e516] [cursor=pointer]':
+        - generic [ref=e517]: 🧩
+        - generic [ref=e518]:
+          - strong [ref=e519]: Mission engineering
+          - generic [ref=e520]: "Mission engineering: protect and power a spacecraft."
+        - generic [ref=e521]: ☆☆☆
+      - button "🌟 Review missions Finish the chapter before this one ☆☆☆" [disabled] [ref=e522]:
+        - generic [ref=e523]: 🌟
+        - generic [ref=e524]:
+          - strong [ref=e525]: Review missions
+          - generic [ref=e526]: Finish the chapter before this one
+        - generic [ref=e527]: ☆☆☆
+    - button "Back to games" [ref=e528] [cursor=pointer]
+  - button "Open discovery passport (6 facts)" [ref=e530] [cursor=pointer]

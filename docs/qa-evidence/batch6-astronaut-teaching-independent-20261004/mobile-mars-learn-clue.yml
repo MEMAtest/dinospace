@@ -1,0 +1,20 @@
+- main [ref=e371]:
+  - generic [ref=e372]:
+    - button "Back" [ref=e373] [cursor=pointer]
+    - generic [ref=e376]:
+      - heading "Astronaut Academy" [level=1] [ref=e377]
+      - paragraph [ref=e378]: Space science
+    - button "Turn sound on" [ref=e379] [cursor=pointer]
+  - button "🔊 Hear the prompt again" [ref=e410] [cursor=pointer]
+  - generic "Question 1 of 6" [ref=e411]
+  - generic [ref=e413]:
+    - generic [aria-hidden] [ref=e414]: 🔴
+    - paragraph [ref=e415]: Space science
+    - heading "Which planet is called the Red Planet?" [level=2] [ref=e416]
+    - generic [ref=e417]:
+      - button "Mars" [ref=e418] [cursor=pointer]
+      - button "Neptune" [ref=e419] [cursor=pointer]
+      - button "Venus" [ref=e420] [cursor=pointer]
+    - button "Learn clue" [disabled] [ref=e422]
+    - status [ref=e423]:
+      - paragraph [ref=e424]: "Learn clue: People call Mars the Red Planet because some of its dust looks rusty."

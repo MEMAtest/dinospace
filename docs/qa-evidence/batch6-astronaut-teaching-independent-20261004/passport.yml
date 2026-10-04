@@ -1,0 +1,35 @@
+- main [ref=e371]:
+  - generic [ref=e372]:
+    - button "Back" [ref=e373] [cursor=pointer]
+    - generic [ref=e376]:
+      - heading "Astronaut Academy" [level=1] [ref=e377]
+      - paragraph [ref=e378]: Mission control
+    - button "Turn sound on" [ref=e379] [cursor=pointer]
+  - generic [ref=e459]:
+    - heading "Discovery passport" [level=2] [ref=e460]
+    - paragraph [ref=e461]: Facts stay here after you leave and return.
+    - complementary [ref=e462]:
+      - strong [ref=e463]: Why it works
+      - paragraph [ref=e467]: A discovery from a completed mission.
+      - paragraph [ref=e468]: Tiny iron-rich grains in Mars dust help give the planet its rusty colour.
+    - complementary [ref=e469]:
+      - strong [ref=e470]: Why it works
+      - paragraph [ref=e474]: A discovery from a completed mission.
+      - paragraph [ref=e475]: Rover cameras take pictures so teams can study the ground and plan safe drives.
+    - complementary [ref=e476]:
+      - strong [ref=e477]: Why it works
+      - paragraph [ref=e481]: A discovery from a completed mission.
+      - paragraph [ref=e482]: The Sun is a star. Its light and heat reach Earth.
+    - complementary [ref=e483]:
+      - strong [ref=e484]: Why it works
+      - paragraph [ref=e488]: A discovery from a completed mission.
+      - paragraph [ref=e489]: Solar panels change sunlight into electricity that can run spacecraft tools and systems.
+    - complementary [ref=e490]:
+      - strong [ref=e491]: Why it works
+      - paragraph [ref=e495]: A discovery from a completed mission.
+      - paragraph [ref=e496]: Earth’s atmosphere is the layer of gases around our planet.
+    - complementary [ref=e497]:
+      - strong [ref=e498]: Why it works
+      - paragraph [ref=e502]: A discovery from a completed mission.
+      - paragraph [ref=e503]: A spacesuit gives astronauts air to breathe and helps keep their bodies safe.
+    - button "Back to mission map" [ref=e505] [cursor=pointer]

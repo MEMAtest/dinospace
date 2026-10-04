@@ -1,0 +1,24 @@
+- main [ref=e371]:
+  - generic [ref=e372]:
+    - button "Back" [ref=e373] [cursor=pointer]
+    - generic [ref=e376]:
+      - heading "Astronaut Academy" [level=1] [ref=e377]
+      - paragraph [ref=e378]: Space science
+    - button "Turn sound on" [ref=e379] [cursor=pointer]
+  - generic "Question 1 of 6" [ref=e411]
+  - generic [ref=e413]:
+    - generic [aria-hidden] [ref=e414]: 🔴
+    - paragraph [ref=e415]: Space science
+    - heading "Which planet is called the Red Planet?" [level=2] [ref=e416]
+    - generic [ref=e417]:
+      - button "Mars" [active] [ref=e418] [cursor=pointer]
+      - button "Neptune" [ref=e419] [cursor=pointer]
+      - button "Venus" [ref=e420] [cursor=pointer]
+    - button "Learn clue" [disabled] [ref=e422]
+    - complementary [ref=e426]:
+      - strong [ref=e427]: Why it works
+      - paragraph [ref=e431]: You matched the question to a mission fact.
+      - paragraph [ref=e432]: Tiny iron-rich grains in Mars dust help give the planet its rusty colour.
+      - link "Science source" [ref=e433] [cursor=pointer]:
+        - /url: https://science.nasa.gov/mars/facts/
+    - button "Next mission" [ref=e435] [cursor=pointer]

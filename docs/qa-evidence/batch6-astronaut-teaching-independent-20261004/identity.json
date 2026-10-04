@@ -1,0 +1,36 @@
+{
+  "sourceCommit": "764b2ff49b6c40c13df928b4449d0a1f68fbe660",
+  "origin": "http://127.0.0.1:5370",
+  "checks": [
+    {
+      "file": "assets/SolarSystem-CWcV1Xzt.js",
+      "expected": "57dd83ccd9f5e880558f9fbee108c88efbc4baddb75406cdf0b7a4e5e7bd2ce2",
+      "actual": "57dd83ccd9f5e880558f9fbee108c88efbc4baddb75406cdf0b7a4e5e7bd2ce2",
+      "match": true
+    },
+    {
+      "file": "assets/index-CZIXwkmD.css",
+      "expected": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+      "actual": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+      "match": true
+    },
+    {
+      "file": "assets/index-CrSHciFl.js",
+      "expected": "1637dee7763ac6f033bdde415ba5117d56c888d3c7df21f8c63a27f0084035cf",
+      "actual": "1637dee7763ac6f033bdde415ba5117d56c888d3c7df21f8c63a27f0084035cf",
+      "match": true
+    },
+    {
+      "file": "assets/web-Cvq72bZe.js",
+      "expected": "5bc29e2b6156308ddef23e9823ab5586eac0b47f40e2b76c4ae976d5a8ef6a7a",
+      "actual": "5bc29e2b6156308ddef23e9823ab5586eac0b47f40e2b76c4ae976d5a8ef6a7a",
+      "match": true
+    },
+    {
+      "file": "index.html",
+      "expected": "3d5d8bd18dfb5d626bffdbe4a78cc6e814412c567abf232277b452a0ec2990b0",
+      "actual": "3d5d8bd18dfb5d626bffdbe4a78cc6e814412c567abf232277b452a0ec2990b0",
+      "match": true
+    }
+  ]
+}
