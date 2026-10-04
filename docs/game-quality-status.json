@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T07:31:04.110275+00:00",
+  "updatedAt": "2026-10-04T07:40:35.705766+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -742,10 +742,13 @@
     "sourceSha": "b032b08",
     "origin": "http://127.0.0.1:5332",
     "identity": "docs/qa-evidence/spot-crop-clip-repair-identity-20261004.json",
-    "scope": "Movesnormalizedscalefrominvalidnestedg toclipPathtransform withShape directchild. IncludesStarter/Treehouse/Safari;18focusedtests/scopedlint/configuredbuildpass. Independent allStarter+Treehouse andSafari visual/controlregressionatbothwidths inprogress.5331Memorylistenerpreservedafterportcollision;noSpotserverthere. Noacceptance.",
+    "scope": "Shared clipPath repair passes the independently checked four Starter scenes and Treehouse visual/input deltas at 1280 and 390. Safari remains separately held on this candidate because its tail difference is not discernible. No exhaustive Spot, audio, production or 4.5 acceptance.",
     "safariIndependentCommit": "15d216f",
     "safariIndependentReport": "docs/qa-evidence/spot-crop-clip-repair-5332-independent-20261004/report.md",
-    "safariScope": "Rendererrestoresfourclearchangesbutfifthparrottailnotreasonablydiscernibleatnormal390anddifficultdesktopbecausecrop. Holdvisualacceptance. Fivehotspots/hint/factheldNext/reload4of4Starter+1of4Growing/parentBack/14hashes/guardedgoto/API0/consolecleanpass. ElevenlocalMP3GETsduetesteraccidentaltoggle; noaudio-silent/listeningclaim. Misshandlingnottested. Treehouse/Starterindependentmatrixseparatepending."
+    "safariScope": "Rendererrestoresfourclearchangesbutfifthparrottailnotreasonablydiscernibleatnormal390anddifficultdesktopbecausecrop. Holdvisualacceptance. Fivehotspots/hint/factheldNext/reload4of4Starter+1of4Growing/parentBack/14hashes/guardedgoto/API0/consolecleanpass. ElevenlocalMP3GETsduetesteraccidentaltoggle; noaudio-silent/listeningclaim. Misshandlingnottested. Treehouse/Starterindependentmatrixseparatepending.",
+    "starterTreehouseIndependentCommit": "20d1268",
+    "starterTreehouseIndependentReport": "docs/qa-evidence/spot-crop-clip-repair-5332-review-20261004/report.md",
+    "starterTreehouseScope": "All three intended edits per Starter scene and five Treehouse edits visible; actual pointer completion at both widths, with corrected settled mobile replay for Moon and River. Treehouse mobile blank miss and two distinct hints, held facts/Next, both chapter 4/4 counts retained after reload, 14 identity hashes and zero console/API entries. Script-installed route handlers are documented but CLI route-list does not enumerate them; no independent route-list continuity claim. Sound muted; no listening claim."
   },
   "memoryFourTokenCandidate": {
     "sourceSha": "382945e78752e2f4e532ac6d0f92c13458ccfb4d",
@@ -779,6 +782,8 @@
     "origin": "http://127.0.0.1:5333",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-identity-20261004.json",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-report-20261004.md",
-    "scope": "Builder84/87tokensillustrated: RacingCar/Drink/PartyFace/Duck imports/maponly;18tests/lint/configuredbuildpass. Normalearned1\u20139andfulltargetParty/Vehicles/Food/Gardenboardsatbothwidths,82pxmobilecards/captions/hashes/guardedgoto/API0/consolecleanreported. Postcompletionface-downcheckhaszeroface-downcardssoisvacuous; rootrequestedvisibleboardselect+reloadactualface-downcount/imagesdelta. Independentart/controlreviewpending. Remainingwaterlily/dinonest/speedboatbuilderassigned; noaudio/production/4.5."
+    "scope": "Builder 84/87 tokens illustrated: Racing Car, Drink, Party Face and Duck; imports/map additions only. 18 tests, lint and configured build pass. Normal earned Levels 1\u20139 and full target boards at both widths, 82px mobile cards/captions and guarded goto/hash/console checks. Follow-up selects fresh rounds and verifies actual 24/28/30/34 face-down cards before and after reload, with zero front images/labels. This supersedes the initial vacuous post-completion check. Independent review pending. Final water lily, dinosaur nest and speedboat are being integrated. No audio, production or 4.5 acceptance.",
+    "builderReloadEvidenceCommit": "04f00cbf54add155dca8e800ac169f27af8339ad",
+    "builderReportCorrectionCommit": "31c6543"
   }
 }
