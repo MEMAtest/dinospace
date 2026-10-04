@@ -439,3 +439,10 @@ Independent live report `dfb13d9` (question attribution corrected in `3c08009`) 
 The authorized canonical alias was assigned to READY deployment `dpl_Dypi5oGP3et3yxgQiGjDqYpfCFMg`, audited archive source `94d44d0`. A fresh Vercel inspection and all16 canonical byte/hash fetches match: `qa-evidence/batch2-functional-release-94d44d0-canonical-20261004.json`. Fresh canonical UI checks are assigned for Monster mobile entry, Sky desktop entry and a decoded Spot Starter pair. The previous immutable candidates and their reports remain preserved.
 
 This functional release includes the twelve revised Spot pairs, the Puzzle Dino Park naming correction and the Sky/Monster entry-scroll fixes. It does not promote editorial scores. All26 acceptance instructions are published; recorded accepted count remains4 and22 are in progress. Five Batch2 narration clips, human listening, editorial acceptance and the exact Monster2+10 rendered case remain open.
+
+
+## Canonical release checks passed — 4 October
+
+Independent canonical report `c2a5817` supplements the retained full baselines with fresh production-address controls: Monster at390px starts at scrollY=0 with visible48px controls and Back/Keep preserves Question1; Sky at1280px starts at scrollY=0 and confirmed Back returns to Creative Lab; Spot at390px decodes and displays both Dino Park pictures, then returns to Thinking & Play. All16 manifest files match, with zero console errors/warnings and no provider API calls. Root read the complete report and inspected the normal Monster, Sky and full Spot pair screenshots.
+
+The functional release is verified at canonical source94d44d0. The quality goal remains active:26 contracts published,4 recorded accepted,22 in progress. Full baselines and regression deltas retain their individual source identities; no full matrix, audible quality or new4.5 score is inferred from the canonical smoke checks.
