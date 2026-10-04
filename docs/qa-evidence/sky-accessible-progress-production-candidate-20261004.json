@@ -1,0 +1,58 @@
+{
+  "verifiedAt": "2026-10-04T00:18:16.890708+00:00",
+  "sourceSha": "2923ca6e10c46609504f41529bf46286e17f8434",
+  "url": "https://dinospace-6439k5woj-memas-projects-23a0001d.vercel.app",
+  "deploymentId": "dpl_31hURucAfoMNNhQMJpKBGvcAkX6u",
+  "readyState": "READY",
+  "assets": {
+    "index.html": {
+      "status": 200,
+      "expected": "c531b198f24268bbac6ba55cbcb711c124aea6bf444a5a898005d45495dfadf6",
+      "actual": "c531b198f24268bbac6ba55cbcb711c124aea6bf444a5a898005d45495dfadf6",
+      "matches": true
+    },
+    "sw.js": {
+      "status": 200,
+      "expected": "89758105f3fe20ce0e93c82e91967d580fcfab3ee690e7370907749ec972cb7a",
+      "actual": "89758105f3fe20ce0e93c82e91967d580fcfab3ee690e7370907749ec972cb7a",
+      "matches": true
+    },
+    "assets/SolarSystem-Blxzrn1x.js": {
+      "status": 200,
+      "expected": "af00464f8f5c775a07e57cb46a2a55a8c0599a8a702a9ec1ab3aaa8903405b77",
+      "actual": "af00464f8f5c775a07e57cb46a2a55a8c0599a8a702a9ec1ab3aaa8903405b77",
+      "matches": true
+    },
+    "assets/AmariCountTheStars-CEWCjwNg.js": {
+      "status": 200,
+      "expected": "0ea99589f46daeb154cad268fd5dff24e14e9d5e6fdd2ec7eba68281b6344c41",
+      "actual": "0ea99589f46daeb154cad268fd5dff24e14e9d5e6fdd2ec7eba68281b6344c41",
+      "matches": true
+    },
+    "assets/index-B2ptvQJM.js": {
+      "status": 200,
+      "expected": "7ea06b704195eb82f4607ce53b5869841d4ae71f9b33950d84503fdf26cae077",
+      "actual": "7ea06b704195eb82f4607ce53b5869841d4ae71f9b33950d84503fdf26cae077",
+      "matches": true
+    },
+    "assets/web-BwXxOgac.js": {
+      "status": 200,
+      "expected": "0c8313eb81487d0773d90b94bf5d7e80f71fbc87caba0a89066d6516af0f4ef0",
+      "actual": "0c8313eb81487d0773d90b94bf5d7e80f71fbc87caba0a89066d6516af0f4ef0",
+      "matches": true
+    },
+    "assets/AmariLetterTrace-8ZAV8bfT.js": {
+      "status": 200,
+      "expected": "200a51e08eb9f3a64b034adffff0e15c7b60926b0646f2c35def6ffa07a0c6a2",
+      "actual": "200a51e08eb9f3a64b034adffff0e15c7b60926b0646f2c35def6ffa07a0c6a2",
+      "matches": true
+    },
+    "assets/index-CohPvEcn.css": {
+      "status": 200,
+      "expected": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "actual": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "matches": true
+    }
+  },
+  "scope": "Immutable production-environment candidate; canonical alias not promoted. Independent production gameplay delta required."
+}
