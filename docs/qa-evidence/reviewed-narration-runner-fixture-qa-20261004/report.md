@@ -31,3 +31,7 @@ The success body starts with an `ID3` marker followed by synthetic bytes. It ver
 - Scoped ESLint `no-unused-vars` and `no-undef` checks passed. Full project ESLint was not available from this isolated worktree because its `@eslint/js` dependency is not installed there; the reviewed implementation commit's own scoped lint result remains separate evidence.
 - The earlier QA finding that provider/MIME failures and request-error auditing lacked runner-level exercise is closed for the reviewed implementation. The shared-lock finding is separately closed by `afbbf01` and its B3 lock-path collision test.
 - No paid execution or final B4 terminal-record acceptance was attempted. Fixture tests do not establish provider availability, real audio validity/decode, playback, pronunciation, or human listening.
+
+## Root integration verification
+
+Root imported this fixture at 0beb7f6 and ran the actual CLI fixture suite against the unchanged afbbf01 runner/helper bytes. The suite passed all eight scenarios on 4 October 2026. This evidence remains bound to afbbf01; the separate bf3a76d supplemental selector extension requires its own runner fixture delta before claiming current-source coverage. No paid call was made.
