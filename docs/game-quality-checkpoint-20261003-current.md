@@ -412,3 +412,12 @@ Root read independent consolidated Spot report `c82524a` and reviewed all twelve
 Canonical remains c478. The Monster390 audit reproduced an adjacent unchanged-runtime entry crop: Counting starts at scrollY37 with Back/sound y=-17, and Growing at scrollY151 with Back/sound y=-131. Upward scrolling recovers them. Minimal phase-entry repair is assigned with retained visible prompt/result rows. Puzzle title QA observed Moon Camp at Picture4of4 after an asserted earlier Moon Camp; source inspection shows an immutable distinct-ID queue. A fresh same-session visible Starter run is assigned to reconcile the observation before any speculative source change. Promotion is held pending these functional findings and source-bound QA.
 
 Narration PID18781 is live at run180, lastgeneration12/reused2560/pending2609, zero cooldown retries and expected shared-window wait. No restart or additional paid worker. All26 instructions remain published; recorded acceptance count remains4, with22 in progress.
+
+
+## Monster repair freeze and Puzzle reconciliation — 4 October
+
+Independent report `070c967` retains18 actual visible prompt/result rows across Count, Growing and Story, allsix per episode, with clues, retry, heldfacts, numberline step/reset, leave/Keep, unlock/completion/replay and54 screenshots on the unchanged4f livecandidate. Rootreadreport andinspectednormal clippedGrowing/Story screenshotsevidence. Exact2+10 didnotappearandremainsunverified.
+
+MinimalMonster source `94d44d0` importsuseLayoutEffect andresetswindowscrollonlyonphaseentersplay. Fourteenfocusedtests/scopedlintpass. Rootcleantrackedruntimearchiveconfiguredbuildpasses;frozen5358 has16hashedruntime/artentriesandindependentnaturallybelowfoldStart/BackKeep/desktopdeltaassigned. No release or4.5 award.
+
+Puzzle title report `0d175f3` withcorrection`7418ac5` passesDinoParktitleandheldcompletion/parentreplayatbothwidths. Freshsecondone-sessionmobileStarterrunshowsRiver1→Moon2→Dino3→Robin4. InitialMoon4screenretainedbutearlierMoon2titlenotcaptured; completedposition2markercannotprovethetitle. Observationisambiguousandunreproduced. Sourcehelddistinct-IDqueueand6focusedtestsagreewithnorepeats;nogratuitousqueuechange. RootreadreportandviewedDinoactive/heldandMoon4screens.

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T10:23:00Z",
+  "updatedAt": "2026-10-04T10:39:42.803877+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -928,7 +928,14 @@
     "scope": "Clean tracked runtime archive;16/16 served byte/hash matches. Canonical remains c478. Independent live combined12Spot and Sky phase-entry deltas passed; root read full Spot report and reviewed all12 normal390 A/B pairs. Puzzle title delta and adjacent reported repeat are being reconciled through fresh retained same-session play. Monster unchanged runtime exposes reproducible clipped390 entry and is being repaired. No promotion, overall4.5 or listening acceptance.",
     "spotReport": "docs/qa-evidence/spot-production-candidate-20261004/report.md",
     "skyReport": "docs/qa-evidence/sky-entry-scroll-production-qa-20261004/report.md",
-    "releaseHold": "Monster mobile entry crop confirmed; Puzzle adjacent repeat observation under reproduction. Hold canonical promotion until repairs and source-bound independent deltas."
+    "releaseHold": "Monster mobile entry crop confirmed;94 repair frozen5358 awaiting independentdelta. Puzzle title delta passed; initialrepeat observation ambiguous/unreproduced with prior-title evidenceunretained. No speculative queuechange."
   },
-  "batch2CurrentIndependentWorksheet": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md"
+  "batch2CurrentIndependentWorksheet": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md",
+  "monsterEntryScrollRepair": {
+    "sourceSha": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+    "origin": "http://127.0.0.1:5358",
+    "identity": "docs/qa-evidence/monster-entry-scroll-repair-identity-20261004.json",
+    "findingReport": "docs/qa-evidence/monster-actionable-control-audit-20261004/report.md",
+    "scope": "Independent candidate4f mobile audit retained all18 visible prompt/result rows, actual control bounds, clues, heldfacts, wrongretry, numberline step/reset, completion/unlock/replay; confirmed headercrop inall3episodes. Root read full report and inspected clippedGrowing/Story screenshots. Minimal94 source resets scroll onlywhenphaseentersplay, 14focusedtests/scopedlint/configuredcleanarchivebuildpass. Frozen5358 independent transitionQA assigned. No release/4.5/audioacceptance; exact2+10 remainsunobserved."
+  }
 }
