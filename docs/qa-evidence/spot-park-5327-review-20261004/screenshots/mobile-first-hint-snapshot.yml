@@ -1,0 +1,32 @@
+- generic [ref=e478]:
+  - banner [ref=e479]:
+    - button "Back to learning world" [ref=e480] [cursor=pointer]
+    - generic [ref=e484]:
+      - heading "Spot the Difference" [level=1] [ref=e485]
+      - paragraph [ref=e512]: Bright-Eyed Beginners · Pair 4 of 4 · 0/3
+    - button "Turn sound off" [ref=e486] [cursor=pointer]
+  - main [ref=e491]:
+    - paragraph [ref=e513]: "Magnifier hint: look near the right top of Picture B."
+    - generic [ref=e646]:
+      - paragraph [ref=e647]:
+        - text: Dino Park
+        - generic [ref=e648]: · 0 of 3 changes
+      - generic [ref=e649]:
+        - button "Hear clue" [ref=e650] [cursor=pointer]
+        - button "Magnifier 1 left" [active] [ref=e675] [cursor=pointer]
+    - generic [ref=e658]:
+      - generic [ref=e659]:
+        - heading "Picture A · Look carefully" [level=2] [ref=e660]
+        - img "Friendly dinosaurs in a sunny park, picture A" [ref=e662]
+      - generic [ref=e663]:
+        - heading "Picture B · Find changes here" [level=2] [ref=e664]
+        - generic [ref=e665]:
+          - img "Friendly dinosaurs in a sunny park, picture B" [ref=e666]
+          - button "Search Picture B for a change" [ref=e667]
+          - button "Check right top detail" [ref=e668] [cursor=pointer]
+          - button "Check left middle detail" [ref=e669] [cursor=pointer]
+          - button "Check left bottom detail" [ref=e670] [cursor=pointer]
+    - generic "Changes found" [ref=e671]:
+      - generic "Change 1, not found" [ref=e672]: "1"
+      - generic "Change 2, not found" [ref=e673]: "2"
+      - generic "Change 3, not found" [ref=e674]: "3"
