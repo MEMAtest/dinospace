@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-04T10:46:10.497733+00:00",
+  "updatedAt": "2026-10-04T11:00:53.379744+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
+  "canonicalRelease": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -928,7 +928,7 @@
     "scope": "Clean tracked runtime archive;16/16 served byte/hash matches. Canonical remains c478. Independent live combined12Spot and Sky phase-entry deltas passed; root read full Spot report and reviewed all12 normal390 A/B pairs. Puzzle title delta and adjacent reported repeat are being reconciled through fresh retained same-session play. Monster unchanged runtime exposes reproducible clipped390 entry and is being repaired. No promotion, overall4.5 or listening acceptance.",
     "spotReport": "docs/qa-evidence/spot-production-candidate-20261004/report.md",
     "skyReport": "docs/qa-evidence/sky-entry-scroll-production-qa-20261004/report.md",
-    "releaseHold": "Monster mobile entry crop confirmed;94 repair frozen5358 awaiting independentdelta. Puzzle title delta passed; initialrepeat observation ambiguous/unreproduced with prior-title evidenceunretained. No speculative queuechange."
+    "releaseHold": "Superseded by94Monsterrepairrelease;4f retainedSpot/Sky/Puzzleevidencevalidonlyforunchangedmodules/art."
   },
   "batch2CurrentIndependentWorksheet": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md",
   "monsterEntryScrollRepair": {
@@ -945,6 +945,18 @@
     "deploymentId": "dpl_Dypi5oGP3et3yxgQiGjDqYpfCFMg",
     "url": "https://dinospace-bjwogjr64-memas-projects-23a0001d.vercel.app",
     "identity": "docs/qa-evidence/monster-entry-production-candidate-identity-20261004.json",
-    "scope": "READY immutable productioncandidate. Provider auditedarchive/githubsource94;automaticgitcheckoutafc3docs differs.16/16filesmatchclean5358archive.OnlyMonster6linehookdiffersfrom4f;retained4fSpot/Sky/Puzzlelivechecksapplytounchangedart/logic. IndependentliveMonsterdeltaassigned;canonicalstillc478,nopromotionor4.5/audioacceptance."
+    "scope": "READY immutable productioncandidate. Provider auditedarchive/githubsource94;automaticgitcheckoutafc3docs differs.16/16filesmatchclean5358archive.OnlyMonster6linehookdiffersfrom4f;retained4fSpot/Sky/Puzzlelivechecksapplytounchangedart/logic. IndependentliveMonsterdeltaassigned;canonicalstillc478,nopromotionor4.5/audioacceptance. Promotedtocanonicalafterindependentlivepass;see batch2FunctionalRelease94."
+  },
+  "batch2FunctionalRelease94": {
+    "sourceSha": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+    "deploymentId": "dpl_Dypi5oGP3et3yxgQiGjDqYpfCFMg",
+    "url": "https://dinospace-eight.vercel.app",
+    "identity": "docs/qa-evidence/batch2-functional-release-94d44d0-canonical-20261004.json",
+    "monsterLiveReport": "docs/qa-evidence/monster-entry-production-20261004/independent-report.md",
+    "monsterLiveCommits": [
+      "dfb13d9",
+      "3c08009"
+    ],
+    "scope": "Authorized functional release promoted after independent local/live Monster delta and retained4f all12Spot/Sky/Puzzle live deltas. Root provideridentityandall16canonicalbytes/hash verified. Root read live reportandviewednormal390/1280 activepictures. Freshcanonical addresssmokeassigned. Not4.5award:fiveB2clipsmissing,humanlistening/editorialgatesandexactMonster2+10remainopen."
   }
 }

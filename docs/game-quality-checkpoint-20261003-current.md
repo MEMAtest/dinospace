@@ -430,3 +430,12 @@ Independent local report `1e92878` passes the normal below-fold Start transition
 The clean `94d44d0` archive is now READY at immutable candidate deployment `dpl_Dypi5oGP3et3yxgQiGjDqYpfCFMg`: https://dinospace-bjwogjr64-memas-projects-23a0001d.vercel.app. Root fetched all 16 files and verified their bytes and hashes against the frozen local build. Vercel API metadata confirms archive source `94d44d0`; the automatic checkout metadata is `afc3a72`, a documentation commit. The production address still selects the previous c478 deployment.
 
 Only the Monster phase-entry hook differs in runtime source from the 4f candidate. The retained Spot, Sky and Puzzle live checks therefore remain applicable to their unchanged code and artwork. An independent live Monster transition check is assigned before promotion. This is a functional repair release, not a 4.5 award. The same-session audit follow-up `afc3a72` preserves zero errors/warnings and ten static HTTP 200 requests, with no API calls.
+
+
+## Functional release promoted — 4 October
+
+Independent live report `dfb13d9` (question attribution corrected in `3c08009`) passes the Monster transition at both widths. Before any upward scrolling, normal Start leaves scrollY=0; mobile Back/sound are at y=20 and desktop at y=30, all48px. Wrong retry, clue, held correct explanation, Keep playing and parent return/re-entry pass. Root read the full report and inspected normal active screenshots. The report retains its narrow scope and distinguishes the initial three-balloon mobile question from the four-flower re-entry.
+
+The authorized canonical alias was assigned to READY deployment `dpl_Dypi5oGP3et3yxgQiGjDqYpfCFMg`, audited archive source `94d44d0`. A fresh Vercel inspection and all16 canonical byte/hash fetches match: `qa-evidence/batch2-functional-release-94d44d0-canonical-20261004.json`. Fresh canonical UI checks are assigned for Monster mobile entry, Sky desktop entry and a decoded Spot Starter pair. The previous immutable candidates and their reports remain preserved.
+
+This functional release includes the twelve revised Spot pairs, the Puzzle Dino Park naming correction and the Sky/Monster entry-scroll fixes. It does not promote editorial scores. All26 acceptance instructions are published; recorded accepted count remains4 and22 are in progress. Five Batch2 narration clips, human listening, editorial acceptance and the exact Monster2+10 rendered case remain open.
