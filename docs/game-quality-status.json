@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T04:46:52.779718+00:00",
+  "updatedAt": "2026-10-04T05:01:24.658857+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -513,10 +513,8 @@
     "canonicalIndependentReport": "docs/qa-evidence/sound-preference-canonical-20261004/report.md"
   },
   "nextIndependentEditorialWork": {
-    "game": "Puzzle Pop",
-    "report": "docs/qa-evidence/puzzle-canonical-editorial-keyboard-20261004/report.md",
-    "commit": "333fb0e",
-    "scope": "Canonicalc47812scene servedasset/editorial audit plus desktop2x2keyboardheldfact passed; titlePicnicunsupportedcanonical/local2084095repairpending3clips. Reviewer nowclosing2x2/3x3/5x5keyboardbothwidths and reconciling retainedfullbaseline+explicitdeltas perroadmap, withoutmislabelingoldrunsasnew. No listening/4.5 acceptance."
+    "game": "Spot the Difference",
+    "scope": "Finite seven-scene relevance audit and fresh normally earned Challenge interaction gates at desktop and 390px, using retained full baseline plus explicit deltas. Independent reviewer assigned; no acceptance yet."
   },
   "puzzleTitleRepair": {
     "sourceSha": "2084095",
@@ -529,6 +527,18 @@
     "reportedBehavior": "Independent tester reported Starter and Challenge replay beginning with the final completed scene. Root requested paired held-fact and first replay screenshots, exact UI steps, loaded runtime identity and context continuity before selecting a repair.",
     "sourceTriage": "Frozen c478 source and minified bundle include completed-scene history and queue boundary rotation. Pure algorithm avoids boundary repeats when supplied with matching history; runtime evidence must locate the failure path.",
     "scope": "No new repair or release claim; preserve earlier passed scoped evidence and new failure evidence separately.",
-    "resolution": "Independent tester withdrew earlier failure after reconstructing chapter history: other chapters had been completed between the reported final scene and replay. Fresh guarded normal Starter completion ended Moon Camp; immediate visible Replay pictures began River Valley, correctly avoiding the immediate global boundary. Source unchanged; no repair/deployment/recovery claim. Paired screenshot evidence being assembled by reviewer."
+    "resolution": "Independent tester withdrew earlier failure after reconstructing chapter history: other chapters had been completed between the reported final scene and replay. Fresh guarded normal Starter completion ended Moon Camp; immediate visible Replay pictures began River Valley, correctly avoiding the immediate global boundary. Source unchanged; no repair/deployment/recovery claim. Paired screenshot evidence being assembled by reviewer. Completed report and paired screenshots are now saved in puzzle-c478-keyboard-chapter-gates-20261004/report.md."
+  },
+  "puzzleCurrentKeyboardChapterEvidence": {
+    "sourceSha": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
+    "commit": "0bd0da263a6a16afc8fb704340d8133ad050a3a5",
+    "report": "docs/qa-evidence/puzzle-c478-keyboard-chapter-gates-20261004/report.md",
+    "scope": "24 boards completed through visible hints and placement at desktop and 390px: all 12 scenes across Starter, Growing and Challenge at both widths. Six whole boards completed using keyboard controls, covering 2x2, 3x3 and 5x5 at each width. Held facts, Next, normal chapter unlocks, reload, parent-world return and 48px mobile controls passed. Provider guards preceded navigation; API and console errors zero. Title repair and human listening remain open; no new 4.5 acceptance."
+  },
+  "memoryIsolatedArtIndependent": {
+    "sourceSha": "dadb0eb3c6f4e454b3db6b975266cc3600c103e0",
+    "commit": "f081f68",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-isolated-space-independent-dadb0eb3-20261004/report.md",
+    "scope": "Independent guarded normal-earned Levels 1-10; complete Forest, Garden, Astronaut and Galaxy boards at both widths. Isolated Frog/Monkey, Amari astronaut and context-specific Moon rock pass. Dinosaur board does not use Moon rock. Full captions, 82px mobile cards, 48px controls, face-down zero front images, reload unlocks and served hashes pass; API/console errors zero. Frozen local candidate only: 52/87 illustrated, 35 missing under this identity. No production, listening or 4.5 acceptance."
   }
 }
