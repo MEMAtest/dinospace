@@ -176,3 +176,13 @@ test('River Valley authored pair has distinct scene art and three separated in-f
     }
   }
 });
+
+test('River edits are limited to three bounded regions containing their own targets', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === 'spot-3');
+  assert.equal(scene.editRegions.length, scene.differences.length);
+  scene.editRegions.forEach(({ x, y, width, height }, index) => {
+    assert.ok(x >= 0 && y >= 0 && width > 0 && height > 0 && x + width <= 100 && y + height <= 100);
+    const target = scene.differences[index];
+    assert.ok(target.x >= x && target.x <= x + width && target.y >= y && target.y <= y + height);
+  });
+});

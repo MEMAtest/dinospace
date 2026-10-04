@@ -102,7 +102,7 @@ const makeScene = (chapterIndex, sceneIndex, title, image, alt, fact, pair = nul
     image,
     alt,
     fact,
-    ...(pair ? { imageB: pair.imageB, pairedArt: true } : {}),
+    ...(pair ? { imageB: pair.imageB, pairedArt: true, ...(pair.editRegions ? { editRegions: Object.freeze(pair.editRegions.map((region) => Object.freeze(region))) } : {}) } : {}),
     differences: Object.freeze(pair?.differences || makeDifferences(sceneIndex, chapter.differenceCount)),
   });
 };
@@ -112,6 +112,13 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
   makeScene(0, 1, 'Dino Park', dinoPark, 'Friendly dinosaurs in a sunny park', 'Fossils are clues that help scientists learn about dinosaurs.'),
   makeScene(0, 2, 'River Valley', dinoRiver, 'A dinosaur beside a sparkling river', 'A clean river gives plants and animals a place to find fresh water.', {
     imageB: dinoRiverB,
+    // Render only these authored edits over the unchanged original scene.
+    // Generated full-image redraws must never move unrelated background objects.
+    editRegions: [
+      { x: 75, y: 0, width: 25, height: 28 },
+      { x: 4, y: 80, width: 17, height: 18 },
+      { x: 39, y: 44, width: 5, height: 9 },
+    ],
     differences: [
       Object.freeze({ id: 'river-sky', label: 'the sun became a crescent moon', normalVisual: 'scene:sun', visual: 'scene:crescent', x: 87, y: 14, radius: 8 }),
       Object.freeze({ id: 'river-flower', label: 'the flower petals changed from pink to yellow', normalVisual: 'scene:pink-flower', visual: 'scene:yellow-flower', x: 13, y: 86, radius: 8 }),
