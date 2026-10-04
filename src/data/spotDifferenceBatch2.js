@@ -176,7 +176,23 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
       Object.freeze({ id: 'moon-window', label: 'the habitat window changed colour', normalVisual: 'scene:yellow-window', visual: 'scene:green-window', x: 87, y: 56, radius: 8 }),
     ],
   }),
-  makeScene(1, 4, 'Treehouse Team', treehouse, 'A young astronaut and robot sharing arrow blocks in a treehouse workshop', 'Taking turns helps everyone share a game or a job.'),
+  makeScene(1, 4, 'Treehouse Team', treehouse, 'A young astronaut and robot sharing arrow blocks in a treehouse workshop', 'Taking turns helps everyone share a game or a job.', {
+    // Native 1254-square source coordinates mapped into the centered 4:3 crop.
+    colorEdits: [
+      { shape: 'path', d: 'M323 812 L489 798 Q505 801 508 821 L508 912 Q505 925 483 929 L339 937 Q322 935 322 917 Z', transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 90, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
+      { shape: 'path', d: 'M709 780 L783 753 L858 772 L881 801 L881 853 Q875 863 754 876 Q739 875 735 861 Z', transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 100, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -3 5 -2 0 -0.4' },
+      { shape: 'path', d: 'M1049 547 Q1121 529 1203 543 L1204 570 L1188 646 Q1180 667 1128 668 Q1076 666 1065 649 Z', transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 150, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 4 -2 -2 0 -0.4' },
+      { shape: 'rect', x: 680, y: 461, width: 173, height: 118, rx: 24, transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 100, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -5 2 3 0 -0.6' },
+      { shape: 'path', d: 'M975 313 L1008 267 L1032 271 L1054 307 L1053 312 Z', transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 190, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 4 -2 -2 0 -0.4' },
+    ],
+    differences: [
+      Object.freeze({ id: 'treehouse-blue-block', label: 'the left arrow block changed colour', normalVisual: 'scene:blue-block', visual: 'scene:purple-block', x: 33, y: 75, radius: 8 }),
+      Object.freeze({ id: 'treehouse-green-block', label: 'the up-arrow block changed colour', normalVisual: 'scene:green-block', visual: 'scene:blue-block', x: 63, y: 69, radius: 8 }),
+      Object.freeze({ id: 'treehouse-pot', label: 'the plant pot changed colour', normalVisual: 'scene:orange-pot', visual: 'scene:blue-pot', x: 90, y: 50, radius: 8 }),
+      Object.freeze({ id: 'treehouse-robot', label: 'the robot eyes and smile changed colour', normalVisual: 'scene:cyan-face', visual: 'scene:pink-face', x: 61.5, y: 38, radius: 8 }),
+      Object.freeze({ id: 'treehouse-roof', label: 'the little house roof changed colour', normalVisual: 'scene:red-roof', visual: 'scene:blue-roof', x: 83, y: 16, radius: 8 }),
+    ],
+  }),
   makeScene(1, 5, 'Sound Safari', soundSafari, 'An elephant, monkey, bird and frog making sounds beside a waterfall', 'Animals use different sounds to communicate with one another.'),
   makeScene(1, 6, 'Pattern Parade', patternParade, 'A colourful parade with repeating shapes', 'Repeating patterns follow a rule that we can describe.'),
   makeScene(1, 7, 'Time Observatory', timeObservatory, 'An observatory with a telescope, Earth globe, stars and sunset', 'Earth turns once each day, bringing daylight and darkness.'),

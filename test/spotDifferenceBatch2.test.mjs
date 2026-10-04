@@ -225,3 +225,15 @@ test('Dino Park accepts the pictured dinosaur head and body but keeps adjacent s
   for (const [x, y] of [[5, 20], [40, 45], [28, 94], [55, 80]]) assert.equal(resolveSpotDifferenceTap(scene.differences, [], x, y).kind, 'miss');
   for (const { x, y } of scene.differences) assert.ok(x * 2.8 >= 28 && x * 2.8 <= 252 && y * 2.1 >= 28 && y * 2.1 <= 182);
 });
+
+test('Treehouse real-object changes remain five separate reachable targets after the centered crop', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === 'spot-5');
+  assert.equal(scene.pairedArt, true);
+  assert.equal(scene.differences.length, 5);
+  assert.equal(scene.colorEdits.length, 5);
+  const centers = scene.differences.map(({ x, y }) => ({ x: x * 2.8, y: y * 2.1 }));
+  for (const [index, center] of centers.entries()) {
+    assert.ok(center.x >= 28 && center.x <= 252 && center.y >= 28 && center.y <= 182);
+    for (const other of centers.slice(index + 1)) assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
+  }
+});

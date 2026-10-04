@@ -67,21 +67,22 @@ const DifferenceVisual = ({ type }) => {
 };
 
 const SceneColorEditLayer = ({ scene }) => {
+  // Match the base image's object-cover crop, including square/portrait sources.
   const layerId = `scene-colour-${useId().replaceAll(':', '')}`;
-  return <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
+  return <svg aria-hidden="true" viewBox="0 0 100 75" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
     <defs>{scene.colorEdits.map(({ shape, hue, alphaMatrix, ...geometry }, index) => {
       const id = `${layerId}-${index}`;
       const Shape = shape;
       return <g key={id}>
-        <clipPath id={`${id}-clip`}><Shape {...geometry} /></clipPath>
+        <clipPath id={`${id}-clip`}><g transform="scale(1 0.75)"><Shape {...geometry} /></g></clipPath>
         <filter id={`${id}-colour`} colorInterpolationFilters="sRGB"><feColorMatrix type="hueRotate" values={hue} /></filter>
         {alphaMatrix && <>
           <filter id={`${id}-selection`} colorInterpolationFilters="sRGB"><feColorMatrix type="matrix" values={alphaMatrix} /></filter>
-          <mask id={`${id}-mask`} maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100"><image href={scene.image} x="0" y="0" width="100" height="100" preserveAspectRatio="none" filter={`url(#${id}-selection)`} /></mask>
+          <mask id={`${id}-mask`} maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="75"><image href={scene.image} x="0" y="0" width="100" height="75" preserveAspectRatio="xMidYMid slice" filter={`url(#${id}-selection)`} /></mask>
         </>}
       </g>;
     })}</defs>
-    {scene.colorEdits.map((edit, index) => <image key={index} href={scene.image} x="0" y="0" width="100" height="100" preserveAspectRatio="none" clipPath={`url(#${layerId}-${index}-clip)`} filter={`url(#${layerId}-${index}-colour)`} mask={edit.alphaMatrix ? `url(#${layerId}-${index}-mask)` : undefined} />)}
+    {scene.colorEdits.map((edit, index) => <image key={index} href={scene.image} x="0" y="0" width="100" height="75" preserveAspectRatio="xMidYMid slice" clipPath={`url(#${layerId}-${index}-clip)`} filter={`url(#${layerId}-${index}-colour)`} mask={edit.alphaMatrix ? `url(#${layerId}-${index}-mask)` : undefined} />)}
   </svg>;
 };
 
