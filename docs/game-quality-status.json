@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T03:46:14.594951+00:00",
+  "updatedAt": "2026-10-04T04:05:31.273920+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "Finite worker PID18781 confirmed alive at23:36UTC; status23:33UTC, run52:709 reused,4456 pending, zero cooldown retries, waiting for the request window. Full audio acceptance remains open.",
+    "voiceCoverage": "Worker status2026-10-04T03:55:57Z run104:1460 reused,3709 pending,last12generated,zero cooldown retries; waiting expected request window. No restart or concurrent paid voice worker.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -348,7 +348,7 @@
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
     "runtimeSource": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
-    "scope": "Original full ten-board Memory and54 Solar facts/nine challenges local baseline retained. Fruit e771 caption/48pxselector and Ocean2e/Gardenpond deltas independently passed; new Spacec1 and Star/Sundb0 frozen deltas builder-passed, independent QA queued. Existing Garden Frog narrow-strip rendering newly flagged; builder triage underway. No production/audio/premium/editorial/4.5 acceptance.",
+    "scope": "Full ten-board Memory and54 Solar facts/nine challenges local baseline retained. Scoped art/layout deltas through Party/Food725830f0 independently passed,51/87 illustrated36missing. Remaining premium artwork and audio/editorial/release acceptance open.",
     "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md",
     "memory374IndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-premium-independent-20261003/report.md",
     "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7",
@@ -363,13 +363,15 @@
     "nextArtworkSource": "200bdcc2b75fdaefa37a2787b974bf6d093dbe89",
     "nextArtworkIdentity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-art-update-identity-200bdcc.json",
     "memoryCurrentFrozenArtwork": {
-      "sourceSha": "a59482a7a47a59bea733abc097efa02bbd0153c0",
-      "origin": "http://127.0.0.1:5312",
-      "illustratedTokens": 47,
+      "sourceSha": "725830f0b7cb72ee9eff83b61de9871fb8ebcf29",
+      "origin": "http://127.0.0.1:5313",
+      "illustratedTokens": 51,
       "uniqueTokens": 87,
-      "missingTokens": 40,
-      "builderEvidence": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-art-identity-20261004.json",
-      "scope": "Vehiclea594 independentguarded0965b0c freshaboutblankguards-before-nav and normalunlock1\u20136/fullLevel6bothwidths passed.47/87tokensillustrated40missing; olderForest/Gardengeometry3931passretained. Food4integrationongoing; newisolatedanimals/Amariastro/contextMoonrockoriginals6e4383equeued. No production/audio/4.5."
+      "missingTokens": 36,
+      "builderEvidence": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-party-food-identity-20261004.json",
+      "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-party-food-independent-725830f0-20261004/report.md",
+      "independentCommit": "3c13bba",
+      "scope": "Independent guarded normal earned Levels1\u20137 and complete Party/Food both widths passed; captions/readable distinct art/82px/mobile48px selectors/face-down no images/reload unlocks/hashes/API0console0. Isolated Frog/Monkey/Amari astronaut/context Moon rock queued, followed by four Dino originals bc4462d. No production/audio/4.5 acceptance."
     },
     "memoryFruitIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-fruit-independent-e7714415-20261004/report.md",
     "memoryOceanGardenIndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-ocean-garden-independent-2e348c-20261004/report.md",
@@ -483,5 +485,10 @@
   "nextIndependentEditorialWork": {
     "game": "Puzzle Pop",
     "scope": "Fullauthored12scene age6/names/facts/art/crop audit plus missinginteraction/keyboardproof on currentcanonical withretainedfullbaseline/delta lineage; independentreviewunderway. Missinghumanaudio andothergatesnotwaived/no4.5yet."
+  },
+  "puzzleTitleRepair": {
+    "sourceSha": "2084095",
+    "report": "docs/qa-evidence/puzzle-pop-title-repair-local-20261004.md",
+    "scope": "Dino Park Picnic\u2192Dino Park to match art.12focusedtests/lint/build passed.1371 corpus unique lines,3changed lines missing packaged media. Local only; no release before media/readiness/independent delta. Canonical c478 audit retains old title."
   }
 }
