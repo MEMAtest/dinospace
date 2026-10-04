@@ -148,7 +148,7 @@ export function memoryCardLabel(emoji, levelId) {
 
 export const MEMORY_STRATEGY_LINES = Object.freeze([
   'Scan one row at a time. Say the picture and remember its place before turning another card.',
-  'Group nearby cards in your mind. When a picture returns, recall the place where you saw its partner.',
+  'Scan one row at a time. When you turn a picture, remember its row and place. If you see it again, look for the place where its partner appeared.',
   'Try recalling both places before you turn the second card. Keep the same board until every pair is found.',
 ]);
 

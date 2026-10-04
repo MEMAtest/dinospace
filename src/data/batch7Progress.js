@@ -42,7 +42,7 @@ export function seededPlanetOptions(options, seed) {
 export function memoryStrategy(levelIndex, previousEfficient = false) {
   if (previousEfficient) return 'Try recalling both places before you turn the second card. Keep the same board until every pair is found.';
   if (levelIndex < 2) return 'Scan one row at a time. Say the picture and remember its place before turning another card.';
-  return 'Group nearby cards in your mind. When a picture returns, recall the place where you saw its partner.';
+  return 'Scan one row at a time. When you turn a picture, remember its row and place. If you see it again, look for the place where its partner appeared.';
 }
 export function readMemoryPassport(playerId, levels, storage = storageDefault()) {
   if (playerId !== 'amari') return {};

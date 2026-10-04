@@ -1,0 +1,157 @@
+{
+  "checkedAt": "2026-10-04T13:10:55.860Z",
+  "scope": "Read-only local manifest and file existence; no provider, generation, decode, playback, human listening or manifest writes.",
+  "memory": {
+    "baseline": {
+      "phrases": 183,
+      "packaged": 2,
+      "missing": 181
+    },
+    "current": {
+      "phrases": 183,
+      "packaged": 2,
+      "missing": 181
+    },
+    "strategy": {
+      "old": {
+        "text": "Group nearby cards in your mind. When a picture returns, recall the place where you saw its partner.",
+        "key": "3707ccd5",
+        "path": null,
+        "packaged": false
+      },
+      "new": {
+        "text": "Scan one row at a time. When you turn a picture, remember its row and place. If you see it again, look for the place where its partner appeared.",
+        "key": "3b6a256b",
+        "path": null,
+        "packaged": false
+      },
+      "newPhraseInCorpus": true
+    }
+  },
+  "solar": {
+    "baseline": {
+      "phrases": 127,
+      "packaged": 117,
+      "missing": 10
+    },
+    "current": {
+      "phrases": 127,
+      "packaged": 111,
+      "missing": 16
+    },
+    "changedFacts": [
+      {
+        "planet": "Earth",
+        "factIndex": 6,
+        "old": {
+          "text": "Its magnetic field helps shield life from solar storms.",
+          "key": "b189a6e6",
+          "path": "/audio/en/b189a6e6-matilda.mp3",
+          "packaged": true
+        },
+        "current": {
+          "text": "A magnetic field is an invisible part of space where magnetic forces can act. Earth’s field reaches into space and makes a region called the magnetosphere. It turns many particles from the Sun away from Earth.",
+          "key": "db280abc",
+          "path": null,
+          "packaged": false
+        },
+        "oldDiscovery": {
+          "text": "Discovery 6. Its magnetic field helps shield life from solar storms.",
+          "key": "86ecc56c",
+          "path": "/audio/en/86ecc56c-matilda.mp3",
+          "packaged": true
+        },
+        "currentDiscovery": {
+          "text": "Discovery 6. A magnetic field is an invisible part of space where magnetic forces can act. Earth’s field reaches into space and makes a region called the magnetosphere. It turns many particles from the Sun away from Earth.",
+          "key": "f10c6642",
+          "path": null,
+          "packaged": false
+        }
+      },
+      {
+        "planet": "Saturn",
+        "factIndex": 6,
+        "old": {
+          "text": "Its moon Titan has lakes and rain made from methane.",
+          "key": "aaa9356d",
+          "path": "/audio/en/aaa9356d-matilda.mp3",
+          "packaged": true
+        },
+        "current": {
+          "text": "Methane is usually a gas on Earth. Titan is so cold that liquid methane can fall as rain and fill lakes.",
+          "key": "5f644e2c",
+          "path": null,
+          "packaged": false
+        },
+        "oldDiscovery": {
+          "text": "Discovery 6. Its moon Titan has lakes and rain made from methane.",
+          "key": "2b320c23",
+          "path": "/audio/en/2b320c23-matilda.mp3",
+          "packaged": true
+        },
+        "currentDiscovery": {
+          "text": "Discovery 6. Methane is usually a gas on Earth. Titan is so cold that liquid methane can fall as rain and fill lakes.",
+          "key": "b86e9dee",
+          "path": null,
+          "packaged": false
+        }
+      },
+      {
+        "planet": "Neptune",
+        "factIndex": 6,
+        "old": {
+          "text": "Its moon Triton orbits in the opposite direction.",
+          "key": "913350c6",
+          "path": "/audio/en/913350c6-matilda.mp3",
+          "packaged": true
+        },
+        "current": {
+          "text": "An orbit is a repeating path around another space object. Triton follows its path around Neptune in the direction opposite to Neptune’s spin.",
+          "key": "ec2b6e7c",
+          "path": null,
+          "packaged": false
+        },
+        "oldDiscovery": {
+          "text": "Discovery 6. Its moon Triton orbits in the opposite direction.",
+          "key": "4bd95ed0",
+          "path": "/audio/en/4bd95ed0-matilda.mp3",
+          "packaged": true
+        },
+        "currentDiscovery": {
+          "text": "Discovery 6. An orbit is a repeating path around another space object. Triton follows its path around Neptune in the direction opposite to Neptune’s spin.",
+          "key": "4abbe0fe",
+          "path": null,
+          "packaged": false
+        }
+      },
+      {
+        "planet": "Pluto",
+        "factIndex": 6,
+        "old": {
+          "text": "Pluto and Charon both move around a shared centre between them.",
+          "key": "09180a2a",
+          "path": null,
+          "packaged": false
+        },
+        "current": {
+          "text": "Pluto and Charon both circle one point in space between them, called their shared centre of gravity.",
+          "key": "7105c220",
+          "path": null,
+          "packaged": false
+        },
+        "oldDiscovery": {
+          "text": "Discovery 6. Pluto and Charon both move around a shared centre between them.",
+          "key": "34575f84",
+          "path": null,
+          "packaged": false
+        },
+        "currentDiscovery": {
+          "text": "Discovery 6. Pluto and Charon both circle one point in space between them, called their shared centre of gravity.",
+          "key": "11d89fee",
+          "path": null,
+          "packaged": false
+        }
+      }
+    ]
+  }
+}
