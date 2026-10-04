@@ -1,0 +1,37 @@
+{
+  "createdAt": "2026-10-04T05:04:30.218296+00:00",
+  "method": "Built-in image_gen; transparent_background=true. Selected original copied unchanged; no creative bitmap editing.",
+  "scope": "Original preparation only. Runtime integration, rendered independent QA and acceptance pending.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/garden-caterpillar-v1.png",
+      "token": "🐛",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-28bf1f6e-33a7-49a2-b68b-cb361d20b966.png",
+      "sha256": "dc629fd145f1643b5ca9db797f47ecff136b22d15c793ad8ada0ffdb47bbb046",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Use the clean bee cutout as a 3D toy style reference; replace bee entirely with one cheerful green segmented caterpillar, short antennae and little feet, centered transparent margins, no wings, stripes, halo, scene or text.",
+      "rootReview": "Selected fourth attempt has a complete isolated caterpillar silhouette, unlike three rejected halo variants; mobile caption and small-card readability pending."
+    }
+  ],
+  "rejectedCandidates": [
+    {
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-29b0f4fd-7849-4ce7-bb04-980034160735.png",
+      "reason": "Ant does not clearly show all six legs; not integrated."
+    },
+    {
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-5219e0b7-ca7b-43c5-aa3c-90daffa1362a.png",
+      "reason": "Spider shows six legs rather than eight; not integrated."
+    },
+    {
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-97d32467-5bde-4f79-821b-313e42946e5f.png",
+      "reason": "Worm has a visible pink halo; not integrated."
+    }
+  ]
+}
