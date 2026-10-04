@@ -60,6 +60,7 @@ const report = {
       phase2Blend: inventory.soundSafari.phase2BlendQuestionCount,
       phase3SoundPositions: inventory.soundSafari.phase3PositionQuestionCount,
     },
+    purePhonemeSequences: inventory.soundSafari.purePhonemeSequences,
     purePhonemeClipUsage: { uniqueSoundSafariKeys: inventory.soundSafari.purePhonemeKeysUsed.length, soundSafariKeys: inventory.soundSafari.purePhonemeKeysUsed, absentLocalFiles: inventory.soundSafari.purePhonemeKeysUsed.filter((phoneme) => !phonemeItems.find((item) => item.phoneme === phoneme)?.ready) },
     requiredWholeWordRecordings: { uniqueWords: requiredWholeWords.length, configuredInRuntime: requiredWholeWords.filter((item) => item.configuredInRuntime).length, packaged: requiredWholeWords.filter((item) => item.packaged).length, items: requiredWholeWords },
     exactRuntimeSpeechGroups: soundSafariPhraseGroups,

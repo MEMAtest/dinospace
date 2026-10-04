@@ -116,6 +116,8 @@ test('narration inventory includes exact finite runtime speech and phoneme recor
   assert.equal(inventory.soundSafari.phase2MinimalPairDirectionCount, 12);
   assert.equal(inventory.soundSafari.phase2BlendQuestionCount, 23);
   assert.equal(inventory.soundSafari.phase3PositionQuestionCount, 81);
+  assert.equal(inventory.soundSafari.purePhonemeSequences.blendQuestions.length, 23);
+  assert.ok(inventory.soundSafari.purePhonemeSequences.blendQuestions.every(({ phonemes }) => phonemes.every((phoneme) => Object.hasOwn(PURE_PHONEME_CLIP_PATHS, phoneme))));
   const actualSoundSafari = [
     ...createSoundSafariPool(0, SOUND_SAFARI_DEFAULT_TAUGHT.phase2),
     ...createSoundSafariPool(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase2),
