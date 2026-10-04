@@ -581,3 +581,9 @@ Counts remain 4 recorded accepted / 22 in progress. Canonical shared-default fun
 - Root read B5 independent reports (`645053a`): clean5368 shared settings and two-way mute/unmute reload checks plus four Amari game entry/sample controls passed. The muted-disabled pure-sound button does not itself establish missing-asset detection; separate pure phoneme inventory0/37 remains the audio blocker. Report correction requested.
 - B7 repaired5369 independent QA continues; a separate clean canonical B7 integration is assigned.
 - Paid finite narration PID18781 remains live; last completed run240 produced15 clips with1756 phrases remaining, no errors. No second provider job or restart. Full corpus decode/listening/release gates remain pending.
+
+## 4 October — clean B6 UI passes, B7 source repair passes
+
+Root read35ebeee B6 integrated5371 independent report: freshguarded bothwidths, fourAmari maps, Pattern retry/held/Next/confirmedparentreturn, legacyAskiaPattern andCountStarsentry, two-waymute reload pass. No earned-star differential or all-game fullmatrix claimed. Audio remains1/378ready.
+
+Root read6f88e74 B7source5369 report/viewedmobileEarth: four revisedfacts bothwidths, ordinaryMemory firstboard→nexttitle/tip scroll0, mobileLevel2/stickerreload andAskia separate3pairboard pass. Teachingcomponent recommendation4.5 each; nooverallaudioaward. CleanB7c4db5372 builder checks reviewed; independentintegrationQA running. Release-order instructions now explicitly require cumulative currentcanonical preparation so one batch cannot revert another. Counts4/22unchanged.

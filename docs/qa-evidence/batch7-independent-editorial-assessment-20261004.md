@@ -62,3 +62,11 @@ Neither game has canonical production acceptance in this assessment. Local sourc
 2. Complete the authorized narration package for Memory (181 missing phrases) and Solar (10 missing phrases), run byte/decode readiness and native playback/cancellation checks, and obtain human review for intelligibility, pronunciation, pacing and age fit. File presence alone is not acceptance.
 3. Bind the eventual release to its exact canonical deployment and served assets, then run the required production regression checks. The evidence here is local and does not award either game an overall 4.5.
 
+
+## Root repair reconciliation — 4 October 2026
+
+Independent source-bound review6f88e74 covers revised sourceb697694 on5369. Root read the full [report](../../../dinospace-batch7-quality/docs/qa-evidence/batch7-teaching-navigation-independent-20261004/independent-report.md) and viewed the mobile Earth screenshot. All four revised Solar fact6 definitions are legible at both widths; a magnet comparison and moon-to-planet context support the technical words. Memory normal first-board completion→Next puts the new title and strategy tip in view at scroll0 at both widths; mobile reload retains Level2 and1/10 sticker, Askia opens its separate3-pair board.
+
+Combined with reviewed source and retained full mechanics baseline, root recommends teaching component4.5 for both games. This repairs the concrete first-use definition/strategy deficits described in the historical table. Visibility and source review are not spoken comprehension or a child study. Pure audio/narration/readiness/listening and formal combined dimension remain pending, so no overall mean/award.
+
+Clean canonical integrationc4db1d4 at5372 is built (34 focused tests,246/247 full with known18 missing narration gate, lint/configbuild and5963 served hashes). Root reviewed the additive App diff preserving saved sound and B3 collection; independent integration UI is assigned. Neither candidate is deployed.

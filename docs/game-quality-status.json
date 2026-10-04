@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T15:28:10.188615+00:00",
+  "updatedAt": "2026-10-04T15:39:51.346777+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1153,11 +1153,13 @@
       "branch": "codex/amari-batch6-integration-20261004",
       "worktree": "work/dinospace-batch6-integration",
       "baseSource": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
-      "scope": "Root read builder report: clean0d base, reviewed764 B6 owned files byte-match, Amari progression ownership and canonical soundprefs/B3/Askia retained;236 tests and lint/configbuild pass,5879 hashes match. Independent bounded UI assigned. No narration or release acceptance.",
+      "scope": "Root read full report. Fresh guarded desktop/390 four Amari maps, Pattern wrong/retry/held/Next/confirmed parent return, legacy Askia Pattern and retained CountStars entry pass. Two-way soundprefs survive reload/reentry. Five served hashes match, zero console errors. Other B3 cards visible only; no differential earned-star award here; retained/source evidence supplements. Narration/listening/production/overall gates open.",
       "source": "2a82fd8fd17d9e76ec4310f2fecf489291f5bbff",
       "evidenceCommit": "e46fab6",
       "origin": "http://127.0.0.1:5371/",
-      "report": "../dinospace-batch6-integration/docs/qa-evidence/batch6-integration-20261004/report.md"
+      "report": "../dinospace-batch6-integration/docs/qa-evidence/batch6-integration-20261004/report.md",
+      "independentCommit": "35ebeee",
+      "independentReport": "../dinospace-batch6-integration/docs/qa-evidence/batch6-integration-browser-20261004/report.md"
     },
     "reliabilityFollowup": {
       "commit": "ed1bba6",
@@ -1208,7 +1210,23 @@
       "evidenceCommit": "f2105ca",
       "origin": "http://127.0.0.1:5369/",
       "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-teaching-navigation-repair-20261004/report.md",
-      "scope": "Memory new-level scroll reset and four Solar facts with concrete magnet/moon context. Independent QA assigned.197/198 tests with missing narration gate, lint/build and5694 hashes pass; no release or audio award."
+      "scope": "Root read report and viewed mobile Earth fact. Four revised facts legible both widths; ordinary Memory4pair completion\u2192Level2 title/tip scroll0 and sticker retention mobile reload, Askia separate3pairs pass. Concrete first-use teaching/strategy repaired. Narration unready, no audio/production/overall acceptance.",
+      "independentCommit": "6f88e74",
+      "independentReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-teaching-navigation-independent-20261004/independent-report.md"
+    },
+    "teachingReassessment": {
+      "scores": {
+        "Memory Match": 4.5,
+        "Solar System": 4.5
+      },
+      "scope": "Root component recommendation only from reviewed concrete strategy/term definitions and independent5369 UI delta, retained full mechanics evidence. No child comprehension study or spoken clarity claim; formal audio and overall averages pending."
+    },
+    "integrationPreparation": {
+      "source": "c4db1d4b3e469bf71409ec7d859a05a2c7fa9301",
+      "evidenceCommit": "fd7de0a",
+      "origin": "http://127.0.0.1:5372/",
+      "report": "../dinospace-batch7-integration/docs/qa-evidence/batch7-integration-20261004/report.md",
+      "scope": "Root read report/additive App diff. Currentcanonical0d base preserves soundprefs/B3/Askia/shared hooks/assets.34 focusedtests;246/247 full with18missing narration gate; lint/configbuild and5963 hashes pass. Independent bounded integration UI assigned. No audio/releaseaward."
     }
   },
   "editorialCategorisation": {
@@ -1247,5 +1265,6 @@
       "commit": "6963e00b50d7b13e8bbb1ddcf07673eac8c097db",
       "report": "docs/qa-evidence/phonics-default-release-20261004/canonical-independent/report.md"
     }
-  }
+  },
+  "releaseAcceptanceOrder": "docs/batch-release-acceptance-order-20261004.md"
 }
