@@ -1587,7 +1587,7 @@
       "report": "docs/qa-evidence/batch5-current-visual-feedback-review-20261004.md",
       "finding": "Emoji-only pictured vocabulary varies by platform and contains ambiguous person/beach umbrella glyphs. Controlled semantically exact illustrated assets required.",
       "state": "79concretewords authored on frozen29392bb/5388, starter26. Separateartcandidate generating controlledglossyobjects/reusing approved exactsubjects. Independentactualphonemeeligibility ar-off defect and minimalpairmissing found; builder repairing strictactualphonemefilter and two wholewordpairs+fourfirstsound startermix. Art/audio gates remain; no canonical release.",
-      "sourceReview": "docs/qa-evidence/batch5-soundsafari-phoneme-eligibility-review-20261004.md",
+      "sourceReview": "docs/qa-evidence/batch5-soundsafari-picture-vocabulary-independent-review-20261004.md",
       "minimalPairDesign": "docs/qa-evidence/batch5-soundsafari-minimal-pair-design-review-20261004.md"
     },
     "memoryCaptionReadability": {
@@ -1603,6 +1603,12 @@
         "origin": "http://127.0.0.1:5392/",
         "report": "docs/qa-evidence/b7-memory-backmark-caption-polish-20261004/independent/report.md",
         "state": "Independentfirstboarddesktopvectorbacks/12pxmonkeypass; sameprofile390initialcaption8.19px remains too small. Rootviewedmobile. New isolatedearlymobile12pxrepairassigned; retained5391fulltenlevelsunchanged."
+      },
+      "earlyMobileRepair": {
+        "source": "9fe5c70aec9b21b7bd0ce2180a473835ab524880",
+        "origin": "http://127.0.0.1:5394/",
+        "independentReport": "docs/qa-evidence/b7-memory-mobile-caption-20261004/root-independent/report.md",
+        "state": "Root independentordinaryfirstboard390/360realflip12pxMonkeycaptions fit, stable390screenshotviewed,console0. SourceonlyCSSdelta; retainedfulltenlevelbaseline separate, no audio/release/overall award."
       }
     },
     "solarTeaching": {
@@ -1630,7 +1636,12 @@
       "candidateSource": "40c053408d47ca76ff26cc8ae5c2e8ad9bb99d70",
       "origin": "http://127.0.0.1:5393/",
       "report": "docs/qa-evidence/count-scene-variety-20261004/root-browser/report.md",
-      "state": "Root ordinary18rounds passed with all5motifs per6question band, Growing/Challenge distinctcounts, singlepanel naturalround2desktop+sameprofile390held, all3pages/stars persistedreload, parentMaths andconsole0. Independentdelta underway; isolated production target building, no canonical promotion or overall award."
+      "state": "Root ordinary18rounds passed with all5motifs per6question band, Growing/Challenge distinctcounts, singlepanel naturalround2desktop+sameprofile390held, all3pages/stars persistedreload, parentMaths andconsole0. Independentdelta underway; isolated production target building, no canonical promotion or overall award.",
+      "productionCandidate": {
+        "id": "dpl_HCEz1pyWWjqAhaLCbwYqqg8C28v4",
+        "url": "https://dinospace-etwsszjnp-memas-projects-23a0001d.vercel.app",
+        "state": "READY source bytes match frozen40c; canonical not promoted. Independentlocaldelta found singlearray receives two-groupclue; scopedlayoutcluerepairassigned, liveacceptance held."
+      }
     }
   },
   "batch2CurrentVisualReview": {
