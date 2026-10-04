@@ -1,0 +1,75 @@
+{
+  "candidate": "Memory Match astronomy and Garden/Dino art integration",
+  "sourceBranch": "codex/amari-batch7-quality-20261003",
+  "sourceSha": "200bdcc2b75fdaefa37a2787b974bf6d093dbe89",
+  "preservedPriorSourceCandidate": "ee38737b1bbb2dbfc7a158c796ea1f18289f40df",
+  "frozenDist": "tmp/batch7-memory-art-update-200bdcc/dist",
+  "servedOrigin": "http://127.0.0.1:5291/",
+  "servedBytes": {
+    "indexHtml": {
+      "path": "index.html",
+      "sha256": "018ea9649e5037ad430f9e7bc46c2a358553e493fe086614fa3ca5c0fa1cf91a"
+    },
+    "javascript": {
+      "path": "assets/index-orLw-rHl.js",
+      "sha256": "61468c5872e8ef881c94a7561bf2edbc906a339ceee8579cd5cfbeed94638756"
+    },
+    "stylesheet": {
+      "path": "assets/index-DjnU_ouj.css",
+      "sha256": "82f0502380f5be8bc50f3fb50da2db24bfc899e6765dc345cf107458c9473726"
+    },
+    "allEightNewFaceAssets": "HTTP 200; served SHA256 values match the frozen files and source inventory."
+  },
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build",
+    "result": "pass",
+    "warnings": [
+      "Browserslist data is nine months old.",
+      "Existing main application and SolarSystem chunks exceed 500 kB."
+    ]
+  },
+  "sourceGates": {
+    "focusedTests": "pass: node --test test/memoryMatchContent.test.mjs test/batch7Progress.test.mjs (9/9)",
+    "lint": "pass: npm run lint",
+    "productionConfigBuild": "pass",
+    "inventory": {
+      "uniqueTokens": 87,
+      "illustrated": 23,
+      "missing": 64,
+      "report": "docs/qa-evidence/batch7-memory-art-update-inventory-20261004.json"
+    }
+  },
+  "builderBrowserReview": {
+    "profile": "isolated Playwright profile; 390x844 CSS pixels; /api/voice and /api/story routes mocked before navigation",
+    "progression": "Completed all ten levels through ordinary visible Memory card flips and enabled Next controls; replayed target levels through the visible unlocked level buttons at 390px.",
+    "readPolicy": "Observed card names only after actual face-up flips. No seeded answers, hidden face content, application deck data or injected progress were used.",
+    "astronautLevel8": "At 390px the matching Earth, Sun and Moon art/names rendered on the 82px cards. Earth reads as a globe; Sun is eight-rayed and faceless, distinct from Sun with a face.",
+    "gardenLevel9": "At 390px leaf, seedling and mushroom faces were distinct: a three-leaf sprig, a two-leaf plant rooted in soil, and a red-capped mushroom.",
+    "dinosaurLevel5": "At 390px tree, seedling and leaf faces remained distinct: mature trunk/canopy, young rooted plant, and loose sprig.",
+    "galaxyLevel10": "At 390px moon, full moon and new moon art and accessible names were distinct: crescent, bright textured disk, dark disk with a thin bright rim.",
+    "layout": {
+      "viewportWidth": 390,
+      "documentWidth": 390,
+      "horizontalOverflow": false
+    },
+    "browserConsole": "No errors or warnings.",
+    "network": "No /api/voice or /api/story requests observed; both were guarded before navigation.",
+    "screenshots": "docs/qa-evidence/batch7-memory-art-update-images/"
+  },
+  "preservation": {
+    "authoredTokensAndBoards": "unchanged; tests retain all ten board IDs and pair counts",
+    "progressAndPassport": "unchanged",
+    "Askia": "unchanged",
+    "sourcePngs": "retained unmodified with their earlier provenance records",
+    "faceUpOnlyArtRendering": "Existing conditional rendering path unchanged; new image assets use the same face-up-only mapping."
+  },
+  "releaseAndAcceptance": {
+    "providerCalls": "none",
+    "deployment": "none",
+    "childDataMutation": "none; browser profile was isolated and contained only synthetic Amari game progress",
+    "independentReview": "pending",
+    "humanVisualAcceptance": "pending",
+    "remainingArtCoverage": "64 of 87 unique Amari card tokens remain without matching illustrations",
+    "gameQualityScore": "not assigned"
+  }
+}
