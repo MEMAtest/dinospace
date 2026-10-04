@@ -29,7 +29,11 @@ const DifferenceVisual = ({ type }) => {
     const quantity = Number(variant.match(/\d+/)?.[0] || 1);
     const gradient = `gloss-${gradientId}`;
     const glossy = `url(#${gradient})`;
-    const leafPath = variant === 'heart'
+    const leafPath = variant === 'round'
+      ? 'M24 10 C44 10 44 38 24 38 C4 38 4 10 24 10 Z'
+      : variant === 'pointed'
+        ? 'M24 6 C36 16 39 30 24 42 C9 30 12 16 24 6 Z'
+        : variant === 'heart'
       ? 'M24 40 C18 32 7 25 9 16 C11 7 22 11 24 18 C28 8 39 8 40 17 C42 26 30 34 24 40 Z'
       : variant === 'oak'
         ? 'M24 42 L21 31 L13 33 L16 26 L8 23 L17 20 L13 12 L22 17 L24 7 L29 17 L38 12 L34 22 L42 25 L32 29 L35 36 L27 32 Z'
