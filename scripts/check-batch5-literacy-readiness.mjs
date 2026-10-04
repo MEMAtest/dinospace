@@ -58,6 +58,7 @@ const report = {
       phase2FirstSound: inventory.soundSafari.phase2MatchQuestionCount,
       phase2WholeWordMinimalPairDirections: inventory.soundSafari.phase2MinimalPairDirectionCount,
       phase2Blend: inventory.soundSafari.phase2BlendQuestionCount,
+      phase3Blend: inventory.soundSafari.phase3BlendQuestionCount,
       phase3SoundPositions: inventory.soundSafari.phase3PositionQuestionCount,
     },
     purePhonemeSequences: inventory.soundSafari.purePhonemeSequences,

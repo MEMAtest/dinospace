@@ -59,11 +59,12 @@ const addSafariSequence = (group, segments) => {
 };
 const phase2MatchAndPair = createSoundSafariPool(0, SOUND_SAFARI_DEFAULT_TAUGHT.phase2);
 const phase2Blend = createSoundSafariPool(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase2);
+const phase3Blend = createSoundSafariPool(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase3);
 const phase3Positions = createSoundSafariPool(2, SOUND_SAFARI_DEFAULT_TAUGHT.phase3);
 const phase2FirstSoundClips = phase2MatchAndPair.filter(({ type }) => type === 'match').map(({ id, target }) => Object.freeze({ questionId: id, word: target.word, phonemes: Object.freeze([target.phonemes[0]]) }));
-const phase2BlendClips = phase2Blend.map(({ id, target }) => Object.freeze({ questionId: id, word: target.word, phonemes: Object.freeze([...target.phonemes]) }));
-const soundSafariPhonemeKeys = Object.freeze([...new Set([...phase2FirstSoundClips, ...phase2BlendClips].flatMap(({ phonemes }) => phonemes))].sort());
-for (const question of [...phase2MatchAndPair, ...phase2Blend, ...phase3Positions]) {
+const phase3BlendClips = phase3Blend.map(({ id, target }) => Object.freeze({ questionId: id, word: target.word, phonemes: Object.freeze([...target.phonemes]) }));
+const soundSafariPhonemeKeys = Object.freeze([...new Set([...phase2FirstSoundClips, ...phase3BlendClips].flatMap(({ phonemes }) => phonemes))].sort());
+for (const question of [...phase2MatchAndPair, ...phase2Blend, ...phase3Blend, ...phase3Positions]) {
   const prompt = soundSafariPrompt(question);
   const retry = soundSafariRetryText(question);
   addText(prompt);
@@ -100,9 +101,10 @@ export const buildBatch5LiteracyNarrationInventory = () => Object.freeze({
     phase2MatchQuestionCount: phase2MatchAndPair.filter(({ type }) => type === 'match').length,
     phase2MinimalPairDirectionCount: phase2MatchAndPair.filter(({ type }) => type === 'minimalPair').length,
     phase2BlendQuestionCount: phase2Blend.length,
+    phase3BlendQuestionCount: phase3Blend.length,
     phase3PositionQuestionCount: phase3Positions.length,
     purePhonemeKeysUsed: soundSafariPhonemeKeys,
-    purePhonemeSequences: Object.freeze({ firstSoundHints: Object.freeze(phase2FirstSoundClips), blendQuestions: Object.freeze(phase2BlendClips) }),
+    purePhonemeSequences: Object.freeze({ firstSoundHints: Object.freeze(phase2FirstSoundClips), phase3BlendQuestions: Object.freeze(phase3BlendClips) }),
     spokenTextGroups: Object.freeze(Object.fromEntries(Object.entries(soundSafariGroups).map(([group, groupTexts]) => [group, Object.freeze([...groupTexts].sort())]))),
   }),
 });

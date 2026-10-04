@@ -115,12 +115,15 @@ test('narration inventory includes exact finite runtime speech and phoneme recor
   assert.equal(inventory.soundSafari.wholeWordRecordingIds.length, 10);
   assert.equal(inventory.soundSafari.phase2MinimalPairDirectionCount, 12);
   assert.equal(inventory.soundSafari.phase2BlendQuestionCount, 23);
+  assert.equal(inventory.soundSafari.phase3BlendQuestionCount, 26);
   assert.equal(inventory.soundSafari.phase3PositionQuestionCount, 81);
-  assert.equal(inventory.soundSafari.purePhonemeSequences.blendQuestions.length, 23);
-  assert.ok(inventory.soundSafari.purePhonemeSequences.blendQuestions.every(({ phonemes }) => phonemes.every((phoneme) => Object.hasOwn(PURE_PHONEME_CLIP_PATHS, phoneme))));
+  assert.equal(inventory.soundSafari.purePhonemeSequences.phase3BlendQuestions.length, 26);
+  assert.ok(inventory.soundSafari.purePhonemeSequences.phase3BlendQuestions.every(({ phonemes }) => phonemes.every((phoneme) => Object.hasOwn(PURE_PHONEME_CLIP_PATHS, phoneme))));
+  for (const word of ['plant', 'raft', 'plank']) assert.ok(texts.has(`You blended the sounds to say ${word}.`));
   const actualSoundSafari = [
     ...createSoundSafariPool(0, SOUND_SAFARI_DEFAULT_TAUGHT.phase2),
     ...createSoundSafariPool(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase2),
+    ...createSoundSafariPool(1, SOUND_SAFARI_DEFAULT_TAUGHT.phase3),
     ...createSoundSafariPool(2, SOUND_SAFARI_DEFAULT_TAUGHT.phase3),
   ];
   for (const question of actualSoundSafari) {
