@@ -1673,7 +1673,7 @@
     "source": "decb60c4c816a24df875044df0d589b90f814f15",
     "report": "docs/qa-evidence/batch5-soundsafari-phonics-source-independent-20261004.md",
     "artReport": "docs/qa-evidence/batch5-soundsafari-starter-art-v2-independent-20261004.md",
-    "scope": "81 word mappings and11 focused tests passed. Starter art and all26 Growing cards pass static82px review after dock/crust corrections. Challenge25 images, revised audio inventory, runtime/listening and overall acceptance remain pending.",
+    "scope": "81 word mappings reviewed; Starter and all26 Growing cards pass static82px review after dock/crust corrections. Frozen a652 Growing ID persistence and all168 question narration coverage independently pass, with16 focused tests. Challenge25 artwork mappings, audio generation/playback/listening and overall acceptance remain pending.",
     "artCorrectionSource": "02911814ce9a62a65bc35bdd2cfacb88c31ee808",
     "artCorrectionReport": "docs/qa-evidence/batch5-soundsafari-dock-art-v2-independent-20261004.md",
     "growingArtSource": "d4a5363551b5702e8040422908b821b2bee2aa0c",
@@ -1687,7 +1687,21 @@
     },
     "growingArtReport": "docs/qa-evidence/batch5-soundsafari-growing-art-independent-20261005.md",
     "growingArtCorrectionSource": "3d949c69cb1901c9f33bd78220c207a832c90aa1",
-    "growingArtCorrectionReport": "docs/qa-evidence/batch5-soundsafari-crust-v2-independent-20261005.md"
+    "growingArtCorrectionReport": "docs/qa-evidence/batch5-soundsafari-crust-v2-independent-20261005.md",
+    "narrationSource": "a652ad6cf33b72e3ef3ff523b70cc773bfcbbb18",
+    "narrationInventory": "docs/qa-evidence/batch5-soundsafari-source-bound-audio-inventory-20261005.json",
+    "persistenceAndNarrationAudit": "docs/qa-evidence/batch5-soundsafari-growing-id-and-narration-audit-20261005.md",
+    "audioReadiness": {
+      "uniqueTextClips": 862,
+      "sequences": 603,
+      "manifestAndFilePresent": 11,
+      "pending": 851,
+      "wholeWordRequired": 10,
+      "wholeWordConfigured": 0,
+      "purePhonemeRequired": 37,
+      "purePhonemePresent": 0,
+      "scope": "Presence only at frozen source snapshot; no decoding or listening claim."
+    }
   },
   "countCanonicalMediaObservation": {
     "source": "1accc99e89be303678ead99def6a3095ab1cb886",
@@ -1697,10 +1711,15 @@
   "narrationWorkerCheckpoint": {
     "pid": 18781,
     "physicallyConfirmedAlive": true,
-    "checkpointAt": "2026-10-04T23:06:04.903Z",
-    "run": 332,
-    "pending": 493,
+    "checkpointAt": "2026-10-04T23:46:20.632Z",
+    "run": 340,
+    "pending": 394,
     "status": "waiting_request_window",
     "scope": "Original ac3 worker only; no restart or concurrent paid calls. Corrected recordings/listening remain separate."
+  },
+  "traceCosmicCanonicalMediaObservation": {
+    "source": "1accc99e89be303678ead99def6a3095ab1cb886",
+    "report": "docs/qa-evidence/batch3-canonical-media-events-20261005/report.md",
+    "scope": "Actual packaged playback/ended and mute interruptions observed at desktop and390px, with held feedback and parent-world return. No human listening or full gameplay matrix claim."
   }
 }
