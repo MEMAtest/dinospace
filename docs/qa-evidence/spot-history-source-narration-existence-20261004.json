@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-04T08:08:50.561Z",
+  "checkoutSha": "7d7bca1974c5c2836fc8a3f1cbc2a46d57b4345d",
+  "runtimeSourceSha": "0b45ed6f8914d442d265124511ed5a9c3ece7c6c",
+  "scope": "Read-only current History/Robin candidate corpus existence. No decode, playback, listening, network/provider calls or manifest changes.",
+  "requested": 1373,
+  "existing": 1368,
+  "missing": [
+    {
+      "game": "puzzlePop",
+      "key": "a39b3546",
+      "text": "Build the Dino Park picture. Choose a piece, then tap its matching space."
+    },
+    {
+      "game": "puzzlePop",
+      "key": "9685e0ac",
+      "text": "Next picture. Build Dino Park. Compare each piece with the preview."
+    },
+    {
+      "game": "puzzlePop",
+      "key": "e077fcc0",
+      "text": "Puzzle Pop. Picture Pioneers. Match big picture pieces and spot the main shapes. Build the Dino Park picture."
+    },
+    {
+      "game": "spotDifference",
+      "key": "a44acc87",
+      "text": "Look near the middle area of Picture B."
+    },
+    {
+      "game": "spotDifference",
+      "key": "5866151d",
+      "text": "Look near the middle bottom of Picture B."
+    }
+  ]
+}
