@@ -1,0 +1,30 @@
+{
+  "runtime": "60f362368d5eedb3b43dedc4fa95eb3097672d7e",
+  "origin": "http://127.0.0.1:5363",
+  "files": [
+    {
+      "path": "index.html",
+      "expected": "b9498b820c4b30fd02726d76021715ad8eed5a38fd98275fa5ee00aff04a5ae0",
+      "served": "b9498b820c4b30fd02726d76021715ad8eed5a38fd98275fa5ee00aff04a5ae0",
+      "match": true
+    },
+    {
+      "path": "sw.js",
+      "expected": "b1742bd681d5da81a9513f3f7a49171d0dcb5cd389f2b8139e2f7dc4c456e296",
+      "served": "b1742bd681d5da81a9513f3f7a49171d0dcb5cd389f2b8139e2f7dc4c456e296",
+      "match": true
+    },
+    {
+      "path": "assets/index-C42-a2Zu.js",
+      "expected": "3aa0eb4a25efd0b7c6e6c5a142374954d57aa98b256b3a23f54f00283a0aafc7",
+      "served": "3aa0eb4a25efd0b7c6e6c5a142374954d57aa98b256b3a23f54f00283a0aafc7",
+      "match": true
+    },
+    {
+      "path": "assets/index-CZIXwkmD.css",
+      "expected": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+      "served": "c057757199ab545e7594e3b53abd89e1ce8ada62cb531f0f0fafbcb8a2d869b3",
+      "match": true
+    }
+  ]
+}

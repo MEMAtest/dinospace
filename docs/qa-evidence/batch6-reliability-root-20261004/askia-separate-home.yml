@@ -1,0 +1,70 @@
+- generic [ref=f1e1150]:
+  - banner [ref=f1e1151]:
+    - button "Askia is playing. Change player" [ref=f1e1152] [cursor=pointer]:
+      - generic [ref=f1e1153]: Askia
+    - generic "0 stars" [ref=f1e1154]: ⭐ 0
+    - button "My stickers" [ref=f1e1155] [cursor=pointer]:
+      - img "Dino Egg Prize" [ref=f1e1156]
+    - button "Turn sound on" [ref=f1e1157] [cursor=pointer]
+  - generic [ref=f1e1162]:
+    - img "Askia the young explorer" [ref=f1e1163]
+    - generic [ref=f1e1164]:
+      - heading "Hi Askia!" [level=1] [ref=f1e1165]
+      - paragraph [ref=f1e1166]: What shall we play today?
+  - main [ref=f1e1167]:
+    - heading "Choose a world" [level=2] [ref=f1e1168]
+    - generic [ref=f1e1169]:
+      - region [ref=f1e1170]:
+        - generic [ref=f1e1173]:
+          - heading "Dino World" [level=3] [ref=f1e1174]
+          - generic [ref=f1e1175]:
+            - button "Play Dino Jigsaw" [ref=f1e1176] [cursor=pointer]:
+              - generic [ref=f1e1177]: Dino Jigsaw
+            - button "Play Shadow Match" [ref=f1e1180] [cursor=pointer]:
+              - generic [ref=f1e1181]: Shadow Match
+            - button "Play Dino Detective" [ref=f1e1184] [cursor=pointer]:
+              - generic [ref=f1e1185]: Dino Detective
+      - region [ref=f1e1188]:
+        - generic [ref=f1e1191]:
+          - heading "Rocket World" [level=3] [ref=f1e1192]
+          - generic [ref=f1e1193]:
+            - button "Play Rocket Builder" [ref=f1e1194] [cursor=pointer]:
+              - generic [ref=f1e1195]: Rocket Builder
+            - button "Play Fuel Up" [ref=f1e1198] [cursor=pointer]:
+              - generic [ref=f1e1199]: Fuel Up
+            - button "Play Count the Stars" [ref=f1e1202] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e1203]: ⭐
+              - generic [ref=f1e1204]: Count the Stars
+      - region [ref=f1e1207]:
+        - generic [ref=f1e1210]:
+          - heading "Rescue World" [level=3] [ref=f1e1211]
+          - generic [ref=f1e1212]:
+            - button "Play Fire Truck Rescue" [ref=f1e1213] [cursor=pointer]:
+              - generic [ref=f1e1214]: Fire Truck Rescue
+            - button "Play Ladder Rescue" [ref=f1e1217] [cursor=pointer]:
+              - generic [ref=f1e1218]: Ladder Rescue
+      - region [ref=f1e1221]:
+        - generic [ref=f1e1224]:
+          - heading "Little Thinkers" [level=3] [ref=f1e1225]
+          - generic [ref=f1e1226]:
+            - button "Play Memory Match" [ref=f1e1227] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f1e1228]:
+                - generic [ref=f1e1229]: ♥
+                - generic [ref=f1e1230]: ★
+              - generic [ref=f1e1231]: Memory Match
+            - button "Play Pattern Parade" [ref=f1e1234] [cursor=pointer]:
+              - generic [ref=f1e1239]: Pattern Parade
+    - region [ref=f1e1242]:
+      - heading "☀️ Today’s Fun" [level=2] [ref=f1e1243]
+      - paragraph [ref=f1e1244]: A few special games for you!
+      - generic [ref=f1e1245]:
+        - button "Fuel Up" [ref=f1e1246] [cursor=pointer]
+        - button "Dino Detective" [ref=f1e1250] [cursor=pointer]
+        - button "Memory Match" [ref=f1e1254] [cursor=pointer]
+  - navigation "Askia navigation" [ref=f1e1258]:
+    - button "Home" [ref=f1e1259] [cursor=pointer]
+    - button "Worlds" [ref=f1e1263] [cursor=pointer]:
+      - generic [aria-hidden] [ref=f1e1264]: 🌍
+      - text: Worlds
+    - button "Stickers" [ref=f1e1265] [cursor=pointer]
+    - button "Grown-ups" [ref=f1e1268] [cursor=pointer]

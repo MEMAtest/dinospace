@@ -1,0 +1,18 @@
+- main [ref=f1e522]:
+  - generic [ref=f1e523]:
+    - button "Back" [ref=f1e524] [cursor=pointer]
+    - generic [ref=f1e527]:
+      - heading "Chess Explorers" [level=1] [ref=f1e528]
+      - paragraph [ref=f1e529]: Piece moves
+    - button "Turn sound on" [ref=f1e530] [cursor=pointer]
+  - generic [ref=f1e606]:
+    - generic [ref=f1e607]: ♟️
+    - heading "Chess chapter complete!" [level=2] [ref=f1e608]
+    - paragraph [ref=f1e609]: ★★★
+    - complementary [ref=f1e610]:
+      - strong [ref=f1e611]: Why it works
+      - paragraph [ref=f1e615]: Each puzzle had one clear goal and a rule for the piece.
+      - paragraph [ref=f1e616]: A legal move follows the piece’s movement rule and respects blockers.
+    - generic [ref=f1e617]:
+      - button "Chapter map" [ref=f1e618] [cursor=pointer]
+      - button "Play again" [ref=f1e619] [cursor=pointer]
