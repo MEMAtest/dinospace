@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T22:40:00Z",
+  "updatedAt": "2026-10-04T23:16:56.952606+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1693,5 +1693,14 @@
     "source": "1accc99e89be303678ead99def6a3095ab1cb886",
     "report": "docs/qa-evidence/count-scene-variety-20261004/canonical/media-observation/report.md",
     "scope": "Desktop actual packaged clue, praise and held explanation reached ended; mute interrupted next prompt. No human listening or Next-interruption claim."
+  },
+  "narrationWorkerCheckpoint": {
+    "pid": 18781,
+    "physicallyConfirmedAlive": true,
+    "checkpointAt": "2026-10-04T23:06:04.903Z",
+    "run": 332,
+    "pending": 493,
+    "status": "waiting_request_window",
+    "scope": "Original ac3 worker only; no restart or concurrent paid calls. Corrected recordings/listening remain separate."
   }
 }
