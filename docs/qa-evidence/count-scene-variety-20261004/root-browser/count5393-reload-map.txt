@@ -1,0 +1,6 @@
+### Result
+{"map":"Count one object at a time. Collected totals light up a constellation page.\n\nStar Garden\n\nCount from 1 to 5. Six rounds · starter band.\n\nTouch each object once, then choose how many you counted.\n\nReplay survey\n\nBest: 3 stars\n\nConstellation Workshop\n\nCount from 1 to 10. Six rounds · growing band.\n\nCount an organised group, then check each marked object once.\n\nReplay survey\n\nBest: 3 stars\n\nGalaxy Survey\n\nCount from 1 to 20. Six rounds · challenge band.\n\nCount a full array or combine two visible groups.\n\nReplay survey\n\nBest: 3 stars\n\nConstellation book (3/3)","overflow":{"viewport":1280,"width":1280}}
+### Ran Playwright code
+```js
+await (async page=>{await page.getByRole("button",{name:"Survey map",exact:true}).click();await page.reload();await page.getByRole("button",{name:"Constellation book (3/3)",exact:true}).waitFor();return {map:await page.locator("main").innerText(),overflow:await page.evaluate(()=>({viewport:innerWidth,width:document.documentElement.scrollWidth}))};})(page);
+```
