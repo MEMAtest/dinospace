@@ -1,0 +1,404 @@
+{
+  "verifiedAt": "2026-10-04T00:30:26.521416+00:00",
+  "sourceSha": "ee38737b1bbb2dbfc7a158c796ea1f18289f40df",
+  "origin": "http://127.0.0.1:5299",
+  "assets": {
+    "index.html": {
+      "status": 200,
+      "expected": "4ccba8ca1e4b162496e85c0187189a121af98c2d3bc7bfb469e9a1619b5e53b6",
+      "actual": "4ccba8ca1e4b162496e85c0187189a121af98c2d3bc7bfb469e9a1619b5e53b6",
+      "matches": true
+    },
+    "sw.js": {
+      "status": 200,
+      "expected": "8aae993db9de4508b24de47143d332a9867c363e87eb209a066a9b633c01085d",
+      "actual": "8aae993db9de4508b24de47143d332a9867c363e87eb209a066a9b633c01085d",
+      "matches": true
+    },
+    "assets/superhero-city-DPTOkgpV.webp": {
+      "status": 200,
+      "expected": "c9205d316ee832981f816af002cd57ea22d50b6a6a84231a646f639385634b22",
+      "actual": "c9205d316ee832981f816af002cd57ea22d50b6a6a84231a646f639385634b22",
+      "matches": true
+    },
+    "assets/fuel-can-bG4-uy-5.webp": {
+      "status": 200,
+      "expected": "b3a16e18c3201d34aec053f97f90c7be88fd0b1386a40a393ccf1e6a0c679d13",
+      "actual": "b3a16e18c3201d34aec053f97f90c7be88fd0b1386a40a393ccf1e6a0c679d13",
+      "matches": true
+    },
+    "assets/sound-safari-animals-3d-DxBjyDMU.webp": {
+      "status": 200,
+      "expected": "dad91b003b2810eaf0b6c4577caf27c8090daaa503bf9b2013172a46cb68e3bf",
+      "actual": "dad91b003b2810eaf0b6c4577caf27c8090daaa503bf9b2013172a46cb68e3bf",
+      "matches": true
+    },
+    "assets/detective-bronto-DE0_3OFI.webp": {
+      "status": 200,
+      "expected": "3e40c262ad4dd85ec97fa68c3fc1a5b274f790f954e7b86823a4bb4ad1886f0c",
+      "actual": "3e40c262ad4dd85ec97fa68c3fc1a5b274f790f954e7b86823a4bb4ad1886f0c",
+      "matches": true
+    },
+    "assets/more-dino-character-stickers-transparent-D96ZzMuU.png": {
+      "status": 200,
+      "expected": "868e42666b91ec9c327856cadeaa598da5ff40ea0a25fae99ef6636e2a855b93",
+      "actual": "868e42666b91ec9c327856cadeaa598da5ff40ea0a25fae99ef6636e2a855b93",
+      "matches": true
+    },
+    "assets/foods-BVVcqlHm.webp": {
+      "status": 200,
+      "expected": "bc046b2a13f235ee8644a2f6715e26f19a5941d6a89306b0b265201a95d0c4a7",
+      "actual": "bc046b2a13f235ee8644a2f6715e26f19a5941d6a89306b0b265201a95d0c4a7",
+      "matches": true
+    },
+    "assets/dog-v1-ChZwSYQE.webp": {
+      "status": 200,
+      "expected": "83bcda5739193672999b3c23c2a7e29b9cdd26aabceaa1d940804af5c36cd5a9",
+      "actual": "83bcda5739193672999b3c23c2a7e29b9cdd26aabceaa1d940804af5c36cd5a9",
+      "matches": true
+    },
+    "assets/animals-DK_E9PyW.webp": {
+      "status": 200,
+      "expected": "111a1d7796b38cdeefb99c88aec15628e8013f9ccbd33d54dc1dddcd69a03233",
+      "actual": "111a1d7796b38cdeefb99c88aec15628e8013f9ccbd33d54dc1dddcd69a03233",
+      "matches": true
+    },
+    "assets/dino-character-stickers-ZEH8lmaY.png": {
+      "status": 200,
+      "expected": "ac4070939a62857c9a543514ce01dac2dd6b2f03d40880c212efd0eb8bd5405d",
+      "actual": "ac4070939a62857c9a543514ce01dac2dd6b2f03d40880c212efd0eb8bd5405d",
+      "matches": true
+    },
+    "assets/detective-trex-C6vbBK-A.webp": {
+      "status": 200,
+      "expected": "46bbe5b38addcceb5b0c24bd31af47033addbc4cc5ed54761c5e5dcb5082c3ea",
+      "actual": "46bbe5b38addcceb5b0c24bd31af47033addbc4cc5ed54761c5e5dcb5082c3ea",
+      "matches": true
+    },
+    "assets/askia-detective-CPOpmaoU.webp": {
+      "status": 200,
+      "expected": "6d4735d2526907eea26ae8603163b4afec2a8ad056045d80ad1067fa6909ebbd",
+      "actual": "6d4735d2526907eea26ae8603163b4afec2a8ad056045d80ad1067fa6909ebbd",
+      "matches": true
+    },
+    "assets/history-clues-CvoRkM6w.webp": {
+      "status": 200,
+      "expected": "33269e8531443ad8d1f65611fa35135816aa99b374c01307715f5e50fe4e763e",
+      "actual": "33269e8531443ad8d1f65611fa35135816aa99b374c01307715f5e50fe4e763e",
+      "matches": true
+    },
+    "assets/title-trike-CN4sx7TF.png": {
+      "status": 200,
+      "expected": "078497908d2ae171ba8a2b729cca343768bcff52aad5916e763dcdf46275e3a5",
+      "actual": "078497908d2ae171ba8a2b729cca343768bcff52aad5916e763dcdf46275e3a5",
+      "matches": true
+    },
+    "assets/guides-PFBoQ5gz.webp": {
+      "status": 200,
+      "expected": "8cf3410c0b6429a567569d00d3f50a0e6cac635e433a7e22e34d5ad12978cf5c",
+      "actual": "8cf3410c0b6429a567569d00d3f50a0e6cac635e433a7e22e34d5ad12978cf5c",
+      "matches": true
+    },
+    "assets/crescent-moon-v1-card-DakeN4UZ.webp": {
+      "status": 200,
+      "expected": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b",
+      "actual": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b",
+      "matches": true
+    },
+    "assets/nature-lab-leaves-3d-DDByeZD_.webp": {
+      "status": 200,
+      "expected": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20",
+      "actual": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20",
+      "matches": true
+    },
+    "assets/bg-dino-portrait-DGfbO86R.webp": {
+      "status": 200,
+      "expected": "3f66496af145ada8c480953aa1944abc8fecd6f3af2bbfb0caccd9e1351f1cce",
+      "actual": "3f66496af145ada8c480953aa1944abc8fecd6f3af2bbfb0caccd9e1351f1cce",
+      "matches": true
+    },
+    "assets/greetings-C8xVisw4.webp": {
+      "status": 200,
+      "expected": "2a92b19b49726a72d7c6d7babaed8ac03f97de1ba7774e91294d680fe4c78196",
+      "actual": "2a92b19b49726a72d7c6d7babaed8ac03f97de1ba7774e91294d680fe4c78196",
+      "matches": true
+    },
+    "assets/time-observatory-BK3ZKZ4R.webp": {
+      "status": 200,
+      "expected": "54f2db7d523a0e226edbe605e84df308e75799d4bb7878705b8d279b0281ff34",
+      "actual": "54f2db7d523a0e226edbe605e84df308e75799d4bb7878705b8d279b0281ff34",
+      "matches": true
+    },
+    "assets/robin-tree-3d-C6X3IbOn.webp": {
+      "status": 200,
+      "expected": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932",
+      "actual": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932",
+      "matches": true
+    },
+    "assets/amari-astronaut-robot-Dj0NBZLZ.png": {
+      "status": 200,
+      "expected": "a45b3476e486ef4c590708206730655e9f0d7d566e65ad80a4d980dd32561a19",
+      "actual": "a45b3476e486ef4c590708206730655e9f0d7d566e65ad80a4d980dd32561a19",
+      "matches": true
+    },
+    "assets/pattern-parade-Dnq7n0ru.webp": {
+      "status": 200,
+      "expected": "3806f741aa6b39c2be05da6a908ced80afefba10c4ae0ae3bb2bdd623d049a00",
+      "actual": "3806f741aa6b39c2be05da6a908ced80afefba10c4ae0ae3bb2bdd623d049a00",
+      "matches": true
+    },
+    "assets/fox-v1-DuiqcITQ.webp": {
+      "status": 200,
+      "expected": "c39fa13217b454f27bbb1f9dff7bbd1e6aa0640d0c288a7432560c9f7447da1b",
+      "actual": "c39fa13217b454f27bbb1f9dff7bbd1e6aa0640d0c288a7432560c9f7447da1b",
+      "matches": true
+    },
+    "assets/dino-moon-3d-f1vVSf2r.webp": {
+      "status": 200,
+      "expected": "a8c15f541d45125fd165e6d126ffe1d67f2d61c78b38d148067c5a553f934c1e",
+      "actual": "a8c15f541d45125fd165e6d126ffe1d67f2d61c78b38d148067c5a553f934c1e",
+      "matches": true
+    },
+    "assets/rescue-flame-D58aTqgB.webp": {
+      "status": 200,
+      "expected": "197279bd1acd9fe4617f4af8ba08b5542d4f057569c1b7e4bf37fd57fb94338e",
+      "actual": "197279bd1acd9fe4617f4af8ba08b5542d4f057569c1b7e4bf37fd57fb94338e",
+      "matches": true
+    },
+    "assets/spelling-studio-BJFyq3Z4.webp": {
+      "status": 200,
+      "expected": "4c927dc3485547931c9615bb630f43f57288981694d10e079c64ec23424eed0c",
+      "actual": "4c927dc3485547931c9615bb630f43f57288981694d10e079c64ec23424eed0c",
+      "matches": true
+    },
+    "assets/title-trex-BqmwhQpe.png": {
+      "status": 200,
+      "expected": "d0156ac1e432936a70b5f11a191295868aa2a27f658920f84dc4abb0a0204f82",
+      "actual": "d0156ac1e432936a70b5f11a191295868aa2a27f658920f84dc4abb0a0204f82",
+      "matches": true
+    },
+    "assets/vehicles-CP9CNLzZ.webp": {
+      "status": 200,
+      "expected": "16f0624891584733f5a73c7332fc392b074f217f15e2cf09644390c8ff8e9934",
+      "actual": "16f0624891584733f5a73c7332fc392b074f217f15e2cf09644390c8ff8e9934",
+      "matches": true
+    },
+    "assets/sound-safari-CRJmreSh.webp": {
+      "status": 200,
+      "expected": "6298ba430aed520ed44d22252ad5452a5e01746a68529b0f85093af0ac8056f0",
+      "actual": "6298ba430aed520ed44d22252ad5452a5e01746a68529b0f85093af0ac8056f0",
+      "matches": true
+    },
+    "assets/robin-DEL_wsI-.webp": {
+      "status": 200,
+      "expected": "c967a8c5a97727bc3e989e5a01d9aa3fd6853c87a9f3bbc7acc67adca9dc63a0",
+      "actual": "c967a8c5a97727bc3e989e5a01d9aa3fd6853c87a9f3bbc7acc67adca9dc63a0",
+      "matches": true
+    },
+    "assets/satellite-v1-card-DSk5cseM.webp": {
+      "status": 200,
+      "expected": "88b89a91788453d131df79df0637c58d6edebf5df6fbfc1ef8307c66307d9da9",
+      "actual": "88b89a91788453d131df79df0637c58d6edebf5df6fbfc1ef8307c66307d9da9",
+      "matches": true
+    },
+    "assets/fuel-rocket-C-kzj_uU.webp": {
+      "status": 200,
+      "expected": "2d4bd4a6b52197f9b402595e9baac34e5b7094a98be1b364e525dc59b9a36db1",
+      "actual": "2d4bd4a6b52197f9b402595e9baac34e5b7094a98be1b364e525dc59b9a36db1",
+      "matches": true
+    },
+    "assets/ringed-planet-v1-card-D0tycCSp.webp": {
+      "status": 200,
+      "expected": "c43b301bf67b11165b2a39d3313c40dae3c85af9be127afc20423e96f39f236a",
+      "actual": "c43b301bf67b11165b2a39d3313c40dae3c85af9be127afc20423e96f39f236a",
+      "matches": true
+    },
+    "assets/garage-WPCnaFvh.webp": {
+      "status": 200,
+      "expected": "86632f23b10043e45f9251ab5cd46ee8f6aa006eed08b1a611474c3ee0d4704d",
+      "actual": "86632f23b10043e45f9251ab5cd46ee8f6aa006eed08b1a611474c3ee0d4704d",
+      "matches": true
+    },
+    "assets/detective-trike-CrguLdmy.webp": {
+      "status": 200,
+      "expected": "70bcf8f59f3a376c14c75484eaf1f2e16ff15d42bd65cee226d72c49aeadb343",
+      "actual": "70bcf8f59f3a376c14c75484eaf1f2e16ff15d42bd65cee226d72c49aeadb343",
+      "matches": true
+    },
+    "assets/continent-map-Byxkyp1W.svg": {
+      "status": 200,
+      "expected": "f2cf031eea577a99c379e5d0a9afcd29757c23d1b13c0812ed29ac5621428a5f",
+      "actual": "f2cf031eea577a99c379e5d0a9afcd29757c23d1b13c0812ed29ac5621428a5f",
+      "matches": true
+    },
+    "assets/body-BawHkq4O.webp": {
+      "status": 200,
+      "expected": "fa1bde2d90e434719ea3d8588c5b77d6e280cf72215b2f1d148185ffcb4809c9",
+      "actual": "fa1bde2d90e434719ea3d8588c5b77d6e280cf72215b2f1d148185ffcb4809c9",
+      "matches": true
+    },
+    "assets/index-DjnU_ouj.css": {
+      "status": 200,
+      "expected": "82f0502380f5be8bc50f3fb50da2db24bfc899e6765dc345cf107458c9473726",
+      "actual": "82f0502380f5be8bc50f3fb50da2db24bfc899e6765dc345cf107458c9473726",
+      "matches": true
+    },
+    "assets/nature-specimens-COeDdiwv.webp": {
+      "status": 200,
+      "expected": "6e1ff5fe28461e0aafad04a95ce5e2b9423341902dece559344135a4635e1da9",
+      "actual": "6e1ff5fe28461e0aafad04a95ce5e2b9423341902dece559344135a4635e1da9",
+      "matches": true
+    },
+    "assets/comet-v1-card-BIDENn6w.webp": {
+      "status": 200,
+      "expected": "f37aa7714bb66ff09047a24ad2fd1676134bd623fae9109894eeef1c3a5bc545",
+      "actual": "f37aa7714bb66ff09047a24ad2fd1676134bd623fae9109894eeef1c3a5bc545",
+      "matches": true
+    },
+    "assets/treehouse-robots-3d-s6y8m7qr.webp": {
+      "status": 200,
+      "expected": "e065b1e9a1573ef09f5af86f88d0c84a3ffb0da022037561525351db25317f33",
+      "actual": "e065b1e9a1573ef09f5af86f88d0c84a3ffb0da022037561525351db25317f33",
+      "matches": true
+    },
+    "assets/friendly-car-B5B45Yht.png": {
+      "status": 200,
+      "expected": "755322122df5504afae09e3c5dc969688239390d8ac30e9d11143a1253151bc1",
+      "actual": "755322122df5504afae09e3c5dc969688239390d8ac30e9d11143a1253151bc1",
+      "matches": true
+    },
+    "assets/reward-stickers-y1PduhfE.png": {
+      "status": 200,
+      "expected": "65e0a329702110ddad3954b1206807d36b8782e1942dc78ac52eac3b663507da",
+      "actual": "65e0a329702110ddad3954b1206807d36b8782e1942dc78ac52eac3b663507da",
+      "matches": true
+    },
+    "assets/detective-ankylo-BG-VzdVP.webp": {
+      "status": 200,
+      "expected": "56ec84f2ed2c2ac997c986b2c9b212ab83fe80d5d3f26783a03f00db1e79257d",
+      "actual": "56ec84f2ed2c2ac997c986b2c9b212ab83fe80d5d3f26783a03f00db1e79257d",
+      "matches": true
+    },
+    "assets/SolarSystem-DNkpViNk.js": {
+      "status": 200,
+      "expected": "25af209b10f409534d7b975b38844075ecd9c674be9956ef3062ad9c034cfef6",
+      "actual": "25af209b10f409534d7b975b38844075ecd9c674be9956ef3062ad9c034cfef6",
+      "matches": true
+    },
+    "assets/detective-stego-Dl69iVLb.webp": {
+      "status": 200,
+      "expected": "47fdd4d94f4527ea6801c728acb67b2ece9961f7a54255b3e7ba45d8de3033df",
+      "actual": "47fdd4d94f4527ea6801c728acb67b2ece9961f7a54255b3e7ba45d8de3033df",
+      "matches": true
+    },
+    "assets/history-world-CCqb-QTZ.webp": {
+      "status": 200,
+      "expected": "625fec4ac49c2dbfb24a2e9f28c5c0309f4395a249887c812d77b326419f2b4e",
+      "actual": "625fec4ac49c2dbfb24a2e9f28c5c0309f4395a249887c812d77b326419f2b4e",
+      "matches": true
+    },
+    "assets/numbers-BdlzaUgD.webp": {
+      "status": 200,
+      "expected": "2724f5ad4c907429a5be10d3cfd593e58c9dbf1db8e60ebf30ea0271b96b371b",
+      "actual": "2724f5ad4c907429a5be10d3cfd593e58c9dbf1db8e60ebf30ea0271b96b371b",
+      "matches": true
+    },
+    "assets/world-explorer-map-3d-BiOIYdoV.webp": {
+      "status": 200,
+      "expected": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23",
+      "actual": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23",
+      "matches": true
+    },
+    "assets/bg-fuelup-Cgvw5K-0.webp": {
+      "status": 200,
+      "expected": "25abd46d7424b23bd5040516da6ccfa0b5b3c9b665a2102164bad22d7f41ed49",
+      "actual": "25abd46d7424b23bd5040516da6ccfa0b5b3c9b665a2102164bad22d7f41ed49",
+      "matches": true
+    },
+    "assets/shapes-DrmRE4jM.webp": {
+      "status": 200,
+      "expected": "d824f3d3f3e5bf457f30349f0f0b6ba814e5f7ae7b54d1490d3d667079e79809",
+      "actual": "d824f3d3f3e5bf457f30349f0f0b6ba814e5f7ae7b54d1490d3d667079e79809",
+      "matches": true
+    },
+    "assets/dinosaur-egg-v1-K5We_q_K.webp": {
+      "status": 200,
+      "expected": "c99a86c61b8a4f075787793a4d25fc6bf83f5b357623fd1afbd2fbfeeeb6159a",
+      "actual": "c99a86c61b8a4f075787793a4d25fc6bf83f5b357623fd1afbd2fbfeeeb6159a",
+      "matches": true
+    },
+    "assets/bg-dino-DtQjoH27.webp": {
+      "status": 200,
+      "expected": "c1f5675ee2984536c395b8631ee15f439ae2aac7f2596e2b5cff3352edd6ed58",
+      "actual": "c1f5675ee2984536c395b8631ee15f439ae2aac7f2596e2b5cff3352edd6ed58",
+      "matches": true
+    },
+    "assets/dino-river-3d-DS1Pw89d.webp": {
+      "status": 200,
+      "expected": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8",
+      "actual": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8",
+      "matches": true
+    },
+    "assets/nature-world-BS2Jz_Ma.webp": {
+      "status": 200,
+      "expected": "8da4c3c34f1d14bab194dcb07387266b359a8d7dc69f09e43f21351bacda9bdf",
+      "actual": "8da4c3c34f1d14bab194dcb07387266b359a8d7dc69f09e43f21351bacda9bdf",
+      "matches": true
+    },
+    "assets/fire-house-Byz950kD.webp": {
+      "status": 200,
+      "expected": "f4d1cf9404276f898463f60168847132febe0012c7bee6542aa904abe8fae000",
+      "actual": "f4d1cf9404276f898463f60168847132febe0012c7bee6542aa904abe8fae000",
+      "matches": true
+    },
+    "assets/volcano-v1-BFxolvTk.webp": {
+      "status": 200,
+      "expected": "4115ad55de4ef013f711e3bca03da1b26c7cabd4eede6358e332af25804e778d",
+      "actual": "4115ad55de4ef013f711e3bca03da1b26c7cabd4eede6358e332af25804e778d",
+      "matches": true
+    },
+    "assets/askia-memory-treehouse-Cw_L04Vp.webp": {
+      "status": 200,
+      "expected": "c281caa6fb18d6670907e622f583352222147a5344333fd60a9d1e1d073af6a8",
+      "actual": "c281caa6fb18d6670907e622f583352222147a5344333fd60a9d1e1d073af6a8",
+      "matches": true
+    },
+    "assets/geography-world-Iq2wULHl.webp": {
+      "status": 200,
+      "expected": "7bac360632289260a8196127564faf12a74e51060a4d09f89ff4c1977976f38e",
+      "actual": "7bac360632289260a8196127564faf12a74e51060a4d09f89ff4c1977976f38e",
+      "matches": true
+    },
+    "assets/rescue-firetruck-BlvwvPhV.webp": {
+      "status": 200,
+      "expected": "14654bb186584643bb10eae2160fff5fef25534a6e1a455981645541cf15fe4c",
+      "actual": "14654bb186584643bb10eae2160fff5fef25534a6e1a455981645541cf15fe4c",
+      "matches": true
+    },
+    "assets/index-C0iIS2aw.js": {
+      "status": 200,
+      "expected": "aa14481c0e7d9e88cf1f290f9c98bff4c7fd926976bbd1584b1517a3a7bc946b",
+      "actual": "aa14481c0e7d9e88cf1f290f9c98bff4c7fd926976bbd1584b1517a3a7bc946b",
+      "matches": true
+    },
+    "assets/dino-park-CfXqz-J3.jpg": {
+      "status": 200,
+      "expected": "9cd2ce5eb1abbd0bcb28e2ed5f639b6f2590f4db173ef45d3d94a7702d4ec7a1",
+      "actual": "9cd2ce5eb1abbd0bcb28e2ed5f639b6f2590f4db173ef45d3d94a7702d4ec7a1",
+      "matches": true
+    },
+    "assets/web-C7MRb8aV.js": {
+      "status": 200,
+      "expected": "9f43d4d73e2dd309c82c8b6ecfdc9fec9bb48d416f1bf5d0c099a4ba85f640e1",
+      "actual": "9f43d4d73e2dd309c82c8b6ecfdc9fec9bb48d416f1bf5d0c099a4ba85f640e1",
+      "matches": true
+    },
+    "assets/empty-garage-Dh7_uG_S.png": {
+      "status": 200,
+      "expected": "01529ff5be44c0458c5bce0b35bc1930b18a3ca3b158abc4e8deae02e726ff5b",
+      "actual": "01529ff5be44c0458c5bce0b35bc1930b18a3ca3b158abc4e8deae02e726ff5b",
+      "matches": true
+    }
+  },
+  "scope": "Frozen local eight-art delta, independent QA pending, no release or4.5 acceptance."
+}
