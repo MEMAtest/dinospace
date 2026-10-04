@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T18:36:22.097015+00:00",
+  "updatedAt": "2026-10-04T18:40:04.811262+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1380,7 +1380,8 @@
     "supplementIndependentReport": "docs/qa-evidence/narration-supplement-independent-qa-20261004/report.md",
     "runnerFixtureCommit": "e6f96d2",
     "runnerFixtureReport": "docs/qa-evidence/reviewed-narration-supplement-runner-fixture-qa-20261004/report.md",
-    "grammarIndependentReport": "docs/qa-evidence/b4-grammar-narration-selector-independent-qa-20261004/report.md"
+    "grammarIndependentReport": "docs/qa-evidence/b4-grammar-narration-selector-independent-qa-20261004/report.md",
+    "grammarFixtureArchiveFollowup": "3a833253547423ab21ad2207ee0e0007d4e18e50"
   },
   "canonicalLateRevalidation": "docs/qa-evidence/canonical-provider-hash-recheck-20261004-late.json",
   "batch4CleanIntegration": {
@@ -1398,7 +1399,7 @@
     "report": "docs/qa-evidence/batch4-grammar-repair-20261004/report.md",
     "affectedUniquePhrases": 47,
     "unchangedUniquePhrases": 5199,
-    "scope": "Independent regeneration confirms5246 phrases both sides,5199 unchanged and47 exact replacements.18 focused tests/lint/configured build/eight served runtime hashes pass. Independent5384 visible singular starting-object and zero-remainder copy pass; one-remains/compare one-space not naturally UI observed, finite source checks cover those. Recordings/native playback/listening and production acceptance remain pending.",
+    "scope": "Independent regeneration confirms5246 phrases both sides,5199 unchanged and47 exact replacements.18 focused tests/lint/build/eight runtime hashes pass.5384 observedsingularstart/zero explanation; data-identical5385 now independentlyobserved1remains in ordinaryquestion3. One-spacecompare remainsfinite-source-covered, notUIobserved. Recordings/native/listening andproductionacceptancepending.",
     "independentCorpusReport": "docs/qa-evidence/batch4-grammar-corpus-delta-review-20261004.md",
     "independentBrowserReport": "docs/qa-evidence/batch4-grammar-independent-qa-20261004/report.md"
   },
@@ -1413,6 +1414,13 @@
     "source": "4a9ae1cd4cd1293aafae4c10877d5cb6cf8ae029",
     "origin": "http://127.0.0.1:5385",
     "report": "docs/qa-evidence/b4-zero-remain-5385-report-20261004.md",
-    "scope": "Component-only result marker appearsafterlockedzero, neverbeforeanswer. Builderdesktopzero/390preanswer checks and corehashes pass; rootviewedzero screenshot. Independentbounded5385Chapter1 didnotnaturallyproducezero in completedquestions. Group-label contrast followupbeingbuiltseparately. No data/narrationkey oraudio/prod change."
+    "scope": "Component-only result marker appearsafterlockedzero, neverbeforeanswer. Builderdesktopzero/390preanswer checks and corehashes pass; rootviewedzero screenshot. Independentbounded5385Chapter1 didnotnaturallyproducezero in completedquestions. Group-label contrast followupbeingbuiltseparately. No data/narrationkey oraudio/prod change.",
+    "independentReport": "docs/qa-evidence/b4-zero-remain-5385-independent-20261004/report.md"
+  },
+  "batch4LabelContrastRepair": {
+    "source": "9c594dd0e49f5a84588787a084a55aefeec4cdc0",
+    "origin": "http://127.0.0.1:5386",
+    "report": "docs/qa-evidence/b4-zero-remain-5386-20261004-report.md",
+    "scope": "Preserves5385zeroresult, moves opacity40 fromgroupcontainer toillustrationrow. Labelsremainfullopacity; objectsretainfade/motion/removalXs.249existingtests/lint/configbuild/3corehashespass.Independentdesktop390representativeheldlabelQAunderway. Noquestion/answer/narrationdata orreleasedcodechange."
   }
 }

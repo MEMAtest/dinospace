@@ -647,3 +647,12 @@ All 26 contracts remain published; recorded accepted count stays 4/26. The indep
 The frozen5384 grammar repair now has independent source/corpus and rendered-copy evidence: exactly47 replacements/5199 unchanged; visible singular-start and zero-remainder feedback confirmed. Unobserved one-remainder and compare singular-space strings are source-covered, not UI claims. See [corpus review](qa-evidence/batch4-grammar-corpus-delta-review-20261004.md) and [browser delta](qa-evidence/batch4-grammar-independent-qa-20261004/report.md). New47 clips, native playback/cancellation, listening and production gates remain open. The historical ac3 listening worksheet records the original bad strings and must use a corrected-source overlay before later audio acceptance.
 
 Narration worker PID18781 remains live: checkpoint18:03:20Z run272 recorded3935 reused,17 newly generated and1294 pending. This is progress only, not completed audio QA. No provider job was restarted or production deployment made in this reconciliation.
+
+
+## 4 October replacement-job and worked-result visibility progress
+
+The eight-selector narration supervisor now includes the exact47 corrected fe5 phrases. Its independent fake-provider receipt/failure checks pass; rootcombined supervisor/phoneme tests27/27 pass. The fixture now executes SHA-pinned8fec archive bytes and deniesTCP/TLS socket APIs. This prepareslaterfinitegeneration; it has made no paidcall whilePID18781 islive.
+
+A component-only5385 candidate addsvisible`0(empty)` aftera correctzeroanswer, withblankpre-answertray. Builderdesktopzero/rootvisualreviewpass; independentordinaryfivecompletedquestions didnotproducezero butdidobserve corrected`1remains` naturally. A separate5386 candidate alsofixesfaintgroup labels byfadingonlyillustrations.249existingtests/build/lint/threecorehashespass; independentdesktop390labeldelta underway. Frozenoldcandidates retained. Thesearelocalqualityimprovements, nooverall4.5/prodacceptance.
+
+Independenteditorialreconciliationcontinues in four-game sets forBatch3 andBatch5 usingretainedsource-bound matrices; remainingaudio/native/listening/prod gatesstayvisible. Acceptedcount remains4/26.
