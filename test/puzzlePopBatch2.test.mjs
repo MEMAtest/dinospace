@@ -67,3 +67,33 @@ test('progress persists per child and unlocks only after every scene in a chapte
   malformed.setItem(PUZZLE_POP_PROGRESS_KEY, '{broken');
   assert.equal(getPuzzlePopProgress('Amari', malformed).unlockedChapter, 0);
 });
+
+
+test('completed-picture replay never starts with the boundary picture, including repeated seeds', () => {
+  for (let chapter = 0; chapter < 3; chapter += 1) {
+    for (let priorSeed = 1; priorSeed <= 30; priorSeed += 1) {
+      const previous = createPuzzlePopSceneQueue(chapter, priorSeed).map(({ id }) => id);
+      for (let nextSeed = 1; nextSeed <= 100; nextSeed += 1) {
+        const next = createPuzzlePopSceneQueue(chapter, nextSeed, previous).map(({ id }) => id);
+        assert.notEqual(next[0], previous.at(-1));
+        assert.notDeepEqual(next, previous);
+        assert.deepEqual([...next].sort(), [...previous].sort());
+      }
+      // A different chapter must remain complete even when history belongs elsewhere.
+      const other = createPuzzlePopSceneQueue((chapter + 1) % 3, priorSeed, previous);
+      assert.equal(new Set(other.map(({ id }) => id)).size, 4);
+    }
+  }
+});
+
+test('completed-picture history is child-specific and supports partially finished chapter replay', () => {
+  const storage = memoryStorage();
+  const ids = PUZZLE_POP_CHAPTERS[0].scenes.map(({ id }) => id);
+  completePuzzlePopScene('Amari', 0, ids[0], storage);
+  assert.equal(getPuzzlePopProgress('Amari', storage).lastCompletedSceneId, ids[0]);
+  assert.equal(getPuzzlePopProgress('Askia', storage).lastCompletedSceneId, undefined);
+  for (let seed = 1; seed <= 100; seed += 1) {
+    const next = createPuzzlePopSceneQueue(0, seed, [], ids[0]);
+    assert.notEqual(next[0].id, ids[0]);
+  }
+});

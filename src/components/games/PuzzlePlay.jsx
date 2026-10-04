@@ -67,7 +67,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     const nextChapter = PUZZLE_POP_CHAPTERS[nextChapterIndex];
     if (!nextChapter || nextChapterIndex > savedProgress.unlockedChapter) return;
     const nextSeed = createSeed();
-    const nextQueue = createPuzzlePopSceneQueue(nextChapterIndex, nextSeed, savedProgress.lastSceneQueue);
+    const nextQueue = createPuzzlePopSceneQueue(nextChapterIndex, nextSeed, savedProgress.lastSceneQueue, savedProgress.lastCompletedSceneId);
     setChapterIndex(nextChapterIndex);
     setSeed(nextSeed);
     setQueue(nextQueue);

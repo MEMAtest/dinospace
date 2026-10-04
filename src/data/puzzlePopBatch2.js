@@ -76,10 +76,14 @@ export const shufflePuzzlePop = (items, seed) => {
   return result;
 };
 
-export const createPuzzlePopSceneQueue = (chapterIndex, seed, previousQueue = []) => {
+export const createPuzzlePopSceneQueue = (chapterIndex, seed, previousQueue = [], lastCompletedSceneId = previousQueue.at(-1)) => {
   const chapter = PUZZLE_POP_CHAPTERS[chapterIndex] || PUZZLE_POP_CHAPTERS[0];
   let queue = shufflePuzzlePop(chapter.scenes, seed);
-  if (queue.length > 1 && queue.map(({ id }) => id).join('|') === previousQueue.join('|')) {
+  // Rotate the frozen shuffle only at Start: keep each scene once, avoid the
+  // picture just completed, and avoid replaying the identical full order.
+  for (let attempt = 0; attempt < queue.length && queue.length > 1; attempt += 1) {
+    const repeatedOrder = queue.map(({ id }) => id).join('|') === previousQueue.join('|');
+    if (queue[0].id !== lastCompletedSceneId && !repeatedOrder) break;
     queue = [...queue.slice(1), queue[0]];
   }
   return queue;
@@ -111,6 +115,7 @@ const childProgress = (root, playerId) => {
   return {
     unlockedChapter: Number.isInteger(child?.unlockedChapter) ? Math.min(2, Math.max(0, child.unlockedChapter)) : 0,
     completedSceneIds: Array.isArray(child?.completedSceneIds) ? [...new Set(child.completedSceneIds.filter((id) => typeof id === 'string'))] : [],
+    lastCompletedSceneId: typeof child?.lastCompletedSceneId === 'string' ? child.lastCompletedSceneId : undefined,
     lastSceneQueue: Array.isArray(child?.lastSceneQueue) ? child.lastSceneQueue.filter((id) => typeof id === 'string') : [],
   };
 };
@@ -138,7 +143,7 @@ export const completePuzzlePopScene = (playerId, chapterIndex, sceneId, storage 
   const chapterComplete = chapterSceneIds.length > 0 && chapterSceneIds.every((id) => completedSceneIds.includes(id));
   const unlockedChapter = chapterComplete ? Math.min(2, Math.max(before, chapterIndex + 1)) : before;
   return {
-    ...writeProgress(root, playerId, { ...child, completedSceneIds, unlockedChapter }, storage),
+    ...writeProgress(root, playerId, { ...child, completedSceneIds, unlockedChapter, lastCompletedSceneId: sceneId }, storage),
     chapterComplete,
     newlyUnlocked: unlockedChapter > before,
   };
