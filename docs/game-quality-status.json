@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T05:29:08.256919+00:00",
+  "updatedAt": "2026-10-04T05:48:43.003474+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -297,7 +297,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "PID18781 confirmedlive thisturn;04:36:20Zrun112reports1575reused3591pending,last15generated,zero retries,expectedrequestwindowwait. No restart/concurrentpaidworker.",
+    "voiceCoverage": "PID18781 confirmed live;05:46:54Zrun126 reports1777reused3390pending,last14generated,zero retries,expected request-window wait. No restart/concurrent paid worker.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -348,7 +348,7 @@
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
     "runtimeSource": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
-    "scope": "Full baseline retained; latest independently checked artwork candidate Garden8ff59e4 at5316 has60/87 illustrations. Party5317 at64/87 remains separate builder-only candidate awaiting independent checks. Remainingart/audio/editorial/release gates stay open.",
+    "scope": "Full baseline retained; Party5317 independently passed scoped decoration checks at64/87, followed by Food5318 independently passed scoped food-art checks at68/87. Garden critters implementation underway. Audio, remaining art, editorial and production acceptance remain open.",
     "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md",
     "memory374IndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-premium-independent-20261003/report.md",
     "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7",
@@ -579,7 +579,9 @@
   },
   "nextIndependentEditorialWork": {
     "game": "Spot the Difference",
-    "scope": "Finite seven-scene relevance audit and fresh normally earned Challenge interaction gates at desktop and 390px, using retained full baseline plus explicit deltas. Independent reviewer assigned; no acceptance yet."
+    "commit": "2c052ab",
+    "report": "docs/qa-evidence/spot-challenge-c478-review-20261004/report.md",
+    "scope": "Canonical c478 all12 scenes both widths completed via visible labeled target controls. Chapter progression/replay/held facts/parent navigation/reload/56px target geometry/hash/guards/console pass. This does not prove unaided visual discovery. Challenge4 authored thematic SVG variants defensible; Starter/Growing8 generic badges need scene-object repairs."
   },
   "puzzleTitleRepair": {
     "sourceSha": "2084095",
@@ -617,6 +619,30 @@
     "origin": "http://127.0.0.1:5320",
     "identity": "docs/qa-evidence/spot-river-pair-identity-20261004.json",
     "provenance": "docs/qa-evidence/spot-river-pair-provenance-20261004.json",
-    "scope": "One River Valley A/B pair uses real raster changes: sun to crescent, pink flower to yellow, one missing bridge post. No answer glyph layer on paired art.18 focusedtests/scopedlint/prodconfigbuildpass.56px hit-target edge test caught flower overflow at minimum280x210frame; center moved within sameflower to86percent and test passes. Independent unwanted-difference and normalUI desktop390 checks assigned/pending. One new middle-area packaged hint missing. Local prototype only, no full12pair, production or4.5 acceptance."
+    "scope": "Rejected raw full-image River5320 prototype: independent reviewer found unintended dinosaur movement and background redraw beyond3intended changes. Old origin retained; rejection report in progress. No release or acceptance."
+  },
+  "memoryPartyIndependent": {
+    "sourceSha": "eb869cd76eebbe906afc59bd55a9f54c67eb1307",
+    "commit": "3c8c229",
+    "correctionCommit": "d42761e",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-party-decorations-independent-eb869cd7-20261004/report.md",
+    "scope": "Normal-earned Party12 pairs at1280/390; four artwork mappings, captions,82px mobile cards,48px selectors,24 face-down zero images,reload and frozen hashes passed. Guards before navigation; API/console0. Builder inventory64/87 is separate. Local only; no audio/production/4.5 acceptance."
+  },
+  "memoryFoodIndependent": {
+    "sourceSha": "af84ae26525b1349e309b904058bc5b18d1d7daa",
+    "commit": "8e87212",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-food-four-independent-af84ae26-20261004/report.md",
+    "scope": "Normal-earned Levels1-6 then complete Food15pairs at1280/390; Carrot/Corn/Biscuit/Cheese revealed through visible flips. Full captions,82px mobile cards,48px selectors,30 face-down zero images,reload and frozen hashes passed. Guards before navigation; API/console0. Builder inventory68/87 is separate. Local only; audio/production/4.5 open."
+  },
+  "spotBoundedRegionPrototype": {
+    "sourceSha": "bff12e2025a3d45b123a23a7f838d36500772a0e",
+    "origin": "http://127.0.0.1:5321",
+    "identity": "docs/qa-evidence/spot-river-regions-identity-20261004.json",
+    "scope": "Original A base plus3clipped sky/flower/bridge edit regions;19focusedtests/scopedlint/build pass. Independent visible seams/unintended changes and actual controls pending. One middle-area hint missing packaged narration. Local only; no release/4.5 acceptance."
+  },
+  "spotStarterPreparedArt": {
+    "commit": "1d2d691",
+    "provenance": "docs/qa-evidence/spot-starter-three-art-provenance-20261004.json",
+    "scope": "City/DinoPark/MoonCamp original edited PNGs retained unchanged with encoding-only WebP derivatives. Not wired into runtime; integration waits for bounded-region visual acceptance. Full-image redraws are not accepted."
   }
 }

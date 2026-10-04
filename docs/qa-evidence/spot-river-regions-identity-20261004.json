@@ -1,0 +1,61 @@
+{
+  "createdAt": "2026-10-04T05:40:34.641095+00:00",
+  "sourceSha": "bff12e2025a3d45b123a23a7f838d36500772a0e",
+  "origin": "http://127.0.0.1:5321",
+  "frozenDist": "tmp/spot-river-regions-bff12e2/dist",
+  "priorCandidate": "http://127.0.0.1:5320 retained unchanged; full-image edit rejected for incidental background/dinosaur changes",
+  "scope": "One local River pair revision. B renders original A base plus three clipped regions from generated B: sky, flower, bridge post. Outside regions uses unchanged original image.19 focusedtests/scopedlint/prodconfigbuildpass. Independent seam/unwanted-difference/rendered controls QA pending. No release/4.5 acceptance.",
+  "missingNarration": [
+    {
+      "key": "a44acc87",
+      "text": "Look near the middle area of Picture B."
+    }
+  ],
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "5d420a94b5be5ea9af7662a9dd6eb6701a65d036a8b8d9259ef672e547efa94c"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-CvhFsa4J.js",
+      "bytes": 18854,
+      "sha256": "3043f766ec287589fa9830154c409302802f2e7a7bab228f6dc2610bd63228a6"
+    },
+    {
+      "path": "/assets/web-BpP6iRVK.js",
+      "bytes": 842,
+      "sha256": "0f985e2e131222d8e05315736602ea7d323e137c046e816ca5cb59f7e2b8319e"
+    },
+    {
+      "path": "/assets/SolarSystem-BoSuYE8p.js",
+      "bytes": 563158,
+      "sha256": "06be1d69ea38ed0564d85107b0115d59064231b8804bd254c28954e3359b8b05"
+    },
+    {
+      "path": "/assets/index-CT2zL8hh.js",
+      "bytes": 1239045,
+      "sha256": "04b2781421399fe58f74cbbcb578857f1cc4185b3e3988980e66f4eb43980dd6"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-D0bXTTnW.js",
+      "bytes": 19956,
+      "sha256": "aa61efeba9120d724dde123031e3b7f802562a617ae6c4d90bfa3ff05852c1b8"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/river-valley-pair-b-v1-BvZSBbF5.webp",
+      "bytes": 353174,
+      "sha256": "9b254a872bf0d3d01489333ae7da8dd5aba52f04c3e4c367c3b12a66eb9ead5b"
+    },
+    {
+      "path": "/assets/dino-river-3d-DS1Pw89d.webp",
+      "bytes": 415714,
+      "sha256": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8"
+    }
+  ]
+}
