@@ -1,0 +1,30 @@
+{
+  "id": "dpl_HCEz1pyWWjqAhaLCbwYqqg8C28v4",
+  "url": "https://dinospace-etwsszjnp-memas-projects-23a0001d.vercel.app",
+  "readyState": "READY",
+  "target": "production",
+  "gitCommitSha": "a577082243a956a4c88a17e3223d9bda412a5c3e",
+  "auditedRuntimeSource": "40c053408d47ca76ff26cc8ae5c2e8ad9bb99d70",
+  "canonicalBaseline": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+  "assets": [
+    {
+      "path": "index.html",
+      "http": 200,
+      "sha256": "86a866475b715a4d91275944aa82445363e6f50d6a62520c5e80ecee79b1001d",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/index--CRU6w9L.js",
+      "http": 200,
+      "sha256": "92cf7f6f1c81f82d625a9962429f34ad44e53a8c3de5060886e8b3952a4a59dc",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/index-vOQrpuVv.css",
+      "http": 200,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "matchesLocal": true
+    }
+  ],
+  "scope": "Immutable production target; no canonical promotion; live browser acceptance pending."
+}
