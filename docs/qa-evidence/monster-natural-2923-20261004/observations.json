@@ -1,0 +1,404 @@
+{
+  "sample1": {
+    "targetFound": false,
+    "proof": [
+      {
+        "run": 1,
+        "round": 1,
+        "prompt": "What is 13 take away 1?",
+        "answer": 12
+      },
+      {
+        "run": 1,
+        "round": 2,
+        "prompt": "What is 16 take away 4?",
+        "answer": 12
+      },
+      {
+        "run": 1,
+        "round": 3,
+        "prompt": "What is 8 plus 4?",
+        "answer": 12
+      },
+      {
+        "run": 1,
+        "round": 4,
+        "prompt": "What is 9 plus 7?",
+        "answer": 16
+      },
+      {
+        "run": 1,
+        "round": 5,
+        "prompt": "What is 17 take away 11?",
+        "answer": 6
+      },
+      {
+        "run": 1,
+        "round": 6,
+        "prompt": "What is 16 plus 3?",
+        "answer": 19
+      },
+      {
+        "run": 2,
+        "round": 1,
+        "prompt": "What is 3 plus 15?",
+        "answer": 18
+      },
+      {
+        "run": 2,
+        "round": 2,
+        "prompt": "What is 15 take away 7?",
+        "answer": 8
+      },
+      {
+        "run": 2,
+        "round": 3,
+        "prompt": "What is 12 take away 11?",
+        "answer": 1
+      },
+      {
+        "run": 2,
+        "round": 4,
+        "prompt": "What is 1 plus 5?",
+        "answer": 6
+      },
+      {
+        "run": 2,
+        "round": 5,
+        "prompt": "What is 10 plus 6?",
+        "answer": 16
+      },
+      {
+        "run": 2,
+        "round": 6,
+        "prompt": "What is 10 take away 8?",
+        "answer": 2
+      },
+      {
+        "run": 3,
+        "round": 1,
+        "prompt": "What is 4 plus 3?",
+        "answer": 7
+      },
+      {
+        "run": 3,
+        "round": 2,
+        "prompt": "What is 3 plus 17?",
+        "answer": 20
+      },
+      {
+        "run": 3,
+        "round": 3,
+        "prompt": "What is 16 take away 6?",
+        "answer": 10
+      },
+      {
+        "run": 3,
+        "round": 4,
+        "prompt": "What is 2 take away 1?",
+        "answer": 1
+      },
+      {
+        "run": 3,
+        "round": 5,
+        "prompt": "What is 13 take away 7?",
+        "answer": 6
+      },
+      {
+        "run": 3,
+        "round": 6,
+        "prompt": "What is 8 plus 4?",
+        "answer": 12
+      },
+      {
+        "run": 4,
+        "round": 1,
+        "prompt": "What is 6 take away 2?",
+        "answer": 4
+      },
+      {
+        "run": 4,
+        "round": 2,
+        "prompt": "What is 2 plus 11?",
+        "answer": 13
+      },
+      {
+        "run": 4,
+        "round": 3,
+        "prompt": "What is 13 plus 1?",
+        "answer": 14
+      },
+      {
+        "run": 4,
+        "round": 4,
+        "prompt": "What is 8 take away 3?",
+        "answer": 5
+      },
+      {
+        "run": 4,
+        "round": 5,
+        "prompt": "What is 7 take away 2?",
+        "answer": 5
+      },
+      {
+        "run": 4,
+        "round": 6,
+        "prompt": "What is 20 take away 17?",
+        "answer": 3
+      },
+      {
+        "run": 5,
+        "round": 1,
+        "prompt": "What is 7 plus 4?",
+        "answer": 11
+      },
+      {
+        "run": 5,
+        "round": 2,
+        "prompt": "What is 9 plus 11?",
+        "answer": 20
+      },
+      {
+        "run": 5,
+        "round": 3,
+        "prompt": "What is 14 take away 5?",
+        "answer": 9
+      },
+      {
+        "run": 5,
+        "round": 4,
+        "prompt": "What is 19 take away 1?",
+        "answer": 18
+      },
+      {
+        "run": 5,
+        "round": 5,
+        "prompt": "What is 7 plus 7?",
+        "answer": 14
+      },
+      {
+        "run": 5,
+        "round": 6,
+        "prompt": "What is 16 take away 14?",
+        "answer": 2
+      }
+    ]
+  },
+  "sample2": {
+    "targetFound": false,
+    "proof": [
+      {
+        "run": 1,
+        "round": 1,
+        "prompt": "What is 12 plus 6?"
+      },
+      {
+        "run": 1,
+        "round": 2,
+        "prompt": "What is 3 plus 6?"
+      },
+      {
+        "run": 1,
+        "round": 3,
+        "prompt": "What is 12 plus 4?"
+      },
+      {
+        "run": 1,
+        "round": 4,
+        "prompt": "What is 9 plus 6?"
+      },
+      {
+        "run": 1,
+        "round": 5,
+        "prompt": "What is 8 plus 1?"
+      },
+      {
+        "run": 1,
+        "round": 6,
+        "prompt": "What is 5 plus 13?"
+      },
+      {
+        "run": 2,
+        "round": 1,
+        "prompt": "What is 8 plus 8?"
+      },
+      {
+        "run": 2,
+        "round": 2,
+        "prompt": "What is 17 take away 5?"
+      },
+      {
+        "run": 2,
+        "round": 3,
+        "prompt": "What is 17 take away 1?"
+      },
+      {
+        "run": 2,
+        "round": 4,
+        "prompt": "What is 15 plus 3?"
+      },
+      {
+        "run": 2,
+        "round": 5,
+        "prompt": "What is 12 plus 2?"
+      },
+      {
+        "run": 2,
+        "round": 6,
+        "prompt": "What is 19 take away 6?"
+      },
+      {
+        "run": 3,
+        "round": 1,
+        "prompt": "What is 18 take away 11?"
+      },
+      {
+        "run": 3,
+        "round": 2,
+        "prompt": "What is 14 take away 7?"
+      },
+      {
+        "run": 3,
+        "round": 3,
+        "prompt": "What is 10 take away 7?"
+      },
+      {
+        "run": 3,
+        "round": 4,
+        "prompt": "What is 16 take away 8?"
+      },
+      {
+        "run": 3,
+        "round": 5,
+        "prompt": "What is 6 plus 9?"
+      },
+      {
+        "run": 3,
+        "round": 6,
+        "prompt": "What is 10 plus 9?"
+      },
+      {
+        "run": 4,
+        "round": 1,
+        "prompt": "What is 12 take away 10?"
+      },
+      {
+        "run": 4,
+        "round": 2,
+        "prompt": "What is 18 take away 8?"
+      },
+      {
+        "run": 4,
+        "round": 3,
+        "prompt": "What is 17 take away 8?"
+      },
+      {
+        "run": 4,
+        "round": 4,
+        "prompt": "What is 19 take away 3?"
+      },
+      {
+        "run": 4,
+        "round": 5,
+        "prompt": "What is 12 plus 3?"
+      },
+      {
+        "run": 4,
+        "round": 6,
+        "prompt": "What is 16 plus 1?"
+      },
+      {
+        "run": 5,
+        "round": 1,
+        "prompt": "What is 8 take away 7?"
+      },
+      {
+        "run": 5,
+        "round": 2,
+        "prompt": "What is 7 take away 5?"
+      },
+      {
+        "run": 5,
+        "round": 3,
+        "prompt": "What is 3 plus 2?"
+      },
+      {
+        "run": 5,
+        "round": 4,
+        "prompt": "What is 19 take away 2?"
+      },
+      {
+        "run": 5,
+        "round": 5,
+        "prompt": "What is 4 plus 2?"
+      },
+      {
+        "run": 5,
+        "round": 6,
+        "prompt": "What is 8 take away 2?"
+      }
+    ]
+  },
+  "story-jumps": {
+    "afterKeyboard": "At 14. 8 jumps to go.",
+    "steps": [
+      "0/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n\u25cf\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps.\n\nJump one step back\nStart again\n\nAt 14. 8 jumps to go.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nLook for the words \u201cgives away\u201d and \u201cleft.\u201d Take some from the first group.",
+      "0/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n6\n7\n8\n9\n10\n11\n12\n\u25cf\n13\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps.\n\nJump one step back\nStart again\n\nAt 13. 7 jumps to go.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nLook for the words \u201cgives away\u201d and \u201cleft.\u201d Take some from the first group.",
+      "0/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n6\n7\n8\n9\n10\n11\n\u25cf\n12\n13\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps.\n\nJump one step back\nStart again\n\nAt 12. 6 jumps to go.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nLook for the words \u201cgives away\u201d and \u201cleft.\u201d Take some from the first group.",
+      "0/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n6\n7\n8\n9\n10\n\u25cf\n11\n12\n13\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps.\n\nJump one step back\nStart again\n\nAt 11. 5 jumps to go.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nLook for the words \u201cgives away\u201d and \u201cleft.\u201d Take some from the first group.",
+      "0/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n6\n7\n8\n9\n\u25cf\n10\n11\n12\n13\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps.\n\nJump one step back\nStart again\n\nAt 10. 4 jumps to go.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nLook for the words \u201cgives away\u201d and \u201cleft.\u201d Take some from the first group.",
+      "0/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n6\n7\n8\n\u25cf\n9\n10\n11\n12\n13\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps.\n\nJump one step back\nStart again\n\nAt 9. 3 jumps to go.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nLook for the words \u201cgives away\u201d and \u201cleft.\u201d Take some from the first group.",
+      "0/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n6\n7\n\u25cf\n8\n9\n10\n11\n12\n13\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps.\n\nJump one step back\nStart again\n\nAt 8. 2 jumps to go.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nLook for the words \u201cgives away\u201d and \u201cleft.\u201d Take some from the first group.",
+      "0/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n6\n\u25cf\n7\n8\n9\n10\n11\n12\n13\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps.\n\nJump one step back\nStart again\n\nAt 7. 1 jump to go.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nLook for the words \u201cgives away\u201d and \u201cleft.\u201d Take some from the first group.",
+      "0/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n\u25cf\n6\n7\n8\n9\n10\n11\n12\n13\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps.\n\nJump one step back\nStart again\n\nAt 6. All jumps done.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nLook for the words \u201cgives away\u201d and \u201cleft.\u201d Take some from the first group."
+    ],
+    "disabled": true
+  },
+  "story-complete": {
+    "proof": [
+      {
+        "prompt": "Bo has 15 balloons. Bo gives 9 balloons away. How many are left?",
+        "answer": 6,
+        "held": "1/6\n\nWORD-PROBLEMS\n\nBo has 15 balloons. Bo gives 9 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n4\n5\n\u2713\n6\n\ud83c\udf88\n7\n\ud83c\udf88\n8\n\ud83c\udf88\n9\n\ud83c\udf88\n10\n\ud83c\udf88\n11\n\ud83c\udf88\n12\n\ud83c\udf88\n13\n\ud83c\udf88\n14\n\u25cf\n15\n16\n17\n\nStart at 15, then jump back 9 steps to 6.\n\nCHOOSE THE ANSWER\n\n9\n3\n4\n6\nClue shown\n\nBo starts with 15 balloons. Bo gives 9 balloons away. 6 balloons are left.\n\nNext question"
+      },
+      {
+        "prompt": "Nia has 8 gems. Nia finds 9 more. How many gems are there now?",
+        "answer": 17,
+        "held": "2/6\n\nWORD-PROBLEMS\n\nNia has 8 gems. Nia finds 9 more. How many gems are there now?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n6\n7\n\u25cf\n8\n\ud83d\udc8e\n9\n\ud83d\udc8e\n10\n\ud83d\udc8e\n11\n\ud83d\udc8e\n12\n\ud83d\udc8e\n13\n\ud83d\udc8e\n14\n\ud83d\udc8e\n15\n\ud83d\udc8e\n16\n\u2713\n17\n18\n19\n\nStart at 8, then jump forward 9 steps to 17.\n\nCHOOSE THE ANSWER\n\n17\n15\n14\n16\nTry the jumps\n\nNia had 8 gems. Nia found 9 more. Now there are 17 gems.\n\nNext question"
+      },
+      {
+        "prompt": "Tess has 16 stars. Tess gives 8 stars away. How many are left?",
+        "answer": 8,
+        "held": "3/6\n\nWORD-PROBLEMS\n\nTess has 16 stars. Tess gives 8 stars away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n6\n7\n\u2713\n8\n\u2b50\n9\n\u2b50\n10\n\u2b50\n11\n\u2b50\n12\n\u2b50\n13\n\u2b50\n14\n\u2b50\n15\n\u25cf\n16\n17\n18\n\nStart at 16, then jump back 8 steps to 8.\n\nCHOOSE THE ANSWER\n\n8\n4\n5\n9\nTry the jumps\n\nTess starts with 16 stars. Tess gives 8 stars away. 8 stars are left.\n\nNext question"
+      },
+      {
+        "prompt": "Bo has 13 balloons. Bo gives 6 balloons away. How many are left?",
+        "answer": 7,
+        "held": "4/6\n\nWORD-PROBLEMS\n\nBo has 13 balloons. Bo gives 6 balloons away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n5\n6\n\u2713\n7\n\ud83c\udf88\n8\n\ud83c\udf88\n9\n\ud83c\udf88\n10\n\ud83c\udf88\n11\n\ud83c\udf88\n12\n\u25cf\n13\n14\n15\n\nStart at 13, then jump back 6 steps to 7.\n\nCHOOSE THE ANSWER\n\n3\n7\n11\n9\nTry the jumps\n\nBo starts with 13 balloons. Bo gives 6 balloons away. 7 balloons are left.\n\nNext question"
+      },
+      {
+        "prompt": "Bo has 5 balloons. Bo finds 8 more. How many balloons are there now?",
+        "answer": 13,
+        "held": "5/6\n\nWORD-PROBLEMS\n\nBo has 5 balloons. Bo finds 8 more. How many balloons are there now?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n3\n4\n\u25cf\n5\n\ud83c\udf88\n6\n\ud83c\udf88\n7\n\ud83c\udf88\n8\n\ud83c\udf88\n9\n\ud83c\udf88\n10\n\ud83c\udf88\n11\n\ud83c\udf88\n12\n\u2713\n13\n14\n15\n\nStart at 5, then jump forward 8 steps to 13.\n\nCHOOSE THE ANSWER\n\n10\n16\n13\n14\nTry the jumps\n\nBo had 5 balloons. Bo found 8 more. Now there are 13 balloons.\n\nNext question"
+      },
+      {
+        "prompt": "Ava has 11 flowers. Ava gives 10 flowers away. How many are left?",
+        "answer": 1,
+        "held": "6/6\n\nWORD-PROBLEMS\n\nAva has 11 flowers. Ava gives 10 flowers away. How many are left?\nHear the question again\n\nNUMBER LINE \u00b7 FOLLOW EACH JUMP\n\n0\n\u2713\n1\n\ud83c\udf3c\n2\n\ud83c\udf3c\n3\n\ud83c\udf3c\n4\n\ud83c\udf3c\n5\n\ud83c\udf3c\n6\n\ud83c\udf3c\n7\n\ud83c\udf3c\n8\n\ud83c\udf3c\n9\n\ud83c\udf3c\n10\n\u25cf\n11\n12\n13\n\nStart at 11, then jump back 10 steps to 1.\n\nCHOOSE THE ANSWER\n\n1\n2\n0\n3\nTry the jumps\n\nAva starts with 11 flowers. Ava gives 10 flowers away. One flower is left.\n\nFinish episode"
+      }
+    ],
+    "complete": "Monster Story Problems"
+  },
+  "map": {
+    "width": {
+      "viewport": 390,
+      "body": 390,
+      "document": 390
+    },
+    "text": "Count the pictures, move counters, and solve a short story. Every answer stays on screen until you choose Next.\n\nEPISODE 1 \u00b7 STARTER\n\u2713 Count to 10\nCount each monster snack or space treasure once.\nEPISODE 2 \u00b7 GROWING\n\u2713 Add and Take Away\nUse counters and a ten frame to solve sums to 20.\nEPISODE 3 \u00b7 CHALLENGE\n\u2713 Monster Story Problems\nListen to a short story and show what changed.\n\nCHALLENGE EPISODE\n\nMonster Story Problems\n\nListen to a short story and show what changed.\n\n1. Count to 10 \u2605\u2605\u2605\n2. Add and Take Away \u2605\u2605\u2605\n3. Monster Story Problems \u2605\u2605\u2605\nReplay this episode"
+  },
+  "parent": {
+    "url": "https://dinospace-eight.vercel.app/#/world/maths",
+    "heading": "Maths Missions"
+  }
+}

@@ -1,0 +1,6 @@
+### Result
+{"width":{"viewport":390,"body":390,"document":390},"text":"Count the pictures, move counters, and solve a short story. Every answer stays on screen until you choose Next.\n\nEPISODE 1 · STARTER\n✓ Count to 10\nCount each monster snack or space treasure once.\nEPISODE 2 · GROWING\n✓ Add and Take Away\nUse counters and a ten frame to solve sums to 20.\nEPISODE 3 · CHALLENGE\n✓ Monster Story Problems\nListen to a short story and show what changed.\n\nCHALLENGE EPISODE\n\nMonster Story Problems\n\nListen to a short story and show what changed.\n\n1. Count to 10 ★★★\n2. Add and Take Away ★★★\n3. Monster Story Problems ★★★\nReplay this episode"}
+### Ran Playwright code
+```js
+await (async(page)=>{await page.getByRole("button",{name:"Episode map",exact:true}).click();await page.screenshot({path:"docs/qa-evidence/monster-natural-2923-20261004/mobile-story-map-saved.png",fullPage:true});await page.reload();await page.getByText("Episode completion rewards",{exact:true}).count();return{width:await page.evaluate(()=>({viewport:innerWidth,body:document.body.scrollWidth,document:document.documentElement.scrollWidth})),text:await page.getByRole("main").innerText()};})(page);
+```

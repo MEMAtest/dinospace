@@ -1,0 +1,9 @@
+### Result
+{"url":"https://dinospace-eight.vercel.app/#/world/maths","heading":"Maths Missions"}
+### Ran Playwright code
+```js
+await (async(page)=>{await page.getByRole("button",{name:"Back to learning world",exact:true}).click();const confirm=page.getByRole("button",{name:"Back to world",exact:true});if(await confirm.isVisible())await confirm.click();await page.getByRole("heading",{name:"Maths Missions",exact:true}).waitFor();await page.screenshot({path:"docs/qa-evidence/monster-natural-2923-20261004/mobile-parent-world.png",fullPage:true});return{url:page.url(),heading:await page.getByRole("heading",{name:"Maths Missions",exact:true}).innerText()};})(page);
+```
+### Page
+- Page URL: https://dinospace-eight.vercel.app/#/world/maths
+- Page Title: Amari Discovery
