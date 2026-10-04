@@ -1,0 +1,55 @@
+- generic [ref=e503]:
+  - banner [ref=e504]:
+    - button "Back to home" [ref=e505] [cursor=pointer]
+    - generic [ref=e508]:
+      - heading "Explore & Languages" [level=1] [ref=e509]
+      - paragraph [ref=e510]: Space, dinosaurs, languages and the wider world
+    - button "Turn sound on" [ref=e511] [cursor=pointer]
+  - button "🎲 Surprise me" [ref=e517] [cursor=pointer]
+  - generic [ref=e518]:
+    - generic [ref=e519]:
+      - button "The solar system Discover Solar System Visit the planets" [ref=e520] [cursor=pointer]:
+        - generic [ref=e523]:
+          - img "The solar system" [ref=e525]
+          - generic [ref=e538]:
+            - generic [ref=e539]: Discover
+            - heading "Solar System" [level=2] [ref=e540]
+            - paragraph [ref=e541]: Visit the planets
+      - button "Add Solar System to favourites" [ref=e545] [cursor=pointer]: ☆
+    - generic [ref=e546]:
+      - button "Astronaut mission Discover Astronaut Academy Explore space heroes" [ref=e547] [cursor=pointer]:
+        - generic [ref=e550]:
+          - img "Astronaut mission" [ref=e552]
+          - generic [ref=e564]:
+            - generic [ref=e565]: Discover
+            - heading "Astronaut Academy" [level=2] [ref=e566]
+            - paragraph [ref=e567]: Explore space heroes
+      - button "Add Astronaut Academy to favourites" [ref=e571] [cursor=pointer]: ☆
+    - generic [ref=e572]:
+      - button "Trix the triceratops Discover Dino Detective Find hidden dinosaurs!" [ref=e573] [cursor=pointer]:
+        - generic [ref=e576]:
+          - img "Trix the triceratops" [ref=e578]
+          - generic [ref=e584]:
+            - generic [ref=e585]: Discover
+            - heading "Dino Detective" [level=2] [ref=e586]
+            - paragraph [ref=e587]: Find hidden dinosaurs!
+      - button "Add Dino Detective to favourites" [ref=e591] [cursor=pointer]: ☆
+    - generic [ref=e592]:
+      - button "German garage car Words German Garage Explore colours, vehicles, parts and directions in German" [ref=e593] [cursor=pointer]:
+        - generic [ref=e596]:
+          - img "German garage car" [ref=e598]
+          - generic [ref=e611]:
+            - generic [ref=e612]: Words
+            - heading "German Garage" [level=2] [ref=e613]
+            - paragraph [ref=e614]: Explore colours, vehicles, parts and directions in German
+      - button "Add German Garage to favourites" [ref=e618] [cursor=pointer]: ☆
+    - generic [ref=e619]:
+      - button "NEW Curriculum Quest world map Discover Curriculum Quest Geography, history and science" [ref=e620] [cursor=pointer]:
+        - generic [ref=e623]: NEW
+        - generic [ref=e625]:
+          - img "Curriculum Quest world map" [ref=e627]
+          - generic [ref=e637]:
+            - generic [ref=e638]: Discover
+            - heading "Curriculum Quest" [level=2] [ref=e639]
+            - paragraph [ref=e640]: Geography, history and science
+      - button "Add Curriculum Quest to favourites" [ref=e644] [cursor=pointer]: ☆
