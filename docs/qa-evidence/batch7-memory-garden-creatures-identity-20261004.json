@@ -1,0 +1,62 @@
+{
+  "createdAt": "2026-10-04T05:08:00Z",
+  "scope": "Add distinct bee, butterfly, ladybird, and snail illustrations to existing Amari Memory Match tokens. Preserve board contents, token names, pair counts, progression, Askia, and face-down hiding.",
+  "sourceCommit": "8ff59e48f0248bac8e4410a008c8b7a0d9f03f7f",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5316",
+    "frozenDist": "tmp/batch7-memory-garden-creatures-final/dist",
+    "priorFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-fossils-final/dist",
+      "tmp/batch7-memory-isolated-space-final/dist",
+      "tmp/batch7-memory-party-food-final/dist",
+      "tmp/batch7-memory-fruit-art-final-v3/dist",
+      "tmp/batch7-memory-ocean-completion-final/dist"
+    ]
+  },
+  "integratedTokens": [
+    {"token":"🐝","label":"Bee","original":"src/assets/memory-match/garden-bee-v1.png","originalSha256":"6b5eff887825d9bc08cd73d70ff200f590ecce49756d8e068d69ada72899f44e","webp":"/assets/garden-bee-v1-card-1yYhz_wO.webp","webpDimensions":[512,512],"bytes":49152,"webpSha256":"d0171f8e5eff142ad547902bbd3f51946c40f8005eab5959df7306d72485e58b","contexts":["Garden & Pond Life"]},
+    {"token":"🦋","label":"Butterfly","original":"src/assets/memory-match/garden-butterfly-v1.png","originalSha256":"0952744c29ed047fec0a2976aace08867ca43d288c25a2c95463766d5efc2713","webp":"/assets/garden-butterfly-v1-card-9Y3B8fXF.webp","webpDimensions":[512,424],"bytes":51948,"webpSha256":"0b2073bd929753a37cbfdb67fa2ff4061e282748b2af1434392ec05c7bc03d82","contexts":["Garden & Pond Life"]},
+    {"token":"🐞","label":"Ladybird","original":"src/assets/memory-match/garden-ladybird-v1.png","originalSha256":"042ebe18c89437075e8fba4d021afc66aed6cc089082a6ee603683f7d09bf29e","webp":"/assets/garden-ladybird-v1-card-7_2PAs34.webp","webpDimensions":[512,427],"bytes":29902,"webpSha256":"2901711ae6a1a7507921806f426bafec36cd24b07a214c4c1328a6387d207640","contexts":["Garden & Pond Life"]},
+    {"token":"🐌","label":"Snail","original":"src/assets/memory-match/garden-snail-v1.png","originalSha256":"f8166e1e2be9c50908aba469e37950ea7b2046b7bb096956e3c9a0afba2ca836","webp":"/assets/garden-snail-v1-card-CeiAS19L.webp","webpDimensions":[512,430],"bytes":47838,"webpSha256":"7f746f3c82559ab610af117b8dd590563ed921e8bbccf3daa7bb4f4d45157be1","contexts":["Garden & Pond Life"]}
+  ],
+  "renderedUiChecks": {
+    "profileAndProgression":"Fresh isolated Playwright profile. Entered Amari Memory Match via visible chooser and completed Levels 1–8 normally through visible card buttons, visible Next controls, and accessible labels read only after actual flips. Synthetic earned progress only; no hidden card fronts, React state, seeded deck answers, or direct progress writes.",
+    "gardenDiscovery": {
+      "level":9,
+      "pairs":17,
+      "cards":34,
+      "desktop1280":{"viewport":[1280,800],"card":[149,149],"newArtCards":8,"fullCaptions":["bee","butterfly","ladybird","snail"],"naturalImageDimensions":[[512,512],[512,424],[512,427],[512,430]],"artCaptionOverlap":false,"screenshot":"docs/qa-evidence/batch7-memory-garden-creatures-builder-images/garden-creatures-desktop.png"},
+      "mobile390":{"viewport":[390,844],"documentWidth":390,"fullPageHeight":1486,"card":[82,82],"artRow":[72,30.4],"captionRow":[72,17.2],"newArtCards":8,"fullCaptions":["bee","butterfly","ladybird","snail"],"allImagesLoaded":true,"artCaptionOverlap":false,"screenshot":"docs/qa-evidence/batch7-memory-garden-creatures-builder-images/garden-creatures-mobile.png"},
+      "faceDown":{"viewport":[390,844],"documentWidth":390,"cards":34,"faceDown":34,"mountedImages":0,"mountedFrontLabels":0,"screenshot":"docs/qa-evidence/batch7-memory-garden-creatures-builder-images/garden-creatures-mobile-facedown.png"}
+    },
+    "reloadPersistence":"Reload restored earned progress. Revisited Garden level 9 using its visible level selector for face-down verification.",
+    "semanticReview":"The four illustrations are distinct, fully visible in small cards, and paired with the authored token names. Their WebP alpha channels and original PNG provenance were checked before integration. Askia was not changed."
+  },
+  "networkAndConsole": {
+    "preNavigationRoutes":[{"pattern":"**/api/voice","responseStatus":204},{"pattern":"**/api/story","responseStatus":204}],
+    "observedVoiceOrStoryRequests":0,
+    "consoleErrors":0,
+    "consoleWarnings":0
+  },
+  "servedIdentity": {
+    "/":{"sha256":"ff419c4bf6a8d8b8cc0cdd03b5b56ccb6f9ad6011239259b4e28129aaf825293","bytes":1100,"matchesFrozenDist":true},
+    "/assets/index-CHubxB6f.js":{"sha256":"0acd3fa0202dc4a0caf062025d4332102b07aa632c6f2b331fa4786b33eb4956","bytes":1185889,"matchesFrozenDist":true},
+    "/assets/index-CYWTXfuY.css":{"sha256":"251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d","bytes":213139,"matchesFrozenDist":true},
+    "/assets/garden-bee-v1-card-1yYhz_wO.webp":{"sha256":"d0171f8e5eff142ad547902bbd3f51946c40f8005eab5959df7306d72485e58b","bytes":49152,"matchesFrozenDist":true},
+    "/assets/garden-butterfly-v1-card-9Y3B8fXF.webp":{"sha256":"0b2073bd929753a37cbfdb67fa2ff4061e282748b2af1434392ec05c7bc03d82","bytes":51948,"matchesFrozenDist":true},
+    "/assets/garden-ladybird-v1-card-7_2PAs34.webp":{"sha256":"2901711ae6a1a7507921806f426bafec36cd24b07a214c4c1328a6387d207640","bytes":29902,"matchesFrozenDist":true},
+    "/assets/garden-snail-v1-card-CeiAS19L.webp":{"sha256":"7f746f3c82559ab610af117b8dd590563ed921e8bbccf3daa7bb4f4d45157be1","bytes":47838,"matchesFrozenDist":true}
+  },
+  "sourceGates": {
+    "focusedTests":"12 passed across test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs.",
+    "lint":"passed.",
+    "productionConfigBuild":"npm run build:android passed with explicit production voice/story configuration. Existing stale Browserslist and large-chunk warnings remain.",
+    "illustrationInventory":"Read-only scripts/memory-art-readiness.mjs reports 60/87 unique Memory tokens illustrated after this delta; 27 remain without complete art.",
+    "frozenBundleMatchesProductionBuild":true
+  },
+  "limits":[
+    "Builder-rendered verification only; independent review is pending.",
+    "Remaining Memory illustration work, independent Askia parity, narration readiness, broader human/device acceptance, production verification, and any overall quality score remain open."
+  ]
+}
