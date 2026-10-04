@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T07:40:35.705766+00:00",
+  "updatedAt": "2026-10-04T07:46:37.924427+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -774,7 +774,9 @@
     "sourceSha": "aea335f",
     "origin": "http://127.0.0.1:5351",
     "identity": "docs/qa-evidence/spot-safari-square-wing-identity-20261004.json",
-    "scope": "Safari-only1:1framepreservesfullanimalartinstead4:3croppingparrot. Largerleftbluewingfeathersreplaceinvisiblecroppedtaildifference; othernativegeometryandtargetsremappedtosquare. Sharedlayerdynamicviewheight/default4:3unchangedmathematically.20tests/scopedlint/configuredbuildpass. Independentfive-objectunaided390visibility/maskfidelity/actualcontrolsandreloadplusnarrowdefault4:3regressionassigned. Noacceptance."
+    "scope": "Independent scoped visual/control pass at 1280 and 390. All five pictured changes discernible before interaction; no visible mask spill/fringe. Square frame restores the full parrot, larger wing replaces invisible tail. Five 56px target controls, center miss, hint, held fact/Next, reload 4/4 chapter counts and parent Back pass. Narrow default 4:3 City/Treehouse regression at both widths passes. Eight hashes match, guards listed after goto, zero API/audio requests and console errors. No human listening, production, full Spot or 4.5 acceptance.",
+    "independentCommit": "2e3bc50",
+    "independentReport": "docs/qa-evidence/spot-safari-square-wing-5351-independent-20261004/report.md"
   },
   "memoryRacingDrinkPartyFaceDuckCandidate": {
     "sourceSha": "d1c35b1c35a799acfab69cf263a598e9dd6c9421",
@@ -785,5 +787,17 @@
     "scope": "Builder 84/87 tokens illustrated: Racing Car, Drink, Party Face and Duck; imports/map additions only. 18 tests, lint and configured build pass. Normal earned Levels 1\u20139 and full target boards at both widths, 82px mobile cards/captions and guarded goto/hash/console checks. Follow-up selects fresh rounds and verifies actual 24/28/30/34 face-down cards before and after reload, with zero front images/labels. This supersedes the initial vacuous post-completion check. Independent review pending. Final water lily, dinosaur nest and speedboat are being integrated. No audio, production or 4.5 acceptance.",
     "builderReloadEvidenceCommit": "04f00cbf54add155dca8e800ac169f27af8339ad",
     "builderReportCorrectionCommit": "31c6543"
+  },
+  "memoryCompleteArtSourceAudit": {
+    "sourceSha": "7fbbfef9454a8d1e709cbcab5c8ae72c239e7dfb",
+    "auditCommit": "ee0d585",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/memory-complete-art-file-audit-20261004.json",
+    "uniqueTokens": 87,
+    "boardTokenUsages": 127,
+    "assetFiles": 89,
+    "missingBoardMappings": 0,
+    "missingFiles": 0,
+    "missingComponentMappings": 0,
+    "scope": "Root read-only exact authored board asset and runtime component-map coverage. Final three are water lily, dinosaur nest and speedboat. File/hash coverage does not establish image fidelity or browser/editorial acceptance. Final frozen builder report and independent full journey remain pending; no release."
   }
 }
