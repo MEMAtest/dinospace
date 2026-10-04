@@ -1,0 +1,76 @@
+{
+  "createdAt": "2026-10-04T04:03:22.697734+00:00",
+  "method": "Built-in image_gen, one call per distinct asset; bone has one targeted halo-removal edit. transparent_background=true; selected final originals copied unchanged, no bitmap editing or provider-key CLI.",
+  "scope": "Originals only; no runtime, release or 4.5 acceptance. Fossil rock maps only Dinos context; Moon rock remains separate for Astronaut/Cosmic.",
+  "rejectedBoneSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-e0dfaac4-db88-42de-945c-612023c8937d.png",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/fossil-bone-v1.png",
+      "token": "\ud83e\uddb4",
+      "context": "dinos",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-49256fd2-9be7-4d31-8495-755f33031c88.png",
+      "sha256": "1372627befaecc4b3e567dab9c247e9df38b9e1b7e61be18b2e7b62bccff5838",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Single sandy ivory fossil long bone; selected targeted edit removes halo/shadow, keeps complete bone and transparent margin.",
+      "rootReview": "Original visually reviewed for distinct full silhouette; rendered 82px readability and independent QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/dinosaur-tooth-v1.png",
+      "token": "\ud83e\uddb7",
+      "context": "dinos",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-813bfb5d-0159-4eef-bf97-a26717e7039c.png",
+      "sha256": "068b6bf5abf972f39a1ab216f8cc778d52b5abd839a970b7227841570daf2b70",
+      "dimensions": [
+        1219,
+        1290
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Single conical gently curved dinosaur fossil tooth, broad base; no human molar, scene, halo, shadow or text.",
+      "rootReview": "Original visually reviewed for distinct full silhouette; rendered 82px readability and independent QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/fossil-dig-pick-v1.png",
+      "token": "\u26cf\ufe0f",
+      "context": "dinos",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-88ffc39e-468f-4843-8b17-b1545e9cda75.png",
+      "sha256": "558cf1460b4f74b084898b067db02416248a80e0f188502dc6eb5dc9c6382fd5",
+      "dimensions": [
+        1214,
+        1295
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Chunky archaeological dig pick, rounded silver head, wooden handle, blue grip; isolated transparent margin, no weapon scene.",
+      "rootReview": "Original visually reviewed for distinct full silhouette; rendered 82px readability and independent QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/fossil-rock-v1.png",
+      "token": "\ud83e\udea8",
+      "context": "dinos",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-b8e54eb1-326f-4bb6-8557-91fed9e5a267.png",
+      "sha256": "10866cf618181d2a0e7702e1ec071535da557f7c4ede65eb30d85537853d2eb3",
+      "dimensions": [
+        1322,
+        1190
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Tan sandstone fossil specimen with shallow fern impression, distinct from Moon rock, complete isolated silhouette and alpha.",
+      "rootReview": "Original visually reviewed for distinct full silhouette; rendered 82px readability and independent QA pending."
+    }
+  ]
+}
