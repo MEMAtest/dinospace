@@ -115,9 +115,9 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
     // Render only these authored edits over the unchanged original scene.
     // Generated full-image redraws must never move unrelated background objects.
     editRegions: [
-      { x: 75, y: 0, width: 25, height: 28 },
-      { x: 4, y: 80, width: 17, height: 18 },
-      { x: 39, y: 44, width: 5, height: 9 },
+      { x: 75, y: 0, width: 25, height: 28, feather: 2 },
+      { x: 4, y: 80, width: 17, height: 18, feather: 1 },
+      { x: 39, y: 44, width: 5, height: 9, feather: 0.3 },
     ],
     differences: [
       Object.freeze({ id: 'river-sky', label: 'the sun became a crescent moon', normalVisual: 'scene:sun', visual: 'scene:crescent', x: 87, y: 14, radius: 8 }),

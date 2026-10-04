@@ -67,10 +67,19 @@ const DifferenceVisual = ({ type }) => {
 };
 
 const SceneEditLayer = ({ scene }) => {
-  const clipId = `scene-edit-${useId().replaceAll(':', '')}`;
+  const layerId = `scene-edit-${useId().replaceAll(':', '')}`;
   return <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
-    <defs><clipPath id={clipId}>{scene.editRegions.map((region, index) => <rect key={index} {...region} />)}</clipPath></defs>
-    <image href={scene.imageB} x="0" y="0" width="100" height="100" preserveAspectRatio="none" clipPath={`url(#${clipId})`} />
+    <defs>{scene.editRegions.map(({ x, y, width, height, feather = 0 }, index) => {
+      const id = `${layerId}-${index}`;
+      return <g key={id}>
+        <clipPath id={`${id}-clip`}><rect x={x} y={y} width={width} height={height} /></clipPath>
+        <filter id={`${id}-blur`} x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB"><feGaussianBlur stdDeviation={feather / 2} /></filter>
+        <mask id={`${id}-mask`} maskUnits="userSpaceOnUse" x={x} y={y} width={width} height={height}>
+          <rect x={x + feather} y={y + feather} width={width - feather * 2} height={height - feather * 2} fill="white" filter={feather ? `url(#${id}-blur)` : undefined} />
+        </mask>
+      </g>;
+    })}</defs>
+    {scene.editRegions.map((region, index) => <image key={index} href={scene.imageB} x="0" y="0" width="100" height="100" preserveAspectRatio="none" clipPath={`url(#${layerId}-${index}-clip)`} mask={`url(#${layerId}-${index}-mask)`} />)}
   </svg>;
 };
 
