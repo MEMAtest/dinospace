@@ -53,6 +53,10 @@ export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🚗': Object.freeze({ asset: 'german-garage/friendly-car.png' }),
   '🐵': Object.freeze({ asset: 'spot-difference/sound-safari-animals-3d.webp', crop: 'monkey' }),
   '🐸': Object.freeze({ asset: 'spot-difference/sound-safari-animals-3d.webp', crop: 'frog' }),
+  '🐳': Object.freeze({ asset: 'memory-match/whale-v1-card.webp' }),
+  '🐬': Object.freeze({ asset: 'memory-match/dolphin-v1-card.webp' }),
+  '🦈': Object.freeze({ asset: 'memory-match/shark-v1-card.webp' }),
+  '🐢': Object.freeze({ asset: 'memory-match/turtle-v1-card.webp' }),
 });
 
 export function memoryCardLabel(emoji, levelId) {

@@ -1,0 +1,17 @@
+{
+  "createdAt": "2026-10-04",
+  "method": "Built-in image_gen, one isolated transparent source per requested animal; originals copied unchanged into the repository. No external provider scripts or paid narration calls were used.",
+  "scope": "Four Amari Memory illustrations for existing Ocean Splash tokens only. No Memory board tokens, ordering, pair counts, progress IDs, Askia code path, or face-down rendering semantics changed.",
+  "review": "Builder inspected each full source and verified transparent alpha. Generated images show a blue humpback whale with spout and flukes; a leaping bottlenose dolphin with long beak; a blue-gray shark with dorsal/pectoral fins, gills and tail; and a green sea turtle with shell and four flippers. Small-card browser review is recorded separately in the matching identity report.",
+  "conversion": {
+    "pipeline": "Pillow: convert to RGBA, proportionally fit within 512x512 using Lanczos, save WebP quality 88, alpha_quality 95, method 6.",
+    "pixelsRetouched": false,
+    "sourcePngsModified": false,
+    "assets": [
+      { "token": "🐳", "label": "whale", "source": "src/assets/memory-match/whale-v1.png", "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-fbf05cbf-4b75-4662-af8c-eb7c73d7b2d9.png", "sourceSha256": "0e754eed894e98f72abb3308f624bc12e8d052cf33cf72fa05205babbc9019a9", "sourceDimensions": [1536, 1024], "asset": "src/assets/memory-match/whale-v1-card.webp", "sha256": "0edd405b5a8a2aa8bd7c51d8814781961c765b56ca773d6cb2b7ed0e0ef86d8e", "dimensions": [512, 341], "alphaExtrema": [0, 255] },
+      { "token": "🐬", "label": "dolphin", "source": "src/assets/memory-match/dolphin-v1.png", "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-6065ab3c-dad8-4ead-a6b0-fa287ddb479c.png", "sourceSha256": "02127bd1ac3fcab890ac6e8ffaefb2ccadbfaecf40f942a2aa8fb17f9e4c13a8", "sourceDimensions": [1225, 1284], "asset": "src/assets/memory-match/dolphin-v1-card.webp", "sha256": "e7540e73db278604645668f97a5fc3aabf55bbabe04972ea2cc29fd130a226b8", "dimensions": [488, 512], "alphaExtrema": [0, 255] },
+      { "token": "🦈", "label": "shark", "source": "src/assets/memory-match/shark-v1.png", "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-285d91f2-ea86-4e5e-8c18-97f63865821e.png", "sourceSha256": "4169b93d8cadfcf511f3f9804192437214cdb4ef7c618172ef66751f85ed3d99", "sourceDimensions": [1536, 1024], "asset": "src/assets/memory-match/shark-v1-card.webp", "sha256": "6198a359eba1b1f828a812114e05b0f5f0f5d0c31a63f58e04b8bd0ea41be56f", "dimensions": [512, 341], "alphaExtrema": [0, 255] },
+      { "token": "🐢", "label": "turtle", "source": "src/assets/memory-match/turtle-v1.png", "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-647e238a-3f35-4e76-a8b2-28c4c6ff634c.png", "sourceSha256": "07518002d55ed2d2c51fcaba467c4f8b1b833b01c9722398633f4400d9115464", "sourceDimensions": [1536, 1024], "asset": "src/assets/memory-match/turtle-v1-card.webp", "sha256": "d56223ea96bac66678ccc15f62df30b4a364f9e8085961935b02077c0a124bb7", "dimensions": [512, 341], "alphaExtrema": [0, 255] }
+    ]
+  }
+}

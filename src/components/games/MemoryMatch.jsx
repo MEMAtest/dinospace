@@ -29,6 +29,10 @@ import seedlingArt from '../../assets/memory-match/seedling-v1-card.webp';
 import treeArt from '../../assets/memory-match/tree-v1-card.webp';
 import leafSprigArt from '../../assets/memory-match/leaf-sprig-v1-card.webp';
 import mushroomArt from '../../assets/memory-match/mushroom-v1-card.webp';
+import whaleArt from '../../assets/memory-match/whale-v1-card.webp';
+import dolphinArt from '../../assets/memory-match/dolphin-v1-card.webp';
+import sharkArt from '../../assets/memory-match/shark-v1-card.webp';
+import turtleArt from '../../assets/memory-match/turtle-v1-card.webp';
 import memoryCoachArt from '../../assets/little/askia-detective.webp';
 import './memoryMatch.css';
 import { buildSeededMemoryDeck, memoryStrategy, readMemoryPassport, completeMemoryBoard } from '../../data/batch7Progress.js';
@@ -66,6 +70,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/tree-v1-card.webp': treeArt,
   'memory-match/leaf-sprig-v1-card.webp': leafSprigArt,
   'memory-match/mushroom-v1-card.webp': mushroomArt,
+  'memory-match/whale-v1-card.webp': whaleArt,
+  'memory-match/dolphin-v1-card.webp': dolphinArt,
+  'memory-match/shark-v1-card.webp': sharkArt,
+  'memory-match/turtle-v1-card.webp': turtleArt,
   'little/detective-bronto.webp': brontoArt,
   'little/detective-trex.webp': trexArt,
   'little/fuel-rocket.webp': rocketArt,
