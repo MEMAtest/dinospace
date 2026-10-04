@@ -1052,13 +1052,21 @@
       "source": "f9d398281b86fde8d41a719f54137ab6d835d70a",
       "origin": "http://127.0.0.1:5364/",
       "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-phase2-default-20261004/report.md",
-      "decision": "Confirmedfreshdefault mismatch:literacy12starting sounds versus settings23Phase2. CanonicalPHASE_SOUNDS[2] shared default fixes source, explicitprofiles preserved.26focusedtests/lint/configbuildpass;3criticalservedhashesmatch. IndependentfreshUIretestassigned; noaudio/releaseacceptance."
+      "decision": "Independentordinaryfreshdesktop390Chapter1earned\u2192Chapter2pool31/start/wrongretry/heldNextpass withno settingssave. Rootreadreport/viewedmobileheld. Localcandidateonly,noaudio/releaseacceptance.",
+      "independentReport": "../dinospace-batch5-quality/docs/qa-evidence/batch5-phase2-default-independent-20261004/report.md",
+      "independentCommit": "5a8703e"
     }
   },
   "batch6CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch6-independent-editorial-assessment-20261004.md",
     "evidenceCommit": "a8e9bab24883346240786f3529cd985cb6077e2f",
-    "decision": "Observed teaching deficits in all four; Astronaut pre-answer clue repeats answer-bearing fact. Concrete repair instructions published. Reliability unscored pending targeted reload/replay/sibling evidence; formal audio pending. No overall awards."
+    "decision": "Observed teaching deficits in all four; Astronaut pre-answer clue repeats answer-bearing fact. Concrete repair instructions published. Reliability unscored pending targeted reload/replay/sibling evidence; formal audio pending. No overall awards.",
+    "localCandidate": {
+      "source": "60f362368d5eedb3b43dedc4fa95eb3097672d7e",
+      "origin": "http://127.0.0.1:5363/",
+      "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-editorial-copy-20261004/report.md",
+      "scope": "Fourteachingfixes/separate36clues/twoactualcluediagrams.187fulltests8focusedlintbuildpass;5610servedhashmatch. IndependentUIpending.378phrases1present377pending;64newchangedallmissing. Notreleased."
+    }
   },
   "batch4NarrationCheckpoint": {
     "updatedAt": "2026-10-04T12:30:24.300Z",
@@ -1082,5 +1090,12 @@
     "source": "99ed1955131bd53b9738264edcde4e2091ad6e5e",
     "origin": "http://127.0.0.1:5255/",
     "scope": "IndependentolderB5candidate lost mute onreload; keepconfirmedlocalfinding. Rootcurrentcanonical alreadyhaspersistedfix; selectiveB5integrationmustpreserveit. No currentproductionregressioninferred."
+  },
+  "phonicsDefaultReleaseCandidate": {
+    "source": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+    "baseArchive": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+    "origin": "http://127.0.0.1:5365/",
+    "report": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/report.md",
+    "scope": "Shareddefaultonly;22tests/lint/configbuild115LetterLaunchpromptfilespresent3servedcriticalhashesmatch. Independentlocalcontrolsassigned,notdeployed."
   }
 }
