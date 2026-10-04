@@ -7,6 +7,7 @@ const treehouse = new URL('../assets/puzzle-pop/treehouse-robots-3d.webp', impor
 const soundSafari = new URL('../assets/spot-difference/sound-safari-animals-3d.webp', import.meta.url).href;
 const patternParade = new URL('../assets/spot-difference/pattern-parade-landscape-v1.webp', import.meta.url).href;
 const timeObservatory = new URL('../assets/spot-difference/time-observatory-landscape-v1.webp', import.meta.url).href;
+const robinB = new URL('../assets/spot-difference/robin-physical-b-v1.webp', import.meta.url).href;
 const robin = new URL('../assets/puzzle-pop/robin-tree-3d.webp', import.meta.url).href;
 const geographyB = new URL('../assets/spot-difference/world-physical-b-v1.webp', import.meta.url).href;
 const geography = new URL('../assets/puzzle-pop/world-explorer-map-3d.webp', import.meta.url).href;
@@ -191,7 +192,7 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
     differences: [
       Object.freeze({ id: 'treehouse-blue-block', label: 'the left arrow block changed colour', normalVisual: 'scene:blue-block', visual: 'scene:purple-block', x: 33, y: 75, radius: 8 }),
       Object.freeze({ id: 'treehouse-green-block', label: 'the up-arrow block changed colour', normalVisual: 'scene:green-block', visual: 'scene:blue-block', x: 63, y: 69, radius: 8 }),
-      Object.freeze({ id: 'treehouse-pot', label: 'the plant pot changed colour', normalVisual: 'scene:orange-pot', visual: 'scene:blue-pot', x: 90, y: 50, radius: 8 }),
+      Object.freeze({ id: 'treehouse-pot', label: 'the plant pot changed colour', normalVisual: 'scene:orange-pot', visual: 'scene:blue-pot', x: 90, y: 54, radius: 8 }),
       Object.freeze({ id: 'treehouse-robot', label: 'the robot eyes and smile changed colour', normalVisual: 'scene:cyan-face', visual: 'scene:pink-face', x: 61.5, y: 38, radius: 8 }),
       Object.freeze({ id: 'treehouse-roof', label: 'the little house roof changed colour', normalVisual: 'scene:red-roof', visual: 'scene:blue-roof', x: 83, y: 16, radius: 8 }),
     ],
@@ -246,7 +247,32 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
       Object.freeze({ id: 'observatory-sand', label: 'the hourglass sand changed colour', normalVisual: 'scene:purple-sand', visual: 'scene:cyan-sand', x: 85, y: 73, radius: 8 }),
     ],
   }),
-  makeScene(2, 8, 'Robin’s Woodland', robin, 'A robin pecking at soil beneath a tree among flowers and woodland plants', 'Robins use their beaks to find food and build safe nests.'),
+  makeScene(2, 8, 'Robin’s Woodland', robin, 'A robin on woodland soil beside real flowers, leaves, a watering can, worm and ladybird', 'Robins use their beaks to find food and build safe nests.', {
+    aspectRatio: 1,
+    imageB: robinB,
+    // Shape/count edits stay on the native object footprints. Colour-only
+    // edits use A, preserving the robin and surrounding plant geometry.
+    editRegions: [
+      { x: 37, y: 3, width: 16, height: 17, feather: 0.35 },
+      { x: 17, y: 68, width: 23, height: 15, feather: 0.35 },
+      { x: 90, y: 51, width: 10, height: 12, feather: 0.35 },
+      { x: 79, y: 69, width: 8, height: 7, feather: 0.25 },
+      { x: 56, y: 72, width: 22, height: 12, feather: 0.35 },
+    ],
+    colorEdits: [
+      { shape: 'rect', x: 0, y: 235, width: 225, height: 203, transform: 'scale(0.07974481659)', hue: -60, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 -4 3 0 -0.4' },
+      { shape: 'path', d: 'M146 505 L195 505 Q205 481 192 451 Q157 426 130 465 L113 452 Q135 411 182 420 Q238 413 267 463 L277 510 L315 510 L314 583 L385 518 Q372 465 391 446 Q415 421 450 445 Q483 468 479 499 Q464 525 429 534 L325 700 L326 761 Q230 783 145 755 Z', transform: 'scale(0.07974481659)', hue: 65, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -4 2 2 0 -0.3' },
+    ],
+    differences: [
+      { id: 'robin-flower-cluster', label: 'the upper flower cluster changed colour', normalVisual: 'scene:pink-flower-cluster', visual: 'scene:purple-flower-cluster', x: 10, y: 26, radius: 8 },
+      { id: 'robin-can', label: 'the watering can changed colour', normalVisual: 'scene:teal-can', visual: 'scene:blue-can', x: 22, y: 48, radius: 8 },
+      { id: 'robin-canopy-leaf', label: 'the hanging leaf has a broad heart shape instead of a pointed shape', normalVisual: 'scene:pointed-canopy-leaf', visual: 'scene:heart-canopy-leaf', x: 44, y: 13, radius: 8 },
+      { id: 'robin-fallen-leaf', label: 'the fallen brown leaf has a different outline', normalVisual: 'scene:lobed-brown-leaf', visual: 'scene:rounded-brown-leaf', x: 28, y: 74, radius: 8 },
+      { id: 'robin-daisy', label: 'the right white flower has fewer broader petals', normalVisual: 'scene:narrow-daisy-petals', visual: 'scene:broad-daisy-petals', x: 90, y: 54, radius: 8 },
+      { id: 'robin-ladybird', label: 'the ladybird has one more black spot', normalVisual: 'scene:three-ladybird-spots', visual: 'scene:four-ladybird-spots', x: 86, y: 75, radius: 8 },
+      { id: 'robin-worm', label: 'the worm bends the opposite way', normalVisual: 'scene:worm-bend-right', visual: 'scene:worm-bend-left', x: 64, y: 82, radius: 8 },
+    ],
+  }),
   makeScene(2, 9, 'World Explorer', geography, 'An explorer workbench with a globe, telescope, binoculars and a printed map', 'Maps use symbols and labels to show useful information about places.', {
     aspectRatio: 1,
     imageB: geographyB,

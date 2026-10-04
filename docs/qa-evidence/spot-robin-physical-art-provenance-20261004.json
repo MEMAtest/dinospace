@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-10-04",
+  "mode": "built-in image edit",
+  "prompt": "Edit the supplied image as the exact target, preserving its premium friendly 3D woodland illustration, square 1254x1254 framing, robin identity, camera, positions, scale, lighting, tree, sky, soil and all other background. Create Picture B for a children's spot-the-difference game. Change exactly SEVEN existing pictured objects in place, no added icons/badges/marks/text/UI. (1) Change the ENTIRE teal watering can on the left to cobalt blue, including handle/body/spout, keeping its geometry. (2) Change the existing upper-left cluster of pink flowers to purple flowers, same cluster shape and position. (3) Change the large hanging pointed green leaf near upper center (around x=48%, y=12%) to a broad rounded heart-shaped leaf attached to the same stem; preserve other canopy leaves. (4) Change the actual fallen brown oak-shaped leaf on soil lower-left of the robin's feet (around x=28%,y=74%) into a broad brown heart-shaped leaf, same footprint/position. (5) The large white daisy on far right (around x=97%,y=56%): give its bloom fewer, broader white petals, clearly distinct from A, preserve yellow center/stem/size. (6) Add ONE extra black spot on the actual red ladybird sitting on the green leaf at lower right (around x=83%,y=72%); keep bug position, body, head, legs, other spots. (7) Change the actual pink earthworm on soil lower center-right (around x=67%,y=78%) to bend the opposite way while remaining on the same soil footprint; preserve its color, segment style and size. All changes must be real elements in the illustration, without floating duplicate leaves, worms, bugs, suns or symbols. Keep everything outside these seven object footprints unchanged as closely as possible, especially the robin, sun, background foliage, house, tree and rocks.",
+  "editTarget": "src/assets/puzzle-pop/robin-tree-3d.webp",
+  "selectedOriginal": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-fd6c5e79-19f8-433b-bf0a-09cbeb11175d.png",
+  "copiedOriginal": "src/assets/spot-difference/robin-physical-b-v1.png",
+  "copiedOriginalSha256": "61d40e3661f326e9655522c5435f82eda10f29671faa38ffb86eabdcb13a8a23",
+  "encodingOnlyDerivative": {
+    "path": "src/assets/spot-difference/robin-physical-b-v1.webp",
+    "quality": 96,
+    "method": 6,
+    "width": 1254,
+    "height": 1254,
+    "sha256": "ae3305296bb3627b115d7cd5516e90c878356bae299c6899fb3095c2611c1eab"
+  },
+  "scope": "Original preserved unchanged. Raw B has minor untargeted redraw; runtime uses bounded shape/count regions and original-source colour masks. Generated fallen leaf is rounded/oval, not exactly the requested heart, so authored description says different outline. Independent exact7/edge/mobile tests remain required. No production/audio/4.5 acceptance."
+}

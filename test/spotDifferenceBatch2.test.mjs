@@ -300,3 +300,18 @@ test('World Explorer accepts taps on the pictured objects while keeping blank sk
   ]) assert.equal(resolveSpotDifferenceTap(scene.differences, [], x, y).difference?.id, id);
   assert.equal(resolveSpotDifferenceTap(scene.differences, [], 65, 15).kind, 'miss');
 });
+
+
+test('Robin physical targets accept the actual flower, bug and worm locations', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ title }) => title === 'Robin’s Woodland');
+  assert.equal(scene.pairedArt, true);
+  assert.equal(scene.aspectRatio, 1);
+  assert.equal(scene.editRegions.length + scene.colorEdits.length, 7);
+  for (const [id, x, y] of [
+    ['robin-flower-cluster', 9, 26], ['robin-can', 18, 52],
+    ['robin-canopy-leaf', 44, 11], ['robin-fallen-leaf', 28, 75],
+    ['robin-daisy', 97, 56], ['robin-ladybird', 84, 72],
+    ['robin-worm', 65, 78],
+  ]) assert.equal(resolveSpotDifferenceTap(scene.differences, [], x, y).difference?.id, id);
+  assert.equal(resolveSpotDifferenceTap(scene.differences, [], 54, 48).kind, 'miss');
+});
