@@ -1,0 +1,93 @@
+{
+  "createdAt": "2026-10-04T02:48:00Z",
+  "scope": "Four-token Memory Match art integration: plain star, glowing star, shooting star, and Sun with a face. Existing token IDs, board contents, pair counts, saved progress, and Askia rendering were preserved.",
+  "sourceCommit": "db0a9c1",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5309",
+    "frozenDist": "tmp/batch7-memory-star-sun-final/dist",
+    "previousFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-fruit-art-final-v3/dist",
+      "tmp/batch7-memory-ocean-completion-final/dist",
+      "tmp/batch7-memory-space-objects-final/dist"
+    ]
+  },
+  "servedIdentity": {
+    "/": {
+      "sha256": "4035939d387aa967ea10d0a20232e9d83e11d4c367473d9704029e850006076b",
+      "matchesFrozenDist": true
+    },
+    "/assets/index-CYePgrIu.js": {
+      "sha256": "5ee4e1332de545c2422694801e4c26d73ae41f696118e7dbfb9f056921492b7e",
+      "matchesFrozenDist": true
+    },
+    "/assets/index-DUgIWs2Y.css": {
+      "sha256": "e6d43dde40a6169e3c8901869cb9a168586a2605b9e75c04c3835fb43ad0022d",
+      "matchesFrozenDist": true
+    },
+    "/assets/star-v1-card-jzpkYvBd.webp": {
+      "sha256": "751db3be916edeb4f468d1f2b15c889e96d82e288dc24f54046d9ae9b042827a",
+      "bytes": 21242,
+      "matchesFrozenDist": true
+    },
+    "/assets/glowing-star-v1-card-CZxxZmXN.webp": {
+      "sha256": "5ae930823017d2575b1249b5f0caf160e1b567437426996b4ebee23107064298",
+      "bytes": 31414,
+      "matchesFrozenDist": true
+    },
+    "/assets/shooting-star-v1-card-CDRx7qIk.webp": {
+      "sha256": "7bd240e6b4c286fefd4ef27e85f8c2c2efc8a9335c03cef31546e67e632e5fa1",
+      "bytes": 33380,
+      "matchesFrozenDist": true
+    },
+    "/assets/sun-face-v1-card-wzdf6fvr.webp": {
+      "sha256": "df180ada899f275569e78740079d8cefafea3bf18a72123d9a4940fc56ba6e8a",
+      "bytes": 29546,
+      "matchesFrozenDist": true
+    }
+  },
+  "checks": {
+    "normalUiProgression": "Fresh local profile completed the ten authored Memory levels in order using visible controls; no hidden answers or progress injection.",
+    "renderedTokens": {
+      "astronautMissionDesktop": ["⭐️ star", "🌟 glowing star", "🌠 shooting star"],
+      "galaxyChallengeDesktopAnd390px": ["⭐️ star", "🌟 glowing star", "🌠 shooting star", "🌞 Sun with a face"],
+      "mobileCardSizeCssPx": "82 x 82",
+      "captions": "Full names visible with no clipping or art-caption overlap",
+      "documentHorizontalOverflowCssPx": 0
+    },
+    "faceDown": {
+      "board": "Galaxy Challenge",
+      "cards": 36,
+      "faceDownCards": 36,
+      "mountedCardImages": 0,
+      "screenshot": "docs/qa-evidence/batch7-memory-star-sun-builder-images/face-down-galaxy-mobile-390.png"
+    },
+    "networkAndConsole": {
+      "preNavigationRoutes": [
+        {"pattern": "/api/voice", "responseStatus": 204},
+        {"pattern": "/api/story", "responseStatus": 204}
+      ],
+      "observedVoiceOrStoryRequests": 0,
+      "consoleErrors": 0,
+      "consoleWarnings": 0
+    },
+    "screenshots": [
+      "docs/qa-evidence/batch7-memory-star-sun-builder-images/astronaut-mission-desktop.png",
+      "docs/qa-evidence/batch7-memory-star-sun-builder-images/galaxy-challenge-desktop.png",
+      "docs/qa-evidence/batch7-memory-star-sun-builder-images/galaxy-challenge-mobile-390.png",
+      "docs/qa-evidence/batch7-memory-star-sun-builder-images/face-down-galaxy-mobile-390.png"
+    ],
+    "sourceGates": {
+      "focusedTests": "10 passed: test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs",
+      "lint": "passed",
+      "productionConfigBuild": "passed with VITE_ELEVENLABS_ENABLED=true and configured voice/story URLs; existing stale Browserslist data and large-chunk warnings remain",
+      "frozenBundleMatchesProductionBuild": true,
+      "illustrationInventory": "43 of 87 unique authored tokens now have distinct semantic illustrations; 44 tokens remain without matching authored illustrations"
+    }
+  },
+  "acceptanceLimits": [
+    "Builder checks only; independent rendered review is pending.",
+    "Premium card-art coverage remains incomplete for 44 of 87 unique tokens.",
+    "Narration audio listening certification, production deployment, and the 4.5 quality score remain unclaimed."
+  ]
+}
