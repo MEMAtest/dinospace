@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T12:50:05.026064+00:00",
+  "updatedAt": "2026-10-04T13:23:19.640541+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1055,6 +1055,12 @@
       "decision": "Independentordinaryfreshdesktop390Chapter1earned\u2192Chapter2pool31/start/wrongretry/heldNextpass withno settingssave. Rootreadreport/viewedmobileheld. Localcandidateonly,noaudio/releaseacceptance.",
       "independentReport": "../dinospace-batch5-quality/docs/qa-evidence/batch5-phase2-default-independent-20261004/report.md",
       "independentCommit": "5a8703e"
+    },
+    "reliabilityDelta": {
+      "source": "99ed1955131bd53b9738264edcde4e2091ad6e5e",
+      "evidenceCommit": "df63c64",
+      "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-reliability-qa-20261004/report.md",
+      "scope": "Colour palette/badge/best/unlock reload atbothwidths, desktop equal/lower and +2higherbest replay; Oddbadge/best/unlock reloadboth anddesktop equal/lower replay. Global3vs0 siblingstarsonly, per-gamecollectionisolationunproven. Mobile replays/Oddhigherpending. Old5255mutereset preservedcandidate-local."
     }
   },
   "batch6CurrentEditorialReview": {
@@ -1069,17 +1075,23 @@
     }
   },
   "batch4NarrationCheckpoint": {
-    "updatedAt": "2026-10-04T12:30:24.300Z",
+    "updatedAt": "2026-10-04T13:10:44.635Z",
     "pid": 18781,
-    "run": 206,
+    "run": 214,
     "status": "waiting_request_window",
-    "pending": 2237,
+    "pending": 2122,
     "scope": "Existing finite worker; no restart or parallel generation. Not corpus readiness or listening acceptance."
   },
   "batch7CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch7-independent-editorial-assessment-20261004.md",
     "evidenceCommit": "bcc9bca576fd57b115ce0d6c3b04cdf2d957ee75",
-    "decision": "Both games have supported progression/correctness/reliability/visible components4.5; teaching4.0 for Memory strategy and unexplained Solar terminology. Level5 is13pairs atbothwidths in retained candidate evidence. Formal audio pending, no overall awards or production acceptance."
+    "decision": "Both games have supported progression/correctness/reliability/visible components4.5; teaching4.0 for Memory strategy and unexplained Solar terminology. Level5 is13pairs atbothwidths in retained candidate evidence. Formal audio pending, no overall awards or production acceptance.",
+    "localTeachingCandidate": {
+      "source": "18e3c30636ecd46dfc8a06fbbfb75451c915338e",
+      "origin": "http://127.0.0.1:5366/",
+      "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-editorial-teaching-20261004/report.md",
+      "scope": "ConcreteMemoryrowstrategy/fourNASAsourcedSolarfirst-use explanations.15focusedtests/lint/configbuildpass; fullsuite197of198 withnarrationgate18missing.5694builderHTTPmatches. IndependentUI/audio/releaseacceptancepending."
+    }
   },
   "editorialCategorisation": {
     "contractsPublished": 26,
@@ -1096,6 +1108,21 @@
     "baseArchive": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
     "origin": "http://127.0.0.1:5365/",
     "report": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/report.md",
-    "scope": "Shareddefaultonly;22tests/lint/configbuild115LetterLaunchpromptfilespresent3servedcriticalhashesmatch. Independentlocalcontrolsassigned,notdeployed."
+    "scope": "Shareddefaultonly;22tests/lint/configbuild115LetterLaunchpromptfilespresent. Mobilelocalcontrolspass. Stagedproduction8hashmatchREADY; independentdesktop/livepending, canonicalunchanged.",
+    "localQa": {
+      "commit": "c390b56",
+      "report": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/independent/report.md",
+      "scope": "390pxdefault23/restrictedff22persistreentry, LetterLaunch/SpellingwrongcorrectheldNextparentBackpass; desktopinprogress."
+    },
+    "productionCandidate": {
+      "url": "https://dinospace-eeblb91eh-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_7wFmajPYqR6CPrTLFksm4dkGzppv",
+      "readyState": "READY",
+      "identity": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/production-candidate-identity.json",
+      "servedAssetMatches": 8,
+      "scope": "Isolatedproductioncandidateonly, exact5365hashes; canonicalremains94Dypi. IndependentliveQAassigned. No4.5award."
+    },
+    "rootIntegrationCommit": "53bc773",
+    "rootIntegrationChecks": "12literacy/learning tests pass; no rootrelease."
   }
 }
