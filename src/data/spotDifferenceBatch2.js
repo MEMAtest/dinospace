@@ -107,6 +107,16 @@ const makeScene = (chapterIndex, sceneIndex, title, image, alt, fact, pair = nul
   });
 };
 
+const DINO_PARK_OUTLINE = Object.freeze([
+  [9.6, 24.4], [8.6, 24.7], [8.6, 26.5], [6.9, 27.6], [6.3, 29.4], [6.4, 31.4], [7.2, 32.3], [8.8, 32.6],
+  [13.2, 35.1], [14.2, 44.8], [15.9, 54.3], [16, 65.8], [16, 72.6], [14.5, 78.1], [14.3, 81.4], [15.3, 82.7],
+  [19.3, 82.9], [21.6, 82], [22.7, 80], [22.9, 78.7], [25.5, 77.6], [28, 77.8], [29.2, 80.5], [32.9, 81.4],
+  [36.3, 81.4], [37.9, 80.3], [38.3, 77.5], [37.5, 72], [37.3, 67.2], [40, 70], [43.2, 72.7], [48.4, 73.7],
+  [51.4, 72.8], [52.3, 71.4], [51.9, 71], [50.8, 71.9], [48.6, 72.1], [45.8, 70.7], [41.6, 67.9], [38.7, 63.8],
+  [35.2, 60.2], [31, 56.5], [27.8, 55], [21.8, 55], [20.3, 53.3], [19.6, 46.6], [17.3, 34.7], [16.4, 31.9],
+  [15.7, 28.1], [14.3, 25.1], [12.4, 24.1],
+].map((point) => Object.freeze(point)));
+
 export const SPOT_DIFFERENCE_SCENES = Object.freeze([
   makeScene(0, 0, 'Superhero City', city, 'A colourful city with friendly heroes', 'People help their community by sharing and caring for the places where they live.', {
     colorEdits: [
@@ -120,7 +130,19 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
       Object.freeze({ id: 'city-awning', label: 'the shop awning changed colour', normalVisual: 'scene:red-awning', visual: 'scene:green-awning', x: 71, y: 76, radius: 8 }),
     ],
   }),
-  makeScene(0, 1, 'Dino Park', dinoPark, 'Friendly dinosaurs in a sunny park', 'Fossils are clues that help scientists learn about dinosaurs.'),
+  makeScene(0, 1, 'Dino Park', dinoPark, 'Friendly dinosaurs in a sunny park', 'Fossils are clues that help scientists learn about dinosaurs.', {
+    colorEdits: [
+      // Colour selection protects the pale underside, eyes and neighbouring plants.
+      { shape: 'path', d: `M${DINO_PARK_OUTLINE.map((point) => point.join(' ')).join(' L')} Z`, hue: 70, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
+      { shape: 'ellipse', cx: 86.5, cy: 14.4, rx: 4.2, ry: 5.7, hue: -30 },
+      { shape: 'rect', x: 12.2, y: 87.5, width: 8.8, height: 10.5, hue: 150, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 4 -8 4 0 -0.8' },
+    ],
+    differences: [
+      Object.freeze({ id: 'park-dinosaur', label: 'the long-neck dinosaur changed colour', normalVisual: 'scene:blue-dinosaur', visual: 'scene:purple-dinosaur', x: 28, y: 65, radius: 8, hitPolygon: DINO_PARK_OUTLINE }),
+      Object.freeze({ id: 'park-sun', label: 'the sun changed colour', normalVisual: 'scene:yellow-sun', visual: 'scene:orange-sun', x: 86, y: 14, radius: 8 }),
+      Object.freeze({ id: 'park-flower', label: 'the flower petals changed colour', normalVisual: 'scene:pink-flower', visual: 'scene:blue-flower', x: 16, y: 86, radius: 8 }),
+    ],
+  }),
   makeScene(0, 2, 'River Valley', dinoRiver, 'A dinosaur beside a sparkling river', 'A clean river gives plants and animals a place to find fresh water.', {
     imageB: dinoRiverB,
     // Render only these authored edits over the unchanged original scene.
@@ -161,7 +183,17 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
 
 export const resolveSpotDifferenceTap = (differences, foundIds, x, y) => {
   const found = new Set(foundIds);
-  const withinTolerance = (entry) => Math.hypot(x - entry.x, y - entry.y) <= entry.radius;
+  const withinTolerance = (entry) => {
+    if (Math.hypot(x - entry.x, y - entry.y) <= entry.radius) return true;
+    if (!entry.hitPolygon) return false;
+    let inside = false;
+    for (let index = 0, previous = entry.hitPolygon.length - 1; index < entry.hitPolygon.length; previous = index++) {
+      const [ax, ay] = entry.hitPolygon[index];
+      const [bx, by] = entry.hitPolygon[previous];
+      if ((ay > y) !== (by > y) && x < (bx - ax) * (y - ay) / (by - ay) + ax) inside = !inside;
+    }
+    return inside;
+  };
   const alreadyFound = differences.find((entry) => found.has(entry.id) && withinTolerance(entry));
   if (alreadyFound) return { kind: 'already-found', difference: alreadyFound };
   const difference = differences.find((entry) => !found.has(entry.id) && withinTolerance(entry));
