@@ -1,0 +1,36 @@
+- generic [ref=e878]:
+  - banner [ref=e879]:
+    - button "Back to learning world" [ref=e880] [cursor=pointer]
+    - generic [ref=e884]:
+      - heading "Spot the Difference" [level=1] [ref=e885]
+      - paragraph [ref=e1096]: Curious Comparers · Pair 3 of 4 · 0/5
+    - button "Turn sound on" [ref=e886] [cursor=pointer]
+  - main [ref=e891]:
+    - paragraph [ref=e1097]: Picture 3 of 4. Find 5 changes.
+    - generic [ref=e1182]:
+      - paragraph [ref=e1183]:
+        - text: Treehouse Team
+        - generic [ref=e1184]: · 0 of 5 changes
+      - generic [ref=e1185]:
+        - button "Hear clue" [ref=e1186] [cursor=pointer]
+        - button "Magnifier 2 left" [ref=e1191] [cursor=pointer]
+    - generic [ref=e1194]:
+      - generic [ref=e1195]:
+        - heading "Picture A · Look carefully" [level=2] [ref=e1196]
+        - img "A young astronaut and robot sharing arrow blocks in a treehouse workshop, picture A" [ref=e1198]
+      - generic [ref=e1199]:
+        - heading "Picture B · Find changes here" [level=2] [ref=e1200]
+        - generic [ref=e1201]:
+          - img "A young astronaut and robot sharing arrow blocks in a treehouse workshop, picture B" [ref=e1202]
+          - button "Search Picture B for a change" [ref=e1203]
+          - button "Check left bottom detail" [ref=e1204] [cursor=pointer]
+          - button "Check middle bottom detail" [ref=e1205] [cursor=pointer]
+          - button "Check middle middle detail" [ref=e1206] [cursor=pointer]
+          - button "Check right middle detail" [ref=e1207] [cursor=pointer]
+          - button "Check right top detail" [ref=e1208] [cursor=pointer]
+    - generic "Changes found" [ref=e1209]:
+      - generic "Change 1, not found" [ref=e1210]: "1"
+      - generic "Change 2, not found" [ref=e1211]: "2"
+      - generic "Change 3, not found" [ref=e1212]: "3"
+      - generic "Change 4, not found" [ref=e1213]: "4"
+      - generic "Change 5, not found" [ref=e1214]: "5"
