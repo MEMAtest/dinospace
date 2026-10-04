@@ -27,7 +27,7 @@ export const sessionTarget = (rule, little) => (little && rule.little ? rule.lit
 // Askia keeps his existing counting/tracing sessions and separate Dino shell.
 export const ownsGameProgression = (gameId, little = false) =>
   ['memory', 'puzzle', 'jet', 'math', 'spot', 'dino'].includes(gameId)
-  || (!little && ['counting', 'trace', 'tictactoe'].includes(gameId));
+  || (!little && ['counting', 'trace', 'tictactoe', 'addition', 'subtraction', 'timeteller', 'numberline'].includes(gameId));
 
 // First-try answers → 1–3 stars. Games that do not report retries count
 // every answer as first try.
