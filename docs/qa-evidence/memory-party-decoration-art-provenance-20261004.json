@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-04T04:21:50.497444+00:00",
+  "method": "Built-in image_gen; one call per distinct asset, transparent_background=true; selected final originals copied unchanged. No creative bitmap editing or provider-key CLI.",
+  "scope": "Originals only; no runtime/release/4.5 acceptance.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/party-balloon-v1.png",
+      "token": "\ud83c\udf88",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-620112f9-2cf8-4c0c-ab7c-17779c692cbe.png",
+      "sha256": "f9b99e4d37ac10d8704d386be34ad69fb9d22b963d9b4e2ecd6b6cf89b9f8a04",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Single red glossy balloon with tied neck and short curving white string; complete isolated alpha silhouette, no face/text/scene/halo.",
+      "rootReview": "Original visually reviewed: recognizable distinct complete silhouette, no scene/frame/text. Copied unchanged; rendered mobile82px readability and independent QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/party-popper-v1.png",
+      "token": "\ud83c\udf89",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-28fc2516-d69c-429e-8cd6-60a7d481fedb.png",
+      "sha256": "aac29cce37754f0d323ec1764d29db0059a5aace12f55ec2b987a096a2af44b4",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Purple cone with gold rim, compact burst of four coloured ribbons and six confetti squares; complete alpha silhouette, no fireworks/flames/scene/halo.",
+      "rootReview": "Original visually reviewed: recognizable distinct complete silhouette, no scene/frame/text. Copied unchanged; rendered mobile82px readability and independent QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/party-cake-v1.png",
+      "token": "\ud83c\udf82",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-85afcad2-cb4c-4d8e-a160-f5546b342781.png",
+      "sha256": "a95b18b6a8881eb525de6f9f71bff0fcd5e535bdd919c9972775db3e5daeb7db",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Whole single-tier cream cake, pink icing band, three blue candles with small gold flames; distinct from cupcake/doughnut, isolated alpha, no plate/text/scene.",
+      "rootReview": "Original visually reviewed: recognizable distinct complete silhouette, no scene/frame/text. Copied unchanged; rendered mobile82px readability and independent QA pending."
+    },
+    {
+      "asset": "src/assets/memory-match/wrapped-sweet-v1.png",
+      "token": "\ud83c\udf6c",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-cb877fad-d445-4ff2-b289-9d285b9505e5.png",
+      "sha256": "6340cc291d59d8e480647ac80edc7652a69651f60335ecabe1f0197863d93bf6",
+      "dimensions": [
+        1774,
+        887
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Single turquoise wrapped oval sweet with two twisted ends and broad pink centre stripe, complete horizontal silhouette and alpha, no stick/text/scene.",
+      "rootReview": "Original visually reviewed: recognizable distinct complete silhouette, no scene/frame/text. Copied unchanged; rendered mobile82px readability and independent QA pending."
+    }
+  ]
+}
