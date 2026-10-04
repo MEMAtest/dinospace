@@ -29,6 +29,10 @@ import TicTacToe from './components/games/TicTacToe.jsx';
 import CurriculumQuest from './components/games/CurriculumQuest.jsx';
 import DinoHangman from './components/games/Hangman.jsx';
 import StorybookStudio from './components/games/StorybookStudio.jsx';
+import AmariColorMixingLab from './components/games/AmariColorMixingLab.jsx';
+import AmariOddOneOut from './components/games/AmariOddOneOut.jsx';
+import AmariSoundSafari from './components/games/AmariSoundSafari.jsx';
+import AmariSpellingStudio from './components/games/AmariSpellingStudio.jsx';
 import DinoJigsaw from './components/little/games/DinoJigsaw.jsx';
 import ShadowMatch from './components/little/games/ShadowMatch.jsx';
 import RocketBuilder from './components/little/games/RocketBuilder.jsx';
@@ -59,16 +63,16 @@ export const GAME_MENU_ITEMS = [
   { id: 'spot', icon: icon(ScanSearch, 'text-indigo-700', 'Find the difference', 'spot'), title: 'Spot the Difference', desc: 'Find what changed', color: 'bg-gradient-to-br from-indigo-400 to-blue-600', category: 'Quick Think' , component: SpotDifference },
   { id: 'puzzle', icon: icon(Puzzle, 'text-amber-600', 'Picture puzzle', 'puzzle'), title: 'Puzzle Pop', desc: 'Build the picture!', color: 'bg-gradient-to-br from-yellow-400 to-amber-500', category: 'Quick Think' , component: PuzzlePlay },
   { id: 'trace', icon: icon(PenLine, 'text-blue-700', 'Letter tracing pencil', 'trace'), title: 'Letter Trace', desc: 'Trace big and small letters', color: 'bg-gradient-to-br from-blue-400 to-indigo-500', category: 'Words' , component: LetterTrace },
-  { id: 'phonics', icon: icon(AudioLines, 'text-emerald-700', 'Hear the sounds', 'phonics'), title: 'Sound Safari', desc: 'Match the sounds', color: 'bg-gradient-to-br from-emerald-400 to-green-600', category: 'Words' , component: SoundSafari },
+  { id: 'phonics', icon: icon(AudioLines, 'text-emerald-700', 'Hear the sounds', 'phonics'), title: 'Sound Safari', desc: 'Match the sounds', color: 'bg-gradient-to-br from-emerald-400 to-green-600', category: 'Words' , component: SoundSafari, amariComponent: AmariSoundSafari },
   { id: 'addition', icon: icon(Plus, 'text-teal-700', 'Addition plus', 'addition'), title: 'Addition Adventure', desc: 'Add it up!', color: 'bg-gradient-to-br from-teal-500 to-emerald-600', category: 'Maths' , component: AdditionAdventure },
   { id: 'subtraction', icon: icon(Minus, 'text-violet-700', 'Subtraction minus', 'subtraction'), title: 'Subtraction Station', desc: 'Take it away!', color: 'bg-gradient-to-br from-violet-500 to-purple-700', category: 'Maths' , component: SubtractionStation },
   { id: 'astronaut', icon: icon(Gamepad2, 'text-purple-700', 'Astronaut mission', 'astronaut'), title: 'Astronaut Academy', desc: 'Explore space heroes', color: 'bg-gradient-to-br from-purple-600 to-indigo-800', category: 'Discover' , component: AstronautAcademy },
   { id: 'worldmap', icon: icon(Globe2, 'text-sky-700', 'Curriculum Quest world map', 'worldmap'), title: 'Curriculum Quest', desc: 'Geography, history and science', color: 'bg-gradient-to-br from-sky-500 to-indigo-600', category: 'Discover', badge: 'NEW' , component: CurriculumQuest },
   { id: 'counting', icon: icon(Hash, 'text-indigo-700', 'Count the stars', 'counting'), title: 'Count the Stars', desc: 'Tap and count!', color: 'bg-gradient-to-br from-indigo-600 to-blue-800', category: 'Maths' , component: CountTheStars },
-  { id: 'words', icon: icon(Type, 'text-pink-700', 'Spelling letters', 'words'), title: 'Spelling Studio', desc: 'Learn sounds and spell!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' , component: WordBuilder },
+  { id: 'words', icon: icon(Type, 'text-pink-700', 'Spelling letters', 'words'), title: 'Spelling Studio', desc: 'Learn sounds and spell!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' , component: WordBuilder, amariComponent: AmariSpellingStudio },
   { id: 'storybooks', icon: icon(BookOpen, 'text-indigo-700', 'Storybook library', 'storybooks'), title: 'Storybook Studio', desc: 'Read, listen and explore!', color: 'bg-gradient-to-br from-indigo-600 via-violet-600 to-fuchsia-600', category: 'Words', badge: 'NEW' , component: StorybookStudio },
-  { id: 'colormix', icon: icon(Palette, 'text-fuchsia-700', 'Colour mixing palette', 'colormix'), title: 'Colour Mixing Lab', desc: 'Mix colours together!', color: 'bg-gradient-to-br from-fuchsia-500 to-purple-600', category: 'Create' , component: ColorMixingLab },
-  { id: 'oddoneout', icon: icon(Search, 'text-cyan-700', 'Find the odd one out', 'oddoneout'), title: 'Odd One Out', desc: 'Which one does not belong?', color: 'bg-gradient-to-br from-cyan-500 to-blue-600', category: 'Quick Think' , component: OddOneOut },
+  { id: 'colormix', icon: icon(Palette, 'text-fuchsia-700', 'Colour mixing palette', 'colormix'), title: 'Colour Mixing Lab', desc: 'Mix colours together!', color: 'bg-gradient-to-br from-fuchsia-500 to-purple-600', category: 'Create' , component: ColorMixingLab, amariComponent: AmariColorMixingLab },
+  { id: 'oddoneout', icon: icon(Search, 'text-cyan-700', 'Find the odd one out', 'oddoneout'), title: 'Odd One Out', desc: 'Which one does not belong?', color: 'bg-gradient-to-br from-cyan-500 to-blue-600', category: 'Quick Think' , component: OddOneOut, amariComponent: AmariOddOneOut },
   { id: 'timeteller', icon: icon(Clock3, 'text-lime-700', 'Learning clock', 'timeteller'), title: 'Time Teller', desc: 'Read the clock!', color: 'bg-gradient-to-br from-lime-500 to-green-600', category: 'Maths' , component: TimeTeller },
   { id: 'numberline', icon: icon(Truck, 'text-emerald-700', 'Number line jumper', 'numberline'), title: 'Number Line Jump', desc: 'Hop to the answer!', color: 'bg-gradient-to-br from-emerald-600 to-teal-700', category: 'Maths' , component: NumberLineJump },
   { id: 'chess', icon: icon(Crown, 'text-amber-700', 'Chess crown', 'chess'), title: 'Chess Explorers', desc: 'Learn chess pieces!', color: 'bg-gradient-to-br from-amber-600 to-yellow-800', category: 'Quick Think' , component: ChessExplorers },

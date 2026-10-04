@@ -4,11 +4,15 @@ import { GAME_SESSIONS, ownsGameProgression } from '../src/data/gameSessions.js'
 import { levelsForSession } from '../src/data/sessionLevels.js';
 
 test('Amari chapter games bypass the answer-count wrapper while Askia counting keeps his exact bounds', () => {
-  for (const game of ['counting', 'trace', 'tictactoe', 'dino']) {
+  for (const game of ['counting', 'trace', 'tictactoe', 'dino', 'phonics', 'words', 'colormix', 'oddoneout']) {
     assert.equal(ownsGameProgression(game, false), true, game);
   }
   assert.equal(ownsGameProgression('counting', true), false);
   assert.equal(ownsGameProgression('trace', true), false);
+  for (const game of ['phonics', 'words', 'colormix', 'oddoneout']) {
+    assert.equal(ownsGameProgression(game, true), false, `Askia ${game} keeps the legacy session`);
+    assert.ok(GAME_SESSIONS[game]);
+  }
   assert.ok(GAME_SESSIONS.counting);
   assert.deepEqual(levelsForSession('counting', true).map(({ target, countMax }) => ({ target, countMax })), [
     { target: 4, countMax: 3 }, { target: 5, countMax: 5 }, { target: 5, countMax: 7 },
