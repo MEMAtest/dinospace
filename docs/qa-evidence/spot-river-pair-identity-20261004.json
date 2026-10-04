@@ -1,0 +1,60 @@
+{
+  "createdAt": "2026-10-04T05:26:18.103989+00:00",
+  "sourceSha": "0246a5c",
+  "origin": "http://127.0.0.1:5320",
+  "frozenDist": "tmp/spot-river-pair-0246a5c/dist",
+  "scope": "Local one-pair prototype; 18 focused tests, scoped lint and production-config build pass. Independent visual/browser QA pending. Original River scene and copied B edit retain dimensions/crop; A/B differ through authored art, no answer badges. No release/4.5 acceptance.",
+  "missingNarration": [
+    {
+      "key": "a44acc87",
+      "text": "Look near the middle area of Picture B."
+    }
+  ],
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "c6572cee0c99044ed52391c56c97b4b23b6a6118d863c3ec9ed832c22b3204c9"
+    },
+    {
+      "path": "/assets/index-lvgqCHpR.js",
+      "bytes": 1238337,
+      "sha256": "72d1466d593c206f886a895b7aafc2bd9285660d4f7c43cdaaa21c3239b020a0"
+    },
+    {
+      "path": "/assets/web-CPyVhBR3.js",
+      "bytes": 842,
+      "sha256": "063bb40822c35183494e75af33b16b728287cd08919d6e4ef5c8a3429c57a620"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-BdWekEeN.js",
+      "bytes": 19956,
+      "sha256": "11a57f37bb77bb99e0ae7df7542832c3af3284246009df8e121cf02258c955e4"
+    },
+    {
+      "path": "/assets/SolarSystem-CAY5xHXk.js",
+      "bytes": 563158,
+      "sha256": "4ec399120efe849a1f7a06b0ed6fe1aa4532d257645b0d4db01760bc91e3c338"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-BIFhlwVc.js",
+      "bytes": 18854,
+      "sha256": "aa50f45b062919d5fce550575eb30c4dc27f613fa6e760ab74eb1e879a4b8a41"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/river-valley-pair-b-v1-BvZSBbF5.webp",
+      "bytes": 353174,
+      "sha256": "9b254a872bf0d3d01489333ae7da8dd5aba52f04c3e4c367c3b12a66eb9ead5b"
+    },
+    {
+      "path": "/assets/dino-river-3d-DS1Pw89d.webp",
+      "bytes": 415714,
+      "sha256": "08322a708c526d8ffded7bd1d7a947dfef93e419a3f156aa13600b003df29ff8"
+    }
+  ]
+}

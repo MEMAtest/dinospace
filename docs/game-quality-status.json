@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T05:14:07.852210+00:00",
+  "updatedAt": "2026-10-04T05:28:08.914879+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -472,6 +472,15 @@
         "garden-spider-v1.png"
       ],
       "scope": "Four isolated originals copied unchanged with separate provenance. Ant six and spider eight legs visually counted; rejected incorrect-leg/halo variants excluded. Runtime integration and82px rendered independent leg/art review remain pending."
+    },
+    "partyDecorationCandidate": {
+      "sourceSha": "eb869cd76eebbe906afc59bd55a9f54c67eb1307",
+      "origin": "http://127.0.0.1:5317",
+      "builderEvidenceCommit": "5b4f9b7",
+      "illustratedTokens": 64,
+      "uniqueTokens": 87,
+      "missingTokens": 23,
+      "scope": "Builder normal-earned Party12pairs desktop390 passed four new art/captions,82pxmobile/nooverflow/facedownzero/reload/hashes/providerguards/console.13 focusedtests/lint/buildpass. Independent assigned after Garden; no audio/production/4.5 acceptance."
     }
   },
   "monsterClueRepair": {
@@ -588,5 +597,12 @@
     "commit": "74d8b9b",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-fossils-independent-0d519939-20261004/report.md",
     "scope": "Dino L5 full 13 pairs at desktop and 390px passed. Astronaut desktop and Galaxy desktop/mobile retain distinct Moon Rock art. Guards preceded navigation; no provider calls, console clean and frozen/served hashes match. Local artwork delta only; complete illustration inventory 56/87 under this candidate. Known 189/190 full-suite narration failure remains open; no audio, production or 4.5 acceptance."
+  },
+  "spotAuthoredPairPrototype": {
+    "sourceSha": "0246a5c",
+    "origin": "http://127.0.0.1:5320",
+    "identity": "docs/qa-evidence/spot-river-pair-identity-20261004.json",
+    "provenance": "docs/qa-evidence/spot-river-pair-provenance-20261004.json",
+    "scope": "One River Valley A/B pair uses real raster changes: sun to crescent, pink flower to yellow, one missing bridge post. No answer glyph layer on paired art.18 focusedtests/scopedlint/prodconfigbuildpass.56px hit-target edge test caught flower overflow at minimum280x210frame; center moved within sameflower to86percent and test passes. Independent unwanted-difference and normalUI desktop390 checks assigned/pending. One new middle-area packaged hint missing. Local prototype only, no full12pair, production or4.5 acceptance."
   }
 }
