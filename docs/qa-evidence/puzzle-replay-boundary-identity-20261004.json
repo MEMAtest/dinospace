@@ -1,0 +1,44 @@
+{
+  "createdAt": "2026-10-04T01:06:18.871372+00:00",
+  "sourceSha": "0dd1077049eb492b6b16b9648eb77d936cab43ad",
+  "origin": "http://127.0.0.1:5301",
+  "stage": "tmp/puzzle-replay-boundary-0dd1077/dist",
+  "scope": "Configured clean git archive build, all runtime/index JS/CSS bytes match local. Local identity only; independent browser/release acceptance pending.",
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "3db113b09de2207d161a17ea37d58d7ffa92ca6069b375d69c649861341fa91f",
+      "bytes": 1100
+    },
+    {
+      "path": "assets/AmariCountTheStars-BpHWrxyN.js",
+      "sha256": "a7c9373815969dab78d77c9db6f33d499d9c256d631bc9d9470d25bf16fb0fd7",
+      "bytes": 18854
+    },
+    {
+      "path": "assets/AmariLetterTrace-BLgI2nof.js",
+      "sha256": "22da83a012666f19ae40fea2888e1128f667007f07552ee10fe1d5f6b22b2db8",
+      "bytes": 19956
+    },
+    {
+      "path": "assets/SolarSystem-DORt9s9M.js",
+      "sha256": "312948b649211e33ad13b28508d841d3c2116c3da3f04450ff067ad379872bb6",
+      "bytes": 563158
+    },
+    {
+      "path": "assets/index-BOtvg7ri.js",
+      "sha256": "6b10319c3ca9b9344e5fd2db2082200edafc150f5bc3359b37a9e22f60ade547",
+      "bytes": 1237278
+    },
+    {
+      "path": "assets/web-Db70cy7O.js",
+      "sha256": "40bf0fc4b62ec42a855369bd1bd5d1daf0374a07caaecab621a376ec6354da7c",
+      "bytes": 842
+    },
+    {
+      "path": "assets/index-CohPvEcn.css",
+      "sha256": "aa083338878e3f69d88a4c06d125f13ffa209ca3e32629be90482227184b4a4d",
+      "bytes": 205826
+    }
+  ]
+}
