@@ -1,0 +1,168 @@
+{
+  "checkedAt": "2026-10-04T10:04:10.496120+00:00",
+  "url": "https://dinospace-51fgt6ny5-memas-projects-23a0001d.vercel.app",
+  "deploymentId": "dpl_ACKz7A5eDD8DiCfUptevNEjP5xdV",
+  "providerIdentity": {
+    "id": "dpl_ACKz7A5eDD8DiCfUptevNEjP5xdV",
+    "url": "dinospace-51fgt6ny5-memas-projects-23a0001d.vercel.app",
+    "target": "production",
+    "readyState": "READY"
+  },
+  "sourceMetadata": {
+    "auditedArchiveSourceSha": "4fcb80d34bb2e9cfdb587f40ec61f44a6ae75f55",
+    "githubCommitSha": "4fcb80d34bb2e9cfdb587f40ec61f44a6ae75f55",
+    "gitCommitSha": "035a25c43155a32b68c05bad379bebaa901cedf7"
+  },
+  "canonicalBefore": {
+    "id": "dpl_2wMjWv6KPJ4QPMKrSJLWinefowDz",
+    "url": "dinospace-iw0e236dn-memas-projects-23a0001d.vercel.app",
+    "unchanged": true
+  },
+  "files": [
+    {
+      "path": "/assets/AmariCountTheStars-BYm06Bop.js",
+      "bytes": 18854,
+      "sha256": "e608ed408dd1222b6ddc01be44bb1a15a9c4f7d696d442fc9e4cb0885e43d17c",
+      "servedBytes": 18854,
+      "servedSha256": "e608ed408dd1222b6ddc01be44bb1a15a9c4f7d696d442fc9e4cb0885e43d17c",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/AmariLetterTrace-BQocO7D_.js",
+      "bytes": 19956,
+      "sha256": "3d355af297b7ee735b41672958fef520b380f85dccac8b258023f30886ebb23e",
+      "servedBytes": 19956,
+      "servedSha256": "3d355af297b7ee735b41672958fef520b380f85dccac8b258023f30886ebb23e",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/SolarSystem-BTaRdxEo.js",
+      "bytes": 563158,
+      "sha256": "791cf0e00372c292d8a7b883391219ddf66aed3af59f0731cd4717ebcccbbfcb",
+      "servedBytes": 563158,
+      "servedSha256": "791cf0e00372c292d8a7b883391219ddf66aed3af59f0731cd4717ebcccbbfcb",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/history-artifacts-a-v1-C8Vpi_9u.webp",
+      "bytes": 493680,
+      "sha256": "33725a924c5e3a8abcdea59b15eabe1007c1a09d3b279c602dfbc9ac908d2401",
+      "servedBytes": 493680,
+      "servedSha256": "33725a924c5e3a8abcdea59b15eabe1007c1a09d3b279c602dfbc9ac908d2401",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/history-artifacts-b-v1-DDMoz3YU.webp",
+      "bytes": 456304,
+      "sha256": "b9291087e9e91c65aacfbc288b11ed3b321f12aa37660418dfabfdd790102fb7",
+      "servedBytes": 456304,
+      "servedSha256": "b9291087e9e91c65aacfbc288b11ed3b321f12aa37660418dfabfdd790102fb7",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/index-CCiowOYE.js",
+      "bytes": 1260182,
+      "sha256": "816cdbbdb15aaf6f6b4af78705fd38ca670c9004dfea62b01d76eef9c340640d",
+      "servedBytes": 1260182,
+      "servedSha256": "816cdbbdb15aaf6f6b4af78705fd38ca670c9004dfea62b01d76eef9c340640d",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "servedBytes": 205877,
+      "servedSha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/nature-lab-leaves-3d-DDByeZD_.webp",
+      "bytes": 424104,
+      "sha256": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20",
+      "servedBytes": 424104,
+      "servedSha256": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/nature-lab-leaves-3d-variant-b-CXJZfOks.webp",
+      "bytes": 484288,
+      "sha256": "b5facad979d38fc8576f29c7592a640d5d68eacfc1276f36ffb515eb2abdaf11",
+      "servedBytes": 484288,
+      "servedSha256": "b5facad979d38fc8576f29c7592a640d5d68eacfc1276f36ffb515eb2abdaf11",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/robin-physical-b-v1-BTnMGf7t.webp",
+      "bytes": 501260,
+      "sha256": "ae3305296bb3627b115d7cd5516e90c878356bae299c6899fb3095c2611c1eab",
+      "servedBytes": 501260,
+      "servedSha256": "ae3305296bb3627b115d7cd5516e90c878356bae299c6899fb3095c2611c1eab",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/robin-tree-3d-C6X3IbOn.webp",
+      "bytes": 407546,
+      "sha256": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932",
+      "servedBytes": 407546,
+      "servedSha256": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/web-CJQiTnnT.js",
+      "bytes": 842,
+      "sha256": "a46d74366464e1dcccad370db5a4768ab45fc2e4e368fd4c564d289ba3b3c146",
+      "servedBytes": 842,
+      "servedSha256": "a46d74366464e1dcccad370db5a4768ab45fc2e4e368fd4c564d289ba3b3c146",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/world-explorer-map-3d-BiOIYdoV.webp",
+      "bytes": 411940,
+      "sha256": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23",
+      "servedBytes": 411940,
+      "servedSha256": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/assets/world-physical-b-v1-DAEPy57E.webp",
+      "bytes": 483148,
+      "sha256": "ced84c32d3d38c12c3fe932d0fa33b842a814dca4c399b4bd3bf5ae727045af9",
+      "servedBytes": 483148,
+      "servedSha256": "ced84c32d3d38c12c3fe932d0fa33b842a814dca4c399b4bd3bf5ae727045af9",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "ae66b4e668cb8448d6ac9ad891e6fb9de47d88d0dace6a2385e54568e853aa2f",
+      "servedBytes": 1100,
+      "servedSha256": "ae66b4e668cb8448d6ac9ad891e6fb9de47d88d0dace6a2385e54568e853aa2f",
+      "status": 200,
+      "matchesFrozen": true
+    },
+    {
+      "path": "/sw.js",
+      "bytes": 199772,
+      "sha256": "5170f692612bcbb0f0e8c6ff3cb5b88b802c8ccf124deda7d99f321b9f0cfd5f",
+      "servedBytes": 199772,
+      "servedSha256": "5170f692612bcbb0f0e8c6ff3cb5b88b802c8ccf124deda7d99f321b9f0cfd5f",
+      "status": 200,
+      "matchesFrozen": true
+    }
+  ],
+  "scope": "Immutable production candidate identity only. No canonical promotion; independent Sky and consolidated Spot UI checks pending. No overall4.5 or listening acceptance."
+}

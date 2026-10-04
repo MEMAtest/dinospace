@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T09:48:21.730534+00:00",
+  "updatedAt": "2026-10-04T10:09:03.821350+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -906,7 +906,9 @@
     "candidateSource": "4fcb80d34bb2e9cfdb587f40ec61f44a6ae75f55",
     "identity": "docs/qa-evidence/sky-entry-scroll-repair-identity-20261004.json",
     "origin": "http://127.0.0.1:5357",
-    "scope": "Phase-to-play immediate window scroll reset only; no queue or scoring changes. Scopedlint/configuredbuildpass. IndependentlocaltransitionQAassigned, unreleased; not4.5acceptance."
+    "scope": "Independent5357 natural below-fold Start passes at390px anddesktop, scrollY0/headerinsideviewport/48pxcontrols/nooverflow; all16hashes andguards/consolepass. Immutableproductioncandidate4fcb80d nowREADY, no canonicalpromotion oroverall4.5.",
+    "independentReport": "docs/qa-evidence/sky-entry-scroll-repair-qa-20261004/report.md",
+    "localEvidenceCommit": "7dba32c"
   },
   "monsterExactCaseBoundedProductionReview": {
     "report": "../dinospace-batch7-quality/docs/qa-evidence/monster-growing-2plus10-canonical-20261004/report.md",
@@ -916,5 +918,14 @@
     ],
     "canonicalSource": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
     "scope": "Attempted visible-only sampler capped at60 Growing runs. Its row-level return/session output was not retained, so360 individual questions and operation-frequency conclusions are not auditable. Visible spot observations and final6/6panel retained; exact2+10 was not captured and remains unverified. Initial profile unmuted with staticMP3fetches; guards prevented providercalls. Freshmutedmap verified without new Growing sample. Seven served hashes matchcanonical; no overallacceptance."
-  }
+  },
+  "batch2StagedFunctionalRelease": {
+    "sourceSha": "4fcb80d34bb2e9cfdb587f40ec61f44a6ae75f55",
+    "deploymentId": "dpl_ACKz7A5eDD8DiCfUptevNEjP5xdV",
+    "url": "https://dinospace-51fgt6ny5-memas-projects-23a0001d.vercel.app",
+    "identity": "docs/qa-evidence/sky-spot-production-candidate-identity-20261004.json",
+    "archiveProof": "docs/qa-evidence/sky-entry-clean-archive-match-20261004.json",
+    "scope": "Clean tracked runtime archive.16/16 servedbytes/hashmatch localfrozen5357. Canonical remainsc478. Livecombined12Spot,Skyphaseonly andPuzzleDinoParktitle deltas assigned. Monster/API/progress/audio/Appunchanged pergitdiff. Nooverall4.5orlisteningacceptance."
+  },
+  "batch2CurrentIndependentWorksheet": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md"
 }

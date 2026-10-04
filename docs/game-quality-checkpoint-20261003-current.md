@@ -392,3 +392,14 @@ Independent Spot audit `f3c9935` measures map, active, held fact/replay and leav
 Reports `be76aa2` and `4b713fb` bind the canonical alias to `c478` with all seven served hashes. The visible-only sampler had a 60-run cap, but its returned question rows and tool session output were not retained. Its final 6/6 panel and several visible equation observations do not prove all 360 individual questions. No reliable frequency or ordered `10 + 2` conclusion is available. The exact `2 + 10` question was not captured and its specific gate remains open; no product defect is inferred from that absence.
 
 The initial guarded profile was unintentionally unmuted and fetched static MP3 resources. A fresh profile was explicitly muted before Amari selection, but no further Growing run was spent beyond the cap. No provider requests or human listening claim. The evidence limitation is preserved rather than reconstructing results or spending another broad random sample. An independent updated four-game editorial worksheet is assigned against the existing evidence.
+
+
+## Immutable production functional candidate staged — 4 October
+
+Independent local report `7dba32c` verifies the Sky natural below-fold Start fix at both requested widths, with header controls visible at scrollY=0. Root read the report. A clean tracked runtime archive at `4fcb80d` builds to the exact 16 frozen5357 file hashes. It is staged as READY production candidate `dpl_ACKz7A5eDD8DiCfUptevNEjP5xdV`, https://dinospace-51fgt6ny5-memas-projects-23a0001d.vercel.app. All16 served byte/hash comparisons pass. The canonical alias still resolves to c478's previous deployment.
+
+Source comparison c478→4f shows only Spot artwork/renderer/data, the Sky phase scroll hook, and the Puzzle Dino Park title change. Monster, App, API, progress and audio are unchanged. Independent live checks cover all12 combined Spot pairs, the Sky transition delta, and the Puzzle title delta. Canonical promotion remains gated by their results. This is a functional release candidate, not a four-game 4.5 award; five missing narration clips and listening/editorial gates remain open.
+
+Root read the updated independent four-game worksheet `a1e70a8`. It retains historical scores and leaves new scores unassigned. The contract permits retained full baselines plus source-bound regression deltas; a new SHA alone does not require replaying every unchanged mechanic. The new combined Spot art does require a single integrated production review, now assigned.
+
+Narration PID18781 remains live at run176, with2663 lines pending, zero cooldown retries, and last generation successful. It is waiting for the normal shared request window; no restart or additional paid job.
