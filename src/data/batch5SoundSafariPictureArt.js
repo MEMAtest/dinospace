@@ -34,7 +34,7 @@ export const SOUND_SAFARI_PICTURE_ART = Object.freeze({
   'safari-stamp': new URL('../assets/sound-safari/word-cards/stamp-v1.webp', import.meta.url).href,
   'safari-clamp': new URL('../assets/sound-safari/word-cards/clamp-v1.webp', import.meta.url).href,
   'duck': new URL('../assets/sound-safari/word-cards/duck-v1-card.webp', import.meta.url).href,
-  'dock': new URL('../assets/sound-safari/word-cards/dock-v1.webp', import.meta.url).href,
+  'dock': new URL('../assets/sound-safari/word-cards/dock-v2.webp', import.meta.url).href,
   'sock': new URL('../assets/sound-safari/word-cards/sock-v1.webp', import.meta.url).href,
   'fish': new URL('../assets/sound-safari/word-cards/pond-fish-v1-card.webp', import.meta.url).href,
   'rock': new URL('../assets/sound-safari/word-cards/fossil-rock-v1-card.webp', import.meta.url).href,
