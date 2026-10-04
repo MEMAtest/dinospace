@@ -80,3 +80,13 @@ Root reviewed the complete quota report and compared source `653633f73cd97fcd297
 The [quota UI report](batch3-count-quota-ui-20261003/REPORT.md) records six-round harder-band completion at both widths, replay novelty, saved three-page collection, sibling separation, held facts/Next and clean console/static assets. This is a source-bound local mechanics baseline, supplemented by production deltas; it is not a fresh full production matrix. Do not reintroduce a missing rendered-quota gate from the earlier matrix.
 
 The canonical shared phonics-default patch changes no Batch 3 owned data or mechanics. Overall ratings remain unaccepted: human listening is pending, and the two Dino Detective copy changes still require their own rendered delta and exact two packaged recordings before release. A separate independent agent is checking that visible copy delta.
+
+## Local Swamp/Cave copy delta — 4 October 2026
+
+This addendum updates only the age-6 teaching assessment for local candidate `e2aee30169f6ade67f7948b0088a895a9cb119c3`. It does not alter the historical production rating above: audited production archive `94d44d031d5835d0d9fa2128064ff83ba5880a62` and the promoted Batch 2 canonical `0d3ef056e569e3ef59763df388f26c3baa7783b8` still contain the original Dino facts, so the deployed Dino teaching score remains 4.0.
+
+The [independent rendered copy delta](batch3-dino-fact-ui-20261004/report.md) verifies the exact revised Swamp and Cave world facts at 1280×800 and 390×844. In ordinary UI progression, each revised world fact and the target fact remained visible until Next; neither auto-advanced. The report records readable wrapping, guarded voice/story routes and matching served hashes. The retained [12-world mechanics matrix](batch3-count-dino-local-20261003/REPORT.md) remains the full-game progression and reliability baseline; the local copy-only change does not require replaying that matrix.
+
+For the local copy candidate only, age-6 teaching is now **4.5**: the Swamp sentence explains “wetland” using familiar wet ground while preserving seasonal drying; the Cave sentence keeps “dissolve” and immediately explains it as “wear away.” This is a narrow wording and held-card assessment, not an updated score for the deployed game or a change to the other four rubric dimensions.
+
+The local candidate is still not releasable: narration keys `f6991245` and `0f0204e5` are missing, readiness is 273/275, and human listening and promotion remain pending. The formal feedback/audio/visual dimension and overall 4.5 award stay open. No new browser run was performed for this addendum; it reconciles the cited source-bound report with the retained baseline.
