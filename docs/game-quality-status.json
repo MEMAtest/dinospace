@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T07:49:19.592848+00:00",
+  "updatedAt": "2026-10-04T07:54:28.267542+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -810,5 +810,11 @@
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-waterlily-dinonest-speedboat-identity-20261004.json",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-waterlily-dinonest-speedboat-builder-report-20261004.md",
     "scope": "Builder final water lily/dinosaur nest/speedboat maps complete 87/87 art coverage. 19 focused tests, lint/configured build and served identity pass. Normal earned 1\u20139 and three actual target boards completed both widths; 82px mobile cards and 26/28/34 face-down counts with zero fronts before/after visible selector/reload. Final independent full ten-level desktop/mobile review queued after Observatory; no audio/production/4.5 acceptance."
+  },
+  "spotChallengeLeafShapePrototype": {
+    "sourceSha": "75d4cbf9b93a2c49384748217daa42d65dde7db8",
+    "origin": "http://127.0.0.1:5352",
+    "identity": "docs/qa-evidence/spot-challenge-leaf-shape-identity-20261004.json",
+    "scope": "Root confirmed round/pointed Robin leaf variants formerly rendered identical SVG path and rotation. Distinct broad round and pointed blade paths repair this definite source defect; other visual variants unchanged.20 focused tests, scoped lint and configured build pass. Independent5351 Challenge full visual/control review retains old failure; new5352 narrow Robin shape delta both widths queued. No visual, audio, production or4.5 acceptance."
   }
 }

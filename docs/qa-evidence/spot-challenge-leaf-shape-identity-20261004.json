@@ -1,0 +1,64 @@
+{
+  "createdAt": "2026-10-04T07:53:31.321228+00:00",
+  "sourceSha": "75d4cbf9b93a2c49384748217daa42d65dde7db8",
+  "origin": "http://127.0.0.1:5352",
+  "frozenDist": "tmp/spot-challenge-leaf-shape/dist",
+  "scope": "Challenge Robin round and pointed leaf were identical SVG paths. Separate broad round and pointed blade paths restore genuine shape variation; all other variant paths unchanged.20 focused tests, scoped lint and configured build pass. Independent exact visual difference and other seven-difference Challenge fidelity gates pending; no audio, release or 4.5 acceptance.",
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "62911ad836b6131deab920ecfeea42aa29d916b662746ff954b5151bff23a996"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-BxOFo8Jy.js",
+      "bytes": 18854,
+      "sha256": "cb3ab47929e5cd9d3ff94f6d0a2fc1d389025932a7ecae73f3ed5a033b59f4a6"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-DIN_VAtK.js",
+      "bytes": 19956,
+      "sha256": "4680420065398bd0f1cbb8e01b0a69319550108c6ce74a7f4de82b197bbb9c21"
+    },
+    {
+      "path": "/assets/SolarSystem-CYQ9JBox.js",
+      "bytes": 563158,
+      "sha256": "9131acc594273164e6608f4cf764646544f2942000f103da5c23cc7e64bcbc51"
+    },
+    {
+      "path": "/assets/index-C-RIJcSt.js",
+      "bytes": 1253320,
+      "sha256": "8d04959b71969d08e319d8f3cc402aa5a4ce0286cb544863634ba1702884bfd2"
+    },
+    {
+      "path": "/assets/web-OFMcRGI-.js",
+      "bytes": 842,
+      "sha256": "c114c0ef1ffeb8256c263529953fd627c5b4fdaa373d2e18a4abfdc6c3509b79"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/robin-tree-3d-C6X3IbOn.webp",
+      "bytes": 407546,
+      "sha256": "aeb6cd52016b73e5ba60cab4d3538a0e9e8981cfdef2415ae63cd943186f1932"
+    },
+    {
+      "path": "/assets/world-explorer-map-3d-BiOIYdoV.webp",
+      "bytes": 411940,
+      "sha256": "1081e24af5c7d5d20ff6c4966fef315dad98df9945e049408877c62c86907c23"
+    },
+    {
+      "path": "/assets/history-world-CCqb-QTZ.webp",
+      "bytes": 206950,
+      "sha256": "625fec4ac49c2dbfb24a2e9f28c5c0309f4395a249887c812d77b326419f2b4e"
+    },
+    {
+      "path": "/assets/nature-lab-leaves-3d-DDByeZD_.webp",
+      "bytes": 424104,
+      "sha256": "a4595011dd9ec30ea57dae23a647e8f6a6166c860a0788ccbce78bb0fc849e20"
+    }
+  ]
+}
