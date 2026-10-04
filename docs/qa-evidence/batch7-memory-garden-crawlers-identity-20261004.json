@@ -1,0 +1,57 @@
+{
+  "createdAt": "2026-10-04T05:51:00Z",
+  "scope": "Add supplied caterpillar, earthworm, six-legged ant, and eight-legged spider illustrations to their existing Amari Memory Match tokens on Garden & Pond Life. Preserve exact tokens, labels, boards, pair counts, unlocks, progress, face-down behavior, and Askia.",
+  "sourceCommit": "4f6d48122e65d861e73bb2ff0d7e446b845521e9",
+  "branch": "codex/amari-batch7-quality-20261003",
+  "candidate": {
+    "origin": "http://127.0.0.1:5319",
+    "frozenDist": "tmp/batch7-memory-garden-crawlers-final/dist",
+    "priorFrozenCandidatesPreserved": [
+      "tmp/batch7-memory-food-four-final/dist",
+      "tmp/batch7-memory-party-decorations-final/dist",
+      "tmp/batch7-memory-garden-creatures-final/dist",
+      "tmp/batch7-memory-fossils-final/dist"
+    ]
+  },
+  "integratedTokens": [
+    {"token":"🐛","label":"Caterpillar","original":"src/assets/memory-match/garden-caterpillar-v1.png","originalSha256":"dc629fd145f1643b5ca9db797f47ecff136b22d15c793ad8ada0ffdb47bbb046","webp":"/assets/garden-caterpillar-v1-card-XLHV-Sp8.webp","dimensions":[512,512],"bytes":24982,"webpSha256":"2793a1c4f8a0cd4e54e87263cbde42c98066e9cd434263e7a97672206134d465","contexts":["Garden & Pond Life"]},
+    {"token":"🪱","label":"Worm","original":"src/assets/memory-match/garden-earthworm-v1.png","originalSha256":"174049724720e95c55129aac13465b7ace69349c698af3738c45570e6e5c8ada","webp":"/assets/garden-earthworm-v1-card-CfFoi7bm.webp","dimensions":[512,512],"bytes":25736,"webpSha256":"1ab120b6a10116a13fda280962aef109aae8e836de8168f4edbc8430d04b0ae6","contexts":["Garden & Pond Life"]},
+    {"token":"🐜","label":"Ant","original":"src/assets/memory-match/garden-ant-v1.png","originalSha256":"c6fbd683ef0a27c354aa8a0f50beaa10aab76e16d832f91c1b5e475089ebe895","webp":"/assets/garden-ant-v1-card-DaUpvewp.webp","dimensions":[427,512],"bytes":40302,"webpSha256":"8767544186dd5af5545a1f631eaf82faf789efc0017c5438d32f1e6ba8237ac7","contexts":["Garden & Pond Life"],"sourceCheck":"Root-counted six distinct legs and two antennae in the selected overhead original."},
+    {"token":"🕷️","label":"Spider","original":"src/assets/memory-match/garden-spider-v1.png","originalSha256":"211bf61b94282a897ebdd98c883edd3ce0e9dc68d6a4dafaf5c3e8e456c7aec4","webp":"/assets/garden-spider-v1-card-BMWkBzG7.webp","dimensions":[512,468],"bytes":44318,"webpSha256":"422648f2d182ff85f5a044be7e5e7e4ccf9536187e851f61e290ae9c39a7975c","contexts":["Garden & Pond Life"],"sourceCheck":"Root-counted eight distinct legs in the selected overhead original; checked for visible edge specks in rendered 82px cards."}
+  ],
+  "renderedUiChecks": {
+    "profileAndProgression":"Fresh isolated Playwright CLI session with voice/story guards installed before app navigation. Selected Amari using the visible chooser and entered Memory Match. Completed Levels 1–8 with actual visible card flips and Next controls before unlocking and completing Garden level 9. No synthetic storage writes, hidden card faces, deck answers, or React state were used.",
+    "earnedLevels":{"forestFriendsPairs":4,"oceanSplashPairs":8,"spaceSparklePairs":10,"partyPairs":12,"dinosaurDiscoveryPairs":13,"vehiclesPairs":14,"yummyFeastPairs":15,"astronautMissionPairs":16,"gardenPairs":17,"gardenCards":34},
+    "garden1280":{"viewport":[1280,800],"documentWidth":1280,"cards":[149.16,149.16],"newArtCards":8,"captions":["caterpillar","worm","ant","spider"],"allNewImagesLoaded":true,"captionOverlap":false,"screenshot":"docs/qa-evidence/batch7-memory-garden-crawlers-builder-images/garden-crawlers-desktop.png"},
+    "garden390":{"viewport":[390,844],"documentWidth":390,"cards":[82,82],"artRow":[72,30.4],"captionRow":[72,17.19],"newArtCards":8,"captions":["caterpillar","worm","ant","spider"],"allNewImagesLoaded":true,"captionOverlap":false,"spiderReview":"The 82px rendered card shows a distinct eight-legged purple spider with no visible halo or edge specks; the full label remains readable. The ant, legless earthworm, and green segmented caterpillar are distinct and match their labels.","screenshot":"docs/qa-evidence/batch7-memory-garden-crawlers-builder-images/garden-crawlers-mobile.png"},
+    "faceDown1280":{"cards":34,"card":[149.17,149.17],"mountedImages":0,"mountedFrontLabels":0,"screenshot":"docs/qa-evidence/batch7-memory-garden-crawlers-builder-images/garden-crawlers-desktop-facedown.png"},
+    "faceDown390":{"cards":34,"card":[82,82],"documentWidth":390,"mountedImages":0,"mountedFrontLabels":0,"screenshot":"docs/qa-evidence/batch7-memory-garden-crawlers-builder-images/garden-crawlers-mobile-facedown.png"},
+    "reloadPersistence":"After completing Garden, reload resumed at the next unlocked Galaxy Challenge level. The visible Garden level selector returned to Garden for both-width face-down checks."
+  },
+  "networkAndConsole": {
+    "preNavigationRoutes":[{"pattern":"**/api/voice","responseStatus":204},{"pattern":"**/api/story","responseStatus":204}],
+    "observedVoiceOrStoryRequests":0,
+    "consoleErrors":0,
+    "consoleWarnings":0
+  },
+  "servedIdentity": {
+    "/":{"sha256":"8e7e73f55748cd2fee6ae7dbe0b31ac192bb723ff69397ac79db8431b65cb0c2","bytes":1100,"matchesFrozenDist":true},
+    "/assets/index-DlRXvEn1.js":{"sha256":"f26c9222c70954408958d026e1754d5727e49e10a878d14eabbfb36aee04f0ff","bytes":1187860,"matchesFrozenDist":true},
+    "/assets/index-CYWTXfuY.css":{"sha256":"251dde36dcbf934d7d0fe1682bc23c4bbc3be766a80efd87580bcee3c1545b4d","bytes":213139,"matchesFrozenDist":true},
+    "/assets/garden-caterpillar-v1-card-XLHV-Sp8.webp":{"sha256":"2793a1c4f8a0cd4e54e87263cbde42c98066e9cd434263e7a97672206134d465","bytes":24982,"matchesFrozenDist":true},
+    "/assets/garden-earthworm-v1-card-CfFoi7bm.webp":{"sha256":"1ab120b6a10116a13fda280962aef109aae8e836de8168f4edbc8430d04b0ae6","bytes":25736,"matchesFrozenDist":true},
+    "/assets/garden-ant-v1-card-DaUpvewp.webp":{"sha256":"8767544186dd5af5545a1f631eaf82faf789efc0017c5438d32f1e6ba8237ac7","bytes":40302,"matchesFrozenDist":true},
+    "/assets/garden-spider-v1-card-BMWkBzG7.webp":{"sha256":"422648f2d182ff85f5a044be7e5e7e4ccf9536187e851f61e290ae9c39a7975c","bytes":44318,"matchesFrozenDist":true}
+  },
+  "sourceGates": {
+    "focusedTests":"15 passed across test/memoryMatchContent.test.mjs and test/batch7Progress.test.mjs.",
+    "lint":"passed.",
+    "productionConfigBuild":"npm run build:android passed with explicit production voice/story configuration. Existing stale Browserslist data and large-chunk warnings remain.",
+    "illustrationInventory":"Read-only scripts/memory-art-readiness.mjs reports 72/87 unique Memory tokens illustrated after this delta; 15 remain.",
+    "frozenBundleMatchesProductionBuild":true
+  },
+  "limits":[
+    "Builder-rendered evidence only; independent review is pending.",
+    "This does not certify remaining illustrations, Askia parity, narration readiness, broader human/device acceptance, production, or any overall quality score."
+  ]
+}
