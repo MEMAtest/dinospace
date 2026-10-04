@@ -60,14 +60,14 @@ export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, sou
     const taught = [...getTaughtGraphemes()];
     const chapterPool = getEligibleSpellingWords(index, taught);
     if (chapterPool.length < 20) {
-      setPoolMessage('This chapter needs at least 20 strictly decodable words. Ask your grown-up to choose more taught sounds in Phonics settings, then return.');
+      setPoolMessage('This chapter needs at least 20 words you can make with the sounds you have learned. Ask your grown-up to choose more sounds in Phonics settings, then come back.');
       return;
     }
     const nextSeed = randomSeed();
     const recent = getBatch5LiteracyProgress('spelling', playerId).recentQuestionIds[index] || [];
     const nextRun = createSpellingRun(index, taught, nextSeed, recent);
     if (nextRun.length !== 6) {
-      setPoolMessage('There are not enough taught sounds to make six spelling questions yet. Ask your grown-up to check the Phonics settings.');
+      setPoolMessage('There are not enough words using your learned sounds to make six questions yet. Ask your grown-up to check the Phonics settings.');
       return;
     }
     const allIds = chapterPool.map(({ id }) => `spell:${id}`);
@@ -189,7 +189,7 @@ export default function AmariSpellingStudio({ onBack = noop, playSfx = noop, sou
     <main className="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col items-center px-4 py-6 text-center">
       <p className="max-w-2xl rounded-2xl bg-white/90 p-4 font-bold">Use the sounds you have learned to build each word. Each chapter has six words. Your finished word stays here until you tap Next.</p>
       <div className="mt-4 grid w-full gap-3 sm:grid-cols-3">{BATCH5_SPELLING_BANDS.map((item, index) => <button key={item.id} type="button" disabled={index > progress.unlockedChapter} onClick={() => { setChapterIndex(index); setPoolMessage(''); }} aria-pressed={chapterIndex === index} className={`min-h-20 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-40 ${chapterIndex === index ? 'border-cyan-700 bg-cyan-100' : 'border-white bg-white/90'}`}><span className="block text-xs uppercase">Chapter {index + 1} {progress.completedChapterIds.includes(index) ? '· Badge earned' : index > progress.unlockedChapter ? '· Locked' : ''}</span>{item.title}<span className="mt-1 block text-xs font-semibold">{item.skill}</span>{progress.bestStars[index] ? <span className="block text-xs">Best: {'★'.repeat(progress.bestStars[index])}</span> : null}</button>)}</div>
-      <p className="mt-4 rounded-xl bg-white/90 p-3">This chapter has {potentialPool.length} strictly decodable taught words. It needs at least 20.</p>
+      <p className="mt-4 rounded-xl bg-white/90 p-3">This chapter has {potentialPool.length} words you can make with your learned sounds. It needs at least 20.</p>
       {poolMessage && <p role="status" className="mt-3 rounded-xl bg-amber-100 p-3 font-bold">{poolMessage}</p>}
       {stage === 'finish' ? <><p className="mt-5 text-2xl font-black">Chapter complete!</p><p className="mt-2 font-semibold">Replay with a new order or continue to the next chapter.</p><button type="button" onClick={() => start(chapterIndex, true)} className="mt-4 min-h-12 rounded-xl bg-cyan-700 px-6 font-black text-white">Replay chapter</button>{progress.unlockedChapter > chapterIndex && <button type="button" onClick={() => { setStage('start'); setChapterIndex(progress.unlockedChapter); }} className="mt-3 min-h-12 rounded-xl bg-white px-6 font-black">Next chapter</button>}</> : <button type="button" onClick={() => start(chapterIndex)} className="mt-5 min-h-14 w-full max-w-lg rounded-2xl bg-cyan-800 text-lg font-black text-white">Start {band?.title}</button>}
       <div className="mt-6 grid w-full gap-3 sm:grid-cols-2"><button type="button" onClick={() => startExtras('tricky')} className="min-h-12 rounded-xl bg-white font-black shadow">Extra practice: tricky words</button><button type="button" onClick={() => startExtras('caption')} className="min-h-12 rounded-xl bg-white font-black shadow">Extra practice: captions</button></div>
