@@ -1,0 +1,31 @@
+- generic [ref=e425]:
+  - banner [ref=e426]:
+    - button "Back to learning world" [ref=e427] [cursor=pointer]
+    - generic [ref=e431]:
+      - heading "Puzzle Pop" [level=1] [ref=e432]
+      - paragraph [ref=e459]: River Valley
+      - paragraph [ref=e460]: Picture Pioneers · Picture 1 of 4
+    - button "Turn sound on" [ref=e433] [cursor=pointer]
+  - main [ref=e438]:
+    - complementary [ref=e461]:
+      - generic [ref=e462]:
+        - generic [ref=e463]: Picture preview
+        - generic [ref=e467]: 2×2
+      - heading "River Valley" [level=2] [ref=e468]
+      - 'img "Completed picture preview: A friendly dinosaur beside a sparkling river" [ref=e470]'
+      - paragraph [ref=e471]: Match big picture pieces and spot the main shapes.
+      - button "Hear instructions again" [ref=e472] [cursor=pointer]
+      - generic "Chapter progress" [ref=e478]:
+        - generic "Picture 1, completed before" [ref=e530]: "1"
+        - generic "Picture 2" [ref=e480]: "2"
+        - generic "Picture 3" [ref=e481]: "3"
+        - generic "Picture 4" [ref=e482]: "4"
+    - generic [ref=e483]:
+      - paragraph [ref=e484]: Picture complete! Read the picture fact below.
+      - generic [ref=e531]:
+        - paragraph [aria-hidden] [ref=e532]: 🎉
+        - heading "River Valley complete!" [level=2] [ref=e533]
+        - paragraph [ref=e534]:
+          - strong [ref=e535]: "Picture fact:"
+          - text: Rivers carry fresh water across the land and create homes for plants and animals.
+        - button "Next picture" [ref=e537] [cursor=pointer]

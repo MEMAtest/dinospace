@@ -1,0 +1,40 @@
+- generic [ref=e425]:
+  - banner [ref=e426]:
+    - button "Back to learning world" [ref=e427] [cursor=pointer]
+    - generic [ref=e431]:
+      - heading "Puzzle Pop" [level=1] [ref=e432]
+      - paragraph [ref=e459]: River Valley
+      - paragraph [ref=e460]: Picture Pioneers · Picture 1 of 4
+    - button "Turn sound on" [ref=e433] [cursor=pointer]
+  - main [ref=e438]:
+    - complementary [ref=e461]:
+      - generic [ref=e462]:
+        - generic [ref=e463]: Picture preview
+        - generic [ref=e467]: 2×2
+      - heading "River Valley" [level=2] [ref=e468]
+      - 'img "Completed picture preview: A friendly dinosaur beside a sparkling river" [ref=e470]'
+      - paragraph [ref=e471]: Match big picture pieces and spot the main shapes.
+      - button "Hear instructions again" [ref=e472] [cursor=pointer]
+      - generic "Chapter progress" [ref=e478]:
+        - generic "Picture 1" [ref=e479]: "1"
+        - generic "Picture 2" [ref=e480]: "2"
+        - generic "Picture 3" [ref=e481]: "3"
+        - generic "Picture 4" [ref=e482]: "4"
+    - generic [ref=e483]:
+      - paragraph [ref=e484]: "Hint: piece 2 fits the glowing space. Compare a piece’s corner or edge with the same spot in the preview."
+      - generic "2 by 2 puzzle board" [ref=e485]:
+        - button "Puzzle space 1" [ref=e486] [cursor=pointer]
+        - button "Puzzle space 2, hint space" [ref=e506] [cursor=pointer]
+        - button "Puzzle space 3" [ref=e488] [cursor=pointer]
+        - button "Puzzle space 4" [ref=e489] [cursor=pointer]
+      - generic [ref=e490]:
+        - generic [ref=e491]:
+          - paragraph [ref=e492]:
+            - text: Picture pieces
+            - generic [ref=e493]: (4 left · 0 moves)
+          - button "Hint" [active] [ref=e494] [cursor=pointer]
+        - generic "Picture piece tray" [ref=e497]:
+          - button "Choose piece 2" [pressed] [ref=e498] [cursor=pointer]
+          - button "Choose piece 3" [ref=e500] [cursor=pointer]
+          - button "Choose piece 1" [ref=e502] [cursor=pointer]
+          - button "Choose piece 4" [ref=e504] [cursor=pointer]
