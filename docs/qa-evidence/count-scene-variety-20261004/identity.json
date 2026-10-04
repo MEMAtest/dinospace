@@ -1,0 +1,32 @@
+{
+  "candidate": "Count the Stars seeded question scene and count variety",
+  "sourceCommit": "40c053408d47ca76ff26cc8ae5c2e8ad9bb99d70",
+  "baseSourceCommit": "3f6a00140738ba1a761cf0a446a6cba8334a833b",
+  "preview": "http://127.0.0.1:5393/",
+  "frozenDist": "tmp/count-scene-variety-40c0534/dist",
+  "build": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build",
+  "checks": {
+    "focusedTests": "node --test test/countTheStarsBatch3.test.mjs test/countTheStarsProgress.test.mjs (7 passed)",
+    "lint": "npx eslint src/data/countTheStarsBatch3.js test/countTheStarsBatch3.test.mjs (passed)",
+    "productionBuild": "passed",
+    "seedSweep": "500 sequential seeds per band with rolling last-eight question IDs; all runs used all five scenes, Starter used at least five counts, Growing and Challenge used six counts",
+    "fullServedAssetHashList": "docs/qa-evidence/count-scene-variety-20261004/served-assets-sha256.txt",
+    "servedAssetHashListSha256": "5ec6cb0000f7105589682bf3de9d042aeef683fe33d3bac2a28f5a4030a6bd77",
+    "servedIndexHtmlSha256": "86a866475b715a4d91275944aa82445363e6f50d6a62520c5e80ecee79b1001d",
+    "servedMainJsSha256": "92cf7f6f1c81f82d625a9962429f34ad44e53a8c3de5060886e8b3952a4a59dc",
+    "servedMainCssSha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63",
+    "servedFilesChecked": 5879,
+    "servedHashMismatches": 0
+  },
+  "scope": [
+    "Only createCountTheStarsRun selection logic and deterministic run-variety test changed.",
+    "The selector prefers new scene motifs and count values while filling each six-question run.",
+    "Starter spreads its run across the five scenes and prioritizes unused counts.",
+    "Growing and Challenge preserve their established new-range, grouped-high, lower-range review, six-unique-question and recent-eight contracts.",
+    "Question IDs, scene data, object positions, answer options, narration strings and progress behavior are unchanged."
+  ],
+  "notVerified": [
+    "No browser QA in this builder pass; independent ordinary-UI review is pending.",
+    "No provider calls, human listening, production deployment or acceptance score."
+  ]
+}
