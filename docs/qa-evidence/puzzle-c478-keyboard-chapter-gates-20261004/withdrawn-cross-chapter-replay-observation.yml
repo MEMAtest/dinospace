@@ -1,0 +1,40 @@
+- generic [ref=e1187]:
+  - banner [ref=e1188]:
+    - button "Back to learning world" [ref=e1189] [cursor=pointer]
+    - generic [ref=e1193]:
+      - heading "Puzzle Pop" [level=1] [ref=e1194]
+      - paragraph [ref=e1221]: Dino Park Picnic
+      - paragraph [ref=e1222]: Picture Pioneers · Picture 1 of 4
+    - button "Turn sound off" [ref=e1195] [cursor=pointer]
+  - main [ref=e1200]:
+    - complementary [ref=e1223]:
+      - generic [ref=e1224]:
+        - generic [ref=e1225]: Picture preview
+        - generic [ref=e1229]: 2×2
+      - heading "Dino Park Picnic" [level=2] [ref=e1230]
+      - 'img "Completed picture preview: Friendly dinosaurs enjoying a sunny park" [ref=e1232]'
+      - paragraph [ref=e1233]: Match big picture pieces and spot the main shapes.
+      - button "Hear again" [ref=e1234] [cursor=pointer]
+      - generic "Chapter progress" [ref=e1240]:
+        - generic "Picture 1, completed before" [ref=e1241]: "1"
+        - generic "Picture 2, completed before" [ref=e1242]: "2"
+        - generic "Picture 3, completed before" [ref=e1243]: "3"
+        - generic "Picture 4, completed before" [ref=e1244]: "4"
+    - generic [ref=e1245]:
+      - paragraph [ref=e1246]: Look at the Dino Park Picnic preview. Choose a piece to begin.
+      - generic "2 by 2 puzzle board" [ref=e1247]:
+        - button "Puzzle space 1" [ref=e1248] [cursor=pointer]
+        - button "Puzzle space 2" [ref=e1249] [cursor=pointer]
+        - button "Puzzle space 3" [ref=e1250] [cursor=pointer]
+        - button "Puzzle space 4" [ref=e1251] [cursor=pointer]
+      - generic [ref=e1252]:
+        - generic [ref=e1253]:
+          - paragraph [ref=e1254]:
+            - text: Picture pieces
+            - generic [ref=e1255]: (4 left · 0 moves)
+          - button "Hint" [ref=e1256] [cursor=pointer]
+        - generic "Picture piece tray" [ref=e1259]:
+          - button "Choose piece 1" [ref=e1260] [cursor=pointer]
+          - button "Choose piece 3" [ref=e1262] [cursor=pointer]
+          - button "Choose piece 2" [ref=e1264] [cursor=pointer]
+          - button "Choose piece 4" [ref=e1266] [cursor=pointer]
