@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T06:13:54.502659+00:00",
+  "updatedAt": "2026-10-04T06:19:21.321563+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -348,7 +348,7 @@
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
     "runtimeSource": "aaf8e6ddca38d46432cbc6768ee22689665778a1",
-    "scope": "Full baseline retained; Party5317 independently passed scoped decoration checks at64/87, followed by Food5318 independently passed scoped food-art checks at68/87. Garden critters implementation underway. Audio, remaining art, editorial and production acceptance remain open.",
+    "scope": "Full baseline retained; latest independently checked local art isGarden5319 source4f6d481, scoped crawler check7c7c5c7. Builderinventory72/87;15remaining. Nextvehicle groupimplementationunderway. Narration/editorial/production4.5gatesremainopen.",
     "independentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-independent-qa-20261003/report.md",
     "memory374IndependentReport": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-premium-independent-20261003/report.md",
     "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7",
@@ -660,16 +660,20 @@
     "commit": "f5a789ebcff694af4b3200363332346ff64669dc",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-identity-20261004.json",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-report-20261004.md",
-    "scope": "Builder normalearned1-8/fullGarden17pairsbothwidths,82pxmobile/captions/face-down/reload/hash/guards/console pass;15focusedtests/lint/buildpass. Builderinventory72/87; independent assignedpending. LastindependentlyverifiedartFood68/87. Noaudio/production/4.5."
+    "scope": "Independent5319 PASS: normalLevels1\u20138/fullGarden17pairsdesktop and fullGardenreplay390. At82pxsixant/eightspiderlegsreadable,nospecks/halos;distinctworm/caterpillar.34facedownzeroimgs,48pxselectors,reload9/10stickerpersistence,Keepplaying/confirmedBack/re-entry,7hashes,guardedAPI0/console0. Builderinventory72/87 isseparate. Localartdeltaonly;audio/remainingart/production/4.5open.",
+    "independentCommit": "7c7c5c7",
+    "independentReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-independent-20261004/report.md"
   },
   "spotMoonOriginalSurfacePrototype": {
     "sourceSha": "05e0dcd",
     "origin": "http://127.0.0.1:5323",
     "identity": "docs/qa-evidence/spot-moon-original-colours-identity-20261004.json",
-    "scope": "Three tight SVG colour-change clips use original source surfaces: rocketporthole,roverpanel,habitatwindow. Generated B is nottransplanted; dish replaced bywindow toavoidgeometrydrift.14Spot tests/scopedlint/configuredbuild pass. Independent shape alignment/extra-change and normalUIcontrols desktop390 pending. No visual/audio/production/4.5 acceptance.",
+    "scope": "Independent scoped local PASS at1280/390:3originalsurfaces confined to portholeglass,panelcells,habitatwindow;noobviousmaskspill/seam/backgroundchange. Actual3pointertargets,blankmiss,hints,heldfact/Next,contained56pxtargets,8hashes,guardedAPI0/console0. Reportdoesnotinclude newreload/fullgame/listening/production/4.5acceptance.",
     "narrationExistence": "docs/qa-evidence/spot-moon-source-batch2-narration-existence-20261004.json",
     "narrationScope": "Local05e0dcd corpus1372unique lines:1368exist,4missing (3PuzzleDinoParktitle,1Spotmiddlehint). Fileexistence only;no decode/listening/provider calls. Mustpackage afterauthorizedworkerterminal;notreadyforrelease.",
-    "earlyIndependentObservation": "Reviewer reports desktop1280 three edits are confined to intended surfaces without obvious spill/extraisland/backgroundchange; mobile and fullcontrols pending. Early observation only,notcompleteacceptance."
+    "earlyIndependentObservation": "Reviewer reports desktop1280 three edits are confined to intended surfaces without obvious spill/extraisland/backgroundchange; mobile and fullcontrols pending. Early observation only,notcompleteacceptance.",
+    "independentCommit": "891c319",
+    "independentReport": "docs/qa-evidence/spot-moon-5323-review-20261004/report.md"
   },
   "spotRiverFrameMaskPrototype": {
     "sourceSha": "94c4614",
