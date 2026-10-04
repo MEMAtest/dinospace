@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-04T00:45:47.061144+00:00",
+  "updatedAt": "2026-10-04T02:17:48.866321+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "2923ca6e10c46609504f41529bf46286e17f8434",
+  "canonicalRelease": "2952958fe41de443a8dfeabbbe0bb54d96e572ad",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -402,12 +402,24 @@
       "productionEvidence": "docs/qa-evidence/monster-clue-canonical-20261004/report.md"
     }
   ],
-  "canonicalRuntimeRecheck": "docs/qa-evidence/sky-accessible-progress-canonical-identity-20261004.json",
+  "canonicalRuntimeRecheck": "docs/qa-evidence/puzzle-spot-replay-canonical-identity-20261004.json",
   "skyAccessibleCopyCandidate": {
     "sourceSha": "2923ca6e10c46609504f41529bf46286e17f8434",
     "identity": "docs/qa-evidence/sky-accessible-progress-identity-20261004.json",
     "scope": "Functional repair promoted with exact eight-file canonical identity. Independent local, immutable production and fresh canonical desktop/390px control deltas passed. Full390px control sweep and broader4.5 gates remain open."
   },
   "monsterNaturalQueueEvidence": "docs/qa-evidence/monster-natural-queue-20261004/report.md",
-  "batch2CurrentEditorialReport": "docs/qa-evidence/batch2-canonical-editorial-gate-20261004/report.md"
+  "batch2CurrentEditorialReport": "docs/qa-evidence/batch2-canonical-editorial-gate-20261004/report.md",
+  "puzzleSpotReplayRepair": {
+    "sourceSha": "2952958fe41de443a8dfeabbbe0bb54d96e572ad",
+    "deploymentId": "dpl_FjAsdFFoZqPXLM1EbfnLW4Sy59s5",
+    "candidatePlaywrightEvidence": "docs/qa-evidence/puzzle-spot-replay-production-candidate-20261004/report.md",
+    "canonicalIdentity": "docs/qa-evidence/puzzle-spot-replay-canonical-identity-20261004.json",
+    "scope": "Promoted functional replay repair after independent local and immutable production desktop390 controls passed. Provider alias and all seven canonical assets match. Fresh canonical bounded controls underway; no new4.5 or listening acceptance."
+  },
+  "monsterHeaderCandidate": {
+    "sourceSha": "484addf2e76be849845f508bdc9fc5e1325b51b7",
+    "identity": "docs/qa-evidence/monster-header-identity-20261004.json",
+    "scope": "Frozen5307 only. Independent reviewer reports full titles and ordinary Counting6/Growing6/Story6 at both widths, report pending. Not deployed."
+  }
 }
