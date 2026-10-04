@@ -68,21 +68,22 @@ const DifferenceVisual = ({ type }) => {
 
 const SceneColorEditLayer = ({ scene }) => {
   // Match the base image's object-cover crop, including square/portrait sources.
+  const viewHeight = 100 / (scene.aspectRatio || 4 / 3);
   const layerId = `scene-colour-${useId().replaceAll(':', '')}`;
-  return <svg aria-hidden="true" viewBox="0 0 100 75" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
+  return <svg aria-hidden="true" viewBox={`0 0 100 ${viewHeight}`} preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
     <defs>{scene.colorEdits.map(({ shape, hue, alphaMatrix, ...geometry }, index) => {
       const id = `${layerId}-${index}`;
       const Shape = shape;
       return <g key={id}>
-        <clipPath id={`${id}-clip`} transform="scale(1 0.75)"><Shape {...geometry} /></clipPath>
+        <clipPath id={`${id}-clip`} transform={`scale(1 ${viewHeight / 100})`}><Shape {...geometry} /></clipPath>
         <filter id={`${id}-colour`} colorInterpolationFilters="sRGB"><feColorMatrix type="hueRotate" values={hue} /></filter>
         {alphaMatrix && <>
           <filter id={`${id}-selection`} colorInterpolationFilters="sRGB"><feColorMatrix type="matrix" values={alphaMatrix} /></filter>
-          <mask id={`${id}-mask`} maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="75"><image href={scene.image} x="0" y="0" width="100" height="75" preserveAspectRatio="xMidYMid slice" filter={`url(#${id}-selection)`} /></mask>
+          <mask id={`${id}-mask`} maskUnits="userSpaceOnUse" x="0" y="0" width="100" height={viewHeight}><image href={scene.image} x="0" y="0" width="100" height={viewHeight} preserveAspectRatio="xMidYMid slice" filter={`url(#${id}-selection)`} /></mask>
         </>}
       </g>;
     })}</defs>
-    {scene.colorEdits.map((edit, index) => <image key={index} href={scene.image} x="0" y="0" width="100" height="75" preserveAspectRatio="xMidYMid slice" clipPath={`url(#${layerId}-${index}-clip)`} filter={`url(#${layerId}-${index}-colour)`} mask={edit.alphaMatrix ? `url(#${layerId}-${index}-mask)` : undefined} />)}
+    {scene.colorEdits.map((edit, index) => <image key={index} href={scene.image} x="0" y="0" width="100" height={viewHeight} preserveAspectRatio="xMidYMid slice" clipPath={`url(#${layerId}-${index}-clip)`} filter={`url(#${layerId}-${index}-colour)`} mask={edit.alphaMatrix ? `url(#${layerId}-${index}-mask)` : undefined} />)}
   </svg>;
 };
 
@@ -263,7 +264,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
         {phase === 'play' ? <>
           <section className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-white/90 p-3 shadow"><p className="font-black">{scene.title} <span className="text-slate-600">· {found.length} of {scene.differences.length} changes</span></p><div className="flex gap-2"><button type="button" onClick={() => { speakPackagedBatch2Line(speak, spotDifferenceNarration.prompt(scene)); playSfx('click'); }} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={18} /> Hear clue</button><button type="button" onClick={showHint} disabled={hintCount >= chapter.hintTokens || !getNextSpotDifferenceHint(scene.differences, found, hintedTargets)} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-100 px-4 font-black text-amber-900 disabled:opacity-50"><Lightbulb size={18} /> Magnifier {chapter.hintTokens - hintCount} left</button></div></section>
           <div className="grid gap-4 lg:grid-cols-2">
-            {[false, true].map((changed) => <section key={String(changed)} className="min-w-0 rounded-3xl border-4 border-white bg-white p-3 shadow-xl"><h2 className="mb-2 text-center text-lg font-black text-indigo-800">Picture {changed ? 'B · Find changes here' : 'A · Look carefully'}</h2><div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-sky-100"><img src={changed && scene.imageB && !scene.editRegions ? scene.imageB : scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
+            {[false, true].map((changed) => <section key={String(changed)} className="min-w-0 rounded-3xl border-4 border-white bg-white p-3 shadow-xl"><h2 className="mb-2 text-center text-lg font-black text-indigo-800">Picture {changed ? 'B · Find changes here' : 'A · Look carefully'}</h2><div className="relative w-full overflow-hidden rounded-2xl bg-sky-100" style={{ aspectRatio: scene.aspectRatio || 4 / 3 }}><img src={changed && scene.imageB && !scene.editRegions ? scene.imageB : scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
               {changed && scene.editRegions && <SceneEditLayer scene={scene} />}
               {changed && scene.colorEdits && <SceneColorEditLayer scene={scene} />}
               {scene.differences.map((difference) => { const visible = changed ? difference.visual : difference.normalVisual; const done = found.includes(difference.id); const bespoke = visible.startsWith('prop:'); if (changed && done) return <span key={difference.id} aria-label="Found difference" className="pointer-events-none absolute z-10 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-100/95 ring-4 ring-emerald-500" style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><Check className="text-emerald-800" /></span>; if (scene.pairedArt) return null; return <span key={difference.id} aria-hidden="true" className={`pointer-events-none absolute z-[1] grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full ${bespoke ? '' : 'bg-white/90 shadow'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><DifferenceVisual type={visible} /></span>; })}

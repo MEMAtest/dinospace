@@ -102,7 +102,7 @@ const makeScene = (chapterIndex, sceneIndex, title, image, alt, fact, pair = nul
     image,
     alt,
     fact,
-    ...(pair ? { ...(pair.imageB ? { imageB: pair.imageB } : {}), pairedArt: true, ...(pair.colorEdits ? { colorEdits: Object.freeze(pair.colorEdits.map((edit) => Object.freeze(edit))) } : {}), ...(pair.editRegions ? { editRegions: Object.freeze(pair.editRegions.map((region) => Object.freeze(region))) } : {}) } : {}),
+    ...(pair ? { ...(pair.aspectRatio ? { aspectRatio: pair.aspectRatio } : {}), ...(pair.imageB ? { imageB: pair.imageB } : {}), pairedArt: true, ...(pair.colorEdits ? { colorEdits: Object.freeze(pair.colorEdits.map((edit) => Object.freeze(edit))) } : {}), ...(pair.editRegions ? { editRegions: Object.freeze(pair.editRegions.map((region) => Object.freeze(region))) } : {}) } : {}),
     differences: Object.freeze(pair?.differences || makeDifferences(sceneIndex, chapter.differenceCount)),
   });
 };
@@ -194,19 +194,21 @@ export const SPOT_DIFFERENCE_SCENES = Object.freeze([
     ],
   }),
   makeScene(1, 5, 'Sound Safari', soundSafari, 'An elephant, monkey, bird and frog making sounds beside a waterfall', 'Animals use different sounds to communicate with one another.', {
+    // Keep the complete animal composition: no parrot cropped at the top.
+    aspectRatio: 1,
     colorEdits: [
-      { shape: 'path', d: 'M244 486 C210 471 170 482 130 501 C82 526 44 565 38 602 C29 635 50 651 78 654 C122 657 140 686 187 704 C219 716 248 704 266 678 L266 572 Z', transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 180 },
-      { shape: 'path', d: 'M978 280 C982 292 988 313 998 323 L1013 335 L1012 315 L1029 338 L1038 337 L1032 311 L1050 322 L1043 301 L1030 280 Z', transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 110, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 4 -2 -2 0 -0.4' },
-      { shape: 'ellipse', cx: 1012, cy: 566, rx: 39, ry: 42, transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 170 },
-      { shape: 'path', d: 'M917 895 Q924 877 941 872 Q938 855 951 848 Q970 842 982 865 L994 871 Q1003 858 1019 859 Q1045 865 1046 897 Q1072 914 1076 940 Q1110 943 1125 970 Q1143 1000 1128 1047 L1124 1068 L1104 1075 L1089 1078 L1063 1073 L1050 1059 L1027 1068 L1008 1079 L992 1074 L996 1055 L1005 1035 L995 1006 L967 1006 L956 1039 L943 1058 L914 1065 L909 1058 L916 1045 L927 1034 L927 984 L925 944 Q911 934 909 920 L908 905 Z', transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 140, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -3 5 -2 0 -0.5' },
-      { shape: 'path', d: 'M202 976 a11 14 0 1 0 22 0 a11 14 0 1 0 -22 0 M228 981 a17 15 0 1 0 34 0 a17 15 0 1 0 -34 0 M262 982 a18 15 0 1 0 36 0 a18 15 0 1 0 -36 0 M299 972 a9 14 0 1 0 18 0 a9 14 0 1 0 -18 0 M390 972 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0 M424 973 a17 14 0 1 0 34 0 a17 14 0 1 0 -34 0 M464 969 a16 13 0 1 0 32 0 a16 13 0 1 0 -32 0', transform: 'matrix(0.07974481659 0 0 0.1063264221 0 -16.66666667)', hue: 100 },
+      { shape: 'path', d: 'M244 486 C210 471 170 482 130 501 C82 526 44 565 38 602 C29 635 50 651 78 654 C122 657 140 686 187 704 C219 716 248 704 266 678 L266 572 Z', transform: 'scale(0.07974481659)', hue: 180 },
+      { shape: 'path', d: 'M780 80 C786 71 796 80 807 91 L837 120 L870 136 L881 159 L905 168 L911 213 L890 231 L872 216 L858 231 L842 219 L831 222 L822 207 L808 207 L801 192 L787 184 L790 169 L778 161 L784 147 L774 143 L779 128 L792 132 L784 116 Z', transform: 'scale(0.07974481659)', hue: 100, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -2 -3 5 0 -0.4' },
+      { shape: 'ellipse', cx: 1012, cy: 566, rx: 39, ry: 42, transform: 'scale(0.07974481659)', hue: 170 },
+      { shape: 'path', d: 'M917 895 Q924 877 941 872 Q938 855 951 848 Q970 842 982 865 L994 871 Q1003 858 1019 859 Q1045 865 1046 897 Q1072 914 1076 940 Q1110 943 1125 970 Q1143 1000 1128 1047 L1124 1068 L1104 1075 L1089 1078 L1063 1073 L1050 1059 L1027 1068 L1008 1079 L992 1074 L996 1055 L1005 1035 L995 1006 L967 1006 L956 1039 L943 1058 L914 1065 L909 1058 L916 1045 L927 1034 L927 984 L925 944 Q911 934 909 920 L908 905 Z', transform: 'scale(0.07974481659)', hue: 140, alphaMatrix: '0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 -3 5 -2 0 -0.5' },
+      { shape: 'path', d: 'M202 976 a11 14 0 1 0 22 0 a11 14 0 1 0 -22 0 M228 981 a17 15 0 1 0 34 0 a17 15 0 1 0 -34 0 M262 982 a18 15 0 1 0 36 0 a18 15 0 1 0 -36 0 M299 972 a9 14 0 1 0 18 0 a9 14 0 1 0 -18 0 M390 972 a14 14 0 1 0 28 0 a14 14 0 1 0 -28 0 M424 973 a17 14 0 1 0 34 0 a17 14 0 1 0 -34 0 M464 969 a16 13 0 1 0 32 0 a16 13 0 1 0 -32 0', transform: 'scale(0.07974481659)', hue: 100 },
     ],
     differences: [
-      Object.freeze({ id: 'safari-ear', label: 'the elephant inner ear changed colour', normalVisual: 'scene:pink-ear', visual: 'scene:cyan-ear', x: 17, y: 45, radius: 8 }),
-      Object.freeze({ id: 'safari-tail', label: 'the parrot tail feathers changed colour', normalVisual: 'scene:red-tail', visual: 'scene:green-tail', x: 80, y: 15, radius: 8 }),
-      Object.freeze({ id: 'safari-belly', label: 'the monkey tummy changed colour', normalVisual: 'scene:cream-belly', visual: 'scene:cyan-belly', x: 80, y: 44, radius: 8 }),
-      Object.freeze({ id: 'safari-frog', label: 'the frog skin changed colour', normalVisual: 'scene:green-frog', visual: 'scene:purple-frog', x: 82, y: 83, radius: 8 }),
-      Object.freeze({ id: 'safari-toes', label: 'the elephant toenails changed colour', normalVisual: 'scene:cream-toes', visual: 'scene:green-toes', x: 35, y: 86, radius: 8 }),
+      Object.freeze({ id: 'safari-ear', label: 'the elephant inner ear changed colour', normalVisual: 'scene:pink-ear', visual: 'scene:cyan-ear', x: 17, y: 50, radius: 8 }),
+      Object.freeze({ id: 'safari-wing', label: 'the parrot left wing feathers changed colour', normalVisual: 'scene:blue-wing', visual: 'scene:purple-wing', x: 67, y: 14, radius: 8 }),
+      Object.freeze({ id: 'safari-belly', label: 'the monkey tummy changed colour', normalVisual: 'scene:cream-belly', visual: 'scene:cyan-belly', x: 80, y: 45, radius: 8 }),
+      Object.freeze({ id: 'safari-frog', label: 'the frog skin changed colour', normalVisual: 'scene:green-frog', visual: 'scene:purple-frog', x: 82, y: 77, radius: 8 }),
+      Object.freeze({ id: 'safari-toes', label: 'the elephant toenails changed colour', normalVisual: 'scene:cream-toes', visual: 'scene:green-toes', x: 35, y: 78, radius: 8 }),
     ],
   }),
   makeScene(1, 6, 'Pattern Parade', patternParade, 'A sunny festival courtyard with star pennants, an arch, balloons, a parade drum and a shop canopy', 'Repeating patterns follow a rule that we can describe.', {

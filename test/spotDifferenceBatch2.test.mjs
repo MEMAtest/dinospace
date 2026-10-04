@@ -243,9 +243,10 @@ test('Sound Safari five depicted-object targets stay separated and inside the mi
   const scene = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === 'spot-6');
   assert.equal(scene.pairedArt, true);
   assert.equal(scene.differences.length, 5);
-  const centers = scene.differences.map(({ x, y }) => ({ x: x * 2.8, y: y * 2.1 }));
+  assert.equal(scene.aspectRatio, 1);
+  const centers = scene.differences.map(({ x, y }) => ({ x: x * 2.8, y: y * 2.8 }));
   for (const [index, center] of centers.entries()) {
-    assert.ok(center.x >= 28 && center.x <= 252 && center.y >= 28 && center.y <= 182);
+    assert.ok(center.x >= 28 && center.x <= 252 && center.y >= 28 && center.y <= 252);
     for (const other of centers.slice(index + 1)) assert.equal(Math.abs(center.x - other.x) < 56 && Math.abs(center.y - other.y) < 56, false);
   }
 });
