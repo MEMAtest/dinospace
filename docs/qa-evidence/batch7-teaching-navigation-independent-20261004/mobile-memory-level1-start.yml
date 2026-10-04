@@ -1,0 +1,73 @@
+- generic [ref=e1153]:
+  - banner [ref=e1154]:
+    - button "Back to Thinking and Play" [ref=e1155] [cursor=pointer]
+    - generic [ref=e1158]:
+      - generic [ref=e1159]: AMARI’S MEMORY QUEST
+      - heading "Memory Match" [level=2] [ref=e1160]
+      - paragraph [ref=e1161]:
+        - text: Level 1 of 10 ·
+        - strong [ref=e1162]: Forest Friends
+    - button "Turn sound on" [ref=e1163] [cursor=pointer]
+  - main [ref=e1168]:
+    - region "Memory strategy" [ref=e1169]:
+      - generic [ref=e1171]:
+        - generic [ref=e1172]: YOUR MEMORY TIP
+        - status [ref=e1176]: Scan one row at a time. Say the picture and remember its place before turning another card.
+      - button "Repeat the memory tip" [ref=e1177] [cursor=pointer]
+    - region "Forest Friends memory board" [ref=e1182]:
+      - generic [ref=e1183]:
+        - generic "Memory levels" [ref=e1184]:
+          - 'button "Level 1: Forest Friends" [ref=e1185] [cursor=pointer]': "1"
+          - 'button "Level 2: Ocean Splash" [disabled] [ref=e1186]': "2"
+          - 'button "Level 3: Space Sparkle" [disabled] [ref=e1187]': "3"
+          - 'button "Level 4: Party & Treats" [disabled] [ref=e1188]': "4"
+          - 'button "Level 5: Dinosaur Discovery" [disabled] [ref=e1189]': "5"
+          - 'button "Level 6: All Kinds of Vehicles" [disabled] [ref=e1190]': "6"
+          - 'button "Level 7: Yummy Feast" [disabled] [ref=e1191]': "7"
+          - 'button "Level 8: Astronaut Mission" [disabled] [ref=e1192]': "8"
+          - 'button "Level 9: Garden & Pond Life" [disabled] [ref=e1193]': "9"
+          - 'button "Level 10: Galaxy Challenge" [disabled] [ref=e1194]': "10"
+        - generic "Round statistics" [ref=e1195]:
+          - generic [ref=e1196]:
+            - strong [ref=e1197]: "0"
+            - generic [ref=e1198]: PAIRS
+          - generic [ref=e1199]:
+            - strong [ref=e1200]: "0"
+            - generic [ref=e1201]: MOVES
+          - generic [ref=e1202]:
+            - strong [ref=e1203]: 0:01
+            - generic [ref=e1204]: TIME
+      - generic [ref=e1205]:
+        - button "Face-down memory card 1" [ref=e1207] [cursor=pointer]:
+          - generic [ref=e1209]:
+            - generic [aria-hidden] [ref=e1210]: 🐾
+            - generic [aria-hidden] [ref=e1211]: AMARI
+        - button "Face-down memory card 2" [ref=e1214] [cursor=pointer]:
+          - generic [ref=e1216]:
+            - generic [aria-hidden] [ref=e1217]: 🐾
+            - generic [aria-hidden] [ref=e1218]: AMARI
+        - button "Face-down memory card 3" [ref=e1221] [cursor=pointer]:
+          - generic [ref=e1223]:
+            - generic [aria-hidden] [ref=e1224]: 🐾
+            - generic [aria-hidden] [ref=e1225]: AMARI
+        - button "Face-down memory card 4" [ref=e1228] [cursor=pointer]:
+          - generic [ref=e1230]:
+            - generic [aria-hidden] [ref=e1231]: 🐾
+            - generic [aria-hidden] [ref=e1232]: AMARI
+        - button "Face-down memory card 5" [ref=e1235] [cursor=pointer]:
+          - generic [ref=e1237]:
+            - generic [aria-hidden] [ref=e1238]: 🐾
+            - generic [aria-hidden] [ref=e1239]: AMARI
+        - button "Face-down memory card 6" [ref=e1242] [cursor=pointer]:
+          - generic [ref=e1244]:
+            - generic [aria-hidden] [ref=e1245]: 🐾
+            - generic [aria-hidden] [ref=e1246]: AMARI
+        - button "Face-down memory card 7" [ref=e1249] [cursor=pointer]:
+          - generic [ref=e1251]:
+            - generic [aria-hidden] [ref=e1252]: 🐾
+            - generic [aria-hidden] [ref=e1253]: AMARI
+        - button "Face-down memory card 8" [ref=e1256] [cursor=pointer]:
+          - generic [ref=e1258]:
+            - generic [aria-hidden] [ref=e1259]: 🐾
+            - generic [aria-hidden] [ref=e1260]: AMARI
+      - paragraph [ref=e1263]: 0/10 board stickers collected

@@ -1,0 +1,90 @@
+- generic [ref=e371]:
+  - banner [ref=e372]:
+    - button "Back to Explore and Languages" [ref=e373] [cursor=pointer]
+    - generic [ref=e376]:
+      - paragraph [ref=e377]: Interactive 3D mission
+      - heading "Solar System Explorer" [level=2] [ref=e378]
+    - button "Turn sound on" [ref=e380] [cursor=pointer]
+  - region "Discovery passport" [ref=e385]:
+    - paragraph [ref=e386]: "Passport: 3/54 discoveries · 0/9 challenges"
+    - generic [ref=e387]:
+      - button "Previous planets in strip" [ref=e388] [cursor=pointer]: ← Planets
+      - button "More planets in strip" [ref=e389] [cursor=pointer]: More →
+    - paragraph [ref=e390]: "First mission: choose a world, open its three discoveries, then try the Captain’s challenge. Pluto is a dwarf planet."
+  - navigation "Choose a planet" [ref=e391]:
+    - button "Mercury" [ref=e392] [cursor=pointer]
+    - button "Venus" [ref=e394] [cursor=pointer]
+    - button "Earth" [ref=e396] [cursor=pointer]
+    - button "Mars" [ref=e398] [cursor=pointer]
+    - button "Jupiter" [ref=e400] [cursor=pointer]
+    - button "Saturn" [ref=e402] [cursor=pointer]
+    - button "Uranus" [ref=e405] [cursor=pointer]
+    - button "Neptune" [ref=e407] [cursor=pointer]
+    - button "Pluto" [ref=e409] [cursor=pointer]
+  - main [ref=e411]:
+    - generic [ref=e412]:
+      - generic: Drag to turn · tap a planet
+      - group "Solar System view controls" [ref=e415]:
+        - button "View controls" [ref=e416] [cursor=pointer]
+    - complementary [ref=e421]:
+      - generic [ref=e422]:
+        - generic [ref=e426]:
+          - paragraph [ref=e427]: Mission control
+          - heading "Neptune" [level=3] [ref=e507]
+        - generic [ref=e429]:
+          - generic [ref=e430]: 1/3
+          - generic [ref=e431]: badge
+      - paragraph [ref=e432]: The windy blue world
+      - generic "1 of 3 discoveries found" [ref=e517]
+      - paragraph [ref=e435]: Find 3 discoveries to earn the badge
+      - generic [ref=e436]:
+        - generic [ref=e437]: Current mission
+        - paragraph [ref=e441]: Travel to the far blue world and look for storm bands.
+      - generic [ref=e442]:
+        - generic [ref=e443]:
+          - generic [ref=e444]: ☀️
+          - generic [ref=e445]: Order
+          - generic [ref=e446]: 8th from Sun
+        - generic [ref=e447]:
+          - generic [ref=e448]: 🕒
+          - generic [ref=e449]: Day
+          - generic [ref=e450]: 16 hours
+        - generic [ref=e451]:
+          - generic [ref=e452]: 🗓️
+          - generic [ref=e453]: Year
+          - generic [ref=e454]: 165 Earth years
+        - generic [ref=e455]:
+          - generic [ref=e456]: 🌙
+          - generic [ref=e457]: Moons
+          - generic [ref=e458]: Many
+        - generic [ref=e459]:
+          - generic [ref=e460]: Temperature
+          - generic [ref=e461]: About −214°C
+      - generic [ref=e462]:
+        - generic [ref=e463]:
+          - heading "Discovery deck" [level=4] [ref=e464]
+          - button "Listen" [ref=e465] [cursor=pointer]
+        - generic [ref=e470]:
+          - 'button "Discovery 1: Farthest planet from the Sun." [ref=e509] [cursor=pointer]': Fact 1
+          - 'button "Discovery 2: Super windy with giant storms." [ref=e510] [cursor=pointer]': Fact 2
+          - 'button "Discovery 3: Methane gas helps give Neptune its blue colour." [ref=e511] [cursor=pointer]': Fact 3
+          - 'button "Discovery 4: A year there is very, very long." [ref=e512] [cursor=pointer]': Fact 4
+          - 'button "Discovery 5: Its winds can race faster than 2,000 kilometres per hour." [ref=e513] [cursor=pointer]': Fact 5
+          - 'button "Discovery 6: Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins." [active] [ref=e514] [cursor=pointer]':
+            - generic [ref=e518]: ★
+            - text: Fact 6
+        - generic [ref=e477]:
+          - paragraph [ref=e478]: Did you know?
+          - paragraph [ref=e479]: Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins.
+        - generic [ref=e480]:
+          - paragraph [ref=e481]: Compared with Earth
+          - paragraph [ref=e482]: Neptune is nearly four times wider than Earth.
+      - generic [ref=e483]:
+        - generic [ref=e484]:
+          - heading "Captain’s challenge" [level=4] [ref=e485]
+          - generic [ref=e486]: starter
+        - paragraph [ref=e487]: What is Neptune famous for?
+        - generic [ref=e488]:
+          - button "Forests" [ref=e515] [cursor=pointer]
+          - button "Super-fast winds" [ref=e516] [cursor=pointer]
+      - generic [ref=e491]: "World badges collected: 0/9"

@@ -1,0 +1,66 @@
+{
+  "candidateSource": "b6976948cf61147491e3658a5ce2e249a91bca09",
+  "desktop": {
+    "viewport": { "width": 1280, "height": 800 },
+    "level1": {
+      "name": "Forest Friends",
+      "pairs": 4,
+      "moves": 8,
+      "boardStickers": "1/10",
+      "nextEnabled": true
+    },
+    "afterNext": {
+      "name": "Ocean Splash",
+      "pairs": 0,
+      "boardStickers": "1/10",
+      "scrollY": 0,
+      "titleTop": 18,
+      "titleBottom": 97.640625,
+      "tipTop": 115.640625,
+      "tipBottom": 219.640625
+    },
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "mobile": {
+    "viewport": { "width": 390, "height": 844 },
+    "level1": {
+      "name": "Forest Friends",
+      "pairs": 4,
+      "moves": 6,
+      "boardStickers": "1/10",
+      "nextEnabled": true
+    },
+    "afterNext": {
+      "name": "Ocean Splash",
+      "pairs": 0,
+      "boardStickers": "1/10",
+      "scrollY": 0,
+      "titleTop": 10,
+      "titleBottom": 69.09375,
+      "tipTop": 81.09375,
+      "tipBottom": 166.609375,
+      "documentWidth": 390,
+      "viewportWidth": 390
+    },
+    "afterReload": {
+      "name": "Ocean Splash",
+      "pairs": 0,
+      "boardStickers": "1/10",
+      "scrollY": 0,
+      "titleTop": 10,
+      "titleBottom": 69.09375,
+      "tipTop": 81.09375,
+      "tipBottom": 166.609375
+    },
+    "profileSpotCheck": {
+      "profile": "Askia",
+      "board": "Meet the Friends",
+      "boardCount": "1 of 5",
+      "pairs": "0 / 3"
+    },
+    "consoleErrors": 0,
+    "consoleWarnings": 0
+  },
+  "method": "All card pairs were found through visible controls. The helper read aria-label only after a card visibly flipped face up; it did not inspect hidden card fronts, seeded state, or stored answers."
+}

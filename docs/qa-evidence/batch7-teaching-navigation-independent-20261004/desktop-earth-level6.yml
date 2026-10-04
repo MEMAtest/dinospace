@@ -1,0 +1,91 @@
+- generic [ref=e384]:
+  - banner [ref=e385]:
+    - button "Back to Explore and Languages" [ref=e386] [cursor=pointer]
+    - generic [ref=e389]:
+      - paragraph [ref=e390]: Interactive 3D mission
+      - heading "Solar System Explorer" [level=2] [ref=e391]
+    - button "Turn sound on" [ref=e393] [cursor=pointer]
+  - region "Discovery passport" [ref=e398]:
+    - paragraph [ref=e399]: "Passport: 1/54 discoveries · 0/9 challenges"
+    - generic [ref=e400]:
+      - button "Previous planets in strip" [ref=e401] [cursor=pointer]: ← Planets
+      - button "More planets in strip" [ref=e402] [cursor=pointer]: More →
+    - paragraph [ref=e403]: "First mission: choose a world, open its three discoveries, then try the Captain’s challenge. Pluto is a dwarf planet."
+  - navigation "Choose a planet" [ref=e404]:
+    - button "Mercury" [ref=e405] [cursor=pointer]
+    - button "Venus" [ref=e407] [cursor=pointer]
+    - button "Earth" [ref=e409] [cursor=pointer]
+    - button "Mars" [ref=e411] [cursor=pointer]
+    - button "Jupiter" [ref=e413] [cursor=pointer]
+    - button "Saturn" [ref=e415] [cursor=pointer]
+    - button "Uranus" [ref=e418] [cursor=pointer]
+    - button "Neptune" [ref=e420] [cursor=pointer]
+    - button "Pluto" [ref=e422] [cursor=pointer]
+  - main [ref=e424]:
+    - generic [ref=e425]:
+      - generic: Drag to turn · tap a planet
+      - generic: Selected world is ringed in cyan
+      - group "Solar System view controls" [ref=e428]:
+        - button "View controls" [ref=e429] [cursor=pointer]
+    - complementary [ref=e434]:
+      - generic [ref=e435]:
+        - generic [ref=e439]:
+          - paragraph [ref=e440]: Mission control
+          - heading "Earth" [level=3] [ref=e441]
+        - generic [ref=e442]:
+          - generic [ref=e443]: 1/3
+          - generic [ref=e444]: badge
+      - paragraph [ref=e445]: Our bright blue home
+      - generic "1 of 3 discoveries found" [ref=e505]
+      - paragraph [ref=e448]: Find 3 discoveries to earn the badge
+      - generic [ref=e449]:
+        - generic [ref=e450]: Current mission
+        - paragraph [ref=e454]: Find the blue oceans that cover most of Earth.
+      - generic [ref=e455]:
+        - generic [ref=e456]:
+          - generic [ref=e457]: ☀️
+          - generic [ref=e458]: Order
+          - generic [ref=e459]: 3rd from Sun
+        - generic [ref=e460]:
+          - generic [ref=e461]: 🕒
+          - generic [ref=e462]: Day
+          - generic [ref=e463]: 24 hours
+        - generic [ref=e464]:
+          - generic [ref=e465]: 🗓️
+          - generic [ref=e466]: Year
+          - generic [ref=e467]: 365 days
+        - generic [ref=e468]:
+          - generic [ref=e469]: 🌙
+          - generic [ref=e470]: Moons
+          - generic [ref=e471]: "1"
+        - generic [ref=e472]:
+          - generic [ref=e473]: Temperature
+          - generic [ref=e474]: Average about 15°C
+      - generic [ref=e475]:
+        - generic [ref=e476]:
+          - heading "Discovery deck" [level=4] [ref=e477]
+          - button "Listen" [ref=e478] [cursor=pointer]
+        - generic [ref=e483]:
+          - 'button "Discovery 1: Home to plants, animals, and you!" [ref=e484] [cursor=pointer]': Fact 1
+          - 'button "Discovery 2: Lots of water makes it look blue." [ref=e485] [cursor=pointer]': Fact 2
+          - 'button "Discovery 3: Only planet we know with life." [ref=e486] [cursor=pointer]': Fact 3
+          - 'button "Discovery 4: One big Moon lights up our night sky." [ref=e487] [cursor=pointer]': Fact 4
+          - 'button "Discovery 5: Earth’s moving plates slowly reshape its surface." [ref=e488] [cursor=pointer]': Fact 5
+          - 'button "Discovery 6: Earth acts like a giant magnet. Its invisible magnetic field turns many tiny bits from the Sun away from Earth. The space around Earth that the field controls is called the magnetosphere." [active] [ref=e489] [cursor=pointer]':
+            - generic [ref=e506]: ★
+            - text: Fact 6
+        - generic [ref=e490]:
+          - paragraph [ref=e491]: Did you know?
+          - paragraph [ref=e492]: Earth acts like a giant magnet. Its invisible magnetic field turns many tiny bits from the Sun away from Earth. The space around Earth that the field controls is called the magnetosphere.
+        - generic [ref=e493]:
+          - paragraph [ref=e494]: Compared with Earth
+          - paragraph [ref=e495]: Our home is the measuring stick for every other planet.
+      - generic [ref=e496]:
+        - generic [ref=e497]:
+          - heading "Captain’s challenge" [level=4] [ref=e498]
+          - generic [ref=e499]: starter
+        - paragraph [ref=e500]: What makes Earth look blue?
+        - generic [ref=e501]:
+          - button "Its oceans" [ref=e502] [cursor=pointer]
+          - button "Blue paint" [ref=e503] [cursor=pointer]
+      - generic [ref=e504]: "World badges collected: 0/9"

@@ -1,0 +1,91 @@
+- generic [ref=e2500]:
+  - banner [ref=e2501]:
+    - button "Back to Explore and Languages" [ref=e2502] [cursor=pointer]
+    - generic [ref=e2505]:
+      - paragraph [ref=e2506]: Interactive 3D mission
+      - heading "Solar System Explorer" [level=2] [ref=e2507]
+    - button "Turn sound on" [ref=e2509] [cursor=pointer]
+  - region "Discovery passport" [ref=e2514]:
+    - paragraph [ref=e2515]: "Passport: 4/54 discoveries · 0/9 challenges"
+    - generic [ref=e2516]:
+      - button "Previous planets in strip" [ref=e2517] [cursor=pointer]: ← Planets
+      - button "More planets in strip" [ref=e2518] [cursor=pointer]: More →
+    - paragraph [ref=e2519]: "First mission: choose a world, open its three discoveries, then try the Captain’s challenge. Pluto is a dwarf planet."
+  - navigation "Choose a planet" [ref=e2520]:
+    - button "Mercury" [ref=e2521] [cursor=pointer]
+    - button "Venus" [ref=e2523] [cursor=pointer]
+    - button "Earth" [ref=e2525] [cursor=pointer]
+    - button "Mars" [ref=e2527] [cursor=pointer]
+    - button "Jupiter" [ref=e2529] [cursor=pointer]
+    - button "Saturn" [ref=e2531] [cursor=pointer]
+    - button "Uranus" [ref=e2534] [cursor=pointer]
+    - button "Neptune" [ref=e2536] [cursor=pointer]
+    - button "Pluto" [ref=e2538] [cursor=pointer]
+  - main [ref=e2540]:
+    - generic [ref=e2541]:
+      - generic: Drag to turn · tap a planet
+      - generic: Selected world is ringed in cyan
+      - group "Solar System view controls" [ref=e2544]:
+        - button "View controls" [ref=e2545] [cursor=pointer]
+    - complementary [ref=e2550]:
+      - generic [ref=e2551]:
+        - generic [ref=e2555]:
+          - paragraph [ref=e2556]: Mission control
+          - heading "Pluto" [level=3] [ref=e2622]
+        - generic [ref=e2558]:
+          - generic [ref=e2559]: 1/3
+          - generic [ref=e2560]: badge
+      - paragraph [ref=e2561]: The tiny icy dwarf planet
+      - generic "1 of 3 discoveries found" [ref=e2636]
+      - paragraph [ref=e2564]: Find 3 discoveries to earn the badge
+      - generic [ref=e2565]:
+        - generic [ref=e2566]: Current mission
+        - paragraph [ref=e2570]: Find the tiny icy world beyond Neptune.
+      - generic [ref=e2571]:
+        - generic [ref=e2624]:
+          - generic [ref=e2625]: ❄️
+          - generic [ref=e2626]: Type
+          - generic [ref=e2627]: Dwarf planet
+        - generic [ref=e2576]:
+          - generic [ref=e2577]: 🕒
+          - generic [ref=e2578]: Day
+          - generic [ref=e2579]: 6.4 Earth days
+        - generic [ref=e2580]:
+          - generic [ref=e2581]: 🗓️
+          - generic [ref=e2582]: Year
+          - generic [ref=e2583]: 248 Earth years
+        - generic [ref=e2584]:
+          - generic [ref=e2585]: 🌙
+          - generic [ref=e2586]: Moons
+          - generic [ref=e2587]: "5"
+        - generic [ref=e2588]:
+          - generic [ref=e2589]: Temperature
+          - generic [ref=e2590]: About −232°C
+      - generic [ref=e2591]:
+        - generic [ref=e2592]:
+          - heading "Discovery deck" [level=4] [ref=e2593]
+          - button "Listen" [ref=e2594] [cursor=pointer]
+        - generic [ref=e2599]:
+          - 'button "Discovery 1: Small, icy world far from the Sun." [ref=e2628] [cursor=pointer]': Fact 1
+          - 'button "Discovery 2: Used to be called the 9th planet." [ref=e2629] [cursor=pointer]': Fact 2
+          - 'button "Discovery 3: Has a heart-shaped ice spot." [ref=e2630] [cursor=pointer]': Fact 3
+          - 'button "Discovery 4: Takes 248 years to go around the Sun." [ref=e2631] [cursor=pointer]': Fact 4
+          - 'button "Discovery 5: Its heart-shaped region is called Tombaugh Regio." [ref=e2632] [cursor=pointer]': Fact 5
+          - 'button "Discovery 6: Charon is Pluto’s largest moon. Pluto and Charon travel around one point between them. This point is their shared centre of gravity." [active] [ref=e2633] [cursor=pointer]':
+            - generic [ref=e2637]: ★
+            - text: Fact 6
+        - generic [ref=e2607]:
+          - paragraph [ref=e2608]: Did you know?
+          - paragraph [ref=e2609]: Charon is Pluto’s largest moon. Pluto and Charon travel around one point between them. This point is their shared centre of gravity.
+        - generic [ref=e2610]:
+          - paragraph [ref=e2611]: Compared with Earth
+          - paragraph [ref=e2612]: Pluto is smaller than Earth’s Moon.
+      - generic [ref=e2613]:
+        - generic [ref=e2614]:
+          - heading "Captain’s challenge" [level=4] [ref=e2615]
+          - generic [ref=e2616]: starter
+        - paragraph [ref=e2617]: What kind of world is Pluto?
+        - generic [ref=e2618]:
+          - button "A dwarf planet" [ref=e2634] [cursor=pointer]
+          - button "A star" [ref=e2635] [cursor=pointer]
+      - generic [ref=e2621]: "World badges collected: 0/9"

@@ -1,0 +1,91 @@
+- generic [ref=e384]:
+  - banner [ref=e385]:
+    - button "Back to Explore and Languages" [ref=e386] [cursor=pointer]
+    - generic [ref=e389]:
+      - paragraph [ref=e390]: Interactive 3D mission
+      - heading "Solar System Explorer" [level=2] [ref=e391]
+    - button "Turn sound on" [ref=e393] [cursor=pointer]
+  - region "Discovery passport" [ref=e398]:
+    - paragraph [ref=e399]: "Passport: 2/54 discoveries · 0/9 challenges"
+    - generic [ref=e400]:
+      - button "Previous planets in strip" [ref=e401] [cursor=pointer]: ← Planets
+      - button "More planets in strip" [ref=e402] [cursor=pointer]: More →
+    - paragraph [ref=e403]: "First mission: choose a world, open its three discoveries, then try the Captain’s challenge. Pluto is a dwarf planet."
+  - navigation "Choose a planet" [ref=e404]:
+    - button "Mercury" [ref=e405] [cursor=pointer]
+    - button "Venus" [ref=e407] [cursor=pointer]
+    - button "Earth" [ref=e409] [cursor=pointer]
+    - button "Mars" [ref=e411] [cursor=pointer]
+    - button "Jupiter" [ref=e413] [cursor=pointer]
+    - button "Saturn" [ref=e415] [cursor=pointer]
+    - button "Uranus" [ref=e418] [cursor=pointer]
+    - button "Neptune" [ref=e420] [cursor=pointer]
+    - button "Pluto" [ref=e422] [cursor=pointer]
+  - main [ref=e424]:
+    - generic [ref=e425]:
+      - generic: Drag to turn · tap a planet
+      - generic: Selected world is ringed in cyan
+      - group "Solar System view controls" [ref=e428]:
+        - button "View controls" [ref=e429] [cursor=pointer]
+    - complementary [ref=e434]:
+      - generic [ref=e435]:
+        - generic [ref=e439]:
+          - paragraph [ref=e440]: Mission control
+          - heading "Saturn" [level=3] [ref=e508]
+        - generic [ref=e442]:
+          - generic [ref=e443]: 1/3
+          - generic [ref=e444]: badge
+      - paragraph [ref=e445]: The ringed planet
+      - generic "1 of 3 discoveries found" [ref=e518]
+      - paragraph [ref=e448]: Find 3 discoveries to earn the badge
+      - generic [ref=e449]:
+        - generic [ref=e450]: Current mission
+        - paragraph [ref=e454]: Tilt the view and inspect Saturn’s icy rings.
+      - generic [ref=e455]:
+        - generic [ref=e456]:
+          - generic [ref=e457]: ☀️
+          - generic [ref=e458]: Order
+          - generic [ref=e459]: 6th from Sun
+        - generic [ref=e460]:
+          - generic [ref=e461]: 🕒
+          - generic [ref=e462]: Day
+          - generic [ref=e463]: 10.7 hours
+        - generic [ref=e464]:
+          - generic [ref=e465]: 🗓️
+          - generic [ref=e466]: Year
+          - generic [ref=e467]: 29 Earth years
+        - generic [ref=e468]:
+          - generic [ref=e469]: 🌙
+          - generic [ref=e470]: Moons
+          - generic [ref=e471]: Many
+        - generic [ref=e472]:
+          - generic [ref=e473]: Temperature
+          - generic [ref=e474]: Cloud tops about −178°C
+      - generic [ref=e475]:
+        - generic [ref=e476]:
+          - heading "Discovery deck" [level=4] [ref=e477]
+          - button "Listen" [ref=e478] [cursor=pointer]
+        - generic [ref=e483]:
+          - 'button "Discovery 1: Rings are made of ice and rock chunks." [ref=e510] [cursor=pointer]': Fact 1
+          - 'button "Discovery 2: Has lots of moons to discover." [ref=e511] [cursor=pointer]': Fact 2
+          - 'button "Discovery 3: Could float in water because it is light." [ref=e512] [cursor=pointer]': Fact 3
+          - 'button "Discovery 4: Spins so fast it looks squished." [ref=e513] [cursor=pointer]': Fact 4
+          - 'button "Discovery 5: Some ring pieces are tiny grains; others are house-sized." [ref=e514] [cursor=pointer]': Fact 5
+          - 'button "Discovery 6: Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes." [active] [ref=e515] [cursor=pointer]':
+            - generic [ref=e519]: ★
+            - text: Fact 6
+        - generic [ref=e490]:
+          - paragraph [ref=e491]: Did you know?
+          - paragraph [ref=e492]: Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes.
+        - generic [ref=e493]:
+          - paragraph [ref=e494]: Compared with Earth
+          - paragraph [ref=e495]: About 764 Earths could fit inside Saturn.
+      - generic [ref=e496]:
+        - generic [ref=e497]:
+          - heading "Captain’s challenge" [level=4] [ref=e498]
+          - generic [ref=e499]: starter
+        - paragraph [ref=e500]: What are Saturn’s rings made from?
+        - generic [ref=e501]:
+          - button "Fire" [ref=e516] [cursor=pointer]
+          - button "Ice and rock" [ref=e517] [cursor=pointer]
+      - generic [ref=e504]: "World badges collected: 0/9"

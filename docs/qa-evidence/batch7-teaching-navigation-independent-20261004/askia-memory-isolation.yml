@@ -1,0 +1,34 @@
+- generic [ref=f1e821]:
+  - banner [ref=f1e822]:
+    - button "Back to home" [ref=f1e823] [cursor=pointer]
+    - generic [ref=f1e826]:
+      - heading "Memory Match" [level=2] [ref=f1e827]
+      - generic [ref=f1e828]: Meet the Friends
+    - button "Turn sound on" [ref=f1e829] [cursor=pointer]
+  - main [ref=f1e834]:
+    - generic [ref=f1e835]:
+      - img "Askia the dinosaur" [ref=f1e836]
+      - button "Find the pairs!" [ref=f1e837] [cursor=pointer]
+    - generic [ref=f1e843]:
+      - generic [ref=f1e844]:
+        - generic "Board 1 of 5" [ref=f1e845]:
+          - 'button "Board 1: Meet the Friends" [ref=f1e846] [cursor=pointer]'
+          - 'button "Board 2: Star Pairs" [disabled] [ref=f1e849]'
+          - 'button "Board 3: Nature Friends" [disabled] [ref=f1e852]'
+          - 'button "Board 4: Rescue Pairs" [disabled] [ref=f1e855]'
+          - 'button "Board 5: Dino Challenge" [disabled] [ref=f1e858]'
+        - status [ref=f1e861]: 0 / 3 pairs
+      - generic [ref=f1e862]:
+        - button "Face-down memory card 1" [ref=f1e864] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e867]: ✦
+        - button "Face-down memory card 2" [ref=f1e870] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e873]: ✦
+        - button "Face-down memory card 3" [ref=f1e876] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e879]: ✦
+        - button "Face-down memory card 4" [ref=f1e882] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e885]: ✦
+        - button "Face-down memory card 5" [ref=f1e888] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e891]: ✦
+        - button "Face-down memory card 6" [ref=f1e894] [cursor=pointer]:
+          - generic [aria-hidden] [ref=f1e897]: ✦
+      - paragraph [ref=f1e899]: Tap two cards to find a match.
