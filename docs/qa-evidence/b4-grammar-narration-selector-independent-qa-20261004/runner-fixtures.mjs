@@ -1,15 +1,22 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { copyFile, mkdir, mkdtemp, readFile, rm, stat, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import { realpathSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, resolve } from 'node:path';
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const qaDir = dirname(fileURLToPath(import.meta.url));
 const repo = resolve(qaDir, '../../..');
+const reviewedCandidate = '8fecff6e4dc36bac8c6628c9c68818e2ba71c86e';
 const inventorySha = '9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001';
+const pinnedFiles = {
+  'scripts/reviewedNarrationJobs.mjs': '67362ba6c0851f5f7eb03bcc079118f1f954c9a7eb1d39c09cb142a67fa24f77',
+  'scripts/run-reviewed-narration-job.mjs': '144fe64a7991ebf8de6a6f1b337313e148330a21146df37df1219b40d7bd9966',
+  'src/data/voiceKey.js': 'd013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f',
+  'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json': inventorySha,
+};
 const inventoryRel = 'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json';
 const sharedJournalRel = '../dinospace-batch3-quality/tmp/offline-voice-request-state.json';
 const b4ManifestRel = '../dinospace-batch4-quality/src/data/offlineVoiceManifest.js';
@@ -87,12 +94,11 @@ const createFixture = async (mode) => {
     mkdir(resolve(root, 'scripts'), { recursive: true }),
     mkdir(resolve(root, 'src/data'), { recursive: true }),
   ]);
-  await Promise.all([
-    copyFile(resolve(repo, 'scripts/reviewedNarrationJobs.mjs'), resolve(root, 'scripts/reviewedNarrationJobs.mjs')),
-    copyFile(resolve(repo, 'scripts/run-reviewed-narration-job.mjs'), resolve(root, 'scripts/run-reviewed-narration-job.mjs')),
-    copyFile(resolve(repo, 'src/data/voiceKey.js'), resolve(root, 'src/data/voiceKey.js')),
-    copyFile(resolve(repo, inventoryRel), resolve(root, inventoryRel)),
-  ]);
+  for (const [path, expectedSha] of Object.entries(pinnedFiles)) {
+    const bytes = execFileSync('git', ['show', `${reviewedCandidate}:${path}`], { cwd: repo });
+    assert.equal(sha256(bytes), expectedSha, `reviewed git blob SHA mismatch for ${path}`);
+    await put(resolve(root, path), bytes);
+  }
   await put(resolve(root, 'package.json'), '{"type":"module"}\n');
   await put(resolve(root, 'src/data/offlineVoiceManifest.js'), '// fixture manifest\nexport const OFFLINE_VOICE_MANIFEST = {};\n');
   await put(resolve(root, sharedJournalRel), '{"requests":[],"blockedUntil":0}\n');
@@ -114,9 +120,18 @@ const createFixture = async (mode) => {
     finalManifestSha256: sha256(b4ManifestBytes),
   }));
   const fetchLog = resolve(parent, 'fetch-log.jsonl');
+  const socketAttemptsPath = resolve(parent, 'socket-attempts.txt');
   const preloadPath = resolve(parent, 'fake-fetch.cjs');
   await put(preloadPath, `
 const fs = require('node:fs');
+const net = require('node:net');
+const tls = require('node:tls');
+let socketAttempts = 0;
+const blockSocket = (name) => (...args) => { socketAttempts += 1; throw new Error('Network socket blocked by independent fixture: ' + name); };
+net.connect = blockSocket('net.connect');
+net.createConnection = blockSocket('net.createConnection');
+tls.connect = blockSocket('tls.connect');
+process.on('exit', () => fs.writeFileSync(process.env.QA_SOCKET_ATTEMPTS, String(socketAttempts)));
 const originalKill = process.kill.bind(process);
 process.kill = (pid, ...args) => { if (Number(pid) === 18781) { const error = new Error('fixture predecessor is marked exited'); error.code = 'ESRCH'; throw error; } return originalKill(pid, ...args); };
 const mode = process.env.QA_FAKE_FETCH_MODE;
@@ -139,7 +154,7 @@ globalThis.fetch = async (input, init = {}) => {
   };
 };
 `);
-  return { parent, root, statusPath, fetchLog, preloadPath, inventory, b4Manifest };
+  return { parent, root, statusPath, fetchLog, socketAttemptsPath, preloadPath, inventory, b4Manifest };
 };
 
 const runFixture = async (mode) => {
@@ -168,11 +183,13 @@ const runFixture = async (mode) => {
     const result = spawnSync(process.execPath, args, {
       cwd: root,
       encoding: 'utf8',
-      env: { ...process.env, NODE_OPTIONS: `--require=${fixture.preloadPath}`, QA_FAKE_FETCH_MODE: mode, QA_FAKE_FETCH_LOG: fixture.fetchLog },
+      env: { ...process.env, NODE_OPTIONS: `--require=${fixture.preloadPath}`, QA_FAKE_FETCH_MODE: mode, QA_FAKE_FETCH_LOG: fixture.fetchLog, QA_SOCKET_ATTEMPTS: fixture.socketAttemptsPath },
     });
-    if (!result.stdout.trim()) throw new Error(`fixture CLI produced no JSON (status=${result.status})\nstdout=${result.stdout}\nstderr=${result.stderr}\nargs=${JSON.stringify(args)}\nargv=${await readFile(fixture.fetchLog + '.argv', 'utf8').catch(() => 'missing')}`);
+    if (!result.stdout.trim()) throw new Error(`fixture CLI produced no JSON (status=${result.status})\nstdout=${result.stdout}\nstderr=${result.stderr}`);
     const summary = JSON.parse(result.stdout);
     const fetched = (await readFile(fixture.fetchLog, 'utf8')).trim().split('\n').filter(Boolean).map(JSON.parse);
+    const socketAttempts = Number(await readFile(fixture.socketAttemptsPath, 'utf8'));
+    assert.equal(socketAttempts, 0, 'no net/tls socket API may be attempted in the isolated fixture');
     assert.equal(fetched.length, 1);
     assert.deepEqual(Object.keys(JSON.parse(fetched[0].body)).sort(), ['language', 'text']);
     assert.equal(fetched[0].url, 'https://dinospace-eight.vercel.app/api/voice');
@@ -240,7 +257,7 @@ const runFixture = async (mode) => {
     assert.equal(audit.providerRequestsAttempted, 1);
     assert.equal(audit.maximumProviderRequests, 1);
     assert.equal(journalAfter === journalBefore, false, 'the fixture journal records one attempted fake request');
-    return { mode, exitCode: result.status, fakeFetchCalls: fetched.length, pending: summary.pendingKeys, receiptOutcome, audit, manifestBefore, manifestAfter, journalRequests: journal.requests.length, producerLockReleased: true };
+    return { mode, exitCode: result.status, fakeFetchCalls: fetched.length, blockedSocketAttempts: socketAttempts, pending: summary.pendingKeys, receiptOutcome, audit, manifestBefore, manifestAfter, journalRequests: journal.requests.length, producerLockReleased: true };
   } finally {
     await rm(fixture.parent, { recursive: true, force: true });
   }
@@ -261,4 +278,4 @@ assert.equal(realPidAlive, true, 'B4 predecessor PID 18781 should still be live 
 const livePid = await livePidGate();
 const success = await runFixture('success');
 const rejected = await runFixture('reject-provider');
-console.log(JSON.stringify({ sourceCommit: '8fecff6e4dc36bac8c6628c9c68818e2ba71c86e', liveWorkerPid: 18781, realWorkerObservedAlive: realPidAlive, livePid, success, rejected, realProviderCalls: 0, productionManifestsOrJournalChanged: false }, null, 2));
+console.log(JSON.stringify({ sourceCommit: reviewedCandidate, liveWorkerPid: 18781, realWorkerObservedAlive: realPidAlive, livePid, success, rejected, realProviderCalls: 0, productionManifestsOrJournalChanged: false }, null, 2));

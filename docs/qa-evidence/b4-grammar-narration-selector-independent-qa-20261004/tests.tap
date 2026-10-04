@@ -1,19 +1,19 @@
-✔ pins exact reviewed ledger and derives only approved owner keys (62.652958ms)
-✔ B4 grammar selector pins all 47 exact additions to fe5 source files and expected voice paths (11.834084ms)
-✔ B4 grammar default plan is the exact 47 phrase set and remains read-only (144.302625ms)
-✔ supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths (3.526542ms)
-✔ supplemental dry-runs keep exact pending sets and do not alter either ledger family or shared files (326.603583ms)
-✔ rejects jobs, call rates and run counts outside finite reviewed bounds (0.305375ms)
-✔ requires a terminal reconciled B4 record tied to the current manifest and dead worker PID (11.0265ms)
-✔ requires the explicit shared journal and fails closed on invalid journal state or concurrent edits (14.746125ms)
-✔ uses and honors the exact exclusive lock held by the shared B3 producer (10.661ms)
-✔ only reuses a packaged candidate when reviewed bytes match, including an unmapped exact file (10.331458ms)
-✔ a generated file is reusable only with a matching local receipt and exact text/inventory binding (11.704625ms)
-✔ request helper sends only the approved voice payload and enforces a finite timeout through injected fetch (12.341833ms)
-✔ dry-run reports exact pending keys and leaves package and shared journal untouched (535.367916ms)
-✔ paid mode across both ledgers cannot pass a live predecessor PID even with an apparently terminal record (685.780584ms)
-✔ CLI refuses a modified inventory digest before selecting or writing (161.883708ms)
-✔ paid mode requires explicit per-run and total-run caps (168.12875ms)
+✔ pins exact reviewed ledger and derives only approved owner keys (44.200958ms)
+✔ B4 grammar selector pins all 47 exact additions to fe5 source files and expected voice paths (4.213541ms)
+✔ B4 grammar default plan is the exact 47 phrase set and remains read-only (88.588083ms)
+✔ supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths (3.324459ms)
+✔ supplemental dry-runs keep exact pending sets and do not alter either ledger family or shared files (170.194708ms)
+✔ rejects jobs, call rates and run counts outside finite reviewed bounds (0.279ms)
+✔ requires a terminal reconciled B4 record tied to the current manifest and dead worker PID (3.989667ms)
+✔ requires the explicit shared journal and fails closed on invalid journal state or concurrent edits (2.86725ms)
+✔ uses and honors the exact exclusive lock held by the shared B3 producer (2.316ms)
+✔ only reuses a packaged candidate when reviewed bytes match, including an unmapped exact file (2.791125ms)
+✔ a generated file is reusable only with a matching local receipt and exact text/inventory binding (2.235708ms)
+✔ request helper sends only the approved voice payload and enforces a finite timeout through injected fetch (11.94625ms)
+✔ dry-run reports exact pending keys and leaves package and shared journal untouched (144.8395ms)
+✔ paid mode across both ledgers cannot pass a live predecessor PID even with an apparently terminal record (197.155125ms)
+✔ CLI refuses a modified inventory digest before selecting or writing (69.750125ms)
+✔ paid mode requires explicit per-run and total-run caps (68.432167ms)
 ℹ tests 16
 ℹ suites 0
 ℹ pass 16
@@ -21,4 +21,4 @@
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 2322.176959
+ℹ duration_ms 909.199166

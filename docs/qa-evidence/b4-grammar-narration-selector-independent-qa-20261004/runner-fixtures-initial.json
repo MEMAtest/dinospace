@@ -4,16 +4,16 @@
   "realWorkerObservedAlive": true,
   "livePid": {
     "exitCode": 1,
-    "stderr": "Stopped safely: B4 predecessor PID 35800 is still live; refusing paid execution.",
+    "stderr": "Stopped safely: B4 predecessor PID 32095 is still live; refusing paid execution.",
     "blockedBeforeLockOrJournalWrite": true,
     "before": {
       "journal": {
         "exists": true,
-        "sha256": "8c0b490e480849e1540d3bcb76b13f18653f4c786e053872e19d71f39c13756d"
+        "sha256": "da8f5f7824bc2f89900a19dbbf9f9aea33e7e09b2ba00d90f356c73fef0658eb"
       },
       "b4Manifest": {
         "exists": true,
-        "sha256": "40657ba702ce442b0a4649b1b97ce66d8768e038c3940f812117ef921640d5d5"
+        "sha256": "6c0fe649a72ef03a1b02e67541530c0ed942057b6e28fa80e539e762c55d7190"
       },
       "runnerManifest": {
         "exists": true,
@@ -31,11 +31,11 @@
     "after": {
       "journal": {
         "exists": true,
-        "sha256": "8c0b490e480849e1540d3bcb76b13f18653f4c786e053872e19d71f39c13756d"
+        "sha256": "da8f5f7824bc2f89900a19dbbf9f9aea33e7e09b2ba00d90f356c73fef0658eb"
       },
       "b4Manifest": {
         "exists": true,
-        "sha256": "40657ba702ce442b0a4649b1b97ce66d8768e038c3940f812117ef921640d5d5"
+        "sha256": "6c0fe649a72ef03a1b02e67541530c0ed942057b6e28fa80e539e762c55d7190"
       },
       "runnerManifest": {
         "exists": true,
@@ -55,7 +55,6 @@
     "mode": "success",
     "exitCode": 2,
     "fakeFetchCalls": 1,
-    "blockedSocketAttempts": 0,
     "pending": 46,
     "receiptOutcome": {
       "accepted": true,
@@ -82,7 +81,7 @@
       "failure": null,
       "manifestBeforeSha256": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
       "manifestAfterSha256": "5cc7bdae9a52293a67bd4fce55f027a3272c31736c1e4589feb7e8d8a9617919",
-      "auditPath": "/private/var/folders/t_/nqjg355s26x2smr80s78_1_r0000gn/T/b4-selector-success-wmICPM/dinospace-b4-grammar-narration/tmp/reviewed-narration-audit-b4-grammar.json",
+      "auditPath": "/private/var/folders/t_/nqjg355s26x2smr80s78_1_r0000gn/T/b4-selector-success-FLYMvk/dinospace-b4-grammar-narration/tmp/reviewed-narration-audit-b4-grammar.json",
       "manifestChangedKeys": [
         "02a2a0d4"
       ],
@@ -99,7 +98,7 @@
           "sha256": "9e4a5a138eff82244338e1b37c265aa99ca519bfb83d53fb8bb2b90a6f0384aa"
         }
       ],
-      "completedAt": "2026-10-04T18:35:18.855Z"
+      "completedAt": "2026-10-04T18:31:56.211Z"
     },
     "manifestBefore": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
     "manifestAfter": "5cc7bdae9a52293a67bd4fce55f027a3272c31736c1e4589feb7e8d8a9617919",
@@ -110,7 +109,6 @@
     "mode": "reject-provider",
     "exitCode": 1,
     "fakeFetchCalls": 1,
-    "blockedSocketAttempts": 0,
     "pending": 47,
     "receiptOutcome": {
       "accepted": false,
@@ -134,10 +132,10 @@
       "failure": null,
       "manifestBeforeSha256": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
       "manifestAfterSha256": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
-      "auditPath": "/private/var/folders/t_/nqjg355s26x2smr80s78_1_r0000gn/T/b4-selector-reject-provider-mXjRR5/dinospace-b4-grammar-narration/tmp/reviewed-narration-audit-b4-grammar.json",
+      "auditPath": "/private/var/folders/t_/nqjg355s26x2smr80s78_1_r0000gn/T/b4-selector-reject-provider-EuxiVs/dinospace-b4-grammar-narration/tmp/reviewed-narration-audit-b4-grammar.json",
       "manifestChangedKeys": [],
       "changedFiles": [],
-      "completedAt": "2026-10-04T18:35:19.016Z"
+      "completedAt": "2026-10-04T18:31:56.312Z"
     },
     "manifestBefore": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
     "manifestAfter": "b2bdc3fc15d305262aa06ab8c20e23e679b6c4c19e48f0b28c5beab2bde1e42f",
