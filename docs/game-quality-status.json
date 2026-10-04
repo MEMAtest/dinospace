@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T06:19:21.321563+00:00",
+  "updatedAt": "2026-10-04T06:45:30.172083+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -679,12 +679,38 @@
     "sourceSha": "94c4614",
     "origin": "http://127.0.0.1:5325",
     "identity": "docs/qa-evidence/spot-river-frame-mask-identity-20261004.json",
-    "scope": "Mask white area extends beyondtop/rightcanvas edges topreventoriginalsunray blending. Interiorregionfeather unchanged;14Spot tests/scopedlint/configuredbuildpass. Independent visual/control delta queuedafterMoon5323. Port5324 wasoccupied; old listener preserved. No release/4.5."
+    "scope": "Independent local scoped PASS at 1280/390: no residual rays or hard sky seam; flower and bridge changes localized. Actual three pointer targets, blank miss, two distinct hints, held fact/Next, contained 56px targets, nine identity hashes, guarded API and console errors zero. No new reload claim; prior exact-candidate baselines remain separate. No audio, production or overall 4.5 acceptance.",
+    "independentCommit": "312a8d6",
+    "independentReport": "docs/qa-evidence/spot-river-frame-mask-5325-review-20261004/report.md"
   },
   "spotCityOriginalSurfacePrototype": {
     "sourceSha": "c89d695",
     "origin": "http://127.0.0.1:5326",
     "identity": "docs/qa-evidence/spot-city-original-colours-identity-20261004.json",
-    "scope": "Original-source SVG hue paths: flying cape, tower dome, shop awning. Generated B notused.15focusedSpot tests/scopedlint/configuredbuildpassed. Independent actual fullobject maskalignment/spill and pointercontrols bothwidths queued. No visual/audio/production/4.5 acceptance."
+    "scope": "Independent local scoped PASS at 1280/390: cape fabric, whole dome panels and entire one-shop awning confined to original surfaces; neighboring red awning remains a separate unchanged object. Three pointer targets, miss/hint/correct feedback, held fact/Next and partial-progress reload pass. Eight identity hashes match; guarded APIs and console errors zero. Mobile subtitle ellipsis noted. No listening, production or full-game 4.5 acceptance.",
+    "independentCommit": "4b15db3",
+    "independentReport": "docs/qa-evidence/spot-city-independent-20261004/report.md"
+  },
+  "spotParkOriginalSurfacePrototype": {
+    "sourceSha": "ed54999807a10007f9ed4bbffe095565fdf6b69a",
+    "origin": "http://127.0.0.1:5327",
+    "identity": "docs/qa-evidence/spot-park-original-colours-identity-20261004.json",
+    "independentCommit": "00bce19",
+    "independentReport": "docs/qa-evidence/spot-park-5327-review-20261004/report.md",
+    "scope": "VISUAL FAIL: purple sky tab and water/shore spills outside dinosaur silhouette at both widths. Actual head/body repeat, flower/sun, miss/hints, held fact/Next and mobile reload passed. All eight hashes and guard/console checks pass. Rejected candidate remains preserved; no release or acceptance."
+  },
+  "spotParkTightMaskPrototype": {
+    "sourceSha": "a86a9b9",
+    "origin": "http://127.0.0.1:5328",
+    "identity": "docs/qa-evidence/spot-park-tight-mask-identity-20261004.json",
+    "scope": "Native-pixel curved silhouette excludes crown sky and water gaps between feet; semantic touch polygon retained separately. Sixteen focused tests, scoped lint and production-config build pass. Independent visual/control delta assigned; no acceptance yet."
+  },
+  "memoryVehicleFourCandidate": {
+    "sourceSha": "357f24cf13b1b8ddcde474f0b7628f3dad11ebf0",
+    "origin": "http://127.0.0.1:5324",
+    "builderCommit": "ab6ce142ee0bab38e34673e3f4b62ad19e02304b",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-report-20261004.md",
+    "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-identity-20261004.json",
+    "scope": "Builder normal-earned Levels 1-6 and full Vehicles 14 pairs at both widths; Bus/Tractor/Bicycle/Scooter captions, 82px cards, 48px selectors, face-down zero images/front labels, reload and hashes pass. Guarded APIs and console errors zero; sixteen tests/lint/build pass. Builder inventory 76/87, eleven remaining. Independent review running; no audio, production or overall 4.5 acceptance."
   }
 }

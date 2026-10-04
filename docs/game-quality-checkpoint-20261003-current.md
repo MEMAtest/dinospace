@@ -224,3 +224,15 @@ Root read the full Moon5323 report `891c319` on source05e0dcd. At1280 and390px t
 Root read the full Garden5319 independent report `7c7c5c7` on source4f6d481. NormalLevels1–8 then fullGarden17pairs completed atdesktop; fullGarden replay completed at390px. Six ant and eight spider legs remain discernible at82px without halos/specks; worm and caterpillar are distinct.34face-down cards mountzeroimages, selectors meet48px, reload preserves9/10stickers, Keepplaying/confirmedBack/re-entry pass and7hashes match. Guards preceded navigation andAPI/console werezero. Latest independently checked artwork is this scoped candidate; builderinventory72/87 (15remaining) remainsseparate fromtheindependent report. Noaudio/production/4.5acceptance.
 
 City5326 is now assigned to the newly available independent reviewer; River5325 remains with the original reviewer. The last goal turn made concrete source and frozen-candidate progress; this turn completes root review of two evidence gates and updates their acceptance scope.
+
+## Current delta — 4 October, River/City passes and Dino silhouette rejection
+
+Root read River5325 independent report312a8d6: the ray leakage repair passes its scoped visual/control review at1280/390. No residual sun rays, hard patch or obvious seam; localized flower/bridge edits, actual targets, miss, distinct hints, held fact/Next, contained56px controls and9hashes pass. No new reload or audio/production/full-game score claim.
+
+Root read City5326 report4b15db3: original cape, dome and entire shop awning masks pass both widths without spill; the unchanged adjacent red canopy is a separate shop. Actual targets, miss/hint, held fact/Next and partial-progress reload pass;8hashes and guards/API/console checks are clean. A mobile subtitle ellipsis is noted. This is a scoped local pair pass.
+
+Dino5327 report00bce19 rejects the visual mask: a purple crown/sky tab and water spills beside/between feet remain, although head recognition, neutral body repeat, flower/sun, hints/miss, held fact/Next, reload and8hashes pass. Root implementeda86a9b9 with a native-source curved visual silhouette and separate generous semantic touch polygon;16tests/scopedlint/configured build pass. Frozen5328 independent visual/control review is assigned. Old5327 remains preserved as rejected evidence.
+
+Root read vehicle builder reportab6ce142 on357f24cf/frozen5324: four illustrations (Bus, Tractor, Bicycle, Scooter), normal-earned fullVehicles14pairs both widths,82px mobile cards,48px selectors, reload, face-down hiding, hashes and guard/console checks pass. Builder inventory76/87 with11remaining; independent review is running. Next four illustrations are in progress.
+
+Authorized narration workerPID18781 verified live;run136 at06:37UTC reports3,243pending and zero retries during expected request-window wait. No paid worker restarted. All26acceptance contracts remain published;4recordedaccepted/22inprogress. No new production release or overall4.5 claim.

@@ -1,0 +1,49 @@
+{
+  "createdAt": "2026-10-04T06:23:35.120859+00:00",
+  "sourceSha": "ed54999807a10007f9ed4bbffe095565fdf6b69a",
+  "origin": "http://127.0.0.1:5327",
+  "frozenDist": "tmp/spot-park-original-colours/dist",
+  "scope": "Dino Park original-source colour changes on long-neck dinosaur, sun disc and lower-left flower petals; bounded silhouette plus colour-selected alpha protects pale underside/eyes and yellow flower centre. Whole dinosaur polygon is tappable.16focusedtests/scopedlint/configuredbuildpass. Independent edge/spill/colour legibility/actualcontrols pending. No visual/audio/production/4.5 acceptance. PriorMoon/River/City identities remainseparate.",
+  "files": [
+    {
+      "path": "/index.html",
+      "bytes": 1100,
+      "sha256": "687f719decc766430c2f65351986935783c6d27d94ebd33c57798d914cfb291a"
+    },
+    {
+      "path": "/assets/AmariCountTheStars-DtXNr8fl.js",
+      "bytes": 18854,
+      "sha256": "b885fdefa175236c7cec336a32374102a863ee89ec266ab0a26c1f48f7a4fc4c"
+    },
+    {
+      "path": "/assets/AmariLetterTrace-6ta41mgO.js",
+      "bytes": 19956,
+      "sha256": "3d2efc738be571018fdedc1086e4b5bce23ed52a6f6476b9aa2d3abec6ca08b6"
+    },
+    {
+      "path": "/assets/SolarSystem-DY9yHtpi.js",
+      "bytes": 563158,
+      "sha256": "e1b24fc64041d16809111e2fed8eaf1322334076e4389539d77ec5fb699df306"
+    },
+    {
+      "path": "/assets/index-BDIHljYe.js",
+      "bytes": 1244222,
+      "sha256": "13affd36a93b72ea0ae2e33b3a57609c69daa4348c253160fa7288abba00ceb4"
+    },
+    {
+      "path": "/assets/web-B6Evud_j.js",
+      "bytes": 842,
+      "sha256": "be8b787b9fd41e97d24d2f50697b2c758e0223717618775ec768d9666ae2898f"
+    },
+    {
+      "path": "/assets/index-vOQrpuVv.css",
+      "bytes": 205877,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "/assets/dino-park-CfXqz-J3.jpg",
+      "bytes": 285218,
+      "sha256": "9cd2ce5eb1abbd0bcb28e2ed5f639b6f2590f4db173ef45d3d94a7702d4ec7a1"
+    }
+  ]
+}
