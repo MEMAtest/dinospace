@@ -33,7 +33,12 @@
     "consoleWarnings": 0,
     "browserStaticHttpErrors": 0,
     "providerRequestsEscaped": 0,
-    "audioControlsActivated": 0,
-    "guardsStillActiveAfterAppNavigationAndReload": true
+    "guardsStillActiveAfterAppNavigationAndReload": true,
+    "hearReadListenControlsActivated": 0,
+    "soundStateByView": {
+      "freshMobile390x844Swamp": "Visible sound control changed from on to off before selecting Amari; Swamp held-fact screenshot is muted.",
+      "desktop1280x800": "Ordinary unlocking began with sound on. Visible sound was switched off for held-fact Swamp and Cave rechecks.",
+      "desktopProgressContextResized390x844ForCave": "Sound was on in the Cave held-fact and scrolled-Next screenshots; the speaker with sound waves is visible. This is a resized desktop-origin context, not the separate fresh mobile context."
+    }
   }
 }
