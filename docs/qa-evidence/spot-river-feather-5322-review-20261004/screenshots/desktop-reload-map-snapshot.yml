@@ -1,0 +1,24 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - button "Back to learning world" [ref=f1e5] [cursor=pointer]
+    - heading "Spot the Difference" [level=1] [ref=f1e10]
+    - button "Turn sound on" [ref=f1e11] [cursor=pointer]
+  - main [ref=f1e16]:
+    - generic [ref=f1e17]:
+      - paragraph [aria-hidden] [ref=f1e18]: 🔎
+      - heading "Twelve picture pairs. Three chapters." [level=2] [ref=f1e19]
+      - paragraph [ref=f1e20]: Find the changes in four picture pairs. You can use two magnifier hints in each pair.
+      - paragraph [ref=f1e21]:
+        - strong [ref=f1e22]: "Compare:"
+        - text: Look at the top, middle, then bottom of Picture A and Picture B.
+      - generic [ref=f1e23]:
+        - button "1. Bright-Eyed Beginners Find 3 changes · 2/4 pairs" [pressed] [ref=f1e24] [cursor=pointer]:
+          - generic [ref=f1e25]: 1. Bright-Eyed Beginners
+          - generic [ref=f1e26]: Find 3 changes · 2/4 pairs
+        - button "2. Curious Comparers Find 5 changes · 0/4 pairs · Locked" [disabled] [ref=f1e27]:
+          - generic [ref=f1e28]: 2. Curious Comparers
+          - generic [ref=f1e29]: Find 5 changes · 0/4 pairs · Locked
+        - button "3. Super Spotters Find 7 changes · 0/4 pairs · Locked" [disabled] [ref=f1e30]:
+          - generic [ref=f1e31]: 3. Super Spotters
+          - generic [ref=f1e32]: Find 7 changes · 0/4 pairs · Locked
+      - button "Replay chapter" [ref=f1e33] [cursor=pointer]

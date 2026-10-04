@@ -1,0 +1,32 @@
+- generic [ref=e483]:
+  - banner [ref=e484]:
+    - button "Back to learning world" [ref=e485] [cursor=pointer]
+    - generic [ref=e489]:
+      - heading "Spot the Difference" [level=1] [ref=e490]
+      - paragraph [ref=e517]: Bright-Eyed Beginners · Pair 4 of 4 · 0/3
+    - button "Turn sound on" [ref=e491] [cursor=pointer]
+  - main [ref=e496]:
+    - paragraph [ref=e518]: "Magnifier hint: look near the left bottom of Picture B."
+    - generic [ref=e633]:
+      - paragraph [ref=e634]:
+        - text: River Valley
+        - generic [ref=e635]: · 0 of 3 changes
+      - generic [ref=e636]:
+        - button "Hear clue" [ref=e637] [cursor=pointer]
+        - button "Magnifier 0 left" [disabled] [ref=e663]
+    - generic [ref=e645]:
+      - generic [ref=e646]:
+        - heading "Picture A · Look carefully" [level=2] [ref=e647]
+        - img "A dinosaur beside a sparkling river, picture A" [ref=e649]
+      - generic [ref=e650]:
+        - heading "Picture B · Find changes here" [level=2] [ref=e651]
+        - generic [ref=e652]:
+          - img "A dinosaur beside a sparkling river, picture B" [ref=e653]
+          - button "Search Picture B for a change" [ref=e654]
+          - button "Check middle middle detail" [ref=e655] [cursor=pointer]
+          - button "Check left bottom detail" [ref=e656] [cursor=pointer]
+          - button "Check right top detail" [ref=e657] [cursor=pointer]
+    - generic "Changes found" [ref=e658]:
+      - generic "Change 1, not found" [ref=e659]: "1"
+      - generic "Change 2, not found" [ref=e660]: "2"
+      - generic "Change 3, not found" [ref=e661]: "3"
