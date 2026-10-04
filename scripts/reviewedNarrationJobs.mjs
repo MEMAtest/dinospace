@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
-import { readFile, stat } from 'node:fs/promises';
-import { resolve } from 'node:path';
+import { mkdir, open, readFile, stat } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
 import { voiceClipKey, normalizeVoiceText } from '../src/data/voiceKey.js';
 
 export const PINNED_INVENTORY_SHA256 = 'aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227';
@@ -90,6 +90,21 @@ export function assertJournalPath(providedPath, expectedPath) {
     throw new Error(`Request journal must be the shared journal at ${resolve(expectedPath)}.`);
   }
   return resolve(providedPath);
+}
+
+export function producerLockPathForJournal(journalPath) {
+  return resolve(dirname(journalPath), 'offline-voice-generator.lock');
+}
+
+export async function acquireProducerLock(journalPath, metadata) {
+  const lockPath = producerLockPathForJournal(journalPath);
+  await mkdir(dirname(lockPath), { recursive: true });
+  const lock = await open(lockPath, 'wx').catch((error) => {
+    if (error.code === 'EEXIST') throw new Error(`A voice producer lock exists at ${lockPath}; the shared journal is in use.`);
+    throw error;
+  });
+  await lock.writeFile(`${JSON.stringify(metadata)}\n`);
+  return { lock, path: lockPath };
 }
 
 export async function readRequestJournal(journalPath) {

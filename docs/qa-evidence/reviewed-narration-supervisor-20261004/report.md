@@ -12,7 +12,7 @@ The ledger records integrated runtime lineage B5 `b198dbf49a5023e1b50181a9ef2a3e
 - Execution needs `--execute-paid`, explicit `--max-calls` and `--max-runs`, the exact inventory SHA, the shared B3 request journal, and a terminal predecessor status. Per-run calls are capped at 20; the shared rolling journal caps requests at 30 per 10 minutes; runs are capped at 100.
 - It refuses while the B4 PID is live, uses a fixed voice endpoint and exact reviewed text, and has no arbitrary text, story, or image mode. Each request has a 90-second timeout covering fetch and response-body reading; there are no retries.
 - A packaged candidate is reusable only when it maps to the canonical key path and its bytes match the pinned inventory hash. A new output is reusable only with a local receipt bound to the inventory, key, exact text hash, voice, path, MIME type, byte count, and audio hash. Unknown existing files are not overwritten.
-- A shared request-journal snapshot hash is checked before each request. The runner takes exclusive local and shared-journal locks. Execution audit includes configured provider request budget, attempted/accepted counts, failures, manifest before/after hashes, changed keys, and output hashes, including request errors.
+- The runner takes the **same exclusive `tmp/offline-voice-generator.lock`** as the existing B3 writer. The lock is adjacent to the shared request journal, so both writers serialize before reading or writing the request state. A shared request-journal snapshot hash is also checked before each request. Execution audit includes configured provider request budget, attempted/accepted counts, failures, manifest before/after hashes, changed keys, and output hashes, including request errors.
 
 Candidate byte identity is not audio validation. It does not certify successful decode, playback, pronunciation, or human listening.
 
@@ -32,7 +32,7 @@ The candidate manifest hash was `674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4
 
 ## Verification
 
-- `node --test scripts/reviewedNarrationJobs.test.mjs`: 11 passed.
+- `node --test scripts/reviewedNarrationJobs.test.mjs`: 12 passed.
 - ESLint passed for all three new scripts.
-- Tests cover exact inventory/job selection, finite limits, terminal predecessor and PID checks, journal schema and concurrent-change detection, mapped and unmapped byte-hash reuse, receipt binding, injected-fetch endpoint/body/timeout behavior, unchanged files in dry-run, and rejection of paid mode with a live process or missing explicit caps.
+- Tests cover exact inventory/job selection, finite limits, terminal predecessor and PID checks, the exact B3 producer lock conflict path, journal schema and concurrent-change detection, mapped and unmapped byte-hash reuse, receipt binding, injected-fetch endpoint/body/timeout behavior, unchanged files in dry-run, and rejection of paid mode with a live process or missing explicit caps.
 - Tests and dry-runs made no provider calls. Paid execution was not run. The terminal-worker path still needs review after B4 stops and is reconciled; the separate agent should review this supervisor before any later execution is authorized.

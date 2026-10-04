@@ -6,9 +6,9 @@ import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
   B4_SOURCE_COMMIT, B4_WORKER_PID, JOBS, PINNED_INVENTORY_SHA256,
-  assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord,
+  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord,
   availableCalls, getCandidateReusablePath, isCandidateReusable, isPackagedCandidate,
-  loadPinnedInventory, readRequestJournal, requestNarration, selectJobItems,
+  loadPinnedInventory, producerLockPathForJournal, readRequestJournal, requestNarration, selectJobItems,
   sha256, validateBudgets,
 } from './reviewedNarrationJobs.mjs';
 
@@ -78,6 +78,27 @@ test('requires the explicit shared journal and fails closed on invalid journal s
     await assert.rejects(() => readRequestJournal(validPath), /future request timestamp/);
     await writeFile(validPath, JSON.stringify({ requests: [], blockedUntil: Date.now() + 3_700_000 }));
     await assert.rejects(() => readRequestJournal(validPath), /invalid schema/);
+  } finally { await rm(dir, { recursive: true, force: true }); }
+});
+
+test('uses and honors the exact exclusive lock held by the shared B3 producer', async () => {
+  const b3Root = resolve(root, '../dinospace-batch3-quality');
+  const producerSource = await readFile(resolve(b3Root, 'scripts/generate-batch1-offline-voices.mjs'), 'utf8');
+  assert.match(producerSource, /const lockPath = resolve\(root, 'tmp\/offline-voice-generator\.lock'\)/);
+  assert.equal(producerLockPathForJournal(sharedJournal), resolve(b3Root, 'tmp/offline-voice-generator.lock'));
+
+  const dir = await tempDir();
+  try {
+    const journalPath = resolve(dir, 'tmp/offline-voice-request-state.json');
+    const producerLock = producerLockPathForJournal(journalPath);
+    await mkdir(resolve(dir, 'tmp'), { recursive: true });
+    await writeFile(producerLock, JSON.stringify({ pid: 18781, startedAt: new Date().toISOString() }));
+    await assert.rejects(() => acquireProducerLock(journalPath, { pid: process.pid, job: 'test' }), /shared journal is in use/);
+    await rm(producerLock);
+    const held = await acquireProducerLock(journalPath, { pid: process.pid, job: 'test' });
+    assert.equal(held.path, producerLock);
+    await held.lock.close();
+    await rm(held.path);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
 
