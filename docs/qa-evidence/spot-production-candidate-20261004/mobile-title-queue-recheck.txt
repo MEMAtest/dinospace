@@ -1,0 +1,18 @@
+Puzzle Pop Starter queue observation record
+Date: 2026-10-04
+Candidate deployment: dpl_ACKz7A5eDD8DiCfUptevNEjP5xdV
+Candidate source: 4fcb80d34bb2e9cfdb587f40ec61f44a6ae75f55
+
+Recheck profile: puzzle-title-mobile-recheck-20261004 (fresh isolated Playwright session)
+Viewport: 390x844
+Setup: opened about:blank; installed /api/voice and /api/story blocking handlers before first app navigation; navigated to candidate; used visible Turn sound off control; selected Amari > Creative Lab > Puzzle Pop > Start chapter. No storage/progress/seed/answer injection or hidden state inspection.
+
+Visible item sequence, recorded after each Next:
+1. River Valley — Picture 1 of 4
+2. Moon Camp — Picture 2 of 4
+3. Dino Park — Picture 3 of 4
+4. Robin's Tree — Picture 4 of 4
+
+For items 1–3, used visible Hint, followed its highlighted-space instruction, and completed each board with ordinary UI. After each completion pressed visible Next picture once. No duplicate title appeared in this recheck. Screenshots mobile-recheck-picture-{1,2,3}-{active,held}.png preserve the active/held evidence for the first three items. Fourth item was observed active; this bounded recheck did not complete it.
+
+Earlier first mobile run: after completing Dino Park as Picture 3 of 4 and pressing Next once, the rendered title showed Moon Camp as Picture 4 of 4. Screenshot mobile-queue-duplicate-moon-4of4.png preserves that screen. That run lacked per-step screenshots for the first two items; do not claim stronger retained evidence than this. The anomaly did not reproduce in the fresh recheck. It remains ambiguous, not a confirmed defect or a queue reliability pass.
