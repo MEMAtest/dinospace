@@ -447,3 +447,14 @@ The sample set exposed recurring authored-template problems that a listener must
 
 The same audit checked dynamic Time Teller labels and the 120 canonical Time Teller question rows. It found no singular/plural hour/minute agreement template of this form: time labels use `o’clock`, `half past`, `quarter past` and `quarter to`; the explanatory subjects and verbs are singular (“minute hand points”, “hour hand is”). The selected 12:45 and 1:00 rows remain two distinct authored utterances. The visible 12:45→1:00 +15-minute control transition has separate retained functional evidence; no bridge sentence is added to the audio set.
 
+## Candidate `fe5` listening overlay for the three corrected rows
+
+Keep the entries above as the historical `ac3b3cc` record of what failed. For any later review of exact source `fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128`, use the following corrected utterances and ordered segment keys for those same IDs. They were recomputed from `fe5` question data, segment helpers and `voiceClipKey`; they are expected lookups only, not evidence of current files, decoding, playback or listening.
+
+| Worksheet row / ID | Corrected exact utterance | Whole-line key | Corrected ordered segment keys | Changed segment key(s) |
+|---|---|---|---|---|
+| L05 / `take:apple:1:0` | “There is 1 apple. Take away 0. How many are left?” | `c31e6c71` | `3352ee11` → `64837c93` → `04f5694d` | First segment: `a381b377` → `3352ee11` (`There are 1 apple.` → `There is 1 apple.`). |
+| L06 / `take:shell:2:1` | “Start with 2. Take 1 away. 1 remains.” | `7f2037f0` | `1a7f3b94` → `5625aee4` → `0e404090` | Final segment: `26cdd055` → `0e404090` (`1 remain.` → `1 remains.`). |
+| L27 / `compare:farther:11:9:19:1` | “A moved 9 spaces and landed on 20. B moved 1 space and landed on 20. A is farther.” | `76495f45` | `2e6d758e` → `40d471c0` → `f8c8f63f` | Middle segment: `5c515759` → `40d471c0` (`B moved 1 spaces and landed on 20.` → `B moved 1 space and landed on 20.`). |
+
+For each row, also listen to the exact whole-line clip if the candidate maps it, because the runtime selects a mapped full line before falling back to its segments. Otherwise require every corrected segment and check the full sentence formed by joining them. The remaining segments in these three rows retain their old keys; the 47-entry corpus delta confirms these are the only changed source phrases affecting them. Source-copy correction does not close the listener’s pronunciation, prosody, completeness, or native cancellation checks.
