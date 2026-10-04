@@ -1,0 +1,34 @@
+- generic [ref=e896]:
+  - banner [ref=e897]:
+    - button "Back" [ref=e898] [cursor=pointer]
+    - generic [ref=e917]:
+      - paragraph [ref=e918]: World 1 of 3 · Mission 1 of 6
+      - heading "Number Line Jump" [level=1] [ref=e919]
+    - button "Turn sound on" [ref=e902] [cursor=pointer]
+  - main [ref=e907]:
+    - paragraph [ref=e908]: Start at 0. Hop 1 forward. Where do you land?
+    - button "Hear mission" [ref=e920] [cursor=pointer]
+    - paragraph [ref=e925]: Start at 0. Make 1 hop forward →.
+    - paragraph [ref=e926]: Scroll along the number line. Use Enter, Space, or the arrow keys on the hop buttons.
+    - generic "Scrollable number line from zero to the chapter limit" [ref=e927]:
+      - group "Number line from 0 to 10" [ref=e928]:
+        - generic [ref=e944]: "0"
+        - generic [ref=e949]:
+          - text: "1"
+          - generic [ref=e986]: F
+        - generic [ref=e951]: "2"
+        - generic [ref=e954]: "3"
+        - generic [ref=e957]: "4"
+        - generic [ref=e960]: "5"
+        - generic [ref=e963]: "6"
+        - generic [ref=e966]: "7"
+        - generic [ref=e969]: "8"
+        - generic [ref=e972]: "9"
+        - generic [ref=e975]: "10"
+    - paragraph [ref=e978]: Frog at 1 · 1 of 1 hops made
+    - generic [ref=e979]:
+      - button "Hop forward →" [disabled] [ref=e980]
+      - button "← Hop back" [disabled] [ref=e981]
+    - generic [ref=e982]: "Accepted hops: 1"
+    - status [ref=e987]: 0 + 1 = 1. The frog moved 1 hop and landed on 1.
+    - button "Next mission" [ref=e988] [cursor=pointer]
