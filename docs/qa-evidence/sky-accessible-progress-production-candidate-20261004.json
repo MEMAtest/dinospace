@@ -54,5 +54,12 @@
       "matches": true
     }
   },
-  "scope": "Immutable production-environment candidate; canonical alias not promoted. Independent production gameplay delta required."
+  "scope": "Immutable production-environment candidate; canonical alias not promoted. Independent production gameplay delta required.",
+  "providerMetadata": {
+    "githubCommitSha": "2923ca6e10c46609504f41529bf46286e17f8434",
+    "auditedArchiveSourceSha": "2923ca6e10c46609504f41529bf46286e17f8434",
+    "gitCommitSha": "7289fe864fa8cc0900a898c291c1a95687ff7de2",
+    "githubCommitRef": "codex/quest-game-editor-20260930"
+  },
+  "sourceBinding": "Explicit provider metadata uses the full archived source SHA; automatic gitCommitSha describes surrounding checkout documentation. Eight exact frozen runtime/index hashes bind the rendered deployment."
 }
