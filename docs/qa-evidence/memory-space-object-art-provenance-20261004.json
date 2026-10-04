@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-04T02:09:46.218614+00:00",
+  "method": "Built-in image_gen, one call per distinct asset, transparent_background=true; originals copied unchanged. No provider-key CLI, atlas or bitmap edits.",
+  "scope": "Originals only; no runtime integration/release/4.5 claim. Galaxy is naturally translucent RGBA with maximum alpha254, preserved unchanged.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/flying-saucer-v1.png",
+      "token": "🛸",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-c50b14e5-d2b9-4ced-81f5-d76e131db163.png",
+      "sha256": "84181ce2522c8dc158a1a48eb89d6ee334e420ea67472a12307bc19926ba390d",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Silver-blue flying saucer, cyan glass dome, three violet lights; rounded glossy, compact complete object for82px card, transparent margins; no text, badge, halo, shadow, floor or scene.",
+      "rootReview": "Full generated original reviewed: complete distinctive subject, no text or scene. Tiny rendered-card acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/alien-v1.png",
+      "token": "👽",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-8c1dd7ad-6b4e-4953-9d0a-66a290efed36.png",
+      "sha256": "2ec54c22019391f00fea91a288b851b2ad644744bcab1483bc7187fdf4feb6d1",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Friendly green alien head, gentle dark oval eyes, rounded cheeks, two antennae, smile; compact glossy educational toy; distinguish from dinosaur/robot/astronaut; transparent margins, no body/text/scene/halo.",
+      "rootReview": "Full generated original reviewed: complete distinctive subject, no text or scene. Tiny rendered-card acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/galaxy-v1.png",
+      "token": "🌌",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-97da2beb-23ef-41bf-a0af-030b72006516.png",
+      "sha256": "3be0f636ac950ecb8faeec7034642d20e01579b1e8b12f27d1a586084ae35fb7",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        254
+      ],
+      "promptSummary": "Compact tilted spiral galaxy, creamy central bulge, three broad violet/cobalt star-filled arms; readable at82px, transparent outside spiral, luminous edges confined to galaxy; no single star/planet/comet/saucer/rectangle/text/badge/huge halo.",
+      "rootReview": "Full generated original reviewed: complete distinctive subject, no text or scene. Tiny rendered-card acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/telescope-v1.png",
+      "token": "🔭",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-934c664a-2562-453a-92c4-333cffda3488.png",
+      "sha256": "3214317d3a175d2c40206b2d77af09dcb106f44f43a2f4c65a0fb975fae21ce4",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Chunky cobalt astronomical telescope, gold rim, dark lens and eyepiece, angled upper-left on THREE clear tripod legs; complete compact glossy educational object, transparent margins, no microscope/dish/camera/person/text/scene/halo/floor/shadow.",
+      "rootReview": "Full generated original reviewed: complete distinctive subject, no text or scene. Tiny rendered-card acceptance pending."
+    }
+  ]
+}
