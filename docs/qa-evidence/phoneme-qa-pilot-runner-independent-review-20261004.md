@@ -24,3 +24,8 @@ The suite's other fixtures cover the exact inventory hash and Matilda/model prov
 This is a runner safety review only. No `/s/`, `/æ/` or `/t/` audio was generated, decoded, played or heard. The three target requests, Matilda voice, Flash v2 model, fixed payload, size bound and candidate-only destination remain pinned. Human listening is still required to decide whether isolated outputs are pure phoneme sounds suitable for teaching. No runtime asset or manifest is updated by this code path.
 
 The tests exercise mocked provider responses and a mocked PID state, not the actual B4 worker process or a paid request. They establish the pre-existing-output no-request guarantee for the tested collision fixture and the intended lock/budget gates in code/tests; they do not authorize or certify a future execution.
+
+
+## Root integration check
+
+Root reviewed the fixed runner and imported only its source/tests/ledger/docs. The integrated root test suite passed11/11 without provider requests. This is source integration evidence; it adds no recording, playback or auditory verdict.

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T18:13:09.475466+00:00",
+  "updatedAt": "2026-10-04T18:25:03.330846+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1402,9 +1402,10 @@
     "independentBrowserReport": "docs/qa-evidence/batch4-grammar-independent-qa-20261004/report.md"
   },
   "phonemePilotPrepared": {
-    "source": "6b052cc65f1eee05eea6a825d32b9949d9d1bb39",
-    "report": "work/dinospace-phoneme-qa-pilot/docs/phoneme-qa-pilot-preparation-20261004.md",
-    "scope": "Builder source-only three-sound experiment prepared, root review pending. No provider call/runtime sound asset; worker live guard. SSML support does not prove isolated phoneme quality."
+    "source": "db9566f1285d62275be605862fe50f3475d33a5f",
+    "report": "docs/phoneme-qa-pilot-preparation-20261004.md",
+    "independentReport": "docs/qa-evidence/phoneme-qa-pilot-runner-independent-review-20261004.md",
+    "scope": "Reviewed source-only three-sound pilot integrated; repeat-run defect repaired before any paid execution. Independent and root11 fixtures pass. No recordings generated, no pure-phoneme listening or runtime acceptance. Existing liveB4 worker gate remains closed."
   },
   "batch4ListeningWorksheet": "docs/qa-evidence/batch4-representative-listening-worksheet-20261004.md"
 }
