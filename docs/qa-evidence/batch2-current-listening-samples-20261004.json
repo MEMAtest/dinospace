@@ -1,0 +1,116 @@
+{
+  "checkedAt": "2026-10-04T11:14:10.331Z",
+  "runtimeSourceSha": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+  "canonicalDeploymentId": "dpl_Dypi5oGP3et3yxgQiGjDqYpfCFMg",
+  "scope": "Nine current-corpus human listening samples; static file hashes/full decode only, not heard quality or browser replay/mute acceptance. No provider calls.",
+  "samples": [
+    {
+      "game": "Puzzle Pop",
+      "text": "Build the River Valley picture. Choose a piece, then tap its matching space.",
+      "key": "1528ee0d",
+      "path": "/audio/en/1528ee0d-matilda.mp3",
+      "bytes": 79038,
+      "sha256": "85eca2c94376d7498a4f24b78167852626dfc209dc57ea291ab54f5bcba0a12b",
+      "productionStatus": 200,
+      "productionSha256": "85eca2c94376d7498a4f24b78167852626dfc209dc57ea291ab54f5bcba0a12b",
+      "fullyDecoded": true,
+      "humanListening": "pending"
+    },
+    {
+      "game": "Puzzle Pop",
+      "text": "Picture complete. Some dinosaurs ate plants, and some ate meat. Their teeth helped scientists learn what they ate.",
+      "key": "d988f5f4",
+      "path": "/audio/en/d988f5f4-matilda.mp3",
+      "bytes": 128775,
+      "sha256": "458a1d800ae2c59d7d9cfcc86a8d86ab48b3de6147c1172144eb934f32df0b4a",
+      "productionStatus": 200,
+      "productionSha256": "458a1d800ae2c59d7d9cfcc86a8d86ab48b3de6147c1172144eb934f32df0b4a",
+      "fullyDecoded": true,
+      "humanListening": "pending"
+    },
+    {
+      "game": "Spot the Difference",
+      "text": "Find 3 changes in Superhero City. Tap the changed detail in Picture B.",
+      "key": "99cfc536",
+      "path": "/audio/en/99cfc536-matilda.mp3",
+      "bytes": 86561,
+      "sha256": "9e35384a2c25974de7af11a218ed855a5260826c046b3f670cb3d6ca916159e0",
+      "productionStatus": 200,
+      "productionSha256": "9e35384a2c25974de7af11a218ed855a5260826c046b3f670cb3d6ca916159e0",
+      "fullyDecoded": true,
+      "humanListening": "pending"
+    },
+    {
+      "game": "Spot the Difference",
+      "text": "You found every change. People help their community by sharing and caring for the places where they live.",
+      "key": "2f2b4a34",
+      "path": "/audio/en/2f2b4a34-matilda.mp3",
+      "bytes": 94502,
+      "sha256": "3bdf603b4e287b6564e60f30245059f1e2b1689509aff72f1f266ffe543ee6e6",
+      "productionStatus": 200,
+      "productionSha256": "3bdf603b4e287b6564e60f30245059f1e2b1689509aff72f1f266ffe543ee6e6",
+      "fullyDecoded": true,
+      "humanListening": "pending"
+    },
+    {
+      "game": "Sky Shapes",
+      "text": "Sky 1. Trace the Round Sun. Start at the green dot.",
+      "key": "34a377ee",
+      "path": "/audio/en/34a377ee-matilda.mp3",
+      "bytes": 58140,
+      "sha256": "6d73dacdb633078e75a4765115cb1c5e3ee7565f8e6befa9c3a675c95143b19e",
+      "productionStatus": 200,
+      "productionSha256": "6d73dacdb633078e75a4765115cb1c5e3ee7565f8e6befa9c3a675c95143b19e",
+      "fullyDecoded": true,
+      "humanListening": "pending"
+    },
+    {
+      "game": "Sky Shapes",
+      "text": "Great job tracing the Round Sun! You followed every glowing path.",
+      "key": "75af60ea",
+      "path": "/audio/en/75af60ea-matilda.mp3",
+      "bytes": 71515,
+      "sha256": "5f5873d240c1108fadb73f5e53af9b5b6ddd1f9a0a4835b09c94f05f306fdc77",
+      "productionStatus": 200,
+      "productionSha256": "5f5873d240c1108fadb73f5e53af9b5b6ddd1f9a0a4835b09c94f05f306fdc77",
+      "fullyDecoded": true,
+      "humanListening": "pending"
+    },
+    {
+      "game": "Sky Shapes",
+      "text": "A circle is one smooth curve. It has no corners.",
+      "key": "d9a1e08e",
+      "path": "/audio/en/d9a1e08e-matilda.mp3",
+      "bytes": 56886,
+      "sha256": "ad1a2744ea0f8ecd9b2e206a298dbfb26a0bff22d7a65537e984a561f9d71cd2",
+      "productionStatus": 200,
+      "productionSha256": "ad1a2744ea0f8ecd9b2e206a298dbfb26a0bff22d7a65537e984a561f9d71cd2",
+      "fullyDecoded": true,
+      "humanListening": "pending"
+    },
+    {
+      "game": "Monster Math",
+      "text": "How many stars can you see?",
+      "key": "5c823d3b",
+      "path": "/audio/en/5c823d3b-matilda.mp3",
+      "bytes": 25539,
+      "sha256": "a30167e623db98652a8a2db3adbb87516a19cb36f01032bdddd4e291f0f27f29",
+      "productionStatus": 200,
+      "productionSha256": "a30167e623db98652a8a2db3adbb87516a19cb36f01032bdddd4e291f0f27f29",
+      "fullyDecoded": true,
+      "humanListening": "pending"
+    },
+    {
+      "game": "Monster Math",
+      "text": "There is 1 star.",
+      "key": "d067b8a7",
+      "path": "/audio/en/d067b8a7-matilda.mp3",
+      "bytes": 20942,
+      "sha256": "e33d14a1ceaaa272f13cc3aab54dd25a0775f1f159e846c76e380f3a6bbcf723",
+      "productionStatus": 200,
+      "productionSha256": "e33d14a1ceaaa272f13cc3aab54dd25a0775f1f159e846c76e380f3a6bbcf723",
+      "fullyDecoded": true,
+      "humanListening": "pending"
+    }
+  ]
+}

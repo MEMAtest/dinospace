@@ -446,3 +446,10 @@ This functional release includes the twelve revised Spot pairs, the Puzzle Dino 
 Independent canonical report `c2a5817` supplements the retained full baselines with fresh production-address controls: Monster at390px starts at scrollY=0 with visible48px controls and Back/Keep preserves Question1; Sky at1280px starts at scrollY=0 and confirmed Back returns to Creative Lab; Spot at390px decodes and displays both Dino Park pictures, then returns to Thinking & Play. All16 manifest files match, with zero console errors/warnings and no provider API calls. Root read the complete report and inspected the normal Monster, Sky and full Spot pair screenshots.
 
 The functional release is verified at canonical source94d44d0. The quality goal remains active:26 contracts published,4 recorded accepted,22 in progress. Full baselines and regression deltas retain their individual source identities; no full matrix, audible quality or new4.5 score is inferred from the canonical smoke checks.
+
+
+## Current audio evidence and editorial reconciliation — 4 October
+
+The previous goal turn made progress: it promoted source94 and saved independent canonical UI evidence. The finite Batch4 narration process PID18781 is still live; it is an expected request-window wait, not an impasse. Independent reviewers are reconciling the current four-game score/gate worksheet and retained baseline ancestry. A new SHA alone does not require replacing a full baseline with another full run.
+
+Root verified the current Batch2 corpus:1373 unique lines,1368 files present, all1368 actual hashes matching valid results in the retained1371 full-decode audit. Five current clips remain missing (three DinoPark naming lines and two Spot hints). The current listening sheet substitutes the eligible RiverValley prompt for the obsolete Picnic prompt. Its nine selected files freshly decode and match static canonical HTTP200 bytes. No generation, manifest edit or heard-quality verdict occurred. The current roadmap now names94 as canonical and separates this1373 corpus from historical1371 readiness.

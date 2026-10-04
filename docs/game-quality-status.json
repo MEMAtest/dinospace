@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T11:08:13.494579+00:00",
+  "updatedAt": "2026-10-04T11:19:28.741450+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -960,5 +960,15 @@
     "scope": "Authorized functional release. Provider identity and all16 canonical byte/hash checks pass. Independent live Monster delta passes atbothwidths; retained4f all12Spot/Sky/Puzzle live deltas coverunchangedmodules/art. Freshcanonicaladdresssmoke passesMonster390Start/BackKeep,Sky1280Start/parentBack,Spot390decodedDinoPark/parentBack;console0andnoAPIcalls. Rootreadreportsandviewednormal screenshots. Not4.5award:fiveB2clipsmissing,humanlistening/editorialgatesandexactMonster2+10remainopen.",
     "canonicalUiReport": "docs/qa-evidence/batch2-canonical-functional-address-smoke-20261004/report.md",
     "canonicalUiCommit": "c2a5817"
+  },
+  "batch2CurrentAudioLineage": {
+    "report": "docs/qa-evidence/batch2-current-corpus-lineage-20261004.json",
+    "requested": 1373,
+    "existing": 1368,
+    "retainedFullDecodeByteMatches": 1368,
+    "missing": 5,
+    "listeningSheet": "docs/batch2-current-listening-review-20261004.md",
+    "listeningSamples": "docs/qa-evidence/batch2-current-listening-samples-20261004.json",
+    "scope": "Nine authoredcurrent samplesfreshfull-decode/staticproductionhashmatches. All1368existingcurrentcorpusbytesmatchpreviousvalidfull-decoderesults. No provider calls,manifestwritesorhumanlisteningverdict. ObsoleteDinoParkPicnicpromptnotusedforcurrentlistening. FiveclipdebtremainsuntilauthorizedgenerationavailableafterliveB4workerterminal."
   }
 }
