@@ -21,14 +21,14 @@ export const chessOtherPieceRules = Object.freeze([
   'In this mini-board, pawns move one square forward and capture diagonally.',
 ]);
 export const chessClueNarration = (mission) => `Start with the ${mission.piece} on ${String.fromCharCode(97 + mission.from[1])}${5 - mission.from[0]}. Trace its path to the star on ${String.fromCharCode(97 + mission.target[1])}${5 - mission.target[0]}, checking every square for a blocker.`;
-export const astronautClueNarration = (mission) => `Mission clue. ${mission.clue}`;
+export const astronautClueNarration = (mission) => `${mission.clueType === 'learn' ? 'Learn clue.' : 'Mission clue.'} ${mission.clue}`;
 
 const phrases = [
   'Good try. Look at the whole repeating part, then try again.',
   'Look at the first two places. What part repeats?',
   'Look at the first three places. What part repeats?',
   patternQuestionNarration(),
-  'Good try. Use the picture clues, then try another answer.',
+  'Good try. Use the clue and try another answer.',
   'That square is a legal move, but the puzzle asks for the marked goal. Try again.',
   'That move does not follow this piece’s rule. Look for a green destination.',
   'A safe capture lands on a square the other pieces do not attack. Try again.',

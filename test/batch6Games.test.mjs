@@ -128,12 +128,15 @@ test('Astronaut Academy missions rotate seeded options and retain primary NASA/E
     for (const mission of missions) {
       assert.ok(mission.clue.trim(), `${mission.id} has a separately authored clue`);
       const clue = normalize(mission.clue);
-      for (const option of mission.options) {
-        const normalizedOption = normalize(option);
-        assert.ok(!clue.includes(normalizedOption), `${mission.id} clue does not repeat the option “${option}”`);
+      if (mission.clueType === 'learn') {
+        assert.ok(clue.includes(normalize(mission.answer)), `${mission.id} Learn clue teaches the recalled answer explicitly`);
+      } else {
+        assert.equal(mission.clueType, undefined, `${mission.id} uses a supported clue type`);
+        assert.ok(!clue.includes(normalize(mission.answer)), `${mission.id} reasoning clue does not state its answer`);
       }
       const narratedClue = astronautClueNarration(mission);
       assert.ok(BATCH6_SPOKEN_PHRASES.includes(narratedClue), `${mission.id} has packaged-only narration inventory coverage`);
+      assert.equal(narratedClue.startsWith('Learn clue.'), mission.clueType === 'learn', `${mission.id} spoken label matches its assistance type`);
     }
   }
   const mission = ASTRONAUT_MISSIONS.starter[0];
@@ -197,7 +200,7 @@ test('Batch 6 storage isolates players and credits only completed best-star delt
 });
 
 // Every authored clue must be playable, including remixed patterns and review missions.
-test('Batch 6 finite narration allowlist covers current clues and legal-move feedback', () => {
+test('Batch 6 finite narration allowlist covers current clue and Learn clue types and legal-move feedback', () => {
   const clues = [
     ...Object.values(PATTERN_MISSIONS).flat().map(patternClueNarration),
     ...Object.values(CHESS_PUZZLES).flat().map(chessClueNarration),
