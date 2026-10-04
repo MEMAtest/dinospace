@@ -1,4 +1,4 @@
-import { mkdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promises';
+import { lstat, mkdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promises';
 import { dirname, isAbsolute, relative, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
@@ -167,14 +167,24 @@ export function buildDryRunPlan(inventory, inventorySha256 = PILOT_INVENTORY_SHA
   });
 }
 
-export function candidateOutputPath(item) {
+export function candidateOutputPath(item, directory = candidateRoot) {
   const expected = APPROVED_TARGETS.find((target) => target.id === item?.id);
   if (!expected) throw new Error('Only one of the three pinned experiment targets has an output path.');
   assertPilotItem(item, expected);
-  const fullPath = resolve(candidateRoot, expected.outputFile);
-  const rel = relative(candidateRoot, fullPath);
+  const fullPath = resolve(directory, expected.outputFile);
+  const rel = relative(directory, fullPath);
   if (!rel || rel.startsWith('..') || isAbsolute(rel)) throw new Error('Output path escaped the QA-only candidate directory.');
   return fullPath;
+}
+
+export async function assertUnusedCandidateRoot(directory = candidateRoot) {
+  try {
+    await lstat(directory);
+  } catch (error) {
+    if (error.code === 'ENOENT') return true;
+    throw error;
+  }
+  throw new Error('Phoneme pilot candidate directory already exists; refusing to repeat or overwrite a prior run.');
 }
 
 export function requestPayload(item) {
@@ -260,11 +270,12 @@ export async function assertLivePredecessorBlocked(statusPath, pidProbe = proces
   return assertPredecessorFinished(statusPath, expectedB4ManifestPath, pidProbe);
 }
 
-export async function executePilot({ args, inventory, inventorySha256, apiKey, fetchImpl = fetch, now = Date.now, pidProbe = process.kill.bind(process) } = {}) {
+export async function executePilot({ args, inventory, inventorySha256, apiKey, fetchImpl = fetch, now = Date.now, pidProbe = process.kill.bind(process), candidateDirectory = candidateRoot } = {}) {
   validatePaidArgs(args);
   assertExactInventory(inventory);
   if (inventorySha256 !== PILOT_INVENTORY_SHA256) throw new Error('Refusing execution with a non-pinned inventory.');
   await verifyVoiceProvenance(inventory);
+  await assertUnusedCandidateRoot(candidateDirectory);
   const requestJournalPath = assertJournalPath(args.requestJournal, expectedRequestJournalPath);
   if (await realpath(requestJournalPath) !== await realpath(expectedRequestJournalPath)) throw new Error('Shared request journal resolves through an unexpected path.');
   if (producerLockPathForJournal(requestJournalPath) !== expectedProducerLockPath) throw new Error('Shared journal does not resolve to the canonical B3 producer lock.');
@@ -272,7 +283,14 @@ export async function executePilot({ args, inventory, inventorySha256, apiKey, f
   if (!apiKey) throw new Error('ELEVENLABS_API_KEY is required; it is never read from or written to the source tree.');
 
   const heldLock = await acquireProducerLock(requestJournalPath, { pid: process.pid, job: 'phoneme-qa-pilot-20261004', startedAt: new Date(now()).toISOString() });
-  const auditPath = resolve(candidateRoot, 'audit.json');
+  try {
+    await assertUnusedCandidateRoot(candidateDirectory);
+  } catch (error) {
+    await heldLock.lock.close();
+    await rm(heldLock.path, { force: true });
+    throw error;
+  }
+  const auditPath = resolve(candidateDirectory, 'audit.json');
   const audit = {
     experiment: 'sound-safari-phoneme-qa-pilot-20261004',
     inventorySha256,
@@ -346,8 +364,8 @@ export async function executePilot({ args, inventory, inventorySha256, apiKey, f
         throw error;
       }
 
-      const outputPath = candidateOutputPath(item);
-      await mkdir(candidateRoot, { recursive: true });
+      const outputPath = candidateOutputPath(item, candidateDirectory);
+      await mkdir(candidateDirectory, { recursive: true });
       await writeFile(outputPath, generated.bytes, { flag: 'wx' });
       record.sha256 = sha256(generated.bytes);
       record.outputPath = relative(root, outputPath);

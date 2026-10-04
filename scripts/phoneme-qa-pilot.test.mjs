@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
@@ -21,7 +21,7 @@ import {
   validatePaidArgs,
   MAX_AUDIO_BYTES,
 } from './run-phoneme-qa-pilot.mjs';
-import { producerLockPathForJournal } from './reviewedNarrationJobs.mjs';
+import { producerLockPathForJournal, sha256 } from './reviewedNarrationJobs.mjs';
 
 const repoRoot = resolve(import.meta.dirname, '..');
 const b3Root = resolve(repoRoot, '../dinospace-batch3-quality');
@@ -145,6 +145,48 @@ test('runner stops at its live-worker gate before acquiring the journal or calli
   }
 });
 
+test('an existing candidate directory blocks a second run before journal access or provider calls', async () => {
+  const { inventory } = await loadPilotInventory(PILOT_INVENTORY_SHA256);
+  const temp = await mkdtemp(resolve(tmpdir(), 'phoneme-repeat-guard-'));
+  const candidateRoot = resolve(temp, PILOT_INVENTORY_SHA256);
+  const auditPath = resolve(candidateRoot, 'audit.json');
+  const outputPath = candidateOutputPath(inventory.items[0], candidateRoot);
+  const journalPath = resolve(b3Root, 'tmp/offline-voice-request-state.json');
+  const journalBefore = sha256(await readFile(journalPath));
+  await mkdir(candidateRoot, { recursive: true });
+  const priorAudit = Buffer.from('{"prior":"audit"}\n');
+  const priorOutput = Buffer.alloc(1501, 7);
+  await writeFile(auditPath, priorAudit);
+  await writeFile(outputPath, priorOutput);
+  let calls = 0;
+  try {
+    await assert.rejects(() => executePilot({
+      args: {
+        paid: true,
+        inventorySha256: PILOT_INVENTORY_SHA256,
+        maxCalls: 3,
+        maxRuns: 1,
+        maxCallsExplicit: true,
+        maxRunsExplicit: true,
+        requestJournal: journalPath,
+        predecessorStatus: '/not-read-because-output-exists',
+      },
+      inventory,
+      inventorySha256: PILOT_INVENTORY_SHA256,
+      apiKey: 'fixture-only-token',
+      candidateDirectory: candidateRoot,
+      fetchImpl: async () => { calls += 1; throw new Error('Existing outputs must stop before a request.'); },
+      pidProbe: () => { throw Object.assign(new Error('not running'), { code: 'ESRCH' }); },
+    }), /candidate directory already exists/);
+    assert.equal(calls, 0);
+    assert.equal(sha256(await readFile(auditPath)), sha256(priorAudit));
+    assert.equal(sha256(await readFile(outputPath)), sha256(priorOutput));
+    assert.equal(sha256(await readFile(journalPath)), journalBefore);
+  } finally {
+    await rm(temp, { recursive: true, force: true });
+  }
+});
+
 test('request payload is the exact pinned SSML and one fake success is one request', async () => {
   const { inventory } = await loadPilotInventory(PILOT_INVENTORY_SHA256);
   const item = inventory.items[0];
@@ -200,4 +242,31 @@ test('oversized response is cut off during streaming and never retried', async (
     },
   }), /pilot limit/);
   assert.equal(calls, 1);
+});
+
+test('request timeout aborts both a pending response and a response body read', async () => {
+  const { inventory } = await loadPilotInventory(PILOT_INVENTORY_SHA256);
+  const item = inventory.items[0];
+  await assert.rejects(() => requestPhoneme(item, {
+    apiKey: 'fixture-only-token',
+    timeoutMs: 5,
+    fetchImpl: async (_url, options) => new Promise((_resolve, reject) => {
+      options.signal.addEventListener('abort', () => reject(options.signal.reason), { once: true });
+    }),
+  }), /timed out/);
+
+  await assert.rejects(() => requestPhoneme(item, {
+    apiKey: 'fixture-only-token',
+    timeoutMs: 5,
+    fetchImpl: async (_url, options) => ({
+      ok: true,
+      status: 200,
+      headers: new Headers({ 'content-type': 'audio/mpeg' }),
+      body: new ReadableStream({
+        start(controller) {
+          options.signal.addEventListener('abort', () => controller.error(options.signal.reason), { once: true });
+        },
+      }),
+    }),
+  }), /timed out/);
 });
