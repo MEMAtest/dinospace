@@ -45,7 +45,7 @@ for (const compare of ['larger', 'farther']) for (const a of pairs) for (const b
   const valueA = compare === 'farther' ? a.hops : a.end; const valueB = compare === 'farther' ? b.hops : b.end;
   const answer = valueA === valueB ? 'same' : valueA > valueB ? 'A' : 'B';
   const prompt = `Which frog ${compare === 'farther' ? 'travelled farther' : 'landed on the larger number'}: A (${a.start} to ${a.end}) or B (${b.start} to ${b.end})?`;
-  const q = { type: 'compare', compare, start1: a.start, hops1: a.hops, end1: a.end, start2: b.start, hops2: b.hops, end2: b.end, answer, prompt, clue: compare === 'farther' ? 'Compare how many spaces each frog moved.' : 'Compare the two landing numbers.', explanation: `A moved ${a.hops} spaces and landed on ${a.end}. B moved ${b.hops} spaces and landed on ${b.end}. ${answer === 'same' ? 'They are the same.' : `${answer} is ${compare === 'farther' ? 'farther' : 'larger'}.`}` };
+  const q = { type: 'compare', compare, start1: a.start, hops1: a.hops, end1: a.end, start2: b.start, hops2: b.hops, end2: b.end, answer, prompt, clue: compare === 'farther' ? 'Compare how many spaces each frog moved.' : 'Compare the two landing numbers.', explanation: `A moved ${a.hops} space${a.hops === 1 ? '' : 's'} and landed on ${a.end}. B moved ${b.hops} space${b.hops === 1 ? '' : 's'} and landed on ${b.end}. ${answer === 'same' ? 'They are the same.' : `${answer} is ${compare === 'farther' ? 'farther' : 'larger'}.`}` };
   numberLineQuestions += 1;
   add('numberLine', numberLineNarrationText(q), numberLineNarrationSegments(q, 'prompt'));
   for (const field of ['clue', 'explanation']) add('numberLine', q[field], numberLineNarrationSegments(q, field));

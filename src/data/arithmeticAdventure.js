@@ -106,9 +106,9 @@ const subtractionPool = (chapter) => {
           rows.push({
             id: `take:${one}:${a}:${b}`, type: 'take', a, b, answer: a - b,
             one, many, color, object,
-            prompt: `There are ${quantity(a, one, many)}. Take away ${b}. How many are left?`,
+            prompt: `There ${a === 1 ? 'is' : 'are'} ${quantity(a, one, many)}. Take away ${b}. How many are left?`,
             clue: b === 0 ? 'Nothing is taken away. The starting group stays the same.' : 'Look at the marked objects. Count the ones that remain.',
-            explanation: `Start with ${a}. Take ${b} away. ${a - b} remain.`,
+            explanation: `Start with ${a}. Take ${b} away. ${a - b} ${a - b === 1 ? 'remains' : 'remain'}.`,
           });
         }
       }
@@ -263,8 +263,8 @@ const narrationForQuestion = (question, field) => {
       : [`${person} had ${amount(a)}`, `and got ${amount(b)} more.`, `${answer} altogether.`];
   } else if (game === 'subtraction' && type === 'take') {
     segments = field === 'prompt'
-      ? [`There are ${amount(a)}.`, `Take away ${b}.`, 'How many are left?']
-      : [`Start with ${a}.`, `Take ${b} away.`, `${answer} remain.`];
+      ? [`There ${a === 1 ? 'is' : 'are'} ${amount(a)}.`, `Take away ${b}.`, 'How many are left?']
+      : [`Start with ${a}.`, `Take ${b} away.`, `${answer} ${answer === 1 ? 'remains' : 'remain'}.`];
   } else if (game === 'subtraction' && type === 'compare') {
     if (field === 'prompt') segments = a === b
       ? [`Group A has ${a} and Group B has ${b}.`, 'Do the groups have the same number, or how many are unpaired?']

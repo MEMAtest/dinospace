@@ -43,3 +43,24 @@ test('offline inventory exhaustively deduplicates finite phrases and keeps cover
   assert.ok(items.every(({ text, key, path }) => text.trim().split(/\s+/).length >= 2 && key && path === `/audio/en/${key}-matilda.mp3`));
   assert.ok(Object.values(corpusByGame).every((lines) => lines.length > 0));
 });
+
+
+test('singular subtraction and frog-distance speech remains grammatical across the finite corpus', () => {
+  const take = getCanonicalArithmeticQuestionPool('subtraction', 0);
+  for (const q of take.filter(({ a }) => a === 1)) {
+    assert.match(q.prompt, /^There is 1 /);
+    assert.equal(arithmeticBatch4NarrationSegments('subtraction', q).join(' '), q.prompt);
+  }
+  for (const q of take.filter(({ answer }) => answer === 1)) {
+    assert.match(q.explanation, /1 remains\.$/);
+    assert.equal(arithmeticBatch4NarrationSegments('subtraction', q, 'explanation').join(' '), q.explanation);
+  }
+  const corpus = buildBatch4VoiceInventory().items.map(({ text }) => text);
+  assert.ok(corpus.includes('There is 1 apple.'));
+  assert.ok(corpus.includes('1 remains.'));
+  assert.ok(corpus.includes('A moved 1 space and landed on 1.'));
+  assert.ok(corpus.includes('B moved 1 space and landed on 20.'));
+  assert.ok(corpus.includes('A moved 2 spaces and landed on 2.'));
+  assert.ok(corpus.includes('0 remain.'));
+  assert.ok(!corpus.some((line) => /There are 1\b|\b1 remain\.|\b1 spaces\b/.test(line)));
+});
