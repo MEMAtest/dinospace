@@ -49,7 +49,7 @@ export const SOUND_SAFARI_PICTURE_ART = Object.freeze({
   'safari-nest': new URL('../assets/sound-safari/word-cards/nest-v1.webp', import.meta.url).href,
   'safari-raft': new URL('../assets/sound-safari/word-cards/raft-v1.webp', import.meta.url).href,
   'safari-plank': new URL('../assets/sound-safari/word-cards/plank-v1.webp', import.meta.url).href,
-  'safari-crust': new URL('../assets/sound-safari/word-cards/crust-v1.webp', import.meta.url).href,
+  'safari-crust': new URL('../assets/sound-safari/word-cards/crust-v2.webp', import.meta.url).href,
   'safari-stump': new URL('../assets/sound-safari/word-cards/stump-v1.webp', import.meta.url).href,
   'fish': new URL('../assets/sound-safari/word-cards/pond-fish-v1-card.webp', import.meta.url).href,
   'rock': new URL('../assets/sound-safari/word-cards/fossil-rock-v1-card.webp', import.meta.url).href,
