@@ -1,0 +1,59 @@
+{
+  "candidateSource": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "preview": "http://127.0.0.1:5396/",
+  "session": "count5396-clue-qa-20261004",
+  "guards": {
+    "startUrl": "about:blank",
+    "voice": 403,
+    "story": 403,
+    "verifiedBeforeFirstAppNavigation": true,
+    "remainedActiveAfterNavigation": true,
+    "providerRequestsObserved": false
+  },
+  "sound": "Muted via visible control throughout.",
+  "normalUiProgression": {
+    "profile": "Amari",
+    "path": "Maths Missions > Count the Stars",
+    "starterRoundsCompleted": 6,
+    "growingRoundsCompleted": 6,
+    "challengeSurveysCompleted": 1,
+    "challengeReplayRoundsCompletedBeforeTarget": 2,
+    "targetReachedOn": "Challenge replay, round 2 of 6",
+    "injection": false
+  },
+  "target": {
+    "title": "Nebula Dots",
+    "round": "Galaxy Survey / Challenge replay round 2 of 6",
+    "visibleObjectCount": 3,
+    "accessibleLayout": "scattered one by one",
+    "visibleStrategyBanner": "Count each glowing object once. A number badge keeps your place.",
+    "visibleClueAfterShow": "Point to each shape once. The numbered badges keep your place.",
+    "desktopViewport": "1280x800",
+    "mobileViewport": "390x844",
+    "visualFit": "Banner wraps above the board; object controls and clue controls remain in view without clipping.",
+    "screenshots": [
+      "screenshots/scattered-nebula-desktop.png",
+      "screenshots/scattered-nebula-mobile.png",
+      "screenshots/scattered-nebula-mobile-clue.png"
+    ],
+    "answeredTargetQuestion": false
+  },
+  "retainedCoverage": {
+    "priorReport": {
+      "source": "79a719e91e727f09d1f78cf890acd7e671cab381",
+      "evidenceCommit": "26fb2cd7c38175894bb505f22e72b29f25d8bf75",
+      "path": "docs/qa-evidence/count-layout-clue-20261004/independent/report.md in its separate worktree"
+    },
+    "priorCoverage": "Full retained scene-variety matrix and three arrangement-specific clue observations belong to source 79a719e; this report verifies only the changed Challenge scattered-strategy branch.",
+    "arrayAndGroupedStrategies": "Observed as unchanged during the ordinary initial Challenge run and grouped replay round; the per-question clue matrix is retained separately."
+  },
+  "diagnostics": {
+    "consoleMessages": 0,
+    "consoleErrors": 0,
+    "consoleWarnings": 0,
+    "compactRequestListing": "11 static requests omitted; no non-static request was listed.",
+    "audioPlayed": false,
+    "productionTested": false,
+    "overallAcceptance": false
+  }
+}
