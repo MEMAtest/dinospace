@@ -1,0 +1,72 @@
+{
+  "createdAt": "2026-10-04T03:42:47.653741+00:00",
+  "method": "Built-in image_gen, one call per distinctasset, transparent_background=true; reference image inspected for astronaut. Final originals copied unchanged, no creative bitmap editing or provider-key CLI.",
+  "scope": "Originals only. Frog/Monkey replace sceniccrops; astronaut exactexistingtoken; moonrock intendedonlyastronaut/cosmiccontexts, dinos fossilrock still needs art. No runtime/release/4.5 acceptance.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/isolated-frog-v1.png",
+      "token": "\ud83d\udc38",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-dbf6d647-3b0a-4ef9-bada-db01eeaa8e72.png",
+      "sha256": "6b6db013ae711fd12feaf3d622dae2889fd3eb7c51456d4e3cec6fd43542367c",
+      "dimensions": [
+        1312,
+        1199
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Full sitting green frog, yellowgreenbelly/gentlelargeeyes/fourlegs/roundedtoes, complete isolatedglossy3Dtoy; no pond/lilypad/scene/halo/text.",
+      "rootReview": "Generated original reviewed visually: complete distinctive object, no scene/frame/text; rendered82px acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/isolated-monkey-v1.png",
+      "token": "\ud83d\udc35",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-8fbf98bb-8749-4d92-93e1-4ec44e26d452.png",
+      "sha256": "80b035bf1df362cbaf5d6e97d567470669f2fff2d66c714d51674ad192b9d339",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Full sitting brown monkey/tanface/belly/roundears/curledtail/twoarms/twolegs, complete isolatedrounded3Dtoy, no branch/jungle/banana/scene/halo/text.",
+      "rootReview": "Generated original reviewed visually: complete distinctive object, no scene/frame/text; rendered82px acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/astronaut-amari-v1.png",
+      "token": "\ud83d\udc68\u200d\ud83d\ude80",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-fb33a96a-39c9-4794-9faa-5299d2d93542.png",
+      "sha256": "fb527da6707d1f9189856ecd4bf4e488f7bd2b86d5d1a0cbbab9fbd804c92c34",
+      "dimensions": [
+        1145,
+        1374
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Reference existing Amari characteridentity/style only: one Amari fullbody white/cobalt-purple spacesuit/transparenthelmet/wavingglove, preserve face/darkcurls/brownskin/eyes; remove robot/scene/shadow/halo/text;clean3Dtoy.",
+      "rootReview": "Generated original reviewed visually: complete distinctive object, no scene/frame/text; rendered82px acceptance pending.",
+      "referencePath": "src/assets/landing/amari-astronaut-robot.png"
+    },
+    {
+      "asset": "src/assets/memory-match/moon-rock-v1.png",
+      "token": "\ud83e\udea8",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-5b7ea9e3-3447-4f1d-9c9c-5dd5281d500d.png",
+      "sha256": "3541ea4dfc4e1ff4f66456b34e32d8c3ca7dc7e08e9f14492ea314ccff04260e",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Small irregular angular silvergrey moon rock specimen with pores/roughtexture, completecompact3Deducationalobject, not sphericalMoon/planet/crystal/fossil; alpha/no pedestal/scene/halo/text. Intended astronaut/cosmic contexts only.",
+      "rootReview": "Generated original reviewed visually: complete distinctive object, no scene/frame/text; rendered82px acceptance pending."
+    }
+  ]
+}
