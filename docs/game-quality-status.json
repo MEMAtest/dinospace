@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T16:54:52.320302+00:00",
+  "updatedAt": "2026-10-04T17:29:55.271841+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1332,6 +1332,32 @@
         "Astronaut Academy"
       ],
       "scope": "Old5363 mute-reset4.0 remains historical. Current clean5371 preference/reentry delta plus retained namespaced gameplay/reward/reload evidence supports current component4.5; no expanded all-game active or sibling collection UI claim, audio/overall/production pending."
+    },
+    "batch2": {
+      "source": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+      "independentCommit": "32da2419e7fbc57a90cf8e472012cc4c1e59ed71",
+      "report": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md",
+      "games": [
+        "Puzzle Pop",
+        "Spot the Difference",
+        "Sky Shapes",
+        "Monster Math"
+      ],
+      "nonAudioComponentRecommendations": {
+        "ageTeaching": 4.5,
+        "progression": 4.5,
+        "correctnessFairVariation": 4.5,
+        "reliabilityNavigationPersistence": 4.5
+      },
+      "feedbackAudioVisual": null,
+      "scope": "Retained exact source-bound full matrices plus named repair/production deltas; 94-to-0d changes no B2 game code/data. Formal audio dimension and overall mean/award remain pending five missing recordings and listening. Exact Monster 2+10 remains confidence-only."
+    },
+    "dinoLocalCopy": {
+      "source": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "ageTeachingRecommendation": 4.5,
+      "deployedAgeTeaching": 4.0,
+      "report": "docs/qa-evidence/batch3-independent-editorial-assessment-20261004.md",
+      "scope": "Independent rendered two-fact delta plus retained12-world baseline; local wording only. Two recordings, listening and canonical promotion pending; no overall score."
     }
   },
   "batch4InterimDecode": {
@@ -1343,13 +1369,24 @@
     "scope": "64 most recent exact mapped B4 corpus clips, full decode/duration/stable bytes pass. Interim subset while PID18781 live; no full readiness/playback/listening/release claim."
   },
   "reviewedNarrationSupervisor": {
-    "source": "afbbf01deb48b70b25797ec8fdbd698ed59ffa0c",
+    "source": "bf3a76dabd2d95e17d37723215ac6a3ae1bf7c30",
     "branch": "codex/narration-packager-20261004",
-    "scope": "Selectively integrated finite supervisor and exact B3 producer-lock fix. Independent/root12 tests and read-only Solar plan pass. No real paid execution. Runner-level isolated provider/MIME/error-audit fixture checks assigned; B4 live and terminal gate still closed. Supplemental5+2 selectors separate.",
+    "scope": "Integrated pinned B5-B7 and five B2/two Dino selectors with exact shared producer lock. Independent/root16 helper and isolated CLI fixture tests pass (eight predecessor and nine supplemental response scenarios). Predecessor fixture reads its immutable afbb archive; current fixture byte-pins bf. No real paid execution; B4 worker is live, terminal gate closed.",
     "independentFinding": "Must acquire exact B3 producer lock for its shared request journal, not only a private reviewed-narration lock.",
     "independentCommit": "24db1a7",
     "independentReport": "docs/qa-evidence/reviewed-narration-supervisor-independent-qa-20261004/report.md",
-    "rootIntegrationReport": "docs/qa-evidence/reviewed-narration-supervisor-independent-qa-20261004/root-integration.md"
+    "rootIntegrationReport": "docs/qa-evidence/reviewed-narration-supervisor-independent-qa-20261004/root-integration.md",
+    "supplementIndependentCommit": "61ad1d3",
+    "supplementIndependentReport": "docs/qa-evidence/narration-supplement-independent-qa-20261004/report.md",
+    "runnerFixtureCommit": "e6f96d2",
+    "runnerFixtureReport": "docs/qa-evidence/reviewed-narration-supplement-runner-fixture-qa-20261004/report.md"
   },
-  "canonicalLateRevalidation": "docs/qa-evidence/canonical-provider-hash-recheck-20261004-late.json"
+  "canonicalLateRevalidation": "docs/qa-evidence/canonical-provider-hash-recheck-20261004-late.json",
+  "batch4CleanIntegration": {
+    "source": "aa1627216907ae1612e1bdbb309764000a995ae6",
+    "origin": "http://127.0.0.1:5383",
+    "worktree": "work/dinospace-batch4-clean-integration",
+    "identity": "work/dinospace-batch4-clean-integration/docs/qa-evidence/batch4-clock-route-repair-identity-20261004.json",
+    "scope": "Canonical0d base plus exactac3 four components; rootcaught5382 omitted router glue, reviewed8bb hook restored.26 focused tests/lint/build,5879 served byte matches. Independent actual controls QA underway. Baseline-only narration65/5246; local/no release."
+  }
 }
