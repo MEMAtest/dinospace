@@ -1,9 +1,33 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  COUNT_THE_STARS_EPISODES, buildCountObjects, countCentersAreSafe,
-  countQuestionPool, createCountTheStarsRun,
+  COUNT_THE_STARS_EPISODES, COUNT_THE_STARS_NARRATION, buildCountObjects, countCentersAreSafe,
+  countQuestionPool, createCountTheStarsRun, getCountQuestionArrangement,
 } from '../src/data/countTheStarsBatch3.js';
+
+test('counting strategy follows the rendered question arrangement across all bands', () => {
+  for (let episodeIndex = 0; episodeIndex < COUNT_THE_STARS_EPISODES.length; episodeIndex += 1) {
+    for (const question of countQuestionPool(episodeIndex)) {
+      const expected = question.layoutVariant === 'orbit' && question.count <= 5
+        ? 'scattered'
+        : question.layoutVariant === 'grouped' && question.count > 10
+          ? 'split-groups' : 'array';
+      assert.equal(getCountQuestionArrangement(question), expected, question.id);
+    }
+  }
+
+  const satelliteArray = countQuestionPool(2).find(({ scene, count, layoutVariant }) => (
+    scene.id === 'satellite-panels' && count === 15 && layoutVariant === 'orbit'
+  ));
+  const satelliteGroups = countQuestionPool(2).find(({ scene, count, layoutVariant }) => (
+    scene.id === 'satellite-panels' && count === 15 && layoutVariant === 'grouped'
+  ));
+  assert.equal(getCountQuestionArrangement(satelliteArray), 'array');
+  assert.equal(getCountQuestionArrangement(satelliteGroups), 'split-groups');
+  assert.equal(COUNT_THE_STARS_NARRATION.hints[2], 'Read one row at a time, and use each badge to keep your place.');
+  assert.equal(COUNT_THE_STARS_NARRATION.hints[0], 'Count one visible group, then the other group. Add the two totals.');
+  assert.equal(getCountQuestionArrangement(null), null);
+});
 
 test('each harder count survey reliably teaches its new range and organised grouping', () => {
   for (const level of [1, 2]) {

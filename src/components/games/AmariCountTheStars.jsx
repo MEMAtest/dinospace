@@ -4,7 +4,7 @@ import { SoundToggle } from '../shared/index.jsx';
 import { countAnswerNarration, countCorrectNarration } from '../../data/batch3Narration.js';
 import {
   COUNT_CONSTELLATION_PAGES, COUNT_THE_STARS_EPISODES, COUNT_THE_STARS_NARRATION,
-  createCountRunSeed, createCountTheStarsRun,
+  createCountRunSeed, createCountTheStarsRun, getCountQuestionArrangement,
 } from '../../data/countTheStarsBatch3.js';
 import {
   getCountTheStarsProgress, recordCountTheStarsCompletion, rememberCountTheStarsRun, recentCountQuestionIds,
@@ -69,9 +69,10 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
 
   const episode = COUNT_THE_STARS_EPISODES[episodeIndex] || COUNT_THE_STARS_EPISODES[0];
   const round = run?.rounds[roundIndex] || null;
-  const layoutDescription = !round ? '' : episodeIndex === 2 && round.count > 10 && round.layoutVariant === 'grouped'
-    ? 'two visible groups'
-    : round.layoutVariant === 'orbit' && round.count <= 5 ? 'scattered one by one' : 'organized rows or an array';
+  const arrangement = getCountQuestionArrangement(round);
+  const layoutDescription = arrangement === 'split-groups' ? 'two visible groups'
+    : arrangement === 'scattered' ? 'scattered one by one'
+      : arrangement === 'array' ? 'organized rows or an array' : '';
 
   useEffect(() => { onPhaseChange?.(phase === 'map' || phase === 'collection' ? 'map' : phase === 'complete' ? 'complete' : 'play'); }, [onPhaseChange, phase]);
   useEffect(() => {
@@ -149,11 +150,9 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
 
   const showCountingClue = () => {
     if (!round || roundHadHint || !['count', 'answer'].includes(phase)) return;
-    const clue = episodeIndex === 2 && round.count > 5
-      ? COUNT_THE_STARS_NARRATION.hints[0]
-      : round.layoutVariant === 'orbit' && round.count <= 5
-        ? COUNT_THE_STARS_NARRATION.hints[1]
-        : COUNT_THE_STARS_NARRATION.hints[2];
+    const clue = COUNT_THE_STARS_NARRATION.hints[
+      arrangement === 'split-groups' ? 0 : arrangement === 'scattered' ? 1 : 2
+    ];
     setRoundHadHint(true);
     setHintCount((count) => count + 1);
     setHintText(clue);

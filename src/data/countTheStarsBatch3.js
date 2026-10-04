@@ -163,6 +163,16 @@ const questionPool = (episode) => episode.scenes.flatMap((scene) => Array.from({
 
 export const countQuestionPool = (episodeIndex) => questionPool(COUNT_THE_STARS_EPISODES[episodeIndex] || COUNT_THE_STARS_EPISODES[0]);
 
+// Keep the spoken/visible strategy tied to the arrangement actually produced
+// by buildCountObjects. Orbit questions above five objects use a regular array;
+// only grouped questions above ten objects render as two separated groups.
+export const getCountQuestionArrangement = (round) => {
+  if (!round || !Number.isInteger(round.count) || !['orbit', 'grouped'].includes(round.layoutVariant)) return null;
+  if (round.layoutVariant === 'orbit' && round.count <= 5) return 'scattered';
+  if (round.layoutVariant === 'grouped' && round.count > 10) return 'split-groups';
+  return 'array';
+};
+
 export const createCountTheStarsRun = (episodeIndex, seed, recentQuestionIds = []) => {
   const episode = COUNT_THE_STARS_EPISODES[episodeIndex];
   if (!episode || !Number.isSafeInteger(seed) || seed < 0) return null;
