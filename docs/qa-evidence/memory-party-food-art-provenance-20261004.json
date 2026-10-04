@@ -1,0 +1,71 @@
+{
+  "createdAt": "2026-10-04T03:22:15.000741+00:00",
+  "method": "Built-in image_gen; one call per distinct asset, transparent_background=true; final originals copied unchanged. No bitmap editing or provider-key CLI.",
+  "scope": "Originals only, no runtime/release/4.5 acceptance.",
+  "assets": [
+    {
+      "asset": "src/assets/memory-match/strawberry-v1.png",
+      "token": "\ud83c\udf53",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-02817ad2-bc15-4322-b907-92c5cec4fcfb.png",
+      "sha256": "209f9d68061b0894e8799a2f0b4a7fa5c732be3d47ed77f0bc6133b946813a11",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "One bright red plump strawberry with golden seeds and green leafy crown, glossy rounded3Dtoy, transparent margins, no face/text/border/scene/halo.",
+      "rootReview": "Generated original visually reviewed: recognizable complete distinct food object; no scene/frame/text.82px rendered card acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/pizza-v1.png",
+      "token": "\ud83c\udf55",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-ec9d07f7-c856-4346-9695-8343313dd0f3.png",
+      "sha256": "051143d7f9e208e5144d8ef3b1d028a43fceaaea7866947e699149bcaafc9aca",
+      "dimensions": [
+        1322,
+        1190
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "One triangular pizza slice, golden chunky crust and cheese, three red pepperoni circles/two green pepper pieces, complete three-quarter view, glossy3Dtoy, alpha; no plate/text/scene/halo.",
+      "rootReview": "Generated original visually reviewed: recognizable complete distinct food object; no scene/frame/text.82px rendered card acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/doughnut-v1.png",
+      "token": "\ud83c\udf69",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-de85e020-750f-4d79-b74e-040cf3889225.png",
+      "sha256": "2092cd899bebbf48f85ada21c58d20b1d6242b414a6e83870ce5d7d29e60a687",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Golden ring doughnut, unmistakable transparent central hole, glossy pink icing and large colourful sprinkles, tiltedthreequarterview; clearalpha, noplate/frame/face/halo.",
+      "rootReview": "Generated original visually reviewed: recognizable complete distinct food object; no scene/frame/text.82px rendered card acceptance pending."
+    },
+    {
+      "asset": "src/assets/memory-match/cupcake-v1.png",
+      "token": "\ud83e\uddc1",
+      "sourcePath": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-8d255aba-66b6-419e-bf27-dd6bc9caae37.png",
+      "sha256": "b000e3e33b76567be6a887f437275e18369ce905531bf2e6f2abd08ebe27db8d",
+      "dimensions": [
+        1230,
+        1278
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "promptSummary": "Golden cupcake in cobalt ridged wrapper, cream swirl icing and single red cherry, upright complete silhouette, glossyrounded3Dtoy, alpha; no candle/face/text/scene/halo.",
+      "rootReview": "Generated original visually reviewed: recognizable complete distinct food object; no scene/frame/text.82px rendered card acceptance pending."
+    }
+  ]
+}
