@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T08:27:26.196295+00:00",
+  "updatedAt": "2026-10-04T08:43:59.927007+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -849,5 +849,24 @@
   "spotWorldPhysicalArtPreparation": {
     "provenance": "docs/qa-evidence/spot-world-physical-art-provenance-20261004.json",
     "scope": "Built-in preciseBedit originalPNGcopiedunchanged/encoding-onlyWebP. Sevenactual globe/binocular/telescope/bridge/marker/magnifier/printed-compass details. RawB notintegratedoraccepted:outside-targetdrift must beexcludedwithruntimecomposition; truthfulness/exact7/mobilefidelity pending. PreservesoriginalsquareA."
+  },
+  "spotNatureWorldPhysicalCandidate": {
+    "sourceSha": "8eb10a04c4ed6bd9f2c1888d16f954c7fc0185cc",
+    "origin": "http://127.0.0.1:5354",
+    "identity": "docs/qa-evidence/spot-nature-world-physical-identity-20261004.json",
+    "status": "independent rendered QA in progress",
+    "scope": "Seven physical depicted-object edits each, full square images, bounded regions; 23 focused tests/lint/configured build pass. No production or 4.5 acceptance."
+  },
+  "spotHistoryRobinPhysicalReview": {
+    "sourceSha": "0b45ed6f8914d442d265124511ed5a9c3ece7c6c",
+    "report": "docs/qa-evidence/spot-history-physical-5353-review-20261004/report.md",
+    "evidenceCommit": "8746a5f",
+    "scope": "Both widths visible repaired right-middle Robin leaf and seven History artifacts; bounded control/progression checks. Not full all12pairs or production/audio/editorial acceptance."
+  },
+  "memorySoundPreferenceIndependentReview": {
+    "sourceSha": "1410edb79f0105f25a3cbfd5c9a4c7626140ae1d",
+    "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-sound-preference-5335-independent-20261004/report.md",
+    "evidenceCommit": "dd35ddd",
+    "scope": "Both directions of sound preference reload at1280/390 and player switching passed; real muted card flip retained UI preference. Local MP3 fetches preserved without heard/silence claim; 8hashes/guards/console pass."
   }
 }
