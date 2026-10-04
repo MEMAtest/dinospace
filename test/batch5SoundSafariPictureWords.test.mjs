@@ -201,7 +201,7 @@ test('sound-only picture vocabulary stays out of spelling and missing artwork ke
     for (const word of words) assert.ok(SOUND_SAFARI_PICTURE_ART_MANIFEST[word.id]);
   }
   assert.equal(soundSafariChapterArtReady(0), true);
-  assert.equal(soundSafariChapterArtReady(1), false);
+  assert.equal(soundSafariChapterArtReady(1), true);
   assert.equal(soundSafariChapterArtReady(2), false);
   assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST.map.status, 'packaged');
   assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST.duck.status, 'packaged');
@@ -284,16 +284,18 @@ test('recent whole-word pair signatures rotate across the finite pair pool befor
   assert.equal(third.length, 6);
 });
 
-test('every starter picture URL resolves to a local file and artwork readiness follows each full chapter pool', () => {
+test('chapter one and two picture URLs resolve locally and readiness requires every word image', () => {
   const starter = SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER[0];
+  const chapterTwo = SOUND_SAFARI_PICTURE_WORDS_BY_CHAPTER[1];
   assert.equal(starter.length, 26);
-  for (const word of starter) {
+  assert.equal(chapterTwo.length, 26);
+  for (const word of [...starter, ...chapterTwo]) {
     const url = SOUND_SAFARI_PICTURE_ART[word.id];
     assert.ok(url, `${word.id} has a static art URL`);
     assert.ok(existsSync(fileURLToPath(url)), `${word.id} art file exists`);
     assert.equal(SOUND_SAFARI_PICTURE_ART_MANIFEST[word.id].status, 'packaged');
   }
   assert.equal(soundSafariChapterArtReady(0), true);
-  assert.equal(soundSafariChapterArtReady(1), false);
+  assert.equal(soundSafariChapterArtReady(1), true);
   assert.equal(soundSafariChapterArtReady(2), false);
 });
