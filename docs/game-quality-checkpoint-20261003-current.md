@@ -587,3 +587,11 @@ Counts remain 4 recorded accepted / 22 in progress. Canonical shared-default fun
 Root read35ebeee B6 integrated5371 independent report: freshguarded bothwidths, fourAmari maps, Pattern retry/held/Next/confirmedparentreturn, legacyAskiaPattern andCountStarsentry, two-waymute reload pass. No earned-star differential or all-game fullmatrix claimed. Audio remains1/378ready.
 
 Root read6f88e74 B7source5369 report/viewedmobileEarth: four revisedfacts bothwidths, ordinaryMemory firstboard→nexttitle/tip scroll0, mobileLevel2/stickerreload andAskia separate3pairboard pass. Teachingcomponent recommendation4.5 each; nooverallaudioaward. CleanB7c4db5372 builder checks reviewed; independentintegrationQA running. Release-order instructions now explicitly require cumulative currentcanonical preparation so one batch cannot revert another. Counts4/22unchanged.
+
+## 4 October — final local integration deltas and narration inventory
+
+Root read B7 integrated5372 report1bcec42; reviewed corrected4e59cd0 narration lineage (Memory2/183, Solar111/127, not B6 counts). Bothwidths Memory normal completion→next8pairs/nooverlay; Solar challenge/discoveryreload andparentreturn; Askia legacy3pairs/5boards anddifferentialglobalstars; CountStarsentry pass. Root independently confirmed Solar delayedleave-dialog return toExplore in4794142; the apparentpickerreturn iswithdrawn, notaproductfailure. No new release or overallaward.
+
+Root read B5a9c7910 routefollowup: normal Amari Count/Trace parentnavigation pass bothwidths. Askia legacySound/Spelling only direct internalroute rendering, notdiscoverableHome controls; preserve this scope.
+
+Sourcebound deduplicated narration inventory40b3b44 is imported/published here. B5–B7 contain1647unique keys,147present and1500missing, with37separate purephonemepaths32targets missing. No newly reusable B4bytes found. B4snapshotchanging and PIDlive; no concurrentgeneration. Canonical provider+eight hashes freshlymatch0d, separate fromnewcandidateUI. An independent remaining22-game mandatory-gap audit is underway to establish nextactions beyondaudio. Counts4recordedaccepted/22inprogress remain.

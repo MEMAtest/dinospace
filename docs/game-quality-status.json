@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T15:39:51.346777+00:00",
+  "updatedAt": "2026-10-04T16:00:03.930811+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1104,7 +1104,12 @@
       "independentReport": "../dinospace-batch5-integration/docs/qa-evidence/batch5-integration-independent-20261004/independent-report.md",
       "independentCommit": "645053a"
     },
-    "phonemeFeasibilityResearch": "docs/qa-evidence/batch5-phoneme-provider-feasibility-20261004.md"
+    "phonemeFeasibilityResearch": "docs/qa-evidence/batch5-phoneme-provider-feasibility-20261004.md",
+    "routeOwnershipFollowup": {
+      "commit": "a9c7910",
+      "report": "https://github.com/MEMAtest/dinospace/blob/a9c7910/docs/qa-evidence/batch5-integration-independent-20261004/route-ownership-followup.md",
+      "scope": "Root read report. Ordinary Amari CountStars/LetterTraceentry+parentreturn pass bothwidths; Askia legacySound/Spelling resolve only throughinternalroutes, notlinkedfromLittleHome. No discovery/fullcollection/audioacceptanceclaim."
+    }
   },
   "batch6CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch6-independent-editorial-assessment-20261004.md",
@@ -1226,7 +1231,14 @@
       "evidenceCommit": "fd7de0a",
       "origin": "http://127.0.0.1:5372/",
       "report": "../dinospace-batch7-integration/docs/qa-evidence/batch7-integration-20261004/report.md",
-      "scope": "Root read report/additive App diff. Currentcanonical0d base preserves soundprefs/B3/Askia/shared hooks/assets.34 focusedtests;246/247 full with18missing narration gate; lint/configbuild and5963 hashes pass. Independent bounded integration UI assigned. No audio/releaseaward."
+      "scope": "Root read report and corrected B7 counts. Fresh guarded desktop/390 ordinaryMemory4pair completion\u21928pair nexttip/nooverlay; Solarwrongretry/heldcorrect passport1/54+1/9 reload andparentreturn; Askia3pairlegacy5boards/global0vsAmari4, CountStarsmobileentry pass. Root independently confirmed delayed shared-dialog parentreturn. Six primaryservedhashes match, no console/staticerrors; no audio/listening/overall/productionaward.",
+      "independentCommit": "4e59cd0",
+      "independentReport": "https://github.com/MEMAtest/dinospace/blob/4e59cd0/docs/qa-evidence/batch7-integration-browser-20261004/report.md"
+    },
+    "rootParentReturn": {
+      "commit": "4794142",
+      "report": "https://github.com/MEMAtest/dinospace/blob/4794142/docs/qa-evidence/solar-parent-root-20261004/report.md",
+      "scope": "Freshguarded390 ordinarySolarFact6\u2192delayedBack\u2192dialogconfirm returnsExploreworld. Apparentpickerissuewithdrawn, notconfirmeddefect."
     }
   },
   "editorialCategorisation": {
@@ -1266,5 +1278,12 @@
       "report": "docs/qa-evidence/phonics-default-release-20261004/canonical-independent/report.md"
     }
   },
-  "releaseAcceptanceOrder": "docs/batch-release-acceptance-order-20261004.md"
+  "releaseAcceptanceOrder": "docs/batch-release-acceptance-order-20261004.md",
+  "consolidatedNarrationInventory": {
+    "builderCommit": "40b3b44",
+    "report": "docs/qa-evidence/consolidated-narration-inventory-20261004/report.md",
+    "ledger": "docs/qa-evidence/consolidated-narration-inventory-20261004/inventory.json",
+    "scope": "Read-only exactsourceB5/B6/B7 inventories deduplicate10caseonlyB5keys:1647unique,147present,1500missing. Separate37purephonemepaths32soundsallmissing. B4worker snapshotchanging1699pending at15:46;142sharedfilesalreadycandidatepresent,noextraB4bytesreusefound. Presence/hashnotdecode/listening. Serialnextjobplanonly."
+  },
+  "canonicalBaseRevalidation": "docs/qa-evidence/canonical-integration-base-revalidation-20261004.json"
 }
