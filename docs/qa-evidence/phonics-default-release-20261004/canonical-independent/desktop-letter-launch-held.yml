@@ -1,0 +1,35 @@
+- generic [ref=e2]:
+  - progressbar "Session progress"
+  - generic [ref=e914]:
+    - generic [ref=e915]:
+      - button "Back to learning world" [ref=e916] [cursor=pointer]
+      - generic [ref=e919]:
+        - heading "Letter Launch" [level=2] [ref=e920]
+        - paragraph [ref=e921]: Level 1 · 2 of 6
+      - button "Turn sound on" [ref=e922] [cursor=pointer]
+    - generic [ref=e927]:
+      - generic [ref=e928]:
+        - generic [ref=e929]:
+          - generic [ref=e930]:
+            - paragraph [ref=e931]: Skill run
+            - paragraph [ref=e932]: Hear the letter
+          - generic [ref=e933]: 1/6
+        - progressbar "Hear the letter skill run" [ref=e934]
+      - generic [ref=e935]:
+        - paragraph [ref=e936]: Listen and launch
+        - generic "Listen for the sound" [ref=e937]: 👂
+        - paragraph [ref=e938]: Listen to the word and find its first letter
+        - button "Hear the clue again" [ref=e939] [cursor=pointer]
+        - generic [aria-hidden]:
+          - generic [aria-hidden]: 🔥
+          - generic [aria-hidden]: ✨ ✨
+      - generic [ref=e944]:
+        - button "D" [disabled] [ref=e945]
+        - button "A" [disabled] [ref=e946]
+      - generic [ref=e947]: Super! Apple starts with the a sound.
+      - button "Next mission" [ref=e949] [cursor=pointer]
+  - status:
+    - generic:
+      - generic:
+        - generic: Super!
+        - generic: +1 stars · 1 total

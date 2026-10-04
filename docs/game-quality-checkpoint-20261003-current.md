@@ -532,3 +532,23 @@ The shared default repair is now carried into the next Batch 4 integration sourc
 Independent B6 report `48925ea` passes its bounded teaching-copy sample: neutral Pattern AB/AAB/ABB, plain Hangman ending/letter clue and active rook instruction/optional Chess disclosure at both widths. Astronaut mobile starter missions show clue only on request and fact/source only after correct selection. Earth/Venus diagrams were not reached and remain unverified. Root read the complete report. The two diagram missions occur in later12-item pools; a bounded ordinary-play follow-up is queued after the B7 teaching review. The existing broader mechanics baseline is retained; no invented fresh matrix, listening claim or overall4.5 award.
 
 The finite narration worker is confirmed live at13:41UTC, run220 with2034 clips pending and no errors. Counts remain4 recorded accepted/22 in progress.
+
+
+## Shared phonics repair promoted after independent live QA — 4 October
+
+Independent immutable report `0ce7b8b` passes the bounded fresh-default/settings/retry/heldNext/parentBack flow for Letter Launch and Spelling at desktop and390px. Root read the complete report and inspected mobile held Moon and desktop held SAT screenshots. Both contexts had pre-navigation voice/story guards, zero console errors and broken images, and static requests only. Sound was muted; no listening claim.
+
+Root promoted exact audited source `0d3ef05` to the canonical eight address. Provider now resolves to READY `dpl_7wFmajPYqR6CPrTLFksm4dkGzppv`; all eight served HTML/SW/JS/CSS hashes match the independently tested frozen candidate. A fresh canonical UI delta is assigned and not yet completed. This is a shared functional repair, not acceptance of a new four-game batch.
+
+B5 Spelling source `a7790ea` now removes remaining child-facing grapheme jargon and the legacy-data header. Frozen5367 has four focused tests/lint/build passing and5,610 builder HTTP/hash matches, with unchanged narration inventory. Separate actual-control QA remains pending. A clean B5 integration checkout starts from the exact new canonical source0d; selective integration is assigned, preserving current sound persistence, Batch3 routes and art and the shared default. It excludes local unvoiced Dino fact edits. Counts remain4 recorded accepted and22 in progress.
+
+
+## Canonical verification and next integration — 4 October
+
+Fresh canonical Playwright report [6963e00](qa-evidence/phonics-default-release-20261004/canonical-independent/report.md) verifies the promoted shared default at desktop and 390px: 23 sounds, saved 22 restriction, wrong/retry/held/Next and confirmed parent-world return. Provider identity and eight served hashes match source 0d. Zero console errors, broken images or horizontal overflow; deliberately muted, no listening award. The complete release evidence is now published in this repository.
+
+B5 selective integration source b198dbf is frozen at 5368 on clean canonical 0d. Root reviewed its additive Amari-only routing and retained Askia/shared sound behavior. 24 B5/ownership and 16 shared tests, scoped lint/configured build and 5,879 file hashes pass. Independent browser QA is assigned for Spelling copy and integration, including two-way mute persistence. Literacy 11/659, pure phonemes 0/37 and reasoning 23/310 remain incomplete.
+
+Independent teaching reconciliation supports 4.5 for Pattern Parade, Dino Hangman and Chess Explorers in that dimension only; Astronaut remains 4.0 pending later clue/diagram proof. B7 repair b697694 simplifies Earth with a magnet comparison, introduces Titan/Triton/Charon as moons, and resets Memory scroll on new level. Independent review is assigned on 5369. Neither candidate is deployed or accepted overall.
+
+Finite narration worker PID 18781 is live: run 228, 1,926 pending at 14:21 UTC, expected request-window wait. No concurrent paid job. Counts remain 4 recorded accepted and 22 in progress.

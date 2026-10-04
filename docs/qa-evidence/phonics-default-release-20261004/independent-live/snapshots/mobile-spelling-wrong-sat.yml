@@ -1,0 +1,45 @@
+- generic [ref=e2]:
+  - progressbar "Session progress"
+  - generic [ref=e1171]:
+    - banner [ref=e1172]:
+      - button "Back to home" [ref=e1173] [cursor=pointer]
+      - generic [ref=e1176]:
+        - heading "✏️ Spelling Studio" [level=2] [ref=e1177]
+        - paragraph [ref=e1178]: 0 words secure · 0 today
+      - button "Turn sound on" [ref=e1179] [cursor=pointer]
+    - main [ref=e1184]:
+      - generic "Spelling level" [ref=e1185]:
+        - button "Learn it" [pressed] [ref=e1186] [cursor=pointer]: 👀Learn it
+        - button "Sound gap" [ref=e1187] [cursor=pointer]: 👂Sound gap
+        - button "Spell it" [ref=e1188] [cursor=pointer]: ✍️Spell it
+        - button "Tricky words" [ref=e1189] [cursor=pointer]: ⭐Tricky words
+        - button "Write it" [ref=e1190] [cursor=pointer]: 📝Write it
+      - generic [ref=e1192]:
+        - generic [ref=e1193]:
+          - generic [ref=e1194]:
+            - paragraph [ref=e1195]: Skill run
+            - paragraph [ref=e1196]: Build a word with support
+          - generic [ref=e1197]: 0/5
+        - progressbar "Build a word with support skill run" [ref=e1198]
+      - generic [ref=e1199]:
+        - generic "To sit down on a chair" [ref=e1200]: 🪑
+        - paragraph [ref=e1201]: To sit down on a chair
+        - button "Hear the word" [ref=e1202] [cursor=pointer]
+        - 'generic "Word to copy: SAT" [ref=e1207]':
+          - paragraph [ref=e1208]: Look, say, build
+          - paragraph [ref=e1209]: SAT
+        - generic "Word spaces" [ref=e1210]:
+          - generic [ref=e1211]: •
+          - generic [ref=e1212]: •
+          - generic [ref=e1213]: •
+        - generic "Letter tiles" [ref=e1214]:
+          - button "t" [active] [ref=e1215] [cursor=pointer]
+          - button "s" [ref=e1216] [cursor=pointer]
+          - button "a" [ref=e1217] [cursor=pointer]
+        - paragraph [ref=e1229]: The next letter is s
+      - paragraph [ref=e1219]: Keep practising! Try spelling the word again another day.
+  - generic "Solve 3 patterns" [ref=e1220]:
+    - generic [ref=e1222]:
+      - generic [aria-hidden] [ref=e1223]: 🔷
+      - 'status "Daily mission progress: 0 of 3" [ref=e1224]': 0/3
+      - 'button "Play today’s mission: Solve 3 patterns" [ref=e1225] [cursor=pointer]'

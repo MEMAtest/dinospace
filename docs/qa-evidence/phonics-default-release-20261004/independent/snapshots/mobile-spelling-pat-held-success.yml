@@ -1,0 +1,43 @@
+- generic [ref=e2]:
+  - progressbar "Session progress"
+  - generic [ref=e1174]:
+    - banner [ref=e1175]:
+      - button "Back to home" [ref=e1176] [cursor=pointer]
+      - generic [ref=e1179]:
+        - heading "✏️ Spelling Studio" [level=2] [ref=e1180]
+        - paragraph [ref=e1181]: 0 words secure · 2 today
+      - button "Turn sound off" [ref=e1182] [cursor=pointer]
+    - main [ref=e1187]:
+      - generic "Spelling level" [ref=e1188]:
+        - button "Learn it" [pressed] [ref=e1189] [cursor=pointer]: 👀Learn it
+        - button "Sound gap" [ref=e1190] [cursor=pointer]: 👂Sound gap
+        - button "Spell it" [ref=e1191] [cursor=pointer]: ✍️Spell it
+        - button "Tricky words" [ref=e1192] [cursor=pointer]: ⭐Tricky words
+        - button "Write it" [ref=e1193] [cursor=pointer]: 📝Write it
+      - generic [ref=e1195]:
+        - generic [ref=e1196]:
+          - generic [ref=e1197]:
+            - paragraph [ref=e1198]: Skill run
+            - paragraph [ref=e1199]: Build a word with support
+          - generic [ref=e1200]: 2/5
+        - progressbar "Build a word with support skill run" [ref=e1201]
+      - generic [ref=e1202]:
+        - generic "A gentle tap with your hand" [ref=e1243]: 🫳
+        - paragraph [ref=e1204]: A gentle tap with your hand
+        - button "Hear the word" [ref=e1205] [cursor=pointer]
+        - 'generic "Word to copy: PAT" [ref=e1244]':
+          - paragraph [ref=e1211]: Look, say, build
+          - paragraph [ref=e1212]: PAT
+        - generic "Word spaces" [ref=e1213]:
+          - generic [ref=e1245]: p
+          - generic [ref=e1215]: a
+          - generic [ref=e1216]: t
+        - generic "Letter tiles"
+        - paragraph [ref=e1254]: Great job!
+        - button "Next word" [ref=e1255] [cursor=pointer]
+      - paragraph [ref=e1222]: Keep practising! Try spelling the word again another day.
+  - generic "Solve 3 patterns" [ref=e1223]:
+    - generic [ref=e1225]:
+      - generic [aria-hidden] [ref=e1226]: 🔷
+      - 'status "Daily mission progress: 0 of 3" [ref=e1227]': 0/3
+      - 'button "Play today’s mission: Solve 3 patterns" [ref=e1228] [cursor=pointer]'

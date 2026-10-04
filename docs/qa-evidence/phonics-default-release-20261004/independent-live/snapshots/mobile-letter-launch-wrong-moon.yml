@@ -1,0 +1,29 @@
+- generic [ref=e2]:
+  - progressbar "Session progress"
+  - generic [ref=e900]:
+    - generic [ref=e901]:
+      - button "Back to learning world" [ref=e902] [cursor=pointer]
+      - generic [ref=e905]:
+        - heading "Letter Launch" [level=2] [ref=e906]
+        - paragraph [ref=e907]: Level 1 · 2 of 6
+      - button "Turn sound on" [ref=e908] [cursor=pointer]
+    - generic [ref=e913]:
+      - generic [ref=e914]:
+        - generic [ref=e915]:
+          - generic [ref=e916]:
+            - paragraph [ref=e917]: Skill run
+            - paragraph [ref=e918]: Hear the letter
+          - generic [ref=e919]: 1/6
+        - progressbar "Hear the letter skill run" [ref=e920]
+      - generic [ref=e921]:
+        - paragraph [ref=e922]: Listen and launch
+        - generic "Listen for the sound" [ref=e923]: 👂
+        - paragraph [ref=e924]: Listen to the word and find its first letter
+        - button "Hear the clue again" [ref=e925] [cursor=pointer]
+        - generic [aria-hidden]:
+          - generic [aria-hidden]: 🔥
+          - generic [aria-hidden]: ✨ ✨
+      - generic [ref=e930]:
+        - button "D" [active] [ref=e936] [cursor=pointer]
+        - button "M" [ref=e937] [cursor=pointer]
+      - generic [ref=e938]: Not quite. Listen for the first sound in Moon again.

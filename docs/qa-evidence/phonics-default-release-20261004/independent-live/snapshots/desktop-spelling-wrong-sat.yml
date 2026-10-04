@@ -1,0 +1,55 @@
+- generic [ref=e2]:
+  - progressbar "Session progress"
+  - generic [ref=e2708]:
+    - banner [ref=e2709]:
+      - button "Back to home" [ref=e2710] [cursor=pointer]
+      - generic [ref=e2713]:
+        - heading "✏️ Spelling Studio" [level=2] [ref=e2714]
+        - paragraph [ref=e2715]: 0 words secure · 0 today
+      - button "Turn sound on" [ref=e2716] [cursor=pointer]
+    - main [ref=e2721]:
+      - generic "Spelling level" [ref=e2722]:
+        - button "Learn it See and build" [pressed] [ref=e2723] [cursor=pointer]:
+          - text: 👀Learn it
+          - generic [ref=e2724]: See and build
+        - button "Sound gap Find one sound" [ref=e2725] [cursor=pointer]:
+          - text: 👂Sound gap
+          - generic [ref=e2726]: Find one sound
+        - button "Spell it Hear and build" [ref=e2727] [cursor=pointer]:
+          - text: ✍️Spell it
+          - generic [ref=e2728]: Hear and build
+        - button "Tricky words Remember by heart" [ref=e2729] [cursor=pointer]:
+          - text: ⭐Tricky words
+          - generic [ref=e2730]: Remember by heart
+        - button "Write it Copy a caption" [ref=e2731] [cursor=pointer]:
+          - text: 📝Write it
+          - generic [ref=e2732]: Copy a caption
+      - generic [ref=e2734]:
+        - generic [ref=e2735]:
+          - generic [ref=e2736]:
+            - paragraph [ref=e2737]: Skill run
+            - paragraph [ref=e2738]: Build a word with support
+          - generic [ref=e2739]: 0/5
+        - progressbar "Build a word with support skill run" [ref=e2740]
+      - generic [ref=e2741]:
+        - generic "To sit down on a chair" [ref=e2742]: 🪑
+        - paragraph [ref=e2743]: To sit down on a chair
+        - button "Hear the word" [ref=e2744] [cursor=pointer]
+        - 'generic "Word to copy: SAT" [ref=e2749]':
+          - paragraph [ref=e2750]: Look, say, build
+          - paragraph [ref=e2751]: SAT
+        - generic "Word spaces" [ref=e2752]:
+          - generic [ref=e2753]: •
+          - generic [ref=e2754]: •
+          - generic [ref=e2755]: •
+        - generic "Letter tiles" [ref=e2756]:
+          - button "a" [active] [ref=e2757] [cursor=pointer]
+          - button "s" [ref=e2758] [cursor=pointer]
+          - button "t" [ref=e2759] [cursor=pointer]
+        - paragraph [ref=e2771]: The next letter is s
+      - paragraph [ref=e2761]: Keep practising! Try spelling the word again another day.
+  - generic "Solve 3 patterns" [ref=e2762]:
+    - generic [ref=e2764]:
+      - generic [aria-hidden] [ref=e2765]: 🔷
+      - 'status "Daily mission progress: 0 of 3" [ref=e2766]': 0/3
+      - 'button "Play today’s mission: Solve 3 patterns" [ref=e2767] [cursor=pointer]'

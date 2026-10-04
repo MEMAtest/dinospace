@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-04T13:45:04.986701+00:00",
+  "updatedAt": "2026-10-04T14:29:30.820655+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+  "canonicalRelease": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -335,15 +335,16 @@
     }
   ],
   "latestFunctionalRelease": {
-    "sourceSha": "2923ca6e10c46609504f41529bf46286e17f8434",
-    "deploymentId": "dpl_31hURucAfoMNNhQMJpKBGvcAkX6u",
+    "sourceSha": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+    "baselineArchive": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+    "deploymentId": "dpl_7wFmajPYqR6CPrTLFksm4dkGzppv",
     "url": "https://dinospace-eight.vercel.app",
     "renderedAssetsMatched": 8,
-    "scope": "Sky Shapes child-readable screen-reader progress copy on retained Monster/Count/Trace source. Independent local, immutable production and fresh canonical desktop/390px controls passed. Canonical READY and eight exact runtime/index assets match. Full mobile control sweep, human listening and broader Batch2 editorial acceptance remain open.",
+    "scope": "Shared fresh-profile phonics default repair only. Independent immutable baseline and canonical desktop/390px default, saved restriction, wrong/retry/held/Next and parent Back controls pass with zero console errors, broken images or horizontal overflow. No new editorial acceptance.",
     "editorialAccepted": false,
-    "identityEvidence": "docs/qa-evidence/sky-accessible-progress-canonical-identity-20261004.json",
-    "candidateProductionEvidence": "docs/qa-evidence/sky-accessible-progress-production-20261004/report.md",
-    "productionEvidence": "docs/qa-evidence/sky-accessible-progress-canonical-qa-20261004/report.md"
+    "identityEvidence": "docs/qa-evidence/phonics-default-release-20261004/canonical-identity.json",
+    "candidateProductionEvidence": "docs/qa-evidence/phonics-default-release-20261004/independent-live/report.md",
+    "productionEvidence": "docs/qa-evidence/phonics-default-release-20261004/canonical-independent/report.md"
   },
   "batch7Implementation": {
     "branch": "codex/amari-batch7-quality-20261003",
@@ -534,9 +535,21 @@
       "identityEvidence": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json",
       "candidateProductionEvidence": "docs/qa-evidence/monster-clue-once-vercel-candidate-20261003/report.md",
       "productionEvidence": "docs/qa-evidence/monster-clue-canonical-20261004/report.md"
+    },
+    {
+      "sourceSha": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+      "baselineArchive": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "deploymentId": "dpl_7wFmajPYqR6CPrTLFksm4dkGzppv",
+      "url": "https://dinospace-eight.vercel.app",
+      "renderedAssetsMatched": 8,
+      "scope": "Shared fresh-profile phonics default repair only. Independent local and immutable production desktop/390px controls passed. Canonical promoted; fresh provider and all eight hashes match. Fresh canonical UI delta is in progress. No new editorial acceptance.",
+      "editorialAccepted": false,
+      "identityEvidence": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/canonical-identity.json",
+      "candidateProductionEvidence": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/independent-live/report.md",
+      "productionEvidence": null
     }
   ],
-  "canonicalRuntimeRecheck": "docs/qa-evidence/puzzle-spot-replay-canonical-identity-20261004.json",
+  "canonicalRuntimeRecheck": "docs/qa-evidence/phonics-default-release-20261004/canonical-identity.json",
   "skyAccessibleCopyCandidate": {
     "sourceSha": "2923ca6e10c46609504f41529bf46286e17f8434",
     "identity": "docs/qa-evidence/sky-accessible-progress-identity-20261004.json",
@@ -1038,7 +1051,7 @@
   },
   "batch5CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch5-independent-editorial-assessment-20261004.md",
-    "decision": "Spelling age teaching has an observed jargon deficit; a local copy candidate is under revision. Reliability gaps for Spelling, Colour Mixing and Odd One Out remain unscored. Sound Safari recognition acceptance waits for isolated phoneme assets. No overall awards.",
+    "decision": "Spelling child-facing jargon repaired in local a779 candidate; independent integration QA in progress. Colour/Odd reliability 4.0 is tied to observed older-candidate mute reset, not missing optional coverage. Sound Safari auditory acceptance requires isolated phoneme assets. No overall awards.",
     "localSpellingCandidate": {
       "source": "d7c66992cba8cdfa78a985b26e8aa561b1ec33cf",
       "origin": "http://127.0.0.1:5362/",
@@ -1062,8 +1075,32 @@
       "source": "99ed1955131bd53b9738264edcde4e2091ad6e5e",
       "evidenceCommit": "df63c64",
       "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-reliability-qa-20261004/report.md",
-      "scope": "Colour palette/badge/best/unlock reload at both widths, desktop equal/lower and +2 higher-best replay; Odd badge/best/unlock reload at both widths and desktop equal/lower replay. Global sibling stars 3 vs 0 only; per-game collection isolation unproven. Mobile replays and Odd higher replay pending. Old 5255 mute reset remains candidate-local."
-    }
+      "scope": "Palette/badge/best/unlock reload at both widths. Both games have desktop lower/equal and positive best-star replay deltas; Odd mobile capped replay preserves best. Global sibling stars 3 vs 0 only, not a claim about all game collections. Confirmed old candidate mute reset requires integration repair, without inventing extra mandatory replay cross products.",
+      "followupCommit": "89b4f9a67f3bcd1fda44b7059c0f30185a0cb808",
+      "assessmentCommit": "4146e83",
+      "dimensionScores": {
+        "Colour Mixing Lab": 4.0,
+        "Odd One Out": 4.0
+      }
+    },
+    "plainLanguageCandidate": {
+      "source": "a7790ea9c8611d4152da6e660cb46bd02511ac7a",
+      "evidenceCommit": "5f0893a9f30fe523bf56dcb52064cf326cbba163",
+      "origin": "http://127.0.0.1:5367/",
+      "report": "../dinospace-batch5-quality/docs/qa-evidence/batch5-spelling-plain-language-20261004/report.md",
+      "scope": "Remaining visible/accessible grapheme jargon and legacy header replaced with child language. 4 existing tests, lint/build and 5,610 builder HTTP/hash matches pass; narration unchanged. Independent UI pending."
+    },
+    "integrationPreparation": {
+      "worktree": "work/dinospace-batch5-integration",
+      "branch": "codex/amari-batch5-integration-20261004",
+      "baseSource": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+      "scope": "Selective four-game integration on canonical0d reviewed by root; 24 B5/ownership and16 shared diagnostic/learning tests, lint/configured build pass,5879 served hashes match. Independent UI assigned. Narration and pure phoneme assets remain incomplete; not released.",
+      "source": "b198dbf49a5023e1b50181a9ef2a3eabd4c80a35",
+      "evidenceCommit": "d6361a62f64283235e9b8a36f0a484dcfe23e9d4",
+      "origin": "http://127.0.0.1:5368/",
+      "report": "../dinospace-batch5-integration/docs/qa-evidence/batch5-integration-20261004/report.md"
+    },
+    "phonemeFeasibilityResearch": "docs/qa-evidence/batch5-phoneme-provider-feasibility-20261004.md"
   },
   "batch6CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch6-independent-editorial-assessment-20261004.md",
@@ -1080,15 +1117,26 @@
       "commit": "48925ea6b7e6ff7f93213fa38cce6541e2a21b15",
       "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-editorial-copy-browser-20261004/report.md",
       "scope": "Observed Pattern AB/AAB/ABB, regular Hangman first word and Chess rook/disclosure at both widths; sampled Astronaut mobile six missions and desktop Growing first mission. Exact Earth/Venus diagram missions not yet observed. No audio or 4.5 acceptance."
+    },
+    "teachingReassessment": {
+      "evidenceCommit": "ff7d9ff",
+      "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-editorial-teaching-20261004/independent-browser-report.md",
+      "scores": {
+        "Pattern Parade": 4.5,
+        "Dino Hangman": 4.5,
+        "Chess Explorers": 4.5,
+        "Astronaut Academy": 4.0
+      },
+      "scope": "Teaching dimension only, based on exact source, retained gameplay baseline and independent copy/render delta. Astronaut later diagram/clue review remains in progress; no formal audio or overall awards."
     }
   },
   "batch4NarrationCheckpoint": {
-    "updatedAt": "2026-10-04T13:41:00.611Z",
+    "updatedAt": "2026-10-04T14:21:22.096Z",
     "pid": 18781,
-    "run": 220,
+    "run": 228,
     "status": "waiting_request_window",
-    "pending": 2034,
-    "scope": "PID confirmed live. Existing finite worker, no restart or concurrent generation. This is progress, not readiness or listening acceptance."
+    "pending": 1926,
+    "scope": "Live PID confirmed;11 newly generated,3309 reused in last run, expected request-window wait. No restart or concurrent paid generation. Not audio acceptance."
   },
   "batch7CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch7-independent-editorial-assessment-20261004.md",
@@ -1099,6 +1147,13 @@
       "origin": "http://127.0.0.1:5366/",
       "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-editorial-teaching-20261004/report.md",
       "scope": "Concrete Memory row strategy and four NASA-sourced Solar first-use explanations. 15 focused tests, lint and configured build pass; full suite 197/198 with the narration gate reporting 18 missing clips. 5,694 builder HTTP/hash matches. Independent UI, audio and release acceptance pending."
+    },
+    "repairCandidate": {
+      "source": "b6976948cf61147491e3658a5ce2e249a91bca09",
+      "evidenceCommit": "f2105ca",
+      "origin": "http://127.0.0.1:5369/",
+      "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-teaching-navigation-repair-20261004/report.md",
+      "scope": "Memory new-level scroll reset and four Solar facts with concrete magnet/moon context. Independent QA assigned.197/198 tests with missing narration gate, lint/build and5694 hashes pass; no release or audio award."
     }
   },
   "editorialCategorisation": {
@@ -1115,8 +1170,8 @@
     "source": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
     "baseArchive": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
     "origin": "http://127.0.0.1:5365/",
-    "report": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/report.md",
-    "scope": "Shareddefaultonly;22tests/lint/configbuild115LetterLaunchpromptfilespresent. Mobilelocalcontrolspass. Stagedproduction8hashmatchREADY; independentdesktop/livepending, canonicalunchanged.",
+    "report": "docs/qa-evidence/phonics-default-release-20261004/report.md",
+    "scope": "Shared default repair promoted and independently verified on canonical; no overall quality award.",
     "localQa": {
       "commit": "09dd355",
       "report": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/independent/report.md",
@@ -1126,11 +1181,16 @@
       "url": "https://dinospace-eeblb91eh-memas-projects-23a0001d.vercel.app",
       "deploymentId": "dpl_7wFmajPYqR6CPrTLFksm4dkGzppv",
       "readyState": "READY",
-      "identity": "../dinospace-phonics-default-release/docs/qa-evidence/phonics-default-release-20261004/production-candidate-identity.json",
+      "identity": "docs/qa-evidence/phonics-default-release-20261004/production-candidate-identity.json",
       "servedAssetMatches": 8,
-      "scope": "Isolatedproductioncandidateonly, exact5365hashes; canonicalremains94Dypi. IndependentliveQAassigned. No4.5award."
+      "scope": "Immutable production and fresh canonical controls passed; exact eight served hashes match. No 4.5 award."
     },
     "rootIntegrationCommit": "53bc773",
-    "rootIntegrationChecks": "12literacy/learning tests pass; no rootrelease."
+    "rootIntegrationChecks": "12literacy/learning tests pass; no rootrelease.",
+    "liveQaCommit": "0ce7b8bc990385c05bfd526b0344c72fc00ab7db",
+    "canonicalQa": {
+      "commit": "6963e00b50d7b13e8bbb1ddcf07673eac8c097db",
+      "report": "docs/qa-evidence/phonics-default-release-20261004/canonical-independent/report.md"
+    }
   }
 }
