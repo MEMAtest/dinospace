@@ -1,0 +1,119 @@
+{
+  "createdAt": "2026-10-04",
+  "candidate": {
+    "sourceCommit": "2e348c04933243c81d95414365ba631880163293",
+    "branch": "codex/amari-batch7-quality-20261003",
+    "frozenBundle": "tmp/batch7-memory-ocean-completion-final/dist",
+    "origin": "http://127.0.0.1:5306",
+    "listener": "127.0.0.1:5306 IPv4",
+    "bundleReadOnly": true,
+    "priorFruitCandidatePreserved": "http://127.0.0.1:5305"
+  },
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build",
+    "result": "passed; working-tree dist is byte-identical to frozen candidate bundle",
+    "warnings": [
+      "caniuse-lite data is 9 months old",
+      "Vite reports large chunks above 500 kB"
+    ]
+  },
+  "sourceGates": {
+    "tests": "node --test test/memoryMatchContent.test.mjs test/batch7Progress.test.mjs: 10 passed, 0 failed",
+    "lint": "npm run lint: passed",
+    "readinessInventory": {"uniqueTokens": 87, "illustratedTokens": 35, "missingTokens": 52}
+  },
+  "servedIdentity": [
+    {
+      "path": "index.html",
+      "httpStatus": 200,
+      "bytes": 1100,
+      "sha256": "89bc204d4ce86ab640f348a00ca8449b6fb33e6cd608177aafc0d286aac120c8",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-C8RyjEus.js",
+      "httpStatus": 200,
+      "bytes": 1181652,
+      "sha256": "b1b2ade91c70de9a31f8eb07f8c75f0a6c3122f43e216dbc0b59537bf9e2d86c",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-DUgIWs2Y.css",
+      "httpStatus": 200,
+      "bytes": 213103,
+      "sha256": "e6d43dde40a6169e3c8901869cb9a168586a2605b9e75c04c3835fb43ad0022d",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/jellyfish-v1-card-CTkr0Z9M.webp",
+      "httpStatus": 200,
+      "bytes": 46790,
+      "sha256": "bcbf1eeb321bd1591b0e8a6fba7626d035391998db2ddf629a33219592ac46f2",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/crab-v1-card-B7c7Dujp.webp",
+      "httpStatus": 200,
+      "bytes": 59334,
+      "sha256": "f57e58620a27c0c4ae414d8bcd756fc951b518d34af6f4b29eafa3b4905d87a6",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/squid-v1-card-Bo5TmChg.webp",
+      "httpStatus": 200,
+      "bytes": 41374,
+      "sha256": "454fc45891abb5cde13865cc566bdc6fade7eae1478f2e0bcbf31fff00e6fb7c",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/ocean-fish-v1-card-CyI04_Yc.webp",
+      "httpStatus": 200,
+      "bytes": 27238,
+      "sha256": "7f6c5bc67a07b7f878e5841f2229d096a82f7b2e47f0acec364368ddc33fb287",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/pond-fish-v1-card-BYAE9YP7.webp",
+      "httpStatus": 200,
+      "bytes": 26178,
+      "sha256": "498f5a27ddccd8c2d037234bed47627dcf888675efd4dd54d7bdb48453ba7a45",
+      "matchesFrozen": true
+    }
+  ],
+  "artInventory": {
+    "originalsAndGenerationEvidence": "docs/qa-evidence/memory-ocean-remainder-art-provenance-20261004.json",
+    "mappedTokensByContext": {
+      "ocean": {"🐟": "clownfish, accessible label fish", "🪼": "jellyfish", "🦀": "crab", "🦑": "squid"},
+      "garden": {"🐟": "goldfish, accessible label pond fish"}
+    },
+    "newSourcePngsPreserved": true,
+    "allOriginalAndDerivativeFilesHaveAlpha": true,
+    "derivativeFormat": "Alpha-preserving WebP, longest side 512px",
+    "derivativeBytesTotal": 200914,
+    "uniqueTokenInventory": 87,
+    "illustratedUniqueTokens": 35,
+    "missingIllustrations": 52,
+    "authoredBoardTokensCountsProgressIdsAndAskiaRenderingChanged": false
+  },
+  "ordinaryUiReview": {
+    "profile": "Fresh isolated browser origin; selected Amari using the visible chooser and earned all level unlocks through actual UI play.",
+    "routes": "/api/voice and /api/story were blocked before first navigation. No matching requests observed.",
+    "flows": [
+      "Completed Forest Friends, then used each enabled Next level control and actual visible card flips to unlock all ten boards through Garden & Pond Life.",
+      "At 1280x720, completed Garden & Pond Life: 34 cards, 17 pairs; both revealed fish cards used the goldfish image and the existing full label pond fish.",
+      "At 390x844, replayed Garden & Pond Life through actual card clicks: 34 cards, 17 pairs; fish art was pond goldfish, caption pond fish, card size 82x82, and no horizontal overflow.",
+      "At 390x844, replayed Ocean Splash through actual card clicks: 16 cards, 8 pairs; the clownfish is captioned fish and jellyfish, crab, and squid match their visible captions. All cards are 82x82 and captions do not overflow.",
+      "At 1280x900, resized the completed Ocean board and verified its clownfish, jellyfish, crab and squid art remains distinct and captions fit.",
+      "Reload retained all ten earned level controls. Reselecting Ocean Splash reset its cards face down and mounted zero card-front images."
+    ],
+    "screenshots": [
+      "docs/qa-evidence/batch7-memory-ocean-completion-builder-images/garden-pond-desktop.png",
+      "docs/qa-evidence/batch7-memory-ocean-completion-builder-images/garden-pond-mobile-390.png",
+      "docs/qa-evidence/batch7-memory-ocean-completion-builder-images/ocean-splash-desktop.png",
+      "docs/qa-evidence/batch7-memory-ocean-completion-builder-images/ocean-splash-mobile-390.png"
+    ],
+    "console": "0 errors, 0 warnings",
+    "reviewLimit": "Builder checks only. Independent browser and human visual review remain pending; this does not certify narration/audio, production behavior, every Memory illustration, or a 4.5 score."
+  },
+  "acceptance": "Remaining Ocean art and board-specific Ocean/Garden fish mapping are frozen for independent review. The Fish token, existing labels, pair counts and progress identity remain intact."
+}
