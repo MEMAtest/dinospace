@@ -56,6 +56,10 @@ import aeroplaneArt from '../../assets/memory-match/aeroplane-v1-card.webp';
 import helicopterArt from '../../assets/memory-match/helicopter-v1-card.webp';
 import steamTrainArt from '../../assets/memory-match/steam-train-v1-card.webp';
 import passengerTrainArt from '../../assets/memory-match/passenger-train-v1-card.webp';
+import busArt from '../../assets/memory-match/bus-v1-card.webp';
+import tractorArt from '../../assets/memory-match/tractor-v1-card.webp';
+import bicycleArt from '../../assets/memory-match/bicycle-v1-card.webp';
+import scooterArt from '../../assets/memory-match/scooter-v1-card.webp';
 import strawberryArt from '../../assets/memory-match/strawberry-v1-card.webp';
 import pizzaArt from '../../assets/memory-match/pizza-v1-card.webp';
 import doughnutArt from '../../assets/memory-match/doughnut-v1-card.webp';
@@ -146,6 +150,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/helicopter-v1-card.webp': helicopterArt,
   'memory-match/steam-train-v1-card.webp': steamTrainArt,
   'memory-match/passenger-train-v1-card.webp': passengerTrainArt,
+  'memory-match/bus-v1-card.webp': busArt,
+  'memory-match/tractor-v1-card.webp': tractorArt,
+  'memory-match/bicycle-v1-card.webp': bicycleArt,
+  'memory-match/scooter-v1-card.webp': scooterArt,
   'memory-match/strawberry-v1-card.webp': strawberryArt,
   'memory-match/pizza-v1-card.webp': pizzaArt,
   'memory-match/doughnut-v1-card.webp': doughnutArt,

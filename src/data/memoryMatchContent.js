@@ -97,6 +97,10 @@ export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🪱': Object.freeze({ asset: 'memory-match/garden-earthworm-v1-card.webp' }),
   '🐜': Object.freeze({ asset: 'memory-match/garden-ant-v1-card.webp' }),
   '🕷️': Object.freeze({ asset: 'memory-match/garden-spider-v1-card.webp' }),
+  '🚌': Object.freeze({ asset: 'memory-match/bus-v1-card.webp' }),
+  '🚜': Object.freeze({ asset: 'memory-match/tractor-v1-card.webp' }),
+  '🚲': Object.freeze({ asset: 'memory-match/bicycle-v1-card.webp' }),
+  '🛵': Object.freeze({ asset: 'memory-match/scooter-v1-card.webp' }),
 });
 
 // Keep context-specific illustrations scoped to their board so one symbol can

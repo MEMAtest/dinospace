@@ -1,0 +1,140 @@
+{
+  "createdAt": "2026-10-04",
+  "method": "Built-in image_gen tool; one distinct transparent asset call per token. Bus used a targeted image-gen background/edge edit after the first draft; only the selected final PNG is copied to the project. No CLI, API key, paid voice/story service, or deployment used.",
+  "scope": "Original PNGs preserved byte-for-byte; derivative WebPs created by encoding/resizing only. Runtime maps only existing Amari Memory Match Vehicles tokens and preserves board/progression/Askia.",
+  "board": {
+    "id": "vehicles",
+    "name": "All Kinds of Vehicles",
+    "pairCount": 14,
+    "tokens": [
+      "🚌",
+      "🚜",
+      "🚲",
+      "🛵"
+    ]
+  },
+  "derivativePipeline": "Pillow RGBA; proportionally fit within 512x512 with Lanczos; WebP quality 88, alpha_quality 95, method 6.",
+  "assets": [
+    {
+      "name": "bus",
+      "token": "🚌",
+      "label": "bus",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-9421019b-6675-48ee-bd51-2cd997edb510.png",
+      "prompt": "Use case: stylized-concept. Asset type: transparent picture-card illustration for a children's vehicle memory game. Primary request: one unmistakable city bus toy, shown in a friendly three-quarter side view facing right. Style/medium: polished glossy 3D children's toy illustration matching the project's bright, rounded vehicle cards; premium soft studio highlights and smooth clean surfaces. Composition: the whole bus centered and large, with wheels, front, roof and bumpers fully visible; generous transparent margin so it stays distinct at an 82px card size. Details: classic long yellow city bus body, two black tires with visible hubs, broad front windshield, several side passenger windows, simple front grille; no passengers. Background: truly transparent. Constraints: isolated single bus only, natural recognizable bus proportions and vehicle geometry. Avoid: any halo, shadow, ground plane, scenery, road, buildings, other vehicles, text, signage, letters, logos, watermark, border, cropped parts, extra wheels.",
+      "editPrompt": "Use case: background-extraction. Asset type: isolated picture-card vehicle illustration. Edit only the background and edge treatment of the supplied image: preserve the bus's exact body, windows, wheels, lighting on the bus, viewpoint, proportions, and colors. Remove the entire yellow glow, halo, shadow, and any background pixels around it. Keep the complete bus with a clean antialiased silhouette and generous fully transparent margin on every side. The final image must have true transparency outside the bus, no colored fringe, no ground plane, no text, no logo, no watermark, no border. Do not change or redraw the bus.",
+      "promptSummary": "Yellow city bus with readable windows and two wheels; selected output is the generated cutout after a targeted transparency/edge edit. Earlier root bus halo attempt excluded.",
+      "source": "src/assets/memory-match/bus-v1.png",
+      "sourceSha256": "ce02fb8cddd01f2f556d23fc8f21574cfe08185a1ac356f50cb62e2bb2a59af8",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 1644341,
+      "sourceAlphaExtrema": [
+        0,
+        254
+      ],
+      "asset": "src/assets/memory-match/bus-v1-card.webp",
+      "assetSha256": "3a8213ab52095736b577ab5c79ac1b15ccfa993b2e473cc62eebf2347ad2741d",
+      "assetDimensions": [
+        512,
+        341
+      ],
+      "assetBytes": 38274,
+      "assetAlphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "tractor",
+      "token": "🚜",
+      "label": "tractor",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-13e2e499-d79a-4a4a-a8ae-7ff402074d51.png",
+      "prompt": "Use case: stylized-concept. Asset type: transparent picture-card illustration for a children's vehicle memory game. Primary request: one unmistakable small farm tractor toy in a three-quarter side view facing right. Style: polished glossy 3D children's vehicle illustration consistent with the project's bright rounded aeroplane, helicopter, and train cards, soft studio highlights on the vehicle only. Composition: whole tractor centered, large, with front, cab, exhaust, and all four wheels visible; generous transparent margin for recognition at 82px. Geometry: conventional green agricultural tractor with two large rear tires, two clearly smaller front tires, enclosed simple cab with blue windows, short front hood, visible steering/front grille, and a small exhaust pipe. Background: true transparency. Constraints: exactly one isolated tractor, believable tractor proportions, no attached trailer. Avoid: halo, glow, drop shadow, floor, road, field, plants, buildings, people, other vehicles, text, logo, watermark, border, cropped wheels, duplicated wheels.",
+      "promptSummary": "Conventional green tractor with cab, two large rear wheels and two smaller front wheels; no trailer.",
+      "source": "src/assets/memory-match/tractor-v1.png",
+      "sourceSha256": "9939606825fde136c66483f6a84224a5a3a52220ba79ac7e59812c70b0edddf7",
+      "sourceDimensions": [
+        1374,
+        1145
+      ],
+      "sourceBytes": 1718002,
+      "sourceAlphaExtrema": [
+        0,
+        255
+      ],
+      "asset": "src/assets/memory-match/tractor-v1-card.webp",
+      "assetSha256": "4b2be21e3aecce7b663852fa48cdec50c29e9c5d1088090d28ae2800e1b45119",
+      "assetDimensions": [
+        512,
+        427
+      ],
+      "assetBytes": 55294,
+      "assetAlphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "bicycle",
+      "token": "🚲",
+      "label": "bicycle",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-58520a2f-3a63-45de-a9ba-ec9b1b4dd7f6.png",
+      "prompt": "Use case: stylized-concept. Asset type: transparent picture-card illustration for a children's vehicle memory game. Primary request: one unmistakable child's bicycle, three-quarter side view facing right. Style: polished glossy 3D children's vehicle toy art matching the project's bright rounded vehicle cards, soft studio highlights on the bicycle only. Composition: complete bicycle centered, shown large and clearly readable when reduced to an 82px card; both wheels and all parts fully inside frame with generous transparent margin. Geometry: exactly two equal-size bicycle wheels with visible circular tires and hubs; a real open triangular bicycle frame connecting rear wheel, pedals, seat post, and front fork; visible seat, handlebars, front fork, pedals, and chain ring; bright turquoise-blue frame with orange accents. Background: truly transparent. Constraints: a single complete pedal bicycle, correct recognizable geometry. Avoid: training wheels, extra wheels, motorcycle or scooter shape, rider, basket or accessories that obscure frame, halo, glow, drop shadow, ground, road, scenery, text, logo, watermark, border, cropped parts.",
+      "promptSummary": "Turquoise child bicycle with two wheels, frame, seat, handlebars, pedals and chain ring; no rider.",
+      "source": "src/assets/memory-match/bicycle-v1.png",
+      "sourceSha256": "98e8994a6a48829a4643c85c5966b751abe153ca0f19f063d657078fec69d4aa",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceBytes": 2013108,
+      "sourceAlphaExtrema": [
+        0,
+        254
+      ],
+      "asset": "src/assets/memory-match/bicycle-v1-card.webp",
+      "assetSha256": "97c8c8390353d0629705cebc39ca4afdb80347ebcfd7244be97b2cf3dc8a38e8",
+      "assetDimensions": [
+        512,
+        341
+      ],
+      "assetBytes": 60994,
+      "assetAlphaExtrema": [
+        0,
+        255
+      ]
+    },
+    {
+      "name": "scooter",
+      "token": "🛵",
+      "label": "scooter",
+      "generatedSource": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-aa8cd9da-1658-445f-9011-9fe1f39bb81c.png",
+      "prompt": "Use case: stylized-concept. Asset type: transparent picture-card illustration for a children's vehicle memory game. Primary request: one unmistakable classic motor scooter (step-through moped) in a three-quarter side view facing right. Style: polished glossy 3D children's vehicle toy art matching the project's bright rounded cards; clean studio highlights on the scooter only. Composition: whole scooter centered and large, readable at 82px; both wheels, seat, handlebar, front lamp, footboard and rear body fully visible with generous transparent margin. Geometry: exactly two small equal wheels, step-through curved frame with an open gap below the seat, a long cushioned seat, handlebar and mirror, round front headlamp, side engine cover, center stand; cheerful coral-red body with cream panels and teal seat. Background: true transparency. Constraints: recognizable classic motor scooter, no rider, single isolated vehicle. Avoid: bicycle frame or pedals, motorcycle with high fuel tank, extra wheels, halo, glow, shadow, floor, road, scenery, text, logo, watermark, border, cropped parts.",
+      "promptSummary": "Coral and cream step-through motor scooter with two wheels, long teal seat, handlebar, mirrors and round headlamp.",
+      "source": "src/assets/memory-match/scooter-v1.png",
+      "sourceSha256": "c2aec4baa77d0850db68e5cb5f8936525ef104706bbeb1f709216b2fa09f838d",
+      "sourceDimensions": [
+        1368,
+        1149
+      ],
+      "sourceBytes": 1409636,
+      "sourceAlphaExtrema": [
+        0,
+        255
+      ],
+      "asset": "src/assets/memory-match/scooter-v1-card.webp",
+      "assetSha256": "85c0c78dddd861b36571c27ef2575248ebcb229c89bd6caa2bff86546f1b5d96",
+      "assetDimensions": [
+        512,
+        430
+      ],
+      "assetBytes": 53296,
+      "assetAlphaExtrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

@@ -67,7 +67,7 @@ test('every authored Memory narration names the displayed strategy or visible ca
 test('Memory illustration inventory distinguishes each picture and reports unillustrated tokens', () => {
   const audit = memoryIllustrationAudit(MEMORY_LEVELS);
   assert.equal(audit.length, new Set(MEMORY_LEVELS.flatMap(({ emojis }) => emojis)).size);
-  assert.deepEqual(Object.keys(MEMORY_CARD_ILLUSTRATIONS), ['🐶', '🦊', '🎈', '🎉', '🎂', '🍬', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🦕', '🦖', '🚀', '🚒', '🚗', '🐵', '🐸', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁', '👨‍🚀', '🦴', '🦷', '⛏️', '🐝', '🦋', '🐞', '🐌', '🐛', '🪱', '🐜', '🕷️']);
+  assert.deepEqual(Object.keys(MEMORY_CARD_ILLUSTRATIONS), ['🐶', '🦊', '🎈', '🎉', '🎂', '🍬', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🦕', '🦖', '🚀', '🚒', '🚗', '🐵', '🐸', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁', '👨‍🚀', '🦴', '🦷', '⛏️', '🐝', '🦋', '🐞', '🐌', '🐛', '🪱', '🐜', '🕷️', '🚌', '🚜', '🚲', '🛵']);
   assert.notEqual(MEMORY_CARD_ILLUSTRATIONS['🦕'].asset, MEMORY_CARD_ILLUSTRATIONS['🦖'].asset);
   assert.notEqual(MEMORY_CARD_ILLUSTRATIONS['🐵'].asset, MEMORY_CARD_ILLUSTRATIONS['🐸'].asset);
   for (const emoji of ['🐶', '🦊', '🎈', '🎉', '🎂', '🍬', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🐛', '🪱', '🐜', '🕷️', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🍓', '🍕', '🍩', '🧁']) {
@@ -75,7 +75,7 @@ test('Memory illustration inventory distinguishes each picture and reports unill
     assert.ok(entry, `${emoji} should remain on an authored Amari board`);
     assert.ok(entry.illustration?.asset, `${emoji} should use matching generated or reviewed art`);
   }
-  const newPremiumTokens = ['🐶', '🦊', '🎈', '🎉', '🎂', '🍬', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🐛', '🪱', '🐜', '🕷️', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁', '🐸', '🐵', '👨‍🚀', '🦴', '🦷', '⛏️', '🐝', '🦋', '🐞', '🐌'];
+  const newPremiumTokens = ['🐶', '🦊', '🎈', '🎉', '🎂', '🍬', '🥕', '🌽', '🍪', '🧀', '🥚', '🌋', '🪐', '🌙', '☄️', '🛰️', '🌍', '🌕', '🌑', '☀️', '🌱', '🌳', '🌿', '🍄', '🐛', '🪱', '🐜', '🕷️', '🐳', '🐬', '🦈', '🐢', '🍎', '🍌', '🍇', '🍉', '🛸', '👽', '🌌', '🔭', '⭐️', '🌟', '🌠', '🌞', '✈️', '🚁', '🚂', '🚆', '🍓', '🍕', '🍩', '🧁', '🐸', '🐵', '👨‍🚀', '🦴', '🦷', '⛏️', '🐝', '🦋', '🐞', '🐌', '🚌', '🚜', '🚲', '🛵'];
   assert.equal(new Set(newPremiumTokens.map((emoji) => MEMORY_CARD_ILLUSTRATIONS[emoji].asset)).size, newPremiumTokens.length);
   assert.deepEqual(['🐳', '🐬', '🦈', '🐢'].map((emoji) => memoryCardLabel(emoji)), ['whale', 'dolphin', 'shark', 'turtle']);
   assert.ok(['🐳', '🦈', '🐢'].every((emoji) => MEMORY_CARD_ILLUSTRATIONS[emoji].className === 'memory-card-art-image memory-card-art-ocean'));
@@ -199,6 +199,26 @@ test('party decoration art is distinct, correctly named, and only used by the pa
     const entry = memoryIllustrationAudit(MEMORY_LEVELS).find((item) => item.emoji === emoji);
     assert.deepEqual(entry.boards, ['party']);
     assert.equal(entry.illustration.asset, memoryCardIllustration(emoji).asset);
+  }
+});
+
+test('Vehicles board bus, tractor, bicycle, and scooter use distinct correct art', () => {
+  const tokens = ['🚌', '🚜', '🚲', '🛵'];
+  const expectedAssets = [
+    'memory-match/bus-v1-card.webp',
+    'memory-match/tractor-v1-card.webp',
+    'memory-match/bicycle-v1-card.webp',
+    'memory-match/scooter-v1-card.webp',
+  ];
+  const vehicles = MEMORY_LEVELS.find(({ id }) => id === 'vehicles');
+  assert.deepEqual(tokens.map((emoji) => memoryCardLabel(emoji, 'vehicles')), ['bus', 'tractor', 'bicycle', 'scooter']);
+  assert.ok(tokens.every((emoji) => vehicles.emojis.includes(emoji)));
+  assert.deepEqual(tokens.map((emoji) => memoryCardIllustration(emoji, 'vehicles')?.asset), expectedAssets);
+  assert.equal(new Set(expectedAssets).size, tokens.length);
+  for (const emoji of tokens) {
+    const entry = memoryIllustrationAudit(MEMORY_LEVELS).find((item) => item.emoji === emoji);
+    assert.deepEqual(entry.boards, ['vehicles']);
+    assert.equal(entry.illustration.asset, memoryCardIllustration(emoji, 'vehicles').asset);
   }
 });
 
