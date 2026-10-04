@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-05",
+  "canonicalUrl": "https://dinospace-eight.vercel.app",
+  "deploymentId": "dpl_5cKFB6U489CLoEPucaY9pDarcHsp",
+  "runtimeSource": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "session": "count-prod-scatter-qa-20261004",
+  "viewport": "1280x800",
+  "method": "Temporary HTMLMediaElement play/pause delegating wrappers plus listeners; original native methods restored after sample.",
+  "routes": {"voice": 403, "story": 403},
+  "sample": {"scene": "Firefly Meadow", "visibleCount": 3, "selectedVisibleAnswer": 3, "heldFeedback": "Great counting! There are 3 fireflies. You counted each one once."},
+  "events": [
+    {"label": "clue: Point to each shape once. The numbered badges keep your place.", "src": "/audio/en/03a953b6-matilda.mp3", "key": "03a953b6", "playCallMs": 1302513, "playMs": 1302529, "playingMs": 1302531, "durationSeconds": 3.808, "pauseMs": 1306506, "endedMs": 1306506, "endedAtSeconds": 3.808},
+    {"label": "count aloud: 1", "src": "/audio/en/44a9aff3-matilda.mp3", "key": "44a9aff3", "playCallMs": 1335545, "playMs": 1335560, "pauseCallMs": 1335579, "durationSeconds": 0.698},
+    {"label": "count aloud: 2", "src": "/audio/en/45a9b186-matilda.mp3", "key": "45a9b186", "playCallMs": 1335579, "playMs": 1335594, "pauseCallMs": 1335612, "durationSeconds": 0.743},
+    {"label": "count aloud: 3", "src": "/audio/en/46a9b319-matilda.mp3", "key": "46a9b319", "playCallMs": 1335612, "playMs": 1335627, "playingMs": 1335670, "durationSeconds": 0.789, "endedMs": 1336462},
+    {"label": "count question: How many did you count?", "src": "/audio/en/948674f9-matilda.mp3", "key": "948674f9", "playCallMs": 1336462, "playMs": 1336463, "playingMs": 1336465, "durationSeconds": 1.486, "pauseMs": 1337998, "endedMs": 1337998},
+    {"label": "correct praise: Great counting!", "src": "/audio/en/f4fb7fb1-matilda.mp3", "key": "f4fb7fb1", "playCallMs": 1348079, "playMs": 1348094, "playingMs": 1348096, "durationSeconds": 1.068, "endedMs": 1349188},
+    {"label": "correct explanation: There are 3 fireflies. You counted each one once.", "src": "/audio/en/fc7011dd-matilda.mp3", "key": "fc7011dd", "playCallMs": 1349188, "playMs": 1349188, "playingMs": 1349190, "durationSeconds": 3.204, "pauseMs": 1352452, "endedMs": 1352452},
+    {"label": "next-round instruction: Tap each object once to count it.", "src": "/audio/en/93fa9195-matilda.mp3", "key": "93fa9195", "playCallMs": 1369311, "playMs": 1369326, "playingMs": 1369328, "durationSeconds": 1.997, "mutePauseCallMs": 1369527, "mutePauseMs": 1369543, "muteAtSeconds": 0.201, "ended": false}
+  ],
+  "audioHttp": "All listed clip requests observed with HTTP 200.",
+  "providerCalls": 0,
+  "humanListeningClaim": false,
+  "finalState": {"round": 3, "soundMuted": true, "observerRemoved": true, "nativePlayPauseRestored": true}
+}
