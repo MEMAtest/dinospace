@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T06:49:36.116933+00:00",
+  "updatedAt": "2026-10-04T06:59:44.660417+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -703,7 +703,9 @@
     "sourceSha": "a86a9b9",
     "origin": "http://127.0.0.1:5328",
     "identity": "docs/qa-evidence/spot-park-tight-mask-identity-20261004.json",
-    "scope": "Native-pixel curved silhouette excludes crown sky and water gaps between feet; semantic touch polygon retained separately. Sixteen focused tests, scoped lint and production-config build pass. Independent visual/control delta assigned; no acceptance yet."
+    "scope": "Independent local scoped visual/pointer PASS at1280/390: no crown sky tab, water/foot block, cyan spill or detached island; protected belly/eyes/teeth. Actual head hit, neutral body repeat after credit, blank miss, flower/sun, held fact/Next and mobile3/4 reload lock state pass. Eight hashes match, API network zero and console clean. CLI open-versus-goto guard continuity audit pending; no continuous guard claim until corrected. No audio, full matrix, production or 4.5 acceptance.",
+    "independentCommit": "33c630e",
+    "independentReport": "docs/qa-evidence/spot-park-tight-mask-5328-review-20261004/report.md"
   },
   "memoryVehicleFourCandidate": {
     "sourceSha": "357f24cf13b1b8ddcde474f0b7628f3dad11ebf0",
@@ -711,12 +713,24 @@
     "builderCommit": "ab6ce142ee0bab38e34673e3f4b62ad19e02304b",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-report-20261004.md",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-identity-20261004.json",
-    "scope": "Builder normal-earned Levels 1-6 and full Vehicles 14 pairs at both widths; Bus/Tractor/Bicycle/Scooter captions, 82px cards, 48px selectors, face-down zero images/front labels, reload and hashes pass. Guarded APIs and console errors zero; sixteen tests/lint/build pass. Builder inventory 76/87, eleven remaining. Independent review running; no audio, production or overall 4.5 acceptance."
+    "scope": "Independent local scoped PASS: normal-earned Levels1\u20135, fullVehicles14pairs bothwidths, distinctBus/Tractor/Bicycle/Scooter, captions82px,48pxselectors, face-down28cardszeroimages/labels, selectedLevel6reload, Back/re-entry and7hashes. API network URLs zero/console clean. Harness limits: default sound initially on (49localMP3GETs; no listeningclaim); route listing lost guards during intermediate navigation so continuity unproven (reinstalled verified finalreload). No fullinventory, Askia, audio, production or4.5 acceptance. Builderinventory76/87 remainsseparate.",
+    "independentCommit": "6bc032879d6285701bfda38b99fb7e0add4239d2",
+    "independentReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-independent-20261004/report.md"
   },
   "spotTreehouseRealObjectsPrototype": {
     "sourceSha": "88ca034",
     "origin": "http://127.0.0.1:5329",
     "identity": "docs/qa-evidence/spot-treehouse-real-objects-identity-20261004.json",
     "scope": "Five actual depicted colour changes replace generic Growing badges: left arrow block, up-arrow block, plant pot, robot eyes/smile and shelf house roof. SVG layer matches centered object-cover for square/portrait originals; shared-renderer Starter regression and Treehouse visual/control QA assigned at both widths. Seventeen focused tests, scoped lint and configured build pass. No visual/audio/production or 4.5 acceptance."
+  },
+  "spotSafariRealObjectsPrototype": {
+    "sourceSha": "810478a",
+    "origin": "http://127.0.0.1:5330",
+    "identity": "docs/qa-evidence/spot-safari-real-objects-identity-20261004.json",
+    "scope": "Five actual object colour changes replace Growing generic badges: elephant inner ear/toenails, parrot tail feathers, monkey tummy and frog skin. Original square scene is preserved with matched centered crop. Eighteen focused tests/scoped lint/configured build pass. Independent early visual fidelity/legibility/alignment and normal controls atbothwidths assigned, guards-before-goto explicitly required. No acceptance yet."
+  },
+  "qaBrowserGuardCorrection": {
+    "discoveredAt": "2026-10-04T06:59:44.660635+00:00",
+    "scope": "Playwright CLI open <appURL> recreates context and drops routes installed on prior about:blank. Correct workflow opens blank, installs guards, uses goto, and verifies route-list after app navigation. Active reviewers/builders instructed to audit/correct unsupported continuity claims and use corrected workflow. Observed zero API network URLs remain factual; they do not prove guard continuity or heard audio quality."
   }
 }
