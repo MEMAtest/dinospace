@@ -1,0 +1,28 @@
+{
+  "candidate": "Canonical Batch 6 Amari integration; builder freeze, independent UI review pending",
+  "sourceCommit": "2a82fd8fd17d9e76ec4310f2fecf489291f5bbff",
+  "sourceBranch": "codex/amari-batch6-integration-20261004",
+  "baseCommit": "0d3ef056e569e3ef59763df388f26c3baa7783b8",
+  "integratedBatch6Source": "dinospace-batch6-quality runtime 764b2ff49b6c40c13df928b4449d0a1f68fbe660",
+  "builtWith": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build:android",
+  "buildEnvironment": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "origin": "http://127.0.0.1:5371",
+  "frozenDist": "tmp/batch6-integration-2a82fd8/dist",
+  "filesServed": 5879,
+  "hashMatches": 5879,
+  "hashFailures": 0,
+  "servedManifest": "tmp/batch6-integration-2a82fd8/served-manifest.json",
+  "httpVerification": "tmp/batch6-integration-2a82fd8/http-verification.json",
+  "primaryBundles": {
+    "index.html": "6a9655c72f72cc85056e34a5342676321dd2a3f4b8a162e1720167a70221aaef",
+    "assets/index-Cjc3KINP.js": "9e9d5148abc1e08c97aee23166aa289ec326401e8e9348021316e30efc07a8ba",
+    "assets/index-Ccs6j6LF.css": "2411e413823eb43b354026da853a4fae30867a13a409ce0daf59351037e8acbf",
+    "assets/web-a8KSCZyE.js": "769a92950e1f9543938f6c14f32fc5d3913a0fea1bcccd5d093480bb9bfbf987",
+    "assets/SolarSystem-uGsPnBSq.js": "2eb9cc4b32af85aadb54bd41e27b4a86f8e5cb295c1c1ed76c903e75136adbe3"
+  },
+  "scope": "Static builder freeze and byte/hash verification only. Independent visible UI review, narration decoding/listening, release and production checks remain separate."
+}
