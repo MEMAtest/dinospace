@@ -86,11 +86,17 @@ const SceneEditLayer = ({ scene }) => {
   return <svg aria-hidden="true" viewBox="0 0 100 100" preserveAspectRatio="none" className="pointer-events-none absolute inset-0 h-full w-full">
     <defs>{scene.editRegions.map(({ x, y, width, height, feather = 0 }, index) => {
       const id = `${layerId}-${index}`;
+      // Canvas edges have no neighbouring A pixels to blend into. Extend the
+      // mask beyond them so original details cannot leak back at the frame edge.
+      const leftInset = x === 0 ? -feather * 2 : feather;
+      const topInset = y === 0 ? -feather * 2 : feather;
+      const rightInset = x + width === 100 ? -feather * 2 : feather;
+      const bottomInset = y + height === 100 ? -feather * 2 : feather;
       return <g key={id}>
         <clipPath id={`${id}-clip`}><rect x={x} y={y} width={width} height={height} /></clipPath>
         <filter id={`${id}-blur`} x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB"><feGaussianBlur stdDeviation={feather / 2} /></filter>
         <mask id={`${id}-mask`} maskUnits="userSpaceOnUse" x={x} y={y} width={width} height={height}>
-          <rect x={x + feather} y={y + feather} width={width - feather * 2} height={height - feather * 2} fill="white" filter={feather ? `url(#${id}-blur)` : undefined} />
+          <rect x={x + leftInset} y={y + topInset} width={width - leftInset - rightInset} height={height - topInset - bottomInset} fill="white" filter={feather ? `url(#${id}-blur)` : undefined} />
         </mask>
       </g>;
     })}</defs>
