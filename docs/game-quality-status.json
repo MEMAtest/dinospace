@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T05:08:57.866713+00:00",
+  "updatedAt": "2026-10-04T05:14:07.852210+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -447,6 +447,31 @@
       "commit": "ccc2592",
       "provenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-caterpillar-art-provenance-20261004.json",
       "scope": "One selected original copied unchanged; queued after existing candidates. Ant/spider/worm attempts rejected and not integrated."
+    },
+    "gardenCreatureCandidate": {
+      "sourceSha": "8ff59e48f0248bac8e4410a008c8b7a0d9f03f7f",
+      "origin": "http://127.0.0.1:5316",
+      "builderEvidenceCommit": "50c317e",
+      "illustratedTokens": 60,
+      "uniqueTokens": 87,
+      "missingTokens": 27,
+      "identity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-creatures-identity-20261004.json",
+      "scope": "Builder completed normal-earned GardenL9 at1280/390, four distinct bee/butterfly/ladybird/snail art, full captions,82px cards,no horizontal overflow,face-down zerofronts,reload,hashes and guards.12 focused tests/lint/production-config build passed. Independent QA assigned and pending; no production/audio/4.5 acceptance."
+    },
+    "queuedGardenCrittersOriginals": {
+      "commits": [
+        "ccc2592",
+        "806c8b2",
+        "ddbd160",
+        "289a2df"
+      ],
+      "assets": [
+        "garden-caterpillar-v1.png",
+        "garden-earthworm-v1.png",
+        "garden-ant-v1.png",
+        "garden-spider-v1.png"
+      ],
+      "scope": "Four isolated originals copied unchanged with separate provenance. Ant six and spider eight legs visually counted; rejected incorrect-leg/halo variants excluded. Runtime integration and82px rendered independent leg/art review remain pending."
     }
   },
   "monsterClueRepair": {
