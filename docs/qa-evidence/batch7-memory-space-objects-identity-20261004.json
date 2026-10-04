@@ -1,0 +1,112 @@
+{
+  "createdAt": "2026-10-04",
+  "candidate": {
+    "sourceCommit": "c1d58ecb50f8dbfb42c1a356b9377a2cd4d63da9",
+    "branch": "codex/amari-batch7-quality-20261003",
+    "frozenBundle": "tmp/batch7-memory-space-objects-final/dist",
+    "origin": "http://127.0.0.1:5308",
+    "listener": "127.0.0.1:5308 IPv4",
+    "bundleReadOnly": true,
+    "earlierCandidatesPreserved": ["http://127.0.0.1:5305", "http://127.0.0.1:5306"]
+  },
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build",
+    "result": "passed; working-tree dist is byte-identical to frozen candidate bundle",
+    "warnings": [
+      "caniuse-lite data is 9 months old",
+      "Vite reports large chunks above 500 kB"
+    ]
+  },
+  "sourceGates": {
+    "tests": "node --test test/memoryMatchContent.test.mjs test/batch7Progress.test.mjs: 10 passed, 0 failed",
+    "lint": "npm run lint: passed",
+    "readinessInventory": {"uniqueTokens": 87, "illustratedTokens": 39, "missingTokens": 48}
+  },
+  "servedIdentity": [
+    {
+      "path": "index.html",
+      "httpStatus": 200,
+      "bytes": 1100,
+      "sha256": "b5790cbdfb73d21c2bc0c0f976cc29bf66b331de56d35959ba7547343cfbe57e",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-CHNzMmuf.js",
+      "httpStatus": 200,
+      "bytes": 1182259,
+      "sha256": "0fc5c66c21ca76ddaf4ad7fa0eb322b0d66a390711e91cd689b9fb739f86e562",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-DUgIWs2Y.css",
+      "httpStatus": 200,
+      "bytes": 213103,
+      "sha256": "e6d43dde40a6169e3c8901869cb9a168586a2605b9e75c04c3835fb43ad0022d",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/alien-v1-card-CuM5_mh9.webp",
+      "httpStatus": 200,
+      "bytes": 30140,
+      "sha256": "4d60d5c9f0a8fe68f0199612247858cced56f1e819998d8d0636a724182c1e09",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/flying-saucer-v1-card-C6luXdB0.webp",
+      "httpStatus": 200,
+      "bytes": 29708,
+      "sha256": "7255a04859d7df5ca260cc197250b30583787a28782b7e549773940d11e482f9",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/galaxy-v1-card-C-J_IjBY.webp",
+      "httpStatus": 200,
+      "bytes": 78964,
+      "sha256": "997e31a6e9f8daeb51c69672084f5bb1299fc0c7499c922da994199e44661aa1",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/telescope-v1-card-og7gVJkJ.webp",
+      "httpStatus": 200,
+      "bytes": 35712,
+      "sha256": "6008432058634e738f9de424d81855d794f83fba7998b72288d75c480c3755be",
+      "matchesFrozen": true
+    }
+  ],
+  "artInventory": {
+    "originalsAndGenerationEvidence": "docs/qa-evidence/memory-space-object-art-provenance-20261004.json",
+    "mappedTokensAndLabels": {
+      "🛸": "flying saucer",
+      "👽": "alien",
+      "🌌": "galaxy",
+      "🔭": "telescope"
+    },
+    "originalPngsPreserved": true,
+    "alphaPreserved": true,
+    "derivativeFormat": "Alpha-preserving WebP, 512x512px",
+    "derivativeBytesTotal": 174524,
+    "uniqueTokenInventory": 87,
+    "illustratedUniqueTokens": 39,
+    "missingIllustrations": 48,
+    "authoredBoardTokensCountsProgressIdsAndAskiaRenderingChanged": false
+  },
+  "ordinaryUiReview": {
+    "profile": "Fresh isolated browser origin; selected Amari from the visible profile chooser. Level unlocks were earned through actual Memory board completion.",
+    "routes": "/api/voice and /api/story were blocked before first navigation. No matching requests observed.",
+    "flows": [
+      "Completed Forest Friends, Ocean Splash and Space Sparkle using actual face-down card clicks and labels read only after reveal; followed enabled Next level controls.",
+      "Completed Party & Treats, Dinosaur Discovery, All Kinds of Vehicles and Yummy Feast in sequence, then completed Astronaut Mission through actual card flips.",
+      "Space Sparkle desktop showed distinct alien, galaxy and flying saucer art; all four objects including telescope were checked in Astronaut Mission at 1280x720 and 390x844.",
+      "On Astronaut Mission, every targeted card showed the matching full caption and loaded asset at both viewports. At 390px, all cards measured 82x82 and document horizontal overflow was zero.",
+      "Reselecting Astronaut Mission through its visible level button reset all 32 cards face down and mounted zero front illustration images."
+    ],
+    "screenshots": [
+      "docs/qa-evidence/batch7-memory-space-objects-builder-images/space-sparkle-desktop.png",
+      "docs/qa-evidence/batch7-memory-space-objects-builder-images/astronaut-mission-desktop.png",
+      "docs/qa-evidence/batch7-memory-space-objects-builder-images/astronaut-mission-mobile-390.png"
+    ],
+    "console": "0 errors, 0 warnings",
+    "reviewLimit": "Builder checks only. Independent browser and human visual review remain pending; this does not certify narration/audio, production behavior, every Memory illustration, or a 4.5 score."
+  },
+  "acceptance": "Four space object illustrations are integrated in the Amari Memory boards and frozen for independent review. No paid voice/media generation or deployment was used."
+}
