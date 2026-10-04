@@ -1,0 +1,45 @@
+{
+  "scope": "Amari Spelling Studio child-facing wording repair; local-only candidate",
+  "builtAt": "2026-10-04",
+  "sourceBranch": "codex/amari-batch5-quality-20261003",
+  "sourceCommit": "a7790ea9c8611d4152da6e660cb46bd02511ac7a",
+  "baseCommit": "4146e83f0177694e8a38a0d8658fe035f023a567",
+  "buildCommand": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story ./node_modules/.bin/vite build --outDir tmp/batch5-spelling-plain-language-20261004/dist",
+  "buildEnvironment": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "sourceDelta": {
+    "file": "src/components/games/AmariSpellingStudio.jsx",
+    "sha256": "bd80ee469e7c8dffc82d5e341387207fd5e6ff19d6e4734916f631f6cd0ab36b",
+    "changedRuntimeTextIsNarrated": false,
+    "spokenPromptSourceUnchanged": true,
+    "taughtSoundFilterUnchanged": true,
+    "adultSettingsAndWordRecordStorageUnchanged": true,
+    "voiceManifestUnchanged": true
+  },
+  "frozenDirectory": "tmp/batch5-spelling-plain-language-20261004/dist",
+  "candidateUrl": "http://127.0.0.1:5367/",
+  "serverBind": "127.0.0.1",
+  "servedAssetCount": 5610,
+  "servedHashManifest": "docs/qa-evidence/batch5-spelling-plain-language-20261004/served-assets-sha256.txt",
+  "servedHashVerification": {
+    "checked": 5610,
+    "httpErrors": 0,
+    "sha256Mismatches": 0,
+    "indexStatus": 200,
+    "result": "pass"
+  },
+  "checks": {
+    "focusedTests": "4 passed, 0 failed (test/batch5Literacy.test.mjs)",
+    "scopedLint": "passed (npx eslint src/components/games/AmariSpellingStudio.jsx)",
+    "productionConfigBuild": "passed"
+  },
+  "readiness": {
+    "narration": { "uniqueClips": 659, "ready": 11, "pending": 648 },
+    "purePhonemeClips": { "required": 37, "ready": 0, "pending": 37 },
+    "scope": "Read-only manifest/file-presence inventory; not decode, playback or human listening"
+  },
+  "releaseStatus": "not approved; separate rendered QA and existing audio gates remain open; not deployed"
+}
