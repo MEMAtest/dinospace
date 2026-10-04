@@ -56,6 +56,10 @@ import isolatedFrogArt from '../../assets/memory-match/isolated-frog-v1-card.web
 import isolatedMonkeyArt from '../../assets/memory-match/isolated-monkey-v1-card.webp';
 import astronautAmariArt from '../../assets/memory-match/astronaut-amari-v1-card.webp';
 import moonRockArt from '../../assets/memory-match/moon-rock-v1-card.webp';
+import fossilBoneArt from '../../assets/memory-match/fossil-bone-v1-card.webp';
+import dinosaurToothArt from '../../assets/memory-match/dinosaur-tooth-v1-card.webp';
+import fossilDigPickArt from '../../assets/memory-match/fossil-dig-pick-v1-card.webp';
+import fossilRockArt from '../../assets/memory-match/fossil-rock-v1-card.webp';
 import jellyfishArt from '../../assets/memory-match/jellyfish-v1-card.webp';
 import crabArt from '../../assets/memory-match/crab-v1-card.webp';
 import squidArt from '../../assets/memory-match/squid-v1-card.webp';
@@ -126,6 +130,10 @@ const MEMORY_ASSET_BY_PATH = {
   'memory-match/isolated-monkey-v1-card.webp': isolatedMonkeyArt,
   'memory-match/astronaut-amari-v1-card.webp': astronautAmariArt,
   'memory-match/moon-rock-v1-card.webp': moonRockArt,
+  'memory-match/fossil-bone-v1-card.webp': fossilBoneArt,
+  'memory-match/dinosaur-tooth-v1-card.webp': dinosaurToothArt,
+  'memory-match/fossil-dig-pick-v1-card.webp': fossilDigPickArt,
+  'memory-match/fossil-rock-v1-card.webp': fossilRockArt,
   'memory-match/jellyfish-v1-card.webp': jellyfishArt,
   'memory-match/crab-v1-card.webp': crabArt,
   'memory-match/squid-v1-card.webp': squidArt,

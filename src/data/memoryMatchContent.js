@@ -78,11 +78,17 @@ export const MEMORY_CARD_ILLUSTRATIONS = Object.freeze({
   '🍩': Object.freeze({ asset: 'memory-match/doughnut-v1-card.webp' }),
   '🧁': Object.freeze({ asset: 'memory-match/cupcake-v1-card.webp' }),
   '👨‍🚀': Object.freeze({ asset: 'memory-match/astronaut-amari-v1-card.webp' }),
+  '🦴': Object.freeze({ asset: 'memory-match/fossil-bone-v1-card.webp' }),
+  '🦷': Object.freeze({ asset: 'memory-match/dinosaur-tooth-v1-card.webp' }),
+  '⛏️': Object.freeze({ asset: 'memory-match/fossil-dig-pick-v1-card.webp' }),
 });
 
-// The same fish token appears on two boards, but it represents distinct
-// species in each setting. Keep those illustrations scoped to their boards.
+// Keep context-specific illustrations scoped to their board so one symbol can
+// represent different real-world objects without showing misleading art.
 export const MEMORY_CARD_CONTEXT_ILLUSTRATIONS = Object.freeze({
+  dinos: Object.freeze({
+    '🪨': Object.freeze({ asset: 'memory-match/fossil-rock-v1-card.webp' }),
+  }),
   ocean: Object.freeze({
     '🐟': Object.freeze({ asset: 'memory-match/ocean-fish-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
     '🪼': Object.freeze({ asset: 'memory-match/jellyfish-v1-card.webp', className: 'memory-card-art-image memory-card-art-ocean' }),
