@@ -129,3 +129,34 @@ test('tapping a found difference within its hit radius is neutral and keeps the 
     kind: 'new', difference: remaining,
   });
 });
+
+
+test('Spot completed-pair replay avoids an immediate boundary repeat while keeping every target', () => {
+  for (let chapter = 0; chapter < 3; chapter += 1) {
+    for (let priorSeed = 1; priorSeed <= 30; priorSeed += 1) {
+      const previous = createSpotDifferenceRun(chapter, priorSeed).map(({ id }) => id);
+      for (let seed = 1; seed <= 100; seed += 1) {
+        const next = createSpotDifferenceRun(chapter, seed, previous);
+        const ids = next.map(({ id }) => id);
+        assert.notEqual(ids[0], previous.at(-1));
+        assert.notDeepEqual(ids, previous);
+        assert.deepEqual([...ids].sort(), [...previous].sort());
+        for (const scene of next) {
+          const authored = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === scene.id);
+          assert.deepEqual(scene.differences.map(({ id }) => id).sort(), authored.differences.map(({ id }) => id).sort());
+        }
+      }
+    }
+  }
+});
+
+test('Spot records each actual completed pair independently for the child during a partial run', () => {
+  const storage = memoryStorage();
+  const first = SPOT_DIFFERENCE_SCENES.find(({ chapterIndex }) => chapterIndex === 0);
+  completeSpotDifferenceChapter('Amari', 0, [first.id], storage);
+  assert.equal(getSpotDifferenceProgress('Amari', storage).lastCompletedSceneId, first.id);
+  assert.equal(getSpotDifferenceProgress('Askia', storage).lastCompletedSceneId, undefined);
+  for (let seed = 1; seed <= 100; seed += 1) {
+    assert.notEqual(createSpotDifferenceRun(0, seed, [], first.id)[0].id, first.id);
+  }
+});

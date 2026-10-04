@@ -189,6 +189,7 @@ export const getSpotDifferenceProgress = (playerId, storage = globalThis.localSt
   return {
     unlockedChapter: Number.isInteger(child.unlockedChapter) ? Math.min(2, Math.max(0, child.unlockedChapter)) : 0,
     completedSceneIds: Array.isArray(child.completedSceneIds) ? [...new Set(child.completedSceneIds.filter((id) => typeof id === 'string'))] : [],
+    lastCompletedSceneId: typeof child.lastCompletedSceneId === 'string' ? child.lastCompletedSceneId : undefined,
     lastQueue: Array.isArray(child.lastQueue) ? child.lastQueue.filter((id) => typeof id === 'string') : [],
   };
 };
@@ -210,16 +211,19 @@ export const completeSpotDifferenceChapter = (playerId, chapterIndex, completedS
   const newlyCompleted = [...new Set([...(Array.isArray(child.completedSceneIds) ? child.completedSceneIds : []), ...completedSceneIds])];
   const chapterComplete = sceneIds.length > 0 && sceneIds.every((id) => newlyCompleted.includes(id));
   const unlockedChapter = chapterComplete ? Math.min(2, Math.max(before, chapterIndex + 1)) : before;
-  state.children[key] = { ...child, unlockedChapter, completedSceneIds: newlyCompleted };
+  state.children[key] = { ...child, unlockedChapter, completedSceneIds: newlyCompleted, lastCompletedSceneId: completedSceneIds.at(-1) || child.lastCompletedSceneId };
   try { storage?.setItem(SPOT_DIFFERENCE_PROGRESS_KEY, JSON.stringify(state)); } catch { /* Keep the current run playable if storage is full. */ }
   return { ...getSpotDifferenceProgress(playerId, storage), chapterComplete, newlyUnlocked: unlockedChapter > before };
 };
 
-export const createSpotDifferenceRun = (chapterIndex, seed, previousQueue = []) => {
+export const createSpotDifferenceRun = (chapterIndex, seed, previousQueue = [], lastCompletedSceneId = previousQueue.at(-1)) => {
   const chapter = SPOT_DIFFERENCE_CHAPTERS[chapterIndex] || SPOT_DIFFERENCE_CHAPTERS[0];
   const scenes = SPOT_DIFFERENCE_SCENES.filter((scene) => scene.chapterIndex === chapterIndex);
   let ordered = shuffleSpotDifference(scenes, seed);
-  if (ordered.length > 1 && ordered.map(({ id }) => id).join('|') === previousQueue.join('|')) {
+  // Fix the new run at Start; never reorder the active scene or its targets.
+  for (let attempt = 0; attempt < ordered.length && ordered.length > 1; attempt += 1) {
+    const repeatedOrder = ordered.map(({ id }) => id).join('|') === previousQueue.join('|');
+    if (ordered[0].id !== lastCompletedSceneId && !repeatedOrder) break;
     ordered = [...ordered.slice(1), ordered[0]];
   }
   return ordered.map((scene, index) => ({

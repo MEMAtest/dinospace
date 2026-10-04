@@ -94,7 +94,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     if (targetIndex > progress.unlockedChapter) return;
     const nextSeed = seedNow();
     const previousQueue = getSpotDifferenceLastQueue(playerId);
-    const nextQueue = createSpotDifferenceRun(targetIndex, nextSeed, previousQueue);
+    const nextQueue = createSpotDifferenceRun(targetIndex, nextSeed, previousQueue, progress.lastCompletedSceneId);
     setChapterIndex(targetIndex);
     setSeed(nextSeed);
     setQueue(nextQueue);
