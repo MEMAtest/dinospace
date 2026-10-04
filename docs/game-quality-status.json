@@ -1673,7 +1673,7 @@
     "source": "decb60c4c816a24df875044df0d589b90f814f15",
     "report": "docs/qa-evidence/batch5-soundsafari-phonics-source-independent-20261004.md",
     "artReport": "docs/qa-evidence/batch5-soundsafari-starter-art-v2-independent-20261004.md",
-    "scope": "81 authored mappings and 11 focused tests passed. Dock correction passed independent82px review. Growing26 images mapped; independentreview accepts25, requires crust subject correction. Challenge25 images, audio inventory/runtime/listening and overall acceptance remain pending.",
+    "scope": "81 word mappings and11 focused tests passed. Starter art and all26 Growing cards pass static82px review after dock/crust corrections. Challenge25 images, revised audio inventory, runtime/listening and overall acceptance remain pending.",
     "artCorrectionSource": "02911814ce9a62a65bc35bdd2cfacb88c31ee808",
     "artCorrectionReport": "docs/qa-evidence/batch5-soundsafari-dock-art-v2-independent-20261004.md",
     "growingArtSource": "d4a5363551b5702e8040422908b821b2bee2aa0c",
@@ -1685,6 +1685,13 @@
       "challengeMapped": 4,
       "challengeTotal": 29
     },
-    "growingArtReport": "docs/qa-evidence/batch5-soundsafari-growing-art-independent-20261005.md"
+    "growingArtReport": "docs/qa-evidence/batch5-soundsafari-growing-art-independent-20261005.md",
+    "growingArtCorrectionSource": "3d949c69cb1901c9f33bd78220c207a832c90aa1",
+    "growingArtCorrectionReport": "docs/qa-evidence/batch5-soundsafari-crust-v2-independent-20261005.md"
+  },
+  "countCanonicalMediaObservation": {
+    "source": "1accc99e89be303678ead99def6a3095ab1cb886",
+    "report": "docs/qa-evidence/count-scene-variety-20261004/canonical/media-observation/report.md",
+    "scope": "Desktop actual packaged clue, praise and held explanation reached ended; mute interrupted next prompt. No human listening or Next-interruption claim."
   }
 }
