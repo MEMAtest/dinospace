@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T02:17:48.866321+00:00",
+  "updatedAt": "2026-10-04T02:27:51.416976+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -415,7 +415,8 @@
     "deploymentId": "dpl_FjAsdFFoZqPXLM1EbfnLW4Sy59s5",
     "candidatePlaywrightEvidence": "docs/qa-evidence/puzzle-spot-replay-production-candidate-20261004/report.md",
     "canonicalIdentity": "docs/qa-evidence/puzzle-spot-replay-canonical-identity-20261004.json",
-    "scope": "Promoted functional replay repair after independent local and immutable production desktop390 controls passed. Provider alias and all seven canonical assets match. Fresh canonical bounded controls underway; no new4.5 or listening acceptance."
+    "scope": "Promoted functional replay repair. Independent local and immutable production fullStarterreplay checks passed atdesktop390; fresh canonical bounded visiblehint/completion/factNext/parentBack/console/assets/provider/layout checks passed atdesktop390, commitbc0e932. No new4.5/listening acceptance.",
+    "canonicalPlaywrightEvidence": "docs/qa-evidence/puzzle-spot-replay-canonical-20261004/report.md"
   },
   "monsterHeaderCandidate": {
     "sourceSha": "484addf2e76be849845f508bdc9fc5e1325b51b7",
