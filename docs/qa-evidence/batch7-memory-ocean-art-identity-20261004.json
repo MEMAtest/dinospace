@@ -1,0 +1,120 @@
+{
+  "createdAt": "2026-10-04",
+  "candidate": {
+    "sourceCommit": "3a2d3676369b413430417ec1ec0972b84f100cdc",
+    "branch": "codex/amari-batch7-quality-20261003",
+    "frozenBundle": "tmp/batch7-memory-ocean-art-4315b39-final/dist",
+    "origin": "http://127.0.0.1:5298",
+    "listener": "127.0.0.1:5298 IPv4",
+    "bundleReadOnly": true
+  },
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build",
+    "result": "passed",
+    "warnings": [
+      "caniuse-lite data is 9 months old",
+      "Vite reports large chunks above 500 kB"
+    ]
+  },
+  "sourceGates": {
+    "tests": "node --test test/memoryMatchContent.test.mjs test/batch7Progress.test.mjs: 9 passed, 0 failed",
+    "lint": "npm run lint: passed"
+  },
+  "assetIdentity": [
+    {
+      "path": "index.html",
+      "httpStatus": 200,
+      "bytes": 1100,
+      "sha256": "98a4c1cf54c1479b8b23db56300840fb107252e17d2cd6943e9d8b32ca69f63c",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-SNbLJiry.js",
+      "httpStatus": 200,
+      "bytes": 1179703,
+      "sha256": "b6c3721c327c125a9713bf50bdc204419bd88e2775c9563896c161a0f136e498",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/index-gigwwZSI.css",
+      "httpStatus": 200,
+      "bytes": 212908,
+      "sha256": "0bb1ea4bfcdfbccae8def234a9e0802d10552bd229d126ea6a24df24533b5431",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/whale-v1-card-BRu9nzHo.webp",
+      "httpStatus": 200,
+      "bytes": 34594,
+      "sha256": "0edd405b5a8a2aa8bd7c51d8814781961c765b56ca773d6cb2b7ed0e0ef86d8e",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/dolphin-v1-card-NM9OSLvy.webp",
+      "httpStatus": 200,
+      "bytes": 34770,
+      "sha256": "e7540e73db278604645668f97a5fc3aabf55bbabe04972ea2cc29fd130a226b8",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/shark-v1-card-XIn6E67F.webp",
+      "httpStatus": 200,
+      "bytes": 25008,
+      "sha256": "6198a359eba1b1f828a812114e05b0f5f0f5d0c31a63f58e04b8bd0ea41be56f",
+      "matchesFrozen": true
+    },
+    {
+      "path": "assets/turtle-v1-card-BnUqJ5vT.webp",
+      "httpStatus": 200,
+      "bytes": 33402,
+      "sha256": "d56223ea96bac66678ccc15f62df30b4a364f9e8085961935b02077c0a124bb7",
+      "matchesFrozen": true
+    }
+  ],
+  "content": {
+    "memoryTokens": 87,
+    "illustratedTokens": 27,
+    "missingIllustrations": 60,
+    "mappedTokens": [
+      "🐳",
+      "🐬",
+      "🦈",
+      "🐢"
+    ],
+    "labels": [
+      "whale",
+      "dolphin",
+      "shark",
+      "turtle"
+    ],
+    "totalWebpBytes": 127774
+  },
+  "uiBuilderReview": {
+    "profile": "Fresh origin storage from a separate port, selected Amari through visible profile card; no localStorage or progress injection.",
+    "routes": "/api/voice and /api/story were blocked in the fresh browser context before its first navigation and remained guarded at the final origin.",
+    "flow": "Opened Thinking & Play > Memory Match, completed Forest Friends by clicking face-down cards and reading only their post-flip accessible names, clicked the enabled Next level control, completed Ocean Splash using ordinary card flips and labels visible after each flip.",
+    "oceanObservations": [
+      "whale 🐳, dolphin 🐬, shark 🦈, and turtle 🐢 illustrations show the intended animal and retain the existing accessible labels.",
+      "Dolphin art is reduced and lifted to leave its label visible on an 82px card.",
+      "All 16 Ocean Splash cards were visibly matched; the game showed 8 pairs and the next-level control."
+    ],
+    "viewports": [
+      {
+        "width": 1280,
+        "height": 900,
+        "screenshot": "docs/qa-evidence/batch7-memory-ocean-art-3a2d367-images/ocean-splash-desktop-builder.png"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "horizontalOverflow": false,
+        "screenshot": "docs/qa-evidence/batch7-memory-ocean-art-3a2d367-images/ocean-splash-390-builder.png"
+      }
+    ],
+    "console": "0 errors, 0 warnings",
+    "providerRequests": "No /api/voice or /api/story requests observed."
+  },
+  "preserved": "Authored token arrays, pair counts, progress IDs, passport behavior, source PNG provenance and Askia render path remain unchanged.",
+  "acceptance": "Builder evidence only. Independent QA and human visual review remain pending; this does not certify narration/audio, production behavior, or a 4.5 score."
+}
