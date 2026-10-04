@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T14:29:30.820655+00:00",
+  "updatedAt": "2026-10-04T14:48:26.668374+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1128,14 +1128,24 @@
         "Astronaut Academy": 4.0
       },
       "scope": "Teaching dimension only, based on exact source, retained gameplay baseline and independent copy/render delta. Astronaut later diagram/clue review remains in progress; no formal audio or overall awards."
+    },
+    "builderMissionAudit": {
+      "commit": "07ba3aa686aaa6bd69ef3d2c90d220deed646e58",
+      "report": "../dinospace-batch6-quality/docs/astronaut-academy-36-mission-builder-source-audit-20261004.md",
+      "scope": "Root read all36 rows. Answer-giving/redundant clues and unexplained vocabulary need repair. Useful inference hints must remain; labelled teaching hints may explicitly teach recall, with assisted metrics. Source repair assigned; not independent acceptance."
+    },
+    "chessReliabilityDelta": {
+      "commit": "2114ced",
+      "report": "../dinospace-batch6-quality/docs/qa-evidence/batch6-reliability-root-20261004/report.md",
+      "scope": "Fresh guarded desktop ordinary first5-move chapter/reload retains3stars+unlock; equal5-move replay globalstars stays3. Askia0globalstars only, not collection-isolation proof. Observed old5363 mute reset; preserve canonical soundfix in integration. No score or release."
     }
   },
   "batch4NarrationCheckpoint": {
-    "updatedAt": "2026-10-04T14:21:22.096Z",
+    "updatedAt": "2026-10-04T14:31:30.104Z",
     "pid": 18781,
-    "run": 228,
+    "run": 230,
     "status": "waiting_request_window",
-    "pending": 1926,
+    "pending": 1896,
     "scope": "Live PID confirmed;11 newly generated,3309 reused in last run, expected request-window wait. No restart or concurrent paid generation. Not audio acceptance."
   },
   "batch7CurrentEditorialReview": {

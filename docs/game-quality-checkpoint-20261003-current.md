@@ -552,3 +552,12 @@ B5 selective integration source b198dbf is frozen at 5368 on clean canonical 0d.
 Independent teaching reconciliation supports 4.5 for Pattern Parade, Dino Hangman and Chess Explorers in that dimension only; Astronaut remains 4.0 pending later clue/diagram proof. B7 repair b697694 simplifies Earth with a magnet comparison, introduces Titan/Triton/Charon as moons, and resets Memory scroll on new level. Independent review is assigned on 5369. Neither candidate is deployed or accepted overall.
 
 Finite narration worker PID 18781 is live: run 228, 1,926 pending at 14:21 UTC, expected request-window wait. No concurrent paid job. Counts remain 4 recorded accepted and 22 in progress.
+
+
+## Astronaut audit and ordinary Chess persistence — 4 October
+
+Root reviewed the complete 36-mission builder source audit `07ba3aa`. Several clues state the answer or repeat the question; first-use technical terms need concrete explanations. A source repair is assigned, preserving useful inference hints and labelling explicit teaching help fairly. This is builder audit evidence, not independent acceptance. Independent Earth/Venus diagram testing reached both through ordinary later chapters; the final report is being prepared.
+
+Root's exact frozen 5363 Chess check `2114ced` earned ★★★ in five ordinary moves, retained stars and Safe captures unlock after reload, and kept global stars at 3 after an equal five-move replay. Askia showed 0 global stars, which does not prove all collection isolation. The older candidate resets mute after reload; current canonical has a separately verified fix, so future selective integration must preserve it. This evidence narrows the reliability gap without assigning a whole-game score.
+
+B5 integration and B7 teaching/navigation independent reviews remain in progress. Worker PID 18781 is live at the current check; run 230 reports 1,896 narration clips pending, with expected request-window waiting and no new error. Overall counts remain 4 accepted and 22 in progress.
