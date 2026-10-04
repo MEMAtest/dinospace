@@ -1,0 +1,29 @@
+- generic [ref=e2]:
+  - progressbar "Session progress"
+  - generic [ref=e3051]:
+    - generic [ref=e3052]:
+      - button "Back to learning world" [ref=e3053] [cursor=pointer]
+      - generic [ref=e3056]:
+        - heading "Letter Launch" [level=2] [ref=e3057]
+        - paragraph [ref=e3058]: Level 1 · 1 of 6
+      - button "Turn sound on" [ref=e3059] [cursor=pointer]
+    - generic [ref=e3064]:
+      - generic [ref=e3065]:
+        - generic [ref=e3066]:
+          - generic [ref=e3067]:
+            - paragraph [ref=e3068]: Skill run
+            - paragraph [ref=e3069]: Hear the letter
+          - generic [ref=e3070]: 0/6
+        - progressbar "Hear the letter skill run" [ref=e3071]
+      - generic [ref=e3072]:
+        - paragraph [ref=e3073]: Listen and launch
+        - generic "Listen for the sound" [ref=e3074]: 👂
+        - paragraph [ref=e3075]: Listen to the word and find its first letter
+        - button "Hear the clue again" [ref=e3076] [cursor=pointer]
+        - generic [aria-hidden]:
+          - generic [aria-hidden]: 🔥
+          - generic [aria-hidden]: ✨ ✨
+      - generic [ref=e3081]:
+        - button "E" [ref=e3082] [cursor=pointer]
+        - button "U" [active] [ref=e3083] [cursor=pointer]
+      - generic [ref=e3084]: Not quite. Listen for the first sound in Egg again.
