@@ -1,0 +1,28 @@
+{
+  "created": "2026-10-05",
+  "wordId": "green",
+  "semanticTarget": "The colour green, shown as one plain green color swatch",
+  "status": "candidate replacement; independent narrow 82px review pending",
+  "generator": "built-in image_gen tool",
+  "prompt": "Create one premium polished 3D children's vocabulary picture-card illustration whose only subject is the colour green: a single large, plain, vivid green square color swatch made of smooth glossy enamel, with gently rounded corners and a subtle beveled edge. Show one uninterrupted flat green face, no symbol and no pattern; the square itself should read as a color sample, not a toy ball or another object. Center it straight-on with generous transparent margins. Soft studio lighting, refined cohesive educational app card style. Genuine transparent background with alpha. No ball, leaf, plant, paintbrush, paint can, other object, text, letters, labels, frame, watermark, floor, or backdrop. Make the plain green swatch unmistakable at 82-pixel card size.",
+  "sourcePng": "src/assets/sound-safari/generated-originals/green-v2.png",
+  "sourcePngSha256": "592f39b3ddf3af442c62fa004543e6d01d76e71efefe9d4cd87642ac0ceb894c",
+  "sourceDimensions": [
+    1254,
+    1254
+  ],
+  "sourceAlphaMinMax": [
+    0,
+    255
+  ],
+  "webpDerivative": "src/assets/sound-safari/word-cards/green-v2.webp",
+  "webpSha256": "4c371e52ce82a236d40b951c27e2930f15b888d4c8d948244fffc2c9a8799b6d",
+  "webpDimensions": [
+    512,
+    512
+  ],
+  "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG preserved unchanged.",
+  "supersedesRuntimeMapping": "green-v1.webp, which independent reviewer found could read as a ball; its PNG/WebP are retained unchanged.",
+  "priorSourcePngSha256": "68efa22898c7b43905438fa01acfcc0d9ab446ed8f8573fcc59e593de73e5f06",
+  "priorWebpSha256": "7f235c658dcc07cf3a38c348153e1e90047d90124a5db746b99828900c3c0dee"
+}

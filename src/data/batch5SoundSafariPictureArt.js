@@ -63,7 +63,7 @@ export const SOUND_SAFARI_PICTURE_ART = Object.freeze({
   'rain': new URL('../assets/sound-safari/word-cards/rain-v1.webp', import.meta.url).href,
   'seed': new URL('../assets/sound-safari/word-cards/seed-v1.webp', import.meta.url).href,
   'feet': new URL('../assets/sound-safari/word-cards/feet-v1.webp', import.meta.url).href,
-  'green': new URL('../assets/sound-safari/word-cards/green-v1.webp', import.meta.url).href,
+  'green': new URL('../assets/sound-safari/word-cards/green-v2.webp', import.meta.url).href,
   'boat': new URL('../assets/sound-safari/word-cards/boat-v1.webp', import.meta.url).href,
   'coat': new URL('../assets/sound-safari/word-cards/coat-v1.webp', import.meta.url).href,
   'book': new URL('../assets/sound-safari/word-cards/book-v1.webp', import.meta.url).href,
