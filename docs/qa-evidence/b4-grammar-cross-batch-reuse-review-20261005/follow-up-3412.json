@@ -1,0 +1,24 @@
+{
+  "reviewedSourceCommit": "3412bd3686acc883104fd22e4c42e718e80881d0",
+  "documentationHeadAtReview": "02413bdb1184e35633d62984d80ed4f99abf8e26",
+  "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+  "reuseProofSha256": "0d512625d875990a54991451cee2b292fef2ce13be54ab3fd7eefc6a890c20ad",
+  "checks": [
+    { "command": "node --test --test-name-pattern='B4 (verified missing-manifest reuse|conflicting manifest mapping)' scripts/reviewedNarrationJobs.test.mjs", "passed": 2, "failed": 0 },
+    { "command": "node --test scripts/b4GrammarReviewedReuse.test.mjs", "passed": 4, "failed": 0 },
+    { "sourceFrozenTranscript": "docs/qa-evidence/b4-grammar-reviewed-reuse-20261005/tests-final-mapping-guard.txt", "passed": 29, "failed": 0, "scopedLint": "passed" }
+  ],
+  "observedBehavior": {
+    "missingExactMappings": "Repairs the six verified mappings before run accounting; fixture asserts zero runs, zero requests, and unchanged isolated journal, including saturated-capacity fixture.",
+    "conflictingMapping": "Rejects a non-null wrong path before writes or requests; fixture asserts manifest and journal unchanged.",
+    "providerCalls": 0,
+    "realManifestOrJournalChanged": false,
+    "workerStarted": false,
+    "humanListening": false
+  },
+  "limits": [
+    "Fixture tests do not establish live-provider behavior or audio quality.",
+    "This review is not authorization to resume paid packaging.",
+    "Worker/terminal/journal reconciliation remains a separate gate."
+  ]
+}
