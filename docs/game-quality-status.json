@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T01:15:12.107573+00:00",
+  "updatedAt": "2026-10-05T01:18:35.138316+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1740,10 +1740,12 @@
   "narrationWorkerCheckpoint": {
     "pid": 18781,
     "physicallyConfirmedAlive": true,
-    "checkpointAt": "2026-10-05T00:36:53.576Z",
-    "run": 350,
-    "pending": 257,
+    "checkpointAt": "2026-10-05T01:17:11.423Z",
+    "run": 358,
+    "pending": 154,
     "status": "waiting_request_window",
+    "readOnlyPackagedPresence": 5092,
+    "packagedPresenceReport": "docs/qa-evidence/batch4-packaged-presence-progress-20261005.json",
     "scope": "Original ac3 worker only; no restart or concurrent paid calls. Corrected recordings/listening remain separate."
   },
   "traceCosmicCanonicalMediaObservation": {

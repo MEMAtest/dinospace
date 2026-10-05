@@ -1,0 +1,986 @@
+{
+  "scope": "Read-only packaged presence check of original worker corpus while process is live. Does not verify decoding, playback, human listening, corrected 47 phrases, production, or overall acceptance.",
+  "coverage": {
+    "arithmeticQuestions": 18096,
+    "timeQuestions": 120,
+    "numberLineQuestions": 88940,
+    "timeChapters": 3,
+    "numberLineChapters": 3
+  },
+  "perGame": {
+    "addition": {
+      "uniquePhrases": 2696,
+      "characters": 53417
+    },
+    "subtraction": {
+      "uniquePhrases": 1273,
+      "characters": 23070
+    },
+    "time": {
+      "uniquePhrases": 89,
+      "characters": 4145
+    },
+    "numberLine": {
+      "uniquePhrases": 1944,
+      "characters": 44058
+    }
+  },
+  "uniqueClips": 5246,
+  "totalCharacters": 112234,
+  "ready": {
+    "uniqueClips": 5092,
+    "characters": 107525
+  },
+  "pending": {
+    "uniqueClips": 154,
+    "characters": 4709
+  },
+  "checkedAt": "2026-10-05T01:18:35.138316+00:00",
+  "source": "ac3b3ccaf03107749d865f8d79557e872a06c881",
+  "readinessSnapshotSha256": "414137426cfd4c83f61893904d3d61e046a098d6a47f4f45adc16e89ba88bd09",
+  "physicallyConfirmedWorkerAlive": true,
+  "worker": {
+    "updatedAt": "2026-10-05T01:17:11.423Z",
+    "pid": 18781,
+    "status": "waiting_request_window",
+    "run": 358,
+    "cooldownRetries": 0,
+    "waitUntil": "2026-10-05T01:27:01.313Z",
+    "requestsInWindow": 26,
+    "availableCalls": 4,
+    "minimumBatch": 10,
+    "lastResult": {
+      "exitCode": 0,
+      "generated": 14,
+      "reused": 5078,
+      "pending": 154,
+      "stoppedAt": null
+    }
+  },
+  "missingItems": [
+    {
+      "text": "Frog B starts at 9 and lands on 13.",
+      "key": "173a96a9",
+      "path": "/audio/en/173a96a9-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Frog B starts at 9 and lands on 14.",
+      "key": "15294a62",
+      "path": "/audio/en/15294a62-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Frog B starts at 9 and lands on 15.",
+      "key": "772c233f",
+      "path": "/audio/en/772c233f-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Frog B starts at 9 and lands on 16.",
+      "key": "952e9110",
+      "path": "/audio/en/952e9110-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Frog B starts at 9 and lands on 17.",
+      "key": "9730d2cd",
+      "path": "/audio/en/9730d2cd-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Frog B starts at 9 and lands on 18.",
+      "key": "751f5426",
+      "path": "/audio/en/751f5426-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Frog B starts at 9 and lands on 19.",
+      "key": "9721c843",
+      "path": "/audio/en/9721c843-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Frog B starts at 9 and lands on 20.",
+      "key": "5de73b03",
+      "path": "/audio/en/5de73b03-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 1 back.",
+      "key": "de22ae8b",
+      "path": "/audio/en/de22ae8b-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 1 forward.",
+      "key": "0dec0ecd",
+      "path": "/audio/en/0dec0ecd-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 10 back.",
+      "key": "4e223de3",
+      "path": "/audio/en/4e223de3-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 10 forward.",
+      "key": "f4c95f35",
+      "path": "/audio/en/f4c95f35-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 2 back.",
+      "key": "e2fd2bba",
+      "path": "/audio/en/e2fd2bba-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 2 forward.",
+      "key": "13684c4e",
+      "path": "/audio/en/13684c4e-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 3 back.",
+      "key": "9b199489",
+      "path": "/audio/en/9b199489-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 3 forward.",
+      "key": "1c323877",
+      "path": "/audio/en/1c323877-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 4 back.",
+      "key": "9c3e4cb0",
+      "path": "/audio/en/9c3e4cb0-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 4 forward.",
+      "key": "491639f0",
+      "path": "/audio/en/491639f0-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 5 back.",
+      "key": "b9d72ce7",
+      "path": "/audio/en/b9d72ce7-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 5 forward.",
+      "key": "7fff2701",
+      "path": "/audio/en/7fff2701-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 6 back.",
+      "key": "65107dc6",
+      "path": "/audio/en/65107dc6-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 6 forward.",
+      "key": "516799f2",
+      "path": "/audio/en/516799f2-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 7 back.",
+      "key": "e2c27025",
+      "path": "/audio/en/e2c27025-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 7 forward.",
+      "key": "3e5c125b",
+      "path": "/audio/en/3e5c125b-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 8 back.",
+      "key": "3172125c",
+      "path": "/audio/en/3172125c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 8 forward.",
+      "key": "453b31c4",
+      "path": "/audio/en/453b31c4-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 9 back.",
+      "key": "15415633",
+      "path": "/audio/en/15415633-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Hop 9 forward.",
+      "key": "701a8705",
+      "path": "/audio/en/701a8705-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "How many hops?",
+      "key": "55eb084c",
+      "path": "/audio/en/55eb084c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Move one number for each hop.",
+      "key": "13952341",
+      "path": "/audio/en/13952341-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 0.",
+      "key": "6f6f60e5",
+      "path": "/audio/en/6f6f60e5-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 1.",
+      "key": "0d6c8808",
+      "path": "/audio/en/0d6c8808-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 10.",
+      "key": "67ad6694",
+      "path": "/audio/en/67ad6694-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 2.",
+      "key": "ef6a1a37",
+      "path": "/audio/en/ef6a1a37-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 3.",
+      "key": "0d680ada",
+      "path": "/audio/en/0d680ada-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 4.",
+      "key": "0f795721",
+      "path": "/audio/en/0f795721-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 5.",
+      "key": "ed76e304",
+      "path": "/audio/en/ed76e304-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 6.",
+      "key": "6f73de13",
+      "path": "/audio/en/6f73de13-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 7.",
+      "key": "8d71ceb6",
+      "path": "/audio/en/8d71ceb6-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 8.",
+      "key": "6f82e89d",
+      "path": "/audio/en/6f82e89d-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at 9.",
+      "key": "6d80a6e0",
+      "path": "/audio/en/6d80a6e0-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at the landing number and count back one space for each hop.",
+      "key": "4709b41a",
+      "path": "/audio/en/4709b41a-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Start at the starting number and count forward one space for each hop.",
+      "key": "6b047645",
+      "path": "/audio/en/6b047645-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 0.",
+      "key": "fd9bcc0a",
+      "path": "/audio/en/fd9bcc0a-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 1.",
+      "key": "1f9e4027",
+      "path": "/audio/en/1f9e4027-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 10.",
+      "key": "eede5935",
+      "path": "/audio/en/eede5935-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 2.",
+      "key": "7da112b8",
+      "path": "/audio/en/7da112b8-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 3.",
+      "key": "9fa386d5",
+      "path": "/audio/en/9fa386d5-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 4.",
+      "key": "7da58fe6",
+      "path": "/audio/en/7da58fe6-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 5.",
+      "key": "9fa80403",
+      "path": "/audio/en/9fa80403-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 6.",
+      "key": "1dab08f4",
+      "path": "/audio/en/1dab08f4-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 7.",
+      "key": "ffad1851",
+      "path": "/audio/en/ffad1851-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 8.",
+      "key": "1daf8622",
+      "path": "/audio/en/1daf8622-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 1 hop and landed on 9.",
+      "key": "7fb25eff",
+      "path": "/audio/en/7fb25eff-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 10 hops and landed on 0.",
+      "key": "c2a17b47",
+      "path": "/audio/en/c2a17b47-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 10 hops and landed on 10.",
+      "key": "7e5d845a",
+      "path": "/audio/en/7e5d845a-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 0.",
+      "key": "b0f63b34",
+      "path": "/audio/en/b0f63b34-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 1.",
+      "key": "92f84a91",
+      "path": "/audio/en/92f84a91-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 10.",
+      "key": "7bf646b3",
+      "path": "/audio/en/7bf646b3-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 2.",
+      "key": "10f0c226",
+      "path": "/audio/en/10f0c226-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 3.",
+      "key": "32f33643",
+      "path": "/audio/en/32f33643-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 4.",
+      "key": "10ec44f8",
+      "path": "/audio/en/10ec44f8-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 5.",
+      "key": "32eeb915",
+      "path": "/audio/en/32eeb915-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 6.",
+      "key": "90e6fe4a",
+      "path": "/audio/en/90e6fe4a-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 7.",
+      "key": "b2e97267",
+      "path": "/audio/en/b2e97267-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 8.",
+      "key": "9109908c",
+      "path": "/audio/en/9109908c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 2 hops and landed on 9.",
+      "key": "b30c04a9",
+      "path": "/audio/en/b30c04a9-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 0.",
+      "key": "e17d6baf",
+      "path": "/audio/en/e17d6baf-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 1.",
+      "key": "bf7af792",
+      "path": "/audio/en/bf7af792-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 10.",
+      "key": "8ac020b2",
+      "path": "/audio/en/8ac020b2-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 2.",
+      "key": "41827ffd",
+      "path": "/audio/en/41827ffd-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 3.",
+      "key": "bf7f74c0",
+      "path": "/audio/en/bf7f74c0-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 4.",
+      "key": "4186fd2b",
+      "path": "/audio/en/4186fd2b-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 5.",
+      "key": "5f84edce",
+      "path": "/audio/en/5f84edce-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 6.",
+      "key": "c18c43d9",
+      "path": "/audio/en/c18c43d9-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 7.",
+      "key": "5f896afc",
+      "path": "/audio/en/5f896afc-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 8.",
+      "key": "c169b197",
+      "path": "/audio/en/c169b197-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 3 hops and landed on 9.",
+      "key": "5f66d8ba",
+      "path": "/audio/en/5f66d8ba-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 0.",
+      "key": "869e7086",
+      "path": "/audio/en/869e7086-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 1.",
+      "key": "a8a0e4a3",
+      "path": "/audio/en/a8a0e4a3-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 10.",
+      "key": "a242b5a9",
+      "path": "/audio/en/a242b5a9-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 2.",
+      "key": "a6a32014",
+      "path": "/audio/en/a6a32014-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 3.",
+      "key": "08a5f8f1",
+      "path": "/audio/en/08a5f8f1-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 4.",
+      "key": "0694acaa",
+      "path": "/audio/en/0694acaa-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 5.",
+      "key": "289720c7",
+      "path": "/audio/en/289720c7-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 6.",
+      "key": "069929d8",
+      "path": "/audio/en/069929d8-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 7.",
+      "key": "289b9df5",
+      "path": "/audio/en/289b9df5-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 8.",
+      "key": "86b1f83e",
+      "path": "/audio/en/86b1f83e-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 4 hops and landed on 9.",
+      "key": "a8b46c5b",
+      "path": "/audio/en/a8b46c5b-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 0.",
+      "key": "b61728a1",
+      "path": "/audio/en/b61728a1-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 1.",
+      "key": "9414b484",
+      "path": "/audio/en/9414b484-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 10.",
+      "key": "66a6db08",
+      "path": "/audio/en/66a6db08-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 2.",
+      "key": "1611af93",
+      "path": "/audio/en/1611af93-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 3.",
+      "key": "340fa036",
+      "path": "/audio/en/340fa036-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 4.",
+      "key": "160d3265",
+      "path": "/audio/en/160d3265-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 5.",
+      "key": "b40a5988",
+      "path": "/audio/en/b40a5988-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 6.",
+      "key": "9607ebb7",
+      "path": "/audio/en/9607ebb7-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 7.",
+      "key": "b405dc5a",
+      "path": "/audio/en/b405dc5a-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 8.",
+      "key": "962a7df9",
+      "path": "/audio/en/962a7df9-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 5 hops and landed on 9.",
+      "key": "b4286e9c",
+      "path": "/audio/en/b4286e9c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 0.",
+      "key": "2fbc2710",
+      "path": "/audio/en/2fbc2710-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 1.",
+      "key": "31be68cd",
+      "path": "/audio/en/31be68cd-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 10.",
+      "key": "d174e487",
+      "path": "/audio/en/d174e487-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 2.",
+      "key": "afb6e062",
+      "path": "/audio/en/afb6e062-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 3.",
+      "key": "11b9b93f",
+      "path": "/audio/en/11b9b93f-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 4.",
+      "key": "8fc5b88c",
+      "path": "/audio/en/8fc5b88c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 6.",
+      "key": "8fc13b5e",
+      "path": "/audio/en/8fc13b5e-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 7.",
+      "key": "b1c3af7b",
+      "path": "/audio/en/b1c3af7b-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 8.",
+      "key": "0fa86cf8",
+      "path": "/audio/en/0fa86cf8-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 6 hops and landed on 9.",
+      "key": "31aae115",
+      "path": "/audio/en/31aae115-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 7 hops and landed on 0.",
+      "key": "b529d97b",
+      "path": "/audio/en/b529d97b-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 7 hops and landed on 1.",
+      "key": "9327655e",
+      "path": "/audio/en/9327655e-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 7 hops and landed on 10.",
+      "key": "971d7db6",
+      "path": "/audio/en/971d7db6-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 7 hops and landed on 2.",
+      "key": "b52e56a9",
+      "path": "/audio/en/b52e56a9-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 7 hops and landed on 3.",
+      "key": "932be28c",
+      "path": "/audio/en/932be28c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 7 hops and landed on 7.",
+      "key": "33225110",
+      "path": "/audio/en/33225110-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 7 hops and landed on 8.",
+      "key": "35158843",
+      "path": "/audio/en/35158843-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 7 hops and landed on 9.",
+      "key": "13131426",
+      "path": "/audio/en/13131426-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 8 hops and landed on 0.",
+      "key": "302fcb22",
+      "path": "/audio/en/302fcb22-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 8 hops and landed on 1.",
+      "key": "9232a3ff",
+      "path": "/audio/en/9232a3ff-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 8 hops and landed on 10.",
+      "key": "56ee931d",
+      "path": "/audio/en/56ee931d-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 8 hops and landed on 2.",
+      "key": "b03511d0",
+      "path": "/audio/en/b03511d0-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 8 hops and landed on 8.",
+      "key": "101c110a",
+      "path": "/audio/en/101c110a-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 8 hops and landed on 9.",
+      "key": "321e8527",
+      "path": "/audio/en/321e8527-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 9 hops and landed on 0.",
+      "key": "dede72ed",
+      "path": "/audio/en/dede72ed-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 9 hops and landed on 1.",
+      "key": "5cdb67b0",
+      "path": "/audio/en/5cdb67b0-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 9 hops and landed on 10.",
+      "key": "ab5f6e2c",
+      "path": "/audio/en/ab5f6e2c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "The frog moved 9 hops and landed on 9.",
+      "key": "3cc7ad98",
+      "path": "/audio/en/3cc7ad98-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "They are the same.",
+      "key": "8de9770f",
+      "path": "/audio/en/8de9770f-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Where do you land?",
+      "key": "ec1ceb3d",
+      "path": "/audio/en/ec1ceb3d-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Which frog landed on the larger number?",
+      "key": "17e3e26c",
+      "path": "/audio/en/17e3e26c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Which frog travelled farther?",
+      "key": "660f9827",
+      "path": "/audio/en/660f9827-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "Which number is the start?",
+      "key": "24568596",
+      "path": "/audio/en/24568596-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 0.",
+      "key": "2a4dcf6e",
+      "path": "/audio/en/2a4dcf6e-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 1.",
+      "key": "8c50a84b",
+      "path": "/audio/en/8c50a84b-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 10.",
+      "key": "681bdba1",
+      "path": "/audio/en/681bdba1-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 11.",
+      "key": "46196784",
+      "path": "/audio/en/46196784-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 12.",
+      "key": "c8166293",
+      "path": "/audio/en/c8166293-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 13.",
+      "key": "e6145336",
+      "path": "/audio/en/e6145336-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 14.",
+      "key": "c811e565",
+      "path": "/audio/en/c811e565-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 15.",
+      "key": "660f0c88",
+      "path": "/audio/en/660f0c88-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 16.",
+      "key": "480c9eb7",
+      "path": "/audio/en/480c9eb7-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 17.",
+      "key": "660a8f5a",
+      "path": "/audio/en/660a8f5a-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 18.",
+      "key": "482f30f9",
+      "path": "/audio/en/482f30f9-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 19.",
+      "key": "662d219c",
+      "path": "/audio/en/662d219c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 2.",
+      "key": "aa53161c",
+      "path": "/audio/en/aa53161c-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 20.",
+      "key": "d2b32250",
+      "path": "/audio/en/d2b32250-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 3.",
+      "key": "8c552579",
+      "path": "/audio/en/8c552579-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 4.",
+      "key": "8a43d932",
+      "path": "/audio/en/8a43d932-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 5.",
+      "key": "ac464d4f",
+      "path": "/audio/en/ac464d4f-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 6.",
+      "key": "0a491fe0",
+      "path": "/audio/en/0a491fe0-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 7.",
+      "key": "0c4b619d",
+      "path": "/audio/en/0c4b619d-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 8.",
+      "key": "2a3a47b6",
+      "path": "/audio/en/2a3a47b6-matilda.mp3",
+      "ready": false
+    },
+    {
+      "text": "the missing number is 9.",
+      "key": "0c3c5713",
+      "path": "/audio/en/0c3c5713-matilda.mp3",
+      "ready": false
+    }
+  ]
+}
