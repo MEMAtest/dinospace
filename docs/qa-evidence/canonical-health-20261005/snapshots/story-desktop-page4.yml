@@ -1,0 +1,31 @@
+- main [ref=f8e1881]:
+  - generic [ref=f8e1882]:
+    - generic [ref=f8e1883]:
+      - button "Back to storybooks" [ref=f8e2061] [cursor=pointer]
+      - generic [ref=f8e1887]:
+        - paragraph [ref=f8e1888]: 🌙 colourful 3D animation
+        - heading "Rex and the Missing Moon Map" [level=1] [ref=f8e2062]
+      - generic [ref=f8e2063]:
+        - button "Turn sound on" [ref=f8e2064] [cursor=pointer]
+        - button "Back to learning world" [ref=f8e2069] [cursor=pointer]
+    - generic "Page 5 of 11" [ref=f8e2072]:
+      - generic [ref=f8e2073]: Page 4
+      - generic [ref=f8e2076]: 5/11
+    - generic [ref=f8e2077]:
+      - generic [ref=f8e1901]:
+        - img "Rex and the Missing Moon Map, Page 4" [ref=f8e2078]
+        - generic [ref=f8e2079]: Illustration 4 of 10
+      - generic [ref=f8e1906]:
+        - paragraph [ref=f8e2080]: Page 4
+        - paragraph [ref=f8e2081]: At the big crater, something glimmered in the dust. It was a shiny corner of paper! As Rex stepped closer, his boot nudged the dust, and the paper slipped downhill.
+        - generic [ref=f8e2082]:
+          - button "Play narration" [ref=f8e2083] [cursor=pointer]: Hear page
+          - button "Replay" [ref=f8e2086] [cursor=pointer]
+        - generic [ref=f8e2090]: Read-aloud story
+        - group [ref=f8e2093]:
+          - generic "Word help" [ref=f8e2094] [cursor=pointer]
+    - generic [ref=f8e2095]:
+      - button "Previous page" [ref=f8e2096] [cursor=pointer]:
+        - generic [ref=f8e2099]: Previous
+      - button "Next page" [ref=f8e2112] [cursor=pointer]:
+        - generic [ref=f8e2113]: Next

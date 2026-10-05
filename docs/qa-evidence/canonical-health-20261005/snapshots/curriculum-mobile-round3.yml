@@ -1,0 +1,110 @@
+- generic [ref=f8e389]:
+  - banner [ref=f8e390]:
+    - button "Back to learning world" [ref=f8e391] [cursor=pointer]
+    - generic [ref=f8e394]:
+      - paragraph [ref=f8e395]: Curriculum Quest · Module 1
+      - heading "Continents & Oceans" [level=1] [ref=f8e396]: 🌍 Continents & Oceans
+      - text: Explore our shared world
+    - button "Turn sound on" [ref=f8e397] [cursor=pointer]
+  - main [ref=f8e402]:
+    - navigation "Curriculum modules" [ref=f8e403]:
+      - button "Continents & Oceans Explore our shared world" [pressed] [ref=f8e404] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f8e405]: 🌍
+        - generic [ref=f8e406]:
+          - strong [ref=f8e407]: Continents & Oceans
+          - generic [ref=f8e408]: Explore our shared world
+      - button "Time Detectives Put clues from the past in order" [ref=f8e411] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f8e412]: 🕰️
+        - generic [ref=f8e413]:
+          - strong [ref=f8e414]: Time Detectives
+          - generic [ref=f8e415]: Put clues from the past in order
+      - button "Nature Lab Sort, predict, observe and explain" [ref=f8e418] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f8e419]: 🔬
+        - generic [ref=f8e420]:
+          - strong [ref=f8e421]: Nature Lab
+          - generic [ref=f8e422]: Sort, predict, observe and explain
+    - region [ref=f8e699]:
+      - generic [ref=f8e426]:
+        - generic [ref=f8e427]: Year 1 discovery
+        - generic [ref=f8e428]:
+          - generic [ref=f8e429]:
+            - generic [ref=f8e430]:
+              - paragraph [ref=f8e431]: Skill run
+              - paragraph [ref=f8e432]: geography:continents
+            - generic [ref=f8e433]: 2/5
+          - progressbar "geography:continents skill run" [ref=f8e700]
+        - button "Try this round again" [ref=f8e435] [cursor=pointer]
+      - generic [ref=f8e439]:
+        - heading "Find Europe on the map." [level=2] [ref=f8e701]
+        - 'button "Hear prompt: Find Europe on the map." [disabled] [ref=f8e702]': Hear prompt
+      - generic [ref=f8e444]:
+        - generic [ref=f8e445]: Round 3 of 5 · Learn first, then try it independently.
+        - 'button "Hear instructions: Learn first, then try it independently." [disabled] [ref=f8e446]': Hear instructions
+      - generic [ref=f8e449]:
+        - paragraph [ref=f8e561]: Tap the map pin where this continent is.
+        - generic "A simplified labelled world map, not to scale" [ref=f8e703]:
+          - generic [ref=f8e705]:
+            - button "Choose Africa" [ref=f8e706] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f8e707]: 📍
+            - button "Choose Antarctica" [ref=f8e708] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f8e709]: 📍
+            - button "Choose Asia" [ref=f8e710] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f8e711]: 📍
+            - button "Choose Europe" [ref=f8e712] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f8e713]: 📍
+            - button "Choose North America" [ref=f8e714] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f8e715]: 📍
+            - button "Choose South America" [ref=f8e716] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f8e717]: 📍
+            - button "Choose Australia" [ref=f8e718] [cursor=pointer]:
+              - generic [aria-hidden] [ref=f8e719]: 📍
+          - generic "North arrow" [ref=f8e720]: ↑ N
+          - generic [ref=f8e721]: Land shapes · not to scale
+        - paragraph [ref=f8e722]: Use the labelled learning map you explored, then choose the matching place.
+        - generic "Hear map choices" [ref=f8e723]:
+          - 'button "Hear Africa: Africa" [disabled] [ref=f8e724]': Hear Africa
+          - 'button "Hear Antarctica: Antarctica" [disabled] [ref=f8e727]': Hear Antarctica
+          - 'button "Hear Asia: Asia" [disabled] [ref=f8e730]': Hear Asia
+          - 'button "Hear Europe: Europe" [disabled] [ref=f8e733]': Hear Europe
+          - 'button "Hear North America: North America" [disabled] [ref=f8e736]': Hear North America
+          - 'button "Hear South America: South America" [disabled] [ref=f8e739]': Hear South America
+          - 'button "Hear Australia: Australia" [disabled] [ref=f8e742]': Hear Australia
+        - complementary [ref=f8e607]:
+          - paragraph [ref=f8e608]: Learn & explore
+          - heading "Your explorer words" [level=3] [ref=f8e609]
+          - generic [ref=f8e610]:
+            - generic [ref=f8e611]:
+              - strong [ref=f8e612]: continent
+              - 'button "Hear word: continent" [disabled] [ref=f8e613]': Hear word
+            - generic [ref=f8e616]:
+              - strong [ref=f8e617]: ocean
+              - 'button "Hear word: ocean" [disabled] [ref=f8e618]': Hear word
+            - generic [ref=f8e621]:
+              - strong [ref=f8e622]: country
+              - 'button "Hear word: country" [disabled] [ref=f8e623]': Hear word
+            - generic [ref=f8e626]:
+              - strong [ref=f8e627]: map key
+              - 'button "Hear word: map key" [disabled] [ref=f8e628]': Hear word
+          - paragraph [ref=f8e631]: A continent is a large area of land. An ocean is a huge area of salt water. A country is a place where people live. A map helps us find places.
+          - generic "Related Year 1 school topics" [ref=f8e632]:
+            - generic [ref=f8e633]: Autumn 2 · Treasure Islands
+            - generic [ref=f8e634]: Spring 1 · A Day in the Life
+            - generic [ref=f8e635]: Summer 1 · Green Fingers
+            - generic [ref=f8e636]: "Summer 2 · The Earth: Our Home"
+    - region "Curriculum explorer badges" [ref=f8e532]:
+      - generic [ref=f8e533]:
+        - heading "Explorer badges" [level=3] [ref=f8e534]
+        - generic [ref=f8e535]: 0 / 3 collected
+      - generic [ref=f8e536]:
+        - 'generic "Starter map explorer: finish this path to collect" [ref=f8e537]':
+          - generic [ref=f8e538]: "1"
+          - strong [ref=f8e543]: Starter map explorer
+          - generic [ref=f8e544]: Complete this path
+        - 'generic "Growing map explorer: finish this path to collect" [ref=f8e545]':
+          - generic [ref=f8e546]: "2"
+          - strong [ref=f8e551]: Growing map explorer
+          - generic [ref=f8e552]: Complete this path
+        - 'generic "Challenge map explorer: finish this path to collect" [ref=f8e553]':
+          - generic [ref=f8e554]: "3"
+          - strong [ref=f8e559]: Challenge map explorer
+          - generic [ref=f8e560]: Complete this path

@@ -1,0 +1,152 @@
+- main [ref=f8e1277]:
+  - generic [ref=f8e1278]:
+    - generic [ref=f8e1279]:
+      - button "Back to learning world" [active] [ref=f8e1532] [cursor=pointer]
+      - generic [ref=f8e1283]:
+        - paragraph [ref=f8e1284]: Read & Write
+        - heading "Storybook Studio" [level=1] [ref=f8e1533]
+      - button "Turn sound on" [ref=f8e1534] [cursor=pointer]
+    - generic [ref=f8e1539]:
+      - generic [ref=f8e1540]: 📚
+      - heading "Choose a story to explore" [level=2] [ref=f8e1541]
+      - paragraph [ref=f8e1542]: Every story has pictures, short pages and a voice to read along with. Saved stories are ready to enjoy offline.
+      - button "✨ Create a new story" [ref=f8e1543] [cursor=pointer]
+    - region "Storybook filters" [ref=f8e1544]:
+      - generic [ref=f8e1508]:
+        - generic [ref=f8e1545]:
+          - text: Reading progress for
+          - combobox "Reading progress for" [ref=f8e1546]:
+            - option "Amari · 5-6" [selected]
+        - button "Edit children" [ref=f8e1547] [cursor=pointer]
+        - button "Characters & series" [ref=f8e1548] [cursor=pointer]
+      - generic [ref=f8e1302]:
+        - button "Back up saved stories" [disabled] [ref=f8e1549]
+        - button "Restore a story backup" [ref=f8e1553] [cursor=pointer]
+      - paragraph [ref=f8e1557]: Stories on this device are shared. Each reader has their own place and favourites.
+      - generic [ref=f8e1558]:
+        - button "All stories" [pressed] [ref=f8e1559] [cursor=pointer]
+        - button "My Stories" [ref=f8e1560] [cursor=pointer]
+        - button "Learning" [ref=f8e1561] [cursor=pointer]
+        - button "Bedtime" [ref=f8e1562] [cursor=pointer]
+        - button "Favourites" [ref=f8e1563] [cursor=pointer]
+        - combobox "Filter by age band" [ref=f8e1564]:
+          - option "All ages" [selected]
+          - option "Ages 3–4"
+          - option "Ages 5–6"
+          - option "Ages 7–8"
+        - combobox "Filter by series" [ref=f8e1565]:
+          - option "All series" [selected]
+          - option "Moon Explorers"
+          - option "Forest Friends"
+          - option "River Keepers"
+          - option "Garden Discoveries"
+          - option "Gentle Evenings"
+          - option "Mountain Seed Stories"
+          - option "Neighbourhood Clues"
+    - region "Storybook library" [ref=f8e1566]:
+      - article [ref=f8e1567]:
+        - button "Open Rex and the Missing Moon Map, colourful 3D animation, ages 5-6" [ref=f8e1568] [cursor=pointer]:
+          - generic [ref=f8e1570]:
+            - generic [ref=f8e1571]: Ages 5-6
+            - generic [ref=f8e1572]: Reading as Amari
+          - generic [ref=f8e1573]:
+            - generic [ref=f8e1574]:
+              - generic [ref=f8e1575]:
+                - heading "Rex and the Missing Moon Map" [level=3] [ref=f8e1576]
+                - paragraph [ref=f8e1577]: A teamwork adventure above the craters
+              - button "Add favourite" [ref=f8e1578]: ☆
+            - generic [ref=f8e1579]: Moon Explorers
+            - generic [ref=f8e1581]:
+              - generic [ref=f8e1582]: Read story
+              - button "New story with Moon Explorers" [ref=f8e1585]
+      - article [ref=f8e1586]:
+        - button "Open Luna and the Whispering Forest, hand-painted 2D storybook, ages 5-6" [ref=f8e1587] [cursor=pointer]:
+          - generic [ref=f8e1589]:
+            - generic [ref=f8e1590]: Ages 5-6
+            - generic [ref=f8e1591]: Reading as Amari
+          - generic [ref=f8e1592]:
+            - generic [ref=f8e1593]:
+              - generic [ref=f8e1594]:
+                - heading "Luna and the Whispering Forest" [level=3] [ref=f8e1595]
+                - paragraph [ref=f8e1596]: A gentle mystery among woodland friends
+              - button "Add favourite" [ref=f8e1597]: ☆
+            - generic [ref=f8e1598]: Forest Friends
+            - generic [ref=f8e1600]:
+              - generic [ref=f8e1601]: Read story
+              - button "New story with Forest Friends" [ref=f8e1604]
+      - article [ref=f8e1605]:
+        - button "Open Nia’s Great River Journey, realistic but warm wildlife imagery, ages 5-6" [ref=f8e1606] [cursor=pointer]:
+          - generic [ref=f8e1608]:
+            - generic [ref=f8e1609]: Ages 5-6
+            - generic [ref=f8e1610]: Reading as Amari
+          - generic [ref=f8e1611]:
+            - generic [ref=f8e1612]:
+              - generic [ref=f8e1613]:
+                - heading "Nia’s Great River Journey" [level=3] [ref=f8e1614]
+                - paragraph [ref=f8e1615]: A warm wildlife adventure about sharing water
+              - button "Add favourite" [ref=f8e1616]: ☆
+            - generic [ref=f8e1617]: River Keepers
+            - generic [ref=f8e1619]:
+              - generic [ref=f8e1620]: Read story
+              - button "New story with River Keepers" [ref=f8e1623]
+      - article [ref=f8e1624]:
+        - button "Open Bo and the Busy Bee Garden, painted-2d, ages 5-6" [ref=f8e1625] [cursor=pointer]:
+          - generic [ref=f8e1627]:
+            - generic [ref=f8e1628]: Ages 5-6
+            - generic [ref=f8e1629]: Reading as Amari
+          - generic [ref=f8e1630]:
+            - generic [ref=f8e1631]:
+              - generic [ref=f8e1632]:
+                - heading "Bo and the Busy Bee Garden" [level=3] [ref=f8e1633]
+                - paragraph [ref=f8e1634]: A garden discovery about flowers and bees
+              - button "Add favourite" [ref=f8e1635]: ☆
+            - generic [ref=f8e1636]: Garden Discoveries
+            - generic [ref=f8e1638]:
+              - generic [ref=f8e1639]: Read story
+              - button "New story with Garden Discoveries" [ref=f8e1642]
+      - article [ref=f8e1643]:
+        - button "Open Sami and the Night-Light Parade, painted-2d, ages 5-6" [ref=f8e1644] [cursor=pointer]:
+          - generic [ref=f8e1646]:
+            - generic [ref=f8e1647]: Ages 5-6
+            - generic [ref=f8e1648]: Reading as Amari
+          - generic [ref=f8e1649]:
+            - generic [ref=f8e1650]:
+              - generic [ref=f8e1651]:
+                - heading "Sami and the Night-Light Parade" [level=3] [ref=f8e1652]
+                - paragraph [ref=f8e1653]: A calm evening of lanterns, fireflies and stars
+              - button "Add favourite" [ref=f8e1654]: ☆
+            - generic [ref=f8e1655]: Gentle Evenings
+            - generic [ref=f8e1657]:
+              - generic [ref=f8e1658]: Read story
+              - button "New story with Gentle Evenings" [ref=f8e1661]
+      - article [ref=f8e1662]:
+        - button "Open Mina’s Mountain Seed, painted-2d, ages 5-6" [ref=f8e1663] [cursor=pointer]:
+          - generic [ref=f8e1665]:
+            - generic [ref=f8e1666]: Ages 5-6
+            - generic [ref=f8e1667]: Reading as Amari
+          - generic [ref=f8e1668]:
+            - generic [ref=f8e1669]:
+              - generic [ref=f8e1670]:
+                - heading "Mina’s Mountain Seed" [level=3] [ref=f8e1671]
+                - paragraph [ref=f8e1672]: A patient little seedling at the mountain hut
+              - button "Add favourite" [ref=f8e1673]: ☆
+            - generic [ref=f8e1674]: Mountain Seed Stories
+            - generic [ref=f8e1676]:
+              - generic [ref=f8e1677]: Read story
+              - button "New story with Mountain Seed Stories" [ref=f8e1680]
+      - article [ref=f8e1681]:
+        - button "Open Kai and the Lost Library Book, painted-2d, ages 5-6" [ref=f8e1682] [cursor=pointer]:
+          - generic [ref=f8e1684]:
+            - generic [ref=f8e1685]: Ages 5-6
+            - generic [ref=f8e1686]: Reading as Amari
+          - generic [ref=f8e1687]:
+            - generic [ref=f8e1688]:
+              - generic [ref=f8e1689]:
+                - heading "Kai and the Lost Library Book" [level=3] [ref=f8e1690]
+                - paragraph [ref=f8e1691]: A neighbourhood mystery solved with careful clues
+              - button "Add favourite" [ref=f8e1692]: ☆
+            - generic [ref=f8e1693]: Neighbourhood Clues
+            - generic [ref=f8e1695]:
+              - generic [ref=f8e1696]: Read story
+              - button "New story with Neighbourhood Clues" [ref=f8e1699]
+    - paragraph [ref=f8e1700]: Saved stories can be read aloud offline.

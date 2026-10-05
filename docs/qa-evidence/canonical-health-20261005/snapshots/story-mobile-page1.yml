@@ -1,0 +1,26 @@
+- main [ref=f8e1277]:
+  - generic [ref=f8e1278]:
+    - generic [ref=f8e1279]:
+      - button "Back to storybooks" [ref=f8e1457] [cursor=pointer]
+      - generic [ref=f8e1283]:
+        - paragraph [ref=f8e1284]: 🌙 colourful 3D animation
+        - heading "Rex and the Missing Moon Map" [level=1] [ref=f8e1458]
+      - generic [ref=f8e1459]:
+        - button "Turn sound on" [ref=f8e1460] [cursor=pointer]
+        - button "Back to learning world" [ref=f8e1465] [cursor=pointer]
+    - generic "Page 1 of 11" [ref=f8e1468]:
+      - generic [ref=f8e1469]: Cover
+      - generic [ref=f8e1472]: 1/11
+    - generic [ref=f8e1473]:
+      - button "Start reading Rex and the Missing Moon Map" [ref=f8e1474] [cursor=pointer]:
+        - img "Rex and the Missing Moon Map cover" [ref=f8e1475]
+        - generic [ref=f8e1476]: Tap to Start Reading
+      - generic [ref=f8e1302]:
+        - generic [ref=f8e1479]: A 10-page adventure
+        - heading "Rex and the Missing Moon Map" [level=2] [ref=f8e1480]
+        - paragraph [ref=f8e1481]: Rex, a cheerful young T-Rex astronaut, and his small robot friend Pip search the Moon for a lost star map. By sharing clues and working together, they find it and follow it home for a well-earned rest.
+        - button "Start Reading" [active] [ref=f8e1482] [cursor=pointer]
+        - button "Auto-turn pages after narration" [pressed] [ref=f8e1485] [cursor=pointer]
+    - generic [ref=f8e1488]:
+      - button "Previous page" [disabled] [ref=f8e1489]
+      - button "Next page" [ref=f8e1504] [cursor=pointer]
