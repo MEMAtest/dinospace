@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-05",
+  "scope": "Read-only full exact-text/key/path inventory and per-game coverage compatibility; no audio files, worker changes, playback or listening acceptance.",
+  "reviewedCorrectedSource": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+  "cumulativeCheckoutHead": "add5f85ff3da9a6eb97974e0544271c8bdf9adf9",
+  "runtimeCommit": "22e4cc90fb3915b4308a6d40ea693f4843931fbf",
+  "uniqueClips": 5246,
+  "coverage": {
+    "arithmeticQuestions": 18096,
+    "timeQuestions": 120,
+    "numberLineQuestions": 88940,
+    "timeChapters": 3,
+    "numberLineChapters": 3
+  },
+  "fullInventoryMatches": true,
+  "jsonBindingSha256": "336b3ac5a8c3a798aa3cd3119501c52a8d8aedba82a0e161b8bbfb0b7bdbc446",
+  "sourceHashes": {
+    "scripts/batch4NarrationInventory.mjs": "e404d0f2304e1c3aafc8e0dbcda3e798251436db53897428b6a66e40e32e968b",
+    "src/data/arithmeticAdventure.js": "5e3dfd0f4d2de27262b89daf967f7942926601ab3354da7d6430d35d6aba93f7",
+    "src/data/timeLineAdventure.js": "c1297de04359a2c337ba13c9480387fcae71f23dbe04041354aefcc1dca6f941",
+    "src/data/batch4Narration.js": "88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d",
+    "src/data/voiceKey.js": "d013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f"
+  },
+  "preservedReadOnlyExtraction": "/var/folders/t_/nqjg355s26x2smr80s78_1_r0000gn/T/amari-b4-fe5-corpus-ombr64bd"
+}
