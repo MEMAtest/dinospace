@@ -1770,5 +1770,23 @@
     "archiveByteVerification": "docs/qa-evidence/batch3-six-listening-samples-current-archive-20261005.json",
     "requestedInformation": "Clarity, comfortable pacing, encouraging age fit, sample-specific defects and listening device. No implied approval from silence.",
     "scope": "Representative local sample listening only; production media-control evidence and game-specific final scoring remain separate."
+  },
+  "soundSafariFiniteNarrationSelector": {
+    "name": "b5-sound-safari-literacy",
+    "implementationCommit": "2691977f630211b29ed2a7eec20646b28de1c85b",
+    "source": "c636516afa9ffa1b77dcc3bd5b7353ee80bce567",
+    "ledger": "docs/qa-evidence/b5-sound-safari-narration-ledger-20261005/successor-c636516/ledger.json",
+    "ledgerSha256": "5d6630518ec00b2d4c92fd869ce79db38e611c604f24172092626b443ce206c0",
+    "selected": 862,
+    "snapshotReusable": 11,
+    "eligibleMissing": 851,
+    "maxRequestsPerRun": 20,
+    "maxDistinctAttempts": 851,
+    "maxRuns": 43,
+    "rootFocusedTestsPassed": 23,
+    "rootReadOnlyDryRun": "862 selected,11 reusable,851 pending,0 snapshot-ready unavailable",
+    "independentReview": "in progress",
+    "executionStarted": false,
+    "scope": "No provider call or new worker. Requires terminal reconciled predecessor and independent runner review before activation. Full decode/playback/listening remain separate."
   }
 }
