@@ -1,0 +1,31 @@
+{
+  "mode": "dry-run",
+  "readOnly": true,
+  "job": "b6",
+  "label": "B6 Amari narration",
+  "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+  "requested": 378,
+  "packagedCandidateReusable": 361,
+  "pending": 17,
+  "maxCallsPerRun": 20,
+  "maxRuns": 1,
+  "pendingKeys": [
+    "ed153ac4",
+    "ed701387",
+    "ed9be0ec",
+    "edd9b39d",
+    "ee6bc0fd",
+    "eff76ff2",
+    "f5a4da41",
+    "f5cb8bc4",
+    "f5cd7293",
+    "f5ce7460",
+    "f5f7c641",
+    "f6ab94ea",
+    "f734783c",
+    "f8b99cee",
+    "f9703846",
+    "fbc5b51c",
+    "ff8783b2"
+  ]
+}

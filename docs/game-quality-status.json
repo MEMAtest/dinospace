@@ -2035,7 +2035,7 @@
     "humanListeningAccepted": false
   },
   "batch6NarrationGeneration": {
-    "status": "running-phase-one",
+    "status": "phase-one-completed-exact17pending",
     "pid": 17581,
     "session": 42222,
     "maxRequestsPhaseOne": 360,
@@ -2045,11 +2045,22 @@
     "independentCompatibilityCommit": "32f80d825db9190d71e3bf0a30a8d705256c4920",
     "evidence": "docs/qa-evidence/b6-narration-phase1-generation-20261005/live-checkpoint.json",
     "productionReleased": false,
-    "latestObservedReceipts": 150,
+    "latestObservedReceipts": 360,
     "latestProcessObservation": "PID17581 confirmed live by ps and execsession42222; phase1 remainsrunning, no restart",
     "partialReceiptBoundClipsDecoded": 90,
     "partialDecodeValid": 90,
-    "partialDecodeEvidence": "docs/qa-evidence/b6-narration-phase1-generation-20261005/partial-decode.json"
+    "partialDecodeEvidence": "docs/qa-evidence/b6-narration-phase1-generation-20261005/partial-decode.json",
+    "completedAt": "2026-10-05T05:56:26.114Z",
+    "phaseOneGenerated": 360,
+    "phaseOneAccepted": 360,
+    "phaseOneAttempted": 360,
+    "phaseOneRuns": 36,
+    "pendingAfterPhaseOne": 17,
+    "reusableAfterPhaseOne": 361,
+    "phaseOneExitCode": 2,
+    "failure": null,
+    "phaseTwoLaunched": false,
+    "terminalEvidence": "docs/qa-evidence/b6-narration-phase1-generation-20261005/phase1-terminal-reconciliation.md"
   },
   "batch7SolarAudioPackage": {
     "runtimeSource": "532e540da87b7f6a4197c84de39bb127f296fdef",
