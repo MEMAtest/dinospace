@@ -4,7 +4,7 @@ Date: 5 October 2026
 
 Branch: `codex/amari-batch6-cumulative-20261005`
 
-Base: released Batch 5 source `1accc99e89be303678ead99def6a3095ab1cb886`
+Base: current canonical Count release/runtime `1accc99e89be303678ead99def6a3095ab1cb886` (not the released Batch 5 games)
 
 Batch 6 integration source: `7c350f4bff66c1e9aff922cb5ee98e0fdd1d4ef8`
 
