@@ -1,0 +1,64 @@
+{
+  "canonicalBase": "22d805b67ced8b36f45d0f5c547bfe67c5dded88",
+  "dinoCopySource": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+  "priorManifestMappingsPreserved": 5564,
+  "items": [
+    {
+      "key": "a39b3546",
+      "text": "Build the Dino Park picture. Choose a piece, then tap its matching space.",
+      "path": "/audio/en/a39b3546-matilda.mp3",
+      "ready": true,
+      "sha256": "254457ed89777430e3229991151818defbc72250d8bfc0df3ea3edad631deecb",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62"
+    },
+    {
+      "key": "9685e0ac",
+      "text": "Next picture. Build Dino Park. Compare each piece with the preview.",
+      "path": "/audio/en/9685e0ac-matilda.mp3",
+      "ready": true,
+      "sha256": "719d07e044ba711640be1fea66a3a1968219c1236ac511ecdd114357ac546cd6",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62"
+    },
+    {
+      "key": "e077fcc0",
+      "text": "Puzzle Pop. Picture Pioneers. Match big picture pieces and spot the main shapes. Build the Dino Park picture.",
+      "path": "/audio/en/e077fcc0-matilda.mp3",
+      "ready": true,
+      "sha256": "7731f4aa1c8a070991b1c1e9cbaa88afd5031b7c0a1c52f53470b760ac991574",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62"
+    },
+    {
+      "key": "a44acc87",
+      "text": "Look near the middle area of Picture B.",
+      "path": "/audio/en/a44acc87-matilda.mp3",
+      "ready": true,
+      "sha256": "1d550c3b2f5e518dd6b2d64965d11e817a00028edf4f0462ed65c7253e60cf4a",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62"
+    },
+    {
+      "key": "5866151d",
+      "text": "Look near the middle bottom of Picture B.",
+      "path": "/audio/en/5866151d-matilda.mp3",
+      "ready": true,
+      "sha256": "c5e8536fd3c067a27166ad0d189b359fffaf40f45c7dde1b978f7258b86956bc",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62"
+    },
+    {
+      "key": "f6991245",
+      "text": "A wetland is a place where the ground stays very wet. Some wetlands dry out for part of the year.",
+      "path": "/audio/en/f6991245-matilda.mp3",
+      "ready": true,
+      "sha256": "0a3c032fb42d2491b305aaf89b2faf19c859f52681558eecb87632daeb99f67e",
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3"
+    },
+    {
+      "key": "0f0204e5",
+      "text": "Water can slowly dissolve (wear away) limestone rock and help caves form.",
+      "path": "/audio/en/0f0204e5-matilda.mp3",
+      "ready": true,
+      "sha256": "b40201a982d28314bcd8c327a85733c196d07478e43d0d1e3b3e135bc02fb73c",
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3"
+    }
+  ],
+  "scope": "Clean cumulative local source/audio package; no deployment/listening acceptance."
+}

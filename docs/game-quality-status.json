@@ -2002,5 +2002,18 @@
     "decodedCorpusBuildHashesMatched": 5246,
     "evidence": "docs/qa-evidence/b4-on-demand-media-independent-20261005/report.md",
     "productionReleased": false
+  },
+  "batch2Batch3SupplementalCumulativeCandidate": {
+    "source": "aa37a8a807349ca6953f397ef408ae067e6c63cc",
+    "evidenceCommit": "0abfa75f7a9357029fb7b87b032c8c03b308ef72",
+    "canonicalBase": "22d805b67ced8b36f45d0f5c547bfe67c5dded88",
+    "packagedBatch3": 275,
+    "fullDecodeValid": 275,
+    "focusedTestsPassed": 5,
+    "buildFiles": 5886,
+    "productionReleased": false,
+    "browserPlayback": "pending",
+    "independentSourceReview": "in progress",
+    "evidence": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/report.md"
   }
 }
