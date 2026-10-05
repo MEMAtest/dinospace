@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-10-05T04:36:06.191259+00:00",
+  "source": "532e540da87b7f6a4197c84de39bb127f296fdef",
+  "buildTreeSha256": "276cd270c6b940189e281dd37c9c29037407f05dc8a16a48cf602facf6ea1a22",
+  "preview": "http://127.0.0.1:5403/",
+  "serverSession": 39402,
+  "verifiedServedFiles": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256": "53533e0c6a2d5aa53549a17e7d3bef1709a1f4945f7eea114fdba5a686a96553",
+      "bytes": 1100
+    },
+    {
+      "path": "assets/index-RimrXs5r.js",
+      "status": 200,
+      "sha256": "d27ae94df095a45162a153ca0bac24e16ab20161c3a0c9c1e241801bc7d77778",
+      "bytes": 1285516
+    },
+    {
+      "path": "assets/index-wNCWYsOX.css",
+      "status": 200,
+      "sha256": "9bf878fe8de18868a041b52bb08382e5906083c8fd9bd8af3a9891b0385ef1df",
+      "bytes": 220616
+    },
+    {
+      "path": "assets/SolarSystem-D3LZ2NK2.js",
+      "status": 200,
+      "sha256": "d1276c55659a24b181f54b9d14424cc287076450ce15f1bf700c6ec7dac54777",
+      "bytes": 565035
+    },
+    {
+      "path": "audio/en/00567b7b-matilda.mp3",
+      "status": 200,
+      "sha256": "7942c9ecb36b91171bacf6af826c4fbdc8c9c07f0a49fe9598f21c60e3f198f1",
+      "bytes": 47273
+    }
+  ],
+  "scope": "HTTP and frozen byte identity only; native media/browser/listening/production pending"
+}

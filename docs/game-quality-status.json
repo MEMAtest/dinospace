@@ -1978,7 +1978,10 @@
     "evidence": "docs/qa-evidence/b4-on-demand-media-independent-20261005/report.md",
     "productionReleased": false,
     "browserEvidence": "docs/qa-evidence/b4-on-demand-media-20261005/independent-ui/report.md",
-    "browserScope": "Time Teller desktop and 390; Addition, Subtraction and Number Line at390 only. Used-clip offline replay passed. Corrected47 clips not observed. Desktop three-game gap and new Addition contrast delta pending. No human listening or production acceptance."
+    "browserScope": "Time Teller desktop/390, Addition/Subtraction/NumberLine desktop and390 bounded native dispatch/cancellation. Used-clip offline replay passed. Corrected47 clips not observed. Human listening and production acceptance pending.",
+    "desktopContinuationCommit": "b96495288947e263806f0c2792e0e591a1a7374a",
+    "desktopContinuationEvidence": "docs/qa-evidence/b4-on-demand-media-20261005/independent-ui/desktop-audio-continuation.md",
+    "instrumentationDisclosure": "Three prior harness observer errors cleared by reload; corrected observer clean. These were not app defects."
   },
   "batch2Batch3SupplementalCumulativeCandidate": {
     "source": "aa37a8a807349ca6953f397ef408ae067e6c63cc",
@@ -2054,7 +2057,10 @@
     "productionReleased": false,
     "humanListeningAccepted": false,
     "independentPackageReview": "passed exact ledger, receipts, prior mappings and all 6015 built-file hashes; native playback and human listening pending",
-    "independentReviewCommit": "2888f72bde3e0c761aedfe46d176bb4706e17a5b"
+    "independentReviewCommit": "2888f72bde3e0c761aedfe46d176bb4706e17a5b",
+    "localPreview": "http://127.0.0.1:5403/",
+    "servedIdentity": "docs/qa-evidence/b7-solar-audio-package-20261005/served-identity.json",
+    "nativePlayback": "queued in soleexistingChrome/tab"
   },
   "spelling101Candidate": {
     "source": "8282b8582df6a819114803686e19cdf8f38058dd",
