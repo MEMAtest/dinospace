@@ -1,0 +1,673 @@
+{
+  "created": "2026-10-05",
+  "status": "builder static-art candidate; independent 82px review pending",
+  "scope": "All 25 Chapter 3 records previously missing illustration assets are now mapped. Existing four packaged art records remain unchanged.",
+  "runtimeImageBoundPx": 82,
+  "qaSheetNote": "Captions are reviewer-only and do not appear in the game. Sheet uses white card backgrounds, approximating the runtime image-only choice cards.",
+  "promptRecovery": "Exact prompt strings are available for the ten images generated in the current task context. Earlier fifteen exact prompts were not present in retained context and could not be recovered; they are intentionally marked unavailable rather than reconstructed.",
+  "records": [
+    {
+      "wordId": "ship",
+      "semanticObject": "ship",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/ship-v1.png",
+      "sourcePngSha256": "6753101a1100b9f8b25ea218640fb57de75779eb58d81a3efb7dd4b5b8155768",
+      "sourceDimensions": [
+        1374,
+        1145
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/ship-v1.webp",
+      "webpSha256": "1007bf5ee6e12b240559dfd455e42e56a2d1211c68c94c162533610f469e3dd5",
+      "webpDimensions": [
+        512,
+        427
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-19e62bea-14c9-466d-afd9-ef333fc589a5.png"
+    },
+    {
+      "wordId": "shop",
+      "semanticObject": "shop",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/shop-v1.png",
+      "sourcePngSha256": "b218f927619b9b853d92cd38a349236da6d9a952df3a1a6834e4fe50ebd4beb0",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/shop-v1.webp",
+      "webpSha256": "1df177331280e683c1e3172be33a4bd19631fdab4a93cb0ff86b15c52453bfee",
+      "webpDimensions": [
+        512,
+        512
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-bb7a42c7-f1cd-4347-9707-1197a6ff3cdf.png"
+    },
+    {
+      "wordId": "chip",
+      "semanticObject": "chip",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/chip-v1.png",
+      "sourcePngSha256": "0d5b4b65e07cd578f91876927bce74f6edc82b01f9edf50ccd549a7d28dbeb04",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/chip-v1.webp",
+      "webpSha256": "0ee588d7c642a59cc1c46f4e47913f2d64adc8e063f4f03f7abde05a61871998",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-3685a2e5-25c3-4efa-a911-6e8c27b41130.png"
+    },
+    {
+      "wordId": "ring",
+      "semanticObject": "ring",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/ring-v1.png",
+      "sourcePngSha256": "003a1cbba549dc024875b5fe2d3ef3618d9b8d4e7dfdf6a80955ed6b1fe93d72",
+      "sourceDimensions": [
+        1289,
+        1221
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/ring-v1.webp",
+      "webpSha256": "119cc6f06acf82d5439b86e1b13b58c165fce7787f48f226029c8c35fb6e16c0",
+      "webpDimensions": [
+        512,
+        485
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-5f5f8323-0a0f-4809-b401-19be0273be52.png"
+    },
+    {
+      "wordId": "rain",
+      "semanticObject": "rain",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/rain-v1.png",
+      "sourcePngSha256": "30974d1ff0ed850f1ec40f9f6c1c6dc0d46ffd7f150452b33eda8f496fff4d70",
+      "sourceDimensions": [
+        1312,
+        1199
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/rain-v1.webp",
+      "webpSha256": "2d700966a031af83a220816b15983cba1c64a255540f8cd557a8bd11bc5b4cae",
+      "webpDimensions": [
+        512,
+        468
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-725b0790-4500-4411-8c71-7836239bc5eb.png"
+    },
+    {
+      "wordId": "seed",
+      "semanticObject": "seed",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/seed-v1.png",
+      "sourcePngSha256": "dddb1fc9905518309c00cd07af9b934ce3042c514e9c8bedb4b3e0963781a52a",
+      "sourceDimensions": [
+        1374,
+        1145
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/seed-v1.webp",
+      "webpSha256": "a13d6905c5356ae754ec723ca54d8393e6baac4197d998b7f7f6049fae8235cf",
+      "webpDimensions": [
+        512,
+        427
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-ef763ef0-690d-4410-942c-366614aa330e.png"
+    },
+    {
+      "wordId": "feet",
+      "semanticObject": "feet",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/feet-v1.png",
+      "sourcePngSha256": "4404a05936088dcfa35809c39fcc4e8f34e24e7c8aec6714aacce2e288ccae1f",
+      "sourceDimensions": [
+        1306,
+        1204
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/feet-v1.webp",
+      "webpSha256": "92bb2ec9eda3f7a5151dfb6ea4a9d4d17b900e5ae309d8c4212525f1672a140c",
+      "webpDimensions": [
+        512,
+        472
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-7a8508ac-7ce6-480c-a47f-a311692bdf4c.png"
+    },
+    {
+      "wordId": "green",
+      "semanticObject": "green",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/green-v1.png",
+      "sourcePngSha256": "68efa22898c7b43905438fa01acfcc0d9ab446ed8f8573fcc59e593de73e5f06",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/green-v1.webp",
+      "webpSha256": "7f235c658dcc07cf3a38c348153e1e90047d90124a5db746b99828900c3c0dee",
+      "webpDimensions": [
+        512,
+        512
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-7021296e-d003-4d34-8129-af2c81e1a62f.png"
+    },
+    {
+      "wordId": "boat",
+      "semanticObject": "boat",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/boat-v1.png",
+      "sourcePngSha256": "a1a2a4e429047b26f8996278e5927c7c0645f7cb468b9c618339b31da588d531",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/boat-v1.webp",
+      "webpSha256": "3f716badc88dca6b32a93620bf7fcc8579e3ef30febb6ff8bb57df7dd8c85d71",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-689b3463-c8d7-4055-b843-4acfc8b17deb.png"
+    },
+    {
+      "wordId": "coat",
+      "semanticObject": "coat",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/coat-v1.png",
+      "sourcePngSha256": "0c9a663dd4b0e85eb27aa08ab20326a0baacad057dab71c04f247720e6f79a60",
+      "sourceDimensions": [
+        1214,
+        1295
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/coat-v1.webp",
+      "webpSha256": "0af28188687324072a20490186c056a6eb4e105310a6868ddd16a65fc68d0eb9",
+      "webpDimensions": [
+        480,
+        512
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-3bceaf92-da77-4e37-b129-0283f6a31cc1.png"
+    },
+    {
+      "wordId": "book",
+      "semanticObject": "book",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/book-v1.png",
+      "sourcePngSha256": "975a97104cc442bc58330e7e37cb57246fa1bce76c4629aaf8c981a24a9f808d",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/book-v1.webp",
+      "webpSha256": "f48dcf6c4755bcec6497bba7f473a98cef10e4c86251ad8a28fcccde6c8432e4",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-35eae270-8f91-4ce6-8cc3-878935c4a2f7.png"
+    },
+    {
+      "wordId": "fork",
+      "semanticObject": "fork",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/fork-v1.png",
+      "sourcePngSha256": "10fa3a41360ba315d138bdbd3a87894202a7ca6da8f56e792e8ea2a6245bb345",
+      "sourceDimensions": [
+        1374,
+        1145
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/fork-v1.webp",
+      "webpSha256": "b737aa17eac9e89a1285c679cf7d9a43986ec356c14ae81f9913864e20c68ca1",
+      "webpDimensions": [
+        512,
+        427
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-37f6f585-b662-41db-8369-313eb9b1317b.png"
+    },
+    {
+      "wordId": "safari-chain",
+      "semanticObject": "chain",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/chain-v1.png",
+      "sourcePngSha256": "a49896fc446fcbf93d0382fbbd6fdd52383753d148ef20e9d3f05cc08c127a4a",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/chain-v1.webp",
+      "webpSha256": "5a74a84dac1fbb316b5e8ba179c71b52c9cd0c1052fb2db59bf9843987158d09",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-d7db753c-ff8a-4719-959b-90b283be6afb.png"
+    },
+    {
+      "wordId": "safari-chess",
+      "semanticObject": "chess",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/chess-v1.png",
+      "sourcePngSha256": "4dbdf1a4a5f7b10b92d44a5f27e9e4c32a0c84cbd0de4a7a9bc5b2ec652e6adc",
+      "sourceDimensions": [
+        1402,
+        1122
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/chess-v1.webp",
+      "webpSha256": "22b00cd451d8c7955488dda4ebb580aa5c6d3a1ed29c448357be6c09927470c4",
+      "webpDimensions": [
+        512,
+        410
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-00535531-1548-473d-acbd-35863d0e902b.png"
+    },
+    {
+      "wordId": "safari-tooth",
+      "semanticObject": "tooth",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/tooth-v1.png",
+      "sourcePngSha256": "2ca90fbb9149a79fc2464cfb9469b649d8d81be516a1dc866905f58df0be8a06",
+      "sourceDimensions": [
+        1205,
+        1305
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/tooth-v1.webp",
+      "webpSha256": "7ba2e7abf04fc08aa9a965c90aaecd269cda392a5a37c7beadd9c345c58109e0",
+      "webpDimensions": [
+        473,
+        512
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": null,
+      "promptStatus": "unavailable in retained task context; not reconstructed",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-ef2d170d-a895-4ae1-a957-d6c508c806b1.png"
+    },
+    {
+      "wordId": "safari-brush",
+      "semanticObject": "brush",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/brush-v1.png",
+      "sourcePngSha256": "1b1a83fc23b04357f0797d53f362dfaac3eb7a627011a73aeff7e126766411ef",
+      "sourceDimensions": [
+        1024,
+        1536
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/brush-v1.webp",
+      "webpSha256": "46a4debf8726ab97d102d0423161efa8d048006f205c1f195d9df6cc523b8dba",
+      "webpDimensions": [
+        341,
+        512
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: a single everyday hairbrush. Show a clearly recognizable oval brush head with many short bristles and a simple handle, isolated and centered with generous margins. Soft studio lighting, rounded toy-like yet realistic materials, friendly polished children's educational app style matching high-quality 3D object cards. Transparent background with genuine alpha, no floor, no shadow backdrop, no extra objects, no letters, words, logos, frame, or watermark. The object must remain unmistakable at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-0d65e7a4-19e1-4ceb-8e77-aa8c7028e080.png"
+    },
+    {
+      "wordId": "safari-sheep",
+      "semanticObject": "sheep",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/sheep-v1.png",
+      "sourcePngSha256": "597c8fed35b956de0f7c85b8a865279b4679c3012adebf96d77129803947dd62",
+      "sourceDimensions": [
+        1226,
+        1283
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/sheep-v1.webp",
+      "webpSha256": "c24a5e288df41124e54099a88cd5330bab2c57a338752eb2547c827bf1d0713c",
+      "webpDimensions": [
+        489,
+        512
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: a single friendly lamb standing on four small legs, with a clearly visible soft white curly wool coat, tan face, two ears, and dark hooves. Three-quarter side view, centered, full body with generous safe margins, isolated. Soft studio lighting, rounded toy-like realistic materials, polished children's educational app object-card style. True transparent background with alpha. No grass, landscape, other animals, text, labels, lettering, frame, or watermark. The sheep silhouette and wool must remain unmistakable at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-598cb869-2b49-447a-b3d1-126a23408fb6.png"
+    },
+    {
+      "wordId": "safari-shell",
+      "semanticObject": "shell",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/shell-v1.png",
+      "sourcePngSha256": "133ee0734bc72e4f381842b42959887504a9b12c2a630085766003a79adad7d8",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/shell-v1.webp",
+      "webpSha256": "b5980dbc2403995dba3ca2437289c8f34ae3d2a47d55c42b9b603488fb5845f4",
+      "webpDimensions": [
+        512,
+        512
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: a single ridged seashell, unmistakably a shell with a fan-shaped spiral shell body and curved ridges. Choose a warm coral-and-cream natural shell, isolated and centered with generous safe margin. Soft studio lighting, toy-like but believable polished 3D materials, cohesive educational picture-card style. Genuine transparent background with alpha. No sand, beach, water, sea creature, extra object, text, labels, frame, or watermark. Keep the shell silhouette clear at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-e416d955-49ab-489e-bcc9-54157dda2ea8.png"
+    },
+    {
+      "wordId": "safari-spoon",
+      "semanticObject": "spoon",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/spoon-v1.png",
+      "sourcePngSha256": "e86a8f53c1638f571977a039cfaa84839ba7ef39816b1e0d51e76ed4ed526f30",
+      "sourceDimensions": [
+        1214,
+        1295
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/spoon-v1.webp",
+      "webpSha256": "f99dc9dd66d2d458c0cc37b62f0ff3c3324583cb5b77588099b3c7039c98c548",
+      "webpDimensions": [
+        480,
+        512
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: a single stainless-steel eating spoon, shown alone at a slight three-quarter angle, with a clearly rounded shallow bowl and one slender handle. Center the complete utensil with generous margins; make it distinct from a fork. Soft studio lighting and gentle reflections, polished toy-like educational app object-card style. Genuine transparent background with alpha. No food, table, plate, extra utensils, text, labels, frame, or watermark. Ensure the spoon silhouette remains recognizable at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-4ae3031e-08b4-414f-a13b-172525315fe8.png"
+    },
+    {
+      "wordId": "safari-shark",
+      "semanticObject": "shark",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/shark-v1.png",
+      "sourcePngSha256": "5ac58c66b1afae3f4e04b8215e39a51f813bf66569bab94e25bfb134bbe3baaa",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/shark-v1.webp",
+      "webpSha256": "3e314877c446e58dcdda862a9188130f5267bdda487411c46cbe5f26950f3992",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: a small friendly gray-blue shark in side view, unmistakably a shark with a pointed snout, visible dorsal fin, two side fins, gill slits, and a strong crescent tail. Keep the mouth closed or show only a gentle tiny smile, no scary teeth. Isolated and centered with generous margins, soft studio lighting, polished toy-like educational app style. Genuine transparent background with alpha. No ocean, water, waves, other fish, text, labels, frame, or watermark. Make the shark silhouette distinct from a generic fish at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-8b751473-419f-4d99-9d4a-889303153bcd.png"
+    },
+    {
+      "wordId": "safari-train",
+      "semanticObject": "train",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/train-v1.png",
+      "sourcePngSha256": "2355d03d998ce54002bc6869db11d2586274f72d141ec875f9188d8a1873dc44",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/train-v1.webp",
+      "webpSha256": "91f8bd7b00a9705a56ec978a42db7d2a833b9f7029264d9ae1391671c846d02a",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: one short passenger train consisting of a small locomotive pulling three connected passenger coaches, shown in a clear three-quarter view. Distinguish the rounded front engine from the attached cars; small wheels and windows visible but no readable lettering. Entire train centered with generous margins, isolated. Soft studio lighting, colourful toy-like polished educational app style matching 3D picture cards. Genuine transparent background with alpha. No railway scene, track, station, people, text, labels, frame, or watermark. Keep the locomotive-and-cars silhouette recognizable at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-4016d4da-2609-4614-a8cd-d498a4a9f422.png"
+    },
+    {
+      "wordId": "safari-wheel",
+      "semanticObject": "wheel",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/wheel-v1.png",
+      "sourcePngSha256": "683c735fc4aa393339ceabf179ca228459f79de78118ce40155b7f1367f79ba6",
+      "sourceDimensions": [
+        1222,
+        1287
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/wheel-v1.webp",
+      "webpSha256": "b0f889730e9e573e544760aa4f90c53d3869c7df88f563d19752548ac2ae261e",
+      "webpDimensions": [
+        486,
+        512
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: a single sturdy rubber bicycle wheel with a clearly visible circular black tire, narrow metal rim, and simple spokes. Show the complete wheel upright at a slight three-quarter angle, centered with generous safe margins and isolated. Soft studio lighting, polished toy-like educational app object-card style. Genuine transparent background with alpha. No bicycle frame, rider, road, floor, extra objects, text, labels, frame, or watermark. Keep the wheel silhouette unmistakable at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-239130c8-723a-40e3-94df-321a1af1b1ee.png"
+    },
+    {
+      "wordId": "safari-branch",
+      "semanticObject": "branch",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/branch-v1.png",
+      "sourcePngSha256": "60499e0ed68b24caa8415fca8c868ec23b41510c261826a343981482dd8025d1",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/branch-v1.webp",
+      "webpSha256": "127da932fdc6fc1b20ff04581769b70bb472045a431ad35281eea35799a6a712",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: a single short leafy branch freshly clipped from a tree, with a clearly visible brown woody stem and several bright green leaves attached along it. Show the whole branch diagonally, centered, with generous margins and isolated. Soft studio lighting, rounded polished educational app object-card style. Genuine transparent background with alpha. No tree trunk, pot, ground, extra objects, text, labels, frame, or watermark. Make the branch unmistakable at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-4fe4a2f3-bc1c-403f-9c63-4939efa2c234.png"
+    },
+    {
+      "wordId": "safari-grass",
+      "semanticObject": "grass",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/grass-v1.png",
+      "sourcePngSha256": "37aba82b69a94c75a371529aadf3dccb4f454e20399c46d361aa0c34c513d0ad",
+      "sourceDimensions": [
+        1333,
+        1180
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/grass-v1.webp",
+      "webpSha256": "ddf9fa71f5533007eb98bb8070c1f87f2d99c00cf19d852c2f0b8d41a4518f7c",
+      "webpDimensions": [
+        512,
+        453
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: a single small tuft of grass, a compact clump of several narrow green blades growing together from one visible base. The blades should clearly read as grass, not a leafy branch or potted plant. Center the complete tuft with generous margins and isolate it. Soft studio lighting, friendly polished educational app object-card style with rounded 3D forms. Genuine transparent background with alpha. No soil, lawn, landscape, pot, flowers, extra objects, text, labels, frame, or watermark. Keep the grass tuft unmistakable at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-545cf2ab-54e0-43f2-94e1-d4616f32281b.png"
+    },
+    {
+      "wordId": "safari-teeth",
+      "semanticObject": "teeth",
+      "generator": "built-in image_gen tool",
+      "sourcePng": "src/assets/sound-safari/generated-originals/teeth-v1.png",
+      "sourcePngSha256": "899d02c5076d94045663db2252e6ff5e429fbb7c826f18a4df962ee5f7bfe633",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/teeth-v1.webp",
+      "webpSha256": "11bde005d014a5b875b00bdcff2ea08aee19472162bf412d83a5b004e3b16ab9",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; contain within 512x512 using Lanczos; WebP quality 92, method 6; original PNG retained unchanged.",
+      "prompt": "Create one premium glossy 3D children's vocabulary picture-card illustration: a single clean, friendly model of human teeth, showing a short curved row of several white teeth set in soft pink gums, viewed from the front. Make it clearly a set of teeth, not one isolated tooth, with rounded non-scary shapes and generous margins. Center and isolate it. Soft studio lighting, polished toy-like educational app object-card style. Genuine transparent background with alpha. No toothbrush, mouth, face, dentist tools, extra objects, text, labels, frame, or watermark. Keep the row of teeth unmistakable at 82-pixel card size.",
+      "promptStatus": "exact",
+      "generatedSourcePath": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-5171a40f-96e3-4ef2-969f-49756ffd2bb1.png"
+    }
+  ],
+  "existingReviewedAssetsRetained": [
+    {
+      "wordId": "fish",
+      "semanticObject": "fish",
+      "status": "existing reviewed art retained byte-for-byte",
+      "webpPath": "src/assets/sound-safari/word-cards/pond-fish-v1-card.webp",
+      "webpSha256": "498f5a27ddccd8c2d037234bed47627dcf888675efd4dd54d7bdb48453ba7a45"
+    },
+    {
+      "wordId": "moon",
+      "semanticObject": "moon",
+      "status": "existing reviewed art retained byte-for-byte",
+      "webpPath": "src/assets/sound-safari/word-cards/crescent-moon-v1-card.webp",
+      "webpSha256": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b"
+    },
+    {
+      "wordId": "safari-snail",
+      "semanticObject": "snail",
+      "status": "existing reviewed art retained byte-for-byte",
+      "webpPath": "src/assets/sound-safari/word-cards/garden-snail-v1-card.webp",
+      "webpSha256": "7f746f3c82559ab610af117b8dd590563ed921e8bbccf3daa7bb4f4d45157be1"
+    },
+    {
+      "wordId": "safari-star",
+      "semanticObject": "star",
+      "status": "existing reviewed art retained byte-for-byte",
+      "webpPath": "src/assets/sound-safari/word-cards/star-v1-card.webp",
+      "webpSha256": "751db3be916edeb4f468d1f2b15c889e96d82e288dc24f54046d9ae9b042827a"
+    }
+  ],
+  "contactSheet": "docs/qa-evidence/batch5-soundsafari-picture-art-challenge/contact-sheet-all-29-82px.png",
+  "contactSheetScope": "All 29 Chapter 3 target words are represented. 25 new assets plus four pre-existing reviewed reusable assets (fish, moon, snail, star). Labels are reviewer-only and do not appear in runtime UI.",
+  "runtimePoolCounts": {
+    "chapter1": 26,
+    "chapter2": 26,
+    "chapter3": 29,
+    "total": 81
+  }
+}
