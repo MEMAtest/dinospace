@@ -1,0 +1,17 @@
+{
+  "queriedAlias": "https://dinospace-eight.vercel.app",
+  "deploymentId": "dpl_5cKFB6U489CLoEPucaY9pDarcHsp",
+  "readyState": "READY",
+  "immutableHost": "dinospace-3sqfand4s-memas-projects-23a0001d.vercel.app",
+  "archiveCommit": "22d805b67ced8b36f45d0f5c547bfe67c5dded88",
+  "runtimeBase": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "importSource": "c636516afa9ffa1b77dcc3bd5b7353ee80bce567",
+  "integrationCheckout": "work/dinospace-batch5-integration",
+  "preservedOldBranch": "codex/amari-batch5-integration-20261004",
+  "excludedOlderSourceFiles": [
+    "src/components/games/AmariCountTheStars.jsx",
+    "src/data/countTheStarsBatch3.js",
+    "test/countTheStarsBatch3.test.mjs"
+  ],
+  "scope": "Fresh read-only Vercel provider identity check. Only Batch5 owned files/routing will integrate; preserve existing released Count and all non-owned source. No new served-byte fetch, browser QA, generation or release."
+}
