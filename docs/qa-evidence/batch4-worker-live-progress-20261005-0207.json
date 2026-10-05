@@ -1,0 +1,24 @@
+{
+  "observedAt": "2026-10-05T02:13:04.133356+00:00",
+  "processEvidence": "18781 Ss   01-06:51:34 node scripts/run-batch4-voice-generation.mjs --max-runs=520 --request-state=../dinospace-batch3-quality/tmp/offline-voice-request-state.json",
+  "sourceCommit": "ac3b3ccaf03107749d865f8d79557e872a06c881",
+  "workerStatus": {
+    "updatedAt": "2026-10-05T02:07:36.139Z",
+    "pid": 18781,
+    "status": "waiting_request_window",
+    "run": 368,
+    "cooldownRetries": 0,
+    "waitUntil": "2026-10-05T02:17:27.163Z",
+    "requestsInWindow": 28,
+    "availableCalls": 2,
+    "minimumBatch": 10,
+    "lastResult": {
+      "exitCode": 0,
+      "generated": 15,
+      "reused": 5211,
+      "pending": 20,
+      "stoppedAt": null
+    }
+  },
+  "scope": "Physically live original narration producer; progress only. No corpus decoding, listening, restart, concurrent voice calls or release acceptance."
+}

@@ -311,7 +311,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "PID18781 confirmed live. Last completed run240:15generated,3475reused,1756pending,exit0; expected request window wait. No concurrent paid generation or restart. Not audio acceptance.",
+    "voiceCoverage": "Original PID18781 physically live; run368 reports20pending. Generation progress only; corrected recordings, decode and listening acceptance remain separate.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -1247,23 +1247,25 @@
     "builderReconciliationReport": "docs/qa-evidence/batch6-current-integration-score-reconciliation-20261004.md"
   },
   "batch4NarrationCheckpoint": {
-    "updatedAt": "2026-10-04T18:43:43.678Z",
+    "updatedAt": "2026-10-05T02:07:36.139Z",
     "pid": 18781,
     "status": "waiting_request_window",
-    "run": 280,
+    "run": 368,
     "cooldownRetries": 0,
-    "waitUntil": "2026-10-04T18:53:36.291Z",
-    "requestsInWindow": 30,
-    "availableCalls": 0,
+    "waitUntil": "2026-10-05T02:17:27.163Z",
+    "requestsInWindow": 28,
+    "availableCalls": 2,
     "minimumBatch": 10,
     "lastResult": {
       "exitCode": 0,
-      "generated": 17,
-      "reused": 4053,
-      "pending": 1176,
+      "generated": 15,
+      "reused": 5211,
+      "pending": 20,
       "stoppedAt": null
     },
-    "scope": "PID 18781 confirmed live at this check. Expected request-window waiting is normal; no restart or concurrent paid job. This checkpoint is generation progress, not audio acceptance."
+    "scope": "Physically live original narration producer; progress only. No corpus decoding, listening, restart, concurrent voice calls or release acceptance.",
+    "processObservedAt": "2026-10-05T02:13:04.133356+00:00",
+    "report": "docs/qa-evidence/batch4-worker-live-progress-20261005-0207.json"
   },
   "batch7CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch7-independent-editorial-assessment-20261004.md",
@@ -1740,13 +1742,16 @@
   "narrationWorkerCheckpoint": {
     "pid": 18781,
     "physicallyConfirmedAlive": true,
-    "checkpointAt": "2026-10-05T01:17:11.423Z",
-    "run": 358,
-    "pending": 154,
+    "checkpointAt": "2026-10-05T02:07:36.139Z",
+    "run": 368,
+    "pending": 20,
     "status": "waiting_request_window",
     "readOnlyPackagedPresence": 5092,
     "packagedPresenceReport": "docs/qa-evidence/batch4-packaged-presence-progress-20261005.json",
-    "scope": "Original ac3 worker only; no restart or concurrent paid calls. Corrected recordings/listening remain separate."
+    "scope": "Original ac3 worker only; no restart or concurrent paid calls. Corrected recordings/listening remain separate.",
+    "processObservedAt": "2026-10-05T02:13:04.133356+00:00",
+    "processReport": "docs/qa-evidence/batch4-worker-live-progress-20261005-0207.json",
+    "readOnlyPackagedPresenceObservedAt": "2026-10-05T01:17:11.423Z"
   },
   "traceCosmicCanonicalMediaObservation": {
     "source": "1accc99e89be303678ead99def6a3095ab1cb886",
@@ -1922,5 +1927,10 @@
       "evidenceCommit": "9090124bdd4a8ccec2af098ad0960ba6c14fcc41",
       "scope": "Static 96px illustration suitability only; no runtime or overall game acceptance."
     }
+  },
+  "canonicalHealthSample": {
+    "evidenceCommit": "cbb8a14ad98f1ab6db66cdf4060220aa5c30a822",
+    "report": "docs/qa-evidence/canonical-health-20261005/report.md",
+    "scope": "Bounded desktop/390 actual Curriculum progress/facts and curated Storybook read/return checks; single existing muted tab, provider403 guards. Health sample only, not full26-game acceptance."
   }
 }
