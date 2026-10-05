@@ -1,0 +1,652 @@
+{
+  "job": "b7-solar-teaching",
+  "inventorySha256": "da8d0fa36700cb7703678243640a82740ea05c5f17170b76c073f76ca51998d5",
+  "requested": 127,
+  "configuredMaxCallsPerRun": 10,
+  "configuredMaxRuns": 6,
+  "maximumProviderRequests": 52,
+  "configuredTotalCallCap": 52,
+  "b7AttemptedCount": 52,
+  "b7CumulativeRunCount": 6,
+  "b5SoundSafariAttemptedCount": null,
+  "b5SoundSafariCumulativeRunCount": null,
+  "runs": 6,
+  "providerRequestsAttempted": 52,
+  "providerResponsesAccepted": 52,
+  "generated": 52,
+  "reused": 75,
+  "stoppedAt": null,
+  "failure": null,
+  "manifestBeforeSha256": "c7d1a294a2ba6fd02129085a5446f2a57c8a33f486546b482e81f125e83c7649",
+  "manifestAfterSha256": "d0f8fd8998afc72558a61789be56726b33e8822770c89a8228864b54f4fcb5c0",
+  "auditPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/tmp/reviewed-narration-audit-b7-solar-teaching.json",
+  "manifestChangedKeys": [
+    "00567b7b",
+    "01c83e21",
+    "01ed35af",
+    "03f0bf00",
+    "047b2fb2",
+    "04c269c2",
+    "1470011f",
+    "1d29868e",
+    "1e62dbc2",
+    "1f3ec839",
+    "3534e9e8",
+    "3a9562f8",
+    "3df486dd",
+    "44288563",
+    "50a0cc69",
+    "578085d8",
+    "5d7d3a39",
+    "68e808f6",
+    "6a81b32d",
+    "6c0595dc",
+    "6d2a9c4b",
+    "6d4ad978",
+    "6d6518dd",
+    "7c46e826",
+    "8bb2eabf",
+    "8cb073c6",
+    "92542509",
+    "94e99828",
+    "98a4ee7d",
+    "98d8ef65",
+    "9ac7eb38",
+    "9c98dcb8",
+    "a2b823b4",
+    "a5aba058",
+    "abf9e3bf",
+    "b07aaa0e",
+    "b334baf4",
+    "b7096764",
+    "ba1ac8aa",
+    "ba87e11c",
+    "bb4b4778",
+    "c54f10d9",
+    "cd8b1f6a",
+    "d0fac1fe",
+    "dd05ecbb",
+    "ea947e80",
+    "f10aabfd",
+    "f98dd31b",
+    "fce2de6e",
+    "fe22b571",
+    "fe913cbc",
+    "ff00da80"
+  ],
+  "changedFiles": [
+    {
+      "path": "/audio/en/00567b7b-matilda.mp3",
+      "key": "00567b7b",
+      "text": "Long cliffs formed as Mercury cooled and shrank.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 47273,
+      "sha256": "7942c9ecb36b91171bacf6af826c4fbdc8c9c07f0a49fe9598f21c60e3f198f1"
+    },
+    {
+      "path": "/audio/en/01c83e21-matilda.mp3",
+      "key": "01c83e21",
+      "text": "Discovery 4. Rust in Mars’s rocks and dust makes the planet look red.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 81964,
+      "sha256": "2770aa8f5192fdf6f9b8a61085f29e3210fe70c6463427124b9c8618035ea66b"
+    },
+    {
+      "path": "/audio/en/01ed35af-matilda.mp3",
+      "key": "01ed35af",
+      "text": "Discovery 5. Huge pieces of Earth’s rocky surface move slowly and reshape the land.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 99936,
+      "sha256": "14d9f3552ed00c6ff4d4044284313eba1012b349232bc81af2d026d92c40b665"
+    },
+    {
+      "path": "/audio/en/03f0bf00-matilda.mp3",
+      "key": "03f0bf00",
+      "text": "Venus can look like a bright star near sunrise or sunset.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 53124,
+      "sha256": "848788f0efbf744803c00a9af3e46bfc7c695366a3fc251a0a91a4a2823c60b1"
+    },
+    {
+      "path": "/audio/en/047b2fb2-matilda.mp3",
+      "key": "047b2fb2",
+      "text": "Mercury is nearest to the Sun and moves around it faster than any other planet.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 73186,
+      "sha256": "30f0cf4d37a3f73d32bbf56c7bd493f1919d5b2252dfd6016b9e9fac46283225"
+    },
+    {
+      "path": "/audio/en/04c269c2-matilda.mp3",
+      "key": "04c269c2",
+      "text": "Discovery 4. A year on Neptune lasts about 165 Earth years.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 81964,
+      "sha256": "4ddecb56281a0a8bf80fb138e058835468c3629fe7750b0a2e68af1fd059f8de"
+    },
+    {
+      "path": "/audio/en/1470011f-matilda.mp3",
+      "key": "1470011f",
+      "text": "Discovery 6. Mars has seasons and ice caps at its poles, like Earth.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 71515,
+      "sha256": "4a6986d07202b8843c5cfbefc883fd2f914115168acc5f5e532316166c7a6624"
+    },
+    {
+      "path": "/audio/en/1d29868e-matilda.mp3",
+      "key": "1d29868e",
+      "text": "Discovery 1. Uranus spins almost on its side like a rolling ball.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 76112,
+      "sha256": "c23675a99440520e8f2d1fa78e87f882951148a2367431e9819bbfbd77fbf4e4"
+    },
+    {
+      "path": "/audio/en/1e62dbc2-matilda.mp3",
+      "key": "1e62dbc2",
+      "text": "Earth acts like a giant invisible magnet. It can steer some tiny bits from the Sun away from Earth.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 93248,
+      "sha256": "329c4bdac5b3adfd5764e08ea85b15a9ab42ce56ebbc6bfa1efb2de014fe15c5"
+    },
+    {
+      "path": "/audio/en/1f3ec839-matilda.mp3",
+      "key": "1f3ec839",
+      "text": "Uranus spins almost on its side like a rolling ball.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 49363,
+      "sha256": "f055a1c48a4f2ca33a87bf036d81cd7c4b0614f8537e427e234a6e2361be2af8"
+    },
+    {
+      "path": "/audio/en/3534e9e8-matilda.mp3",
+      "key": "3534e9e8",
+      "text": "Discovery 6. Earth acts like a giant invisible magnet. It can steer some tiny bits from the Sun away from Earth.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 126685,
+      "sha256": "2a10c80277d1fcf583d6d8097eaf9f26833a0d91b199ec7fc8ab69a3f368d2e9"
+    },
+    {
+      "path": "/audio/en/3a9562f8-matilda.mp3",
+      "key": "3a9562f8",
+      "text": "Discovery 4. Venus can look like a bright star near sunrise or sunset.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 81128,
+      "sha256": "68f707071eee2a24394247676fa5334691eccd5dbbba6b9ca1c8f22e111084c8"
+    },
+    {
+      "path": "/audio/en/3df486dd-matilda.mp3",
+      "key": "3df486dd",
+      "text": "Mars has seasons and ice caps at its poles, like Earth.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 53124,
+      "sha256": "ab0bc9c960597140eea993a828a7524833eb2836d40ee5bf9ab21f41a75e7435"
+    },
+    {
+      "path": "/audio/en/44288563-matilda.mp3",
+      "key": "44288563",
+      "text": "Discovery 4. Saturn spins quickly, so it bulges around its middle.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 81964,
+      "sha256": "ae9f24fd76acdb233dd2a2c6bc40d5d689337cf3783b7494dc9210973b59b848"
+    },
+    {
+      "path": "/audio/en/50a0cc69-matilda.mp3",
+      "key": "50a0cc69",
+      "text": "Charon is Pluto’s biggest moon. They pull on each other and travel around the same point between them.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 94502,
+      "sha256": "90186f1b04bb17f5851da756c972f7f1bbf1912bd2d9899f2a973e16e4810aa2"
+    },
+    {
+      "path": "/audio/en/578085d8-matilda.mp3",
+      "key": "578085d8",
+      "text": "Discovery 3. A gas called methane in Neptune’s air helps make it look blue.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 85725,
+      "sha256": "c2b9cd6105f59e899a9ba5f427e537cb1035ac126355ff5d296ab6639d480069"
+    },
+    {
+      "path": "/audio/en/5d7d3a39-matilda.mp3",
+      "key": "5d7d3a39",
+      "text": "Pluto was once called the ninth planet. Today it is called a dwarf planet.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 77784,
+      "sha256": "5d5d13334140d2e72cb8a92e39443c9ad70e6c3cbde2c72d90f9cef1966c3a22"
+    },
+    {
+      "path": "/audio/en/68e808f6-matilda.mp3",
+      "key": "68e808f6",
+      "text": "Discovery 6. Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 150509,
+      "sha256": "cbf64bbc8da98f1a06f95c87c28126f19aa24f201e8f965440c860e8b64011e2"
+    },
+    {
+      "path": "/audio/en/6a81b32d-matilda.mp3",
+      "key": "6a81b32d",
+      "text": "A gas called methane in Neptune’s air helps make it look blue.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 60648,
+      "sha256": "3698fc617fd414c3602762b4536b4db451a3761cb9511676f87fceee54a43b21"
+    },
+    {
+      "path": "/audio/en/6c0595dc-matilda.mp3",
+      "key": "6c0595dc",
+      "text": "Discovery 4. It takes Pluto 248 Earth years to go around the Sun.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 81128,
+      "sha256": "ca78a2c288ba5b1021f78e43c72e7763260597fff6e41add2a1a7c9799487bf4"
+    },
+    {
+      "path": "/audio/en/6d2a9c4b-matilda.mp3",
+      "key": "6d2a9c4b",
+      "text": "Mercury is baking hot by day and freezing cold at night.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 51453,
+      "sha256": "646645876af0624d10056fc66d9d15db8ddb0e76865bac431cebb2c3e0ae1436"
+    },
+    {
+      "path": "/audio/en/6d4ad978-matilda.mp3",
+      "key": "6d4ad978",
+      "text": "A thick layer of gas around Venus traps heat like a blanket.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 53960,
+      "sha256": "d3b86f8d22cb9f9a889d7f5923d2dcdf94e50778cb2dc0c501b7aab1d835f633"
+    },
+    {
+      "path": "/audio/en/6d6518dd-matilda.mp3",
+      "key": "6d6518dd",
+      "text": "From one sunrise to the next takes 176 Earth days.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 61902,
+      "sha256": "2dfcaec64f4a580f5ee4d6491c4b1ab8880dddf9c2379b17e0e4c4eff2c5f8cf"
+    },
+    {
+      "path": "/audio/en/7c46e826-matilda.mp3",
+      "key": "7c46e826",
+      "text": "Mercury has almost no air, so sound cannot travel through its sky like it does on Earth.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 81128,
+      "sha256": "1506b1a2edab126be90f06bb0c1419b6c02e9c30398de5d1437bfe26e6db2ee9"
+    },
+    {
+      "path": "/audio/en/8bb2eabf-matilda.mp3",
+      "key": "8bb2eabf",
+      "text": "Discovery 2. Pluto was once called the ninth planet. Today it is called a dwarf planet.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 87815,
+      "sha256": "5b9a3438e0b80ae6e9fda735b0bca1d8334fc2b65076f549c9102eb4f3ba3cc7"
+    },
+    {
+      "path": "/audio/en/8cb073c6-matilda.mp3",
+      "key": "8cb073c6",
+      "text": "Discovery 2. A gas called methane in Uranus’s air helps make it look blue-green.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 91159,
+      "sha256": "a9f9c3517a300aa7fbc3a4ab5163c1306589a84c2d62f207e0da797cf76b4606"
+    },
+    {
+      "path": "/audio/en/92542509-matilda.mp3",
+      "key": "92542509",
+      "text": "Discovery 3. For its size, Saturn weighs less than an equal-sized amount of water. It could float in a pretend bathtub big enough to hold it.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 154271,
+      "sha256": "6fbda87e60628a22214bed91d92b3941137fcb2f234bb6983393b40fcc4a39d2"
+    },
+    {
+      "path": "/audio/en/94e99828-matilda.mp3",
+      "key": "94e99828",
+      "text": "Discovery 3. From one sunrise to the next takes 176 Earth days.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 86561,
+      "sha256": "60e6eed016578b29d909fbc211dff136638d426c613ceb1314024999061e2a6f"
+    },
+    {
+      "path": "/audio/en/98a4ee7d-matilda.mp3",
+      "key": "98a4ee7d",
+      "text": "Olympus Mons is much taller than Mount Everest, Earth’s tallest mountain.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 77784,
+      "sha256": "eb5df1965e2452e3c1cf53de7d23a2ea14c6f86bfe2479879383e26be115474b"
+    },
+    {
+      "path": "/audio/en/98d8ef65-matilda.mp3",
+      "key": "98d8ef65",
+      "text": "Discovery 6. Jupiter has faint rings made of tiny, dark bits of dust.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 80710,
+      "sha256": "20b1e74242dbd1c79fa5e169f6bbb1c5e4ab01b08d0c781e9deda98d533b6627"
+    },
+    {
+      "path": "/audio/en/9ac7eb38-matilda.mp3",
+      "key": "9ac7eb38",
+      "text": "For its size, Saturn weighs less than an equal-sized amount of water. It could float in a pretend bathtub big enough to hold it.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 121252,
+      "sha256": "36cdcff567b3d94ed85cb0b8bcd36121e6b1d4e14e090dbc9903fb1f830c9a8e"
+    },
+    {
+      "path": "/audio/en/9c98dcb8-matilda.mp3",
+      "key": "9c98dcb8",
+      "text": "Titan is one of Saturn’s moons. It is so cold that methane, a gas on Earth, falls there as rain and fills lakes.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 125013,
+      "sha256": "2b3076a9f5efcf0fd44ce37bdcb0453ce301f11a1d343c50e92d17f159dee4c7"
+    },
+    {
+      "path": "/audio/en/a2b823b4-matilda.mp3",
+      "key": "a2b823b4",
+      "text": "Discovery 5. Long cliffs formed as Mercury cooled and shrank.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 71097,
+      "sha256": "6280668115021e4bb1bbd582ab115f6ddab439e839b346253db0d06b71e76c2b"
+    },
+    {
+      "path": "/audio/en/a5aba058-matilda.mp3",
+      "key": "a5aba058",
+      "text": "Jupiter is bigger than all the other planets put together.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 51453,
+      "sha256": "e0f2a73888f259f86627d2aa4588592a034d9dd2eefda4d51a676db90b886b29"
+    },
+    {
+      "path": "/audio/en/abf9e3bf-matilda.mp3",
+      "key": "abf9e3bf",
+      "text": "Jupiter has faint rings made of tiny, dark bits of dust.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 54378,
+      "sha256": "aa7ca71bd839e3b14c15db31e1ead1ded1cb5ed9062b7f4d048a911acf57cc69"
+    },
+    {
+      "path": "/audio/en/b07aaa0e-matilda.mp3",
+      "key": "b07aaa0e",
+      "text": "Saturn has many moons.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 24703,
+      "sha256": "3617c302c3518e11c87b37628722003bf666ef0a66c3efef59c8329f67f0cf53"
+    },
+    {
+      "path": "/audio/en/b334baf4-matilda.mp3",
+      "key": "b334baf4",
+      "text": "Discovery 5. Olympus Mons is much taller than Mount Everest, Earth’s tallest mountain.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 91159,
+      "sha256": "75f01d74242f0aaaa304fa89a3decd356627ef3300e4401ff1e835515959ec07"
+    },
+    {
+      "path": "/audio/en/b7096764-matilda.mp3",
+      "key": "b7096764",
+      "text": "It takes Pluto 248 Earth years to go around the Sun.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 53960,
+      "sha256": "fb9423c7794943286e21dd80017eebba291dc8503bce268a63d7afa8d2924d60"
+    },
+    {
+      "path": "/audio/en/ba1ac8aa-matilda.mp3",
+      "key": "ba1ac8aa",
+      "text": "A year on Neptune lasts about 165 Earth years.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 56886,
+      "sha256": "939907306ba946fead47a991dbeb7a374d80f00f473fe52702a9f325f0bd66c4"
+    },
+    {
+      "path": "/audio/en/ba87e11c-matilda.mp3",
+      "key": "ba87e11c",
+      "text": "Huge pieces of Earth’s rocky surface move slowly and reshape the land.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 71515,
+      "sha256": "90d62af5757a318a997feef74a192052186caaac70156761ba7650a09abf2865"
+    },
+    {
+      "path": "/audio/en/bb4b4778-matilda.mp3",
+      "key": "bb4b4778",
+      "text": "Discovery 2. Mercury is nearest to the Sun and moves around it faster than any other planet.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 99936,
+      "sha256": "9026560a8c69a10533f41fd3a253bf2919d91510b4bd24f96a44c4da62fe31f9"
+    },
+    {
+      "path": "/audio/en/c54f10d9-matilda.mp3",
+      "key": "c54f10d9",
+      "text": "Rust in Mars’s rocks and dust makes the planet look red.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 56886,
+      "sha256": "978ff2ec2f090d1c46d08db3bc5b10ccbb70ea1c7b2b4d914cfa746981442491"
+    },
+    {
+      "path": "/audio/en/cd8b1f6a-matilda.mp3",
+      "key": "cd8b1f6a",
+      "text": "Discovery 2. Jupiter is bigger than all the other planets put together.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 76112,
+      "sha256": "4cd5d9df18bc30c714ba64ce89316a57fd7549184483d86e1bf14ea4e3dec241"
+    },
+    {
+      "path": "/audio/en/d0fac1fe-matilda.mp3",
+      "key": "d0fac1fe",
+      "text": "Discovery 4. Mercury has almost no air, so sound cannot travel through its sky like it does on Earth.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 114564,
+      "sha256": "20ac27ea1a5ebb2574a8f30ca18a53b7b4c7e54e26dc4b28faa253f0060d329c"
+    },
+    {
+      "path": "/audio/en/dd05ecbb-matilda.mp3",
+      "key": "dd05ecbb",
+      "text": "Discovery 6. Charon is Pluto’s biggest moon. They pull on each other and travel around the same point between them.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 117072,
+      "sha256": "deaed001c2d3db4c2b950b2cfcd5674c92274e2fbd37fef7cc894b2ce87bf3bd"
+    },
+    {
+      "path": "/audio/en/ea947e80-matilda.mp3",
+      "key": "ea947e80",
+      "text": "A gas called methane in Uranus’s air helps make it look blue-green.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 67335,
+      "sha256": "fae87d4c3e10507567273ba203ff0a596cdfc823245e1c0ba92777d405010284"
+    },
+    {
+      "path": "/audio/en/f10aabfd-matilda.mp3",
+      "key": "f10aabfd",
+      "text": "Discovery 6. Mercury is baking hot by day and freezing cold at night.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 79038,
+      "sha256": "811b7e6d406d98fc5611b633a2624a1e4576971e7b4c901b89c285e6d29ab61b"
+    },
+    {
+      "path": "/audio/en/f98dd31b-matilda.mp3",
+      "key": "f98dd31b",
+      "text": "Saturn spins quickly, so it bulges around its middle.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 51453,
+      "sha256": "22d4face1c1ddfcfd355ad742cb767b3fc62454fd0e25c5b152657e1b212d1f4"
+    },
+    {
+      "path": "/audio/en/fce2de6e-matilda.mp3",
+      "key": "fce2de6e",
+      "text": "Discovery 6. Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 132537,
+      "sha256": "a0e038f4b29a5a12e1ddc84e6fb13854843557fbf1d2c9059f9e6769212a2c61"
+    },
+    {
+      "path": "/audio/en/fe22b571-matilda.mp3",
+      "key": "fe22b571",
+      "text": "Discovery 3. A thick layer of gas around Venus traps heat like a blanket.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 78202,
+      "sha256": "2cd49a3a294eb5a1809f89f624d6e9148c2094272d9b0ddb6be950590869ee6f"
+    },
+    {
+      "path": "/audio/en/fe913cbc-matilda.mp3",
+      "key": "fe913cbc",
+      "text": "Triton is a moon of Neptune. It goes around Neptune in the direction opposite to the way Neptune spins.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 105787,
+      "sha256": "f57e5043bf7910033e3c8f01f0beec26e8358d50e61735164307f333ceecc253"
+    },
+    {
+      "path": "/audio/en/ff00da80-matilda.mp3",
+      "key": "ff00da80",
+      "text": "Discovery 2. Saturn has many moons.",
+      "owners": [
+        "B7_solar"
+      ],
+      "sourceCommit": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+      "bytes": 43511,
+      "sha256": "50993557829a30e39daedaddbad3c377be8eb17d25e9fd6467d50893352d55e9"
+    }
+  ],
+  "completedAt": "2026-10-05T03:54:59.604Z"
+}

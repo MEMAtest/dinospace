@@ -2006,17 +2006,24 @@
     "productionReleased": false
   },
   "b7SolarTeachingGeneration": {
-    "status": "running",
+    "status": "completed",
     "pid": 6806,
     "session": 66972,
-    "attempted": 30,
-    "runCount": 3,
+    "attempted": 52,
+    "runCount": 6,
     "maxTotalCalls": 52,
-    "evidence": "docs/qa-evidence/b7-solar-teaching-generation-20261005/live-checkpoint.json",
+    "evidence": "docs/qa-evidence/b7-solar-teaching-generation-20261005/report.md",
     "inventorySha256": "da8d0fa36700cb7703678243640a82740ea05c5f17170b76c073f76ca51998d5",
-    "decodeAccepted": false,
+    "decodeAccepted": true,
     "productionReleased": false,
-    "completedClipDecodeVerified": 30,
-    "partialDecodeEvidence": "docs/qa-evidence/b7-solar-teaching-generation-20261005/partial30-decode.json"
+    "completedClipDecodeVerified": 127,
+    "partialDecodeEvidence": "docs/qa-evidence/b7-solar-teaching-generation-20261005/partial30-decode.json",
+    "completedAt": "2026-10-05T03:54:59.604Z",
+    "generated": 52,
+    "reused": 75,
+    "fullDecodeValid": 127,
+    "failure": null,
+    "exitCode": 0,
+    "humanListeningAccepted": false
   }
 }
