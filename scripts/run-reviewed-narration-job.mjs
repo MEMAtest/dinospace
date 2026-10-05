@@ -3,10 +3,10 @@ import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { applyB4GrammarReviewedReuse, assertB4GrammarExactMappings } from './b4GrammarReviewedReuse.mjs';
 import {
-  B4_GRAMMAR_INVENTORY_SHA256, B5_SOUND_SAFARI_INVENTORY_SHA256, B5_SOUND_SAFARI_MAX_CALLS_PER_RUN, B5_SOUND_SAFARI_MAX_RUNS, B5_SOUND_SAFARI_REQUEST_LIMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_REQUEST_LIMIT, JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS, SUPPLEMENTAL_INVENTORY_SHA256,
-  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, b5SoundSafariAllowedPendingKeys, claimB5SoundSafariAttempt, claimB5SoundSafariRunWhenPending, claimB7SolarTeachingAttempt, claimB7SolarTeachingRun,
+  B4_GRAMMAR_INVENTORY_SHA256, B5_SOUND_SAFARI_INVENTORY_SHA256, B5_SOUND_SAFARI_MAX_CALLS_PER_RUN, B5_SOUND_SAFARI_MAX_RUNS, B5_SOUND_SAFARI_REQUEST_LIMIT, B7_MEMORY_CURRENT_INVENTORY_SHA256, B7_MEMORY_CURRENT_MAX_CALLS_PER_RUN, B7_MEMORY_CURRENT_MAX_RUNS, B7_MEMORY_CURRENT_REQUEST_LIMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_REQUEST_LIMIT, JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS, SUPPLEMENTAL_INVENTORY_SHA256,
+  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, b5SoundSafariAllowedPendingKeys, b7MemoryCurrentAllowedPendingKeys, claimB5SoundSafariAttempt, claimB5SoundSafariRunWhenPending, claimB7MemoryCurrentAttempt, claimB7MemoryCurrentRun as updateB7MemoryCurrentRun, claimB7SolarTeachingAttempt, claimB7SolarTeachingRun,
   availableCalls, classifyB5SoundSafariGenerationWork, isCandidateReusable, isPackagedCandidate, loadPinnedInventory, readRequestJournal,
-  requestNarration, selectJobItems, sha256, validateB5SoundSafariBudgetState, validateB5SoundSafariExecutionCaps, validateB7SolarTeachingBudgetState, validateB7SolarTeachingExecutionCaps, validateBudgets,
+  requestNarration, selectJobItems, sha256, validateB5SoundSafariBudgetState, validateB5SoundSafariExecutionCaps, validateB7MemoryCurrentBudgetState, validateB7MemoryCurrentExecutionCaps, validateB7SolarTeachingBudgetState, validateB7SolarTeachingExecutionCaps, validateBudgets,
 } from './reviewedNarrationJobs.mjs';
 
 const root = resolve(import.meta.dirname, '..');
@@ -14,6 +14,7 @@ const batch5To7InventoryPath = resolve(root, 'docs/qa-evidence/consolidated-narr
 const supplementalInventoryPath = resolve(root, 'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json');
 const b4GrammarInventoryPath = resolve(root, 'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json');
 const b7SolarTeachingInventoryPath = resolve(root, 'docs/qa-evidence/b7-solar-teaching-narration-jobs-20261004.json');
+const b7MemoryCurrentInventoryPath = resolve(root, 'docs/qa-evidence/b7-memory-narration-ledger-20261005/ledger.json');
 const b5SoundSafariInventoryPath = resolve(root, 'docs/qa-evidence/b5-sound-safari-narration-ledger-20261005/successor-c636516/ledger.json');
 const manifestPath = resolve(root, 'src/data/offlineVoiceManifest.js');
 const expectedJournalPath = resolve(root, '../dinospace-batch3-quality/tmp/offline-voice-request-state.json');
@@ -46,6 +47,9 @@ Read-only default (source-bound B5 Sound Safari/literacy successor ledger):
 
 Read-only default (source-bound B7 Solar teaching-copy update):
   node scripts/run-reviewed-narration-job.mjs --job=b7-solar-teaching --inventory-sha256=${B7_SOLAR_TEACHING_INVENTORY_SHA256}
+
+Read-only default (source-bound current B7 Memory narration):
+  node scripts/run-reviewed-narration-job.mjs --job=b7-memory-current --inventory-sha256=${B7_MEMORY_CURRENT_INVENTORY_SHA256}
 
 Read-only default (supplemental B2/B3):
   node scripts/run-reviewed-narration-job.mjs --job=<b2-supplement|b3-dino-facts> --inventory-sha256=${SUPPLEMENTAL_INVENTORY_SHA256}
@@ -185,6 +189,44 @@ async function claimB7Attempt(inventorySha256, budget, key) {
   await writeB7Budget(inventorySha256, budget);
 }
 
+function b7MemoryCurrentBudgetPath(inventorySha256) {
+  return resolve(root, `tmp/reviewed-narration-b7-memory-budget-${inventorySha256}.json`);
+}
+
+async function readB7MemoryCurrentBudget(inventorySha256, allowedKeys) {
+  try {
+    const state = JSON.parse(await readFile(b7MemoryCurrentBudgetPath(inventorySha256), 'utf8'));
+    validateB7MemoryCurrentBudgetState(state, inventorySha256, allowedKeys);
+    return state;
+  } catch (error) {
+    if (error.code === 'ENOENT') return { inventorySha256, attemptedKeys: [], runs: 0 };
+    throw error;
+  }
+}
+
+async function writeB7MemoryCurrentBudget(inventorySha256, state, allowedKeys) {
+  validateB7MemoryCurrentBudgetState(state, inventorySha256, allowedKeys);
+  const path = b7MemoryCurrentBudgetPath(inventorySha256);
+  await mkdir(dirname(path), { recursive: true });
+  const temp = `${path}.${process.pid}.tmp`;
+  await writeFile(temp, `${JSON.stringify(state, null, 2)}\n`);
+  await rename(temp, path);
+}
+
+async function claimB7MemoryCurrentRun(inventorySha256, budget, pendingCount, allowedKeys) {
+  if (pendingCount === 0) return false;
+  const next = updateB7MemoryCurrentRun(budget);
+  Object.assign(budget, next);
+  await writeB7MemoryCurrentBudget(inventorySha256, budget, allowedKeys);
+  return true;
+}
+
+async function claimB7MemoryCurrentKey(inventorySha256, budget, key, allowedKeys) {
+  const next = claimB7MemoryCurrentAttempt(budget, key, allowedKeys);
+  Object.assign(budget, next);
+  await writeB7MemoryCurrentBudget(inventorySha256, budget, allowedKeys);
+}
+
 async function saveJournal(journalPath, journal) {
   const temp = `${journalPath}.${process.pid}.tmp`;
   await writeFile(temp, `${JSON.stringify({ requests: journal.requests, blockedUntil: journal.blockedUntil }, null, 2)}\n`);
@@ -209,8 +251,10 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
   let auditFailure = null;
   let receipts = new Map();
   let b7Budget = { inventorySha256, attemptedKeys: [], runs: 0 };
+  let b7MemoryCurrentBudget = { inventorySha256, attemptedKeys: [], runs: 0 };
   let b5SoundSafariBudget = { inventorySha256, attemptedKeys: [], runs: 0 };
   const b5AllowedKeys = args.job === 'b5-sound-safari-literacy' ? b5SoundSafariAllowedPendingKeys(items) : null;
+  const b7MemoryAllowedKeys = args.job === 'b7-memory-current' ? b7MemoryCurrentAllowedPendingKeys(items) : null;
   try {
     if (args.job === 'b7-solar-teaching') {
       const allowedKeys = new Set(items.filter((item) => !item.expectedCandidateSha256).map((item) => item.key));
@@ -218,6 +262,9 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
     }
     if (args.job === 'b5-sound-safari-literacy') {
       b5SoundSafariBudget = await readB5SoundSafariBudget(inventorySha256, b5AllowedKeys);
+    }
+    if (args.job === 'b7-memory-current') {
+      b7MemoryCurrentBudget = await readB7MemoryCurrentBudget(inventorySha256, b7MemoryAllowedKeys);
     }
     receipts = await readProvenance(inventorySha256);
     const currentManifest = await readManifest();
@@ -258,13 +305,16 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
         if (manifestNeedsWrite) await writeManifest(manifest);
       } else {
         for (const item of items) {
-          if (b7Budget.attemptedKeys.includes(item.key)) continue;
+          const attemptedKeys = args.job === 'b7-solar-teaching' ? b7Budget.attemptedKeys
+            : args.job === 'b7-memory-current' ? b7MemoryCurrentBudget.attemptedKeys : [];
+          if (attemptedKeys.includes(item.key)) continue;
           if (!(await isPackagedCandidate(root, manifest, item, receipts.get(item.key), inventorySha256))) pending.push(item);
         }
       }
       if (!pending.length) break;
       let capacity = availableCalls(journal);
       const remainingInvocationBudget = args.job === 'b7-solar-teaching' ? args.maxTotalCalls - providerRequestsAttempted
+        : args.job === 'b7-memory-current' ? Math.min(args.maxTotalCalls - providerRequestsAttempted, B7_MEMORY_CURRENT_REQUEST_LIMIT - b7MemoryCurrentBudget.attemptedKeys.length)
         : args.job === 'b5-sound-safari-literacy' ? args.maxTotalCalls - b5SoundSafariBudget.attemptedKeys.length
           : Infinity;
       if (remainingInvocationBudget <= 0) {
@@ -275,6 +325,10 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       }
       if (args.job === 'b7-solar-teaching' && b7Budget.runs >= 6) {
         stopReason = 'B7 Solar teaching six-run cap is exhausted; no retry was attempted.';
+        break;
+      }
+      if (args.job === 'b7-memory-current' && b7MemoryCurrentBudget.runs >= B7_MEMORY_CURRENT_MAX_RUNS) {
+        stopReason = 'B7 Memory nineteen-run cap is exhausted; no retry was attempted.';
         break;
       }
       if (args.job === 'b5-sound-safari-literacy' && b5SoundSafariBudget.runs >= B5_SOUND_SAFARI_MAX_RUNS) {
@@ -298,6 +352,7 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       }
       runs += 1;
       if (args.job === 'b7-solar-teaching') await claimB7Run(inventorySha256, b7Budget);
+      if (args.job === 'b7-memory-current') await claimB7MemoryCurrentRun(inventorySha256, b7MemoryCurrentBudget, pending.length, b7MemoryAllowedKeys);
       if (args.job === 'b5-sound-safari-literacy') await claimB5SoundSafariRun(inventorySha256, b5SoundSafariBudget, b5AllowedKeys, pending.length);
       const runBudget = Math.min(selectorRunCap, args.maxCalls, capacity, remainingInvocationBudget);
       let usedThisRun = 0;
@@ -335,6 +390,7 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
         }
         journal = freshJournal;
         if (args.job === 'b7-solar-teaching') await claimB7Attempt(inventorySha256, b7Budget, item.key);
+        if (args.job === 'b7-memory-current') await claimB7MemoryCurrentKey(inventorySha256, b7MemoryCurrentBudget, item.key, b7MemoryAllowedKeys);
         if (args.job === 'b5-sound-safari-literacy') await claimB5SoundSafariKey(inventorySha256, b5SoundSafariBudget, item.key, b5AllowedKeys);
         journal.requests.push({ at: Date.now() });
         await saveJournal(journalPath, journal);
@@ -394,8 +450,12 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       const failedAttempted = pending.filter((key) => b5SoundSafariBudget.attemptedKeys.includes(key));
       if (failedAttempted.length && !stopReason) stopReason = `Previously attempted B5 Sound Safari keys remain unavailable; automatic retry was refused (${failedAttempted.length}).`;
     }
+    if (args.job === 'b7-memory-current' && b7MemoryCurrentBudget.attemptedKeys.length > 0) {
+      const failedAttempted = pending.filter((key) => b7MemoryCurrentBudget.attemptedKeys.includes(key));
+      if (failedAttempted.length && !stopReason) stopReason = `Previously attempted B7 Memory keys remain unavailable; automatic retry was refused (${failedAttempted.length}).`;
+    }
     const manifestAfterSha256 = sha256(await readFile(manifestPath));
-    const summary = { job: args.job, inventorySha256, requested: items.length, runs, generated, reused, candidateReusableAtEnd: items.length - pending.length, pendingKeys: pending.length, configuredTotalCallCap: ['b7-solar-teaching', 'b5-sound-safari-literacy'].includes(args.job) ? args.maxTotalCalls : null, b7AttemptedCount: args.job === 'b7-solar-teaching' ? b7Budget.attemptedKeys.length : null, b7CumulativeRunCount: args.job === 'b7-solar-teaching' ? b7Budget.runs : null, b5SoundSafariAttemptedCount: args.job === 'b5-sound-safari-literacy' ? b5SoundSafariBudget.attemptedKeys.length : null, b5SoundSafariCumulativeRunCount: args.job === 'b5-sound-safari-literacy' ? b5SoundSafariBudget.runs : null, stoppedAt: stopReason, manifestBeforeSha256, manifestAfterSha256, manifestChangedKeys, changedFiles, auditPath };
+    const summary = { job: args.job, inventorySha256, requested: items.length, runs, generated, reused, candidateReusableAtEnd: items.length - pending.length, pendingKeys: pending.length, configuredTotalCallCap: ['b7-solar-teaching', 'b7-memory-current', 'b5-sound-safari-literacy'].includes(args.job) ? args.maxTotalCalls : null, b7AttemptedCount: args.job === 'b7-solar-teaching' ? b7Budget.attemptedKeys.length : null, b7CumulativeRunCount: args.job === 'b7-solar-teaching' ? b7Budget.runs : null, b7MemoryAttemptedCount: args.job === 'b7-memory-current' ? b7MemoryCurrentBudget.attemptedKeys.length : null, b7MemoryCumulativeRunCount: args.job === 'b7-memory-current' ? b7MemoryCurrentBudget.runs : null, b5SoundSafariAttemptedCount: args.job === 'b5-sound-safari-literacy' ? b5SoundSafariBudget.attemptedKeys.length : null, b5SoundSafariCumulativeRunCount: args.job === 'b5-sound-safari-literacy' ? b5SoundSafariBudget.runs : null, stoppedAt: stopReason, manifestBeforeSha256, manifestAfterSha256, manifestChangedKeys, changedFiles, auditPath };
     console.log(JSON.stringify(summary, null, 2));
     if (stopReason || pending.length) process.exitCode = stopReason ? 1 : 2;
   } catch (error) {
@@ -411,11 +471,14 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       configuredMaxCallsPerRun: args.maxCalls,
       configuredMaxRuns: args.maxRuns,
       maximumProviderRequests: args.job === 'b7-solar-teaching' ? Math.min(args.maxCalls * args.maxRuns, args.maxTotalCalls, B7_SOLAR_TEACHING_REQUEST_LIMIT)
+        : args.job === 'b7-memory-current' ? Math.min(args.maxCalls * args.maxRuns, args.maxTotalCalls, B7_MEMORY_CURRENT_REQUEST_LIMIT)
         : args.job === 'b5-sound-safari-literacy' ? Math.min(args.maxCalls * args.maxRuns, args.maxTotalCalls, B5_SOUND_SAFARI_REQUEST_LIMIT)
           : args.maxCalls * args.maxRuns,
-      configuredTotalCallCap: ['b7-solar-teaching', 'b5-sound-safari-literacy'].includes(args.job) ? args.maxTotalCalls : null,
+      configuredTotalCallCap: ['b7-solar-teaching', 'b7-memory-current', 'b5-sound-safari-literacy'].includes(args.job) ? args.maxTotalCalls : null,
       b7AttemptedCount: args.job === 'b7-solar-teaching' ? b7Budget.attemptedKeys.length : null,
       b7CumulativeRunCount: args.job === 'b7-solar-teaching' ? b7Budget.runs : null,
+      b7MemoryAttemptedCount: args.job === 'b7-memory-current' ? b7MemoryCurrentBudget.attemptedKeys.length : null,
+      b7MemoryCumulativeRunCount: args.job === 'b7-memory-current' ? b7MemoryCurrentBudget.runs : null,
       b5SoundSafariAttemptedCount: args.job === 'b5-sound-safari-literacy' ? b5SoundSafariBudget.attemptedKeys.length : null,
       b5SoundSafariCumulativeRunCount: args.job === 'b5-sound-safari-literacy' ? b5SoundSafariBudget.runs : null,
       runs,
@@ -454,15 +517,21 @@ async function main() {
     if (args.paid && !args.maxTotalCallsExplicit) throw new Error('B5 Sound Safari paid execution requires explicit --max-total-calls.');
     validateB5SoundSafariExecutionCaps({ maxCalls: args.maxCalls, maxRuns: args.maxRuns, maxTotalCalls: args.maxTotalCalls, paid: args.paid });
   }
+  if (args.job === 'b7-memory-current') {
+    if (args.paid && !args.maxTotalCallsExplicit) throw new Error('B7 Memory paid execution requires explicit --max-total-calls.');
+    validateB7MemoryCurrentExecutionCaps({ maxCalls: args.maxCalls, maxRuns: args.maxRuns, maxTotalCalls: args.maxTotalCalls, paid: args.paid });
+  }
   const ledger = JOBS[args.job].ledger;
   const expectedInventorySha256 = ledger === 'supplemental' ? SUPPLEMENTAL_INVENTORY_SHA256
     : ledger === 'b4-grammar' ? B4_GRAMMAR_INVENTORY_SHA256
       : ledger === 'b7-solar-teaching' ? B7_SOLAR_TEACHING_INVENTORY_SHA256
+        : ledger === 'b7-memory-current' ? B7_MEMORY_CURRENT_INVENTORY_SHA256
         : ledger === 'b5-sound-safari-literacy' ? B5_SOUND_SAFARI_INVENTORY_SHA256
       : PINNED_INVENTORY_SHA256;
   const inventoryPath = ledger === 'supplemental' ? supplementalInventoryPath
     : ledger === 'b4-grammar' ? b4GrammarInventoryPath
       : ledger === 'b7-solar-teaching' ? b7SolarTeachingInventoryPath
+        : ledger === 'b7-memory-current' ? b7MemoryCurrentInventoryPath
         : ledger === 'b5-sound-safari-literacy' ? b5SoundSafariInventoryPath
       : batch5To7InventoryPath;
   const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: args['inventory-sha256'], expectedSha256: expectedInventorySha256 });
@@ -482,12 +551,13 @@ async function main() {
     if (reusablePath) packagedCandidateReusable += 1;
     else missing.push(item);
   }
-  const sourceReadyUnavailable = args.job === 'b5-sound-safari-literacy' ? missing.filter((item) => item.expectedCandidateSha256).map((item) => item.key) : [];
-  const pendingAllowlist = args.job === 'b5-sound-safari-literacy' ? [...b5SoundSafariAllowedPendingKeys(items)].sort() : undefined;
-  const jobPlan = { job: args.job, label: JOBS[args.job].label, inventorySha256: actualSha256, requested: items.length, packagedCandidateReusable, pending: missing.length, eligiblePending: args.job === 'b5-sound-safari-literacy' ? pendingAllowlist.length : undefined, snapshotReadyUnavailable: args.job === 'b5-sound-safari-literacy' ? sourceReadyUnavailable.length : undefined, pendingAllowlist, maxCallsPerRun: args.maxCalls, maxRuns: args.maxRuns, maxTotalCalls: args.job === 'b7-solar-teaching' ? args.maxTotalCalls ?? B7_SOLAR_TEACHING_REQUEST_LIMIT : args.job === 'b5-sound-safari-literacy' ? args.maxTotalCalls ?? B5_SOUND_SAFARI_REQUEST_LIMIT : undefined };
+  const sourceReadyUnavailable = ['b5-sound-safari-literacy', 'b7-memory-current'].includes(args.job) ? missing.filter((item) => item.expectedCandidateSha256).map((item) => item.key) : [];
+  const pendingAllowlist = args.job === 'b5-sound-safari-literacy' ? [...b5SoundSafariAllowedPendingKeys(items)].sort()
+    : args.job === 'b7-memory-current' ? [...b7MemoryCurrentAllowedPendingKeys(items)].sort() : undefined;
+  const jobPlan = { job: args.job, label: JOBS[args.job].label, inventorySha256: actualSha256, requested: items.length, packagedCandidateReusable, pending: missing.length, eligiblePending: ['b5-sound-safari-literacy', 'b7-memory-current'].includes(args.job) ? pendingAllowlist.length : undefined, snapshotReadyUnavailable: ['b5-sound-safari-literacy', 'b7-memory-current'].includes(args.job) ? sourceReadyUnavailable.length : undefined, pendingAllowlist, maxCallsPerRun: args.job === 'b7-memory-current' ? Math.min(args.maxCalls, B7_MEMORY_CURRENT_MAX_CALLS_PER_RUN) : args.maxCalls, maxRuns: args.job === 'b7-memory-current' ? Math.min(args.maxRuns, B7_MEMORY_CURRENT_MAX_RUNS) : args.maxRuns, maxTotalCalls: args.job === 'b7-solar-teaching' ? args.maxTotalCalls ?? B7_SOLAR_TEACHING_REQUEST_LIMIT : args.job === 'b7-memory-current' ? args.maxTotalCalls ?? B7_MEMORY_CURRENT_REQUEST_LIMIT : args.job === 'b5-sound-safari-literacy' ? args.maxTotalCalls ?? B5_SOUND_SAFARI_REQUEST_LIMIT : undefined };
   if (!args.paid) { console.log(JSON.stringify({ mode: 'dry-run', readOnly: true, ...jobPlan, pendingKeys: missing.map((item) => item.key) }, null, 2)); return; }
 
-  if (sourceReadyUnavailable.length) throw new Error(`Pinned snapshot-ready B5 Sound Safari files are unavailable at their expected byte hash (${sourceReadyUnavailable.length}); refusing to regenerate outside the exact pending-key allowlist.`);
+  if (sourceReadyUnavailable.length) throw new Error(`Pinned snapshot-ready narration files are unavailable at their expected byte hash (${sourceReadyUnavailable.length}); refusing to regenerate outside the exact pending-key allowlist.`);
 
   if (!args['predecessor-status']) throw new Error('Paid execution requires explicit --predecessor-status from the terminal B4 run.');
   const journalPath = assertJournalPath(args['request-journal'], expectedJournalPath);

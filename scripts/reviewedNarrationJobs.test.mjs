@@ -5,11 +5,11 @@ import { copyFile, mkdir, mkdtemp, readFile, realpath, rm, writeFile } from 'nod
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
-  B4_GRAMMAR_INVENTORY_SHA256, B4_GRAMMAR_SOURCE_COMMIT, B4_GRAMMAR_SOURCE_HASHES, B4_SOURCE_COMMIT, B4_WORKER_PID, B5_SOUND_SAFARI_INVENTORY_SHA256, B5_SOUND_SAFARI_MAX_CALLS_PER_RUN, B5_SOUND_SAFARI_MAX_RUNS, B5_SOUND_SAFARI_PREDECESSOR_LEDGER_SHA256, B5_SOUND_SAFARI_REQUEST_LIMIT, B5_SOUND_SAFARI_SOURCE_COMMIT, B5_SOUND_SAFARI_SOURCE_HASHES, B5_SOUND_SAFARI_TUPLE_SHA256, B7_SOLAR_TEACHING_BASE_COMMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN, B7_SOLAR_TEACHING_MAX_RUNS, B7_SOLAR_TEACHING_REQUEST_LIMIT, B7_SOLAR_TEACHING_SOURCE_COMMIT, B7_SOLAR_TEACHING_SOURCE_HASHES, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
+  B4_GRAMMAR_INVENTORY_SHA256, B4_GRAMMAR_SOURCE_COMMIT, B4_GRAMMAR_SOURCE_HASHES, B4_SOURCE_COMMIT, B4_WORKER_PID, B5_SOUND_SAFARI_INVENTORY_SHA256, B5_SOUND_SAFARI_MAX_CALLS_PER_RUN, B5_SOUND_SAFARI_MAX_RUNS, B5_SOUND_SAFARI_PREDECESSOR_LEDGER_SHA256, B5_SOUND_SAFARI_REQUEST_LIMIT, B5_SOUND_SAFARI_SOURCE_COMMIT, B5_SOUND_SAFARI_SOURCE_HASHES, B5_SOUND_SAFARI_TUPLE_SHA256, B7_MEMORY_CURRENT_INVENTORY_SHA256, B7_MEMORY_CURRENT_MAX_CALLS_PER_RUN, B7_MEMORY_CURRENT_MAX_RUNS, B7_MEMORY_CURRENT_REQUEST_LIMIT, B7_MEMORY_CURRENT_SOURCE_COMMIT, B7_MEMORY_CURRENT_SOURCE_HASHES, B7_SOLAR_TEACHING_BASE_COMMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN, B7_SOLAR_TEACHING_MAX_RUNS, B7_SOLAR_TEACHING_REQUEST_LIMIT, B7_SOLAR_TEACHING_SOURCE_COMMIT, B7_SOLAR_TEACHING_SOURCE_HASHES, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
   acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord, b5SoundSafariAllowedPendingKeys, claimB5SoundSafariAttempt, claimB5SoundSafariRunWhenPending, claimB7SolarTeachingAttempt, claimB7SolarTeachingRun,
-  availableCalls, classifyB5SoundSafariGenerationWork, getCandidateReusablePath, isCandidateReusable, isPackagedCandidate,
+  availableCalls, claimB7MemoryCurrentAttempt, claimB7MemoryCurrentRun, classifyB5SoundSafariGenerationWork, getCandidateReusablePath, isCandidateReusable, isPackagedCandidate,
   loadPinnedInventory, producerLockPathForJournal, readRequestJournal, requestNarration, selectJobItems,
-  sha256, validateB5SoundSafariBudgetState, validateB5SoundSafariExecutionCaps, validateB7SolarTeachingBudgetState, validateB7SolarTeachingExecutionCaps, validateBudgets,
+  sha256, validateB5SoundSafariBudgetState, validateB5SoundSafariExecutionCaps, validateB7MemoryCurrentBudgetState, validateB7MemoryCurrentExecutionCaps, validateB7SolarTeachingBudgetState, validateB7SolarTeachingExecutionCaps, validateBudgets,
 } from './reviewedNarrationJobs.mjs';
 
 const root = resolve(import.meta.dirname, '..');
@@ -17,6 +17,7 @@ const inventoryPath = resolve(root, 'docs/qa-evidence/consolidated-narration-inv
 const supplementalInventoryPath = resolve(root, 'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json');
 const b4GrammarInventoryPath = resolve(root, 'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json');
 const b7SolarTeachingInventoryPath = resolve(root, 'docs/qa-evidence/b7-solar-teaching-narration-jobs-20261004.json');
+const b7MemoryCurrentInventoryPath = resolve(root, 'docs/qa-evidence/b7-memory-narration-ledger-20261005/ledger.json');
 const b5SoundSafariInventoryPath = resolve(root, 'docs/qa-evidence/b5-sound-safari-narration-ledger-20261005/successor-c636516/ledger.json');
 const cliPath = resolve(root, 'scripts/run-reviewed-narration-job.mjs');
 const sharedJournal = resolve(root, '../dinospace-batch3-quality/tmp/offline-voice-request-state.json');
@@ -36,9 +37,10 @@ async function createCliFixture() {
   const fixtureCliPath = resolve(fixtureRoot, 'scripts/run-reviewed-narration-job.mjs');
   const originalConsolidated = JSON.parse(await readFile(inventoryPath, 'utf8'));
   const originalSolar = JSON.parse(await readFile(b7SolarTeachingInventoryPath, 'utf8'));
+  const originalMemoryCurrent = JSON.parse(await readFile(b7MemoryCurrentInventoryPath, 'utf8'));
   const originalManifestSource = await readFile(resolve(root, 'src/data/offlineVoiceManifest.js'), 'utf8');
   const manifestObject = JSON.parse(originalManifestSource.match(/export const OFFLINE_VOICE_MANIFEST = (\{[\s\S]*\});\s*$/)[1]);
-  const sourceCandidates = [root, resolve(root, '../dinospace-batch7-teaching-readability')];
+  const sourceCandidates = [root, resolve(root, '../dinospace-batch7-teaching-readability'), resolve(root, '../dinospace-batch7-integration')];
   const paths = [
     'scripts/b4GrammarReviewedReuse.mjs',
     'docs/qa-evidence/b4-grammar-reviewed-reuse-20261005.json',
@@ -50,6 +52,7 @@ async function createCliFixture() {
     'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json',
     'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json',
     'docs/qa-evidence/b7-solar-teaching-narration-jobs-20261004.json',
+    'docs/qa-evidence/b7-memory-narration-ledger-20261005/ledger.json',
   ];
   for (const path of paths) {
     const destination = resolve(fixtureRoot, path);
@@ -62,6 +65,9 @@ async function createCliFixture() {
   for (const item of [...originalConsolidated.items.filter((entry) => entry.owners?.includes('B7_solar')), ...originalSolar.items]) {
     const status = item.candidateStatus?.B7_solar;
     if (status?.fileExists && status.manifestMatches && status.sha256) candidateItems.set(item.key, { ...item, status });
+  }
+  for (const item of originalMemoryCurrent.items.filter((entry) => entry.candidateAtSnapshot.ready)) {
+    candidateItems.set(item.key, { ...item, status: { fileExists: true, manifestMatches: true, sha256: item.candidateAtSnapshot.sha256 } });
   }
   for (const [key, item] of candidateItems) {
     const publicPath = manifestObject[key];
@@ -100,7 +106,7 @@ async function createCliFixture() {
 test('pins exact reviewed ledger and derives only approved owner keys', async () => {
   const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: PINNED_INVENTORY_SHA256 });
   assert.equal(actualSha256, PINNED_INVENTORY_SHA256);
-  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b5-sound-safari-literacy', 'b6', 'b7-solar', 'b7-solar-teaching', 'b7-memory', 'b2-supplement', 'b3-dino-facts', 'b4-grammar']);
+  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b5-sound-safari-literacy', 'b6', 'b7-solar', 'b7-solar-teaching', 'b7-memory', 'b7-memory-current', 'b2-supplement', 'b3-dino-facts', 'b4-grammar']);
   assert.equal(selectJobItems(inventory, 'b5-reasoning').length, 310);
   assert.equal(selectJobItems(inventory, 'b5-literacy').length, 659);
   assert.equal(selectJobItems(inventory, 'b6').length, 378);
@@ -285,6 +291,100 @@ test('B7 Solar teaching selector dry-run reports 127 current phrases and keeps a
     assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
     assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
     assert.equal(sha256(await readFile(fixture.b4Manifest)), beforeB4Manifest);
+  } finally { await fixture.cleanup(); }
+});
+
+test('B7 current Memory ledger binds 183 exact lines, source files, ready clips, and a capped pending set', async () => {
+  const { inventory, actualSha256 } = await loadPinnedInventory({
+    inventoryPath: b7MemoryCurrentInventoryPath,
+    suppliedSha256: B7_MEMORY_CURRENT_INVENTORY_SHA256,
+    expectedSha256: B7_MEMORY_CURRENT_INVENTORY_SHA256,
+  });
+  assert.equal(actualSha256, B7_MEMORY_CURRENT_INVENTORY_SHA256);
+  assert.equal(inventory.source.runtimeCommit, B7_MEMORY_CURRENT_SOURCE_COMMIT);
+  assert.equal(inventory.predecessorInventory.sha256, 'aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227');
+  const sourceRoot = resolve(root, '../dinospace-batch7-integration');
+  for (const [path, expected] of Object.entries(B7_MEMORY_CURRENT_SOURCE_HASHES)) {
+    const result = spawnSync('git', ['-C', sourceRoot, 'show', `${B7_MEMORY_CURRENT_SOURCE_COMMIT}:${path}`], { encoding: 'buffer' });
+    assert.equal(result.status, 0, `could not read exact Memory source file ${path}`);
+    assert.equal(sha256(result.stdout), expected, `Memory source hash changed for ${path}`);
+  }
+  const selected = selectJobItems(inventory, 'b7-memory-current');
+  const allowed = new Set(selected.filter((item) => item.candidateAtSnapshotPending).map((item) => item.key));
+  assert.equal(selected.length, 183);
+  assert.equal(selected.filter((item) => item.expectedCandidateSha256).length, 2);
+  assert.equal(allowed.size, 181);
+  assert.deepEqual([...allowed].sort(), inventory.candidateSnapshot.pendingKeys);
+  assert.ok(selected.every((item) => item.sourceCommit === B7_MEMORY_CURRENT_SOURCE_COMMIT && item.path === `/audio/en/${item.key}-matilda.mp3`));
+  assert.deepEqual(selected.map(({ key, text, path }) => ({ key, text, path })).sort((a, b) => a.key.localeCompare(b.key)),
+    inventory.items.map(({ key, text, path }) => ({ key, text, path })).sort((a, b) => a.key.localeCompare(b.key)));
+  assert.equal(B7_MEMORY_CURRENT_REQUEST_LIMIT, 181);
+  assert.equal(B7_MEMORY_CURRENT_MAX_CALLS_PER_RUN, 10);
+  assert.equal(B7_MEMORY_CURRENT_MAX_RUNS, 19);
+  assert.throws(() => validateB7MemoryCurrentExecutionCaps({ maxCalls: 11, maxRuns: 1, maxTotalCalls: 181, paid: true }), /max-calls/);
+  assert.throws(() => validateB7MemoryCurrentExecutionCaps({ maxCalls: 10, maxRuns: 20, maxTotalCalls: 181, paid: true }), /max-runs/);
+  assert.throws(() => validateB7MemoryCurrentExecutionCaps({ maxCalls: 10, maxRuns: 19, maxTotalCalls: 182, paid: true }), /max-total-calls/);
+
+  let state = { inventorySha256: actualSha256, attemptedKeys: [], runs: 0 };
+  for (let index = 0; index < 19; index += 1) state = claimB7MemoryCurrentRun(state);
+  assert.throws(() => claimB7MemoryCurrentRun(state), /nineteen-run cap/);
+  for (const key of allowed) state = claimB7MemoryCurrentAttempt(state, key, allowed);
+  assert.equal(state.attemptedKeys.length, 181);
+  assert.throws(() => claimB7MemoryCurrentAttempt(state, [...allowed][0], allowed), /already attempted/);
+  assert.throws(() => claimB7MemoryCurrentAttempt(state, 'ffffffff', allowed), /outside the pinned pending-key set/);
+  assert.throws(() => validateB7MemoryCurrentBudgetState({ inventorySha256: actualSha256, attemptedKeys: ['ffffffff'], runs: 0 }, actualSha256, allowed), /invalid or does not match/);
+  assert.throws(() => validateB7MemoryCurrentBudgetState({ inventorySha256: actualSha256, attemptedKeys: [...allowed, 'ffffffff'], runs: 0 }, actualSha256, allowed), /invalid or does not match/);
+});
+
+test('B7 current Memory default plan exposes exact pending keys and leaves manifest and shared journal read-only', async () => {
+  const fixture = await createCliFixture();
+  try {
+    const beforeManifest = sha256(await readFile(fixture.manifest));
+    const beforeJournal = sha256(await readFile(fixture.journal));
+    const beforeB4Manifest = sha256(await readFile(fixture.b4Manifest));
+    const result = spawnSync(process.execPath, [fixture.cliPath, '--job=b7-memory-current', `--inventory-sha256=${B7_MEMORY_CURRENT_INVENTORY_SHA256}`], { cwd: fixture.root, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr);
+    const summary = JSON.parse(result.stdout);
+    const ledger = JSON.parse(await readFile(resolve(fixture.root, 'docs/qa-evidence/b7-memory-narration-ledger-20261005/ledger.json'), 'utf8'));
+    assert.equal(summary.mode, 'dry-run');
+    assert.equal(summary.readOnly, true);
+    assert.equal(summary.inventorySha256, B7_MEMORY_CURRENT_INVENTORY_SHA256);
+    assert.equal(summary.requested, 183);
+    assert.equal(summary.packagedCandidateReusable, 2);
+    assert.equal(summary.pending, 181);
+    assert.equal(summary.eligiblePending, 181);
+    assert.equal(summary.snapshotReadyUnavailable, 0);
+    assert.equal(summary.maxCallsPerRun, 10);
+    assert.equal(summary.maxRuns, 1);
+    assert.equal(summary.maxTotalCalls, 181);
+    assert.deepEqual(summary.pendingKeys, ledger.candidateSnapshot.pendingKeys);
+    assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
+    assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+    assert.equal(sha256(await readFile(fixture.b4Manifest)), beforeB4Manifest);
+  } finally { await fixture.cleanup(); }
+});
+
+test('B7 current Memory refuses caps above 10 per run, 19 runs, and 181 distinct requests before execution', async () => {
+  const fixture = await createCliFixture();
+  try {
+    const beforeManifest = sha256(await readFile(fixture.manifest));
+    const beforeJournal = sha256(await readFile(fixture.journal));
+    const beforeB4Manifest = sha256(await readFile(fixture.b4Manifest));
+    for (const [capArgs, expected] of [
+      [['--max-calls=11', '--max-runs=1', '--max-total-calls=181'], /max-calls must be from 1 to 10/],
+      [['--max-calls=10', '--max-runs=20', '--max-total-calls=181'], /max-runs must be from 1 to 19/],
+      [['--max-calls=10', '--max-runs=19', '--max-total-calls=182'], /max-total-calls must be from 1 to 181/],
+    ]) {
+      const result = spawnSync(process.execPath, [fixture.cliPath, '--job=b7-memory-current', `--inventory-sha256=${B7_MEMORY_CURRENT_INVENTORY_SHA256}`,
+        '--execute-paid', ...capArgs], { cwd: fixture.root, encoding: 'utf8', timeout: 5000 });
+      assert.equal(result.status, 1);
+      assert.match(result.stderr, expected);
+      assert.doesNotMatch(result.stderr, /fetch|HTTP|provider request/i);
+      assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
+      assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+      assert.equal(sha256(await readFile(fixture.b4Manifest)), beforeB4Manifest);
+      await assert.rejects(readFile(resolve(fixture.root, 'tmp/reviewed-narration-b7-memory-budget-6619f554efbfe852713bb2a9513f35760d6901f5ccf26fb6d53752f520513b58.json')), /ENOENT/);
+    }
   } finally { await fixture.cleanup(); }
 });
 

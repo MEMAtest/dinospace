@@ -40,6 +40,20 @@ export const B7_SOLAR_TEACHING_SOURCE_HASHES = Object.freeze({
   'src/data/offlineVoiceManifest.js': '674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7',
   'src/data/voiceKey.js': 'd013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f',
 });
+export const B7_MEMORY_CURRENT_INVENTORY_SHA256 = '6619f554efbfe852713bb2a9513f35760d6901f5ccf26fb6d53752f520513b58';
+export const B7_MEMORY_CURRENT_SOURCE_COMMIT = '532e540da87b7f6a4197c84de39bb127f296fdef';
+export const B7_MEMORY_CURRENT_BASE_COMMIT = 'c4db1d4b3e469bf71409ec7d859a05a2c7fa9301';
+export const B7_MEMORY_CURRENT_REQUEST_LIMIT = 181;
+export const B7_MEMORY_CURRENT_MAX_CALLS_PER_RUN = 10;
+export const B7_MEMORY_CURRENT_MAX_RUNS = 19;
+export const B7_MEMORY_CURRENT_SOURCE_HASHES = Object.freeze({
+  'src/components/games/MemoryMatch.jsx': '12f0cff1c19240dedfad8006bc8cbcf41cbeda891066bd22efc5877f9eaa8fc8',
+  'src/data/index.js': 'f7dfc08370d14127394f31301c9404aee5498d2389cf75e664bdbaa58c4d0a2e',
+  'src/data/memoryMatchContent.js': 'f657c8c99bea51db4ea11a3d1569c7f3e40e3b80d1652059a0ef73eb19bef05f',
+  'src/data/batch7Progress.js': '52e9ba55802c392c8af4a312afc335b9a5ba440c51f3f70e39aa5b664cf8d7ac',
+  'src/data/voiceKey.js': 'd013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f',
+  'src/data/offlineVoiceManifest.js': '9e93afb1afd0570a0a996f9b3f9263cecaa7fe0e4b5be5b4398fcda1433bdbc8',
+});
 export const B5_SOUND_SAFARI_SOURCE_HASHES = Object.freeze({
   'src/data/batch5Literacy.js': '8440dd01d079549d4f03152f1f6ba7231562811979959c9d3731811e9310e057',
   'src/data/batch5LiteracyPools.js': '36ec814732029449b3a918dfcd95230f55a5c4ee9e57d992fab7b063f9a84e26',
@@ -80,6 +94,7 @@ export const JOBS = Object.freeze({
   'b7-solar': Object.freeze({ owner: 'B7_solar', label: 'B7 Solar narration' }),
   'b7-solar-teaching': Object.freeze({ ledger: 'b7-solar-teaching', batch: 7, label: 'B7 Solar teaching-copy narration' }),
   'b7-memory': Object.freeze({ owner: 'B7_memory', label: 'B7 Memory narration' }),
+  'b7-memory-current': Object.freeze({ ledger: 'b7-memory-current', batch: 7, label: 'B7 current-source Memory narration' }),
   'b2-supplement': Object.freeze({ ledger: 'supplemental', batch: 2, label: 'B2 released narration supplement' }),
   'b3-dino-facts': Object.freeze({ ledger: 'supplemental', batch: 3, game: 'dino', label: 'B3 revised Dino fact narration' }),
   'b4-grammar': Object.freeze({ ledger: 'b4-grammar', batch: 4, label: 'B4 singular-agreement grammar narration' }),
@@ -123,6 +138,56 @@ export function validateB7SolarTeachingBudgetState(state, inventorySha256 = B7_S
     throw new Error('B7 Solar teaching attempt ledger is invalid or does not match the pinned inventory.');
   }
   return true;
+}
+
+export function validateB7MemoryCurrentExecutionCaps({ maxCalls, maxRuns, maxTotalCalls, paid }) {
+  if (!paid) return true;
+  if (!Number.isInteger(maxCalls) || maxCalls < 1 || maxCalls > B7_MEMORY_CURRENT_MAX_CALLS_PER_RUN) {
+    throw new Error(`B7 Memory max-calls must be from 1 to ${B7_MEMORY_CURRENT_MAX_CALLS_PER_RUN}.`);
+  }
+  if (!Number.isInteger(maxRuns) || maxRuns < 1 || maxRuns > B7_MEMORY_CURRENT_MAX_RUNS) {
+    throw new Error(`B7 Memory max-runs must be from 1 to ${B7_MEMORY_CURRENT_MAX_RUNS}.`);
+  }
+  if (!Number.isInteger(maxTotalCalls) || maxTotalCalls < 1 || maxTotalCalls > B7_MEMORY_CURRENT_REQUEST_LIMIT) {
+    throw new Error(`B7 Memory max-total-calls must be from 1 to ${B7_MEMORY_CURRENT_REQUEST_LIMIT}.`);
+  }
+  return true;
+}
+
+export function validateB7MemoryCurrentBudgetState(state, inventorySha256 = B7_MEMORY_CURRENT_INVENTORY_SHA256, allowedKeys = null) {
+  if (!state || state.inventorySha256 !== inventorySha256 || !Number.isInteger(state.runs) || state.runs < 0 || state.runs > B7_MEMORY_CURRENT_MAX_RUNS
+      || !Array.isArray(state.attemptedKeys) || state.attemptedKeys.length > B7_MEMORY_CURRENT_REQUEST_LIMIT
+      || state.attemptedKeys.some((key) => !/^[a-f0-9]{8}$/.test(key))
+      || new Set(state.attemptedKeys).size !== state.attemptedKeys.length
+      || (allowedKeys && state.attemptedKeys.some((key) => !allowedKeys.has(key)))) {
+    throw new Error('B7 Memory attempt ledger is invalid or does not match the pinned inventory.');
+  }
+  return true;
+}
+
+export function claimB7MemoryCurrentRun(state) {
+  validateB7MemoryCurrentBudgetState(state);
+  if (state.runs >= B7_MEMORY_CURRENT_MAX_RUNS) throw new Error('B7 Memory nineteen-run cap is exhausted; stopping without retry.');
+  return { ...state, runs: state.runs + 1 };
+}
+
+export function claimB7MemoryCurrentAttempt(state, key, allowedKeys = null) {
+  validateB7MemoryCurrentBudgetState(state, B7_MEMORY_CURRENT_INVENTORY_SHA256, allowedKeys);
+  if (!/^[a-f0-9]{8}$/.test(key)) throw new Error('B7 Memory request key is invalid.');
+  if (allowedKeys && !allowedKeys.has(key)) throw new Error(`B7 Memory request ${key} is outside the pinned pending-key set.`);
+  if (state.attemptedKeys.includes(key)) throw new Error(`B7 Memory request ${key} was already attempted; automatic retries are disabled.`);
+  if (state.attemptedKeys.length >= B7_MEMORY_CURRENT_REQUEST_LIMIT) throw new Error('B7 Memory 181-request inventory cap is exhausted; stopping without retry.');
+  return { ...state, attemptedKeys: [...state.attemptedKeys, key].sort() };
+}
+
+export function b7MemoryCurrentAllowedPendingKeys(items) {
+  if (!Array.isArray(items) || items.length !== 183) throw new Error('B7 Memory item list lost or changed its 183-item snapshot.');
+  const pending = items.filter((item) => item.candidateAtSnapshotPending).map((item) => item.key);
+  const ready = items.filter((item) => item.expectedCandidateSha256).length;
+  if (pending.length !== B7_MEMORY_CURRENT_REQUEST_LIMIT || ready !== 2 || new Set(pending).size !== pending.length) {
+    throw new Error('B7 Memory item list lost or changed its 2-ready / 181-pending snapshot.');
+  }
+  return new Set(pending);
 }
 
 export function claimB7SolarTeachingRun(state) {
@@ -205,12 +270,15 @@ export async function loadPinnedInventory({ inventoryPath, suppliedSha256, expec
   const expectedCount = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 ? 7
     : expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256 ? 47
       : expectedSha256 === B7_SOLAR_TEACHING_INVENTORY_SHA256 ? 127
-        : expectedSha256 === B5_SOUND_SAFARI_INVENTORY_SHA256 ? 862
-      : inventory.items?.length;
+        : expectedSha256 === B7_MEMORY_CURRENT_INVENTORY_SHA256 ? 183
+          : expectedSha256 === B5_SOUND_SAFARI_INVENTORY_SHA256 ? 862
+            : inventory.items?.length;
   const countIsValid = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 || expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256
     || expectedSha256 === B7_SOLAR_TEACHING_INVENTORY_SHA256
     ? inventory.requested === expectedCount
-    : expectedSha256 === B5_SOUND_SAFARI_INVENTORY_SHA256
+    : expectedSha256 === B7_MEMORY_CURRENT_INVENTORY_SHA256
+      ? inventory.sourceInventory?.uniqueTexts === expectedCount && inventory.items?.length === expectedCount
+      : expectedSha256 === B5_SOUND_SAFARI_INVENTORY_SHA256
       ? inventory.sourceInventory?.uniqueTexts === expectedCount && inventory.items?.length === expectedCount
       : inventory.uniqueVoiceKeys === inventory.items?.length;
   if (!Array.isArray(inventory.items) || !countIsValid || inventory.items.length !== expectedCount) {
@@ -219,6 +287,7 @@ export async function loadPinnedInventory({ inventoryPath, suppliedSha256, expec
   if (expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256) validateSupplementalProvenance(inventory);
   if (expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256) validateB4GrammarProvenance(inventory);
   if (expectedSha256 === B7_SOLAR_TEACHING_INVENTORY_SHA256) validateB7SolarTeachingProvenance(inventory);
+  if (expectedSha256 === B7_MEMORY_CURRENT_INVENTORY_SHA256) validateB7MemoryCurrentProvenance(inventory);
   if (expectedSha256 === B5_SOUND_SAFARI_INVENTORY_SHA256) validateB5SoundSafariProvenance(inventory);
   return { inventory, actualSha256 };
 }
@@ -267,6 +336,66 @@ export function validateB7SolarTeachingProvenance(inventory) {
   for (const key of [...newKeys, ...retainedMissing]) if (!pending.has(key)) throw new Error(`B7 Solar expected pending key is not pending: ${key}.`);
   if (newKeys.some((key) => retainedMissing.includes(key)) || pending.size !== new Set([...newKeys, ...retainedMissing]).size) {
     throw new Error('B7 Solar pending keys do not equal the exact 44 new-copy plus 8 retained set.');
+  }
+  return true;
+}
+
+export function validateB7MemoryCurrentProvenance(inventory) {
+  const plan = inventory.finiteExecutionPlan || {};
+  const expectedRunCaps = [...Array(18).fill(10), 1];
+  if (inventory.schemaVersion !== 1 || inventory.ledgerName !== 'B7 Memory Match current-source narration'
+      || inventory.selectorProposal !== 'b7-memory-current'
+      || inventory.source?.runtimeCommit !== B7_MEMORY_CURRENT_SOURCE_COMMIT
+      || inventory.source?.reviewedBaselineCommit !== B7_MEMORY_CURRENT_BASE_COMMIT
+      || inventory.predecessorInventory?.sha256 !== PINNED_INVENTORY_SHA256
+      || inventory.predecessorInventory?.selector !== 'b7-memory'
+      || inventory.sourceInventory?.uniqueTexts !== 183 || inventory.items?.length !== 183
+      || inventory.candidateSnapshot?.ready !== 2 || inventory.candidateSnapshot?.pending !== 181
+      || inventory.candidateSnapshot?.manifestSha256 !== B7_MEMORY_CURRENT_SOURCE_HASHES['src/data/offlineVoiceManifest.js']
+      || plan.enabled !== false || plan.maximumRequestsPerRun !== B7_MEMORY_CURRENT_MAX_CALLS_PER_RUN
+      || plan.maximumUniqueRequests !== B7_MEMORY_CURRENT_REQUEST_LIMIT || plan.maximumRuns !== B7_MEMORY_CURRENT_MAX_RUNS
+      || plan.plannedRunCaps?.join(',') !== expectedRunCaps.join(',')
+      || plan.rollingSharedLimit?.requests !== REQUEST_LIMIT || plan.rollingSharedLimit?.minutes !== 10
+      || plan.retryPolicy?.startsWith('No automatic retries.') !== true
+      || plan.producerSafety?.predecessorPid !== B4_WORKER_PID
+      || plan.producerSafety?.lock !== 'tmp/offline-voice-generator.lock adjacent to the shared request journal'
+      || !plan.producerSafety?.gate?.includes('terminal') || !plan.producerSafety?.gate?.includes('B6 worker is live')) {
+    throw new Error('B7 Memory source, corpus, candidate readiness, or finite execution plan changed.');
+  }
+  const sourceHashes = inventory.source?.sha256ByPath || {};
+  const expectedPaths = Object.keys(B7_MEMORY_CURRENT_SOURCE_HASHES).sort();
+  if (Object.keys(sourceHashes).sort().join('\n') !== expectedPaths.join('\n')) {
+    throw new Error('B7 Memory source provenance paths changed.');
+  }
+  for (const path of expectedPaths) {
+    if (sourceHashes[path] !== B7_MEMORY_CURRENT_SOURCE_HASHES[path]) {
+      throw new Error(`B7 Memory source provenance mismatch for ${path}.`);
+    }
+  }
+  const readyKeys = [];
+  const pendingKeys = [];
+  const seen = new Set();
+  const orderedBinding = [];
+  for (const entry of inventory.items) {
+    if (!entry || entry.owners?.length !== 1 || entry.owners[0] !== 'B7_memory'
+        || entry.path !== `/audio/en/${entry.key}-matilda.mp3`
+        || entry.key !== voiceClipKey(entry.text, 'en-US')
+        || entry.textSha256 !== sha256(Buffer.from(entry.text, 'utf8'))
+        || seen.has(entry.key)) {
+      throw new Error(`B7 Memory text/key/path mismatch or duplicate key: ${entry?.key}.`);
+    }
+    seen.add(entry.key);
+    orderedBinding.push(`${JSON.stringify([entry.key, entry.text, entry.path])}\n`);
+    if (entry.candidateAtSnapshot?.ready === true && /^[a-f0-9]{64}$/.test(entry.candidateAtSnapshot.sha256 || '')) readyKeys.push(entry.key);
+    else if (entry.candidateAtSnapshot?.ready === false && entry.candidateAtSnapshot.sha256 === null) pendingKeys.push(entry.key);
+    else throw new Error(`B7 Memory candidate snapshot has ambiguous provenance for ${entry.key}.`);
+  }
+  const expectedReady = ['626fc8ec', 'b1765fe5'];
+  if (readyKeys.sort().join(',') !== expectedReady.join(',') || pendingKeys.length !== B7_MEMORY_CURRENT_REQUEST_LIMIT
+      || sha256(Buffer.from(orderedBinding.join(''), 'utf8')) !== inventory.sourceInventory.orderedKeyTextPathSha256
+      || inventory.candidateSnapshot.readyKeys?.slice().sort().join(',') !== expectedReady.join(',')
+      || inventory.candidateSnapshot.pendingKeys?.slice().sort().join(',') !== pendingKeys.slice().sort().join(',')) {
+    throw new Error('B7 Memory key binding or exact 2-ready / 181-pending allowlist changed.');
   }
   return true;
 }
@@ -408,6 +537,22 @@ export function selectJobItems(inventory, jobName) {
         owners: Object.freeze(['B7_solar']),
         expectedCandidateSha256: candidate.fileExists && candidate.manifestMatches ? candidate.sha256 : null,
         sourceCommit: B7_SOLAR_TEACHING_SOURCE_COMMIT,
+      }));
+    }
+    return [...selected.values()].sort((a, b) => a.key.localeCompare(b.key));
+  }
+  if (job.ledger === 'b7-memory-current') {
+    validateB7MemoryCurrentProvenance(inventory);
+    for (const entry of inventory.items) {
+      const candidate = entry.candidateAtSnapshot;
+      selected.set(entry.key, Object.freeze({
+        key: entry.key,
+        text: entry.text,
+        path: entry.path,
+        owners: Object.freeze(['B7_memory']),
+        expectedCandidateSha256: candidate.ready ? candidate.sha256 : null,
+        candidateAtSnapshotPending: !candidate.ready,
+        sourceCommit: B7_MEMORY_CURRENT_SOURCE_COMMIT,
       }));
     }
     return [...selected.values()].sort((a, b) => a.key.localeCompare(b.key));
