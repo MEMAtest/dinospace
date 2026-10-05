@@ -1,0 +1,169 @@
+{
+  "candidate": "Batch 6 cumulative integration on the released Batch 5 source; local build only",
+  "sourceCommit": "7c350f4bff66c1e9aff922cb5ee98e0fdd1d4ef8",
+  "sourceBranch": "codex/amari-batch6-cumulative-20261005",
+  "runtimeBase": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "baseProviderIdentity": {
+    "checkedAlias": "https://dinospace-eight.vercel.app",
+    "deploymentId": "dpl_5cKFB6U489CLoEPucaY9pDarcHsp",
+    "readyState": "READY",
+    "immutableHost": "https://dinospace-3sqfand4s-memas-projects-23a0001d.vercel.app",
+    "preflightRecord": "work/dinospace-game-editor-fixes/docs/qa-evidence/batch5-cumulative-integration-preflight-20261005.json",
+    "limitation": "Preflight binds only the released base. This Batch 6 cumulative build was not deployed or checked in a browser."
+  },
+  "reviewedBatch6SourceCommit": "2a82fd8fd17d9e76ec4310f2fecf489291f5bbff",
+  "importedBatch6Files": [
+    {
+      "path": "src/components/games/AstronautAcademy.jsx",
+      "sha256": "1bfec2d1b75b73f9222d5103dcabb712b6699be5f66cfe176ffb6fd04ce95cda"
+    },
+    {
+      "path": "src/components/games/AstronautAcademyAskia.jsx",
+      "sha256": "6ac35111ea7cd09896a0b3e4792a377cd7a744f520443b8bdaa97d11cc1e9a77"
+    },
+    {
+      "path": "src/components/games/Batch6Journey.jsx",
+      "sha256": "141d596535bd0eaecb1519244a346863a77dd67a8edc845abd80c5d36200a8b4"
+    },
+    {
+      "path": "src/components/games/ChessExplorers.jsx",
+      "sha256": "4822415890e14a9503c277f45f9896a645d2c5b392a34210ebdf1f4c74ea16ea"
+    },
+    {
+      "path": "src/components/games/ChessExplorersAskia.jsx",
+      "sha256": "43f2df150a7af97aa0d802bbe58f1cdf6f7d334382d812d49015c5ced2cc3c0d"
+    },
+    {
+      "path": "src/components/games/Hangman.jsx",
+      "sha256": "fe2663b20ad28743c7b5ee98b28c0379de20b4b550cde240a19723a3152b1253"
+    },
+    {
+      "path": "src/components/games/HangmanAskia.jsx",
+      "sha256": "601b9853189b51fbdffdb06b94558d43f629429080d11b93ceaa8d514cb116e4"
+    },
+    {
+      "path": "src/components/games/PatternParade.jsx",
+      "sha256": "d71e248fe0c7d363e5561bc5323a36a38dafe0ac833480c02752f8d7d246ccb7"
+    },
+    {
+      "path": "src/components/games/PatternParadeAskia.jsx",
+      "sha256": "2c3c513be84367e22e4a4940a204ed35c07d668be9fe97d0cfda4f5f9ef54ff7"
+    },
+    {
+      "path": "src/data/batch6Games.js",
+      "sha256": "701bf8da8c7c2c40daf30a4c7280d14cb488098ce8a9b5702d835785b21939c0"
+    },
+    {
+      "path": "src/data/batch6Narration.js",
+      "sha256": "436791b76cb6f3e807b1d5ea5e985e5fb25268e7e32facbc6469a0ad4ac45124"
+    },
+    {
+      "path": "test/batch6Games.test.mjs",
+      "sha256": "86a44a510e19a05324ec34137f398bbc6aced4ca9ad99ddad3fd4fcc6ff0aac2"
+    }
+  ],
+  "importedBatch6FilesByteMatchReviewedSource": true,
+  "sharedIntegrationDeltas": {
+    "src/App.jsx": "Amari-only chapter flow set, daily tracker exclusion, Back cancellation/force behavior, and cancellation callback plumbing.",
+    "src/data/gameSessions.js": "Amari-only wrapper bypass for Pattern Parade, Hangman, Chess Explorers and Astronaut Academy.",
+    "test/batch3ProgressionOwnership.test.mjs": "Assert Amari chapter ownership and Askia wrapper separation while retaining Batch 3/counting checks."
+  },
+  "sourceDelta": {
+    "filesChangedFromBase": [
+      "src/App.jsx",
+      "src/components/games/AstronautAcademy.jsx",
+      "src/components/games/AstronautAcademyAskia.jsx",
+      "src/components/games/Batch6Journey.jsx",
+      "src/components/games/ChessExplorers.jsx",
+      "src/components/games/ChessExplorersAskia.jsx",
+      "src/components/games/Hangman.jsx",
+      "src/components/games/HangmanAskia.jsx",
+      "src/components/games/PatternParade.jsx",
+      "src/components/games/PatternParadeAskia.jsx",
+      "src/data/batch6Games.js",
+      "src/data/batch6Narration.js",
+      "src/data/gameSessions.js",
+      "test/batch3ProgressionOwnership.test.mjs",
+      "test/batch6Games.test.mjs"
+    ],
+    "changedFileCount": 15,
+    "protectedUnchangedPaths": [
+      "src/components/games/AmariCountTheStars.jsx",
+      "src/data/countTheStarsBatch3.js",
+      "test/countTheStarsBatch3.test.mjs",
+      "src/data/offlineVoiceManifest.js",
+      "api/**",
+      "public/audio/**"
+    ],
+    "verifiedProtectedPathsUnchanged": true,
+    "excludedReleasedCountFiles": [
+      "src/components/games/AmariCountTheStars.jsx",
+      "src/data/countTheStarsBatch3.js",
+      "test/countTheStarsBatch3.test.mjs"
+    ],
+    "noOtherTrackedFilesChanged": true,
+    "unchangedFilesBoundByBaseTree": true
+  },
+  "build": {
+    "command": "npm run build:android",
+    "environment": {
+      "VITE_ELEVENLABS_ENABLED": "true",
+      "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+      "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+    },
+    "result": "passed",
+    "distFileCount": 5879,
+    "distManifest": "docs/qa-evidence/batch6-cumulative-integration-20261005/dist-sha256-manifest.json",
+    "distManifestSha256": "fcdd380858803bb1bf97d6483136a424e81698b51079152c52a5a148f6558747",
+    "distManifestFormat": "Sorted JSON array of relative path, byte length and SHA-256; digest above is SHA-256 of compact JSON for that sorted array.",
+    "primaryAssets": [
+      {
+        "path": "index.html",
+        "bytes": 1100,
+        "sha256": "920192ddd8936420126e112f2bcf6af31b43664edb0bef95c8ae6c97eec0ac89"
+      },
+      {
+        "path": "assets/AmariCountTheStars-CFNjVz2f.js",
+        "bytes": 18850,
+        "sha256": "1058ac2f5167332341ab3fc1c6b939523a80da6750d512ee78c08e492ddeab81"
+      },
+      {
+        "path": "assets/AmariLetterTrace-D1g-gEaY.js",
+        "bytes": 19956,
+        "sha256": "528a4aeb7c776badd974572e9d89d7512e9ac6f0e5fc7f81dcd4ee8d03b5b2e4"
+      },
+      {
+        "path": "assets/index-Ccs6j6LF.css",
+        "bytes": 206372,
+        "sha256": "2411e413823eb43b354026da853a4fae30867a13a409ce0daf59351037e8acbf"
+      },
+      {
+        "path": "assets/index-WYGQ0bAe.js",
+        "bytes": 1338326,
+        "sha256": "08e7f53a1957ed0932d8bec1cbefb9d954506ac17d77c41389f173249d2bf23e"
+      },
+      {
+        "path": "assets/SolarSystem-B-v3SyFU.js",
+        "bytes": 563158,
+        "sha256": "30a64657f6b2d9e2de67797a95c77d2e48b684610185d160380ee9737cdca8cc"
+      },
+      {
+        "path": "assets/web-COv7364D.js",
+        "bytes": 842,
+        "sha256": "45f1ff2dbd639b73d5a6e1c1025ffa3c21fc5ef7a6567d2f9f18cf4089883ba0"
+      }
+    ]
+  },
+  "releaseGates": {
+    "deployed": false,
+    "browserQA": false,
+    "providerCalls": 0,
+    "narrationGeneration": false,
+    "humanListening": false,
+    "packagedNarrationAcceptance": "open; requires current-candidate readiness and separate native playback/listening review",
+    "overall4_5Acceptance": false
+  },
+  "baseTreeSha": "29947625ee59963ebbc7c95be303bc13e70baa25",
+  "integratedTreeSha": "bf3e250978a292821ffd6cb2c85da23ca3158c81",
+  "parentCommit": "1accc99e89be303678ead99def6a3095ab1cb886"
+}
