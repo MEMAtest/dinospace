@@ -1,0 +1,88 @@
+{
+  "job": "b2-supplement",
+  "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+  "requested": 5,
+  "configuredMaxCallsPerRun": 5,
+  "configuredMaxRuns": 1,
+  "maximumProviderRequests": 5,
+  "configuredTotalCallCap": null,
+  "b7AttemptedCount": null,
+  "b7CumulativeRunCount": null,
+  "b5SoundSafariAttemptedCount": null,
+  "b5SoundSafariCumulativeRunCount": null,
+  "runs": 1,
+  "providerRequestsAttempted": 5,
+  "providerResponsesAccepted": 5,
+  "generated": 5,
+  "reused": 0,
+  "stoppedAt": null,
+  "failure": null,
+  "manifestBeforeSha256": "597eb0eed179aa89c1267fdb8ead94cec9fb3d86e9b6315606ae15b4c9c8f0a6",
+  "manifestAfterSha256": "e92875d0f8b5b01ca3ff03c249dcc89db240cdc1223bc37cb8ff828f179e076c",
+  "auditPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/tmp/reviewed-narration-audit-b2-supplement.json",
+  "manifestChangedKeys": [
+    "5866151d",
+    "9685e0ac",
+    "a39b3546",
+    "a44acc87",
+    "e077fcc0"
+  ],
+  "changedFiles": [
+    {
+      "path": "/audio/en/5866151d-matilda.mp3",
+      "key": "5866151d",
+      "text": "Look near the middle bottom of Picture B.",
+      "owners": [
+        "B2_spotDifference"
+      ],
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "bytes": 36824,
+      "sha256": "c5e8536fd3c067a27166ad0d189b359fffaf40f45c7dde1b978f7258b86956bc"
+    },
+    {
+      "path": "/audio/en/9685e0ac-matilda.mp3",
+      "key": "9685e0ac",
+      "text": "Next picture. Build Dino Park. Compare each piece with the preview.",
+      "owners": [
+        "B2_puzzlePop"
+      ],
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "bytes": 81128,
+      "sha256": "719d07e044ba711640be1fea66a3a1968219c1236ac511ecdd114357ac546cd6"
+    },
+    {
+      "path": "/audio/en/a39b3546-matilda.mp3",
+      "key": "a39b3546",
+      "text": "Build the Dino Park picture. Choose a piece, then tap its matching space.",
+      "owners": [
+        "B2_puzzlePop"
+      ],
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "bytes": 82799,
+      "sha256": "254457ed89777430e3229991151818defbc72250d8bfc0df3ea3edad631deecb"
+    },
+    {
+      "path": "/audio/en/a44acc87-matilda.mp3",
+      "key": "a44acc87",
+      "text": "Look near the middle area of Picture B.",
+      "owners": [
+        "B2_spotDifference"
+      ],
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "bytes": 35988,
+      "sha256": "1d550c3b2f5e518dd6b2d64965d11e817a00028edf4f0462ed65c7253e60cf4a"
+    },
+    {
+      "path": "/audio/en/e077fcc0-matilda.mp3",
+      "key": "e077fcc0",
+      "text": "Puzzle Pop. Picture Pioneers. Match big picture pieces and spot the main shapes. Build the Dino Park picture.",
+      "owners": [
+        "B2_puzzlePop"
+      ],
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "bytes": 125849,
+      "sha256": "7731f4aa1c8a070991b1c1e9cbaa88afd5031b7c0a1c52f53470b760ac991574"
+    }
+  ],
+  "completedAt": "2026-10-05T03:17:02.702Z"
+}

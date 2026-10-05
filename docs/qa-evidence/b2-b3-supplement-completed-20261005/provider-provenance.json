@@ -1,0 +1,96 @@
+{
+  "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+  "entries": {
+    "0f0204e5": {
+      "producer": "reviewedNarrationSupervisorV1",
+      "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+      "key": "0f0204e5",
+      "path": "/audio/en/0f0204e5-matilda.mp3",
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "textSha256": "243a2d1fec659d37dd1883c684577f76903b3668204a631242896bb9db7ff9bf",
+      "voice": "matilda",
+      "audioSha256": "b40201a982d28314bcd8c327a85733c196d07478e43d0d1e3b3e135bc02fb73c",
+      "bytes": 82799,
+      "contentType": "audio/mpeg",
+      "generatedAt": "2026-10-05T03:17:49.712Z"
+    },
+    "5866151d": {
+      "producer": "reviewedNarrationSupervisorV1",
+      "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+      "key": "5866151d",
+      "path": "/audio/en/5866151d-matilda.mp3",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "textSha256": "bbac195b5ef3ff308d3d8c7962334d52a64049d198b4b617abcf0f641f7682ab",
+      "voice": "matilda",
+      "audioSha256": "c5e8536fd3c067a27166ad0d189b359fffaf40f45c7dde1b978f7258b86956bc",
+      "bytes": 36824,
+      "contentType": "audio/mpeg",
+      "generatedAt": "2026-10-05T03:17:00.539Z"
+    },
+    "9685e0ac": {
+      "producer": "reviewedNarrationSupervisorV1",
+      "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+      "key": "9685e0ac",
+      "path": "/audio/en/9685e0ac-matilda.mp3",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "textSha256": "97e10d625cce1e00aaf8434dfbacb5441296352de6be68f5240b095f0a8ac22d",
+      "voice": "matilda",
+      "audioSha256": "719d07e044ba711640be1fea66a3a1968219c1236ac511ecdd114357ac546cd6",
+      "bytes": 81128,
+      "contentType": "audio/mpeg",
+      "generatedAt": "2026-10-05T03:17:01.129Z"
+    },
+    "a39b3546": {
+      "producer": "reviewedNarrationSupervisorV1",
+      "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+      "key": "a39b3546",
+      "path": "/audio/en/a39b3546-matilda.mp3",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "textSha256": "2ab30f622749e378277a225a8369f352901161ced059fe67a7bc181ec0c16053",
+      "voice": "matilda",
+      "audioSha256": "254457ed89777430e3229991151818defbc72250d8bfc0df3ea3edad631deecb",
+      "bytes": 82799,
+      "contentType": "audio/mpeg",
+      "generatedAt": "2026-10-05T03:17:01.690Z"
+    },
+    "a44acc87": {
+      "producer": "reviewedNarrationSupervisorV1",
+      "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+      "key": "a44acc87",
+      "path": "/audio/en/a44acc87-matilda.mp3",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "textSha256": "04dddeaa8d78f74646a4ef3effc5b04b81141ef9065beedb703434294011a440",
+      "voice": "matilda",
+      "audioSha256": "1d550c3b2f5e518dd6b2d64965d11e817a00028edf4f0462ed65c7253e60cf4a",
+      "bytes": 35988,
+      "contentType": "audio/mpeg",
+      "generatedAt": "2026-10-05T03:17:02.141Z"
+    },
+    "e077fcc0": {
+      "producer": "reviewedNarrationSupervisorV1",
+      "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+      "key": "e077fcc0",
+      "path": "/audio/en/e077fcc0-matilda.mp3",
+      "sourceCommit": "94d44d031d5835d0d9fa2128064ff83ba5880a62",
+      "textSha256": "56c17386647cddbd43c3a62c0dd3614d99a1ed79cae79a57f8b4b018af1cfce8",
+      "voice": "matilda",
+      "audioSha256": "7731f4aa1c8a070991b1c1e9cbaa88afd5031b7c0a1c52f53470b760ac991574",
+      "bytes": 125849,
+      "contentType": "audio/mpeg",
+      "generatedAt": "2026-10-05T03:17:02.697Z"
+    },
+    "f6991245": {
+      "producer": "reviewedNarrationSupervisorV1",
+      "inventorySha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
+      "key": "f6991245",
+      "path": "/audio/en/f6991245-matilda.mp3",
+      "sourceCommit": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
+      "textSha256": "e9ef104783cfc2e143ba58656c84a57d0788778eadc96b980fdcfe773d23fdd6",
+      "voice": "matilda",
+      "audioSha256": "0a3c032fb42d2491b305aaf89b2faf19c859f52681558eecb87632daeb99f67e",
+      "bytes": 96174,
+      "contentType": "audio/mpeg",
+      "generatedAt": "2026-10-05T03:17:50.385Z"
+    }
+  }
+}

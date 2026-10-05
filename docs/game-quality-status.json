@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T03:13:23.765353+00:00",
+  "updatedAt": "2026-10-05T03:20:47.063182+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1976,5 +1976,15 @@
     "buildTreeSha256": "1869debb3f04cbe6c5bed2bf293456bb55a3d58a3385e1b3c527bebe810860ef",
     "productionReleased": false,
     "evidence": "docs/qa-evidence/b4-grammar-completed-package-20261005/report.md"
+  },
+  "batch2Batch3SupplementalNarrationCompletion": {
+    "status": "generated-and-full-decode-verified",
+    "generated": 7,
+    "valid": 7,
+    "missing": 0,
+    "invalid": 0,
+    "productionReleased": false,
+    "humanListeningAccepted": false,
+    "evidence": "docs/qa-evidence/b2-b3-supplement-completed-20261005/report.md"
   }
 }
