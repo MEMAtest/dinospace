@@ -24,6 +24,14 @@ export const B4_GRAMMAR_DELTA_SHA256 = '8049920284e5b9273552f4381043bfb0182acda3
 export const B7_SOLAR_TEACHING_INVENTORY_SHA256 = 'da8d0fa36700cb7703678243640a82740ea05c5f17170b76c073f76ca51998d5';
 export const B7_SOLAR_TEACHING_SOURCE_COMMIT = '21ee7b240b271c5d775e4ebca3b5f29e0ad63ade';
 export const B7_SOLAR_TEACHING_BASE_COMMIT = 'c4db1d4b3e469bf71409ec7d859a05a2c7fa9301';
+export const B5_SOUND_SAFARI_INVENTORY_SHA256 = '5d6630518ec00b2d4c92fd869ce79db38e611c604f24172092626b443ce206c0';
+export const B5_SOUND_SAFARI_SOURCE_INVENTORY_SHA256 = '365588284c853a7bfdfaf79f2e1153b1065a7f54c51c562f91cbd66b286b7e83';
+export const B5_SOUND_SAFARI_SOURCE_COMMIT = 'c636516afa9ffa1b77dcc3bd5b7353ee80bce567';
+export const B5_SOUND_SAFARI_PREDECESSOR_LEDGER_SHA256 = '3a8b85354a1163b11405a8b3ad51a3faf536839c188539d58dc81e0399910773';
+export const B5_SOUND_SAFARI_TUPLE_SHA256 = 'b47e545240b2d53b7e8cd8895cb0929f02797227381b315ce99027971bd34f01';
+export const B5_SOUND_SAFARI_REQUEST_LIMIT = 851;
+export const B5_SOUND_SAFARI_MAX_CALLS_PER_RUN = 20;
+export const B5_SOUND_SAFARI_MAX_RUNS = 43;
 export const B7_SOLAR_TEACHING_REQUEST_LIMIT = 52;
 export const B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN = 10;
 export const B7_SOLAR_TEACHING_MAX_RUNS = 6;
@@ -31,6 +39,21 @@ export const B7_SOLAR_TEACHING_SOURCE_HASHES = Object.freeze({
   'src/data/index.js': 'f7dfc08370d14127394f31301c9404aee5498d2389cf75e664bdbaa58c4d0a2e',
   'src/data/offlineVoiceManifest.js': '674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7',
   'src/data/voiceKey.js': 'd013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f',
+});
+export const B5_SOUND_SAFARI_SOURCE_HASHES = Object.freeze({
+  'src/data/batch5Literacy.js': '8440dd01d079549d4f03152f1f6ba7231562811979959c9d3731811e9310e057',
+  'src/data/batch5LiteracyPools.js': '36ec814732029449b3a918dfcd95230f55a5c4ee9e57d992fab7b063f9a84e26',
+  'src/data/batch5LiteracyProgress.js': 'ec122159161c25b5391cd6fe2848e1ac6dc64490461d309d65eebbc1fef07860',
+  'src/data/batch5SoundSafariPictureWords.js': '12a9cecd868c93faac4352813417d506ed4da7a095b82a804b7adf88dc71b543',
+  'src/data/batch5SoundSafariPictureArt.js': 'a3c0fa3b3ad177a097da0aef9a7aadfce059925dd43d0fe34050d3c44f798904',
+  'src/data/batch5SoundSafariLabels.js': '2cb6373a12b1cdf429033b36ac23168e233f75353b34de4eb717c609e52a4d12',
+  'src/data/batch5SoundSafariNarration.js': '283a15cfd4303867b6570b4d5124296c99986f8f8b660542e8302ff27c28c5a0',
+  'src/data/voiceKey.js': 'd013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f',
+  'src/data/offlineVoiceManifest.js': '674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7',
+  'src/components/games/AmariSoundSafari.jsx': '35e86fd1dd03d46c5548df362caa41efd739ecaaac60876f72a2646fec233c23',
+  'src/components/games/useAmariPhonemeAudio.js': 'f82cfbe80ca83be413e2979d6fa0baef5650a11a7f811f3453006c6c0ed3e6b4',
+  'scripts/batch5LiteracyNarrationInventory.mjs': '163961f0c2a6fabc99149ab69a158d46997c14a29e4b04f95ab32aef39812f47',
+  'scripts/check-batch5-literacy-readiness.mjs': '79ab6c335df87a78f6b2d21f61bbf39685e078bdce79e2be9fad6bed3204c87e',
 });
 export const B4_GRAMMAR_SOURCE_HASHES = Object.freeze({
   'scripts/batch4NarrationInventory.mjs': 'e404d0f2304e1c3aafc8e0dbcda3e798251436db53897428b6a66e40e32e968b',
@@ -52,6 +75,7 @@ export const VOICE_ENDPOINT = `${VOICE_ORIGIN}/api/voice`;
 export const JOBS = Object.freeze({
   'b5-reasoning': Object.freeze({ owner: 'B5_reasoning', label: 'B5 reasoning narration' }),
   'b5-literacy': Object.freeze({ owner: 'B5_literacy', label: 'B5 literacy narration' }),
+  'b5-sound-safari-literacy': Object.freeze({ ledger: 'b5-sound-safari-literacy', batch: 5, label: 'B5 Sound Safari and literacy narration' }),
   b6: Object.freeze({ owner: 'B6', label: 'B6 Amari narration' }),
   'b7-solar': Object.freeze({ owner: 'B7_solar', label: 'B7 Solar narration' }),
   'b7-solar-teaching': Object.freeze({ ledger: 'b7-solar-teaching', batch: 7, label: 'B7 Solar teaching-copy narration' }),
@@ -115,6 +139,59 @@ export function claimB7SolarTeachingAttempt(state, key) {
   return { ...state, attemptedKeys: [...state.attemptedKeys, key].sort() };
 }
 
+export function validateB5SoundSafariExecutionCaps({ maxCalls, maxRuns, maxTotalCalls, paid }) {
+  if (!paid) return true;
+  if (!Number.isInteger(maxCalls) || maxCalls < 1 || maxCalls > B5_SOUND_SAFARI_MAX_CALLS_PER_RUN) {
+    throw new Error(`B5 Sound Safari max-calls must be from 1 to ${B5_SOUND_SAFARI_MAX_CALLS_PER_RUN}.`);
+  }
+  if (!Number.isInteger(maxRuns) || maxRuns < 1 || maxRuns > B5_SOUND_SAFARI_MAX_RUNS) {
+    throw new Error(`B5 Sound Safari max-runs must be from 1 to ${B5_SOUND_SAFARI_MAX_RUNS}.`);
+  }
+  if (!Number.isInteger(maxTotalCalls) || maxTotalCalls < 1 || maxTotalCalls > B5_SOUND_SAFARI_REQUEST_LIMIT) {
+    throw new Error(`B5 Sound Safari max-total-calls must be from 1 to ${B5_SOUND_SAFARI_REQUEST_LIMIT}.`);
+  }
+  return true;
+}
+
+export function validateB5SoundSafariBudgetState(state, inventorySha256 = B5_SOUND_SAFARI_INVENTORY_SHA256, allowedKeys = null) {
+  if (!state || state.inventorySha256 !== inventorySha256
+      || !Number.isInteger(state.runs) || state.runs < 0 || state.runs > B5_SOUND_SAFARI_MAX_RUNS
+      || !Array.isArray(state.attemptedKeys) || state.attemptedKeys.length > B5_SOUND_SAFARI_REQUEST_LIMIT
+      || state.attemptedKeys.some((key) => !/^[a-f0-9]{8}$/.test(key))
+      || new Set(state.attemptedKeys).size !== state.attemptedKeys.length
+      || (allowedKeys && state.attemptedKeys.some((key) => !allowedKeys.has(key)))) {
+    throw new Error('B5 Sound Safari attempt ledger is invalid or does not match the pinned pending-key set.');
+  }
+  return true;
+}
+
+export function claimB5SoundSafariRunWhenPending(state, pendingCount, allowedKeys = null) {
+  validateB5SoundSafariBudgetState(state, state.inventorySha256, allowedKeys);
+  if (!Number.isInteger(pendingCount) || pendingCount < 0) throw new Error('B5 Sound Safari pending count is invalid.');
+  if (pendingCount === 0) return state;
+  if (state.runs >= B5_SOUND_SAFARI_MAX_RUNS) throw new Error('B5 Sound Safari 43-run cap is exhausted; stopping without retry.');
+  return { ...state, runs: state.runs + 1 };
+}
+
+export function b5SoundSafariAllowedPendingKeys(items) {
+  if (!Array.isArray(items)) throw new Error('B5 Sound Safari selected items must be an array.');
+  if (items.some((item) => typeof item.candidateAtSnapshotPending !== 'boolean'
+      || item.candidateAtSnapshotPending !== !item.expectedCandidateSha256)) {
+    throw new Error('B5 Sound Safari selected items lost or changed the pinned snapshot pending marker.');
+  }
+  return new Set(items.filter((item) => item.candidateAtSnapshotPending === true).map((item) => item.key));
+}
+
+export function claimB5SoundSafariAttempt(state, key, allowedKeys = null) {
+  validateB5SoundSafariBudgetState(state, state.inventorySha256, allowedKeys);
+  if (!/^[a-f0-9]{8}$/.test(key) || (allowedKeys && !allowedKeys.has(key))) {
+    throw new Error(`B5 Sound Safari request key is outside the pinned pending-key set: ${key}.`);
+  }
+  if (state.attemptedKeys.includes(key)) throw new Error(`B5 Sound Safari request ${key} was already attempted; automatic retries are disabled.`);
+  if (state.attemptedKeys.length >= B5_SOUND_SAFARI_REQUEST_LIMIT) throw new Error('B5 Sound Safari 851-request cap is exhausted; stopping without retry.');
+  return { ...state, attemptedKeys: [...state.attemptedKeys, key].sort() };
+}
+
 export async function loadPinnedInventory({ inventoryPath, suppliedSha256, expectedSha256 = PINNED_INVENTORY_SHA256 }) {
   if (suppliedSha256 !== expectedSha256) {
     throw new Error(`Inventory SHA argument must equal reviewed SHA ${expectedSha256}.`);
@@ -128,17 +205,21 @@ export async function loadPinnedInventory({ inventoryPath, suppliedSha256, expec
   const expectedCount = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 ? 7
     : expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256 ? 47
       : expectedSha256 === B7_SOLAR_TEACHING_INVENTORY_SHA256 ? 127
+        : expectedSha256 === B5_SOUND_SAFARI_INVENTORY_SHA256 ? 862
       : inventory.items?.length;
   const countIsValid = expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256 || expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256
     || expectedSha256 === B7_SOLAR_TEACHING_INVENTORY_SHA256
     ? inventory.requested === expectedCount
-    : inventory.uniqueVoiceKeys === inventory.items?.length;
+    : expectedSha256 === B5_SOUND_SAFARI_INVENTORY_SHA256
+      ? inventory.sourceInventory?.uniqueTexts === expectedCount && inventory.items?.length === expectedCount
+      : inventory.uniqueVoiceKeys === inventory.items?.length;
   if (!Array.isArray(inventory.items) || !countIsValid || inventory.items.length !== expectedCount) {
     throw new Error('Reviewed inventory structure is not the pinned key ledger format.');
   }
   if (expectedSha256 === SUPPLEMENTAL_INVENTORY_SHA256) validateSupplementalProvenance(inventory);
   if (expectedSha256 === B4_GRAMMAR_INVENTORY_SHA256) validateB4GrammarProvenance(inventory);
   if (expectedSha256 === B7_SOLAR_TEACHING_INVENTORY_SHA256) validateB7SolarTeachingProvenance(inventory);
+  if (expectedSha256 === B5_SOUND_SAFARI_INVENTORY_SHA256) validateB5SoundSafariProvenance(inventory);
   return { inventory, actualSha256 };
 }
 
@@ -190,6 +271,71 @@ export function validateB7SolarTeachingProvenance(inventory) {
   return true;
 }
 
+export function validateB5SoundSafariProvenance(inventory) {
+  if (inventory.schemaVersion !== 1 || inventory.ledgerName !== 'B5 Sound Safari and literacy narration'
+      || inventory.selectorProposal !== 'b5-sound-safari-literacy'
+      || inventory.successor?.sourceCommit !== B5_SOUND_SAFARI_SOURCE_COMMIT
+      || inventory.successor?.supersedesLedgerSha256 !== B5_SOUND_SAFARI_PREDECESSOR_LEDGER_SHA256
+      || inventory.successor?.exactTupleSha256 !== B5_SOUND_SAFARI_TUPLE_SHA256
+      || inventory.successor?.tupleComparison !== '862/862 exact key, text, and path tuples equal the a652 historical ledger.'
+      || inventory.successor?.changedSourcePaths?.join(',') !== 'src/data/batch5SoundSafariPictureArt.js'
+      || inventory.source?.commit !== B5_SOUND_SAFARI_SOURCE_COMMIT
+      || inventory.sourceInventory?.sha256 !== B5_SOUND_SAFARI_SOURCE_INVENTORY_SHA256
+      || inventory.sourceInventory?.uniqueTexts !== 862 || inventory.sourceInventory?.exactSequences !== 603
+      || inventory.candidateSnapshot?.ready !== 11 || inventory.candidateSnapshot?.pending !== B5_SOUND_SAFARI_REQUEST_LIMIT
+      || inventory.items?.length !== 862) {
+    throw new Error('B5 Sound Safari successor ledger source or exact corpus/readiness totals changed.');
+  }
+  const sourceHashes = inventory.source.sha256ByPath || {};
+  const expectedPaths = Object.keys(B5_SOUND_SAFARI_SOURCE_HASHES).sort();
+  if (Object.keys(sourceHashes).sort().join('\n') !== expectedPaths.join('\n')) {
+    throw new Error('B5 Sound Safari successor source provenance paths changed.');
+  }
+  for (const path of expectedPaths) {
+    if (sourceHashes[path] !== B5_SOUND_SAFARI_SOURCE_HASHES[path]) throw new Error(`B5 Sound Safari source provenance mismatch for ${path}.`);
+  }
+  const plan = inventory.finiteExecutionPlan || {};
+  const expectedRunCaps = [...Array(42).fill(20), 11];
+  if (plan.enabled !== false || plan.maximumRequestsPerRun !== B5_SOUND_SAFARI_MAX_CALLS_PER_RUN
+      || plan.maximumUniqueRequests !== B5_SOUND_SAFARI_REQUEST_LIMIT || plan.maximumRuns !== B5_SOUND_SAFARI_MAX_RUNS
+      || plan.rollingSharedLimit?.requests !== REQUEST_LIMIT || plan.rollingSharedLimit?.minutes !== 10
+      || plan.retryPolicy?.startsWith('No automatic retries.') !== true
+      || plan.producerSafety?.predecessorPid !== B4_WORKER_PID
+      || plan.producerSafety?.lock !== 'tmp/offline-voice-generator.lock adjacent to the shared request journal'
+      || !plan.producerSafety?.gate?.includes('stopped') || !plan.producerSafety?.gate?.includes('terminal')
+      || !plan.reusePolicy?.includes('successful receipt bound to this exact successor ledger SHA')
+      || plan.plannedRunCaps?.join(',') !== expectedRunCaps.join(',')) {
+    throw new Error('B5 Sound Safari finite caps or producer safety gates changed.');
+  }
+  const seen = new Set();
+  let ready = 0;
+  let pending = 0;
+  for (const item of inventory.items) {
+    if (!item || typeof item.text !== 'string' || !item.text.trim() || item.key !== voiceClipKey(item.text, 'en-US')
+        || item.path !== `/audio/en/${item.key}-matilda.mp3` || !/^[a-f0-9]{64}$/.test(item.textSha256 || '')
+        || item.textSha256 !== sha256(Buffer.from(item.text, 'utf8')) || seen.has(item.key)) {
+      throw new Error(`B5 Sound Safari text/key/path mismatch or duplicate key: ${item?.key}.`);
+    }
+    seen.add(item.key);
+    const status = item.candidateAtSnapshot;
+    if (!status || typeof status.manifestMatches !== 'boolean' || typeof status.fileExists !== 'boolean') {
+      throw new Error(`B5 Sound Safari candidate status missing for ${item.key}.`);
+    }
+    if (status.manifestMatches && status.fileExists && Number.isInteger(status.fileBytes) && status.fileBytes > 0
+        && /^[a-f0-9]{64}$/.test(status.audioSha256 || '')) {
+      ready += 1;
+    } else if (!status.manifestMatches && !status.fileExists && status.fileBytes === null && status.audioSha256 === null) {
+      pending += 1;
+    } else {
+      throw new Error(`B5 Sound Safari candidate bytes have ambiguous provenance for ${item.key}.`);
+    }
+  }
+  if (seen.size !== 862 || ready !== 11 || pending !== B5_SOUND_SAFARI_REQUEST_LIMIT) {
+    throw new Error('B5 Sound Safari candidate snapshot must remain exactly 11 ready / 851 pending.');
+  }
+  return true;
+}
+
 export function validateB4GrammarProvenance(inventory) {
   if (inventory.source !== B4_GRAMMAR_SOURCE_COMMIT || inventory.base !== B4_GRAMMAR_BASE_COMMIT
       || inventory.deltaSha256 !== B4_GRAMMAR_DELTA_SHA256
@@ -235,6 +381,22 @@ export function selectJobItems(inventory, jobName) {
   const job = JOBS[jobName];
   if (!job) throw new Error(`Unknown job selector. Choose one of: ${Object.keys(JOBS).join(', ')}.`);
   const selected = new Map();
+  if (job.ledger === 'b5-sound-safari-literacy') {
+    validateB5SoundSafariProvenance(inventory);
+    for (const entry of inventory.items) {
+      const status = entry.candidateAtSnapshot;
+      selected.set(entry.key, Object.freeze({
+        key: entry.key,
+        text: entry.text,
+        path: entry.path,
+        owners: Object.freeze(['B5_sound_safari_literacy']),
+        expectedCandidateSha256: status.audioSha256,
+        candidateAtSnapshotPending: !status.audioSha256,
+        sourceCommit: B5_SOUND_SAFARI_SOURCE_COMMIT,
+      }));
+    }
+    return [...selected.values()].sort((a, b) => a.key.localeCompare(b.key));
+  }
   if (job.ledger === 'b7-solar-teaching') {
     validateB7SolarTeachingProvenance(inventory);
     for (const entry of inventory.items) {
@@ -438,6 +600,25 @@ export async function isCandidateReusable(root, manifest, item, receipt = null, 
     } catch (error) { if (error.code !== 'ENOENT') throw error; }
   }
   return getCandidateReusablePath(root, manifest, item);
+}
+
+export async function classifyB5SoundSafariGenerationWork(root, items, manifest, receipts, inventorySha256, attemptedKeys = []) {
+  const allowedKeys = b5SoundSafariAllowedPendingKeys(items);
+  const attempted = attemptedKeys instanceof Set ? attemptedKeys : new Set(attemptedKeys);
+  for (const key of attempted) {
+    if (!allowedKeys.has(key)) throw new Error(`B5 Sound Safari attempt key is outside the pinned pending-key set: ${key}.`);
+  }
+  const reusablePaths = new Map();
+  const generationPending = [];
+  const previouslyAttemptedMissing = [];
+  for (const item of items) {
+    const reusablePath = await isCandidateReusable(root, manifest, item, receipts.get(item.key), inventorySha256);
+    if (reusablePath) reusablePaths.set(item.key, reusablePath);
+    else if (attempted.has(item.key)) previouslyAttemptedMissing.push(item);
+    else if (item.candidateAtSnapshotPending) generationPending.push(item);
+    else throw new Error(`Pinned snapshot-ready B5 Sound Safari bytes are unavailable for ${item.key}; refusing unbudgeted generation.`);
+  }
+  return { reusablePaths, generationPending, previouslyAttemptedMissing };
 }
 
 export async function isPackagedCandidate(root, manifest, item, receipt = null, expectedInventorySha256 = PINNED_INVENTORY_SHA256) {

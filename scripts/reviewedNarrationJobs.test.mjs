@@ -5,11 +5,11 @@ import { copyFile, mkdir, mkdtemp, readFile, realpath, rm, writeFile } from 'nod
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
-  B4_GRAMMAR_INVENTORY_SHA256, B4_GRAMMAR_SOURCE_COMMIT, B4_GRAMMAR_SOURCE_HASHES, B4_SOURCE_COMMIT, B4_WORKER_PID, B7_SOLAR_TEACHING_BASE_COMMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN, B7_SOLAR_TEACHING_MAX_RUNS, B7_SOLAR_TEACHING_REQUEST_LIMIT, B7_SOLAR_TEACHING_SOURCE_COMMIT, B7_SOLAR_TEACHING_SOURCE_HASHES, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
-  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord, claimB7SolarTeachingAttempt, claimB7SolarTeachingRun,
-  availableCalls, getCandidateReusablePath, isCandidateReusable, isPackagedCandidate,
+  B4_GRAMMAR_INVENTORY_SHA256, B4_GRAMMAR_SOURCE_COMMIT, B4_GRAMMAR_SOURCE_HASHES, B4_SOURCE_COMMIT, B4_WORKER_PID, B5_SOUND_SAFARI_INVENTORY_SHA256, B5_SOUND_SAFARI_MAX_CALLS_PER_RUN, B5_SOUND_SAFARI_MAX_RUNS, B5_SOUND_SAFARI_PREDECESSOR_LEDGER_SHA256, B5_SOUND_SAFARI_REQUEST_LIMIT, B5_SOUND_SAFARI_SOURCE_COMMIT, B5_SOUND_SAFARI_SOURCE_HASHES, B5_SOUND_SAFARI_TUPLE_SHA256, B7_SOLAR_TEACHING_BASE_COMMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_MAX_CALLS_PER_RUN, B7_SOLAR_TEACHING_MAX_RUNS, B7_SOLAR_TEACHING_REQUEST_LIMIT, B7_SOLAR_TEACHING_SOURCE_COMMIT, B7_SOLAR_TEACHING_SOURCE_HASHES, JOBS, PINNED_INVENTORY_SHA256, SUPPLEMENTAL_INVENTORY_SHA256,
+  acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, assertTerminalPredecessorRecord, b5SoundSafariAllowedPendingKeys, claimB5SoundSafariAttempt, claimB5SoundSafariRunWhenPending, claimB7SolarTeachingAttempt, claimB7SolarTeachingRun,
+  availableCalls, classifyB5SoundSafariGenerationWork, getCandidateReusablePath, isCandidateReusable, isPackagedCandidate,
   loadPinnedInventory, producerLockPathForJournal, readRequestJournal, requestNarration, selectJobItems,
-  sha256, validateB7SolarTeachingBudgetState, validateB7SolarTeachingExecutionCaps, validateBudgets,
+  sha256, validateB5SoundSafariBudgetState, validateB5SoundSafariExecutionCaps, validateB7SolarTeachingBudgetState, validateB7SolarTeachingExecutionCaps, validateBudgets,
 } from './reviewedNarrationJobs.mjs';
 
 const root = resolve(import.meta.dirname, '..');
@@ -17,6 +17,7 @@ const inventoryPath = resolve(root, 'docs/qa-evidence/consolidated-narration-inv
 const supplementalInventoryPath = resolve(root, 'docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json');
 const b4GrammarInventoryPath = resolve(root, 'docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json');
 const b7SolarTeachingInventoryPath = resolve(root, 'docs/qa-evidence/b7-solar-teaching-narration-jobs-20261004.json');
+const b5SoundSafariInventoryPath = resolve(root, 'docs/qa-evidence/b5-sound-safari-narration-ledger-20261005/successor-c636516/ledger.json');
 const cliPath = resolve(root, 'scripts/run-reviewed-narration-job.mjs');
 const sharedJournal = resolve(root, '../dinospace-batch3-quality/tmp/offline-voice-request-state.json');
 const b4Manifest = resolve(root, '../dinospace-batch4-quality/src/data/offlineVoiceManifest.js');
@@ -97,7 +98,7 @@ async function createCliFixture() {
 test('pins exact reviewed ledger and derives only approved owner keys', async () => {
   const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: PINNED_INVENTORY_SHA256 });
   assert.equal(actualSha256, PINNED_INVENTORY_SHA256);
-  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b6', 'b7-solar', 'b7-solar-teaching', 'b7-memory', 'b2-supplement', 'b3-dino-facts', 'b4-grammar']);
+  assert.deepEqual(Object.keys(JOBS), ['b5-reasoning', 'b5-literacy', 'b5-sound-safari-literacy', 'b6', 'b7-solar', 'b7-solar-teaching', 'b7-memory', 'b2-supplement', 'b3-dino-facts', 'b4-grammar']);
   assert.equal(selectJobItems(inventory, 'b5-reasoning').length, 310);
   assert.equal(selectJobItems(inventory, 'b5-literacy').length, 659);
   assert.equal(selectJobItems(inventory, 'b6').length, 378);
@@ -105,6 +106,115 @@ test('pins exact reviewed ledger and derives only approved owner keys', async ()
   assert.equal(selectJobItems(inventory, 'b7-memory').length, 183);
   assert.ok(selectJobItems(inventory, 'b7-solar').every((item) => item.owners.includes('B7_solar') && !item.owners.includes('B4')));
   await assert.rejects(() => loadPinnedInventory({ inventoryPath, suppliedSha256: '0'.repeat(64) }), /must equal reviewed SHA/);
+});
+
+test('B5 Sound Safari successor pins exact 862 tuples, 13 source hashes, 11 reusable files and 851 exact pending keys', async () => {
+  const { inventory, actualSha256 } = await loadPinnedInventory({
+    inventoryPath: b5SoundSafariInventoryPath,
+    suppliedSha256: B5_SOUND_SAFARI_INVENTORY_SHA256,
+    expectedSha256: B5_SOUND_SAFARI_INVENTORY_SHA256,
+  });
+  assert.equal(actualSha256, B5_SOUND_SAFARI_INVENTORY_SHA256);
+  assert.equal(inventory.source.commit, B5_SOUND_SAFARI_SOURCE_COMMIT);
+  assert.equal(inventory.sourceInventory.sha256, '365588284c853a7bfdfaf79f2e1153b1065a7f54c51c562f91cbd66b286b7e83');
+  assert.equal(inventory.successor.supersedesLedgerSha256, B5_SOUND_SAFARI_PREDECESSOR_LEDGER_SHA256);
+  assert.equal(inventory.successor.exactTupleSha256, B5_SOUND_SAFARI_TUPLE_SHA256);
+  assert.equal(inventory.items.length, 862);
+  const sourceRoot = resolve(root, '../dinospace-batch5-soundsafari-picture-art');
+  assert.deepEqual(Object.keys(inventory.source.sha256ByPath).sort(), Object.keys(B5_SOUND_SAFARI_SOURCE_HASHES).sort());
+  for (const [path, expected] of Object.entries(B5_SOUND_SAFARI_SOURCE_HASHES)) {
+    const result = spawnSync('git', ['-C', sourceRoot, 'show', `${B5_SOUND_SAFARI_SOURCE_COMMIT}:${path}`], { encoding: 'buffer' });
+    assert.equal(result.status, 0, `could not read exact source file ${path}`);
+    assert.equal(sha256(result.stdout), expected, `source hash changed for ${path}`);
+  }
+  const selected = selectJobItems(inventory, 'b5-sound-safari-literacy');
+  const allowedKeys = b5SoundSafariAllowedPendingKeys(selected);
+  assert.equal(selected.length, 862);
+  assert.equal(selected.filter((item) => item.expectedCandidateSha256).length, 11);
+  assert.equal(allowedKeys.size, 851);
+  assert.ok(selected.every((item) => item.sourceCommit === B5_SOUND_SAFARI_SOURCE_COMMIT && item.path === `/audio/en/${item.key}-matilda.mp3`));
+  assert.ok([...allowedKeys].every((key) => selected.find((item) => item.key === key).candidateAtSnapshotPending));
+  assert.throws(() => b5SoundSafariAllowedPendingKeys(selected.map(({ candidateAtSnapshotPending, ...item }) => item)), /lost or changed/);
+  assert.throws(() => claimB5SoundSafariAttempt({ inventorySha256: actualSha256, runs: 0, attemptedKeys: [] }, selected.find((item) => item.expectedCandidateSha256).key, allowedKeys), /outside the pinned pending-key set/);
+  const oldInventory = JSON.parse(await readFile(inventoryPath, 'utf8'));
+  assert.equal(selectJobItems(oldInventory, 'b5-literacy').length, 659, 'legacy 659 selector remains separate and unchanged');
+});
+
+test('B5 Sound Safari run/request caps, duplicate refusal and ready-only budget preservation', async () => {
+  assert.equal(B5_SOUND_SAFARI_REQUEST_LIMIT, 851);
+  assert.equal(B5_SOUND_SAFARI_MAX_CALLS_PER_RUN, 20);
+  assert.equal(B5_SOUND_SAFARI_MAX_RUNS, 43);
+  assert.equal(validateB5SoundSafariExecutionCaps({ maxCalls: 20, maxRuns: 43, maxTotalCalls: 851, paid: true }), true);
+  assert.throws(() => validateB5SoundSafariExecutionCaps({ maxCalls: 21, maxRuns: 1, maxTotalCalls: 851, paid: true }), /max-calls/);
+  assert.throws(() => validateB5SoundSafariExecutionCaps({ maxCalls: 20, maxRuns: 44, maxTotalCalls: 851, paid: true }), /max-runs/);
+  assert.throws(() => validateB5SoundSafariExecutionCaps({ maxCalls: 20, maxRuns: 43, maxTotalCalls: 852, paid: true }), /max-total-calls/);
+  assert.throws(() => validateB5SoundSafariExecutionCaps({ maxCalls: 20, maxRuns: 43, maxTotalCalls: undefined, paid: true }), /max-total-calls/);
+
+  const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath: b5SoundSafariInventoryPath, suppliedSha256: B5_SOUND_SAFARI_INVENTORY_SHA256, expectedSha256: B5_SOUND_SAFARI_INVENTORY_SHA256 });
+  const selected = selectJobItems(inventory, 'b5-sound-safari-literacy');
+  const allowedKeys = b5SoundSafariAllowedPendingKeys(selected);
+  const initial = { inventorySha256: actualSha256, runs: 0, attemptedKeys: [] };
+  const readyOnlyState = { ...initial };
+  const readyOnlyKeys = b5SoundSafariAllowedPendingKeys(selected.filter((item) => item.expectedCandidateSha256));
+  assert.equal(readyOnlyKeys.size, 0);
+  assert.deepEqual(claimB5SoundSafariRunWhenPending(readyOnlyState, readyOnlyKeys.size, readyOnlyKeys), readyOnlyState);
+  let state = initial;
+  for (let run = 0; run < B5_SOUND_SAFARI_MAX_RUNS; run += 1) state = claimB5SoundSafariRunWhenPending(state, 1, allowedKeys);
+  assert.equal(state.runs, B5_SOUND_SAFARI_MAX_RUNS);
+  assert.throws(() => claimB5SoundSafariRunWhenPending(state, 1, allowedKeys), /43-run cap/);
+
+  const keys = [...allowedKeys].sort();
+  let attempts = { inventorySha256: actualSha256, runs: 0, attemptedKeys: [] };
+  for (const key of keys) attempts = claimB5SoundSafariAttempt(attempts, key, allowedKeys);
+  assert.equal(attempts.attemptedKeys.length, 851);
+  assert.equal(validateB5SoundSafariBudgetState(attempts, actualSha256, allowedKeys), true);
+  assert.throws(() => claimB5SoundSafariAttempt(attempts, keys[0], allowedKeys), /already attempted/);
+  assert.throws(() => claimB5SoundSafariAttempt(attempts, 'ffffffff', allowedKeys), /outside the pinned pending-key set/);
+  assert.throws(() => validateB5SoundSafariBudgetState({ inventorySha256: actualSha256, runs: 0, attemptedKeys: ['ffffffff'] }, actualSha256, allowedKeys), /invalid or does not match/);
+});
+
+test('B5 Sound Safari runner classifies snapshot or receipt bytes before claiming a run when manifest entries are missing', async () => {
+  const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath: b5SoundSafariInventoryPath, suppliedSha256: B5_SOUND_SAFARI_INVENTORY_SHA256, expectedSha256: B5_SOUND_SAFARI_INVENTORY_SHA256 });
+  const selected = selectJobItems(inventory, 'b5-sound-safari-literacy');
+  const allowedKeys = b5SoundSafariAllowedPendingKeys(selected);
+  const snapshotReady = selected.find((item) => item.expectedCandidateSha256);
+  const receiptReusable = selected.find((item) => item.candidateAtSnapshotPending);
+  const fixtureRoot = await tempDir();
+  try {
+    const artRoot = resolve(root, '../dinospace-batch5-soundsafari-picture-art');
+    const snapshotPath = resolve(fixtureRoot, 'public', snapshotReady.path.slice(1));
+    await mkdir(resolve(snapshotPath, '..'), { recursive: true });
+    await copyFile(resolve(artRoot, 'public', snapshotReady.path.slice(1)), snapshotPath);
+
+    const receiptBytes = Buffer.alloc(1400, 19);
+    const receiptPath = resolve(fixtureRoot, 'public', receiptReusable.path.slice(1));
+    await mkdir(resolve(receiptPath, '..'), { recursive: true });
+    await writeFile(receiptPath, receiptBytes);
+    const receipt = {
+      producer: 'reviewedNarrationSupervisorV1',
+      inventorySha256: actualSha256,
+      key: receiptReusable.key,
+      path: receiptReusable.path,
+      sourceCommit: B5_SOUND_SAFARI_SOURCE_COMMIT,
+      textSha256: sha256(Buffer.from(receiptReusable.text, 'utf8')),
+      voice: 'matilda',
+      contentType: 'audio/mpeg',
+      bytes: receiptBytes.length,
+      audioSha256: sha256(receiptBytes),
+    };
+    const manifest = new Map();
+    const receipts = new Map([[receiptReusable.key, receipt]]);
+    const classified = await classifyB5SoundSafariGenerationWork(fixtureRoot, [snapshotReady, receiptReusable], manifest, receipts, actualSha256);
+    assert.deepEqual(classified.generationPending, []);
+    assert.deepEqual([...classified.reusablePaths.entries()].sort(), [[receiptReusable.key, receiptReusable.path], [snapshotReady.key, snapshotReady.path]].sort());
+    const initialBudget = { inventorySha256: actualSha256, attemptedKeys: [], runs: 7 };
+    assert.deepEqual(claimB5SoundSafariRunWhenPending(initialBudget, classified.generationPending.length, allowedKeys), initialBudget);
+
+    const invalidReceipt = { ...receipt, textSha256: '0'.repeat(64) };
+    const invalid = await classifyB5SoundSafariGenerationWork(fixtureRoot, [receiptReusable], new Map(), new Map([[receiptReusable.key, invalidReceipt]]), actualSha256);
+    assert.deepEqual(invalid.generationPending.map((item) => item.key), [receiptReusable.key]);
+    assert.equal(invalid.reusablePaths.size, 0);
+  } finally { await rm(fixtureRoot, { recursive: true, force: true }); }
 });
 
 test('B7 Solar teaching ledger binds 22 edited facts, 44 changed keys and the exact 75/52 readiness snapshot', async () => {
