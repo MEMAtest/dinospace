@@ -1,0 +1,28 @@
+{
+  "created": "2026-10-04",
+  "assetId": "dock-v2",
+  "semanticTarget": "dock (maritime berth / quay)",
+  "status": "candidate replacement; pending independent 82px review",
+  "generator": "built-in image_gen tool; not an API-key or provider job",
+  "prompt": "Use case: stylized-concept. Asset type: 82 px educational picture card for the word \u201cdock\u201d in a six-year-old phonics game. Primary request: make \u201cdock\u201d unmistakably mean a waterside berth where a small boat is tied, not a wooden platform or bench. Show one clearly dominant quay/dock edge extending beside blue water, with one small boat moored directly alongside it using a visible rope; the dock structure should remain the main subject. Style/medium: polished premium children's 3D illustration, friendly toy-like finish, cohesive with glossy single-object card art. Composition: compact centered vignette, full dock edge and boat visible, no crop, clear silhouettes when reduced to 82 px. Backdrop: transparent outside the small dock-water vignette. Lighting: bright soft studio light, cheerful. Constraints: visible blue water and a moored boat make the maritime meaning clear; no labels or text, no people, no second boat, no unrelated scenery, no bench-like standalone platform, no border, watermark or drop-shadow plate.",
+  "sourcePng": "src/assets/sound-safari/generated-originals/dock-v2.png",
+  "sourcePngSha256": "393c5fb0805d2618739fefce9a5011e78c3ba14e323438449a6508a39989ed4f",
+  "sourceDimensions": [
+    1254,
+    1254
+  ],
+  "sourceAlphaMinMax": [
+    0,
+    255
+  ],
+  "webpDerivative": "src/assets/sound-safari/word-cards/dock-v2.webp",
+  "webpSha256": "e615f3c14899243d7fc9180fa77973512f286b9b112625b870cbd21b306c14e1",
+  "webpDimensions": [
+    512,
+    512
+  ],
+  "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged.",
+  "supersedes": "dock-v1 candidate, which independent reviewer said could read as a bench.",
+  "priorSourcePngSha256": "aa16e3883536fcd6f305412e123026cc1d7724232fe276ca5d85674e07e9e5cb",
+  "approval": "No independent re-review yet."
+}

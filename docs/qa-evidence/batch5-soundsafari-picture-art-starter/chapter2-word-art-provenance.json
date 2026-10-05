@@ -1,0 +1,367 @@
+{
+  "created": "2026-10-04",
+  "chapter": 2,
+  "sourceCommitBeforeThisArt": "02911814ce9a62a65bc35bdd2cfacb88c31ee808",
+  "records": [
+    {
+      "assetId": "crab-v1",
+      "semanticWord": "crab",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game, viewed at 82 px. Primary request: one friendly red-orange crab, immediately recognizable, with exactly two obvious claws and eight walking legs. Style/medium: polished premium children’s 3D toy illustration, soft glossy finish, rounded safe shapes, matching a cohesive set of single-object picture cards. Composition/framing: centered complete crab, side/front three-quarter view, generous transparent margin, nothing cropped. Scene/backdrop: truly transparent background. Lighting/mood: bright soft studio light, cheerful. Constraints: anatomically clear crab silhouette, two pincers and eight separate walking legs; no text, letters, numbers, labels, bubbles, sea, sand, rocks, extra creatures, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/crab-v1.png",
+      "sourcePngSha256": "f1bfc70d14b943202114a32af46bc7e11333d29fb08c1b97e5eea7735f463b61",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/crab-v1.webp",
+      "webpSha256": "cb4683a2bdd7d441721de900c54fac8a3f5fe5b41777b0d35e4953111aeba326",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "flag-v1",
+      "semanticWord": "flag",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game, viewed at 82 px. Primary request: one bright, simple cloth flag on one short pole, unmistakably a flag. Style/medium: polished premium children’s 3D toy illustration, soft glossy finish, rounded safe shapes, matching a cohesive set of single-object picture cards. Composition/framing: centered, complete flag and pole, fabric gently curved, generous transparent margin, nothing cropped. Scene/backdrop: truly transparent background. Lighting/mood: bright soft studio light, cheerful. Constraints: plain solid-colour fabric only, no symbols, writing, letters, numbers, characters, landscape, stand, extra objects, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/flag-v1.png",
+      "sourcePngSha256": "fefe3a4841a567fe3295225892302b34174ee6f33e3545ef64cc8d47367a43d2",
+      "sourceDimensions": [
+        1334,
+        1179
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/flag-v1.webp",
+      "webpSha256": "2e4629420852eb631b1e1227290301b4ea480fa7b889d1668dc335c1165672c4",
+      "webpDimensions": [
+        512,
+        453
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "frog-v1",
+      "semanticWord": "frog",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one friendly green frog with exactly four visible legs and a clear frog silhouette. Style/medium: premium polished children’s 3D toy illustration, soft glossy finish, rounded safe features, cohesive single-object picture-card set. Composition: centered whole frog in a simple seated pose, generous transparent margin, no crop. Backdrop: truly transparent. Lighting: soft bright studio lighting. Constraints: unmistakably a frog, no pond, lily pad, water, reeds, insects, extra animals, text, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/frog-v1.png",
+      "sourcePngSha256": "b544f599291e3619d0af3220408df36ce0bc967c50e2830a1259c8a271c2ebb2",
+      "sourceDimensions": [
+        1278,
+        1230
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/frog-v1.webp",
+      "webpSha256": "6771130e5e016c01b5794d342044b423eee42c6876674365eba6e2ca5a391097",
+      "webpDimensions": [
+        512,
+        493
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "drum-v1",
+      "semanticWord": "drum",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one small toy hand drum with two drumsticks resting beside it, clearly recognizable as a drum. Style/medium: polished premium children’s 3D toy illustration, soft glossy finish, rounded safe forms, cohesive set of single-object picture cards. Composition: centered complete drum and both sticks, front three-quarter view, generous transparent margin, nothing cropped. Backdrop: truly transparent. Lighting: bright soft studio light, playful. Constraints: one drum, exactly two visible sticks; no person, music notes, extra instruments, text, letters, numbers, floor, scene, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/drum-v1.png",
+      "sourcePngSha256": "c8d7c2568d407fc58b7e32d2fedf084c7df194136825b0cdf33579beb4e20ab2",
+      "sourceDimensions": [
+        1392,
+        1130
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/drum-v1.webp",
+      "webpSha256": "c448c1724a637772d41e6dfba6d1c09a22f3aacb5665d67a1ac26f49d0f270a6",
+      "webpDimensions": [
+        512,
+        416
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "clock-v1",
+      "semanticWord": "clock",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one simple round wall clock, clearly recognizable, showing only two hands at different angles. Style/medium: polished premium children’s 3D toy illustration, soft glossy finish, rounded friendly design, cohesive set of single-object picture cards. Composition: centered whole clock face and short rim, front-on view, generous transparent margin, nothing cropped. Backdrop: truly transparent. Lighting: bright soft studio light. Constraints: no digits, numerals, letters, words, second hand, numbers, extra objects, wall, scene, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/clock-v1.png",
+      "sourcePngSha256": "6dc5834f943b72146eecb131e8d7ac29fbeac6167c1cbce2c8be46c82a10f838",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/clock-v1.webp",
+      "webpSha256": "383122442fe96926499e36283bfa2f826624ba180c8b1d146722c73739c4b6bc",
+      "webpDimensions": [
+        512,
+        512
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "plant-v1",
+      "semanticWord": "plant",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one small leafy green plant with a clearly visible stem and several distinct leaves, growing in one plain simple pot. Style/medium: polished premium children’s 3D toy illustration, soft glossy finish, rounded friendly forms, cohesive set of single-object cards. Composition: centered whole plant and pot, upright, generous transparent margin, not cropped. Backdrop: truly transparent. Lighting: bright soft studio light. Constraints: unmistakably a plant, no flowers, tools, soil pile, garden scene, extra plants, text, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/plant-v1.png",
+      "sourcePngSha256": "72dc78b7b1423bcac6260c644598a0d42ebd09a7b681bc56b1120abf32c3359e",
+      "sourceDimensions": [
+        1230,
+        1278
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/plant-v1.webp",
+      "webpSha256": "1d160c8c9d84b24d7f25dfe93cb970bf6f9df7e1c08b3adf2bb9c3f0f920bc70",
+      "webpDimensions": [
+        493,
+        512
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "sack-v1",
+      "semanticWord": "sack",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one tied cloth sack, clearly made from folded fabric with a gathered neck and tied cord. Style/medium: polished premium children’s 3D toy illustration, soft tactile cloth texture, rounded and friendly, cohesive set of single-object cards. Composition: centered full sack, front view, generous transparent margin, nothing cropped. Backdrop: truly transparent. Lighting: soft bright studio. Constraints: one sack only, no contents visible, no labels, marks, letters, writing, extra objects, scene, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/sack-v1.png",
+      "sourcePngSha256": "36439130b1282d1eda9d21c2c111fa80277d681a56148d19cf943a60c4aa98b5",
+      "sourceDimensions": [
+        1183,
+        1330
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/sack-v1.webp",
+      "webpSha256": "f9f98ac5c56589df110a416b529e54c680443245e1c89abae8ce9e731c3b54c3",
+      "webpDimensions": [
+        455,
+        512
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "tent-v1",
+      "semanticWord": "tent",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one small closed camping tent with a peaked triangular silhouette and a clearly visible simple front flap. Style/medium: polished premium children’s 3D toy illustration, smooth fabric and soft glossy details, friendly cohesive set of single-object cards. Composition: centered complete tent, front three-quarter view, generous transparent margin, nothing cropped. Backdrop: truly transparent. Lighting: soft bright studio lighting. Constraints: no people, campfire, trees, landscape, extra equipment, words, letters, logo, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/tent-v1.png",
+      "sourcePngSha256": "f5b6d183c28278fc5dfb037908379434bc5b4b39b4c82324fbcabcbecc668a81",
+      "sourceDimensions": [
+        1376,
+        1143
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/tent-v1.webp",
+      "webpSha256": "604fdd0eba549f60e342d86b2afdf006a92d69ad7e5621f3cca3e1662cc742e2",
+      "webpDimensions": [
+        512,
+        425
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "belt-v1",
+      "semanticWord": "belt",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one simple brown belt curled in a loose oval, with a clearly visible buckle and strap. Style/medium: polished premium children’s 3D toy illustration, smooth leather-like material, soft glossy finish, friendly cohesive set of single-object cards. Composition: centered complete belt and buckle, generous transparent margin, nothing cropped. Backdrop: truly transparent. Lighting: soft bright studio lighting. Constraints: no person or waist, no clothing, no extra accessories, text, letters, logo, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/belt-v1.png",
+      "sourcePngSha256": "4988e12e1791050881a24eacdd2a43c2876f30ecfd72dc2d7052569339645ebc",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/belt-v1.webp",
+      "webpSha256": "3a64e92180d55343d138d2e6867e906800b834b876833cfe59f16d51c8489059",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "pond-v1",
+      "semanticWord": "pond",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one small oval pond, a shallow natural pool of clear blue water with an obvious curved grassy bank. Style/medium: polished premium children’s 3D illustration, toy-like soft glossy water and rounded edges, cohesive picture-card set. Composition: centered compact pond viewed slightly from above, entire water edge visible, generous transparent margin. Backdrop: transparent outside the pond vignette. Lighting: bright soft daylight. Constraints: pond only, no animals, lily pads, reeds, people, boats, wider landscape, text, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/pond-v1.png",
+      "sourcePngSha256": "3f88ecee3a5f2c2d02f377d48b843777683baebffa06b643fff62ce122a6a748",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/pond-v1.webp",
+      "webpSha256": "737b028822f945c97d85f4820026b5e504ccc92895606970896964af3b33d303",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "nest-v1",
+      "semanticWord": "nest",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one small woven bird nest holding exactly two visible plain eggs. Style/medium: polished premium children’s 3D toy illustration, gently glossy twig texture, soft rounded safe shapes, cohesive set of isolated picture cards. Composition: centered complete nest with the two eggs distinct, generous transparent margin, nothing cropped. Backdrop: truly transparent. Lighting: warm bright soft studio light. Constraints: nest and two eggs only, no bird, tree, branch, landscape, people, text, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/nest-v1.png",
+      "sourcePngSha256": "41e599935eb55e815463d88722c4d3e931cc789645dea92ac8772d37c759b5ba",
+      "sourceDimensions": [
+        1374,
+        1145
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/nest-v1.webp",
+      "webpSha256": "c43f7817e9d6663f0b7e859e8e250eef7d592fda86850eb7b636b69621717d63",
+      "webpDimensions": [
+        512,
+        427
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "raft-v1",
+      "semanticWord": "raft",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one small floating raft made from several short logs lashed side by side, unmistakably a raft rather than one plank. Style/medium: premium polished children’s 3D toy illustration, smooth friendly wood, cohesive set of picture cards. Composition: centered raft viewed slightly from above, full tied log platform visible with a small hint of blue water beneath to show it floats, generous transparent margin, nothing cropped. Backdrop: transparent outside the compact raft-and-water silhouette. Lighting: bright soft studio light. Constraints: raft only, no people, oars, sail, boat, shore, scenery, text, letters, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/raft-v1.png",
+      "sourcePngSha256": "7fcb0195ee12ed57256a89e3b49104aa37f81bc2c95a6c303262bbfe959a39ef",
+      "sourceDimensions": [
+        1374,
+        1145
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/raft-v1.webp",
+      "webpSha256": "35073c79c42515a183b0622f5ad88173821d553b4300efac7e3fc1aecd8ef525",
+      "webpDimensions": [
+        512,
+        427
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "plank-v1",
+      "semanticWord": "plank",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one single long flat wooden plank, a sawn board used in building. Style/medium: polished premium children’s 3D toy illustration, softly glossy natural wood grain, friendly rounded safe corners, cohesive set of picture cards. Composition: one narrow rectangular board alone, angled slightly in three-quarter view so its flat length and thickness are obvious; show the end grain, generous transparent margin, no crop. Backdrop: truly transparent. Lighting: bright soft studio light. Constraints: exactly one plank, not a stack, raft, table, bench or log; no nails, tools, extra objects, text, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/plank-v1.png",
+      "sourcePngSha256": "1f71254a79100c66a48df2fd8ea878d1e53ac29c9d39afc18f082892380e6b40",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/plank-v1.webp",
+      "webpSha256": "82236c79b0bd785293387d79c500246ab2039d4c6acbefd73f9b2723ca2fe9b6",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "crust-v1",
+      "semanticWord": "crust",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one single slice of sandwich bread, cut in half, with a clearly brown crust around the soft pale inside so “crust” is the focus. Style/medium: polished premium children’s 3D food illustration, soft glossy fresh-bread texture, cohesive picture-card set. Composition: centered one slice tilted slightly, full crust outline visible, generous transparent margin, nothing cropped. Backdrop: truly transparent. Lighting: warm bright studio. Constraints: one bread slice only, no loaf, toast, spread, plate, crumbs, extra foods, text, letters, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/crust-v1.png",
+      "sourcePngSha256": "3b7dc135ac2acc643e569eeeaaa193ee08a8bb4190a87d005c783ec7397ba3ef",
+      "sourceDimensions": [
+        1536,
+        1024
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        254
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/crust-v1.webp",
+      "webpSha256": "c1048bdce67a877177e01811024b019b5f5ce6b2c02c9a9fda8e5f2ceee02d3e",
+      "webpDimensions": [
+        512,
+        341
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    },
+    {
+      "assetId": "stump-v1",
+      "semanticWord": "stump",
+      "status": "selected for candidate; 82px chapter review pending",
+      "generator": "built-in image_gen tool",
+      "prompt": "Use case: stylized-concept. Asset type: isolated educational picture card for a six-year-old phonics game viewed at 82 px. Primary request: one short tree stump, the cut base of a tree, with a flat top and visible growth rings. Style/medium: polished premium children’s 3D illustration with toy-like rounded edges and softly glossy wood, cohesive set of isolated word cards. Composition: centered whole stump, no crop, generous transparent margin. Backdrop: truly transparent. Lighting: bright soft studio. Constraints: clearly the base of a cut tree, not a wooden block or table; no forest, standing tree, axe, people, letters, text, border, shadow plate or watermark.",
+      "sourceOriginal": "src/assets/sound-safari/generated-originals/stump-v1.png",
+      "sourcePngSha256": "21aef957b10739df8bf9f0f6512840e5b8990a8611d6203af31af02b91f06df5",
+      "sourceDimensions": [
+        1312,
+        1199
+      ],
+      "sourceAlphaMinMax": [
+        0,
+        255
+      ],
+      "webpDerivative": "src/assets/sound-safari/word-cards/stump-v1.webp",
+      "webpSha256": "673b195b2fcf3af548ef9596bb11e61b5b32722d4f93883c9653258791e93f31",
+      "webpDimensions": [
+        512,
+        468
+      ],
+      "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; source PNG preserved unchanged."
+    }
+  ]
+}

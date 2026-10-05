@@ -1,0 +1,28 @@
+{
+  "created": "2026-10-05",
+  "assetId": "crust-v2",
+  "semanticTarget": "crust on a bread slice",
+  "status": "candidate; awaiting independent 82px review",
+  "generator": "built-in image_gen tool",
+  "prompt": "Use case: stylized-concept. Asset type: 82 px educational picture card for a six-year-old phonics game. Primary request: make the word “crust” unmistakable by showing one curved corner strip cut from the outside edge of a slice of bread. The browned outer crust must be thick, dominant and easy to see; attach only a small narrow patch of pale bread inside the curve as context. Style/medium: polished premium children's 3D food illustration, softly glossy toasted brown crust and soft pale bread, cohesive picture-card set. Composition: centered C-shaped or corner-shaped crust edge, close enough to show the browned outside clearly, no complete bread slice, no crop, generous transparent margin. Backdrop: truly transparent. Lighting: warm soft studio. Constraints: one crust piece with a little bread interior attached; no complete slice, loaf, toast, plate, crumbs, food spread, text, letters, border, shadow plate or watermark.",
+  "sourcePng": "src/assets/sound-safari/generated-originals/crust-v2.png",
+  "sourcePngSha256": "635310cfc8d3426b5d12a1e47c620cf8be7aeac3039e0354431a779d28b15605",
+  "sourceDimensions": [
+    1254,
+    1254
+  ],
+  "sourceAlphaMinMax": [
+    0,
+    255
+  ],
+  "webpDerivative": "src/assets/sound-safari/word-cards/crust-v2.webp",
+  "webpSha256": "357560e4d60e596513c9d6cb211b41f2d5237d5f63fb644da5c7a2febf8ccdd4",
+  "webpDimensions": [
+    512,
+    512
+  ],
+  "conversion": "Pillow RGBA; thumbnail at 512x512 maximum using Lanczos; WebP quality 92, method 6; PNG preserved unchanged.",
+  "supersedes": "crust-v1, which independent reviewer said read as a whole slice of bread.",
+  "priorSourcePngSha256": "3b7dc135ac2acc643e569eeeaaa193ee08a8bb4190a87d005c783ec7397ba3ef",
+  "review": "Pending independent reviewer."
+}
