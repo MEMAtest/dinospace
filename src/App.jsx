@@ -1,5 +1,6 @@
 import LetterLaunchBadgeCollection from './components/shared/LetterLaunchBadgeCollection.jsx';
 import Batch3BadgeCollections from './components/shared/Batch3BadgeCollections.jsx';
+import Batch4BadgeCollections from './components/shared/Batch4BadgeCollections.jsx';
 import { getEarnedChapterBadgeIds } from './data/chapterBadges.js';
 import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.jsx';
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
@@ -37,7 +38,7 @@ const SOUND_PREFERENCE_KEY = 'amari-sound-on';
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
 // after this long, a "leave the game?" check protects the child's progress.
 const CONFIRM_LEAVE_AFTER_MS = 10000;
-const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino']);
+const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino', 'addition', 'subtraction', 'timeteller', 'numberline']);
 const AmariCountTheStars = lazy(() => import('./components/games/AmariCountTheStars.jsx'));
 const AmariLetterTrace = lazy(() => import('./components/games/AmariLetterTrace.jsx'));
 
@@ -240,7 +241,13 @@ const PlayerSession = ({
     const sessionRule = currentGame.little || ownsGameProgression(currentGame.id, little) ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
       onBack: () => back({ toParent: !little }),
-      onLaunchGame: launchGame,
+      onLaunchGame: (gameId) => {
+        if (currentGame.id === 'worldmap' && gameId === 'timeteller') {
+          navigate({ name: 'game', id: 'worldmap', module: 'time-detectives' }, { replace: true });
+        }
+        launchGame(gameId);
+      },
+      initialModule: route.id === 'worldmap' ? route.module : undefined,
       playSfx,
       speak,
       cancelNarration: voice.cancel,
@@ -308,6 +315,7 @@ const PlayerSession = ({
         <LetterLaunchBadgeCollection earnedBadgeIds={getEarnedChapterBadgeIds(player.id, 'letters')} />
         <CurriculumBadgeCollection playerId={player.id} />
         <Batch3BadgeCollections playerId={player.id} />
+        <Batch4BadgeCollections playerId={player.id} />
         <RewardsShelf points={points} earnedStickerIds={earnedStickerIds} />
       </div>
     );
