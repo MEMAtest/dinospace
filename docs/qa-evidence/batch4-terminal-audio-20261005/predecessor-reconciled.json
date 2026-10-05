@@ -1,0 +1,21 @@
+{
+  "workerPid": 18781,
+  "sourceCommit": "ac3b3ccaf03107749d865f8d79557e872a06c881",
+  "status": "completed",
+  "terminal": true,
+  "reconciled": true,
+  "exitCode": 0,
+  "finishedAt": "2026-10-05T02:17:36.517Z",
+  "observedAt": "2026-10-05T02:21:23.192419+00:00",
+  "finalManifestPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-batch4-quality/src/data/offlineVoiceManifest.js",
+  "finalManifestSha256": "4066611bf2d64a162f8f4c3c5337049a9af3cb317ef95fbead8738c1129cdd15",
+  "ready": 5246,
+  "missing": 0,
+  "fullDecodeValid": 5246,
+  "fullDecodeInvalid": 0,
+  "producerLockAbsent": true,
+  "journalSha256": "fc4b12a3d2849d7f87357ea5c0c4c5a26caae6f88509a2ec06a70150c4eb7e04",
+  "journalRequestCount": 27,
+  "journalBlockedUntil": 0,
+  "scope": "Original ac3 corpus terminal/reconciled technical readiness; 47 corrected grammar recordings and playback/listening acceptance remain separate."
+}

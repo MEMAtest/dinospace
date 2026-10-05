@@ -311,7 +311,7 @@
     "fullESLint": "passed",
     "build": "passed",
     "servedHashesMatch": true,
-    "voiceCoverage": "Original PID18781 physically live; run368 reports20pending. Generation progress only; corrected recordings, decode and listening acceptance remain separate.",
+    "voiceCoverage": "Original ac3 generation completed; all5246 packaged clips fully decoded with stablehashes. 47 corrected grammar clips and playback/listening acceptance remain pending.",
     "release": "Notdeployed/accepted",
     "independentDelta": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-narration-delta-local-20261003/report.md",
     "independentDeltaCommit": "3a00ff39e0ed017105f8b505a811bed407841d45",
@@ -1247,25 +1247,16 @@
     "builderReconciliationReport": "docs/qa-evidence/batch6-current-integration-score-reconciliation-20261004.md"
   },
   "batch4NarrationCheckpoint": {
-    "updatedAt": "2026-10-05T02:07:36.139Z",
+    "updatedAt": "2026-10-05T02:17:36.517Z",
     "pid": 18781,
-    "status": "waiting_request_window",
-    "run": 368,
+    "status": "completed",
+    "run": 370,
     "cooldownRetries": 0,
-    "waitUntil": "2026-10-05T02:17:27.163Z",
-    "requestsInWindow": 28,
-    "availableCalls": 2,
-    "minimumBatch": 10,
-    "lastResult": {
-      "exitCode": 0,
-      "generated": 15,
-      "reused": 5211,
-      "pending": 20,
-      "stoppedAt": null
-    },
-    "scope": "Physically live original narration producer; progress only. No corpus decoding, listening, restart, concurrent voice calls or release acceptance.",
-    "processObservedAt": "2026-10-05T02:13:04.133356+00:00",
-    "report": "docs/qa-evidence/batch4-worker-live-progress-20261005-0207.json"
+    "pending": 0,
+    "completedAt": "2026-10-05T02:17:36.517Z",
+    "physicallyConfirmedExited": true,
+    "report": "docs/qa-evidence/batch4-terminal-audio-20261005/report.md",
+    "scope": "Original ac3 corpus terminal/reconciled technical readiness; 47 corrected grammar recordings and playback/listening acceptance remain separate."
   },
   "batch7CurrentEditorialReview": {
     "report": "docs/qa-evidence/batch7-independent-editorial-assessment-20261004.md",
@@ -1741,17 +1732,17 @@
   },
   "narrationWorkerCheckpoint": {
     "pid": 18781,
-    "physicallyConfirmedAlive": true,
-    "checkpointAt": "2026-10-05T02:07:36.139Z",
-    "run": 368,
-    "pending": 20,
-    "status": "waiting_request_window",
-    "readOnlyPackagedPresence": 5092,
-    "packagedPresenceReport": "docs/qa-evidence/batch4-packaged-presence-progress-20261005.json",
-    "scope": "Original ac3 worker only; no restart or concurrent paid calls. Corrected recordings/listening remain separate.",
-    "processObservedAt": "2026-10-05T02:13:04.133356+00:00",
-    "processReport": "docs/qa-evidence/batch4-worker-live-progress-20261005-0207.json",
-    "readOnlyPackagedPresenceObservedAt": "2026-10-05T01:17:11.423Z"
+    "physicallyConfirmedAlive": false,
+    "physicallyConfirmedExited": true,
+    "checkpointAt": "2026-10-05T02:17:36.517Z",
+    "run": 370,
+    "pending": 0,
+    "status": "completed",
+    "readOnlyPackagedPresence": 5246,
+    "fullDecodeValid": 5246,
+    "packagedPresenceReport": "docs/qa-evidence/batch4-terminal-audio-20261005/readiness.json",
+    "decodeReport": "docs/qa-evidence/batch4-terminal-audio-20261005/decode.json",
+    "scope": "Original ac3 corpus terminal/reconciled technical readiness; 47 corrected grammar recordings and playback/listening acceptance remain separate."
   },
   "traceCosmicCanonicalMediaObservation": {
     "source": "1accc99e89be303678ead99def6a3095ab1cb886",
