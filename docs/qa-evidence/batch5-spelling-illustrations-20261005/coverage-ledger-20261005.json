@@ -1,0 +1,1729 @@
+{
+  "snapshotSourceCommit": "9d060da9b119f08b56ea470d332b63a2f0b8fa70",
+  "wordBankPath": "src/data/batch5Literacy.js",
+  "wordBankSha256": "8440dd01d079549d4f03152f1f6ba7231562811979959c9d3731811e9310e057",
+  "illustrationRegistryPath": "src/data/spellingStudioIllustrations.js",
+  "illustrationRegistrySha256": "76096da1a5f673e5ae539c31f4fb608762a6237e4e3b95165de822cded23f7f3",
+  "staticReviewSource": {
+    "commit": "55caa134",
+    "path": "docs/qa-evidence/batch5-spelling-illustrations-independent-static-20261005/candidate-evidence.json",
+    "reviewedTree": "c45d3eacb01908e8b268c4b071d52091b705760c",
+    "scope": "96px static images only; 26 additional candidates accepted, fuss-v2 revise, road-v1 rejected/road-v2 accepted."
+  },
+  "summary": {
+    "canonicalWordCount": 101,
+    "uniqueWordIds": 101,
+    "mappedStaticApproved": 99,
+    "candidateStaticApprovedNotMapped": 1,
+    "revisionRequired": 1,
+    "pendingReview": 0,
+    "wordIdsWithoutAnyCandidate": []
+  },
+  "wordCoverage": [
+    {
+      "wordId": "sat",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/sat-v2.webp",
+      "assetSha256": "70833239ddc5414c0aff796ff3b516ba29ef25dc7609c6b1bedb9a6898208057",
+      "bytes": 35620,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sat-v1.png",
+          "originalSha256": "e8c0a8ae98d8fdaf1c551527b404dec068215ddd9df232b3b58e5312dc6f44c0",
+          "webp": "src/assets/spelling-studio/word-cards/sat-v1.webp",
+          "webpSha256": "aafdbc6bd61169974609ceab66138539bb59d3d4e5aa508f7ac19a522fd41f78",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": 2,
+          "original": "src/assets/spelling-studio/generated-originals/sat-v2.png",
+          "originalSha256": "e350b15613e387cf96e772a133895c1e241696777e277e03c5d6ac9aa30015dc",
+          "webp": "src/assets/spelling-studio/word-cards/sat-v2.webp",
+          "webpSha256": "70833239ddc5414c0aff796ff3b516ba29ef25dc7609c6b1bedb9a6898208057",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sat-v1.png",
+          "originalSha256": "e8c0a8ae98d8fdaf1c551527b404dec068215ddd9df232b3b58e5312dc6f44c0",
+          "webp": "src/assets/spelling-studio/word-cards/sat-v1.webp",
+          "webpSha256": "aafdbc6bd61169974609ceab66138539bb59d3d4e5aa508f7ac19a522fd41f78",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        },
+        {
+          "version": 2,
+          "original": "src/assets/spelling-studio/generated-originals/sat-v2.png",
+          "originalSha256": "e350b15613e387cf96e772a133895c1e241696777e277e03c5d6ac9aa30015dc",
+          "webp": "src/assets/spelling-studio/word-cards/sat-v2.webp",
+          "webpSha256": "70833239ddc5414c0aff796ff3b516ba29ef25dc7609c6b1bedb9a6898208057",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "pat",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/pat-v1.webp",
+      "assetSha256": "e3526c89328bf0abaaf63d6680ab6b3ca63e31e18fb1ecd454cea5478acbae72",
+      "bytes": 46022,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/pat-v1.png",
+          "originalSha256": "92f7e65a7426e1683a175619b7f5145753cee711e5648487fc71df1d4dd03cd6",
+          "webp": "src/assets/spelling-studio/word-cards/pat-v1.webp",
+          "webpSha256": "e3526c89328bf0abaaf63d6680ab6b3ca63e31e18fb1ecd454cea5478acbae72",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/pat-v1.png",
+          "originalSha256": "92f7e65a7426e1683a175619b7f5145753cee711e5648487fc71df1d4dd03cd6",
+          "webp": "src/assets/spelling-studio/word-cards/pat-v1.webp",
+          "webpSha256": "e3526c89328bf0abaaf63d6680ab6b3ca63e31e18fb1ecd454cea5478acbae72",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "pin",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/pin-v1.webp",
+      "assetSha256": "39a005780c240d3c7aaad4899c12deb73331dcab5d976bd09a1c9028dcd71e38",
+      "bytes": 16242
+    },
+    {
+      "wordId": "tin",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/tin-v1.webp",
+      "assetSha256": "ec3b4a999e3f15b9ed785ede27db4f15a9c42b01ceec3f5cdede73f38f20e4d0",
+      "bytes": 36198,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/tin-v1.png",
+          "originalSha256": "05e39bdca22d196d1d34b4f0edda134677c4d69325f00d07412ade8fda76772d",
+          "webp": "src/assets/spelling-studio/word-cards/tin-v1.webp",
+          "webpSha256": "ec3b4a999e3f15b9ed785ede27db4f15a9c42b01ceec3f5cdede73f38f20e4d0",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/tin-v1.png",
+          "originalSha256": "05e39bdca22d196d1d34b4f0edda134677c4d69325f00d07412ade8fda76772d",
+          "webp": "src/assets/spelling-studio/word-cards/tin-v1.webp",
+          "webpSha256": "ec3b4a999e3f15b9ed785ede27db4f15a9c42b01ceec3f5cdede73f38f20e4d0",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "map",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/map-v1.webp",
+      "assetSha256": "98b2658f765f30058a697539ead6b225cf06d17a3ee9791b02fd03fdc2c72207",
+      "bytes": 28144,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/map-v1.png",
+          "originalSha256": "2b233c4edf67ea898a0b376cd9473d4da9949d3af9d332c1ac9fbe6dec8a016e",
+          "webp": "src/assets/spelling-studio/word-cards/map-v1.webp",
+          "webpSha256": "98b2658f765f30058a697539ead6b225cf06d17a3ee9791b02fd03fdc2c72207",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/map-v1.png",
+          "originalSha256": "2b233c4edf67ea898a0b376cd9473d4da9949d3af9d332c1ac9fbe6dec8a016e",
+          "webp": "src/assets/spelling-studio/word-cards/map-v1.webp",
+          "webpSha256": "98b2658f765f30058a697539ead6b225cf06d17a3ee9791b02fd03fdc2c72207",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "tap",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/tap-v1.webp",
+      "assetSha256": "1873d2c2eacfc47d458c3c78cca01f828ef5d45e92ade4fcc8138033b7d5a5d6",
+      "bytes": 38760
+    },
+    {
+      "wordId": "dog",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/dog-v1.webp",
+      "assetSha256": "83bcda5739193672999b3c23c2a7e29b9cdd26aabceaa1d940804af5c36cd5a9",
+      "bytes": 57006
+    },
+    {
+      "wordId": "log",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/log-v1.webp",
+      "assetSha256": "baf0946ad6f1af489b6f0266b9089b7de79a761a9a8fa7c502e377d2abc1c774",
+      "bytes": 79984
+    },
+    {
+      "wordId": "cat",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/cat-v1.webp",
+      "assetSha256": "1eac2d245e050415cdcaa8fc9a8fef4e9eb9100d6081555340e735a73395a38c",
+      "bytes": 66426
+    },
+    {
+      "wordId": "kid",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/kid-v1.webp",
+      "assetSha256": "c806076f626b092816bd005236fedfa50313d6235c1da804d6d936252f7e4734",
+      "bytes": 29166,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/kid-v1.png",
+          "originalSha256": "533b0748a092d5b627aa9b5f5fbe86e165860251edd278581cba34679ee4a5ad",
+          "webp": "src/assets/spelling-studio/word-cards/kid-v1.webp",
+          "webpSha256": "c806076f626b092816bd005236fedfa50313d6235c1da804d6d936252f7e4734",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/kid-v1.png",
+          "originalSha256": "533b0748a092d5b627aa9b5f5fbe86e165860251edd278581cba34679ee4a5ad",
+          "webp": "src/assets/spelling-studio/word-cards/kid-v1.webp",
+          "webpSha256": "c806076f626b092816bd005236fedfa50313d6235c1da804d6d936252f7e4734",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "hen",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/hen-v1.webp",
+      "assetSha256": "42cc23bc12d85f433f36f910ceb594b8592fb5a60fb4acbc8144b3380f2945e6",
+      "bytes": 46652
+    },
+    {
+      "wordId": "red",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/red-v1.webp",
+      "assetSha256": "e91750a9a6d803fe78467398ee69472a2d95e9aaa4d82014eb2ac72f135db2d8",
+      "bytes": 15276,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/red-v1.png",
+          "originalSha256": "5105d12d342c98893b533cb9226aa0282e54355636c76a9a905ed01aaed10a92",
+          "webp": "src/assets/spelling-studio/word-cards/red-v1.webp",
+          "webpSha256": "e91750a9a6d803fe78467398ee69472a2d95e9aaa4d82014eb2ac72f135db2d8",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/red-v1.png",
+          "originalSha256": "5105d12d342c98893b533cb9226aa0282e54355636c76a9a905ed01aaed10a92",
+          "webp": "src/assets/spelling-studio/word-cards/red-v1.webp",
+          "webpSha256": "e91750a9a6d803fe78467398ee69472a2d95e9aaa4d82014eb2ac72f135db2d8",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "mat",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/mat-v1.webp",
+      "assetSha256": "510fe175087e7a1c31bcd2aacdc89889a0c38e93e602472576ccab21aa5cbe6e",
+      "bytes": 68128
+    },
+    {
+      "wordId": "man",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/man-v1.webp",
+      "assetSha256": "f745304bec07278bac69881845f448f607d3c99eb1a30506d3145bed845cbc76",
+      "bytes": 22856,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/man-v1.png",
+          "originalSha256": "bcf7c5ca119a75a60c14e6818c8f9ec383c5fe37a4ee0fe664150459f150b08e",
+          "webp": "src/assets/spelling-studio/word-cards/man-v1.webp",
+          "webpSha256": "f745304bec07278bac69881845f448f607d3c99eb1a30506d3145bed845cbc76",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "tan",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/tan-v1.webp",
+      "assetSha256": "03bd08fd251c7cb7f3e72e6eadb893f0b1fb658125d618bd30060bb2abfd45bf",
+      "bytes": 20382,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/tan-v1.png",
+          "originalSha256": "528c5614503097a59853e6b6d60d6c0324990ee1061aaf1701a81f3ea8b042cc",
+          "webp": "src/assets/spelling-studio/word-cards/tan-v1.webp",
+          "webpSha256": "03bd08fd251c7cb7f3e72e6eadb893f0b1fb658125d618bd30060bb2abfd45bf",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/tan-v1.png",
+          "originalSha256": "528c5614503097a59853e6b6d60d6c0324990ee1061aaf1701a81f3ea8b042cc",
+          "webp": "src/assets/spelling-studio/word-cards/tan-v1.webp",
+          "webpSha256": "03bd08fd251c7cb7f3e72e6eadb893f0b1fb658125d618bd30060bb2abfd45bf",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "pan",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/pan-v1.webp",
+      "assetSha256": "241bf7e89b986573f9b85d37916312e6f260a643a0837c6ee3a7db8b7663be53",
+      "bytes": 26770
+    },
+    {
+      "wordId": "nap",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/nap-v1.webp",
+      "assetSha256": "61677f7d0683e6c7e3e735b5a6a3fc528667f1b78923bdbb5743ca9d2ac067c5",
+      "bytes": 27042,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/nap-v1.png",
+          "originalSha256": "1fe87d2d99b81d4a0fe47509bd745e4fe152049ae6591bf049c8c1e53fc677bc",
+          "webp": "src/assets/spelling-studio/word-cards/nap-v1.webp",
+          "webpSha256": "61677f7d0683e6c7e3e735b5a6a3fc528667f1b78923bdbb5743ca9d2ac067c5",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/nap-v1.png",
+          "originalSha256": "1fe87d2d99b81d4a0fe47509bd745e4fe152049ae6591bf049c8c1e53fc677bc",
+          "webp": "src/assets/spelling-studio/word-cards/nap-v1.webp",
+          "webpSha256": "61677f7d0683e6c7e3e735b5a6a3fc528667f1b78923bdbb5743ca9d2ac067c5",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "sap",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/sap-v1.webp",
+      "assetSha256": "3ed4e31b1dafd560e3bc6b8af4db1348ee7720138376d9f045c7d1faf1838f25",
+      "bytes": 55398,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sap-v1.png",
+          "originalSha256": "a220b3608456a803cac5a07fc6b28e43bb898f71636e1f419c07503fc588ccd9",
+          "webp": "src/assets/spelling-studio/word-cards/sap-v1.webp",
+          "webpSha256": "3ed4e31b1dafd560e3bc6b8af4db1348ee7720138376d9f045c7d1faf1838f25",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "sip",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/sip-v1.webp",
+      "assetSha256": "662133785bc3f3fbdf60db9cd2011fc873310ce5f4617080583a54168a85312e",
+      "bytes": 34624,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sip-v1.png",
+          "originalSha256": "d2d91eb525ba1586109c3636a0d875456b15dc0c36414d3c0cf5ff5020f64c7b",
+          "webp": "src/assets/spelling-studio/word-cards/sip-v1.webp",
+          "webpSha256": "662133785bc3f3fbdf60db9cd2011fc873310ce5f4617080583a54168a85312e",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "sit",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/sit-v1.webp",
+      "assetSha256": "f03316cf259e25bccdb86c88a5b19327964452338bb660bf508f6d84a384bd9f",
+      "bytes": 35652,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sit-v1.png",
+          "originalSha256": "2fd7c469c18c40d57a85dbad2ba0b7fd6ebf3cf7bba2a28dcb754b906ea22d0e",
+          "webp": "src/assets/spelling-studio/word-cards/sit-v1.webp",
+          "webpSha256": "f03316cf259e25bccdb86c88a5b19327964452338bb660bf508f6d84a384bd9f",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sit-v1.png",
+          "originalSha256": "2fd7c469c18c40d57a85dbad2ba0b7fd6ebf3cf7bba2a28dcb754b906ea22d0e",
+          "webp": "src/assets/spelling-studio/word-cards/sit-v1.webp",
+          "webpSha256": "f03316cf259e25bccdb86c88a5b19327964452338bb660bf508f6d84a384bd9f",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "pit",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/pit-v1.webp",
+      "assetSha256": "00c0774b2dd9a8023b3d0c692da4a9a846338ec7305818f03e6ee07ac6d49a43",
+      "bytes": 57444,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/pit-v1.png",
+          "originalSha256": "8ef2640a1fdf159280358cf0d14a9de134404ab87890d094081b5366476a1335",
+          "webp": "src/assets/spelling-studio/word-cards/pit-v1.webp",
+          "webpSha256": "00c0774b2dd9a8023b3d0c692da4a9a846338ec7305818f03e6ee07ac6d49a43",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "kit",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/kit-v1.webp",
+      "assetSha256": "243bd1c3b11e227b2b0cc1aeecae68140578c84b886324696571cb444d2c252c",
+      "bytes": 35344,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/kit-v1.png",
+          "originalSha256": "d5734c71d9574fe08b67ea9eebe2f3521ba4b6f903600a4e64f0b4212dbc70cc",
+          "webp": "src/assets/spelling-studio/word-cards/kit-v1.webp",
+          "webpSha256": "243bd1c3b11e227b2b0cc1aeecae68140578c84b886324696571cb444d2c252c",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "tip",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/tip-v1.webp",
+      "assetSha256": "cf4cfcf19955a27bad221bbfd6ead4fdcaaac43a24dabb4c69618f60b603c6d2",
+      "bytes": 14648
+    },
+    {
+      "wordId": "dip",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/dip-v1.webp",
+      "assetSha256": "daf26a71f50128fd3b32f91e393ab3602d23da2c06c1117a5d14be3aee5c7fcb",
+      "bytes": 28052,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/dip-v1.png",
+          "originalSha256": "9c00b21943c488f5d0e5365578b015e4cfbc806c46b8dd58d8ec499ab0d1e3fc",
+          "webp": "src/assets/spelling-studio/word-cards/dip-v1.webp",
+          "webpSha256": "daf26a71f50128fd3b32f91e393ab3602d23da2c06c1117a5d14be3aee5c7fcb",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/dip-v1.png",
+          "originalSha256": "9c00b21943c488f5d0e5365578b015e4cfbc806c46b8dd58d8ec499ab0d1e3fc",
+          "webp": "src/assets/spelling-studio/word-cards/dip-v1.webp",
+          "webpSha256": "daf26a71f50128fd3b32f91e393ab3602d23da2c06c1117a5d14be3aee5c7fcb",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json"
+        }
+      ]
+    },
+    {
+      "wordId": "dim",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/dim-v3.webp",
+      "assetSha256": "8016e827bb84550b89561152b3085ac36dcf9d741e8baa7970d098c112d239ab",
+      "bytes": 33504,
+      "retainedOtherVersions": [
+        {
+          "version": "v3",
+          "original": "src/assets/spelling-studio/generated-originals/dim-v3.png",
+          "originalSha256": "ef551d5459e289fa8bc29be1c8b46bd8218ce74770dfdf1ad2834823e408d234",
+          "webp": "src/assets/spelling-studio/word-cards/dim-v3.webp",
+          "webpSha256": "8016e827bb84550b89561152b3085ac36dcf9d741e8baa7970d098c112d239ab",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/corrected-candidates-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/dim-v2.png",
+          "originalSha256": "b2dda0e4c1c330e2a1b8dafc310e25b08110fbcbf3735f6e2d07c4828603751f",
+          "webp": "src/assets/spelling-studio/word-cards/dim-v2.webp",
+          "webpSha256": "625a5d725a89895df832bc89f1cd87f51c30b2e59487c535a6fd0308b53fc39c",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "mad",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/mad-v1.webp",
+      "assetSha256": "617a4b3f214b4c78e97222b2c2a1ded0039f8ae65833f83e0681d02c1a7a8387",
+      "bytes": 31020,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/mad-v1.png",
+          "originalSha256": "c3ac334ee891610fad8b80a54e81bbaf61e0ef0d553b967afa69f68e9e4e465c",
+          "webp": "src/assets/spelling-studio/word-cards/mad-v1.webp",
+          "webpSha256": "617a4b3f214b4c78e97222b2c2a1ded0039f8ae65833f83e0681d02c1a7a8387",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "sad",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/sad-v1.webp",
+      "assetSha256": "180cfac0ef23b6cd850b304c4f6cb392d3d77d078ce9b5a938ca0627d2ed8a22",
+      "bytes": 32958,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sad-v1.png",
+          "originalSha256": "2d5b81277953a3691daf6424dd16a0cc0d85044b9735c0c72378ca68e805f2cf",
+          "webp": "src/assets/spelling-studio/word-cards/sad-v1.webp",
+          "webpSha256": "180cfac0ef23b6cd850b304c4f6cb392d3d77d078ce9b5a938ca0627d2ed8a22",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "dad",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/dad-v1.webp",
+      "assetSha256": "ce871703f2ce80f118892cf29aac114a0a74eb3f8cbda86a7e5d6e109737d44c",
+      "bytes": 36300,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/dad-v1.png",
+          "originalSha256": "1af527f5968fe7ca1770db14bf20f646427696a16190dd25d42e7db14f6580eb",
+          "webp": "src/assets/spelling-studio/word-cards/dad-v1.webp",
+          "webpSha256": "ce871703f2ce80f118892cf29aac114a0a74eb3f8cbda86a7e5d6e109737d44c",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "gap",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/gap-v1.webp",
+      "assetSha256": "675e4e1058e6f1173bca1f065e382fcfaf6a7afe10bb4bc99fbaf6c12e202fe2",
+      "bytes": 8918,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/gap-v1.png",
+          "originalSha256": "4b22e1201d4462e629a63a9f65b188fe708c18d42d2e707272d3505be11609a0",
+          "webp": "src/assets/spelling-studio/word-cards/gap-v1.webp",
+          "webpSha256": "675e4e1058e6f1173bca1f065e382fcfaf6a7afe10bb4bc99fbaf6c12e202fe2",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "got",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/got-v1.webp",
+      "assetSha256": "22ca29bae31b9d9df1a6c2a95f9a4df73247e91d55ec538eee7c73532b8f1a7b",
+      "bytes": 39282,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/got-v1.png",
+          "originalSha256": "f234d276cee1cea0630926074b2cfdd72c373dfe42b08540ac715e89ac75dc45",
+          "webp": "src/assets/spelling-studio/word-cards/got-v1.webp",
+          "webpSha256": "22ca29bae31b9d9df1a6c2a95f9a4df73247e91d55ec538eee7c73532b8f1a7b",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "pot",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/pot-v1.webp",
+      "assetSha256": "00f36118b96677101cb2b2c0bf8fede6b0b89cd729e708db3e8e79eb09cfbc8b",
+      "bytes": 27308,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/pot-v1.png",
+          "originalSha256": "967edd21deb896f6c66facaac26fa9ddd95f0b5a400cb1822dfdf6022555937a",
+          "webp": "src/assets/spelling-studio/word-cards/pot-v1.webp",
+          "webpSha256": "00f36118b96677101cb2b2c0bf8fede6b0b89cd729e708db3e8e79eb09cfbc8b",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-02-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "top",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/top-v1.webp",
+      "assetSha256": "fa4add951a02f45bb6c8e03bb4b297208dc4f9e15a46bdec87fa0502e45a2caa",
+      "bytes": 16054,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/top-v1.png",
+          "originalSha256": "b65619d60e9e8a2a8f96d656632b086b12cd97f835e80924c0fcd12d1956a4e7",
+          "webp": "src/assets/spelling-studio/word-cards/top-v1.webp",
+          "webpSha256": "fa4add951a02f45bb6c8e03bb4b297208dc4f9e15a46bdec87fa0502e45a2caa",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "mop",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/mop-v1.webp",
+      "assetSha256": "bb6e437b25de20fbbad34acbfe5f739c41a3da9674c941a22f5492e1d5952cd1",
+      "bytes": 31022
+    },
+    {
+      "wordId": "nod",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/nod-v1.webp",
+      "assetSha256": "b3cceab150aa63678bfb9315253823931a95d2f04ba886f1379c50eac307cbbf",
+      "bytes": 33708,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/nod-v1.png",
+          "originalSha256": "f4427050c8bd74ff2b803490c338f188d16ba89cfc794c66b7fab277466e4b88",
+          "webp": "src/assets/spelling-studio/word-cards/nod-v1.webp",
+          "webpSha256": "b3cceab150aa63678bfb9315253823931a95d2f04ba886f1379c50eac307cbbf",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "not",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/not-v1.webp",
+      "assetSha256": "22f1942d00abb3a4b4e219d6af4849ff820ee08c34bbb17ab070c65ba5a3b836",
+      "bytes": 37568,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/not-v1.png",
+          "originalSha256": "9c78fdc466e292d2b419f110a88b376286fdad1aeca25adc2737397c1124aba0",
+          "webp": "src/assets/spelling-studio/word-cards/not-v1.webp",
+          "webpSha256": "22f1942d00abb3a4b4e219d6af4849ff820ee08c34bbb17ab070c65ba5a3b836",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "cot",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/cot-v1.webp",
+      "assetSha256": "19c77483a90de3564bc6e697b1b3b8dbb086fa5b05e2a78e5c1f41e114be6226",
+      "bytes": 33272
+    },
+    {
+      "wordId": "cop",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/cop-v1.webp",
+      "assetSha256": "4f52470c467e451b96afdc6c3b84fb4c9d1d79a424dfb084b94731954cd687d1",
+      "bytes": 30904,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/cop-v1.png",
+          "originalSha256": "d9474d3c0612356aa9336f6682fd48db6e8b0eec386c67e9220c4c2cded0ccab",
+          "webp": "src/assets/spelling-studio/word-cards/cop-v1.webp",
+          "webpSha256": "4f52470c467e451b96afdc6c3b84fb4c9d1d79a424dfb084b94731954cd687d1",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "cap",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/cap-v1.webp",
+      "assetSha256": "718de3673bbad2c6439577f2bd3eb2b923778011ff74e4ee7d73ece18660bb84",
+      "bytes": 51224
+    },
+    {
+      "wordId": "can",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-distinct-from-tin",
+      "assetPath": "src/assets/sound-safari/word-cards/can-v1.webp",
+      "assetSha256": "a962bbbd0e67782ede28a55a639140faba1782a7d88950aa557588269b18d99b",
+      "bytes": 33632
+    },
+    {
+      "wordId": "duck",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/duck-v1-card.webp",
+      "assetSha256": "c9757ab5f08889deadbdced454db71158a1f859290b08e558e6662e2ce9278ca",
+      "bytes": 39032
+    },
+    {
+      "wordId": "dock",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/dock-v2.webp",
+      "assetSha256": "e615f3c14899243d7fc9180fa77973512f286b9b112625b870cbd21b306c14e1",
+      "bytes": 72074
+    },
+    {
+      "wordId": "back",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/back-v2.webp",
+      "assetSha256": "b6014c5378e3ef1803b301bf4086192aecafc661cf944343b0ad2448f7809672",
+      "bytes": 37056,
+      "retainedOtherVersions": [
+        {
+          "version": "v2",
+          "original": "src/assets/spelling-studio/generated-originals/back-v2.png",
+          "originalSha256": "a35bbbd331579d3480ce61e025643f92ee39ee10cc7c5c8269831b2c5d37004e",
+          "webp": "src/assets/spelling-studio/word-cards/back-v2.webp",
+          "webpSha256": "b6014c5378e3ef1803b301bf4086192aecafc661cf944343b0ad2448f7809672",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/corrected-candidates-provenance.json"
+        },
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/back-v1.png",
+          "originalSha256": "eb8cda331063f03182288e40d211b8c9efa9cefd299b8839892cf66fc90a434e",
+          "webp": "src/assets/spelling-studio/word-cards/back-v1.webp",
+          "webpSha256": "8e487c6701351d4edd352bc33d54b28641ec6617b2d3434e2aec052ec7f516b9",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "neck",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/neck-v1.webp",
+      "assetSha256": "5cf7d1e10dd0cdca1905d2cf87737ce030683580c1ffc6411e561467c4512803",
+      "bytes": 32198,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/neck-v1.png",
+          "originalSha256": "e170cd8f138267cfd12eb02c07c0cc92962a87940c1831e4e0d65ed9fb1be1b5",
+          "webp": "src/assets/spelling-studio/word-cards/neck-v1.webp",
+          "webpSha256": "5cf7d1e10dd0cdca1905d2cf87737ce030683580c1ffc6411e561467c4512803",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "peck",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/peck-v1.webp",
+      "assetSha256": "b3d07cab010affc0e560c1c13f456f888ce94f4fee285f77d3dd922fd3ba2544",
+      "bytes": 37342,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/peck-v1.png",
+          "originalSha256": "fb3bb6cf9903a5e436fe58eec71c5fc51519d774669f80089e6d64942153a2a7",
+          "webp": "src/assets/spelling-studio/word-cards/peck-v1.webp",
+          "webpSha256": "b3d07cab010affc0e560c1c13f456f888ce94f4fee285f77d3dd922fd3ba2544",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "sick",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/sick-v1.webp",
+      "assetSha256": "998b03559e13c15d8b64ba2785e90dfdceb67a67903fb43391de3c8c5c2efbf9",
+      "bytes": 47824,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sick-v1.png",
+          "originalSha256": "49a1c37a14f4117121c36892c61b8643e008b911198ba4bea72aef74aa1f8bae",
+          "webp": "src/assets/spelling-studio/word-cards/sick-v1.webp",
+          "webpSha256": "998b03559e13c15d8b64ba2785e90dfdceb67a67903fb43391de3c8c5c2efbf9",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-03-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "tick",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/tick-v1.webp",
+      "assetSha256": "4f3455f184fa655b7f42b89829a8fe1d8b7ec24b192312ca0639af39108f6872",
+      "bytes": 14800,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/tick-v1.png",
+          "originalSha256": "d7ef70706d72af18a7ad7577d0a79f525eed0de4e148db750ccc1271fb8395f5",
+          "webp": "src/assets/spelling-studio/word-cards/tick-v1.webp",
+          "webpSha256": "4f3455f184fa655b7f42b89829a8fe1d8b7ec24b192312ca0639af39108f6872",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "rock",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/fossil-rock-v1-card.webp",
+      "assetSha256": "8512f5b929dd781e88e0a44e1bbc4332dcaa03d634e7ab20917357f7b37daf46",
+      "bytes": 83952
+    },
+    {
+      "wordId": "sock",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/sock-v1.webp",
+      "assetSha256": "0a9690f2140cc4c9460fa38933525d55ae318dfb58dd5eb4f4e867ba6e9b7449",
+      "bytes": 64736
+    },
+    {
+      "wordId": "lock",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/lock-v1.webp",
+      "assetSha256": "2ac9b7c489d8b208cf825b21bd25b9599e2c31e056b1d077b173b8dd8ed1015f",
+      "bytes": 31580
+    },
+    {
+      "wordId": "luck",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px-conventional-symbol",
+      "assetPath": "src/assets/spelling-studio/word-cards/luck-v1.webp",
+      "assetSha256": "7ac0c5122e501e7d0d9d29399e5a92a4f2e868cfe63902fc5f45157d9f4869d2",
+      "bytes": 36188,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/luck-v1.png",
+          "originalSha256": "13d5f757e5b620083d9ba7661af6f2d162102502ae29708ac66c07fc715bb56c",
+          "webp": "src/assets/spelling-studio/word-cards/luck-v1.webp",
+          "webpSha256": "7ac0c5122e501e7d0d9d29399e5a92a4f2e868cfe63902fc5f45157d9f4869d2",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "bell",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/bell-v1.webp",
+      "assetSha256": "9e0190c03d406c7b3767f457f116b7d36da1d94c8385f2a926564266d1147cab",
+      "bytes": 29028
+    },
+    {
+      "wordId": "fell",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/fell-v1.webp",
+      "assetSha256": "8213ee1e2b795bd9c465b0cd37d74eff8b58576541b53754e21d0e802fa924bf",
+      "bytes": 24700,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/fell-v1.png",
+          "originalSha256": "75626c7a91bf5913d5121e90ee5fd4b6fe05863f245b6994e80b45bd910619eb",
+          "webp": "src/assets/spelling-studio/word-cards/fell-v1.webp",
+          "webpSha256": "8213ee1e2b795bd9c465b0cd37d74eff8b58576541b53754e21d0e802fa924bf",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "tell",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/tell-v1.webp",
+      "assetSha256": "110bf3bbc6d3638c3032345497363e81b8b9e85e9deb6761180dae3636b50c05",
+      "bytes": 57506,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/tell-v1.png",
+          "originalSha256": "9c35df0bd0c7c92e4124dc3f44297864246d667d98b43268bfc4f77df29969c0",
+          "webp": "src/assets/spelling-studio/word-cards/tell-v1.webp",
+          "webpSha256": "110bf3bbc6d3638c3032345497363e81b8b9e85e9deb6761180dae3636b50c05",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "sell",
+      "state": "candidate-static-approved-rendered-review-pending",
+      "candidate": {
+        "version": "v2",
+        "original": "src/assets/spelling-studio/generated-originals/sell-v2.png",
+        "originalSha256": "bb37539e69846d6a13f7389fabe001dd14d236e3c5f809f3bc0063a1d7cd5122",
+        "webp": "src/assets/spelling-studio/word-cards/sell-v2.webp",
+        "webpSha256": "4e4d16eba894b64048bf67ec64760e6249ba02a4e0644b108ed9a783e939064b",
+        "reviewStatus": "awaiting independent static 96px review; not mapped",
+        "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/sell-revision/provenance.json"
+      },
+      "independentStaticDecision": "ACCEPT at 96px per independent reviewer message on 2026-10-05; rendered card fit remains pending.",
+      "renderedFailureOfPreviousVersion": "sell-v1 failed on desktop and 390: apple handoff read as sharing rather than sale/payment.",
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sell-v1.png",
+          "originalSha256": "108bdfe1a783f2431ba350c5173fd9a7086ce7ae632309d1c29497cfa9dd9e5e",
+          "webp": "src/assets/spelling-studio/word-cards/sell-v1.webp",
+          "webpSha256": "b0ced3a6d235bab377ad2798fd7b541d3988d1d03e31134979b8e5846dced6ce",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "hill",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/hill-v1.webp",
+      "assetSha256": "e1d247560ad5ebe6b4fba48c7f3d666f9c5d770c054a61ef7e24a5e448ed031f",
+      "bytes": 45646
+    },
+    {
+      "wordId": "fill",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/fill-v1.webp",
+      "assetSha256": "f3185c5c0f92555a2d1c674f3d16c107e54bace9a35c48aec874fa1a32b96d6d",
+      "bytes": 37552,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/fill-v1.png",
+          "originalSha256": "99fbb69e732a4c3226a2ccdc533c313c440e25d77f604149a76b9d5605902878",
+          "webp": "src/assets/spelling-studio/word-cards/fill-v1.webp",
+          "webpSha256": "f3185c5c0f92555a2d1c674f3d16c107e54bace9a35c48aec874fa1a32b96d6d",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "miss",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/miss-v1.webp",
+      "assetSha256": "cd37e82f65a800a825f892ffa405e4e48a145c7b9ed1ae582dd562985f40c448",
+      "bytes": 34054,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/miss-v1.png",
+          "originalSha256": "797be08bed8f1b33f18fdfecbb61e2e416c6f1a9cb564007523431d5ba5b02d8",
+          "webp": "src/assets/spelling-studio/word-cards/miss-v1.webp",
+          "webpSha256": "cd37e82f65a800a825f892ffa405e4e48a145c7b9ed1ae582dd562985f40c448",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "hiss",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/hiss-v1.webp",
+      "assetSha256": "89b878fb1393b1a35ab359d5ba5ef7ae41654576c5a7606210cc54cadd242b8b",
+      "bytes": 39298,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/hiss-v1.png",
+          "originalSha256": "868988de36c7f24e2d6341ac7b2aef514bd10dc1ad1883f650e89f3f27dd6726",
+          "webp": "src/assets/spelling-studio/word-cards/hiss-v1.webp",
+          "webpSha256": "89b878fb1393b1a35ab359d5ba5ef7ae41654576c5a7606210cc54cadd242b8b",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "less",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/less-v1.webp",
+      "assetSha256": "e39c37df1a9b018d744d34244659bf1fc583437a5e9d1a507914475f7f3dc019",
+      "bytes": 30108,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/less-v1.png",
+          "originalSha256": "9b7718d152b176ec1ddf4244c3df3629174c53e79fce93bd5fe0570880804608",
+          "webp": "src/assets/spelling-studio/word-cards/less-v1.webp",
+          "webpSha256": "e39c37df1a9b018d744d34244659bf1fc583437a5e9d1a507914475f7f3dc019",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "mess",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/mess-v1.webp",
+      "assetSha256": "b670f28fd057dcb3482e17ed0ad6102c38712b969873ca612d519fb9f9287295",
+      "bytes": 39484,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/mess-v1.png",
+          "originalSha256": "b15dec9659c1de8a5b3460c5c1f78d85474924af39641e998dbd07766fb80912",
+          "webp": "src/assets/spelling-studio/word-cards/mess-v1.webp",
+          "webpSha256": "b670f28fd057dcb3482e17ed0ad6102c38712b969873ca612d519fb9f9287295",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "fuss",
+      "state": "candidate-revise-required",
+      "candidate": {
+        "version": "v2",
+        "original": "src/assets/spelling-studio/generated-originals/fuss-v2.png",
+        "originalSha256": "8088abb7835999fd3ab7e94811090eac65cd13a7c62143c7939558a88afe0738",
+        "webp": "src/assets/spelling-studio/word-cards/fuss-v2.webp",
+        "webpSha256": "0f183f2b41ca98aa02ac620d8ceb577cc9ebeee5e3017bc68127ddb3b913f5c1",
+        "reviewStatus": "awaiting independent static 96px review; not mapped",
+        "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/corrected-candidates-provenance.json"
+      },
+      "independentStaticDecision": "REVISE \u2014 At 96px this reads mainly as an adult tying/helping with a shoe. The small knot and child\u2019s concern are too subtle to establish \u201ca lot of bother.\u201d Keep it unmapped until a small snag/fuss is unmistakable at card size.",
+      "revisionReason": "fuss-v2 reads as adult helping with shoe tying; no reviewed clear replacement yet.",
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/fuss-v1.png",
+          "originalSha256": "47a09cb6b5784e2da8d51f8c04744a009952c241d7ff3ba50c4600c9e51aadb7",
+          "webp": "src/assets/spelling-studio/word-cards/fuss-v1.webp",
+          "webpSha256": "b613419661dc9b433ece3ba7a5ce2028d96de49e6d6e3c7e0dea833a4b067af5",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "puff",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/puff-v1.webp",
+      "assetSha256": "3ef8ff4db0eaa80513d2407221769fab0db355a9fa478de96e5202e9bbb5dcae",
+      "bytes": 26646,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/puff-v1.png",
+          "originalSha256": "f3a56a94be381c8c3a5c68065db0ddc2144555f6e5f771887c4f1577b10b5edc",
+          "webp": "src/assets/spelling-studio/word-cards/puff-v1.webp",
+          "webpSha256": "3ef8ff4db0eaa80513d2407221769fab0db355a9fa478de96e5202e9bbb5dcae",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-04-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "huff",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/huff-v1.webp",
+      "assetSha256": "bebe86df23aba771e52643788dd6669cefb2001f1ac3b06a3756a35e45412838",
+      "bytes": 29702,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/huff-v1.png",
+          "originalSha256": "ef5ce50a0bc979b7701e3a6b5429a9498f6ec46f980841702676b4a3295f35d7",
+          "webp": "src/assets/spelling-studio/word-cards/huff-v1.webp",
+          "webpSha256": "bebe86df23aba771e52643788dd6669cefb2001f1ac3b06a3756a35e45412838",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-05-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "run",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/run-v1.webp",
+      "assetSha256": "bb11fb78f43323a7c4356fa90bb3576c9fca5380ce05ada2c3efb37de3c60915",
+      "bytes": 37136,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/run-v1.png",
+          "originalSha256": "bb5006ed2b11e6a5e639254fe1abd33560d1bceeade91c3a4b6169416644c353",
+          "webp": "src/assets/spelling-studio/word-cards/run-v1.webp",
+          "webpSha256": "bb11fb78f43323a7c4356fa90bb3576c9fca5380ce05ada2c3efb37de3c60915",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-05-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "fed",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/fed-v1.webp",
+      "assetSha256": "419b016997353b4227a055274ab22a71c7559473fdb101db675d9c62c4c30c62",
+      "bytes": 58464,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/fed-v1.png",
+          "originalSha256": "0cf3d21cd046e95fb2fbaa0aedbfedb95c188624c6759586df9f77e330cacc65",
+          "webp": "src/assets/spelling-studio/word-cards/fed-v1.webp",
+          "webpSha256": "419b016997353b4227a055274ab22a71c7559473fdb101db675d9c62c4c30c62",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-05-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "hit",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/hit-v1.webp",
+      "assetSha256": "e1eca298ae22eb8fc87511796fa2e0279e4d3b2eba8f2972356c28050f16179e",
+      "bytes": 47040,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/hit-v1.png",
+          "originalSha256": "a53d22357bbc6ba9ed9bf2d8e4ae9eb2933d63d41722e11d66baaf4c2a87872b",
+          "webp": "src/assets/spelling-studio/word-cards/hit-v1.webp",
+          "webpSha256": "e1eca298ae22eb8fc87511796fa2e0279e4d3b2eba8f2972356c28050f16179e",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-05-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "but",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/but-v1.webp",
+      "assetSha256": "6049ff0d0dda6d498f6c1701548b29ebe123d00e1fd2bd6ee6a73af4427cdea9",
+      "bytes": 43926,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/but-v1.png",
+          "originalSha256": "7617f7bfdd326b0cb2404853ca52f0ede23e52c45ec8a1ee918dde91669c8b6a",
+          "webp": "src/assets/spelling-studio/word-cards/but-v1.webp",
+          "webpSha256": "6049ff0d0dda6d498f6c1701548b29ebe123d00e1fd2bd6ee6a73af4427cdea9",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-06-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "fish",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/pond-fish-v1-card.webp",
+      "assetSha256": "498f5a27ddccd8c2d037234bed47627dcf888675efd4dd54d7bdb48453ba7a45",
+      "bytes": 26178
+    },
+    {
+      "wordId": "ship",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/ship-v1.webp",
+      "assetSha256": "1007bf5ee6e12b240559dfd455e42e56a2d1211c68c94c162533610f469e3dd5",
+      "bytes": 55106
+    },
+    {
+      "wordId": "shop",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/shop-v1.webp",
+      "assetSha256": "1df177331280e683c1e3172be33a4bd19631fdab4a93cb0ff86b15c52453bfee",
+      "bytes": 44430
+    },
+    {
+      "wordId": "shut",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/shut-v1.webp",
+      "assetSha256": "88e68153d7bc4532451758a572e47fe00f0a9164cab45a1a2202d78cde7c16fe",
+      "bytes": 35482,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/shut-v1.png",
+          "originalSha256": "602fbdec18a930ca81ae76ce1e064c6ef083a10f7042a24cca1979c6358d3d3e",
+          "webp": "src/assets/spelling-studio/word-cards/shut-v1.webp",
+          "webpSha256": "88e68153d7bc4532451758a572e47fe00f0a9164cab45a1a2202d78cde7c16fe",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-06-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "thin",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/thin-v1.webp",
+      "assetSha256": "bdcbf0aee78a87ee74804d068185295bab0ac2111e54f3430e2a49454ee8a139",
+      "bytes": 17592,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/thin-v1.png",
+          "originalSha256": "86110e63ef592620e1520b39a104cdc57dea491248ae51adb4bea39d7450f460",
+          "webp": "src/assets/spelling-studio/word-cards/thin-v1.webp",
+          "webpSha256": "bdcbf0aee78a87ee74804d068185295bab0ac2111e54f3430e2a49454ee8a139",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-06-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "this",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/this-v1.webp",
+      "assetSha256": "493ee59846750da913fa7db418809ea407e86de518093affb448ea8407db8253",
+      "bytes": 39652,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/this-v1.png",
+          "originalSha256": "3dfef6db6caba7b9a7985302e1fda75bd59a4621dec1b8dd3fbd1588d678d050",
+          "webp": "src/assets/spelling-studio/word-cards/this-v1.webp",
+          "webpSha256": "493ee59846750da913fa7db418809ea407e86de518093affb448ea8407db8253",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-06-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "that",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/that-v1.webp",
+      "assetSha256": "222f61125619c8023bbee928baca1ae12784445b2583ce6d5ca2d3000d6c0784",
+      "bytes": 24554,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/that-v1.png",
+          "originalSha256": "0c60db704d6dddf9ca4b6d3483f3c601438f97a3fd443378aa112b13b7c65e6e",
+          "webp": "src/assets/spelling-studio/word-cards/that-v1.webp",
+          "webpSha256": "222f61125619c8023bbee928baca1ae12784445b2583ce6d5ca2d3000d6c0784",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-07-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "chat",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/chat-v1.webp",
+      "assetSha256": "625f19d22de874959a3123ece3a64c0d1bb329f872723280efba20433ef1ee56",
+      "bytes": 46216,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/chat-v1.png",
+          "originalSha256": "c64407ae0ebbd5fa76eaca202df33807a92c816e3eb451d40b763c48f46eb71b",
+          "webp": "src/assets/spelling-studio/word-cards/chat-v1.webp",
+          "webpSha256": "625f19d22de874959a3123ece3a64c0d1bb329f872723280efba20433ef1ee56",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-07-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "chin",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/chin-v1.webp",
+      "assetSha256": "96870949efb7f45d4e281019df15f05882e5a0eebbb1f904d58a227d02ecd5c5",
+      "bytes": 42146,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/chin-v1.png",
+          "originalSha256": "1fd4057217c92aa1bf88685dc440d62999288cf33a2cd3d7f128e2162bd33470",
+          "webp": "src/assets/spelling-studio/word-cards/chin-v1.webp",
+          "webpSha256": "96870949efb7f45d4e281019df15f05882e5a0eebbb1f904d58a227d02ecd5c5",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-07-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "chip",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/chip-v1.webp",
+      "assetSha256": "0ee588d7c642a59cc1c46f4e47913f2d64adc8e063f4f03f7abde05a61871998",
+      "bytes": 41864
+    },
+    {
+      "wordId": "rich",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/rich-v1.webp",
+      "assetSha256": "9bac981b99475310b772e9aea9d68cf33e5b26a2a626db458633ba4839c49b8c",
+      "bytes": 64020,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/rich-v1.png",
+          "originalSha256": "f157d45e5abeba7d144f10ca0a842b57ca66a35e2fbdd60a574194cfb637ef25",
+          "webp": "src/assets/spelling-studio/word-cards/rich-v1.webp",
+          "webpSha256": "9bac981b99475310b772e9aea9d68cf33e5b26a2a626db458633ba4839c49b8c",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-07-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "much",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/much-v1.webp",
+      "assetSha256": "7d4f5921e97875ad4972d64cc0c42677da1e73e0daf15e2526af28b801445144",
+      "bytes": 53214,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/much-v1.png",
+          "originalSha256": "a93e640555936d087a144908686026fdef0acad4834694a967d994f8a8f95231",
+          "webp": "src/assets/spelling-studio/word-cards/much-v1.webp",
+          "webpSha256": "7d4f5921e97875ad4972d64cc0c42677da1e73e0daf15e2526af28b801445144",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "sing",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/sing-v1.webp",
+      "assetSha256": "578752c27c91b7a367df8e02ad69336cf2d35b85563cf17209de2a1de64b334d",
+      "bytes": 34930,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sing-v1.png",
+          "originalSha256": "86a348658e4fd429f5c4b2ad5a88d7f229d038287092eb259c42f5829b72ef28",
+          "webp": "src/assets/spelling-studio/word-cards/sing-v1.webp",
+          "webpSha256": "578752c27c91b7a367df8e02ad69336cf2d35b85563cf17209de2a1de64b334d",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "ring",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/ring-v1.webp",
+      "assetSha256": "119cc6f06acf82d5439b86e1b13b58c165fce7787f48f226029c8c35fb6e16c0",
+      "bytes": 39580
+    },
+    {
+      "wordId": "song",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/song-v1.webp",
+      "assetSha256": "a1252de4933954f49c222115b7562d4a4944cae984566385c9f49d82cdec0bf2",
+      "bytes": 36734,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/song-v1.png",
+          "originalSha256": "c7e836c213c650b744dbd9bb4053554d0d4d222cd6be8dbea3e555d1d1297202",
+          "webp": "src/assets/spelling-studio/word-cards/song-v1.webp",
+          "webpSha256": "a1252de4933954f49c222115b7562d4a4944cae984566385c9f49d82cdec0bf2",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "long",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/long-v1.webp",
+      "assetSha256": "95a9525b43ed3de9fe82bdf379d5741ea653ae7bf28eed90241c4f211fee4bd7",
+      "bytes": 34902,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/long-v1.png",
+          "originalSha256": "49fbbc8169f99869ab938086058d0c7f77566f4baf006b817fcee4bc5ee4538b",
+          "webp": "src/assets/spelling-studio/word-cards/long-v1.webp",
+          "webpSha256": "95a9525b43ed3de9fe82bdf379d5741ea653ae7bf28eed90241c4f211fee4bd7",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "rain",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/rain-v1.webp",
+      "assetSha256": "2d700966a031af83a220816b15983cba1c64a255540f8cd557a8bd11bc5b4cae",
+      "bytes": 30844
+    },
+    {
+      "wordId": "tail",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/tail-v1.webp",
+      "assetSha256": "095750e90b9b2f349f64540a9296299e4d46a2862e4fa7eb047826aa74c245c9",
+      "bytes": 39124,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/tail-v1.png",
+          "originalSha256": "dae17d2f004ed1090ab67f3ba16bd789dad2cc8198673f075958e82e81e33b33",
+          "webp": "src/assets/spelling-studio/word-cards/tail-v1.webp",
+          "webpSha256": "095750e90b9b2f349f64540a9296299e4d46a2862e4fa7eb047826aa74c245c9",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "wait",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/wait-v1.webp",
+      "assetSha256": "785d69171b05e1ea491cce801930015fa08980df6022ac552f92aa9df0faeac7",
+      "bytes": 41268,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/wait-v1.png",
+          "originalSha256": "a62c0f83cba3e12738118532284b456eebc373925292ce87e491c7ec0bec611a",
+          "webp": "src/assets/spelling-studio/word-cards/wait-v1.webp",
+          "webpSha256": "785d69171b05e1ea491cce801930015fa08980df6022ac552f92aa9df0faeac7",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "pain",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/pain-v1.webp",
+      "assetSha256": "8a8044fd49bbb6321443fcdbec99384bcbd90863afab7d5ade1558dbfe11c613",
+      "bytes": 37092,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/pain-v1.png",
+          "originalSha256": "32d98b41009e798c036636aab73703567c49c3905e5ae3065e6052ee65572dbe",
+          "webp": "src/assets/spelling-studio/word-cards/pain-v1.webp",
+          "webpSha256": "8a8044fd49bbb6321443fcdbec99384bcbd90863afab7d5ade1558dbfe11c613",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "sail",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/sail-v1.webp",
+      "assetSha256": "31b7da7e2302ba98ef4603419a73283d8b342ccbd629f0488f72da3b8ea07f2f",
+      "bytes": 40760,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/sail-v1.png",
+          "originalSha256": "9fde7340e9b06e197e30859a4bc52fdd48b26094ef147cfbe1aaf3cd4a0c0ce2",
+          "webp": "src/assets/spelling-studio/word-cards/sail-v1.webp",
+          "webpSha256": "31b7da7e2302ba98ef4603419a73283d8b342ccbd629f0488f72da3b8ea07f2f",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-09-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "seed",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/seed-v1.webp",
+      "assetSha256": "73fee7af70dad7e4609d2a2e292a170ee2a51b761320c5b8e28d1d82e6ca8930",
+      "bytes": 28938,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/seed-v1.png",
+          "originalSha256": "20c59950afb8da48281d5fa6ff80a5c2a8b5b71aa50687ed965ca6035b14fbfb",
+          "webp": "src/assets/spelling-studio/word-cards/seed-v1.webp",
+          "webpSha256": "73fee7af70dad7e4609d2a2e292a170ee2a51b761320c5b8e28d1d82e6ca8930",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-09-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "feet",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/feet-v1.webp",
+      "assetSha256": "92bb2ec9eda3f7a5151dfb6ea4a9d4d17b900e5ae309d8c4212525f1672a140c",
+      "bytes": 34296
+    },
+    {
+      "wordId": "green",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/green-v2.webp",
+      "assetSha256": "4c371e52ce82a236d40b951c27e2930f15b888d4c8d948244fffc2c9a8799b6d",
+      "bytes": 18266
+    },
+    {
+      "wordId": "boat",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/boat-v1.webp",
+      "assetSha256": "3f716badc88dca6b32a93620bf7fcc8579e3ef30febb6ff8bb57df7dd8c85d71",
+      "bytes": 33872
+    },
+    {
+      "wordId": "coat",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/coat-v1.webp",
+      "assetSha256": "0af28188687324072a20490186c056a6eb4e105310a6868ddd16a65fc68d0eb9",
+      "bytes": 47560
+    },
+    {
+      "wordId": "road",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/road-v2.webp",
+      "assetSha256": "e4a46872b60dfeb89a2ebd403d2a1cb3954eb9f38717fd5e1d8d68c0eeece539",
+      "bytes": 19302,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/road-v1.png",
+          "originalSha256": "bdb0cb34b12872361c9b71dc564ad1306a9535700c5f7d93a5d80ba4e6e622a2",
+          "webp": "src/assets/spelling-studio/word-cards/road-v1.webp",
+          "webpSha256": "a509aa1ea0aa5df8d49d1f3d8dcb6ed469e64ce6c4c61673371860ef14a14bc0",
+          "reviewStatus": "rejected-v1-diffuse-background",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-09-provenance.json"
+        },
+        {
+          "version": "v2",
+          "original": "src/assets/spelling-studio/generated-originals/road-v2.png",
+          "originalSha256": "57b81fe0a1d023f4c2a84c0544172e7b75222690fb03be4d829983e8f297a669",
+          "webp": "src/assets/spelling-studio/word-cards/road-v2.webp",
+          "webpSha256": "e4a46872b60dfeb89a2ebd403d2a1cb3954eb9f38717fd5e1d8d68c0eeece539",
+          "reviewStatus": "candidate-v2",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-09-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "moon",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/crescent-moon-v1-card.webp",
+      "assetSha256": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b",
+      "bytes": 22552
+    },
+    {
+      "wordId": "food",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/food-v1.webp",
+      "assetSha256": "b27739a9ff0cb9101ed120d9fd2185a8584fea9740b31d9dbaac1d1ef87107ef",
+      "bytes": 51560,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/food-v1.png",
+          "originalSha256": "ad0729e6e1d5af6e12a678a6e1da1ad527cead3e81f020dafb44cd8e8683b055",
+          "webp": "src/assets/spelling-studio/word-cards/food-v1.webp",
+          "webpSha256": "b27739a9ff0cb9101ed120d9fd2185a8584fea9740b31d9dbaac1d1ef87107ef",
+          "reviewStatus": "candidate",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-09-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "book",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/book-v1.webp",
+      "assetSha256": "f48dcf6c4755bcec6497bba7f473a98cef10e4c86251ad8a28fcccde6c8432e4",
+      "bytes": 22306
+    },
+    {
+      "wordId": "look",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/look-v1.webp",
+      "assetSha256": "20563a16c752ecae91f47586afcda1bd96367b8f3984b900714e64ca1150e4f2",
+      "bytes": 38744,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/look-v1.png",
+          "originalSha256": "19bfe6d52b3bbeee164fe2f11a141ad5f23b53bb0736fddc3098aefd0d282364",
+          "webp": "src/assets/spelling-studio/word-cards/look-v1.webp",
+          "webpSha256": "20563a16c752ecae91f47586afcda1bd96367b8f3984b900714e64ca1150e4f2",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "farm",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/farm-v1.webp",
+      "assetSha256": "14fb4b396473c816ee550a5903c51342e1eff56954917ff9c8207ce6d92215aa",
+      "bytes": 62186,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/farm-v1.png",
+          "originalSha256": "7d162e1b8991df201d94e14c8a8720b91408274cbd2716b2d146ce2c9b9d491b",
+          "webp": "src/assets/spelling-studio/word-cards/farm-v1.webp",
+          "webpSha256": "14fb4b396473c816ee550a5903c51342e1eff56954917ff9c8207ce6d92215aa",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    },
+    {
+      "wordId": "fork",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/sound-safari/word-cards/fork-v1.webp",
+      "assetSha256": "b737aa17eac9e89a1285c679cf7d9a43986ec356c14ae81f9913864e20c68ca1",
+      "bytes": 22444
+    },
+    {
+      "wordId": "turn",
+      "state": "mapped-static-approved",
+      "registryStatus": "approved-96px",
+      "assetPath": "src/assets/spelling-studio/word-cards/turn-v1.webp",
+      "assetSha256": "609b9d88dbd86ad011c65b877d892233700b4cadab26c845192eaf3f05f39251",
+      "bytes": 37120,
+      "retainedOtherVersions": [
+        {
+          "version": "v1",
+          "original": "src/assets/spelling-studio/generated-originals/turn-v1.png",
+          "originalSha256": "84580d3ed2ffe4239c075aa115caf241d5f0d9c6f6e5075b15ecf69cca1efb7c",
+          "webp": "src/assets/spelling-studio/word-cards/turn-v1.webp",
+          "webpSha256": "609b9d88dbd86ad011c65b877d892233700b4cadab26c845192eaf3f05f39251",
+          "reviewStatus": "awaiting independent static 96px review; not mapped",
+          "sourceManifest": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-08-provenance.json"
+        }
+      ]
+    }
+  ]
+}

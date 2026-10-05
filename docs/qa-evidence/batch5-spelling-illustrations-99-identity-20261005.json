@@ -1,0 +1,317 @@
+{
+  "createdAt": "2026-10-05",
+  "candidateType": "local configured production build for independent rendered UI review; not a release",
+  "source": {
+    "branch": "codex/amari-batch5-cumulative-integration-20261005",
+    "commit": "9d060da9b119f08b56ea470d332b63a2f0b8fa70",
+    "wordBankPath": "src/data/batch5Literacy.js",
+    "wordBankSha256": "8440dd01d079549d4f03152f1f6ba7231562811979959c9d3731811e9310e057",
+    "registryPath": "src/data/spellingStudioIllustrations.js",
+    "registrySha256": "76096da1a5f673e5ae539c31f4fb608762a6237e4e3b95165de822cded23f7f3",
+    "currentlyMappedWordIds": 99,
+    "unmappedAuthoredWordIds": [
+      "fuss",
+      "sell"
+    ],
+    "changedNonAssetFiles": [
+      "src/data/spellingStudioIllustrations.js",
+      "test/spellingStudioIllustrations.test.mjs"
+    ],
+    "previousFrozenUiCandidateCommit": "56d35a8cb07f41e02cc9228c7b4ec1a09e779012",
+    "newlyMappedAfterIndependentStaticReview": [
+      "dim",
+      "back",
+      "but",
+      "shut",
+      "thin",
+      "this",
+      "that",
+      "chat",
+      "chin",
+      "rich",
+      "much",
+      "sing",
+      "song",
+      "long",
+      "tail",
+      "wait",
+      "look",
+      "farm",
+      "turn",
+      "tick",
+      "luck",
+      "pain",
+      "sail",
+      "seed",
+      "road",
+      "food"
+    ]
+  },
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npm run build -- --outDir /tmp/batch5-spelling-illustrations-99-20261005",
+    "directory": "/tmp/batch5-spelling-illustrations-99-20261005",
+    "fileCount": 6026,
+    "totalBytes": 211026203,
+    "treeSha256": "fcdb69e55501b25407d66cbadda28df0aa9e64053b83d4983afeef5aea2a2c0a",
+    "treeDigestAlgorithm": "SHA256 over sorted file records: relativePath UTF-8, NUL, raw bytes of per-file SHA256, LF",
+    "warnings": [
+      "Browserslist data is 9 months old.",
+      "Vite reports index JS chunk over 500 kB."
+    ],
+    "servedFiles": [
+      {
+        "path": "/index.html",
+        "status": 200,
+        "contentLength": 1100,
+        "servedSha256": "4c53d804cec1aad4abee862b19f53384f078d96ce51f2c3f3b22f67ac8b89c76",
+        "localSha256": "4c53d804cec1aad4abee862b19f53384f078d96ce51f2c3f3b22f67ac8b89c76",
+        "matches": true
+      },
+      {
+        "path": "/assets/index-CCKaW6SR.js",
+        "status": 200,
+        "contentLength": 1382666,
+        "servedSha256": "f197ba99fecf82d1f972e5769669b5fcba30d45b136d87e0f52902dc0d9682e8",
+        "localSha256": "f197ba99fecf82d1f972e5769669b5fcba30d45b136d87e0f52902dc0d9682e8",
+        "matches": true
+      },
+      {
+        "path": "/assets/index-B3qXgrAo.css",
+        "status": 200,
+        "contentLength": 211000,
+        "servedSha256": "935e2f6e7e5d102cbca3b7a914c2217d3bbb64d4a7563abfcdf07967f9e682d2",
+        "localSha256": "935e2f6e7e5d102cbca3b7a914c2217d3bbb64d4a7563abfcdf07967f9e682d2",
+        "matches": true
+      },
+      {
+        "path": "/assets/dim-v3-C-wCGBVM.webp",
+        "status": 200,
+        "contentLength": 33504,
+        "servedSha256": "8016e827bb84550b89561152b3085ac36dcf9d741e8baa7970d098c112d239ab",
+        "localSha256": "8016e827bb84550b89561152b3085ac36dcf9d741e8baa7970d098c112d239ab",
+        "matches": true
+      },
+      {
+        "path": "/assets/back-v2-jRhP3l0F.webp",
+        "status": 200,
+        "contentLength": 37056,
+        "servedSha256": "b6014c5378e3ef1803b301bf4086192aecafc661cf944343b0ad2448f7809672",
+        "localSha256": "b6014c5378e3ef1803b301bf4086192aecafc661cf944343b0ad2448f7809672",
+        "matches": true
+      },
+      {
+        "path": "/assets/but-v1-CumJEkX1.webp",
+        "status": 200,
+        "contentLength": 43926,
+        "servedSha256": "6049ff0d0dda6d498f6c1701548b29ebe123d00e1fd2bd6ee6a73af4427cdea9",
+        "localSha256": "6049ff0d0dda6d498f6c1701548b29ebe123d00e1fd2bd6ee6a73af4427cdea9",
+        "matches": true
+      },
+      {
+        "path": "/assets/shut-v1-CjUslMG9.webp",
+        "status": 200,
+        "contentLength": 35482,
+        "servedSha256": "88e68153d7bc4532451758a572e47fe00f0a9164cab45a1a2202d78cde7c16fe",
+        "localSha256": "88e68153d7bc4532451758a572e47fe00f0a9164cab45a1a2202d78cde7c16fe",
+        "matches": true
+      },
+      {
+        "path": "/assets/thin-v1-DF2ZSlDr.webp",
+        "status": 200,
+        "contentLength": 17592,
+        "servedSha256": "bdcbf0aee78a87ee74804d068185295bab0ac2111e54f3430e2a49454ee8a139",
+        "localSha256": "bdcbf0aee78a87ee74804d068185295bab0ac2111e54f3430e2a49454ee8a139",
+        "matches": true
+      },
+      {
+        "path": "/assets/this-v1-C2k7G_81.webp",
+        "status": 200,
+        "contentLength": 39652,
+        "servedSha256": "493ee59846750da913fa7db418809ea407e86de518093affb448ea8407db8253",
+        "localSha256": "493ee59846750da913fa7db418809ea407e86de518093affb448ea8407db8253",
+        "matches": true
+      },
+      {
+        "path": "/assets/that-v1-Cp09U9zs.webp",
+        "status": 200,
+        "contentLength": 24554,
+        "servedSha256": "222f61125619c8023bbee928baca1ae12784445b2583ce6d5ca2d3000d6c0784",
+        "localSha256": "222f61125619c8023bbee928baca1ae12784445b2583ce6d5ca2d3000d6c0784",
+        "matches": true
+      },
+      {
+        "path": "/assets/chat-v1-B76GPzPn.webp",
+        "status": 200,
+        "contentLength": 46216,
+        "servedSha256": "625f19d22de874959a3123ece3a64c0d1bb329f872723280efba20433ef1ee56",
+        "localSha256": "625f19d22de874959a3123ece3a64c0d1bb329f872723280efba20433ef1ee56",
+        "matches": true
+      },
+      {
+        "path": "/assets/chin-v1-Clymjw6b.webp",
+        "status": 200,
+        "contentLength": 42146,
+        "servedSha256": "96870949efb7f45d4e281019df15f05882e5a0eebbb1f904d58a227d02ecd5c5",
+        "localSha256": "96870949efb7f45d4e281019df15f05882e5a0eebbb1f904d58a227d02ecd5c5",
+        "matches": true
+      },
+      {
+        "path": "/assets/rich-v1-DXEyUKUC.webp",
+        "status": 200,
+        "contentLength": 64020,
+        "servedSha256": "9bac981b99475310b772e9aea9d68cf33e5b26a2a626db458633ba4839c49b8c",
+        "localSha256": "9bac981b99475310b772e9aea9d68cf33e5b26a2a626db458633ba4839c49b8c",
+        "matches": true
+      },
+      {
+        "path": "/assets/much-v1-Bggo57DU.webp",
+        "status": 200,
+        "contentLength": 53214,
+        "servedSha256": "7d4f5921e97875ad4972d64cc0c42677da1e73e0daf15e2526af28b801445144",
+        "localSha256": "7d4f5921e97875ad4972d64cc0c42677da1e73e0daf15e2526af28b801445144",
+        "matches": true
+      },
+      {
+        "path": "/assets/sing-v1-RUeofaNd.webp",
+        "status": 200,
+        "contentLength": 34930,
+        "servedSha256": "578752c27c91b7a367df8e02ad69336cf2d35b85563cf17209de2a1de64b334d",
+        "localSha256": "578752c27c91b7a367df8e02ad69336cf2d35b85563cf17209de2a1de64b334d",
+        "matches": true
+      },
+      {
+        "path": "/assets/song-v1-C8nJlZoW.webp",
+        "status": 200,
+        "contentLength": 36734,
+        "servedSha256": "a1252de4933954f49c222115b7562d4a4944cae984566385c9f49d82cdec0bf2",
+        "localSha256": "a1252de4933954f49c222115b7562d4a4944cae984566385c9f49d82cdec0bf2",
+        "matches": true
+      },
+      {
+        "path": "/assets/long-v1-DHDrGUMH.webp",
+        "status": 200,
+        "contentLength": 34902,
+        "servedSha256": "95a9525b43ed3de9fe82bdf379d5741ea653ae7bf28eed90241c4f211fee4bd7",
+        "localSha256": "95a9525b43ed3de9fe82bdf379d5741ea653ae7bf28eed90241c4f211fee4bd7",
+        "matches": true
+      },
+      {
+        "path": "/assets/tail-v1-S-jYpeUa.webp",
+        "status": 200,
+        "contentLength": 39124,
+        "servedSha256": "095750e90b9b2f349f64540a9296299e4d46a2862e4fa7eb047826aa74c245c9",
+        "localSha256": "095750e90b9b2f349f64540a9296299e4d46a2862e4fa7eb047826aa74c245c9",
+        "matches": true
+      },
+      {
+        "path": "/assets/wait-v1-Baa6URen.webp",
+        "status": 200,
+        "contentLength": 41268,
+        "servedSha256": "785d69171b05e1ea491cce801930015fa08980df6022ac552f92aa9df0faeac7",
+        "localSha256": "785d69171b05e1ea491cce801930015fa08980df6022ac552f92aa9df0faeac7",
+        "matches": true
+      },
+      {
+        "path": "/assets/look-v1-DyTxIU21.webp",
+        "status": 200,
+        "contentLength": 38744,
+        "servedSha256": "20563a16c752ecae91f47586afcda1bd96367b8f3984b900714e64ca1150e4f2",
+        "localSha256": "20563a16c752ecae91f47586afcda1bd96367b8f3984b900714e64ca1150e4f2",
+        "matches": true
+      },
+      {
+        "path": "/assets/farm-v1-BcIuxKge.webp",
+        "status": 200,
+        "contentLength": 62186,
+        "servedSha256": "14fb4b396473c816ee550a5903c51342e1eff56954917ff9c8207ce6d92215aa",
+        "localSha256": "14fb4b396473c816ee550a5903c51342e1eff56954917ff9c8207ce6d92215aa",
+        "matches": true
+      },
+      {
+        "path": "/assets/turn-v1-DQMkNlrd.webp",
+        "status": 200,
+        "contentLength": 37120,
+        "servedSha256": "609b9d88dbd86ad011c65b877d892233700b4cadab26c845192eaf3f05f39251",
+        "localSha256": "609b9d88dbd86ad011c65b877d892233700b4cadab26c845192eaf3f05f39251",
+        "matches": true
+      },
+      {
+        "path": "/assets/tick-v1-DPuDcWO_.webp",
+        "status": 200,
+        "contentLength": 14800,
+        "servedSha256": "4f3455f184fa655b7f42b89829a8fe1d8b7ec24b192312ca0639af39108f6872",
+        "localSha256": "4f3455f184fa655b7f42b89829a8fe1d8b7ec24b192312ca0639af39108f6872",
+        "matches": true
+      },
+      {
+        "path": "/assets/luck-v1-AOK-Bu63.webp",
+        "status": 200,
+        "contentLength": 36188,
+        "servedSha256": "7ac0c5122e501e7d0d9d29399e5a92a4f2e868cfe63902fc5f45157d9f4869d2",
+        "localSha256": "7ac0c5122e501e7d0d9d29399e5a92a4f2e868cfe63902fc5f45157d9f4869d2",
+        "matches": true
+      },
+      {
+        "path": "/assets/pain-v1-Q002Q4T3.webp",
+        "status": 200,
+        "contentLength": 37092,
+        "servedSha256": "8a8044fd49bbb6321443fcdbec99384bcbd90863afab7d5ade1558dbfe11c613",
+        "localSha256": "8a8044fd49bbb6321443fcdbec99384bcbd90863afab7d5ade1558dbfe11c613",
+        "matches": true
+      },
+      {
+        "path": "/assets/sail-v1-IwlphoiP.webp",
+        "status": 200,
+        "contentLength": 40760,
+        "servedSha256": "31b7da7e2302ba98ef4603419a73283d8b342ccbd629f0488f72da3b8ea07f2f",
+        "localSha256": "31b7da7e2302ba98ef4603419a73283d8b342ccbd629f0488f72da3b8ea07f2f",
+        "matches": true
+      },
+      {
+        "path": "/assets/seed-v1-CtKWo7aT.webp",
+        "status": 200,
+        "contentLength": 28938,
+        "servedSha256": "73fee7af70dad7e4609d2a2e292a170ee2a51b761320c5b8e28d1d82e6ca8930",
+        "localSha256": "73fee7af70dad7e4609d2a2e292a170ee2a51b761320c5b8e28d1d82e6ca8930",
+        "matches": true
+      },
+      {
+        "path": "/assets/road-v2-tlhhuiD_.webp",
+        "status": 200,
+        "contentLength": 19302,
+        "servedSha256": "e4a46872b60dfeb89a2ebd403d2a1cb3954eb9f38717fd5e1d8d68c0eeece539",
+        "localSha256": "e4a46872b60dfeb89a2ebd403d2a1cb3954eb9f38717fd5e1d8d68c0eeece539",
+        "matches": true
+      },
+      {
+        "path": "/assets/food-v1-u-5Ia5E4.webp",
+        "status": 200,
+        "contentLength": 51560,
+        "servedSha256": "b27739a9ff0cb9101ed120d9fd2185a8584fea9740b31d9dbaac1d1ef87107ef",
+        "localSha256": "b27739a9ff0cb9101ed120d9fd2185a8584fea9740b31d9dbaac1d1ef87107ef",
+        "matches": true
+      }
+    ],
+    "all99MappedAssetHashesMatchBuild": true,
+    "allServedHashesMatchLocalBuild": true
+  },
+  "qa": {
+    "builderBrowserOpened": false,
+    "independentRenderedUiReview": "pending; agent4 must use existing default Chrome session; old 5397 build remains unchanged",
+    "staticCandidateReview": "commit 55caa134; 26 newly mapped IDs accepted at 96px; fuss-v2 requires revision; sell-v2 accepted static but awaits rendered fit"
+  },
+  "preview": {
+    "url": "http://127.0.0.1:5398/",
+    "server": "vite preview serving the frozen local production build directory",
+    "serverProcessId": 7325,
+    "servedAssetIdentityMatchesBuild": true,
+    "builderOpenedBrowser": false
+  },
+  "tests": {
+    "command": "node --test test/spellingStudioIllustrations.test.mjs",
+    "passed": 2,
+    "failed": 0,
+    "eslintCommand": "npx eslint src/data/spellingStudioIllustrations.js test/spellingStudioIllustrations.test.mjs",
+    "eslintPassed": true
+  }
+}
