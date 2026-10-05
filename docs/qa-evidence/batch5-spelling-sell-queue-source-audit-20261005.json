@@ -1,0 +1,146 @@
+{
+  "createdAt": "2026-10-05",
+  "auditType": "builder source audit of normal queue eligibility and replay/recent selection; not browser acceptance",
+  "sourceCommit": "8282b8582df6a819114803686e19cdf8f38058dd",
+  "currentEvidenceHead": "4698529eadbf4ca3591419cf9c1aa6b8f6d09087",
+  "auditedFiles": {
+    "src/data/batch5Literacy.js": "8440dd01d079549d4f03152f1f6ba7231562811979959c9d3731811e9310e057",
+    "src/data/batch5LiteracyPools.js": "36ec814732029449b3a918dfcd95230f55a5c4ee9e57d992fab7b063f9a84e26",
+    "src/data/batch5LiteracyProgress.js": "ec122159161c25b5391cd6fe2848e1ac6dc64490461d309d65eebbc1fef07860",
+    "src/components/games/AmariSpellingStudio.jsx": "727b65e6714ff3b03333a80485f5d9d7e3567f60027d46c090e6fecd75488376",
+    "test/batch5Literacy.test.mjs": "d19ac2528db64295970c7371b993c0bab6b7785a796eeac938aa998788753fce"
+  },
+  "reportedRenderedSample": {
+    "report": "docs/qa-evidence/batch5-spelling-sell-v2-rendered-independent-20261005/report.md",
+    "totalChapter2Questions": 24,
+    "sellObserved": false,
+    "interpretation": "bounded miss is compatible with the normal randomized queue; seven of 31 eligible words can remain outside the first 24 questions."
+  },
+  "defaultProfile": {
+    "phase2SelectedSoundCount": 23,
+    "taughtSoundSet": "PHASE_SOUNDS[2]",
+    "sellGraphemes": [
+      "s",
+      "e",
+      "l",
+      "ll"
+    ],
+    "allSellGraphemesTaught": true
+  },
+  "eligibility": {
+    "bandId": "phase2-more",
+    "eligibleWordCount": 31,
+    "sellEligible": true,
+    "wordIds": [
+      "log",
+      "hen",
+      "red",
+      "duck",
+      "dock",
+      "back",
+      "neck",
+      "peck",
+      "sick",
+      "tick",
+      "rock",
+      "sock",
+      "lock",
+      "luck",
+      "bell",
+      "fell",
+      "tell",
+      "sell",
+      "hill",
+      "fill",
+      "miss",
+      "hiss",
+      "less",
+      "mess",
+      "fuss",
+      "puff",
+      "huff",
+      "run",
+      "fed",
+      "hit",
+      "but"
+    ],
+    "restrictedProfileBehavior": "sell is omitted if its graphemes s/e/l/ll are not all taught; this is the intended phonics gate."
+  },
+  "seededProgressSimulation": {
+    "method": "Called createSpellingRun and the actual rememberBatch5LiteracyRun/getBatch5LiteracyProgress helpers with a temporary in-memory store; unlocked Chapter 2 through the completion helper; no browser, saved user profile, hidden state, or injection. Seeds were base + runIndex*7919 with base 1.",
+    "firstFourRuns": [
+      [
+        "fill",
+        "lock",
+        "run",
+        "peck",
+        "tick",
+        "bell"
+      ],
+      [
+        "dock",
+        "fuss",
+        "miss",
+        "neck",
+        "puff",
+        "mess"
+      ],
+      [
+        "tell",
+        "but",
+        "red",
+        "fell",
+        "hen",
+        "back"
+      ],
+      [
+        "sick",
+        "less",
+        "duck",
+        "hiss",
+        "fed",
+        "hit"
+      ]
+    ],
+    "firstFourQuestionCount": 24,
+    "distinctInFirstFour": 24,
+    "sellInFirstFour": false,
+    "fifthRun": [
+      "sock",
+      "log",
+      "sell",
+      "rock",
+      "huff",
+      "luck"
+    ],
+    "sixthRun": [
+      "hill",
+      "fuss",
+      "tick",
+      "duck",
+      "lock",
+      "red"
+    ],
+    "poolCoverageAfterSixRuns": 31,
+    "poolSize": 31,
+    "sellFirstAppearsInRun": 5,
+    "noRepeatBeforePoolExhaustion": true,
+    "differentInitialSubset": true
+  },
+  "sourceConclusion": "No selection regression found. The current 31-word band intentionally randomizes six fresh IDs per run while at least six unseen IDs remain. Four completed runs can contain 24 distinct words without sell; all eligible IDs are reachable by the sixth completed run. The reviewer stopped at the agreed 24-question cap, before the full 31-item pool cycle completed.",
+  "queueLifecycleCaveat": "The UI records all six frozen run IDs when Start is pressed (AmariSpellingStudio.jsx:74-75), before the questions are individually answered. A player who repeatedly leaves a run early may reserve unseen questions in recent history. This audit did not find an indefinite-starvation case; the coverage guarantee above applies to normally completed runs.",
+  "relevantSourceLines": {
+    "eligibility": "src/data/batch5Literacy.js:68-72; src/data/batch5LiteracyPools.js:15-23",
+    "selection": "src/data/batch5LiteracyPools.js:185-201",
+    "startAndFreeze": "src/components/games/AmariSpellingStudio.jsx:61-80",
+    "recentCycle": "src/data/batch5LiteracyProgress.js:47-62",
+    "existingCoverageTest": "test/batch5Literacy.test.mjs:31-73"
+  },
+  "existingTest": "The meaningful six-question/repeat-avoidance test iterates seeded runs with the accumulated seen-ID set until every eligible word is observed; it includes the Chapter 2 pool and proves finite full-pool reachability.",
+  "changesNeeded": false,
+  "limitations": [
+    "This explains a possible 24-question miss; it does not recreate the reviewer\u2019s exact seed history.",
+    "The independent 5399 run explicitly left sell-v2 rendered fit unverified because the card never appeared.",
+    "No rendered UI, sound, or profile mutation was performed in this source audit."
+  ]
+}
