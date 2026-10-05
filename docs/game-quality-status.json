@@ -1687,7 +1687,7 @@
     "source": "decb60c4c816a24df875044df0d589b90f814f15",
     "report": "docs/qa-evidence/batch5-soundsafari-phonics-source-independent-20261004.md",
     "artReport": "docs/qa-evidence/batch5-soundsafari-starter-art-v2-independent-20261004.md",
-    "scope": "All26Starter and26Growing cards approved static82px. Challenge29mapped:27clear,seedborderline,greenrequiresrevision. Frozen a652 Growing ID persistence and168-question narration coverage independently pass. Existing11textfiles fullydecode;851missing,whole-word/phonemeplayback,listening andoverallacceptance remainpending.",
+    "scope": "All26Starter and26Growing cards approved static82px. Challenge29mapped:28clear after independentgreen-v2 correction,seedborderline. Frozen a652 Growing ID persistence and168-question narration coverage independently pass; exactnarrationretainedatc636artsource. Existing11textfiles fullydecode;851missing,whole-word/phonemeplayback,listening andoverallacceptance remainpending.",
     "artCorrectionSource": "02911814ce9a62a65bc35bdd2cfacb88c31ee808",
     "artCorrectionReport": "docs/qa-evidence/batch5-soundsafari-dock-art-v2-independent-20261004.md",
     "growingArtSource": "d4a5363551b5702e8040422908b821b2bee2aa0c",
@@ -1720,14 +1720,17 @@
     "challengeArtSource": "308641dbb0a398449fa17d0929d048b9115a78cb",
     "challengeArtReport": "docs/qa-evidence/batch5-soundsafari-picture-art-challenge/independent-review-20261005.md",
     "challengeStaticReview": {
-      "clear": 27,
+      "clear": 28,
       "borderline": 1,
-      "requiresRevision": 1,
-      "requiredFix": "green is primarily a ball; replace with plain green colour sample",
+      "requiresRevision": 0,
+      "requiredFix": null,
       "watchItem": "seed may be read as bean or sprout",
       "scope": "Static82px review only; actual wordless UI and audio gates remain open."
     },
-    "existingNarrationDecodeReport": "docs/qa-evidence/batch5-existing-narration-decode-20261005.json"
+    "existingNarrationDecodeReport": "docs/qa-evidence/batch5-existing-narration-decode-20261005.json",
+    "challengeArtCorrectionSource": "c636516afa9ffa1b77dcc3bd5b7353ee80bce567",
+    "challengeArtCorrectionReport": "docs/qa-evidence/batch5-soundsafari-picture-art-challenge/green-v2-independent-review-20261005.md",
+    "narrationArtDeltaReport": "docs/qa-evidence/batch5-green-art-narration-delta-20261005.json"
   },
   "countCanonicalMediaObservation": {
     "source": "1accc99e89be303678ead99def6a3095ab1cb886",
