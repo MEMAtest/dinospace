@@ -1,0 +1,96 @@
+{
+  "createdAt": "2026-10-05",
+  "candidateType": "local configured production build for independent rendered illustration review; not a release",
+  "source": {
+    "branch": "codex/amari-batch5-cumulative-integration-20261005",
+    "commit": "8282b8582df6a819114803686e19cdf8f38058dd",
+    "registryPath": "src/data/spellingStudioIllustrations.js",
+    "registrySha256": "5423e56b5969010c6c31e2eb10d009cbc0dad049552c6e9dffc153b721cd859e",
+    "wordBankPath": "src/data/batch5Literacy.js",
+    "wordBankSha256": "8440dd01d079549d4f03152f1f6ba7231562811979959c9d3731811e9310e057",
+    "canonicalWordCount": 101,
+    "runtimeMappedWordIds": 101,
+    "unmappedAuthoredWordIds": [],
+    "sellStatus": "approved-static-rendered-fit-pending",
+    "fussStatus": "approved-96px-example-of-bother",
+    "fussStaticReview": "docs/qa-evidence/batch5-spelling-fuss-v3-independent-static-20261005/report.md",
+    "previousFrozen100SourceCommit": "d06ccdb5af09ca2c63ea99f6759f851bcb682235"
+  },
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story npx vite build --outDir /tmp/batch5-spelling-illustrations-101-20261005",
+    "directory": "/tmp/batch5-spelling-illustrations-101-20261005",
+    "fileCount": 6028,
+    "totalBytes": 211119412,
+    "treeSha256": "b9fd31a72cc041994084385f55ae2245d958b5962248b0f2218f0402963ef6ff",
+    "treeDigestAlgorithm": "SHA256 over sorted file records: relativePath UTF-8, NUL, raw bytes of per-file SHA256, LF",
+    "servedFiles": [
+      {
+        "path": "/index.html",
+        "status": 200,
+        "contentLength": 1100,
+        "servedSha256": "e829633b4c8e15d0010a7954c56c7fe9d1d8ba7626b97b268ab7efcdb5637a55",
+        "localSha256": "e829633b4c8e15d0010a7954c56c7fe9d1d8ba7626b97b268ab7efcdb5637a55",
+        "matches": true
+      },
+      {
+        "path": "/assets/index-CxQwWdz6.js",
+        "status": 200,
+        "contentLength": 1382929,
+        "servedSha256": "4d4b17de7dc5652c77192a0e27c1f8dab02a39d92103117767d73ae43a0b374e",
+        "localSha256": "4d4b17de7dc5652c77192a0e27c1f8dab02a39d92103117767d73ae43a0b374e",
+        "matches": true
+      },
+      {
+        "path": "/assets/index-B3qXgrAo.css",
+        "status": 200,
+        "contentLength": 211000,
+        "servedSha256": "935e2f6e7e5d102cbca3b7a914c2217d3bbb64d4a7563abfcdf07967f9e682d2",
+        "localSha256": "935e2f6e7e5d102cbca3b7a914c2217d3bbb64d4a7563abfcdf07967f9e682d2",
+        "matches": true
+      },
+      {
+        "path": "/assets/sell-v2-DGD9rwc5.webp",
+        "status": 200,
+        "contentLength": 52538,
+        "servedSha256": "4e4d16eba894b64048bf67ec64760e6249ba02a4e0644b108ed9a783e939064b",
+        "localSha256": "4e4d16eba894b64048bf67ec64760e6249ba02a4e0644b108ed9a783e939064b",
+        "matches": true
+      },
+      {
+        "path": "/assets/fuss-v3-Cyi8bG66.webp",
+        "status": 200,
+        "contentLength": 40344,
+        "servedSha256": "394488812bb63e4837f7d72c43a743b4d0841d8a9ed1068108d1639d9ae1da83",
+        "localSha256": "394488812bb63e4837f7d72c43a743b4d0841d8a9ed1068108d1639d9ae1da83",
+        "matches": true
+      }
+    ],
+    "allServedHashesMatchLocalBuild": true,
+    "mappedAssetOutputHashes": {
+      "sell-v2": "4e4d16eba894b64048bf67ec64760e6249ba02a4e0644b108ed9a783e939064b",
+      "fuss-v3": "394488812bb63e4837f7d72c43a743b4d0841d8a9ed1068108d1639d9ae1da83"
+    },
+    "warnings": [
+      "Browserslist data is 9 months old.",
+      "Vite reports index JS chunk over 500 kB."
+    ]
+  },
+  "qa": {
+    "builderBrowserOpened": false,
+    "independentRenderedUiReview": "pending; agent4 owns the existing Chrome session for the sell-v2 rendered-fit check on the frozen 100 candidate. This 101 candidate was not navigated.",
+    "staticReview": "fuss-v3 accepted at 96px with clue-primary caveat; sell-v2 accepted at 96px, rendered fit pending."
+  },
+  "preview": {
+    "url": "http://127.0.0.1:5401/",
+    "server": "vite preview serving frozen local production build",
+    "serverProcessSession": 29007,
+    "builderOpenedBrowser": false
+  },
+  "tests": {
+    "command": "node --test test/spellingStudioIllustrations.test.mjs",
+    "passed": 2,
+    "failed": 0,
+    "eslintCommand": "npx eslint src/data/spellingStudioIllustrations.js test/spellingStudioIllustrations.test.mjs",
+    "eslintPassed": true
+  }
+}

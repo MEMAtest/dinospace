@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T03:49:51.578132+00:00",
+  "updatedAt": "2026-10-05T04:20:27.997761+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1970,13 +1970,15 @@
   },
   "batch4OnDemandMediaRepair": {
     "source": "17bec08db5ad32e2c46ccdffaf40a5a757243e3c",
-    "status": "independent-source-and-build-verified-browser-pending",
+    "status": "independent source/build and bounded native browser checks passed",
     "testsPassed": 7,
     "eagerInstallPaths": 72,
     "eagerInstallBytes": 25140515,
     "decodedCorpusBuildHashesMatched": 5246,
     "evidence": "docs/qa-evidence/b4-on-demand-media-independent-20261005/report.md",
-    "productionReleased": false
+    "productionReleased": false,
+    "browserEvidence": "docs/qa-evidence/b4-on-demand-media-20261005/independent-ui/report.md",
+    "browserScope": "Time Teller desktop and 390; Addition, Subtraction and Number Line at390 only. Used-clip offline replay passed. Corrected47 clips not observed. Desktop three-game gap and new Addition contrast delta pending. No human listening or production acceptance."
   },
   "batch2Batch3SupplementalCumulativeCandidate": {
     "source": "aa37a8a807349ca6953f397ef408ae067e6c63cc",
@@ -2046,6 +2048,18 @@
     "configuredBuildFiles": 6015,
     "productionReleased": false,
     "humanListeningAccepted": false,
-    "independentPackageReview": "in progress"
+    "independentPackageReview": "passed exact ledger, receipts, prior mappings and all 6015 built-file hashes; native playback and human listening pending",
+    "independentReviewCommit": "2888f72bde3e0c761aedfe46d176bb4706e17a5b"
+  },
+  "spelling101Candidate": {
+    "source": "8282b8582df6a819114803686e19cdf8f38058dd",
+    "mappedWords": 101,
+    "verifiedBuildFiles": 6028,
+    "buildTreeSha256": "b9fd31a72cc041994084385f55ae2245d958b5962248b0f2218f0402963ef6ff",
+    "sourceRegistryAndWordBankHashes": "matched",
+    "servedFilesHashes": "5/5 matched",
+    "renderedSellFit": "pending",
+    "productionReleased": false,
+    "evidence": "docs/qa-evidence/batch5-spelling-101-root-verification-20261005.md"
   }
 }
