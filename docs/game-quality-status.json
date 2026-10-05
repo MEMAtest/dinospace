@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T01:27:12.753652+00:00",
+  "updatedAt": "2026-10-05T01:28:45.049233+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1835,9 +1835,10 @@
       "build": "passed",
       "ownedFiles": 17,
       "nonOwnedCanonicalFilesPreserved": 6022,
-      "independentReview": "in progress",
+      "independentReview": "source/build passed; no browser/audio/release acceptance",
       "productionReleased": false,
-      "audioAcceptance": "open"
+      "audioAcceptance": "open",
+      "independentReviewCommit": "add5f85ff3da9a6eb97974e0544271c8bdf9adf9"
     }
   },
   "singleChromeQaSession": {
