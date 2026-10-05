@@ -1,0 +1,60 @@
+{
+  "checkedAt": "2026-10-05T04:57:55.725131+00:00",
+  "runtimeSource": "aa37a8a807349ca6953f397ef408ae067e6c63cc",
+  "canonicalBase": "22d805b67ced8b36f45d0f5c547bfe67c5dded88",
+  "preview": "http://127.0.0.1:5405/",
+  "serverSession": 66729,
+  "servedFiles": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "sha256": "055c53c197b766b071d685b5cb079156e03efde9c29153a020c179b8ee344dd2"
+    },
+    {
+      "path": "assets/index-DPARKy-g.js",
+      "status": 200,
+      "sha256": "3ae4e85cc9be869da6b1aa4800448e3c4ce827547de8cb448e9009795061d7ef"
+    },
+    {
+      "path": "assets/index-vOQrpuVv.css",
+      "status": 200,
+      "sha256": "beb809b91d1c2ee0d0ec4208349a767e34f3f93ce46ba6146a3317ba37f0dc63"
+    },
+    {
+      "path": "audio/en/a39b3546-matilda.mp3",
+      "status": 200,
+      "sha256": "254457ed89777430e3229991151818defbc72250d8bfc0df3ea3edad631deecb"
+    },
+    {
+      "path": "audio/en/9685e0ac-matilda.mp3",
+      "status": 200,
+      "sha256": "719d07e044ba711640be1fea66a3a1968219c1236ac511ecdd114357ac546cd6"
+    },
+    {
+      "path": "audio/en/e077fcc0-matilda.mp3",
+      "status": 200,
+      "sha256": "7731f4aa1c8a070991b1c1e9cbaa88afd5031b7c0a1c52f53470b760ac991574"
+    },
+    {
+      "path": "audio/en/a44acc87-matilda.mp3",
+      "status": 200,
+      "sha256": "1d550c3b2f5e518dd6b2d64965d11e817a00028edf4f0462ed65c7253e60cf4a"
+    },
+    {
+      "path": "audio/en/5866151d-matilda.mp3",
+      "status": 200,
+      "sha256": "c5e8536fd3c067a27166ad0d189b359fffaf40f45c7dde1b978f7258b86956bc"
+    },
+    {
+      "path": "audio/en/f6991245-matilda.mp3",
+      "status": 200,
+      "sha256": "0a3c032fb42d2491b305aaf89b2faf19c859f52681558eecb87632daeb99f67e"
+    },
+    {
+      "path": "audio/en/0f0204e5-matilda.mp3",
+      "status": 200,
+      "sha256": "b40201a982d28314bcd8c327a85733c196d07478e43d0d1e3b3e135bc02fb73c"
+    }
+  ],
+  "scope": "Frozen GET identity only; native playback/listening/production pending"
+}

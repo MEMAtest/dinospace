@@ -1992,11 +1992,14 @@
     "focusedTestsPassed": 5,
     "buildFiles": 5886,
     "productionReleased": false,
-    "browserPlayback": "pending",
+    "browserPlayback": "queued after Solar and larger Spelling in soleexistingChrome/tab",
     "independentSourceReview": "passed",
     "evidence": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/report.md",
     "independentReviewCommit": "9599afb715a4527a8efc6910e1a3c333cc42a732",
-    "independentReviewEvidence": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/independent-review.md"
+    "independentReviewEvidence": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/independent-review.md",
+    "localPreview": "http://127.0.0.1:5405/",
+    "servedIdentity": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/served-identity.json",
+    "servedGetHashes": "index/mainJS/CSS and all7supplementclips200exactmatches"
   },
   "spellingRecentStaticReview": {
     "reviewCommit": "55caa134",
