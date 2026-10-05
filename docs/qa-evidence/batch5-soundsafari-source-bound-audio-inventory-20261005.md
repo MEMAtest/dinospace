@@ -1,7 +1,7 @@
 # Sound Safari source-bound narration inventory
 
 Date: 2026-10-05  
-Source: `a652ad6cf33b72e3ef3ff523b70cc773bfcbbb18`  
+Source: `308641dbb0a398449fa17d0929d048b9115a78cb`  
 Checkout: `work/dinospace-batch5-soundsafari-picture-art`  
 Machine-readable source hash, exact phrase/key/path list, local file-presence results, and phoneme sequences: [inventory JSON](batch5-soundsafari-source-bound-audio-inventory-20261005.json).
 
@@ -30,6 +30,8 @@ After-answer speech now uses the same sound/position fact already shown after a 
 - The former Batch 5 inventory held 659 unique text entries and 332 sequences. The source-complete inventory has **862 unique text entries and 603 sequences** after adding Sound Safari's actual pair words, dynamic prompts, retries, feedback facts, joined segments, and full-taught Growing content.
 - **11/862** text clips currently have both a matching local manifest entry and a non-empty file; **851 remain pending**. This is the entire Batch 5 literacy text corpus, not a claim that the 11 are decoded or suitable for the new Sound Safari use.
 - **0/37** pure phoneme files are present in this checkout.
-- The 25 Challenge word-art assets are still being integrated; this inventory does not make the chapter playable or audio-ready.
+- All 29 Challenge word records now have local picture assets, including 25 newly added transparent PNG originals and 512 px maximum WebP derivatives. The other four Challenge objects reuse reviewed local art. A static 82 px contact sheet is available at [contact-sheet-all-29-82px.png](batch5-soundsafari-picture-art-challenge/contact-sheet-all-29-82px.png); independent semantic/art review remains pending. Fifteen earlier generated-image prompt strings could not be recovered and are explicitly marked unavailable in [the art provenance file](batch5-soundsafari-picture-art-challenge/provenance.json), without reconstructed prompts.
+
+Artwork completeness does not make Starter playable: none of the ten whole-word comparison recordings is configured in the Sound Safari runtime, and eight are not locally packaged. Only the exact `cat` and `rock` text clips happen to be present; they have not been auditioned and are not wired into the game. Pure phoneme files remain 0/37. This inventory does not establish audio decode, pronunciation, native playback, voice quality, rights, or human listening.
 
 The source-integrity and dynamic-corpus checks pass in the targeted suite. ESLint and the production-config Vite build pass. The build reports the existing stale Browserslist database and large-chunk warnings. The B4 voice worker was reported live during this work; no parallel paid job was started.
