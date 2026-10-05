@@ -2040,6 +2040,8 @@
     "evidence": "docs/qa-evidence/b7-solar-teaching-generation-20261005/live-checkpoint.json",
     "inventorySha256": "da8d0fa36700cb7703678243640a82740ea05c5f17170b76c073f76ca51998d5",
     "decodeAccepted": false,
-    "productionReleased": false
+    "productionReleased": false,
+    "completedClipDecodeVerified": 30,
+    "partialDecodeEvidence": "docs/qa-evidence/b7-solar-teaching-generation-20261005/partial30-decode.json"
   }
 }
