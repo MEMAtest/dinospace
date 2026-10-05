@@ -2101,5 +2101,29 @@
     "archiveSha": "22d805b67ced8b36f45d0f5c547bfe67c5dded88",
     "runtimeSha": "1accc99e89be303678ead99def6a3095ab1cb886",
     "source": "Vercel GET/v13/deployments/dinospace-eight.vercel.app freshly rechecked; no newrelease"
+  },
+  "spellingLargerPictureCandidate": {
+    "source": "ee7465e587ff22a1b70031f9a2a3203f410eb30e",
+    "identityCommit": "40d92c76569c0b82ef3e1f7fac779e9a009e7ade",
+    "mappedAssetsVerified": 101,
+    "buildFilesVerified": 6028,
+    "treeSha256": "e20ab5837c1433fb6b90f371c034135ac311c34a502357494fd4cf2fa169e3b5",
+    "mobilePicturePixels": 144,
+    "desktopPicturePixels": 160,
+    "browserReview": "pending",
+    "productionReleased": false,
+    "evidence": "docs/qa-evidence/batch5-spelling-larger-card-root-verification-20261005.md"
+  },
+  "memoryNarrationPrepared": {
+    "commit": "497b7498a0c0d9323fec93803aadccde96087532",
+    "items": 183,
+    "snapshotHashReusable": 2,
+    "missing": 181,
+    "maxCallsPerRun": 10,
+    "maxRuns": 19,
+    "maxUniqueRequests": 181,
+    "independentReview": "in progress",
+    "paidExecution": false,
+    "evidence": "docs/qa-evidence/b7-memory-narration-ledger-20261005/report.md"
   }
 }
