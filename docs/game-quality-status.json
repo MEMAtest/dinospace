@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T03:20:47.063182+00:00",
+  "updatedAt": "2026-10-05T03:22:46.932204+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1042,20 +1042,19 @@
       "change": "Two Dino Detective world facts simplified",
       "readiness": {
         "requested": 275,
-        "ready": 273,
-        "pending": 2
+        "ready": 275,
+        "pending": 0,
+        "scope": "Previous273 packaged plus2 supplemental clips verified separately; complete275 candidate merge/readiness still needs fresh check"
       },
-      "missingKeys": [
-        "f6991245",
-        "0f0204e5"
-      ],
-      "releaseStatus": "Not deployed; two new clips remain missing. Independent visible fact/Next/parent return delta passed at desktop390; audio/playback/listening and release still pending.",
+      "missingKeys": [],
+      "releaseStatus": "Not deployed. Two corrected Dino clips now generated and decoded; clean cumulative integration, playback/listening and production acceptance remain pending.",
       "visibleQa": {
         "source": "e2aee30169f6ade67f7948b0088a895a9cb119c3",
         "commit": "f630017",
         "report": "docs/qa-evidence/batch3-dino-fact-ui-20261004/report.md",
         "scope": "Root fullread report/viewed mobile Cave. Swamp freshdesktop/mobile and Cave desktop/resized390 held facts/explicitNext/parentExplore pass. Full5879 servedfiles match. MobileNext belowfold reachablebyordinaryscroll; nohorizontaloverflow. Noaudio/releaseaward."
-      }
+      },
+      "supplementEvidence": "docs/qa-evidence/b2-b3-supplement-completed-20261005/report.md"
     },
     "countQuotaReconciliation": {
       "report": "docs/qa-evidence/batch3-count-quota-ui-20261003/REPORT.md",
@@ -1350,8 +1349,11 @@
     "report": "docs/qa-evidence/batch2-batch3-supplemental-narration-jobs-20261004.json",
     "sha256": "0b3e4fb645aec52d445ed04246b8c49958fdef60d92f9644b43e86060af6a2dd",
     "requested": 7,
-    "existing": 0,
-    "scope": "Five exact released Batch2 phrases plus two local revised Dino facts. Source bytes/key/text verified. Read-only ledger only; no paid calls or manifest changes. Await predecessor worker terminal state before bounded generation."
+    "existing": 7,
+    "scope": "Seven exact inventory phrases generated in finite sequential jobs; source/text/filehash receipts and full decode verified. No playback/listening/production acceptance.",
+    "generated": 7,
+    "fullDecodeValid": 7,
+    "completionEvidence": "docs/qa-evidence/b2-b3-supplement-completed-20261005/report.md"
   },
   "currentPerGameGapAudit": {
     "report": "docs/qa-evidence/26-game-acceptance-gap-audit-20261004.md",
