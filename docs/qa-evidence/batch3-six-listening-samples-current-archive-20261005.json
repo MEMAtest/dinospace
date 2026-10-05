@@ -1,0 +1,44 @@
+{
+  "scope": "Six local human-listening samples byte-match frozen released1acc archive; no new provider identity or live fetch or listening verdict",
+  "archive": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "samples": [
+    {
+      "key": "93fa9195",
+      "path": "public/audio/en/93fa9195-matilda.mp3",
+      "sha256": "7501616e1d059281876fdf4e46a5b3fde4fbfc434c74c00201508191d95e6138",
+      "matchesFrozenReleasedArchive": true
+    },
+    {
+      "key": "9fd58454",
+      "path": "public/audio/en/9fd58454-matilda.mp3",
+      "sha256": "d971fe9d04045dae395ba76e2b65df27054753dcae9b379413994fe598f9104a",
+      "matchesFrozenReleasedArchive": true
+    },
+    {
+      "key": "7b4cce67",
+      "path": "public/audio/en/7b4cce67-matilda.mp3",
+      "sha256": "bd222e8197e128ba398d5592310310270acccff7069ce89ecfdb4d54adaf37a8",
+      "matchesFrozenReleasedArchive": true
+    },
+    {
+      "key": "6d8b847b",
+      "path": "public/audio/en/6d8b847b-matilda.mp3",
+      "sha256": "f25b148ff81b8c4c3a84b0a3711625af66186364fdae8f74c186ec04008b5532",
+      "matchesFrozenReleasedArchive": true
+    },
+    {
+      "key": "66dd46ca",
+      "path": "public/audio/en/66dd46ca-matilda.mp3",
+      "sha256": "65f6c05e0e5a4b03609d05f7544f7813ae10589c2068897d71cebd7dc44c91e3",
+      "matchesFrozenReleasedArchive": true
+    },
+    {
+      "key": "95f7c1f0",
+      "path": "public/audio/en/95f7c1f0-matilda.mp3",
+      "sha256": "b09edac722499b757bf1530efe104f8bd78cb89c22ab9d6ee55037cd01f48e8d",
+      "matchesFrozenReleasedArchive": true
+    }
+  ],
+  "humanReview": "requested; pending",
+  "originalSheet": "docs/qa-evidence/batch3-human-listening-sheet-20261004.md"
+}
