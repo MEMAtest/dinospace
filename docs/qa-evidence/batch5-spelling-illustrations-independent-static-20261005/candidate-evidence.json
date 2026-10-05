@@ -1,0 +1,266 @@
+{
+  "date": "2026-10-05",
+  "reviewedWorktreeHead": "c45d3eacb01908e8b268c4b071d52091b705760c",
+  "candidateCommits": {
+    "corrected-candidates-provenance.json": "19adcf9cb04f21362a8cbfc0651c1969a04d4331",
+    "generated-batch-06-provenance.json": "75ab9c24fabf7230dae01e5e8f428f04974e5f97",
+    "generated-batch-07-provenance.json": "2a948b4ae9738a6f4d04f8a89d8c9f8cf7d9c513",
+    "generated-batch-08-provenance.json": "131914381f9e8f667dc0cf7aec9e4ae630bddc8e",
+    "generated-batch-09-provenance.json": "c45d3eacb01908e8b268c4b071d52091b705760c"
+  },
+  "scope": "Static 96px contact-sheet inspection; no runtime wiring.",
+  "assets": [
+    {
+      "wordId": "dim",
+      "version": "v3",
+      "original": "src/assets/spelling-studio/generated-originals/dim-v3.png",
+      "originalSha256": "ef551d5459e289fa8bc29be1c8b46bd8218ce74770dfdf1ad2834823e408d234",
+      "webp": "src/assets/spelling-studio/word-cards/dim-v3.webp",
+      "webpSha256": "8016e827bb84550b89561152b3085ac36dcf9d741e8baa7970d098c112d239ab",
+      "decision": "ACCEPT \u2014 The matched lamps make brightness the visible variable; the unlit lamp reads as dim at 96px."
+    },
+    {
+      "wordId": "back",
+      "version": "v2",
+      "original": "src/assets/spelling-studio/generated-originals/back-v2.png",
+      "originalSha256": "a35bbbd331579d3480ce61e025643f92ee39ee10cc7c5c8269831b2c5d37004e",
+      "webp": "src/assets/spelling-studio/word-cards/back-v2.webp",
+      "webpSha256": "b6014c5378e3ef1803b301bf4086192aecafc661cf944343b0ad2448f7809672",
+      "decision": "ACCEPT \u2014 The child faces away and points to the unobscured jacket back; clearer than a directional-arrow symbol."
+    },
+    {
+      "wordId": "fuss",
+      "version": "v2",
+      "original": "src/assets/spelling-studio/generated-originals/fuss-v2.png",
+      "originalSha256": "8088abb7835999fd3ab7e94811090eac65cd13a7c62143c7939558a88afe0738",
+      "webp": "src/assets/spelling-studio/word-cards/fuss-v2.webp",
+      "webpSha256": "0f183f2b41ca98aa02ac620d8ceb577cc9ebeee5e3017bc68127ddb3b913f5c1",
+      "decision": "REVISE \u2014 At 96px this reads mainly as an adult tying/helping with a shoe. The small knot and child\u2019s concern are too subtle to establish \u201ca lot of bother.\u201d Keep it unmapped until a small snag/fuss is unmistakable at card size."
+    },
+    {
+      "wordId": "but",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/but-v1.png",
+      "originalSha256": "7617f7bfdd326b0cb2404853ca52f0ede23e52c45ec8a1ee918dde91669c8b6a",
+      "webp": "src/assets/spelling-studio/word-cards/but-v1.webp",
+      "webpSha256": "6049ff0d0dda6d498f6c1701548b29ebe123d00e1fd2bd6ee6a73af4427cdea9",
+      "decision": "ACCEPT \u2014 The two contrasting weather scenes and connecting rainbow support the authored \u201cjoins two ideas\u201d clue. It is an analogy, not a literal depiction of the conjunction."
+    },
+    {
+      "wordId": "shut",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/shut-v1.png",
+      "originalSha256": "602fbdec18a930ca81ae76ce1e064c6ef083a10f7042a24cca1979c6358d3d3e",
+      "webp": "src/assets/spelling-studio/word-cards/shut-v1.webp",
+      "webpSha256": "88e68153d7bc4532451758a572e47fe00f0a9164cab45a1a2202d78cde7c16fe",
+      "decision": "ACCEPT \u2014 The near-closed door, frame, and child\u2019s pushing hand show the action, not just a closed door."
+    },
+    {
+      "wordId": "thin",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/thin-v1.png",
+      "originalSha256": "86110e63ef592620e1520b39a104cdc57dea491248ae51adb4bea39d7450f460",
+      "webp": "src/assets/spelling-studio/word-cards/thin-v1.webp",
+      "webpSha256": "bdcbf0aee78a87ee74804d068185295bab0ac2111e54f3430e2a49454ee8a139",
+      "decision": "ACCEPT \u2014 Two side-by-side spines provide an obvious thin/thick contrast at 96px."
+    },
+    {
+      "wordId": "this",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/this-v1.png",
+      "originalSha256": "3dfef6db6caba7b9a7985302e1fda75bd59a4621dec1b8dd3fbd1588d678d050",
+      "webp": "src/assets/spelling-studio/word-cards/this-v1.webp",
+      "webpSha256": "493ee59846750da913fa7db418809ea407e86de518093affb448ea8407db8253",
+      "decision": "ACCEPT \u2014 The child points to the nearby toy while the second toy is distant; this contrasts meaningfully with that."
+    },
+    {
+      "wordId": "that",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/that-v1.png",
+      "originalSha256": "0c60db704d6dddf9ca4b6d3483f3c601438f97a3fd443378aa112b13b7c65e6e",
+      "webp": "src/assets/spelling-studio/word-cards/that-v1.webp",
+      "webpSha256": "222f61125619c8023bbee928baca1ae12784445b2583ce6d5ca2d3000d6c0784",
+      "decision": "ACCEPT \u2014 The child points across the open floor to one distant toy, directly supporting \u201cover there.\u201d"
+    },
+    {
+      "wordId": "chat",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/chat-v1.png",
+      "originalSha256": "c64407ae0ebbd5fa76eaca202df33807a92c816e3eb451d40b763c48f46eb71b",
+      "webp": "src/assets/spelling-studio/word-cards/chat-v1.webp",
+      "webpSha256": "625f19d22de874959a3123ece3a64c0d1bb329f872723280efba20433ef1ee56",
+      "decision": "ACCEPT \u2014 Two children face one another with speaking/listening expressions and gestures; the interaction remains clear without text."
+    },
+    {
+      "wordId": "chin",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/chin-v1.png",
+      "originalSha256": "1fd4057217c92aa1bf88685dc440d62999288cf33a2cd3d7f128e2162bd33470",
+      "webp": "src/assets/spelling-studio/word-cards/chin-v1.webp",
+      "webpSha256": "96870949efb7f45d4e281019df15f05882e5a0eebbb1f904d58a227d02ecd5c5",
+      "decision": "ACCEPT \u2014 A finger touches the chin below the mouth; the target part is unobstructed at 96px."
+    },
+    {
+      "wordId": "rich",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/rich-v1.png",
+      "originalSha256": "f157d45e5abeba7d144f10ca0a842b57ca66a35e2fbdd60a574194cfb637ef25",
+      "webp": "src/assets/spelling-studio/word-cards/rich-v1.webp",
+      "webpSha256": "9bac981b99475310b772e9aea9d68cf33e5b26a2a626db458633ba4839c49b8c",
+      "decision": "ACCEPT \u2014 The open treasure chest overflowing with coins makes having lots of money recognizable at small size."
+    },
+    {
+      "wordId": "much",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/much-v1.png",
+      "originalSha256": "a93e640555936d087a144908686026fdef0acad4834694a967d994f8a8f95231",
+      "webp": "src/assets/spelling-studio/word-cards/much-v1.webp",
+      "webpSha256": "7d4f5921e97875ad4972d64cc0c42677da1e73e0daf15e2526af28b801445144",
+      "decision": "ACCEPT \u2014 A full basket beside a single-apple basket communicates amount by contrast."
+    },
+    {
+      "wordId": "sing",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/sing-v1.png",
+      "originalSha256": "86a348658e4fd429f5c4b2ad5a88d7f229d038287092eb259c42f5829b72ef28",
+      "webp": "src/assets/spelling-studio/word-cards/sing-v1.webp",
+      "webpSha256": "578752c27c91b7a367df8e02ad69336cf2d35b85563cf17209de2a1de64b334d",
+      "decision": "ACCEPT \u2014 A child\u2019s open-mouth singing pose and nearby notes communicate the verb."
+    },
+    {
+      "wordId": "song",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/song-v1.png",
+      "originalSha256": "c7e836c213c650b744dbd9bb4053554d0d4d222cd6be8dbea3e555d1d1297202",
+      "webp": "src/assets/spelling-studio/word-cards/song-v1.webp",
+      "webpSha256": "a1252de4933954f49c222115b7562d4a4944cae984566385c9f49d82cdec0bf2",
+      "decision": "ACCEPT \u2014 The blank songbook plus melody notes reads as a musical piece and is distinct from the singing person."
+    },
+    {
+      "wordId": "long",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/long-v1.png",
+      "originalSha256": "49fbbc8169f99869ab938086058d0c7f77566f4baf006b817fcee4bc5ee4538b",
+      "webp": "src/assets/spelling-studio/word-cards/long-v1.webp",
+      "webpSha256": "95a9525b43ed3de9fe82bdf379d5741ea653ae7bf28eed90241c4f211fee4bd7",
+      "decision": "ACCEPT \u2014 The much longer ribbon beside the short one makes \u201cnot short\u201d clear without measurement marks."
+    },
+    {
+      "wordId": "tail",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/tail-v1.png",
+      "originalSha256": "dae17d2f004ed1090ab67f3ba16bd789dad2cc8198673f075958e82e81e33b33",
+      "webp": "src/assets/spelling-studio/word-cards/tail-v1.webp",
+      "webpSha256": "095750e90b9b2f349f64540a9296299e4d46a2862e4fa7eb047826aa74c245c9",
+      "decision": "ACCEPT \u2014 The raised tail is attached and prominent; the cat body is secondary as intended."
+    },
+    {
+      "wordId": "wait",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/wait-v1.png",
+      "originalSha256": "a62c0f83cba3e12738118532284b456eebc373925292ce87e491c7ec0bec611a",
+      "webp": "src/assets/spelling-studio/word-cards/wait-v1.webp",
+      "webpSha256": "785d69171b05e1ea491cce801930015fa08980df6022ac552f92aa9df0faeac7",
+      "decision": "ACCEPT \u2014 A calmly waiting child beside a running sand timer conveys waiting rather than sadness."
+    },
+    {
+      "wordId": "look",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/look-v1.png",
+      "originalSha256": "19bfe6d52b3bbeee164fe2f11a141ad5f23b53bb0736fddc3098aefd0d282364",
+      "webp": "src/assets/spelling-studio/word-cards/look-v1.webp",
+      "webpSha256": "20563a16c752ecae91f47586afcda1bd96367b8f3984b900714e64ca1150e4f2",
+      "decision": "ACCEPT \u2014 Eye direction and the hand shading the child\u2019s eyes make the looking action legible."
+    },
+    {
+      "wordId": "farm",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/farm-v1.png",
+      "originalSha256": "7d162e1b8991df201d94e14c8a8720b91408274cbd2716b2d146ce2c9b9d491b",
+      "webp": "src/assets/spelling-studio/word-cards/farm-v1.webp",
+      "webpSha256": "14fb4b396473c816ee550a5903c51342e1eff56954917ff9c8207ce6d92215aa",
+      "decision": "ACCEPT \u2014 Barn, crop rows, and vegetables read as a place where food is grown."
+    },
+    {
+      "wordId": "turn",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/turn-v1.png",
+      "originalSha256": "84580d3ed2ffe4239c075aa115caf241d5f0d9c6f6e5075b15ecf69cca1efb7c",
+      "webp": "src/assets/spelling-studio/word-cards/turn-v1.webp",
+      "webpSha256": "609b9d88dbd86ad011c65b877d892233700b4cadab26c845192eaf3f05f39251",
+      "decision": "ACCEPT \u2014 The pivoting body and subtle motion marks communicate changing direction."
+    },
+    {
+      "wordId": "tick",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/tick-v1.png",
+      "originalSha256": "d7ef70706d72af18a7ad7577d0a79f525eed0de4e148db750ccc1271fb8395f5",
+      "webp": "src/assets/spelling-studio/word-cards/tick-v1.webp",
+      "webpSha256": "4f3455f184fa655b7f42b89829a8fe1d8b7ec24b192312ca0639af39108f6872",
+      "decision": "ACCEPT \u2014 One green check-shaped mark on a choice tile matches the clue; there are no competing marks."
+    },
+    {
+      "wordId": "luck",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/luck-v1.png",
+      "originalSha256": "13d5f757e5b620083d9ba7661af6f2d162102502ae29708ac66c07fc715bb56c",
+      "webp": "src/assets/spelling-studio/word-cards/luck-v1.webp",
+      "webpSha256": "7ac0c5122e501e7d0d9d29399e5a92a4f2e868cfe63902fc5f45157d9f4869d2",
+      "decision": "ACCEPT WITH CONVENTIONAL SYMBOL LIMIT \u2014 A clear four-leaf clover is a familiar luck symbol and supports the clue, but the art alone cannot explain chance."
+    },
+    {
+      "wordId": "pain",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/pain-v1.png",
+      "originalSha256": "32d98b41009e798c036636aab73703567c49c3905e5ae3065e6052ee65572dbe",
+      "webp": "src/assets/spelling-studio/word-cards/pain-v1.webp",
+      "webpSha256": "8a8044fd49bbb6321443fcdbec99384bcbd90863afab7d5ade1558dbfe11c613",
+      "decision": "ACCEPT \u2014 Rubbing an elbow with a mild red ache cue shows discomfort without injury or medical props."
+    },
+    {
+      "wordId": "sail",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/sail-v1.png",
+      "originalSha256": "9fde7340e9b06e197e30859a4bc52fdd48b26094ef147cfbe1aaf3cd4a0c0ce2",
+      "webp": "src/assets/spelling-studio/word-cards/sail-v1.webp",
+      "webpSha256": "31b7da7e2302ba98ef4603419a73283d8b342ccbd629f0488f72da3b8ea07f2f",
+      "decision": "ACCEPT \u2014 The large billowing sail and water establish the boat/wind sense at 96px."
+    },
+    {
+      "wordId": "seed",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/seed-v1.png",
+      "originalSha256": "20c59950afb8da48281d5fa6ff80a5c2a8b5b71aa50687ed965ca6035b14fbfb",
+      "webp": "src/assets/spelling-studio/word-cards/seed-v1.webp",
+      "webpSha256": "73fee7af70dad7e4609d2a2e292a170ee2a51b761320c5b8e28d1d82e6ca8930",
+      "decision": "ACCEPT \u2014 The large seed remains the focus; the tiny root and shoot convey growth potential."
+    },
+    {
+      "wordId": "road",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/road-v1.png",
+      "originalSha256": "bdb0cb34b12872361c9b71dc564ad1306a9535700c5f7d93a5d80ba4e6e622a2",
+      "webp": "src/assets/spelling-studio/word-cards/road-v1.webp",
+      "webpSha256": "a509aa1ea0aa5df8d49d1f3d8dcb6ed469e64ce6c4c61673371860ef14a14bc0",
+      "decision": "ACCEPT v2 \u2014 The isolated marked road strip reads as a car path. Road v1 remains rejected for diffuse background/detail."
+    },
+    {
+      "wordId": "road",
+      "version": "v2",
+      "original": "src/assets/spelling-studio/generated-originals/road-v2.png",
+      "originalSha256": "57b81fe0a1d023f4c2a84c0544172e7b75222690fb03be4d829983e8f297a669",
+      "webp": "src/assets/spelling-studio/word-cards/road-v2.webp",
+      "webpSha256": "e4a46872b60dfeb89a2ebd403d2a1cb3954eb9f38717fd5e1d8d68c0eeece539",
+      "decision": "ACCEPT v2 \u2014 The isolated marked road strip reads as a car path. Road v1 remains rejected for diffuse background/detail."
+    },
+    {
+      "wordId": "food",
+      "version": "v1",
+      "original": "src/assets/spelling-studio/generated-originals/food-v1.png",
+      "originalSha256": "ad0729e6e1d5af6e12a678a6e1da1ad527cead3e81f020dafb44cd8e8683b055",
+      "webp": "src/assets/spelling-studio/word-cards/food-v1.webp",
+      "webpSha256": "b27739a9ff0cb9101ed120d9fd2185a8584fea9740b31d9dbaac1d1ef87107ef",
+      "decision": "ACCEPT \u2014 The bowl of recognizable food items supports \u201cthings people eat.\u201d"
+    }
+  ]
+}

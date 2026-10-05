@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T03:38:33.950159+00:00",
+  "updatedAt": "2026-10-05T03:49:51.578132+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -2017,5 +2017,29 @@
     "evidence": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/report.md",
     "independentReviewCommit": "9599afb715a4527a8efc6910e1a3c333cc42a732",
     "independentReviewEvidence": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/independent-review.md"
+  },
+  "spellingRecentStaticReview": {
+    "reviewCommit": "55caa134",
+    "assetsReviewed": 28,
+    "exactOriginalAndWebpHashesVerified": 56,
+    "acceptedCurrentCandidates": 26,
+    "fussV2": "needs revision",
+    "roadV1": "rejected;v2accepted",
+    "sellV1": "rendered semanticfit failed;unmapped",
+    "sellV2": "staticreview passed;renderedcheckpending",
+    "evidence": "docs/qa-evidence/batch5-spelling-illustrations-independent-static-20261005/report.md",
+    "productionReleased": false
+  },
+  "b7SolarTeachingGeneration": {
+    "status": "running",
+    "pid": 6806,
+    "session": 66972,
+    "attempted": 30,
+    "runCount": 3,
+    "maxTotalCalls": 52,
+    "evidence": "docs/qa-evidence/b7-solar-teaching-generation-20261005/live-checkpoint.json",
+    "inventorySha256": "da8d0fa36700cb7703678243640a82740ea05c5f17170b76c073f76ca51998d5",
+    "decodeAccepted": false,
+    "productionReleased": false
   }
 }

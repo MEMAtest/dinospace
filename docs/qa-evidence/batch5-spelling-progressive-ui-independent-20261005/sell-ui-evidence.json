@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-05",
+  "sourceCommit": "56d35a8cb07f41e02cc9228c7b4ec1a09e779012",
+  "url": "http://127.0.0.1:5397/",
+  "profile": "synthetic Amari QA profile; visible Grown-ups phase selection only",
+  "widths": [
+    [
+      1280,
+      800
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "guards": {
+    "/api/voice": 403,
+    "/api/story": 403
+  },
+  "console": {
+    "messages": 0,
+    "errors": 0,
+    "warnings": 0
+  },
+  "phaseSelection": {
+    "before": "Phase 2; 23 selected sounds; Chapter 3 offered 0 makeable words",
+    "action": "Selected Phase 3 using visible parent UI",
+    "after": "49 selected sounds; Chapter 3 offered 34 makeable words"
+  },
+  "chapter3VisibleRunWords": [
+    "chin",
+    "coat",
+    "fork",
+    "moon",
+    "rain",
+    "pain",
+    "look",
+    "road",
+    "tail",
+    "boat",
+    "shop",
+    "much",
+    "that",
+    "chip",
+    "fish",
+    "book",
+    "farm",
+    "seed"
+  ],
+  "sell": {
+    "clue": "Give something for money",
+    "visibleIncompleteWord": "s \u2022 ll",
+    "visibleCorrectTile": "e",
+    "heldFeedback": "SELL has 3 sounds",
+    "layoutFit": "pass at both widths",
+    "semanticFit": "fail: image shows an adult handing an apple to a child with no visible money or sale cue",
+    "searchStoppedAfterFirstOccurrence": true
+  },
+  "screenshots": [
+    {
+      "file": "sell-desktop-before.png",
+      "originalPath": "/private/tmp/nasara-bwra-plan-20261004/.playwright-cli/page-2026-10-05T03-34-18-183Z.png",
+      "label": "Before answering; 1280x800",
+      "sha256": "abbd90769e76dca7e5d891d78767ea303d7e72a845a42e3a663299a435d8b572"
+    },
+    {
+      "file": "sell-mobile-before.png",
+      "originalPath": "/private/tmp/nasara-bwra-plan-20261004/.playwright-cli/page-2026-10-05T03-34-48-162Z.png",
+      "label": "Before answering; 390x844",
+      "sha256": "19521eda2529e48a9b0c537488876f7de64a5fa1fc9c2cd50a1ec2b082d13f33"
+    },
+    {
+      "file": "sell-mobile-held-correct.png",
+      "originalPath": "/private/tmp/nasara-bwra-plan-20261004/.playwright-cli/page-2026-10-05T03-35-24-064Z.png",
+      "label": "Correct answer held; 390x844",
+      "sha256": "65f41789f4f57cf73165242f506e025bb135906508ed6136eb76247d0bf8f598"
+    },
+    {
+      "file": "sell-desktop-held-correct.png",
+      "originalPath": "/private/tmp/nasara-bwra-plan-20261004/.playwright-cli/page-2026-10-05T03-35-40-920Z.png",
+      "label": "Correct answer held; 1280x800",
+      "sha256": "18ca415fcab6e0860256d63968f0d3ac8f680b442645341f7557759f13afe59d"
+    }
+  ]
+}
