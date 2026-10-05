@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T01:05:48.393147+00:00",
+  "updatedAt": "2026-10-05T01:12:09.907989+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1801,8 +1801,9 @@
       "evidenceCommit": "514064e322e2c4746a49f8736ae3ef616c9b5fcc",
       "fullTests": "264/264",
       "build": "passed",
-      "independentReview": "in progress",
-      "textClipsPending": 851
+      "independentReview": "source/build passed; no browser/audio/release acceptance",
+      "textClipsPending": 851,
+      "independentReviewCommit": "7dff90e6e6d8d173ee2960bc238cd158a2490951"
     },
     "batch6": {
       "sourceCommit": "7c350f4bff66c1e9aff922cb5ee98e0fdd1d4ef8",
@@ -1810,7 +1811,7 @@
       "fullTests": "238/238",
       "lint": "passed",
       "build": "passed",
-      "independentReview": "pending"
+      "independentReview": "in progress"
     },
     "batch7": {
       "sourceCommit": "07132a6f68877f19ea38ed59ec2b49645ea4a8fb",
@@ -1819,8 +1820,13 @@
       "targetedTests": "25/25",
       "lint": "passed",
       "build": "passed",
-      "independentReview": "in progress"
+      "independentReview": "source/build passed; no browser/audio/release acceptance",
+      "independentReviewCommit": "aadc875b4b27f9b66571b491e558967986fb3a27"
     },
-    "releaseRequirement": "Integrate each next release onto then-current complete canonical, finish outstanding audio acceptance, and bind production Playwright evidence to deployed source. One existing Chrome QA session only."
+    "releaseRequirement": "Integrate each next release onto then-current complete canonical, finish outstanding audio acceptance, and bind production Playwright evidence to deployed source. One existing Chrome QA session only.",
+    "batch4": {
+      "integration": "in progress",
+      "audioWorker": "live; no restart or concurrent paid job"
+    }
   }
 }
