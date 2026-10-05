@@ -1,0 +1,110 @@
+{
+  "createdAt": "2026-10-05",
+  "workflow": "built-in image_gen; one call per distinct word illustration",
+  "conversion": "cwebp -resize 512 512 -q 84; originals retained unchanged",
+  "status": "Static independent 96px review accepted pat, map, tin, kid, red, tan, nap and dip; sat-v1 was rejected as duplicating sit. The paired review accepted sat-v2 as distinct from sit-v1. All selected originals and exact prompts are retained.",
+  "assets": [
+    {
+      "wordId": "sat",
+      "original": "src/assets/spelling-studio/generated-originals/sat-v1.png",
+      "originalSha256": "e8c0a8ae98d8fdaf1c551527b404dec068215ddd9df232b3b58e5312dc6f44c0",
+      "webp": "src/assets/spelling-studio/word-cards/sat-v1.webp",
+      "webpSha256": "aafdbc6bd61169974609ceab66138539bb59d3d4e5aa508f7ac19a522fd41f78",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-30038f22-1775-4ab1-a2d7-5dde4f8ee598.png",
+      "review": "rejected: visually duplicates the settled seated pose for sit at 96px; retained as an original, not selected for registry",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling practice picture tile for a child aged six\nPrimary request: one child sitting down on a simple chair, showing the action “sat” clearly\nStyle/medium: polished glossy 3D children's picture-card illustration, warm friendly proportions, soft studio lighting, clean rounded forms\nComposition/framing: one centered child and one simple chair, complete silhouettes with generous margin, readable when shown at 96 by 96 pixels\nScene/backdrop: none; isolated subject\nConstraints: child is safely seated, ordinary clothing, clear seated pose; no other people or competing objects\nAvoid: words, letters, labels, numbers, logos, watermark, border, floor scene, extra props, cropped limbs, frightening expression"
+    },
+    {
+      "wordId": "sat",
+      "version": 2,
+      "original": "src/assets/spelling-studio/generated-originals/sat-v2.png",
+      "originalSha256": "e350b15613e387cf96e772a133895c1e241696777e277e03c5d6ac9aa30015dc",
+      "webp": "src/assets/spelling-studio/word-cards/sat-v2.webp",
+      "webpSha256": "70833239ddc5414c0aff796ff3b516ba29ef25dc7609c6b1bedb9a6898208057",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-955cb75a-5e32-430c-bfad-01ad93cee849.png",
+      "review": "independent paired 96px review accepted: lowering/leaning action is distinct from settled upright sit",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: a child in the clear action of sitting down on a chair, halfway bending knees toward the seat, to show the past action “sat”\nStyle/medium: polished glossy 3D children's picture-card illustration, friendly proportions, soft studio light, consistent with premium toy-like learning art\nComposition/framing: one child and one chair, side three-quarter view, child just lowering onto the seat with bent knees and hands near the seat, full silhouettes and generous transparent margin, readable at 96 by 96 pixels\nScene/backdrop: isolated subject and chair only\nConstraints: visible movement/action differs from a child already settled upright; safe ordinary pose; no extra person or props\nAvoid: fully settled upright pose, standing still, words, letters, labels, numbers, logo, watermark, border, cropped limbs, frightening expression"
+    },
+    {
+      "wordId": "pat",
+      "original": "src/assets/spelling-studio/generated-originals/pat-v1.png",
+      "originalSha256": "92f7e65a7426e1683a175619b7f5145753cee711e5648487fc71df1d4dd03cd6",
+      "webp": "src/assets/spelling-studio/word-cards/pat-v1.webp",
+      "webpSha256": "e3526c89328bf0abaaf63d6680ab6b3ca63e31e18fb1ecd454cea5478acbae72",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-798afa60-66c7-47ad-8c25-3d91bc592622.png",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: one friendly child gently patting a calm dog with an open hand, clear hand-to-back contact to show the action “pat”\nStyle/medium: glossy polished 3D children's picture-card illustration, warm friendly proportions, soft studio lighting, rounded forms\nComposition/framing: child and dog centered as one simple scene, complete silhouettes, generous transparent margin, readable at 96 by 96 pixels\nScene/backdrop: isolated scene, no environment\nConstraints: gentle safe touch; keep the open hand visibly touching the dog's back; no words or letters\nAvoid: extra people, extra pets, collars with text, labels, watermark, border, cropped limbs, aggression"
+    },
+    {
+      "wordId": "tin",
+      "original": "src/assets/spelling-studio/generated-originals/tin-v1.png",
+      "originalSha256": "05e39bdca22d196d1d34b4f0edda134677c4d69325f00d07412ade8fda76772d",
+      "webp": "src/assets/spelling-studio/word-cards/tin-v1.webp",
+      "webpSha256": "ec3b4a999e3f15b9ed785ede27db4f15a9c42b01ceec3f5cdede73f38f20e4d0",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-af988f5b-d9f1-42c2-a228-311d2bd7800b.png",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: one small lidded tea tin, clearly a fitted metal box with a separate lid, to match “tin”\nStyle/medium: glossy polished 3D children's picture-card object illustration, smooth rounded edges, soft studio lighting\nComposition/framing: single tin centered, lid visibly fitted, three-quarter view, complete object with generous transparent margin, readable at 96 by 96 pixels\nScene/backdrop: isolated object, no environment\nConstraints: make it distinct from a food can; recognizable as a lidded biscuit or tea tin\nAvoid: pull-tab, can opener, food label, words, letters, numbers, logo, watermark, border, extra objects, cropped edges"
+    },
+    {
+      "wordId": "map",
+      "original": "src/assets/spelling-studio/generated-originals/map-v1.png",
+      "originalSha256": "2b233c4edf67ea898a0b376cd9473d4da9949d3af9d332c1ac9fbe6dec8a016e",
+      "webp": "src/assets/spelling-studio/word-cards/map-v1.webp",
+      "webpSha256": "98b2658f765f30058a697539ead6b225cf06d17a3ee9791b02fd03fdc2c72207",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-8e286a45-7b4d-4492-957f-3dc26135af16.png",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: a folded paper route map with a dotted path leading between two simple landmarks, clearly showing where to go\nStyle/medium: glossy polished 3D children's picture-card object illustration, cheerful but uncluttered, soft studio lighting\nComposition/framing: one folded map centered and open enough to show a simple dotted route, full object, generous transparent margin, readable at 96 by 96 pixels\nScene/backdrop: isolated object\nConstraints: no writing, no letters, no labels; simple colored route and tiny landmark shapes only\nAvoid: globe, atlas book, text, symbols that look like letters, logo, watermark, border, hand or person, extra objects"
+    },
+    {
+      "wordId": "kid",
+      "original": "src/assets/spelling-studio/generated-originals/kid-v1.png",
+      "originalSha256": "533b0748a092d5b627aa9b5f5fbe86e165860251edd278581cba34679ee4a5ad",
+      "webp": "src/assets/spelling-studio/word-cards/kid-v1.webp",
+      "webpSha256": "c806076f626b092816bd005236fedfa50313d6235c1da804d6d936252f7e4734",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-208166f4-ff9d-4326-9f73-b09a7041972b.png",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: one young child shown clearly and neutrally, representing the word “kid” meaning child\nStyle/medium: polished glossy 3D children's picture-card illustration, friendly proportions, soft light\nComposition/framing: one child standing in a relaxed everyday pose, full figure centered, generous transparent margin, readable at 96 by 96 pixels\nScene/backdrop: isolated subject\nConstraints: child around six years old, ordinary colorful clothing, warm expression, no gender stereotype\nAvoid: text, letters, labels, numbers, logos, watermark, border, extra person, toy props, cropped limbs"
+    },
+    {
+      "wordId": "red",
+      "original": "src/assets/spelling-studio/generated-originals/red-v1.png",
+      "originalSha256": "5105d12d342c98893b533cb9226aa0282e54355636c76a9a905ed01aaed10a92",
+      "webp": "src/assets/spelling-studio/word-cards/red-v1.webp",
+      "webpSha256": "e91750a9a6d803fe78467398ee69472a2d95e9aaa4d82014eb2ac72f135db2d8",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-3e88744e-f14a-4ec4-a3bf-1ef1a1607b65.png",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: one clear saturated red color sample that unmistakably shows the color red\nStyle/medium: glossy polished 3D children's picture-card color swatch, smooth rounded square, soft studio highlight\nComposition/framing: single large red swatch centered, face-on, generous transparent margin, readable at 96 by 96 pixels\nScene/backdrop: isolated swatch\nConstraints: only one uniform vivid red color; no object competing with the color\nAvoid: stop sign, fruit, text, letters, labels, numbers, logo, watermark, border, extra props"
+    },
+    {
+      "wordId": "tan",
+      "original": "src/assets/spelling-studio/generated-originals/tan-v1.png",
+      "originalSha256": "528c5614503097a59853e6b6d60d6c0324990ee1061aaf1701a81f3ea8b042cc",
+      "webp": "src/assets/spelling-studio/word-cards/tan-v1.webp",
+      "webpSha256": "03bd08fd251c7cb7f3e72e6eadb893f0b1fb658125d618bd30060bb2abfd45bf",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-fd942861-9f39-4e4f-8944-e11cec38f808.png",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: one clear light tan color sample, warm pale brown, matching a simple color-swatch style\nStyle/medium: glossy polished 3D children's picture-card color swatch, smooth rounded square, soft studio highlight\nComposition/framing: single large uniformly light tan swatch centered, face-on, generous transparent margin, readable at 96 by 96 pixels\nScene/backdrop: isolated swatch\nConstraints: color alone should be the obvious meaning\nAvoid: beach, skin, animal, text, letters, labels, numbers, logo, watermark, border, extra props"
+    },
+    {
+      "wordId": "nap",
+      "original": "src/assets/spelling-studio/generated-originals/nap-v1.png",
+      "originalSha256": "1fe87d2d99b81d4a0fe47509bd745e4fe152049ae6591bf049c8c1e53fc677bc",
+      "webp": "src/assets/spelling-studio/word-cards/nap-v1.webp",
+      "webpSha256": "61677f7d0683e6c7e3e735b5a6a3fc528667f1b78923bdbb5743ca9d2ac067c5",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-22da71cd-283f-4aba-9c60-3fb0b7723e55.png",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: one child taking a short daytime nap, peacefully asleep on a small sofa with a pillow\nStyle/medium: polished glossy 3D children's picture-card illustration, gentle soft light, rounded friendly forms\nComposition/framing: child curled comfortably on sofa, clear sleeping pose, full small scene centered with generous transparent margin, readable at 96 by 96 pixels\nScene/backdrop: isolated simple scene, no room furniture beyond sofa\nConstraints: calm safe daytime rest, no text or clock\nAvoid: bed at night, scary imagery, words, letters, labels, watermark, border, extra characters, clutter, cropped subject"
+    },
+    {
+      "wordId": "sit",
+      "original": "src/assets/spelling-studio/generated-originals/sit-v1.png",
+      "originalSha256": "2fd7c469c18c40d57a85dbad2ba0b7fd6ebf3cf7bba2a28dcb754b906ea22d0e",
+      "webp": "src/assets/spelling-studio/word-cards/sit-v1.webp",
+      "webpSha256": "f03316cf259e25bccdb86c88a5b19327964452338bb660bf508f6d84a384bd9f",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-d139c079-a68b-4cb5-a0f5-d21817651afc.png",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: one child resting on a chair, showing the action “sit” in a calm, upright seated pose\nStyle/medium: glossy polished 3D children's picture-card illustration, friendly soft forms and studio lighting\nComposition/framing: one child seated upright on a simple wooden chair, hands relaxed on knees, complete child and chair centered with transparent margin, legible at 96 by 96 pixels\nScene/backdrop: isolated scene\nConstraints: chair is visible, child is clearly resting while seated\nAvoid: standing, lowering into the chair, desk, text, letters, labels, numbers, watermark, border, extra people, cropped limbs"
+    },
+    {
+      "wordId": "dip",
+      "original": "src/assets/spelling-studio/generated-originals/dip-v1.png",
+      "originalSha256": "9c00b21943c488f5d0e5365578b015e4cfbc806c46b8dd58d8ec499ab0d1e3fc",
+      "webp": "src/assets/spelling-studio/word-cards/dip-v1.webp",
+      "webpSha256": "daf26a71f50128fd3b32f91e393ab3602d23da2c06c1117a5d14be3aee5c7fcb",
+      "generatedOutput": "/Users/omosanya_main/.codex/generated_images/01a10316-d352-7663-a5c2-1eccdc3a4fb8/exec-76d7d7cc-ecf5-4bc9-b806-a81190b2d444.png",
+      "prompt": "Use case: illustration-story\nAsset type: premium spelling picture tile for a child aged six\nPrimary request: one carrot piece being dipped into sauce, the dipping action clear\nStyle/medium: glossy polished 3D children's picture-card food illustration, appetizing bright colors, soft studio lighting\nComposition/framing: close clear view of a carrot piece entering a small bowl of sauce, contact with sauce visible, one simple scene with transparent margin, readable at 96 by 96 pixels\nScene/backdrop: isolated object/action scene\nConstraints: show food going into sauce, not pouring liquid\nAvoid: whole carrot only, drink cup, text, labels, words, logo, watermark, border, extra food clutter"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "reviewedProvenanceFile": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/provenance-as-reviewed-89b.json",
+  "reviewedProvenanceSha256": "0215cbdd704463f82768d543a4bf0f0e22eee05e87620bd78571db8cb301b66b",
+  "currentBuilderProvenanceFile": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-01-provenance.json",
+  "currentBuilderProvenanceSha256": "2fa58004ce74d65fda35c0b782df73b9f22ad5083dd2832e881785c2604397c6",
+  "normalizedGenerationFieldsUnchanged": true,
+  "changedFields": [
+    "top-level status",
+    "sat-v2 review disposition"
+  ],
+  "assetPromptAndHashesUnchanged": true,
+  "assets": [
+    {
+      "wordId": "sat",
+      "version": 1,
+      "originalSha256": "e8c0a8ae98d8fdaf1c551527b404dec068215ddd9df232b3b58e5312dc6f44c0",
+      "webpSha256": "aafdbc6bd61169974609ceab66138539bb59d3d4e5aa508f7ac19a522fd41f78",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "sat",
+      "version": 2,
+      "originalSha256": "e350b15613e387cf96e772a133895c1e241696777e277e03c5d6ac9aa30015dc",
+      "webpSha256": "70833239ddc5414c0aff796ff3b516ba29ef25dc7609c6b1bedb9a6898208057",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "pat",
+      "version": 1,
+      "originalSha256": "92f7e65a7426e1683a175619b7f5145753cee711e5648487fc71df1d4dd03cd6",
+      "webpSha256": "e3526c89328bf0abaaf63d6680ab6b3ca63e31e18fb1ecd454cea5478acbae72",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "tin",
+      "version": 1,
+      "originalSha256": "05e39bdca22d196d1d34b4f0edda134677c4d69325f00d07412ade8fda76772d",
+      "webpSha256": "ec3b4a999e3f15b9ed785ede27db4f15a9c42b01ceec3f5cdede73f38f20e4d0",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "map",
+      "version": 1,
+      "originalSha256": "2b233c4edf67ea898a0b376cd9473d4da9949d3af9d332c1ac9fbe6dec8a016e",
+      "webpSha256": "98b2658f765f30058a697539ead6b225cf06d17a3ee9791b02fd03fdc2c72207",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "kid",
+      "version": 1,
+      "originalSha256": "533b0748a092d5b627aa9b5f5fbe86e165860251edd278581cba34679ee4a5ad",
+      "webpSha256": "c806076f626b092816bd005236fedfa50313d6235c1da804d6d936252f7e4734",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "red",
+      "version": 1,
+      "originalSha256": "5105d12d342c98893b533cb9226aa0282e54355636c76a9a905ed01aaed10a92",
+      "webpSha256": "e91750a9a6d803fe78467398ee69472a2d95e9aaa4d82014eb2ac72f135db2d8",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "tan",
+      "version": 1,
+      "originalSha256": "528c5614503097a59853e6b6d60d6c0324990ee1061aaf1701a81f3ea8b042cc",
+      "webpSha256": "03bd08fd251c7cb7f3e72e6eadb893f0b1fb658125d618bd30060bb2abfd45bf",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "nap",
+      "version": 1,
+      "originalSha256": "1fe87d2d99b81d4a0fe47509bd745e4fe152049ae6591bf049c8c1e53fc677bc",
+      "webpSha256": "61677f7d0683e6c7e3e735b5a6a3fc528667f1b78923bdbb5743ca9d2ac067c5",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "sit",
+      "version": 1,
+      "originalSha256": "2fd7c469c18c40d57a85dbad2ba0b7fd6ebf3cf7bba2a28dcb754b906ea22d0e",
+      "webpSha256": "f03316cf259e25bccdb86c88a5b19327964452338bb660bf508f6d84a384bd9f",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    },
+    {
+      "wordId": "dip",
+      "version": 1,
+      "originalSha256": "9c00b21943c488f5d0e5365578b015e4cfbc806c46b8dd58d8ec499ab0d1e3fc",
+      "webpSha256": "daf26a71f50128fd3b32f91e393ab3602d23da2c06c1117a5d14be3aee5c7fcb",
+      "promptUnchanged": true,
+      "actualAssetsStillMatch": true
+    }
+  ]
+}
