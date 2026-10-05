@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T01:40:10.586899+00:00",
+  "updatedAt": "2026-10-05T01:43:36.465963+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1870,5 +1870,25 @@
     "independentReviewCommit": "8df131ac62a1e4abf9ec256db420fac0e454d350",
     "tests": "5/5 temporary fixtures passed",
     "scope": "Read-only exact saved snapshot path/key/text checks, full decode/duration/stable hashes, bounded concurrency and aggregate errors. Source commit remains externally established when collector snapshot omits it. No full live corpus scan yet."
+  },
+  "batch5ChildRecoveryCopy": {
+    "source": "721d6ed4d5092e05f6da2c5f7a469ae837ddb700",
+    "evidenceCommit": "e6f6fa0ab5b9238f38abaea58f1a5fbeedcc1afe",
+    "report": "docs/qa-evidence/batch5-child-recording-recovery-copy-20261005.md",
+    "scope": "Child-readable missing-recording recovery via existing back arrow and readable Spelling repeated-letter footer. Start gate remains intact; no pool/progression/voice mapping changes.",
+    "tests": "16/16 focused; lint/build passed",
+    "narrationCompatibility": "862 exact phrase/key/path rows and 603 sequences unchanged from c636; raw component hashes differ and are explicitly recorded",
+    "browserDelta": "in progress on reused default session",
+    "productionReleased": false
+  },
+  "spellingVisualSemanticAudit": {
+    "words": 101,
+    "bandCounts": {
+      "phase2-first": 36,
+      "phase2-more": 31,
+      "phase3": 34
+    },
+    "status": "in progress",
+    "scope": "All authored words: match illustrations/clues/semantics and reuse exact reviewed assets; do not hide difficult words or change progression. Emoji prompts remain an open premium-visual gap."
   }
 }
