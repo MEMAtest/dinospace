@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T01:43:36.465963+00:00",
+  "updatedAt": "2026-10-05T01:51:25.866667+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1878,8 +1878,10 @@
     "scope": "Child-readable missing-recording recovery via existing back arrow and readable Spelling repeated-letter footer. Start gate remains intact; no pool/progression/voice mapping changes.",
     "tests": "16/16 focused; lint/build passed",
     "narrationCompatibility": "862 exact phrase/key/path rows and 603 sequences unchanged from c636; raw component hashes differ and are explicitly recorded",
-    "browserDelta": "in progress on reused default session",
-    "productionReleased": false
+    "browserDelta": "passed desktop 1280x800 and mobile 390x844; same existing default Chrome; gated Start and parent return preserved",
+    "productionReleased": false,
+    "browserEvidenceCommit": "3c14c9d2fb44db3802a3271a80e81582dee386bd",
+    "browserReport": "docs/qa-evidence/batch5-child-recording-recovery-copy-ui-20261005.md"
   },
   "spellingVisualSemanticAudit": {
     "words": 101,
@@ -1888,7 +1890,20 @@
       "phase2-more": 31,
       "phase3": 34
     },
-    "status": "in progress",
-    "scope": "All authored words: match illustrations/clues/semantics and reuse exact reviewed assets; do not hide difficult words or change progression. Emoji prompts remain an open premium-visual gap."
+    "status": "full static audit complete; all-word illustration implementation underway",
+    "scope": "All authored words: match illustrations/clues/semantics and reuse exact reviewed assets; do not hide difficult words or change progression. Emoji prompts remain an open premium-visual gap.",
+    "report": "docs/qa-evidence/batch5-spelling-visual-gap-audit-20261005/report.md",
+    "evidenceCommit": "0b9bc5662d4a162462c98be8466b98159431587e"
+  },
+  "spellingIllustrationImplementation": {
+    "coverageTarget": 101,
+    "status": "in progress; no runtime art acceptance",
+    "firstGeneratedAsset": "tip-v1.png",
+    "firstAssetSha256": "3e9afadb046cec9796ac99d638659a1ac09f77ea68abc985866b63857b0f44a3",
+    "sourceAssetCommit": "e84b578",
+    "firstAssetProvenance": "docs/qa-evidence/batch5-spelling-illustrations-20261005/tip-v1-provenance.json",
+    "generator": "built-in image_gen; no CLI fallback",
+    "independent96pxReview": "in progress",
+    "scope": "Reuse only exact-sense illustrations; generate action/context cards for remaining words. Preserve all 101 words, phonics, voice texts, model and progression. No paid voice concurrency or release claim."
   }
 }
