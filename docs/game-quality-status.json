@@ -1969,6 +1969,18 @@
     "sourceCommit": "3dafee7b31302cb1a7ab41f731fa51a5e7fcd2e0",
     "evidenceCommit": "fed06bb7c7af1ea1dd39cfda3c6499ace159cca6",
     "report": "docs/qa-evidence/batch6-astronaut-route-copy-20261005/report.md",
-    "scope": "Map names/descriptions now acknowledge mixedscience/engineering;378spokenphrases unchanged. Separate frozenbuild passed scopedlint/configuredbuild; independent browser/editorialreview underway. No release/4.5claim."
+    "scope": "Map names/descriptions now acknowledge mixedscience/engineering;378spokenphrases unchanged. Separate frozenbuild passed scopedlint/configuredbuild; independent browser/editorialreview underway. No release/4.5claim.",
+    "independentReviewCommit": "028d8e47296f0811e1c5e9dad81b090a37ef27d0",
+    "independentReview": "docs/qa-evidence/b6-astronaut-route-copy-20261005/independent-review.md",
+    "independentReviewStatus": "Desktop390 mapcopy/readability passed; spoken378inventory unchanged. No audio/fullgame/productionacceptance."
+  },
+  "batch4UnchangedAudioPackaging": {
+    "sourceBase": "add5f85ff3da9a6eb97974e0544271c8bdf9adf9",
+    "packageCommit": "5577cdc",
+    "verifiedClips": 5199,
+    "newAudioFilesCopied": 5134,
+    "allPriorCanonicalManifestMappingsPreserved": true,
+    "report": "work/dinospace-batch4-cumulative-integration/docs/qa-evidence/batch4-corrected-audio-packaging-20261005/unchanged-clip-package.json",
+    "scope": "Unchanged correctedcorpus clips only, matching priorfull decode bytehashes. Separate47correctionmerge/fullcandidateQA pending. Frozenoldbuild preserved; no productionrelease."
   }
 }

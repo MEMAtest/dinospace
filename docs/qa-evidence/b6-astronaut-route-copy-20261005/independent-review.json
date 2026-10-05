@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-05",
+  "sourceCommit": "3dafee7b31302cb1a7ab41f731fa51a5e7fcd2e0",
+  "buildDirectory": "dist-astronaut-route-copy-20261005",
+  "origin": "http://127.0.0.1:5399/",
+  "browserSession": "default",
+  "servedHashes": {
+    "index.html": "eb29b461b6e9309d66247a75550464d50cf529a238152cdebd9f3305e129119b",
+    "assets/index-CUuCtS9W.js": "472254f7fa18dc4e86bdabeee5143f1443d41a1b18b2c141f63ea57e2c7b64bd",
+    "assets/index-Ccs6j6LF.css": "2411e413823eb43b354026da853a4fae30867a13a409ce0daf59351037e8acbf"
+  },
+  "checks": [
+    {
+      "viewport": [1280, 800],
+      "route": "#/play/astronaut",
+      "labels": ["Space discoveries", "Mission planning", "Review missions"],
+      "chapterButtonBounds": [
+        [280, 338.4375, 720, 82],
+        [280, 432.4375, 720, 82],
+        [280, 526.4375, 720, 82]
+      ],
+      "visibleFirstChapterDescription": true
+    },
+    {
+      "viewport": [390, 844],
+      "route": "#/play/astronaut",
+      "labels": ["Space discoveries", "Mission planning", "Review missions"],
+      "chapterButtonBounds": [
+        [10, 347.40625, 370, 107.1875],
+        [10, 466.59375, 370, 82],
+        [10, 560.59375, 370, 82]
+      ],
+      "mobileScrollWidth": 390,
+      "viewportWidth": 390,
+      "visibleFirstChapterDescription": true
+    }
+  ],
+  "guards": {
+    "voice": {"pattern": "/api/voice", "status": 403},
+    "story": {"pattern": "/api/story", "status": 403},
+    "installedBeforeNavigation": true,
+    "soundControlLabel": "Turn sound on",
+    "filteredRequests": 0
+  },
+  "console": {"errors": 0, "warnings": 0},
+  "staticRequests": {"listed": 13, "failures": 0},
+  "screenshots": {
+    "desktop": "independent-review/desktop-1280x800.png",
+    "mobile": "independent-review/mobile-390x844.png",
+    "desktopSha256": "d040672684eee96569eecabb0bd5a6526f1a668f2ff4d623a6079901747058ee",
+    "mobileSha256": "0e4d56e74c4294522afef291764b7c15a4a1d3be70c0b287101de152ec38efca"
+  },
+  "scope": "Chapter-map label/readability delta only; no gameplay, audio quality, human listening, or deployment acceptance."
+}
