@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T01:28:45.049233+00:00",
+  "updatedAt": "2026-10-05T01:40:10.586899+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1847,5 +1847,28 @@
     "observedTab": "about:blank",
     "previousNamedSession": "count-prod-scatter-qa-20261004 unavailable",
     "scope": "Reuse the already-running single empty tab; never launch another browser/window/context. Agent 3 has exclusive browser ownership for Batch 5 delta."
+  },
+  "batch5CumulativeUiDelta": {
+    "source": "10e4cd53d7f0e987a8a1086fd834b5033de55387",
+    "report": "docs/qa-evidence/batch5-cumulative-ui-delta-20261005.md",
+    "evidenceCommit": "3e0f4d89753f180d351bb7679f3383047534d5ac",
+    "viewports": [
+      "1200x855",
+      "390x844"
+    ],
+    "session": "reused existing default Chrome; no new browser/window/context/tab",
+    "scope": "Actual guarded four-game routing and representative controls, held feedback, parent returns and responsive checks. No full chapter replay, audio, production or overall acceptance.",
+    "findings": [
+      "Sound Safari missing-recording Start gate gives no next action; copy repair underway",
+      "Root screenshot review: Spelling repeated-letter footer dark on navy; contrast repair underway",
+      "Spelling picture prompts still use emoji; full visual/semantic pool audit underway"
+    ],
+    "providerCalls": 0
+  },
+  "readonlyAudioVerifier": {
+    "source": "b7ec83b5aa20a0e59e40b20d34ace924605f4111",
+    "independentReviewCommit": "8df131ac62a1e4abf9ec256db420fac0e454d350",
+    "tests": "5/5 temporary fixtures passed",
+    "scope": "Read-only exact saved snapshot path/key/text checks, full decode/duration/stable hashes, bounded concurrency and aggregate errors. Source commit remains externally established when collector snapshot omits it. No full live corpus scan yet."
   }
 }
