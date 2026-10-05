@@ -5,6 +5,15 @@ import { createHash } from 'node:crypto';
 export const B4_GRAMMAR_REUSE_LEDGER = 'docs/qa-evidence/b4-grammar-reviewed-reuse-20261005.json';
 export const B4_GRAMMAR_REUSE_SHA256 = '0d512625d875990a54991451cee2b292fef2ce13be54ab3fd7eefc6a890c20ad';
 
+export function assertB4GrammarExactMappings(items, manifest) {
+  for (const item of items) {
+    const mapped = manifest instanceof Map ? manifest.get(item.key) : manifest[item.key];
+    if (mapped != null && mapped !== item.path) {
+      throw new Error(`Conflicting B4 grammar manifest mapping for ${item.key}.`);
+    }
+  }
+}
+
 // This supplements the unchanged 47-text ledger. It never creates provider
 // receipts: the existing reuse verifier must still check actual audio bytes.
 export async function applyB4GrammarReviewedReuse(items, root) {

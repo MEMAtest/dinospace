@@ -442,6 +442,24 @@ test('B4 verified missing-manifest reuse repairs before any paid run or saturate
   } finally { await fixture.cleanup(); }
 });
 
+test('B4 conflicting manifest mapping fails before any write or request despite valid expected audio', async () => {
+  const fixture = await createCliFixture();
+  try {
+    const manifest = { '11d1317d': '/audio/en/conflicting-matilda.mp3' };
+    await writeFile(fixture.manifest, `export const OFFLINE_VOICE_MANIFEST = ${JSON.stringify(manifest)};\n`);
+    await copyFile(resolve(root, 'public/audio/en/11d1317d-matilda.mp3'), resolve(fixture.root, 'public/audio/en/11d1317d-matilda.mp3'));
+    const beforeManifest = sha256(await readFile(fixture.manifest));
+    const beforeJournal = sha256(await readFile(fixture.journal));
+    const result = spawnSync(process.execPath, [fixture.cliPath, '--job=b4-grammar', `--inventory-sha256=${B4_GRAMMAR_INVENTORY_SHA256}`,
+      '--execute-paid', '--max-calls=1', '--max-runs=1'], { cwd: fixture.root, encoding: 'utf8', timeout: 5000 });
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /Conflicting B4 grammar manifest mapping/);
+    assert.equal(sha256(await readFile(fixture.manifest)), beforeManifest);
+    assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+    await assert.rejects(readFile(resolve(fixture.root, 'tmp/reviewed-narration-audit-b4-grammar.json')), /ENOENT/);
+  } finally { await fixture.cleanup(); }
+});
+
 test('supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths', async () => {
   const { inventory, actualSha256 } = await loadPinnedInventory({
     inventoryPath: supplementalInventoryPath,
