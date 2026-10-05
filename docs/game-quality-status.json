@@ -80,7 +80,11 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "docs/batch3-isolated-implementation-20261003.md"
+      "evidence": "docs/batch3-isolated-implementation-20261003.md",
+      "supplementaryProductionEvidence": [
+        "docs/qa-evidence/count-scene-variety-20261004/canonical/report.md",
+        "docs/qa-evidence/count-scene-variety-20261004/canonical/media-observation/report.md"
+      ]
     },
     {
       "game": "Letter Trace",
@@ -88,7 +92,10 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "docs/batch3-isolated-implementation-20261003.md"
+      "evidence": "docs/batch3-isolated-implementation-20261003.md",
+      "supplementaryProductionEvidence": [
+        "docs/qa-evidence/batch3-canonical-media-events-20261005/report.md"
+      ]
     },
     {
       "game": "Cosmic Tic-Tac-Toe",
@@ -96,7 +103,10 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "docs/batch3-isolated-implementation-20261003.md"
+      "evidence": "docs/batch3-isolated-implementation-20261003.md",
+      "supplementaryProductionEvidence": [
+        "docs/qa-evidence/batch3-canonical-media-events-20261005/report.md"
+      ]
     },
     {
       "game": "Dino Detective",
@@ -144,7 +154,11 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
+      "evidence": "docs/batch5-literate-reasoning-implementation-plan-20261003.md",
+      "supplementarySourceEvidence": [
+        "docs/qa-evidence/batch5-soundsafari-growing-id-and-narration-audit-20261005.md",
+        "docs/qa-evidence/batch5-soundsafari-source-bound-audio-inventory-20261005.json"
+      ]
     },
     {
       "game": "Spelling Studio",
@@ -152,7 +166,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
+      "evidence": "docs/batch5-literate-reasoning-implementation-plan-20261003.md"
     },
     {
       "game": "Colour Mixing Lab",
@@ -160,7 +174,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
+      "evidence": "docs/batch5-literate-reasoning-implementation-plan-20261003.md"
     },
     {
       "game": "Odd One Out",
@@ -168,7 +182,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
+      "evidence": "docs/batch5-literate-reasoning-implementation-plan-20261003.md"
     },
     {
       "game": "Pattern Parade",
@@ -176,7 +190,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md"
+      "evidence": "docs/batch6-thinking-world-implementation-plan-20261003.md"
     },
     {
       "game": "Dino Hangman",
@@ -184,7 +198,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md"
+      "evidence": "docs/batch6-thinking-world-implementation-plan-20261003.md"
     },
     {
       "game": "Chess Explorers",
@@ -192,7 +206,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md"
+      "evidence": "docs/batch6-thinking-world-implementation-plan-20261003.md"
     },
     {
       "game": "Astronaut Academy",
@@ -200,7 +214,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch6-quality/docs/batch6-thinking-world-implementation-plan-20261003.md"
+      "evidence": "docs/batch6-thinking-world-implementation-plan-20261003.md"
     },
     {
       "game": "Memory Match",
