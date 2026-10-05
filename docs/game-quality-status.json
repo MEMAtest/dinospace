@@ -1945,13 +1945,18 @@
     "scope": "Bounded desktop/390 actual Curriculum progress/facts and curated Storybook read/return checks; single existing muted tab, provider403 guards. Health sample only, not full26-game acceptance."
   },
   "batch4GrammarGeneration": {
-    "status": "stopped safely; cross-batch reuse lineage under review",
+    "status": "finite correction job live after independent reuse review",
     "requested": 47,
     "attempted": 7,
     "accepted": 7,
     "existingCandidates": 6,
-    "report": "docs/qa-evidence/b4-grammar-first-run-20261005/report.md",
-    "scope": "Seven provider receipts preserved, previous manifest mappings unchanged. No overwrite/retry; full corrected audio and listening gates remain open."
+    "report": "docs/qa-evidence/b4-grammar-reviewed-reuse-20261005/live-resume-checkpoint.json",
+    "scope": "Original47text ledger unchanged; prior7receipts and6sourceboundreuse retained. Newlygenerated progress only; complete corrected corpus decode/playback/listening pending.",
+    "pid": 69405,
+    "execSession": 42759,
+    "genuineProviderReceipts": 37,
+    "reviewedReuseClips": 6,
+    "independentReviewCommit": "be986e90dea2678ea4f46f7ce480cf61cba931d4"
   },
   "batch6CumulativeUiDelta": {
     "sourceCommit": "7c350f4bff66c1e9aff922cb5ee98e0fdd1d4ef8",
@@ -1959,5 +1964,11 @@
     "report": "docs/qa-evidence/batch6-cumulative-ui-delta-20261005/report.md",
     "status": "bounded local four-game controls and navigation passed",
     "scope": "Desktop390 fourfirstinteractions only;5879buildhashesmatched, provider403guards, nooverflow/brokenimages/consoleerrors. No fullmechanics/audio/production/4.5acceptance. Astronautchapter/categorylabel relation under editorialsource review."
+  },
+  "batch6AstronautRouteCopy": {
+    "sourceCommit": "3dafee7b31302cb1a7ab41f731fa51a5e7fcd2e0",
+    "evidenceCommit": "fed06bb7c7af1ea1dd39cfda3c6499ace159cca6",
+    "report": "docs/qa-evidence/batch6-astronaut-route-copy-20261005/report.md",
+    "scope": "Map names/descriptions now acknowledge mixedscience/engineering;378spokenphrases unchanged. Separate frozenbuild passed scopedlint/configuredbuild; independent browser/editorialreview underway. No release/4.5claim."
   }
 }

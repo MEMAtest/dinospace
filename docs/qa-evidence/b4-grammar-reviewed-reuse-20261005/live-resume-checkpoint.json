@@ -1,0 +1,10 @@
+{
+  "observedAt": "2026-10-05T02:48:38.821778+00:00",
+  "pid": 69405,
+  "processEvidence": "69405 Ss   02:05 node scripts/run-reviewed-narration-job.mjs --job=b4-grammar --inventory-sha256=9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001 --execute-paid --max-calls=10 --max-runs=4 --request-journal=../dinospace-batch3-quality/tmp/offline-voice-request-state.json --predecessor-status=docs/qa-evidence/batch4-terminal-audio-20261005/predecessor-reconciled.json",
+  "execSession": 42759,
+  "providerReceiptCount": 37,
+  "verifiedSourceReuseClips": 6,
+  "requested": 47,
+  "scope": "Live finite correction job; receipt count is generation progress only, not current full decode or listening acceptance."
+}

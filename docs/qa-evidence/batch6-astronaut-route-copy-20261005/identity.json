@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-05",
+  "sourceCommit": "3dafee7b31302cb1a7ab41f731fa51a5e7fcd2e0",
+  "parentCommit": "9d8692eb3760035251c785826f66619e2e5d5a09",
+  "changedPaths": [
+    "src/components/games/AstronautAcademy.jsx"
+  ],
+  "sourceSha256": {
+    "src/components/games/AstronautAcademy.jsx": "f69098b408d1ed6178feb0a1ce490cd142ff87585c2595645bf74161cde0ee08",
+    "src/data/batch6Games.js": "701bf8da8c7c2c40daf30a4c7280d14cb488098ce8a9b5702d835785b21939c0",
+    "src/data/batch6Narration.js": "436791b76cb6f3e807b1d5ea5e985e5fb25268e7e32facbc6469a0ad4ac45124"
+  },
+  "spokenPhraseCount": 378,
+  "spokenPhraseListSha256": "ee76e198c7c2c96adcefb1c8a253783f0156ef755d2cfbff5512df893ca1887a",
+  "build": {
+    "outDir": "dist-astronaut-route-copy-20261005",
+    "fileCount": 5879,
+    "pathSha256ManifestSha256": "0847dcf00509ff4a4186864f7cd45d4af6fc0da7b1723ad15cbf9c804c4065ca",
+    "files": {
+      "index.html": "eb29b461b6e9309d66247a75550464d50cf529a238152cdebd9f3305e129119b",
+      "assets/index-CUuCtS9W.js": "472254f7fa18dc4e86bdabeee5143f1443d41a1b18b2c141f63ea57e2c7b64bd",
+      "assets/index-Ccs6j6LF.css": "2411e413823eb43b354026da853a4fae30867a13a409ce0daf59351037e8acbf"
+    }
+  },
+  "verification": {
+    "eslint": "passed",
+    "configuredProductionBuild": "passed",
+    "independentBrowserReview": "pending",
+    "narrationOrListeningAcceptance": "not established"
+  }
+}
