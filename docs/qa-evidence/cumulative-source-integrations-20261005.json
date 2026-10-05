@@ -33,7 +33,15 @@
   },
   "releaseRequirement": "Integrate each next release onto then-current complete canonical, finish outstanding audio acceptance, and bind production Playwright evidence to deployed source. One existing Chrome QA session only.",
   "batch4": {
-    "integration": "in progress",
-    "audioWorker": "live; no restart or concurrent paid job"
+    "sourceCommit": "22e4cc90fb3915b4308a6d40ea693f4843931fbf",
+    "evidenceCommit": "d952c3358e77a1e5b5c1f67776c0b47fa17f7248",
+    "targetedTests": "27/27",
+    "lint": "passed",
+    "build": "passed",
+    "ownedFiles": 17,
+    "nonOwnedCanonicalFilesPreserved": 6022,
+    "independentReview": "in progress",
+    "productionReleased": false,
+    "audioAcceptance": "open"
   }
 }
