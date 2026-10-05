@@ -278,8 +278,8 @@ const LessonVisual = ({ module, round, soundOn }) => {
 
 const ExplorerWords = ({ module, soundOn }) => <aside className="quest-words"><p className="quest-small-label">Learn &amp; explore</p><h3>Your explorer words</h3><div className="quest-word-list">{module.vocabulary.slice(0, 4).map((word) => <div key={word} className="quest-word"><strong>{word}</strong><PackagedAudioButton text={word} label="Hear word" soundOn={soundOn} /></div>)}</div><p className="quest-lesson-copy">{CURRICULUM_LESSON_COPY[module.id]}</p><div className="quest-topic-list" aria-label="Related Year 1 school topics">{YEAR_ONE_JOURNEY.filter((entry) => module.schoolTopics.includes(entry.unit)).map((entry) => <span key={entry.term}>{entry.term} · {entry.unit}</span>)}</div></aside>;
 
-const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, playerId }) => {
-  const [moduleId, setModuleId] = useState('continents');
+const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, playerId, initialModule }) => {
+  const [moduleId, setModuleId] = useState(initialModule === 'time-detectives' ? initialModule : 'continents');
   const [earnedBadges, setEarnedBadges] = useState(() => loadCurriculumBadges(playerId));
   const difficultyGameId = `worldmap-${moduleId}`;
   // Keep one difficulty band for the whole module run. Learning evidence may
