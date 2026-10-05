@@ -1,0 +1,436 @@
+{
+  "job": "b4-grammar",
+  "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+  "requested": 47,
+  "configuredMaxCallsPerRun": 10,
+  "configuredMaxRuns": 4,
+  "maximumProviderRequests": 40,
+  "configuredTotalCallCap": null,
+  "b7AttemptedCount": null,
+  "b7CumulativeRunCount": null,
+  "b5SoundSafariAttemptedCount": null,
+  "b5SoundSafariCumulativeRunCount": null,
+  "runs": 4,
+  "providerRequestsAttempted": 34,
+  "providerResponsesAccepted": 34,
+  "generated": 34,
+  "reused": 13,
+  "stoppedAt": null,
+  "failure": null,
+  "manifestBeforeSha256": "7e5f8bfa7d0dff21ef2ca9f27bba1fe9ec4b87ecc28cc9b49deb2728d9df9199",
+  "manifestAfterSha256": "597eb0eed179aa89c1267fdb8ead94cec9fb3d86e9b6315606ae15b4c9c8f0a6",
+  "auditPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/tmp/reviewed-narration-audit-b4-grammar.json",
+  "manifestChangedKeys": [
+    "29beee66",
+    "2bcbbd7f",
+    "40d471c0",
+    "49ce2b50",
+    "4bc16283",
+    "4bd06d0d",
+    "54312578",
+    "5435a2a6",
+    "62b6bfac",
+    "64a579b1",
+    "64a9f6df",
+    "67e65d20",
+    "69d51725",
+    "69e89edd",
+    "76339995",
+    "763816c3",
+    "82a7e782",
+    "82ac64b0",
+    "87eb0cae",
+    "a9d7bccc",
+    "c9c8e4a2",
+    "cbd5b3bb",
+    "cbda30e9",
+    "d42bdeca",
+    "d44e710c",
+    "d63d2b11",
+    "e2b178fe",
+    "e7e11672",
+    "e9ede58b",
+    "e9f262b9",
+    "f43b1bb4",
+    "f62e52e7",
+    "f650e529",
+    "fc11e1f1"
+  ],
+  "changedFiles": [
+    {
+      "path": "/audio/en/29beee66-matilda.mp3",
+      "key": "29beee66",
+      "text": "B moved 1 space and landed on 8.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 39750,
+      "sha256": "74207539d6068bfac4780d98a3ba1ebc3e70ed0c8522b6730fe58b471598b94c"
+    },
+    {
+      "path": "/audio/en/2bcbbd7f-matilda.mp3",
+      "key": "2bcbbd7f",
+      "text": "B moved 1 space and landed on 5.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 41004,
+      "sha256": "499908afdb2aec24b1d15467db36584512db447197c80e4ce5b11da3afc1f24e"
+    },
+    {
+      "path": "/audio/en/40d471c0-matilda.mp3",
+      "key": "40d471c0",
+      "text": "B moved 1 space and landed on 20.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 41004,
+      "sha256": "858727fd1b18de057fbe33691bd8af61dfe0851cb43ca33fde8cba5c8baa3675"
+    },
+    {
+      "path": "/audio/en/49ce2b50-matilda.mp3",
+      "key": "49ce2b50",
+      "text": "B moved 1 space and landed on 6.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 38914,
+      "sha256": "9d835fe215e56d0986b760d40920b220cba57412e7bb68687e1fdfebfa626700"
+    },
+    {
+      "path": "/audio/en/4bc16283-matilda.mp3",
+      "key": "4bc16283",
+      "text": "B moved 1 space and landed on 9.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 40586,
+      "sha256": "3a364f647db69fa029d241da90cf2a70ebd13d9b1e3a2e9820ee8d487a2654fb"
+    },
+    {
+      "path": "/audio/en/4bd06d0d-matilda.mp3",
+      "key": "4bd06d0d",
+      "text": "B moved 1 space and landed on 7.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 39750,
+      "sha256": "f4d0d33b592f541be143f0a10a9e3a31718e46e6a7e557f7dd648db2334cc102"
+    },
+    {
+      "path": "/audio/en/54312578-matilda.mp3",
+      "key": "54312578",
+      "text": "B moved 1 space and landed on 15.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 41839,
+      "sha256": "e8944ce5c6a9b34169ea123e72d54a933edcd79e22e57eb391eb484bd800377a"
+    },
+    {
+      "path": "/audio/en/5435a2a6-matilda.mp3",
+      "key": "5435a2a6",
+      "text": "B moved 1 space and landed on 13.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 38078,
+      "sha256": "f00c9833ffe81a6426c7c275da3d80d66eb20df5323e283856dee5da9f46b180"
+    },
+    {
+      "path": "/audio/en/62b6bfac-matilda.mp3",
+      "key": "62b6bfac",
+      "text": "A moved 1 space and landed on 1.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 38914,
+      "sha256": "41b99782055cf40ef936e2ebec3447b8d049eaf3ccb0334ab6b81c39ff506873"
+    },
+    {
+      "path": "/audio/en/64a579b1-matilda.mp3",
+      "key": "64a579b1",
+      "text": "A moved 1 space and landed on 8.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 42675,
+      "sha256": "17ec9c75162c3bfef50a2d3756256ef029d0142afddd7ed257bba9f9f1a88ec4"
+    },
+    {
+      "path": "/audio/en/64a9f6df-matilda.mp3",
+      "key": "64a9f6df",
+      "text": "A moved 1 space and landed on 6.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 40586,
+      "sha256": "fc183781903beeda3c4553ad94fd7938ee99635cc6268e664655521412a5eaa2"
+    },
+    {
+      "path": "/audio/en/67e65d20-matilda.mp3",
+      "key": "67e65d20",
+      "text": "A moved 1 space and landed on 10.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 38078,
+      "sha256": "cc4f5695bd681912e3c65f54d6c92ac43442274c2aa40d94b3f9a046ca2c761f"
+    },
+    {
+      "path": "/audio/en/69d51725-matilda.mp3",
+      "key": "69d51725",
+      "text": "A moved 1 space and landed on 19.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 39750,
+      "sha256": "756ebce870e3a5c2078d5fe97a8d185279af0d09e2dc024360b23d378c26114b"
+    },
+    {
+      "path": "/audio/en/69e89edd-matilda.mp3",
+      "key": "69e89edd",
+      "text": "A moved 1 space and landed on 11.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 35152,
+      "sha256": "62e59fc4168ea60746b9f1a857301f325115e8757320961ebefa903de2e28c45"
+    },
+    {
+      "path": "/audio/en/76339995-matilda.mp3",
+      "key": "76339995",
+      "text": "B moved 1 space and landed on 14.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 42675,
+      "sha256": "3f4b2843154d221038131014ae9370b98002119d73591428719c98e98e2b16dd"
+    },
+    {
+      "path": "/audio/en/763816c3-matilda.mp3",
+      "key": "763816c3",
+      "text": "B moved 1 space and landed on 12.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 42675,
+      "sha256": "20524dc3810ef6f13adf430f698aec0db7a2ef2f0d6ab57ffb400cbeb5b65789"
+    },
+    {
+      "path": "/audio/en/82a7e782-matilda.mp3",
+      "key": "82a7e782",
+      "text": "A moved 1 space and landed on 7.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 40586,
+      "sha256": "78aa445cc0e5d30d4e13ee067328d58806d256ef5936d82f8b264f5e319087ec"
+    },
+    {
+      "path": "/audio/en/82ac64b0-matilda.mp3",
+      "key": "82ac64b0",
+      "text": "A moved 1 space and landed on 5.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 40586,
+      "sha256": "246ce75e10655793daea0d110977008ff78e411518782061be800df343056648"
+    },
+    {
+      "path": "/audio/en/87eb0cae-matilda.mp3",
+      "key": "87eb0cae",
+      "text": "A moved 1 space and landed on 16.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 41839,
+      "sha256": "1be2bad0254daa4625fa7dd34cc2bc72eb75a1602fb9c8b74640ce6378a352d9"
+    },
+    {
+      "path": "/audio/en/a9d7bccc-matilda.mp3",
+      "key": "a9d7bccc",
+      "text": "B moved 1 space and landed on 2.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 39750,
+      "sha256": "6de238d177c9d598f154b4907000b9bede2dfc4a4a892aca9c349988ced0e866"
+    },
+    {
+      "path": "/audio/en/c9c8e4a2-matilda.mp3",
+      "key": "c9c8e4a2",
+      "text": "B moved 1 space and landed on 4.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 39750,
+      "sha256": "1d6c6139faae26f9d88c5066335b280234aa1a5d7b925379e947c70828e35e3a"
+    },
+    {
+      "path": "/audio/en/cbd5b3bb-matilda.mp3",
+      "key": "cbd5b3bb",
+      "text": "B moved 1 space and landed on 1.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 40586,
+      "sha256": "e2ae30f42b963aad3b961e3038c1d5424c2786e1535406e8d18923933b8a7614"
+    },
+    {
+      "path": "/audio/en/cbda30e9-matilda.mp3",
+      "key": "cbda30e9",
+      "text": "B moved 1 space and landed on 3.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 40586,
+      "sha256": "7a4dee05480cc53359c6d9170b3a8132dfa83f7daf4264291e7a68a8fd1cbeda"
+    },
+    {
+      "path": "/audio/en/d42bdeca-matilda.mp3",
+      "key": "d42bdeca",
+      "text": "B moved 1 space and landed on 17.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 40586,
+      "sha256": "82648e6dbb80c1503f7e0b63999691b7f43fa513eaeef5ec8f53f7669b536c20"
+    },
+    {
+      "path": "/audio/en/d44e710c-matilda.mp3",
+      "key": "d44e710c",
+      "text": "B moved 1 space and landed on 19.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 42675,
+      "sha256": "c213d4bd5af6f9fd04531d64d43ba47044f2d7cf2da61e374dfac9f21371b206"
+    },
+    {
+      "path": "/audio/en/d63d2b11-matilda.mp3",
+      "key": "d63d2b11",
+      "text": "B moved 1 space and landed on 10.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 40586,
+      "sha256": "f31e76bd31907e6cf347a35d7a60494a574e58f4b866e1e7f5f29ad397f1bb91"
+    },
+    {
+      "path": "/audio/en/e2b178fe-matilda.mp3",
+      "key": "e2b178fe",
+      "text": "A moved 1 space and landed on 3.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 44765,
+      "sha256": "8057321208aa0d5d4ef2f463551d5d93a324d539065910132974790dfcdda2d8"
+    },
+    {
+      "path": "/audio/en/e7e11672-matilda.mp3",
+      "key": "e7e11672",
+      "text": "A moved 1 space and landed on 12.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 38078,
+      "sha256": "a757f743f36eba724430b103d6bc96c4b0a2ce91d69f95228a09e272c3b95d3d"
+    },
+    {
+      "path": "/audio/en/e9ede58b-matilda.mp3",
+      "key": "e9ede58b",
+      "text": "A moved 1 space and landed on 17.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 44347,
+      "sha256": "05d69a829f3e83eeb44a6bfa03fa0d37ff4a88fb55451fab52db9bc1a522bb6e"
+    },
+    {
+      "path": "/audio/en/e9f262b9-matilda.mp3",
+      "key": "e9f262b9",
+      "text": "A moved 1 space and landed on 15.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 41004,
+      "sha256": "1f1a6910f44d5a78afee76e325281eefa51a74c13e2304a2b5beaee8ba49bb50"
+    },
+    {
+      "path": "/audio/en/f43b1bb4-matilda.mp3",
+      "key": "f43b1bb4",
+      "text": "B moved 1 space and landed on 11.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 38078,
+      "sha256": "5b99156d3fcf7daa5c7b0841ca6991fb2d51cac90944e95bd48ec230ec0a0407"
+    },
+    {
+      "path": "/audio/en/f62e52e7-matilda.mp3",
+      "key": "f62e52e7",
+      "text": "B moved 1 space and landed on 16.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 41839,
+      "sha256": "b524afc608517713d90765720ef7c5f1893d0fa1eaa4dcc9e46ee376f7fabbd1"
+    },
+    {
+      "path": "/audio/en/f650e529-matilda.mp3",
+      "key": "f650e529",
+      "text": "B moved 1 space and landed on 18.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 43511,
+      "sha256": "bf54c83c11d4acb60d35377a42f4ad68f3eca092177f738067672d1d950895a7"
+    },
+    {
+      "path": "/audio/en/fc11e1f1-matilda.mp3",
+      "key": "fc11e1f1",
+      "text": "A moved 1 space and landed on 20.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 40586,
+      "sha256": "1e49c38e7b9e0b1c462cb98a362648e2e1d7c78a5e01c2c3f1b19b22f425b9e9"
+    }
+  ],
+  "completedAt": "2026-10-05T02:56:39.045Z"
+}

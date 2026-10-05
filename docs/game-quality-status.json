@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T01:51:25.866667+00:00",
+  "updatedAt": "2026-10-05T03:09:31.477906+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1945,18 +1945,17 @@
     "scope": "Bounded desktop/390 actual Curriculum progress/facts and curated Storybook read/return checks; single existing muted tab, provider403 guards. Health sample only, not full26-game acceptance."
   },
   "batch4GrammarGeneration": {
-    "status": "finite correction job live after independent reuse review",
-    "requested": 47,
-    "attempted": 7,
-    "accepted": 7,
-    "existingCandidates": 6,
-    "report": "docs/qa-evidence/b4-grammar-reviewed-reuse-20261005/live-resume-checkpoint.json",
-    "scope": "Original47text ledger unchanged; prior7receipts and6sourceboundreuse retained. Newlygenerated progress only; complete corrected corpus decode/playback/listening pending.",
-    "pid": 69405,
-    "execSession": 42759,
-    "genuineProviderReceipts": 37,
-    "reviewedReuseClips": 6,
-    "independentReviewCommit": "be986e90dea2678ea4f46f7ce480cf61cba931d4"
+    "status": "completed",
+    "completedAt": "2026-10-05T02:56:39.045Z",
+    "finalRunGenerated": 34,
+    "finalRunReused": 13,
+    "totalCorrectedPhrases": 47,
+    "totalGenuineProviderReceipts": 41,
+    "verifiedCanonicalReused": 6,
+    "decodeValid": 47,
+    "evidence": "docs/qa-evidence/b4-grammar-completed-package-20261005/report.md",
+    "productionReleased": false,
+    "humanListeningAccepted": false
   },
   "batch6CumulativeUiDelta": {
     "sourceCommit": "7c350f4bff66c1e9aff922cb5ee98e0fdd1d4ef8",
@@ -1975,12 +1974,16 @@
     "independentReviewStatus": "Desktop390 mapcopy/readability passed; spoken378inventory unchanged. No audio/fullgame/productionacceptance."
   },
   "batch4UnchangedAudioPackaging": {
-    "sourceBase": "add5f85ff3da9a6eb97974e0544271c8bdf9adf9",
-    "packageCommit": "5577cdc",
-    "verifiedClips": 5199,
-    "newAudioFilesCopied": 5134,
-    "allPriorCanonicalManifestMappingsPreserved": true,
-    "report": "work/dinospace-batch4-cumulative-integration/docs/qa-evidence/batch4-corrected-audio-packaging-20261005/unchanged-clip-package.json",
-    "scope": "Unchanged correctedcorpus clips only, matching priorfull decode bytehashes. Separate47correctionmerge/fullcandidateQA pending. Frozenoldbuild preserved; no productionrelease."
+    "status": "complete-corrected-candidate-technical-package",
+    "runtimeSource": "22e4cc90fb3915b4308a6d40ea693f4843931fbf",
+    "packagingHeadBeforeCorrectionCommit": "5577cdc59694b7562d60ebf03f008fa06f9d20a7",
+    "packaged": 5246,
+    "fullDecodeValid": 5246,
+    "missing": 0,
+    "invalid": 0,
+    "buildFileCount": 11054,
+    "buildTreeSha256": "1869debb3f04cbe6c5bed2bf293456bb55a3d58a3385e1b3c527bebe810860ef",
+    "productionReleased": false,
+    "evidence": "docs/qa-evidence/b4-grammar-completed-package-20261005/report.md"
   }
 }
