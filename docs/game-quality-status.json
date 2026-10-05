@@ -1740,9 +1740,9 @@
   "narrationWorkerCheckpoint": {
     "pid": 18781,
     "physicallyConfirmedAlive": true,
-    "checkpointAt": "2026-10-05T00:06:30.592Z",
-    "run": 344,
-    "pending": 342,
+    "checkpointAt": "2026-10-05T00:26:43.598Z",
+    "run": 348,
+    "pending": 287,
     "status": "waiting_request_window",
     "scope": "Original ac3 worker only; no restart or concurrent paid calls. Corrected recordings/listening remain separate."
   },
@@ -1750,5 +1750,25 @@
     "source": "1accc99e89be303678ead99def6a3095ab1cb886",
     "report": "docs/qa-evidence/batch3-canonical-media-events-20261005/report.md",
     "scope": "Actual packaged playback/ended and mute interruptions observed at desktop and390px, with held feedback and parent-world return. No human listening or full gameplay matrix claim."
+  },
+  "batch3HumanListeningRequest": {
+    "status": "requested; no response yet",
+    "games": [
+      "Count the Stars",
+      "Letter Trace",
+      "Cosmic Tic-Tac-Toe"
+    ],
+    "samples": [
+      "93fa9195",
+      "9fd58454",
+      "7b4cce67",
+      "6d8b847b",
+      "66dd46ca",
+      "95f7c1f0"
+    ],
+    "sheet": "docs/qa-evidence/batch3-human-listening-sheet-20261004.md",
+    "archiveByteVerification": "docs/qa-evidence/batch3-six-listening-samples-current-archive-20261005.json",
+    "requestedInformation": "Clarity, comfortable pacing, encouraging age fit, sample-specific defects and listening device. No implied approval from silence.",
+    "scope": "Representative local sample listening only; production media-control evidence and game-specific final scoring remain separate."
   }
 }
