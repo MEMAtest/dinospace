@@ -1,0 +1,172 @@
+{
+  "scope": "11 already-present frozen-source clips only; no generation, runtime playback or listening claim",
+  "source": "308641dbb0a398449fa17d0929d048b9115a78cb",
+  "snapshotLedger": "a652 historical ledger; identical existing11bytes verified",
+  "clips": [
+    {
+      "key": "16798e5f",
+      "text": "Read and copy: THE FISH IS IN THE SHIP.",
+      "path": "/audio/en/16798e5f-matilda.mp3",
+      "sha256": "de556d4e56c058224b5ce97e41658791e81e900601d4dbeb52514941f5969275",
+      "durationSeconds": 2.414875,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "192fa963",
+      "text": "Read and copy: THE BOAT IS IN THE RAIN.",
+      "path": "/audio/en/192fa963-matilda.mp3",
+      "sha256": "b77eb9f7be79c85889040d3b2d3b9e91ea63a46a4feebeecfabf9ad709885059",
+      "durationSeconds": 2.368435,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "4a821b3b",
+      "text": "Read and copy: A CAT SAT.",
+      "path": "/audio/en/4a821b3b-matilda.mp3",
+      "sha256": "875ae1d99442ebf5af1a7ea1329ae607c169f950299cf347771128ad4de4bc31",
+      "durationSeconds": 1.996916,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "54c8fa3a",
+      "text": "Read and copy: PAT A DOG.",
+      "path": "/audio/en/54c8fa3a-matilda.mp3",
+      "sha256": "fdc1eec80977d0cb1dc31d09c722e58f6bdd7391114fbf8623ff7ffe6b1b86f1",
+      "durationSeconds": 2.089796,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "6e5fe565",
+      "text": "seed",
+      "path": "/audio/en/6e5fe565-matilda.mp3",
+      "sha256": "2f06dbd621c45609b061184df2ac2d0f9b28c162f6abb42315085eebe4621f91",
+      "durationSeconds": 0.603719,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "9caa3a7b",
+      "text": "i",
+      "path": "/audio/en/9caa3a7b-matilda.mp3",
+      "sha256": "0eb478e709746d472056d2d14cbb942f62d13414f1a4cc837be403ab43939f8f",
+      "durationSeconds": 0.603708,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "24000",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "ce29f324",
+      "text": "cat",
+      "path": "/audio/en/ce29f324-matilda.mp3",
+      "sha256": "e6ec07c9ec19afdaabbd8cd2fa13e9f05230fa4c7c286120928e3e3770898e1a",
+      "durationSeconds": 0.557279,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "d70fcba9",
+      "text": "rock",
+      "path": "/audio/en/d70fcba9-matilda.mp3",
+      "sha256": "890522b5ffeb0b34817469adf57bcaacf04bc1beca05f666373daf7cae768a92",
+      "durationSeconds": 0.603719,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "e4145d4e",
+      "text": "road",
+      "path": "/audio/en/e4145d4e-matilda.mp3",
+      "sha256": "8760088b0477c671cf53c362e4f815140ae0f8afa2fb16e0906341b68ba1b280",
+      "durationSeconds": 0.603719,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "e6bd7fe3",
+      "text": "Read and copy: A HEN IN A PEN.",
+      "path": "/audio/en/e6bd7fe3-matilda.mp3",
+      "sha256": "c9acc787d9e6b998e296e69a50c1609b4d895ded70c9524fc6ad28bb9845a3e0",
+      "durationSeconds": 2.182676,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    },
+    {
+      "key": "ee6e1b6c",
+      "text": "sit",
+      "path": "/audio/en/ee6e1b6c-matilda.mp3",
+      "sha256": "817127c15e14761cd90c56decd42ff924999ae59902944236f0aece34487b7a9",
+      "durationSeconds": 0.510839,
+      "streams": [
+        {
+          "codec_name": "mp3",
+          "sample_rate": "44100",
+          "channels": 1
+        }
+      ],
+      "fullDecode": "passed"
+    }
+  ]
+}
