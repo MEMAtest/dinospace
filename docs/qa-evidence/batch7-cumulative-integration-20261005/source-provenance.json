@@ -1,0 +1,484 @@
+{
+  "createdAt": "2026-10-05T01:02:09.555007+00:00",
+  "canonicalRuntimeBase": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "reviewedBatch7Source": "9fe5c70aec9b21b7bd0ce2180a473835ab524880",
+  "ownedFiles": [
+    {
+      "path": "src/App.jsx",
+      "sha256": "88977fe784b23634911f986a77fe90b4be3b6e302916bd3ffa29ff8058a832d9",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/components/games/MemoryMatch.jsx",
+      "sha256": "12f0cff1c19240dedfad8006bc8cbcf41cbeda891066bd22efc5877f9eaa8fc8",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/components/games/SolarSystem.jsx",
+      "sha256": "4dba71da02bdafb7bd0d9c7acd00d52af4e7798f9132eb46a9d61ee8d1bd8166",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/components/games/memoryMatch.css",
+      "sha256": "eab340ec2835d6c77713d5c6ef98b41841e426783bf4b1cca30eeee02c49734c",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/components/shared/Batch7BadgeCollections.jsx",
+      "sha256": "f797385123953a9bb7c3f6bbe29a5d39229879590ed492d49da50a88b9b27f80",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/data/batch7Progress.js",
+      "sha256": "52e9ba55802c392c8af4a312afc335b9a5ba440c51f3f70e39aa5b664cf8d7ac",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/data/index.js",
+      "sha256": "f7dfc08370d14127394f31301c9404aee5498d2389cf75e664bdbaa58c4d0a2e",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/data/memoryMatchContent.js",
+      "sha256": "f657c8c99bea51db4ea11a3d1569c7f3e40e3b80d1652059a0ef73eb19bef05f",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "test/batch7Progress.test.mjs",
+      "sha256": "5870fc2a5736b387ffe1ff539f2ec5651b26b6b1454efcd41e0941ce197db7b9",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "test/memoryMatchContent.test.mjs",
+      "sha256": "273f20c802d3c4e27259fdd1389e9682a02c110f31397dd585a0118962406d77",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/aeroplane-v1-card.webp",
+      "sha256": "8f45a3c6795eaeeeb710f12d9ea8b11ad42dd0c182b69e807596329bb28042cb",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/alien-v1-card.webp",
+      "sha256": "4d60d5c9f0a8fe68f0199612247858cced56f1e819998d8d0636a724182c1e09",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/apple-v1-card.webp",
+      "sha256": "89d08d129bc36a6cf22c9d9f8bbad3bcc98c4875d261350af1490d9d97a32f6c",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/astronaut-amari-v1-card.webp",
+      "sha256": "b916a317eaf876b7d315731f3148b47bf16e44aa14c7447747394e3e51f62ca7",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/banana-v1-card.webp",
+      "sha256": "d1dac6ddc12e05492f817e3000d795137e45e16c72e51455f03385a73627954b",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/bicycle-v1-card.webp",
+      "sha256": "97c8c8390353d0629705cebc39ca4afdb80347ebcfd7244be97b2cf3dc8a38e8",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/bus-v1-card.webp",
+      "sha256": "3a8213ab52095736b577ab5c79ac1b15ccfa993b2e473cc62eebf2347ad2741d",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/chips-v1-card.webp",
+      "sha256": "bf3844a6ba160e4caf22a405717988510d7b8215b94814180c77d293b0f9967a",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/comet-v1-card.webp",
+      "sha256": "f37aa7714bb66ff09047a24ad2fd1676134bd623fae9109894eeef1c3a5bc545",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/crab-v1-card.webp",
+      "sha256": "f57e58620a27c0c4ae414d8bcd756fc951b518d34af6f4b29eafa3b4905d87a6",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/crescent-moon-v1-card.webp",
+      "sha256": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/cupcake-v1-card.webp",
+      "sha256": "e9ddbfc5ba29263686e4521ccf435d670eec97aaad4895a960caacbe09f9e906",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/dinosaur-egg-v1.webp",
+      "sha256": "c99a86c61b8a4f075787793a4d25fc6bf83f5b357623fd1afbd2fbfeeeb6159a",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/dinosaur-nest-v1-card.webp",
+      "sha256": "d9b9c4639df9490cd587e0480054ba784e92be3be4e8cc34fc175c1b257986fc",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/dinosaur-tooth-v1-card.webp",
+      "sha256": "bbe1f801ed4c4f99dad942e4080f1b3df64a9e72607ea5f31d646cd7f584518d",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/dog-v1.webp",
+      "sha256": "83bcda5739193672999b3c23c2a7e29b9cdd26aabceaa1d940804af5c36cd5a9",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/dolphin-v1-card.webp",
+      "sha256": "e7540e73db278604645668f97a5fc3aabf55bbabe04972ea2cc29fd130a226b8",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/doughnut-v1-card.webp",
+      "sha256": "0f8879f8688a7c4852a7ff0f36b7e79ba34eb340c418d7ee1cb5aea7ba69e4ed",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/drink-v1-card.webp",
+      "sha256": "a6577ccc6aec1343bea1adf0930fb378cbe4e431c204daf94b8b9f5ad04b8748",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/duck-v1-card.webp",
+      "sha256": "c9757ab5f08889deadbdced454db71158a1f859290b08e558e6662e2ce9278ca",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/earth-v1-card.webp",
+      "sha256": "802b5ba0b35a7e8b8bd9cf8eff5f598c0fd72826d377af3d50ff572dbbbc3a82",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/flying-saucer-v1-card.webp",
+      "sha256": "7255a04859d7df5ca260cc197250b30583787a28782b7e549773940d11e482f9",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/food-biscuit-v1-card.webp",
+      "sha256": "2d16983034b316d9c6e31b94c731bbb4c3c47a5a0f1406d746411fd6f2facb54",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/food-carrot-v1-card.webp",
+      "sha256": "df570a197d8fc4081142af8644e451fc7089df82ef96ede24dfc8e3c97c8dce7",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/food-cheese-v1-card.webp",
+      "sha256": "276155c36d0a2e89b5ad2660e01f91634d03e908771f86584adc58295a8c9dbb",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/food-corn-v1-card.webp",
+      "sha256": "c08c0d4961191324773a051c126932b350ac1cfb8784e606072e1fa78db55e36",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/fossil-bone-v1-card.webp",
+      "sha256": "f4bdfc74f1ef81e48d4d7ad49317867351fb5525e9d4a082fcf119d1db34c0b4",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/fossil-dig-pick-v1-card.webp",
+      "sha256": "e654667b1836edc5963c7679e787a9cbc2797c7ea746a84690ced0565c597c0a",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/fossil-rock-v1-card.webp",
+      "sha256": "8512f5b929dd781e88e0a44e1bbc4332dcaa03d634e7ab20917357f7b37daf46",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/fox-v1.webp",
+      "sha256": "c39fa13217b454f27bbb1f9dff7bbd1e6aa0640d0c288a7432560c9f7447da1b",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/full-moon-v1-card.webp",
+      "sha256": "d781df0bdd29e05db60c68f86772b276f4f24e3b885d8285dd08aa260f653366",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/galaxy-v1-card.webp",
+      "sha256": "997e31a6e9f8daeb51c69672084f5bb1299fc0c7499c922da994199e44661aa1",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/garden-ant-v1-card.webp",
+      "sha256": "8767544186dd5af5545a1f631eaf82faf789efc0017c5438d32f1e6ba8237ac7",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/garden-bee-v1-card.webp",
+      "sha256": "d0171f8e5eff142ad547902bbd3f51946c40f8005eab5959df7306d72485e58b",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/garden-butterfly-v1-card.webp",
+      "sha256": "0b2073bd929753a37cbfdb67fa2ff4061e282748b2af1434392ec05c7bc03d82",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/garden-caterpillar-v1-card.webp",
+      "sha256": "2793a1c4f8a0cd4e54e87263cbde42c98066e9cd434263e7a97672206134d465",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/garden-earthworm-v1-card.webp",
+      "sha256": "1ab120b6a10116a13fda280962aef109aae8e836de8168f4edbc8430d04b0ae6",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/garden-ladybird-v1-card.webp",
+      "sha256": "2901711ae6a1a7507921806f426bafec36cd24b07a214c4c1328a6387d207640",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/garden-snail-v1-card.webp",
+      "sha256": "7f746f3c82559ab610af117b8dd590563ed921e8bbccf3daa7bb4f4d45157be1",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/garden-spider-v1-card.webp",
+      "sha256": "422648f2d182ff85f5a044be7e5e7e4ccf9536187e851f61e290ae9c39a7975c",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/glowing-star-v1-card.webp",
+      "sha256": "5ae930823017d2575b1249b5f0caf160e1b567437426996b4ebee23107064298",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/grapes-v1-card.webp",
+      "sha256": "bcc34b7b05b062410d391545fcb4ec4e4340ce2df7ee5e4586b9470917e81565",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/helicopter-v1-card.webp",
+      "sha256": "5a7d33f9a8f67450e9d7e0837c8350da133db11ba6c1f65449bc0f2ea66305d8",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/isolated-frog-v1-card.webp",
+      "sha256": "9a0cc2706b20109095fcb36852750aee0a9b8456d677e697d433eebc1bb3f622",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/isolated-monkey-v1-card.webp",
+      "sha256": "e6aebcf179052aff994510d2ee5a25411d65be475b8695dde3f701201e638489",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/jellyfish-v1-card.webp",
+      "sha256": "bcbf1eeb321bd1591b0e8a6fba7626d035391998db2ddf629a33219592ac46f2",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/leaf-sprig-v1-card.webp",
+      "sha256": "e09ef2b1f919a4d4d4227a8d4641cffe1e28ceaec4f0d7d460b89bc068825ae8",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/lolly-v1-card.webp",
+      "sha256": "750c18df29ba0d9907c200b44870f6acf3d12ef698dee711ee563120777f1760",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/moon-rock-v1-card.webp",
+      "sha256": "67992a1b6786c13ee43fab5859a0173e895edb6a9ed2a7e9cc30744022aa205a",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/mountain-v1-card.webp",
+      "sha256": "a9c0307ffdabd80ecb98c0613e0352a4761e4f01a032cefa445b10efdb3719fa",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/mushroom-v1-card.webp",
+      "sha256": "3dd98dc44c9ee13f26c6a8d581a12f57b25657d31113d036d50d157c0755c128",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/new-moon-v1-card.webp",
+      "sha256": "89e4468bc76493d69a3e5143e5abbacc521ae4004306ed0e5bdb277b14c1c554",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/ocean-fish-v1-card.webp",
+      "sha256": "7f6c5bc67a07b7f878e5841f2229d096a82f7b2e47f0acec364368ddc33fb287",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/party-balloon-v1-card.webp",
+      "sha256": "7d1461090d5f7aaf58d143112cffb4bbedd4b0343424c75c4fb4c937dd98168c",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/party-cake-v1-card.webp",
+      "sha256": "7bb6895c8210f2fbb170bb5471b2e1025a82203bd2a1a52e0fafa979877a1aa3",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/party-face-v1-card.webp",
+      "sha256": "a08fbbdbc71246715f1d808e1bfe47c9b845b82cc15703fc5168d7bcaa672674",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/party-popper-v1-card.webp",
+      "sha256": "679bbb0a6696619f39be25068161e67c7cd7879fdef40cbecc28438917818337",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/passenger-train-v1-card.webp",
+      "sha256": "d97ddbb06ce047755d7ce4dd41f1b30a48670ff5bb90d2b756aabde6457614e9",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/pizza-v1-card.webp",
+      "sha256": "5a086d1e5189266e290497ff4644ee18e546fa8866ef58aa8d3984a694f24850",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/pond-fish-v1-card.webp",
+      "sha256": "498f5a27ddccd8c2d037234bed47627dcf888675efd4dd54d7bdb48453ba7a45",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/racing-car-v1-card.webp",
+      "sha256": "1db6a05d85a68aee8ddc5e0f5500c102254fda5d38dda3e9b9fd383f8381af84",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/ringed-planet-v1-card.webp",
+      "sha256": "c43b301bf67b11165b2a39d3313c40dae3c85af9be127afc20423e96f39f236a",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/satellite-v1-card.webp",
+      "sha256": "88b89a91788453d131df79df0637c58d6edebf5df6fbfc1ef8307c66307d9da9",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/scooter-v1-card.webp",
+      "sha256": "85c0c78dddd861b36571c27ef2575248ebcb229c89bd6caa2bff86546f1b5d96",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/seedling-v1-card.webp",
+      "sha256": "00feb9ae26329e93a66fd837190de9598bca6c63588cb068eca5e314b574fc60",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/shark-v1-card.webp",
+      "sha256": "6198a359eba1b1f828a812114e05b0f5f0f5d0c31a63f58e04b8bd0ea41be56f",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/shooting-star-v1-card.webp",
+      "sha256": "7bd240e6b4c286fefd4ef27e85f8c2c2efc8a9335c03cef31546e67e632e5fa1",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/speedboat-v1-card.webp",
+      "sha256": "57965f3dc77a6ea545f7f44cba103f4eff17f936c3528d673b7cf86061177f55",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/squid-v1-card.webp",
+      "sha256": "454fc45891abb5cde13865cc566bdc6fade7eae1478f2e0bcbf31fff00e6fb7c",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/star-v1-card.webp",
+      "sha256": "751db3be916edeb4f468d1f2b15c889e96d82e288dc24f54046d9ae9b042827a",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/steam-train-v1-card.webp",
+      "sha256": "ac3797f937eb9ff4b8ede0175755e345190b73e8e86d963670ffae804d7620b1",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/strawberry-v1-card.webp",
+      "sha256": "944cf5c855e9caaf2e1bbe9da2a4e1d1129a414215783e71c1b7fc7fc5e0f93b",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/sun-face-v1-card.webp",
+      "sha256": "df180ada899f275569e78740079d8cefafea3bf18a72123d9a4940fc56ba6e8a",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/sun-v1-card.webp",
+      "sha256": "6142c92659f7af17fbcc5d99f17763f962208c4e9c317f104eb5e4e78ed27d77",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/telescope-v1-card.webp",
+      "sha256": "6008432058634e738f9de424d81855d794f83fba7998b72288d75c480c3755be",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/tractor-v1-card.webp",
+      "sha256": "4b2be21e3aecce7b663852fa48cdec50c29e9c5d1088090d28ae2800e1b45119",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/tree-v1-card.webp",
+      "sha256": "c8d3b4456a711df09a6a1f9aa1c9e7ceeb4c0b67c8a7a958ad5e2e4d106e8596",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/tulip-v1-card.webp",
+      "sha256": "4b7b981eea2a097dec15a694cf998a7231e8884037a784bd3a0e0824b84b8b98",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/turtle-v1-card.webp",
+      "sha256": "d56223ea96bac66678ccc15f62df30b4a364f9e8085961935b02077c0a124bb7",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/volcano-v1.webp",
+      "sha256": "4115ad55de4ef013f711e3bca03da1b26c7cabd4eede6358e332af25804e778d",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/water-lily-v1-card.webp",
+      "sha256": "7062e68d7b67608bb209e4016c5313deda328b101439234446c7ec15260062a2",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/watermelon-v1-card.webp",
+      "sha256": "e62202164182b43a257f4df67d234b495e879d776fddbdc26a960314e9cea03e",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/whale-v1-card.webp",
+      "sha256": "0edd405b5a8a2aa8bd7c51d8814781961c765b56ca773d6cb2b7ed0e0ef86d8e",
+      "matchesReviewedSource": true
+    },
+    {
+      "path": "src/assets/memory-match/wrapped-sweet-v1-card.webp",
+      "sha256": "9224959de0e1c35b077200453a26c2efc9a48afc88a5e43399a6ede50068fd77",
+      "matchesReviewedSource": true
+    }
+  ],
+  "nonOwnedCanonicalFilesChecked": 6025,
+  "nonOwnedMismatches": [],
+  "lint": "passed",
+  "targetedTests": "25/25 passed",
+  "productionReleased": false,
+  "humanListeningAccepted": false,
+  "scope": "Cumulative source integration only. Retained browser matrices need final deployment binding; audio acceptance remains open."
+}
