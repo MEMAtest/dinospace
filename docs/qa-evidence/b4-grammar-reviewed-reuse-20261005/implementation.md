@@ -1,0 +1,5 @@
+# B4 grammar shared-clip reuse implementation
+
+The unchanged original47-text grammar inventory and its SHA remain authoritative. A separately pinned six-row reuse ledger binds prior Batch2 decode text/key/path/hash evidence to identical bytes in its packaging commit and the current canonical runtime source. The CLI enriches only the B4 grammar selector with those six expected byte hashes; the existing byte-level reuse verifier, provider receipt checks, manifest preservation and unknown-file overwrite guard remain in force. No fabricated provider receipts, arbitrary text or broad path trust was added.
+
+Focused verification:27 tests passed, including full47-tuple preservation, six actual byte matches, changed text/source/key/path and duplicates rejected, ledger digest tampering rejected, and same-path differing audio rejected. Scoped ESLint and source diff checks passed. The read-only plan recognizes13 reusable clips (six source-bound shared clips plus seven prior genuine provider receipts), leaving34 pending. No paid run was made for these checks. Independent review remains required before execution.

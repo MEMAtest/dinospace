@@ -1,0 +1,35 @@
+✔ six exact shared clips enrich the complete unchanged grammar request set (6.264375ms)
+✔ altered shared text, source, key, and duplicate selection are rejected (2.377875ms)
+✔ changed reuse-ledger bytes fail the pinned digest (3.067083ms)
+✔ a same-path file with different bytes is never reusable (2.80725ms)
+✔ pins exact reviewed ledger and derives only approved owner keys (43.169041ms)
+✔ B5 Sound Safari successor pins exact 862 tuples, 13 source hashes, 11 reusable files and 851 exact pending keys (190.498209ms)
+✔ B5 Sound Safari run/request caps, duplicate refusal and ready-only budget preservation (45.663625ms)
+✔ B5 Sound Safari runner classifies snapshot or receipt bytes before claiming a run when manifest entries are missing (10.698667ms)
+✔ B7 Solar teaching ledger binds 22 edited facts, 44 changed keys and the exact 75/52 readiness snapshot (45.080542ms)
+✔ B7 Solar teaching selector dry-run reports 127 current phrases and keeps all ledgers and shared files read-only (192.848541ms)
+✔ B7 Solar teaching paid caps reject excessive per-run, run-count and total budgets before execution (379.485791ms)
+✔ B7 Solar attempt ledger is inventory-bound, unique and capped at 52 keys (0.570958ms)
+✔ B4 grammar selector pins all 47 exact additions to fe5 source files and expected voice paths (5.210416ms)
+✔ B4 grammar default plan is the exact 47 phrase set and remains read-only (149.684625ms)
+✔ supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths (0.945ms)
+✔ supplemental dry-runs keep exact pending sets and do not alter either ledger family or shared files (226.930834ms)
+✔ rejects jobs, call rates and run counts outside finite reviewed bounds (0.248542ms)
+✔ requires a terminal reconciled B4 record tied to the current manifest and dead worker PID (2.553791ms)
+✔ requires the explicit shared journal and fails closed on invalid journal state or concurrent edits (3.936ms)
+✔ uses and honors the exact exclusive lock held by the shared B3 producer (2.9985ms)
+✔ only reuses a packaged candidate when reviewed bytes match, including an unmapped exact file (2.404417ms)
+✔ a generated file is reusable only with a matching local receipt and exact text/inventory binding (2.27625ms)
+✔ request helper sends only the approved voice payload and enforces a finite timeout through injected fetch (14.065042ms)
+✔ dry-run reports exact pending keys and leaves package and shared journal untouched (188.529167ms)
+✔ paid mode across both ledgers cannot pass a live predecessor PID even with an apparently terminal record (263.884667ms)
+✔ CLI refuses a modified inventory digest before selecting or writing (71.746667ms)
+✔ paid mode requires explicit per-run and total-run caps (72.447208ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2011.832167

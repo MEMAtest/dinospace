@@ -40,6 +40,8 @@ async function createCliFixture() {
   const manifestObject = JSON.parse(originalManifestSource.match(/export const OFFLINE_VOICE_MANIFEST = (\{[\s\S]*\});\s*$/)[1]);
   const sourceCandidates = [root, resolve(root, '../dinospace-batch7-teaching-readability')];
   const paths = [
+    'scripts/b4GrammarReviewedReuse.mjs',
+    'docs/qa-evidence/b4-grammar-reviewed-reuse-20261005.json',
     'scripts/reviewedNarrationJobs.mjs',
     'scripts/run-reviewed-narration-job.mjs',
     'src/data/voiceKey.js',

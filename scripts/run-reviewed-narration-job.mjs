@@ -1,6 +1,7 @@
 import { mkdir, readFile, realpath, rename, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { applyB4GrammarReviewedReuse } from './b4GrammarReviewedReuse.mjs';
 import {
   B4_GRAMMAR_INVENTORY_SHA256, B5_SOUND_SAFARI_INVENTORY_SHA256, B5_SOUND_SAFARI_MAX_CALLS_PER_RUN, B5_SOUND_SAFARI_MAX_RUNS, B5_SOUND_SAFARI_REQUEST_LIMIT, B7_SOLAR_TEACHING_INVENTORY_SHA256, B7_SOLAR_TEACHING_REQUEST_LIMIT, JOBS, PINNED_INVENTORY_SHA256, RATE_WINDOW_MS, SUPPLEMENTAL_INVENTORY_SHA256,
   acquireProducerLock, assertJournalPath, assertJournalSnapshot, assertPredecessorFinished, b5SoundSafariAllowedPendingKeys, claimB5SoundSafariAttempt, claimB5SoundSafariRunWhenPending, claimB7SolarTeachingAttempt, claimB7SolarTeachingRun,
@@ -451,7 +452,10 @@ async function main() {
         : ledger === 'b5-sound-safari-literacy' ? b5SoundSafariInventoryPath
       : batch5To7InventoryPath;
   const { inventory, actualSha256 } = await loadPinnedInventory({ inventoryPath, suppliedSha256: args['inventory-sha256'], expectedSha256: expectedInventorySha256 });
-  const items = selectJobItems(inventory, args.job);
+  const selectedItems = selectJobItems(inventory, args.job);
+  const items = args.job === 'b4-grammar'
+    ? await applyB4GrammarReviewedReuse(selectedItems, root)
+    : selectedItems;
   const { manifest, sha256: manifestBeforeSha256 } = await readManifest();
   const existingReceipts = await readProvenance(actualSha256);
   const missing = [];

@@ -1,0 +1,47 @@
+{
+  "grammarInventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+  "correctedSourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+  "packagingCommit": "ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630",
+  "canonicalRuntimeCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "priorDecodeReport": "docs/qa-evidence/batch2-corpus-final-decode-20261003.json",
+  "priorDecodeReportSha256": "1b6b3a1003ce029d524b7223bd3f84fd490f39c671597a5a3cf8cb6bc3219e90",
+  "scope": "Exact six shared-text packaged clips. Reuse proven prior decode and identical source/canonical bytes; no new provider receipt or listening claim.",
+  "items": [
+    {
+      "key": "11d1317d",
+      "text": "There is 1 cookie.",
+      "path": "/audio/en/11d1317d-matilda.mp3",
+      "sha256": "2e4f1ec6e3571a1e7fbea99b044757c8d959b656da8ea72590e8c07dc02c26fc"
+    },
+    {
+      "key": "3352ee11",
+      "text": "There is 1 apple.",
+      "path": "/audio/en/3352ee11-matilda.mp3",
+      "sha256": "bd877d335962c6e97fca71a0f56013a5da079d8eabb62a28a99bfb138d2fa44c"
+    },
+    {
+      "key": "47902350",
+      "text": "There is 1 gem.",
+      "path": "/audio/en/47902350-matilda.mp3",
+      "sha256": "71d7f41237e4e69faf8319f9bf212fbda35f2f6e85a6af34825891a229668bcf"
+    },
+    {
+      "key": "84bd0c17",
+      "text": "There is 1 shell.",
+      "path": "/audio/en/84bd0c17-matilda.mp3",
+      "sha256": "42753b6bad77e8c84a1b7bc7f0301ffc8d98c568d1f66e2443d1947ed364bc11"
+    },
+    {
+      "key": "b04f8552",
+      "text": "There is 1 flower.",
+      "path": "/audio/en/b04f8552-matilda.mp3",
+      "sha256": "4ce18bfca10d3339594b7c2dd27d4e61e5375c8963f5c6089e6f1f66414ede7f"
+    },
+    {
+      "key": "d067b8a7",
+      "text": "There is 1 star.",
+      "path": "/audio/en/d067b8a7-matilda.mp3",
+      "sha256": "e33d14a1ceaaa272f13cc3aab54dd25a0775f1f159e846c76e380f3a6bbcf723"
+    }
+  ]
+}
