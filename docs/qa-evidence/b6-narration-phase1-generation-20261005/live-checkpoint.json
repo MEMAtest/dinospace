@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-05T04:05:17.692836+00:00",
+  "pid": 17581,
+  "session": 42222,
+  "processObservation": "17581 02:39 node scripts/run-reviewed-narration-job.mjs --job=b6 --inventory-sha256=aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227 --execute-paid --max-calls=10 --max-runs=36 --request-journal=../dinospace-batch3-quality/tmp/offline-voice-request-state.json --predecessor-status=docs/qa-evidence/batch4-terminal-audio-20261005/predecessor-reconciled.json",
+  "producerLock": {
+    "pid": 17581,
+    "job": "b6",
+    "startedAt": "2026-10-05T04:02:38.149Z"
+  },
+  "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+  "requested": 378,
+  "existingReusableAtStart": 1,
+  "pendingAtStart": 377,
+  "maxRequestsPhaseOne": 360,
+  "maxCallsPerRun": 10,
+  "maxRuns": 36,
+  "nextPhase": "Only after successful terminal reconciliation proves exact17pending; never automatic failed-key retry",
+  "scope": "Live finite narration worker; no readiness/decode/playback/listening/release acceptance yet."
+}

@@ -2025,5 +2025,27 @@
     "failure": null,
     "exitCode": 0,
     "humanListeningAccepted": false
+  },
+  "batch6NarrationGeneration": {
+    "status": "running-phase-one",
+    "pid": 17581,
+    "session": 42222,
+    "maxRequestsPhaseOne": 360,
+    "pendingAtStart": 377,
+    "existingReusableAtStart": 1,
+    "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+    "independentCompatibilityCommit": "32f80d825db9190d71e3bf0a30a8d705256c4920",
+    "evidence": "docs/qa-evidence/b6-narration-phase1-generation-20261005/live-checkpoint.json",
+    "productionReleased": false
+  },
+  "batch7SolarAudioPackage": {
+    "runtimeSource": "532e540da87b7f6a4197c84de39bb127f296fdef",
+    "evidenceCommit": "37165dcfe4892e7d743ab91fbe532a6a79079087",
+    "completeSolarClips": 127,
+    "decodedClipBuildHashesMatched": 127,
+    "configuredBuildFiles": 6015,
+    "productionReleased": false,
+    "humanListeningAccepted": false,
+    "independentPackageReview": "in progress"
   }
 }
