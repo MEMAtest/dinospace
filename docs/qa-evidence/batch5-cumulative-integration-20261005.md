@@ -13,6 +13,14 @@ The change adds the Amari-owned versions of Sound Safari, Spelling Studio, Colou
 
 The integration is additive on the released runtime. It does not copy an older App, navigation, shared progress, voice manifest, audio files, or unrelated game components. In particular, `AmariCountTheStars.jsx`, `countTheStarsBatch3.js`, and their tests remain byte-identical to the canonical base. The existing canonical sound preferences, public audio/voice configuration, and released B1–B4 runtime files remain unchanged.
 
+The machine-readable freeze record is [batch5-cumulative-build-fingerprint-20261005.json](batch5-cumulative-build-fingerprint-20261005.json). It contains SHA-256 and Git blob comparisons for all 192 imported runtime-owned files and 23 copied Batch 5 evidence files, plus a SHA-256 manifest for all 5,959 files in `dist`. A 6,027-file canonical `src/`, `public/`, and `api/` comparison is unchanged after excluding the three routing glue files listed below.
+
+The only canonical source exceptions are:
+
+- `src/App.jsx`: adds the four Batch 5 IDs to the Amari-owned challenge-tracker exclusion and selects `currentGame.amariComponent` for Amari.
+- `src/gameCatalog.jsx`: imports four Amari components and attaches them as `amariComponent` on the existing four catalog entries, retaining the legacy `component` values.
+- `src/data/gameSessions.js`: marks those four IDs as Amari-owned progression only when `little` is false.
+
 ## Verification
 
 - Focused Batch 5 tests plus progression ownership: 36/36 passed.
