@@ -1943,5 +1943,14 @@
     "evidenceCommit": "cbb8a14ad98f1ab6db66cdf4060220aa5c30a822",
     "report": "docs/qa-evidence/canonical-health-20261005/report.md",
     "scope": "Bounded desktop/390 actual Curriculum progress/facts and curated Storybook read/return checks; single existing muted tab, provider403 guards. Health sample only, not full26-game acceptance."
+  },
+  "batch4GrammarGeneration": {
+    "status": "stopped safely; cross-batch reuse lineage under review",
+    "requested": 47,
+    "attempted": 7,
+    "accepted": 7,
+    "existingCandidates": 6,
+    "report": "docs/qa-evidence/b4-grammar-first-run-20261005/report.md",
+    "scope": "Seven provider receipts preserved, previous manifest mappings unchanged. No overwrite/retry; full corrected audio and listening gates remain open."
   }
 }

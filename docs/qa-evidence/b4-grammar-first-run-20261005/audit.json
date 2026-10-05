@@ -1,0 +1,115 @@
+{
+  "job": "b4-grammar",
+  "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+  "requested": 47,
+  "configuredMaxCallsPerRun": 10,
+  "configuredMaxRuns": 5,
+  "maximumProviderRequests": 50,
+  "configuredTotalCallCap": null,
+  "b7AttemptedCount": null,
+  "b7CumulativeRunCount": null,
+  "b5SoundSafariAttemptedCount": null,
+  "b5SoundSafariCumulativeRunCount": null,
+  "runs": 1,
+  "providerRequestsAttempted": 7,
+  "providerResponsesAccepted": 7,
+  "generated": 7,
+  "reused": 0,
+  "stoppedAt": null,
+  "failure": {
+    "message": "Refusing to overwrite existing audio with unknown provenance: /audio/en/11d1317d-matilda.mp3.",
+    "name": "Error"
+  },
+  "manifestBeforeSha256": "674ecdbbc4bc75d7aaba599a02f0b3246be2c80a638e2b4d811762c49f9637b7",
+  "manifestAfterSha256": "7e5f8bfa7d0dff21ef2ca9f27bba1fe9ec4b87ecc28cc9b49deb2728d9df9199",
+  "auditPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/tmp/reviewed-narration-audit-b4-grammar.json",
+  "manifestChangedKeys": [
+    "02a2a0d4",
+    "04af6fed",
+    "04b3ed1b",
+    "07d23e48",
+    "07f0535c",
+    "09e38a8f",
+    "0e404090"
+  ],
+  "changedFiles": [
+    {
+      "path": "/audio/en/02a2a0d4-matilda.mp3",
+      "key": "02a2a0d4",
+      "text": "A moved 1 space and landed on 9.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 38914,
+      "sha256": "873d582937e9704978464583b7f799525df52dd1ab8f0dcc33c2f3fc78d9abf1"
+    },
+    {
+      "path": "/audio/en/04af6fed-matilda.mp3",
+      "key": "04af6fed",
+      "text": "A moved 1 space and landed on 4.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 38078,
+      "sha256": "45c45d1e929f0b82dbf248486f16184b013e5c0389904d80afc89cca83ae925a"
+    },
+    {
+      "path": "/audio/en/04b3ed1b-matilda.mp3",
+      "key": "04b3ed1b",
+      "text": "A moved 1 space and landed on 2.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 38914,
+      "sha256": "a6f98578cc80f9d55576b0fae610bc7961a1942f30d6cf3245646585be694db3"
+    },
+    {
+      "path": "/audio/en/07d23e48-matilda.mp3",
+      "key": "07d23e48",
+      "text": "A moved 1 space and landed on 18.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 44765,
+      "sha256": "bca5ef547a23dcf00cf7ef0e880e110d4e91d1e963057acab227b82099921b75"
+    },
+    {
+      "path": "/audio/en/07f0535c-matilda.mp3",
+      "key": "07f0535c",
+      "text": "A moved 1 space and landed on 14.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 37660,
+      "sha256": "74f44e335974e83a8a582bf362122ff213a12d2c4ff6b9ca5b523b233c8f9e01"
+    },
+    {
+      "path": "/audio/en/09e38a8f-matilda.mp3",
+      "key": "09e38a8f",
+      "text": "A moved 1 space and landed on 13.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 44347,
+      "sha256": "6d1f22c2a097a61b408ba24da8aa3d921a2877852ceefd2ec5a5ee8ada58396b"
+    },
+    {
+      "path": "/audio/en/0e404090-matilda.mp3",
+      "key": "0e404090",
+      "text": "1 remains.",
+      "owners": [
+        "B4_grammar"
+      ],
+      "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+      "bytes": 16762,
+      "sha256": "1ea16f48cac508547518b03601d68994dcaea62d897b9e8a9619a1b6bb1a039f"
+    }
+  ],
+  "completedAt": "2026-10-05T02:23:08.925Z"
+}
