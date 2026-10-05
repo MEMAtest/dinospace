@@ -2042,7 +2042,7 @@
     "independentCompatibilityCommit": "32f80d825db9190d71e3bf0a30a8d705256c4920",
     "evidence": "docs/qa-evidence/b6-narration-phase1-generation-20261005/live-checkpoint.json",
     "productionReleased": false,
-    "latestObservedReceipts": 60,
+    "latestObservedReceipts": 150,
     "latestProcessObservation": "PID17581 confirmed live by ps and execsession42222; phase1 remainsrunning, no restart",
     "partialReceiptBoundClipsDecoded": 90,
     "partialDecodeValid": 90,
@@ -2122,8 +2122,11 @@
     "maxCallsPerRun": 10,
     "maxRuns": 19,
     "maxUniqueRequests": 181,
-    "independentReview": "in progress",
+    "independentReview": "passed exact183 source tuples,2snapshot-hash reusable,181pending,caps and28/28 retained tests",
     "paidExecution": false,
-    "evidence": "docs/qa-evidence/b7-memory-narration-ledger-20261005/report.md"
+    "evidence": "docs/qa-evidence/b7-memory-narration-ledger-20261005/report.md",
+    "independentReviewCommit": "717868f1b3f48aa95d34a819436bdea0fe10a0a3",
+    "independentEvidence": "docs/qa-evidence/b7-memory-narration-independent-review-20261005.md",
+    "auditMessageCorrection": "Memory cap-exhaustion stopReason now names Memory; syntax checkpassed; behavior unchanged"
   }
 }

@@ -26,3 +26,7 @@ Low priority: if the B7 Memory invocation reaches its configured total-call limi
 ## Conclusion
 
 The pinned ledger, ready-clip reuse, 181-key allowlist, finite caps, and read-only dry-run are verified. The review did not execute any paid mode and makes no claim about generated audio or listening quality. The active B6 worker remains an operational gate: any later run must wait for its terminal/reconciled state and the shared producer lock to be free, then run serially under the existing plan.
+
+## Root correction after review
+
+The cap-exhaustion message now explicitly names B7 Memory for `b7-memory-current`. The change is limited to audit wording; all request counts, allowlists, persisted attempts and provider dispatch are unchanged. `node --check scripts/run-reviewed-narration-job.mjs` passes. No paid execution was performed and the active B6 worker was not restarted.

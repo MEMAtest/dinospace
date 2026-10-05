@@ -320,7 +320,9 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
       if (remainingInvocationBudget <= 0) {
         stopReason = args.job === 'b5-sound-safari-literacy'
           ? 'Configured B5 Sound Safari unique-request cap reached; no retry was attempted.'
-          : 'Configured B7 Solar teaching invocation cap reached; no retry was attempted.';
+          : args.job === 'b7-memory-current'
+            ? 'Configured B7 Memory invocation cap reached; no retry was attempted.'
+            : 'Configured B7 Solar teaching invocation cap reached; no retry was attempted.';
         break;
       }
       if (args.job === 'b7-solar-teaching' && b7Budget.runs >= 6) {
