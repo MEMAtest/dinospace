@@ -1,7 +1,7 @@
 {
   "scope": "Read-only local-source readiness. Manifest/file presence is not an audio decode, pronunciation, native playback, or listening check. No generator/provider is called.",
   "source": {
-    "commit": "308641dbb0a398449fa17d0929d048b9115a78cb",
+    "commit": "c636516afa9ffa1b77dcc3bd5b7353ee80bce567",
     "hashes": [
       {
         "path": "src/data/batch5Literacy.js",
@@ -21,7 +21,7 @@
       },
       {
         "path": "src/data/batch5SoundSafariPictureArt.js",
-        "sha256": "93d046a3e17ffa7e6926c41c1a508899f255136542ef09f2bf51d7dc35906820"
+        "sha256": "a3c0fa3b3ad177a097da0aef9a7aadfce059925dd43d0fe34050d3c44f798904"
       },
       {
         "path": "src/data/batch5SoundSafariLabels.js",
