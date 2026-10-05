@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-04T23:16:56.952606+00:00",
+  "updatedAt": "2026-10-05T01:05:48.393147+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1790,5 +1790,37 @@
     "scope": "No provider call or new worker. Requires terminal reconciled predecessor and independent runner review before activation. Full decode/playback/listening remain separate.",
     "independentReviewCommit": "475081fa08b96fe0ead5d427723a07548e0d65b2",
     "independentReviewReport": "docs/qa-evidence/b5-sound-safari-selector-independent-review-20261005/report.md"
+  },
+  "cumulativeSourceIntegrations": {
+    "updatedAt": "2026-10-05T01:05:48.393147+00:00",
+    "canonicalRuntimeBase": "1accc99e89be303678ead99def6a3095ab1cb886",
+    "productionReleased": false,
+    "overallAcceptanceUnchanged": true,
+    "batch5": {
+      "sourceCommit": "10e4cd53d7f0e987a8a1086fd834b5033de55387",
+      "evidenceCommit": "514064e322e2c4746a49f8736ae3ef616c9b5fcc",
+      "fullTests": "264/264",
+      "build": "passed",
+      "independentReview": "in progress",
+      "textClipsPending": 851
+    },
+    "batch6": {
+      "sourceCommit": "7c350f4bff66c1e9aff922cb5ee98e0fdd1d4ef8",
+      "evidenceCommit": "1ba1c37208791fa40e0257bd14b90555a3da1940",
+      "fullTests": "238/238",
+      "lint": "passed",
+      "build": "passed",
+      "independentReview": "pending"
+    },
+    "batch7": {
+      "sourceCommit": "07132a6f68877f19ea38ed59ec2b49645ea4a8fb",
+      "ownedFiles": 94,
+      "nonOwnedCanonicalFilesPreserved": 6025,
+      "targetedTests": "25/25",
+      "lint": "passed",
+      "build": "passed",
+      "independentReview": "in progress"
+    },
+    "releaseRequirement": "Integrate each next release onto then-current complete canonical, finish outstanding audio acceptance, and bind production Playwright evidence to deployed source. One existing Chrome QA session only."
   }
 }
