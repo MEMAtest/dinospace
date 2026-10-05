@@ -30,7 +30,7 @@ The Spot viewport screenshot shows the accessible pair controls and visible 1-of
 
 ### Dino Detective
 
-Neither new Dino Detective fact key (`f6991245`, `0f0204e5`) was reached. This profile did not have an ordinary unlocked Dino Detective route during the bounded check, and I did not inject progress or extend sampling to unlock it.
+Neither new Dino Detective fact key (`f6991245`, `0f0204e5`) was reached. I did not enter Dino Detective or observe either wetland or cave world during this bounded check; no conclusion about the game entry route or world unlock state is drawn.
 
 ## Evidence
 
