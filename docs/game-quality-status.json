@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T03:22:46.932204+00:00",
+  "updatedAt": "2026-10-05T03:38:33.950159+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1992,5 +1992,15 @@
     "productionReleased": false,
     "humanListeningAccepted": false,
     "evidence": "docs/qa-evidence/b2-b3-supplement-completed-20261005/report.md"
+  },
+  "batch4OnDemandMediaRepair": {
+    "source": "17bec08db5ad32e2c46ccdffaf40a5a757243e3c",
+    "status": "independent-source-and-build-verified-browser-pending",
+    "testsPassed": 7,
+    "eagerInstallPaths": 72,
+    "eagerInstallBytes": 25140515,
+    "decodedCorpusBuildHashesMatched": 5246,
+    "evidence": "docs/qa-evidence/b4-on-demand-media-independent-20261005/report.md",
+    "productionReleased": false
   }
 }

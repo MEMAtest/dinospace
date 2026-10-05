@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "sourceBase": "fd5509b792090c15477b85a16abae15646ce62e6",
+  "sourceFiles": {
+    "public/sw.js": "280c6b790d1f62e151cec3040162c084c1d1e25c8afcc93c65dcb74910ca38d6",
+    "vite.config.js": "00d0d3c016bf14f1f5933b50d4b550b4ab6e43c6eebdd391b918a39fef7f2578",
+    "test/offlineServiceWorker.test.mjs": "0cbfde9fbef40e637f1053d835896406ba2e2131f7359782accfd3e2aa566d98"
+  },
+  "build": {
+    "directory": "dist-on-demand-media-20261005-r5",
+    "manifestSha256": "4afdf9b48b36bd1d8ff4cf020c28cc730be063441b7d039a32c7a046009a6d45",
+    "fileCount": 11054,
+    "indexHtmlSha256": "9cda86ab3392873f0542946866dc28d172a5b62a07c3c9e92d56f72687d3a3a8",
+    "serviceWorkerSha256": "6fca7f09ea67f9579688cff3bbf0f6c00eee0b23be2134aa2083f988b44c8c0a",
+    "eagerCompiledAssetCount": 66,
+    "eagerCompiledAssetBytes": 24650377,
+    "eagerShellPathCount": 6,
+    "eagerShellBytes": 490138,
+    "eagerTotalPathCount": 72,
+    "eagerTotalBytes": 25140515,
+    "shippedMedia": {
+      "englishAudioFiles": 10741,
+      "englishAudioBytes": 303269823,
+      "germanAudioFiles": 79,
+      "germanAudioBytes": 757111,
+      "storyFiles": 161,
+      "storyBytes": 30536248
+    }
+  },
+  "validation": {
+    "eslint": "passed",
+    "offlineServiceWorkerTests": "7/7 passed with PWA_BUILD_DIR=dist-on-demand-media-20261005-r5",
+    "productionBuild": "completed",
+    "diffCheck": "passed",
+    "browserOrHumanListening": "not performed"
+  }
+}
