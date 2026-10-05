@@ -1903,7 +1903,24 @@
     "sourceAssetCommit": "e84b578",
     "firstAssetProvenance": "docs/qa-evidence/batch5-spelling-illustrations-20261005/tip-v1-provenance.json",
     "generator": "built-in image_gen; no CLI fallback",
-    "independent96pxReview": "in progress",
-    "scope": "Reuse only exact-sense illustrations; generate action/context cards for remaining words. Preserve all 101 words, phonics, voice texts, model and progression. No paid voice concurrency or release claim."
+    "independent96pxReview": "tip asset passed static review; runtime wiring and remaining assets pending",
+    "scope": "Reuse only exact-sense illustrations; generate action/context cards for remaining words. Preserve all 101 words, phonics, voice texts, model and progression. No paid voice concurrency or release claim.",
+    "firstAssetIndependentReview": "docs/qa-evidence/batch5-spelling-illustrations-20261005/reviews/tip-v1-independent-review.md",
+    "firstAssetReviewCommit": "53f034349c9bfdc110d0908f4ad79ae044409268",
+    "reuseCandidateReview": {
+      "candidates": 35,
+      "accepted": 31,
+      "conditional": [
+        "can"
+      ],
+      "revise": [
+        "map",
+        "pot",
+        "seed"
+      ],
+      "report": "docs/qa-evidence/batch5-spelling-illustrations-20261005/sound-safari-96px-review/report.md",
+      "evidenceCommit": "9090124bdd4a8ccec2af098ad0960ba6c14fcc41",
+      "scope": "Static 96px illustration suitability only; no runtime or overall game acceptance."
+    }
   }
 }
