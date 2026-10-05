@@ -242,6 +242,20 @@ async function execute(args, items, manifest, journalPath, auditPath, manifestBe
         }
         if (manifestNeedsWrite) await writeManifest(manifest);
         pending.push(...work.generationPending);
+      } else if (args.job === 'b4-grammar') {
+        // Repair verified mappings before considering any paid run or capacity.
+        let manifestNeedsWrite = false;
+        for (const item of items) {
+          const reusablePath = await isCandidateReusable(root, manifest, item, receipts.get(item.key), inventorySha256);
+          if (!reusablePath) pending.push(item);
+          else if (manifest.get(item.key) !== reusablePath) {
+            manifest.set(item.key, reusablePath);
+            manifestChangedKeys.push(item.key);
+            reused += 1;
+            manifestNeedsWrite = true;
+          }
+        }
+        if (manifestNeedsWrite) await writeManifest(manifest);
       } else {
         for (const item of items) {
           if (b7Budget.attemptedKeys.includes(item.key)) continue;

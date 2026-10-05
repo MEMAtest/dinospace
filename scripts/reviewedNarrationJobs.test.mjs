@@ -395,6 +395,53 @@ test('B4 grammar default plan is the exact 47 phrase set and remains read-only',
   } finally { await fixture.cleanup(); }
 });
 
+test('B4 verified missing-manifest reuse repairs before any paid run or saturated capacity wait', async () => {
+  const fixture = await createCliFixture();
+  try {
+    const ledger = JSON.parse(await readFile(b4GrammarInventoryPath));
+    const shared = JSON.parse(await readFile(resolve(root, 'docs/qa-evidence/b4-grammar-reviewed-reuse-20261005.json')));
+    const sharedKeys = new Set(shared.items.map((item) => item.key));
+    const manifest = {};
+    const receipts = {};
+    for (const item of ledger.items) {
+      const bytes = sharedKeys.has(item.key)
+        ? await readFile(resolve(root, 'public', item.path.slice(1)))
+        : Buffer.alloc(1500, 7); // Synthetic receipt/audio pair only in this fixture.
+      await writeFile(resolve(fixture.root, 'public', item.path.slice(1)), bytes);
+      if (!sharedKeys.has(item.key)) {
+        manifest[item.key] = item.path;
+        receipts[item.key] = { producer: 'reviewedNarrationSupervisorV1', inventorySha256: B4_GRAMMAR_INVENTORY_SHA256,
+          key: item.key, path: item.path, sourceCommit: B4_GRAMMAR_SOURCE_COMMIT, voice: 'matilda', contentType: 'audio/mpeg',
+          bytes: bytes.length, textSha256: sha256(Buffer.from(item.text)), audioSha256: sha256(bytes) };
+      }
+    }
+    await writeFile(fixture.manifest, `export const OFFLINE_VOICE_MANIFEST = ${JSON.stringify(manifest)};\n`);
+    await mkdir(resolve(fixture.root, 'tmp'), { recursive: true });
+    await writeFile(resolve(fixture.root, `tmp/reviewed-narration-provenance-${B4_GRAMMAR_INVENTORY_SHA256}.json`),
+      JSON.stringify({ inventorySha256: B4_GRAMMAR_INVENTORY_SHA256, entries: receipts }));
+    await writeFile(fixture.journal, JSON.stringify({ requests: Array.from({ length: 30 }, () => ({ at: Date.now() })), blockedUntil: 0 }));
+    const beforeJournal = sha256(await readFile(fixture.journal));
+    const predecessor = resolve(fixture.root, 'tmp/predecessor.json');
+    await writeFile(predecessor, JSON.stringify({ workerPid: B4_WORKER_PID, sourceCommit: B4_SOURCE_COMMIT,
+      status: 'completed', terminal: true, reconciled: true, exitCode: 0, finishedAt: new Date().toISOString(),
+      finalManifestPath: fixture.b4Manifest, finalManifestSha256: sha256(await readFile(fixture.b4Manifest)) }));
+    const result = spawnSync(process.execPath, [fixture.cliPath, '--job=b4-grammar', `--inventory-sha256=${B4_GRAMMAR_INVENTORY_SHA256}`,
+      '--execute-paid', '--max-calls=1', '--max-runs=1', `--request-journal=${fixture.journal}`, `--predecessor-status=${predecessor}`],
+    { cwd: fixture.root, encoding: 'utf8', timeout: 5000 });
+    assert.equal(result.status, 0, result.stderr || result.error?.message);
+    const summary = JSON.parse(result.stdout);
+    assert.equal(summary.runs, 0);
+    assert.equal(summary.generated, 0);
+    assert.equal(summary.pendingKeys, 0);
+    const audit = JSON.parse(await readFile(summary.auditPath));
+    assert.equal(audit.providerRequestsAttempted, 0);
+    assert.equal(sha256(await readFile(fixture.journal)), beforeJournal);
+    const after = JSON.parse((await readFile(fixture.manifest, 'utf8')).match(/OFFLINE_VOICE_MANIFEST = (\{[\s\S]*\});/)[1]);
+    assert.equal(Object.keys(after).length, 47);
+    for (const item of shared.items) assert.equal(after[item.key], item.path);
+  } finally { await fixture.cleanup(); }
+});
+
 test('supplemental selectors bind exact reviewed source hashes, voice keys, phrases and paths', async () => {
   const { inventory, actualSha256 } = await loadPinnedInventory({
     inventoryPath: supplementalInventoryPath,
