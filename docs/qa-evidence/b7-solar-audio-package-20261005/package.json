@@ -1,0 +1,772 @@
+{
+  "reviewedRuntime": "07132a6f68877f19ea38ed59ec2b49645ea4a8fb",
+  "packagingBase": "aadc875b4b27f9b66571b491e558967986fb3a27",
+  "voiceSource": "21ee7b240b271c5d775e4ebca3b5f29e0ad63ade",
+  "priorManifestMappingsPreserved": 5564,
+  "copiedNewFiles": 52,
+  "items": [
+    {
+      "key": "00567b7b",
+      "path": "/audio/en/00567b7b-matilda.mp3",
+      "sha256": "7942c9ecb36b91171bacf6af826c4fbdc8c9c07f0a49fe9598f21c60e3f198f1",
+      "copied": true
+    },
+    {
+      "key": "01c83e21",
+      "path": "/audio/en/01c83e21-matilda.mp3",
+      "sha256": "2770aa8f5192fdf6f9b8a61085f29e3210fe70c6463427124b9c8618035ea66b",
+      "copied": true
+    },
+    {
+      "key": "01ed35af",
+      "path": "/audio/en/01ed35af-matilda.mp3",
+      "sha256": "14d9f3552ed00c6ff4d4044284313eba1012b349232bc81af2d026d92c40b665",
+      "copied": true
+    },
+    {
+      "key": "02c91cf7",
+      "path": "/audio/en/02c91cf7-matilda.mp3",
+      "sha256": "6e460969ead0e8284289028123a5007409a42daf38c034afc3ab1492235f947e",
+      "copied": false
+    },
+    {
+      "key": "03f0bf00",
+      "path": "/audio/en/03f0bf00-matilda.mp3",
+      "sha256": "848788f0efbf744803c00a9af3e46bfc7c695366a3fc251a0a91a4a2823c60b1",
+      "copied": true
+    },
+    {
+      "key": "047b2fb2",
+      "path": "/audio/en/047b2fb2-matilda.mp3",
+      "sha256": "30f0cf4d37a3f73d32bbf56c7bd493f1919d5b2252dfd6016b9e9fac46283225",
+      "copied": true
+    },
+    {
+      "key": "04c269c2",
+      "path": "/audio/en/04c269c2-matilda.mp3",
+      "sha256": "4ddecb56281a0a8bf80fb138e058835468c3629fe7750b0a2e68af1fd059f8de",
+      "copied": true
+    },
+    {
+      "key": "073546c2",
+      "path": "/audio/en/073546c2-matilda.mp3",
+      "sha256": "f6e373ca70b23f4a2c6ede6a19c7518305ce2a67dd368a6f367ff9fb02758065",
+      "copied": false
+    },
+    {
+      "key": "073c68ed",
+      "path": "/audio/en/073c68ed-matilda.mp3",
+      "sha256": "89deee7b6c461c029a2ab4a69ebbba0c11a0cebc08895bc83b42842766df7d49",
+      "copied": false
+    },
+    {
+      "key": "098230ce",
+      "path": "/audio/en/098230ce-matilda.mp3",
+      "sha256": "7439fb41036e910519dc9ae9277eebccebf05dba9bc4c8e4fd5b234ef7975abc",
+      "copied": false
+    },
+    {
+      "key": "0e75e069",
+      "path": "/audio/en/0e75e069-matilda.mp3",
+      "sha256": "46b0f7657788264719c7657b0ad99e918c2b5f39049e660f84e72002f5a76d17",
+      "copied": false
+    },
+    {
+      "key": "140a117d",
+      "path": "/audio/en/140a117d-matilda.mp3",
+      "sha256": "0cd2e2b6e3200479db89689a6da153ba9fe7e12884d244e740c86e110d4f1b18",
+      "copied": false
+    },
+    {
+      "key": "1470011f",
+      "path": "/audio/en/1470011f-matilda.mp3",
+      "sha256": "4a6986d07202b8843c5cfbefc883fd2f914115168acc5f5e532316166c7a6624",
+      "copied": true
+    },
+    {
+      "key": "156ce467",
+      "path": "/audio/en/156ce467-matilda.mp3",
+      "sha256": "52dac8f8f4d8416c4f2d926bfa0f442a26894de8e72ec8ed130e3ed025c519c0",
+      "copied": false
+    },
+    {
+      "key": "1839a150",
+      "path": "/audio/en/1839a150-matilda.mp3",
+      "sha256": "8bb6afc35d36b0796c61dfe2ef61c9f6a4dd1a6a4863c55685e898f1acf26744",
+      "copied": false
+    },
+    {
+      "key": "19681350",
+      "path": "/audio/en/19681350-matilda.mp3",
+      "sha256": "d5f93665c594bddc812f0b15418c788efb898bb241ff64d612f75856dfafd677",
+      "copied": false
+    },
+    {
+      "key": "19aefa66",
+      "path": "/audio/en/19aefa66-matilda.mp3",
+      "sha256": "5d72d537312ca71eed2917b4b7d539b6da6fed816fdf3d465a0b396b0fd3746c",
+      "copied": false
+    },
+    {
+      "key": "1d29868e",
+      "path": "/audio/en/1d29868e-matilda.mp3",
+      "sha256": "c23675a99440520e8f2d1fa78e87f882951148a2367431e9819bbfbd77fbf4e4",
+      "copied": true
+    },
+    {
+      "key": "1e62dbc2",
+      "path": "/audio/en/1e62dbc2-matilda.mp3",
+      "sha256": "329c4bdac5b3adfd5764e08ea85b15a9ab42ce56ebbc6bfa1efb2de014fe15c5",
+      "copied": true
+    },
+    {
+      "key": "1f3ec839",
+      "path": "/audio/en/1f3ec839-matilda.mp3",
+      "sha256": "f055a1c48a4f2ca33a87bf036d81cd7c4b0614f8537e427e234a6e2361be2af8",
+      "copied": true
+    },
+    {
+      "key": "220af871",
+      "path": "/audio/en/220af871-matilda.mp3",
+      "sha256": "157bd31ba0886effa988ee8afc6b761bead9bfaad3e47105e8160776cc2ca536",
+      "copied": false
+    },
+    {
+      "key": "222d672b",
+      "path": "/audio/en/222d672b-matilda.mp3",
+      "sha256": "6903df1fce25c076cc65d9874d8b4039cc113a074451eb337beee2e193faa8ce",
+      "copied": false
+    },
+    {
+      "key": "258091e0",
+      "path": "/audio/en/258091e0-matilda.mp3",
+      "sha256": "5c3ba1deef18d4bf79597a89530fe280db2ce54370efa608935dbb1f4ef7e02d",
+      "copied": false
+    },
+    {
+      "key": "269719b8",
+      "path": "/audio/en/269719b8-matilda.mp3",
+      "sha256": "44c62f38fce4c3fee387f21783ae8ebbfb5d7f490f77c96233e9f591f4f3cdf5",
+      "copied": false
+    },
+    {
+      "key": "29e5342f",
+      "path": "/audio/en/29e5342f-matilda.mp3",
+      "sha256": "7447f3ddec0854e3a04e6042d05df6882b5b82f70fa80cf3868ee85290dc873a",
+      "copied": false
+    },
+    {
+      "key": "2b8dee0e",
+      "path": "/audio/en/2b8dee0e-matilda.mp3",
+      "sha256": "0d9991e52c51ca408aa5b8d748d2a0054d384defbbef729c43a6a2bdcdbc39e6",
+      "copied": false
+    },
+    {
+      "key": "2d6972da",
+      "path": "/audio/en/2d6972da-matilda.mp3",
+      "sha256": "b11b33520e0be5ab9b40056ccf144fbcf2a9746f25b2bcead3839c57faef8192",
+      "copied": false
+    },
+    {
+      "key": "30e7478d",
+      "path": "/audio/en/30e7478d-matilda.mp3",
+      "sha256": "35b821fa1bcd24a2abf97532ab9365565d2150e3cec44c9eb03e4ecefe40d5fb",
+      "copied": false
+    },
+    {
+      "key": "316bac69",
+      "path": "/audio/en/316bac69-matilda.mp3",
+      "sha256": "f634c91fc6752335acf5b8da4272b157415251f82e2e5a48aa11f0cb900febb4",
+      "copied": false
+    },
+    {
+      "key": "3534e9e8",
+      "path": "/audio/en/3534e9e8-matilda.mp3",
+      "sha256": "2a10c80277d1fcf583d6d8097eaf9f26833a0d91b199ec7fc8ab69a3f368d2e9",
+      "copied": true
+    },
+    {
+      "key": "35eb916f",
+      "path": "/audio/en/35eb916f-matilda.mp3",
+      "sha256": "84da4046a3341c5c7e42f2091c88c6de2b7a16e14ba7cbaa220848648c0319dd",
+      "copied": false
+    },
+    {
+      "key": "379f60fd",
+      "path": "/audio/en/379f60fd-matilda.mp3",
+      "sha256": "7cb724cdb9563306267a03c0f550383a75340a5ae425f68999a39013252ddb50",
+      "copied": false
+    },
+    {
+      "key": "37fb67c6",
+      "path": "/audio/en/37fb67c6-matilda.mp3",
+      "sha256": "6af6a0494bb657bd7c36f9f29751fdfa2d41c8e2324537a80ecb0d9244bbf73b",
+      "copied": false
+    },
+    {
+      "key": "3a9562f8",
+      "path": "/audio/en/3a9562f8-matilda.mp3",
+      "sha256": "68f707071eee2a24394247676fa5334691eccd5dbbba6b9ca1c8f22e111084c8",
+      "copied": true
+    },
+    {
+      "key": "3bb1df64",
+      "path": "/audio/en/3bb1df64-matilda.mp3",
+      "sha256": "55aae24ec57857fe22b19f00aff36a054a61b21e28426fc709be6e7b8546d1e9",
+      "copied": false
+    },
+    {
+      "key": "3df486dd",
+      "path": "/audio/en/3df486dd-matilda.mp3",
+      "sha256": "ab0bc9c960597140eea993a828a7524833eb2836d40ee5bf9ab21f41a75e7435",
+      "copied": true
+    },
+    {
+      "key": "44288563",
+      "path": "/audio/en/44288563-matilda.mp3",
+      "sha256": "ae9f24fd76acdb233dd2a2c6bc40d5d689337cf3783b7494dc9210973b59b848",
+      "copied": true
+    },
+    {
+      "key": "50a0cc69",
+      "path": "/audio/en/50a0cc69-matilda.mp3",
+      "sha256": "90186f1b04bb17f5851da756c972f7f1bbf1912bd2d9899f2a973e16e4810aa2",
+      "copied": true
+    },
+    {
+      "key": "5105e122",
+      "path": "/audio/en/5105e122-matilda.mp3",
+      "sha256": "a17130d0c488ad70491f207213e62b3cd9db5de44239ab6c8a68521bf734af71",
+      "copied": false
+    },
+    {
+      "key": "51e16e66",
+      "path": "/audio/en/51e16e66-matilda.mp3",
+      "sha256": "f7f1b549e0f9fa6f629b8223c288682a0f8086107a8191d8f49ed83f3e4983c6",
+      "copied": false
+    },
+    {
+      "key": "52a257d4",
+      "path": "/audio/en/52a257d4-matilda.mp3",
+      "sha256": "25322ac024142e47fa23baa2fb5a45ca70382f6a6b4241216984cdaf39a06681",
+      "copied": false
+    },
+    {
+      "key": "52b0d4d5",
+      "path": "/audio/en/52b0d4d5-matilda.mp3",
+      "sha256": "a58e475347838366a472cc25e70b43a560a19004262ec86b3aa946b0d2d3bc06",
+      "copied": false
+    },
+    {
+      "key": "531a6fbc",
+      "path": "/audio/en/531a6fbc-matilda.mp3",
+      "sha256": "8232a6647c19749f22687a4c89abc7b18a96f5b8e1d9e5be2352b4c3d1a6e289",
+      "copied": false
+    },
+    {
+      "key": "5348478a",
+      "path": "/audio/en/5348478a-matilda.mp3",
+      "sha256": "1adfb93df47f69cc30477b00f8dc95af0ed8ea11969b18a78fc3c57234b24168",
+      "copied": false
+    },
+    {
+      "key": "55a55c2d",
+      "path": "/audio/en/55a55c2d-matilda.mp3",
+      "sha256": "229091967ed05a9da35c9e6f1fdc1f780952464bf61ef474254d0fc5e0ee6e50",
+      "copied": false
+    },
+    {
+      "key": "578085d8",
+      "path": "/audio/en/578085d8-matilda.mp3",
+      "sha256": "c2b9cd6105f59e899a9ba5f427e537cb1035ac126355ff5d296ab6639d480069",
+      "copied": true
+    },
+    {
+      "key": "5a35ed3c",
+      "path": "/audio/en/5a35ed3c-matilda.mp3",
+      "sha256": "508e19722272d0c4345525469b2ed5a56fffdb28c34ee8fc6d53581a29598b49",
+      "copied": false
+    },
+    {
+      "key": "5c81c59a",
+      "path": "/audio/en/5c81c59a-matilda.mp3",
+      "sha256": "c75ee77773ab6afe5612d1a79c594165fe1605031b8b9239d49ae95f1e955acb",
+      "copied": false
+    },
+    {
+      "key": "5d7d3a39",
+      "path": "/audio/en/5d7d3a39-matilda.mp3",
+      "sha256": "5d5d13334140d2e72cb8a92e39443c9ad70e6c3cbde2c72d90f9cef1966c3a22",
+      "copied": true
+    },
+    {
+      "key": "601ec7d6",
+      "path": "/audio/en/601ec7d6-matilda.mp3",
+      "sha256": "31209cf865ddd595284e7aab01dc1ce71f983837f55fdc1c6f270ec36b9f13c0",
+      "copied": false
+    },
+    {
+      "key": "6373319e",
+      "path": "/audio/en/6373319e-matilda.mp3",
+      "sha256": "7a666ac4a41f9e0a608060f6f5c0f9090bd90137451344426e8fc5e2b4cb7e90",
+      "copied": false
+    },
+    {
+      "key": "64cb52ab",
+      "path": "/audio/en/64cb52ab-matilda.mp3",
+      "sha256": "1d4c4e3865e3fbcec810569de03deddec301333c5c325281dbf49e392d1ddcdd",
+      "copied": false
+    },
+    {
+      "key": "65927997",
+      "path": "/audio/en/65927997-matilda.mp3",
+      "sha256": "e91ef892a4e7ddfa82bc3958b8697ab46d0ac271e86b3a0884e921149bcaa3ea",
+      "copied": false
+    },
+    {
+      "key": "67be40e4",
+      "path": "/audio/en/67be40e4-matilda.mp3",
+      "sha256": "54cb29cb7368381e31074896eea2ddb0df5742027ce38c84a026b2287c807e40",
+      "copied": false
+    },
+    {
+      "key": "68e808f6",
+      "path": "/audio/en/68e808f6-matilda.mp3",
+      "sha256": "cbf64bbc8da98f1a06f95c87c28126f19aa24f201e8f965440c860e8b64011e2",
+      "copied": true
+    },
+    {
+      "key": "6a81b32d",
+      "path": "/audio/en/6a81b32d-matilda.mp3",
+      "sha256": "3698fc617fd414c3602762b4536b4db451a3761cb9511676f87fceee54a43b21",
+      "copied": true
+    },
+    {
+      "key": "6b52016b",
+      "path": "/audio/en/6b52016b-matilda.mp3",
+      "sha256": "1d4cd01827a50cd6762b8a9085d601ecdb4b034b08457ea08bf3a4979d7f74e0",
+      "copied": false
+    },
+    {
+      "key": "6c0595dc",
+      "path": "/audio/en/6c0595dc-matilda.mp3",
+      "sha256": "ca78a2c288ba5b1021f78e43c72e7763260597fff6e41add2a1a7c9799487bf4",
+      "copied": true
+    },
+    {
+      "key": "6c098802",
+      "path": "/audio/en/6c098802-matilda.mp3",
+      "sha256": "fa89c95f68b1f23b9c12ff4cb7d5bf8c9b89d50d7716f48ce06a9ca8fbe81115",
+      "copied": false
+    },
+    {
+      "key": "6c1e333d",
+      "path": "/audio/en/6c1e333d-matilda.mp3",
+      "sha256": "91f0903bc51ecd1497df146b273d0fcd8ffa66039b4f28310e6b76316b49cb19",
+      "copied": false
+    },
+    {
+      "key": "6d2a9c4b",
+      "path": "/audio/en/6d2a9c4b-matilda.mp3",
+      "sha256": "646645876af0624d10056fc66d9d15db8ddb0e76865bac431cebb2c3e0ae1436",
+      "copied": true
+    },
+    {
+      "key": "6d4ad978",
+      "path": "/audio/en/6d4ad978-matilda.mp3",
+      "sha256": "d3b86f8d22cb9f9a889d7f5923d2dcdf94e50778cb2dc0c501b7aab1d835f633",
+      "copied": true
+    },
+    {
+      "key": "6d6518dd",
+      "path": "/audio/en/6d6518dd-matilda.mp3",
+      "sha256": "2dfcaec64f4a580f5ee4d6491c4b1ab8880dddf9c2379b17e0e4c4eff2c5f8cf",
+      "copied": true
+    },
+    {
+      "key": "6d672f2c",
+      "path": "/audio/en/6d672f2c-matilda.mp3",
+      "sha256": "31a9af7d9fab7dd01f0127aa3522aa9a1c6081a9fa7cab2e638b7f82eb715b90",
+      "copied": false
+    },
+    {
+      "key": "6fcd80c6",
+      "path": "/audio/en/6fcd80c6-matilda.mp3",
+      "sha256": "0b430c08ef36f99b8f4a9c8754d250a6ff8cff95cabec764e10788c5c48c949e",
+      "copied": false
+    },
+    {
+      "key": "7147a9a3",
+      "path": "/audio/en/7147a9a3-matilda.mp3",
+      "sha256": "5e67eff8f88b366e3571d35a6ef96a2af495c875bae9a59edcc5e8b4321f71f8",
+      "copied": false
+    },
+    {
+      "key": "73786862",
+      "path": "/audio/en/73786862-matilda.mp3",
+      "sha256": "a5240288d1f199b3d746c4b5ba9f773a053868144921626ab2b936b5fd3f5ce3",
+      "copied": false
+    },
+    {
+      "key": "76416705",
+      "path": "/audio/en/76416705-matilda.mp3",
+      "sha256": "ecd4003686f79ff9f15e9597b37cd4e8c2ed351306c7f5dc57011965f5e1f2fd",
+      "copied": false
+    },
+    {
+      "key": "7ba99977",
+      "path": "/audio/en/7ba99977-matilda.mp3",
+      "sha256": "ab6a96bdb1038acba84cb1c92665fafbfd82b79ee6247c5d10630ef6eb17b909",
+      "copied": false
+    },
+    {
+      "key": "7c46e826",
+      "path": "/audio/en/7c46e826-matilda.mp3",
+      "sha256": "1506b1a2edab126be90f06bb0c1419b6c02e9c30398de5d1437bfe26e6db2ee9",
+      "copied": true
+    },
+    {
+      "key": "7cf44cd6",
+      "path": "/audio/en/7cf44cd6-matilda.mp3",
+      "sha256": "266528e257b6698f85a8f3963a0522f62e5cc1b2abdc51af913ce19213ac73eb",
+      "copied": false
+    },
+    {
+      "key": "8363d10a",
+      "path": "/audio/en/8363d10a-matilda.mp3",
+      "sha256": "3d2f3786724b03cda035df75265714f59d3a42e4f95b98cf5eed9e8c134d4899",
+      "copied": false
+    },
+    {
+      "key": "89bd4948",
+      "path": "/audio/en/89bd4948-matilda.mp3",
+      "sha256": "ee56df7fed64118c8ae217ebe668626f2dbcd930a42715af57efd3ce43c459d6",
+      "copied": false
+    },
+    {
+      "key": "8bb2eabf",
+      "path": "/audio/en/8bb2eabf-matilda.mp3",
+      "sha256": "5b9a3438e0b80ae6e9fda735b0bca1d8334fc2b65076f549c9102eb4f3ba3cc7",
+      "copied": true
+    },
+    {
+      "key": "8cb073c6",
+      "path": "/audio/en/8cb073c6-matilda.mp3",
+      "sha256": "a9f9c3517a300aa7fbc3a4ab5163c1306589a84c2d62f207e0da797cf76b4606",
+      "copied": true
+    },
+    {
+      "key": "8cce21bb",
+      "path": "/audio/en/8cce21bb-matilda.mp3",
+      "sha256": "82d4de00187c78937efa5a9ac0b63ca66b41fbfd39a3226b75af0068f8f9d653",
+      "copied": false
+    },
+    {
+      "key": "8dd8c17a",
+      "path": "/audio/en/8dd8c17a-matilda.mp3",
+      "sha256": "cf5973ac3870f8579f73ca1979c1836991389b4c150ad0bacfacfaac6267d87b",
+      "copied": false
+    },
+    {
+      "key": "8e85998b",
+      "path": "/audio/en/8e85998b-matilda.mp3",
+      "sha256": "76a8028e5ae382de8f6d564c3b176ce9b72fc921df445d85de2c484e51f2ba84",
+      "copied": false
+    },
+    {
+      "key": "8f43359e",
+      "path": "/audio/en/8f43359e-matilda.mp3",
+      "sha256": "9507c6b5edb66301d9cd46e3ba6174d07617d063cc0dbc4fa4e58825d89f50c4",
+      "copied": false
+    },
+    {
+      "key": "92542509",
+      "path": "/audio/en/92542509-matilda.mp3",
+      "sha256": "6fbda87e60628a22214bed91d92b3941137fcb2f234bb6983393b40fcc4a39d2",
+      "copied": true
+    },
+    {
+      "key": "94e99828",
+      "path": "/audio/en/94e99828-matilda.mp3",
+      "sha256": "60e6eed016578b29d909fbc211dff136638d426c613ceb1314024999061e2a6f",
+      "copied": true
+    },
+    {
+      "key": "95f43c1c",
+      "path": "/audio/en/95f43c1c-matilda.mp3",
+      "sha256": "ad7077e26d58568dc9b8112581b4ae45e2f1e3766dc33d1c214fc2d9602bfd6c",
+      "copied": false
+    },
+    {
+      "key": "979edef1",
+      "path": "/audio/en/979edef1-matilda.mp3",
+      "sha256": "bb93bd5d0a877620a14e77d17a7d0e8cd05da32aa012bbc8d6f5b5791acf5623",
+      "copied": false
+    },
+    {
+      "key": "98a4ee7d",
+      "path": "/audio/en/98a4ee7d-matilda.mp3",
+      "sha256": "eb5df1965e2452e3c1cf53de7d23a2ea14c6f86bfe2479879383e26be115474b",
+      "copied": true
+    },
+    {
+      "key": "98d8ef65",
+      "path": "/audio/en/98d8ef65-matilda.mp3",
+      "sha256": "20b1e74242dbd1c79fa5e169f6bbb1c5e4ab01b08d0c781e9deda98d533b6627",
+      "copied": true
+    },
+    {
+      "key": "9ac7eb38",
+      "path": "/audio/en/9ac7eb38-matilda.mp3",
+      "sha256": "36cdcff567b3d94ed85cb0b8bcd36121e6b1d4e14e090dbc9903fb1f830c9a8e",
+      "copied": true
+    },
+    {
+      "key": "9bb2befc",
+      "path": "/audio/en/9bb2befc-matilda.mp3",
+      "sha256": "9d395944cb3ac46449d7c601ee775c4f55d4cf4b3a75e963e6312e614e8e86b5",
+      "copied": false
+    },
+    {
+      "key": "9bb97653",
+      "path": "/audio/en/9bb97653-matilda.mp3",
+      "sha256": "b86d3846d291306e505d3c4b9554785ac936320f6d9248363e52f6be8104f80d",
+      "copied": false
+    },
+    {
+      "key": "9c98dcb8",
+      "path": "/audio/en/9c98dcb8-matilda.mp3",
+      "sha256": "2b3076a9f5efcf0fd44ce37bdcb0453ce301f11a1d343c50e92d17f159dee4c7",
+      "copied": true
+    },
+    {
+      "key": "a2b823b4",
+      "path": "/audio/en/a2b823b4-matilda.mp3",
+      "sha256": "6280668115021e4bb1bbd582ab115f6ddab439e839b346253db0d06b71e76c2b",
+      "copied": true
+    },
+    {
+      "key": "a401d59e",
+      "path": "/audio/en/a401d59e-matilda.mp3",
+      "sha256": "a280e9a6c24a065ed747d1223604f2bbe9cf5f6dbe588527e87ab38246410613",
+      "copied": false
+    },
+    {
+      "key": "a416b33b",
+      "path": "/audio/en/a416b33b-matilda.mp3",
+      "sha256": "c4f23f133be35a64981238643041d1ece4b0242b7550fb4a1fbc22b1a5e8741d",
+      "copied": false
+    },
+    {
+      "key": "a5aba058",
+      "path": "/audio/en/a5aba058-matilda.mp3",
+      "sha256": "e0f2a73888f259f86627d2aa4588592a034d9dd2eefda4d51a676db90b886b29",
+      "copied": true
+    },
+    {
+      "key": "abf9e3bf",
+      "path": "/audio/en/abf9e3bf-matilda.mp3",
+      "sha256": "aa7ca71bd839e3b14c15db31e1ead1ded1cb5ed9062b7f4d048a911acf57cc69",
+      "copied": true
+    },
+    {
+      "key": "b07aaa0e",
+      "path": "/audio/en/b07aaa0e-matilda.mp3",
+      "sha256": "3617c302c3518e11c87b37628722003bf666ef0a66c3efef59c8329f67f0cf53",
+      "copied": true
+    },
+    {
+      "key": "b334baf4",
+      "path": "/audio/en/b334baf4-matilda.mp3",
+      "sha256": "75f01d74242f0aaaa304fa89a3decd356627ef3300e4401ff1e835515959ec07",
+      "copied": true
+    },
+    {
+      "key": "b41ab7b4",
+      "path": "/audio/en/b41ab7b4-matilda.mp3",
+      "sha256": "1f4d1f6d47e1e0cbaa9254152e934d05018b80287461c0f9880b12f69f2c7254",
+      "copied": false
+    },
+    {
+      "key": "b7096764",
+      "path": "/audio/en/b7096764-matilda.mp3",
+      "sha256": "fb9423c7794943286e21dd80017eebba291dc8503bce268a63d7afa8d2924d60",
+      "copied": true
+    },
+    {
+      "key": "ba1ac8aa",
+      "path": "/audio/en/ba1ac8aa-matilda.mp3",
+      "sha256": "939907306ba946fead47a991dbeb7a374d80f00f473fe52702a9f325f0bd66c4",
+      "copied": true
+    },
+    {
+      "key": "ba87e11c",
+      "path": "/audio/en/ba87e11c-matilda.mp3",
+      "sha256": "90d62af5757a318a997feef74a192052186caaac70156761ba7650a09abf2865",
+      "copied": true
+    },
+    {
+      "key": "babf7e1d",
+      "path": "/audio/en/babf7e1d-matilda.mp3",
+      "sha256": "1603c923aad1a5376089c86aa8e93926ff0446eb73602afcb87af6c3ac18acd3",
+      "copied": false
+    },
+    {
+      "key": "bacb26a9",
+      "path": "/audio/en/bacb26a9-matilda.mp3",
+      "sha256": "77a68c1936f3ec9b58d82fb197ee3df51dc234ebf53377238aac6e9344d32122",
+      "copied": false
+    },
+    {
+      "key": "bb180373",
+      "path": "/audio/en/bb180373-matilda.mp3",
+      "sha256": "fb19154401b1b58007d478080941f1c5b3486f981234a0881321f2928f07b5a1",
+      "copied": false
+    },
+    {
+      "key": "bb4b4778",
+      "path": "/audio/en/bb4b4778-matilda.mp3",
+      "sha256": "9026560a8c69a10533f41fd3a253bf2919d91510b4bd24f96a44c4da62fe31f9",
+      "copied": true
+    },
+    {
+      "key": "bdae78c9",
+      "path": "/audio/en/bdae78c9-matilda.mp3",
+      "sha256": "4e40881a535610032ddc5d9516fd615747083775fc8f781bc563405f0ae2f824",
+      "copied": false
+    },
+    {
+      "key": "bed17da3",
+      "path": "/audio/en/bed17da3-matilda.mp3",
+      "sha256": "0c222ada5145b08bf5c5f9531c610e7b271cfba2dbcd431e0cddbaed47642041",
+      "copied": false
+    },
+    {
+      "key": "c54f10d9",
+      "path": "/audio/en/c54f10d9-matilda.mp3",
+      "sha256": "978ff2ec2f090d1c46d08db3bc5b10ccbb70ea1c7b2b4d914cfa746981442491",
+      "copied": true
+    },
+    {
+      "key": "cd8b1f6a",
+      "path": "/audio/en/cd8b1f6a-matilda.mp3",
+      "sha256": "4cd5d9df18bc30c714ba64ce89316a57fd7549184483d86e1bf14ea4e3dec241",
+      "copied": true
+    },
+    {
+      "key": "d0def2d7",
+      "path": "/audio/en/d0def2d7-matilda.mp3",
+      "sha256": "7184248d115b54504edabccb6885776159580d9b42094266f22e221242a26272",
+      "copied": false
+    },
+    {
+      "key": "d0fac1fe",
+      "path": "/audio/en/d0fac1fe-matilda.mp3",
+      "sha256": "20ac27ea1a5ebb2574a8f30ca18a53b7b4c7e54e26dc4b28faa253f0060d329c",
+      "copied": true
+    },
+    {
+      "key": "d1b02131",
+      "path": "/audio/en/d1b02131-matilda.mp3",
+      "sha256": "7103d23d8e23679755ba2295cd831b02fec6ac92a89b7f40194ba76a252f3883",
+      "copied": false
+    },
+    {
+      "key": "daa1096c",
+      "path": "/audio/en/daa1096c-matilda.mp3",
+      "sha256": "a763532d572ea18973d860fe6267381f553afb74e10d646b72268a45c8b3547b",
+      "copied": false
+    },
+    {
+      "key": "dc40c993",
+      "path": "/audio/en/dc40c993-matilda.mp3",
+      "sha256": "8f131dbd23f304349ae0eaa90d9be2b4591b8a988d5ce3643398a7df00c126bb",
+      "copied": false
+    },
+    {
+      "key": "dd05ecbb",
+      "path": "/audio/en/dd05ecbb-matilda.mp3",
+      "sha256": "deaed001c2d3db4c2b950b2cfcd5674c92274e2fbd37fef7cc894b2ce87bf3bd",
+      "copied": true
+    },
+    {
+      "key": "e7b8a110",
+      "path": "/audio/en/e7b8a110-matilda.mp3",
+      "sha256": "6c3e23df29c6efe75eae02bd936b38bbed1986176f7ae3d7a0c3c17b20eec80d",
+      "copied": false
+    },
+    {
+      "key": "e808d0e5",
+      "path": "/audio/en/e808d0e5-matilda.mp3",
+      "sha256": "75116819a1529d77b9b0fe7b43b184f6fa177e33034e4b5359f89a9592bf68fe",
+      "copied": false
+    },
+    {
+      "key": "e8d9104f",
+      "path": "/audio/en/e8d9104f-matilda.mp3",
+      "sha256": "b3389c7fce6f41e7e210542a49227a20996f716b5dfc97106dfe12ca3f537573",
+      "copied": false
+    },
+    {
+      "key": "ea947e80",
+      "path": "/audio/en/ea947e80-matilda.mp3",
+      "sha256": "fae87d4c3e10507567273ba203ff0a596cdfc823245e1c0ba92777d405010284",
+      "copied": true
+    },
+    {
+      "key": "f10aabfd",
+      "path": "/audio/en/f10aabfd-matilda.mp3",
+      "sha256": "811b7e6d406d98fc5611b633a2624a1e4576971e7b4c901b89c285e6d29ab61b",
+      "copied": true
+    },
+    {
+      "key": "f60cfac8",
+      "path": "/audio/en/f60cfac8-matilda.mp3",
+      "sha256": "b4ff5ce34230d3d80396619046de74f44a28f17c8d81324ae51b3442d132e76c",
+      "copied": false
+    },
+    {
+      "key": "f98dd31b",
+      "path": "/audio/en/f98dd31b-matilda.mp3",
+      "sha256": "22d4face1c1ddfcfd355ad742cb767b3fc62454fd0e25c5b152657e1b212d1f4",
+      "copied": true
+    },
+    {
+      "key": "fc455483",
+      "path": "/audio/en/fc455483-matilda.mp3",
+      "sha256": "e67583beabc638f254fbc2d7edd8d5a6af288963c6a17f7ca483251658e8db55",
+      "copied": false
+    },
+    {
+      "key": "fce2de6e",
+      "path": "/audio/en/fce2de6e-matilda.mp3",
+      "sha256": "a0e038f4b29a5a12e1ddc84e6fb13854843557fbf1d2c9059f9e6769212a2c61",
+      "copied": true
+    },
+    {
+      "key": "fdbf8a67",
+      "path": "/audio/en/fdbf8a67-matilda.mp3",
+      "sha256": "a428c269326375b33d71ba3cdfc9f045c79d876cde2a291d05a5acd31d143438",
+      "copied": false
+    },
+    {
+      "key": "fe22b571",
+      "path": "/audio/en/fe22b571-matilda.mp3",
+      "sha256": "2cd49a3a294eb5a1809f89f624d6e9148c2094272d9b0ddb6be950590869ee6f",
+      "copied": true
+    },
+    {
+      "key": "fe913cbc",
+      "path": "/audio/en/fe913cbc-matilda.mp3",
+      "sha256": "f57e5043bf7910033e3c8f01f0beec26e8358d50e61735164307f333ceecc253",
+      "copied": true
+    },
+    {
+      "key": "ff00da80",
+      "path": "/audio/en/ff00da80-matilda.mp3",
+      "sha256": "50993557829a30e39daedaddbad3c377be8eb17d25e9fd6467d50893352d55e9",
+      "copied": true
+    }
+  ],
+  "scope": "Complete127exact Solarvoicebytes merged, Memoryvoicegateunchanged. No playback/listening/productionacceptance."
+}
