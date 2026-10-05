@@ -2013,7 +2013,9 @@
     "buildFiles": 5886,
     "productionReleased": false,
     "browserPlayback": "pending",
-    "independentSourceReview": "in progress",
-    "evidence": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/report.md"
+    "independentSourceReview": "passed",
+    "evidence": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/report.md",
+    "independentReviewCommit": "9599afb715a4527a8efc6910e1a3c333cc42a732",
+    "independentReviewEvidence": "docs/qa-evidence/b2-b3-cumulative-supplement-20261005/independent-review.md"
   }
 }
