@@ -1740,9 +1740,9 @@
   "narrationWorkerCheckpoint": {
     "pid": 18781,
     "physicallyConfirmedAlive": true,
-    "checkpointAt": "2026-10-05T00:26:43.598Z",
-    "run": 348,
-    "pending": 287,
+    "checkpointAt": "2026-10-05T00:36:53.576Z",
+    "run": 350,
+    "pending": 257,
     "status": "waiting_request_window",
     "scope": "Original ac3 worker only; no restart or concurrent paid calls. Corrected recordings/listening remain separate."
   },
@@ -1785,8 +1785,10 @@
     "maxRuns": 43,
     "rootFocusedTestsPassed": 23,
     "rootReadOnlyDryRun": "862 selected,11 reusable,851 pending,0 snapshot-ready unavailable",
-    "independentReview": "in progress",
+    "independentReview": "passed within source/fixture/dry-run scope",
     "executionStarted": false,
-    "scope": "No provider call or new worker. Requires terminal reconciled predecessor and independent runner review before activation. Full decode/playback/listening remain separate."
+    "scope": "No provider call or new worker. Requires terminal reconciled predecessor and independent runner review before activation. Full decode/playback/listening remain separate.",
+    "independentReviewCommit": "475081fa08b96fe0ead5d427723a07548e0d65b2",
+    "independentReviewReport": "docs/qa-evidence/b5-sound-safari-selector-independent-review-20261005/report.md"
   }
 }
