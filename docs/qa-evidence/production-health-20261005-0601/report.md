@@ -25,7 +25,7 @@ Opened the existing **Rex and the Missing Moon Map** story from the Storybook St
 
 At 390×844, the reader had no horizontal overflow and no broken image. The title is ellipsized in its narrow header (`Rex and the Missi…`) while the page title and body remain visible. At 1280×800 the full title and illustration fit. The header back, sound, and parent buttons are 48×48 on mobile. Normal **Back to learning world** plus confirmation returned to **Read & Write**.
 
-One **Play narration** action advanced through later page clips. After using the visible Pause control and switching the global sound toggle off, later page narration still continued when moving to the next page. That may be the reader’s intended explicit read-through mode, so this bounded sample records it without classifying it as a defect. Browser media events showed actual page audio; they do not establish human listening quality.
+One **Play narration** action advanced through later page clips. After using the visible Pause control and switching the global sound toggle off, later page narration still continued when moving to the next page. A follow-up passive media observation found the global mute sets the element's volume to `0` (`muted` remains `false`), so the continuation was silent; it matches the reader's auto-read behavior and is not an audible-playback defect. Browser media events show runtime playback state, not human listening quality.
 
 ## Evidence
 
