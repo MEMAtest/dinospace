@@ -1,0 +1,253 @@
+{
+  "purpose": "Independent exact cross-batch reuse evidence for six existing Batch 2 clips encountered by the original 47-item B4 grammar selector.",
+  "evidenceIsNotAProviderReceipt": true,
+  "batch2DecodeLedger": {
+    "path": "docs/qa-evidence/batch2-corpus-final-decode-20261003.json",
+    "sha256": "1b6b3a1003ce029d524b7223bd3f84fd490f39c671597a5a3cf8cb6bc3219e90",
+    "requested": 1371,
+    "ready": 1371,
+    "missingCount": 0,
+    "invalidCount": 0,
+    "scope": "Local corpus existence, SHA256, duration and full decoding; not listening or production acceptance"
+  },
+  "batch2PackagingCommit": "ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630",
+  "canonicalCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "b4Inventory": {
+    "path": "docs/qa-evidence/batch4-grammar-narration-jobs-20261004.json",
+    "sha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+    "pinnedInventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+    "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+    "itemCount": 47
+  },
+  "candidateCount": 6,
+  "allSixExactMatches": true,
+  "candidates": [
+    {
+      "key": "11d1317d",
+      "text": "There is 1 cookie.",
+      "textSha256": "02d58d69e4eb11304d3516460c877673fe5c889e9d293c470389449cc9c31463",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/11d1317d-matilda.mp3",
+      "recomputedVoiceKey": "11d1317d",
+      "batch2Decode": {
+        "ledgerPath": "docs/qa-evidence/batch2-corpus-final-decode-20261003.json",
+        "valid": true,
+        "durationSeconds": 1.160998,
+        "sha256": "2e4f1ec6e3571a1e7fbea99b044757c8d959b656da8ea72590e8c07dc02c26fc"
+      },
+      "batch2PackagingCommit": "ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630",
+      "packagingBlobSha256": "2e4f1ec6e3571a1e7fbea99b044757c8d959b656da8ea72590e8c07dc02c26fc",
+      "canonicalCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+      "canonicalBlobSha256": "2e4f1ec6e3571a1e7fbea99b044757c8d959b656da8ea72590e8c07dc02c26fc",
+      "currentWorkingFileSha256": "2e4f1ec6e3571a1e7fbea99b044757c8d959b656da8ea72590e8c07dc02c26fc",
+      "currentWorkingFileBytes": 19688,
+      "canonicalManifestPath": "/audio/en/11d1317d-matilda.mp3",
+      "currentWorkingManifestPath": "/audio/en/11d1317d-matilda.mp3",
+      "b4InventoryMappedField": null
+    },
+    {
+      "key": "3352ee11",
+      "text": "There is 1 apple.",
+      "textSha256": "c3c4e5b2c800e761c33b8b9f387bde0bf0deb563f6f88c44dbda25c07be3ee5d",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/3352ee11-matilda.mp3",
+      "recomputedVoiceKey": "3352ee11",
+      "batch2Decode": {
+        "ledgerPath": "docs/qa-evidence/batch2-corpus-final-decode-20261003.json",
+        "valid": true,
+        "durationSeconds": 1.253878,
+        "sha256": "bd877d335962c6e97fca71a0f56013a5da079d8eabb62a28a99bfb138d2fa44c"
+      },
+      "batch2PackagingCommit": "ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630",
+      "packagingBlobSha256": "bd877d335962c6e97fca71a0f56013a5da079d8eabb62a28a99bfb138d2fa44c",
+      "canonicalCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+      "canonicalBlobSha256": "bd877d335962c6e97fca71a0f56013a5da079d8eabb62a28a99bfb138d2fa44c",
+      "currentWorkingFileSha256": "bd877d335962c6e97fca71a0f56013a5da079d8eabb62a28a99bfb138d2fa44c",
+      "currentWorkingFileBytes": 20942,
+      "canonicalManifestPath": "/audio/en/3352ee11-matilda.mp3",
+      "currentWorkingManifestPath": "/audio/en/3352ee11-matilda.mp3",
+      "b4InventoryMappedField": null
+    },
+    {
+      "key": "47902350",
+      "text": "There is 1 gem.",
+      "textSha256": "2cf4f30112e4298123992001ef4c2689ad04cff46fd9cb36a8025699ef847b76",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/47902350-matilda.mp3",
+      "recomputedVoiceKey": "47902350",
+      "batch2Decode": {
+        "ledgerPath": "docs/qa-evidence/batch2-corpus-final-decode-20261003.json",
+        "valid": true,
+        "durationSeconds": 1.207438,
+        "sha256": "71d7f41237e4e69faf8319f9bf212fbda35f2f6e85a6af34825891a229668bcf"
+      },
+      "batch2PackagingCommit": "ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630",
+      "packagingBlobSha256": "71d7f41237e4e69faf8319f9bf212fbda35f2f6e85a6af34825891a229668bcf",
+      "canonicalCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+      "canonicalBlobSha256": "71d7f41237e4e69faf8319f9bf212fbda35f2f6e85a6af34825891a229668bcf",
+      "currentWorkingFileSha256": "71d7f41237e4e69faf8319f9bf212fbda35f2f6e85a6af34825891a229668bcf",
+      "currentWorkingFileBytes": 20524,
+      "canonicalManifestPath": "/audio/en/47902350-matilda.mp3",
+      "currentWorkingManifestPath": "/audio/en/47902350-matilda.mp3",
+      "b4InventoryMappedField": null
+    },
+    {
+      "key": "84bd0c17",
+      "text": "There is 1 shell.",
+      "textSha256": "7af434de5b3010eb62dae95083a3830dc030a6862f4c1cda609e7e928316046c",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/84bd0c17-matilda.mp3",
+      "recomputedVoiceKey": "84bd0c17",
+      "batch2Decode": {
+        "ledgerPath": "docs/qa-evidence/batch2-corpus-final-decode-20261003.json",
+        "valid": true,
+        "durationSeconds": 1.207438,
+        "sha256": "42753b6bad77e8c84a1b7bc7f0301ffc8d98c568d1f66e2443d1947ed364bc11"
+      },
+      "batch2PackagingCommit": "ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630",
+      "packagingBlobSha256": "42753b6bad77e8c84a1b7bc7f0301ffc8d98c568d1f66e2443d1947ed364bc11",
+      "canonicalCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+      "canonicalBlobSha256": "42753b6bad77e8c84a1b7bc7f0301ffc8d98c568d1f66e2443d1947ed364bc11",
+      "currentWorkingFileSha256": "42753b6bad77e8c84a1b7bc7f0301ffc8d98c568d1f66e2443d1947ed364bc11",
+      "currentWorkingFileBytes": 20524,
+      "canonicalManifestPath": "/audio/en/84bd0c17-matilda.mp3",
+      "currentWorkingManifestPath": "/audio/en/84bd0c17-matilda.mp3",
+      "b4InventoryMappedField": null
+    },
+    {
+      "key": "b04f8552",
+      "text": "There is 1 flower.",
+      "textSha256": "95d9f561661cdc8a72ddb18233cc2a4b0510417e3c4aa79e248b67c26b7c8f51",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/b04f8552-matilda.mp3",
+      "recomputedVoiceKey": "b04f8552",
+      "batch2Decode": {
+        "ledgerPath": "docs/qa-evidence/batch2-corpus-final-decode-20261003.json",
+        "valid": true,
+        "durationSeconds": 1.300317,
+        "sha256": "4ce18bfca10d3339594b7c2dd27d4e61e5375c8963f5c6089e6f1f66414ede7f"
+      },
+      "batch2PackagingCommit": "ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630",
+      "packagingBlobSha256": "4ce18bfca10d3339594b7c2dd27d4e61e5375c8963f5c6089e6f1f66414ede7f",
+      "canonicalCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+      "canonicalBlobSha256": "4ce18bfca10d3339594b7c2dd27d4e61e5375c8963f5c6089e6f1f66414ede7f",
+      "currentWorkingFileSha256": "4ce18bfca10d3339594b7c2dd27d4e61e5375c8963f5c6089e6f1f66414ede7f",
+      "currentWorkingFileBytes": 21777,
+      "canonicalManifestPath": "/audio/en/b04f8552-matilda.mp3",
+      "currentWorkingManifestPath": "/audio/en/b04f8552-matilda.mp3",
+      "b4InventoryMappedField": null
+    },
+    {
+      "key": "d067b8a7",
+      "text": "There is 1 star.",
+      "textSha256": "41a862070584cb0131c7e3cc58f5fc0ba5a1b6c52b45870aae49385395802158",
+      "language": "en",
+      "voice": "matilda",
+      "path": "/audio/en/d067b8a7-matilda.mp3",
+      "recomputedVoiceKey": "d067b8a7",
+      "batch2Decode": {
+        "ledgerPath": "docs/qa-evidence/batch2-corpus-final-decode-20261003.json",
+        "valid": true,
+        "durationSeconds": 1.253878,
+        "sha256": "e33d14a1ceaaa272f13cc3aab54dd25a0775f1f159e846c76e380f3a6bbcf723"
+      },
+      "batch2PackagingCommit": "ead5a1d60d2ad5e2cacefc4cbcecb0aee7cec630",
+      "packagingBlobSha256": "e33d14a1ceaaa272f13cc3aab54dd25a0775f1f159e846c76e380f3a6bbcf723",
+      "canonicalCommit": "1accc99e89be303678ead99def6a3095ab1cb886",
+      "canonicalBlobSha256": "e33d14a1ceaaa272f13cc3aab54dd25a0775f1f159e846c76e380f3a6bbcf723",
+      "currentWorkingFileSha256": "e33d14a1ceaaa272f13cc3aab54dd25a0775f1f159e846c76e380f3a6bbcf723",
+      "currentWorkingFileBytes": 20942,
+      "canonicalManifestPath": "/audio/en/d067b8a7-matilda.mp3",
+      "currentWorkingManifestPath": "/audio/en/d067b8a7-matilda.mp3",
+      "b4InventoryMappedField": null
+    }
+  ],
+  "firstB4RunReceipts": {
+    "auditPath": "docs/qa-evidence/b4-grammar-first-run-20261005/audit.json",
+    "receiptFile": "tmp/reviewed-narration-provenance-9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001.json",
+    "receiptFileSha256": "db83a0524faa36873ccd44f94bbe88b0665faf791a5778e5ca23a8bacaae0abb",
+    "entryCount": 7,
+    "entries": [
+      {
+        "key": "02a2a0d4",
+        "path": "/audio/en/02a2a0d4-matilda.mp3",
+        "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+        "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+        "audioSha256": "873d582937e9704978464583b7f799525df52dd1ab8f0dcc33c2f3fc78d9abf1",
+        "bytes": 38914,
+        "manifestMatches": true
+      },
+      {
+        "key": "04af6fed",
+        "path": "/audio/en/04af6fed-matilda.mp3",
+        "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+        "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+        "audioSha256": "45c45d1e929f0b82dbf248486f16184b013e5c0389904d80afc89cca83ae925a",
+        "bytes": 38078,
+        "manifestMatches": true
+      },
+      {
+        "key": "04b3ed1b",
+        "path": "/audio/en/04b3ed1b-matilda.mp3",
+        "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+        "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+        "audioSha256": "a6f98578cc80f9d55576b0fae610bc7961a1942f30d6cf3245646585be694db3",
+        "bytes": 38914,
+        "manifestMatches": true
+      },
+      {
+        "key": "07d23e48",
+        "path": "/audio/en/07d23e48-matilda.mp3",
+        "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+        "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+        "audioSha256": "bca5ef547a23dcf00cf7ef0e880e110d4e91d1e963057acab227b82099921b75",
+        "bytes": 44765,
+        "manifestMatches": true
+      },
+      {
+        "key": "07f0535c",
+        "path": "/audio/en/07f0535c-matilda.mp3",
+        "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+        "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+        "audioSha256": "74f44e335974e83a8a582bf362122ff213a12d2c4ff6b9ca5b523b233c8f9e01",
+        "bytes": 37660,
+        "manifestMatches": true
+      },
+      {
+        "key": "09e38a8f",
+        "path": "/audio/en/09e38a8f-matilda.mp3",
+        "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+        "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+        "audioSha256": "6d1f22c2a097a61b408ba24da8aa3d921a2877852ceefd2ec5a5ee8ada58396b",
+        "bytes": 44347,
+        "manifestMatches": true
+      },
+      {
+        "key": "0e404090",
+        "path": "/audio/en/0e404090-matilda.mp3",
+        "inventorySha256": "9d0850e9fe357cf99b8edf2255b427c66a15c79a4163a47ea9191706624e3001",
+        "sourceCommit": "fe5aeff64dca2d1c9aad6dcecee9cede5bdcc128",
+        "audioSha256": "1ea16f48cac508547518b03601d68994dcaea62d897b9e8a9619a1b6bb1a039f",
+        "bytes": 16762,
+        "manifestMatches": true
+      }
+    ],
+    "allSevenStillMatchFilesAndManifest": true,
+    "note": "These seven successful B4 receipts remain in their original B4 inventory receipt namespace; this report does not copy or reinterpret them."
+  },
+  "currentWorkingManifestSnapshot": {
+    "path": "src/data/offlineVoiceManifest.js",
+    "sha256": "7e5f8bfa7d0dff21ef2ca9f27bba1fe9ec4b87ecc28cc9b49deb2728d9df9199",
+    "sixCrossBatchKeysMapToExactPaths": true,
+    "workingTreeIsDirty": true
+  },
+  "limits": [
+    "Decode and hash evidence establish technical file identity/readiness only, not pronunciation or listening quality.",
+    "The six Batch 2 files must retain Batch 2 lineage; do not create synthetic B4 receipts or authorize other files by broad hash/key rules."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "reviewedCommit": "051b540f518c7c73bf9fb5563d0914e4ce314f7b",
+  "sourceFileSha256": {
+    "scripts/b4GrammarReviewedReuse.mjs": "c83e2e80d0bee85ce38deda55c54a19209c3e16be01a65cc52e2db6ab357dc77",
+    "scripts/b4GrammarReviewedReuse.test.mjs": "f3f900cbfebebf05a094d718f79097400543aab76585c7bad0863eec39e90706",
+    "scripts/run-reviewed-narration-job.mjs": "537b7b67ff7f8d9d70afb1e1fbeda48d7443c3670b7aadd8509729a6329acaad",
+    "scripts/reviewedNarrationJobs.mjs": "a2b61084c01269f736a1b438fa6598c14837af870340ee5ee6e961e7205ffb38",
+    "scripts/reviewedNarrationJobs.test.mjs": "5c36650b324d6d4f812098940f450b289b5f00a943a47114b536c4e73178518e",
+    "docs/qa-evidence/b4-grammar-reviewed-reuse-20261005.json": "0d512625d875990a54991451cee2b292fef2ce13be54ab3fd7eefc6a890c20ad"
+  },
+  "focusedCommands": [
+    {
+      "command": "node --test scripts/b4GrammarReviewedReuse.test.mjs",
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "command": "node --test --test-name-pattern='B4 grammar' scripts/reviewedNarrationJobs.test.mjs",
+      "passed": 2,
+      "failed": 0
+    }
+  ],
+  "reviewVerdict": "cross-batch lineage/helper tuple pinning appears narrow and byte-checked; paid resume remains blocked on missing-manifest reuse-only CLI test because current run accounting increments before reuse repair.",
+  "testGap": "No test for valid file + expected hash + missing manifest mapping completing with runs=0, zero provider requests, unchanged journal, and preserved seven B4 receipts."
+}
