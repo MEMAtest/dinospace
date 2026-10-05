@@ -1,0 +1,29 @@
+{
+  "requested": 275,
+  "ready": 275,
+  "pending": 0,
+  "breakdown": {
+    "counting": {
+      "requested": 207,
+      "ready": 207,
+      "pending": 0
+    },
+    "dino": {
+      "requested": 45,
+      "ready": 45,
+      "pending": 0
+    },
+    "trace": {
+      "requested": 7,
+      "ready": 7,
+      "pending": 0
+    },
+    "tictactoe": {
+      "requested": 16,
+      "ready": 16,
+      "pending": 0
+    }
+  },
+  "missing": [],
+  "scope": "Read-only mapped file coverage; runtime wiring, decode and human listening remain separate gates."
+}
