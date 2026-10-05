@@ -4,9 +4,14 @@ import { GAME_SESSIONS, ownsGameProgression } from '../src/data/gameSessions.js'
 import { levelsForSession } from '../src/data/sessionLevels.js';
 
 test('Amari chapter games bypass the answer-count wrapper while Askia counting keeps his exact bounds', () => {
-  for (const game of ['counting', 'trace', 'tictactoe', 'dino']) {
+  for (const game of ['counting', 'trace', 'tictactoe', 'dino', 'pattern', 'hangman', 'chess', 'astronaut']) {
     assert.equal(ownsGameProgression(game, false), true, game);
   }
+  for (const game of ['pattern', 'hangman', 'chess', 'astronaut']) {
+    assert.equal(ownsGameProgression(game, true), false, game);
+  }
+  assert.ok(GAME_SESSIONS.pattern);
+  assert.ok(GAME_SESSIONS.hangman);
   assert.equal(ownsGameProgression('counting', true), false);
   assert.equal(ownsGameProgression('trace', true), false);
   assert.ok(GAME_SESSIONS.counting);
@@ -17,7 +22,7 @@ test('Amari chapter games bypass the answer-count wrapper while Askia counting k
 });
 
 test('unmodified sessions retain their wrapper and existing board games keep their owner', () => {
-  for (const game of ['addition', 'subtraction', 'timeteller', 'letters', 'german', 'pattern']) {
+  for (const game of ['addition', 'subtraction', 'timeteller', 'letters', 'german']) {
     assert.equal(ownsGameProgression(game), false, game);
     assert.ok(GAME_SESSIONS[game]);
   }

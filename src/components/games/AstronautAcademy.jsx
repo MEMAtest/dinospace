@@ -1,480 +1,72 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { Home, ArrowLeft } from 'lucide-react';
-import { ASTRONAUT_PROFILES, ASTRONAUT_CATEGORIES } from '../../data/index.js';
-import { getPraise, shuffle } from '../../utils.js';
-import { SoundToggle } from '../shared/index.jsx';
-import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { useEffect, useState } from 'react';
+import { Batch6BaseCss, Batch6Chrome, ChapterMap, FactPanel, useBatch6Journey } from './Batch6Journey.jsx';
+import { ASTRONAUT_MISSIONS, BATCH6_BANDS, readBatch6Progress, validateAstronautMission } from '../../data/batch6Games.js';
+import AstronautAcademyAskia from './AstronautAcademyAskia.jsx';
+import astronautRobotArt from '../../assets/landing/amari-astronaut-robot.png';
+import { speakBatch6, astronautClueNarration } from '../../data/batch6Narration.js';
 
-const SPACE_STARS = Array.from({ length: 30 }, (_, index) => ({
-  id: index,
-  w: 1 + (index % 3),
-  top: `${(index * 29) % 100}%`,
-  left: `${(index * 47) % 100}%`,
-  delay: `${index % 4}s`,
-}));
-
-const AstronautImage = ({ profile, size = 80, className = '' }) => {
-  const [failed, setFailed] = useState(false);
-  const [loaded, setLoaded] = useState(false);
-
-  if (!profile) return null;
-
-  if (failed) {
-    return (
-      <div className={`rounded-full flex items-center justify-center bg-indigo-800 border-4 border-white/30 ${className}`} style={{ width: size, height: size }}>
-        <span style={{ fontSize: size * 0.5 }}>{profile.emoji}</span>
-      </div>
-    );
-  }
-
-  return (
-    <div className={`relative rounded-full overflow-hidden border-4 border-white/30 ${className}`} style={{ width: size, height: size }}>
-      {!loaded && <div className="absolute inset-0 bg-indigo-700 animate-pulse rounded-full" />}
-      <img
-        src={profile.imageUrl}
-        alt={profile.name}
-        loading="lazy"
-        className="w-full h-full object-cover rounded-full"
-        onError={() => setFailed(true)}
-        onLoad={() => setLoaded(true)}
-      />
-    </div>
-  );
+const copy={starter:'Space science: observe the Sun, Moon and Mars; learn simple tools.',growing:'Mission engineering: protect and power a spacecraft.',challenge:'Review missions: use evidence to plan a space mission.'};
+const chapterNames={starter:'Space science',growing:'Mission engineering',challenge:'Review missions'};
+const MissionClueVisual=({missionId})=>{
+  if(missionId==='earth-rotation')return <svg className="mx-auto mt-3 block w-full max-w-64" viewBox="0 0 240 112" role="img" aria-label="A lamp shines on a globe. One side is bright and one side is dark; an arrow curves around the globe.">
+    <defs><clipPath id="day-night-globe"><circle cx="126" cy="57" r="35"/></clipPath><marker id="day-night-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7z" fill="#4338ca"/></marker></defs>
+    <circle cx="39" cy="57" r="20" fill="#facc15" stroke="#ca8a04" strokeWidth="2"/><path d="M39 24v-9M39 99v-9M6 57h-5M77 57h-5M16 34l-7-7M69 81l-7-7M62 34l7-7M9 81l7-7" stroke="#ca8a04" strokeWidth="3" strokeLinecap="round"/>
+    <circle cx="126" cy="57" r="35" fill="#2563eb"/><g clipPath="url(#day-night-globe)"><path d="M126 22h40v70h-40z" fill="#172554"/><path d="M103 45l14-8 7 9-6 6 7 5-12 7-8-7zM130 67l12-6 8 9-8 7-11-3z" fill="#65a30d"/></g><circle cx="126" cy="57" r="35" fill="none" stroke="#1e3a8a" strokeWidth="2"/>
+    <path d="M101 20a46 46 0 0 1 61 10" fill="none" stroke="#4338ca" strokeWidth="3" markerEnd="url(#day-night-arrow)"/><text x="126" y="105" textAnchor="middle" fontSize="12" fill="#334155">daylight and darkness</text>
+  </svg>;
+  if(missionId==='venus-rotation')return <svg className="mx-auto mt-3 block w-full max-w-72" viewBox="0 0 280 116" role="img" aria-label="Two labeled planets with curved arrows to compare their turning directions.">
+    <defs><marker id="planet-turn-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7z" fill="#4338ca"/></marker><marker id="venus-turn-arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7z" fill="#c2410c"/></marker></defs>
+    <circle cx="76" cy="49" r="22" fill="#60a5fa" stroke="#1e40af" strokeWidth="2"/><path d="M52 37a31 31 0 0 1 47 3" fill="none" stroke="#4338ca" strokeWidth="3" markerEnd="url(#planet-turn-arrow)"/>
+    <circle cx="204" cy="49" r="22" fill="#fbbf24" stroke="#b45309" strokeWidth="2"/><path d="M228 37a31 31 0 0 0-47 3" fill="none" stroke="#c2410c" strokeWidth="3" markerEnd="url(#venus-turn-arrow)"/>
+    <text x="76" y="91" textAnchor="middle" fontSize="12" fill="#334155">Most planets</text><text x="204" y="91" textAnchor="middle" fontSize="12" fill="#334155">Venus</text><text x="140" y="110" textAnchor="middle" fontSize="11" fill="#475569">Compare the arrows</text>
+  </svg>;
+  return null;
 };
-
-const SpaceStars = () => {
-  return (
-    <div className="absolute inset-0 pointer-events-none">
-      {SPACE_STARS.map((s) => (
-        <div key={s.id} className="absolute bg-white rounded-full animate-pulse" style={{ width: s.w, height: s.w, top: s.top, left: s.left, animationDelay: s.delay }} />
-      ))}
-    </div>
-  );
+const getMissionPool=(chapter,playerId)=>{
+  const base=ASTRONAUT_MISSIONS[chapter].filter(validateAstronautMission);
+  const progress=readBatch6Progress('astronaut',playerId);
+  const all=Object.values(ASTRONAUT_MISSIONS).flat().filter(validateAstronautMission);
+  const missed=new Set(progress.missed||[]);
+  const reviews=[...missed].map((id)=>all.find((item)=>item.id===id)).filter(Boolean).map((item)=>({...item,id:`review-${item.id}`,review:true,signature:item.id}));
+  return [...base.filter((item)=>!missed.has(item.id)),...reviews];
 };
-
-const RocketProgress = ({ current, total }) => {
-  const pct = total > 0 ? (current / total) * 100 : 0;
-  return (
-    <div className="relative w-full h-8 flex items-center px-2 my-2">
-      <span className="text-xl flex-shrink-0">🌍</span>
-      <div className="flex-1 mx-2 relative h-1">
-        <div className="absolute inset-0 border-t-2 border-dashed border-white/30" />
-        <div className="absolute top-1/2 -translate-y-1/2 transition-all duration-600 ease-out" style={{ left: `${Math.min(pct, 100)}%` }}>
-          <span className="text-xl inline-block" style={{ transform: 'rotate(15deg)' }}>🚀</span>
-        </div>
-      </div>
-      <span className="text-xl flex-shrink-0">🌕</span>
-    </div>
-  );
-};
-
-// Starter mode shows the answer plus two others. Shuffle once when the
-// question is set so the answer is not always first and does not jump around
-// on re-render.
-const buildQuestionOptions = (question, difficulty) => {
-  if (!question) return [];
-  if (difficulty !== 'starter') return question.options;
-  const others = shuffle(question.options.filter((opt) => opt.text !== question.answer)).slice(0, 2);
-  return shuffle(question.options.filter((opt) => opt.text === question.answer).concat(others));
-};
-
-const DidYouKnowOverlay = ({ profile, onDone, speak }) => {
-  const doneRef = useRef(false);
-
-  const finish = useCallback(() => {
-    if (doneRef.current) return;
-    doneRef.current = true;
-    onDone();
-  }, [onDone]);
-
-  useEffect(() => {
-    if (!profile) return;
-    speak(`Did you know? ${profile.funFact}`);
-    const timer = setTimeout(finish, 6000);
-    return () => clearTimeout(timer);
-  }, [profile, speak, finish]);
-
-  if (!profile) return null;
-
-  return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/60 backdrop-blur-sm" onClick={finish}>
-      <div className="bg-gradient-to-b from-indigo-700 to-purple-800 rounded-3xl p-6 max-w-sm w-full text-center shadow-2xl animate-scale-in mx-4">
-        <div className="flex justify-center mb-3">
-          <AstronautImage profile={profile} size={120} className="border-yellow-300 shadow-xl" />
-        </div>
-        <p className="text-yellow-300 font-bold text-lg mb-1">Did you know?</p>
-        <p className="text-white font-bold text-base mb-2">{profile.name} {profile.flag}</p>
-        <p className="text-white/80 text-sm">{profile.funFact}</p>
-        <button type="button" onClick={finish} className="mt-4 rounded-full bg-white/20 px-5 py-2 text-sm font-bold text-white">Tap to continue</button>
-      </div>
-    </div>
-  );
-};
-
-const HeroesGallery = ({ onBack, playSfx, speak, soundOn, onToggleSound }) => {
-  const [flippedCards, setFlippedCards] = useState({});
-
-  const handleFlip = (profileId) => {
-    const profile = ASTRONAUT_PROFILES.find((p) => p.id === profileId);
-    setFlippedCards((prev) => {
-      const isFlipped = !prev[profileId];
-      if (isFlipped && profile) {
-        playSfx('card-flip');
-        speak(profile.funFact);
-      }
-      return { ...prev, [profileId]: isFlipped };
-    });
-  };
-
-  return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
-      <SpaceStars />
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to Astronaut Academy missions"><ArrowLeft strokeWidth={3} /></button>
-        <h2 className="text-2xl font-black text-white">🔭 Space Heroes</h2>
-        {onToggleSound ? <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/20 !text-white" /> : <div className="w-12" />}
-      </div>
-      <div className="flex-1 flex flex-col items-center px-4 pb-8 z-10 overflow-y-auto">
-        <p className="text-white/70 text-sm font-semibold mt-2 mb-4">Tap a card to learn!</p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full max-w-3xl">
-          {ASTRONAUT_PROFILES.map((profile) => {
-            const isFlipped = flippedCards[profile.id] || false;
-            return (
-              <div key={profile.id} style={{ perspective: '900px' }}>
-                <button
-                  onClick={() => handleFlip(profile.id)}
-                  className="relative w-full"
-                  style={{ aspectRatio: '4/5' }}
-                >
-                  <div
-                    className="absolute inset-0 transition-transform duration-[600ms] ease-in-out"
-                    style={{ transformStyle: 'preserve-3d', transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
-                  >
-                    {/* Front face */}
-                    <div
-                      className="absolute inset-0 bg-gradient-to-b from-indigo-800 to-purple-900 rounded-2xl border-2 border-white/20 flex flex-col items-center justify-center p-3 shadow-lg"
-                      style={{ backfaceVisibility: 'hidden' }}
-                    >
-                      <AstronautImage profile={profile} size={100} className="border-white/30 shadow-lg mb-2" />
-                      <p className="text-white font-bold text-sm">{profile.name}</p>
-                      <p className="text-lg">{profile.flag}</p>
-                    </div>
-                    {/* Back face */}
-                    <div
-                      className="absolute inset-0 bg-gradient-to-b from-amber-600 to-orange-700 rounded-2xl border-2 border-white/20 flex flex-col items-center justify-center p-3 shadow-lg"
-                      style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-                    >
-                      <span className="text-5xl mb-2">{profile.achievementEmoji}</span>
-                      <p className="text-white font-bold text-sm text-center leading-tight">{profile.achievement}</p>
-                      <span className="mt-2 bg-white/20 text-white text-xs font-bold px-2 py-0.5 rounded-full">{profile.year}</span>
-                      <p className="text-lg mt-1">{profile.flag}</p>
-                    </div>
-                  </div>
-                </button>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const difficulty = useGameDifficulty('astronaut');
-  const [catIndex, setCatIndex] = useState(null);
-  const [mode, setMode] = useState(null); // 'quiz' | 'gallery'
-  const [qIndex, setQIndex] = useState(0);
-  const [feedback, setFeedback] = useState('');
-  const [shake, setShake] = useState(false);
-  const [score, setScore] = useState(0);
-  const [done, setDone] = useState(false);
-  const [explanation, setExplanation] = useState('');
-  const [didYouKnow, setDidYouKnow] = useState(null);
-  const [combo, setCombo] = useState(0);
-  const [correctProfiles, setCorrectProfiles] = useState([]);
-  const [hadMistake, setHadMistake] = useState(false);
-  const [questionOptions, setQuestionOptions] = useState([]);
-  const timersRef = useRef([]);
-
-  const cat = catIndex !== null ? ASTRONAUT_CATEGORIES[catIndex] : null;
-  const question = cat ? cat.items[qIndex] : null;
-  const isHeroes = cat?.id === 'heroes';
-
-  useEffect(() => {
-    if (question) speak(question.q);
-  }, [question, speak]);
-
-  useEffect(() => () => timersRef.current.forEach((id) => clearTimeout(id)), []);
-
-  const goToQuestion = useCallback((category, index) => {
-    setQIndex(index);
-    setHadMistake(false);
-    setQuestionOptions(buildQuestionOptions(category.items[index], difficulty));
-  }, [difficulty]);
-
-  const handlePick = (opt) => {
-    if (!question || feedback) return;
-    if (opt.text === question.answer) {
-      const praise = getPraise();
-      setFeedback(praise);
-      setExplanation('');
-      playSfx('success');
-      const newCombo = combo + 1;
-      setCombo(newCombo);
-      setScore((prev) => prev + 1);
-      onCelebrate(praise, 6, 200);
-      onGameEvent?.('astronaut', 'answer_correct', { skill: `astronaut-${cat.id}`, item: question.q, response: opt.text, expected: question.answer, correct: true, firstAttempt: !hadMistake, independent: true, difficulty });
-
-      if (newCombo >= 3) {
-        playSfx('combo');
-      }
-
-      // Space Heroes: show "Did You Know?" with profile
-      const profile = isHeroes && question.astronaut
-        ? ASTRONAUT_PROFILES.find((p) => p.id === question.astronaut)
-        : null;
-
-      if (profile) {
-        setCorrectProfiles((prev) => prev.includes(profile.id) ? prev : [...prev, profile.id]);
-        timersRef.current.push(setTimeout(() => {
-          setFeedback('');
-          setDidYouKnow(profile);
-        }, 800));
-      } else {
-        speak(praise);
-        timersRef.current.push(setTimeout(() => {
-          setFeedback('');
-          if (qIndex + 1 < cat.items.length) {
-            goToQuestion(cat, qIndex + 1);
-          } else {
-            playSfx('levelup-big');
-            setDone(true);
-          }
-        }, 1500));
-      }
-    } else {
-      setHadMistake(true);
-      setShake(true);
-      setCombo(0);
-      playSfx('wrong');
-      const correctOpt = question.options.find((o) => o.text === question.answer);
-      const explainText = `The answer is ${question.answer}!`;
-      setExplanation(`${correctOpt?.visual || ''} ${explainText}`);
-      speak(explainText);
-      setFeedback('Not quite!');
-      timersRef.current.push(setTimeout(() => { setShake(false); setFeedback(''); setExplanation(''); }, 2500));
+const AstronautAcademy=(props)=>!props.littleMode?<AstronautAcademyAmari {...props}/>:<AstronautAcademyAskia {...props}/>;
+const AstronautAcademyAmari=(props)=>{
+  const {playerId,onGameEvent,onCelebrate,speak,playSfx,onBack,cancelNarration,soundOn,onToggleSound,onPhaseChange}=props;
+  const journey=useBatch6Journey({gameId:'astronaut',playerId,onGameEvent,onCelebrate,speak,playSfx,onBack,cancelNarration,onPhaseChange});
+  const [wrong,setWrong]=useState(false);
+  const [hinted,setHinted]=useState(false);
+  const [passport,setPassport]=useState(false);
+  const band=BATCH6_BANDS.find((item)=>item.id===journey.chapter);
+  const mission=journey.run?.queue[journey.run.index];
+  const feedback=journey.run?.feedback;
+  // Clear question-local feedback and the one-use clue on Next.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(()=>{setWrong(false);setHinted(false);},[journey.run?.index,journey.chapter]);
+  useEffect(()=>{if(mission&&!feedback)speakBatch6(speak,mission.q);},[mission,feedback,speak]);
+  const answer=(choice)=>{
+    if(!mission||feedback)return;
+    const correct=choice===mission.answer;
+    journey.markAttempt(mission,correct);
+    if(correct){
+      setWrong(false);
+      const prefix=mission.review?'You remembered this from before. ':'';
+      if(mission.review)journey.resolveMissed(mission.id.replace(/^review-/,''));
+      journey.reveal(mission,true,`${prefix}You matched the question to a mission fact.`,mission.fact,choice);
+      speakBatch6(speak,`${prefix}${mission.fact}`);
+    }else{
+      journey.addMissed(mission.review?mission.id.replace(/^review-/,''):mission.id);
+      setWrong(true);
+      speakBatch6(speak,'Good try. Use the clue and try another answer.');
     }
   };
-
-  const handleDidYouKnowDone = useCallback(() => {
-    setDidYouKnow(null);
-    if (cat && qIndex + 1 < cat.items.length) {
-      goToQuestion(cat, qIndex + 1);
-    } else {
-      playSfx('levelup-big');
-      setDone(true);
-    }
-  }, [cat, qIndex, playSfx, goToQuestion]);
-
-  const handleReset = () => {
-    setCatIndex(null);
-    setMode(null);
-    setQIndex(0);
-    setScore(0);
-    setDone(false);
-    setFeedback('');
-    setExplanation('');
-    setDidYouKnow(null);
-    setCombo(0);
-    setCorrectProfiles([]);
-    setHadMistake(false);
-  };
-
-  const handleSelectCategory = (index) => {
-    const selectedCat = ASTRONAUT_CATEGORIES[index];
-    if (selectedCat.id === 'heroes') {
-      setCatIndex(index);
-      setMode(null); // show chooser
-    } else {
-      setCatIndex(index);
-      setMode('quiz');
-    }
-    goToQuestion(selectedCat, 0);
-    setScore(0);
-    setDone(false);
-    setCombo(0);
-    setCorrectProfiles([]);
-    playSfx('click');
-  };
-
-  // Mission select screen
-  if (catIndex === null) {
-    return (
-      <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
-        <SpaceStars />
-        <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={onBack} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to home"><Home className="text-white" /></button>
-          <h2 className="text-3xl font-black text-white">👨‍🚀 Astronaut Academy</h2>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/20 !text-white" />
-        </div>
-        <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-          <p className="text-white/80 text-xl font-semibold mb-8">Pick a mission!</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-3xl">
-            {ASTRONAUT_CATEGORIES.map((c, i) => (
-              <button
-                key={c.id}
-                onClick={() => handleSelectCategory(i)}
-                className={`backdrop-blur-sm border-2 rounded-3xl p-6 text-center hover:-translate-y-1 transition-all ${
-                  c.id === 'heroes'
-                    ? 'bg-gradient-to-br from-purple-500/20 to-blue-500/20 border-purple-400/40 animate-glow-pulse'
-                    : 'bg-white/10 border-white/20 hover:bg-white/20'
-                }`}
-              >
-                <div className="text-5xl mb-3">{c.emoji}</div>
-                <h3 className="text-xl font-black text-white">{c.name}</h3>
-                <p className="text-white/60 text-sm mt-1">{c.items.length} questions · {difficulty}</p>
-                {c.id === 'heroes' && <span className="inline-block mt-2 bg-yellow-400 text-yellow-900 text-xs font-black px-2 py-0.5 rounded-full">✨ NEW</span>}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Space Heroes mode chooser (Quiz or Explore)
-  if (isHeroes && mode === null) {
-    return (
-      <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
-        <SpaceStars />
-        <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={handleReset} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to Astronaut Academy missions"><ArrowLeft strokeWidth={3} /></button>
-          <h2 className="text-2xl font-black text-white">👨‍🚀 Space Heroes</h2>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="!bg-white/20 !text-white" />
-        </div>
-        <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10 gap-6">
-          <p className="text-white/80 text-lg font-semibold">Quiz or Explore?</p>
-          <div className="flex gap-6 flex-wrap justify-center">
-            <button
-              onClick={() => { setMode('quiz'); playSfx('launch'); speak('Quiz time!'); }}
-              className="bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-3xl p-8 text-center hover:bg-white/20 transition-all hover:-translate-y-1 w-44"
-            >
-              <div className="text-6xl mb-3">🎯</div>
-              <h3 className="text-xl font-black text-white">Quiz</h3>
-              <p className="text-white/50 text-xs mt-1">Test your knowledge!</p>
-            </button>
-            <button
-              onClick={() => { setMode('gallery'); playSfx('sparkle'); speak('Explore the heroes!'); }}
-              className="bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-3xl p-8 text-center hover:bg-white/20 transition-all hover:-translate-y-1 w-44"
-            >
-              <div className="text-6xl mb-3">🔭</div>
-              <h3 className="text-xl font-black text-white">Explore</h3>
-              <p className="text-white/50 text-xs mt-1">Meet the heroes!</p>
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Gallery mode
-  if (mode === 'gallery') {
-    return <HeroesGallery onBack={handleReset} playSfx={playSfx} speak={speak} soundOn={soundOn} onToggleSound={onToggleSound} />;
-  }
-
-  // Completion screen
-  if (done) {
-    const completedProfiles = correctProfiles.map((id) => ASTRONAUT_PROFILES.find((p) => p.id === id)).filter(Boolean);
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
-        <SpaceStars />
-        <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 text-center z-10 max-w-md mx-4">
-          <div className="text-6xl mb-4 animate-bounce-slow">🏆</div>
-          <h2 className="text-3xl font-black text-white mb-2">Mission Complete!</h2>
-          <p className="text-white/80 text-xl mb-1">{cat.name}</p>
-          <p className="text-yellow-300 text-2xl font-black mb-4">{score}/{cat.items.length} correct</p>
-
-          {isHeroes && completedProfiles.length > 0 && (
-            <div className="mb-4">
-              <p className="text-white/60 text-sm mb-2">Heroes you learned about:</p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {completedProfiles.map((profile) => (
-                  <div key={profile.id} className="relative">
-                    <AstronautImage profile={profile} size={48} className="border-green-400" />
-                    <span className="absolute -bottom-1 -right-1 text-sm">✅</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <div className="flex gap-4 justify-center">
-            <button onClick={handleReset} className="bg-indigo-500 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:bg-indigo-600 transition">New Mission</button>
-            <button onClick={onBack} className="bg-white/20 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:bg-white/30 transition">Home</button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Quiz screen
-  const profile = isHeroes && question?.astronaut ? ASTRONAUT_PROFILES.find((p) => p.id === question.astronaut) : null;
-
-  return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-slate-900 via-indigo-900 to-slate-900 relative overflow-hidden">
-      <SpaceStars />
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={handleReset} className="game-icon-button !bg-white/20 !text-white" aria-label="Back to Astronaut Academy missions"><ArrowLeft strokeWidth={3} /></button>
-        <div className="text-center flex-1 mx-2">
-          <h2 className="text-xl font-black text-white">{cat.emoji} {cat.name}</h2>
-          <RocketProgress current={qIndex} total={cat.items.length} />
-        </div>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </div>
-
-      {/* Combo indicator */}
-      {combo >= 2 && (
-        <div className="text-center z-20 animate-count-up">
-          <span className="text-2xl font-black text-yellow-300">
-            {combo >= 4 ? '🔥'.repeat(combo) : '⚡'.repeat(combo)} {combo}!
-          </span>
-        </div>
-      )}
-
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-        <div className={`bg-white/10 backdrop-blur-sm rounded-3xl p-8 max-w-lg w-full text-center ${shake ? 'animate-shake' : ''} ${combo >= 3 ? 'shadow-[0_0_30px_rgba(234,179,8,0.3)]' : ''}`}>
-          <div className="flex items-center justify-center gap-3 mb-2">
-            {isHeroes && profile && (
-              <AstronautImage profile={profile} size={64} className="border-white/30 shadow-purple-500/30 shadow-lg" />
-            )}
-            <span className="text-5xl">{question.visual || '👨‍🚀'}</span>
-          </div>
-          <h3 className="text-2xl font-black text-white mb-6">{question.q}</h3>
-          <div className="grid grid-cols-2 gap-4">
-            {questionOptions.map((opt, index) => (
-              <button
-                key={opt.text}
-                onClick={() => { playSfx('tap'); handlePick(opt); }}
-                className="bg-white/10 border-2 border-white/20 text-white font-bold py-4 px-3 rounded-2xl hover:bg-white/30 active:translate-y-1 transition-all flex flex-col items-center gap-1 animate-bounce-up"
-                style={{ animationDelay: `${index * 0.08}s` }}
-              >
-                <span className="text-4xl">{opt.visual}</span>
-                <span className="text-base">{opt.text}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-        {feedback && <div className="mt-4 text-3xl font-black text-yellow-300 animate-bounce">{feedback}</div>}
-        {explanation && <div className="mt-2 text-xl font-bold text-white/80 bg-white/10 rounded-2xl px-6 py-3">{explanation}</div>}
-      </div>
-
-      {didYouKnow && (
-        <DidYouKnowOverlay profile={didYouKnow} onDone={handleDidYouKnowDone} speak={speak} />
-      )}
-    </div>
-  );
+  const hint=()=>{if(hinted||feedback)return;setHinted(true);journey.hint(mission.clueType==='learn'?'learn':'clue');speakBatch6(speak,astronautClueNarration(mission));};
+  const start=(id)=>journey.start(id,getMissionPool(id,playerId),6);
+  return <><Batch6BaseCss/><Batch6Chrome title="Astronaut Academy" subtitle={band?chapterNames[band.id]:'Mission control'} onBack={journey.back} soundOn={soundOn} onToggleSound={onToggleSound} leaveOpen={journey.leaveOpen} onLeave={journey.leave} onKeep={journey.keep} illustration={<img src={astronautRobotArt} alt="" className="batch6-hero-art" />} progress={mission&&!feedback?.complete?{current:journey.run.index+1,total:journey.run.queue.length}:null} onReplay={mission&&!feedback?()=>{cancelNarration?.();speakBatch6(speak,mission.q);}:undefined} saveFailed={journey.run?.feedback?.saveFailed}>
+    {!journey.run&&!passport&&<><ChapterMap title="Mission map" chapters={BATCH6_BANDS.map((item)=>({...item,name:chapterNames[item.id],subtitle:copy[item.id]}))} completed={journey.progress.completed} bestStars={journey.progress.bestStars} onStart={start} onBack={onBack}/><div className="batch6-actions"><button className="batch6-secondary" onClick={()=>setPassport(true)}>Open discovery passport ({journey.progress.facts.length} facts)</button></div></>}
+    {passport&&!journey.run&&<section className="batch6-card"><h2 className="batch6-question">Discovery passport</h2><p className="text-center text-slate-700">Facts stay here after you leave and return.</p>{journey.progress.facts.length?journey.progress.facts.map((fact,index)=><FactPanel key={`${fact}-${index}`} fact={fact} explanation="A discovery from a completed mission."/>):<p className="mt-6 text-center">Complete a mission to collect your first fact card.</p>}<div className="batch6-actions"><button className="batch6-primary" onClick={()=>setPassport(false)}>Back to mission map</button></div></section>}
+    {mission&&!feedback?.complete&&<section className="batch6-card"><div className="batch6-mission-icon" aria-hidden="true">{mission.icon}</div><p className="text-center"><span className="rounded-full bg-indigo-100 px-3 py-1 text-sm font-black text-indigo-900">{mission.review?'Review mission':mission.kind==='science'?'Space science':'Mission engineering'}</span></p><h2 className="batch6-question">{mission.q}</h2><div className="batch6-options">{mission.options.map((choice,index)=><button className="batch6-option" key={`${mission.id}-${index}`} onClick={()=>answer(choice)}>{choice}</button>)}</div>{wrong&&<p className="batch6-feedback text-amber-800" role="status">Good try. Use the clue and choose again. A missed idea can return in a later mission run.</p>}<div className="batch6-actions"><button className="batch6-secondary" disabled={hinted||Boolean(feedback)} onClick={hint}>{mission.clueType==='learn'?'Learn clue':'Mission clue'}</button></div>{hinted&&!feedback&&<div className="batch6-feedback" role="status"><p>{mission.clueType==='learn'?'Learn clue':'Mission clue'}: {mission.clue}</p><MissionClueVisual missionId={mission.id.replace(/^review-/,'')}/></div>}{feedback&&<><FactPanel explanation={feedback.explanation} fact={feedback.fact} source={mission.source}/><div className="batch6-actions"><button className="batch6-primary" onClick={journey.next}>Next mission</button></div></>}</section>}
+    {journey.run?.feedback?.complete&&<section className="batch6-card text-center"><div className="text-5xl">🛰️</div><h2 className="batch6-question">Mission chapter complete!</h2><p className="text-2xl text-amber-600">{'★'.repeat(journey.run.feedback.stars)}{'☆'.repeat(3-journey.run.feedback.stars)}</p><p>Six missions completed. Your fact cards are saved in the passport.</p><FactPanel explanation="You observed space and designed ways for explorers to travel safely." fact="Each mission began with a question and ended with a discovery."/><div className="batch6-actions"><button className="batch6-primary" onClick={journey.toMap}>Mission map</button><button className="batch6-secondary" onClick={()=>start(journey.chapter)}>Play again</button><button className="batch6-secondary" onClick={()=>{journey.toMap();setPassport(true);}}>Open passport</button></div></section>}
+  </Batch6Chrome></>;
 };
-
-export { AstronautImage, SpaceStars, RocketProgress, DidYouKnowOverlay, HeroesGallery };
 export default AstronautAcademy;
