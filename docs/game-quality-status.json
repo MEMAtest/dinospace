@@ -1952,5 +1952,12 @@
     "existingCandidates": 6,
     "report": "docs/qa-evidence/b4-grammar-first-run-20261005/report.md",
     "scope": "Seven provider receipts preserved, previous manifest mappings unchanged. No overwrite/retry; full corrected audio and listening gates remain open."
+  },
+  "batch6CumulativeUiDelta": {
+    "sourceCommit": "7c350f4bff66c1e9aff922cb5ee98e0fdd1d4ef8",
+    "evidenceCommit": "9d8692eb3760035251c785826f66619e2e5d5a09",
+    "report": "docs/qa-evidence/batch6-cumulative-ui-delta-20261005/report.md",
+    "status": "bounded local four-game controls and navigation passed",
+    "scope": "Desktop390 fourfirstinteractions only;5879buildhashesmatched, provider403guards, nooverflow/brokenimages/consoleerrors. No fullmechanics/audio/production/4.5acceptance. Astronautchapter/categorylabel relation under editorialsource review."
   }
 }
