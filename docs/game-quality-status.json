@@ -2038,7 +2038,9 @@
     "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
     "independentCompatibilityCommit": "32f80d825db9190d71e3bf0a30a8d705256c4920",
     "evidence": "docs/qa-evidence/b6-narration-phase1-generation-20261005/live-checkpoint.json",
-    "productionReleased": false
+    "productionReleased": false,
+    "latestObservedReceipts": 60,
+    "latestProcessObservation": "PID17581 confirmed live by ps and execsession42222; phase1 remainsrunning, no restart"
   },
   "batch7SolarAudioPackage": {
     "runtimeSource": "532e540da87b7f6a4197c84de39bb127f296fdef",
@@ -2058,8 +2060,18 @@
     "buildTreeSha256": "b9fd31a72cc041994084385f55ae2245d958b5962248b0f2218f0402963ef6ff",
     "sourceRegistryAndWordBankHashes": "matched",
     "servedFilesHashes": "5/5 matched",
-    "renderedSellFit": "pending",
+    "renderedSellFit": "unverified: target not encountered in capped ordinary Chapter2 replays; 24 rounds total; queue coverage source review underway",
     "productionReleased": false,
-    "evidence": "docs/qa-evidence/batch5-spelling-101-root-verification-20261005.md"
+    "evidence": "docs/qa-evidence/batch5-spelling-101-root-verification-20261005.md",
+    "sellReviewCommit": "4698529eadbf4ca3591419cf9c1aa6b8f6d09087"
+  },
+  "additionHeldGroupContrast": {
+    "source": "95d0160ef7a422a138551db82f11aa8d585b3a7d",
+    "independentSourceBuildCommit": "4ee17a35d302d235cf434f32d4f5ee656fcec814",
+    "verifiedBuildFiles": 11054,
+    "servedIdentity": "index and five linked assets200exacthash",
+    "browserReview": "pending",
+    "productionReleased": false,
+    "evidence": "docs/qa-evidence/b4-addition-held-group-contrast-20261005/report.md"
   }
 }
