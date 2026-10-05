@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-05T03:09:31.477906+00:00",
+  "updatedAt": "2026-10-05T03:13:23.765353+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1839,10 +1839,7 @@
   },
   "singleChromeQaSession": {
     "session": "default",
-    "observedExistingDaemonPid": 95368,
-    "observedTab": "about:blank",
-    "previousNamedSession": "count-prod-scatter-qa-20261004 unavailable",
-    "scope": "Reuse the already-running single empty tab; never launch another browser/window/context. Agent 3 has exclusive browser ownership for Batch 5 delta."
+    "scope": "Reuse the existing single QA tab and Chrome window only. Agent4 currently owns browser for Spelling progressive visual review. No new windows, incognito contexts, tabs or browser sessions."
   },
   "batch5CumulativeUiDelta": {
     "source": "10e4cd53d7f0e987a8a1086fd834b5033de55387",
@@ -1892,52 +1889,46 @@
     "evidenceCommit": "0b9bc5662d4a162462c98be8466b98159431587e"
   },
   "spellingIllustrationImplementation": {
-    "coverageTarget": 101,
-    "status": "in progress; no runtime art acceptance",
-    "firstGeneratedAsset": "tip-v1.png",
-    "firstAssetSha256": "3e9afadb046cec9796ac99d638659a1ac09f77ea68abc985866b63857b0f44a3",
-    "sourceAssetCommit": "e84b578",
-    "firstAssetProvenance": "docs/qa-evidence/batch5-spelling-illustrations-20261005/tip-v1-provenance.json",
-    "generator": "built-in image_gen; no CLI fallback",
-    "independent96pxReview": "tip asset passed static review; runtime wiring and remaining assets pending",
-    "scope": "Reuse only exact-sense illustrations; generate action/context cards for remaining words. Preserve all 101 words, phonics, voice texts, model and progression. No paid voice concurrency or release claim.",
-    "firstAssetIndependentReview": "docs/qa-evidence/batch5-spelling-illustrations-20261005/reviews/tip-v1-independent-review.md",
-    "firstAssetReviewCommit": "53f034349c9bfdc110d0908f4ad79ae044409268",
-    "reuseCandidateReview": {
-      "candidates": 35,
-      "accepted": 31,
-      "conditional": [
-        "can"
-      ],
-      "revise": [
-        "map",
-        "pot",
-        "seed"
-      ],
-      "report": "docs/qa-evidence/batch5-spelling-illustrations-20261005/sound-safari-96px-review/report.md",
-      "evidenceCommit": "9090124bdd4a8ccec2af098ad0960ba6c14fcc41",
-      "scope": "Static 96px illustration suitability only; no runtime or overall game acceptance."
-    },
-    "generatedBatch1": {
-      "selectedWords": [
-        "map",
-        "tin",
-        "kid",
-        "red",
-        "tan",
-        "nap",
-        "dip",
-        "pat",
-        "sat",
-        "sit"
-      ],
-      "count": 10,
-      "assetAndReviewFreeze": "89b755e1db5e3a6cc7181bc9627d959fd80d60cc",
-      "finalizedProvenanceCommit": "ff23169044191c3afbd392b18eefc572fe4897d1",
-      "reviewBindingCommit": "5b53f1c5673b03f2aef8679b417bce6d7e364583",
-      "review": "docs/qa-evidence/batch5-spelling-illustrations-20261005/generated-batch-1/independent-review.md",
-      "scope": "Ten static96px selected assets passed independent review; root verified exact PNG/WebP hashes and immutable provenance. No runtime mapping, responsive game QA, audio or overall acceptance."
-    }
+    "status": "progressive-local-runtime-independent-rendered-review-in-progress",
+    "source": "56d35a8cb07f41e02cc9228c7b4ec1a09e779012",
+    "totalWordIds": 101,
+    "mappedIllustrations": 74,
+    "uncoveredWordIds": [
+      "dim",
+      "back",
+      "tick",
+      "luck",
+      "fuss",
+      "but",
+      "shut",
+      "thin",
+      "this",
+      "that",
+      "chat",
+      "chin",
+      "rich",
+      "much",
+      "sing",
+      "song",
+      "long",
+      "tail",
+      "wait",
+      "pain",
+      "sail",
+      "seed",
+      "road",
+      "food",
+      "look",
+      "farm",
+      "turn"
+    ],
+    "pendingCardFitReview": [
+      "sell"
+    ],
+    "originalWordDataSha256": "8440dd01d079549d4f03152f1f6ba7231562811979959c9d3731811e9310e057",
+    "evidence": "docs/qa-evidence/batch5-spelling-progressive-illustration-identity-20261005.json",
+    "allWordsIllustrated": false,
+    "productionReleased": false
   },
   "canonicalHealthSample": {
     "evidenceCommit": "cbb8a14ad98f1ab6db66cdf4060220aa5c30a822",

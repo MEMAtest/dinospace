@@ -1,0 +1,547 @@
+{
+  "createdAt": "2026-10-05",
+  "candidateType": "local configured production build for bounded independent UI review; not a release",
+  "source": {
+    "branch": "codex/amari-batch5-cumulative-integration-20261005",
+    "commit": "56d35a8cb07f41e02cc9228c7b4ec1a09e779012",
+    "dataFile": "src/data/batch5Literacy.js",
+    "dataFileSha256": "8440dd01d079549d4f03152f1f6ba7231562811979959c9d3731811e9310e057",
+    "dataFileMatches": "c636516afa9ffa1b77dcc3bd5b7353ee80bce567",
+    "runtimeChangedFiles": [
+      "src/components/games/AmariSpellingStudio.jsx",
+      "src/data/spellingStudioIllustrations.js"
+    ],
+    "testFiles": [
+      "test/spellingStudioIllustrations.test.mjs"
+    ]
+  },
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story vite build --outDir /tmp/batch5-spelling-progressive-20261005",
+    "directory": "/tmp/batch5-spelling-progressive-20261005",
+    "fileCount": 6001,
+    "totalBytes": 210074646,
+    "treeSha256": "6d95b4c7b67bc78201850274b6959296acb098ba1ad24581bc13d8471e0685fe",
+    "servedFiles": [
+      {
+        "path": "/index.html",
+        "status": 200,
+        "sha256": "a5de5c0897daf62f34fcb51fc485b9975444ae45951073a11313b7b97885ad90"
+      },
+      {
+        "path": "/assets/index-vwBApBQ2.js",
+        "status": 200,
+        "sha256": "4594364199a78856385eaf5288c087c7013399f7b0a3c64a3139920c4ac23a92"
+      },
+      {
+        "path": "/assets/index-B3qXgrAo.css",
+        "status": 200,
+        "sha256": "935e2f6e7e5d102cbca3b7a914c2217d3bbb64d4a7563abfcdf07967f9e682d2"
+      },
+      {
+        "path": "/assets/puff-v1-MPaaJntF.webp",
+        "status": 200,
+        "sha256": "3ef8ff4db0eaa80513d2407221769fab0db355a9fa478de96e5202e9bbb5dcae"
+      }
+    ]
+  },
+  "preview": {
+    "url": "http://127.0.0.1:5397/",
+    "servedIdentityMatchesLocalBuild": true
+  },
+  "illustrationCoverage": {
+    "totalWordIds": 101,
+    "mapped": 74,
+    "missingWordIds": [
+      "dim",
+      "back",
+      "tick",
+      "luck",
+      "fuss",
+      "but",
+      "shut",
+      "thin",
+      "this",
+      "that",
+      "chat",
+      "chin",
+      "rich",
+      "much",
+      "sing",
+      "song",
+      "long",
+      "tail",
+      "wait",
+      "pain",
+      "sail",
+      "seed",
+      "road",
+      "food",
+      "look",
+      "farm",
+      "turn"
+    ],
+    "pendingReview": [
+      "sell"
+    ],
+    "mappedAssets": [
+      {
+        "wordId": "pin",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/pin-v1.webp",
+        "sourceSha256": "39a005780c240d3c7aaad4899c12deb73331dcab5d976bd09a1c9028dcd71e38"
+      },
+      {
+        "wordId": "tap",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/tap-v1.webp",
+        "sourceSha256": "1873d2c2eacfc47d458c3c78cca01f828ef5d45e92ade4fcc8138033b7d5a5d6"
+      },
+      {
+        "wordId": "dog",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/dog-v1.webp",
+        "sourceSha256": "83bcda5739193672999b3c23c2a7e29b9cdd26aabceaa1d940804af5c36cd5a9"
+      },
+      {
+        "wordId": "log",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/log-v1.webp",
+        "sourceSha256": "baf0946ad6f1af489b6f0266b9089b7de79a761a9a8fa7c502e377d2abc1c774"
+      },
+      {
+        "wordId": "cat",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/cat-v1.webp",
+        "sourceSha256": "1eac2d245e050415cdcaa8fc9a8fef4e9eb9100d6081555340e735a73395a38c"
+      },
+      {
+        "wordId": "hen",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/hen-v1.webp",
+        "sourceSha256": "42cc23bc12d85f433f36f910ceb594b8592fb5a60fb4acbc8144b3380f2945e6"
+      },
+      {
+        "wordId": "mat",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/mat-v1.webp",
+        "sourceSha256": "510fe175087e7a1c31bcd2aacdc89889a0c38e93e602472576ccab21aa5cbe6e"
+      },
+      {
+        "wordId": "pan",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/pan-v1.webp",
+        "sourceSha256": "241bf7e89b986573f9b85d37916312e6f260a643a0837c6ee3a7db8b7663be53"
+      },
+      {
+        "wordId": "mop",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/mop-v1.webp",
+        "sourceSha256": "bb6e437b25de20fbbad34acbfe5f739c41a3da9674c941a22f5492e1d5952cd1"
+      },
+      {
+        "wordId": "cot",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/cot-v1.webp",
+        "sourceSha256": "19c77483a90de3564bc6e697b1b3b8dbb086fa5b05e2a78e5c1f41e114be6226"
+      },
+      {
+        "wordId": "cap",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/cap-v1.webp",
+        "sourceSha256": "718de3673bbad2c6439577f2bd3eb2b923778011ff74e4ee7d73ece18660bb84"
+      },
+      {
+        "wordId": "duck",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/duck-v1-card.webp",
+        "sourceSha256": "c9757ab5f08889deadbdced454db71158a1f859290b08e558e6662e2ce9278ca"
+      },
+      {
+        "wordId": "dock",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/dock-v2.webp",
+        "sourceSha256": "e615f3c14899243d7fc9180fa77973512f286b9b112625b870cbd21b306c14e1"
+      },
+      {
+        "wordId": "rock",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/fossil-rock-v1-card.webp",
+        "sourceSha256": "8512f5b929dd781e88e0a44e1bbc4332dcaa03d634e7ab20917357f7b37daf46"
+      },
+      {
+        "wordId": "sock",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/sock-v1.webp",
+        "sourceSha256": "0a9690f2140cc4c9460fa38933525d55ae318dfb58dd5eb4f4e867ba6e9b7449"
+      },
+      {
+        "wordId": "lock",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/lock-v1.webp",
+        "sourceSha256": "2ac9b7c489d8b208cf825b21bd25b9599e2c31e056b1d077b173b8dd8ed1015f"
+      },
+      {
+        "wordId": "bell",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/bell-v1.webp",
+        "sourceSha256": "9e0190c03d406c7b3767f457f116b7d36da1d94c8385f2a926564266d1147cab"
+      },
+      {
+        "wordId": "hill",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/hill-v1.webp",
+        "sourceSha256": "e1d247560ad5ebe6b4fba48c7f3d666f9c5d770c054a61ef7e24a5e448ed031f"
+      },
+      {
+        "wordId": "fish",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/pond-fish-v1-card.webp",
+        "sourceSha256": "498f5a27ddccd8c2d037234bed47627dcf888675efd4dd54d7bdb48453ba7a45"
+      },
+      {
+        "wordId": "ship",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/ship-v1.webp",
+        "sourceSha256": "1007bf5ee6e12b240559dfd455e42e56a2d1211c68c94c162533610f469e3dd5"
+      },
+      {
+        "wordId": "shop",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/shop-v1.webp",
+        "sourceSha256": "1df177331280e683c1e3172be33a4bd19631fdab4a93cb0ff86b15c52453bfee"
+      },
+      {
+        "wordId": "chip",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/chip-v1.webp",
+        "sourceSha256": "0ee588d7c642a59cc1c46f4e47913f2d64adc8e063f4f03f7abde05a61871998"
+      },
+      {
+        "wordId": "ring",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/ring-v1.webp",
+        "sourceSha256": "119cc6f06acf82d5439b86e1b13b58c165fce7787f48f226029c8c35fb6e16c0"
+      },
+      {
+        "wordId": "rain",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/rain-v1.webp",
+        "sourceSha256": "2d700966a031af83a220816b15983cba1c64a255540f8cd557a8bd11bc5b4cae"
+      },
+      {
+        "wordId": "feet",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/feet-v1.webp",
+        "sourceSha256": "92bb2ec9eda3f7a5151dfb6ea4a9d4d17b900e5ae309d8c4212525f1672a140c"
+      },
+      {
+        "wordId": "green",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/green-v2.webp",
+        "sourceSha256": "4c371e52ce82a236d40b951c27e2930f15b888d4c8d948244fffc2c9a8799b6d"
+      },
+      {
+        "wordId": "boat",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/boat-v1.webp",
+        "sourceSha256": "3f716badc88dca6b32a93620bf7fcc8579e3ef30febb6ff8bb57df7dd8c85d71"
+      },
+      {
+        "wordId": "coat",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/coat-v1.webp",
+        "sourceSha256": "0af28188687324072a20490186c056a6eb4e105310a6868ddd16a65fc68d0eb9"
+      },
+      {
+        "wordId": "moon",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/crescent-moon-v1-card.webp",
+        "sourceSha256": "15bdee6910ed17c180d39bee630da99038b65450970a89cb7b4c6b91bd4c1b3b"
+      },
+      {
+        "wordId": "book",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/book-v1.webp",
+        "sourceSha256": "f48dcf6c4755bcec6497bba7f473a98cef10e4c86251ad8a28fcccde6c8432e4"
+      },
+      {
+        "wordId": "fork",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/sound-safari/word-cards/fork-v1.webp",
+        "sourceSha256": "b737aa17eac9e89a1285c679cf7d9a43986ec356c14ae81f9913864e20c68ca1"
+      },
+      {
+        "wordId": "can",
+        "status": "approved-distinct-from-tin",
+        "sourcePath": "src/assets/sound-safari/word-cards/can-v1.webp",
+        "sourceSha256": "a962bbbd0e67782ede28a55a639140faba1782a7d88950aa557588269b18d99b"
+      },
+      {
+        "wordId": "tip",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/tip-v1.webp",
+        "sourceSha256": "cf4cfcf19955a27bad221bbfd6ead4fdcaaac43a24dabb4c69618f60b603c6d2"
+      },
+      {
+        "wordId": "sat",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/sat-v2.webp",
+        "sourceSha256": "70833239ddc5414c0aff796ff3b516ba29ef25dc7609c6b1bedb9a6898208057"
+      },
+      {
+        "wordId": "sit",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/sit-v1.webp",
+        "sourceSha256": "f03316cf259e25bccdb86c88a5b19327964452338bb660bf508f6d84a384bd9f"
+      },
+      {
+        "wordId": "pat",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/pat-v1.webp",
+        "sourceSha256": "e3526c89328bf0abaaf63d6680ab6b3ca63e31e18fb1ecd454cea5478acbae72"
+      },
+      {
+        "wordId": "tin",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/tin-v1.webp",
+        "sourceSha256": "ec3b4a999e3f15b9ed785ede27db4f15a9c42b01ceec3f5cdede73f38f20e4d0"
+      },
+      {
+        "wordId": "map",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/map-v1.webp",
+        "sourceSha256": "98b2658f765f30058a697539ead6b225cf06d17a3ee9791b02fd03fdc2c72207"
+      },
+      {
+        "wordId": "kid",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/kid-v1.webp",
+        "sourceSha256": "c806076f626b092816bd005236fedfa50313d6235c1da804d6d936252f7e4734"
+      },
+      {
+        "wordId": "red",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/red-v1.webp",
+        "sourceSha256": "e91750a9a6d803fe78467398ee69472a2d95e9aaa4d82014eb2ac72f135db2d8"
+      },
+      {
+        "wordId": "tan",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/tan-v1.webp",
+        "sourceSha256": "03bd08fd251c7cb7f3e72e6eadb893f0b1fb658125d618bd30060bb2abfd45bf"
+      },
+      {
+        "wordId": "nap",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/nap-v1.webp",
+        "sourceSha256": "61677f7d0683e6c7e3e735b5a6a3fc528667f1b78923bdbb5743ca9d2ac067c5"
+      },
+      {
+        "wordId": "dip",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/dip-v1.webp",
+        "sourceSha256": "daf26a71f50128fd3b32f91e393ab3602d23da2c06c1117a5d14be3aee5c7fcb"
+      },
+      {
+        "wordId": "man",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/man-v1.webp",
+        "sourceSha256": "f745304bec07278bac69881845f448f607d3c99eb1a30506d3145bed845cbc76"
+      },
+      {
+        "wordId": "dad",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/dad-v1.webp",
+        "sourceSha256": "ce871703f2ce80f118892cf29aac114a0a74eb3f8cbda86a7e5d6e109737d44c"
+      },
+      {
+        "wordId": "sap",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/sap-v1.webp",
+        "sourceSha256": "3ed4e31b1dafd560e3bc6b8af4db1348ee7720138376d9f045c7d1faf1838f25"
+      },
+      {
+        "wordId": "sip",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/sip-v1.webp",
+        "sourceSha256": "662133785bc3f3fbdf60db9cd2011fc873310ce5f4617080583a54168a85312e"
+      },
+      {
+        "wordId": "pit",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/pit-v1.webp",
+        "sourceSha256": "00c0774b2dd9a8023b3d0c692da4a9a846338ec7305818f03e6ee07ac6d49a43"
+      },
+      {
+        "wordId": "kit",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/kit-v1.webp",
+        "sourceSha256": "243bd1c3b11e227b2b0cc1aeecae68140578c84b886324696571cb444d2c252c"
+      },
+      {
+        "wordId": "pot",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/pot-v1.webp",
+        "sourceSha256": "00f36118b96677101cb2b2c0bf8fede6b0b89cd729e708db3e8e79eb09cfbc8b"
+      },
+      {
+        "wordId": "mad",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/mad-v1.webp",
+        "sourceSha256": "617a4b3f214b4c78e97222b2c2a1ded0039f8ae65833f83e0681d02c1a7a8387"
+      },
+      {
+        "wordId": "sad",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/sad-v1.webp",
+        "sourceSha256": "180cfac0ef23b6cd850b304c4f6cb392d3d77d078ce9b5a938ca0627d2ed8a22"
+      },
+      {
+        "wordId": "gap",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/gap-v1.webp",
+        "sourceSha256": "675e4e1058e6f1173bca1f065e382fcfaf6a7afe10bb4bc99fbaf6c12e202fe2"
+      },
+      {
+        "wordId": "got",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/got-v1.webp",
+        "sourceSha256": "22ca29bae31b9d9df1a6c2a95f9a4df73247e91d55ec538eee7c73532b8f1a7b"
+      },
+      {
+        "wordId": "top",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/top-v1.webp",
+        "sourceSha256": "fa4add951a02f45bb6c8e03bb4b297208dc4f9e15a46bdec87fa0502e45a2caa"
+      },
+      {
+        "wordId": "nod",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/nod-v1.webp",
+        "sourceSha256": "b3cceab150aa63678bfb9315253823931a95d2f04ba886f1379c50eac307cbbf"
+      },
+      {
+        "wordId": "not",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/not-v1.webp",
+        "sourceSha256": "22f1942d00abb3a4b4e219d6af4849ff820ee08c34bbb17ab070c65ba5a3b836"
+      },
+      {
+        "wordId": "cop",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/cop-v1.webp",
+        "sourceSha256": "4f52470c467e451b96afdc6c3b84fb4c9d1d79a424dfb084b94731954cd687d1"
+      },
+      {
+        "wordId": "neck",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/neck-v1.webp",
+        "sourceSha256": "5cf7d1e10dd0cdca1905d2cf87737ce030683580c1ffc6411e561467c4512803"
+      },
+      {
+        "wordId": "peck",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/peck-v1.webp",
+        "sourceSha256": "b3d07cab010affc0e560c1c13f456f888ce94f4fee285f77d3dd922fd3ba2544"
+      },
+      {
+        "wordId": "sick",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/sick-v1.webp",
+        "sourceSha256": "998b03559e13c15d8b64ba2785e90dfdceb67a67903fb43391de3c8c5c2efbf9"
+      },
+      {
+        "wordId": "fell",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/fell-v1.webp",
+        "sourceSha256": "8213ee1e2b795bd9c465b0cd37d74eff8b58576541b53754e21d0e802fa924bf"
+      },
+      {
+        "wordId": "tell",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/tell-v1.webp",
+        "sourceSha256": "110bf3bbc6d3638c3032345497363e81b8b9e85e9deb6761180dae3636b50c05"
+      },
+      {
+        "wordId": "sell",
+        "status": "card-fit-review-pending",
+        "sourcePath": "src/assets/spelling-studio/word-cards/sell-v1.webp",
+        "sourceSha256": "b0ced3a6d235bab377ad2798fd7b541d3988d1d03e31134979b8e5846dced6ce"
+      },
+      {
+        "wordId": "fill",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/fill-v1.webp",
+        "sourceSha256": "f3185c5c0f92555a2d1c674f3d16c107e54bace9a35c48aec874fa1a32b96d6d"
+      },
+      {
+        "wordId": "miss",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/miss-v1.webp",
+        "sourceSha256": "cd37e82f65a800a825f892ffa405e4e48a145c7b9ed1ae582dd562985f40c448"
+      },
+      {
+        "wordId": "hiss",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/hiss-v1.webp",
+        "sourceSha256": "89b878fb1393b1a35ab359d5ba5ef7ae41654576c5a7606210cc54cadd242b8b"
+      },
+      {
+        "wordId": "less",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/less-v1.webp",
+        "sourceSha256": "e39c37df1a9b018d744d34244659bf1fc583437a5e9d1a507914475f7f3dc019"
+      },
+      {
+        "wordId": "mess",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/mess-v1.webp",
+        "sourceSha256": "b670f28fd057dcb3482e17ed0ad6102c38712b969873ca612d519fb9f9287295"
+      },
+      {
+        "wordId": "puff",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/puff-v1.webp",
+        "sourceSha256": "3ef8ff4db0eaa80513d2407221769fab0db355a9fa478de96e5202e9bbb5dcae"
+      },
+      {
+        "wordId": "huff",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/huff-v1.webp",
+        "sourceSha256": "bebe86df23aba771e52643788dd6669cefb2001f1ac3b06a3756a35e45412838"
+      },
+      {
+        "wordId": "run",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/run-v1.webp",
+        "sourceSha256": "bb11fb78f43323a7c4356fa90bb3576c9fca5380ce05ada2c3efb37de3c60915"
+      },
+      {
+        "wordId": "fed",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/fed-v1.webp",
+        "sourceSha256": "419b016997353b4227a055274ab22a71c7559473fdb101db675d9c62c4c30c62"
+      },
+      {
+        "wordId": "hit",
+        "status": "approved-96px",
+        "sourcePath": "src/assets/spelling-studio/word-cards/hit-v1.webp",
+        "sourceSha256": "e1eca298ae22eb8fc87511796fa2e0279e4d3b2eba8f2972356c28050f16179e"
+      }
+    ],
+    "excludedRejectedCandidates": [
+      "dim",
+      "back",
+      "fuss"
+    ]
+  },
+  "qaStatus": {
+    "builderSourceTests": "passed 2/2",
+    "scopedLint": "passed",
+    "configuredProductionBuild": "passed; existing dist untouched",
+    "independentStatic96px": "accepted for all mapped assets except sell awaits actual-card fit check",
+    "browserReview": "pending; no browser session opened by builder",
+    "childDataMutation": "none",
+    "wordbankPoolProgressionNarrationChanged": false
+  }
+}
