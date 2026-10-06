@@ -19,7 +19,7 @@ test('Solar discovery passport persists only valid completed facts and quizzes f
   assert.equal(saveDiscoveryPassport('amari', PLANETS, value, { setItem: () => { throw Error('Full'); } }), false);
 });
 
-test('Every Solar badge requires three distinct discoveries per planet', () => {
+test('Every Solar badge requires three distinct discoveries per world', () => {
   assert.equal(PLANETS.length, 9);
   for (const planet of PLANETS) {
     assert.ok(planet.facts.length >= 3);
