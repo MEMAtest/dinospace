@@ -2165,5 +2165,29 @@
     "humanListeningAccepted": false,
     "evidence": "docs/qa-evidence/functional-release-20261006/canonical-served-identity.json",
     "scope": "User-authorized completed functional release. Scores unchanged; prior release entries are historical. Dedicated QA tab designation remains pending."
+  },
+  "batch6NarrationGeneration20261006": {
+    "state": "phase2completed; full378technicaldecode; not released",
+    "phase2Generated": 17,
+    "ready": 378,
+    "fullyDecoded": 378,
+    "missing": 0,
+    "invalid": 0,
+    "snapshotCommit": "baffeb459faf1fb2e4d3435d546d9da66fb40cf9",
+    "evidence": "docs/qa-evidence/b6-narration-phase2-generation-20261006/phase2-status.json"
+  },
+  "memoryNarrationGeneration20261006": {
+    "state": "running finite source-pinned181job; not released",
+    "job": "b7-memory-current",
+    "runnerPid": 85690,
+    "nodePid": 85691,
+    "session": 67760,
+    "limits": {
+      "perRun": 10,
+      "runs": 19,
+      "total": 181
+    },
+    "inventorySha256": "6619f554efbfe852713bb2a9513f35760d6901f5ccf26fb6d53752f520513b58",
+    "evidence": "docs/qa-evidence/b7-memory-generation-20261006/phase-status.json"
   }
 }
