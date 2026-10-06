@@ -1,0 +1,30 @@
+{
+  "asOf": "2026-10-06",
+  "status": "local source package; not deployed",
+  "groups": {
+    "b2b3": {
+      "clips": 7,
+      "manifestAndBytesMatchFrozenPackage": true
+    },
+    "batch4": {
+      "clips": 5246,
+      "manifestAndBytesMatchFrozenPackage": true
+    },
+    "solar": {
+      "clips": 127,
+      "manifestAndBytesMatchFrozenPackage": true
+    }
+  },
+  "batch4SourceDecodeEvidence": {
+    "requested": 5246,
+    "fullyDecoded": 5246,
+    "invalid": 0,
+    "historicalDecodeMatchesCurrentFiles": true
+  },
+  "solarPackageEvidence": {
+    "clips": 127,
+    "copiedNewFiles": 52,
+    "priorManifestMappingsPreserved": 5564
+  },
+  "verification": "For every packaged item, current OFFLINE_VOICE_MANIFEST path and SHA-256 were checked against its retained package/decode record. This verifies bytes only; it does not establish natural playback or human listening."
+}

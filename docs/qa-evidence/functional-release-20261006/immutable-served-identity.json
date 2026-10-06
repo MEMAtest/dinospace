@@ -1,0 +1,120 @@
+{
+  "deploymentURL": "https://dinospace-jtbs8ain0-memas-projects-23a0001d.vercel.app",
+  "archive": "ff2b38db634ddf84f4beffbe899bfadd0c689f94",
+  "files": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 1100,
+      "sha256": "c50d24b9a877ef20292a09f0c7df3f7aaf52211291261d2b409699c735f68dec",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "bytes": 11864,
+      "sha256": "0a550bdfec2c03931d7606adb2f4b881a41a1be1bb4e9d93af44f75d9c078436",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "assets/web-B2hTXK9F.js",
+      "status": 200,
+      "bytes": 842,
+      "sha256": "a8aeddc47e88cb5a9a494559152b44b8f727691652735fb5926ecc1d40bf91e2",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "assets/AmariLetterTrace-DnoWeIp0.js",
+      "status": 200,
+      "bytes": 19956,
+      "sha256": "834c48b12d6d7009b8492dfc93ea0b4925d360784eb820b22be6172d673b4515",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "assets/SolarSystem-C92FBFby.js",
+      "status": 200,
+      "bytes": 565880,
+      "sha256": "891d8c906157485a25334964f73d4e4bf75286f0a91434caeeb0e4683402cb71",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "assets/index-BscHXcvT.js",
+      "status": 200,
+      "bytes": 1538071,
+      "sha256": "186439bc3141d4ec871f12f13819bb6441c5417231fc398e6e819831ace1bb26",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "assets/AmariCountTheStars-BRZDEhEZ.js",
+      "status": 200,
+      "bytes": 18850,
+      "sha256": "06d0bacdcfb6f43087cf4af1e40b4fffda4002d13fecafb2add8305179613172",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "assets/index-nzZP3pyu.css",
+      "status": 200,
+      "bytes": 205633,
+      "sha256": "a5b8f8ca9d1b5f9087c38b8ac92d9368e6fc1ad455a8a1c15d232317a91f1783",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "audio/en/a39b3546-matilda.mp3",
+      "status": 200,
+      "bytes": 82799,
+      "sha256": "254457ed89777430e3229991151818defbc72250d8bfc0df3ea3edad631deecb",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "audio/en/9685e0ac-matilda.mp3",
+      "status": 200,
+      "bytes": 81128,
+      "sha256": "719d07e044ba711640be1fea66a3a1968219c1236ac511ecdd114357ac546cd6",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "audio/en/e077fcc0-matilda.mp3",
+      "status": 200,
+      "bytes": 125849,
+      "sha256": "7731f4aa1c8a070991b1c1e9cbaa88afd5031b7c0a1c52f53470b760ac991574",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "audio/en/a44acc87-matilda.mp3",
+      "status": 200,
+      "bytes": 35988,
+      "sha256": "1d550c3b2f5e518dd6b2d64965d11e817a00028edf4f0462ed65c7253e60cf4a",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "audio/en/5866151d-matilda.mp3",
+      "status": 200,
+      "bytes": 36824,
+      "sha256": "c5e8536fd3c067a27166ad0d189b359fffaf40f45c7dde1b978f7258b86956bc",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "audio/en/f6991245-matilda.mp3",
+      "status": 200,
+      "bytes": 96174,
+      "sha256": "0a3c032fb42d2491b305aaf89b2faf19c859f52681558eecb87632daeb99f67e",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "audio/en/0f0204e5-matilda.mp3",
+      "status": 200,
+      "bytes": 82799,
+      "sha256": "b40201a982d28314bcd8c327a85733c196d07478e43d0d1e3b3e135bc02fb73c",
+      "matchesFrozenBuild": true
+    },
+    {
+      "path": "audio/en/00567b7b-matilda.mp3",
+      "status": 200,
+      "bytes": 47273,
+      "sha256": "7942c9ecb36b91171bacf6af826c4fbdc8c9c07f0a49fe9598f21c60e3f198f1",
+      "matchesFrozenBuild": true
+    }
+  ],
+  "allMatched": true,
+  "scope": "Read-only deployed bytes check, not browser gameplay or listening acceptance."
+}

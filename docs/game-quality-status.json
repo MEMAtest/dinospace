@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-05T04:20:27.997761+00:00",
+  "updatedAt": "2026-10-06T00:50:35.738658+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "1accc99e89be303678ead99def6a3095ab1cb886",
+  "canonicalRelease": "ff2b38db634ddf84f4beffbe899bfadd0c689f94",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -2142,5 +2142,28 @@
     "independentReviewCommit": "717868f1b3f48aa95d34a819436bdea0fe10a0a3",
     "independentEvidence": "docs/qa-evidence/b7-memory-narration-independent-review-20261005.md",
     "auditMessageCorrection": "Memory cap-exhaustion stopReason now names Memory; syntax checkpassed; behavior unchanged"
+  },
+  "completedFunctionalRelease20261006": {
+    "state": "canonical READY/PROMOTED functional release; not overall 4.5 acceptance",
+    "deployment": "dpl_Bw7nedpCSdJYkDBxtzkqE1vT2C6x",
+    "archive": "ff2b38db634ddf84f4beffbe899bfadd0c689f94",
+    "included": [
+      "B2/B3 seven supplemental recordings and two Dino fact edits",
+      "B4 Addition, Subtraction, Time Teller, Number Line;5246 packaged clips;on-demand media;Addition held contrast",
+      "Solar reviewed54discoveries and127packagedclips"
+    ],
+    "excluded": [
+      "New Spelling Studio",
+      "Sound Safari",
+      "Batch6",
+      "MemoryMatch"
+    ],
+    "focusedTestsPassed": 30,
+    "serviceWorkerTestsPassed": 7,
+    "canonicalServedFilesMatched": 16,
+    "productionPlaywrightVerified": false,
+    "humanListeningAccepted": false,
+    "evidence": "docs/qa-evidence/functional-release-20261006/canonical-served-identity.json",
+    "scope": "User-authorized completed functional release. Scores unchanged; prior release entries are historical. Dedicated QA tab designation remains pending."
   }
 }

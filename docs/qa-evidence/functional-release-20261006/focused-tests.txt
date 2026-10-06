@@ -1,0 +1,9 @@
+Command:
+node --test test/solarDiscoveryPassport.test.mjs test/batch4Arithmetic.test.mjs test/batch4Collections.test.mjs test/batch4Narration.test.mjs test/timeLineAdventure.test.mjs test/batch4ClockNavigation.test.mjs test/batch3ProgressionOwnership.test.mjs
+
+Result: 30 tests passed; 0 failed, cancelled, skipped or todo.
+
+Configured build command:
+npm run build:android
+
+Result: Vite production build succeeded (1,893 modules). The command sets VITE_ELEVENLABS_ENABLED=true, VITE_VOICE_API_URL=https://dinospace-eight.vercel.app/api/voice, and VITE_STORY_API_URL=https://dinospace-eight.vercel.app/api/story. The configured URLs were verified in the emitted main JavaScript. Warnings: caniuse-lite dataset is 9 months old; SolarSystem and main JS chunks exceed 500 kB after minification.
