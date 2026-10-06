@@ -149,7 +149,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
         <div
           role="group"
           aria-label={`${label}, ${count} ${count === 1 ? question.one : question.many}`}
-          className={`min-w-24 rounded-2xl border-2 border-slate-200 bg-white p-2 transition-all duration-700 motion-reduce:transition-none ${moving ? 'translate-x-6 translate-y-4 opacity-30' : ''}`}
+          className={`min-w-24 rounded-2xl border-2 border-slate-200 bg-white p-2 transition-all duration-700 motion-reduce:transition-none ${moving ? 'translate-x-6 translate-y-4' : ''}`}
         >
           <p className="text-xs font-black">{label}: {count === 0 ? '0 (empty)' : count}</p>
           <div className="mt-1 flex max-w-56 flex-wrap gap-1" aria-hidden="true">
