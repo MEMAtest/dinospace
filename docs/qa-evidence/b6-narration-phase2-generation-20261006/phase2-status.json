@@ -1,0 +1,53 @@
+{
+  "job": "b6",
+  "phase": "phase2",
+  "runnerPid": 83535,
+  "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+  "maxCallsPerRun": 10,
+  "maxRuns": 2,
+  "manifestPreflightSha256": "616c07340e398a233a7acfd20ded1b360c75eac3a1fdc2848b2d5a88a4f585ba",
+  "pendingCount": 17,
+  "keysetSha256": "9adc8855cbb3bc9c63e69544dfa95950b744b44ee09a8d69f440baaaa97f70be",
+  "startedAt": "2026-10-06T00:50:02Z",
+  "log": "../../../../tmp/b6-narration-phase2-generation-20261006.log",
+  "terminal": true,
+  "exitCode": 0,
+  "completedAt": "2026-10-06T00:50:13.352Z",
+  "requested": 378,
+  "generated": 17,
+  "accepted": 17,
+  "reused": 361,
+  "pending": 0,
+  "runs": 2,
+  "manifestAfterSha256": "8cf5a04be75078af6c06766b6e7a1196852bff39f0f10a67ec8e48cca2eb83e9",
+  "readiness": {
+    "ready": 378,
+    "missing": 0
+  },
+  "receipts": {
+    "totalReceiptBound": 377,
+    "phase1": 360,
+    "phase2": 17,
+    "mismatches": 0,
+    "preexistingMappedWithoutReceipt": [
+      "8a4e7833"
+    ]
+  },
+  "fullDecode": {
+    "requested": 378,
+    "valid": 378,
+    "invalid": 0,
+    "errors": 0,
+    "sourceCommit": "32f80d825db9190d71e3bf0a30a8d705256c4920"
+  },
+  "providerJournal": {
+    "blockedUntil": 0,
+    "recent10m": 17,
+    "limit": 30
+  },
+  "producerLockAbsent": true,
+  "note": "The lone mapped key without a producer receipt was a pre-existing B6 candidate; exact inventory and manifest binding passed and it passed full decode. Audio playback, pronunciation and human listening acceptance remain separate.",
+  "execSessionId": 42035,
+  "jobIdentity": "b6:aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227:phase2:pid83535",
+  "exitRecord": "../../../../tmp/b6-narration-phase2-generation-20261006.exit"
+}

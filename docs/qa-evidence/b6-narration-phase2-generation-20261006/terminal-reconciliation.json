@@ -1,0 +1,49 @@
+{
+  "requested": 378,
+  "runs": 2,
+  "attempted": 17,
+  "accepted": 17,
+  "generated": 17,
+  "reused": 361,
+  "pendingKeys": [
+    "ed153ac4",
+    "ed701387",
+    "ed9be0ec",
+    "edd9b39d",
+    "ee6bc0fd",
+    "eff76ff2",
+    "f5a4da41",
+    "f5cb8bc4",
+    "f5cd7293",
+    "f5ce7460",
+    "f5f7c641",
+    "f6ab94ea",
+    "f734783c",
+    "f8b99cee",
+    "f9703846",
+    "fbc5b51c",
+    "ff8783b2"
+  ],
+  "stoppedAt": null,
+  "failure": null,
+  "manifestBefore": "616c07340e398a233a7acfd20ded1b360c75eac3a1fdc2848b2d5a88a4f585ba",
+  "manifestAfter": "8cf5a04be75078af6c06766b6e7a1196852bff39f0f10a67ec8e48cca2eb83e9",
+  "ready": 378,
+  "receiptBound": 377,
+  "receiptMissing": [
+    "8a4e7833"
+  ],
+  "receiptMismatches": [],
+  "decode": {
+    "requested": 378,
+    "valid": 378,
+    "invalid": 0,
+    "errors": 0,
+    "sourceCommit": "32f80d825db9190d71e3bf0a30a8d705256c4920"
+  },
+  "journal": {
+    "blockedUntil": 0,
+    "recent10m": 17
+  },
+  "lockExists": false
+}

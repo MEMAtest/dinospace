@@ -1,0 +1,234 @@
+{
+  "job": "b6",
+  "inventorySha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+  "requested": 378,
+  "configuredMaxCallsPerRun": 10,
+  "configuredMaxRuns": 2,
+  "maximumProviderRequests": 20,
+  "configuredTotalCallCap": null,
+  "b7AttemptedCount": null,
+  "b7CumulativeRunCount": null,
+  "b7MemoryAttemptedCount": null,
+  "b7MemoryCumulativeRunCount": null,
+  "b5SoundSafariAttemptedCount": null,
+  "b5SoundSafariCumulativeRunCount": null,
+  "runs": 2,
+  "providerRequestsAttempted": 17,
+  "providerResponsesAccepted": 17,
+  "generated": 17,
+  "reused": 361,
+  "stoppedAt": null,
+  "failure": null,
+  "manifestBeforeSha256": "616c07340e398a233a7acfd20ded1b360c75eac3a1fdc2848b2d5a88a4f585ba",
+  "manifestAfterSha256": "8cf5a04be75078af6c06766b6e7a1196852bff39f0f10a67ec8e48cca2eb83e9",
+  "auditPath": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-game-editor-fixes/tmp/reviewed-narration-audit-b6.json",
+  "manifestChangedKeys": [
+    "ed153ac4",
+    "ed701387",
+    "ed9be0ec",
+    "edd9b39d",
+    "ee6bc0fd",
+    "eff76ff2",
+    "f5a4da41",
+    "f5cb8bc4",
+    "f5cd7293",
+    "f5ce7460",
+    "f5f7c641",
+    "f6ab94ea",
+    "f734783c",
+    "f8b99cee",
+    "f9703846",
+    "fbc5b51c",
+    "ff8783b2"
+  ],
+  "changedFiles": [
+    {
+      "path": "/audio/en/ed153ac4-matilda.mp3",
+      "key": "ed153ac4",
+      "text": "Yes. Three-colour parade. ABC uses three parts before the repeat begins.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 103697,
+      "sha256": "a15c33af527257ccefa2aa936aa3220668c2f42f00685b46f415388c29091418"
+    },
+    {
+      "path": "/audio/en/ed701387-matilda.mp3",
+      "key": "ed701387",
+      "text": "You remembered this from before. The Moon does not make its own light; it bounces sunlight back toward us.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 111639,
+      "sha256": "c2ef3a6f67e8bf2b604e2b6d65b071bace1940cabd777402d2fabfe89f40bbbd"
+    },
+    {
+      "path": "/audio/en/ed9be0ec-matilda.mp3",
+      "key": "ed9be0ec",
+      "text": "You remembered this from before. An antenna sends radio messages from a spacecraft. Equipment on Earth receives them.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 122924,
+      "sha256": "60f432be06564d2d084b79a18fd8b60dd607a6fb2134317be545c9d957748d59"
+    },
+    {
+      "path": "/audio/en/edd9b39d-matilda.mp3",
+      "key": "edd9b39d",
+      "text": "Rover cameras take pictures so teams can study the ground and plan safe drives.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 79038,
+      "sha256": "a6a26a0ffcee7792785fe2b49be051186a294d87ec343998addd2a0d6bddc3ea"
+    },
+    {
+      "path": "/audio/en/ee6bc0fd-matilda.mp3",
+      "key": "ee6bc0fd",
+      "text": "You remembered this from before. An orbit is the path one object follows around another in space.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 93248,
+      "sha256": "be7c403f7d0aee04f095918458ad2b0e48d1eb41b571206ca3b7c6c218a5cb9f"
+    },
+    {
+      "path": "/audio/en/eff76ff2-matilda.mp3",
+      "key": "eff76ff2",
+      "text": "Mission clue. Imagine a lander touching down on rough ground. How could strong legs help it stay upright?",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 113311,
+      "sha256": "8a844d2b3adea3a74f5d37920c524742a1ac3c5ebc66859dcd4a0696967bbb5e"
+    },
+    {
+      "path": "/audio/en/f5a4da41-matilda.mp3",
+      "key": "f5a4da41",
+      "text": "The knight starts on the blue square. Find its legal path to the gold star.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 79038,
+      "sha256": "8310a925c4f3ad437b3c75318e9b010607d8d60d02fbf91095dc78771d6c7abd"
+    },
+    {
+      "path": "/audio/en/f5cb8bc4-matilda.mp3",
+      "key": "f5cb8bc4",
+      "text": "Rover wheels let the robot roll over rocky ground on Mars.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 58140,
+      "sha256": "a18af2632261e093865bd828f5d07e44ebed52ac9eba416a1eb6e838173e3f5e"
+    },
+    {
+      "path": "/audio/en/f5cd7293-matilda.mp3",
+      "key": "f5cd7293",
+      "text": "How many small moons travel around Mars?",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 39750,
+      "sha256": "d2abe226034818085961eea9cf92842d6125fb027f147018ca0231e5d5293322"
+    },
+    {
+      "path": "/audio/en/f5ce7460-matilda.mp3",
+      "key": "f5ce7460",
+      "text": "Look at the first three places. They make the AAB repeating unit. Start that same unit again.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 104951,
+      "sha256": "33ce06c995a65f7c91f482c7dc6315b59542d123dad9cce560fd4dae2c743888"
+    },
+    {
+      "path": "/audio/en/f5f7c641-matilda.mp3",
+      "key": "f5f7c641",
+      "text": "Solar panels change sunlight into electricity. Mission planners choose a spacecraft’s power source based on where it travels.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 117072,
+      "sha256": "74acdb54807e394474cd837ce55d77885ce5dece11fee40d42977ea97e58202a"
+    },
+    {
+      "path": "/audio/en/f6ab94ea-matilda.mp3",
+      "key": "f6ab94ea",
+      "text": "Dinosaur word rescue. A picture that helps you find a place.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 56050,
+      "sha256": "f71c7c0cebef63dc80f9c39a80221f929e8c86b429505197669d4382912c09a6"
+    },
+    {
+      "path": "/audio/en/f734783c-matilda.mp3",
+      "key": "f734783c",
+      "text": "Dinosaur word rescue. A sea animal that walks sideways.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 61902,
+      "sha256": "ecbbe164c63e5d2820791821a7d4dd55af71b5aaa939140c085fc3253445bf2d"
+    },
+    {
+      "path": "/audio/en/f8b99cee-matilda.mp3",
+      "key": "f8b99cee",
+      "text": "Yes. Growing star trail. Each step adds one more star.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 76948,
+      "sha256": "2ed75e5c0aefdf19c9ac441fd931ec137003d1fe3fea38c0447574f12bba49d2"
+    },
+    {
+      "path": "/audio/en/f9703846-matilda.mp3",
+      "key": "f9703846",
+      "text": "Mission clue. Spacecraft need power for their lights, computers, and tools. What kind of power can sunlight provide?",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 138388,
+      "sha256": "0218e6293137c140bea0134e812079a6e50565e946d5f0a5cd8c16cb62ad5373"
+    },
+    {
+      "path": "/audio/en/fbc5b51c-matilda.mp3",
+      "key": "fbc5b51c",
+      "text": "Saturn’s rings are made mostly of bits of ice and rock.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 53960,
+      "sha256": "f6d66d1c9963b84f3184b1909cf1fe85d9c7e0e7b56ce143f00544128b6e41d3"
+    },
+    {
+      "path": "/audio/en/ff8783b2-matilda.mp3",
+      "key": "ff8783b2",
+      "text": "Each step adds one more star.",
+      "owners": [
+        "B6"
+      ],
+      "sourceCommit": null,
+      "bytes": 33062,
+      "sha256": "cf1470e634a6dd99855d34cc946ec01dbfc41c1a861510ea512613c2da8dec5e"
+    }
+  ],
+  "completedAt": "2026-10-06T00:50:13.352Z"
+}
