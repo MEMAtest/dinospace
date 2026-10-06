@@ -1,0 +1,9 @@
+Command:
+node --test test/solarDiscoveryPassport.test.mjs test/batch4Arithmetic.test.mjs test/batch4Collections.test.mjs test/batch4Narration.test.mjs test/timeLineAdventure.test.mjs test/batch4ClockNavigation.test.mjs test/batch3ProgressionOwnership.test.mjs
+
+Result: 30 tests passed; 0 failed, cancelled, skipped or todo.
+
+Command:
+npm run build
+
+Result: Vite production build succeeded (1,893 modules). Warnings: caniuse-lite dataset is 9 months old; SolarSystem and main JS chunks exceed 500 kB after minification. No runtime or compilation error.
