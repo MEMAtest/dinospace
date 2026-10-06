@@ -1,0 +1,58 @@
+{
+  "status": "configured local build; not deployed",
+  "builtSourceCommit": "ab1880fa77f841255034556a235c4cec693550f3",
+  "canonicalProjectIdMatches": true,
+  "configuredBuild": "npm run build:android",
+  "buildEnvironment": {
+    "VITE_ELEVENLABS_ENABLED": "true",
+    "VITE_VOICE_API_URL": "https://dinospace-eight.vercel.app/api/voice",
+    "VITE_STORY_API_URL": "https://dinospace-eight.vercel.app/api/story"
+  },
+  "vite": "7.3.1",
+  "transformedModules": 1893,
+  "htmlBundleReferences": [
+    "/assets/index-BscHXcvT.js",
+    "/assets/index-nzZP3pyu.css"
+  ],
+  "files": [
+    {
+      "path": "dist/index.html",
+      "sha256": "c50d24b9a877ef20292a09f0c7df3f7aaf52211291261d2b409699c735f68dec",
+      "bytes": 1100
+    },
+    {
+      "path": "dist/sw.js",
+      "sha256": "0a550bdfec2c03931d7606adb2f4b881a41a1be1bb4e9d93af44f75d9c078436",
+      "bytes": 11864
+    },
+    {
+      "path": "dist/assets/index-BscHXcvT.js",
+      "sha256": "186439bc3141d4ec871f12f13819bb6441c5417231fc398e6e819831ace1bb26",
+      "bytes": 1538071
+    },
+    {
+      "path": "dist/assets/SolarSystem-C92FBFby.js",
+      "sha256": "891d8c906157485a25334964f73d4e4bf75286f0a91434caeeb0e4683402cb71",
+      "bytes": 565880
+    },
+    {
+      "path": "dist/assets/index-nzZP3pyu.css",
+      "sha256": "a5b8f8ca9d1b5f9087c38b8ac92d9368e6fc1ad455a8a1c15d232317a91f1783",
+      "bytes": 205633
+    }
+  ],
+  "audioFilesPresentAndHashMatchedInPublicAndDist": {
+    "b2b3": 7,
+    "batch4": 5246,
+    "solar": 127
+  },
+  "serviceWorkerCache": {
+    "app": "amari-discovery-v17",
+    "media": "amari-discovery-media-v1"
+  },
+  "buildWarnings": [
+    "caniuse-lite browser data is 9 months old",
+    "SolarSystem and main JavaScript chunks exceed 500 kB minified"
+  ],
+  "acceptance": "Build success proves packaging and compilation only; no deployment, served identity, browser controls, native playback, or human listening is claimed."
+}
