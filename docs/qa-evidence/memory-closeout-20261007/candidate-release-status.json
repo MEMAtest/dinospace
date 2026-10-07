@@ -1,0 +1,22 @@
+{
+  "sourceCommit": "a8c8a60c0b4fcc762204710c8017935969efc6b0",
+  "independentReviewCommit": "6b115d8d2046e0d6692a00b02f481a4b09d3ad1e",
+  "previewDeployment": "dpl_33WbpDgZ9du3Si7ehzUHYsuQWrDG",
+  "previewUrl": "https://dinospace-efwd5uaho-memas-projects-23a0001d.vercel.app",
+  "previewState": "READY",
+  "vercelSource": "a8c8a60c0b4fcc762204710c8017935969efc6b0",
+  "configuredLocalBuildIndexSha256": "4400e829cc82ef32b0b23a03297f9f7588d22c2bcd5fd714bcbda329da03968f",
+  "localScript": [
+    "/assets/index-CItvR7aP.js"
+  ],
+  "fullTests": {
+    "passed": 277,
+    "skipped": 1,
+    "failed": 0
+  },
+  "focusedTestsPassed": 18,
+  "audioHashMatches": 183,
+  "productionReleased": false,
+  "browserAcceptance": false,
+  "humanListeningAcceptance": false
+}
