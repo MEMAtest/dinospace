@@ -38,15 +38,14 @@ The full start/feedback/completion screenshot set remains locally under `output/
 
 ## Quality assessment and acceptance status
 
-The five observable product dimensions below each meet 4.5 based on the scoped Memory implementation review and the production browser evidence. The scores rate the listed observable criteria; the narration score is deliberately separate because technical playback checks cannot rate sound quality. No overall Memory Match score or `verified 4.5` status is assigned while that listening gate is open.
+Four roadmap dimensions receive scoped 4.5 assessments from the independent implementation review and production browser evidence. The combined feedback/audio/visual dimension remains unscored because technical playback cannot establish audible quality. No overall Memory Match score or `verified 4.5` status is assigned while that listening gate is open.
 
 | Assessed dimension | Score | Evidence and scope |
 |---|---:|---|
 | Age-6 teaching and interaction | 4.5 | Concrete strategy tips, a repeat control, forgiving mismatch behavior, held facts, and mobile cards above the 48px target passed. This rates the visible teaching and interaction; spoken clarity and age suitability remain in the unscored narration gate. |
 | Meaningful progression | 4.5 | Ten named themed boards preserve the 4→8→10→12→13 opening sequence and continue through 18 pairs; the full route, replay, stickers, saved progress, and next-session coaching passed. |
 | Correctness and variation | 4.5 | Production desktop/mobile completed every pair count. Six ordinary L10 starts had varied visible first cards; the independent focused suite passed 18/18 and covers ten distinct seeded layouts per board with exactly two cards per picture. Seeded lifecycle records were downloaded from the production UI. |
-| Feedback and visual design | 4.5 | Match/mismatch feedback, completion facts, mobile targets, no overflow, and corrected L4 fact/Next/HUD spacing passed in the actual production UI. |
+| Feedback, audio and visual usability | **Unscored** | Match/mismatch feedback, completion facts, mobile targets, no overflow, and corrected L4 fact/Next/HUD spacing passed. All 183 packaged files match full technical-decode evidence; native production playback/end/mute/Back cancellation passed. Human pronunciation, pacing, voice consistency and age-suitability review remains open. |
 | Navigation, accessibility, and persistence | 4.5 | Exact parent-world return and leave confirmation, keyboard/reduced-motion preview checks, reload/session progress, sound preference, and 10/10 sticker persistence were verified. |
-| Narration quality | **Unscored** | The 183 packaged files have source/path/hash and full technical-decode evidence; native production playback, natural ending, mute, and route cancellation passed. No human has assessed pronunciation, pacing, voice consistency, or age suitability. |
 
 **Verdict: production functional and visual acceptance passes; overall quality acceptance remains pending human listening.** The remaining action is a human review of the 183 packaged narration clips for pronunciation, pacing, consistency, and suitability for the intended age. Record any filenames needing correction and recheck their production playback after changes. The four-and-a-half scores above are scoped dimension assessments, not an overall 4.5 claim; no average is reported while narration is unscored.
