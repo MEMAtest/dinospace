@@ -1,0 +1,1215 @@
+{
+  "sourcePreview": "https://dinospace-gq2lsj6sw-memas-projects-23a0001d.vercel.app",
+  "sourceCommit": "28f6c5980b9f60ad8848392b74d261b7a2d7c8c3",
+  "capturePath": "Grown-ups > press and hold > Game troubleshooting > Download game log",
+  "rawDownloadSha256": "64678d2fd35d0e12bad3633d291e15664b80b932fdacb3491e7dd1f5e12f11bb",
+  "retention": {
+    "recentEvents": 300,
+    "runMilestones": 100
+  },
+  "returnedEventCount": 100,
+  "returnedMilestoneCount": 14,
+  "gamesPresent": [
+    "memory"
+  ],
+  "dataReview": "Sanitized to Memory game identifiers, timestamps, level indexes, seeds, difficulty and outcomes. No names or story text appeared in the downloaded export.",
+  "events": [
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:38:51.051Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter"
+    },
+    {
+      "game": "memory",
+      "event": "scene",
+      "at": "2026-10-07T15:38:51.051Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter"
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:35.277Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:36.444Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:36.695Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:37.794Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:38.027Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:38.278Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "complete",
+      "at": "2026-10-07T15:39:38.278Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter",
+      "correct": true,
+      "hints": 0,
+      "firstAttempt": false
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:39:38.279Z",
+      "difficulty": "starter",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:39:47.045Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing"
+    },
+    {
+      "game": "memory",
+      "event": "scene",
+      "at": "2026-10-07T15:39:47.046Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing"
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:49.162Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:50.326Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:51.410Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:51.642Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:52.726Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:52.977Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:54.077Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:54.344Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:55.442Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:55.676Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:55.910Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:56.142Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:39:56.394Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "complete",
+      "at": "2026-10-07T15:39:56.394Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing",
+      "correct": true,
+      "hints": 0,
+      "firstAttempt": false
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:39:56.394Z",
+      "difficulty": "growing",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:40:06.827Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "scene",
+      "at": "2026-10-07T15:40:06.827Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:08.943Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:10.109Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:10.360Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:11.459Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:12.577Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:13.660Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:13.893Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:14.976Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:15.226Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:16.325Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:16.577Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:16.825Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:17.075Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:17.326Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:17.576Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:17.810Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "complete",
+      "at": "2026-10-07T15:40:17.810Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0,
+      "firstAttempt": false
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:40:17.810Z",
+      "difficulty": "challenge",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:40:30.361Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "scene",
+      "at": "2026-10-07T15:40:30.361Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:32.409Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:33.574Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:34.674Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:34.926Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:36.026Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:36.276Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:37.392Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:38.507Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:38.757Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:39.009Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:40.107Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:40.357Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:41.442Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:41.691Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:41.942Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:42.174Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:42.407Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:42.659Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:40:42.891Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "complete",
+      "at": "2026-10-07T15:40:42.891Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0,
+      "firstAttempt": false
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:40:42.892Z",
+      "difficulty": "challenge",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:43:17.037Z",
+      "level": 4,
+      "seed": 199257187,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "scene",
+      "at": "2026-10-07T15:43:17.037Z",
+      "level": 4,
+      "seed": 199257187,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:43:23.931Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "scene",
+      "at": "2026-10-07T15:43:23.932Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:42.973Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:44.522Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:45.623Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:46.738Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:47.839Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:48.089Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:48.338Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:49.439Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:49.689Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:49.939Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:51.023Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:51.255Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:51.488Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:51.722Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": false,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:52.840Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:53.071Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:53.322Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:53.556Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:53.804Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "answer",
+      "at": "2026-10-07T15:43:54.039Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0
+    },
+    {
+      "game": "memory",
+      "event": "complete",
+      "at": "2026-10-07T15:43:54.039Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge",
+      "correct": true,
+      "hints": 0,
+      "firstAttempt": false
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:43:54.039Z",
+      "difficulty": "challenge",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "replay",
+      "at": "2026-10-07T15:44:35.404Z",
+      "level": 4,
+      "seed": 3975529834,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:44:35.406Z",
+      "level": 4,
+      "seed": 3975529834,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "scene",
+      "at": "2026-10-07T15:44:35.406Z",
+      "level": 4,
+      "seed": 3975529834,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "leave",
+      "at": "2026-10-07T15:45:23.886Z",
+      "level": 4,
+      "seed": 3975529834,
+      "difficulty": "challenge"
+    }
+  ],
+  "runMilestones": [
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:38:51.051Z",
+      "level": 0,
+      "seed": 3972054812,
+      "difficulty": "starter"
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:39:38.279Z",
+      "difficulty": "starter",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:39:47.045Z",
+      "level": 1,
+      "seed": 3545278184,
+      "difficulty": "growing"
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:39:56.394Z",
+      "difficulty": "growing",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:40:06.827Z",
+      "level": 2,
+      "seed": 1271990895,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:40:17.810Z",
+      "difficulty": "challenge",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:40:30.361Z",
+      "level": 3,
+      "seed": 3636895294,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:40:42.892Z",
+      "difficulty": "challenge",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:43:17.037Z",
+      "level": 4,
+      "seed": 199257187,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:43:23.931Z",
+      "level": 4,
+      "seed": 2315365621,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "level_completed",
+      "at": "2026-10-07T15:43:54.039Z",
+      "difficulty": "challenge",
+      "correct": true,
+      "firstAttempt": false,
+      "independent": false
+    },
+    {
+      "game": "memory",
+      "event": "replay",
+      "at": "2026-10-07T15:44:35.404Z",
+      "level": 4,
+      "seed": 3975529834,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "start",
+      "at": "2026-10-07T15:44:35.406Z",
+      "level": 4,
+      "seed": 3975529834,
+      "difficulty": "challenge"
+    },
+    {
+      "game": "memory",
+      "event": "leave",
+      "at": "2026-10-07T15:45:23.886Z",
+      "level": 4,
+      "seed": 3975529834,
+      "difficulty": "challenge"
+    }
+  ],
+  "coverageByLevel": [
+    {
+      "level": 0,
+      "starts": 1,
+      "scenes": 1,
+      "answers": 6,
+      "correct": 4,
+      "wrong": 2,
+      "hintEvents": 0,
+      "hints": 0,
+      "completeEvents": 1,
+      "replays": 0,
+      "leaves": 0,
+      "seeds": [
+        3972054812
+      ],
+      "difficulty": "starter"
+    },
+    {
+      "level": 1,
+      "starts": 1,
+      "scenes": 1,
+      "answers": 13,
+      "correct": 8,
+      "wrong": 5,
+      "hintEvents": 0,
+      "hints": 0,
+      "completeEvents": 1,
+      "replays": 0,
+      "leaves": 0,
+      "seeds": [
+        3545278184
+      ],
+      "difficulty": "growing"
+    },
+    {
+      "level": 2,
+      "starts": 1,
+      "scenes": 1,
+      "answers": 16,
+      "correct": 10,
+      "wrong": 6,
+      "hintEvents": 0,
+      "hints": 0,
+      "completeEvents": 1,
+      "replays": 0,
+      "leaves": 0,
+      "seeds": [
+        1271990895
+      ],
+      "difficulty": "challenge"
+    },
+    {
+      "level": 3,
+      "starts": 1,
+      "scenes": 1,
+      "answers": 19,
+      "correct": 12,
+      "wrong": 7,
+      "hintEvents": 0,
+      "hints": 0,
+      "completeEvents": 1,
+      "replays": 0,
+      "leaves": 0,
+      "seeds": [
+        3636895294
+      ],
+      "difficulty": "challenge"
+    },
+    {
+      "level": 4,
+      "starts": 3,
+      "scenes": 3,
+      "answers": 20,
+      "correct": 13,
+      "wrong": 7,
+      "hintEvents": 0,
+      "hints": 0,
+      "completeEvents": 1,
+      "replays": 1,
+      "leaves": 1,
+      "seeds": [
+        199257187,
+        2315365621,
+        3975529834
+      ],
+      "difficulty": "challenge"
+    },
+    {
+      "level": null,
+      "starts": 0,
+      "scenes": 0,
+      "answers": 0,
+      "correct": 0,
+      "wrong": 0,
+      "hintEvents": 0,
+      "hints": 0,
+      "completeEvents": 0,
+      "replays": 0,
+      "leaves": 0,
+      "seeds": [],
+      "difficulty": "challenge"
+    }
+  ],
+  "knownSchemaGap": "The direct Memory complete event includes level and seed. The corresponding level_completed milestone omits both fields; milestone start retains them.",
+  "limitations": [
+    "This fresh preview origin yielded levels 0-4 only; no attempt was made to synthesize later unlocks.",
+    "No hint event occurred in this gameplay log.",
+    "The export has 100 events and 14 milestones in this session although retention advertises 300 and 100."
+  ]
+}

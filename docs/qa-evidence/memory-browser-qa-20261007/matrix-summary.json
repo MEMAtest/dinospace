@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-07",
+  "deployment": "dpl_HQNZMHJq3E3qynrJaHjUwNi4rp3b",
+  "runtimeSha": "28f6c5980b9f60ad8848392b74d261b7a2d7c8c3",
+  "viewports": {
+    "desktop": {"viewport": "1440x1000", "levels": [
+      {"level":1,"pairs":4,"visibleMoves":7,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":2,"pairs":8,"visibleMoves":13,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":3,"pairs":10,"visibleMoves":15,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":4,"pairs":12,"visibleMoves":20,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":5,"pairs":13,"visibleMoves":20,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":6,"pairs":14,"visibleMoves":24,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":7,"pairs":15,"visibleMoves":23,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":8,"pairs":16,"visibleMoves":25,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":9,"pairs":17,"visibleMoves":25,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":10,"pairs":18,"visibleMoves":29,"completed":true,"lockPassed":true,"remainingFaceDown":0}
+    ], "level10Runs": 3, "level10FirstVisibleLabels": ["flying saucer", "full moon", "new moon"]},
+    "mobile": {"viewport": "390x844", "minimumCardPx": 82, "documentWidthPx": 390, "levels": [
+      {"level":1,"pairs":4,"visibleMoves":6,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":2,"pairs":8,"visibleMoves":13,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":3,"pairs":10,"visibleMoves":15,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":4,"pairs":12,"visibleMoves":18,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":5,"pairs":13,"visibleMoves":21,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":6,"pairs":14,"visibleMoves":22,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":7,"pairs":15,"visibleMoves":25,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":8,"pairs":16,"visibleMoves":26,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":9,"pairs":17,"visibleMoves":28,"completed":true,"lockPassed":true,"remainingFaceDown":0},
+      {"level":10,"pairs":18,"visibleMoves":28,"completed":true,"lockPassed":true,"remainingFaceDown":0}
+    ], "level10Runs": 3, "level10FirstVisibleLabels": ["galaxy", "full moon", "full moon"]}
+  },
+  "common": {"heldFactEveryLevel": true, "mismatchDisabledDuringLock": true, "zeroFaceDownAtCompletion": true, "nextSessionProgressRetained": true, "stickersCollected": "10/10", "tipAudioNativeEnded": true, "mutePreventsPlay": true, "backPausesAtZero": true, "consoleErrors": 0, "consoleWarnings": 0, "paidProviderCalls": 0},
+  "openAcceptanceGate": "Human auditory review of voice pronunciation, pacing, consistency, and age suitability"
+}
