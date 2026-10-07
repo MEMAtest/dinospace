@@ -1,0 +1,59 @@
+{
+  "checkedAt": "2026-10-07T15:39:37.812Z",
+  "preview": "https://dinospace-gq2lsj6sw-memas-projects-23a0001d.vercel.app",
+  "source": "28f6c5980b9f60ad8848392b74d261b7a2d7c8c3",
+  "rows": [
+    {
+      "path": "/index.html",
+      "status": 200,
+      "remoteSha256": "b959b4ffdd1a45f695b2ae63c8a1a211191d010f9b00b6ab42a6618753150c9e",
+      "localSha256": "fdf5a665888b0b2565d21897a1dd96ddb6c1d98466ef6a0d82479b66718efa46",
+      "matches": false,
+      "vercelInjectedSuffix": "<script async data-explicit-opt-in=\"true\" data-deployment-id=\"dpl_9W4zASvRjaZ9rq7dUBmPFV5K3s3d\" src=\"https://vercel.live/_next-live/feedback/feedback.js\"></script>",
+      "sourceHtmlSha256": "fdf5a665888b0b2565d21897a1dd96ddb6c1d98466ef6a0d82479b66718efa46",
+      "sourceHtmlMatches": true
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "remoteSha256": "76f0c5fd85055b3ea5c06cd63d5efd438b7eea9c64808494593239a80495242a",
+      "localSha256": "76f0c5fd85055b3ea5c06cd63d5efd438b7eea9c64808494593239a80495242a",
+      "matches": true
+    },
+    {
+      "path": "/assets/index-BJEbqLkG.js",
+      "status": 200,
+      "remoteSha256": "a70b9df1e424d0b695d09ff841fd7c86c69a0ed73991076381a151263cd68247",
+      "localSha256": "a70b9df1e424d0b695d09ff841fd7c86c69a0ed73991076381a151263cd68247",
+      "matches": true
+    },
+    {
+      "path": "/assets/index-hI51zul0.css",
+      "status": 200,
+      "remoteSha256": "ab304fed0580816967c786918a4c03617c3b12b5a45759bef64ca972cf68ac01",
+      "localSha256": "ab304fed0580816967c786918a4c03617c3b12b5a45759bef64ca972cf68ac01",
+      "matches": true
+    },
+    {
+      "path": "/audio/en/589bee0c-matilda.mp3",
+      "status": 200,
+      "remoteSha256": "51043d75fdd07b179040b9f26c22dfdfc8bce59ec48fa5bfb3a45718ec9dadd3",
+      "localSha256": "51043d75fdd07b179040b9f26c22dfdfc8bce59ec48fa5bfb3a45718ec9dadd3",
+      "matches": true
+    },
+    {
+      "path": "/audio/en/3b6a256b-matilda.mp3",
+      "status": 200,
+      "remoteSha256": "bb9347693db43127691b3925b31e6c3834c596f24ed46d5e596d0a307515778f",
+      "localSha256": "bb9347693db43127691b3925b31e6c3834c596f24ed46d5e596d0a307515778f",
+      "matches": true
+    },
+    {
+      "path": "/audio/en/12f889bc-matilda.mp3",
+      "status": 200,
+      "remoteSha256": "4047ec48f6af83dc666e7ea1ffcfd43fccad242c34865a553c80fd0529058cd7",
+      "localSha256": "4047ec48f6af83dc666e7ea1ffcfd43fccad242c34865a553c80fd0529058cd7",
+      "matches": true
+    }
+  ]
+}

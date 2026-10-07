@@ -1,13 +1,12 @@
 {
-  "sourceCommit": "a8c8a60c0b4fcc762204710c8017935969efc6b0",
+  "sourceCommit": "28f6c5980b9f60ad8848392b74d261b7a2d7c8c3",
   "independentReviewCommit": "6b115d8d2046e0d6692a00b02f481a4b09d3ad1e",
-  "previewDeployment": "dpl_33WbpDgZ9du3Si7ehzUHYsuQWrDG",
-  "previewUrl": "https://dinospace-efwd5uaho-memas-projects-23a0001d.vercel.app",
+  "previewDeployment": "dpl_9W4zASvRjaZ9rq7dUBmPFV5K3s3d",
+  "previewUrl": "https://dinospace-gq2lsj6sw-memas-projects-23a0001d.vercel.app",
   "previewState": "READY",
-  "vercelSource": "a8c8a60c0b4fcc762204710c8017935969efc6b0",
-  "configuredLocalBuildIndexSha256": "4400e829cc82ef32b0b23a03297f9f7588d22c2bcd5fd714bcbda329da03968f",
+  "vercelSource": "28f6c5980b9f60ad8848392b74d261b7a2d7c8c3",
   "localScript": [
-    "/assets/index-CItvR7aP.js"
+    "/assets/index-BJEbqLkG.js"
   ],
   "fullTests": {
     "passed": 277,
@@ -16,7 +15,73 @@
   },
   "focusedTestsPassed": 18,
   "audioHashMatches": 183,
-  "productionReleased": false,
-  "browserAcceptance": false,
-  "humanListeningAcceptance": false
+  "productionReleased": true,
+  "browserAcceptance": true,
+  "humanListeningAcceptance": false,
+  "browserBaseline": {
+    "source": "a8c8a60c0b4fcc762204710c8017935969efc6b0",
+    "desktopBoards": 10,
+    "mobileBoards": 10,
+    "mobileFinalReplays": 3,
+    "scope": "ordinary UI preview; production pending"
+  },
+  "productionDeployment": "dpl_HQNZMHJq3E3qynrJaHjUwNi4rp3b",
+  "productionUrl": "https://dinospace-eight.vercel.app",
+  "productionRuntime": "28f6c5980b9f60ad8848392b74d261b7a2d7c8c3",
+  "productionIdentity": "production-canonical-identity.json",
+  "previewBrowserAcceptance": true,
+  "productionBrowserAcceptance": true,
+  "previewDelta": {
+    "desktop": true,
+    "mobile": true,
+    "hudOverlap": false
+  },
+  "releaseClass": "functional Memory improvement; editorial acceptance pending",
+  "productionBoardMatrix": {
+    "desktop": {
+      "viewport": "1440x1000",
+      "boards": 10,
+      "finalBoardRuns": 3
+    },
+    "mobile": {
+      "viewport": "390x844",
+      "boards": 10,
+      "finalBoardRuns": 3
+    },
+    "pairCounts": [
+      4,
+      8,
+      10,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "allCompleted": true,
+    "mobileMinimumCardPixels": 82,
+    "horizontalOverflow": false
+  },
+  "productionControls": {
+    "reloadProgress": true,
+    "soundPreferenceReload": true,
+    "mute": true,
+    "activeNarrationBackPause": true,
+    "parentWorld": "#/world/thinking",
+    "stickers": "10/10",
+    "nativeTipEnded": true
+  },
+  "independentBrowserEvidenceCommit": "afe600f3",
+  "productionDiagnostics": {
+    "events": 300,
+    "milestones": 62,
+    "levels": 10,
+    "seededLeave": true,
+    "seededHint": true
+  },
+  "qualityAcceptance": false,
+  "recordedEditorialScore": null,
+  "openGate": "human auditory review and final evidence-based editorial scoring"
 }
