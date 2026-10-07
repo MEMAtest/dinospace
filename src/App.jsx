@@ -388,7 +388,7 @@ const PlayerSession = ({
           completed={challengeCompleted}
           active={currentGame.id === todaysChallenge.game}
           onGo={() => launchGame(todaysChallenge.game, 'launch', { replace: true })}
-          placement={currentGame.id === 'solar' ? 'top-center' : 'bottom-right'}
+          placement={currentGame.id === 'memory' ? 'inline' : currentGame.id === 'solar' ? 'top-center' : 'bottom-right'}
         />
       )}
       <CelebrationOverlay celebration={celebration} />

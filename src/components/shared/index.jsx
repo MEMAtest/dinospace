@@ -381,7 +381,7 @@ export const DailyChallengeTracker = ({ challenge, progress, completed, active, 
       : 'bottom-3 right-3';
   return (
     <div
-      className={`fixed z-40 min-w-[8.5rem] pointer-events-auto transition-all ${positionClass} ${
+      className={`${placement === 'inline' ? 'relative mx-auto mb-5 mt-4 w-fit max-w-[calc(100%-2rem)]' : `fixed ${positionClass}`} z-40 min-w-[8.5rem] pointer-events-auto transition-all ${
         completed ? 'animate-challenge-complete' : ''
       }`}
       title={challenge.desc}
