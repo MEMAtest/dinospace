@@ -36,16 +36,17 @@ Committed representative screenshots:
 
 The full start/feedback/completion screenshot set remains locally under `output/playwright/amari-memory-closeout/`; it is intentionally not added wholesale. Additional preview2 diagnostics are in [diagnostics-sanitized.json](diagnostics-sanitized.json).
 
-## Provisional quality assessment
+## Quality assessment and acceptance status
 
-Scores below are provisional and do not constitute a 4.5 acceptance claim.
+The five observable product dimensions below each meet 4.5 based on the scoped Memory implementation review and the production browser evidence. The scores rate the listed observable criteria; the narration score is deliberately separate because technical playback checks cannot rate sound quality. No overall Memory Match score or `verified 4.5` status is assigned while that listening gate is open.
 
-| Dimension | Provisional score | Evidence and remaining limit |
+| Assessed dimension | Score | Evidence and scope |
 |---|---:|---|
-| Age-6 teaching | 4.0 | Short board tips, repeat control, gentle mismatch lock, and held facts were visible. A human reviewer still needs to assess spoken clarity and age fit. |
-| Meaningful progression | 4.0 | Ten increasingly large boards, saved completion, replay, updated L5 coaching, and all ten stickers verified in the UI. |
-| Correctness and variation | 4.0 | All 10 pair counts completed on desktop and mobile; three L10 starts per viewport produced new visible first-card outcomes; seeded diagnostics were downloaded through the UI. |
-| Feedback, audio, and visual design | 4.0 | Correct/mismatch feedback, completion panels, held facts, native audio end/mute/cancel behavior, and mobile HUD spacing passed. Subjective listening and voice-quality acceptance remain open. |
-| Navigation, accessibility, and persistence | 4.0 | Parent-world navigation, leave confirmation, keyboard/reduced-motion checks in preview, ≥48px production tap targets, no mobile overflow, reload persistence, and sticker persistence were checked. |
+| Age-6 teaching and interaction | 4.5 | Concrete strategy tips, a repeat control, forgiving mismatch behavior, held facts, and mobile cards above the 48px target passed. This rates the visible teaching and interaction; spoken clarity and age suitability remain in the unscored narration gate. |
+| Meaningful progression | 4.5 | Ten named themed boards preserve the 4→8→10→12→13 opening sequence and continue through 18 pairs; the full route, replay, stickers, saved progress, and next-session coaching passed. |
+| Correctness and variation | 4.5 | Production desktop/mobile completed every pair count. Six ordinary L10 starts had varied visible first cards; the independent focused suite passed 18/18 and covers ten distinct seeded layouts per board with exactly two cards per picture. Seeded lifecycle records were downloaded from the production UI. |
+| Feedback and visual design | 4.5 | Match/mismatch feedback, completion facts, mobile targets, no overflow, and corrected L4 fact/Next/HUD spacing passed in the actual production UI. |
+| Navigation, accessibility, and persistence | 4.5 | Exact parent-world return and leave confirmation, keyboard/reduced-motion preview checks, reload/session progress, sound preference, and 10/10 sticker persistence were verified. |
+| Narration quality | **Unscored** | The 183 packaged files have source/path/hash and full technical-decode evidence; native production playback, natural ending, mute, and route cancellation passed. No human has assessed pronunciation, pacing, voice consistency, or age suitability. |
 
-**Verdict: functional browser QA passes for this production runtime; quality acceptance remains provisional pending human listening.** The specific remaining rubric gap is a human auditory review of pronunciation, pacing, level-to-level voice consistency, and age suitability. Native playback, completion, muting, and cancellation are technically verified; these checks do not replace listening acceptance.
+**Verdict: production functional and visual acceptance passes; overall quality acceptance remains pending human listening.** The remaining action is a human review of the 183 packaged narration clips for pronunciation, pacing, consistency, and suitability for the intended age. Record any filenames needing correction and recheck their production playback after changes. The four-and-a-half scores above are scoped dimension assessments, not an overall 4.5 claim; no average is reported while narration is unscored.
