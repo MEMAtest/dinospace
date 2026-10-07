@@ -10,6 +10,7 @@ import { SPOT_DIFFERENCE_ROUNDS } from '../src/data/spotDifference.js';
 import { normalizeVoiceText, voiceClipKey } from '../src/data/voiceKey.js';
 import { LITTLE_VOICE_LINES } from '../src/data/littleGames.js';
 import { firstSoundPrompt } from '../src/data/phonicsPrompts.js';
+import { memoryNarrationLines } from '../src/data/memoryMatchContent.js';
 
 const corpus = new Map();
 const skyPraise = ['Brilliant flying!', 'Beautiful shape!', 'Fantastic tracing!', 'You nailed it!'];
@@ -110,30 +111,7 @@ HANGMAN_WORDS.forEach(({ word, clue, category }) => {
 });
 for (let shields = 1; shields <= 5; shields += 1) add(`Not this time. You have ${shields} shields left.`);
 
-const MEMORY_CARD_NAMES = {
-  '🐶': 'dog', '🦊': 'fox', '🐸': 'frog', '🐵': 'monkey', '🦄': 'unicorn', '🐙': 'octopus',
-  '🐳': 'whale', '🐬': 'dolphin', '🦈': 'shark', '🐢': 'turtle', '🪼': 'jellyfish', '🦀': 'crab',
-  '🦑': 'squid', '🐟': 'fish', '🚀': 'rocket', '🛸': 'flying saucer', '🌟': 'glowing star',
-  '🌙': 'moon', '🪐': 'ringed planet', '☄️': 'comet', '⭐️': 'star', '🛰️': 'satellite',
-  '👽': 'alien', '🌌': 'galaxy', '🎈': 'balloon', '🎉': 'party popper', '🥳': 'party face',
-  '🎂': 'cake', '🍭': 'lolly', '🍩': 'doughnut', '🧁': 'cupcake', '🍓': 'strawberry',
-  '🍕': 'pizza', '🍟': 'chips', '🍉': 'watermelon', '🍬': 'sweet', '🦕': 'long-neck dinosaur',
-  '🦖': 'T-rex', '🦴': 'bone', '🌋': 'volcano', '🥚': 'egg', '🪨': 'rock', '🌿': 'leaf',
-  '🚗': 'car', '✈️': 'aeroplane', '🚂': 'train', '🚁': 'helicopter', '🏎️': 'racing car',
-  '🚒': 'fire engine', '🍎': 'apple', '🍌': 'banana', '🍇': 'grapes', '🥕': 'carrot',
-  '🧀': 'cheese', '🍪': 'biscuit', '🥤': 'drink', '🌽': 'corn', '👨‍🚀': 'astronaut',
-  '🌍': 'Earth', '🔭': 'telescope',
-};
-
-MEMORY_LEVELS.forEach((level, index) => {
-  level.emojis.forEach((emoji) => {
-    const name = MEMORY_CARD_NAMES[emoji] || 'picture';
-    add(`You found a ${name}. Remember where it is.`);
-    add(`A pair of ${name}s!`);
-  });
-});
-add('Those pictures are different. Try to remember where each one is.');
-add('Find the matching pairs.');
+memoryNarrationLines(MEMORY_LEVELS).forEach((line) => add(line));
 
 [...PATTERN_ROUNDS, ...ADVANCED_PATTERN_ROUNDS, ...NUMBER_PATTERN_ROUNDS, ...ADVANCED_NUMBER_PATTERN_ROUNDS]
   .forEach(({ label, rule }) => {

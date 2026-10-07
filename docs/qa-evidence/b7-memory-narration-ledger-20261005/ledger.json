@@ -1,0 +1,2641 @@
+{
+  "schemaVersion": 1,
+  "ledgerName": "B7 Memory Match current-source narration",
+  "selectorProposal": "b7-memory-current",
+  "source": {
+    "runtimeCommit": "532e540da87b7f6a4197c84de39bb127f296fdef",
+    "reviewedBaselineCommit": "c4db1d4b3e469bf71409ec7d859a05a2c7fa9301",
+    "sha256ByPath": {
+      "src/components/games/MemoryMatch.jsx": "12f0cff1c19240dedfad8006bc8cbcf41cbeda891066bd22efc5877f9eaa8fc8",
+      "src/data/index.js": "f7dfc08370d14127394f31301c9404aee5498d2389cf75e664bdbaa58c4d0a2e",
+      "src/data/memoryMatchContent.js": "f657c8c99bea51db4ea11a3d1569c7f3e40e3b80d1652059a0ef73eb19bef05f",
+      "src/data/batch7Progress.js": "52e9ba55802c392c8af4a312afc335b9a5ba440c51f3f70e39aa5b664cf8d7ac",
+      "src/data/voiceKey.js": "d013e09382520cc4a97e8134171631ade5eb31d39a54d92cc089159dcd95628f",
+      "src/data/offlineVoiceManifest.js": "9e93afb1afd0570a0a996f9b3f9263cecaa7fe0e4b5be5b4398fcda1433bdbc8"
+    }
+  },
+  "predecessorInventory": {
+    "sha256": "aa07d93daba2b85aab5767f630391d2fb6862d4ad91ae43ed261e05ddac70227",
+    "selector": "b7-memory",
+    "corpusSourceCommit": "b6976948cf61147491e3658a5ce2e249a91bca09"
+  },
+  "sourceInventory": {
+    "uniqueTexts": 183,
+    "orderedKeyTextPathSha256": "2852f4fac5df0ab477ba354660f5face9a6f48339bc324fc3ca8d23420c86723",
+    "sourceFunction": "memoryNarrationLines(MEMORY_LEVELS)",
+    "owner": "B7_memory"
+  },
+  "candidateSnapshot": {
+    "manifestSha256": "9e93afb1afd0570a0a996f9b3f9263cecaa7fe0e4b5be5b4398fcda1433bdbc8",
+    "ready": 2,
+    "pending": 181,
+    "readyKeys": [
+      "626fc8ec",
+      "b1765fe5"
+    ],
+    "pendingKeys": [
+      "00871c76",
+      "008e1129",
+      "02eb4dd6",
+      "03c52306",
+      "049b51dc",
+      "05092647",
+      "06d44f10",
+      "076475da",
+      "08496a1a",
+      "0a4256c3",
+      "0b2fe004",
+      "0cd0dc7d",
+      "0d397246",
+      "0fc85867",
+      "0fd3335b",
+      "114118bc",
+      "12f889bc",
+      "13ee0d82",
+      "16ea2fdc",
+      "1ae93213",
+      "1d43616f",
+      "1e036759",
+      "211f63dd",
+      "21726e58",
+      "24247a46",
+      "248c489f",
+      "26ab03ed",
+      "2850582f",
+      "298f52e7",
+      "29afbfcf",
+      "2a9a65b4",
+      "2b3565ca",
+      "2d2dabc0",
+      "2e2b0c35",
+      "3428603e",
+      "362815af",
+      "37908e7c",
+      "3b2acd58",
+      "3b671ef9",
+      "3b6a256b",
+      "3e6f0e2f",
+      "3f557e36",
+      "40055733",
+      "400d43de",
+      "4077c408",
+      "4089c298",
+      "44c14599",
+      "456b8607",
+      "46c54713",
+      "46ce8fbe",
+      "474c15cb",
+      "4af7d783",
+      "4d29bd83",
+      "4d35be06",
+      "4d91c557",
+      "4f60ae17",
+      "4f6e419e",
+      "501aa06c",
+      "5187359d",
+      "51f13c58",
+      "52924fce",
+      "5351c160",
+      "539b136d",
+      "56480d24",
+      "57ce98de",
+      "589bee0c",
+      "58a1b7dc",
+      "5c08d9f3",
+      "5c9936d6",
+      "5e8acb69",
+      "6092eaff",
+      "623f68bc",
+      "62f478dd",
+      "66064892",
+      "679bf712",
+      "6840cdf3",
+      "6bb8329b",
+      "6c27b097",
+      "6c484dca",
+      "6d618f39",
+      "6e8970ce",
+      "6f337b4a",
+      "703306c9",
+      "7536a69c",
+      "7d4b535b",
+      "7f42501e",
+      "825da16b",
+      "848f4d50",
+      "8561a71d",
+      "865553d0",
+      "880dd904",
+      "88a2cecc",
+      "8948620d",
+      "8e76a2f9",
+      "8edc13a0",
+      "8fd44592",
+      "901a1f98",
+      "90b28a9d",
+      "92c9b18e",
+      "950ec066",
+      "972b9ed0",
+      "982f0e41",
+      "9b1419a0",
+      "9f984579",
+      "a23a3c59",
+      "a478a240",
+      "a48ca13c",
+      "a4d75460",
+      "a6235d49",
+      "a67ad6d3",
+      "a7617dee",
+      "a882f303",
+      "a8a32aee",
+      "a92c8f42",
+      "a9736a5e",
+      "a9afcea6",
+      "aabf77cf",
+      "ac0a2804",
+      "ace9dc95",
+      "ae998cc5",
+      "af0cb68f",
+      "b252e448",
+      "b335e81d",
+      "b3a166c9",
+      "b3f1142f",
+      "b5351370",
+      "b5db772e",
+      "b72e55b2",
+      "b8439f25",
+      "b851b259",
+      "b917fa5b",
+      "bd28ed0f",
+      "bed7d75a",
+      "bf118ad4",
+      "bfc98cf1",
+      "bfd8a72b",
+      "c167fcf6",
+      "c33e3615",
+      "c43e9992",
+      "c5170a37",
+      "c5187e47",
+      "ca82b1dc",
+      "cb5303e5",
+      "cbb5b523",
+      "cc676317",
+      "cc9668c0",
+      "cd1754a0",
+      "d09d9787",
+      "d2006e2b",
+      "d3a62485",
+      "d609037f",
+      "d677d398",
+      "d7f67e24",
+      "d962ee42",
+      "dc3f8cb5",
+      "dd216b2f",
+      "de26845f",
+      "dfc95b52",
+      "e0b24743",
+      "e1601847",
+      "e1ba1dd5",
+      "e1e123d0",
+      "e4663917",
+      "e47e1068",
+      "e79eb4ea",
+      "e8a32700",
+      "ebb9b59b",
+      "eedfd358",
+      "ef5ffab1",
+      "f1472a4c",
+      "f1cf2e1c",
+      "f226e56a",
+      "f28bdbe7",
+      "f2c348fb",
+      "f41a908e",
+      "f606fd69",
+      "f6b37d73",
+      "f971f5db",
+      "fa74738b",
+      "fc8e777a",
+      "fea0e02a"
+    ]
+  },
+  "finiteExecutionPlan": {
+    "enabled": false,
+    "maximumUniqueRequests": 181,
+    "maximumRequestsPerRun": 10,
+    "maximumRuns": 19,
+    "plannedRunCaps": [
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      1
+    ],
+    "rollingSharedLimit": {
+      "requests": 30,
+      "minutes": 10
+    },
+    "retryPolicy": "No automatic retries. Every pending key may be attempted at most once across all runs; failed output is terminal for this ledger.",
+    "reusePolicy": "Reuse candidate snapshot-ready bytes only at exact SHA/path/manifest mapping; generated bytes require successful receipt bound to this exact ledger SHA.",
+    "producerSafety": {
+      "predecessorPid": 18781,
+      "lock": "tmp/offline-voice-generator.lock adjacent to the shared request journal",
+      "journal": "../dinospace-batch3-quality/tmp/offline-voice-request-state.json",
+      "gate": "Require terminal reconciled B4 status and a quiescent shared producer lock/journal; do not run while the B6 worker is live."
+    }
+  },
+  "scope": "Exact current Amari Memory Match narration corpus. The 181 pending count is a source/candidate snapshot; this ledger does not authorize paid execution, playback, or listening acceptance.",
+  "items": [
+    {
+      "key": "589bee0c",
+      "text": "Scan one row at a time. Say the picture and remember its place before turning another card.",
+      "path": "/audio/en/589bee0c-matilda.mp3",
+      "textSha256": "2f85b832f9ecbd666ac8cfee7bd8df68a1da58ee08d487bbccc5b0ea46968fb0",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "3b6a256b",
+      "text": "Scan one row at a time. When you turn a picture, remember its row and place. If you see it again, look for the place where its partner appeared.",
+      "path": "/audio/en/3b6a256b-matilda.mp3",
+      "textSha256": "48fed61fa0b859accaf87a06573e3ac36aea48359fd5beb295f7d257b81e8b1e",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "12f889bc",
+      "text": "Try recalling both places before you turn the second card. Keep the same board until every pair is found.",
+      "path": "/audio/en/12f889bc-matilda.mp3",
+      "textSha256": "58429039662797a8b851fa049bb56f7dda5ed2e33448708c2dfa5be785554204",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "46c54713",
+      "text": "You found the dog. Remember where it is.",
+      "path": "/audio/en/46c54713-matilda.mp3",
+      "textSha256": "4583f03e016938786d46f947f448525f51665ff79bead154b77ee70fdcf49aa5",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "cc9668c0",
+      "text": "You matched the dog pair.",
+      "path": "/audio/en/cc9668c0-matilda.mp3",
+      "textSha256": "5c0b9e680a66829cfa7ea10b0f494167c13f474c8e5c5a45d019ec83fa4d110c",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "13ee0d82",
+      "text": "You found the fox. Remember where it is.",
+      "path": "/audio/en/13ee0d82-matilda.mp3",
+      "textSha256": "02035f9a2e0d46ae18e70eccc010b27dd38bbcf240548cfcd35134fe272bba78",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "825da16b",
+      "text": "You matched the fox pair.",
+      "path": "/audio/en/825da16b-matilda.mp3",
+      "textSha256": "444316b15b238bd86e4a217f2c4ee17712a0f8a47e8ed2ef07fa0de0afc61510",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "d09d9787",
+      "text": "You found the frog. Remember where it is.",
+      "path": "/audio/en/d09d9787-matilda.mp3",
+      "textSha256": "e0089abf1e64110cabe92ab43c7d7b9a40eca37f490054f0603488f400848f3e",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "7536a69c",
+      "text": "You matched the frog pair.",
+      "path": "/audio/en/7536a69c-matilda.mp3",
+      "textSha256": "83f7ee53b53eaca906aa9ec0e4624261555ce10351c40e9ecfe5c330a5e0fab0",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a9736a5e",
+      "text": "You found the monkey. Remember where it is.",
+      "path": "/audio/en/a9736a5e-matilda.mp3",
+      "textSha256": "ce35a4db69c133d59dae1da016405d846837e3266c3024cd8ade97bf405087a9",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b3f1142f",
+      "text": "You matched the monkey pair.",
+      "path": "/audio/en/b3f1142f-matilda.mp3",
+      "textSha256": "bd912c95888a054f1cca2a17f27be541a3e403af21df79301c28e791132e7b16",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "d962ee42",
+      "text": "You found the whale. Remember where it is.",
+      "path": "/audio/en/d962ee42-matilda.mp3",
+      "textSha256": "cb9b35d090dd76b085aa361bf72432c7aa932a138d032922bf2fd188b2f0a124",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "bfd8a72b",
+      "text": "You matched the whale pair.",
+      "path": "/audio/en/bfd8a72b-matilda.mp3",
+      "textSha256": "2183abdcdc430fefa52614ad81ba0435d743bfd8ceb7cb1ae8b38578309d92f8",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "8e76a2f9",
+      "text": "You found the dolphin. Remember where it is.",
+      "path": "/audio/en/8e76a2f9-matilda.mp3",
+      "textSha256": "c0dc360fba77949a702e0f350140f83e074f54c92e840192d56eb7cdeb6c800d",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "076475da",
+      "text": "You matched the dolphin pair.",
+      "path": "/audio/en/076475da-matilda.mp3",
+      "textSha256": "f23a26e66e1f00dab6a18b5718cda861bc02779f77dd5490a2e785e0db2858db",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "bed7d75a",
+      "text": "You found the shark. Remember where it is.",
+      "path": "/audio/en/bed7d75a-matilda.mp3",
+      "textSha256": "1555a6cb14ed383a3b19b5207b4f87b0b844bafd48f53c6df07244a547f5d2df",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "e0b24743",
+      "text": "You matched the shark pair.",
+      "path": "/audio/en/e0b24743-matilda.mp3",
+      "textSha256": "a361c05a18b4bd5236e3eb7377e7659cb2ab6fd7958301ec8b5732e8137e8737",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "fa74738b",
+      "text": "You found the turtle. Remember where it is.",
+      "path": "/audio/en/fa74738b-matilda.mp3",
+      "textSha256": "95b48ce3c2180f1f6888596dc0f35cf3930179de2db11263ff277cabe40ded67",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "d677d398",
+      "text": "You matched the turtle pair.",
+      "path": "/audio/en/d677d398-matilda.mp3",
+      "textSha256": "f3998c990dca6b5c2b5831ce2626259d9ae1875bb6c3de3dea5ce15749b67385",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "ebb9b59b",
+      "text": "You found the jellyfish. Remember where it is.",
+      "path": "/audio/en/ebb9b59b-matilda.mp3",
+      "textSha256": "5e852156d920127ea462779cff05f2d6571e0c18d6a3d2afd1d8b69eccf3bb8e",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "4077c408",
+      "text": "You matched the jellyfish pair.",
+      "path": "/audio/en/4077c408-matilda.mp3",
+      "textSha256": "570c8de5a8228c257298a7dd99ea0b13e6ceb108874def01185c1ca561b7eb88",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "2850582f",
+      "text": "You found the crab. Remember where it is.",
+      "path": "/audio/en/2850582f-matilda.mp3",
+      "textSha256": "6de00acaa19b3f615730a84b1a7c9b80f3e724e52ea93aebe02d4e08893a99ce",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "880dd904",
+      "text": "You matched the crab pair.",
+      "path": "/audio/en/880dd904-matilda.mp3",
+      "textSha256": "34ce476eae350217b439f80063275f1d4b15ef4583232774d1fa6bf80d2c50e2",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "4af7d783",
+      "text": "You found the squid. Remember where it is.",
+      "path": "/audio/en/4af7d783-matilda.mp3",
+      "textSha256": "421331773f6ff1809b734cb16407dfbbb66323cc943b4a0bf9e35f26bce53f44",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "865553d0",
+      "text": "You matched the squid pair.",
+      "path": "/audio/en/865553d0-matilda.mp3",
+      "textSha256": "8a75053a6af0307bb3b5a8c0e5f28eca78b39bb5b8b792b62d018fe311bead0a",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "f6b37d73",
+      "text": "You found the fish. Remember where it is.",
+      "path": "/audio/en/f6b37d73-matilda.mp3",
+      "textSha256": "4f5221d93e53072b9dea060d302b5cec3ca474571aeb0869f009d0df68ad2ef5",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "9b1419a0",
+      "text": "You matched the fish pair.",
+      "path": "/audio/en/9b1419a0-matilda.mp3",
+      "textSha256": "54fa68db6d47a52ae2492fd64ac6de7f19b5698da92e3016fe47461b405f5157",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "2e2b0c35",
+      "text": "You found the rocket. Remember where it is.",
+      "path": "/audio/en/2e2b0c35-matilda.mp3",
+      "textSha256": "a6e4d2b21b280a3cc47cb133205ac0a2e26d3652dc4a8da47c97367f6fcd5e84",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a8a32aee",
+      "text": "You matched the rocket pair.",
+      "path": "/audio/en/a8a32aee-matilda.mp3",
+      "textSha256": "5fa1c7438d46d5fceb4bc46d2d3976e8c3c44d4034aaa6a6486be07260297510",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "dd216b2f",
+      "text": "You found the flying saucer. Remember where it is.",
+      "path": "/audio/en/dd216b2f-matilda.mp3",
+      "textSha256": "54e5b0f156fdbb4003a2f9669587b79e60d7aa5878caede504ca449729ca9f7b",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "0b2fe004",
+      "text": "You matched the flying saucer pair.",
+      "path": "/audio/en/0b2fe004-matilda.mp3",
+      "textSha256": "b8c2dc99909b830355497f2c430246974cbbb5e9532ae64f070a15e4e394ad6c",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "46ce8fbe",
+      "text": "You found the glowing star. Remember where it is.",
+      "path": "/audio/en/46ce8fbe-matilda.mp3",
+      "textSha256": "22c03dacee65483a137fe5ccaca9411a028e9a460720cb920bc7833a2eeabbc6",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "bd28ed0f",
+      "text": "You matched the glowing star pair.",
+      "path": "/audio/en/bd28ed0f-matilda.mp3",
+      "textSha256": "266651e5e6cddebaa0fa4e82184d1d3dea986404d60aa7f04f3f5934127f307a",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "c167fcf6",
+      "text": "You found the moon. Remember where it is.",
+      "path": "/audio/en/c167fcf6-matilda.mp3",
+      "textSha256": "c2a9244c64e10f40934b5c7a227da0d6db0099957250e71fc6365eb07fc416ef",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "f28bdbe7",
+      "text": "You matched the moon pair.",
+      "path": "/audio/en/f28bdbe7-matilda.mp3",
+      "textSha256": "58fcc642f085be9d900f1a17871a34840e0a3220f582c8e31b4c7e7edf495795",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "2d2dabc0",
+      "text": "You found the ringed planet. Remember where it is.",
+      "path": "/audio/en/2d2dabc0-matilda.mp3",
+      "textSha256": "8808b9b9b5cd113c2dcff636a70093571d73d8d3cf41949889d0f8b53fab9bee",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "d3a62485",
+      "text": "You matched the ringed planet pair.",
+      "path": "/audio/en/d3a62485-matilda.mp3",
+      "textSha256": "b26dfd34c0c7f43a4ca9a2497021697eb6fd514ef6450e742a09196bdcb865d4",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a6235d49",
+      "text": "You found the comet. Remember where it is.",
+      "path": "/audio/en/a6235d49-matilda.mp3",
+      "textSha256": "407cfd9ce55ef9b3b58347c93729ea9eb016f4117d901df860001ee05c8bcec6",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "6f337b4a",
+      "text": "You matched the comet pair.",
+      "path": "/audio/en/6f337b4a-matilda.mp3",
+      "textSha256": "b6b77c5848b365cdf4091f9f64291e7836d9c5a39177d43c4b74daac049f4aca",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "c33e3615",
+      "text": "You found the star. Remember where it is.",
+      "path": "/audio/en/c33e3615-matilda.mp3",
+      "textSha256": "e88a01374b8685e89a3979c929adf25a3231576ef390a5a7aab1e735a9818e38",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "6e8970ce",
+      "text": "You matched the star pair.",
+      "path": "/audio/en/6e8970ce-matilda.mp3",
+      "textSha256": "e000e03478f1a78bb135448600c732560f47251648dbe2d74ad5418d06ff3750",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "00871c76",
+      "text": "You found the satellite. Remember where it is.",
+      "path": "/audio/en/00871c76-matilda.mp3",
+      "textSha256": "5dbb7bac74d0791433a3f7a735d364836233f22b2fcad50d253f484b2c2fce84",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "298f52e7",
+      "text": "You matched the satellite pair.",
+      "path": "/audio/en/298f52e7-matilda.mp3",
+      "textSha256": "808af038997473e9e2a85a21ea350397576df1df7fc52ac560a24b511f0600fd",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "972b9ed0",
+      "text": "You found the alien. Remember where it is.",
+      "path": "/audio/en/972b9ed0-matilda.mp3",
+      "textSha256": "44499e9f07b1959b98523ea9e023ad9bf9cf56ad8b10762cec44da280684e6b4",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "dc3f8cb5",
+      "text": "You matched the alien pair.",
+      "path": "/audio/en/dc3f8cb5-matilda.mp3",
+      "textSha256": "1e7da8e532a91a2712bf0ffc2ea38eb0a3e43f8c6ce5335a25360024fd76f947",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "8948620d",
+      "text": "You found the galaxy. Remember where it is.",
+      "path": "/audio/en/8948620d-matilda.mp3",
+      "textSha256": "e2826bf42743f670178bf529f68a825730755e8f8eb37c7ee8226f4e35aff4b4",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "950ec066",
+      "text": "You matched the galaxy pair.",
+      "path": "/audio/en/950ec066-matilda.mp3",
+      "textSha256": "68837f05af41f0a2dbb0814d33b5cd12c75298cee800b4e4f2fca8a0a9d51573",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b252e448",
+      "text": "You found the balloon. Remember where it is.",
+      "path": "/audio/en/b252e448-matilda.mp3",
+      "textSha256": "f9ad9d385b15ef6e7c8947c9ae0bbd25ce94cca45a10c94f982bab13d567f0ac",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "539b136d",
+      "text": "You matched the balloon pair.",
+      "path": "/audio/en/539b136d-matilda.mp3",
+      "textSha256": "6e293c08d1b53aaffdd10a1faa185f2bed6c311c1d123cd6e3d17230cfb32ab8",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "f2c348fb",
+      "text": "You found the party popper. Remember where it is.",
+      "path": "/audio/en/f2c348fb-matilda.mp3",
+      "textSha256": "7b1dc86d0cca21a8a6402f2268d4809343fefdca3a9a9c160220b415aa0709dd",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "e47e1068",
+      "text": "You matched the party popper pair.",
+      "path": "/audio/en/e47e1068-matilda.mp3",
+      "textSha256": "e58a4158b65572f4cef788f56e53d41745cd959c9fbdf4f6bb54e1fed3f008aa",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "c43e9992",
+      "text": "You found the party face. Remember where it is.",
+      "path": "/audio/en/c43e9992-matilda.mp3",
+      "textSha256": "7ee658e676235c7782ac59a05c8e8b7a55ffa9446b4cfca490859654f60cc516",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "7d4b535b",
+      "text": "You matched the party face pair.",
+      "path": "/audio/en/7d4b535b-matilda.mp3",
+      "textSha256": "a6033ebe08d50a9a1686f0822e8692bd4dc9a38fba9eabcc42af4810ea8ce895",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "5e8acb69",
+      "text": "You found the cake. Remember where it is.",
+      "path": "/audio/en/5e8acb69-matilda.mp3",
+      "textSha256": "300dbc4a5d2293bd874ac9c56664dab717cd171aec60d9f3b7516d7a78b95771",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "e79eb4ea",
+      "text": "You matched the cake pair.",
+      "path": "/audio/en/e79eb4ea-matilda.mp3",
+      "textSha256": "7f4ec057b01d5edcdb454704a5ab3fcc9fd34400f9943a7c566fc2e1d83aae77",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "26ab03ed",
+      "text": "You found the lolly. Remember where it is.",
+      "path": "/audio/en/26ab03ed-matilda.mp3",
+      "textSha256": "13fd023d33bc37d485540546a77b2b43a20a4dd578e6e4127533b691ca510a10",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "0d397246",
+      "text": "You matched the lolly pair.",
+      "path": "/audio/en/0d397246-matilda.mp3",
+      "textSha256": "83e01e321f773886a5d2e62c4f03446132c15708884ab7f0ec429fd7ed613040",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "29afbfcf",
+      "text": "You found the doughnut. Remember where it is.",
+      "path": "/audio/en/29afbfcf-matilda.mp3",
+      "textSha256": "414a807276dbc72206cd526523ee2f424769fee9393d5a9558e714d5ea1436fd",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "56480d24",
+      "text": "You matched the doughnut pair.",
+      "path": "/audio/en/56480d24-matilda.mp3",
+      "textSha256": "f968c445be8c6702a36baf24bcba1d1dc9c0e14c278646effb35291825a073d7",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b335e81d",
+      "text": "You found the cupcake. Remember where it is.",
+      "path": "/audio/en/b335e81d-matilda.mp3",
+      "textSha256": "2b02750311b1ce780aa06ef52c65bdd49b66f3d8585668b8d712ff69d6413fce",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "5c9936d6",
+      "text": "You matched the cupcake pair.",
+      "path": "/audio/en/5c9936d6-matilda.mp3",
+      "textSha256": "83e73c6f0ebe8afed9cec7ff4b615077ab8ad740e30cb669467afdceddfeacdd",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "02eb4dd6",
+      "text": "You found the strawberry. Remember where it is.",
+      "path": "/audio/en/02eb4dd6-matilda.mp3",
+      "textSha256": "922a6ee5df485dc350a7d8e15b26dea5d95a62d35117a4d18c14f5ad35c27f59",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "c5187e47",
+      "text": "You matched the strawberry pair.",
+      "path": "/audio/en/c5187e47-matilda.mp3",
+      "textSha256": "bcd53f675bdc58536e61d76164c4e78680231ca287f3abbc3167e8c4010b9fc2",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "4f60ae17",
+      "text": "You found the pizza. Remember where it is.",
+      "path": "/audio/en/4f60ae17-matilda.mp3",
+      "textSha256": "4bedbe3d8b06ca38b0b97d562fda700a7b2b15afa3c7527f85b80c48ecd4284e",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "f1472a4c",
+      "text": "You matched the pizza pair.",
+      "path": "/audio/en/f1472a4c-matilda.mp3",
+      "textSha256": "a37cfee5174bc1af7af7f89957628334d4e80523fd7da91bc7eba1a31b57e83c",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "049b51dc",
+      "text": "You found the chips. Remember where it is.",
+      "path": "/audio/en/049b51dc-matilda.mp3",
+      "textSha256": "fa42e2bfc7fc7c8a30b708b2ecb7eb8e812fc477072161b75e63788164a3d20f",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "9f984579",
+      "text": "You matched the chips pair.",
+      "path": "/audio/en/9f984579-matilda.mp3",
+      "textSha256": "b5e475e9816e2931d5d04bbbe8f16cdce24cf39f5d96abdce67aa3effe7d9c02",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "cbb5b523",
+      "text": "You found the watermelon. Remember where it is.",
+      "path": "/audio/en/cbb5b523-matilda.mp3",
+      "textSha256": "bc7b922bb77086920abcd6013f402ca1c8fe449b398a3d0eb51bc77d68333757",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b5351370",
+      "text": "You matched the watermelon pair.",
+      "path": "/audio/en/b5351370-matilda.mp3",
+      "textSha256": "3a7ba62c162aa8ab97c66772b1bc32cf928aed1b71e69fe2ca7914a68086f971",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "6d618f39",
+      "text": "You found the sweet. Remember where it is.",
+      "path": "/audio/en/6d618f39-matilda.mp3",
+      "textSha256": "08b3ec5711e6023d8bd36389db7638d41349732d43e872eb689315893c80c3a3",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "08496a1a",
+      "text": "You matched the sweet pair.",
+      "path": "/audio/en/08496a1a-matilda.mp3",
+      "textSha256": "d9a9cbc5ae58a2b796cda43bd5f2f995e8db4ac0ae050a4dc9862637ddf08566",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "66064892",
+      "text": "You found the long-neck dinosaur. Remember where it is.",
+      "path": "/audio/en/66064892-matilda.mp3",
+      "textSha256": "b262e0ebf6b59550eb065cfd37d73c80bff7dc0e5e2e202d526af0bdbd2b1d89",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "f971f5db",
+      "text": "You matched the long-neck dinosaur pair.",
+      "path": "/audio/en/f971f5db-matilda.mp3",
+      "textSha256": "04c15ea4427cd19baa589f577c2bcb17e3e49e7c987b1e61f5ed0cd081589aa5",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "e4663917",
+      "text": "You found the T-rex. Remember where it is.",
+      "path": "/audio/en/e4663917-matilda.mp3",
+      "textSha256": "0b6e4295a53810ff1d31d47ea6df2e1872af776f10fcca4011fbe017d660a515",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "88a2cecc",
+      "text": "You matched the T-rex pair.",
+      "path": "/audio/en/88a2cecc-matilda.mp3",
+      "textSha256": "f2455a75e2326335afeef74fc88100e9d9c3bb1d1be3accecae8eda08a074e43",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "456b8607",
+      "text": "You found the bone. Remember where it is.",
+      "path": "/audio/en/456b8607-matilda.mp3",
+      "textSha256": "7134e71a3fb4d050be48b6af665d34ade408218570644f27b40647f0fc04ee91",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "f1cf2e1c",
+      "text": "You matched the bone pair.",
+      "path": "/audio/en/f1cf2e1c-matilda.mp3",
+      "textSha256": "a0401942fd38b848e8b73af69d21c58f5f6204342de1b1d6e6791f054fd6d8d8",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "5c08d9f3",
+      "text": "You found the volcano. Remember where it is.",
+      "path": "/audio/en/5c08d9f3-matilda.mp3",
+      "textSha256": "858acdeae831d2d923136f93df62659163b17034d1747d80ca05b6e3cbe84aaa",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "cd1754a0",
+      "text": "You matched the volcano pair.",
+      "path": "/audio/en/cd1754a0-matilda.mp3",
+      "textSha256": "4795e51a988a5d6f74f5dc4ad71a6baf160c78668c3f3231b35c4ffd3c8d6a8a",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "8fd44592",
+      "text": "You found the egg. Remember where it is.",
+      "path": "/audio/en/8fd44592-matilda.mp3",
+      "textSha256": "1a20be65b41454c8252769309ea574fbb2306d4ac44bfaa34e74d48781275d1d",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "0fd3335b",
+      "text": "You matched the egg pair.",
+      "path": "/audio/en/0fd3335b-matilda.mp3",
+      "textSha256": "d63bcd4fc640dc678f5842b52d1ab563cb6d5963f5a18ef099bb847eaa64abea",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a9afcea6",
+      "text": "You found the fossil dig rock. Remember where it is.",
+      "path": "/audio/en/a9afcea6-matilda.mp3",
+      "textSha256": "a65649f5742ced5c4b595b53f1cf7fd53197ee547df1204729fa4e26b391cb28",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "c5170a37",
+      "text": "You matched the fossil dig rock pair.",
+      "path": "/audio/en/c5170a37-matilda.mp3",
+      "textSha256": "58425f77ab0b3e1dfd45cec1cd025da06bcdf60c1963b6ddadcb55782ddf84b5",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "ae998cc5",
+      "text": "You found the leaf. Remember where it is.",
+      "path": "/audio/en/ae998cc5-matilda.mp3",
+      "textSha256": "eb70995fcd23d28e9a2cfb190275574f9aa6ac6652882fa897b19cd53002085e",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "4f6e419e",
+      "text": "You matched the leaf pair.",
+      "path": "/audio/en/4f6e419e-matilda.mp3",
+      "textSha256": "7fb3e91ed614db1cbcbcd74ea05d6a2b9a144c8b55fec45b5167864ec827e8e9",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a48ca13c",
+      "text": "You found the mountain. Remember where it is.",
+      "path": "/audio/en/a48ca13c-matilda.mp3",
+      "textSha256": "58204e5f021c226a4a139ffbf9a65c2d6e88535698705effc195af5ca824ef7b",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a23a3c59",
+      "text": "You matched the mountain pair.",
+      "path": "/audio/en/a23a3c59-matilda.mp3",
+      "textSha256": "03d52a5befacb7cb0bed122c5d6d76c788cf07431062054f514787e89277afcf",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a4d75460",
+      "text": "You found the dinosaur nest. Remember where it is.",
+      "path": "/audio/en/a4d75460-matilda.mp3",
+      "textSha256": "1707a2f6f9b657f9d4740fb3a6ce8c6eed2de18ddd0fefa65fa49ed985575154",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b8439f25",
+      "text": "You matched the dinosaur nest pair.",
+      "path": "/audio/en/b8439f25-matilda.mp3",
+      "textSha256": "c63930d5b941e77a7ef710654a6e28f9b8156f9685b8559100b1132b1edb6f0c",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "57ce98de",
+      "text": "You found the dinosaur tooth. Remember where it is.",
+      "path": "/audio/en/57ce98de-matilda.mp3",
+      "textSha256": "f1aa5fb950d75bffb1de5be9d792605b46f3bfa27fdfbac23ae31930f8c67fa9",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "362815af",
+      "text": "You matched the dinosaur tooth pair.",
+      "path": "/audio/en/362815af-matilda.mp3",
+      "textSha256": "2e9d57a1569db252a6c28e5e5cab67098b23427ac05cb99311a5946a1ca226d9",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "4d35be06",
+      "text": "You found the fossil dig pick. Remember where it is.",
+      "path": "/audio/en/4d35be06-matilda.mp3",
+      "textSha256": "32cd0bdb5f5b5f8d329c1b1f93ad6293cfa98d13f18ba1a3606698f88da83727",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "6c27b097",
+      "text": "You matched the fossil dig pick pair.",
+      "path": "/audio/en/6c27b097-matilda.mp3",
+      "textSha256": "2e309c8b93817a5667241265f833fb7a2dd218d0b998dd628aee89f34c689d42",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "0cd0dc7d",
+      "text": "You found the tree. Remember where it is.",
+      "path": "/audio/en/0cd0dc7d-matilda.mp3",
+      "textSha256": "4c3ec556d5a26e0032161b6847c56eba2eb88f01b18662f4213a36748fb112d0",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "3f557e36",
+      "text": "You matched the tree pair.",
+      "path": "/audio/en/3f557e36-matilda.mp3",
+      "textSha256": "b793f434cd77d0bf0098f1eb40663a6e21860e0e450e211bd5a66928b4616242",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "dfc95b52",
+      "text": "You found the seedling. Remember where it is.",
+      "path": "/audio/en/dfc95b52-matilda.mp3",
+      "textSha256": "7637cad4abe9630ddabbdcb37ee44e0340b7b87d01608b0f640b7689a7d99052",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "6bb8329b",
+      "text": "You matched the seedling pair.",
+      "path": "/audio/en/6bb8329b-matilda.mp3",
+      "textSha256": "8871c1f9c856b3279ab5da31b98cffe4b4c2abdb03c557fd7a7cbdc3d883750e",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "e1601847",
+      "text": "You found the car. Remember where it is.",
+      "path": "/audio/en/e1601847-matilda.mp3",
+      "textSha256": "5766937cb26f9e1e321b9e46c861df711e15f306c06a9e912b1a350392a801b4",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "58a1b7dc",
+      "text": "You matched the car pair.",
+      "path": "/audio/en/58a1b7dc-matilda.mp3",
+      "textSha256": "818e88396adc4f75dcecd7bc563c7539279b5d370c5a6114b747bc2396d1d469",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a92c8f42",
+      "text": "You found the aeroplane. Remember where it is.",
+      "path": "/audio/en/a92c8f42-matilda.mp3",
+      "textSha256": "393bf0a936f7432a3a316dcac5b2774fa1145cee2c63266812ff2597b7bbec94",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "d2006e2b",
+      "text": "You matched the aeroplane pair.",
+      "path": "/audio/en/d2006e2b-matilda.mp3",
+      "textSha256": "03a743624b6a0c6d7d45c0fea6e0569b0daaf36227498ca3a3ac5d8aa82a63bf",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "0a4256c3",
+      "text": "You found the steam train. Remember where it is.",
+      "path": "/audio/en/0a4256c3-matilda.mp3",
+      "textSha256": "1d6c4d6860f37484866141dcf5b1311ec804dacce7339d12b799e2ddd14bd649",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "06d44f10",
+      "text": "You matched the steam train pair.",
+      "path": "/audio/en/06d44f10-matilda.mp3",
+      "textSha256": "fea1cefd6f1f45e76670256b3effea97c46f9701530a27cc0d9ac15c92ded062",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "f41a908e",
+      "text": "You found the helicopter. Remember where it is.",
+      "path": "/audio/en/f41a908e-matilda.mp3",
+      "textSha256": "9a41302d98ff502b1a5cff14c8b556968434aa4d8804517108230b576c1d10f6",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "6092eaff",
+      "text": "You matched the helicopter pair.",
+      "path": "/audio/en/6092eaff-matilda.mp3",
+      "textSha256": "5db0a0ffb1b245cf8cafdbeb523015ebd29232095da5195ae459c42f35301e54",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b3a166c9",
+      "text": "You found the racing car. Remember where it is.",
+      "path": "/audio/en/b3a166c9-matilda.mp3",
+      "textSha256": "b7f2474146f6c24be7191a8ab0572d7d06d7cecf323de138dd41b9ccebfefae1",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "6c484dca",
+      "text": "You matched the racing car pair.",
+      "path": "/audio/en/6c484dca-matilda.mp3",
+      "textSha256": "cc2c20459f0448f189bd19ad2ccd482b24ca142951b53afb55dedb0da6ad1e6c",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "d609037f",
+      "text": "You found the fire engine. Remember where it is.",
+      "path": "/audio/en/d609037f-matilda.mp3",
+      "textSha256": "e72f97cf7d60523ee64489632da1fb94705ef1f401473da12b4f7ed86dd131f0",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "2a9a65b4",
+      "text": "You matched the fire engine pair.",
+      "path": "/audio/en/2a9a65b4-matilda.mp3",
+      "textSha256": "751729d196dee3c740760b1d56cbee07c51202c08f5d5380838ae5944564cd97",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "7f42501e",
+      "text": "You found the speedboat. Remember where it is.",
+      "path": "/audio/en/7f42501e-matilda.mp3",
+      "textSha256": "0c054a4720be1c0fe58bc3e02f0e086ddb10de283dbde93b947840f4eda361c3",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "1d43616f",
+      "text": "You matched the speedboat pair.",
+      "path": "/audio/en/1d43616f-matilda.mp3",
+      "textSha256": "385a96ae064096e3dc7079456c40156d88cf19a15ae26a0d925a61626d618240",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "51f13c58",
+      "text": "You found the scooter. Remember where it is.",
+      "path": "/audio/en/51f13c58-matilda.mp3",
+      "textSha256": "09e3227bfec9e06d0e40b77db80dfd2f78566dca4440dd5ddfb7da2a0f41d7a7",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "90b28a9d",
+      "text": "You matched the scooter pair.",
+      "path": "/audio/en/90b28a9d-matilda.mp3",
+      "textSha256": "2db0b41e6870e99b662465755ed301eb97852af589143670c132c892aa66187c",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "400d43de",
+      "text": "You found the bicycle. Remember where it is.",
+      "path": "/audio/en/400d43de-matilda.mp3",
+      "textSha256": "98adaa425726fbe5e9ce56b6c94a93ef23de44fdeb965dcc7b56c3d0f6be0f5a",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "3e6f0e2f",
+      "text": "You matched the bicycle pair.",
+      "path": "/audio/en/3e6f0e2f-matilda.mp3",
+      "textSha256": "f5992698f637175a4f1173f320fec81bdcfb7d3fbf3ac0ce6c60f1ba864ca96a",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "05092647",
+      "text": "You found the bus. Remember where it is.",
+      "path": "/audio/en/05092647-matilda.mp3",
+      "textSha256": "eaf074e8a1edd9d840fe24d58ca2591badd175aa0726ca183f79169436afc2f3",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "ca82b1dc",
+      "text": "You matched the bus pair.",
+      "path": "/audio/en/ca82b1dc-matilda.mp3",
+      "textSha256": "db05fdb47526483c04e1c490df45129efa0ec428791884d298205848b16a8209",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "623f68bc",
+      "text": "You found the tractor. Remember where it is.",
+      "path": "/audio/en/623f68bc-matilda.mp3",
+      "textSha256": "1655ef78ae707bc2afc8ac131b0073bb6009d7a4fc4d2bcbfd7479febcf916ee",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "1e036759",
+      "text": "You matched the tractor pair.",
+      "path": "/audio/en/1e036759-matilda.mp3",
+      "textSha256": "39a510e55dc5c329f6e105ddebdcd345134d74d3896aded66069795d26192dd0",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a67ad6d3",
+      "text": "You found the passenger train. Remember where it is.",
+      "path": "/audio/en/a67ad6d3-matilda.mp3",
+      "textSha256": "852f9d82535db28aeee4e50f52f59e9057ebcb331d8f60d61dd4636938d73d64",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "e8a32700",
+      "text": "You matched the passenger train pair.",
+      "path": "/audio/en/e8a32700-matilda.mp3",
+      "textSha256": "da88152dde2eab2c03065acfd34dd65ab1cec89f99b4057dd278951c03745daa",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "ace9dc95",
+      "text": "You found the apple. Remember where it is.",
+      "path": "/audio/en/ace9dc95-matilda.mp3",
+      "textSha256": "978cb9292dc4a834e113cdd2b640abf4abf2e422d22d9afbbaefb482aecbd4bf",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "52924fce",
+      "text": "You matched the apple pair.",
+      "path": "/audio/en/52924fce-matilda.mp3",
+      "textSha256": "6a3fdbd3c94ff2cb14d3280a8e3403ed3bb50244843c6724ef9e53cea8fe29e8",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "03c52306",
+      "text": "You found the banana. Remember where it is.",
+      "path": "/audio/en/03c52306-matilda.mp3",
+      "textSha256": "a7f97bbaf0547d40974444cba32eec9ae81803b3d66a1b4b45f7910ab5ad5cbc",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "cc676317",
+      "text": "You matched the banana pair.",
+      "path": "/audio/en/cc676317-matilda.mp3",
+      "textSha256": "88b25d0ab8d3695a81a72fe28642629c7b2a53fa148511c0dcd45a1fa0aa89a4",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "e1ba1dd5",
+      "text": "You found the grapes. Remember where it is.",
+      "path": "/audio/en/e1ba1dd5-matilda.mp3",
+      "textSha256": "10fa40335a011e1c9ca4a4de51f4832a0ef24c780d62670038fde486b2691670",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "92c9b18e",
+      "text": "You matched the grapes pair.",
+      "path": "/audio/en/92c9b18e-matilda.mp3",
+      "textSha256": "bbed4bbf4e7dd00f39d771736e44cdb56110778452909bb4bb5f32d322ddda5c",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "8edc13a0",
+      "text": "You found the carrot. Remember where it is.",
+      "path": "/audio/en/8edc13a0-matilda.mp3",
+      "textSha256": "a0f2f25bf06aaf9cbaeaee40df434afb2bec848c7948151e7b30fe881601660e",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "cb5303e5",
+      "text": "You matched the carrot pair.",
+      "path": "/audio/en/cb5303e5-matilda.mp3",
+      "textSha256": "b56c11ed7753a1017d667f384a4d606add09aba1d7528ff5c8d9ad0c720a2604",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "f226e56a",
+      "text": "You found the cheese. Remember where it is.",
+      "path": "/audio/en/f226e56a-matilda.mp3",
+      "textSha256": "8f3063acaa7e221e57be56f99df528f5c844dd21b2422eb422bd7db491244e78",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "6840cdf3",
+      "text": "You matched the cheese pair.",
+      "path": "/audio/en/6840cdf3-matilda.mp3",
+      "textSha256": "75394f238e643be4c63ec2610870464149ae6181d2d9f6468d5cf07714cf80ca",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "901a1f98",
+      "text": "You found the biscuit. Remember where it is.",
+      "path": "/audio/en/901a1f98-matilda.mp3",
+      "textSha256": "58eddfd2602a5b5bb8ff337f7f02a8a3fc0261f189a2b738b2626d0a94f9188b",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "211f63dd",
+      "text": "You matched the biscuit pair.",
+      "path": "/audio/en/211f63dd-matilda.mp3",
+      "textSha256": "2df9dbd395b65b0fb0ee79114a1e7f3317b7adc913eb765d1d8c976afb1b7aee",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a882f303",
+      "text": "You found the drink. Remember where it is.",
+      "path": "/audio/en/a882f303-matilda.mp3",
+      "textSha256": "052bac42588a9fc8416d5fc40c51b93e87b5c515cddcdc1f6e8e0a76587e8a0f",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "848f4d50",
+      "text": "You matched the drink pair.",
+      "path": "/audio/en/848f4d50-matilda.mp3",
+      "textSha256": "b77f2992997c6de056e79930cf80de87052e310af5a96cc3340e47afcd3d6641",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "40055733",
+      "text": "You found the corn. Remember where it is.",
+      "path": "/audio/en/40055733-matilda.mp3",
+      "textSha256": "93053a188447fa659ef115f95fc4351a1bcec594d712ed9c359f862cb6687163",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "5351c160",
+      "text": "You matched the corn pair.",
+      "path": "/audio/en/5351c160-matilda.mp3",
+      "textSha256": "7f75ccb90d1c8f3d0242fe1a3798b7c5cbab0e2b9643f0daacbc2ff9dfb97c23",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "3b2acd58",
+      "text": "You found the suited astronaut. Remember where it is.",
+      "path": "/audio/en/3b2acd58-matilda.mp3",
+      "textSha256": "eac89d66db4f973fd0cef6e8a5add42605124de2d7dc72c722213ddfe1f8c2af",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "5187359d",
+      "text": "You matched the suited astronaut pair.",
+      "path": "/audio/en/5187359d-matilda.mp3",
+      "textSha256": "bfcc61bba2d29c9eaae2ec65389a748d54ecd580b05767ed5e57be39a28fcd39",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "44c14599",
+      "text": "You found the Earth. Remember where it is.",
+      "path": "/audio/en/44c14599-matilda.mp3",
+      "textSha256": "db5dfd5e3e212b86efe6778638833913b003b0c0f22eb86189488babe77b8f4b",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "fc8e777a",
+      "text": "You matched the Earth pair.",
+      "path": "/audio/en/fc8e777a-matilda.mp3",
+      "textSha256": "ec16ea51a73db96882f50729e6a2d3a240cfa13f3207f61697279e7a6fdfbdbd",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "703306c9",
+      "text": "You found the telescope. Remember where it is.",
+      "path": "/audio/en/703306c9-matilda.mp3",
+      "textSha256": "282dc90291617687710e39f7653d6caaca4ddf49537030a5adfcd453ea5cdb32",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "2b3565ca",
+      "text": "You matched the telescope pair.",
+      "path": "/audio/en/2b3565ca-matilda.mp3",
+      "textSha256": "acac3048a117abe54a06f6d218a1845dd8885586326a60d7ebe06f7adec7b240",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "4d29bd83",
+      "text": "You found the moon rock. Remember where it is.",
+      "path": "/audio/en/4d29bd83-matilda.mp3",
+      "textSha256": "6923e0cb736a44d912f35584e84237a5332470df9ebc27c688cfe6995f6cfc82",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "e1e123d0",
+      "text": "You matched the moon rock pair.",
+      "path": "/audio/en/e1e123d0-matilda.mp3",
+      "textSha256": "35cf05dd680de46fde4b229a94c1bfe401c2086ec3bccd8cfc500edafc7a83a6",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "21726e58",
+      "text": "You found the shooting star. Remember where it is.",
+      "path": "/audio/en/21726e58-matilda.mp3",
+      "textSha256": "af85bb4276349f2d1b1c1f9ea1ca159179a43cd4641def3a5e802ee9b99c340d",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "8561a71d",
+      "text": "You matched the shooting star pair.",
+      "path": "/audio/en/8561a71d-matilda.mp3",
+      "textSha256": "c4d3f7e9538643b8f3c4952297b7e99d6bf81dac676f841f7b46b22718b2d005",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "0fc85867",
+      "text": "You found the Sun. Remember where it is.",
+      "path": "/audio/en/0fc85867-matilda.mp3",
+      "textSha256": "b9f27159eab7b660d5b8a84bb5d3eee3db3f862fa17dee3d3185759092384e13",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "37908e7c",
+      "text": "You matched the Sun pair.",
+      "path": "/audio/en/37908e7c-matilda.mp3",
+      "textSha256": "53047dfe7574f9ea69c818288d2eeaa67932973f2515904bb00a1bd490825104",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "ac0a2804",
+      "text": "You found the pond fish. Remember where it is.",
+      "path": "/audio/en/ac0a2804-matilda.mp3",
+      "textSha256": "76d13212dc3598e6260dee435ea3ea787c5670cb607c74b1055a774f1442fc00",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "982f0e41",
+      "text": "You matched the pond fish pair.",
+      "path": "/audio/en/982f0e41-matilda.mp3",
+      "textSha256": "524e603ee7e065eb2a3540067cd40e13791e1f073cf4200008968494e16029e0",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "3428603e",
+      "text": "You found the duck. Remember where it is.",
+      "path": "/audio/en/3428603e-matilda.mp3",
+      "textSha256": "74a67ea7ac8e779cbcafae4e96a673103d99ba8c89fa73479a928deadf0fb6e2",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "af0cb68f",
+      "text": "You matched the duck pair.",
+      "path": "/audio/en/af0cb68f-matilda.mp3",
+      "textSha256": "75ef7165bd539cb9e6d60fb1b591bf32fad2cbd8e4c5e30d685d95c41d2ef043",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "679bf712",
+      "text": "You found the water lily. Remember where it is.",
+      "path": "/audio/en/679bf712-matilda.mp3",
+      "textSha256": "30eb8351507124af7cbf4a2406bc17fff08331f0847dd0f2d0a5a30caf3e41a5",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b917fa5b",
+      "text": "You matched the water lily pair.",
+      "path": "/audio/en/b917fa5b-matilda.mp3",
+      "textSha256": "ecfe32018162b91f2d4d36f07f4ec0cac357b68c1845daa81dc6d9aeea2d2b4f",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a7617dee",
+      "text": "You found the snail. Remember where it is.",
+      "path": "/audio/en/a7617dee-matilda.mp3",
+      "textSha256": "2ba4dbf9ba3e1ee76b87847781f0e27a50cb9bcbcc50c303021dda9fef3df33b",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "de26845f",
+      "text": "You matched the snail pair.",
+      "path": "/audio/en/de26845f-matilda.mp3",
+      "textSha256": "5ce79b9adaaaa5766a030cdebe660c28c5c3e8ea055ec671af6deb6ba01a7546",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "008e1129",
+      "text": "You found the bee. Remember where it is.",
+      "path": "/audio/en/008e1129-matilda.mp3",
+      "textSha256": "26f1d1a1fb77288f31d3eb3345e2b711f8ec6d3dce20288fca07b5832d4f8a3d",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "fea0e02a",
+      "text": "You matched the bee pair.",
+      "path": "/audio/en/fea0e02a-matilda.mp3",
+      "textSha256": "eef9670284d0ef7a6ab7697fe81088b4102aa5a86fb1f43808b7068030348c5f",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "114118bc",
+      "text": "You found the butterfly. Remember where it is.",
+      "path": "/audio/en/114118bc-matilda.mp3",
+      "textSha256": "806dfb33a983045571173e33ccb4fa87440a0577841e4513838c23c62c457577",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b851b259",
+      "text": "You matched the butterfly pair.",
+      "path": "/audio/en/b851b259-matilda.mp3",
+      "textSha256": "6576555f81d63aeed8099e009be474a75524f6d95d67e73e42d54abd5e3c1e65",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "bf118ad4",
+      "text": "You found the ladybird. Remember where it is.",
+      "path": "/audio/en/bf118ad4-matilda.mp3",
+      "textSha256": "5571ddf809ded10fab049ab3903784bc3270803d128be8b01eac1009ad5e7463",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "bfc98cf1",
+      "text": "You matched the ladybird pair.",
+      "path": "/audio/en/bfc98cf1-matilda.mp3",
+      "textSha256": "66f228a3c68bde98d1469bdc7ecc5fac47cc2b3359fad165315dd9ed66d457b9",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "501aa06c",
+      "text": "You found the caterpillar. Remember where it is.",
+      "path": "/audio/en/501aa06c-matilda.mp3",
+      "textSha256": "52735a10fbab64e154b6ac827444ab4a4538cb8f90f7344bab8ddb804d74d761",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "f606fd69",
+      "text": "You matched the caterpillar pair.",
+      "path": "/audio/en/f606fd69-matilda.mp3",
+      "textSha256": "bb19b5ff9b6cf10b825eb360d056ef09bd1b1a47eed1ad2428ae32652a290d6e",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "16ea2fdc",
+      "text": "You found the worm. Remember where it is.",
+      "path": "/audio/en/16ea2fdc-matilda.mp3",
+      "textSha256": "0785f94fb1dac292f4c949e701718723994bad26869a25b6e8dfe722bb7223c6",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "3b671ef9",
+      "text": "You matched the worm pair.",
+      "path": "/audio/en/3b671ef9-matilda.mp3",
+      "textSha256": "1487e6e638f24e6d995c7856cdb291b9ca4a9762cea8efde28012750bc199ecb",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b5db772e",
+      "text": "You found the ant. Remember where it is.",
+      "path": "/audio/en/b5db772e-matilda.mp3",
+      "textSha256": "e29da21b48484d93412e8760c9ad437a720e345365c300ae77be8aadb1da7f24",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "248c489f",
+      "text": "You matched the ant pair.",
+      "path": "/audio/en/248c489f-matilda.mp3",
+      "textSha256": "c42691a5e416eb764e76fdfc53343740e4976ebdc62613dc53cc982181bf4f44",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "24247a46",
+      "text": "You found the spider. Remember where it is.",
+      "path": "/audio/en/24247a46-matilda.mp3",
+      "textSha256": "e68be8e7a8364aff567aa70a391d85bdbbfd5cb3bcc88b6ace8fe84dced91b39",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "4d91c557",
+      "text": "You matched the spider pair.",
+      "path": "/audio/en/4d91c557-matilda.mp3",
+      "textSha256": "494374997b3ac8dd86dc31daddbdd9ca9698e56e4bd49f21a410e066ac8d8a5b",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "ef5ffab1",
+      "text": "You found the tulip. Remember where it is.",
+      "path": "/audio/en/ef5ffab1-matilda.mp3",
+      "textSha256": "72ffb01c013b75d6ce8e735ee1c73de1be943ccf35b514330c0c46670f6680a3",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "b72e55b2",
+      "text": "You matched the tulip pair.",
+      "path": "/audio/en/b72e55b2-matilda.mp3",
+      "textSha256": "19db2fd79eadbf179b3dc05385c2583d22dc3e20d26d0ed93213a4856c35bc72",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "1ae93213",
+      "text": "You found the mushroom. Remember where it is.",
+      "path": "/audio/en/1ae93213-matilda.mp3",
+      "textSha256": "937742eb42a483b60725e4f7890a42c7405a747a89eb5b79a883eac4e7ff35a3",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "a478a240",
+      "text": "You matched the mushroom pair.",
+      "path": "/audio/en/a478a240-matilda.mp3",
+      "textSha256": "96c771ad45452b0cbec1e1822592803df91a85c33f79cb576b570ff23e24eaa4",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "474c15cb",
+      "text": "You found the Sun with a face. Remember where it is.",
+      "path": "/audio/en/474c15cb-matilda.mp3",
+      "textSha256": "517f92fabb544d736ed7c74198368c6e4936699a75cc11a00a7fcfdcd8837360",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "eedfd358",
+      "text": "You matched the Sun with a face pair.",
+      "path": "/audio/en/eedfd358-matilda.mp3",
+      "textSha256": "a6070d242df67f79228af8efc732650e39f5405c905ee68556655f81f16cd441",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "4089c298",
+      "text": "You found the new moon. Remember where it is.",
+      "path": "/audio/en/4089c298-matilda.mp3",
+      "textSha256": "95ef3a3011c9db624687915b953987bf358850db84b113d676c9f870471fb7fe",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "62f478dd",
+      "text": "You matched the new moon pair.",
+      "path": "/audio/en/62f478dd-matilda.mp3",
+      "textSha256": "ada593d64f0b3436834758672d3517793489a1a2eb32c673c58c5b82702304d9",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "aabf77cf",
+      "text": "You found the full moon. Remember where it is.",
+      "path": "/audio/en/aabf77cf-matilda.mp3",
+      "textSha256": "7c34c82386fba8ace640411ad38105d55d794572a9bd96f050546df76e5012bf",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "d7f67e24",
+      "text": "You matched the full moon pair.",
+      "path": "/audio/en/d7f67e24-matilda.mp3",
+      "textSha256": "0145c7a85654ff6c5c43eb53a93c37ac0bb8aeec1d3abe3d40e461c993ca3e1d",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": false,
+        "sha256": null
+      }
+    },
+    {
+      "key": "626fc8ec",
+      "text": "Those pictures are different. Try to remember where each one is.",
+      "path": "/audio/en/626fc8ec-matilda.mp3",
+      "textSha256": "920dac6da5875d0d388674d5bc4fa6568923ed3b5b71c5e867a074f378270cf3",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": true,
+        "sha256": "dd050f705bb90bf46291f48a30dff84e30338139edaa17da8d50481d789bc8fb"
+      }
+    },
+    {
+      "key": "b1765fe5",
+      "text": "You matched them all. Fantastic memory!",
+      "path": "/audio/en/b1765fe5-matilda.mp3",
+      "textSha256": "437ad0036592310a3bca7606506b261b5cdd20f1028681e6d124056b165a5776",
+      "owners": [
+        "B7_memory"
+      ],
+      "candidateAtSnapshot": {
+        "ready": true,
+        "sha256": "2eca41c609ce1daa585b2affc8803ab33998b016a26180ee5b1945b0b4862c0f"
+      }
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import LetterLaunchBadgeCollection from './components/shared/LetterLaunchBadgeCollection.jsx';
 import Batch3BadgeCollections from './components/shared/Batch3BadgeCollections.jsx';
 import Batch4BadgeCollections from './components/shared/Batch4BadgeCollections.jsx';
+import MemoryBadgeCollection from './components/shared/MemoryBadgeCollection.jsx';
 import { getEarnedChapterBadgeIds } from './data/chapterBadges.js';
 import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.jsx';
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
@@ -316,6 +317,7 @@ const PlayerSession = ({
         <CurriculumBadgeCollection playerId={player.id} />
         <Batch3BadgeCollections playerId={player.id} />
         <Batch4BadgeCollections playerId={player.id} />
+        <MemoryBadgeCollection playerId={player.id} />
         <RewardsShelf points={points} earnedStickerIds={earnedStickerIds} />
       </div>
     );
