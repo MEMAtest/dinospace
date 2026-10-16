@@ -1,0 +1,30 @@
+async page => {
+ await page.setViewportSize({width:1440,height:1000});
+ await page.getByRole('button',{name:'Writing Desk',exact:true}).click();
+ const editor=page.getByRole('textbox',{name:'Your document',exact:true});await editor.waitFor();
+ await page.getByRole('button',{name:'Heading',exact:true}).click();await page.getByRole('button',{name:'Centre',exact:true}).click();
+ await editor.pressSequentially('Mars Mission');await editor.press('Enter');
+ await page.getByRole('button',{name:'Align left',exact:true}).click();
+ await editor.pressSequentially('Mars is red.');await editor.press('Enter');await editor.pressSequentially('I made a rover move.');
+ await editor.locator('p').filter({hasText:'Mars is red.'}).dblclick({position:{x:18,y:14}});
+ await page.getByRole('button',{name:'Bold',exact:true}).click();
+ if(await editor.locator('strong').innerText()!=='Mars')throw new Error('Bold did not apply only to the selected word');
+ await page.getByRole('button',{name:'Undo',exact:true}).click();if(await editor.locator('strong').count())throw new Error('Undo did not remove bold');
+ await page.getByRole('button',{name:'Redo',exact:true}).click();if(await editor.locator('strong').innerText()!=='Mars')throw new Error('Redo did not restore bold');
+ await editor.locator('p').filter({hasText:'I made a rover move.'}).click();
+ for(let i=0;i<25;i++)await editor.press('ArrowRight');await editor.press('Enter');
+ await page.getByRole('button',{name:'Add Earth picture',exact:true}).click();await editor.getByRole('img',{name:'Earth with blue oceans and continents'}).waitFor();
+ await page.getByLabel('Document name',{exact:true}).fill('Amari Mars Postcard');
+ await page.getByRole('button',{name:'Save document',exact:true}).click();await page.getByText('Document saved on this device.',{exact:true}).waitFor();
+ await page.screenshot({path:'output/playwright/amari-rehearsal/writing-saved-desktop.png',fullPage:true});
+ await page.getByRole('button',{name:'Code Cadets',exact:true}).click();await page.getByRole('button',{name:'Writing Desk',exact:true}).click();
+ await page.getByRole('button',{name:'Open saved document',exact:true}).click();await page.getByText('Saved document reopened. Your words and formatting are here.',{exact:true}).waitFor();
+ if(await editor.locator('strong').innerText()!=='Mars')throw new Error('Saved bold lost');
+ if(await editor.locator('h1').innerText()!=='Mars Mission')throw new Error('Saved heading lost');
+ await page.setViewportSize({width:390,height:844});if(await page.evaluate(()=>document.documentElement.scrollWidth)!==390)throw new Error('Writing mobile overflow');
+ await page.screenshot({path:'output/playwright/amari-rehearsal/writing-reopened-mobile.png',fullPage:true});
+ const downloading=page.waitForEvent('download');await page.getByRole('button',{name:'Download Word document',exact:true}).click();const download=await downloading;await download.saveAs('output/playwright/amari-rehearsal/Amari-Mars-Postcard.docx');
+ await page.pdf({path:'output/playwright/amari-rehearsal/browser-writing-print.pdf',format:'A4',printBackground:true});
+ await page.getByRole('combobox',{name:'Explorer',exact:true}).selectOption('guest');await page.getByRole('button',{name:'Open saved document',exact:true}).click();await page.getByText('No saved document for this explorer.',{exact:true}).waitFor();
+ await page.getByRole('combobox',{name:'Explorer',exact:true}).selectOption('amari');await page.getByRole('button',{name:'Open saved document',exact:true}).click();await page.getByText('Saved document reopened. Your words and formatting are here.',{exact:true}).waitFor();
+}

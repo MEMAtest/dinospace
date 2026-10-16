@@ -457,7 +457,8 @@ export default function App() {
     setPlayerId(id);
     saveSafe(ACTIVE_PLAYER_KEY, id);
     setGrownUpsUnlocked(false);
-    navigate({ name: 'home' });
+    const rehearsal = id === 'amari' && new URLSearchParams(window.location.search).get('journey') === 'discovery';
+    navigate(rehearsal ? { name: 'game', id: 'solar' } : { name: 'home' });
   }, [navigate]);
 
   const switchPlayer = useCallback(() => {

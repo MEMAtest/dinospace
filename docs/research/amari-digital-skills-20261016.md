@@ -59,7 +59,7 @@ Example: explore Mars → program the training rover → write a two-sentence mi
 3. Build Writing Desk typing/editing/save/reopen and a postcard; then formatting, images, real DOCX and print output.
 4. Add the rover-to-report link after both standalone experiences pass QA.
 
-This proposal adds two new activities; they are outside the existing 26-game acceptance count until explicitly added to the catalog and assessed. There are no claims that these new activities are implemented or live.
+This proposal adds two new activities; they are outside the existing 26-game acceptance count until explicitly added to the catalog and assessed. A separate rehearsal now implements three coding missions and one editable space-postcard workflow. The full courses, catalog integration, cloud saves/version history and editorial acceptance remain future work. See the digital-skills rehearsal QA report.
 
 ## Technical references for the implementation decision
 
@@ -67,4 +67,4 @@ This proposal adds two new activities; they are outside the existing 26-game acc
 - [Tiptap editor overview](https://tiptap.dev/docs/editor/getting-started/overview): a modular editor built on ProseMirror, suitable for exposing a constrained tool set.
 - [Lexical introduction](https://lexical.dev/docs/intro): another editor framework to evaluate against selection, undo, document persistence and export requirements.
 
-These are framework candidates, not a claim that the app currently includes them or that Word export is supplied without further implementation.
+The rehearsal uses Tiptap for editing, a bounded custom instruction interpreter for the rover, and the docx library for actual Word export. Blockly and Lexical remain alternatives for the full course.

@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -678,8 +678,9 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     : selectedPlanet.quiz.options;
   const quizOptions = seededPlanetOptions(availableOptions, choiceSeed + PLANETS.indexOf(selectedPlanet));
 
+  const rehearsalJourney = new URLSearchParams(window.location.search).get('journey') === 'discovery';
   return (
-    <div className="min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden">
+    <div className={`min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden ${rehearsalJourney ? 'md:flex md:flex-col' : ''}`}>
       <header className="relative z-30 flex items-center justify-between gap-2 border-b border-white/10 bg-slate-950/80 px-3 py-3 backdrop-blur-xl sm:px-4">
         <button onClick={onBack} className="game-icon-button !h-12 !w-12 shrink-0 !bg-white/10 !text-white sm:!h-12 sm:!w-12" aria-label="Back to Explore and Languages"><ArrowLeft /></button>
         <div className="text-center">
@@ -691,6 +692,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
       </header>
 
+      {rehearsalJourney && <nav aria-label="Continue your discovery" className="flex flex-wrap items-center justify-center gap-3 bg-[#061642] px-3 py-2 text-sm"><a href="/rehearsal/index.html#code" className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Next: Code Cadets →</a><a href="/rehearsal/index.html#writing" className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Write a discovery report →</a></nav>}
       <section className="flex flex-wrap items-center justify-between gap-2 bg-[#061642] px-3 pt-3" aria-label="Discovery passport">
         <p className="text-sm font-bold">Passport: {Object.keys(discoveredFacts).length}/{PLANETS.reduce((count, planet) => count + planet.facts.length, 0)} discoveries · {Object.keys(completedQuizzes).length}/9 challenges</p>
         <div className="flex gap-2">
@@ -713,7 +715,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         ))}
       </nav>
 
-      <main className="grid md:h-[calc(100vh-295px)] md:grid-cols-[minmax(0,1.62fr)_minmax(320px,0.78fr)]">
+      <main className={`grid md:grid-cols-[minmax(0,1.62fr)_minmax(320px,0.78fr)] ${rehearsalJourney ? 'md:min-h-0 md:flex-1' : 'md:h-[calc(100vh-295px)]'}`}>
         <section className="relative overflow-hidden border-b border-cyan-100/10 bg-[#020617] md:border-b-0 md:border-r">
           <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
           <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-cyan-100/20 bg-slate-950/70 px-3 py-2 text-xs font-bold text-white/85 shadow-xl backdrop-blur sm:text-sm">

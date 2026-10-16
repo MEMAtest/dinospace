@@ -34,4 +34,5 @@ const injectPwaPrecache = () => {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), injectPwaPrecache()],
+  build: { rollupOptions: { input: { arcade: resolve(import.meta.dirname, 'index.html'), rehearsal: resolve(import.meta.dirname, 'rehearsal/index.html') } } },
 })
