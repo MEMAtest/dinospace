@@ -17,3 +17,5 @@ The input model URLs and SHA256 hashes are in `nasa-sources.json`. Mars is credi
 Preparation normalises the body radius rather than ring bounds, welds UV-seam vertices before subdivision to avoid cracks, bounds the mesh budget, limits textures to 1024px, applies PBR material settings, exports each world separately, and renders 320px transparent planet-picker thumbnails. Full NASA inputs are not shipped to browsers. All runtime files are local under `public/models/solar-v1`; the runtime never downloads them from NASA. A local procedural planet remains usable if its upgraded model fails.
 
 `*.blend1` files are temporary Blender backup files, not source assets.
+
+The published `solar-v1` runtime path is immutable. A later model revision must use a new versioned path so the service worker cannot serve an older cached model at the same URL.

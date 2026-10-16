@@ -60,3 +60,11 @@ Example: explore Mars → program the training rover → write a two-sentence mi
 4. Add the rover-to-report link after both standalone experiences pass QA.
 
 This proposal adds two new activities; they are outside the existing 26-game acceptance count until explicitly added to the catalog and assessed. There are no claims that these new activities are implemented or live.
+
+## Technical references for the implementation decision
+
+- [Blockly overview](https://docs.blockly.com/guides/get-started/what-is-blockly/): a customisable block editor that can be embedded into an app; a learning game still needs its own content and execution model.
+- [Tiptap editor overview](https://tiptap.dev/docs/editor/getting-started/overview): a modular editor built on ProseMirror, suitable for exposing a constrained tool set.
+- [Lexical introduction](https://lexical.dev/docs/intro): another editor framework to evaluate against selection, undo, document persistence and export requirements.
+
+These are framework candidates, not a claim that the app currently includes them or that Word export is supplied without further implementation.
