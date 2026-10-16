@@ -497,7 +497,12 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
       pointer.x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
       pointer.y = -((event.clientY - bounds.top) / bounds.height) * 2 + 1;
       raycaster.setFromCamera(pointer, camera);
-      const hit = raycaster.intersectObjects(clickableMeshes, false)[0];
+      // Raycaster does not exclude descendants of hidden groups by itself.
+      // In close-up mode, only the world the child can see may receive taps.
+      const visibleTargets = focusedPlanetRef.current
+        ? clickableMeshes.filter((object) => object.userData.planetName === focusedPlanetRef.current)
+        : clickableMeshes;
+      const hit = raycaster.intersectObjects(visibleTargets, false)[0];
       const planetName = hit?.object?.userData?.planetName;
       if (planetName) onSelectRef.current(planetName);
     };
@@ -543,6 +548,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
         });
       }
       const focused = planetAnchors.get(focusedPlanetRef.current);
+      controls.enablePan = !focused;
       orbitGroups.forEach((group) => { group.visible = !focused || group.children.includes(focused); });
       orbitLines.forEach((line) => { line.visible = !focused; });
       sunGroup.visible = !focused;
