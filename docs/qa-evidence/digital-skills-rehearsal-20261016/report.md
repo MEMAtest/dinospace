@@ -27,3 +27,10 @@ Eight bounded interpreter/storage/DOCX/solar model/passport tests passed; scoped
 ## Remaining acceptance
 
 This is three coding missions and one writing task, not the proposed full coding/writing courses or a new 4.5/5 editorial sign-off. Saves are manual, device-local, one program and one document per explorer. No cloud backup, project library, imported documents, new narration or public sharing. Browser/LibreOffice checks are not a child usability trial, physical keyboard/device test or Microsoft Word GUI test. Production remains unchanged. Preview identity and hosted smoke evidence will be recorded separately after deployment.
+
+## Hosted preview verification
+
+READY deployment dpl_B3K2uowpZaSuTrZvs7ChQjLxYXn8, runtime source d915bc66f1828cb47eaf529b7f3048d630993eb6:
+https://dinospace-evbwxb7ws-memas-projects-23a0001d.vercel.app/rehearsal/index.html
+
+Same Chromium tab: completed the first coding mission on desktop, saved/reopened its three blocks and ran again at 390px. Typed a fresh postcard, inserted Mars, saved/left/reopened and downloaded actual Word output. Checked 1440px and 390px layouts; no horizontal overflow or broken document images, no page errors in the scripted smoke. Followed Studio → choose Amari → Solar → select Mars → Writing Desk → reopen postcard on the hosted build. Rendered entry script /assets/rehearsal-4FcNSc-m.js. Hosted test scripts, logs and screenshots retained here. These hosted checks supplement the fuller local rehearsal; they do not constitute all-game production acceptance.
