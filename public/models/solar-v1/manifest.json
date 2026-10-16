@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "tool": "Blender 4.5.3 LTS",
+  "notToScale": true,
+  "models": [
+    {
+      "name": "Mercury",
+      "page": "https://science.nasa.gov/resource/mercury-3d-model/",
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/m/Mercury_1_4878.glb?emrc=6ad23adfef256",
+      "bytes": 3048920,
+      "sha256": "0222fa976a5bb3ae3222eeddaaa7150656837a97c515f065eb855e0b1dd2ab94",
+      "output": "/models/solar-v1/mercury.glb",
+      "outputBytes": 402068,
+      "outputSha256": "4d2ecde634e40975d20b252fe4eca8a4eae9f8716a90b55fa813ecdd20a9e390",
+      "triangles": 10000,
+      "bodyRadius": 1,
+      "credit": "NASA Visualization Technology Applications and Development (VTAD)",
+      "adaptation": "Blender 4.5.3 LTS: normalised body, smoothed silhouette, mobile texture budget, PBR materials and studio thumbnail"
+    },
+    {
+      "name": "Venus",
+      "page": "https://science.nasa.gov/resource/venus-3d-model/",
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/v/Venus_1_12103.glb?emrc=6ad28e5e370e8",
+      "bytes": 298748,
+      "sha256": "6aa26809feeb74fee371c43e9904112a76ebb3df15696e6e75297c0fce063bf9",
+      "output": "/models/solar-v1/venus.glb",
+      "outputBytes": 247508,
+      "outputSha256": "1cc91b8a7369dc71bc109dade5bc04b4ca858c7e414198f78695c4bd1aba1ca3",
+      "triangles": 10000,
+      "bodyRadius": 1,
+      "credit": "NASA Visualization Technology Applications and Development (VTAD)",
+      "adaptation": "Blender 4.5.3 LTS: normalised body, smoothed silhouette, mobile texture budget, PBR materials and studio thumbnail"
+    },
+    {
+      "name": "Earth",
+      "page": "https://science.nasa.gov/learn/heat/resource/earth-3d-model/",
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/e/Earth_1_12756.glb",
+      "bytes": 12916400,
+      "sha256": "05a5aea99db8ab472487a06debc3b5d0b2cae7636a1a6b9ecfa40b7d1722ba23",
+      "output": "/models/solar-v1/earth.glb",
+      "outputBytes": 368676,
+      "outputSha256": "9c8cbd9c8ef147062d4eff16eb687c592bd58df8d22c28d06c5d4abc372e04e5",
+      "triangles": 10000,
+      "bodyRadius": 1,
+      "credit": "NASA Visualization Technology Applications and Development (VTAD)",
+      "adaptation": "Blender 4.5.3 LTS: normalised body, smoothed silhouette, mobile texture budget, PBR materials and studio thumbnail"
+    },
+    {
+      "name": "Mars",
+      "page": "https://science.nasa.gov/resource/planet-mars-3d-model/",
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/gltf_files/24881_Mars_1_6792.glb?emrc=6ad28eea1aa72",
+      "bytes": 4032148,
+      "sha256": "0d27fc65fe3e6a5847cf0cd3a5c951538afdd49bd0513607d8a70e8ab1d8d7ac",
+      "output": "/models/solar-v1/mars.glb",
+      "outputBytes": 369604,
+      "outputSha256": "06ff2ac3fc1ab92206ee08e5e74c84703f2f05a5c6ce36d1bbb36d206b249462",
+      "triangles": 10000,
+      "bodyRadius": 1,
+      "credit": "NASA/JPL-Caltech",
+      "adaptation": "Blender 4.5.3 LTS: normalised body, smoothed silhouette, mobile texture budget, PBR materials and studio thumbnail"
+    },
+    {
+      "name": "Jupiter",
+      "page": "https://science.nasa.gov/resource/jupiter-3d-model/",
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/j/Jupiter_1_142984.glb?emrc=6ad23ade83f8e",
+      "bytes": 11479456,
+      "sha256": "8edc4e9b88b73ca1b125a258f0ecaef7fc6494a7cadda37704af459a119f4870",
+      "output": "/models/solar-v1/jupiter.glb",
+      "outputBytes": 326784,
+      "outputSha256": "fef7d4c3785c00a0d513c59230474f449209e2771d30405b05f2b30eb035505c",
+      "triangles": 10000,
+      "bodyRadius": 1,
+      "credit": "NASA Visualization Technology Applications and Development (VTAD)",
+      "adaptation": "Blender 4.5.3 LTS: normalised body, smoothed silhouette, mobile texture budget, PBR materials and studio thumbnail"
+    },
+    {
+      "name": "Saturn",
+      "page": "https://science.nasa.gov/resource/saturn-3d-model/",
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/s/Saturn_1_120536.glb?emrc=6ad28e3938221",
+      "bytes": 5476584,
+      "sha256": "8dbfde533b13e938408d8aded1d1ce48a084806233f67775371d83013dba7d38",
+      "output": "/models/solar-v1/saturn.glb",
+      "outputBytes": 291200,
+      "outputSha256": "edf91ec4ee2b85cc1d0565e104594220f54516b9fff4de0d26128a461b0cd2d7",
+      "triangles": 10256,
+      "bodyRadius": 1,
+      "credit": "NASA Visualization Technology Applications and Development (VTAD)",
+      "adaptation": "Blender 4.5.3 LTS: normalised body, smoothed silhouette, mobile texture budget, PBR materials and studio thumbnail"
+    },
+    {
+      "name": "Uranus",
+      "page": "https://science.nasa.gov/resource/uranus-3d-model/",
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/u/Uranus_1_51118.glb?emrc=6ad2358e92f40",
+      "bytes": 172652,
+      "sha256": "9c56f96bbfa82d923479c3dd83a00c35238a36addcfbcc61916f1377fe586bd5",
+      "output": "/models/solar-v1/uranus.glb",
+      "outputBytes": 238280,
+      "outputSha256": "0f01a51886afd157590bf4ce8275e01d209d11ed6d189b9792e99f07eea15c6f",
+      "triangles": 10000,
+      "bodyRadius": 1,
+      "credit": "NASA Visualization Technology Applications and Development (VTAD)",
+      "adaptation": "Blender 4.5.3 LTS: normalised body, smoothed silhouette, mobile texture budget, PBR materials and studio thumbnail"
+    },
+    {
+      "name": "Neptune",
+      "page": "https://science.nasa.gov/resource/neptune-3d-model/",
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/n/Neptune_1_49528.glb?emrc=6ad28e5f7ad5c",
+      "bytes": 585104,
+      "sha256": "2fc3af08d56ed429b9cc56b95d151102aa5807ea958e7cb8806a42e12a699ba8",
+      "output": "/models/solar-v1/neptune.glb",
+      "outputBytes": 274352,
+      "outputSha256": "a667501b43d1f10dd8ea2648cf12206442d3d9f38c11dac80e27a510d412f594",
+      "triangles": 10000,
+      "bodyRadius": 1,
+      "credit": "NASA Visualization Technology Applications and Development (VTAD)",
+      "adaptation": "Blender 4.5.3 LTS: normalised body, smoothed silhouette, mobile texture budget, PBR materials and studio thumbnail"
+    },
+    {
+      "name": "Pluto",
+      "page": "https://science.nasa.gov/resource/pluto-3d-model/",
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/p/l/Pluto_1_2374.glb?emrc=6ad28e5fb3883",
+      "bytes": 7009348,
+      "sha256": "9915e6874ff7e7cd64faf8ef016ea16de6c8058417c42909efa099a88f2dd25b",
+      "output": "/models/solar-v1/pluto.glb",
+      "outputBytes": 318480,
+      "outputSha256": "9880ec6634105667f0bc404d80391c7a8409c42abd9581a367a7a8f098593aa5",
+      "triangles": 10000,
+      "bodyRadius": 1,
+      "credit": "NASA Visualization Technology Applications and Development (VTAD)",
+      "adaptation": "Blender 4.5.3 LTS: normalised body, smoothed silhouette, mobile texture budget, PBR materials and studio thumbnail"
+    }
+  ],
+  "supplementalTextures": [
+    {
+      "name": "Earth Blue Marble colour map",
+      "filename": "earth-blue-marble.png",
+      "credit": "NASA Earth Observatory / Visible Earth",
+      "url": "https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.png",
+      "sha256": "b5e0139834c638d10c2c747f4bac63df5f9387680c00d87e5a2a9ed9a3dfea71"
+    }
+  ]
+}

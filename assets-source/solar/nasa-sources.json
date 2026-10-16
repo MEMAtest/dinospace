@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Mercury",
+    "page": "https://science.nasa.gov/resource/mercury-3d-model/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/m/Mercury_1_4878.glb?emrc=6ad23adfef256",
+    "bytes": 3048920,
+    "sha256": "0222fa976a5bb3ae3222eeddaaa7150656837a97c515f065eb855e0b1dd2ab94"
+  },
+  {
+    "name": "Venus",
+    "page": "https://science.nasa.gov/resource/venus-3d-model/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/v/Venus_1_12103.glb?emrc=6ad28e5e370e8",
+    "bytes": 298748,
+    "sha256": "6aa26809feeb74fee371c43e9904112a76ebb3df15696e6e75297c0fce063bf9"
+  },
+  {
+    "name": "Earth",
+    "page": "https://science.nasa.gov/learn/heat/resource/earth-3d-model/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/e/Earth_1_12756.glb",
+    "bytes": 12916400,
+    "sha256": "05a5aea99db8ab472487a06debc3b5d0b2cae7636a1a6b9ecfa40b7d1722ba23"
+  },
+  {
+    "name": "Mars",
+    "page": "https://science.nasa.gov/resource/planet-mars-3d-model/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/psd/mars/resources/gltf_files/24881_Mars_1_6792.glb?emrc=6ad28eea1aa72",
+    "bytes": 4032148,
+    "sha256": "0d27fc65fe3e6a5847cf0cd3a5c951538afdd49bd0513607d8a70e8ab1d8d7ac"
+  },
+  {
+    "name": "Jupiter",
+    "page": "https://science.nasa.gov/resource/jupiter-3d-model/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/j/Jupiter_1_142984.glb?emrc=6ad23ade83f8e",
+    "bytes": 11479456,
+    "sha256": "8edc4e9b88b73ca1b125a258f0ecaef7fc6494a7cadda37704af459a119f4870"
+  },
+  {
+    "name": "Saturn",
+    "page": "https://science.nasa.gov/resource/saturn-3d-model/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/s/Saturn_1_120536.glb?emrc=6ad28e3938221",
+    "bytes": 5476584,
+    "sha256": "8dbfde533b13e938408d8aded1d1ce48a084806233f67775371d83013dba7d38"
+  },
+  {
+    "name": "Uranus",
+    "page": "https://science.nasa.gov/resource/uranus-3d-model/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/u/Uranus_1_51118.glb?emrc=6ad2358e92f40",
+    "bytes": 172652,
+    "sha256": "9c56f96bbfa82d923479c3dd83a00c35238a36addcfbcc61916f1377fe586bd5"
+  },
+  {
+    "name": "Neptune",
+    "page": "https://science.nasa.gov/resource/neptune-3d-model/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/n/Neptune_1_49528.glb?emrc=6ad28e5f7ad5c",
+    "bytes": 585104,
+    "sha256": "2fc3af08d56ed429b9cc56b95d151102aa5807ea958e7cb8806a42e12a699ba8"
+  },
+  {
+    "name": "Pluto",
+    "page": "https://science.nasa.gov/resource/pluto-3d-model/",
+    "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/p/l/Pluto_1_2374.glb?emrc=6ad28e5fb3883",
+    "bytes": 7009348,
+    "sha256": "9915e6874ff7e7cd64faf8ef016ea16de6c8058417c42909efa099a88f2dd25b"
+  }
+]

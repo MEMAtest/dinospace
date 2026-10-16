@@ -1,6 +1,7 @@
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { ArrowLeft, Pause, Play, Rotate3D, RotateCcw, Sparkles, Volume2, ZoomIn, ZoomOut } from 'lucide-react';
 import { PLANETS } from '../../data/index.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
@@ -49,6 +50,21 @@ const seededNoise = (seed) => {
     value = (value * 9301 + 49297) % 233280;
     return value / 233280;
   };
+};
+
+// Dispose every PBR texture, including the normal maps in the Blender assets.
+const disposePlanetObject = (root) => {
+  const textures = new Set();
+  const materials = new Set();
+  root.traverse((object) => {
+    object.geometry?.dispose?.();
+    for (const material of [object.material].flat().filter(Boolean)) {
+      materials.add(material);
+      for (const value of Object.values(material)) if (value?.isTexture) textures.add(value);
+    }
+  });
+  textures.forEach((texture) => texture.dispose());
+  materials.forEach((material) => material.dispose());
 };
 
 const makePlanetTexture = (planetName) => {
@@ -207,6 +223,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
   const fitDistanceRef = useRef(40);
   const planetAnchorsRef = useRef(new Map());
   const selectedPlanetRef = useRef(selectedPlanet?.name || 'Earth');
+  const focusedPlanetRef = useRef(null);
   const [webglUnavailable, setWebglUnavailable] = useState(false);
 
   useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
@@ -234,6 +251,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
     zoomOut: () => changeZoom(1.28),
     resetView: () => {
       if (!cameraRef.current || !controlsRef.current) return;
+      focusedPlanetRef.current = null;
       cameraRef.current.position.set(0, 0, fitDistanceRef.current);
       controlsRef.current.target.set(0, 0, 0);
       controlsRef.current.update();
@@ -247,13 +265,14 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
       const target = new THREE.Vector3();
       anchor.getWorldPosition(target);
       const offset = camera.position.clone().sub(controls.target);
-      const minFocusDistance = window.innerWidth < 640 ? 22 : 19;
+      const minFocusDistance = window.innerWidth < 640 ? 6.5 : 5.5;
       const planetRadius = anchor.userData.planetRadius || 1;
-      const distance = THREE.MathUtils.clamp(Math.max(planetRadius * 8.5, minFocusDistance), controls.minDistance, controls.maxDistance);
+      const distance = THREE.MathUtils.clamp(Math.max(planetRadius * (planetName === 'Saturn' ? 8 : 5.5), minFocusDistance), controls.minDistance, controls.maxDistance);
       if (offset.length() < 0.01) offset.set(0, 0, 24);
       offset.setLength(distance);
       controls.target.copy(target);
       camera.position.copy(target).add(offset);
+      focusedPlanetRef.current = planetName;
       controls.update();
     },
   }), [changeZoom]);
@@ -262,6 +281,10 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
     const mount = mountRef.current;
     if (!mount) return undefined;
     const planetAnchors = planetAnchorsRef.current;
+    let disposed = false;
+    let loadedModels = 0;
+    const loader = new GLTFLoader();
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x020617);
@@ -289,7 +312,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
-    controls.minDistance = 10;
+    controls.minDistance = 3.5;
     controls.maxDistance = 72;
     controls.minPolarAngle = Math.PI * 0.22;
     controls.maxPolarAngle = Math.PI * 0.78;
@@ -299,6 +322,12 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
 
     scene.add(new THREE.HemisphereLight(0xb8d9ff, 0x14203e, 1.05));
     scene.add(new THREE.AmbientLight(0x91b7ff, 0.32));
+    // A soft camera-side fill keeps surface details legible while exploring.
+    const inspectionLight = new THREE.DirectionalLight(0xe4f2ff, 2.6);
+    inspectionLight.position.set(-3, 4, 6);
+    inspectionLight.target.position.set(0, 0, -6);
+    camera.add(inspectionLight, inspectionLight.target);
+    scene.add(camera);
     const sunlight = new THREE.PointLight(0xffe7a3, 250, 100, 1.5);
     scene.add(sunlight);
 
@@ -343,12 +372,15 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
     scene.add(starField);
 
     const orbitGroups = [];
+    const orbitLines = [];
     const clickableMeshes = [];
     const selectionRings = new Map();
     planetAnchors.clear();
     PLANETS.forEach((planet, index) => {
       const radius = 3.8 + index * 1.75;
-      scene.add(makeOrbit(radius, PLANET_COLORS[planet.name]));
+      const orbitLine = makeOrbit(radius, PLANET_COLORS[planet.name]);
+      scene.add(orbitLine);
+      orbitLines.push(orbitLine);
 
       const orbitGroup = new THREE.Group();
       orbitGroup.rotation.z = index * (Math.PI * 2 / PLANETS.length);
@@ -385,7 +417,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
         planetAnchor.add(atmosphere);
       }
       const selectionRing = new THREE.Mesh(
-        new THREE.RingGeometry(planetRadius * 1.45, planetRadius * 1.6, 64),
+        new THREE.RingGeometry(planetRadius * 1.38, planetRadius * 1.4, 64),
         new THREE.MeshBasicMaterial({ color: 0x67e8f9, transparent: true, opacity: 0.9, side: THREE.DoubleSide, blending: THREE.AdditiveBlending, depthWrite: false }),
       );
       selectionRing.userData.planetName = planet.name;
@@ -407,6 +439,35 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
       orbitGroups.push(orbitGroup);
       clickableMeshes.push(hitMesh, mesh, ...mesh.children, ...(rings?.children || []));
       planetAnchors.set(planet.name, planetAnchor);
+
+      // Keep the current illustrated sphere usable until its local GLB is ready.
+      // A failed asset never removes the planet, hit target or lesson controls.
+      loader.load(`/models/solar-v1/${planet.name.toLowerCase()}.glb`, (gltf) => {
+        if (disposed) { disposePlanetObject(gltf.scene); return; }
+        const model = gltf.scene;
+        model.traverse((object) => {
+          object.userData.planetName = planet.name;
+          if (object.isMesh) clickableMeshes.push(object);
+        });
+        const retired = new Set([mesh, ...mesh.children, ...(rings?.children || [])]);
+        for (let i = clickableMeshes.length - 1; i >= 0; i -= 1) {
+          if (retired.has(clickableMeshes[i])) clickableMeshes.splice(i, 1);
+        }
+        planetAnchor.remove(mesh);
+        disposePlanetObject(mesh);
+        if (rings) { planetAnchor.remove(rings); disposePlanetObject(rings); }
+        const tilt = new THREE.Group();
+        tilt.rotation.x = planet.name === 'Saturn' ? 0.48 : 0;
+        tilt.rotation.z = planet.name === 'Uranus' ? 1.7 : planet.name === 'Earth' ? 0.41 : 0.08;
+        model.scale.setScalar(planetRadius);
+        tilt.add(model);
+        planetAnchor.add(tilt);
+        orbitGroup.userData.mesh = model;
+        loadedModels += 1;
+        mount.dataset.planetModels = String(loadedModels);
+      }, undefined, () => {
+        if (!disposed) mount.dataset.planetModelFallback = 'true';
+      });
     });
 
     const asteroidPositions = [];
@@ -455,10 +516,10 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
       fitDistanceRef.current = (outerOrbit + 1.1) / (Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * Math.min(1, camera.aspect)) * 1.08;
       if (compact && controls.target.length() < 0.01) {
         camera.position.set(0, 0, fitDistanceRef.current);
-        controls.minDistance = 10;
+        controls.minDistance = 3.5;
       } else if (!compact && controls.target.length() < 0.01) {
         camera.position.set(0, 0, fitDistanceRef.current);
-        controls.minDistance = 10;
+        controls.minDistance = 3.5;
       }
     };
     const resizeObserver = new ResizeObserver(resize);
@@ -468,18 +529,29 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
     let frameId;
     const animate = () => {
       frameId = requestAnimationFrame(animate);
-      if (!pausedRef.current) {
+      selectionRings.forEach((ring, planetName) => {
+        ring.visible = planetName === selectedPlanetRef.current;
+        ring.scale.setScalar(!pausedRef.current && !motionPreference.matches && ring.visible ? 1 + Math.sin(performance.now() / 260) * 0.08 : 1);
+      });
+      if (!pausedRef.current && !motionPreference.matches) {
         sunGroup.rotation.z += 0.002;
         starField.rotation.y += 0.00008;
         asteroidBelt.rotation.z += 0.0004;
-        selectionRings.forEach((ring, planetName) => {
-          ring.visible = planetName === selectedPlanetRef.current;
-          if (ring.visible) ring.scale.setScalar(1 + Math.sin(performance.now() / 260) * 0.08);
-        });
         orbitGroups.forEach((group) => {
           group.rotation.z += group.userData.speed;
-          group.userData.mesh.rotation.z += 0.009;
+          group.userData.mesh.rotation.y += 0.003;
         });
+      }
+      const focused = planetAnchors.get(focusedPlanetRef.current);
+      orbitGroups.forEach((group) => { group.visible = !focused || group.children.includes(focused); });
+      orbitLines.forEach((line) => { line.visible = !focused; });
+      sunGroup.visible = !focused;
+      asteroidBelt.visible = !focused;
+      if (focused) {
+        focused.updateWorldMatrix(true, false);
+        const target = focused.getWorldPosition(new THREE.Vector3());
+        camera.position.add(target.clone().sub(controls.target));
+        controls.target.copy(target);
       }
       controls.update();
       renderer.render(scene, camera);
@@ -487,6 +559,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
     animate();
 
     return () => {
+      disposed = true;
       cancelAnimationFrame(frameId);
       resizeObserver.disconnect();
       renderer.domElement.removeEventListener('pointerdown', handlePointerDown);
@@ -495,11 +568,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
       if (controlsRef.current === controls) controlsRef.current = null;
       if (cameraRef.current === camera) cameraRef.current = null;
       renderer.dispose();
-      scene.traverse((object) => {
-        object.geometry?.dispose?.();
-        if (Array.isArray(object.material)) object.material.forEach((material) => { material.map?.dispose?.(); material.dispose(); });
-        else if (object.material) { object.material.map?.dispose?.(); object.material.dispose(); }
-      });
+      disposePlanetObject(scene);
       if (renderer.domElement.parentNode === mount) mount.removeChild(renderer.domElement);
       planetAnchors.clear();
     };
@@ -522,12 +591,6 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
 
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, playerId }) => {
   const difficulty = useGameDifficulty('solar');
-  const planetThumbnails = useMemo(() => Object.fromEntries(PLANETS.map((planet) => {
-    const texture = makePlanetTexture(planet.name);
-    const url = texture?.image?.toDataURL() || '';
-    texture?.dispose();
-    return [planet.name, url];
-  })), []);
   const orreryRef = useRef(null);
   const [selectedPlanet, setSelectedPlanet] = useState(PLANETS[2]);
   const [choiceSeed] = useState(() => crypto.getRandomValues(new Uint32Array(1))[0]);
@@ -637,8 +700,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             onClick={() => selectPlanet(planet.name)}
             className={`flex min-w-[108px] flex-none snap-start flex-col items-center gap-1 rounded-2xl border-2 px-3 py-2 text-sm font-black transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200 ${selectedPlanet.name === planet.name ? 'border-cyan-300 text-white shadow-[0_0_15px_#30d5ff80]' : 'border-white/25 text-cyan-100 hover:brightness-125'}`}
             style={{ background: `linear-gradient(145deg, ${planet.surface}bb, #142c77 52%, #081747)` }}>
-            <span className="relative block h-14 w-14 rounded-full border border-white/35 shadow-[inset_-9px_-7px_12px_#00103299,0_4px_9px_#0008]" style={{ backgroundImage: `radial-gradient(circle at 29% 24%,#ffffffaa,transparent 34%),url(${planetThumbnails[planet.name]})`, backgroundSize: '100% 100%' }} aria-hidden="true">
-              {planet.ring && <span className="absolute left-[-12px] top-[15px] h-4 w-[68px] -rotate-[18deg] rounded-full border-[3px] border-amber-100/75" />}
+            <span className="relative block h-16 w-20" style={{ backgroundImage: `url(/models/solar-v1/${planet.name.toLowerCase()}.png)`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} aria-hidden="true">
             </span>
             {planet.name}{badges.includes(planet.name) ? ' ★' : ''}
           </button>
@@ -650,9 +712,11 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
           <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-cyan-100/20 bg-slate-950/70 px-3 py-2 text-xs font-bold text-white/85 shadow-xl backdrop-blur sm:text-sm">
             Drag to turn · tap a planet
+            <span className="mt-1 block text-[10px] text-cyan-100/70">Sizes, distances and motion simplified</span>
           </div>
           <div className="pointer-events-none absolute bottom-[4.65rem] left-4 hidden items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/40 sm:flex"><span className="h-2 w-2 rounded-full bg-cyan-300" /> Selected world is ringed in cyan</div>
           <div className="absolute right-3 top-3 z-10 flex flex-col items-end gap-2" role="group" aria-label="Solar System view controls">
+            <button type="button" onClick={() => orreryRef.current?.resetView()} className="min-h-12 rounded-full border border-cyan-200/35 bg-slate-950/85 px-3 py-2 text-xs font-black text-cyan-100 shadow-lg backdrop-blur">All planets</button>
             <button type="button" onClick={() => setShowViewControls((current) => !current)} aria-expanded={showViewControls} className="min-h-12 rounded-full border border-cyan-200/35 bg-slate-950/85 px-3 py-2 text-xs font-black text-cyan-100 shadow-lg backdrop-blur"><Rotate3D size={16} className="mr-1 inline" /> View controls</button>
             {showViewControls && <>
             <button type="button" onClick={() => setPaused((current) => !current)} className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100" aria-label={paused ? 'Resume planet orbits' : 'Pause planet orbits'}>{paused ? <Play size={19} /> : <Pause size={19} />}</button>

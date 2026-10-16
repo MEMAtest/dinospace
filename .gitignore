@@ -28,3 +28,6 @@ output/
 /tmp/storybook-curated-media/
 /tmp/storybook-curated-request-state.json
 /tmp/
+
+# Local Blender editor backups; keep the editable .blend sources.
+assets-source/solar/*.blend1

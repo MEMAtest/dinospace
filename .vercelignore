@@ -12,3 +12,6 @@ docs/**
 dist/**
 android/**
 test/**
+
+# Editable Blender assets are retained in Git, not sent to the runtime build.
+assets-source/**
