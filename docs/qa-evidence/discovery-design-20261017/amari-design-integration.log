@@ -1,0 +1,19 @@
+### Ran Playwright code
+```js
+await (async page=>{
+ await page.setViewportSize({width:1440,height:1000});await page.goto('http://127.0.0.1:5180/?creativeqa=1#/');await page.getByRole('button',{name:/Age 6\+ Amari/}).click();await page.getByRole('button',{name:/Creative Lab/}).click();await page.getByRole('button',{name:/Code Cadets.*Code an adventure/}).click();await page.getByRole('button',{name:'Start my first mission →'}).click();await page.getByRole('button',{name:'Add one Forward →'}).click();
+ await page.getByRole('navigation',{name:'Discovery navigation'}).getByRole('button',{name:'Home',exact:true}).click();await page.getByRole('button',{name:'Keep playing',exact:true}).click();if(await page.getByRole('list',{name:'Instruction sequence'}).getByRole('listitem').count()!==1)throw Error('Unsaved program lost');
+ await page.getByText('Name, save or open my program',{exact:true}).click();await page.getByRole('button',{name:'Save program',exact:true}).click();
+ await page.getByRole('navigation',{name:'Discovery navigation'}).getByRole('button',{name:'Worlds',exact:true}).click();const ready=await Promise.race([page.getByRole('button',{name:/My Writing Desk.*Write your own/}).waitFor().then(()=>true),page.getByRole('button',{name:'Keep playing',exact:true}).waitFor().then(()=>false)]);if(!ready)await page.getByRole('button',{name:/^Back to world$/i}).click();
+ await page.getByRole('button',{name:/My Writing Desk.*Write your own/}).click();await page.getByRole('button',{name:'Open saved document',exact:true}).click();await page.getByRole('heading',{name:'Hello from Mars!',exact:true}).waitFor();
+ for(const width of [1440,390]){await page.setViewportSize({width,height:1000});if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Integrated writing overflow');await page.screenshot({path:`output/playwright/discovery-design-20261017/integrated-writing-${width}.png`,fullPage:true});}
+ await page.getByRole('navigation',{name:'Discovery navigation'}).getByRole('button',{name:'Home',exact:true}).click();await page.getByRole('button',{name:/Read & Write/}).click();await page.getByRole('button',{name:/Letter Launch.*Letters and sounds/}).click();await page.getByRole('button',{name:'Play Letter Launch level 1',exact:true}).click();
+ const bar=page.getByRole('progressbar',{name:'Session progress'});if((await bar.boundingBox()).height>12)throw Error('Session progress covers game');await page.screenshot({path:'output/playwright/discovery-design-20261017/letter-launch-playing.png',fullPage:true});
+}
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5180/?creativeqa=1#/play/letters
+- Page Title: Amari Discovery
+### Events
+- New console entries: .playwright-cli/console-2026-10-17T06-29-09-755Z.log#L15

@@ -1,3 +1,4 @@
+import DiscoveryHeader from './components/shared/DiscoveryHeader.jsx';
 import LetterLaunchBadgeCollection from './components/shared/LetterLaunchBadgeCollection.jsx';
 import Batch3BadgeCollections from './components/shared/Batch3BadgeCollections.jsx';
 import Batch4BadgeCollections from './components/shared/Batch4BadgeCollections.jsx';
@@ -39,7 +40,7 @@ const SOUND_PREFERENCE_KEY = 'amari-sound-on';
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
 // after this long, a "leave the game?" check protects the child's progress.
 const CONFIRM_LEAVE_AFTER_MS = 10000;
-const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino', 'addition', 'subtraction', 'timeteller', 'numberline']);
+const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino', 'addition', 'subtraction', 'timeteller', 'numberline', 'codecadets', 'writingdesk']);
 const AmariCountTheStars = lazy(() => import('./components/games/AmariCountTheStars.jsx'));
 const AmariLetterTrace = lazy(() => import('./components/games/AmariLetterTrace.jsx'));
 
@@ -64,6 +65,9 @@ const PlayerSession = ({
   grownUpsUnlocked, onUnlockGrownUps, onSwitchPlayer, onBreakRequested,
 }) => {
   const little = isLittleExplorer(player);
+  const draftDirtyRef=useRef(null);
+  const [pendingPage,setPendingPage]=useState(null);
+  const registerDraftDirty=useCallback(fn=>{draftDirtyRef.current=fn;},[]);
   const [favouriteGames, setFavouriteGames] = useState(() => loadPlayerValue(player.id, 'favourite_games', []));
   const [recentGames, setRecentGames] = useState(() => loadPlayerValue(player.id, 'recent_games', []));
   const [points, setPoints] = useState(() => Math.max(0, loadPlayerValue(player.id, 'points', 0)));
@@ -136,6 +140,7 @@ const PlayerSession = ({
   useEffect(() => {
     setLeaveGuard((from) => {
       if (from.name !== 'game') return false;
+      if (draftDirtyRef.current?.()) { setLeaveDialog(true);return true; }
       if (gamePhaseRef.current && gamePhaseRef.current !== 'play') return false;
       if (Date.now() - gameOpenedAtRef.current < CONFIRM_LEAVE_AFTER_MS) return false;
       setLeaveDialog(true);
@@ -144,10 +149,15 @@ const PlayerSession = ({
     return () => setLeaveGuard(null);
   }, [setLeaveGuard]);
 
+  const openDiscoveryPage=(name)=>{
+    if(draftDirtyRef.current?.() || ((!gamePhaseRef.current||gamePhaseRef.current==='play') && Date.now()-gameOpenedAtRef.current>=CONFIRM_LEAVE_AFTER_MS)){setPendingPage(name);setLeaveDialog(true);return;}
+    navigate({name});
+  };
   const leaveGame = useCallback(() => {
     setLeaveDialog(false);
+    if(pendingPage){const name=pendingPage;setPendingPage(null);navigate({name});return;}
     back({ force: true, toParent: !little });
-  }, [back, little]);
+  }, [back, little, navigate, pendingPage]);
 
   const unlockedAchievements = useMemo(
     () => ACHIEVEMENTS.filter((a) => a.check(gamesPlayed, points, streak)).map((a) => a.id),
@@ -241,6 +251,7 @@ const PlayerSession = ({
     const onNextGame = nextId && nextId !== currentGame.id ? () => launchGame(nextId, 'launch', { replace: true }) : undefined;
     const sessionRule = currentGame.little || ownsGameProgression(currentGame.id, little) ? null : GAME_SESSIONS[currentGame.id];
     const gameProps = {
+      registerDirty: registerDraftDirty,
       onBack: () => back({ toParent: !little }),
       onLaunchGame: (gameId) => {
         if (currentGame.id === 'worldmap' && gameId === 'timeteller') {
@@ -380,7 +391,7 @@ const PlayerSession = ({
 
   return (
     <>
-      {content}
+      {route.name==='game'&&!little?<div className="discovery-game-surface" data-discovery-game={currentGame?.id}><DiscoveryHeader playerName={player.name} points={points} onHome={()=>openDiscoveryPage('home')} onWorlds={()=>back({toParent:true})} onStickers={()=>openDiscoveryPage('stickers')} onGrownups={()=>openDiscoveryPage('grownups')}/><div className="discovery-game-content">{content}</div></div>:content}
       {currentGame && !little && !currentGame.little && !NO_CHALLENGE_TRACKER.has(currentGame.id) && (!GAME_SESSIONS[currentGame.id] || sessionPhase === 'play') && (
         <DailyChallengeTracker
           challenge={todaysChallenge}
@@ -392,7 +403,7 @@ const PlayerSession = ({
         />
       )}
       <CelebrationOverlay celebration={celebration} />
-      {leaveDialog && <LeaveGameDialog onStay={() => setLeaveDialog(false)} onLeave={leaveGame} destination={little ? 'Home' : 'World'} />}
+      {leaveDialog && <LeaveGameDialog onStay={() => {setPendingPage(null);setLeaveDialog(false);}} onLeave={leaveGame} destination={pendingPage ? ({home:'Home',stickers:'Stickers',grownups:'Grown-ups'}[pendingPage]) : little ? 'Home' : 'World'} />}
       <BreakWatcher onBreak={onBreakRequested} />
     </>
   );

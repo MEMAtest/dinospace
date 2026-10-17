@@ -1,0 +1,7 @@
+{
+  "source": "NASA Earth Observatory Blue Marble",
+  "sourceUrl": "https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57730/land_ocean_ice_2048.png",
+  "change": "New Blender UV sphere: equirectangular UVs instead of inherited NASA atlas UVs. Y-up sphere, 64 segments / 32 rings.",
+  "bytes": 299656,
+  "sha256": "3c42523a002a06dd3de88d7d995955c5b8544b552c335064d8286a172cbe6caa"
+}

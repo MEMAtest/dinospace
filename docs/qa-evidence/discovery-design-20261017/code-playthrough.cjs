@@ -1,0 +1,20 @@
+async page=>{
+ await page.setViewportSize({width:390,height:1000});await page.goto('http://127.0.0.1:5180/rehearsal/index.html#code');
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.getByRole('button',{name:'Code Cadets',exact:true}).click();await page.getByRole('button',{name:'Start my first mission →'}).click();
+ await page.screenshot({path:'output/playwright/discovery-design-20261017/code-guided-mobile.png',fullPage:true});
+ for(let i=0;i<3;i++)await page.getByRole('button',{name:'Add one Forward →',exact:true}).click();
+ await page.getByRole('button',{name:'Run my first program →'}).click();await page.getByText('Mission complete! The rover followed your instructions in order.',{exact:true}).waitFor();
+ await page.screenshot({path:'output/playwright/discovery-design-20261017/code-sequence-complete.png',fullPage:true});
+ await page.getByRole('button',{name:'Next mission →'}).click();
+ await page.getByRole('button',{name:'Run program',exact:true}).click();await page.getByText('The rover stopped before reaching the flag. Step through your program and check each move.',{exact:true}).waitFor();
+ await page.getByRole('button',{name:'Add Forward',exact:true}).click();
+ for(const n of [5,4,3])await page.getByRole('button',{name:`Move block ${n} earlier`,exact:true}).click();
+ await page.getByRole('button',{name:'Run program',exact:true}).click();await page.getByText('Mission complete! Moving the turn changed the route. You debugged a program.',{exact:true}).waitFor();
+ await page.getByRole('button',{name:'Next mission →'}).click();
+ for(const name of ['Add 3 × Forward','Add ↷ Turn right','Add 3 × Forward','Add ◆ Collect'])await page.getByRole('button',{name,exact:true}).click();
+ await page.getByRole('button',{name:'Run program',exact:true}).click();await page.getByText('Mission complete! Repeat ran the same move three times using one block.',{exact:true}).waitFor();
+ await page.getByText('Name, save or open my program',{exact:true}).click();await page.getByRole('textbox',{name:'Program name',exact:true}).fill('Pip sample rescue');await page.getByRole('button',{name:'Save program',exact:true}).click();
+ await page.setViewportSize({width:1440,height:1000});await page.screenshot({path:'output/playwright/discovery-design-20261017/code-repeat-desktop.png',fullPage:true});
+ if(errors.length)throw Error(errors.join('\n'));
+}

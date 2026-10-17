@@ -214,7 +214,7 @@ const addPlanetTexture = (mesh, planetName, planetAnchor = mesh) => {
   return null;
 };
 
-const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selectedPlanet, interacting }, ref) {
+const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selectedPlanet }, ref) {
   const mountRef = useRef(null);
   const onSelectRef = useRef(onSelect);
   const pausedRef = useRef(paused);
@@ -230,9 +230,6 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
   useEffect(() => { pausedRef.current = paused; }, [paused]);
   useEffect(() => { selectedPlanetRef.current = selectedPlanet?.name || 'Earth'; }, [selectedPlanet]);
 
-  useEffect(() => {
-    if (controlsRef.current) { controlsRef.current.enabled = interacting; controlsRef.current.enableZoom = false; controlsRef.current.domElement.style.touchAction = interacting ? 'none' : 'pan-y'; }
-  }, [interacting]);
 
   const changeZoom = useCallback((scale) => {
     const controls = controlsRef.current;
@@ -326,7 +323,9 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.enabled = false;
+    controls.enabled = true;
+    controls.touches.ONE = null;
+    controls.touches.TWO = THREE.TOUCH.DOLLY_ROTATE;
     controls.enableZoom = false;
     renderer.domElement.style.touchAction = 'pan-y';
     controls.dampingFactor = 0.06;
@@ -460,7 +459,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
 
       // Keep the current illustrated sphere usable until its local GLB is ready.
       // A failed asset never removes the planet, hit target or lesson controls.
-      loader.load(`/models/solar-v1/${planet.name.toLowerCase()}.glb`, (gltf) => {
+      loader.load(`/models/${planet.name==='Earth'?'solar-v2':'solar-v1'}/${planet.name.toLowerCase()}.glb`, (gltf) => {
         if (disposed) { disposePlanetObject(gltf.scene); return; }
         const model = gltf.scene;
         model.traverse((object) => {
@@ -565,17 +564,17 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
         ring.visible = !focusedPlanetRef.current && planetName === selectedPlanetRef.current;
         ring.scale.setScalar(!pausedRef.current && !motionPreference.matches && ring.visible ? 1 + Math.sin(performance.now() / 260) * 0.08 : 1);
       });
-      if (!pausedRef.current && !motionPreference.matches) {
+      if (!pausedRef.current) {
         sunGroup.rotation.z += 0.002;
         starField.rotation.y += 0.00008;
         asteroidBelt.rotation.z += 0.0004;
         orbitGroups.forEach((group) => {
           group.rotation.z += group.userData.speed;
-          group.userData.mesh.rotation.y += 0.003;
+          group.userData.mesh.rotation.y += 0.006;
         });
       }
       const focused = planetAnchors.get(focusedPlanetRef.current);
-      controls.enablePan = !focused;
+      controls.enablePan = false;
       orbitGroups.forEach((group) => {
         group.visible = !focused || group.children.includes(focused);
         const anchor = group.children[0];
@@ -626,7 +625,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
   return <div ref={mountRef} className="h-[min(54svh,470px)] min-h-[360px] w-full md:h-[580px]" />;
 });
 
-const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, playerId }) => {
+const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, speak, onCelebrate, playerId }) => {
   const difficulty = useGameDifficulty('solar');
   const orreryRef = useRef(null);
   const [selectedPlanet, setSelectedPlanet] = useState(PLANETS[2]);
@@ -647,13 +646,14 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     return saved;
   };
   const [quizFeedback, setQuizFeedback] = useState(() => passport.quizzes.Earth ? 'Correct — this challenge is already in your passport.' : '');
-  const [paused, setPaused] = useState(true);
-  const [interacting, setInteracting] = useState(false);
+  const [paused, setPaused] = useState(()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const [overview,setOverview] = useState(false);
 
 
   const selectPlanet = useCallback((planetName, focus = true) => {
     const planet = PLANETS.find((item) => item.name === planetName);
     if (!planet) return;
+    setOverview(false);
     setSelectedPlanet(planet);
     setActiveFact(0);
     setQuizFeedback(completedQuizzes[planet.name] ? 'Correct — this challenge is already in your passport.' : '');
@@ -712,7 +712,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   const rehearsalJourney = new URLSearchParams(window.location.search).get('journey') === 'discovery';
   return (
-    <div className="min-h-screen bg-[#030712] text-white">
+    <div className="solar-premium min-h-screen bg-[#030712] text-white">
       <header className="relative z-30 flex items-center justify-between gap-2 border-b border-white/10 bg-slate-950/80 px-3 py-3 backdrop-blur-xl sm:px-4">
         <button onClick={onBack} className="game-icon-button !h-12 !w-12 shrink-0 !bg-white/10 !text-white sm:!h-12 sm:!w-12" aria-label="Back to Explore and Languages"><ArrowLeft /></button>
         <div className="text-center">
@@ -724,7 +724,8 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
       </header>
 
-      {rehearsalJourney && <nav aria-label="Continue your discovery" className="flex flex-wrap items-center justify-center gap-3 bg-[#061642] px-3 py-2 text-sm"><a href="/rehearsal/index.html#code" className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Next: Code Cadets →</a><a href="/rehearsal/index.html#writing" className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Write a discovery report →</a></nav>}
+      {rehearsalJourney && <nav aria-label="Continue your discovery" className="flex flex-wrap items-center justify-center gap-3 bg-[#061642] px-3 py-2 text-sm"><a href="#/play/codecadets" onClick={e=>{e.preventDefault();onLaunchGame?.('codecadets');}} className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Next: Code Cadets →</a><a href="#/play/writingdesk" onClick={e=>{e.preventDefault();onLaunchGame?.('writingdesk');}} className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Write a discovery report →</a></nav>}
+      <div className="solar-view-tabs"><button aria-pressed={!overview} onClick={()=>{setOverview(false);orreryRef.current?.focusPlanet(selectedPlanet.name);}}>🔎 Inspect {selectedPlanet.name}</button><button aria-pressed={overview} onClick={()=>{setOverview(true);orreryRef.current?.resetView();}}>🪐 Whole Solar System · all worlds</button><button aria-pressed={!paused} onClick={()=>setPaused(v=>!v)}>{paused?'▶ Resume rotation':'Ⅱ Pause rotation'}</button></div>
       <section className="flex flex-wrap items-center justify-between gap-2 bg-[#061642] px-3 pt-3" aria-label="Discovery passport">
         <p className="text-sm font-bold">Passport: {Object.keys(discoveredFacts).length}/{PLANETS.reduce((count, planet) => count + planet.facts.length, 0)} discoveries · {Object.keys(completedQuizzes).length}/9 challenges</p>
         <div className="flex gap-2">
@@ -740,7 +741,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             onClick={() => selectPlanet(planet.name)}
             className={`flex min-w-[108px] flex-none snap-start flex-col items-center gap-1 rounded-2xl border-2 px-3 py-2 text-sm font-black transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200 ${selectedPlanet.name === planet.name ? 'border-cyan-300 text-white shadow-[0_0_15px_#30d5ff80]' : 'border-white/25 text-cyan-100 hover:brightness-125'}`}
             style={{ background: `linear-gradient(145deg, ${planet.surface}bb, #142c77 52%, #081747)` }}>
-            <span className="relative block h-16 w-20" style={{ backgroundImage: `url(/models/solar-v1/${planet.name.toLowerCase()}.png)`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} aria-hidden="true">
+            <span className="relative block h-16 w-20" style={{ backgroundImage: `url(/models/${planet.name==='Earth'?'solar-v2':'solar-v1'}/${planet.name.toLowerCase()}.png)`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }} aria-hidden="true">
             </span>
             {planet.name}{badges.includes(planet.name) ? ' ★' : ''}
           </button>
@@ -749,8 +750,8 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
       <main className="grid items-start lg:grid-cols-[minmax(0,1.4fr)_minmax(340px,1fr)]">
         <section className="relative min-w-0 border-b border-cyan-100/10 bg-[#020617] lg:sticky lg:top-0 lg:border-r">
-          <div className="bg-cyan-950 px-4 py-3 text-center"><h3 className="text-xl font-black">Meet {selectedPlanet.name} up close</h3><p className="text-sm text-cyan-100">Use the arrows to look around. Scroll to discover facts below.</p></div>
-          <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} interacting={interacting} />
+          <div className="bg-cyan-950 px-4 py-3 text-center"><h3 className="text-xl font-black">{overview?'Our Solar System':`Meet ${selectedPlanet.name} up close`}</h3><p className="text-sm text-cyan-100">Drag to look around · two fingers to turn on touch · swipe up to scroll</p></div>
+          <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
           <div className="flex flex-wrap justify-center gap-2 bg-slate-900 p-3" role="group" aria-label="Planet inspection controls">
             <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Rotate planet left" onClick={()=>orreryRef.current?.rotate('y',-0.35)}>← Turn</button>
             <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Rotate planet right" onClick={()=>orreryRef.current?.rotate('y',0.35)}>Turn →</button>
@@ -758,11 +759,9 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Tilt planet down" onClick={()=>orreryRef.current?.rotate('x',-0.25)}>↓ Tilt</button>
             <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Zoom in on planet" onClick={()=>handleZoom('zoomIn')}>＋ Zoom</button>
             <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Zoom out from planet" onClick={()=>handleZoom('zoomOut')}>− Zoom</button>
-            <button className="min-h-12 rounded-xl bg-cyan-700 px-4 font-bold" aria-pressed={interacting} onClick={()=>setInteracting(v=>!v)}>{interacting?'Done moving · scroll page':'Drag to inspect'}</button>
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" onClick={()=>{setInteracting(false);orreryRef.current?.focusPlanet(selectedPlanet.name);}}>Centre {selectedPlanet.name}</button>
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" onClick={()=>{setInteracting(false);orreryRef.current?.resetView();}}>See whole Solar System</button>
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" onClick={()=>setPaused(v=>!v)}>{paused?'Start spinning':'Pause spinning'}</button>
-            <p role="status" className="w-full text-center text-sm text-cyan-100">{interacting?'Drag across the view to turn it. Choose Done moving to scroll over the planet again.':'Page scrolling is on. The arrows also work with touch or a keyboard.'}</p>
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" onClick={()=>{setOverview(false);orreryRef.current?.focusPlanet(selectedPlanet.name);}}>Centre {selectedPlanet.name}</button>
+            <button className="min-h-12 rounded-xl bg-cyan-600 px-4 font-bold" onClick={()=>{setOverview(true);orreryRef.current?.resetView();}}>Show all planets together</button>
+            <p role="status" className="w-full text-center text-sm text-cyan-100">{paused?'Rotation paused. Use Resume rotation above to start again.':'Planets are rotating. Scroll normally over the view; use the arrows or drag to inspect.'}</p>
           </div>
         </section>
 

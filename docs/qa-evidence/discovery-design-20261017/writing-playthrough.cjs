@@ -1,0 +1,14 @@
+async page=>{
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.getByRole('button',{name:'Writing Desk',exact:true}).click();await page.getByRole('button',{name:'Mars',exact:true}).click();await page.getByRole('button',{name:'Make my Mars postcard →'}).click();
+ await page.getByRole('textbox',{name:'Your document',exact:true}).locator('h1').click({position:{x:20,y:20}});await page.keyboard.type('Hello from Mars!');
+ await page.getByRole('button',{name:'Next: write my message →'}).click();await page.keyboard.type('I can see red rocks and a huge volcano.');
+ await page.getByRole('button',{name:'Next: decorate my postcard →'}).click();await page.getByRole('button',{name:'Add Mars picture',exact:true}).first().click();await page.getByRole('textbox',{name:'Your document'}).locator('img').waitFor();await page.getByRole('button',{name:'Next: save & share →'}).click();
+ await page.getByText('More writing tools · bold and layout',{exact:true}).click();
+ const heading=page.getByRole('textbox',{name:'Your document'}).getByRole('heading',{name:'Hello from Mars!',exact:true});await heading.dblclick({position:{x:20,y:20}});await page.getByRole('button',{name:'Bold',exact:true}).click();if(!await heading.locator('strong').count())throw Error('Selected word not bold');await page.getByRole('button',{name:'Undo',exact:true}).click();await page.getByRole('button',{name:'Redo',exact:true}).click();
+ await page.getByRole('button',{name:'Save document',exact:true}).click();await page.getByRole('button',{name:'Code Cadets',exact:true}).click();await page.getByRole('button',{name:'Start my first mission →'}).waitFor();await page.getByRole('button',{name:'Open saved program',exact:true}).click();await page.getByRole('heading',{name:'Code Cadets',exact:true}).waitFor();await page.getByRole('button',{name:'Writing Desk',exact:true}).click();await page.getByRole('button',{name:'Open saved document',exact:true}).click();await page.getByRole('heading',{name:'Hello from Mars!',exact:true}).waitFor();
+ await page.getByRole('textbox',{name:'Your document'}).getByText('I can see red rocks and a huge volcano.',{exact:true}).waitFor();
+ const d=page.waitForEvent('download');await page.getByRole('button',{name:'Download Word document',exact:true}).click();await(await d).saveAs('output/playwright/discovery-design-20261017/Mars-postcard.docx');
+ for(const width of [1440,390]){await page.setViewportSize({width,height:1000});if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('Writing overflow');await page.screenshot({path:`output/playwright/discovery-design-20261017/writing-complete-${width}.png`,fullPage:true});}
+ if(errors.length)throw Error(errors.join('\n'));
+}

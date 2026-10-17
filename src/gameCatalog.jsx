@@ -2,7 +2,7 @@ import letterRocketArt from './assets/little/fuel-rocket.webp';
 import { lazy } from 'react';
 import {
   AudioLines, BookOpen, Brain, CarFront, Clock3, Crown, Gamepad2, Globe2, Grid3X3, Hash, Minus,
-  Palette, PenLine, Plus, Puzzle, Rocket, ScanSearch, Search, Shapes, Sparkles, Sun, Truck, Type,
+  Palette, PenLine, Plus, Puzzle, Rocket, ScanSearch, Search, Shapes, Sparkles, Truck, Type,
 } from 'lucide-react';
 import DinoDetective from './components/games/DinoDetective.jsx';
 import JetSkyShapes from './components/games/JetSkyShapes.jsx';
@@ -41,16 +41,20 @@ import titleTrex from './assets/dinos/title-trex.png';
 import titleTrike from './assets/dinos/title-trike.png';
 import { ArtIcon, GameIcon } from './components/shared/GameIcons.jsx';
 
+const CodeCadetsGame = lazy(() => import('./rehearsal/DigitalSkillGame.jsx').then(m=>({default:m.CodeCadetsGame})));
+const WritingDeskGame = lazy(() => import('./rehearsal/DigitalSkillGame.jsx').then(m=>({default:m.WritingDeskGame})));
 const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 
 const icon = (Icon, tone, label, kind = 'default') => <GameIcon Icon={Icon} tone={tone} label={label} kind={kind} image={kind === 'letters' ? letterRocketArt : undefined} />;
 
 export const GAME_MENU_ITEMS = [
+  {id:'codecadets',icon:<GameIcon image="/art/discovery-v2/pip.webp" alt="Pip the rover" label="Code Cadets"/>,title:'Code Cadets',desc:'Code an adventure with Pip!',color:'bg-gradient-to-br from-blue-500 to-cyan-500',category:'Create',badge:'NEW',component:CodeCadetsGame},
+  {id:'writingdesk',icon:icon(PenLine,'text-fuchsia-500','My Writing Desk'),title:'My Writing Desk',desc:'Write your own space postcard',color:'bg-gradient-to-br from-violet-500 to-pink-500',category:'Create',badge:'NEW',component:WritingDeskGame},
   { id: 'tictactoe', icon: icon(Grid3X3, 'text-cyan-600', 'Cosmic noughts and crosses', 'tictactoe'), title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' , component: TicTacToe },
   { id: 'hangman', icon: <GameIcon image={titleTrex} alt="Rex the complete T-Rex" label="Rex the dinosaur" kind="hangman" />, title: 'Dino Hangman', desc: 'Rescue dinosaur words!', color: 'bg-gradient-to-br from-fuchsia-500 via-purple-600 to-indigo-700', category: 'Words', badge: 'NEW' , component: DinoHangman },
   { id: 'dino', icon: <GameIcon image={titleTrike} alt="Trix the complete Triceratops" label="Trix the triceratops" kind="dino" />, title: 'Dino Detective', desc: 'Find hidden dinosaurs!', color: 'bg-gradient-to-br from-green-400 to-emerald-500', category: 'Discover' , component: DinoDetective },
   { id: 'jet', icon: icon(Rocket, 'text-sky-600', 'Rocket drawing shapes', 'jet'), title: 'Sky Shapes', desc: 'Draw with a jet!', color: 'bg-gradient-to-br from-sky-400 to-blue-500', category: 'Create' , component: JetSkyShapes },
-  { id: 'solar', icon: icon(Sun, 'text-amber-500', 'The solar system', 'solar'), title: 'Solar System', desc: 'Visit the planets', color: 'bg-gradient-to-br from-indigo-500 to-violet-600', category: 'Discover' , component: SolarSystem },
+  { id: 'solar', icon: <GameIcon image="/models/solar-v1/saturn.png" alt="Saturn with its rings" label="The Solar System" kind="solar"/>, title: 'Solar System', desc: 'Visit the planets', color: 'bg-gradient-to-br from-indigo-500 to-violet-600', category: 'Discover' , component: SolarSystem },
   { id: 'german', icon: icon(CarFront, 'text-red-600', 'German garage car', 'german'), title: 'German Garage', desc: 'Explore colours, vehicles, parts and directions in German', color: 'bg-gradient-to-br from-red-400 to-rose-500', category: 'Words' , component: GermanGarage },
   { id: 'math', icon: icon(Truck, 'text-orange-600', 'Monster math truck', 'math'), title: 'Monster Math', desc: 'Count, add and solve stories', color: 'bg-gradient-to-br from-orange-400 to-red-500', category: 'Maths' , component: MonsterMath },
   { id: 'letters', icon: icon(Rocket, 'text-teal-600', 'Letter launch rocket', 'letters'), title: 'Letter Launch', desc: 'Letters and sounds', color: 'bg-gradient-to-br from-teal-400 to-cyan-500', category: 'Words' , component: LetterLaunch },

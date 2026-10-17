@@ -1,0 +1,28 @@
+{
+  "created": "2026-10-17",
+  "tool": "built-in image generation",
+  "purpose": "Live Discovery HQ environment and Pip character; UI and game logic remain HTML/React/Three.js",
+  "references": "User-supplied Code Cadets mockups, used as visual direction",
+  "assets": [
+    {
+      "file": "assets-source/discovery-v2/environment.png",
+      "bytes": 2158289,
+      "sha256": "f288bca9e7e3de7beaecd5eb0cf023f0aa894053b27fd453afd9499e8cff005e"
+    },
+    {
+      "file": "public/art/discovery-v2/environment.webp",
+      "bytes": 180612,
+      "sha256": "91f95b21b188bf779f10fc8b9b9a39a0117a718defa6446e8cff3a4f6cee18a3"
+    },
+    {
+      "file": "assets-source/discovery-v2/pip.png",
+      "bytes": 1101904,
+      "sha256": "c7bfdc1ea410de9a760c000b4c8f18e2a0e50967c076af01fe799e978bf16524"
+    },
+    {
+      "file": "public/art/discovery-v2/pip.webp",
+      "bytes": 174264,
+      "sha256": "745d52ef12fa535dbfe92fb2860a77cafc9ec158375f20da9463ea43dd40299c"
+    }
+  ]
+}
