@@ -27,3 +27,15 @@ Rotation is automatic unless reduced motion is preferred. Resume is an explicit 
 This is a shared visual-system rollout plus detailed work on Solar and the two new digital skills activities. Individual interiors/learning content of all 26 games have not been redesigned or re-certified 4.5/5 by this audit. Their existing acceptance scores are unchanged. Full coding/writing curricula, multiple-project library and the reference's free map builder remain separate work. No paid voice/story generation, child-data migration or monitoring restart. One existing contained Chromium session/tab and synthetic QA data were used. Production is not promoted by this work.
 
 Hosted identity and acceptance evidence will follow below.
+
+## Final hosted preview acceptance
+
+READY: https://dinospace-kux3a41gk-memas-projects-23a0001d.vercel.app/
+Deployment: dpl_Honwdsq4FHnG44M6vXNWPH5PHq7k
+Runtime: 94f35112 (full hash in preview-identity.json).
+
+The final hosted run uses the main app throughout: choose Amari → Creative Lab → all three Code Cadets missions, including wrong-route repair and repeat/collect → parent Creative Lab → Writing Desk → manually type an Earth postcard → insert the corrected Earth picture → save → leave and reopen → download a real DOCX. That actual hosted download was rendered and visually inspected in LibreOffice. Then choose Amari in the Solar journey → inspect Earth → use whole-system/close-up controls → native drag/wheel/simulated touch scroll → explicit Resume under reduced motion → follow Next: Code Cadets into the main app → open the same saved four-block sample program. No page errors were captured by the complete hosted workflow.
+
+Timed hosted globe samples differ by RGB mean 25.48 during rotation, 0.00 while paused, and 11.99 after native dragging. Separate final hosted catalogue checks passed at 1440 and 390px for all 28 entries (56 checks), with no page errors, broken completed images or horizontal overflows. The final captured browser console reported zero errors and warnings. Provider story/voice calls were guarded. These are entry-screen checks for the wider catalogue, not full round-by-round acceptance of every game.
+
+Individual games' own illustrated scene backgrounds are preserved inside the shared frame. Only generic session menus receive the common paper background. The scaled educational model caption is visible in Solar. Production was not promoted; acceptance scores in the existing 26-game ledger are unchanged.
