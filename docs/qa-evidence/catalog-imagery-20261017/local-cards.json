@@ -1,0 +1,557 @@
+{
+  "rows": [
+    {
+      "kind": "home",
+      "width": 1440,
+      "documentWidth": 1440,
+      "worldImages": [
+        {
+          "src": "/art/catalog-v3/world-read-write.webp",
+          "ok": true
+        },
+        {
+          "src": "/art/catalog-v3/world-maths.webp",
+          "ok": true
+        },
+        {
+          "src": "/art/catalog-v3/world-explore.webp",
+          "ok": true
+        },
+        {
+          "src": "/art/catalog-v3/world-creative.webp",
+          "ok": true
+        },
+        {
+          "src": "/art/catalog-v3/world-thinking.webp",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "kind": "world",
+      "title": "Read & Write",
+      "width": 1440,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-letters.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-phonics.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-words.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-trace.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-hangman.webp",
+          "ok": true,
+          "width": 277.199951171875,
+          "height": 184.800048828125
+        },
+        {
+          "src": "/art/catalog-v3/game-storybooks.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        }
+      ],
+      "clippedTitles": []
+    },
+    {
+      "kind": "world",
+      "title": "Maths Missions",
+      "width": 1440,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-counting.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-fuelup.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-firerescue.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-addition.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-subtraction.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-math.webp",
+          "ok": true,
+          "width": 277.199951171875,
+          "height": 184.800048828125
+        },
+        {
+          "src": "/art/catalog-v3/game-numberline.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-timeteller.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        }
+      ],
+      "clippedTitles": []
+    },
+    {
+      "kind": "world",
+      "title": "Explore & Languages",
+      "width": 1440,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-solar.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-astronaut.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-dino.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-german.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-worldmap.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        }
+      ],
+      "clippedTitles": []
+    },
+    {
+      "kind": "world",
+      "title": "Creative Lab",
+      "width": 1440,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-codecadets.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-writingdesk.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-rocketbuilder.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-dinojigsaw.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-jet.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-colormix.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-puzzle.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        }
+      ],
+      "clippedTitles": []
+    },
+    {
+      "kind": "world",
+      "title": "Thinking & Play",
+      "width": 1440,
+      "documentWidth": 1440,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-memory.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-shadowmatch.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-ladder.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-pattern.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-oddoneout.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-chess.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-spot.webp",
+          "ok": true,
+          "width": 264,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-tictactoe.webp",
+          "ok": true,
+          "width": 277.199951171875,
+          "height": 184.800048828125
+        }
+      ],
+      "clippedTitles": []
+    },
+    {
+      "kind": "home",
+      "width": 390,
+      "documentWidth": 390,
+      "worldImages": [
+        {
+          "src": "/art/catalog-v3/world-read-write.webp",
+          "ok": true
+        },
+        {
+          "src": "/art/catalog-v3/world-maths.webp",
+          "ok": true
+        },
+        {
+          "src": "/art/catalog-v3/world-explore.webp",
+          "ok": true
+        },
+        {
+          "src": "/art/catalog-v3/world-creative.webp",
+          "ok": true
+        },
+        {
+          "src": "/art/catalog-v3/world-thinking.webp",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "kind": "world",
+      "title": "Read & Write",
+      "width": 390,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-letters.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-phonics.webp",
+          "ok": true,
+          "width": 335.2857666015625,
+          "height": 183.26177978515625
+        },
+        {
+          "src": "/art/catalog-v3/game-words.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-trace.webp",
+          "ok": true,
+          "width": 324.8143310546875,
+          "height": 177.53826904296875
+        },
+        {
+          "src": "/art/catalog-v3/game-hangman.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-storybooks.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        }
+      ],
+      "clippedTitles": []
+    },
+    {
+      "kind": "world",
+      "title": "Maths Missions",
+      "width": 390,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-counting.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-fuelup.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-firerescue.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-addition.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-subtraction.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-math.webp",
+          "ok": true,
+          "width": 338.0999755859375,
+          "height": 184.79998779296875
+        },
+        {
+          "src": "/art/catalog-v3/game-numberline.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-timeteller.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        }
+      ],
+      "clippedTitles": []
+    },
+    {
+      "kind": "world",
+      "title": "Explore & Languages",
+      "width": 390,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-solar.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-astronaut.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-dino.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-german.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-worldmap.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        }
+      ],
+      "clippedTitles": []
+    },
+    {
+      "kind": "world",
+      "title": "Creative Lab",
+      "width": 390,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-codecadets.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-writingdesk.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-rocketbuilder.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-dinojigsaw.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-jet.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-colormix.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-puzzle.webp",
+          "ok": true,
+          "width": 338.0999755859375,
+          "height": 184.800048828125
+        }
+      ],
+      "clippedTitles": []
+    },
+    {
+      "kind": "world",
+      "title": "Thinking & Play",
+      "width": 390,
+      "documentWidth": 390,
+      "images": [
+        {
+          "src": "/art/catalog-v3/game-memory.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-shadowmatch.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-ladder.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-pattern.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-oddoneout.webp",
+          "ok": true,
+          "width": 335.2833251953125,
+          "height": 183.2604522705078
+        },
+        {
+          "src": "/art/catalog-v3/game-chess.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        },
+        {
+          "src": "/art/catalog-v3/game-spot.webp",
+          "ok": true,
+          "width": 324.816650390625,
+          "height": 177.53955078125
+        },
+        {
+          "src": "/art/catalog-v3/game-tictactoe.webp",
+          "ok": true,
+          "width": 322,
+          "height": 176
+        }
+      ],
+      "clippedTitles": []
+    }
+  ],
+  "pageErrors": []
+}
