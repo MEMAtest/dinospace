@@ -761,7 +761,7 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
             <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Zoom out from planet" onClick={()=>handleZoom('zoomOut')}>− Zoom</button>
             <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" onClick={()=>{setOverview(false);orreryRef.current?.focusPlanet(selectedPlanet.name);}}>Centre {selectedPlanet.name}</button>
             <button className="min-h-12 rounded-xl bg-cyan-600 px-4 font-bold" onClick={()=>{setOverview(true);orreryRef.current?.resetView();}}>Show all planets together</button>
-            <p role="status" className="w-full text-center text-sm text-cyan-100">{paused?'Rotation paused. Use Resume rotation above to start again.':'Planets are rotating. Scroll normally over the view; use the arrows or drag to inspect.'}</p>
+            <p role="status" className="w-full text-center text-sm text-cyan-100">{paused?'Rotation paused. Use Resume rotation above to start again.':'Planets are rotating. Scroll normally over the view; use the arrows or drag to inspect.'}<span className="mt-1 block text-xs">Sizes, distances and motion are simplified for this model.</span></p>
           </div>
         </section>
 
