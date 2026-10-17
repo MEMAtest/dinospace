@@ -31,3 +31,13 @@ The previous rehearsal established mechanical completion, but its first-visit ex
 Same single contained headless Chromium context/tab; synthetic QA profiles only; provider voice/story guards; no paid generation; no monitoring restarted. Three coding missions and one writing workflow remain the scope. Full courses, project libraries/cloud backup, narration and child usability acceptance are separate work. Production and the 26-game acceptance ledger are unchanged. Large bundle warnings remain; no new all-game quality claims.
 
 Hosted preview identity and final smoke results are recorded after deployment.
+
+## Hosted acceptance replay
+
+READY preview: https://dinospace-wczh2z4ss-memas-projects-23a0001d.vercel.app/rehearsal/index.html
+Deployment: dpl_6tZEwynERi42GjHJNW6pv6hsDp1d
+Runtime commit: 507e0b2592af70be658184392ec5e2efd225fee4
+
+The hosted-playthrough script completed on this deployment: all three coding missions (including wrong-route repair), named program save/open, four postcard stages with manually typed heading/message, selected-word Bold/Undo/Redo, document save/navigation/reopen, exact message preservation and actual DOCX download. The same script followed the planet link through Amari selection, inspected Earth at 1440px and 390px, wheeled over the canvas, rotated/tilted/zoomed, enabled dragging and dragged, restored scrolling, performed a simulated native touch swipe, selected Saturn and opened the angled overview. No page errors were captured by the scripted checks. Screenshots were visually inspected. Browser identity/width/model checks are in amari-rework-served.log.
+
+Scoped ESLint, eight existing bounded tests, production build and diff whitespace checks passed. Existing build chunk-size warnings and software WebGL screenshot performance warnings remain. The local all-54-discovery/nine-challenge replay supplements this hosted usability replay; it is not a claim that all higher bands or the other 26-game roadmap were accepted.

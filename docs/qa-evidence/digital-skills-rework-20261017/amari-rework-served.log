@@ -1,0 +1,15 @@
+### Result
+{
+  "url": "https://dinospace-wczh2z4ss-memas-projects-23a0001d.vercel.app/?journey=discovery#/play/solar",
+  "scripts": [
+    "https://dinospace-wczh2z4ss-memas-projects-23a0001d.vercel.app/assets/arcade-DnKRvoAR.js"
+  ],
+  "loadedModels": "9",
+  "width": 390,
+  "documentWidth": 390,
+  "brokenImages": []
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => ({url:location.href,scripts:[...document.scripts].map(s=>s.src).filter(Boolean),loadedModels:document.querySelector("[data-planet-models]")?.getAttribute("data-planet-models"),width:innerWidth,documentWidth:document.documentElement.scrollWidth,brokenImages:[...document.images].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.alt)})');
+```
