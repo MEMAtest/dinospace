@@ -1,0 +1,40 @@
+### Ran Playwright code
+```js
+await (async page => {
+ if(await page.getByRole('button',{name:'5 More Minutes',exact:true}).count())await page.getByRole('button',{name:'5 More Minutes',exact:true}).click();
+ await page.route('**/api/voice**',r=>r.fulfill({status:403,body:'QA guard'}));
+ await page.route('**/api/story/**',r=>r.fulfill({status:403,body:'QA guard'}));
+ if(!page.url().endsWith('#/play/solar'))await page.getByRole('button',{name:/Solar System.*Visit the planets/}).click();await page.waitForSelector('[data-planet-models="9"]');
+ const answers={Mercury:'It has no air',Venus:'Venus',Earth:'Its oceans',Mars:'Rusty dust',Jupiter:'A giant storm',Saturn:'Ice and rock',Uranus:'On its side',Neptune:'Super-fast winds',Pluto:'A dwarf planet'};
+ for(const [world,answer] of Object.entries(answers)){
+  await page.getByRole('navigation',{name:'Choose a planet'}).getByRole('button',{name:new RegExp('^'+world+'(?: ★)?$')}).click();
+  for(let i=1;i<=6;i++)await page.getByRole('button',{name:new RegExp('^Discovery '+i+':')}).click();
+  const panel=page.getByRole('complementary');
+  if(!(await panel.getByText('Correct — this challenge is already in your passport.',{exact:true}).count())){
+   const quiz=panel.getByRole('heading',{name:'Captain’s challenge',exact:true}).locator('..').locator('..');
+   const labels=await quiz.getByRole('button').allTextContents();
+   const wrong=labels.find(label=>label!==answer);
+   if(!wrong)throw new Error('No wrong answer for '+world);
+   await quiz.getByRole('button',{name:wrong,exact:true}).click();
+   await panel.getByText('Not quite — use the facts and try again.',{exact:true}).waitFor();
+   await panel.getByRole('button',{name:answer,exact:true}).click();
+   await panel.getByText('Correct — mission complete!',{exact:true}).waitFor();
+  }
+  await page.screenshot({path:`output/playwright/amari-rehearsal/solar-${world.toLowerCase()}-completed.png`,fullPage:true});
+ }
+ await page.getByText('Passport: 54/54 discoveries · 9/9 challenges',{exact:true}).waitFor();
+ await page.getByText('World badges collected: 9/9',{exact:true}).waitFor();
+ await page.getByRole('button',{name:/^Discovery 6:/}).click();
+ await page.getByText('Passport: 54/54 discoveries · 9/9 challenges',{exact:true}).waitFor();
+ await page.reload();await page.waitForSelector('[data-planet-models="9"]');
+ await page.getByText('Passport: 54/54 discoveries · 9/9 challenges',{exact:true}).waitFor();
+ await page.getByRole('button',{name:'Back to Explore and Languages',exact:true}).click();
+ if(!page.url().endsWith('#/world/explore'))throw new Error('Parent navigation failed');
+}
+)(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5180/?journey=discovery#/world/explore
+- Page Title: Amari Discovery
+### Events
+- New console entries: .playwright-cli/console-2026-10-17T06-29-09-755Z.log#L8

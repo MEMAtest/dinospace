@@ -2,7 +2,7 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useSta
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { ArrowLeft, Pause, Play, Rotate3D, RotateCcw, Sparkles, Volume2, ZoomIn, ZoomOut } from 'lucide-react';
+import { ArrowLeft, Sparkles, Volume2 } from 'lucide-react';
 import { PLANETS } from '../../data/index.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { SoundToggle } from '../shared/index.jsx';
@@ -214,7 +214,7 @@ const addPlanetTexture = (mesh, planetName, planetAnchor = mesh) => {
   return null;
 };
 
-const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selectedPlanet }, ref) {
+const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selectedPlanet, interacting }, ref) {
   const mountRef = useRef(null);
   const onSelectRef = useRef(onSelect);
   const pausedRef = useRef(paused);
@@ -223,12 +223,16 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
   const fitDistanceRef = useRef(40);
   const planetAnchorsRef = useRef(new Map());
   const selectedPlanetRef = useRef(selectedPlanet?.name || 'Earth');
-  const focusedPlanetRef = useRef(null);
+  const focusedPlanetRef = useRef(selectedPlanet?.name || 'Earth');
   const [webglUnavailable, setWebglUnavailable] = useState(false);
 
   useEffect(() => { onSelectRef.current = onSelect; }, [onSelect]);
   useEffect(() => { pausedRef.current = paused; }, [paused]);
   useEffect(() => { selectedPlanetRef.current = selectedPlanet?.name || 'Earth'; }, [selectedPlanet]);
+
+  useEffect(() => {
+    if (controlsRef.current) { controlsRef.current.enabled = interacting; controlsRef.current.enableZoom = false; controlsRef.current.domElement.style.touchAction = interacting ? 'none' : 'pan-y'; }
+  }, [interacting]);
 
   const changeZoom = useCallback((scale) => {
     const controls = controlsRef.current;
@@ -249,10 +253,17 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
   useImperativeHandle(ref, () => ({
     zoomIn: () => changeZoom(0.78),
     zoomOut: () => changeZoom(1.28),
+    rotate: (axis, angle) => {
+      const camera = cameraRef.current, controls = controlsRef.current;
+      if (!camera || !controls) return;
+      const offset = camera.position.clone().sub(controls.target);
+      offset.applyAxisAngle(new THREE.Vector3(axis === 'y' ? 0 : 1, axis === 'y' ? 1 : 0, 0), angle);
+      camera.position.copy(controls.target).add(offset); controls.update();
+    },
     resetView: () => {
       if (!cameraRef.current || !controlsRef.current) return;
       focusedPlanetRef.current = null;
-      cameraRef.current.position.set(0, 0, fitDistanceRef.current);
+      cameraRef.current.position.set(0, -0.5 * fitDistanceRef.current, 0.87 * fitDistanceRef.current);
       controlsRef.current.target.set(0, 0, 0);
       controlsRef.current.update();
     },
@@ -265,10 +276,11 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
       const target = new THREE.Vector3();
       anchor.getWorldPosition(target);
       const offset = camera.position.clone().sub(controls.target);
-      const minFocusDistance = window.innerWidth < 640 ? 6.5 : 5.5;
+      const minFocusDistance = 1.8;
       const planetRadius = anchor.userData.planetRadius || 1;
-      const distance = THREE.MathUtils.clamp(Math.max(planetRadius * (planetName === 'Saturn' ? 8 : 5.5), minFocusDistance), controls.minDistance, controls.maxDistance);
-      if (offset.length() < 0.01) offset.set(0, 0, 24);
+      controls.minDistance = Math.max(0.8, planetRadius * 1.5);
+      const distance = THREE.MathUtils.clamp(Math.max(planetRadius * (planetName === 'Saturn' ? 6 : 3.7), minFocusDistance), controls.minDistance, controls.maxDistance);
+      offset.set(0.2, 0.15, 1);
       offset.setLength(distance);
       controls.target.copy(target);
       camera.position.copy(target).add(offset);
@@ -307,10 +319,16 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.18;
+    renderer.domElement.style.width = '100%';
+    renderer.domElement.style.height = '100%';
+    renderer.domElement.style.display = 'block';
     mount.appendChild(renderer.domElement);
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
+    controls.enabled = false;
+    controls.enableZoom = false;
+    renderer.domElement.style.touchAction = 'pan-y';
     controls.dampingFactor = 0.06;
     controls.minDistance = 3.5;
     controls.maxDistance = 72;
@@ -530,12 +548,21 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
     const resizeObserver = new ResizeObserver(resize);
     resizeObserver.observe(mount);
     resize();
+    const initialAnchor = planetAnchors.get(selectedPlanetRef.current);
+    if (initialAnchor) {
+      initialAnchor.updateWorldMatrix(true, false);
+      const target = initialAnchor.getWorldPosition(new THREE.Vector3());
+      controls.minDistance = Math.max(0.8, initialAnchor.userData.planetRadius * 1.5);
+      controls.target.copy(target);
+      camera.position.copy(target).add(new THREE.Vector3(0.2, 0.15, 1).normalize().multiplyScalar(Math.max(1.8, initialAnchor.userData.planetRadius * 3.7)));
+      controls.update();
+    }
 
     let frameId;
     const animate = () => {
       frameId = requestAnimationFrame(animate);
       selectionRings.forEach((ring, planetName) => {
-        ring.visible = planetName === selectedPlanetRef.current;
+        ring.visible = !focusedPlanetRef.current && planetName === selectedPlanetRef.current;
         ring.scale.setScalar(!pausedRef.current && !motionPreference.matches && ring.visible ? 1 + Math.sin(performance.now() / 260) * 0.08 : 1);
       });
       if (!pausedRef.current && !motionPreference.matches) {
@@ -549,7 +576,11 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
       }
       const focused = planetAnchors.get(focusedPlanetRef.current);
       controls.enablePan = !focused;
-      orbitGroups.forEach((group) => { group.visible = !focused || group.children.includes(focused); });
+      orbitGroups.forEach((group) => {
+        group.visible = !focused || group.children.includes(focused);
+        const anchor = group.children[0];
+        if (anchor) anchor.rotation.z = focused ? -group.rotation.z : 0;
+      });
       orbitLines.forEach((line) => { line.visible = !focused; });
       sunGroup.visible = !focused;
       asteroidBelt.visible = !focused;
@@ -592,7 +623,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
     );
   }
 
-  return <div ref={mountRef} className="h-[min(54svh,470px)] min-h-[360px] w-full cursor-grab touch-none active:cursor-grabbing md:h-full md:min-h-0" />;
+  return <div ref={mountRef} className="h-[min(54svh,470px)] min-h-[360px] w-full md:h-[580px]" />;
 });
 
 const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, playerId }) => {
@@ -616,8 +647,9 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     return saved;
   };
   const [quizFeedback, setQuizFeedback] = useState(() => passport.quizzes.Earth ? 'Correct — this challenge is already in your passport.' : '');
-  const [paused, setPaused] = useState(false);
-  const [showViewControls, setShowViewControls] = useState(false);
+  const [paused, setPaused] = useState(true);
+  const [interacting, setInteracting] = useState(false);
+
 
   const selectPlanet = useCallback((planetName, focus = true) => {
     const planet = PLANETS.find((item) => item.name === planetName);
@@ -680,7 +712,7 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   const rehearsalJourney = new URLSearchParams(window.location.search).get('journey') === 'discovery';
   return (
-    <div className={`min-h-screen overflow-y-auto bg-[#030712] text-white md:h-screen md:overflow-hidden ${rehearsalJourney ? 'md:flex md:flex-col' : ''}`}>
+    <div className="min-h-screen bg-[#030712] text-white">
       <header className="relative z-30 flex items-center justify-between gap-2 border-b border-white/10 bg-slate-950/80 px-3 py-3 backdrop-blur-xl sm:px-4">
         <button onClick={onBack} className="game-icon-button !h-12 !w-12 shrink-0 !bg-white/10 !text-white sm:!h-12 sm:!w-12" aria-label="Back to Explore and Languages"><ArrowLeft /></button>
         <div className="text-center">
@@ -715,51 +747,26 @@ const SolarSystem = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         ))}
       </nav>
 
-      <main className={`grid md:grid-cols-[minmax(0,1.62fr)_minmax(320px,0.78fr)] ${rehearsalJourney ? 'md:min-h-0 md:flex-1' : 'md:h-[calc(100vh-295px)]'}`}>
-        <section className="relative overflow-hidden border-b border-cyan-100/10 bg-[#020617] md:border-b-0 md:border-r">
-          <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
-          <div className="pointer-events-none absolute left-4 top-4 rounded-2xl border border-cyan-100/20 bg-slate-950/70 px-3 py-2 text-xs font-bold text-white/85 shadow-xl backdrop-blur sm:text-sm">
-            Drag to turn · tap a planet
-            <span className="mt-1 block text-[10px] text-cyan-100/70">Sizes, distances and motion simplified</span>
-          </div>
-          <div className="pointer-events-none absolute bottom-[4.65rem] left-4 hidden items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-white/40 sm:flex"><span className="h-2 w-2 rounded-full bg-cyan-300" /> Selected world is ringed in cyan</div>
-          <div className="absolute right-3 top-3 z-10 flex flex-col items-end gap-2" role="group" aria-label="Solar System view controls">
-            <button type="button" onClick={() => orreryRef.current?.resetView()} className="min-h-12 rounded-full border border-cyan-200/35 bg-slate-950/85 px-3 py-2 text-xs font-black text-cyan-100 shadow-lg backdrop-blur">All planets</button>
-            <button type="button" onClick={() => setShowViewControls((current) => !current)} aria-expanded={showViewControls} className="min-h-12 rounded-full border border-cyan-200/35 bg-slate-950/85 px-3 py-2 text-xs font-black text-cyan-100 shadow-lg backdrop-blur"><Rotate3D size={16} className="mr-1 inline" /> View controls</button>
-            {showViewControls && <>
-            <button type="button" onClick={() => setPaused((current) => !current)} className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100" aria-label={paused ? 'Resume planet orbits' : 'Pause planet orbits'}>{paused ? <Play size={19} /> : <Pause size={19} />}</button>
-            <button
-              type="button"
-              onClick={() => handleZoom('zoomIn')}
-              className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100 shadow-lg backdrop-blur transition hover:bg-cyan-300 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
-              aria-label="Zoom in on the Solar System"
-              title="Zoom in"
-            >
-              <ZoomIn size={24} strokeWidth={2.8} />
-            </button>
-            <button
-              type="button"
-              onClick={() => handleZoom('zoomOut')}
-              className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100 shadow-lg backdrop-blur transition hover:bg-cyan-300 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-200"
-              aria-label="Zoom out from the Solar System"
-              title="Zoom out"
-            >
-              <ZoomOut size={24} strokeWidth={2.8} />
-            </button>
-            <button
-              type="button"
-              onClick={() => handleZoom('resetView')}
-              className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-200/35 bg-slate-950/85 text-cyan-100 shadow-lg backdrop-blur transition hover:bg-cyan-300 hover:text-slate-950"
-              aria-label="Reset the Solar System camera"
-              title="Reset view"
-            >
-              <RotateCcw size={22} strokeWidth={2.8} />
-            </button>
-            </>}
+      <main className="grid items-start lg:grid-cols-[minmax(0,1.4fr)_minmax(340px,1fr)]">
+        <section className="relative min-w-0 border-b border-cyan-100/10 bg-[#020617] lg:sticky lg:top-0 lg:border-r">
+          <div className="bg-cyan-950 px-4 py-3 text-center"><h3 className="text-xl font-black">Meet {selectedPlanet.name} up close</h3><p className="text-sm text-cyan-100">Use the arrows to look around. Scroll to discover facts below.</p></div>
+          <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} interacting={interacting} />
+          <div className="flex flex-wrap justify-center gap-2 bg-slate-900 p-3" role="group" aria-label="Planet inspection controls">
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Rotate planet left" onClick={()=>orreryRef.current?.rotate('y',-0.35)}>← Turn</button>
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Rotate planet right" onClick={()=>orreryRef.current?.rotate('y',0.35)}>Turn →</button>
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Tilt planet up" onClick={()=>orreryRef.current?.rotate('x',0.25)}>↑ Tilt</button>
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Tilt planet down" onClick={()=>orreryRef.current?.rotate('x',-0.25)}>↓ Tilt</button>
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Zoom in on planet" onClick={()=>handleZoom('zoomIn')}>＋ Zoom</button>
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Zoom out from planet" onClick={()=>handleZoom('zoomOut')}>− Zoom</button>
+            <button className="min-h-12 rounded-xl bg-cyan-700 px-4 font-bold" aria-pressed={interacting} onClick={()=>setInteracting(v=>!v)}>{interacting?'Done moving · scroll page':'Drag to inspect'}</button>
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" onClick={()=>{setInteracting(false);orreryRef.current?.focusPlanet(selectedPlanet.name);}}>Centre {selectedPlanet.name}</button>
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" onClick={()=>{setInteracting(false);orreryRef.current?.resetView();}}>See whole Solar System</button>
+            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" onClick={()=>setPaused(v=>!v)}>{paused?'Start spinning':'Pause spinning'}</button>
+            <p role="status" className="w-full text-center text-sm text-cyan-100">{interacting?'Drag across the view to turn it. Choose Done moving to scroll over the planet again.':'Page scrolling is on. The arrows also work with touch or a keyboard.'}</p>
           </div>
         </section>
 
-        <aside className="max-h-none overflow-y-auto bg-gradient-to-b from-[#0a1830] via-[#081326] to-[#050b18] p-4 pb-24 md:max-h-full md:pb-16">
+        <aside className="min-w-0 bg-gradient-to-b from-[#0a1830] via-[#081326] to-[#050b18] p-4 pb-24 md:pb-16">
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="relative grid h-14 w-14 shrink-0 place-items-center rounded-full border-4 border-white/15 shadow-lg" style={{ backgroundColor: selectedPlanet.surface }} aria-hidden="true">
