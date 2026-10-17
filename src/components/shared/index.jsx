@@ -435,7 +435,7 @@ export const MenuCard = ({
   <button
     onClick={onClick}
     className={`
-      ${span} relative group min-h-[215px] overflow-hidden rounded-[1.75rem] border-2 border-white/50 p-5 text-left transition-all duration-300
+      ${span} catalogue-game-card relative group min-h-[330px] overflow-hidden rounded-[1.75rem] border-2 border-white/50 p-5 text-left transition-all duration-300
       ${color} shadow-[0_9px_0_rgba(15,23,42,0.14),0_18px_35px_rgba(15,23,42,0.12)] hover:shadow-[0_13px_0_rgba(15,23,42,0.13),0_24px_44px_rgba(15,23,42,0.18)]
       hover:-translate-y-1 active:translate-y-2 active:shadow-none tap-highlight-none
     `}
@@ -447,7 +447,7 @@ export const MenuCard = ({
       {playedCount > 0 && <span className="rounded-full bg-white/25 px-3 py-1 text-xs font-bold text-white backdrop-blur">✓ Played {playedCount}</span>}
     </div>
     <div className="relative z-10 flex h-full flex-col justify-between">
-      <div className="mt-6 mb-2 flex h-24 w-full items-center justify-start overflow-visible text-5xl transition-transform duration-300 origin-left group-hover:scale-105">
+      <div className="catalogue-game-card__art mt-6 mb-3 flex h-44 w-full items-center justify-center overflow-visible text-5xl transition-transform duration-300 origin-center group-hover:scale-105">
         {icon}
       </div>
       <div>

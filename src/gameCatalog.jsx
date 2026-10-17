@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- Catalogue registry exports data and lookup functions, not refreshable components. */
 import letterRocketArt from './assets/little/fuel-rocket.webp';
 import { lazy } from 'react';
 import {
@@ -47,7 +48,7 @@ const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 
 const icon = (Icon, tone, label, kind = 'default') => <GameIcon Icon={Icon} tone={tone} label={label} kind={kind} image={kind === 'letters' ? letterRocketArt : undefined} />;
 
-export const GAME_MENU_ITEMS = [
+const GAME_MENU_DEFINITIONS = [
   {id:'codecadets',icon:<GameIcon image="/art/discovery-v2/pip.webp" alt="Pip the rover" label="Code Cadets"/>,title:'Code Cadets',desc:'Code an adventure with Pip!',color:'bg-gradient-to-br from-blue-500 to-cyan-500',category:'Create',badge:'NEW',component:CodeCadetsGame},
   {id:'writingdesk',icon:icon(PenLine,'text-fuchsia-500','My Writing Desk'),title:'My Writing Desk',desc:'Write your own space postcard',color:'bg-gradient-to-br from-violet-500 to-pink-500',category:'Create',badge:'NEW',component:WritingDeskGame},
   { id: 'tictactoe', icon: icon(Grid3X3, 'text-cyan-600', 'Cosmic noughts and crosses', 'tictactoe'), title: 'Cosmic Tic-Tac-Toe', desc: 'Dinos vs rockets!', color: 'bg-gradient-to-br from-slate-800 via-indigo-800 to-cyan-700', category: 'Quick Think', badge: 'NEW' , component: TicTacToe },
@@ -81,7 +82,7 @@ export const GAME_MENU_ITEMS = [
 
 // Games built for little explorers (ages 3–5). They are also open to older
 // players, who get more pieces, bigger numbers and more floors.
-export const LITTLE_GAME_ITEMS = [
+const LITTLE_GAME_DEFINITIONS = [
   { id: 'dinojigsaw', icon: <ArtIcon gameId="dinojigsaw" label="Dino jigsaw"><Dino kind="trex" /></ArtIcon>, title: 'Dino Jigsaw', desc: 'Drag the pieces!', color: 'bg-gradient-to-br from-lime-400 to-green-600', category: 'Dino puzzles', component: DinoJigsaw, little: true },
   { id: 'shadowmatch', icon: <ArtIcon gameId="shadowmatch" label="Dino shadow"><Dino kind="stego" silhouette /></ArtIcon>, title: 'Shadow Match', desc: 'Whose shadow is it?', color: 'bg-gradient-to-br from-violet-500 to-indigo-600', category: 'Dino puzzles', component: ShadowMatch, little: true },
   { id: 'rocketbuilder', icon: <ArtIcon gameId="rocketbuilder" label="Half-built rocket"><RocketBlueprint colour="#ef4444" /></ArtIcon>, title: 'Rocket Builder', desc: 'Build it, then blast off!', color: 'bg-gradient-to-br from-indigo-600 to-sky-500', category: 'Rockets', component: RocketBuilder, little: true },
@@ -90,6 +91,14 @@ export const LITTLE_GAME_ITEMS = [
   { id: 'ladder', icon: <ArtIcon gameId="ladder" label="Fire truck"><FireTruck /></ArtIcon>, title: 'Ladder Rescue', desc: 'Save the animals!', color: 'bg-gradient-to-br from-rose-500 to-red-600', category: 'Fire trucks', component: LadderRescue, little: true },
 ];
 
+// Generated card art is shared by home, world, practice and favourites views.
+// Names stay as live HTML; bitmap artwork contains no controls.
+const withCatalogueArtwork = (game) => ({
+  ...game,
+  icon: <img className="catalogue-game-art" src={`/art/catalog-v3/game-${game.id}.webp`} alt={`${game.title} illustration`} width="640" height="426" loading="lazy" decoding="async" draggable={false} />,
+});
+export const GAME_MENU_ITEMS = GAME_MENU_DEFINITIONS.map(withCatalogueArtwork);
+export const LITTLE_GAME_ITEMS = LITTLE_GAME_DEFINITIONS.map(withCatalogueArtwork);
 export const ALL_GAMES = [...LITTLE_GAME_ITEMS, ...GAME_MENU_ITEMS];
 
 export const getGame = (id) => ALL_GAMES.find((game) => game.id === id) || null;

@@ -29,7 +29,7 @@ export const PageHeader = ({ title, subtitle, onBack, backLabel = 'Back', right,
 // frame spilling over neighbouring text.
 export const MiniIcon = ({ icon, className = 'h-14 w-14 bg-sky-50' }) => (
   <span className={`relative shrink-0 overflow-hidden rounded-2xl ${className}`} aria-hidden="true">
-    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[.52]">{icon}</span>
+    <span className="absolute inset-1 grid place-items-center [&_.kid-pop-icon]:h-full [&_.kid-pop-icon]:w-full">{icon}</span>
   </span>
 );
 

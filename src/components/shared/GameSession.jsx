@@ -188,7 +188,7 @@ const GameSession = ({
       <div className="grid w-full max-w-md place-items-center gap-4 rounded-[2.4rem] border-4 border-white/70 bg-white/90 p-6 shadow-2xl">
         {phase === 'start' ? (
           <>
-            <div className="grid h-32 place-items-center [&_.kid-pop-icon]:h-32 [&_.kid-pop-icon]:w-40">{game.icon}</div>
+            <div className="catalogue-welcome-art grid h-44 w-full min-w-0 place-items-center [&_.kid-pop-icon]:h-32 [&_.kid-pop-icon]:w-40">{game.icon}</div>
             <h1 className="text-3xl font-black text-slate-900">{game.title}</h1>
             <p className="rounded-full bg-sky-100 px-4 py-1 font-black text-sky-900">Level {levelIndex + 1} of {levels.length}: {level?.name}</p>
             <p className="font-bold text-slate-600">{level?.description || rule.how}</p>
