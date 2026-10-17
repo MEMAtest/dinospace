@@ -179,7 +179,7 @@ const GameSession = ({
   const newStickers = phase === 'done' ? STICKERS.filter((sticker) => sticker.points > startPoints && sticker.points <= points).slice(-1) : [];
 
   return (
-    <div className={`relative flex min-h-[100dvh] w-full flex-col items-center justify-center gap-5 p-4 text-center ${game.color}`}>
+    <div className={`discovery-session-menu relative flex min-h-[100dvh] w-full flex-col items-center justify-center gap-5 p-4 text-center ${game.color}`}>
       <div className="absolute left-4 top-4">
         <button type="button" onClick={handleSessionBack} aria-label={little ? 'Back to home' : 'Back to learning world'} className="grid h-14 w-14 place-items-center rounded-full border-4 border-white/80 bg-white text-slate-800 shadow-lg">
           {little ? <Home size={28} /> : <ArrowLeft size={28} />}
