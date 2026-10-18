@@ -1,0 +1,9 @@
+### Result
+{"editor":"<h1><br class=\"ProseMirror-trailingBreak\"></h1><p>Hello from Earth</p>","nextDisabled":true,"editorBox":{"x":57,"y":373.0625,"width":276,"height":260},"coach":"YOUR NEXT STEP · 1 OF 4\n\nClick the page and type a big heading.\n\nTry your own title, like “Hello from Earth!” You type it in the page below.\n\nNext: write my message →","scrollWidth":390}
+### Ran Playwright code
+```js
+await (async page=>{return {editor:await page.getByRole('textbox',{name:'Your document',exact:true}).innerHTML(),nextDisabled:await page.getByRole('button',{name:'Next: write my message →',exact:true}).isDisabled(),editorBox:await page.getByRole('textbox',{name:'Your document',exact:true}).boundingBox(),coach:await page.locator('.writing-coach').innerText(),scrollWidth:await page.evaluate(()=>document.documentElement.scrollWidth)};})(page);
+```
+### Page
+- Page URL: https://dinospace-eight.vercel.app/#/play/writingdesk
+- Page Title: Amari Discovery

@@ -1,0 +1,9 @@
+### Result
+{"worlds":["Read & Write6 games →","Maths Missions8 games →","Explore & Languages5 games →","Creative Lab7 games →","Thinking & Play8 games →"],"cards":["NEWCreateCode CadetsCode an adventure with Pip!","NEWCreateMy Writing DeskWrite your own space postcard","NEWRocketsRocket BuilderBuild it, then blast off!","NEWDino puzzlesDino JigsawDrag the pieces!","CreateSky ShapesDraw with a jet!","CreateColour Mixing LabMix colours together!","Quick ThinkPuzzle PopBuild the picture!"]}
+### Ran Playwright code
+```js
+await (async page=>{await page.route('**/api/voice**',r=>r.fulfill({status:403,body:'QA guard'}));await page.route('**/api/story**',r=>r.fulfill({status:403,body:'QA guard'}));await page.getByRole('button',{name:/Age 6\+ Amari/}).click();const worlds=await page.locator('.discovery-world-card').allTextContents();await page.locator('.discovery-world-card').filter({hasText:'Creative Lab'}).click();return {worlds,cards:await page.locator('.catalogue-game-card').allTextContents()};})(page);
+```
+### Page
+- Page URL: https://dinospace-eight.vercel.app/#/world/creative
+- Page Title: Amari Discovery

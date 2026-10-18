@@ -1,0 +1,10 @@
+### Result
+{"headings":["Colour Mixing Lab"],"buttons":["Discovery HQExplore · Learn · Play","Home","Worlds","Stickers","Grown-ups","",""]}
+### Ran Playwright code
+```js
+await (async page=>{await page.getByRole('navigation',{name:'Discovery navigation'}).getByRole('button',{name:'Home',exact:true}).click();const keep=page.getByRole('button',{name:'Keep playing',exact:true});await Promise.race([page.locator('.discovery-world-card').first().waitFor(),keep.waitFor()]);if(await keep.isVisible())await page.getByRole('button',{name:'Back to home',exact:true}).click();await page.locator('.discovery-world-card').filter({hasText:'Creative Lab'}).click();await page.locator('.catalogue-game-card').filter({hasText:'Colour Mixing Lab'}).click();return {headings:await page.locator('h1,h2,h3').allTextContents(),buttons:await page.getByRole('button').allTextContents()};})(page);
+```
+### Page
+- Page URL: https://dinospace-eight.vercel.app/#/play/colormix
+- Page Title: Amari Discovery
+- Console: 0 errors, 4 warnings

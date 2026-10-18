@@ -1,0 +1,6 @@
+### Result
+{"text":"Discovery HQ\nExplore · Learn · Play\nHome\nWorlds\nStickers\nGrown-ups\nAmari\nColour Mixing Lab\n\nLevel 1 of 3: First colour mixes\n\nMix familiar colours.","buttons":[{"text":"Discovery HQExplore · Learn · Play","aria":"Discovery HQ home"},{"text":"Home","aria":null},{"text":"Worlds","aria":null},{"text":"Stickers","aria":null},{"text":"Grown-ups","aria":null},{"text":"","aria":"Back to learning world"},{"text":"","aria":"Play Colour Mixing Lab level 1"}],"paints":[]}
+### Ran Playwright code
+```js
+await (async page=>{return {text:await page.locator('body').innerText(),buttons:await page.locator('button').evaluateAll(xs=>xs.map(e=>({text:e.textContent,aria:e.getAttribute('aria-label')}))),paints:await page.locator('[aria-label]').evaluateAll(xs=>xs.filter(e=>e.getAttribute('aria-label').includes('paint')).map(e=>e.getAttribute('aria-label')))};})(page);
+```

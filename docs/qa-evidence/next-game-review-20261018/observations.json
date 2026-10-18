@@ -1,0 +1,170 @@
+{
+  "writing-blocker": {
+    "editor": "<h1><br class=\"ProseMirror-trailingBreak\"></h1><p>Hello from Earth</p>",
+    "nextDisabled": true,
+    "editorBox": {
+      "x": 57,
+      "y": 373.0625,
+      "width": 276,
+      "height": 260
+    },
+    "coach": "YOUR NEXT STEP \u00b7 1 OF 4\n\nClick the page and type a big heading.\n\nTry your own title, like \u201cHello from Earth!\u201d You type it in the page below.\n\nNext: write my message \u2192",
+    "scrollWidth": 390
+  },
+  "solar-chess": {
+    "solar": [
+      {
+        "width": 390,
+        "overviewAndInspectionControlsRespond": true,
+        "strip": [
+          "\ud83d\udd0e Inspect Earth",
+          "\ud83e\ude90 Whole Solar System \u00b7 all worlds",
+          "\u2161 Pause rotation"
+        ],
+        "controls": [
+          {
+            "label": "\u2190 Turn",
+            "y": 1200.75
+          },
+          {
+            "label": "Turn \u2192",
+            "y": 1200.75
+          },
+          {
+            "label": "\u2191 Tilt",
+            "y": 1200.75
+          },
+          {
+            "label": "\u2193 Tilt",
+            "y": 1256.75
+          },
+          {
+            "label": "\uff0b Zoom",
+            "y": 1256.75
+          },
+          {
+            "label": "\u2212 Zoom",
+            "y": 1256.75
+          },
+          {
+            "label": "Centre Earth",
+            "y": 1312.75
+          },
+          {
+            "label": "Show all planets together",
+            "y": 1368.75
+          }
+        ],
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "overviewAndInspectionControlsRespond": true,
+        "strip": [
+          "\ud83d\udd0e Inspect Earth",
+          "\ud83e\ude90 Whole Solar System \u00b7 all worlds",
+          "\u2161 Pause rotation"
+        ],
+        "controls": [
+          {
+            "label": "\u2190 Turn",
+            "y": 1176
+          },
+          {
+            "label": "Turn \u2192",
+            "y": 1176
+          },
+          {
+            "label": "\u2191 Tilt",
+            "y": 1176
+          },
+          {
+            "label": "\u2193 Tilt",
+            "y": 1176
+          },
+          {
+            "label": "\uff0b Zoom",
+            "y": 1176
+          },
+          {
+            "label": "\u2212 Zoom",
+            "y": 1176
+          },
+          {
+            "label": "Centre Earth",
+            "y": 1176
+          },
+          {
+            "label": "Show all planets together",
+            "y": 1232
+          }
+        ],
+        "overflow": false
+      }
+    ],
+    "chess": {
+      "cards": [
+        "Quick ThinkMemory MatchFind the pairs",
+        "NEWDino puzzlesShadow MatchWhose shadow is it?",
+        "NEWFire trucksLadder RescueSave the animals!",
+        "Quick ThinkPattern ParadeFinish the pattern",
+        "Quick ThinkOdd One OutWhich one does not belong?",
+        "Quick ThinkChess ExplorersLearn chess pieces!",
+        "PRACTICEBonus playSpot the DifferenceFind what changed",
+        "PRACTICEBonus playCosmic Tic-Tac-ToeDinos vs rockets!"
+      ],
+      "practice": {
+        "heading": [
+          "\ud83c\udfc3 Move the King!"
+        ],
+        "squareButtons": 36,
+        "unnamedSquares": 35,
+        "explicitFiveMoveGoal": false,
+        "overflow": false
+      },
+      "fiveMovesReachedNextPiece": true
+    },
+    "pageErrors": []
+  },
+  "colour-play": {
+    "startControl": {
+      "text": "",
+      "aria": "Play Colour Mixing Lab level 1",
+      "box": {
+        "x": 139,
+        "y": 617,
+        "width": 112,
+        "height": 112,
+        "top": 617,
+        "right": 251,
+        "bottom": 729,
+        "left": 139
+      }
+    },
+    "inputPaints": [
+      "Red paint",
+      "Yellow paint"
+    ],
+    "correct": "Orange",
+    "hasNextButton": false,
+    "automaticallyReplacedRound": true
+  },
+  "scope": "Targeted live UX audit, not complete gameplay certification of the catalogue.",
+  "sourceSharedStartGames": [
+    "Odd One Out",
+    "Letter Launch",
+    "Sound Safari",
+    "German Garage",
+    "Colour Mixing Lab",
+    "Pattern Parade",
+    "Spelling Studio",
+    "Dino Hangman"
+  ],
+  "production": {
+    "id": "dpl_2ofgXEQq5Stvw8CWBAwhcTvPZkFD",
+    "url": "dinospace-d194zuwsj-memas-projects-23a0001d.vercel.app",
+    "readyState": "READY",
+    "projectId": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w",
+    "sha": "a179d8efc22e48f91477d0f3adff57703b2130c8"
+  }
+}
