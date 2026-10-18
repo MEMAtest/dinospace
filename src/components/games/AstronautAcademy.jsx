@@ -133,6 +133,9 @@ const QuestionVisual = ({ question, category }) => {
 
 const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const difficulty = useGameDifficulty('astronaut');
+  // A recommendation may change after a correct answer. Apply it to the
+  // next mission so choices never move or multiply during feedback.
+  const [runDifficulty, setRunDifficulty] = useState(difficulty);
   const [mission, setMission] = useState(null);
   const [qIndex, setQIndex] = useState(0);
   const [feedback, setFeedback] = useState(null);
@@ -148,7 +151,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
     () => (isHeroQuestion ? ASTRONAUT_PROFILES.find((person) => person.id === question.astronaut) : null),
     [isHeroQuestion, question],
   );
-  const questionOptions = useMemo(() => createAstronautOptions(question, difficulty), [question, difficulty]);
+  const questionOptions = useMemo(() => createAstronautOptions(question, runDifficulty), [question, runDifficulty]);
   const complete = Boolean(mission && qIndex >= mission.questions.length);
 
   useEffect(() => {
@@ -195,7 +198,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
         correct: true,
         firstAttempt: !hadMistake,
         independent: true,
-        difficulty,
+        difficulty: runDifficulty,
       });
       if (nextCombo >= 3) playSfx('combo');
       speak(profile?.funFact ?? praise);
