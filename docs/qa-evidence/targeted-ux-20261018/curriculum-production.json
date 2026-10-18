@@ -1,0 +1,252 @@
+{
+  "rows": [
+    {
+      "width": 1440,
+      "module": "continents",
+      "band": "starter",
+      "questions": [
+        "continent-africa",
+        "map-east",
+        "continent-europe",
+        "continent-australia",
+        "map-key-harbour"
+      ],
+      "complete": true
+    },
+    {
+      "width": 1440,
+      "module": "continents",
+      "band": "growing",
+      "questions": [
+        "continent-africa",
+        "ocean-pacific",
+        "map-key-harbour",
+        "continent-south",
+        "continent-asia"
+      ],
+      "complete": true
+    },
+    {
+      "width": 1440,
+      "module": "continents",
+      "band": "challenge",
+      "questions": [
+        "map-route-treasure",
+        "country-japan",
+        "uk-england-capital",
+        "map-physical",
+        "map-east"
+      ],
+      "complete": true
+    },
+    {
+      "width": 1440,
+      "module": "time-detectives",
+      "band": "starter",
+      "questions": [
+        "history-communication",
+        "history-source-limit",
+        "history-photos",
+        "history-castle",
+        "history-light"
+      ],
+      "complete": true
+    },
+    {
+      "width": 1440,
+      "module": "time-detectives",
+      "band": "growing",
+      "questions": [
+        "history-communication",
+        "history-source-limit",
+        "history-personal-sequence",
+        "history-photos",
+        "history-local-school"
+      ],
+      "complete": true
+    },
+    {
+      "width": 1440,
+      "module": "time-detectives",
+      "band": "challenge",
+      "questions": [
+        "history-communication",
+        "history-personal-sequence",
+        "history-source-limit",
+        "history-light",
+        "history-journey"
+      ],
+      "complete": true
+    },
+    {
+      "width": 1440,
+      "module": "nature-lab",
+      "band": "starter",
+      "questions": [
+        "science-animal-bird",
+        "science-animal",
+        "science-material",
+        "science-animal-mammal",
+        "science-season"
+      ],
+      "complete": true
+    },
+    {
+      "width": 1440,
+      "module": "nature-lab",
+      "band": "growing",
+      "questions": [
+        "science-animal-bird",
+        "science-material-absorbent",
+        "science-fair-test",
+        "science-sense-eyes",
+        "science-enquiry-question"
+      ],
+      "complete": true
+    },
+    {
+      "width": 1440,
+      "module": "nature-lab",
+      "band": "challenge",
+      "questions": [
+        "science-animal-bird",
+        "science-material",
+        "science-plant-daisy",
+        "science-enquiry",
+        "science-animal-compare"
+      ],
+      "complete": true
+    },
+    {
+      "width": 390,
+      "module": "continents",
+      "band": "starter",
+      "questions": [
+        "continent-antarctica",
+        "continent-south",
+        "continent-americas",
+        "continent-asia",
+        "continent-africa"
+      ],
+      "complete": true
+    },
+    {
+      "width": 390,
+      "module": "continents",
+      "band": "growing",
+      "questions": [
+        "map-route-treasure",
+        "ocean-southern",
+        "map-physical",
+        "continent-europe",
+        "map-east"
+      ],
+      "complete": true
+    },
+    {
+      "width": 390,
+      "module": "continents",
+      "band": "challenge",
+      "questions": [
+        "climate-pattern",
+        "map-globe",
+        "ocean-arctic",
+        "island-careful-claim",
+        "uk-sea-south"
+      ],
+      "complete": true
+    },
+    {
+      "width": 390,
+      "module": "time-detectives",
+      "band": "starter",
+      "questions": [
+        "history-source-limit",
+        "history-light",
+        "history-photos",
+        "history-communication",
+        "history-castle"
+      ],
+      "complete": true
+    },
+    {
+      "width": 390,
+      "module": "time-detectives",
+      "band": "growing",
+      "questions": [
+        "history-light",
+        "history-school-photos",
+        "history-castle",
+        "history-communication",
+        "history-source-limit"
+      ],
+      "complete": true
+    },
+    {
+      "width": 390,
+      "module": "time-detectives",
+      "band": "challenge",
+      "questions": [
+        "history-photo-limit",
+        "history-local-change",
+        "history-interview-limit",
+        "history-local-school",
+        "history-school-photos"
+      ],
+      "complete": true
+    },
+    {
+      "width": 390,
+      "module": "nature-lab",
+      "band": "starter",
+      "questions": [
+        "science-plant",
+        "science-animal-bird",
+        "science-animal",
+        "science-material",
+        "science-animal-mammal"
+      ],
+      "complete": true
+    },
+    {
+      "width": 390,
+      "module": "nature-lab",
+      "band": "growing",
+      "questions": [
+        "science-animal-food",
+        "science-animal",
+        "science-plant-evergreen",
+        "science-observe-tool",
+        "science-object-material"
+      ],
+      "complete": true
+    },
+    {
+      "width": 390,
+      "module": "nature-lab",
+      "band": "challenge",
+      "questions": [
+        "science-season",
+        "science-plant-needs",
+        "science-plant-evergreen",
+        "science-season-record",
+        "science-sense-eyes"
+      ],
+      "complete": true
+    }
+  ],
+  "roundTypes": [
+    "continent",
+    "direction",
+    "map-key",
+    "ocean",
+    "route",
+    "country",
+    "uk-place",
+    "feature",
+    "sequence",
+    "evidence",
+    "classify"
+  ],
+  "pageErrors": []
+}
