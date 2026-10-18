@@ -159,6 +159,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
   }, [question, feedback, speak]);
 
   const startMission = (nextMission) => {
+    setRunDifficulty(difficulty);
     const runQuestions = createAstronautRun(nextMission, lastRunIds[nextMission.id] ?? []);
     setMission({ ...nextMission, questions: runQuestions });
     setLastRunIds((previous) => ({ ...previous, [nextMission.id]: runQuestions.map((item) => item.questionId) }));
