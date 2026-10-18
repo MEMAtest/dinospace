@@ -282,18 +282,20 @@ export default function CodeCadets({ player, registerDirty }) {
       <div className="cc-progress" aria-label={`Mission ${missionIndex + 1} of ${MISSIONS.length}`}>Mission {missionIndex + 1} of {MISSIONS.length}</div>
     </header>
 
+    <nav className="cc-mission-nav" aria-label="Coding missions">{MISSIONS.map((item, i) => <button key={item.id} aria-current={missionIndex === i ? 'step' : undefined} disabled={running} onClick={() => selectMission(i)}>{item.title}</button>)}</nav>
+
     <div className={`cc-coach ${won ? 'is-success' : ''}`}>
       <RoverArt/>
-      <div><p className="eyebrow">{won ? 'Mission complete' : 'Pip’s next step'}</p><h2>{guide}</h2></div>
+      <div><p className="eyebrow">{won ? 'Mission complete' : `Your goal · Mission ${missionIndex + 1}`}</p><h2>{['Reach the flag', 'Fix the wrong turn', 'Collect the sample'][missionIndex]}</h2><p>{['Help Pip follow the green path to the flag.', 'Pip must go up two squares, then right two squares to the flag.', 'Follow the green path, collect the diamond, then shorten your code.'][missionIndex]}</p></div>
     </div>
 
     {!won && <div className="cc-next-action">
-      <p className="eyebrow">{missionIndex === 0 && firstMissionReady || missionIndex === 1 && missionTwoStep === 'run' || missionIndex === 2 && !missionThreeAction && !missionThreeNeedsRepeat ? 'Ready to test' : 'Do this next'}</p>
+      <p className="eyebrow">{running ? 'Watch Pip move · highlighted block is running' : guide}</p>
       {missionIndex === 0 && <button className="cc-primary cc-main-action" onClick={runFirstMission} disabled={running}>
         {firstMissionReady ? `▶ Run ${program.length === 3 ? 'my first program' : 'my program'}` : `↑ Add Forward · ${program.length + 1} of 3`}
       </button>}
       {missionIndex === 1 && <>
-        {missionTwoStep === 'try' && <><p>Run this supplied code and watch where Pip turns.</p><button className="cc-primary cc-main-action" onClick={run} disabled={running}>▶ Try the supplied code</button></>}
+        {missionTwoStep === 'try' && <><p>Tap the green button. Pip will follow these blocks. Watch: does Pip reach the flag?</p><button className="cc-primary cc-main-action" onClick={run} disabled={running}>▶ Try the supplied code</button></>}
         {missionTwoStep === 'forward' && <><p>Block 2 turns Pip before the corner. Make it a Forward move first.</p><button className="cc-primary cc-main-action" disabled={running} onClick={fixEarlyTurn}>Change block 2 to Forward</button></>}
         {missionTwoStep === 'turn' && <><p>Two Forward moves will reach the corner. Put the turn at block 3.</p><button className="cc-primary cc-main-action" disabled={running} onClick={addCornerTurn}>Add Turn Right at block 3</button></>}
         {missionTwoStep === 'run' && <><p>Forward keeps Pip moving north. Turning changes the arrow, not Pip’s square.</p><button className="cc-primary cc-main-action" onClick={run} disabled={running}>▶ Run corrected program</button></>}
@@ -322,13 +324,22 @@ export default function CodeCadets({ player, registerDirty }) {
             const here = rover.x === x && rover.y === y;
             const goal = mission.goal.x === x && mission.goal.y === y;
             const sample = mission.sample?.x === x && mission.sample?.y === y;
-            const route = missionIndex === 0 && y === 2 && x > 0 && x <= 3;
-            return <div key={i} className={`cc-square ${rover.trail.includes(`${x},${y}`) ? 'visited' : ''} ${route ? 'route' : ''}`} aria-hidden="true">
+            const cornerY = missionIndex === 1 ? 2 : 1;
+            const routeArrow = missionIndex === 0
+              ? y === 2 && x < 3 ? '→' : null
+              : x === 0 && y >= cornerY ? y === cornerY ? '→' : '↑'
+                : y === cornerY && x < mission.goal.x ? '→' : null;
+            const route = Boolean(routeArrow) || goal;
+            const start = mission.start.x === x && mission.start.y === y;
+            const corner = missionIndex > 0 && x === 0 && y === cornerY;
+            return <div key={i} className={`cc-square ${rover.trail.includes(`${x},${y}`) ? 'visited' : ''} ${route ? 'route' : ''} ${corner ? 'is-corner' : ''}`} aria-hidden="true">
+              {routeArrow && !here && <span className="cc-route-arrow">{routeArrow}</span>}
+              {start && <span className="cc-tile-label">Start</span>}{corner && <span className="cc-tile-label">Turn</span>}
               {goal && <span className="cc-flag">⚑</span>}{sample && !rover.collected && <span className="cc-sample">◆</span>}{here && <RoverArt className="rover-art" direction={rover.direction}/>}
             </div>;
           })}
         </div>
-        <p className="cc-map-key"><span>⚑ Finish flag</span>{mission.sample && <span>◆ Rock sample</span>}</p>
+        <p className="cc-map-key"><span>Green arrows = route to follow</span><span>⚑ Finish flag</span>{mission.sample && <span>◆ Rock sample</span>}</p>
         <p className="cc-facing"><strong>{ARROWS[rover.direction]} Pip faces {direction}.</strong> Forward moves one square in this direction.</p>
         <p className="cc-feedback" role="status" aria-live="polite">{message}</p>
         <button className="cc-clue" onClick={() => setTip(open => !open)} aria-expanded={tip}>{tip ? 'Hide clue' : 'Need a clue?'}</button>
@@ -338,9 +349,9 @@ export default function CodeCadets({ player, registerDirty }) {
       <div className="cc-card cc-code-card">
         <div className="cc-card-heading"><span className="cc-step-number">2</span><div><h2>Pip’s code</h2><p>Pip follows the blocks from top to bottom.</p></div></div>
         {program.length ? <ol className="cc-code-list" aria-label="Pip's instruction sequence">
-          {program.map((op, i) => <li key={`${i}-${op}`} className={active === i ? 'is-active' : ''}>
+          {program.map((op, i) => <li key={`${i}-${op}`} className={`${active === i ? 'is-active' : ''} ${missionIndex === 1 && !running && !won && (missionTwoStep === 'forward' && i === 1 || missionTwoStep === 'turn' && i === 2) ? 'needs-fix' : ''}`}>
             <span className={`cc-code-glyph ${`op-${op}`}`} aria-hidden="true">{GLYPHS[op]}</span>
-            <span><strong>{i + 1}. {BLOCKS[op]}</strong>{op === 'forward' && <small>Move ahead one square</small>}{op === 'repeat3' && <small>Do Forward 3 times</small>}{op === 'right' && <small>Turn Pip to the right</small>}</span>
+            <span><strong>{i + 1}. {BLOCKS[op]}</strong>{missionIndex === 1 && !running && !won && missionTwoStep === 'forward' && i === 1 && <small className="cc-fix-label">Fix this: Pip turns too early</small>}{missionIndex === 1 && !running && !won && missionTwoStep === 'turn' && i === 2 && <small className="cc-fix-label">Put the turn here</small>}{op === 'forward' && <small>Move ahead one square</small>}{op === 'repeat3' && <small>Do Forward 3 times</small>}{op === 'right' && <small>Turn Pip to the right</small>}</span>
           </li>)}
         </ol> : <div className="cc-empty-code"><span aria-hidden="true">＋</span><p>Your first instruction will appear here.</p></div>}
 
@@ -348,7 +359,7 @@ export default function CodeCadets({ player, registerDirty }) {
     </div>
 
     <details className="cc-tools" open={toolsOpen} onToggle={event => setToolsOpen(event.currentTarget.open)}>
-      <summary>More tools, choose a mission, save or open code</summary>
+      <summary>More tools, save or open code</summary>
       <div className="cc-tools-content">
         <section aria-labelledby="cc-edit-heading"><h2 id="cc-edit-heading">Edit the code yourself</h2><p>Add, move, or remove a block. These tools are here when you want them.</p>
           <div className="cc-palette">{availableBlocks.map(op => <button key={op} className={`cc-block op-${op}`} onClick={() => edit([...program, op])} disabled={running || program.length >= 24}><span aria-hidden="true">{GLYPHS[op]}</span>Add {BLOCKS[op]}</button>)}</div>
@@ -359,7 +370,6 @@ export default function CodeCadets({ player, registerDirty }) {
           </span></div>)}</div>
           <div className="cc-tool-buttons"><button onClick={undo} disabled={running || !history.length}>Undo edit</button><button onClick={() => edit([])} disabled={running || !program.length}>Clear all code</button><button onClick={step} disabled={running || !program.length}>Step once</button><button onClick={() => { reset(); setMessage('Pip is back at the start. Your code is unchanged.'); }}>Reset Pip</button></div>
         </section>
-        <section aria-labelledby="cc-choose-heading"><h2 id="cc-choose-heading">Choose a mission</h2><div className="cc-mission-choices">{MISSIONS.map((item, i) => <button key={item.id} aria-current={missionIndex === i ? 'step' : undefined} onClick={() => selectMission(i)}>{item.title}</button>)}</div></section>
         <section aria-labelledby="cc-save-heading"><h2 id="cc-save-heading">Save or open your code</h2><label className="cc-title-field">Program name<input value={title} maxLength={60} onChange={event => { setTitle(event.target.value); setDirty(true); }}/></label>
           <div className="cc-tool-buttons"><button onClick={save}>Save program</button><button onClick={open}>Open saved program</button></div><p className="cc-save-status" role="status">{status}{dirty ? ' · Unsaved changes' : ''}</p>
         </section>

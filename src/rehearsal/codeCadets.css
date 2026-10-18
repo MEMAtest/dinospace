@@ -54,7 +54,7 @@
 .studio-shell .cc-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; width: min(100%, 460px); aspect-ratio: 1; margin: 0 auto; padding: 7px; background: #213972; border: 3px solid white; border-radius: 20px; box-shadow: 0 0 0 2px #9fdfff, 0 7px 15px #24478335; }
 .studio-shell .cc-square { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 0; overflow: hidden; border: 1px solid #ffe8ba; border-radius: 9px; background: radial-gradient(circle at 20% 30%, #e6b574 0 4%, transparent 5%), linear-gradient(125deg, #ffdfaa, #efbe80); }
 .studio-shell .cc-square.visited, .studio-shell .cc-square.route { background: linear-gradient(#b7f7a0, #83d46b); border-color: #d6ffc6; }
-.studio-shell .cc-square.route::before { content: '→'; color: #14533a; font-size: clamp(19px, 4vw, 32px); font-weight: 900; text-shadow: 0 1px 0 #e7ffdf; }
+.studio-shell .cc-route-arrow { color: #14533a; font-size: clamp(19px, 4vw, 32px); font-weight: 900; text-shadow: 0 1px 0 #e7ffdf; }
 .studio-shell .cc-square .rover-art { position: absolute; z-index: 2; width: 108%; height: 108%; object-fit: contain; filter: drop-shadow(0 4px 2px #24308d55); }
 .studio-shell .cc-flag { position: absolute; z-index: 1; right: 2px; top: -4px; color: #7d368f; font-size: clamp(24px, 5vw, 42px); }
 .studio-shell .cc-sample { color: #a75a0e; font-size: clamp(18px, 4vw, 30px); }
@@ -144,4 +144,22 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .studio-shell .cc-primary, .studio-shell .cc-secondary { scroll-behavior: auto; }
+}
+
+/* Keep navigation explicit and the current action beside the scrolled board. */
+.studio-shell .cc-mission-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.studio-shell .cc-mission-nav button { min-height: 48px; padding: 9px 10px; background: #f4faff; border: 2px solid #a9d6ff; border-radius: 14px; color: #17396c; font-size: 15px; }
+.studio-shell .cc-mission-nav button[aria-current] { background: #164cc2; color: white; border-color: white; box-shadow: 0 0 0 2px #83dfff; }
+.studio-shell .cc-next-action, .studio-shell .cc-success { position: sticky; top: 10px; z-index: 8; box-shadow: 0 5px 14px #162d6940; }
+.studio-shell .cc-next-action > .eyebrow { font-size: 15px; letter-spacing: 0; text-transform: none; font-weight: 900; }
+.studio-shell .cc-board-card { scroll-margin-top: 180px; }
+.studio-shell .cc-tile-label { position: absolute; bottom: 1px; left: 0; right: 0; z-index: 3; color: #163d2c; background: #edffe1e8; text-align: center; font-size: 11px; font-weight: 900; }
+.studio-shell .cc-square.is-corner { border: 3px dashed #226343; }
+.studio-shell .cc-code-list li.needs-fix { background: #fff2cf; border: 3px solid #a35c03; }
+.studio-shell .cc-code-list .cc-fix-label { color: #784000; font-weight: 900; }
+@media (max-width: 760px) {
+ .studio-shell .cc-mission-nav { gap: 5px; }
+ .studio-shell .cc-mission-nav button { font-size: 12px; padding: 7px 5px; }
+ .studio-shell .cc-coach > div > p:last-child { font-size: 14px; }
+ .studio-shell .cc-next-action { top: 4px; }
 }
