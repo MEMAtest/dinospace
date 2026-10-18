@@ -1,6 +1,6 @@
 export const MISSIONS = [
  {id:'first-route',title:'1 · Reach the flag',skill:'Sequence',prompt:'Build a program to move the rover to the flag.',tip:'Put Forward blocks in order, then Step through them one at a time.',start:{x:0,y:2,direction:1},goal:{x:3,y:2},initial:[]},
- {id:'debug-turn',title:'2 · Fix the wrong turn',skill:'Debug',prompt:'This program turns too soon. Try it, find the mistake, then edit it.',tip:'Watch where block 2 turns. The flag is two squares north of the start.',start:{x:0,y:4,direction:0},goal:{x:2,y:2},initial:['forward','right','forward','forward']},
+ {id:'debug-turn',title:'2 · Fix the wrong turn',skill:'Debug',prompt:'This program turns too soon. Try it, find the mistake, then edit it.',tip:'Watch block 2. Follow the green path up two squares, turn right at the marked corner, then move two squares to the flag.',start:{x:0,y:4,direction:0},goal:{x:2,y:2},initial:['forward','right','forward','forward']},
  {id:'repeat-rescue',title:'3 · Collect the sample',skill:'Repeat',prompt:'Reach the sample, collect it, and use a Repeat block to shorten your program.',tip:'Three Forward steps can be replaced by one Repeat 3 × Forward block.',start:{x:0,y:4,direction:0},goal:{x:3,y:1},sample:{x:3,y:1},repeat:true,initial:[]},
 ];
 export const BLOCKS = {forward:'Forward',left:'↶ Turn left',right:'↷ Turn right',collect:'◆ Collect',repeat3:'3 × Forward'};
