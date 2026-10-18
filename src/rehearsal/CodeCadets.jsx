@@ -261,7 +261,7 @@ export default function CodeCadets({ player, registerDirty }) {
   const guide = missionIndex === 0
     ? firstMissionReady ? program.length === 3 ? 'Your three instructions are ready to test.' : 'Your program is ready to test.' : 'Help Pip write three moves.'
     : missionIndex === 1
-      ? missionTwoStep === 'try' ? 'Watch where Pip turns.' : missionTwoStep === 'forward' ? 'The turn is too early.' : missionTwoStep === 'turn' ? 'Pip has reached the corner.' : 'The corrected code is ready.'
+      ? missionTwoStep === 'try' ? 'Watch where Pip turns.' : missionTwoStep === 'forward' ? 'The turn is too early.' : missionTwoStep === 'turn' ? 'Put the turn after two Forward moves.' : 'The corrected code is ready.'
       : missionThreeNeedsRepeat ? 'Can you shorten the code?' : missionThreeAction ? 'Build a path to the sample.' : 'Your path is ready to test.';
 
   if (!started) return <section className="activity-welcome code-cadets-welcome" aria-labelledby="cc-welcome-title">
@@ -295,11 +295,11 @@ export default function CodeCadets({ player, registerDirty }) {
       {missionIndex === 1 && <>
         {missionTwoStep === 'try' && <><p>Run this supplied code and watch where Pip turns.</p><button className="cc-primary cc-main-action" onClick={run} disabled={running}>▶ Try the supplied code</button></>}
         {missionTwoStep === 'forward' && <><p>Block 2 turns Pip before the corner. Make it a Forward move first.</p><button className="cc-primary cc-main-action" disabled={running} onClick={fixEarlyTurn}>Change block 2 to Forward</button></>}
-        {missionTwoStep === 'turn' && <><p>Now Pip has moved two squares north. Put the turn at block 3.</p><button className="cc-primary cc-main-action" disabled={running} onClick={addCornerTurn}>Add Turn Right at block 3</button></>}
+        {missionTwoStep === 'turn' && <><p>Two Forward moves will reach the corner. Put the turn at block 3.</p><button className="cc-primary cc-main-action" disabled={running} onClick={addCornerTurn}>Add Turn Right at block 3</button></>}
         {missionTwoStep === 'run' && <><p>Forward keeps Pip moving north. Turning changes the arrow, not Pip’s square.</p><button className="cc-primary cc-main-action" onClick={run} disabled={running}>▶ Run corrected program</button></>}
       </>}
       {missionIndex === 2 && <>
-        {missionThreeAction && <><p>{missionThreeAction === 'forward' ? 'Tap Forward for the next square.' : missionThreeAction === 'right' ? 'At the corner, turn Pip right.' : 'Pip is on the diamond. Collect the sample.'}</p><button className="cc-primary cc-main-action" onClick={addMissionThreeStep} disabled={running}>{missionThreeAction === 'forward' ? `↑ Add Forward · ${program.filter(op => op === 'forward').length + 1} of 6` : missionThreeAction === 'right' ? '↷ Add Turn Right' : '◆ Add Collect'}</button></>}
+        {missionThreeAction && <><p>{missionThreeAction === 'forward' ? 'Tap Forward for the next square.' : missionThreeAction === 'right' ? 'At the corner, turn Pip right.' : 'After these moves, Pip will reach the diamond. Add Collect last.'}</p><button className="cc-primary cc-main-action" onClick={addMissionThreeStep} disabled={running}>{missionThreeAction === 'forward' ? `↑ Add Forward · ${program.filter(op => op === 'forward').length + 1} of 6` : missionThreeAction === 'right' ? '↷ Add Turn Right' : '◆ Add Collect'}</button></>}
         {missionThreeNeedsRepeat && <><p>Three Forward blocks in a row can become one Repeat 3 × Forward block. Keep the same route.</p><button className="cc-primary cc-main-action" onClick={replaceFirstThreeWithRepeat} disabled={running}>Replace 3 Forward moves with Repeat</button></>}
         {!missionThreeAction && !missionThreeNeedsRepeat && <><p>Run the path. Pip will move, turn at the corner, and collect the diamond.</p><button className="cc-primary cc-main-action" onClick={run} disabled={running}>▶ Run my program</button></>}
       </>}
