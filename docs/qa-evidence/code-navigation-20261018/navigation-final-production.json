@@ -1,0 +1,55 @@
+{
+  "rows": [
+    {
+      "width": 390,
+      "tabs": [
+        {
+          "label": "1 \u00b7 Reach the flag",
+          "width": 111.328125,
+          "height": 54
+        },
+        {
+          "label": "2 \u00b7 Fix the wrong turn",
+          "width": 111.328125,
+          "height": 54
+        },
+        {
+          "label": "3 \u00b7 Collect the sample",
+          "width": 111.34375,
+          "height": 54
+        }
+      ],
+      "repairVisibleAfterRun": true,
+      "nextVisibleAfterSuccess": true,
+      "missionTabsWork": true,
+      "scrollWidth": 390,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "tabs": [
+        {
+          "label": "1 \u00b7 Reach the flag",
+          "width": 388,
+          "height": 48
+        },
+        {
+          "label": "2 \u00b7 Fix the wrong turn",
+          "width": 388,
+          "height": 48
+        },
+        {
+          "label": "3 \u00b7 Collect the sample",
+          "width": 388,
+          "height": 48
+        }
+      ],
+      "repairVisibleAfterRun": true,
+      "nextVisibleAfterSuccess": true,
+      "missionTabsWork": true,
+      "scrollWidth": 1440,
+      "broken": []
+    }
+  ],
+  "pageErrors": []
+}

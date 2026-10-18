@@ -1,5 +1,7 @@
 # Targeted game UX release — 18 October 2026
 
+> Follow-up: user feedback exposed a Code Cadets navigation gap. [The navigation correction and new rehearsal](../code-navigation-20261018/report.md) supersede the Code navigation/clarity acceptance below.
+
 ## Outcome
 
 Released and independently rehearsed Astronaut Academy, Curriculum Quest and Code Cadets. Each passes all five criteria in [the acceptance contract](acceptance.md): **5/5 against this targeted UX contract**. This score describes the tested entry, play, teaching/recovery, progression and responsive presentation. It is not a universal claim of perfection or acceptance of the other catalogue games. The broader 26-game editorial/audio roadmap is unchanged.

@@ -1,0 +1,14 @@
+✔ repeat mission guidance builds the full route in order (1.355542ms)
+✔ worked Repeat blocks preserve the route and produce a four-block program (0.16075ms)
+✔ repeat mission advances from building to both replacements and then Run (0.10825ms)
+✔ child programs solve the three distinct missions; the supplied bug fails before a real edit (0.925958ms)
+✔ repeat semantics match three ordinary moves, with block tracing; boundaries and commands are bounded (0.865958ms)
+✔ saved work is child-scoped, versioned and failure-aware (0.179666ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 105.241375
