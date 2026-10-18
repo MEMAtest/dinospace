@@ -51,3 +51,99 @@
   .quest-lesson-visual.quest-timeline-lesson,.quest-lesson-visual.quest-nature-lesson{padding-left:195px}
   .quest-guide-character{left:12px;width:165px;height:165px}
 }
+
+/* A single, calm path through Learn, Play, Fact and Finish. */
+.quest-stage-picker{max-width:1240px;margin:0 auto 12px;color:#203451}
+.quest-stage-picker>summary{display:flex;align-items:center;min-height:44px;width:max-content;max-width:100%;margin:0 auto;padding:9px 15px;border:1px solid rgba(255,255,255,.9);border-radius:999px;background:rgba(255,255,255,.72);font-size:12px;font-weight:850;cursor:pointer;box-shadow:0 3px 10px rgba(23,66,97,.08)}
+.quest-stage-picker>summary::marker{color:var(--quest-accent)}
+.quest-stage-picker-content{margin-top:10px;padding:10px 14px 14px;border:1px solid #fff;border-radius:24px;background:rgba(255,255,255,.91);box-shadow:0 10px 28px rgba(23,66,97,.12)}
+.quest-stage-picker .quest-modules{margin:0 auto 10px;box-shadow:none}
+.quest-level-select{display:flex;align-items:center;justify-content:center;gap:10px;font-size:13px;font-weight:900}
+.quest-level-select select{min-height:44px;padding:7px 34px 7px 13px;border:2px solid #d7e3f4;border-radius:13px;background:#fff;color:#22365a;font-weight:850}
+.quest-learn-stage,.quest-play-stage{max-width:1060px;margin:0 auto}
+.quest-stage-label{width:max-content;margin:0 auto 6px;padding:5px 12px;border-radius:99px;background:color-mix(in srgb,var(--quest-accent),white 88%);color:color-mix(in srgb,var(--quest-accent),#11264a 30%);font-size:11px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}
+.quest-learn-stage>h2{text-align:center;font-size:clamp(27px,3.4vw,40px);line-height:1.1;font-weight:1000;letter-spacing:-.035em}
+.quest-learn-intro{margin:8px auto 22px;text-align:center;font-size:15px;font-weight:750;color:#445777}
+.quest-learn-stage .quest-lesson-grid{grid-template-columns:minmax(0,1fr);gap:12px;align-items:stretch}
+.quest-learn-stage .quest-lesson-visual{min-height:0}
+.quest-learn-stage .quest-lesson-visual .relative.mx-auto{height:clamp(250px,25vw,320px)}
+.quest-learn-intro-row{display:flex;align-items:center;justify-content:center;gap:18px;margin:9px auto 15px}
+.quest-learn-intro-row .quest-learn-intro{margin:0;text-align:left}
+.quest-learn-actions{flex:0 0 auto;margin:0}
+.curriculum-quest .quest-paper .quest-learn-actions>button.quest-start{color:#fff;border-color:rgba(255,255,255,.78)}
+.quest-extra-learning{align-self:start;overflow:hidden;border:2px solid color-mix(in srgb,var(--quest-accent),white 75%);border-radius:24px;background:rgba(255,255,255,.9);box-shadow:0 7px 18px rgba(26,60,87,.08)}
+.quest-extra-learning>summary{min-height:58px;display:flex;align-items:center;padding:13px 17px;color:#304565;font-size:14px;font-weight:900;cursor:pointer}
+.quest-extra-learning>summary::marker{color:var(--quest-accent)}
+.quest-extra-learning-content{padding:0 15px 15px}
+.quest-extra-audio{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.quest-extra-learning .quest-word-list{display:grid;grid-template-columns:1fr;gap:7px}
+.quest-extra-learning .quest-lesson-copy{margin:12px 0 0}
+.quest-actions{margin-top:22px}
+.quest-actions .quest-start{min-width:220px;justify-content:center}
+.quest-round-progress{max-width:840px;margin:0 auto 17px;padding:0 6px}
+.quest-round-progress>div:first-child{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px;color:#415776;font-size:12px}
+.quest-round-progress>div:first-child span{color:var(--quest-accent);font-size:11px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}
+.quest-round-progress strong{font-weight:900}
+.quest-round-track{height:8px;overflow:hidden;border-radius:99px;background:#e4ebf3}
+.quest-round-track>span{display:block;height:100%;border-radius:inherit;background:var(--quest-accent);transition:width .24s ease}
+.quest-play-stage .quest-prompt-row{margin:12px auto 10px}
+.quest-play-stage .quest-prompt-row h2{max-width:850px}
+.quest-play-stage>.quest-help{margin-bottom:15px}
+.quest-play-stage>.relative.mx-auto{max-width:840px;height:clamp(300px,37vw,410px)}
+.quest-play-stage .quest-answer-grid{max-width:840px!important}
+.quest-play-stage .quest-answer-card>button:first-child{min-height:112px!important}
+.quest-feedback:empty{display:none}
+.quest-feedback-card{margin:18px auto 0}
+.quest-feedback-card.is-correct{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:12px;padding:17px 20px;border-radius:23px;text-align:left}
+.quest-feedback-card.is-correct>p{flex:initial;margin:0}
+.quest-feedback-card.is-correct .quest-fact-heading{margin:0 0 4px}
+.quest-feedback-card.is-correct .quest-fact-copy{font-size:17px}
+.quest-feedback-card.is-correct .quest-continue{white-space:nowrap}
+.quest-feedback-card.is-retry{max-width:840px;margin-top:16px}
+.quest-badge-disclosure{max-width:1240px;margin:12px auto 0;text-align:center}
+.quest-badge-disclosure>summary{display:inline-flex;align-items:center;min-height:44px;padding:8px 13px;border-radius:99px;background:rgba(255,255,255,.74);color:#405777;font-size:12px;font-weight:850;cursor:pointer}
+.quest-badge-disclosure>summary::marker{color:var(--quest-accent)}
+.quest-badge-disclosure>[class*="badge"]{margin-top:8px}
+@media(max-width:900px){.quest-learn-stage .quest-lesson-grid{grid-template-columns:1fr}.quest-extra-learning{width:100%}.quest-learn-stage .quest-lesson-visual{min-height:0}}
+@media(max-width:640px){
+  .quest-stage-picker{margin-bottom:8px}
+  .quest-stage-picker>summary{padding:8px 13px;font-size:11px}
+  .quest-stage-picker-content{padding:8px;border-radius:18px}
+  .quest-stage-picker .quest-modules{grid-template-columns:1fr;padding:5px;border-radius:15px}
+  .quest-module-tab{min-height:52px;border-radius:14px}
+  .quest-level-select{justify-content:space-between;padding:3px 5px;font-size:12px}
+  .quest-learn-intro{margin-bottom:15px;font-size:13px;line-height:1.45}
+  .quest-learn-intro-row{flex-direction:column;gap:7px;margin:8px auto 12px}
+  .quest-learn-intro-row .quest-learn-intro{text-align:center}
+  .quest-learn-actions{margin:0}
+  .quest-learn-actions .quest-start{min-width:205px}
+  .quest-learn-stage .quest-lesson-visual .relative.mx-auto{height:250px}
+  .quest-learn-stage .quest-lesson-grid{gap:11px}
+  .quest-extra-learning>summary{min-height:52px;padding:11px 13px;font-size:13px}
+  .quest-extra-learning-content{padding:0 11px 12px}
+  .quest-extra-audio{display:grid;grid-template-columns:1fr}
+  .quest-extra-audio>button{justify-content:center}
+  .quest-round-progress{margin-bottom:12px}
+  .quest-play-stage .quest-prompt-row{margin:11px auto 8px}
+  .quest-play-stage .quest-prompt-row h2{font-size:24px}
+  .quest-play-stage>.relative.mx-auto{height:260px}
+  .quest-play-stage>.relative.mx-auto .quest-ocean-marker{width:80px;min-width:80px;padding:3px 2px;font-size:8px;line-height:1.05}
+  .quest-play-stage>.relative.mx-auto .quest-ocean-marker[aria-label="Choose Pacific Ocean"]{left:14%!important;top:50%!important}
+  .quest-play-stage>.relative.mx-auto .quest-ocean-marker[aria-label="Choose Atlantic Ocean"]{left:42%!important;top:42%!important}
+  .quest-play-stage>.relative.mx-auto .quest-ocean-marker[aria-label="Choose Indian Ocean"]{left:71%!important;top:52%!important}
+  .quest-play-stage>.relative.mx-auto .quest-ocean-marker[aria-label="Choose Arctic Ocean"]{left:51%!important;top:14%!important}
+  .quest-play-stage>.relative.mx-auto .quest-ocean-marker[aria-label="Choose Southern Ocean"]{left:51%!important;top:73%!important}
+  .quest-play-stage .quest-answer-card>button:first-child{min-height:98px!important}
+  .quest-feedback-card.is-correct{grid-template-columns:1fr;justify-items:stretch;gap:9px;padding:14px}
+  .quest-feedback-card.is-correct .quest-continue{width:100%;justify-content:center}
+  .quest-feedback-card.is-correct .quest-fact-copy{font-size:15px}
+}
+
+.curriculum-quest :is(button,summary,select):focus-visible{position:relative;z-index:5;outline:3px solid #1d4ed8;outline-offset:3px}
+
+/* Dark action colours keep white labels readable in every world. */
+.curriculum-quest { --quest-action:#284bd1; }
+.quest-time-detectives { --quest-action:#995006; }
+.quest-nature-lab { --quest-action:#087353; }
+.curriculum-quest .quest-start,.curriculum-quest .quest-continue,.curriculum-quest .quest-module-tab[aria-pressed="true"] { background:linear-gradient(125deg,var(--quest-action),color-mix(in srgb,var(--quest-action),#14234c 20%)); color:#fff; }
+.curriculum-quest .quest-stage-label,.curriculum-quest .quest-round-progress>div:first-child span { color:var(--quest-action); }

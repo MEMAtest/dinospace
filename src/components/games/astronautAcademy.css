@@ -1,0 +1,990 @@
+.astronaut-academy {
+  --astro-ink: #18264a;
+  --astro-muted: #627292;
+  --astro-indigo: #3d46a8;
+  --astro-violet: #7468df;
+  --astro-sky: #e5f3ff;
+  --astro-gold: #ffc85a;
+  min-height: 100vh;
+  color: var(--astro-ink);
+  background:
+    radial-gradient(ellipse at 77% 12%, rgb(116 104 223 / 17%), transparent 31rem),
+    radial-gradient(ellipse at 5% 89%, rgb(107 198 226 / 17%), transparent 29rem),
+    linear-gradient(145deg, #edf5ff 0%, #f9fbff 50%, #eef1ff 100%);
+  font-family: inherit;
+}
+
+.astro-shell {
+  width: min(100%, 1160px);
+  min-height: 100vh;
+  margin-inline: auto;
+  padding: 20px 34px 28px;
+}
+
+.astro-topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 54px;
+}
+
+.astro-icon-button,
+.astro-sound-toggle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgb(78 96 151 / 14%);
+  border-radius: 16px;
+  color: #3c4e7b;
+  background: rgb(255 255 255 / 82%);
+  box-shadow: 0 5px 15px rgb(45 63 119 / 8%);
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+
+.astro-icon-button:hover,
+.astro-sound-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgb(45 63 119 / 13%);
+}
+
+.astro-icon-button:focus-visible,
+.astro-sound-toggle:focus-visible,
+.astro-mission-card:focus-visible,
+.astro-answer:focus-visible,
+.astro-primary-button:focus-visible,
+.astro-secondary-button:focus-visible,
+.astro-retry-button:focus-visible {
+  outline: 3px solid #78c8f4;
+  outline-offset: 3px;
+}
+
+.astro-brand {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  text-align: center;
+}
+
+.astro-brand span,
+.astro-kicker,
+.astro-mission-eyebrow {
+  color: #647399;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+.astro-brand strong {
+  color: #25365f;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.astro-welcome {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 225px;
+  margin: 27px 0 23px;
+  padding: 32px 38px;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 68%);
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(111deg, #20295e 1%, #343b87 54%, #6467c9 100%);
+  box-shadow: 0 18px 38px rgb(53 66 145 / 18%);
+}
+
+.astro-welcome::after {
+  position: absolute;
+  right: 13%;
+  bottom: -100px;
+  width: 320px;
+  height: 190px;
+  border: 1px solid rgb(255 255 255 / 11%);
+  border-radius: 50%;
+  content: '';
+  transform: rotate(-18deg);
+}
+
+.astro-welcome-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.astro-welcome .astro-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #ffe09c;
+}
+
+.astro-welcome h1 {
+  margin: 12px 0 9px;
+  color: #fff;
+  font-size: clamp(30px, 4.3vw, 43px);
+  font-weight: 900;
+  letter-spacing: -.035em;
+  line-height: 1.05;
+}
+
+.astro-welcome p {
+  max-width: 440px;
+  margin: 0;
+  color: rgb(241 245 255 / 79%);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.astro-welcome img {
+  position: absolute;
+  right: 35px;
+  bottom: -16px;
+  z-index: 1;
+  width: clamp(140px, 22vw, 230px);
+  height: 200px;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 13px 15px rgb(7 13 43 / 30%));
+}
+
+.astro-mission-list {
+  display: grid;
+  gap: 12px;
+  max-width: 870px;
+  margin-inline: auto;
+}
+
+.astro-mission-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px 52px minmax(0, 1fr) 38px;
+  align-items: center;
+  gap: 16px;
+  min-height: 122px;
+  padding: 17px 21px;
+  border: 1px solid #e0e6f5;
+  border-radius: 22px;
+  color: var(--astro-ink);
+  background: rgb(255 255 255 / 91%);
+  box-shadow: 0 9px 23px rgb(45 63 119 / 7%);
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.astro-mission-card:hover {
+  transform: translateY(-2px);
+  border-color: #b5bdf0;
+  box-shadow: 0 14px 27px rgb(45 63 119 / 12%);
+}
+
+.astro-mission-card.is-recommended {
+  border-color: #b9b8f6;
+  background: linear-gradient(100deg, #fff 34%, #f4f3ff 100%);
+}
+
+.astro-mission-number {
+  align-self: start;
+  padding-top: 5px;
+  color: #98a4c1;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.astro-mission-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 16px;
+  color: #514fb3;
+  background: #ecebff;
+}
+
+.astro-mission-card:nth-child(2) .astro-mission-icon {
+  color: #16799a;
+  background: #e4f6fb;
+}
+
+.astro-mission-card:nth-child(3) .astro-mission-icon {
+  color: #9a5b15;
+  background: #fff1d7;
+}
+
+.astro-mission-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.astro-mission-copy strong {
+  color: #202f58;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.16;
+}
+
+.astro-mission-copy > span:last-child {
+  color: var(--astro-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.astro-mission-copy .astro-mission-eyebrow {
+  color: #6c68c9;
+  font-size: 9px;
+}
+
+.astro-mission-count {
+  margin-top: 3px;
+  color: #8390ad;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.astro-mission-arrow {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
+  color: #5a5bbb;
+  background: #f0f0ff;
+}
+
+.astro-footer-note {
+  margin: 17px auto 0;
+  color: #818eaa;
+  font-size: 12px;
+  text-align: center;
+}
+
+.astro-play-topbar {
+  gap: 17px;
+}
+
+.astro-progress-block {
+  display: grid;
+  flex: 1;
+  gap: 8px;
+  max-width: 650px;
+  margin-inline: auto;
+}
+
+.astro-progress-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #657394;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.astro-progress-heading span:first-child {
+  color: #35466e;
+}
+
+.astro-progress-track {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dce3f3;
+}
+
+.astro-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7268dc, #62b9de);
+  transition: width .3s ease;
+}
+
+.astro-question-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 112px);
+  padding: 15px 0 21px;
+}
+
+.astro-question-card {
+  width: min(100%, 730px);
+  padding: 27px clamp(18px, 4vw, 40px) 24px;
+  border: 1px solid rgb(255 255 255 / 80%);
+  border-radius: 28px;
+  background: rgb(255 255 255 / 95%);
+  box-shadow: 0 18px 46px rgb(48 64 126 / 13%);
+  text-align: center;
+}
+
+.astro-question-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 28px;
+}
+
+.astro-question-tag,
+.astro-star-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #657394;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.astro-question-tag svg {
+  width: 16px;
+  height: 16px;
+  color: #605fc0;
+}
+
+.astro-star-count {
+  color: #9a6b12;
+}
+
+.astro-star-count svg {
+  color: #e4a72f;
+}
+
+.astro-question-illustration {
+  display: grid;
+  width: 82px;
+  height: 82px;
+  margin: 12px auto 10px;
+  place-items: center;
+  border: 1px solid #e5e8fb;
+  border-radius: 26px;
+  color: #554db6;
+  background: linear-gradient(145deg, #f1efff, #eaf7ff);
+  font-size: 47px;
+  line-height: 1;
+}
+
+.astro-hero-portrait {
+  position: absolute;
+  inset: 0;
+  width: 82px;
+  height: 82px;
+  border-radius: inherit;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .16s ease;
+}
+
+.astro-hero-portrait.is-loaded {
+  opacity: 1;
+}
+
+.astro-hero-portrait-wrap {
+  position: relative;
+  display: block;
+  width: 82px;
+  height: 82px;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.astro-hero-fallback {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border-radius: inherit;
+  color: #5453ae;
+  background: linear-gradient(145deg, #e2e4ff, #d8f2ff);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.astro-hero-fallback svg {
+  position: absolute;
+  opacity: .34;
+}
+
+.astro-hero-fallback b {
+  position: relative;
+  z-index: 1;
+  padding: 2px 4px;
+  border-radius: 5px;
+  background: rgb(255 255 255 / 76%);
+}
+
+.astro-visual-lucide {
+  width: 40px;
+  height: 40px;
+  color: currentColor;
+}
+
+.astro-visual-svg {
+  width: 38px;
+  height: 38px;
+  color: currentColor;
+}
+
+.astro-animal-svg {
+  width: 42px;
+  height: 36px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.1;
+}
+
+.astro-dinosaur-svg {
+  width: 43px;
+  height: 34px;
+  overflow: visible;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.astro-answer-number {
+  display: grid;
+  min-width: 33px;
+  height: 33px;
+  padding-inline: 3px;
+  place-items: center;
+  border-radius: 10px;
+  color: #4e55a8;
+  background: #ecebff;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.astro-question-card h1 {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #1e2c51;
+  font-size: clamp(23px, 3vw, 31px);
+  font-weight: 900;
+  letter-spacing: -.025em;
+  line-height: 1.2;
+}
+
+.astro-prompt {
+  margin: 7px 0 18px;
+  color: #8894ae;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.astro-answer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.astro-answer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 67px;
+  padding: 10px 14px;
+  border: 1px solid #dfe6f4;
+  border-radius: 17px;
+  color: #334469;
+  background: #fbfcff;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+}
+
+.astro-answer:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: #a5a9ed;
+  background: #f5f5ff;
+  box-shadow: 0 5px 12px rgb(75 75 171 / 9%);
+}
+
+.astro-answer:disabled {
+  cursor: default;
+}
+
+.astro-answer.is-right {
+  border-color: #83cfb2;
+  background: #ecfbf4;
+}
+
+.astro-answer-letter {
+  display: grid;
+  flex: 0 0 auto;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border-radius: 8px;
+  color: #7684a2;
+  background: #edf1f8;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.astro-answer-visual {
+  flex: 0 0 auto;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  line-height: 1;
+}
+
+.astro-answer-visual .astro-visual-lucide { width: 29px; height: 29px; }
+.astro-answer-visual .astro-visual-svg { width: 30px; height: 30px; }
+.astro-answer-visual .astro-animal-svg { width: 35px; height: 30px; }
+.astro-answer-visual .astro-dinosaur-svg { width: 38px; height: 30px; }
+
+.astro-feedback {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 17px;
+  padding: 13px;
+  border: 1px solid #bce8d3;
+  border-radius: 17px;
+  background: #effbf5;
+  text-align: left;
+}
+
+.astro-feedback.is-retry {
+  border-color: #f1d59a;
+  background: #fff9e9;
+}
+
+.astro-feedback-copy {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+}
+
+.astro-feedback-icon {
+  display: grid;
+  flex: 0 0 auto;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  border-radius: 10px;
+  color: #138555;
+  background: #d8f3e5;
+}
+
+.is-retry .astro-feedback-icon {
+  color: #98620b;
+  background: #ffefc5;
+}
+
+.astro-feedback-copy strong {
+  display: block;
+  color: #176b48;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.is-retry .astro-feedback-copy strong {
+  color: #805808;
+}
+
+.astro-feedback-copy p {
+  margin: 4px 0 0;
+  color: #4f725f;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.is-retry .astro-feedback-copy p {
+  color: #806b42;
+}
+
+.astro-feedback-copy p b {
+  color: #286344;
+}
+
+.astro-primary-button,
+.astro-secondary-button,
+.astro-retry-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 10px 17px;
+  border: 0;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 850;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform .16s ease, filter .16s ease;
+}
+
+.astro-primary-button:hover,
+.astro-secondary-button:hover,
+.astro-retry-button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+.astro-primary-button {
+  color: white;
+  background: linear-gradient(105deg, #4c55bd, #665ad0);
+  box-shadow: 0 6px 14px rgb(81 77 187 / 21%);
+}
+
+.astro-retry-button {
+  color: #7e570b;
+  background: #ffedbd;
+}
+
+.astro-play-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  color: #71809f;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.astro-complete {
+  display: flex;
+  flex-direction: column;
+}
+
+.astro-complete-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 620px);
+  margin: 12px auto 35px;
+  padding: 42px 28px;
+  border: 1px solid rgb(255 255 255 / 85%);
+  border-radius: 30px;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: 0 19px 48px rgb(48 64 126 / 13%);
+  text-align: center;
+}
+
+.astro-trophy {
+  display: grid;
+  width: 86px;
+  height: 86px;
+  margin-bottom: 19px;
+  place-items: center;
+  border: 1px solid #f7d884;
+  border-radius: 27px;
+  color: #a66a08;
+  background: linear-gradient(145deg, #fff2c7, #ffe1a1);
+  box-shadow: 0 9px 19px rgb(197 143 41 / 17%);
+}
+
+.astro-complete-card .astro-kicker {
+  color: #7264bb;
+}
+
+.astro-complete-card h1 {
+  margin: 9px 0 10px;
+  color: #1e2c51;
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 900;
+  letter-spacing: -.035em;
+}
+
+.astro-score {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 2px 0 13px;
+  color: #74819d;
+  font-size: 15px;
+}
+
+.astro-score strong {
+  color: #ae7816;
+  font-size: 38px;
+  font-weight: 950;
+}
+
+.astro-complete-copy {
+  max-width: 400px;
+  margin: 0 auto 24px;
+  color: #6b7895;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.astro-complete-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.astro-secondary-button {
+  color: #4b5980;
+  background: #edf1fa;
+}
+
+@media (max-width: 680px) {
+  .astro-shell {
+    padding: 12px 15px 22px;
+  }
+
+  .astro-topbar {
+    gap: 10px;
+  }
+
+  .astro-icon-button,
+  .astro-sound-toggle {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+  }
+
+  .astro-brand strong {
+    font-size: 15px;
+  }
+
+  .astro-brand span {
+    font-size: 9px;
+  }
+
+  .astro-welcome {
+    min-height: 177px;
+    margin: 17px 0 14px;
+    padding: 22px 18px;
+    border-radius: 23px;
+  }
+
+  .astro-welcome-copy {
+    max-width: 67%;
+  }
+
+  .astro-welcome h1 {
+    margin: 9px 0 6px;
+    font-size: 27px;
+  }
+
+  .astro-welcome p {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .astro-welcome img {
+    right: 4px;
+    bottom: -7px;
+    width: 132px;
+    height: 148px;
+  }
+
+  .astro-welcome .astro-kicker {
+    font-size: 8px;
+  }
+
+  .astro-mission-list {
+    gap: 10px;
+  }
+
+  .astro-mission-card {
+    grid-template-columns: 27px 42px minmax(0, 1fr) 28px;
+    gap: 9px;
+    min-height: 119px;
+    padding: 13px 11px;
+    border-radius: 18px;
+  }
+
+  .astro-mission-number {
+    padding-top: 4px;
+    font-size: 10px;
+  }
+
+  .astro-mission-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+  }
+
+  .astro-mission-copy strong {
+    font-size: 17px;
+  }
+
+  .astro-mission-copy > span:last-child {
+    font-size: 11px;
+  }
+
+  .astro-mission-copy .astro-mission-eyebrow {
+    font-size: 8px;
+  }
+
+  .astro-mission-arrow {
+    width: 28px;
+    height: 28px;
+  }
+
+  .astro-footer-note {
+    margin-top: 14px;
+    font-size: 11px;
+  }
+
+  .astro-play-topbar {
+    gap: 8px;
+  }
+
+  .astro-progress-heading {
+    font-size: 10px;
+  }
+
+  .astro-progress-block {
+    gap: 6px;
+  }
+
+  .astro-question-stage {
+    justify-content: flex-start;
+    min-height: calc(100vh - 78px);
+    padding: 12px 0 15px;
+  }
+
+  .astro-question-card {
+    padding: 16px 13px 14px;
+    border-radius: 22px;
+  }
+
+  .astro-question-illustration {
+    width: 65px;
+    height: 65px;
+    margin: 7px auto 8px;
+    border-radius: 20px;
+    font-size: 38px;
+  }
+
+  .astro-hero-portrait {
+    width: 65px;
+    height: 65px;
+  }
+
+  .astro-hero-portrait-wrap { width: 65px; height: 65px; }
+
+  .astro-question-card h1 {
+    font-size: 22px;
+  }
+
+  .astro-prompt {
+    margin: 5px 0 12px;
+    font-size: 11px;
+  }
+
+  .astro-answer-grid {
+    gap: 8px;
+  }
+
+  .astro-answer {
+    min-height: 67px;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 14px;
+    font-size: 13px;
+  }
+
+  .astro-answer-letter {
+    width: 22px;
+    height: 22px;
+    font-size: 10px;
+  }
+
+  .astro-answer-visual {
+    font-size: 22px;
+  }
+
+  .astro-feedback {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 11px;
+    margin-top: 12px;
+    padding: 11px;
+  }
+
+  .astro-feedback .astro-primary-button,
+  .astro-feedback .astro-retry-button {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .astro-play-hint {
+    margin-top: 9px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 370px) {
+  .astro-shell {
+    padding-inline: 10px;
+  }
+
+  .astro-mission-card {
+    grid-template-columns: 22px 38px minmax(0, 1fr) 25px;
+    gap: 7px;
+    padding-inline: 8px;
+  }
+
+  .astro-mission-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .astro-welcome-copy {
+    max-width: 70%;
+  }
+
+  .astro-welcome img {
+    right: -11px;
+    width: 122px;
+  }
+
+  .astro-question-card h1 {
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .astronaut-academy *,
+  .astronaut-academy *::before,
+  .astronaut-academy *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Descriptions support the mission title rather than competing with it. */
+.astro-mission-description { color:#546485; font-size:14px; font-weight:650; line-height:1.4; }
+@media(max-width:680px){
+ .astro-mission-card { min-height:112px; }
+ .astro-mission-copy strong { font-size:18px; }
+ .astro-mission-description { font-size:12px; line-height:1.4; }
+ .astro-welcome-copy { max-width:65%; }
+ .astro-welcome img { width:112px; height:120px; }
+}

@@ -1,11 +1,11 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { Headphones, ArrowLeft, Map, RotateCcw, Sparkles, Compass, ArrowRight, Clock3 } from 'lucide-react';
-import { CONTINENTS, CURRICULUM_MODULES, getCurriculumModule, OCEANS, YEAR_ONE_JOURNEY } from '../../data/curriculumModules.js';
+import { Headphones, ArrowLeft, RotateCcw, Sparkles, Compass, ArrowRight, Clock3 } from 'lucide-react';
+import { CONTINENTS, CURRICULUM_MODULES, getCurriculumModule, OCEANS } from '../../data/curriculumModules.js';
 import { CURRICULUM_LESSON_COPY, getCurriculumVoiceClip } from '../../data/curriculumVoice.js';
 import { getPraise } from '../../utils.js';
 import { getRecommendedDifficulty } from '../../data/learningProgress.js';
 import { createCurriculumQueue, makeCurriculumSeed, shuffleCurriculumAnswers } from '../../data/curriculumQueue.js';
-import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
+import { SoundToggle } from '../shared/index.jsx';
 import geographyWorld from '../../assets/curriculum/geography-world.webp';
 import historyWorld from '../../assets/curriculum/history-world.webp';
 import natureWorld from '../../assets/curriculum/nature-world.webp';
@@ -119,7 +119,7 @@ const PackagedAudioButton = ({ text, label = 'Hear', soundOn }) => {
   return <button type="button" onClick={play} disabled={!soundOn} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-3 py-2 text-xs font-black text-indigo-700 shadow-sm disabled:cursor-not-allowed disabled:opacity-50" aria-label={`${label}: ${text}`}><Headphones size={16} className={playing ? 'animate-pulse' : ''} />{playing ? 'Playing' : label}</button>;
 };
 
-const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabels = false, soundOn }) => {
+const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabels = false }) => {
   const answerItems = answerItemsForRound(round);
   const isOceanRound = round.type === 'ocean';
   return (
@@ -127,7 +127,7 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
       <div className="relative mx-auto h-[22rem] w-full max-w-3xl overflow-hidden rounded-[2rem] border-4 border-sky-200 bg-[#38bde4] shadow-inner" aria-label="A simplified labelled world map, not to scale">
         <img src={continentMap} alt="" className="absolute inset-0 h-full w-full object-fill" aria-hidden="true" />
         <div className="absolute inset-0">
-          {CONTINENTS.map((continent) => (
+          {!isOceanRound && CONTINENTS.map((continent) => (
             <button
               key={continent.id}
               type="button"
@@ -147,7 +147,7 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
               onClick={() => onPick(ocean.id)}
               disabled={disabled}
               aria-label={`Choose ${ocean.name}`}
-              className={`absolute flex min-h-11 min-w-[5.8rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-xl border-2 px-1 py-1 text-center text-[9px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 ${selected === ocean.id ? 'border-white bg-slate-950 text-white ring-4 ring-white/70' : 'border-white/70 bg-sky-950/80 text-white'}`}
+              className={`quest-ocean-marker absolute flex min-h-12 min-w-[5.8rem] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-xl border-2 px-1 py-1 text-center text-[9px] font-black shadow-md transition hover:scale-105 active:scale-95 disabled:cursor-default disabled:opacity-100 ${selected === ocean.id ? 'border-white bg-slate-950 text-white ring-4 ring-white/70' : 'border-white/70 bg-sky-950/80 text-white'}`}
               style={{ left: ocean.position.left, top: ocean.position.top }}
             >
               {showLabels ? <><span className="text-base leading-none" aria-hidden="true">{ocean.emoji}</span><span className="max-w-[6.2rem] leading-tight">{ocean.name}</span></> : <span className="text-lg leading-none" aria-hidden="true">🌊</span>}
@@ -161,8 +161,7 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
         <p className="mx-auto mt-3 max-w-2xl rounded-2xl bg-sky-50 px-4 py-3 text-center text-sm font-bold text-sky-900">Tap the continent where this country belongs.</p>
       )}
       {isOceanRound && <p className="mx-auto mt-3 max-w-2xl rounded-2xl bg-sky-50 px-4 py-3 text-center text-sm font-bold text-sky-900">Tap an ocean marker on the map.</p>}
-      {round.type === 'continent' && <p className="mx-auto mt-3 max-w-2xl rounded-2xl bg-sky-50 px-4 py-3 text-center text-sm font-bold text-sky-900">Use the labelled learning map you explored, then choose the matching place.</p>}
-      {!showLabels && <div className="mx-auto mt-3 flex max-w-3xl flex-wrap justify-center gap-2" aria-label="Hear map choices">{answerItems.map((item) => <PackagedAudioButton key={`hear-${item.id}`} text={item.name} label={`Hear ${item.name}`} soundOn={soundOn} />)}</div>}
+      {!showLabels && round.type === 'continent' && <p className="mx-auto mt-3 max-w-2xl rounded-2xl bg-sky-50 px-4 py-3 text-center text-sm font-bold text-sky-900">Use the labelled learning map you explored, then choose the matching place.</p>}
       {disabled && selected === round.answer && <div className="mx-auto mt-3 flex max-w-3xl flex-wrap justify-center gap-2" aria-label="Country examples">
         {answerItems.filter((item) => item.id === round.answer && item.examples).flatMap((item) => item.examples.slice(0, 2).map((example) => <span key={`${item.id}-${example}`} className="rounded-full bg-white/80 px-3 py-1 text-xs font-black text-slate-600">{example} · {item.name}</span>))}
       </div>}
@@ -170,7 +169,7 @@ const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabel
   );
 };
 
-const ChoiceRound = ({ round, onPick, disabled, selected, soundOn }) => (
+const ChoiceRound = ({ round, onPick, disabled, selected }) => (
   <div className="quest-answer-grid mx-auto grid w-full max-w-3xl gap-3 sm:grid-cols-3" aria-label="Answer choices">
     {(round.options || []).map((option) => (
       <div key={option.id} className={`quest-answer-card flex flex-col items-center gap-2 rounded-3xl border-4 p-2 shadow-lg ${disabled && selected === option.id ? 'border-emerald-400 bg-emerald-50' : selected === option.id ? 'border-rose-300 bg-rose-50' : 'border-amber-200 bg-white'}`}>
@@ -178,13 +177,12 @@ const ChoiceRound = ({ round, onPick, disabled, selected, soundOn }) => (
           <ChoiceArt item={option} />
           <strong className="mt-1 block text-sm font-black text-slate-800">{option.label}</strong>
         </button>
-        <PackagedAudioButton text={option.label} label="Hear choice" soundOn={soundOn} />
       </div>
     ))}
   </div>
 );
 
-const SequenceRound = ({ round, sequence, onPick, disabled, soundOn }) => {
+const SequenceRound = ({ round, sequence, onPick, disabled }) => {
   const next = [...round.items].sort((a, b) => a.order - b.order)[sequence.length];
   return (
     <div className="mx-auto w-full max-w-3xl">
@@ -199,7 +197,6 @@ const SequenceRound = ({ round, sequence, onPick, disabled, soundOn }) => {
               <ChoiceArt item={item} />
               <strong className="mt-1 block text-sm font-black text-slate-800">{item.label}</strong>
             </button>
-            <PackagedAudioButton text={item.label} label="Hear choice" soundOn={soundOn} />
           </div>
         ))}
       </div>
@@ -252,31 +249,38 @@ const InvestigationRound = ({ round, prediction, onPredict, onConclude, disabled
   <div className="mx-auto w-full max-w-3xl">
     {!prediction ? (
       <div className="grid gap-3 sm:grid-cols-2">
-        {round.predictions.map((option) => <div key={option.id} className="flex flex-col items-center gap-2 rounded-3xl border-4 border-emerald-200 bg-white p-2 shadow-lg"><button type="button" onClick={() => onPredict(option.id)} className="min-h-20 w-full rounded-2xl p-2 text-center"><span className="block text-4xl">{option.emoji}</span><strong className="mt-2 block text-sm font-black">{option.label}</strong></button><PackagedAudioButton text={option.label} label="Hear choice" soundOn={soundOn} /></div>)}
+        {round.predictions.map((option) => <div key={option.id} className="flex flex-col items-center gap-2 rounded-3xl border-4 border-emerald-200 bg-white p-2 shadow-lg"><button type="button" onClick={() => onPredict(option.id)} className="min-h-20 w-full rounded-2xl p-2 text-center"><span className="block text-4xl">{option.emoji}</span><strong className="mt-2 block text-sm font-black">{option.label}</strong></button></div>)}
       </div>
     ) : (
       <>
         <div className="rounded-3xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="text-xs font-black uppercase tracking-wider text-emerald-700">Observation</p><p className="mt-2 font-bold text-slate-700">{round.observation}</p><div className="mt-3"><PackagedAudioButton text={round.observation} label="Hear observation" soundOn={soundOn} /></div></div>
         <h3 className="my-4 text-center text-xl font-black text-slate-900">What does the observation tell us?</h3>
-        <ChoiceRound round={round} onPick={onConclude} disabled={disabled} selected={selected} soundOn={soundOn} />
+        <ChoiceRound round={round} onPick={onConclude} disabled={disabled} selected={selected} />
       </>
     )}
   </div>
 );
 
-const LessonVisual = ({ module, round, soundOn }) => {
+const LessonVisual = ({ module, round }) => {
   if (module.id === 'continents') {
     return <div className="quest-lesson-visual quest-map-lesson"><CurriculumMap round={{ type: 'continent', answer: '' }} selected="" disabled showLabels /><div className="quest-ocean-guide"><span className="quest-guide-heading">🌊 Explore the oceans</span><div>{OCEANS.map((ocean) => <span key={ocean.id}>{ocean.name}</span>)}</div></div></div>;
   }
   if (module.id === 'time-detectives') {
-    const clues = round.type === 'sequence' ? [...round.items].sort((a, b) => a.order - b.order) : [{ id: 'old-photo', emoji: '📷', label: 'Photograph' }, { id: 'letter', emoji: '✉️', label: 'Letter' }, { id: 'telephone', emoji: '☎️', label: 'Telephone' }, { id: 'smartphone', emoji: '📱', label: 'Today' }];
-    return <div className="quest-lesson-visual quest-timeline-lesson"><span className="quest-guide-character quest-detective-guide" style={{ backgroundImage: `url(${guideCharacters})` }} aria-hidden="true" /><div className="quest-scene-kicker">🔎 Clues from the past</div><div className="quest-timeline" aria-label="Historical clues in time order">{clues.map((clue, index) => <div key={clue.id} className="quest-timeline-item"><span className="quest-timeline-art"><ChoiceArt item={clue} /></span><strong>{clue.label}</strong><small>{index + 1}</small></div>)}</div><p>Look at each clue. What came first?</p></div>;
+    const clues = [{ id: 'letter', emoji: '✉️', label: 'Letter' }, { id: 'old-photo', emoji: '📷', label: 'Photograph' }, { id: 'telephone', emoji: '☎️', label: 'Telephone' }, { id: 'smartphone', emoji: '📱', label: 'Smartphone' }];
+    return <div className="quest-lesson-visual quest-timeline-lesson"><span className="quest-guide-character quest-detective-guide" style={{ backgroundImage: `url(${guideCharacters})` }} aria-hidden="true" /><div className="quest-scene-kicker">🔎 Clues from the past</div><div className="quest-timeline" aria-label="Historical clues in time order">{clues.map((clue, index) => <div key={clue.id} className="quest-timeline-item"><span className="quest-timeline-art"><ChoiceArt item={clue} /></span><strong>{clue.label}</strong><small>{index + 1}</small></div>)}</div><p>Explore how clues and objects change over time.</p></div>;
   }
   const choices = round.options || [{ id: 'oak', emoji: '🌳', label: 'Oak tree' }, { id: 'robin', emoji: '🐦', label: 'Robin' }, { id: 'frog', emoji: '🐸', label: 'Frog' }, { id: 'cat', emoji: '🐈', label: 'Cat' }];
-  return <div className="quest-lesson-visual quest-nature-lesson"><span className="quest-guide-character quest-owl-guide" style={{ backgroundImage: `url(${guideCharacters})` }} aria-hidden="true" /><div className="quest-scene-kicker">🔬 Look closely</div><div className="quest-specimens">{choices.slice(0, 4).map((choice) => <div className="quest-specimen" key={choice.id}><ChoiceArt item={choice} /><strong>{choice.label}</strong><PackagedAudioButton text={choice.label} label="Hear choice" soundOn={soundOn} /></div>)}</div><p>Observe each one before you choose.</p></div>;
+  return <div className="quest-lesson-visual quest-nature-lesson"><span className="quest-guide-character quest-owl-guide" style={{ backgroundImage: `url(${guideCharacters})` }} aria-hidden="true" /><div className="quest-scene-kicker">🔬 Look closely</div><div className="quest-specimens">{choices.slice(0, 4).map((choice) => <div className="quest-specimen" key={choice.id}><ChoiceArt item={choice} /><strong>{choice.label}</strong></div>)}</div><p>Look for ways living things are alike or different.</p></div>;
 };
 
-const ExplorerWords = ({ module, soundOn }) => <aside className="quest-words"><p className="quest-small-label">Learn &amp; explore</p><h3>Your explorer words</h3><div className="quest-word-list">{module.vocabulary.slice(0, 4).map((word) => <div key={word} className="quest-word"><strong>{word}</strong><PackagedAudioButton text={word} label="Hear word" soundOn={soundOn} /></div>)}</div><p className="quest-lesson-copy">{CURRICULUM_LESSON_COPY[module.id]}</p><div className="quest-topic-list" aria-label="Related Year 1 school topics">{YEAR_ONE_JOURNEY.filter((entry) => module.schoolTopics.includes(entry.unit)).map((entry) => <span key={entry.term}>{entry.term} · {entry.unit}</span>)}</div></aside>;
+const ExplorerWords = ({ module, soundOn, onLaunchGame }) => <details className="quest-extra-learning">
+  <summary>Explore words and lesson notes</summary>
+  <div className="quest-extra-learning-content">
+    <div className="quest-extra-audio"><PackagedAudioButton text={CURRICULUM_LESSON_COPY[module.id]} label="Hear lesson" soundOn={soundOn} />{module.id === 'time-detectives' && onLaunchGame && <button type="button" onClick={() => onLaunchGame('timeteller')} className="quest-related-game"><Clock3 size={17} /> Practise telling the time</button>}</div>
+    <div className="quest-word-list">{module.vocabulary.slice(0, 4).map((word) => <div key={word} className="quest-word"><strong>{word}</strong><PackagedAudioButton text={word} label="Hear word" soundOn={soundOn} /></div>)}</div>
+    <p className="quest-lesson-copy">{CURRICULUM_LESSON_COPY[module.id]}</p>
+  </div>
+</details>;
 
 const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, playerId, initialModule }) => {
   const [moduleId, setModuleId] = useState(initialModule === 'time-detectives' ? initialModule : 'continents');
@@ -297,7 +301,6 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   const [selected, setSelected] = useState('');
   const [feedback, setFeedback] = useState('');
   const [feedbackVoice, setFeedbackVoice] = useState('');
-  const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
   const [lessonOpen, setLessonOpen] = useState(true);
   const [routeStep, setRouteStep] = useState(0);
@@ -331,7 +334,6 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     setRoundOrder(nextOrder);
     setRoundCursor(0);
     setQueueComplete(false);
-    setSkillRun(0);
     resetRound(nextOrder[0] ?? 0, true);
   }, [difficulty, moduleId, playerId, rounds, resetRound]);
 
@@ -371,7 +373,6 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     setRoundOrder(nextOrder);
     setRoundCursor(0);
     setQueueComplete(false);
-    setSkillRun(0);
     resetRound(nextOrder[0] ?? 0, true);
     onGameEvent?.(difficultyGameId, 'replay', { module: moduleId, difficulty, seed, round: 0 });
   };
@@ -381,11 +382,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     onGameEvent?.(difficultyGameId, 'start', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
     onGameEvent?.(difficultyGameId, 'question', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
   };
-  const retryQuestion = () => {
-    onGameEvent?.(difficultyGameId, 'replay', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
-    resetRound(roundIndex);
-    onGameEvent?.(difficultyGameId, 'question', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
-  };
+
 
   const logAudioHint = useCallback((hintType) => {
     onGameEvent?.(difficultyGameId, 'hint', {
@@ -401,11 +398,9 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     if (locked) return;
     setLocked(true);
     setSelected(answerId);
-    setSkillRun(Math.min(roundCursor + 1, rounds.length));
     const item = answerItemsForRound(round).find((candidate) => candidate.id === answerId);
     const praise = getPraise();
-    setFeedback(`${praise} ${round.explanation}`);
-    setFeedbackVoice(praise);
+    setFeedback(round.explanation);
     playSfx('success');
     onCelebrate(praise, round.type === 'sequence' ? 6 : 4, 150);
     onGameEvent?.(difficultyGameId, 'answer_correct', {
@@ -492,8 +487,8 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
 
   const handlePrediction = (answerId) => {
     setPrediction(answerId);
-    setFeedback('Prediction saved. Now compare it with the observation. A prediction is an idea, not a wrong answer.');
-    setFeedbackVoice('Prediction saved. Now compare it with the observation. A prediction is an idea, not a wrong answer.');
+    setFeedback('');
+    setFeedbackVoice('');
     playSfx('tap');
   };
 
@@ -526,13 +521,23 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
       </header>
 
       <main className="quest-main">
-        <nav className="quest-modules" aria-label="Curriculum modules">
-          {CURRICULUM_MODULES.map((module) => (
-            <button key={module.id} type="button" onClick={(event) => { playSfx('click'); setDifficulty(getRecommendedDifficulty(`worldmap-${module.id}`)); setModuleId(module.id); event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' }); }} aria-pressed={module.id === activeModule.id} className="quest-module-tab">
-              <span className="quest-module-icon" aria-hidden="true">{module.icon}</span><span><strong>{module.title}</strong><small>{module.subtitle}</small></span><ArrowRight className="quest-tab-arrow" size={18} />
-            </button>
-          ))}
-        </nav>
+        <details className="quest-stage-picker">
+          <summary>Choose a topic or level</summary>
+          <div className="quest-stage-picker-content">
+            <nav className="quest-modules" aria-label="Curriculum modules">
+              {CURRICULUM_MODULES.map((module) => (
+                <button key={module.id} type="button" onClick={() => { playSfx('click'); setDifficulty(getRecommendedDifficulty(`worldmap-${module.id}`)); setModuleId(module.id); }} aria-pressed={module.id === activeModule.id} className="quest-module-tab">
+                  <span className="quest-module-icon" aria-hidden="true">{module.icon}</span><span><strong>{module.title}</strong><small>{module.subtitle}</small></span><ArrowRight className="quest-tab-arrow" size={18} />
+                </button>
+              ))}
+            </nav>
+            <label className="quest-level-select">Choose a level
+              <select aria-label="Choose a level" value={difficulty} onChange={(event) => setDifficulty(event.target.value)}>
+                {Object.entries(DIFFICULTY_LABELS).map(([band, label]) => <option key={band} value={band}>{label}</option>)}
+              </select>
+            </label>
+          </div>
+        </details>
 
         {queueComplete ? (
           <section className="quest-paper text-center" aria-labelledby="quest-complete">
@@ -547,34 +552,34 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
           </section>
         ) : (
         <section className="quest-paper" aria-labelledby="quest-prompt">
-          <div className="quest-status-row"><span className={`quest-year-badge ${ACCENT_BADGE_CLASSES[accent]}`}>Year 1 discovery</span><PracticeProgress skill={skillForRound(activeModule, round)} completed={skillRun} target={Math.min(5, rounds.length)} accent={accent} className="quest-progress" /><button type="button" onClick={retryQuestion} className="quest-retry"><RotateCcw size={16} /> Try this round again</button></div>
-          <div className="quest-prompt-row"><h2 id="quest-prompt">{round.prompt}</h2><PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} /></div>
-          <div className="quest-round-note"><span>Round {roundCursor + 1} of {roundOrder.length || Math.min(5, rounds.length)} · Learn first, then try it independently.</span><PackagedAudioButton text="Learn first, then try it independently." label="Hear instructions" soundOn={soundOn} /></div>
-
           {lessonOpen ? (
-            <div className="quest-lesson">
-              <div className="mb-4 flex flex-wrap items-center justify-center gap-2" aria-label="Choose a curriculum level">
-                <span className="font-black text-slate-700">Choose a level:</span>
-                {Object.entries(DIFFICULTY_LABELS).map(([band, label]) => <button key={band} type="button" onClick={() => setDifficulty(band)} aria-pressed={band === difficulty} className={`min-h-12 rounded-full border-2 px-4 font-black ${band === difficulty ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-indigo-200 bg-white text-indigo-800'}`}>{label}</button>)}
-              </div>
-              <div className="quest-lesson-grid"><LessonVisual module={activeModule} round={round} soundOn={soundOn} /><ExplorerWords module={activeModule} soundOn={soundOn} /></div>
-              <div className="quest-actions"><PackagedAudioButton text={CURRICULUM_LESSON_COPY[activeModule.id]} label="Hear lesson" soundOn={soundOn} />{activeModule.id === 'time-detectives' && onLaunchGame && <button type="button" onClick={() => onLaunchGame('timeteller')} className="quest-related-game"><Clock3 size={17} /> Practise telling the time</button>}<button type="button" onClick={startQuestion} className="quest-start"><Sparkles size={19} /> Start this round <ArrowRight size={18} /></button></div>
+            <div className="quest-learn-stage">
+              <p className="quest-stage-label">Learn</p>
+              <h2 id="quest-prompt">Explore {activeModule.title}</h2>
+              <div className="quest-learn-intro-row"><p className="quest-learn-intro">Take a look around, then start your first round when you’re ready.</p><div className="quest-actions quest-learn-actions"><button type="button" onClick={startQuestion} className="quest-start"><Sparkles size={19} /> Start round <ArrowRight size={18} /></button></div></div>
+              <div className="quest-lesson-grid"><LessonVisual module={activeModule} round={round} /><ExplorerWords module={activeModule} soundOn={soundOn} onLaunchGame={onLaunchGame} /></div>
             </div>
           ) : (
-            <div className="quest-play-area">
-              <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>
-              {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked} soundOn={soundOn} />}
-              {choiceRound && <ChoiceRound round={{ ...choiceRound, options: shuffledOptions }} onPick={handlePick} disabled={locked} selected={selected} soundOn={soundOn} />}
-              {round.type === 'sequence' && <SequenceRound round={round} sequence={sequence} onPick={handlePick} disabled={locked} soundOn={soundOn} />}
-              {round.type === 'route' && <RouteRound round={round} step={routeStep} onMove={handleRouteMove} disabled={locked} />}
-              {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={locked} selected={selected} soundOn={soundOn} />}
-              <ExplorerWords module={activeModule} soundOn={soundOn} />
+            <div className="quest-play-stage">
+              <div className="quest-round-progress" aria-label={`Question ${roundCursor + 1} of ${roundOrder.length || Math.min(5, rounds.length)}`}>
+                <div><span>{locked ? 'Fact' : 'Play'}</span><strong>Question {roundCursor + 1} of {roundOrder.length || Math.min(5, rounds.length)}</strong></div>
+                <div className="quest-round-track" role="progressbar" aria-label="Discovery run progress" aria-valuemin="0" aria-valuemax={roundOrder.length || Math.min(5, rounds.length)} aria-valuenow={roundCursor + (locked ? 1 : 0)}><span style={{ width: `${((roundCursor + (locked ? 1 : 0)) / (roundOrder.length || Math.min(5, rounds.length))) * 100}%` }} /></div>
+              </div>
+              <div className="quest-prompt-row"><h2 id="quest-prompt">{round.prompt}</h2>{!locked && <PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} />}</div>
+              {!locked && <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>}
+              {!locked && <>
+                {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked} showLabels={round.type === 'ocean'} />}
+                {choiceRound && <ChoiceRound round={{ ...choiceRound, options: shuffledOptions }} onPick={handlePick} disabled={locked} selected={selected} />}
+                {round.type === 'sequence' && <SequenceRound round={round} sequence={sequence} onPick={handlePick} disabled={locked} />}
+                {round.type === 'route' && <RouteRound round={round} step={routeStep} onMove={handleRouteMove} disabled={locked} />}
+                {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={locked} selected={selected} soundOn={soundOn} />}
+              </>}
+              <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : 'is-retry'}`}><p><span className="quest-fact-heading"><Sparkles size={23} />{locked ? 'Explorer fact' : 'Try again'}</span><span className="quest-fact-copy">{feedback}</span></p>{locked ? <><PackagedAudioButton text={round.explanation} label="Hear fact" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">{roundCursor + 1 >= roundOrder.length ? 'Finish run' : 'Next question'} <ArrowRight size={16} /></button></> : <PackagedAudioButton text={feedbackVoice} label="Hear clue" soundOn={soundOn} />}</div>}</div>
             </div>
           )}
-          <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : 'is-retry'}`}><p><span className="quest-fact-heading"><Sparkles size={23} />{locked ? 'Explorer fact' : 'A clue to try'}</span><span className="quest-fact-copy">{feedback}</span></p><PackagedAudioButton text={feedbackVoice} label={locked ? 'Hear praise' : 'Hear feedback'} soundOn={soundOn} />{locked && <><PackagedAudioButton text={round.explanation} label="Hear why" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">Next question <ArrowRight size={16} /></button></>}</div>}</div>
         </section>
         )}
-        <CurriculumBadgeCollection playerId={playerId} module={moduleId} earned={earnedBadges} />
+        <details className="quest-badge-disclosure"><summary>View saved badges</summary><CurriculumBadgeCollection playerId={playerId} module={moduleId} earned={earnedBadges} /></details>
       </main>
     </div>
     </CurriculumHintContext.Provider>
