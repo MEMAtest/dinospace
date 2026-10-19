@@ -616,7 +616,7 @@ const SolarOrrery = forwardRef(function SolarOrrery({ onSelect, paused, selected
         <div className="max-w-sm rounded-3xl border border-cyan-200/30 bg-slate-950/80 p-6 shadow-2xl">
           <div className="text-6xl" aria-hidden="true">🪐</div>
           <h3 className="mt-3 text-xl font-black text-cyan-200">3D view unavailable</h3>
-          <p className="mt-2 text-sm font-bold text-white/70">Choose a world below to explore its facts and challenge.</p>
+          <p className="mt-2 text-sm font-bold text-white/70">Choose a world in the planet strip to explore its facts and challenge.</p>
         </div>
       </div>
     );
@@ -725,14 +725,29 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
       </header>
 
       {rehearsalJourney && <nav aria-label="Continue your discovery" className="flex flex-wrap items-center justify-center gap-3 bg-[#061642] px-3 py-2 text-sm"><a href="#/play/codecadets" onClick={e=>{e.preventDefault();onLaunchGame?.('codecadets');}} className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Next: Code Cadets →</a><a href="#/play/writingdesk" onClick={e=>{e.preventDefault();onLaunchGame?.('writingdesk');}} className="inline-flex min-h-12 items-center rounded-xl border border-cyan-200/40 px-4 font-bold text-cyan-100">Write a discovery report →</a></nav>}
-      <div className="solar-view-tabs"><button aria-pressed={!overview} onClick={()=>{setOverview(false);orreryRef.current?.focusPlanet(selectedPlanet.name);}}>🔎 Inspect {selectedPlanet.name}</button><button aria-pressed={overview} onClick={()=>{setOverview(true);orreryRef.current?.resetView();}}>🪐 Whole Solar System · all worlds</button><button aria-pressed={!paused} onClick={()=>setPaused(v=>!v)}>{paused?'▶ Resume rotation':'Ⅱ Pause rotation'}</button></div>
+      <div className="solar-view-tabs" role="group" aria-label="Solar System view">
+        <button
+          type="button"
+          className="solar-view-switch"
+          onClick={() => {
+            if (overview) {
+              setOverview(false);
+              orreryRef.current?.focusPlanet(selectedPlanet.name);
+            } else {
+              setOverview(true);
+              orreryRef.current?.resetView();
+            }
+          }}
+        >{overview ? `🔎 Inspect ${selectedPlanet.name}` : '🪐 Show all planets'}</button>
+        <span className="solar-view-description" aria-live="polite">{overview ? 'All worlds in view' : `${selectedPlanet.name} up close`}</span>
+      </div>
       <section className="flex flex-wrap items-center justify-between gap-2 bg-[#061642] px-3 pt-3" aria-label="Discovery passport">
         <p className="text-sm font-bold">Passport: {Object.keys(discoveredFacts).length}/{PLANETS.reduce((count, planet) => count + planet.facts.length, 0)} discoveries · {Object.keys(completedQuizzes).length}/9 challenges</p>
         <div className="flex gap-2">
           <button type="button" className="min-h-12 rounded-xl border border-white/30 px-3 font-bold" aria-label="Previous planets in strip" onClick={() => stripRef.current?.scrollBy({ left: -250, behavior: 'smooth' })}>← Planets</button>
           <button type="button" className="min-h-12 rounded-xl border border-white/30 px-3 font-bold" aria-label="More planets in strip" onClick={() => stripRef.current?.scrollBy({ left: 250, behavior: 'smooth' })}>More →</button>
         </div>
-        <p className="w-full text-xs text-cyan-100">First mission: choose a world, open its three discoveries, then try the Captain’s challenge. Pluto is a dwarf planet.</p>
+        <p className="w-full text-xs text-cyan-100">Choose a world, then open its discovery facts. Planet details and challenges are optional.</p>
         {saveWarning && <p role="status" className="w-full text-sm text-amber-200">{saveWarning}</p>}
       </section>
       <nav ref={stripRef} className="flex snap-x gap-2 overflow-x-auto border-b border-cyan-200/15 bg-[#061642] px-3 py-3 no-scrollbar" aria-label="Choose a planet">
@@ -750,18 +765,16 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
 
       <main className="grid items-start lg:grid-cols-[minmax(0,1.4fr)_minmax(340px,1fr)]">
         <section className="relative min-w-0 border-b border-cyan-100/10 bg-[#020617] lg:sticky lg:top-0 lg:border-r">
-          <div className="bg-cyan-950 px-4 py-3 text-center"><h3 className="text-xl font-black">{overview?'Our Solar System':`Meet ${selectedPlanet.name} up close`}</h3><p className="text-sm text-cyan-100">Drag to look around · two fingers to turn on touch · swipe up to scroll</p></div>
+          <div className="bg-cyan-950 px-4 py-3 text-center"><h3 className="text-xl font-black">{overview?'Our Solar System':`Meet ${selectedPlanet.name} up close`}</h3><p className="text-sm text-cyan-100">Drag with a mouse · use two fingers to turn · scroll vertically to move the page</p><p className="text-xs text-cyan-100/75">Sizes, distances and motion are simplified.</p></div>
           <SolarOrrery ref={orreryRef} onSelect={selectPlanet} paused={paused} selectedPlanet={selectedPlanet} />
-          <div className="flex flex-wrap justify-center gap-2 bg-slate-900 p-3" role="group" aria-label="Planet inspection controls">
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Rotate planet left" onClick={()=>orreryRef.current?.rotate('y',-0.35)}>← Turn</button>
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Rotate planet right" onClick={()=>orreryRef.current?.rotate('y',0.35)}>Turn →</button>
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Tilt planet up" onClick={()=>orreryRef.current?.rotate('x',0.25)}>↑ Tilt</button>
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Tilt planet down" onClick={()=>orreryRef.current?.rotate('x',-0.25)}>↓ Tilt</button>
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Zoom in on planet" onClick={()=>handleZoom('zoomIn')}>＋ Zoom</button>
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" aria-label="Zoom out from planet" onClick={()=>handleZoom('zoomOut')}>− Zoom</button>
-            <button className="min-h-12 rounded-xl bg-white/10 px-4 font-bold" onClick={()=>{setOverview(false);orreryRef.current?.focusPlanet(selectedPlanet.name);}}>Centre {selectedPlanet.name}</button>
-            <button className="min-h-12 rounded-xl bg-cyan-600 px-4 font-bold" onClick={()=>{setOverview(true);orreryRef.current?.resetView();}}>Show all planets together</button>
-            <p role="status" className="w-full text-center text-sm text-cyan-100">{paused?'Rotation paused. Use Resume rotation above to start again.':'Planets are rotating. Scroll normally over the view; use the arrows or drag to inspect.'}<span className="mt-1 block text-xs">Sizes, distances and motion are simplified for this model.</span></p>
+          <div className="solar-control-dock" role="group" aria-label="Planet view controls">
+            <button type="button" aria-label="Turn left" title="Turn left" onClick={()=>orreryRef.current?.rotate('y',-0.35)}><span aria-hidden="true">↶</span><span>Turn left</span></button>
+            <button type="button" aria-label="Turn right" title="Turn right" onClick={()=>orreryRef.current?.rotate('y',0.35)}><span aria-hidden="true">↷</span><span>Turn right</span></button>
+            <button type="button" aria-label="Tilt up" title="Tilt up" onClick={()=>orreryRef.current?.rotate('x',0.25)}><span aria-hidden="true">↑</span><span>Tilt up</span></button>
+            <button type="button" aria-label="Tilt down" title="Tilt down" onClick={()=>orreryRef.current?.rotate('x',-0.25)}><span aria-hidden="true">↓</span><span>Tilt down</span></button>
+            <button type="button" aria-label="Zoom in" title="Zoom in" onClick={()=>handleZoom('zoomIn')}><span aria-hidden="true">＋</span><span>Zoom in</span></button>
+            <button type="button" aria-label="Zoom out" title="Zoom out" onClick={()=>handleZoom('zoomOut')}><span aria-hidden="true">−</span><span>Zoom out</span></button>
+            <button type="button" className="solar-rotation-control" aria-pressed={!paused} aria-label={paused ? 'Resume rotation' : 'Pause rotation'} onClick={()=>setPaused(v=>!v)}><span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span><span>{paused ? 'Resume' : 'Pause'}</span></button>
           </div>
         </section>
 
@@ -789,11 +802,14 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
           <p className="mt-1 text-right text-[10px] font-black uppercase tracking-wide text-cyan-100/45">{discoveredForPlanet >= 3 ? 'World badge collected — explore more discoveries below' : 'Find 3 discoveries to earn the badge'}</p>
 
           <div className="mt-5 rounded-2xl border border-violet-200/20 bg-gradient-to-br from-violet-300/15 to-cyan-300/5 p-4 shadow-lg">
-            <div className="flex items-center gap-2 text-sm font-black text-violet-200"><Sparkles size={17} /> Current mission</div>
-            <p className="mt-1 font-bold text-white/80">{selectedPlanet.mission}</p>
+            <div className="flex items-center gap-2 text-sm font-black text-violet-200"><Sparkles size={17} /> Your discovery goal</div>
+            <p className="mt-1 font-bold text-white/80">Open each of {selectedPlanet.name}’s three discovery facts.</p>
+            <p className="mt-1 text-sm font-bold text-cyan-100">{discoveredForPlanet} of 3 discoveries found</p>
           </div>
 
-          <div className="mt-4 grid grid-cols-2 gap-2">
+          <details className="solar-optional-details mt-4">
+            <summary>Optional planet details and challenge</summary>
+            <div className="mt-3 grid grid-cols-2 gap-2">
             {selectedPlanet.stats.map((stat) => (
               <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-3">
                 <div className="text-xl">{stat.emoji}</div>
@@ -805,7 +821,37 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
               <div className="text-[10px] font-black uppercase tracking-wide text-orange-200/65">Temperature</div>
               <div className="font-black text-orange-100">{selectedPlanet.temperature}</div>
             </div>
-          </div>
+            </div>
+            <div className="mt-3 rounded-2xl border border-violet-200/20 bg-violet-300/10 p-4">
+              <p className="font-black">About {selectedPlanet.name}</p>
+              <p className="mt-1 font-bold">{selectedPlanet.mission}</p>
+              <p className="mt-2 text-sm">{selectedPlanet.compare}</p>
+            </div>
+            <div className="mt-3 rounded-2xl border border-white/10 bg-white/5 p-4">
+              <div className="flex items-center justify-between gap-3">
+                <h4 className="font-black">Optional Captain’s challenge</h4>
+                <span className="rounded-full bg-cyan-300/15 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-cyan-200">{difficulty}</span>
+              </div>
+              <p className="mt-1 text-sm font-bold text-white/70">{selectedPlanet.quiz.question}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {quizOptions.map((option) => (
+                  <button
+                    key={option}
+                    onClick={() => handleQuiz(option)}
+                    disabled={Boolean(completedQuizzes[selectedPlanet.name])}
+                    className="min-h-12 rounded-xl bg-white/10 px-3 py-2 text-sm font-black text-white/80 transition hover:bg-cyan-300 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:bg-white/10 disabled:hover:text-white/80"
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              {quizFeedback && (
+                <p role="status" className={`mt-3 text-sm font-black ${quizFeedback.startsWith('Correct') ? 'text-emerald-300' : 'text-amber-300'}`}>
+                  {quizFeedback}
+                </p>
+              )}
+            </div>
+          </details>
 
           <div className="mt-5">
             <div className="flex items-center justify-between">
@@ -840,35 +886,6 @@ const SolarSystem = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, sp
               <p className="text-sm font-black text-cyan-200">Did you know?</p>
               <p className="mt-1 font-bold leading-snug text-white/85">{selectedPlanet.facts[activeFact]}</p>
             </div>
-            <div className="mt-2 rounded-2xl border border-emerald-300/15 bg-emerald-300/10 p-3">
-              <p className="text-xs font-black uppercase text-emerald-200/70">Compared with Earth</p>
-              <p className="font-bold text-white/80">{selectedPlanet.compare}</p>
-            </div>
-          </div>
-
-          <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
-            <div className="flex items-center justify-between gap-3">
-              <h4 className="font-black">Captain’s challenge</h4>
-              <span className="rounded-full bg-cyan-300/15 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-cyan-200">{difficulty}</span>
-            </div>
-            <p className="mt-1 text-sm font-bold text-white/70">{selectedPlanet.quiz.question}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {quizOptions.map((option) => (
-                <button
-                  key={option}
-                  onClick={() => handleQuiz(option)}
-                  disabled={Boolean(completedQuizzes[selectedPlanet.name])}
-                  className="min-h-12 rounded-xl bg-white/10 px-3 py-2 text-sm font-black text-white/80 transition hover:bg-cyan-300 hover:text-slate-950 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:bg-white/10 disabled:hover:text-white/80"
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-            {quizFeedback && (
-              <p className={`mt-3 text-sm font-black ${quizFeedback.startsWith('Correct') ? 'text-emerald-300' : 'text-amber-300'}`}>
-                {quizFeedback}
-              </p>
-            )}
           </div>
 
           <div className="mt-5 text-center text-xs font-bold text-white/35">
