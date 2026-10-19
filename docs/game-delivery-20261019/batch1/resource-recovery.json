@@ -18,5 +18,44 @@
   "totalRemovedBytes": 3260209,
   "purpose": "Storage-fault rehearsal passed; preserve canonical backup and semantic reconstruction rather than duplicate base64 corpora.",
   "freeBeforeBytes": 100191887360,
-  "freeAfterBytes": 100195258368
+  "freeAfterBytes": 100195258368,
+  "candidateCommit": "a5425f36",
+  "qaEvidenceRetainedBytes": 6579602,
+  "generatedOriginalsRetained": [
+    {
+      "path": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-9c32aaba-a0a0-4eb6-98d1-fd77cdf04f0f.png",
+      "bytes": 2129881,
+      "sha256": "60915bbc1061f5be06b7f613a37a5c75c97db6d33f68ee6adc2e454478e30bfb"
+    },
+    {
+      "path": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-82ad15e9-cd81-492f-a8fb-713b222489a5.png",
+      "bytes": 971669,
+      "sha256": "7a3e2c0c5aea21f728cb19216db1ccf3c387e96500c11853b06a0eb968b190f9"
+    },
+    {
+      "path": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-deb3d008-d654-4cab-ab66-010f142ebd26.png",
+      "bytes": 1466092,
+      "sha256": "1a8ea52806da1e02cc501889443042f530b869594ffd5d99276c087a8fc34676"
+    },
+    {
+      "path": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-deb24467-8117-4f48-a801-5491ad14e306.png",
+      "bytes": 1396449,
+      "sha256": "c55d2b56fffaf329cd02e06e39291c1c7b5fb99922a2c4cbef02c696b1ae6c46"
+    },
+    {
+      "path": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-21325525-f278-4336-a5b7-6c42ef0990de.png",
+      "bytes": 2181033,
+      "sha256": "ddbc78e6acc60434b802eaecf621d81cbc3181a0b3892cbc1e8f7ad908ee1b18"
+    }
+  ],
+  "generatedOriginalBytes": 8145124,
+  "projectWebPAssetBytes": 135892,
+  "taskViteProcess": {
+    "pid": 42664,
+    "command": "node node_modules/.bin/vite --host127.0.0.1 --port5180",
+    "action": "SIGTERM after QA; exact task-owned command verified before stopping"
+  },
+  "browser": "Existing contained context retained; its sole QA tab parked at about:blank, browser storage preserved",
+  "newWorktrees": 0,
+  "dependencyInstalls": 0
 }
