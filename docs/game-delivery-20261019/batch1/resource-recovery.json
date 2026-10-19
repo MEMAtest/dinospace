@@ -1,0 +1,22 @@
+{
+  "retainedCanonicalBackup": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybook-qa-backup.json",
+  "canonicalSha256": "e0eba987b5a5c59befad64d1dd27142a4fac2318f848322a7d3c281464a19bbb",
+  "removedDerivedFixtures": [
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybook-qa-backup-corrupt-media.json",
+      "bytes": 1619264,
+      "sha256": "1187e6140eb82d68f2821004ec02ea741a4b98df469bc24fbf555201118158cc",
+      "reconstruction": "replace first asset base64 with Z2FyYmFnZQ==; keep MIME"
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybook-qa-backup-missing-asset.json",
+      "bytes": 1640945,
+      "sha256": "436125df3bcad6824f7e7fd9b01fea1a60e3543eb21078013c7b977d45735437",
+      "reconstruction": "remove last asset"
+    }
+  ],
+  "totalRemovedBytes": 3260209,
+  "purpose": "Storage-fault rehearsal passed; preserve canonical backup and semantic reconstruction rather than duplicate base64 corpora.",
+  "freeBeforeBytes": 100191887360,
+  "freeAfterBytes": 100195258368
+}

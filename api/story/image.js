@@ -1,13 +1,13 @@
 /* global Buffer, process */
 
-import { allowRequest, applyCors, clientId, hasStorySession, isAllowedOrigin, parseBody, respondJson, validImageReference } from './_utils.js';
+import { allowRequest, applyCors, clientId, createStoryProviderSignal, hasStorySession, isAllowedOrigin, isStoryProviderCancelled, parseBody, respondJson, validImageReference } from './_utils.js';
 
-const imageWithModel = async (model, provider, prompt, referenceImage, apiKey) => {
+const imageWithModel = async (model, provider, prompt, referenceImage, apiKey, signal) => {
   const payload = { model, prompt, n: 1, resolution: '2K', aspect_ratio: '4:3', provider: { only: [provider], allow_fallbacks: false } };
   if (referenceImage) payload.input_references = [{ type: 'image_url', image_url: { url: referenceImage } }];
   const result = await fetch('https://openrouter.ai/api/v1/images', {
     method: 'POST', headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://dinospace-eight.vercel.app', 'X-Title': 'Amari Discovery Storybook Studio' },
-    body: JSON.stringify(payload), signal: AbortSignal.timeout(120_000),
+    body: JSON.stringify(payload), signal,
   });
   if (!result.ok) {
     // Keep provider details on the server: the child-facing UI receives a
@@ -36,6 +36,7 @@ export default async function handler(request, response) {
   if (!prompt || prompt.length > 8000 || (referenceImage && !validImageReference(referenceImage))) return respondJson(response, 400, { error: 'Image request is invalid' });
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) return respondJson(response, 503, { error: 'Story images are not configured' });
+  const providerRequest = createStoryProviderSignal(request, response, 120_000);
   try {
     const primary = process.env.OPENROUTER_IMAGE_MODEL || 'bytedance-seed/seedream-5-0-lite';
     let image;
@@ -43,8 +44,9 @@ export default async function handler(request, response) {
     // `seed` for the configured Seedream 5 Lite endpoint, while older 4.x
     // models use `bytedance`; choose the documented endpoint tag by model.
     const primaryProvider = /seedream-5/i.test(primary) ? 'seed' : 'bytedance';
-    try { image = await imageWithModel(primary, primaryProvider, prompt, referenceImage, apiKey); } catch {
-      image = await imageWithModel(process.env.OPENROUTER_IMAGE_FALLBACK_MODEL || 'qwen/qwen-image-3', 'alibaba', prompt, referenceImage, apiKey);
+    try { image = await imageWithModel(primary, primaryProvider, prompt, referenceImage, apiKey, providerRequest.signal); } catch (error) {
+      if (isStoryProviderCancelled(error, providerRequest.signal)) throw error;
+      image = await imageWithModel(process.env.OPENROUTER_IMAGE_FALLBACK_MODEL || 'qwen/qwen-image-3', 'alibaba', prompt, referenceImage, apiKey, providerRequest.signal);
     }
     response.setHeader('Cache-Control', 'private, no-store');
     response.setHeader('Content-Type', image.mediaType);
@@ -52,5 +54,8 @@ export default async function handler(request, response) {
     response.setHeader('X-Amari-Image-Provider', 'openrouter');
     response.setHeader('X-Amari-Image-Model', image.model);
     return response.status(200).send(image.bytes);
-  } catch { return respondJson(response, 502, { error: 'Illustration could not be created. Please retry this page.' }); }
+  } catch (error) {
+    if (providerRequest.clientDisconnected()) return;
+    return respondJson(response, 502, { error: isStoryProviderCancelled(error, providerRequest.signal) ? 'Illustration request timed out. Please retry this page.' : 'Illustration could not be created. Please retry this page.' });
+  } finally { providerRequest.cleanup(); }
 }

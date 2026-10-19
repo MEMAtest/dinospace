@@ -1,0 +1,138 @@
+{
+  "rows": [
+    {
+      "game": "storybooks",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "game": "storybooks",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "game": "words",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "game": "words",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "game": "memory",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "game": "memory",
+      "width": 1440,
+      "scrollWidth": 1440
+    },
+    {
+      "game": "trace",
+      "width": 390,
+      "scrollWidth": 390
+    },
+    {
+      "game": "trace",
+      "width": 1440,
+      "scrollWidth": 1440
+    }
+  ],
+  "pageErrors": [],
+  "captures": [
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybooks-final-390.webp",
+      "dimensions": [
+        390,
+        6182
+      ],
+      "bytes": 309942,
+      "sha256": "d1e350d6fdcc491205360f98ec5f4617dfefd249c428cd1d40278e9ae3519ad4",
+      "sourcePngSha256": "9b5682ce725d3fe29b79ab3c2f6203d4e7cc7a869924b99ed0289901ee7f10f2",
+      "removedPngBytes": 2095044,
+      "previousCaptureRetainedAt": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybooks-before-parent-controls-390.webp"
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybooks-final-1440.webp",
+      "dimensions": [
+        1440,
+        2705
+      ],
+      "bytes": 427238,
+      "sha256": "206a1e5225bfe8162596a15b398080b5a326b8f93555583c540291dcbf7f115a",
+      "sourcePngSha256": "6e6bfc3e5b01d75a9fb63a8e7fa555dd6d4ea725a165bd2010f70b2fffad232d",
+      "removedPngBytes": 3288864,
+      "previousCaptureRetainedAt": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybooks-before-parent-controls-1440.webp"
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/words-final-390.webp",
+      "dimensions": [
+        390,
+        1114
+      ],
+      "bytes": 46036,
+      "sha256": "c2a33ce78586940f515bb043bdd3be3ee95f7d478e5ee401f7f724316096fff7",
+      "sourcePngSha256": "5dc7013eb3711c42ba6b05d7c40d734bbd5396c9a128a4e513211a5fd6e2164c",
+      "removedPngBytes": 305502
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/words-final-1440.webp",
+      "dimensions": [
+        1440,
+        1124
+      ],
+      "bytes": 98284,
+      "sha256": "bbf390af68d56d52f6e4231c95067fe0107e7a19a4630ccdd1e920247848be4a",
+      "sourcePngSha256": "9a0089797c8752511930b8e1cb4b0c3dda7c0ea649ba80eabfc7e4ea83a5de2b",
+      "removedPngBytes": 1110031
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/memory-focus-390.png",
+      "dimensions": [
+        390,
+        844
+      ],
+      "bytes": 218170,
+      "sha256": "ecc2cf2e7b1055ed75f166d85cd3576cd41d40e074276e3970b25b39d3d5a8e6",
+      "previousCaptureRetainedAt": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/memory-before-focus-390.webp",
+      "view": "optional focus mode"
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/memory-focus-1440.png",
+      "dimensions": [
+        1440,
+        844
+      ],
+      "bytes": 438921,
+      "sha256": "32d3afbdac6d61a3fcc8bf38fb2bf516d97071a55a4c6778fb0e7998d67a6b3c",
+      "previousCaptureRetainedAt": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/memory-before-focus-1440.webp",
+      "view": "optional focus mode"
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/trace-final-390.webp",
+      "dimensions": [
+        390,
+        1270
+      ],
+      "bytes": 38544,
+      "sha256": "2f8221325c2f7ab7db128c24882e88eaaeb4ca05557ad276f99b3aec86daa647",
+      "sourcePngSha256": "7995f6982167fd63e2c44a9ab36f9f6b79408e5572d8c79efceef647015ee749",
+      "removedPngBytes": 152265
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/trace-final-1440.webp",
+      "dimensions": [
+        1440,
+        984
+      ],
+      "bytes": 55666,
+      "sha256": "863bd14e97175aa233ec77a177d824d6630c4fc467f204f88ee2c030802de91f",
+      "sourcePngSha256": "a66377361c7780d08fd0fb790021fc1fd574e005ca92ea2c77379a4a202a360d",
+      "removedPngBytes": 312084
+    }
+  ],
+  "encoding": "Same dimensions, WebP quality85; larger intermediate PNGs removed after verifying decode and dimensions."
+}

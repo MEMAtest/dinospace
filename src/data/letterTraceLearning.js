@@ -103,6 +103,85 @@ export const findForwardGuidePoint = (points, point, cursor = -1, maxBacktrack =
   return nearest;
 };
 
+export const interpolateGuidePoint = (points, cursor = 0) => {
+  if (!Array.isArray(points) || points.length === 0) return null;
+  const last = points.length - 1;
+  const position = Math.max(0, Math.min(last, Number.isFinite(cursor) ? cursor : 0));
+  const index = Math.floor(position);
+  const next = Math.min(last, index + 1);
+  const fraction = position - index;
+  return {
+    x: points[index].x + (points[next].x - points[index].x) * fraction,
+    y: points[index].y + (points[next].y - points[index].y) * fraction,
+  };
+};
+
+// Score every short step along a pointer segment so a fast pointer event can
+// cross a straight guide fairly without letting a long chord skip a curve.
+export const advanceTraceSegment = (points, from, to, cursor = 0, tolerance = 30, { sampleSpacing = 6, maxAdvance = 3 } = {}) => {
+  if (!Array.isArray(points) || !points.length || !from || !to) return { accepted: false, cursor, distance: Infinity };
+  let progress = Math.max(0, Math.min(points.length - 1, cursor));
+  const length = Math.hypot(to.x - from.x, to.y - from.y);
+  const samples = Math.max(1, Math.ceil(length / Math.max(1, sampleSpacing)));
+  const lastIndex = points.length - 1;
+  const projectForward = (point, coordinate) => {
+    let nearest = { coordinate, distance: Infinity };
+    const firstSegment = Math.max(0, Math.floor(coordinate - 1));
+    const lastSegment = Math.min(lastIndex - 1, Math.ceil(coordinate + maxAdvance));
+    for (let index = firstSegment; index <= lastSegment; index += 1) {
+      const start = points[index];
+      const finish = points[index + 1];
+      const dx = finish.x - start.x;
+      const dy = finish.y - start.y;
+      const lengthSquared = dx * dx + dy * dy;
+      const raw = lengthSquared ? ((point.x - start.x) * dx + (point.y - start.y) * dy) / lengthSquared : 0;
+      const low = Math.max(0, coordinate - 1 - index);
+      const high = Math.min(1, coordinate + maxAdvance - index);
+      if (low > high) continue;
+      const ratio = Math.max(low, Math.min(high, raw));
+      const x = start.x + ratio * dx;
+      const y = start.y + ratio * dy;
+      const distance = Math.hypot(point.x - x, point.y - y);
+      if (distance < nearest.distance) nearest = { coordinate: index + ratio, distance };
+    }
+    if (coordinate >= lastIndex) {
+      const finish = points[lastIndex];
+      const distance = Math.hypot(point.x - finish.x, point.y - finish.y);
+      if (distance < nearest.distance) nearest = { coordinate: lastIndex, distance };
+    }
+    return nearest;
+  };
+  let furthestDistance = projectForward(from, progress).distance;
+  let accepted = true;
+  for (let step = 1; step <= samples; step += 1) {
+    const ratio = step / samples;
+    const point = { x: from.x + (to.x - from.x) * ratio, y: from.y + (to.y - from.y) * ratio };
+    const nearest = projectForward(point, progress);
+    furthestDistance = nearest.distance;
+    if (nearest.distance > tolerance) { accepted = false; break; }
+    if (nearest.coordinate + 0.025 < progress) { accepted = false; break; }
+    progress = Math.max(progress, nearest.coordinate);
+  }
+  // Browser pointer coordinates are fractional CSS pixels, while the final
+  // guide vertex can land between those pixels. Accept a tiny endpoint
+  // rounding gap only after the ordered trace has reached the last segment.
+  // This cannot shortcut a closed curve: its final segment is considered only
+  // when the cursor has already advanced to that segment.
+  const finish = points[lastIndex];
+  const endpointDistance = Math.hypot(to.x - finish.x, to.y - finish.y);
+  if (accepted
+    && progress >= lastIndex - 0.15
+    && endpointDistance <= Math.min(8, tolerance / 3)) {
+    progress = lastIndex;
+    furthestDistance = Math.min(furthestDistance, endpointDistance);
+  }
+  return { accepted, cursor: progress, distance: furthestDistance, samples };
+};
+
+export const isTraceDotStroke = (stroke, epsilon = 4) => (
+  Array.isArray(stroke) && stroke.length > 0 && stroke.every((point) => Math.hypot(point.x - stroke[0].x, point.y - stroke[0].y) < epsilon)
+);
+
 export const resetUnfinishedTraceStroke = (state) => {
   if (!state || !Number.isInteger(state.completed) || state.completed < 0) return state;
   const cursors = Array.isArray(state.cursors) ? [...state.cursors] : [];

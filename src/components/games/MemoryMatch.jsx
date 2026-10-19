@@ -99,7 +99,7 @@ import oceanFishArt from '../../assets/memory-match/ocean-fish-v1-card.webp';
 import pondFishArt from '../../assets/memory-match/pond-fish-v1-card.webp';
 import memoryCoachArt from '../../assets/little/askia-detective.webp';
 import './memoryMatch.css';
-import { buildSeededMemoryDeck, memoryStrategy, readMemoryPassport, completeMemoryBoard } from '../../data/memoryMatchProgress.js';
+import { buildSeededMemoryDeck, memoryStrategy, readMemoryPassport, completeMemoryBoard, readMemoryResume, saveMemoryResume, completeMemoryProgress } from '../../data/memoryMatchProgress.js';
 const createMemorySeed = () => {
   const value = new Uint32Array(1);
   if (globalThis.crypto?.getRandomValues) globalThis.crypto.getRandomValues(value);
@@ -231,7 +231,14 @@ const spokenCardName = (emoji, levelId) => cardName(emoji, levelId);
 const speakMemory = (speak, text) => speak(text, { premium: false });
 const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNarration, onCelebrate, onGameEvent, playerId, littleMode = false, onPhaseChange }) => {
   const levels = littleMode ? ASKIA_MEMORY_LEVELS : MEMORY_LEVELS;
-  const [levelIndex, setLevelIndex] = useState(() => getGameLevel(playerId, 'memory', levels.length).current);
+  const [levelIndex, setLevelIndex] = useState(() => {
+    const progress = getGameLevel(playerId, 'memory', levels.length);
+    return littleMode ? progress.current : readMemoryResume(playerId, levels.length, progress.unlocked);
+  });
+  const [resumeIndex, setResumeIndex] = useState(() => {
+    const progress = getGameLevel(playerId, 'memory', levels.length);
+    return littleMode ? progress.current : readMemoryResume(playerId, levels.length, progress.unlocked);
+  });
   const difficulty = littleMode ? 'starter' : ['starter', 'growing', 'challenge'][Math.min(levelIndex, 2)];
   const level = levels[levelIndex];
   const [runSeed, setRunSeed] = useState(createMemorySeed);
@@ -240,7 +247,9 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
   const [moves, setMoves] = useState(0);
   const [locked, setLocked] = useState(false);
   const [showLevelComplete, setShowLevelComplete] = useState(false);
+  const [focusMode, setFocusMode] = useState(false);
   const [completionMessage, setCompletionMessage] = useState('');
+  const [feedback, setFeedback] = useState('');
   const [timer, setTimer] = useState(0);
   const [bestTimes, setBestTimes] = useState(() => loadSaved(`${playerId}_memory_best`, {}));
   const [runId, setRunId] = useState(0);
@@ -290,6 +299,8 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
 
   const finishLevel = (finalMatches, finalMoves) => {
     clearInterval(timerRef.current);
+    setFeedback('');
+    const completionWarnings = [];
     const praise = getPraise();
     if (littleMode) speak('You matched them all. Fantastic memory!');
     else speakMemory(speak, 'You matched them all. Fantastic memory!');
@@ -297,14 +308,22 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
     setCompletionMessage(praise);
     setShowLevelComplete(true);
     completedRef.current = true;
-    const nextIndex = Math.min(levelIndex + 1, levels.length - 1);
     const saved = getGameLevel(playerId, 'memory', levels.length);
-    saveGameLevel(playerId, 'memory', nextIndex, Math.max(saved.unlocked, nextIndex));
+    const nextIndex = Math.min(levelIndex + 1, levels.length - 1);
+    if (littleMode) {
+      saveGameLevel(playerId, 'memory', nextIndex, Math.max(saved.unlocked, nextIndex));
+      setResumeIndex(nextIndex);
+    } else {
+      const progress = completeMemoryProgress(playerId, levels.length, levelIndex, resumeIndex);
+      setResumeIndex(progress.resumeIndex);
+      if (!progress.persisted) completionWarnings.push('Progress could not be saved on this device.');
+    }
     if (littleMode) onCelebrate(praise, 6, 300);
     else {
       const completed = completeMemoryBoard(playerId, levels, level.id, finalMoves);
       setPassport(completed.passport);
-      setSaveWarning(completed.persisted ? '' : 'This board is complete, but could not be saved on this device.');
+      if (!completed.persisted) completionWarnings.push('The board sticker could not be saved on this device.');
+      setSaveWarning(completionWarnings.join(' '));
       if (completed.awardedStars > 0) onCelebrate(praise, completed.awardedStars * 4, 300);
     }
     // Near-perfect recall: perfect-memory play averages ~1.6 moves per pair, so allow up to 2 per pair.
@@ -334,6 +353,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
   const handleFlip = (index) => {
     if (locked) return;
     if (deck[index].flipped || deck[index].matched || flipped.includes(index)) return;
+    setFeedback('');
     const nextFlipped = [...flipped, index];
     setDeck((prev) => prev.map((card, cardIndex) => (cardIndex === index ? { ...card, flipped: true } : card)));
     playSfx('flip');
@@ -356,6 +376,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
       setFlipped([]);
       setLocked(false);
       playSfx('sparkle');
+      setFeedback(littleMode ? 'You found a pair. Keep looking for the next match.' : `You matched the ${spokenCardName(deck[first].emoji, level.id)} pair.`);
       recordGameDiagnostic('memory', 'answer', { ...diagnosticsRef.current, correct: true, hints: hintCountRef.current });
       if (littleMode) speak('Find the matching pairs.');
       else speakMemory(speak, `You matched the ${spokenCardName(deck[first].emoji, level.id)} pair.`);
@@ -363,6 +384,9 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
       if (matches + 1 === level.emojis.length) finishLevel(matches + 1, moves + 1);
     } else {
       recordGameDiagnostic('memory', 'answer', { ...diagnosticsRef.current, correct: false, hints: hintCountRef.current });
+      setFeedback('Those pictures are different. Try to remember where each one is.');
+      if (littleMode) speak('Those pictures are different. Try to remember where each one is.');
+      else speakMemory(speak, 'Those pictures are different. Try to remember where each one is.');
       mismatchRef.current = setTimeout(() => {
         setDeck((prev) =>
           prev.map((card, cardIndex) =>
@@ -372,9 +396,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
         setFlipped([]);
         setLocked(false);
         playSfx('oops');
-        if (littleMode) speak('Those pictures are different. Try to remember where each one is.');
-        else speakMemory(speak, 'Those pictures are different. Try to remember where each one is.');
-      }, littleMode ? 1500 : 700);
+      }, 1500);
     }
   };
 
@@ -389,7 +411,8 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
     setLevelIndex(nextIndex);
     setStrategy(memoryStrategy(nextIndex, (sessionBaseline[nextLevel.id]?.bestMoves || Infinity) <= nextLevel.emojis.length * 2));
     const saved = getGameLevel(playerId, 'memory', levels.length);
-    saveGameLevel(playerId, 'memory', nextIndex, saved.unlocked);
+    if (littleMode) saveGameLevel(playerId, 'memory', nextIndex, saved.unlocked);
+    else saveMemoryResume(playerId, resumeIndex);
     setRunSeed(nextSeed);
     setDeck(buildSeededMemoryDeck(nextLevel, nextSeed));
     setFlipped([]);
@@ -476,7 +499,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
           <div className="memory-little-grid" style={{ '--memory-columns': level.columns }}>
             {deck.map(renderCard)}
           </div>
-          <p className="memory-little-tip">Tap two cards to find a match.</p>
+            <p className="memory-little-tip" role="status">{feedback || 'Tap two cards to find a match.'}</p>
         </div>
 
         {showLevelComplete && (
@@ -492,7 +515,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
   );
 
   return (
-    <div className="memory-match-app" data-theme={level.scene || level.id}>
+    <div className="memory-match-app" data-theme={level.scene || level.id} data-focus-mode={focusMode ? 'true' : undefined}>
       <div className="memory-atmosphere" aria-hidden="true" />
       <header className="memory-topbar">
         <button
@@ -511,19 +534,35 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
       </header>
 
       <main className="memory-main">
+        <div className="memory-mobile-tools">
+          <button
+            type="button"
+            className="memory-focus-toggle"
+            aria-pressed={focusMode}
+            aria-controls="memory-play-area"
+            onClick={() => setFocusMode(value => !value)}
+          >
+            {focusMode ? 'Show game tools' : 'Focus on cards'}
+          </button>
+        </div>
         <section className="memory-coach" aria-label="Memory strategy">
           <div className="memory-coach-avatar"><img src={memoryCoachArt} alt="" /></div>
           <div className="memory-coach-copy">
             <span className="memory-coach-kicker"><Sparkles size={15} aria-hidden="true" /> YOUR MEMORY TIP</span>
             <p role="status">{strategy}</p>
+            {!littleMode && levelIndex === 0 && <p className="memory-transition-note">The next board doubles from 4 pairs to 8. Scan one row at a time.</p>}
+            {!littleMode && levelIndex === 1 && <p className="memory-transition-note">This board has twice as many pairs as the first: 8. Take your time and scan one row at a time.</p>}
           </div>
           <button type="button" onClick={() => { hintCountRef.current += 1; recordGameDiagnostic('memory', 'hint', { ...diagnosticsRef.current, hintType: 'instructions', hints: hintCountRef.current }); speakMemory(speak, strategy); }} className="memory-repeat-button" aria-label="Repeat the memory tip"><Volume2 size={21} aria-hidden="true" /></button>
         </section>
 
-        <section className="memory-play-area" aria-label={`${level.name} memory board`}>
+        <section id="memory-play-area" className="memory-play-area" aria-label={`${level.name} memory board`}>
           <div className="memory-play-heading">
-            <div className="memory-level-nav" aria-label="Memory levels">
-              {levels.map((entry, index) => <button type="button" key={entry.id} disabled={index > getGameLevel(playerId, 'memory', levels.length).unlocked} onClick={() => startLevel(index)} aria-label={`Level ${index + 1}: ${entry.name}`} aria-current={index === levelIndex ? 'step' : undefined} className="memory-level-step">{index + 1}</button>)}
+            <div className="memory-level-picker">
+              <p className="memory-level-picker-hint" id="memory-level-picker-hint">{levelIndex < resumeIndex ? `Replay Level ${levelIndex + 1}. Progress remains at Level ${resumeIndex + 1}; select that number to continue.` : resumeIndex === 0 ? 'Complete a board to unlock the next level.' : `Resume point: Level ${resumeIndex + 1}. Choose an earlier number to replay.`}</p>
+              <nav className="memory-level-nav" aria-label="Choose a level or replay an earlier one" aria-describedby="memory-level-picker-hint">
+              {levels.map((entry, index) => <button type="button" key={entry.id} disabled={index > Math.max(getGameLevel(playerId, 'memory', levels.length).unlocked, resumeIndex)} onClick={() => startLevel(index)} aria-label={`Level ${index + 1}: ${entry.name}`} aria-current={index === levelIndex ? 'step' : undefined} className="memory-level-step">{index + 1}</button>)}
+              </nav>
             </div>
             <div className="memory-stats" aria-label="Round statistics">
               <span><strong>{matches}</strong><small>PAIRS</small></span>
@@ -533,6 +572,7 @@ const MemoryMatch = ({ onBack, playSfx, soundOn, onToggleSound, speak, cancelNar
             </div>
           </div>
 
+          {feedback && <p className="memory-feedback" role="status">{feedback}</p>}
           <div className="memory-board" data-pairs={level.emojis.length} style={{ '--memory-columns': level.columns }}>
             {deck.map(renderCard)}
           </div>

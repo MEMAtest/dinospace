@@ -1,0 +1,3596 @@
+{
+  "origin": "http://127.0.0.1:5180",
+  "launch": [
+    "Amari",
+    "Read & Write",
+    "Grown-ups gate",
+    "Learning settings"
+  ],
+  "normalSyntheticUiProfile": {
+    "activePhase": 2,
+    "selectedSounds": [
+      "a",
+      "b",
+      "c",
+      "ck",
+      "d",
+      "e",
+      "f",
+      "ff",
+      "g",
+      "h",
+      "i",
+      "k",
+      "l",
+      "ll",
+      "m",
+      "n",
+      "o",
+      "p",
+      "r",
+      "s",
+      "ss",
+      "t",
+      "u"
+    ]
+  },
+  "profileChanges": [
+    {
+      "point": "normal synthetic UI defaults",
+      "activePhase": 2,
+      "selectedSounds": [
+        "a",
+        "b",
+        "c",
+        "ck",
+        "d",
+        "e",
+        "f",
+        "ff",
+        "g",
+        "h",
+        "i",
+        "k",
+        "l",
+        "ll",
+        "m",
+        "n",
+        "o",
+        "p",
+        "r",
+        "s",
+        "ss",
+        "t",
+        "u"
+      ]
+    },
+    {
+      "point": "Phase 3 saved through Grown-up settings",
+      "activePhase": 3,
+      "selectedSounds": [
+        "a",
+        "ai",
+        "air",
+        "ar",
+        "b",
+        "c",
+        "ch",
+        "ck",
+        "d",
+        "e",
+        "ear",
+        "ee",
+        "er",
+        "f",
+        "ff",
+        "g",
+        "h",
+        "i",
+        "igh",
+        "j",
+        "k",
+        "l",
+        "ll",
+        "m",
+        "n",
+        "ng",
+        "nk",
+        "o",
+        "oa",
+        "oi",
+        "oo",
+        "or",
+        "ow",
+        "p",
+        "qu",
+        "r",
+        "s",
+        "sh",
+        "ss",
+        "t",
+        "th",
+        "u",
+        "ur",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "zz"
+      ]
+    },
+    {
+      "point": "Phase 3 multi-letter grapheme built from visible tiles",
+      "word": "CHIN",
+      "graphemes": [
+        "ch",
+        "i",
+        "n"
+      ],
+      "feedback": "Well done! You built chin from ch \u00b7 i \u00b7 n. Your chin is the part below your mouth."
+    },
+    {
+      "point": "Phase 3 multi-letter grapheme built from visible tiles",
+      "word": "COAT",
+      "graphemes": [
+        "c",
+        "oa",
+        "t"
+      ],
+      "feedback": "Super! You built coat from c \u00b7 oa \u00b7 t. Wear a coat to keep warm outside."
+    },
+    {
+      "point": "Phase 3 multi-letter grapheme built from visible tiles",
+      "word": "FOOD",
+      "graphemes": [
+        "f",
+        "oo",
+        "d"
+      ],
+      "feedback": "Well done! You built food from f \u00b7 oo \u00b7 d. Food is what people and animals eat."
+    },
+    {
+      "point": "Phase 3 repeated letters represented by a single sound tile",
+      "word": "FOOD",
+      "graphemes": [
+        "f",
+        "oo",
+        "d"
+      ],
+      "feedback": "Well done! You built food from f \u00b7 oo \u00b7 d. Food is what people and animals eat."
+    },
+    {
+      "point": "Phase 3 multi-letter grapheme built from visible tiles",
+      "word": "PAIN",
+      "graphemes": [
+        "p",
+        "ai",
+        "n"
+      ],
+      "feedback": "Super! You built pain from p \u00b7 ai \u00b7 n. Pain is an uncomfortable feeling in your body."
+    },
+    {
+      "point": "Phase 3 multi-letter grapheme built from visible tiles",
+      "word": "RAIN",
+      "graphemes": [
+        "r",
+        "ai",
+        "n"
+      ],
+      "feedback": "Super! You built rain from r \u00b7 ai \u00b7 n. Rain is water that falls from clouds."
+    },
+    {
+      "point": "Phase 3 multi-letter grapheme built from visible tiles",
+      "word": "THIN",
+      "graphemes": [
+        "th",
+        "i",
+        "n"
+      ],
+      "feedback": "Super! You built thin from th \u00b7 i \u00b7 n. Thin means not very wide."
+    },
+    {
+      "point": "Phase 3 multi-letter grapheme built from visible tiles",
+      "word": "LOOK",
+      "graphemes": [
+        "l",
+        "oo",
+        "k"
+      ],
+      "feedback": "Great job! You built look from l \u00b7 oo \u00b7 k. Look means use your eyes to see."
+    },
+    {
+      "point": "Phase 3 repeated letters represented by a single sound tile",
+      "word": "LOOK",
+      "graphemes": [
+        "l",
+        "oo",
+        "k"
+      ],
+      "feedback": "Great job! You built look from l \u00b7 oo \u00b7 k. Look means use your eyes to see."
+    },
+    {
+      "point": "Phase 2 restricted through UI",
+      "activePhase": 2,
+      "selectedSounds": [
+        "a",
+        "s"
+      ]
+    },
+    {
+      "point": "original Phase 2 settings restored through UI",
+      "activePhase": 2,
+      "selectedSounds": [
+        "a",
+        "b",
+        "c",
+        "ck",
+        "d",
+        "e",
+        "f",
+        "ff",
+        "g",
+        "h",
+        "i",
+        "k",
+        "l",
+        "ll",
+        "m",
+        "n",
+        "o",
+        "p",
+        "r",
+        "s",
+        "ss",
+        "t",
+        "u"
+      ]
+    }
+  ],
+  "spellingRestartsByBand": [
+    [
+      {
+        "level": 1,
+        "band": "starter",
+        "restart": 1,
+        "seed": 3190043546,
+        "target": 5,
+        "sampledWords": [
+          "LOG",
+          "KID",
+          "COAT",
+          "CHAT",
+          "MOON"
+        ],
+        "observedNoRepeat": true,
+        "firstWord": "LOG",
+        "eligibleFixtureCount": 46
+      },
+      {
+        "level": 1,
+        "band": "starter",
+        "restart": 2,
+        "seed": 1421060933,
+        "target": 5,
+        "sampledWords": [
+          "TAIL",
+          "RED",
+          "FOOD",
+          "RAIN",
+          "GOAT"
+        ],
+        "observedNoRepeat": true,
+        "firstWord": "TAIL",
+        "eligibleFixtureCount": 46
+      },
+      {
+        "level": 1,
+        "band": "starter",
+        "restart": 3,
+        "seed": 2410036959,
+        "target": 5,
+        "sampledWords": [
+          "SAT",
+          "TAP",
+          "PAN",
+          "CHIN",
+          "SEEN"
+        ],
+        "observedNoRepeat": true,
+        "firstWord": "SAT",
+        "eligibleFixtureCount": 46
+      }
+    ],
+    [
+      {
+        "level": 2,
+        "band": "growing",
+        "restart": 1,
+        "seed": 3187524672,
+        "target": 6,
+        "sampledWords": [
+          "CAT",
+          "PAIN",
+          "LOOK",
+          "PIN",
+          "COAT",
+          "THIN"
+        ],
+        "observedNoRepeat": true,
+        "firstWord": "CAT",
+        "eligibleFixtureCount": 46
+      },
+      {
+        "level": 2,
+        "band": "growing",
+        "restart": 2,
+        "seed": 3842003244,
+        "target": 6,
+        "sampledWords": [
+          "MAP",
+          "PAT",
+          "TAG",
+          "HEN",
+          "MOON",
+          "LOG"
+        ],
+        "observedNoRepeat": true,
+        "firstWord": "MAP",
+        "eligibleFixtureCount": 46
+      },
+      {
+        "level": 2,
+        "band": "growing",
+        "restart": 3,
+        "seed": 412386977,
+        "target": 6,
+        "sampledWords": [
+          "DOG",
+          "CAT",
+          "PAN",
+          "RAG",
+          "BOAT",
+          "FEET"
+        ],
+        "observedNoRepeat": true,
+        "firstWord": "DOG",
+        "eligibleFixtureCount": 46
+      }
+    ],
+    [
+      {
+        "level": 3,
+        "band": "challenge",
+        "restart": 1,
+        "seed": 984221962,
+        "target": 7,
+        "sampledWords": [
+          "TIN",
+          "CHIN",
+          "SAT",
+          "COAT",
+          "KID",
+          "MAN",
+          "MAP"
+        ],
+        "observedNoRepeat": true,
+        "firstWord": "TIN",
+        "eligibleFixtureCount": 46
+      },
+      {
+        "level": 3,
+        "band": "challenge",
+        "restart": 2,
+        "seed": 1691451481,
+        "target": 7,
+        "sampledWords": [
+          "MAD",
+          "PIN",
+          "FOOD",
+          "PAIN",
+          "HEN",
+          "RAIN",
+          "RED"
+        ],
+        "observedNoRepeat": true,
+        "firstWord": "MAD",
+        "eligibleFixtureCount": 46
+      },
+      {
+        "level": 3,
+        "band": "challenge",
+        "restart": 3,
+        "seed": 1889851064,
+        "target": 7,
+        "sampledWords": [
+          "THIN",
+          "MAN",
+          "LOG",
+          "NAP",
+          "TAP",
+          "PAN",
+          "LOOK"
+        ],
+        "observedNoRepeat": true,
+        "firstWord": "THIN",
+        "eligibleFixtureCount": 46
+      }
+    ]
+  ],
+  "seedDiagnosticsReadOnly": {
+    "newWordEvents": [
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:28:40.563Z",
+        "level": 0,
+        "round": 2,
+        "seed": 1421060933,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:28:42.340Z",
+        "level": 0,
+        "round": 2,
+        "seed": 1421060933,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:28:42.342Z",
+        "level": 0,
+        "round": 2,
+        "seed": 1421060933,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:28:42.344Z",
+        "hints": 0,
+        "difficulty": "starter",
+        "correct": true,
+        "firstAttempt": true,
+        "independent": true
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:28:43.455Z",
+        "level": 0,
+        "round": 3,
+        "seed": 1421060933,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:28:43.455Z",
+        "level": 0,
+        "round": 3,
+        "seed": 1421060933,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:28:45.126Z",
+        "level": 0,
+        "round": 3,
+        "seed": 1421060933,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:28:45.129Z",
+        "level": 0,
+        "round": 3,
+        "seed": 1421060933,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:28:45.132Z",
+        "hints": 0,
+        "difficulty": "starter",
+        "correct": true,
+        "firstAttempt": true,
+        "independent": true
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:28:45.964Z",
+        "level": 0,
+        "round": 4,
+        "seed": 1421060933,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:28:45.964Z",
+        "level": 0,
+        "round": 4,
+        "seed": 1421060933,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:28:48.111Z",
+        "level": 0,
+        "round": 4,
+        "seed": 1421060933,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:28:48.112Z",
+        "level": 0,
+        "round": 4,
+        "seed": 1421060933,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:28:48.114Z",
+        "hints": 0,
+        "difficulty": "starter",
+        "correct": true,
+        "firstAttempt": true,
+        "independent": true
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:28:48.779Z",
+        "level": 0,
+        "round": 5,
+        "seed": 1421060933,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:28:48.779Z",
+        "level": 0,
+        "round": 5,
+        "seed": 1421060933,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:28:50.970Z",
+        "level": 0,
+        "round": 5,
+        "seed": 1421060933,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:28:50.972Z",
+        "level": 0,
+        "round": 5,
+        "seed": 1421060933,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:28:50.974Z",
+        "hints": 0,
+        "difficulty": "starter",
+        "correct": true,
+        "firstAttempt": true,
+        "independent": true
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:28:52.573Z",
+        "level": 0
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:28:53.425Z",
+        "level": 0,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:28:53.429Z",
+        "level": 0,
+        "round": 1,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:28:53.429Z",
+        "level": 0,
+        "round": 1,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:28:53.430Z",
+        "level": 0,
+        "round": 1,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:28:54.732Z",
+        "level": 0,
+        "round": 1,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:28:54.735Z",
+        "level": 0,
+        "round": 1,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:28:54.736Z",
+        "hints": 0,
+        "difficulty": "starter",
+        "correct": true,
+        "firstAttempt": true,
+        "independent": true
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:28:56.127Z",
+        "level": 0,
+        "round": 2,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:28:56.127Z",
+        "level": 0,
+        "round": 2,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:28:58.143Z",
+        "level": 0,
+        "round": 2,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:28:58.145Z",
+        "level": 0,
+        "round": 2,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:28:58.147Z",
+        "hints": 0,
+        "difficulty": "starter",
+        "correct": true,
+        "firstAttempt": true,
+        "independent": true
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:28:58.913Z",
+        "level": 0,
+        "round": 3,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:28:58.913Z",
+        "level": 0,
+        "round": 3,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:00.987Z",
+        "level": 0,
+        "round": 3,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:00.989Z",
+        "level": 0,
+        "round": 3,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:00.991Z",
+        "hints": 0,
+        "difficulty": "starter",
+        "correct": true,
+        "firstAttempt": true,
+        "independent": true
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:01.646Z",
+        "level": 0,
+        "round": 4,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:01.647Z",
+        "level": 0,
+        "round": 4,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:03.043Z",
+        "level": 0,
+        "round": 4,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:03.046Z",
+        "level": 0,
+        "round": 4,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:03.047Z",
+        "hints": 0,
+        "difficulty": "starter",
+        "correct": true,
+        "firstAttempt": true,
+        "independent": true
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:03.812Z",
+        "level": 0,
+        "round": 5,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:03.812Z",
+        "level": 0,
+        "round": 5,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:06.227Z",
+        "level": 0,
+        "round": 5,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:06.229Z",
+        "level": 0,
+        "round": 5,
+        "seed": 2410036959,
+        "difficulty": "copy",
+        "correct": true,
+        "firstAttempt": true
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:06.230Z",
+        "hints": 0,
+        "difficulty": "starter",
+        "correct": true,
+        "firstAttempt": true,
+        "independent": true
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:06.928Z",
+        "level": 0
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:07.443Z",
+        "level": 1,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:07.447Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:07.447Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:07.447Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:07.475Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:07.508Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:07.510Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:07.512Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:08.141Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:08.141Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:08.645Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:08.908Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:08.910Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:08.912Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:09.203Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:09.204Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:09.838Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:10.404Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:10.406Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:10.408Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:10.769Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:10.769Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:11.094Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:11.292Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:11.294Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:11.296Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:11.861Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:11.861Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:12.374Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:12.670Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:12.672Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:12.673Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:12.912Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:12.912Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:13.261Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:13.395Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:13.397Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3187524672,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:13.399Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:14.150Z",
+        "level": 1
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:14.645Z",
+        "level": 1,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:14.649Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:14.649Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:14.649Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:14.675Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:14.708Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:14.710Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:14.712Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:14.944Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:14.944Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:15.479Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:15.750Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:15.751Z",
+        "level": 1,
+        "round": 2,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:15.753Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:15.942Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:15.943Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:16.233Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:16.429Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:16.431Z",
+        "level": 1,
+        "round": 3,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:16.432Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:16.676Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:16.676Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:16.858Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:17.109Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:17.110Z",
+        "level": 1,
+        "round": 4,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:17.112Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:17.383Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:17.383Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:17.603Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:17.794Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:17.796Z",
+        "level": 1,
+        "round": 5,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:17.798Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:18.062Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:18.062Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:18.285Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:18.509Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:18.511Z",
+        "level": 1,
+        "round": 6,
+        "seed": 3842003244,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:18.512Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:19.101Z",
+        "level": 1
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:19.608Z",
+        "level": 1,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:19.612Z",
+        "level": 1,
+        "round": 1,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:19.612Z",
+        "level": 1,
+        "round": 1,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:19.613Z",
+        "level": 1,
+        "round": 1,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:19.641Z",
+        "level": 1,
+        "round": 1,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:19.675Z",
+        "level": 1,
+        "round": 1,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:19.677Z",
+        "level": 1,
+        "round": 1,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:19.679Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:19.844Z",
+        "level": 1,
+        "round": 2,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:19.844Z",
+        "level": 1,
+        "round": 2,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:20.070Z",
+        "level": 1,
+        "round": 2,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:20.293Z",
+        "level": 1,
+        "round": 2,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:20.295Z",
+        "level": 1,
+        "round": 2,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:20.296Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:20.566Z",
+        "level": 1,
+        "round": 3,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:20.566Z",
+        "level": 1,
+        "round": 3,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:20.778Z",
+        "level": 1,
+        "round": 3,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:20.975Z",
+        "level": 1,
+        "round": 3,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:20.977Z",
+        "level": 1,
+        "round": 3,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:20.979Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:21.227Z",
+        "level": 1,
+        "round": 4,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:21.227Z",
+        "level": 1,
+        "round": 4,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:21.450Z",
+        "level": 1,
+        "round": 4,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:21.645Z",
+        "level": 1,
+        "round": 4,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:21.646Z",
+        "level": 1,
+        "round": 4,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:21.648Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:21.911Z",
+        "level": 1,
+        "round": 5,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:21.911Z",
+        "level": 1,
+        "round": 5,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:22.137Z",
+        "level": 1,
+        "round": 5,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:22.325Z",
+        "level": 1,
+        "round": 5,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:22.327Z",
+        "level": 1,
+        "round": 5,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:22.329Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:22.581Z",
+        "level": 1,
+        "round": 6,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:22.582Z",
+        "level": 1,
+        "round": 6,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:22.824Z",
+        "level": 1,
+        "round": 6,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:23.025Z",
+        "level": 1,
+        "round": 6,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:23.027Z",
+        "level": 1,
+        "round": 6,
+        "seed": 412386977,
+        "difficulty": "missing",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:23.029Z",
+        "hints": 0,
+        "difficulty": "growing",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:23.630Z",
+        "level": 1
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:24.175Z",
+        "level": 2,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:24.178Z",
+        "level": 2,
+        "round": 1,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:24.179Z",
+        "level": 2,
+        "round": 1,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:24.179Z",
+        "level": 2,
+        "round": 1,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:24.207Z",
+        "level": 2,
+        "round": 1,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:24.691Z",
+        "level": 2,
+        "round": 1,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:24.694Z",
+        "level": 2,
+        "round": 1,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:24.696Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:24.928Z",
+        "level": 2,
+        "round": 2,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:24.928Z",
+        "level": 2,
+        "round": 2,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:25.264Z",
+        "level": 2,
+        "round": 2,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:25.820Z",
+        "level": 2,
+        "round": 2,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:25.822Z",
+        "level": 2,
+        "round": 2,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:25.824Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:26.125Z",
+        "level": 2,
+        "round": 3,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:26.125Z",
+        "level": 2,
+        "round": 3,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:26.401Z",
+        "level": 2,
+        "round": 3,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:26.858Z",
+        "level": 2,
+        "round": 3,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:26.860Z",
+        "level": 2,
+        "round": 3,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:26.861Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:27.078Z",
+        "level": 2,
+        "round": 4,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:27.078Z",
+        "level": 2,
+        "round": 4,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:27.359Z",
+        "level": 2,
+        "round": 4,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:27.862Z",
+        "level": 2,
+        "round": 4,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:27.864Z",
+        "level": 2,
+        "round": 4,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:27.866Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:28.165Z",
+        "level": 2,
+        "round": 5,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:28.165Z",
+        "level": 2,
+        "round": 5,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:28.378Z",
+        "level": 2,
+        "round": 5,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:28.841Z",
+        "level": 2,
+        "round": 5,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:28.844Z",
+        "level": 2,
+        "round": 5,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:28.846Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:29.061Z",
+        "level": 2,
+        "round": 6,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:29.062Z",
+        "level": 2,
+        "round": 6,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:29.341Z",
+        "level": 2,
+        "round": 6,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:29.852Z",
+        "level": 2,
+        "round": 6,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:29.854Z",
+        "level": 2,
+        "round": 6,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:29.856Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:30.143Z",
+        "level": 2,
+        "round": 7,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:30.143Z",
+        "level": 2,
+        "round": 7,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:30.349Z",
+        "level": 2,
+        "round": 7,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:31.051Z",
+        "level": 2,
+        "round": 7,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:31.052Z",
+        "level": 2,
+        "round": 7,
+        "seed": 984221962,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:31.054Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:31.482Z",
+        "level": 2
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:31.991Z",
+        "level": 2,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:31.995Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:31.995Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:31.995Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:32.024Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:32.508Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:32.511Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:32.513Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:32.729Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:32.729Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:33.035Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:33.571Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:33.573Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:33.574Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:33.760Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:33.760Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:34.065Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:34.544Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:34.545Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:34.547Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:34.879Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:34.879Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:35.092Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:35.591Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:35.593Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:35.595Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:35.965Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:35.965Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:36.200Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:37.114Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:37.117Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:37.118Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:37.259Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:37.259Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:37.524Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:38.209Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:38.211Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:38.212Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:38.461Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:38.462Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:38.608Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:39.591Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:39.593Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1691451481,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:39.595Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:40.235Z",
+        "level": 2
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:40.760Z",
+        "level": 2,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:40.764Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:40.765Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:40.765Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:40.791Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:41.440Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:41.443Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:41.445Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:41.743Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:41.743Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:41.883Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:42.819Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:42.821Z",
+        "level": 2,
+        "round": 2,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:42.822Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:43.233Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:43.233Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:43.532Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:44.373Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:44.375Z",
+        "level": 2,
+        "round": 3,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:44.377Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:44.513Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:44.514Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:44.905Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:45.600Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:45.602Z",
+        "level": 2,
+        "round": 4,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:45.604Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:45.983Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:45.983Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:46.257Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:46.807Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:46.810Z",
+        "level": 2,
+        "round": 5,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:46.811Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:47.076Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:47.076Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:47.443Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:48.145Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:48.148Z",
+        "level": 2,
+        "round": 6,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:48.151Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "scene",
+        "at": "2026-10-19T20:29:48.377Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "question",
+        "at": "2026-10-19T20:29:48.377Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "hint",
+        "at": "2026-10-19T20:29:48.757Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "hintType": "meaning_cue"
+      },
+      {
+        "game": "words",
+        "event": "answer_attempt",
+        "at": "2026-10-19T20:29:49.540Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "answer_correct",
+        "at": "2026-10-19T20:29:49.542Z",
+        "level": 2,
+        "round": 7,
+        "seed": 1889851064,
+        "difficulty": "spell",
+        "correct": true,
+        "firstAttempt": false
+      },
+      {
+        "game": "words",
+        "event": "learning_attempt",
+        "at": "2026-10-19T20:29:49.544Z",
+        "hints": 0,
+        "difficulty": "challenge",
+        "correct": true,
+        "firstAttempt": false,
+        "independent": false
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:50.158Z",
+        "level": 2
+      }
+    ],
+    "retainedWordMilestones": [
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:28:21.420Z",
+        "level": 0,
+        "round": 1,
+        "seed": 3190043546,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:28:37.365Z",
+        "level": 0
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:28:38.349Z",
+        "level": 0,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:28:38.354Z",
+        "level": 0,
+        "round": 1,
+        "seed": 1421060933,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:28:52.573Z",
+        "level": 0
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:28:53.425Z",
+        "level": 0,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:28:53.429Z",
+        "level": 0,
+        "round": 1,
+        "seed": 2410036959,
+        "difficulty": "starter"
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:06.928Z",
+        "level": 0
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:07.443Z",
+        "level": 1,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:07.447Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3187524672,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:14.150Z",
+        "level": 1
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:14.645Z",
+        "level": 1,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:14.649Z",
+        "level": 1,
+        "round": 1,
+        "seed": 3842003244,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:19.101Z",
+        "level": 1
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:19.608Z",
+        "level": 1,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:19.612Z",
+        "level": 1,
+        "round": 1,
+        "seed": 412386977,
+        "difficulty": "growing"
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:23.630Z",
+        "level": 1
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:24.175Z",
+        "level": 2,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:24.178Z",
+        "level": 2,
+        "round": 1,
+        "seed": 984221962,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:31.482Z",
+        "level": 2
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:31.991Z",
+        "level": 2,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:31.995Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1691451481,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:40.235Z",
+        "level": 2
+      },
+      {
+        "game": "words",
+        "event": "replay",
+        "at": "2026-10-19T20:29:40.760Z",
+        "level": 2,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "start",
+        "at": "2026-10-19T20:29:40.764Z",
+        "level": 2,
+        "round": 1,
+        "seed": 1889851064,
+        "difficulty": "challenge"
+      },
+      {
+        "game": "words",
+        "event": "level_complete",
+        "at": "2026-10-19T20:29:50.158Z",
+        "level": 2
+      }
+    ]
+  },
+  "phase2Restriction": {
+    "selectedSounds": [
+      "s",
+      "a"
+    ],
+    "tracePrerequisite": "Choose at least eight taught letter sounds in the grown-ups learning settings before starting this chapter.",
+    "spellingEmptyPoolMessage": "There are no spelling words made only from the sounds selected for this learner yet. Ask a grown-up to choose more taught sounds, then come back.",
+    "restoredProfile": {
+      "activePhase": 2,
+      "selectedSounds": [
+        "a",
+        "b",
+        "c",
+        "ck",
+        "d",
+        "e",
+        "f",
+        "ff",
+        "g",
+        "h",
+        "i",
+        "k",
+        "l",
+        "ll",
+        "m",
+        "n",
+        "o",
+        "p",
+        "r",
+        "s",
+        "ss",
+        "t",
+        "u"
+      ]
+    }
+  },
+  "provider403": [],
+  "pageErrors": []
+}

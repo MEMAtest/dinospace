@@ -1,0 +1,289 @@
+{
+  "recordedAt": "2026-10-19T20:47:37.884875+00:00",
+  "baseCommit": "d9fff26d63965d9f4d81d385cab9938a4c21bb91",
+  "releaseState": "unreleased candidate; no final scores assigned",
+  "sourceFiles": [
+    {
+      "path": "api/story/_utils.js",
+      "sha256": "878ecf5bc6e57a076cf8d6f47bda35e6885a9c454a070c1a974355a62f987ab9",
+      "bytes": 6617
+    },
+    {
+      "path": "api/story/image.js",
+      "sha256": "aea341d364b8873fce80f947442ddb929059a1aac6d0eb357470a4f5f467a84b",
+      "bytes": 4392
+    },
+    {
+      "path": "api/story/narration.js",
+      "sha256": "bb398a86e7bba86ada1671e6686fb672c07a6a9cb47c1100369a5df9f8038ee2",
+      "bytes": 3406
+    },
+    {
+      "path": "api/story/outline.js",
+      "sha256": "678162fd49e751fea7b4268454a034b940ca809d0741e5ad3d8810ebc1f20505",
+      "bytes": 8197
+    },
+    {
+      "path": "public/art/spelling-v1/mat.webp",
+      "sha256": "058cae961ddc627618ec7bc30b6a571f0aebfa38e075028ba1dcd81189623060",
+      "bytes": 10968
+    },
+    {
+      "path": "public/art/spelling-v1/pat.webp",
+      "sha256": "23a0245b40e4ffd0853eec31f53ffb3ba4f37358daacfb5a14cc9c77fbac2f2c",
+      "bytes": 26868
+    },
+    {
+      "path": "public/art/spelling-v1/rag.webp",
+      "sha256": "dea80e76a6b210492d210308429c8383fffd8ad49f9a1a750df48bb9d2d6e2e2",
+      "bytes": 25900
+    },
+    {
+      "path": "public/art/spelling-v1/sat.webp",
+      "sha256": "a0b44b3dc50eec62de4d464130233c00fdaa952e6333bb1f18366547f5fd6cc3",
+      "bytes": 18988
+    },
+    {
+      "path": "public/art/storybook-v4/reading-crew.webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67",
+      "bytes": 53168
+    },
+    {
+      "path": "src/App.jsx",
+      "sha256": "c7dd957bc002d88b460fd80099402ffd1285ae3b9f4b01396e8b2a6bc160d6f5",
+      "bytes": 24665
+    },
+    {
+      "path": "src/components/games/AmariLetterTrace.jsx",
+      "sha256": "ada5da8a83bf506baa13bc5312280b1689471a9d6f4585995ea9a365751f3775",
+      "bytes": 33276
+    },
+    {
+      "path": "src/components/games/LetterTrace.jsx",
+      "sha256": "a5c93419af229f774a25d0fa10be05b42502386ef7e6a76231bf0f7d81ef78ed",
+      "bytes": 30004
+    },
+    {
+      "path": "src/components/games/MemoryMatch.jsx",
+      "sha256": "add1ea5f8c0535a42ecc9f3a1e14ba2f37a49feaf07649c3b583b6629e165e44",
+      "bytes": 33888
+    },
+    {
+      "path": "src/components/games/StorybookCreator.jsx",
+      "sha256": "d1254106e0cc3fde9a88e188ca80ca6fa592e5b6cf74c2b6968de9c8502bdf09",
+      "bytes": 10556
+    },
+    {
+      "path": "src/components/games/StorybookStudio.jsx",
+      "sha256": "11d586e495462bd6e1003fdbc0351afa6896a8819cfb9a3afcfa2cf73a0485b3",
+      "bytes": 71156
+    },
+    {
+      "path": "src/components/games/WordBuilder.jsx",
+      "sha256": "85665bd644480b440353fbf04c56e3b02635625d1273cab56520bc511a081c4e",
+      "bytes": 24117
+    },
+    {
+      "path": "src/components/games/memoryMatch.css",
+      "sha256": "0be1fe86dd2cdccf4920a579b718043627460e8083db099cef7185ee15504fdf",
+      "bytes": 30668
+    },
+    {
+      "path": "src/data/gameDiagnostics.js",
+      "sha256": "af9a918bf5aa7c4cf3e6b35f7756fef380b87a0541495e73ee2131c186b8ae58",
+      "bytes": 3853
+    },
+    {
+      "path": "src/data/letterTraceLearning.js",
+      "sha256": "72c5cf075cdf91b8ce44501fac8b7905ed5c1f3d5d5dace8025bb7d8337f53c2",
+      "bytes": 14183
+    },
+    {
+      "path": "src/data/memoryMatchProgress.js",
+      "sha256": "e91a5e20bfcb7388ed274760e657e06f38f918296742dc021bbdd9af324654b4",
+      "bytes": 4479
+    },
+    {
+      "path": "src/data/sessionLevels.js",
+      "sha256": "763075a67497c24564b03b0ffba5ab1568e30182a327c86965c13a2cfa37b5e4",
+      "bytes": 6060
+    },
+    {
+      "path": "src/data/spellingStudio.js",
+      "sha256": "82bc1276db8b47c197166228408559fe1dc0b3f5b2491c70123c0251f9fd3e25",
+      "bytes": 12795
+    },
+    {
+      "path": "src/data/storybookApi.js",
+      "sha256": "9fb238ad48698e0bc4205c1b184fc08b34cf89443a945b2f371b798efdfec5fc",
+      "bytes": 3506
+    },
+    {
+      "path": "src/data/storybookAssets.js",
+      "sha256": "5c409e641a8efce0e4d5c4ead3819d72f402065c3556c18a9408212ca1077a43",
+      "bytes": 4401
+    },
+    {
+      "path": "src/data/storybookProgress.js",
+      "sha256": "fb5179bc5dce44210227dd8896709007bff2e5f7a4ef1e21fb47773d86372b63",
+      "bytes": 913
+    },
+    {
+      "path": "src/data/storybookRequest.js",
+      "sha256": "8892646d62f61e1476f632c602ba91a82c91740b619ca4c04f654ec7ee88467c",
+      "bytes": 1348
+    },
+    {
+      "path": "test/gameDiagnostics.test.mjs",
+      "sha256": "a836e17be3be53be90e01fd879b4f15620b03ef8677e792ea57a24688e31a7b8",
+      "bytes": 8548
+    },
+    {
+      "path": "test/letterTraceGeometry.test.mjs",
+      "sha256": "7a5ac1f803999f80d072448a690832456a5beb4c6bb277844aedd6fe18f20a30",
+      "bytes": 4399
+    },
+    {
+      "path": "test/memoryMatchProgress.test.mjs",
+      "sha256": "c5c943ec3a83a0217dd7241a721c4e31f230ce0ca87dbb05fc7ac7716617503d",
+      "bytes": 4879
+    },
+    {
+      "path": "test/spellingStudio.test.mjs",
+      "sha256": "414f452330d038a519f60a15d1d337f75988baa61fc8a80df7183828a6525802",
+      "bytes": 3601
+    },
+    {
+      "path": "test/storyProviderCancellation.test.mjs",
+      "sha256": "dbbb2250afc15e3b573a2625488c1038a2c22622b430edfcbfeb012913648aa6",
+      "bytes": 2343
+    },
+    {
+      "path": "test/storyProviderHandlers.test.mjs",
+      "sha256": "b8b82d53f807dff71b6a0323f4c99cb2afbc01a9970b67517a879be2a8e85da4",
+      "bytes": 4884
+    },
+    {
+      "path": "test/storybookAssets.test.mjs",
+      "sha256": "75ccd7124550c97305471318ee9b98c12c4b59ad73c435774628154f2e175b01",
+      "bytes": 2526
+    },
+    {
+      "path": "test/storybookProgress.test.mjs",
+      "sha256": "88f72e3e6c61d03fea5682e766bda6cc099b5f87bc51ab779a03dd135df9a523",
+      "bytes": 1598
+    },
+    {
+      "path": "test/storybookRequest.test.mjs",
+      "sha256": "c368897c72199a91e5276af77456ad237cef983051a8c8ac9112a2967564704f",
+      "bytes": 1544
+    }
+  ],
+  "retainedLocalHarnesses": [
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/amari-lowercase-i-pointer-acceptance.cjs",
+      "sha256": "c0cd40c18f61a6fc58301577f1025b1563400b7464d3a6eebd601e7a078f8758",
+      "bytes": 11996
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/final-visuals.cjs",
+      "sha256": "7c1940e968e80b3322ff27ba36714154da14553dadbba90e96d7cfb456470aa2",
+      "bytes": 1824
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/little-trace-pointer-acceptance.cjs",
+      "sha256": "ce65e130627026301665c02f0ca3cb2843d1a46676ea1ad8a8c021cabc2bf6ec",
+      "bytes": 9349
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/memory-acceptance.cjs",
+      "sha256": "976e939b59d6affb4d7af8dfdb5ba2a12a8d3a42500129f420f4e5ee87d18228",
+      "bytes": 18041
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/memory-focus-layout.cjs",
+      "sha256": "74de9e428920de06acae690708d262f081e131f506fc310b5b217553cd349f94",
+      "bytes": 4053
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/memory-focused.cjs",
+      "sha256": "715517c2260679e065c1c7ba0f9d5bfa535e362798d739b48460e88cfaaa9dd6",
+      "bytes": 13442
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/spelling-acceptance.cjs",
+      "sha256": "4e63924e23c69f447de1fe89f36adeec5491df2967f093b4d1fe202d594aeb9a",
+      "bytes": 19201
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybook-ack.cjs",
+      "sha256": "c7508892ca3ac0a055f797e601b0a87944261a3d9a8591418866d029c4a582d7",
+      "bytes": 4717
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybook-nav-outlier.cjs",
+      "sha256": "7349f0191c9cb00d8f1183d83b97bb3712de29551660cb6785216ff705b3d825",
+      "bytes": 2232
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybook-reading-acceptance.cjs",
+      "sha256": "37b178b8f35b8d811e8d499650f4874920f8d55aedddf1c96015d7721b4254c3",
+      "bytes": 32907
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybook-storage-faults.cjs",
+      "sha256": "92e121beb3689d00f0cf5511108df4286ff7c6412cf360b2c7db4e2c3607e0a8",
+      "bytes": 9173
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/storybook-workflow.cjs",
+      "sha256": "d21ed5d878e21ff458f17ee0c595dabe9de8e202f4789ef52e760de62cd54099",
+      "bytes": 7466
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/teaching-profile-qa.cjs",
+      "sha256": "37dbc4eee39f18150dfee6fff90f01b49f11ec74791449e53c4b15f0f2feecbb",
+      "bytes": 26124
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/trace-acceptance.cjs",
+      "sha256": "460532e62d47c68543da1fbe03a8e9de3553921ebca64f9d06acf620f7e0c46f",
+      "bytes": 20098
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/trace-i-debug.cjs",
+      "sha256": "82cedfd13c7d3910fe7940dbcf6a6806bc81d4d50cca7c7d770edb63c89e7682",
+      "bytes": 752
+    },
+    {
+      "path": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/batch1-20261019/trace-i-last-debug.cjs",
+      "sha256": "b34cd08eae633d62d8559683d37e34b0ef00102a8136d05f296239943522673c",
+      "bytes": 816
+    }
+  ],
+  "localChecks": {
+    "focusedTests": 79,
+    "build": "pass",
+    "explicitNoUndefLint": "pass",
+    "browserViewports": [
+      [
+        390,
+        844
+      ],
+      [
+        1440,
+        844
+      ]
+    ],
+    "memoryFocus": "All36cards fit at both widths, including visible mismatch feedback on mobile",
+    "storybookParentControls": "Creation/retry hidden from child shelf; keyboard favourites stay on shelf"
+  },
+  "paidProviderCallsThisTurn": 0,
+  "newCheckouts": 0,
+  "dependencyInstalls": 0,
+  "qaContext": "amari-targeted-contained",
+  "pendingApprovals": [
+    "56 fixed word recordings, no automatic retries",
+    "one six-page synthetic QA story, at most23 provider requests including fallbacks, no automatic retries"
+  ]
+}

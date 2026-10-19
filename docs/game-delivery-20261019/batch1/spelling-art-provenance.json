@@ -1,0 +1,66 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "word": "SAT",
+      "path": "public/art/spelling-v1/sat.webp",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-82ad15e9-cd81-492f-a8fb-713b222489a5.png",
+      "sha256": "a0b44b3dc50eec62de4d464130233c00fdaa952e6333bb1f18366547f5fd6cc3",
+      "bytes": 18988,
+      "dimensions": [
+        300,
+        360
+      ],
+      "alpha": true,
+      "preparation": "cwebp resize and encoding only; original preserved",
+      "promptSummary": "Young Black child sitting on a complete wooden chair; action sat, full body, transparent background.",
+      "visualReview": "Full subject/action inspected in generated output; matches intended clue."
+    },
+    {
+      "word": "PAT",
+      "path": "public/art/spelling-v1/pat.webp",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-deb3d008-d654-4cab-ab66-010f142ebd26.png",
+      "sha256": "23a0245b40e4ffd0853eec31f53ffb3ba4f37358daacfb5a14cc9c77fbac2f2c",
+      "bytes": 26868,
+      "dimensions": [
+        385,
+        360
+      ],
+      "alpha": true,
+      "preparation": "cwebp resize and encoding only; original preserved",
+      "promptSummary": "Young Black child gently patting a happy golden puppy, full characters, transparent background.",
+      "visualReview": "Full subject/action inspected in generated output; matches intended clue."
+    },
+    {
+      "word": "MAT",
+      "path": "public/art/spelling-v1/mat.webp",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-deb24467-8117-4f48-a801-5491ad14e306.png",
+      "sha256": "058cae961ddc627618ec7bc30b6a571f0aebfa38e075028ba1dcd81189623060",
+      "bytes": 10968,
+      "dimensions": [
+        420,
+        280
+      ],
+      "alpha": true,
+      "preparation": "cwebp resize and encoding only; original preserved",
+      "promptSummary": "Rectangular teal cushioned exercise mat with a lightly curled corner, no person, isolated transparent background.",
+      "visualReview": "Full subject/action inspected in generated output; matches intended clue."
+    },
+    {
+      "word": "RAG",
+      "path": "public/art/spelling-v1/rag.webp",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-21325525-f278-4336-a5b7-6c42ef0990de.png",
+      "sha256": "dea80e76a6b210492d210308429c8383fffd8ad49f9a1a750df48bb9d2d6e2e2",
+      "bytes": 25900,
+      "dimensions": [
+        420,
+        280
+      ],
+      "alpha": true,
+      "preparation": "cwebp resize and encoding only; original preserved",
+      "promptSummary": "Soft blue loosely folded cleaning cloth rag with fabric weave and frayed corner, not sponge, isolated transparent background.",
+      "visualReview": "Full subject/action inspected in generated output; matches intended clue."
+    }
+  ],
+  "totalBytes": 82724
+}

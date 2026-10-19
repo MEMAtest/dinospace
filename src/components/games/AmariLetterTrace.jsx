@@ -5,17 +5,20 @@ import { makeLearningEvent } from '../../data/literacy.js';
 import {
   completeLetterTraceLevel,
   AMARI_TRACE_NARRATION,
-  findForwardGuidePoint,
+  advanceTraceSegment,
   getLetterTraceProgress,
+  interpolateGuidePoint,
   LETTER_TRACE_LEVELS,
   LETTER_TRACE_ROUNDS_PER_LEVEL,
   makeLetterTraceRun,
   makeTraceWordChoices,
   recordLetterTraceMastery,
   resetUnfinishedTraceStroke,
+  isTraceDotStroke,
   traceToleranceForSize,
 } from '../../data/letterTraceLearning.js';
 import { getLetterStrokes } from './LetterTrace.jsx';
+import { SPELLING_WORD_ART } from '../../data/spellingStudio.js';
 export { AMARI_TRACE_NARRATION } from '../../data/letterTraceLearning.js';
 
 const getSeed = () => {
@@ -85,6 +88,7 @@ const AmariLetterTrace = ({
 
   useEffect(() => { onPhaseChange?.(phaseName(phase)); }, [onPhaseChange, phase]);
   useEffect(() => { setActiveLevel(Math.max(0, Math.min(2, sessionLevel))); }, [sessionLevel]);
+  useEffect(() => { if (keyboardMode && phase === 'play') canvasRef.current?.focus(); }, [keyboardMode, phase]);
   useEffect(() => {
     setMastery(getLetterTraceProgress(playerId));
   }, [playerId]);
@@ -217,6 +221,7 @@ const AmariLetterTrace = ({
       // Coverage is a high-water mark; the keyboard cursor may move back.
       // Paint its actual current position so rewind remains visible.
       const cursor = keyboardRef.current.cursor;
+      const keyboardPoint = interpolateGuidePoint(stroke, cursor);
       ctx.beginPath();
       ctx.arc(start.x, start.y, 19, 0, Math.PI * 2);
       ctx.fillStyle = index <= strokeStateRef.current.completed ? '#15803d' : '#64748b';
@@ -226,9 +231,9 @@ const AmariLetterTrace = ({
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
       ctx.fillText(String(index + 1), start.x, start.y);
-      if (index === activeStroke && keyboardMode && keyboardRef.current.active && stroke[cursor]) {
+      if (index === activeStroke && keyboardMode && keyboardRef.current.active && keyboardPoint) {
         ctx.beginPath();
-        ctx.arc(stroke[cursor].x, stroke[cursor].y, 13, 0, Math.PI * 2);
+        ctx.arc(keyboardPoint.x, keyboardPoint.y, 13, 0, Math.PI * 2);
         ctx.fillStyle = '#f97316';
         ctx.fill();
         ctx.strokeStyle = 'white';
@@ -271,16 +276,14 @@ const AmariLetterTrace = ({
     const stroke = guideRef.current[strokeIndex];
     if (!stroke) return;
     const cursor = strokeStateRef.current.cursors[strokeIndex] ?? 0;
-    const nearest = findForwardGuidePoint(stroke, point, cursor, 0, 3);
-    const nearestIndex = nearest.index;
-    const nearestDistance = nearest.distance;
     const bounds = canvas.getBoundingClientRect();
     const tolerance = traceToleranceForSize(bounds.width, bounds.height, level);
     const last = pointerRef.current.last;
     if (!last) return;
     const distance = Math.hypot(point.x - last.x, point.y - last.y);
-    if (nearestDistance <= tolerance) {
-      strokeStateRef.current.cursors[strokeIndex] = Math.max(cursor, nearestIndex);
+    const traceStep = advanceTraceSegment(stroke, last, point, cursor, tolerance);
+    if (traceStep.accepted) {
+      strokeStateRef.current.cursors[strokeIndex] = Math.max(cursor, traceStep.cursor);
       strokeStateRef.current.on += distance;
     } else {
       strokeStateRef.current.off += distance;
@@ -307,7 +310,7 @@ const AmariLetterTrace = ({
     const stroke = guideRef.current[index];
     if (!stroke) return;
     const cursor = strokeStateRef.current.cursors[index] ?? 0;
-    const anchor = cursor > 0 ? stroke[cursor] : stroke[0];
+    const anchor = interpolateGuidePoint(stroke, cursor);
     const rect = canvasRef.current.getBoundingClientRect();
     if (Math.hypot(point.x - anchor.x, point.y - anchor.y) > traceToleranceForSize(rect.width, rect.height, level)) {
       setFirstTry(false);
@@ -318,7 +321,7 @@ const AmariLetterTrace = ({
     pointerRef.current = { active: true, id: event.pointerId, last: point };
     canvasRef.current.setPointerCapture?.(event.pointerId);
     strokeStateRef.current.paths[index] = [point];
-    if (stroke.length < 2 || stroke.every((item) => Math.hypot(item.x - stroke[0].x, item.y - stroke[0].y) < 3)) {
+    if (isTraceDotStroke(stroke, 3)) {
       strokeStateRef.current.completed += 1;
       pointerRef.current.active = false;
       setFeedback(strokeStateRef.current.completed < guideRef.current.length ? 'Good dot. Lift, then start the next numbered stroke.' : 'All strokes are ready. Check your shape.');
@@ -384,7 +387,7 @@ const AmariLetterTrace = ({
       event.preventDefault();
       if (!keyboardRef.current.active) {
         keyboardRef.current.active = true;
-        keyboardRef.current.cursor = strokeStateRef.current.cursors[index] || 0;
+        keyboardRef.current.cursor = Math.round(strokeStateRef.current.cursors[index] || 0);
         strokeStateRef.current.cursors[index] = keyboardRef.current.cursor;
         setFeedback(`Keyboard trace started at stroke ${index + 1}. Use an arrow key to follow each dot, then Space at the end.`);
       } else if (keyboardRef.current.cursor >= stroke.length - 1) {
@@ -557,7 +560,13 @@ const AmariLetterTrace = ({
           <button type="button" onClick={checkTrace} disabled={!traceReady || roundPassed} className="min-h-12 rounded-xl bg-emerald-700 px-5 font-black text-white disabled:opacity-40"><Check className="mr-2 inline" size={20} />{level === 2 ? 'Find the word' : 'Check shape'}</button>
         </div>
       </section>
-      {level === 2 && traceReady && !roundPassed && wordChoices.length > 0 && <section className="grid gap-3 rounded-2xl bg-white p-4 shadow" aria-label="Choose the word that starts with this sound"><h2 className="text-center text-xl font-black">Which word starts with {letter.lower}?</h2><div className="flex flex-wrap justify-center gap-3">{storyChoices.map((word) => <button type="button" key={word.word} onClick={() => answerWord(word)} className="min-h-14 min-w-28 rounded-xl border-2 border-blue-200 bg-sky-50 px-5 text-lg font-black text-slate-900">{word.emoji} {word.word}</button>)}</div></section>}
+      {level === 2 && traceReady && !roundPassed && wordChoices.length > 0 && <section className="grid gap-3 rounded-2xl bg-white p-4 shadow" aria-label="Choose the word that starts with this sound"><h2 className="text-center text-xl font-black">Which word starts with {letter.lower}?</h2><div className="flex flex-wrap justify-center gap-3">{storyChoices.map((word) => {
+        const art = SPELLING_WORD_ART[word.word];
+        return <button type="button" key={word.word} onClick={() => answerWord(word)} aria-label={word.word} className="flex min-h-14 min-w-24 items-center justify-center gap-2 rounded-xl border-2 border-blue-200 bg-sky-50 px-3 text-lg font-black text-slate-900 sm:min-w-28 sm:px-4">
+          {art ? <img src={art.src} alt={art.alt} className="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12" /> : <span aria-hidden="true">{word.emoji}</span>}
+          <span>{word.word}</span>
+        </button>;
+      })}</div></section>}
       {roundPassed && <section className="grid gap-3 rounded-2xl border-2 border-emerald-300 bg-emerald-50 p-4 text-center" aria-live="polite"><h2 className="text-xl font-black text-emerald-950">{feedback}</h2><p className="font-semibold text-slate-800">The explanation stays here until you are ready.</p><button type="button" onClick={advance} className="min-h-14 rounded-xl bg-emerald-700 px-6 text-lg font-black text-white">{roundIndex + 1 === LETTER_TRACE_ROUNDS_PER_LEVEL ? 'Finish chapter' : 'Next letter'}</button></section>}
       {!roundPassed && <p className="min-h-8 text-center font-bold text-slate-700" aria-live="polite">{feedback}</p>}
     </main>

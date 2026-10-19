@@ -1,0 +1,514 @@
+{
+  "origin": "http://127.0.0.1:5180",
+  "nativeLaunchFlow": [
+    "Amari",
+    "Thinking & Play",
+    "Memory Match"
+  ],
+  "verifiedSavedEfficientPassport": {
+    "levelId": "forest",
+    "bestMoves": 6,
+    "stars": 3
+  },
+  "strategyOnReturnToLevel1": "Try recalling both places before you turn the second card. Keep the same board until every pair is found.",
+  "ordinaryLevel1Runs": [
+    {
+      "run": 1,
+      "seed": 2672967560,
+      "moves": 5,
+      "layout": [
+        "dog",
+        "fox",
+        "fox",
+        "frog",
+        "frog",
+        "monkey",
+        "monkey",
+        "dog"
+      ],
+      "pairedLabels": [
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            1,
+            8
+          ]
+        },
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            2,
+            3
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            4,
+            5
+          ]
+        },
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "seed": 2175287920,
+      "moves": 6,
+      "layout": [
+        "monkey",
+        "frog",
+        "fox",
+        "dog",
+        "dog",
+        "frog",
+        "monkey",
+        "fox"
+      ],
+      "pairedLabels": [
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            1,
+            7
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            2,
+            6
+          ]
+        },
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            3,
+            8
+          ]
+        },
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "seed": 669123606,
+      "moves": 7,
+      "layout": [
+        "monkey",
+        "frog",
+        "fox",
+        "frog",
+        "dog",
+        "fox",
+        "dog",
+        "monkey"
+      ],
+      "pairedLabels": [
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            1,
+            8
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            2,
+            4
+          ]
+        },
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            3,
+            6
+          ]
+        },
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            5,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "run": 4,
+      "seed": 546580066,
+      "moves": 7,
+      "layout": [
+        "dog",
+        "frog",
+        "monkey",
+        "frog",
+        "fox",
+        "dog",
+        "fox",
+        "monkey"
+      ],
+      "pairedLabels": [
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            1,
+            6
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            2,
+            4
+          ]
+        },
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            3,
+            8
+          ]
+        },
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            5,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "run": 5,
+      "seed": 2192091453,
+      "moves": 6,
+      "layout": [
+        "fox",
+        "frog",
+        "frog",
+        "monkey",
+        "dog",
+        "dog",
+        "monkey",
+        "fox"
+      ],
+      "pairedLabels": [
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            1,
+            8
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            2,
+            3
+          ]
+        },
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            4,
+            7
+          ]
+        },
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "run": 6,
+      "seed": 812624770,
+      "moves": 6,
+      "layout": [
+        "dog",
+        "monkey",
+        "monkey",
+        "frog",
+        "fox",
+        "dog",
+        "fox",
+        "frog"
+      ],
+      "pairedLabels": [
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            1,
+            6
+          ]
+        },
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            2,
+            3
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            4,
+            8
+          ]
+        },
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            5,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "run": 7,
+      "seed": 3309210756,
+      "moves": 6,
+      "layout": [
+        "monkey",
+        "frog",
+        "dog",
+        "frog",
+        "dog",
+        "monkey",
+        "fox",
+        "fox"
+      ],
+      "pairedLabels": [
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            1,
+            6
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            2,
+            4
+          ]
+        },
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            3,
+            5
+          ]
+        },
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "run": 8,
+      "seed": 2289830172,
+      "moves": 5,
+      "layout": [
+        "dog",
+        "monkey",
+        "frog",
+        "frog",
+        "monkey",
+        "dog",
+        "fox",
+        "fox"
+      ],
+      "pairedLabels": [
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            1,
+            6
+          ]
+        },
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            2,
+            5
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            3,
+            4
+          ]
+        },
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "run": 9,
+      "seed": 1539382916,
+      "moves": 6,
+      "layout": [
+        "fox",
+        "dog",
+        "frog",
+        "monkey",
+        "fox",
+        "monkey",
+        "dog",
+        "frog"
+      ],
+      "pairedLabels": [
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            1,
+            5
+          ]
+        },
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            2,
+            7
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            3,
+            8
+          ]
+        },
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            4,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "run": 10,
+      "seed": 2105746454,
+      "moves": 5,
+      "layout": [
+        "fox",
+        "monkey",
+        "dog",
+        "dog",
+        "frog",
+        "frog",
+        "fox",
+        "monkey"
+      ],
+      "pairedLabels": [
+        {
+          "label": "fox",
+          "count": 2,
+          "positions": [
+            1,
+            7
+          ]
+        },
+        {
+          "label": "monkey",
+          "count": 2,
+          "positions": [
+            2,
+            8
+          ]
+        },
+        {
+          "label": "dog",
+          "count": 2,
+          "positions": [
+            3,
+            4
+          ]
+        },
+        {
+          "label": "frog",
+          "count": 2,
+          "positions": [
+            5,
+            6
+          ]
+        }
+      ]
+    }
+  ],
+  "distinctSeedCount": 10,
+  "distinctVisibleLayoutCount": 10,
+  "passportAfterReplays": {
+    "bestMoves": 5,
+    "stars": 3
+  },
+  "providerCallsBlocked403": 0,
+  "pageErrors": []
+}

@@ -7,7 +7,7 @@ const LIFECYCLE_LIMIT = 100;
 const MAX_HINT_COUNT = 100;
 const LIFECYCLE_EVENTS = new Set(['start', 'level_complete', 'level_completed', 'replay', 'leave']);
 const identifier = (value) => typeof value === 'string' && /^[a-zA-Z0-9:_-]{1,100}$/.test(value) ? value : undefined;
-const HINT_TYPES = new Set(['prompt', 'question', 'clue', 'explanation', 'lesson', 'instructions', 'feedback', 'observation', 'vocabulary', 'word_help', 'audio_help', 'replay_clue', 'next_piece', 'magnifier', 'one_step', 'hop-clue', 'hand-clue']);
+const HINT_TYPES = new Set(['prompt', 'question', 'clue', 'explanation', 'lesson', 'instructions', 'feedback', 'observation', 'vocabulary', 'word_help', 'audio_help', 'replay_clue', 'next_piece', 'magnifier', 'one_step', 'hop-clue', 'hand-clue', 'meaning_cue', 'replay_word', 'replay_caption']);
 
 const sanitizedEntry = (game, event, data, at) => {
   if (!identifier(game) || !identifier(event)) return null;

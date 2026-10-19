@@ -1,0 +1,20 @@
+{
+  "failedImportShelfUnchanged": true,
+  "missingAssetRejected": true,
+  "firstGoodStatus": "Restored 0 stories; kept 2 existing stories.",
+  "duplicateStatus": "Restored 0 stories; kept 2 existing stories.",
+  "duplicateAddedZero": true,
+  "curatedRexReadable": true,
+  "storageFailureMessage": "This device could not save the new story. Please check available storage, then try again.",
+  "storageFaultOnlyOnQaUrl": true,
+  "providerCalls": [
+    "session",
+    "outline"
+  ],
+  "forbiddenMediaCalls": [],
+  "pageErrors": [],
+  "syntheticTitles": [
+    "QA Garden Walk 1440 R1792437650919",
+    "QA Garden Walk 390 R1792437650919"
+  ]
+}

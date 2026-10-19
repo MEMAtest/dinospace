@@ -137,3 +137,15 @@ test('export preserves explicit outcomes and safe mastery flags but excludes res
   assert.equal('keyboardAlternative' in events[2], false);
   assert.equal(JSON.stringify(events).includes('private'), false);
 });
+
+
+test('spelling clues and replay diagnostics retain safe hint identifiers without content', () => {
+  const values = new Map();
+  const storage = { getItem: key => values.get(key), setItem: (key, value) => values.set(key, value) };
+  for (const hintType of ['meaning_cue', 'replay_word', 'replay_caption']) {
+    recordGameDiagnostic('words', 'hint', { hintType, prompt: 'private clue', word: 'private word' }, storage);
+  }
+  const events = readGameDiagnostics(storage).events;
+  assert.deepEqual(events.map(entry => entry.hintType), ['meaning_cue', 'replay_word', 'replay_caption']);
+  assert.equal(JSON.stringify(events).includes('private'), false);
+});

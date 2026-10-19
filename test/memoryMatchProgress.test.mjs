@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { MEMORY_LEVELS } from '../src/data/index.js';
-import { buildSeededMemoryDeck, completeMemoryBoard, memoryStrategy, readMemoryPassport } from '../src/data/memoryMatchProgress.js';
+import { buildSeededMemoryDeck, completeMemoryBoard, completeMemoryProgress, memoryStrategy, readMemoryPassport, readMemoryResume } from '../src/data/memoryMatchProgress.js';
 import { getGameLevel, saveGameLevel } from '../src/data/sessionLevels.js';
 import { readGameDiagnostics, recordGameDiagnostic } from '../src/data/gameDiagnostics.js';
 
@@ -39,6 +39,25 @@ test('Memory adapts from a saved efficient board and keeps completion stickers a
   saveGameLevel('amari', 'memory', 4, 4, levelStorage);
   assert.deepEqual(getGameLevel('amari', 'memory', levels.length, levelStorage), { current: 4, unlocked: 4 });
   assert.deepEqual(getGameLevel('amari', 'memory', levels.length, levelStorage), { current: 4, unlocked: 4 });
+});
+
+test('replaying an earlier Memory board preserves the highest resume point and legacy unlocks', () => {
+  const values = new Map();
+  const storage = { getItem: (key) => values.get(key), setItem: (key, value) => values.set(key, value) };
+  saveGameLevel('amari', 'memory', 4, 4, storage);
+  assert.equal(readMemoryResume('amari', MEMORY_LEVELS.length, getGameLevel('amari', 'memory', MEMORY_LEVELS.length, storage).unlocked, storage), 4);
+
+  const replayed = completeMemoryProgress('amari', MEMORY_LEVELS.length, 1, 4, storage);
+  assert.deepEqual(replayed, { resumeIndex: 4, unlocked: 4, persisted: true });
+  assert.deepEqual(getGameLevel('amari', 'memory', MEMORY_LEVELS.length, storage), { current: 4, unlocked: 4 });
+
+  const advancedFromLevelFive = completeMemoryProgress('amari', MEMORY_LEVELS.length, 4, replayed.resumeIndex, storage);
+  assert.deepEqual(advancedFromLevelFive, { resumeIndex: 5, unlocked: 5, persisted: true });
+  assert.equal(readMemoryResume('amari', MEMORY_LEVELS.length, 0, storage), 5);
+
+  const finalReplay = completeMemoryProgress('amari', MEMORY_LEVELS.length, 0, advancedFromLevelFive.resumeIndex, storage);
+  assert.equal(finalReplay.resumeIndex, 5);
+  assert.equal(finalReplay.unlocked, 5);
 });
 
 test('Memory diagnostics retain seeded lifecycle and answer events without prompt text', () => {

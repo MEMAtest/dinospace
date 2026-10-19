@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BookOpen, Check, Circle, LoaderCircle, Sparkles, WandSparkles, X } from 'lucide-react';
 import { STORYBOOK_AGE_BANDS, STORYBOOK_STYLES, MAX_STORY_TOPIC_LENGTH } from '../../data/storybookValidation.js';
+import { isStoryGenerationStepComplete } from '../../data/storybookProgress.js';
 
 const styleLabels = { '3d': 'Colourful 3D animation', 'painted-2d': 'Hand-painted 2D', realistic: 'Warm realistic' };
 
@@ -13,7 +14,7 @@ const stageCopy = {
   complete: { title: 'Your story is ready!', detail: 'Saving it for reading offline…' },
 };
 
-const StorybookCreator = ({ onClose, onCreate, seriesOptions = [], selectedChild, initialSeriesId = '', busy = false, progress = null, error = '', dailyLimitReached = false }) => {
+const StorybookCreator = ({ onClose, onCreate, onPause, onShelf, seriesOptions = [], selectedChild, initialSeriesId = '', busy = false, progress = null, error = '', dailyLimitReached = false }) => {
   const [topic, setTopic] = useState('');
   const [ageBand, setAgeBand] = useState(selectedChild?.ageBand || '5-6');
   const [style, setStyle] = useState('3d');
@@ -46,19 +47,15 @@ const StorybookCreator = ({ onClose, onCreate, seriesOptions = [], selectedChild
           const percent = Math.min(100, Math.round((completed / total) * 100));
           const page = Number(progress?.currentPage || 0);
           const elapsedSeconds = progress?.startedAt ? Math.max(0, Math.round((now - progress.startedAt) / 1000)) : 0;
-          const estimatedTotalSeconds = pageCount === 6 ? 240 : 510;
-          const estimatedRemaining = completed > 0
-            ? Math.max(20, Math.round(((elapsedSeconds / completed) * (total - completed))))
-            : estimatedTotalSeconds;
-          const asMinutes = (seconds) => seconds < 60 ? 'under a minute' : `${Math.max(1, Math.round(seconds / 60))} minute${seconds >= 90 ? 's' : ''}`;
-          const done = (stage) => ['cover', 'image', 'narration', 'complete'].indexOf(progress?.stage) > ['cover', 'image', 'narration', 'complete'].indexOf(stage);
+          const done = (stage) => isStoryGenerationStepComplete(stage, progress);
           const active = (stage) => progress?.stage === stage;
           const Step = ({ stage, children }) => <li className={`flex items-center gap-3 rounded-2xl px-3 py-2 ${active(stage) ? 'bg-indigo-50 text-indigo-800' : done(stage) ? 'text-emerald-700' : 'text-slate-500'}`}>{done(stage) ? <Check size={19} aria-label="Complete" /> : active(stage) ? <LoaderCircle className="animate-spin" size={19} aria-label="In progress" /> : <Circle size={19} />}<span>{children}</span></li>;
-          return <div className="pt-5" aria-live="polite" aria-atomic="true">
+          return <div className="pt-5">
             <div className="flex items-center gap-3"><div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white"><WandSparkles size={28} /></div><div><p className="text-xs font-black uppercase tracking-[0.18em] text-indigo-600">Story maker</p><h2 id="storybook-creator-title" className="text-2xl font-black">Making your story</h2></div></div>
-            <div className="mt-6 rounded-3xl border-2 border-indigo-100 bg-white p-5 shadow-sm"><p className="text-lg font-black text-slate-900">{current.title}</p><p className="mt-1 text-sm font-bold leading-relaxed text-slate-600">{current.detail}</p><div className="mt-5 h-4 overflow-hidden rounded-full bg-indigo-100" aria-label={`${percent}% complete`}><div className="h-full rounded-full bg-gradient-to-r from-indigo-600 to-fuchsia-500 transition-all duration-500" style={{ width: `${Math.max(3, percent)}%` }} /></div><p className="mt-2 text-right text-xs font-black text-indigo-700">{completed} of {total} story pieces ready</p></div>
-            <div className="mt-4 grid gap-2 rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold leading-relaxed text-amber-900 sm:grid-cols-2"><p><strong>Usually:</strong> {pageCount === 6 ? '3–5' : '7–10'} minutes</p><p><strong>Time left:</strong> about {asMinutes(estimatedRemaining)}</p><p className="sm:col-span-2 text-xs text-amber-800">We are making {pageCount} pictures and recording the story. Keep this screen open. If it stops, you can continue from where it left off.</p></div>
+            <div className="mt-6 rounded-3xl border-2 border-indigo-100 bg-white p-5 shadow-sm"><p className="text-lg font-black text-slate-900">{current.title}</p><p className="mt-1 text-sm font-bold leading-relaxed text-slate-600">{current.detail}</p><div className="mt-5 h-4 overflow-hidden rounded-full bg-indigo-100" role="progressbar" aria-label="Story assets saved" aria-valuemin={0} aria-valuemax={total} aria-valuenow={completed}><div className="h-full rounded-full bg-gradient-to-r from-indigo-600 to-fuchsia-500 transition-all duration-500" style={{ width: `${Math.max(3, percent)}%` }} /></div><p className="mt-2 text-right text-xs font-black text-indigo-700" role="status" aria-live="polite" aria-atomic="true">{progress?.imagesReady || 0} of {pageCount + 1} pictures · {progress?.audioReady || 0} of {pageCount + 1} recordings saved</p><p className="mt-1 text-right text-xs font-bold text-slate-500">Elapsed {Math.floor(elapsedSeconds / 60)}:{String(elapsedSeconds % 60).padStart(2, '0')} · {completed} of {total} story pieces ready</p></div>
+            <div className="mt-4 rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold leading-relaxed text-amber-900"><p>We’ll save each finished picture and recording as it is ready. You can pause and resume this story from the shelf.</p></div>
             <ol className="mt-4 space-y-1 text-sm font-black"><Step stage="planning">Plan the adventure</Step><Step stage="cover">Create the cover picture</Step><Step stage="image">Illustrate {page ? `page ${page} of ${pageCount}` : `all ${pageCount} pages`}</Step><Step stage="narration">Record each page</Step><Step stage="complete">Save the book for offline reading</Step></ol>
+            <div className="mt-5 flex flex-wrap gap-3"><button type="button" onClick={onPause} className="min-h-12 flex-1 rounded-2xl border-2 border-indigo-200 px-4 py-3 font-black text-indigo-800">{progress?.title ? 'Pause and save progress' : 'Cancel request'}</button><button type="button" onClick={onShelf} disabled={!progress?.title} className="min-h-12 flex-1 rounded-2xl bg-indigo-700 px-4 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Back to story shelf</button></div>
           </div>;
         })() : <form onSubmit={submit} className="pt-5">
             <div className="flex items-center gap-3"><div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-indigo-500 to-fuchsia-500 text-white"><WandSparkles size={28} /></div><div><p className="text-xs font-black uppercase tracking-[0.18em] text-indigo-600">Story maker</p><h2 id="storybook-creator-title" className="text-2xl font-black">Create a new story</h2></div></div>

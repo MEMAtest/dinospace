@@ -2,7 +2,7 @@
 
 import {
   allowRequest, applyCors, clientId, isAllowedOrigin, parseBody, respondJson,
-  hasStorySession, pagesForAgeBand, validateStoryOutline, validateStoryRequest,
+  createStoryProviderSignal, hasStorySession, isStoryProviderCancelled, pagesForAgeBand, validateStoryOutline, validateStoryRequest,
 } from './_utils.js';
 
 const DEFAULT_MODEL = 'deepseek/deepseek-v4-flash-0731';
@@ -29,7 +29,7 @@ const schema = {
   },
 };
 
-const requestStory = async (model, input, apiKey, timeoutMs = 60_000) => {
+const requestStory = async (model, input, apiKey, signal) => {
   const pageCount = pagesForAgeBand(input.ageBand);
   const range = input.ageBand === '3-4' ? '12 to 28' : input.ageBand === '7-8' ? '35 to 60' : '20 to 40';
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -50,7 +50,7 @@ const requestStory = async (model, input, apiKey, timeoutMs = 60_000) => {
       // spending the completion in an optional reasoning-only response.
       ...(model.startsWith('deepseek/') ? { reasoning: { enabled: false } } : {}),
     }),
-    signal: AbortSignal.timeout(timeoutMs),
+    signal,
   });
   if (!response.ok) {
     const error = new Error(`Story provider returned ${response.status}`);
@@ -99,21 +99,26 @@ export default async function handler(request, response) {
   try { input = validateStoryRequest(parseBody(request.body)); } catch (error) { return respondJson(response, 400, { error: error.message }); }
   const apiKey = process.env.OPENROUTER_API_KEY;
   if (!apiKey) return respondJson(response, 503, { error: 'Story creation is not configured' });
+  // Both model attempts share one bounded request budget. The fallback is
+  // never started after a timeout or client disconnect.
+  const providerRequest = createStoryProviderSignal(request, response, 60_000);
   try {
     const preferred = process.env.OPENROUTER_STORY_MODEL || DEFAULT_MODEL;
     let outline;
-    try { outline = await requestStory(preferred, input, apiKey); } catch (error) {
-      const retryable = error?.code === 'OUTLINE_SCHEMA' || error?.code === 'PROVIDER_RETRYABLE' || error?.name === 'TimeoutError' || error?.name === 'AbortError';
+    try { outline = await requestStory(preferred, input, apiKey, providerRequest.signal); } catch (error) {
+      if (isStoryProviderCancelled(error, providerRequest.signal)) throw error;
+      const retryable = error?.code === 'OUTLINE_SCHEMA' || error?.code === 'PROVIDER_RETRYABLE';
       if (!retryable) throw error;
       const fallback = process.env.OPENROUTER_STORY_FALLBACK_MODEL || FALLBACK_MODEL;
       console.warn('Story outline primary failed; using configured fallback', { primary: preferred, fallback, reason: error?.code || error?.name || 'unknown' });
-      outline = await requestStory(fallback, input, apiKey, 90_000);
+      outline = await requestStory(fallback, input, apiKey, providerRequest.signal);
     }
     return respondJson(response, 200, outline);
   } catch (error) {
     // This deliberately excludes prompts and credentials, but preserves the
     // model/validation reason required to diagnose an otherwise opaque 502.
+    if (providerRequest.clientDisconnected()) return;
     console.error('Story outline generation failed', { reason: error?.code || error?.name || 'unknown', message: error?.message || 'no message' });
-    return respondJson(response, 502, { error: 'Story outline could not be created. Please try again.' });
-  }
+    return respondJson(response, 502, { error: isStoryProviderCancelled(error, providerRequest.signal) ? 'Story outline request timed out. Please try again.' : 'Story outline could not be created. Please try again.' });
+  } finally { providerRequest.cleanup(); }
 }

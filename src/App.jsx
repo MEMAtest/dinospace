@@ -40,7 +40,7 @@ const SOUND_PREFERENCE_KEY = 'amari-sound-on';
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
 // after this long, a "leave the game?" check protects the child's progress.
 const CONFIRM_LEAVE_AFTER_MS = 10000;
-const NO_CHALLENGE_TRACKER = new Set(['jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino', 'addition', 'subtraction', 'timeteller', 'numberline', 'codecadets', 'writingdesk', 'astronaut', 'chess', 'colormix', 'oddoneout', 'pattern', 'phonics']);
+const NO_CHALLENGE_TRACKER = new Set(['memory', 'words', 'jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino', 'addition', 'subtraction', 'timeteller', 'numberline', 'codecadets', 'writingdesk', 'astronaut', 'chess', 'colormix', 'oddoneout', 'pattern', 'phonics']);
 const AmariCountTheStars = lazy(() => import('./components/games/AmariCountTheStars.jsx'));
 const AmariLetterTrace = lazy(() => import('./components/games/AmariLetterTrace.jsx'));
 
@@ -341,7 +341,7 @@ const PlayerSession = ({
         achievements={unlockedAchievements}
         playerName={player.name}
         showLearningSettings={!little}
-        onBack={() => back()}
+        onBack={() => navigate({ name: 'home' })}
       >
         <VoiceSettings
           voiceMode={voice.voiceMode}

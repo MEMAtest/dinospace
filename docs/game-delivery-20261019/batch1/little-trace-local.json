@@ -1,0 +1,27 @@
+{
+  "launch": [
+    "Askia chooser",
+    "Letter Trace public deep link"
+  ],
+  "checks": {
+    "askiaLevelTarget": 4,
+    "taughtSoundsFilterExpandedThroughUI": true,
+    "keyboardFocusedAndCompleted": true,
+    "closedUppercaseOMouseReadyPercent": 100,
+    "partialStrokeCancelPreservedCompletedStroke": {
+      "afterFirst": 33,
+      "afterCancel": 56,
+      "resumedAndChecked": true
+    },
+    "nativeTouchDot_i": true,
+    "nativeTouchDot_j": true,
+    "finalWrapperProgress": {
+      "done": "4",
+      "target": "4"
+    },
+    "finalWrapperCompletionHeld": true
+  },
+  "providerAttempts": [],
+  "pageErrors": [],
+  "assetErrors": []
+}

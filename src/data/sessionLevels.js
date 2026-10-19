@@ -39,6 +39,9 @@ export const SESSION_LEVELS = Object.freeze({
 });
 
 export const ASKIA_SESSION_LEVELS = Object.freeze({
+  trace: [
+    { name: 'Trace a letter', description: 'Trace four letters, one at a time.', target: 4 },
+  ],
   counting: [
     { name: 'One to three', description: 'Count up to three stars.', target: 4, countMax: 3 },
     { name: 'One to five', description: 'Count up to five stars.', target: 5, countMax: 5 },

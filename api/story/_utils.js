@@ -73,6 +73,48 @@ export const respondJson = (response, status, body) => {
   response.status(status).json(body);
 };
 
+// Keep one deadline active until a provider response body has been consumed.
+// IncomingMessage 'close' also fires after normal body receipt, so only
+// 'aborted' and an early ServerResponse 'close' indicate a client disconnect.
+export const createStoryProviderSignal = (request, response, timeoutMs) => {
+  const controller = new AbortController();
+  let clientDisconnected = false;
+  const abort = (reason) => {
+    if (!controller.signal.aborted) controller.abort(reason);
+  };
+  const onRequestAborted = () => {
+    clientDisconnected = true;
+    abort(Object.assign(new Error('Story request was aborted by the client'), { name: 'AbortError' }));
+  };
+  const onResponseClose = () => {
+    if (!response.writableEnded) {
+      clientDisconnected = true;
+      abort(Object.assign(new Error('Story response closed before completion'), { name: 'AbortError' }));
+    }
+  };
+  const cleanup = () => {
+    clearTimeout(timer);
+    request.off?.('aborted', onRequestAborted);
+    response.off?.('close', onResponseClose);
+    response.off?.('finish', cleanup);
+  };
+  const timer = setTimeout(() => {
+    abort(Object.assign(new Error('Story provider request timed out'), { name: 'TimeoutError' }));
+  }, timeoutMs);
+  timer.unref?.();
+  request.on?.('aborted', onRequestAborted);
+  response.on?.('close', onResponseClose);
+  response.on?.('finish', cleanup);
+  if (request.aborted || response.destroyed && !response.writableEnded) onRequestAborted();
+  return { signal: controller.signal, cleanup, clientDisconnected: () => clientDisconnected };
+};
+
+export const isStoryProviderCancelled = (error, signal) => (
+  Boolean(signal?.aborted)
+  || error?.name === 'AbortError'
+  || error?.name === 'TimeoutError'
+);
+
 export const allowRequest = (id) => {
   const now = Date.now();
   const current = buckets.get(id);

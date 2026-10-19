@@ -5,6 +5,7 @@ import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
+import { advanceTraceSegment, interpolateGuidePoint, isTraceDotStroke } from '../../data/letterTraceLearning.js';
 
 // These are deliberately stroke paths rather than a font outline. A font tells
 // a child what a letter looks like, but not where to start or which way to
@@ -81,12 +82,13 @@ export const getLetterStrokes = (letter, width, height) => {
 
 // A stroke whose points all sit on (nearly) the same spot is a dot, such as
 // the dot of i or j. It is completed by a tap rather than a traced path.
-const isDotStroke = (stroke) => stroke.length <= 1 || stroke.every((point) => Math.hypot(point.x - stroke[0].x, point.y - stroke[0].y) < 4);
-
 const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
   const difficulty = useGameDifficulty('trace');
   const canvasRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(() => {
+    const index = TRACE_LETTERS.findIndex((item) => getTaughtGraphemes().has(item.lower));
+    return Math.max(0, index);
+  });
   const [caseMode, setCaseMode] = useState('upper');
   const [traceReady, setTraceReady] = useState(false);
   const [traceComplete, setTraceComplete] = useState(false);
@@ -102,21 +104,40 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const firstAttemptRef = useRef(true);
   const [traceResetKey, setTraceResetKey] = useState(0);
   const [taughtOnly, setTaughtOnly] = useState(true);
+  const [keyboardMode, setKeyboardMode] = useState(false);
+  const [keyboardPosition, setKeyboardPosition] = useState(null);
+  const keyboardCursorRef = useRef(0);
+  const keyboardActiveRef = useRef(false);
 
   const visibleLetters = taughtOnly
     ? TRACE_LETTERS.filter((item) => getTaughtGraphemes().has(item.lower))
     : TRACE_LETTERS;
 
   const current = TRACE_LETTERS[currentIndex];
+  const hasEligibleLetters = visibleLetters.length > 0;
   const letterChar = caseMode === 'upper' ? current.upper : current.lower;
 
+  const toggleTaughtOnly = () => {
+    const nextTaughtOnly = !taughtOnly;
+    if (nextTaughtOnly && !getTaughtGraphemes().has(current.lower)) {
+      const firstIndex = TRACE_LETTERS.findIndex((item) => getTaughtGraphemes().has(item.lower));
+      if (firstIndex >= 0) { resetTrace(); setCurrentIndex(firstIndex); }
+    }
+    setTaughtOnly(nextTaughtOnly);
+  };
+
   useEffect(() => {
-    speak(`Trace the ${caseMode === 'upper' ? 'big' : 'small'} ${letterChar}. ${current.word}.`);
-  }, [caseMode, letterChar, current.word, speak]);
+    if (hasEligibleLetters) speak(`Trace the ${caseMode === 'upper' ? 'big' : 'small'} ${letterChar}. ${current.word}.`);
+  }, [caseMode, letterChar, current.word, speak, hasEligibleLetters]);
+
+  useEffect(() => { if (keyboardMode) canvasRef.current?.focus(); }, [keyboardMode]);
 
   const resetTrace = () => {
     drawDistanceRef.current = 0;
     autoCompleteRef.current = false;
+    keyboardActiveRef.current = false;
+    keyboardCursorRef.current = 0;
+    setKeyboardPosition(null);
     onGuideDistanceRef.current = 0;
     offGuideDistanceRef.current = 0;
     guideStrokesRef.current = [];
@@ -228,15 +249,6 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       return { x: event.clientX - rect.left, y: event.clientY - rect.top };
     };
 
-    const nearestPoint = (points, point, fromIndex) => {
-      let nearest = { index: fromIndex, distance: Number.POSITIVE_INFINITY };
-      for (let index = Math.max(0, fromIndex - 3); index < points.length; index += 1) {
-        const distance = Math.hypot(point.x - points[index].x, point.y - points[index].y);
-        if (distance < nearest.distance) nearest = { index, distance };
-      }
-      return nearest;
-    };
-
     const updateProgress = () => {
       const strokes = guideStrokesRef.current;
       const totalPoints = strokes.reduce((sum, stroke) => sum + stroke.length, 0);
@@ -259,19 +271,19 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       const strokeIndex = completedStrokeRef.current;
       const stroke = guideStrokesRef.current[strokeIndex];
       const cursor = strokeCursorsRef.current[strokeIndex] ?? -1;
-      const nearest = stroke ? nearestPoint(stroke, point, Math.max(0, cursor)) : { index: cursor, distance: Infinity };
-      const onRoute = Boolean(stroke && nearest.distance <= 52 && nearest.index >= cursor - 3);
+      const traceStep = stroke && lastPoint ? advanceTraceSegment(stroke, lastPoint, point, Math.max(0, cursor), 52) : { accepted: false, cursor, distance: Infinity };
+      const onRoute = Boolean(stroke && traceStep.accepted);
       if (onRoute) {
         onGuideDistanceRef.current += distance;
-        strokeCursorsRef.current[strokeIndex] = Math.max(cursor, nearest.index);
-        const atEnd = nearest.index >= stroke.length - 1 && nearest.distance <= 54;
+        strokeCursorsRef.current[strokeIndex] = Math.max(cursor, traceStep.cursor);
+        const atEnd = traceStep.cursor >= stroke.length - 1 && traceStep.distance <= 54;
         if (atEnd) {
           completedStrokeRef.current += 1;
           isDrawing = false;
           setTraceFeedback(completedStrokeRef.current < guideStrokesRef.current.length
             ? `Stroke ${completedStrokeRef.current} complete! Lift up, then start at green ${completedStrokeRef.current + 1}.`
             : 'Every stroke is covered. Check your trace!');
-        } else if (nearest.index > cursor + 3) {
+        } else if (traceStep.cursor > cursor + 1) {
           setTraceFeedback('Great direction! Keep following the arrows.');
         }
       } else {
@@ -301,7 +313,8 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       const stroke = guideStrokesRef.current[strokeIndex];
       const cursor = strokeCursorsRef.current[strokeIndex] ?? -1;
       const startDistance = stroke ? Math.hypot(point.x - stroke[0].x, point.y - stroke[0].y) : Infinity;
-      const resumeDistance = stroke && cursor >= 0 ? Math.hypot(point.x - stroke[cursor].x, point.y - stroke[cursor].y) : Infinity;
+      const resumePoint = stroke && cursor >= 0 ? interpolateGuidePoint(stroke, cursor) : null;
+      const resumeDistance = resumePoint ? Math.hypot(point.x - resumePoint.x, point.y - resumePoint.y) : Infinity;
       if (!stroke || (cursor < 1 && startDistance > 56) || (cursor >= 1 && Math.min(startDistance, resumeDistance) > 56)) {
         firstAttemptRef.current = false;
         setTraceFeedback(cursor < 1 ? `Start at the green ${strokeIndex + 1}.` : 'Pick up and continue near the last blue dot.');
@@ -315,7 +328,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       // A dot (for example the dot of i or j) is a deliberate one-tap stroke.
       // It has no length for pointermove to traverse, so complete it as soon
       // as the child starts on its green marker.
-      if (isDotStroke(stroke)) {
+      if (isTraceDotStroke(stroke)) {
         strokeCursorsRef.current[strokeIndex] = stroke.length - 1;
         completedStrokeRef.current += 1;
         isDrawing = false;
@@ -329,6 +342,19 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
     const stopDrawing = (event) => {
       if (event && event.pointerId !== activePointerId) return;
+      if (!isDrawing) {
+        if (event) canvas.releasePointerCapture?.(event.pointerId);
+        activePointerId = null;
+        lastPoint = null;
+        return;
+      }
+      if (event && isDrawing) draw(event);
+      if (!isDrawing) {
+        if (event) canvas.releasePointerCapture?.(event.pointerId);
+        activePointerId = null;
+        lastPoint = null;
+        return;
+      }
       isDrawing = false;
       if (event) canvas.releasePointerCapture?.(event.pointerId);
       activePointerId = null;
@@ -338,21 +364,82 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       else if (completedStrokeRef.current < guideStrokesRef.current.length) setTraceFeedback(`Nice start. Begin the next stroke at green ${completedStrokeRef.current + 1}.`);
     };
 
+    const cancelDrawing = (event) => {
+      if (event.pointerId !== activePointerId) return;
+      isDrawing = false;
+      activePointerId = null;
+      lastPoint = null;
+      setTraceFeedback('Touch stopped. Continue this stroke from its last guide point.');
+    };
+
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     canvas.addEventListener('pointerdown', startDrawing);
     canvas.addEventListener('pointermove', draw);
     canvas.addEventListener('pointerup', stopDrawing);
-    canvas.addEventListener('pointercancel', stopDrawing);
+    canvas.addEventListener('pointercancel', cancelDrawing);
+    canvas.addEventListener('lostpointercapture', cancelDrawing);
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
       canvas.removeEventListener('pointerdown', startDrawing);
       canvas.removeEventListener('pointermove', draw);
       canvas.removeEventListener('pointerup', stopDrawing);
-      canvas.removeEventListener('pointercancel', stopDrawing);
+      canvas.removeEventListener('pointercancel', cancelDrawing);
+      canvas.removeEventListener('lostpointercapture', cancelDrawing);
     };
   }, [letterChar, difficulty, traceResetKey]);
+
+  const handleKeyboardTrace = (event) => {
+    if (!keyboardMode || traceComplete || !hasEligibleLetters) return;
+    const strokeIndex = completedStrokeRef.current;
+    const stroke = guideStrokesRef.current[strokeIndex];
+    if (!stroke) return;
+    const refreshKeyboardProgress = () => {
+      const strokes = guideStrokesRef.current;
+      const totalPoints = strokes.reduce((sum, item) => sum + item.length, 0);
+      const visitedPoints = strokes.reduce((sum, item, index) => sum + Math.max(0, Math.min(item.length - 1, strokeCursorsRef.current[index] ?? -1) + 1), 0);
+      const allStrokes = strokes.length > 0 && completedStrokeRef.current >= strokes.length;
+      setTraceProgress(totalPoints ? Math.round((visitedPoints / totalPoints) * 100) : 0);
+      setTraceReady(allStrokes);
+    };
+    if (event.key === ' ' || event.key === 'Spacebar') {
+      event.preventDefault();
+      if (!keyboardActiveRef.current) {
+        keyboardActiveRef.current = true;
+        keyboardCursorRef.current = Math.round(Math.max(0, strokeCursorsRef.current[strokeIndex] ?? 0));
+        setKeyboardPosition(stroke[keyboardCursorRef.current]);
+        setTraceFeedback(isTraceDotStroke(stroke) ? 'Dot stroke complete.' : `Keyboard trace started at stroke ${strokeIndex + 1}. Use an arrow key to follow the guide.`);
+        if (isTraceDotStroke(stroke)) {
+          completedStrokeRef.current += 1;
+          keyboardActiveRef.current = false;
+          setKeyboardPosition(null);
+          refreshKeyboardProgress();
+          setTraceFeedback(completedStrokeRef.current < guideStrokesRef.current.length ? `Dot complete. Start at green ${completedStrokeRef.current + 1}.` : 'All strokes traced. Check your shape.');
+        }
+      } else if (keyboardCursorRef.current >= stroke.length - 1) {
+        completedStrokeRef.current += 1;
+        keyboardActiveRef.current = false;
+        setKeyboardPosition(null);
+        refreshKeyboardProgress();
+        setTraceFeedback(completedStrokeRef.current < guideStrokesRef.current.length ? `Stroke complete. Press Space to start green ${completedStrokeRef.current + 1}.` : 'All strokes traced. Check your shape.');
+      }
+      return;
+    }
+    if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].includes(event.key)) return;
+    event.preventDefault();
+    if (!keyboardActiveRef.current) {
+      setTraceFeedback('Press Space to start this numbered stroke.');
+      return;
+    }
+    keyboardCursorRef.current = event.key === 'ArrowRight' || event.key === 'ArrowDown'
+      ? Math.min(stroke.length - 1, keyboardCursorRef.current + 1)
+      : Math.max(0, keyboardCursorRef.current - 1);
+    strokeCursorsRef.current[strokeIndex] = Math.max(strokeCursorsRef.current[strokeIndex] ?? -1, keyboardCursorRef.current);
+    setKeyboardPosition(stroke[keyboardCursorRef.current]);
+    refreshKeyboardProgress();
+    setTraceFeedback(`Stroke ${strokeIndex + 1}: guide point ${keyboardCursorRef.current + 1} of ${stroke.length}. Press Space at the end to finish.`);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100">
@@ -362,9 +449,7 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </button>
         <div className="text-center">
           <h2 className="text-3xl font-black text-blue-700">Letter Trace</h2>
-          <p className="text-blue-700/70 font-semibold">
-            {letterChar} is for {current.word}
-          </p>
+          <p className="text-blue-700/70 font-semibold">{hasEligibleLetters ? `${letterChar} is for ${current.word}` : 'No taught letters selected'}</p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
@@ -390,9 +475,10 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           )})}
         </div>
 
-        <button onClick={() => setTaughtOnly((value) => !value)} className="mb-3 rounded-full bg-white px-4 py-2 text-sm font-black text-blue-700 shadow">
+        <button onClick={toggleTaughtOnly} className="mb-3 rounded-full bg-white px-4 py-2 text-sm font-black text-blue-700 shadow">
           {taughtOnly ? 'Showing school sounds · Show all' : 'Showing all letters · School sounds only'}
         </button>
+        {!hasEligibleLetters && <p role="status" className="mb-3 max-w-xl rounded-xl bg-amber-50 p-4 text-center font-bold text-amber-950">No taught letters are selected for this learner yet. Ask a grown-up to choose taught letter sounds before tracing.</p>}
 
         <div className="flex gap-2 mb-3">
           <button
@@ -431,8 +517,15 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         </div>
 
         <div className="relative w-full max-w-3xl flex-1 bg-white/60 rounded-3xl shadow-inner border-4 border-blue-200 overflow-hidden">
-          <canvas ref={canvasRef} className="touch-none cursor-crosshair w-full h-full" />
+          {hasEligibleLetters
+            ? <>
+              <canvas ref={canvasRef} role="img" aria-label={`${letterChar} tracing guide. ${keyboardMode ? 'Focus here. Press Space to start; use arrow keys to follow the guide; press Space to finish each stroke.' : 'Start at green 1 and follow the arrows.'}`} onKeyDown={handleKeyboardTrace} tabIndex={keyboardMode ? 0 : -1} className={`touch-none w-full h-full ${keyboardMode ? 'focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-500' : 'cursor-crosshair'}`} />
+              {keyboardMode && keyboardPosition && <span aria-hidden="true" className="pointer-events-none absolute h-7 w-7 rounded-full border-4 border-amber-500 bg-amber-200/75 shadow" style={{ left: keyboardPosition.x, top: keyboardPosition.y, transform: 'translate(-50%, -50%)' }} />}
+            </>
+            : <div className="grid h-full min-h-64 place-items-center p-8 text-center text-xl font-black text-amber-950">Choose taught sounds in grown-up settings to begin.</div>}
         </div>
+
+        <button type="button" onClick={() => { setKeyboardMode((value) => !value); keyboardActiveRef.current = false; keyboardCursorRef.current = 0; setKeyboardPosition(null); setTraceFeedback(keyboardMode ? 'Touch or mouse tracing is ready.' : 'Keyboard tracing: press Space at the green start, use Right or Down to move along the guide, then press Space at the end.'); }} disabled={!hasEligibleLetters || traceComplete} aria-pressed={keyboardMode} className="mt-3 min-h-12 rounded-xl bg-violet-100 px-4 font-black text-violet-950">{keyboardMode ? 'Use touch or mouse' : 'Use keyboard'}</button>
 
         <div className="flex gap-3 mt-4 flex-wrap justify-center">
           <button
@@ -454,10 +547,11 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               playSfx('sparkle');
               setTraceFeedback(`${praise} You followed the letter.`);
               speak(praise);
-              onGameEvent?.('trace', 'answer_correct');
-              onGameEvent?.('trace', 'learning_attempt', makeLearningEvent({ skill: 'letter-formation', item: letterChar, response: 'ordered-guide-trace', correct: true, firstTry: firstAttemptRef.current, difficulty, extra: { onGuideDistance: Math.round(onGuideDistanceRef.current), offGuideDistance: Math.round(offGuideDistanceRef.current), strokes: guideStrokesRef.current.length } }));
+              onGameEvent?.('trace', 'answer_correct', { firstAttempt: firstAttemptRef.current && !keyboardMode, keyboardAlternative: keyboardMode });
+              onGameEvent?.('trace', 'learning_attempt', makeLearningEvent({ skill: 'letter-formation', item: letterChar, response: keyboardMode ? 'keyboard-guide' : 'ordered-guide-trace', correct: true, firstTry: firstAttemptRef.current && !keyboardMode, difficulty, extra: { masteryEligible: !keyboardMode, keyboardAlternative: keyboardMode, onGuideDistance: Math.round(onGuideDistanceRef.current), offGuideDistance: Math.round(offGuideDistanceRef.current), strokes: guideStrokesRef.current.length } }));
             }}
-            disabled={!traceReady || traceComplete}
+            aria-label="Check trace"
+            disabled={!hasEligibleLetters || !traceReady || traceComplete}
             className="bg-blue-500 text-white font-bold px-6 py-2 rounded-full shadow disabled:cursor-not-allowed disabled:opacity-45"
           >
             {traceComplete ? 'Completed!' : traceReady ? 'Check trace!' : 'Trace first'}
@@ -465,13 +559,15 @@ const LetterTrace = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           <button
             onClick={() => {
               resetTrace();
-              const cycle = visibleLetters.length ? visibleLetters : TRACE_LETTERS;
+              const cycle = visibleLetters;
+              if (!cycle.length) return;
               const position = cycle.findIndex((letter) => letter.upper === current.upper);
               const next = cycle[(position + 1) % cycle.length];
               setCurrentIndex(TRACE_LETTERS.findIndex((letter) => letter.upper === next.upper));
               playSfx('click');
             }}
-            className="bg-white text-blue-600 font-bold px-5 py-2 rounded-full shadow"
+            disabled={!hasEligibleLetters}
+            className="bg-white text-blue-600 font-bold px-5 py-2 rounded-full shadow disabled:opacity-50"
           >
             Next letter
           </button>

@@ -1,4 +1,5 @@
 import { pagesForAgeBand, validateStoryOutline, validateStoryRequest } from './storybookValidation.js';
+import { withStoryRequestTimeout } from './storybookRequest.js';
 
 const HOSTED_STORY_API = 'https://dinospace-eight.vercel.app/api/story';
 
@@ -27,36 +28,35 @@ const request = async (path, body, options = {}) => {
   return response;
 };
 
-export const createStorySession = async (signal) => {
-  const response = await request('session', {}, { signal });
+export const createStorySession = (signal, options = {}) => withStoryRequestTimeout(async (requestSignal) => {
+  const response = await request('session', {}, { signal: requestSignal });
   const body = await response.json();
   if (!body.session) throw new Error('Parent session could not be created');
   return body.session;
-};
-
-export const createStoryOutline = async (input, session, signal) => {
+}, { signal, timeoutMs: options.timeoutMs ?? 15000, label: 'Story connection' });
+export const createStoryOutline = (input, session, signal, options = {}) => withStoryRequestTimeout(async (requestSignal) => {
   const validated = validateStoryRequest(input);
-  const response = await request('outline', validated, { session, signal });
+  const response = await request('outline', validated, { session, signal: requestSignal });
   const outline = await response.json();
   return validateStoryOutline(outline, { ageBand: validated.ageBand, expectedPageCount: pagesForAgeBand(validated.ageBand) });
-};
+}, { signal, timeoutMs: options.timeoutMs ?? 60000, label: 'Story outline' });
 
-export const createStoryImage = async ({ prompt, referenceImage }, session, signal) => {
-  const response = await request('image', { prompt, referenceImage }, { session, signal });
+export const createStoryImage = ({ prompt, referenceImage }, session, signal, options = {}) => withStoryRequestTimeout(async (requestSignal) => {
+  const response = await request('image', { prompt, referenceImage }, { session, signal: requestSignal });
   if (response.headers.get('x-amari-image-provider') !== 'openrouter') {
     throw new Error('Illustration provider could not be verified');
   }
   const blob = await response.blob();
   if (!blob.size) throw new Error('Illustration returned no data');
   return blob;
-};
+}, { signal, timeoutMs: options.timeoutMs ?? 120000, label: 'Story illustration' });
 
-export const createStoryNarration = async ({ text, previousText, nextText }, session, signal) => {
-  const response = await request('narration', { text, previousText, nextText }, { session, signal });
+export const createStoryNarration = ({ text, previousText, nextText }, session, signal, options = {}) => withStoryRequestTimeout(async (requestSignal) => {
+  const response = await request('narration', { text, previousText, nextText }, { session, signal: requestSignal });
   if (response.headers.get('x-amari-voice-provider') !== 'elevenlabs') {
     throw new Error('Narration provider could not be verified');
   }
   const blob = await response.blob();
   if (!blob.size) throw new Error('Narration returned no data');
   return blob;
-};
+}, { signal, timeoutMs: options.timeoutMs ?? 90000, label: 'Story narration' });

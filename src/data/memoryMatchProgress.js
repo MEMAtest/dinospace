@@ -1,5 +1,38 @@
+import { getGameLevel, saveGameLevel } from './sessionLevels.js';
+
 // Memory completion records contain only durable board results: best moves and stars.
 const storageDefault = () => typeof window === 'undefined' ? null : window.localStorage;
+const resumeKey = (playerId) => `${playerId || 'amari'}_memory_resume_v1`;
+
+export function readMemoryResume(playerId, totalLevels, fallbackIndex = 0, storage = storageDefault()) {
+  const last = Math.max(0, totalLevels - 1);
+  const fallback = Math.min(last, Math.max(0, Number.isInteger(fallbackIndex) ? fallbackIndex : 0));
+  try {
+    const saved = JSON.parse(storage?.getItem(resumeKey(playerId)) || 'null');
+    if (Number.isInteger(saved?.resumeIndex)) return Math.max(fallback, Math.min(last, Math.max(0, saved.resumeIndex)));
+  } catch { /* use the established unlocked level as the migration fallback */ }
+  return fallback;
+}
+
+export function saveMemoryResume(playerId, resumeIndex, storage = storageDefault()) {
+  try {
+    if (!storage || !Number.isInteger(resumeIndex) || resumeIndex < 0) throw Error('Invalid memory resume');
+    storage.setItem(resumeKey(playerId), JSON.stringify({ resumeIndex }));
+    return true;
+  } catch { return false; }
+}
+
+export function completeMemoryProgress(playerId, totalLevels, completedIndex, fallbackIndex = 0, storage = storageDefault()) {
+  const last = Math.max(0, totalLevels - 1);
+  const completed = Math.min(last, Math.max(0, Number.isInteger(completedIndex) ? completedIndex : 0));
+  const nextIndex = Math.min(last, completed + 1);
+  const resumeIndex = Math.max(readMemoryResume(playerId, totalLevels, fallbackIndex, storage), nextIndex);
+  const saved = getGameLevel(playerId, 'memory', totalLevels, storage);
+  const unlocked = Math.max(saved.unlocked, resumeIndex);
+  const persisted = saveMemoryResume(playerId, resumeIndex, storage);
+  saveGameLevel(playerId, 'memory', resumeIndex, unlocked, storage);
+  return { resumeIndex, unlocked, persisted };
+}
 
 export function buildSeededMemoryDeck(level, seed) {
   let state = (Number(seed) >>> 0) || 1;

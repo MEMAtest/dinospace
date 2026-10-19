@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-10-19T17:22:08.375222+00:00",
+  "updatedAt": "2026-10-19T20:32:32.173705+00:00",
   "scope": "34 current catalogue activities; historical 26-game ledger remains intact",
   "target": "5/5 against explicit per-game and shared criteria",
   "counts": {
-    "planned": 33,
-    "investigating": 1,
+    "planned": 30,
+    "in progress": 4,
     "acceptedThisProgramme": 0
   },
   "batchSize": 4,
@@ -14,41 +14,49 @@
       "batch": 1,
       "gameId": "storybooks",
       "game": "Storybook Studio",
-      "status": "investigating",
+      "status": "in progress",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "implementation": "unreleased candidate; root local gameplay evidence retained in batch1/",
+      "acceptanceReport": "batch1/root-review.md"
     },
     {
       "batch": 1,
       "gameId": "words",
       "game": "Spelling Studio",
-      "status": "planned",
+      "status": "in progress",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "implementation": "unreleased candidate; root local gameplay evidence retained in batch1/",
+      "acceptanceReport": "batch1/root-review.md"
     },
     {
       "batch": 1,
       "gameId": "memory",
       "game": "Memory Match",
-      "status": "planned",
+      "status": "in progress",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "implementation": "unreleased candidate; root local gameplay evidence retained in batch1/",
+      "acceptanceReport": "batch1/root-review.md"
     },
     {
       "batch": 1,
       "gameId": "trace",
       "game": "Letter Trace",
-      "status": "planned",
+      "status": "in progress",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "implementation": "unreleased candidate; root local gameplay evidence retained in batch1/",
+      "acceptanceReport": "batch1/root-review.md"
     },
     {
       "batch": 2,
@@ -350,5 +358,6 @@
       "instructions": "plan.md",
       "historicalRoadmap": null
     }
-  ]
+  ],
+  "releaseGate": "Batch 1 remains pending audio, budgeted live provider story, listening and canonical production acceptance."
 }

@@ -1,0 +1,5358 @@
+{
+  "origin": "http://127.0.0.1:5180",
+  "flow": [
+    "Amari",
+    "Read & Write",
+    "Storybook Studio"
+  ],
+  "books": [
+    {
+      "slug": "rex-missing-moon-map",
+      "title": "Rex and the Missing Moon Map",
+      "pages": 10,
+      "sourceQuestions": 3
+    },
+    {
+      "slug": "luna-whispering-forest",
+      "title": "Luna and the Whispering Forest",
+      "pages": 10,
+      "sourceQuestions": 3
+    },
+    {
+      "slug": "nia-great-river-journey",
+      "title": "Nia\u2019s Great River Journey",
+      "pages": 10,
+      "sourceQuestions": 3
+    },
+    {
+      "slug": "bo-busy-bee-garden",
+      "title": "Bo and the Busy Bee Garden",
+      "pages": 10,
+      "sourceQuestions": 3
+    },
+    {
+      "slug": "sami-night-light-parade",
+      "title": "Sami and the Night-Light Parade",
+      "pages": 10,
+      "sourceQuestions": 3
+    },
+    {
+      "slug": "mina-mountain-seed",
+      "title": "Mina\u2019s Mountain Seed",
+      "pages": 10,
+      "sourceQuestions": 3
+    },
+    {
+      "slug": "kai-lost-library-book",
+      "title": "Kai and the Lost Library Book",
+      "pages": 10,
+      "sourceQuestions": 3
+    }
+  ],
+  "cacheConditions": "Normal browser cache throughout; this helper does not clear or bypass it.",
+  "shelfTimingDefinition": "Elapsed time from clicking Read & Write to seven usable book cards on fresh entry; warm entries time returning from the studio world tile to the same shelf.",
+  "shelfTimings": [
+    {
+      "width": 390,
+      "kind": "freshEntry",
+      "sample": 1,
+      "shelfReadyMs": 245,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 390,
+      "kind": "freshEntry",
+      "sample": 2,
+      "shelfReadyMs": 311,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 390,
+      "kind": "freshEntry",
+      "sample": 3,
+      "shelfReadyMs": 329,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 390,
+      "kind": "warmInApp",
+      "sample": 1,
+      "shelfReadyMs": 330,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 390,
+      "kind": "warmInApp",
+      "sample": 2,
+      "shelfReadyMs": 135,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 390,
+      "kind": "warmInApp",
+      "sample": 3,
+      "shelfReadyMs": 151,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 1440,
+      "kind": "freshEntry",
+      "sample": 1,
+      "shelfReadyMs": 411,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 1440,
+      "kind": "freshEntry",
+      "sample": 2,
+      "shelfReadyMs": 476,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 1440,
+      "kind": "freshEntry",
+      "sample": 3,
+      "shelfReadyMs": 514,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 1440,
+      "kind": "warmInApp",
+      "sample": 1,
+      "shelfReadyMs": 52,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 1440,
+      "kind": "warmInApp",
+      "sample": 2,
+      "shelfReadyMs": 423,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    },
+    {
+      "width": 1440,
+      "kind": "warmInApp",
+      "sample": 3,
+      "shelfReadyMs": 456,
+      "under2000ms": true,
+      "cache": "normal; no cache clearing or bypass"
+    }
+  ],
+  "shelfTimingSummary": [
+    {
+      "width": 390,
+      "freshSamples": 3,
+      "warmSamples": 3,
+      "freshWithin2s": [
+        true,
+        true,
+        true
+      ],
+      "warmWithin2s": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "width": 1440,
+      "freshSamples": 3,
+      "warmSamples": 3,
+      "freshWithin2s": [
+        true,
+        true,
+        true
+      ],
+      "warmWithin2s": [
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "warmTextNavigationBudget": {
+    "targetMs": 500,
+    "measuredRows": 154,
+    "metRows": 153,
+    "unmetRows": 1,
+    "timings": [
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 31,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 35,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 33,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 46,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 54,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 46,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 33,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 35,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 39,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 35,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 35,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 31,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 47,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 36,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 37,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 33,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 36,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "luna-whispering-forest",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 31,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 38,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 35,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 47,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 33,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 35,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 39,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 35,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 45,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "nia-great-river-journey",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 31,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 71,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 91,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 563,
+        "under500ms": false,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 62,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 45,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 84,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 94,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 112,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 361,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 79,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 92,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 89,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 83,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 42,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 31,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 33,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 26,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 34,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 34,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 19,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "sami-night-light-parade",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 36,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 31,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 36,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 60,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 29,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 45,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 33,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 34,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 33,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 35,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "mina-mountain-seed",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 37,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 31,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 34,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 34,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 45,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 48,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 52,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 39,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 50,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 49,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 390,
+        "slug": "kai-lost-library-book",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 52,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 83,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 101,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 467,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 184,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 173,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 189,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 198,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 170,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 181,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 81,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "rex-missing-moon-map",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 162,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 32,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 68,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 253,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 173,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 178,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 176,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 181,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 184,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 178,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 169,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "luna-whispering-forest",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 183,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 89,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 113,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 394,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 199,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 163,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 189,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 222,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 242,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 137,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 182,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "nia-great-river-journey",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 322,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 85,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 83,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 403,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 190,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 191,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 184,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 105,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 188,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 180,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 168,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "bo-busy-bee-garden",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 175,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 87,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 86,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 76,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 170,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 175,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 180,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 183,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 179,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 165,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 171,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "sami-night-light-parade",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 167,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 84,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 101,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 373,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 180,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 150,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 190,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 181,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 155,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 196,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 192,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "mina-mountain-seed",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 187,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 1,
+        "toPage": "cover",
+        "direction": "back",
+        "textTransitionMs": 81,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": "cover",
+        "toPage": 1,
+        "direction": "forward",
+        "textTransitionMs": 102,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 1,
+        "toPage": 2,
+        "textTransitionMs": 399,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 2,
+        "toPage": 3,
+        "textTransitionMs": 186,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 3,
+        "toPage": 4,
+        "textTransitionMs": 194,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 4,
+        "toPage": 5,
+        "textTransitionMs": 172,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 5,
+        "toPage": 6,
+        "textTransitionMs": 178,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 6,
+        "toPage": 7,
+        "textTransitionMs": 183,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 7,
+        "toPage": 8,
+        "textTransitionMs": 186,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 8,
+        "toPage": 9,
+        "textTransitionMs": 185,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      },
+      {
+        "width": 1440,
+        "slug": "kai-lost-library-book",
+        "fromPage": 9,
+        "toPage": 10,
+        "textTransitionMs": 183,
+        "under500ms": true,
+        "cacheState": "normal; page rendered after app and shelf warm-up"
+      }
+    ]
+  },
+  "readingRows": [
+    {
+      "width": 390,
+      "childJourney": {
+        "book": "rex-missing-moon-map",
+        "syntheticReader": {
+          "profileName": "Codex Reading QA 2026-10-19 20:04",
+          "optionLabel": "Codex Reading QA 2026-10-19 20:04 \u00b7 5-6",
+          "createdThrough": "Parent tools \u2192 Edit children \u2192 Add child \u2192 Save profiles"
+        },
+        "favourite": {
+          "originalAmariState": "false",
+          "syntheticReaderAdded": true,
+          "visibleOnSyntheticFavourites": true,
+          "isolatedFromAmari": true
+        },
+        "resume": {
+          "amariBefore": "Page 1 of 11",
+          "amariAfter": "Page 1 of 11",
+          "syntheticReaderSaved": "Page 3 of 11",
+          "syntheticReaderResumed": "Page 3 of 11"
+        }
+      }
+    },
+    {
+      "width": 390,
+      "slug": "rex-missing-moon-map",
+      "title": "Rex and the Missing Moon Map",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 245,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.332,
+            "objectFit": "cover",
+            "estimatedCropPercent": 0
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2.24,
+            "currentTimeSeconds": 0.08,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 164,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12,
+            "currentTimeSeconds": 0.12,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 154,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1200,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.333,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.3
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.36,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 152,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.88,
+            "currentTimeSeconds": 0.12,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 164,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.84,
+            "currentTimeSeconds": 0.08,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.24,
+            "currentTimeSeconds": 0.08,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 156,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.16,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 179,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 14.32,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 162,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.44,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 144,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.76,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 177,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.76,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 390,
+      "slug": "luna-whispering-forest",
+      "title": "Luna and the Whispering Forest",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 245,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.332,
+            "objectFit": "cover",
+            "estimatedCropPercent": 0
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2.56,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 184,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.64,
+            "currentTimeSeconds": 0.13,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 187,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.6,
+            "currentTimeSeconds": 0.14,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 196,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.44,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 184,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.4,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 205,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.84,
+            "currentTimeSeconds": 0.08,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 181,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 14.48,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 207,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.2,
+            "currentTimeSeconds": 0.08,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 206,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.52,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 183,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.36,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 226,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.84,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 390,
+      "slug": "nia-great-river-journey",
+      "title": "Nia\u2019s Great River Journey",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 245,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.332,
+            "objectFit": "cover",
+            "estimatedCropPercent": 0
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 1.92,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 179,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.36,
+            "currentTimeSeconds": 0.13,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 204,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.04,
+            "currentTimeSeconds": 0.15,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 208,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 17.36,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 181,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 14.16,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 174,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.08,
+            "currentTimeSeconds": 0.12,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 164,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.6,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.88,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 167,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.6,
+            "currentTimeSeconds": 0.12,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 216,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.84,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 241,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 18.64,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 390,
+      "slug": "bo-busy-bee-garden",
+      "title": "Bo and the Busy Bee Garden",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 245,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.332,
+            "objectFit": "cover",
+            "estimatedCropPercent": 0
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2.4,
+            "currentTimeSeconds": 0.45,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 165,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.12,
+            "currentTimeSeconds": 0.41,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 145,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10,
+            "currentTimeSeconds": 0.32,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 184,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.84,
+            "currentTimeSeconds": 0.36,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 179,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.68,
+            "currentTimeSeconds": 0.28,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 179,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.96,
+            "currentTimeSeconds": 0.26,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 168,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.6,
+            "currentTimeSeconds": 0.29,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 153,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.8,
+            "currentTimeSeconds": 0.22,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 195,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.68,
+            "currentTimeSeconds": 0.34,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 158,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.52,
+            "currentTimeSeconds": 0.39,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 171,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.6,
+            "currentTimeSeconds": 0.33,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 390,
+      "slug": "sami-night-light-parade",
+      "title": "Sami and the Night-Light Parade",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 245,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.332,
+            "objectFit": "cover",
+            "estimatedCropPercent": 0
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2.24,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 160,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.24,
+            "currentTimeSeconds": 0.16,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 163,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.48,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 169,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.72,
+            "currentTimeSeconds": 0.12,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 151,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.36,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 159,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.56,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 147,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.24,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 176,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.12,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 168,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.56,
+            "currentTimeSeconds": 0.17,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 150,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.12,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 148,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.88,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 390,
+      "slug": "mina-mountain-seed",
+      "title": "Mina\u2019s Mountain Seed",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 252,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.296,
+            "objectFit": "cover",
+            "estimatedCropPercent": 2.7
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 1.76,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 149,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.28,
+            "currentTimeSeconds": 0.12,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 156,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.64,
+            "currentTimeSeconds": 0.08,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 162,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.96,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 154,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 154,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.96,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 142,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.36,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.36,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 153,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.32,
+            "currentTimeSeconds": 0.1,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 168,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.72,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.56,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 390,
+      "slug": "kai-lost-library-book",
+      "title": "Kai and the Lost Library Book",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 245,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.332,
+            "objectFit": "cover",
+            "estimatedCropPercent": 0
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2,
+            "currentTimeSeconds": 0.08,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 155,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.4,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 146,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.16,
+            "currentTimeSeconds": 0.13,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 166,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.12,
+            "currentTimeSeconds": 0.08,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 157,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.16,
+            "currentTimeSeconds": 0.12,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 146,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.24,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.16,
+            "currentTimeSeconds": 0.13,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 158,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.6,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 158,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.76,
+            "currentTimeSeconds": 0.12,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 159,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.331,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.52,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 183,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 326,
+            "boxHeight": 356,
+            "sourceAspect": 1.332,
+            "frameAspect": 0.916,
+            "objectFit": "cover",
+            "estimatedCropPercent": 31.2
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.16,
+            "currentTimeSeconds": 0.09,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "rex-missing-moon-map",
+      "title": "Rex and the Missing Moon Map",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2.24,
+            "currentTimeSeconds": 0.29,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 164,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12,
+            "currentTimeSeconds": 0.36,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 154,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1200,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.333,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.4
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.36,
+            "currentTimeSeconds": 0.35,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 152,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.88,
+            "currentTimeSeconds": 0.35,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 164,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.84,
+            "currentTimeSeconds": 0.32,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.24,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 156,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.16,
+            "currentTimeSeconds": 0.37,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 179,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 14.32,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 162,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.44,
+            "currentTimeSeconds": 0.37,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 144,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.76,
+            "currentTimeSeconds": 0.36,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 177,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.76,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/rex-missing-moon-map/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "luna-whispering-forest",
+      "title": "Luna and the Whispering Forest",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2.56,
+            "currentTimeSeconds": 0.34,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 184,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.64,
+            "currentTimeSeconds": 0.22,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 187,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.6,
+            "currentTimeSeconds": 0.24,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 196,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.44,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 184,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.4,
+            "currentTimeSeconds": 0.23,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 205,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.84,
+            "currentTimeSeconds": 0.35,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 181,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 14.48,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 207,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.2,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 206,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.52,
+            "currentTimeSeconds": 0.33,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 183,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.36,
+            "currentTimeSeconds": 0.32,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 226,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.84,
+            "currentTimeSeconds": 0.37,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/luna-whispering-forest/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "nia-great-river-journey",
+      "title": "Nia\u2019s Great River Journey",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 1.92,
+            "currentTimeSeconds": 0.13,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 179,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.36,
+            "currentTimeSeconds": 0.38,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 204,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.04,
+            "currentTimeSeconds": 0.24,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 208,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 17.36,
+            "currentTimeSeconds": 0.31,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 181,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 14.16,
+            "currentTimeSeconds": 0.35,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 174,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.08,
+            "currentTimeSeconds": 0.38,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 164,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.6,
+            "currentTimeSeconds": 0.29,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.88,
+            "currentTimeSeconds": 0.54,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 167,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.6,
+            "currentTimeSeconds": 0.24,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 216,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 15.84,
+            "currentTimeSeconds": 0.14,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 241,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 18.64,
+            "currentTimeSeconds": 0.27,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/nia-great-river-journey/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "bo-busy-bee-garden",
+      "title": "Bo and the Busy Bee Garden",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2.4,
+            "currentTimeSeconds": 0.13,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 165,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.12,
+            "currentTimeSeconds": 0.33,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 145,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10,
+            "currentTimeSeconds": 0.26,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 184,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.84,
+            "currentTimeSeconds": 0.26,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 179,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.68,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 179,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.96,
+            "currentTimeSeconds": 0.26,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 168,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.6,
+            "currentTimeSeconds": 0.28,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 153,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.8,
+            "currentTimeSeconds": 0.26,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 195,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.68,
+            "currentTimeSeconds": 0.34,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 158,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.52,
+            "currentTimeSeconds": 0.26,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 171,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.6,
+            "currentTimeSeconds": 0.34,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/bo-busy-bee-garden/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "sami-night-light-parade",
+      "title": "Sami and the Night-Light Parade",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2.24,
+            "currentTimeSeconds": 0.11,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 160,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.24,
+            "currentTimeSeconds": 0.33,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 163,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.48,
+            "currentTimeSeconds": 0.27,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 169,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.72,
+            "currentTimeSeconds": 0.29,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 151,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.36,
+            "currentTimeSeconds": 0.3,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 159,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.56,
+            "currentTimeSeconds": 0.3,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 147,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.24,
+            "currentTimeSeconds": 0.3,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 176,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 13.12,
+            "currentTimeSeconds": 0.34,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 168,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.56,
+            "currentTimeSeconds": 0.24,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 150,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.12,
+            "currentTimeSeconds": 0.26,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 148,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.88,
+            "currentTimeSeconds": 0.24,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/sami-night-light-parade/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "mina-mountain-seed",
+      "title": "Mina\u2019s Mountain Seed",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 1.76,
+            "currentTimeSeconds": 0.13,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 149,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.28,
+            "currentTimeSeconds": 0.34,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 156,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.64,
+            "currentTimeSeconds": 0.24,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 162,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.96,
+            "currentTimeSeconds": 0.35,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 154,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 154,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.96,
+            "currentTimeSeconds": 0.24,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 142,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.36,
+            "currentTimeSeconds": 0.34,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.36,
+            "currentTimeSeconds": 0.27,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 153,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.32,
+            "currentTimeSeconds": 0.26,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 168,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.72,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.56,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/mina-mountain-seed/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    },
+    {
+      "width": 1440,
+      "slug": "kai-lost-library-book",
+      "title": "Kai and the Lost Library Book",
+      "pageCount": 10,
+      "screens": [
+        {
+          "screen": "cover",
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 2,
+            "currentTimeSeconds": 0.12,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-cover.mp3"
+          }
+        },
+        {
+          "screen": 1,
+          "textLength": 155,
+          "wordHelpEntries": 6,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.4,
+            "currentTimeSeconds": 0.33,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-01.mp3"
+          }
+        },
+        {
+          "screen": 2,
+          "textLength": 146,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.16,
+            "currentTimeSeconds": 0.28,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-02.mp3"
+          }
+        },
+        {
+          "screen": 3,
+          "textLength": 166,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.12,
+            "currentTimeSeconds": 0.24,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-03.mp3"
+          }
+        },
+        {
+          "screen": 4,
+          "textLength": 157,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.16,
+            "currentTimeSeconds": 0.32,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-04.mp3"
+          }
+        },
+        {
+          "screen": 5,
+          "textLength": 146,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.24,
+            "currentTimeSeconds": 0.26,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-05.mp3"
+          }
+        },
+        {
+          "screen": 6,
+          "textLength": 160,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 10.16,
+            "currentTimeSeconds": 0.25,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-06.mp3"
+          }
+        },
+        {
+          "screen": 7,
+          "textLength": 158,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.6,
+            "currentTimeSeconds": 0.27,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-07.mp3"
+          }
+        },
+        {
+          "screen": 8,
+          "textLength": 158,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 9.76,
+            "currentTimeSeconds": 0.31,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-08.mp3"
+          }
+        },
+        {
+          "screen": 9,
+          "textLength": 159,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1202,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.331,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.6
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 11.52,
+            "currentTimeSeconds": 0.27,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-09.mp3"
+          }
+        },
+        {
+          "screen": 10,
+          "textLength": 183,
+          "image": {
+            "loaded": true,
+            "naturalWidth": 1600,
+            "naturalHeight": 1201,
+            "boxWidth": 813,
+            "boxHeight": 540,
+            "sourceAspect": 1.332,
+            "frameAspect": 1.505,
+            "objectFit": "cover",
+            "estimatedCropPercent": 11.5
+          },
+          "audio": {
+            "readyState": 4,
+            "durationSeconds": 12.16,
+            "currentTimeSeconds": 0.31,
+            "paused": true,
+            "error": null,
+            "currentSrc": "/storybooks/kai-lost-library-book/audio-page-10.mp3"
+          }
+        }
+      ],
+      "questions": {
+        "count": 3,
+        "wrongAnswerRecovery": true,
+        "sourceFixturesMatched": true
+      }
+    }
+  ],
+  "blockedProviderCalls": [],
+  "pageErrors": [],
+  "assetFailures": []
+}

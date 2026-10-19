@@ -1,0 +1,52 @@
+{
+  "runs": [
+    {
+      "run": 1,
+      "rounds": [
+        "F",
+        "c",
+        "N",
+        "s",
+        "D",
+        "a",
+        "M",
+        "t"
+      ]
+    },
+    {
+      "run": 2,
+      "rounds": [
+        "D",
+        "l",
+        "S",
+        "u",
+        "O",
+        "n",
+        "C",
+        "g"
+      ]
+    },
+    {
+      "run": 3,
+      "rounds": [
+        "P",
+        "f",
+        "U",
+        "i",
+        "D",
+        "o",
+        "B",
+        "c"
+      ]
+    }
+  ],
+  "lowercaseI": {
+    "run": 3,
+    "round": 4,
+    "guide": "i",
+    "dotInput": "CDP touchStart/touchEnd through Amari canvas pointer handlers"
+  },
+  "providerAttempts": [],
+  "pageErrors": [],
+  "assetErrors": []
+}

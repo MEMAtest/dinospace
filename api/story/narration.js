@@ -1,6 +1,6 @@
 /* global Buffer, process */
 
-import { allowRequest, applyCors, clientId, hasStorySession, isAllowedOrigin, parseBody, respondJson } from './_utils.js';
+import { allowRequest, applyCors, clientId, createStoryProviderSignal, hasStorySession, isAllowedOrigin, isStoryProviderCancelled, parseBody, respondJson } from './_utils.js';
 
 const MAX_TEXT = 420;
 
@@ -19,11 +19,12 @@ export default async function handler(request, response) {
   const apiKey = process.env.ELEVENLABS_API_KEY;
   const voiceId = process.env.ELEVENLABS_STORY_VOICE_ID || process.env.ELEVENLABS_ENGLISH_VOICE_ID || process.env.ELEVENLABS_VOICE_ID;
   if (!apiKey || !voiceId) return respondJson(response, 503, { error: 'Story narration is not configured' });
+  const providerRequest = createStoryProviderSignal(request, response, 90_000);
   try {
     const url = new URL(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`);
     url.searchParams.set('output_format', 'mp3_44100_128');
     const providerResponse = await fetch(url, {
-      method: 'POST', headers: { 'Content-Type': 'application/json', 'xi-api-key': apiKey }, signal: AbortSignal.timeout(90_000),
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'xi-api-key': apiKey }, signal: providerRequest.signal,
       body: JSON.stringify({ text, model_id: process.env.ELEVENLABS_STORY_MODEL_ID || 'eleven_v3', ...(process.env.ELEVENLABS_STORY_MODEL_ID === 'eleven_multilingual_v2' ? { previous_text: previousText || undefined, next_text: nextText || undefined } : {}), voice_settings: { stability: 0.44, similarity_boost: 0.78, style: 0.12, use_speaker_boost: true, speed: 0.93 } }),
     });
     if (!providerResponse.ok) return respondJson(response, 502, { error: 'Narration provider is temporarily unavailable' });
@@ -31,5 +32,8 @@ export default async function handler(request, response) {
     if (!audio.length) return respondJson(response, 502, { error: 'Narration provider returned no audio' });
     response.setHeader('Content-Type', 'audio/mpeg'); response.setHeader('Content-Length', String(audio.length)); response.setHeader('Cache-Control', 'private, no-store'); response.setHeader('X-Amari-Voice-Provider', 'elevenlabs');
     return response.status(200).send(audio);
-  } catch { return respondJson(response, 502, { error: 'Narration could not be created. Please retry this page.' }); }
+  } catch (error) {
+    if (providerRequest.clientDisconnected()) return;
+    return respondJson(response, 502, { error: isStoryProviderCancelled(error, providerRequest.signal) ? 'Narration request timed out. Please retry this page.' : 'Narration could not be created. Please retry this page.' });
+  } finally { providerRequest.cleanup(); }
 }

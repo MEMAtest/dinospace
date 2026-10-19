@@ -1,0 +1,104 @@
+{
+  "origin": "http://127.0.0.1:5180",
+  "launch": [
+    "Amari",
+    "Read & Write",
+    "Spelling Studio"
+  ],
+  "levelsAtWidths": [
+    {
+      "width": 390,
+      "savedCaption": true,
+      "reopenedCaption": true,
+      "outerCounterPreserved": true
+    },
+    {
+      "width": 390,
+      "level": 1,
+      "stageName": "Copy the word",
+      "target": 5,
+      "nativeAnswers": 5,
+      "inputMode": "native touch",
+      "clueUsed": false,
+      "wrongRetry": true,
+      "replayedWord": true,
+      "heldExplanationMs": 6100,
+      "heldFact": "Great job! You built mad from m \u00b7 a \u00b7 d. A mad face can show someone feeling cross."
+    },
+    {
+      "width": 390,
+      "level": 2,
+      "stageName": "Find the missing sound",
+      "target": 6,
+      "nativeAnswers": 6,
+      "inputMode": "native touch",
+      "clueUsed": true,
+      "wrongRetry": true,
+      "replayedWord": true,
+      "heldExplanationMs": 6100,
+      "heldFact": "Great job! The missing sound is t. A cat is a furry pet that may purr."
+    },
+    {
+      "width": 390,
+      "level": 3,
+      "stageName": "Build the whole word",
+      "target": 7,
+      "nativeAnswers": 7,
+      "inputMode": "native touch",
+      "clueUsed": true,
+      "wrongRetry": true,
+      "replayedWord": true,
+      "heldExplanationMs": 6100,
+      "heldFact": "Great job! You built nap from n \u00b7 a \u00b7 p. A nap is a short sleep."
+    },
+    {
+      "width": 1440,
+      "savedCaption": true,
+      "reopenedCaption": true,
+      "outerCounterPreserved": true
+    },
+    {
+      "width": 1440,
+      "level": 1,
+      "stageName": "Copy the word",
+      "target": 5,
+      "nativeAnswers": 5,
+      "inputMode": "native keyboard",
+      "clueUsed": false,
+      "wrongRetry": true,
+      "replayedWord": true,
+      "heldExplanationMs": 6100,
+      "heldFact": "Great job! You built sad from s \u00b7 a \u00b7 d. A sad face shows someone feeling unhappy."
+    },
+    {
+      "width": 1440,
+      "level": 2,
+      "stageName": "Find the missing sound",
+      "target": 6,
+      "nativeAnswers": 6,
+      "inputMode": "native keyboard",
+      "clueUsed": true,
+      "wrongRetry": true,
+      "replayedWord": true,
+      "heldExplanationMs": 6100,
+      "heldFact": "Well done! The missing sound is g. A rag is a small cloth for wiping."
+    },
+    {
+      "width": 1440,
+      "level": 3,
+      "stageName": "Build the whole word",
+      "target": 7,
+      "nativeAnswers": 7,
+      "inputMode": "native keyboard",
+      "clueUsed": true,
+      "wrongRetry": true,
+      "replayedWord": true,
+      "heldExplanationMs": 6100,
+      "heldFact": "Super! You built sip from s \u00b7 i \u00b7 p. Take a small sip from a cup."
+    }
+  ],
+  "persistedSpellingProgressAfterReload": true,
+  "provider403GuardCalls": [],
+  "browserFailures": [],
+  "audioAcceptance": "Pending: replay controls exercised, but missing word recordings and sound-on acceptance remain open."
+}

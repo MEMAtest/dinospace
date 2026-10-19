@@ -1,0 +1,60 @@
+{
+  "book": "bo-busy-bee-garden",
+  "width": 390,
+  "repeatedTransition": "page 1 to page 2",
+  "rows": [
+    {
+      "sample": 1,
+      "apiWallMs": 91,
+      "nativeClickToRenderedCounterMs": 8.100000023841858
+    },
+    {
+      "sample": 2,
+      "apiWallMs": 79,
+      "nativeClickToRenderedCounterMs": 6.799999952316284
+    },
+    {
+      "sample": 3,
+      "apiWallMs": 77,
+      "nativeClickToRenderedCounterMs": 7
+    },
+    {
+      "sample": 4,
+      "apiWallMs": 72,
+      "nativeClickToRenderedCounterMs": 7
+    },
+    {
+      "sample": 5,
+      "apiWallMs": 118,
+      "nativeClickToRenderedCounterMs": 6.799999952316284
+    },
+    {
+      "sample": 6,
+      "apiWallMs": 63,
+      "nativeClickToRenderedCounterMs": 6.699999928474426
+    },
+    {
+      "sample": 7,
+      "apiWallMs": 66,
+      "nativeClickToRenderedCounterMs": 6.599999904632568
+    },
+    {
+      "sample": 8,
+      "apiWallMs": 59,
+      "nativeClickToRenderedCounterMs": 6.399999976158142
+    },
+    {
+      "sample": 9,
+      "apiWallMs": 57,
+      "nativeClickToRenderedCounterMs": 6.399999976158142
+    },
+    {
+      "sample": 10,
+      "apiWallMs": 56,
+      "nativeClickToRenderedCounterMs": 6.5
+    }
+  ],
+  "allNativeResponsesUnder500": true,
+  "originalApiOutlierMs": 563,
+  "originalRetained": true
+}

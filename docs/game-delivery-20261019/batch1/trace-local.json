@@ -1,0 +1,109 @@
+{
+  "viewportRuns": [
+    {
+      "width": 390,
+      "chapters": [
+        {
+          "title": "Follow the path",
+          "rounds": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Big and little",
+          "rounds": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Trace and read",
+          "rounds": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "chapters": [
+        {
+          "title": "Follow the path",
+          "rounds": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Big and little",
+          "rounds": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "title": "Trace and read",
+          "rounds": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    }
+  ],
+  "representative": {
+    "hint": true,
+    "wrongAttempt": true,
+    "liftedAndRestarted": true,
+    "closedO": true,
+    "dotIorJ": false,
+    "keyboard": true,
+    "touch": true,
+    "heldFinalResult": true,
+    "replay": true,
+    "reloadProgress": true
+  },
+  "providerAttempts": [],
+  "pageErrors": [],
+  "coverageGaps": [
+    "Representative interactions not reached in the random UI rounds: dotIorJ"
+  ]
+}
