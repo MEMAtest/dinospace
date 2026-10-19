@@ -1,0 +1,117 @@
+{
+  "rows": [
+    {
+      "width": 390,
+      "allNineWorlds": true,
+      "oneViewSwitch": true,
+      "turnTiltZoomMouseAndAutoRotation": true,
+      "wheelScroll": true,
+      "touchScroll": true,
+      "twoFingerRotation": true,
+      "threeFactsAndQuizRetry": true,
+      "targetSizes": [
+        {
+          "label": "Turn left",
+          "text": "\u21b6Turn left",
+          "w": 79,
+          "h": 44
+        },
+        {
+          "label": "Turn right",
+          "text": "\u21b7Turn right",
+          "w": 79,
+          "h": 44
+        },
+        {
+          "label": "Tilt up",
+          "text": "\u2191Tilt up",
+          "w": 79,
+          "h": 44
+        },
+        {
+          "label": "Tilt down",
+          "text": "\u2193Tilt down",
+          "w": 79,
+          "h": 44
+        },
+        {
+          "label": "Zoom in",
+          "text": "\uff0bZoom in",
+          "w": 79,
+          "h": 44
+        },
+        {
+          "label": "Zoom out",
+          "text": "\u2212Zoom out",
+          "w": 79,
+          "h": 44
+        },
+        {
+          "label": "Resume rotation",
+          "text": "\u25b6Resume",
+          "w": 79,
+          "h": 44
+        }
+      ],
+      "scrollWidth": 390,
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "allNineWorlds": true,
+      "oneViewSwitch": true,
+      "turnTiltZoomMouseAndAutoRotation": true,
+      "wheelScroll": true,
+      "touchScroll": true,
+      "twoFingerRotation": true,
+      "threeFactsAndQuizRetry": true,
+      "targetSizes": [
+        {
+          "label": "Turn left",
+          "text": "\u21b6Turn left",
+          "w": 111,
+          "h": 44
+        },
+        {
+          "label": "Turn right",
+          "text": "\u21b7Turn right",
+          "w": 111,
+          "h": 44
+        },
+        {
+          "label": "Tilt up",
+          "text": "\u2191Tilt up",
+          "w": 111,
+          "h": 44
+        },
+        {
+          "label": "Tilt down",
+          "text": "\u2193Tilt down",
+          "w": 111,
+          "h": 44
+        },
+        {
+          "label": "Zoom in",
+          "text": "\uff0bZoom in",
+          "w": 111,
+          "h": 44
+        },
+        {
+          "label": "Zoom out",
+          "text": "\u2212Zoom out",
+          "w": 111,
+          "h": 44
+        },
+        {
+          "label": "Resume rotation",
+          "text": "\u25b6Resume",
+          "w": 111,
+          "h": 44
+        }
+      ],
+      "scrollWidth": 1440,
+      "broken": []
+    }
+  ],
+  "pageErrors": []
+}

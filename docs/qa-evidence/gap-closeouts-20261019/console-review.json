@@ -1,0 +1,8 @@
+{
+  "scope": "Dedicated QA browser session including local and production checks",
+  "guardedVoice403s": 81,
+  "intentionalNoWebglErrors": 2,
+  "localSoftwareRendererReadPixelsWarnings": 4,
+  "unexpectedErrorsOrWarnings": [],
+  "providerVoiceAndStoryCalls": "guarded; not accepted as provider audio testing"
+}

@@ -1,0 +1,60 @@
+{
+  "rows": [
+    {
+      "width": 390,
+      "rounds": 15,
+      "found": {
+        "k": {
+          "sound": "k",
+          "labels": [
+            "Sun",
+            "Kite",
+            "Goat",
+            "Apple"
+          ],
+          "retryAmbiguityAbsent": true,
+          "resultHeld": true
+        },
+        "c": {
+          "sound": "c",
+          "labels": [
+            "Cat",
+            "Dog",
+            "Apple",
+            "Tiger"
+          ],
+          "retryAmbiguityAbsent": true,
+          "resultHeld": true
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "rounds": 27,
+      "found": {
+        "c": {
+          "sound": "c",
+          "labels": [
+            "Nest",
+            "Elephant",
+            "Octopus",
+            "Cat"
+          ],
+          "retryAmbiguityAbsent": true,
+          "resultHeld": true
+        },
+        "k": {
+          "sound": "k",
+          "labels": [
+            "Moon",
+            "Kite",
+            "Tiger",
+            "Nest"
+          ],
+          "retryAmbiguityAbsent": true,
+          "resultHeld": true
+        }
+      }
+    }
+  ]
+}

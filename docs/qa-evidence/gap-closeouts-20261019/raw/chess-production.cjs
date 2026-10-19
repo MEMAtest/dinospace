@@ -1,0 +1,20 @@
+async page=>{
+const assetFailures=[];page.on('response',r=>{if(r.status()>=400&&/\.(png|webp|jpe?g|glb|gltf|mp3|wav|ogg)(?:[?#]|$)/i.test(r.url()))assetFailures.push({url:r.url(),status:r.status()});});
+
+const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('**/api/voice**',r=>r.fulfill({status:403,body:'QA guard'}));await page.route('**/api/story**',r=>r.fulfill({status:403,body:'QA guard'}));const rows=[];
+for(const width of [390,1440]){
+ await page.setViewportSize({width,height:844});await page.goto('https://dinospace-eight.vercel.app/?qa-chess='+Date.now()+'#/');await page.getByRole('button',{name:/Age 6\+ Amari/}).click();await page.locator('.discovery-world-card').filter({hasText:'Thinking & Play'}).click();await page.locator('.catalogue-game-card').filter({hasText:'Chess Explorers'}).click();await page.getByRole('button',{name:'Recommended first: learn the chess pieces',exact:true}).click();
+ await page.getByRole('heading',{name:'King',exact:true}).waitFor();await page.getByRole('button',{name:/Practice with the King/}).click();
+ const cdp=width===390?await page.context().newCDPSession(page):null;if(cdp)await cdp.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:1});const names=['King','Queen','Rook','Bishop','Knight','Pawn'];const seen=[];
+ for(let index=0;index<6;index++){
+  const board=page.getByRole('group',{name:/practice board, six by six squares/});await board.waitFor();const boardName=await board.getAttribute('aria-label');const piece=boardName.split(' practice')[0];if(seen.includes(piece))throw Error('Repeated piece before finishing list');seen.push(piece);
+  const labelStats=await board.getByRole('button').evaluateAll(xs=>({total:xs.length,unnamed:xs.filter(x=>!x.getAttribute('aria-label')).length,min:Math.min(...xs.map(x=>x.getBoundingClientRect().width))}));if(labelStats.total!==36||labelStats.unnamed||labelStats.min<44)throw Error(JSON.stringify(labelStats));
+  const illegal=board.locator('button[aria-label*="not a legal move"]').first();if(!await illegal.isDisabled())throw Error('Illegal move not safely disabled');
+  for(let i=0;i<5;i++){const legal=board.locator('button[aria-label*="legal move highlighted in gold"]').first();if(i===0){await page.keyboard.press('Tab');await legal.focus();const outline=await legal.evaluate(e=>({width:getComputedStyle(e).outlineWidth,style:getComputedStyle(e).outlineStyle}));await legal.press('Enter');if(outline.width==='0px'||outline.style==='none')throw Error('No board keyboard focus');}else if(cdp&&i===1){await legal.scrollIntoViewIfNeeded();const r=await legal.boundingBox();await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:r.x+r.width/2,y:r.y+r.height/2,id:1}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});}else await legal.click();await page.getByText((i===4?'Goal complete: ':'Goal: move the '+piece+' to 5 legal squares. ')+(i+1)+' of 5 '+(i===4?'legal moves.':'moves.'),{exact:true}).waitFor();}
+  await page.getByRole('button',{name:'Next Piece',exact:true}).waitFor();rows.push({width,piece,completedFiveMoves:true,keyboardActivation:true,nativeTouch:width===390,...labelStats});
+  if(width===390&&index===0)await page.screenshot({path:'output/playwright/gap-closeouts-20261019/chess-final.png',fullPage:true});
+  if(index<5)await page.getByRole('button',{name:'Next Piece',exact:true}).click();
+ }
+ if(cdp){await cdp.send('Emulation.setTouchEmulationEnabled',{enabled:false});await cdp.detach();}await page.getByRole('button',{name:'Back to Chess Explorers menu',exact:true}).click();await page.getByRole('button',{name:'Recommended first: learn the chess pieces',exact:true}).waitFor();const metrics=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,broken:[...document.images].filter(i=>i.complete&&!i.naturalWidth).map(i=>i.src)}));if(metrics.scrollWidth>width||metrics.broken.length)throw Error(JSON.stringify(metrics));
+}
+if(errors.length||assetFailures.length)throw Error(JSON.stringify({errors,assetFailures}));return {rows,pageErrors:errors,assetFailures};}

@@ -1,0 +1,26 @@
+async page=>{
+const assetFailures=[];page.on('response',r=>{if(r.status()>=400&&/\.(png|webp|jpe?g|glb|gltf|mp3|wav|ogg)(?:[?#]|$)/i.test(r.url()))assetFailures.push({url:r.url(),status:r.status()});});
+
+const errors=[],dialogs=[];page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>dialogs.push(d.type()));
+await page.route('**/api/voice**',r=>r.fulfill({status:403,body:'QA guard'}));await page.route('**/api/story**',r=>r.fulfill({status:403,body:'QA guard'}));
+const rows=[];
+for(const width of [390,1440]){
+ await page.setViewportSize({width,height:844});await page.goto('https://dinospace-eight.vercel.app/?qa-writing='+Date.now()+'#/');await page.getByRole('button',{name:/Age 6\+ Amari/}).click();await page.locator('.discovery-world-card').filter({hasText:'Creative Lab'}).click();await page.locator('.catalogue-game-card').filter({hasText:'My Writing Desk'}).click();
+ const planet=width===390?'Earth':'Mars';if(planet==='Mars')await page.getByRole('button',{name:'Mars',exact:true}).click();await page.getByRole('button',{name:`Make my ${planet} postcard →`,exact:true}).click();
+ const heading=page.getByRole('textbox',{name:'Postcard heading',exact:true});await heading.waitFor();if(!await heading.evaluate(e=>e===document.activeElement))throw Error('Heading is not focused');
+ await heading.pressSequentially('Hi');if(!await page.getByRole('button',{name:'Next: write my message →',exact:true}).isDisabled())throw Error('Short heading gate');await page.getByText('Type at least 3 characters in the heading box to continue.',{exact:true}).waitFor();await heading.fill(`Hello from ${planet}`);
+ await page.getByRole('button',{name:'Next: write my message →',exact:true}).click();const editor=page.getByRole('textbox',{name:'Your document',exact:true});await editor.pressSequentially(`I can see the wonderful ${planet} from my window.`);
+ await editor.press('ControlOrMeta+A');await page.getByText('More writing tools · bold and layout',{exact:true}).click();await page.getByRole('button',{name:'Bold',exact:true}).click();if(await editor.locator('strong').count()===0)throw Error('Bold did not apply');
+ await page.getByRole('button',{name:'Next: decorate my postcard →',exact:true}).click();await page.getByRole('button',{name:`Add ${planet} picture`,exact:true}).first().click();await page.getByRole('button',{name:'Next: save & share →',exact:true}).click();
+ const pictureBefore=await editor.locator('img').getAttribute('src');await page.getByRole('navigation',{name:'Postcard steps'}).getByRole('button',{name:'1. Heading',exact:true}).click();await heading.fill(`Hello from ${planet}!`);await page.getByRole('navigation',{name:'Postcard steps'}).getByRole('button',{name:'4. Save & share',exact:true}).click();
+ if(await editor.locator('img').getAttribute('src')!==pictureBefore||await editor.locator('strong').count()===0)throw Error('Earlier step lost image/format');
+ await page.getByRole('button',{name:'Save document',exact:true}).click();await page.getByText('Document saved on this device.',{exact:true}).waitFor();
+ // Leave and reopen through the actual application controls.
+ await page.getByRole('navigation',{name:'Discovery navigation'}).getByRole('button',{name:'Worlds',exact:true}).click();const cards=page.locator('.catalogue-game-card');const keep=page.getByRole('button',{name:'Keep playing',exact:true});await Promise.race([cards.first().waitFor(),keep.waitFor()]);if(await keep.isVisible())await page.getByRole('button',{name:'Back to world',exact:true}).click();await cards.filter({hasText:'My Writing Desk'}).click();await page.getByRole('button',{name:'Open saved document',exact:true}).click();
+ await page.getByText('Saved document reopened. Your words and formatting are here.',{exact:true}).waitFor();if(!await editor.innerText().then(s=>s.includes(`Hello from ${planet}!`)&&s.includes(`wonderful ${planet}`)))throw Error('Saved words lost');if(await editor.locator('strong').count()===0||await editor.locator('img').count()!==1)throw Error('Saved format/image lost');
+ const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Download Word document',exact:true}).click();const download=await downloadPromise;await download.saveAs('/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/output/playwright/gap-closeouts-20261019/writing-'+width+'.docx');
+ const metrics=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,broken:[...document.images].filter(i=>i.complete&&!i.naturalWidth).map(i=>i.src),saveInCoach:!!document.querySelector('.writing-coach .writing-save-actions')}));if(metrics.scrollWidth>width||metrics.broken.length||!metrics.saveInCoach)throw Error(JSON.stringify(metrics));rows.push({width,planet,headingGateRecovered:true,visitedStepsRemainOpen:true,savedReopened:true,export:download.suggestedFilename(),...metrics});
+ if(width===390)await page.screenshot({path:'output/playwright/gap-closeouts-20261019/writing-final.png',fullPage:true});
+}
+if(dialogs.length||errors.length||assetFailures.length)throw Error(JSON.stringify({dialogs,errors,assetFailures}));return {rows,pageErrors:errors,assetFailures,unexpectedDialogs:dialogs};
+}

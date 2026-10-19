@@ -1,0 +1,44 @@
+{
+  "status": "accepted for reviewed UX criteria",
+  "acceptedAt": "2026-10-19T16:52:15.739003+00:00",
+  "runtime": "aaef3be4c4630f06575949351ee7e39230432664",
+  "deployment": "dpl_AZMdxgc4m9pQdnt4uDdsGAB9fjuY",
+  "games": [
+    {
+      "name": "My Writing Desk",
+      "reviewedCriteria": "pass"
+    },
+    {
+      "name": "Colour Mixing Lab",
+      "reviewedCriteria": "pass"
+    },
+    {
+      "name": "Solar System",
+      "reviewedCriteria": "pass"
+    },
+    {
+      "name": "Chess Explorers",
+      "reviewedCriteria": "pass"
+    },
+    {
+      "name": "Odd One Out",
+      "reviewedCriteria": "pass"
+    },
+    {
+      "name": "Pattern Parade",
+      "reviewedCriteria": "pass"
+    },
+    {
+      "name": "Sound Safari",
+      "reviewedCriteria": "pass"
+    }
+  ],
+  "timedGameCorrectRounds": 144,
+  "chessLegalMoves": 60,
+  "writingActualWordExportsInspected": 2,
+  "sharedStartEntries": 16,
+  "correctiveCKPromptsVerified": 4,
+  "finalUnchangedGameControlChecks": 6,
+  "all26EditorialAcceptance": false,
+  "providerNarrationOrHumanListeningAcceptance": false
+}

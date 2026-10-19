@@ -1,0 +1,45 @@
+{
+  "branch": "codex/solar-blender-planets-20261016",
+  "checkout": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006",
+  "runtimeSha": "aaef3be4c4630f06575949351ee7e39230432664",
+  "initialAcceptanceRuntime": "d4ccfb2219495bf14d50f0e1ba81484deb7e53ee",
+  "productionDeployment": "dpl_AZMdxgc4m9pQdnt4uDdsGAB9fjuY",
+  "priorProductionDeployment": "dpl_66ENY7wUTtTEhKCgFqk7ptn7iWkU",
+  "worktreesCreated": 0,
+  "installs": 0,
+  "taskVitePidStopped": 17047,
+  "containedBrowserSessionClosed": "amari-targeted-contained",
+  "preexistingDistRetainedBytes": 382441198,
+  "unrelatedPreserved": [
+    "docs/qa-evidence/functional-release-20261006/canonical-served-identity.json",
+    "docs/qa-evidence/functional-release-20261006/immutable-served-identity.json",
+    "docs/qa-evidence/functional-release-20261006/independent-review.md"
+  ],
+  "removed": [
+    {
+      "path": "output/playwright/gap-closeouts-20261019/solar-dock-proof.png",
+      "bytes": 157240,
+      "reason": "superseded task-owned diagnostic render; accepted solar-final.png retained"
+    },
+    {
+      "path": "/tmp/amari-gaps-expected.json",
+      "bytes": 5515,
+      "reason": "task fixture or superseded progress note; final scripts/results retained"
+    },
+    {
+      "path": "/tmp/amari-pattern-expected.json",
+      "bytes": 5154,
+      "reason": "task fixture or superseded progress note; final scripts/results retained"
+    },
+    {
+      "path": "/tmp/amari-gaps-notes-20261019.txt",
+      "bytes": 811,
+      "reason": "task fixture or superseded progress note; final scripts/results retained"
+    }
+  ],
+  "initialFreeGiBApprox": 108,
+  "finalFreeGiB": 96.12,
+  "evidenceDirectory": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/gap-closeouts-20261019",
+  "evidenceBytesBeforeManifest": 2510310,
+  "recovery": "Product commits remain on the recorded branch. QA docs are committed separately. Scripts in raw write their small captures to output/playwright/gap-closeouts-20261019; create that directory before any authorized rerun. No whole-project backup created."
+}
