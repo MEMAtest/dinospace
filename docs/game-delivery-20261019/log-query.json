@@ -1,0 +1,6 @@
+{
+  "command": "vercel logs --environment production --since 24h --limit 100 --json --query requestPath:/api/story --scope memas-projects-23a0001d",
+  "matchingRecords": 0,
+  "meaning": "No matching records in this query; not evidence of provider health",
+  "paidGenerationAttempted": false
+}

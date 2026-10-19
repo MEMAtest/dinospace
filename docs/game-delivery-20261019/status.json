@@ -1,0 +1,354 @@
+{
+  "updatedAt": "2026-10-19T17:22:08.375222+00:00",
+  "scope": "34 current catalogue activities; historical 26-game ledger remains intact",
+  "target": "5/5 against explicit per-game and shared criteria",
+  "counts": {
+    "planned": 33,
+    "investigating": 1,
+    "acceptedThisProgramme": 0
+  },
+  "batchSize": 4,
+  "finalBatchSize": 2,
+  "games": [
+    {
+      "batch": 1,
+      "gameId": "storybooks",
+      "game": "Storybook Studio",
+      "status": "investigating",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 1,
+      "gameId": "words",
+      "game": "Spelling Studio",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 1,
+      "gameId": "memory",
+      "game": "Memory Match",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 1,
+      "gameId": "trace",
+      "game": "Letter Trace",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 2,
+      "gameId": "puzzle",
+      "game": "Puzzle Pop",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 2,
+      "gameId": "spot",
+      "game": "Spot the Difference",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 2,
+      "gameId": "jet",
+      "game": "Sky Shapes",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 2,
+      "gameId": "math",
+      "game": "Monster Math",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 3,
+      "gameId": "counting",
+      "game": "Count the Stars",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 3,
+      "gameId": "addition",
+      "game": "Addition Adventure",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 3,
+      "gameId": "subtraction",
+      "game": "Subtraction Station",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 3,
+      "gameId": "numberline",
+      "game": "Number Line Jump",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 4,
+      "gameId": "timeteller",
+      "game": "Time Teller",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 4,
+      "gameId": "worldmap",
+      "game": "Curriculum Quest",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 4,
+      "gameId": "german",
+      "game": "German Garage",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 4,
+      "gameId": "letters",
+      "game": "Letter Launch",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 5,
+      "gameId": "dino",
+      "game": "Dino Detective",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 5,
+      "gameId": "hangman",
+      "game": "Dino Hangman",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 5,
+      "gameId": "tictactoe",
+      "game": "Cosmic Tic-Tac-Toe",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 5,
+      "gameId": "astronaut",
+      "game": "Astronaut Academy",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 6,
+      "gameId": "phonics",
+      "game": "Sound Safari",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 6,
+      "gameId": "colormix",
+      "game": "Colour Mixing Lab",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 6,
+      "gameId": "oddoneout",
+      "game": "Odd One Out",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 6,
+      "gameId": "pattern",
+      "game": "Pattern Parade",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 7,
+      "gameId": "solar",
+      "game": "Solar System",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 7,
+      "gameId": "chess",
+      "game": "Chess Explorers",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+    },
+    {
+      "batch": 7,
+      "gameId": "codecadets",
+      "game": "Code Cadets",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": null
+    },
+    {
+      "batch": 7,
+      "gameId": "writingdesk",
+      "game": "My Writing Desk",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": null
+    },
+    {
+      "batch": 8,
+      "gameId": "dinojigsaw",
+      "game": "Dino Jigsaw",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": null
+    },
+    {
+      "batch": 8,
+      "gameId": "shadowmatch",
+      "game": "Shadow Match",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": null
+    },
+    {
+      "batch": 8,
+      "gameId": "rocketbuilder",
+      "game": "Rocket Builder",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": null
+    },
+    {
+      "batch": 8,
+      "gameId": "fuelup",
+      "game": "Fuel Up",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": null
+    },
+    {
+      "batch": 9,
+      "gameId": "firerescue",
+      "game": "Fire Truck Rescue",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": null
+    },
+    {
+      "batch": 9,
+      "gameId": "ladder",
+      "game": "Ladder Rescue",
+      "status": "planned",
+      "targetEditorialScore": 5,
+      "currentFullEditorialScore": null,
+      "instructions": "plan.md",
+      "historicalRoadmap": null
+    }
+  ]
+}
