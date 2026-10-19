@@ -1,0 +1,25 @@
+.studio-shell .writing-step-nav{display:flex;gap:8px;flex-wrap:wrap}
+.studio-shell .writing-step-nav button{flex:1 1 130px;min-width:0;border-radius:16px;padding:9px 12px}
+.studio-shell .writing-step-nav button:disabled{opacity:1;background:#f4f8fb;color:#7890a2;border-style:dashed;box-shadow:none}
+.studio-shell .writing-step-nav button.done{background:#d9f3e2;color:#245b39;border-color:#9fcdae}
+.studio-shell .writing-step-nav button.current{background:#0874c8;color:white;border-color:#0874c8}
+.studio-shell .document-panel .writing-coach{margin:0 0 18px;padding:17px 19px;align-items:flex-start;background:#effaff;border:2px solid #c7e8f7;border-radius:20px}
+.studio-shell .writing-coach-copy{flex:1;min-width:0}
+.studio-shell .writing-coach-copy h2{margin-bottom:8px}
+.studio-shell .writing-coach-copy>p:not(.eyebrow){line-height:1.5;margin-bottom:10px}
+.studio-shell .writing-heading-field{max-width:650px;margin:12px 0}
+.studio-shell .writing-heading-field input{font-size:20px;min-height:54px}
+.studio-shell .writing-step-help{color:#805000;font-weight:800;margin:8px 0 0;padding:9px 12px;background:#fff5d8;border-radius:10px}
+.studio-shell .document-panel .writing-step-nav{justify-content:flex-start}
+.studio-shell [data-writing-lesson]:not([data-writing-lesson="2"]) .postcard-paper .tiptap p:has(>br:only-child)::before{content:none}
+@media(max-width:600px){
+ .studio-shell .section-heading{padding:8px 2px;gap:8px;align-items:center}
+ .studio-shell .section-heading .eyebrow{font-size:10px;margin-bottom:4px}
+ .studio-shell .section-heading h1{font-size:26px;margin-bottom:0}
+ .studio-shell .section-heading .skill-pill{font-size:12px;padding:7px 10px;white-space:nowrap}
+ .studio-shell .writing-step-nav{gap:6px}
+ .studio-shell .writing-step-nav button{flex:1 1 calc(50% - 6px);font-size:14px;padding:8px}
+ .studio-shell .document-panel .writing-coach{padding:14px;margin-bottom:14px}
+ .studio-shell .writing-coach-copy h2{font-size:20px}
+ .studio-shell .writing-heading-field input{font-size:18px}
+}
