@@ -62,7 +62,7 @@ export const applyCors = (request, response) => {
     // The client deliberately verifies that media came from the approved
     // provider.  Cross-origin browsers hide non-safelisted response headers
     // unless we expose them explicitly.
-    response.setHeader('Access-Control-Expose-Headers', 'X-Amari-Image-Provider, X-Amari-Image-Model, X-Amari-Voice-Provider, X-Amari-Voice-Model');
+    response.setHeader('Access-Control-Expose-Headers', 'X-Amari-Image-Provider, X-Amari-Image-Model, X-Amari-Voice-Provider, X-Amari-Voice-Model, X-Amari-Provider-Attempts');
     response.setHeader('Access-Control-Max-Age', '600');
   }
   if (request.method === 'OPTIONS') console.info('Story CORS preflight', { origin: origin || 'missing', permitted });

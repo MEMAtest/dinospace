@@ -6,6 +6,7 @@ const MAX_TEXT = 420;
 
 export default async function handler(request, response) {
   applyCors(request, response);
+  response.setHeader('X-Amari-Provider-Attempts', '0');
   if (!isAllowedOrigin(request)) return respondJson(response, 403, { error: 'Story narration is only available inside Amari Discovery' });
   if (request.method === 'OPTIONS') return response.status(200).end();
   if (!hasStorySession(request)) return respondJson(response, 401, { error: 'A parent session is required' });
@@ -23,6 +24,7 @@ export default async function handler(request, response) {
   try {
     const url = new URL(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`);
     url.searchParams.set('output_format', 'mp3_44100_128');
+    response.setHeader('X-Amari-Provider-Attempts', '1');
     const providerResponse = await fetch(url, {
       method: 'POST', headers: { 'Content-Type': 'application/json', 'xi-api-key': apiKey }, signal: providerRequest.signal,
       body: JSON.stringify({ text, model_id: process.env.ELEVENLABS_STORY_MODEL_ID || 'eleven_v3', ...(process.env.ELEVENLABS_STORY_MODEL_ID === 'eleven_multilingual_v2' ? { previous_text: previousText || undefined, next_text: nextText || undefined } : {}), voice_settings: { stability: 0.44, similarity_boost: 0.78, style: 0.12, use_speaker_boost: true, speed: 0.93 } }),

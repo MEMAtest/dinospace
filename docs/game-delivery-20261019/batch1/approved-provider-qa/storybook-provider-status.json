@@ -1,0 +1,34 @@
+{
+  "job": "one-six-page-story-approved-20261019",
+  "requestCap": 23,
+  "providerAttempts": [
+    {
+      "number": 1,
+      "provider": "openrouter",
+      "kind": "outline",
+      "startedAt": "2026-10-19T21:22:59.386Z",
+      "state": "response",
+      "httpStatus": 401,
+      "responseAt": "2026-10-19T21:22:59.663Z"
+    }
+  ],
+  "clientRequests": [
+    {
+      "stage": "session",
+      "startedAt": "2026-10-19T21:22:59.365Z",
+      "finishedAt": "2026-10-19T21:22:59.378Z",
+      "httpStatus": 200
+    },
+    {
+      "stage": "outline",
+      "startedAt": "2026-10-19T21:22:59.384Z",
+      "finishedAt": "2026-10-19T21:22:59.676Z",
+      "httpStatus": 502
+    }
+  ],
+  "startedAt": "2026-10-19T21:18:55.836Z",
+  "state": "stopped-local-harness",
+  "cause": "Vercel env export returned [Sensitive] placeholders; this is not a production credential failure.",
+  "providerCallsConsumed": 1,
+  "remainingOverallRequestBudget": 22
+}

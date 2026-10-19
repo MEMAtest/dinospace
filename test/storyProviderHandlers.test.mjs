@@ -68,7 +68,24 @@ test('image handler aborts a pending provider body on disconnect and skips fallb
     await running;
     assert.equal(calls[0].signal.aborted, true);
     assert.equal(calls.length, 1, 'a disconnected primary request must not start fallback');
+    assert.equal(response.headers['X-Amari-Provider-Attempts'], '1');
     assert.equal(response.body, undefined, 'a disconnected response must not be written');
+    assert.equal(response.headers['Access-Control-Expose-Headers'].includes('X-Amari-Provider-Attempts'), true);
+  });
+});
+
+test('image handler reports one primary provider attempt on success', async () => {
+  await withMockEnvironment(async () => {
+    const { request, response } = mockEndpoints({ prompt: 'A friendly moon rover' });
+    let calls = 0;
+    globalThis.fetch = async () => {
+      calls += 1;
+      return { ok: true, json: async () => ({ data: [{ b64_json: 'YQ==', media_type: 'image/png' }] }) };
+    };
+    await imageHandler(request, response);
+    assert.equal(calls, 1);
+    assert.equal(response.statusCode, 200);
+    assert.equal(response.headers['X-Amari-Provider-Attempts'], '1');
   });
 });
 
@@ -89,6 +106,7 @@ test('outline fallback reuses the primary signal and remains inside its single r
     };
     await outlineHandler(request, response);
     assert.equal(calls.length, 2, 'one retryable failure should make one fallback request');
+    assert.equal(response.headers['X-Amari-Provider-Attempts'], '2');
     assert.equal(calls[0].signal, calls[1].signal, 'primary and fallback must share one deadline signal');
     assert.equal(calls[0].signal.aborted, false);
     assert.equal(response.statusCode, 200);

@@ -2,9 +2,10 @@
 
 import { allowRequest, applyCors, clientId, createStoryProviderSignal, hasStorySession, isAllowedOrigin, isStoryProviderCancelled, parseBody, respondJson, validImageReference } from './_utils.js';
 
-const imageWithModel = async (model, provider, prompt, referenceImage, apiKey, signal) => {
+const imageWithModel = async (model, provider, prompt, referenceImage, apiKey, signal, onProviderAttempt) => {
   const payload = { model, prompt, n: 1, resolution: '2K', aspect_ratio: '4:3', provider: { only: [provider], allow_fallbacks: false } };
   if (referenceImage) payload.input_references = [{ type: 'image_url', image_url: { url: referenceImage } }];
+  onProviderAttempt();
   const result = await fetch('https://openrouter.ai/api/v1/images', {
     method: 'POST', headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json', 'HTTP-Referer': 'https://dinospace-eight.vercel.app', 'X-Title': 'Amari Discovery Storybook Studio' },
     body: JSON.stringify(payload), signal,
@@ -25,6 +26,12 @@ const imageWithModel = async (model, provider, prompt, referenceImage, apiKey, s
 
 export default async function handler(request, response) {
   applyCors(request, response);
+  let providerAttempts = 0;
+  const recordProviderAttempt = () => {
+    providerAttempts += 1;
+    response.setHeader('X-Amari-Provider-Attempts', String(providerAttempts));
+  };
+  response.setHeader('X-Amari-Provider-Attempts', '0');
   if (!isAllowedOrigin(request)) return respondJson(response, 403, { error: 'Story images are only available inside Amari Discovery' });
   if (request.method === 'OPTIONS') return response.status(200).end();
   if (!hasStorySession(request)) return respondJson(response, 401, { error: 'A parent session is required' });
@@ -44,9 +51,9 @@ export default async function handler(request, response) {
     // `seed` for the configured Seedream 5 Lite endpoint, while older 4.x
     // models use `bytedance`; choose the documented endpoint tag by model.
     const primaryProvider = /seedream-5/i.test(primary) ? 'seed' : 'bytedance';
-    try { image = await imageWithModel(primary, primaryProvider, prompt, referenceImage, apiKey, providerRequest.signal); } catch (error) {
+    try { image = await imageWithModel(primary, primaryProvider, prompt, referenceImage, apiKey, providerRequest.signal, recordProviderAttempt); } catch (error) {
       if (isStoryProviderCancelled(error, providerRequest.signal)) throw error;
-      image = await imageWithModel(process.env.OPENROUTER_IMAGE_FALLBACK_MODEL || 'qwen/qwen-image-3', 'alibaba', prompt, referenceImage, apiKey, providerRequest.signal);
+      image = await imageWithModel(process.env.OPENROUTER_IMAGE_FALLBACK_MODEL || 'qwen/qwen-image-3', 'alibaba', prompt, referenceImage, apiKey, providerRequest.signal, recordProviderAttempt);
     }
     response.setHeader('Cache-Control', 'private, no-store');
     response.setHeader('Content-Type', image.mediaType);

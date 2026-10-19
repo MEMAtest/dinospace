@@ -29,9 +29,10 @@ const schema = {
   },
 };
 
-const requestStory = async (model, input, apiKey, signal) => {
+const requestStory = async (model, input, apiKey, signal, onProviderAttempt) => {
   const pageCount = pagesForAgeBand(input.ageBand);
   const range = input.ageBand === '3-4' ? '12 to 28' : input.ageBand === '7-8' ? '35 to 60' : '20 to 40';
+  onProviderAttempt();
   const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -90,6 +91,12 @@ const requestStory = async (model, input, apiKey, signal) => {
 
 export default async function handler(request, response) {
   applyCors(request, response);
+  let providerAttempts = 0;
+  const recordProviderAttempt = () => {
+    providerAttempts += 1;
+    response.setHeader('X-Amari-Provider-Attempts', String(providerAttempts));
+  };
+  response.setHeader('X-Amari-Provider-Attempts', '0');
   if (!isAllowedOrigin(request)) return respondJson(response, 403, { error: 'Story creation is only available inside Amari Discovery' });
   if (request.method === 'OPTIONS') return response.status(200).end();
   if (!hasStorySession(request)) return respondJson(response, 401, { error: 'A parent session is required' });
@@ -105,13 +112,13 @@ export default async function handler(request, response) {
   try {
     const preferred = process.env.OPENROUTER_STORY_MODEL || DEFAULT_MODEL;
     let outline;
-    try { outline = await requestStory(preferred, input, apiKey, providerRequest.signal); } catch (error) {
+    try { outline = await requestStory(preferred, input, apiKey, providerRequest.signal, recordProviderAttempt); } catch (error) {
       if (isStoryProviderCancelled(error, providerRequest.signal)) throw error;
       const retryable = error?.code === 'OUTLINE_SCHEMA' || error?.code === 'PROVIDER_RETRYABLE';
       if (!retryable) throw error;
       const fallback = process.env.OPENROUTER_STORY_FALLBACK_MODEL || FALLBACK_MODEL;
       console.warn('Story outline primary failed; using configured fallback', { primary: preferred, fallback, reason: error?.code || error?.name || 'unknown' });
-      outline = await requestStory(fallback, input, apiKey, providerRequest.signal);
+      outline = await requestStory(fallback, input, apiKey, providerRequest.signal, recordProviderAttempt);
     }
     return respondJson(response, 200, outline);
   } catch (error) {
