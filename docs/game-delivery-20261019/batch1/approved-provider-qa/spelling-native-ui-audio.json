@@ -1,0 +1,121 @@
+{
+  "rows": [
+    {
+      "width": 390,
+      "word": "TAP",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/64cdc805-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.603719,
+        "time": 0.603719
+      }
+    },
+    {
+      "width": 390,
+      "word": "GAP",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/848720c4-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.696599,
+        "time": 0.696599
+      }
+    },
+    {
+      "width": 390,
+      "word": "PAN",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/c470bd07-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.510839,
+        "time": 0.510839
+      }
+    },
+    {
+      "width": 390,
+      "word": "NAP",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/68daca43-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.603719,
+        "time": 0.603719
+      }
+    },
+    {
+      "width": 390,
+      "word": "SAT",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/fe81bc54-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.557279,
+        "time": 0.557279
+      }
+    },
+    {
+      "width": 1440,
+      "word": "SAD",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/ee81a324-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.603719,
+        "time": 0.603719
+      }
+    },
+    {
+      "width": 1440,
+      "word": "DIP",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/4501f40d-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.510839,
+        "time": 0.510839
+      }
+    },
+    {
+      "width": 1440,
+      "word": "MAP",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/fdef5486-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.557279,
+        "time": 0.557279
+      }
+    },
+    {
+      "width": 1440,
+      "word": "PAT",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/ae709a65-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.510839,
+        "time": 0.510839
+      }
+    },
+    {
+      "width": 1440,
+      "word": "DOG",
+      "audio": {
+        "src": "http://127.0.0.1:5180/audio/en/2dfd52aa-matilda.mp3",
+        "ended": true,
+        "volume": 1,
+        "duration": 0.603719,
+        "time": 0.603719
+      }
+    }
+  ],
+  "uiWordReplays": 10,
+  "noPaidCalls": true,
+  "pageErrors": [],
+  "recordedAt": "2026-10-19T21:45:33.264595+00:00",
+  "sourceCommit": "2e000d34833bc0d99a2ec98601e869c6f42144f8",
+  "environment": "local candidate UI; same contained Chromium",
+  "humanListening": false
+}

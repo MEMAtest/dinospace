@@ -1,0 +1,22 @@
+{
+  "rows": [
+    {
+      "width": 390,
+      "unfinishedReloadResume": "Page 4 of 7"
+    },
+    {
+      "width": 390,
+      "finishActionReturnsToShelf": true
+    },
+    {
+      "width": 1440,
+      "finishActionReturnsToShelf": true
+    }
+  ],
+  "providerCalls": 0,
+  "pageErrors": [],
+  "recordedAt": "2026-10-19T21:49:21.163853+00:00",
+  "environment": "local committed candidate in existing contained Chromium",
+  "sourceCommit": "2e000d34833bc0d99a2ec98601e869c6f42144f8",
+  "finishingLabelLocalAmendment": true
+}

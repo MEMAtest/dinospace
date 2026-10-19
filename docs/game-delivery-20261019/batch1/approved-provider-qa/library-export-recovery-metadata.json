@@ -1,0 +1,660 @@
+{
+  "format": "amari-storybooks",
+  "version": 1,
+  "exportedAt": "2026-10-19T21:39:11.124Z",
+  "books": [
+    {
+      "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6",
+      "slug": "custom-7c480b44-19db-4096-a32e-df95001e7ba6",
+      "custom": true,
+      "title": "Pip and the Sunflower",
+      "subtitle": "A colourful six-page adventure",
+      "summary": "Pip the fox and Robin plant a sunflower seed, water it daily, and wait patiently. With kindness and teamwork, they watch it grow into a tall, bright flower, celebrating their gentle garden adventure.",
+      "ageBand": "3-4",
+      "style": "3d",
+      "childId": "child-ff86aa85-01ae-47ec-902d-271d36d8bf1d",
+      "seriesId": null,
+      "seriesName": null,
+      "seriesBible": null,
+      "referenceImage": null,
+      "accent": "from-indigo-700 via-violet-700 to-fuchsia-700",
+      "emoji": "\u2728",
+      "status": "ready",
+      "generation": {
+        "stage": "complete",
+        "completed": 14,
+        "total": 14,
+        "pageCount": 6,
+        "currentPage": 6,
+        "error": null,
+        "startedAt": 1792445632339,
+        "invalidAssetKeys": [],
+        "imagesReady": 7,
+        "audioReady": 7
+      },
+      "characters": [
+        {
+          "name": "Pip",
+          "visualDescription": "A small, soft orange fox cub with big amber eyes, a fluffy tail with a white tip, and a gentle smile. Wears no clothes, but has a tiny blue collar."
+        },
+        {
+          "name": "Robin",
+          "visualDescription": "A round, cheerful robin with a red breast, brown wings, and bright black eyes. Small and plump, with a friendly tilt to its head."
+        }
+      ],
+      "coverPrompt": "A sunny garden scene with Pip the fox cub and Robin the robin standing together beside a small mound of soil, a tiny green sprout just emerging. Soft 3D animated style, warm golden light, rounded forms, rich colours, no text.",
+      "coverAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:cover",
+      "coverAudioAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:cover-audio",
+      "cover": null,
+      "coverAudio": null,
+      "pages": [
+        {
+          "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-1",
+          "number": 1,
+          "title": "Page 1",
+          "text": "Pip the fox found a tiny seed. Robin flew down to see. 'Let's plant it!' said Pip.",
+          "imagePrompt": "Close-up of Pip's paw holding a small brown seed, Robin perched on a nearby watering can, both looking at the seed with curiosity, garden background with soft morning light, 3D animated style.",
+          "imageAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-1:image",
+          "audioAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-1:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-2",
+          "number": 2,
+          "title": "Page 2",
+          "text": "They dug a little hole. Pip placed the seed in, and Robin covered it with soil.",
+          "imagePrompt": "Pip using a small trowel to dig, Robin using its beak to push soil over the seed, both working together, camera from a low angle showing their teamwork, bright garden colours.",
+          "imageAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-2:image",
+          "audioAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-2:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-3",
+          "number": 3,
+          "title": "Page 3",
+          "text": "Every day, Pip watered the spot. Robin sang a happy song. But nothing came up.",
+          "imagePrompt": "Pip holding a blue watering can, pouring water onto the soil, Robin singing with beak open, both looking at the ground with hopeful expressions, soft afternoon light, gentle shadows.",
+          "imageAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-3:image",
+          "audioAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-3:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-4",
+          "number": 4,
+          "title": "Page 4",
+          "text": "Pip felt sad. 'Where is our flower?' Robin said, 'Be patient, little friend.'",
+          "imagePrompt": "Pip sitting with drooping ears, looking at the bare soil, Robin perched on Pip's head, comforting with a gentle wing touch, warm but slightly muted lighting, emotional but calm mood.",
+          "imageAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-4:image",
+          "audioAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-4:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-5",
+          "number": 5,
+          "title": "Page 5",
+          "text": "The next morning, a green sprout appeared! Pip and Robin cheered and danced.",
+          "imagePrompt": "A tiny green sprout breaking through the soil, Pip jumping with joy, Robin fluttering in the air, both celebrating, bright morning sun rays, vivid green and yellow tones.",
+          "imageAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-5:image",
+          "audioAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-5:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-6",
+          "number": 6,
+          "title": "Page 6",
+          "text": "The sunflower grew tall and bright. Pip and Robin smiled. 'We did it together!'",
+          "imagePrompt": "A tall sunflower with a large yellow bloom, Pip and Robin sitting at its base, looking up with happy faces, warm golden hour lighting, full garden view, peaceful and satisfying end.",
+          "imageAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-6:image",
+          "audioAssetKey": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-6:audio",
+          "image": null,
+          "audio": null
+        }
+      ]
+    },
+    {
+      "id": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d",
+      "slug": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d",
+      "custom": true,
+      "title": "QA Garden Walk 390 R1792437650919",
+      "subtitle": "A colourful six-page adventure",
+      "summary": "Two friends explore a peaceful garden together.",
+      "ageBand": "3-4",
+      "style": "3d",
+      "childId": "amari",
+      "seriesId": null,
+      "seriesName": null,
+      "seriesBible": null,
+      "referenceImage": null,
+      "accent": "from-indigo-700 via-violet-700 to-fuchsia-700",
+      "emoji": "\u2728",
+      "status": "ready",
+      "generation": {
+        "stage": "complete",
+        "completed": 14,
+        "total": 14,
+        "pageCount": 6,
+        "currentPage": 6,
+        "error": null,
+        "startedAt": 1792437653299,
+        "imagesReady": 7,
+        "audioReady": 7,
+        "invalidAssetKeys": []
+      },
+      "characters": [
+        {
+          "name": "Pip",
+          "visualDescription": "A friendly blue rover."
+        }
+      ],
+      "coverPrompt": "Synthetic garden cover.",
+      "coverAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:cover",
+      "coverAudioAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:cover-audio",
+      "cover": null,
+      "coverAudio": null,
+      "pages": [
+        {
+          "id": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-1",
+          "number": 1,
+          "title": "Page 1",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 1.",
+          "imageAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-1:image",
+          "audioAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-1:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-2",
+          "number": 2,
+          "title": "Page 2",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 2.",
+          "imageAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-2:image",
+          "audioAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-2:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-3",
+          "number": 3,
+          "title": "Page 3",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 3.",
+          "imageAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-3:image",
+          "audioAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-3:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-4",
+          "number": 4,
+          "title": "Page 4",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 4.",
+          "imageAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-4:image",
+          "audioAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-4:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-5",
+          "number": 5,
+          "title": "Page 5",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 5.",
+          "imageAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-5:image",
+          "audioAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-5:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-6",
+          "number": 6,
+          "title": "Page 6",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 6.",
+          "imageAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-6:image",
+          "audioAssetKey": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-6:audio",
+          "image": null,
+          "audio": null
+        }
+      ]
+    },
+    {
+      "id": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60",
+      "slug": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60",
+      "custom": true,
+      "title": "QA Garden Walk 1440 R1792437650919",
+      "subtitle": "A colourful six-page adventure",
+      "summary": "Two friends explore a peaceful garden together.",
+      "ageBand": "3-4",
+      "style": "3d",
+      "childId": "amari",
+      "seriesId": null,
+      "seriesName": null,
+      "seriesBible": null,
+      "referenceImage": null,
+      "accent": "from-indigo-700 via-violet-700 to-fuchsia-700",
+      "emoji": "\u2728",
+      "status": "ready",
+      "generation": {
+        "stage": "complete",
+        "completed": 14,
+        "total": 14,
+        "pageCount": 6,
+        "currentPage": 6,
+        "error": null,
+        "startedAt": 1792437663894,
+        "invalidAssetKeys": [],
+        "imagesReady": 7,
+        "audioReady": 7
+      },
+      "characters": [
+        {
+          "name": "Pip",
+          "visualDescription": "A friendly blue rover."
+        }
+      ],
+      "coverPrompt": "Synthetic garden cover.",
+      "coverAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:cover",
+      "coverAudioAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:cover-audio",
+      "cover": null,
+      "coverAudio": null,
+      "pages": [
+        {
+          "id": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-1",
+          "number": 1,
+          "title": "Page 1",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 1.",
+          "imageAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-1:image",
+          "audioAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-1:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-2",
+          "number": 2,
+          "title": "Page 2",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 2.",
+          "imageAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-2:image",
+          "audioAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-2:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-3",
+          "number": 3,
+          "title": "Page 3",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 3.",
+          "imageAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-3:image",
+          "audioAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-3:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-4",
+          "number": 4,
+          "title": "Page 4",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 4.",
+          "imageAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-4:image",
+          "audioAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-4:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-5",
+          "number": 5,
+          "title": "Page 5",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 5.",
+          "imageAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-5:image",
+          "audioAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-5:audio",
+          "image": null,
+          "audio": null
+        },
+        {
+          "id": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-6",
+          "number": 6,
+          "title": "Page 6",
+          "text": "Pip visited the garden with a friend. They looked at bright flowers and helped a small bird find its nest.",
+          "imagePrompt": "Synthetic garden picture number 6.",
+          "imageAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-6:image",
+          "audioAssetKey": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-6:audio",
+          "image": null,
+          "audio": null
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:cover",
+      "type": "image/jpeg",
+      "sha256": "b8b80bd633f0a326a299f8b93d6b23b5452867cee5552299a64e721652678c0d"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:cover-audio",
+      "type": "audio/mpeg",
+      "sha256": "4cae1fbfaf8ea5fffb094702183816cb978b7049864cb4c172bacae69be4ac3c"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-1:image",
+      "type": "image/jpeg",
+      "sha256": "3265dc02cceb2ab6bb8edacb32ea3cd944a79f0b13ed899cbbb206060a2a001f"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-1:audio",
+      "type": "audio/mpeg",
+      "sha256": "b02b547fe8578927d4327d6bb67c884e261eed5a000cdfd647325227ef31d952"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-2:image",
+      "type": "image/jpeg",
+      "sha256": "d47124d1a693963e6ccbc8ab3a2a35bcf76b80d0e4050b292c7dcf93beae89b0"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-2:audio",
+      "type": "audio/mpeg",
+      "sha256": "c57578b266afe996dae7cc974418733219ca1cc52f17e351534136ed1264cf00"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-3:image",
+      "type": "image/jpeg",
+      "sha256": "989cd1d240ec91aceae4536a1948320d1c501970ca56d9941bf3b94fbe934e0f"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-3:audio",
+      "type": "audio/mpeg",
+      "sha256": "9e2aaf6829d3a5e77219ca6a12d98a6b91389c87dadbabea77e72aaa21ab2a48"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-4:image",
+      "type": "image/jpeg",
+      "sha256": "bf206decc86db629cd1245b8773721fbff37b7d4fc4d1ecd87f07628a7cb3733"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-4:audio",
+      "type": "audio/mpeg",
+      "sha256": "1efee5f108351a71fc06559534db6cf4f9054dbd7bab2d172a2e98085779e039"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-5:image",
+      "type": "image/jpeg",
+      "sha256": "6c102b2f657f8612c23d21f5736340f0d57bfccc4e87dde20b3ab298e1314f5c"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-5:audio",
+      "type": "audio/mpeg",
+      "sha256": "c25d9d0bc9162b9186035d6a9193880e24992ad5a02618ecb377bea7bc21fba8"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-6:image",
+      "type": "image/jpeg",
+      "sha256": "2d7815e076a725016d542e76eda731bad325f404e9a469bed7cc2bb04316faf5"
+    },
+    {
+      "key": "custom-7c480b44-19db-4096-a32e-df95001e7ba6:page-6:audio",
+      "type": "audio/mpeg",
+      "sha256": "d22ca3b6a5e557e4954e2f2c3ee87b67e0b63e3e9ec82af9db1babfdea4eb4dc"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:cover",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:cover-audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-1:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-1:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-2:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-2:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-3:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-3:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-4:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-4:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-5:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-5:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-6:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d:page-6:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:cover",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:cover-audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-1:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-1:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-2:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-2:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-3:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-3:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-4:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-4:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-5:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-5:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-6:image",
+      "type": "image/webp",
+      "sha256": "134ad498bd8a9af5578ebee4f87fd06168528c3f6ca14f632391df48813b9d67"
+    },
+    {
+      "key": "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60:page-6:audio",
+      "type": "audio/mpeg",
+      "sha256": "b992c197fff09fdf5d38bb94ef5bd75bac2c18ffb5a5a09862d8807228ec23b2"
+    }
+  ],
+  "progress": {
+    "amari": {
+      "custom-2f54678e-ab7d-4f4d-813c-a5435cfb3707": {
+        "pageIndex": 0,
+        "completed": false,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T19:19:27.770Z"
+      },
+      "custom-c4d05b64-e70e-4d2a-abd9-bb1851e7115d": {
+        "pageIndex": 0,
+        "completed": false,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T19:21:01.470Z"
+      },
+      "custom-c7dac97a-d04c-4a3b-a1bd-f43e6f278f60": {
+        "pageIndex": 0,
+        "completed": false,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T19:21:08.813Z"
+      },
+      "rex-missing-moon-map": {
+        "pageIndex": 9,
+        "completed": true,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T20:05:31.363Z"
+      },
+      "luna-whispering-forest": {
+        "pageIndex": 9,
+        "completed": true,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T20:05:41.062Z"
+      },
+      "nia-great-river-journey": {
+        "pageIndex": 9,
+        "completed": true,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T20:05:51.016Z"
+      },
+      "bo-busy-bee-garden": {
+        "pageIndex": 0,
+        "completed": true,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T20:15:29.440Z"
+      },
+      "sami-night-light-parade": {
+        "pageIndex": 9,
+        "completed": true,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T20:06:10.092Z"
+      },
+      "mina-mountain-seed": {
+        "pageIndex": 9,
+        "completed": true,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T20:06:19.167Z"
+      },
+      "kai-lost-library-book": {
+        "pageIndex": 9,
+        "completed": true,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T20:06:28.388Z"
+      }
+    },
+    "child-e5fa18b1-591b-4842-adb8-4d1919cce795": {
+      "rex-missing-moon-map": {
+        "pageIndex": 1,
+        "completed": false,
+        "favourite": true,
+        "lastReadAt": "2026-10-19T19:49:46.159Z"
+      }
+    },
+    "child-aa650d0c-47ff-4333-8a6e-12ddd59ac04a": {
+      "rex-missing-moon-map": {
+        "pageIndex": 1,
+        "completed": false,
+        "favourite": true,
+        "lastReadAt": "2026-10-19T19:55:24.154Z"
+      }
+    },
+    "child-52cbf434-aef2-4d33-b04c-26dd2b0c77f5": {
+      "rex-missing-moon-map": {
+        "pageIndex": 1,
+        "completed": false,
+        "favourite": true,
+        "lastReadAt": "2026-10-19T20:01:53.738Z"
+      }
+    },
+    "child-44e607ab-90b8-478f-81de-ad85b1220f1b": {
+      "rex-missing-moon-map": {
+        "pageIndex": 1,
+        "completed": false,
+        "favourite": true,
+        "lastReadAt": "2026-10-19T20:03:02.008Z"
+      }
+    },
+    "child-ff86aa85-01ae-47ec-902d-271d36d8bf1d": {
+      "rex-missing-moon-map": {
+        "pageIndex": 1,
+        "completed": false,
+        "favourite": true,
+        "lastReadAt": "2026-10-19T20:04:52.300Z"
+      },
+      "custom-7c480b44-19db-4096-a32e-df95001e7ba6": {
+        "pageIndex": 0,
+        "completed": false,
+        "favourite": false,
+        "lastReadAt": "2026-10-19T21:36:47.130Z"
+      }
+    }
+  }
+}

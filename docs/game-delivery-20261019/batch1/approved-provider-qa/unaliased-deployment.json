@@ -1,0 +1,179 @@
+{
+  "id": "dpl_5fUEez42um6ucgqd7wuPGgtjnoup",
+  "name": "dinospace",
+  "url": "dinospace-nn6kpwutt-memas-projects-23a0001d.vercel.app",
+  "target": "production",
+  "readyState": "READY",
+  "createdAt": 1792445432981,
+  "duration": {
+    "startTime": 1792445434246,
+    "endTime": 1792445504039,
+    "endTimeCapped": 1792445504039,
+    "timeToReady": 49718,
+    "timeToContainerExit": 69793,
+    "timeToContainerExitCapped": 69793,
+    "timeForBilling": 120000,
+    "cpuTimeForBilling": 480000
+  },
+  "buildMachine": {
+    "cores": 4,
+    "memory": 8192,
+    "machine": "standard",
+    "selectionType": "fixed",
+    "selectionSource": "plan-default"
+  },
+  "aliases": [
+    "dinospace-memas-projects-23a0001d.vercel.app"
+  ],
+  "builds": [
+    {
+      "id": "bld_marxrfh43",
+      "deploymentId": "dpl_5fUEez42um6ucgqd7wuPGgtjnoup",
+      "entrypoint": ".",
+      "readyState": "READY",
+      "readyStateAt": 1792445432554,
+      "createdAt": 1792445432554,
+      "createdIn": "sfo1",
+      "use": "@vercel/vc-build",
+      "config": {
+        "framework": "vite",
+        "nodeVersion": "24.x",
+        "projectCreatedAt": 1774036291065,
+        "vercelConfig": {
+          "headers": [
+            {
+              "source": "/sw.js",
+              "headers": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate"
+                }
+              ]
+            },
+            {
+              "source": "/index.html",
+              "headers": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, no-store, must-revalidate"
+                }
+              ]
+            }
+          ],
+          "name": "dinospace",
+          "version": 2
+        }
+      },
+      "middleware": [],
+      "output": [
+        {
+          "prerender": null,
+          "type": "lambda",
+          "path": "api/story/image",
+          "digest": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w/5cfc2799972577ea149bd5fa324cac8331a1a7f2f2b1a9031e7f9811fc5bbd4a",
+          "mode": 49590,
+          "size": 8030,
+          "lambda": {
+            "functionName": "team_29nVF2DDp3aEQN11NjTifvQa-2b7f1af415ce750ae1bc56008d8af1a719",
+            "deployedTo": [
+              "iad1"
+            ],
+            "runtime": "nodejs24.x",
+            "memorySize": 2048,
+            "timeout": 300,
+            "layers": [
+              "arn:aws:lambda:AWS_REGION_PLACEHOLDER:977805900156:layer:vercel-rusty-runtime-nodejs-1_51_11-production-851b7ac1bb-AWS_ARCH_PLACEHOLDER:1"
+            ]
+          },
+          "edge": null
+        },
+        {
+          "prerender": null,
+          "type": "lambda",
+          "path": "api/story/narration",
+          "digest": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w/85d0616bb0e34b96f818e45247a82b6cf9908bf7413981820df7ee313a7b6e2a",
+          "mode": 49590,
+          "size": 7579,
+          "lambda": {
+            "functionName": "team_29nVF2DDp3aEQN11NjTifvQa-0e2afac6208360774a47bf213497deb220",
+            "deployedTo": [
+              "iad1"
+            ],
+            "runtime": "nodejs24.x",
+            "memorySize": 2048,
+            "timeout": 300,
+            "layers": [
+              "arn:aws:lambda:AWS_REGION_PLACEHOLDER:977805900156:layer:vercel-rusty-runtime-nodejs-1_51_11-production-851b7ac1bb-AWS_ARCH_PLACEHOLDER:1"
+            ]
+          },
+          "edge": null
+        },
+        {
+          "prerender": null,
+          "type": "lambda",
+          "path": "api/story/outline",
+          "digest": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w/23101c03ae4c3b225d2f231fe0d33fb1add7a1eb7c55902707e01fa6ce1199f1",
+          "mode": 49590,
+          "size": 9468,
+          "lambda": {
+            "functionName": "team_29nVF2DDp3aEQN11NjTifvQa-6a2617523704ba480b474224ab04fc2cc2",
+            "deployedTo": [
+              "iad1"
+            ],
+            "runtime": "nodejs24.x",
+            "memorySize": 2048,
+            "timeout": 300,
+            "layers": [
+              "arn:aws:lambda:AWS_REGION_PLACEHOLDER:977805900156:layer:vercel-rusty-runtime-nodejs-1_51_11-production-851b7ac1bb-AWS_ARCH_PLACEHOLDER:1"
+            ]
+          },
+          "edge": null
+        },
+        {
+          "prerender": null,
+          "type": "lambda",
+          "path": "api/story/session",
+          "digest": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w/9897fd21fb038573c8921b1329d444acc09e77bb4d91e41c2848fd557b35f401",
+          "mode": 49590,
+          "size": 6731,
+          "lambda": {
+            "functionName": "team_29nVF2DDp3aEQN11NjTifvQa-2d154fcf3543dd7416618720eb34334f97",
+            "deployedTo": [
+              "iad1"
+            ],
+            "runtime": "nodejs24.x",
+            "memorySize": 2048,
+            "timeout": 300,
+            "layers": [
+              "arn:aws:lambda:AWS_REGION_PLACEHOLDER:977805900156:layer:vercel-rusty-runtime-nodejs-1_51_11-production-851b7ac1bb-AWS_ARCH_PLACEHOLDER:1"
+            ]
+          },
+          "edge": null
+        },
+        {
+          "prerender": null,
+          "type": "lambda",
+          "path": "api/voice",
+          "digest": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w/1b6d4a39818652b56a0f6bd8311c94f85d1374138386286fe2428f9a3b4cae03",
+          "mode": 49590,
+          "size": 4678,
+          "lambda": {
+            "functionName": "team_29nVF2DDp3aEQN11NjTifvQa-a9d3a9534b49ae94328331644653fb1fe9",
+            "deployedTo": [
+              "iad1"
+            ],
+            "runtime": "nodejs24.x",
+            "memorySize": 2048,
+            "timeout": 300,
+            "layers": [
+              "arn:aws:lambda:AWS_REGION_PLACEHOLDER:977805900156:layer:vercel-rusty-runtime-nodejs-1_51_11-production-851b7ac1bb-AWS_ARCH_PLACEHOLDER:1"
+            ]
+          },
+          "edge": null
+        }
+      ],
+      "fingerprint": null
+    }
+  ],
+  "contextName": "memas-projects-23a0001d"
+}

@@ -1,0 +1,186 @@
+{
+  "deployment": "https://dinospace-nn6kpwutt-memas-projects-23a0001d.vercel.app",
+  "providerCap": 23,
+  "priorLocalUnauthenticatedAttempts": 1,
+  "used": 16,
+  "reserved": 0,
+  "requests": [
+    {
+      "stage": "session",
+      "startedAt": "2026-10-19T21:33:38.129Z",
+      "reserved": 0,
+      "providerAttempts": 0,
+      "httpStatus": 200,
+      "bytes": 150,
+      "finishedAt": "2026-10-19T21:33:40.808Z",
+      "model": null
+    },
+    {
+      "stage": "outline",
+      "startedAt": "2026-10-19T21:33:40.862Z",
+      "reserved": 2,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 3291,
+      "finishedAt": "2026-10-19T21:33:52.337Z",
+      "sha256": "49a5748623d8977a0ce4b228e4aea1753ff5177cb26bddde29a21707c5e48ad6",
+      "model": null
+    },
+    {
+      "stage": "image",
+      "startedAt": "2026-10-19T21:33:52.422Z",
+      "reserved": 2,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 381687,
+      "finishedAt": "2026-10-19T21:34:47.803Z",
+      "sha256": "b8b80bd633f0a326a299f8b93d6b23b5452867cee5552299a64e721652678c0d",
+      "model": "bytedance-seed/seedream-5-0-lite"
+    },
+    {
+      "stage": "narration",
+      "startedAt": "2026-10-19T21:34:48.130Z",
+      "reserved": 1,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 286345,
+      "finishedAt": "2026-10-19T21:34:56.232Z",
+      "sha256": "4cae1fbfaf8ea5fffb094702183816cb978b7049864cb4c172bacae69be4ac3c",
+      "model": null
+    },
+    {
+      "stage": "image",
+      "startedAt": "2026-10-19T21:34:56.285Z",
+      "reserved": 2,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 387476,
+      "finishedAt": "2026-10-19T21:35:57.810Z",
+      "sha256": "3265dc02cceb2ab6bb8edacb32ea3cd944a79f0b13ed899cbbb206060a2a001f",
+      "model": "bytedance-seed/seedream-5-0-lite"
+    },
+    {
+      "stage": "image",
+      "startedAt": "2026-10-19T21:34:56.287Z",
+      "reserved": 2,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 396652,
+      "finishedAt": "2026-10-19T21:35:34.737Z",
+      "sha256": "d47124d1a693963e6ccbc8ab3a2a35bcf76b80d0e4050b292c7dcf93beae89b0",
+      "model": "bytedance-seed/seedream-5-0-lite"
+    },
+    {
+      "stage": "image",
+      "startedAt": "2026-10-19T21:34:56.288Z",
+      "reserved": 2,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 422786,
+      "finishedAt": "2026-10-19T21:35:27.966Z",
+      "sha256": "989cd1d240ec91aceae4536a1948320d1c501970ca56d9941bf3b94fbe934e0f",
+      "model": "bytedance-seed/seedream-5-0-lite"
+    },
+    {
+      "stage": "narration",
+      "startedAt": "2026-10-19T21:35:28.015Z",
+      "reserved": 1,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 107458,
+      "finishedAt": "2026-10-19T21:35:32.242Z",
+      "sha256": "9e2aaf6829d3a5e77219ca6a12d98a6b91389c87dadbabea77e72aaa21ab2a48",
+      "model": null
+    },
+    {
+      "stage": "image",
+      "startedAt": "2026-10-19T21:35:32.293Z",
+      "reserved": 2,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 386992,
+      "finishedAt": "2026-10-19T21:36:08.775Z",
+      "sha256": "bf206decc86db629cd1245b8773721fbff37b7d4fc4d1ecd87f07628a7cb3733",
+      "model": "bytedance-seed/seedream-5-0-lite"
+    },
+    {
+      "stage": "narration",
+      "startedAt": "2026-10-19T21:35:34.784Z",
+      "reserved": 1,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 99517,
+      "finishedAt": "2026-10-19T21:35:38.727Z",
+      "sha256": "c57578b266afe996dae7cc974418733219ca1cc52f17e351534136ed1264cf00",
+      "model": null
+    },
+    {
+      "stage": "image",
+      "startedAt": "2026-10-19T21:35:38.774Z",
+      "reserved": 2,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 395759,
+      "finishedAt": "2026-10-19T21:36:19.411Z",
+      "sha256": "6c102b2f657f8612c23d21f5736340f0d57bfccc4e87dde20b3ab298e1314f5c",
+      "model": "bytedance-seed/seedream-5-0-lite"
+    },
+    {
+      "stage": "narration",
+      "startedAt": "2026-10-19T21:35:57.853Z",
+      "reserved": 1,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 106204,
+      "finishedAt": "2026-10-19T21:36:01.800Z",
+      "sha256": "b02b547fe8578927d4327d6bb67c884e261eed5a000cdfd647325227ef31d952",
+      "model": null
+    },
+    {
+      "stage": "image",
+      "startedAt": "2026-10-19T21:36:01.843Z",
+      "reserved": 2,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 450643,
+      "finishedAt": "2026-10-19T21:36:53.202Z",
+      "sha256": "2d7815e076a725016d542e76eda731bad325f404e9a469bed7cc2bb04316faf5",
+      "model": "bytedance-seed/seedream-5-0-lite"
+    },
+    {
+      "stage": "narration",
+      "startedAt": "2026-10-19T21:36:08.824Z",
+      "reserved": 1,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 103278,
+      "finishedAt": "2026-10-19T21:36:12.264Z",
+      "sha256": "1efee5f108351a71fc06559534db6cf4f9054dbd7bab2d172a2e98085779e039",
+      "model": null
+    },
+    {
+      "stage": "narration",
+      "startedAt": "2026-10-19T21:36:19.455Z",
+      "reserved": 1,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 97009,
+      "finishedAt": "2026-10-19T21:36:23.537Z",
+      "sha256": "c25d9d0bc9162b9186035d6a9193880e24992ad5a02618ecb377bea7bc21fba8",
+      "model": null
+    },
+    {
+      "stage": "narration",
+      "startedAt": "2026-10-19T21:36:53.244Z",
+      "reserved": 1,
+      "providerAttempts": 1,
+      "httpStatus": 200,
+      "bytes": 107458,
+      "finishedAt": "2026-10-19T21:36:57.277Z",
+      "sha256": "d22ca3b6a5e557e4954e2f2c3ee87b67e0b63e3e9ec82af9db1babfdea4eb4dc",
+      "model": null
+    }
+  ],
+  "startedAt": "2026-10-19T21:33:02.473Z",
+  "status": "running"
+}

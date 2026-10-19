@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-10-19T21:49:45.330663+00:00",
+  "deployedBaseCommit": "2e000d34833bc0d99a2ec98601e869c6f42144f8",
+  "localAmendment": "Correct generated-book ending label; tested actual Finish story controls at 390/1440. Not deployed.",
+  "files": [
+    {
+      "path": "src/components/games/StorybookStudio.jsx",
+      "sha256": "1990c0ccd4bb43a15b33af671e3fc293cb18f1922a933fbb78aeaeb7ee2a9958",
+      "bytes": 71240
+    },
+    {
+      "path": "api/story/_utils.js",
+      "sha256": "4d9080b906eff12fb157409e775daa46796b2e66184f7f7922b0e6b326783299",
+      "bytes": 6644
+    },
+    {
+      "path": "api/story/image.js",
+      "sha256": "138c230f1b37c63f085e0ebd97036338328e07b0c9913ca5a12185cb6680a3f4",
+      "bytes": 4715
+    },
+    {
+      "path": "api/story/narration.js",
+      "sha256": "b0e9f386d4bc6f09f03202b5d70f7476afcf561245ff603728fcb5042829d83a",
+      "bytes": 3520
+    },
+    {
+      "path": "api/story/outline.js",
+      "sha256": "929b20cc04aefcd1db7def3fe4dbd7bce7002a82807acb0dd2c48863613eb3b8",
+      "bytes": 8520
+    }
+  ]
+}

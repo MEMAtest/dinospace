@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-10-19T21:49:21.163853+00:00",
+  "newWorktrees": 0,
+  "dependencyInstalls": 0,
+  "newBrowserContexts": 0,
+  "newBrowserTabs": 0,
+  "uniquePaidBookBackupBytes": 3621058,
+  "removed": [
+    {
+      "path": "output/playwright/batch1-20261019/approved-story-page1-390.png",
+      "bytes": 370882,
+      "sha256": "a0d8443747c5ac55b6656b4e106e4f7afeb8ae724e759eaae308eab19eb1a68c",
+      "replacement": "docs/game-delivery-20261019/batch1/approved-provider-qa/story-page1-390.webp"
+    },
+    {
+      "path": "output/playwright/batch1-20261019/approved-story-page1-1440.png",
+      "bytes": 1173820,
+      "sha256": "41393086b1a2a708517a296edf8fe9c1f344cb72a7f294edb3e7ca9ad30004fe",
+      "replacement": "docs/game-delivery-20261019/batch1/approved-provider-qa/story-page1-1440.webp"
+    },
+    {
+      "path": "tmp/approved-story-library-export.json",
+      "bytes": 6670721,
+      "sha256": "fe4fb13e05ea4c04dc0ae86ddab4ad04de774f1b64d594d4ca0ce93d98430260",
+      "recovery": "Combine exact asset objects from output/playwright/batch1-20261019/storybook-qa-backup.json and pip-sunflower-backup.json.gz by key with library-export-recovery-metadata.json; filtered one-book JSON is gzip decompression."
+    },
+    {
+      "path": ".playwright-cli/amari-storybooks-2026-10-19.json",
+      "bytes": 6670721,
+      "sha256": "fe4fb13e05ea4c04dc0ae86ddab4ad04de774f1b64d594d4ca0ce93d98430260",
+      "recovery": "Combine exact asset objects from output/playwright/batch1-20261019/storybook-qa-backup.json and pip-sunflower-backup.json.gz by key with library-export-recovery-metadata.json; filtered one-book JSON is gzip decompression."
+    },
+    {
+      "path": "tmp/approved-pip-sunflower-backup.json",
+      "bytes": 4979086,
+      "sha256": "ffe091df7d558764ef779177d5e57e6b3164df1f0f6b11b7012046af62df82c3",
+      "recovery": "Combine exact asset objects from output/playwright/batch1-20261019/storybook-qa-backup.json and pip-sunflower-backup.json.gz by key with library-export-recovery-metadata.json; filtered one-book JSON is gzip decompression."
+    }
+  ],
+  "bytesRemoved": 19865230,
+  "retained": [
+    "Existing contained Chromium synthetic storage",
+    "Unique logs and failed local placeholder harness",
+    "Canonical one-book compressed backup",
+    "Original previous two-book QA backup",
+    "Word recordings once in public/audio/en",
+    "Unrelated functional-release files untouched"
+  ],
+  "build": "passed; 12.18 seconds; existing chunk warning",
+  "focusedTests": {
+    "passed": 11,
+    "failed": 0
+  },
+  "previousScopedTestsPassed": 80,
+  "candidateDeployment": "dpl_5fUEez42um6ucgqd7wuPGgtjnoup",
+  "canonicalDeployment": "dpl_AZMdxgc4m9pQdnt4uDdsGAB9fjuY",
+  "sourceUiAmendment": "Finish story instead of quiz label when comprehension is empty; native 390/1440 controls pass"
+}

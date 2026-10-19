@@ -16,12 +16,19 @@ Unreleased candidate on `codex/solar-blender-planets-20261016`, based on `d9fff2
 
 JSON reports in this directory record actual local browser controls. Story generation recovery uses explicitly simulated providers, not paid provider health evidence. The reading report covers all seven curated books, 154 screens and 42 comprehension questions at both sizes. Packaged recordings were played and decoded; this does not constitute human listening acceptance. Shelf entries used normal browser cache; they are fresh navigations, not cold network loads. One original 563ms command-level page navigation is retained; ten focused rechecks measured 6.4–8.1ms native click-to-rendered-counter and 56–118ms command wall time.
 
+## Approved provider work — 19 October closeout
+
+Both fixed approvals have now been exercised. See `approved-provider-qa/` for receipts, inventories, deployed identity, native audio controls, readiness and the recoverable one-book backup.
+
+- **Spelling:** exactly 56 newly generated recordings, no automatic retries; 58/58 words ready including two reused recordings. Every file passed ffmpeg decoding, receipt hash matching and Chromium playback to `ended`. Ten actual “Hear the word” actions passed through the game UI across 390px and 1440px, with zero provider requests and no page errors.
+- **Storybook:** one six-page synthetic book, **Pip and the Sunflower**, reached saved Ready with seven illustrations and seven narrations. All 14 binary files match successful provider receipts. Actual generation made 15 upstream requests, with no fallback/retry. Counting the failed local placeholder POST and a read-only placeholder auth GET conservatively gives 17 provider HTTP requests against the approved cap of 23. The local failure was a Vercel Sensitive export marker, not a broken deployed credential; the subsequent deployed provider handlers succeeded. No second book was generated.
+- **Latency:** successful outline handling took about 11.5 seconds; all media responses arrived about 3 minutes 19 seconds after Create. Ready was observed later; this is not an exact first-Ready timing. The actual readable draft was opened while the last assets were still arriving. A complete narrated illustrated book is not instant, although reading the existing shelf does not require provider generation.
+- **Deployment:** candidate source `2e000d34833bc0d99a2ec98601e869c6f42144f8` is hosted at unaliased deployment `dpl_5fUEez42um6ucgqd7wuPGgtjnoup`. Its API handlers used the configured hosted secrets. The local reader rehearsal used the same committed source through a bounded authenticated proxy; it is not canonical production gameplay proof. Production remains unchanged at `dpl_AZMdxgc4m9pQdnt4uDdsGAB9fjuY`.
+
 ## Required release gates still open
 
-1. Spelling requires **56 missing word recordings, 184 characters**. The exact hashed inventory is `spelling-voice-inventory.json`. A fixed 56-request, no-automatic-retry approval is pending. Image-generation credits do not authorize ElevenLabs spending. No voice generation has been started.
-2. One explicitly budgeted provider-generated QA story remains necessary to establish real current generation latency and health. Simulated success cannot satisfy this gate. No paid story has been created.
-3. Human listening acceptance remains distinct from technical decoding/playback.
-4. Finish affected candidate rehearsals, verify the exact cumulative candidate, release, and rehearse the canonical production deployment before assigning final scores or moving to Batch 2.
+1. Human listening acceptance remains distinct from technical decoding/playback. It has not been established by browser playback.
+2. Cumulative release acceptance and a canonical production rehearsal remain before assigning final scores or moving to Batch 2. Saved-book restore now passes: all 14 assets validated, the imported cover decoded, existing titles remained, and no provider requests occurred. Fourteen cover/page screens passed at 390px and 1440px, all seven narrations reached their end on mobile, and desktop play/pause passed. Unfinished page 4 survives reload; completed books reopen with Start Again. A local final amendment replaces the nonexistent quiz action with Finish story on generated books without comprehension; native controls pass at both sizes. Neither a hosted candidate nor successful provider calls establishes a 5/5 game or production acceptance.
 
 ## Resources and recovery
 
@@ -29,4 +36,8 @@ No clone, worktree or dependency install was created. Reused the existing contai
 
 ## Final local technical check
 
-79 focused tests pass; the cumulative build and explicit no-undef lint pass. Existing large-bundle warnings remain recorded. Eight final desktop/mobile captures show no horizontal overflow or page errors. These results support the candidate, not production acceptance.
+80 focused tests pass; the cumulative build and explicit no-undef lint pass. Existing large-bundle warnings remain recorded. Eight final desktop/mobile captures show no horizontal overflow or page errors. These results support the candidate, not production acceptance.
+
+## Approved-job resource closeout
+
+No checkout, dependency install, browser context or tab was created in this approved-provider turn. Retained one compressed, receipt-matched backup of the newly generated book (3,621,058 bytes), its visual review and small JSON reports. Removed 19,865,230 bytes of verified duplicate exports and derived PNGs after validating exact asset recovery against the two canonical backups; see `approved-provider-qa/closeout-resource-recovery.json`. Existing unique failure logs, original media, rate journal, synthetic browser storage and unrelated files remain. The local provider proxy was stopped after all requests settled. The final label amendment is local and is not included in the unaliased 2e000d34 deployment.
