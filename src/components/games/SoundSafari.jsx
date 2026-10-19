@@ -9,8 +9,11 @@ import { SoundToggle } from '../shared/index.jsx';
 import safariScene from '../../assets/game-scenes/sound-safari.webp';
 import './amariScenes.css';
 
-const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const difficulty = useGameDifficulty('phonics');
+const normalizeSound = (sound) => String(sound ?? '').normalize('NFKC').replace(/^\/|\/$/g, '').trim().toLowerCase();
+
+const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, onReviewComplete, sessionTarget = 0 }) => {
+  const currentDifficulty = useGameDifficulty('phonics');
+  const [difficulty] = useState(currentDifficulty);
   const phonicsItems = useMemo(() => {
     const taught = getTaughtGraphemes();
     const items = PHONICS_ITEMS.filter((item) => item.letter !== 'X' && taught.has(item.letter.toLowerCase()));
@@ -20,7 +23,9 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const buildMatchRound = useCallback(() => {
     const target = pickRandom(phonicsItems);
     const distractors = difficulty === 'starter' ? 2 : 3;
-    return { target, options: shuffle([target, ...shuffle(phonicsItems.filter((item) => item.letter !== target.letter)).slice(0, distractors)]) };
+    const targetSound = normalizeSound(target.sound);
+    const differentSounds = phonicsItems.filter((item) => item !== target && normalizeSound(item.sound) !== targetSound);
+    return { target, options: shuffle([target, ...shuffle(differentSounds).slice(0, distractors)]) };
   }, [difficulty, phonicsItems]);
   const [safariMode, setSafariMode] = useState(() => difficulty === 'challenge' ? 'blend' : 'match');
   const [round, setRound] = useState(buildMatchRound);
@@ -29,9 +34,10 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [feedback, setFeedback] = useState('');
   const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
+  const [completedCount, setCompletedCount] = useState(0);
+  const [locked, setLocked] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
   const answeredRef = useRef(false);
-  const nextRoundTimerRef = useRef(null);
   const timersRef = useRef([]);
 
   const sayPrompt = useCallback(() => {
@@ -45,7 +51,6 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   useEffect(() => { sayPrompt(); }, [sayPrompt]);
 
   useEffect(() => () => {
-    clearTimeout(nextRoundTimerRef.current);
     timersRef.current.forEach((id) => clearTimeout(id));
   }, []);
 
@@ -53,15 +58,9 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     timersRef.current.push(setTimeout(callback, delay));
   };
 
-  const scheduleNextRound = () => {
-    const roundMode = safariMode;
-    nextRoundTimerRef.current = setTimeout(() => nextRound(roundMode), 1400);
-  };
-
   const nextRound = (mode = safariMode) => {
-    clearTimeout(nextRoundTimerRef.current);
-    nextRoundTimerRef.current = null;
     answeredRef.current = false;
+    setLocked(false);
     if (mode === 'match') setRound(buildMatchRound());
     else { setBlendRound(pickRandom(blendWords)); setBlendStep(0); }
     setFeedback('');
@@ -75,11 +74,12 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       const praise = getPraise();
       setFeedback(`${praise} ${option.word} starts with ${round.target.sound}.`);
       setScore((prev) => prev + 1);
+      setCompletedCount((count) => count + 1);
+      setLocked(true);
       playSfx('success');
       onCelebrate(praise, 6, 250);
-      onGameEvent?.('phonics', 'answer_correct');
+      onGameEvent?.('phonics', 'answer_correct', { skill: 'phoneme-recognition', item: round.target.sound, response: option.word, expected: round.target.letter, correct: true, firstAttempt: !hadMistake, deferFinish: sessionTarget > 0 && completedCount + 1 >= sessionTarget });
       onGameEvent?.('phonics', 'learning_attempt', makeLearningEvent({ skill: 'phoneme-recognition', item: round.target.sound, response: option.word, correct: true, firstTry: !hadMistake }));
-      scheduleNextRound();
     } else {
       setHadMistake(true);
       setFeedback('Try again!');
@@ -111,11 +111,12 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       const praise = getPraise();
       setFeedback(`${praise} The word is ${w.word}.`);
       setScore((prev) => prev + 1);
+      setCompletedCount((count) => count + 1);
+      setLocked(true);
       playSfx('success');
       onCelebrate(praise, 8, 250);
-      onGameEvent?.('phonics', 'answer_correct');
+      onGameEvent?.('phonics', 'answer_correct', { skill: 'oral-blending', item: blendRound.word, response: w.word, expected: blendRound.word, correct: true, firstAttempt: !hadMistake, deferFinish: sessionTarget > 0 && completedCount + 1 >= sessionTarget });
       onGameEvent?.('phonics', 'learning_attempt', makeLearningEvent({ skill: 'oral-blending', item: blendRound.word, response: w.word, correct: true, firstTry: !hadMistake, difficulty: blendRound.phase === 3 ? 'growing' : 'starter' }));
-      scheduleNextRound();
     } else {
       setHadMistake(true);
       setFeedback('Try again!');
@@ -125,13 +126,18 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     }
   };
 
+  const handleNext = () => {
+    if (sessionTarget > 0 && completedCount >= sessionTarget) onReviewComplete?.();
+    else nextRound(safariMode);
+  };
+
   return (
     <div className="amari-scene flex flex-col" style={{ '--scene-image': `url("${safariScene}")` }}>
       <div className="amari-scene-header relative z-20">
         <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><ArrowLeft /></button>
         <div className="amari-scene-title">
           <h2 className="text-lg sm:text-2xl">🌿 Sound Safari</h2>
-          <p className="text-xs text-sky-100">⭐ {score} {score === 1 ? 'star' : 'stars'}</p>
+          <p className="text-xs text-sky-100" aria-live="polite">{sessionTarget > 0 ? `Answers completed: ${completedCount} of ${sessionTarget}` : `Correct answers: ${score}`}</p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
@@ -139,8 +145,8 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       <div className="flex-1 flex flex-col items-center justify-center px-3 pb-6 relative z-10">
         <div className="flex gap-2 mb-4">
           {[{ id: 'match', label: '🔤 Letter Match' }, { id: 'blend', label: '🧩 Blend It' }].map((m) => (
-            <button key={m.id} onClick={() => { setSafariMode(m.id); nextRound(m.id); playSfx('click'); }}
-              className={`min-h-11 px-4 py-2 rounded-full border-2 border-white font-black text-sm shadow-lg ${safariMode === m.id ? 'bg-emerald-600 text-white' : 'bg-white text-emerald-700'}`}>{m.label}</button>
+            <button key={m.id} disabled={locked} onClick={() => { setSafariMode(m.id); nextRound(m.id); playSfx('click'); }}
+              className={`min-h-11 px-4 py-2 rounded-full border-2 border-white font-black text-sm shadow-lg disabled:cursor-not-allowed disabled:opacity-50 ${safariMode === m.id ? 'bg-emerald-600 text-white' : 'bg-white text-emerald-700'}`}>{m.label}</button>
           ))}
         </div>
 
@@ -152,7 +158,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             </div>
             <div className={`grid gap-4 w-full max-w-lg ${round.options.length >= 4 ? 'grid-cols-2 sm:grid-cols-4' : round.options.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
               {round.options.map((option) => (
-                <button key={option.word} onClick={() => handlePick(option)} aria-label={option.word} className="amari-choice flex min-h-28 flex-col items-center justify-center p-3 hover:-translate-y-1">
+                <button key={option.word} disabled={locked} onClick={() => handlePick(option)} aria-label={option.word} className="amari-choice flex min-h-28 flex-col items-center justify-center p-3 hover:-translate-y-1 disabled:cursor-default">
                   <div className="text-6xl drop-shadow-lg">{option.emoji}</div>
                 </button>
               ))}
@@ -166,7 +172,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               <div className="text-slate-500 uppercase tracking-wide text-xs font-bold mb-3">Tap each sound from left to right</div>
               <div className="flex items-center gap-3 justify-center mb-3">
                 {blendRound.letters.map((l, i) => (
-                  <button key={i} onClick={() => handleBlendLetterTap(i)}
+                  <button key={i} disabled={locked} onClick={() => handleBlendLetterTap(i)}
                     className={`w-16 h-16 rounded-2xl text-3xl font-black flex items-center justify-center border-4 transition-all ${
                       i < blendStep ? 'bg-emerald-500 text-white border-emerald-600 scale-110' : i === blendStep ? 'bg-emerald-100 border-emerald-400 animate-pulse text-emerald-700' : 'bg-white border-slate-200 text-slate-400'
                     }`}>{l.toUpperCase()}</button>
@@ -180,7 +186,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             {blendStep >= blendRound.letters.length && (
               <div className="grid grid-cols-3 gap-4 w-full max-w-lg">
                 {blendOptions.map((w) => (
-                  <button key={w.word} onClick={() => handleBlendAnswer(w)} aria-label={w.word} className="amari-choice min-h-28 p-3">
+                  <button key={w.word} disabled={locked} onClick={() => handleBlendAnswer(w)} aria-label={w.word} className="amari-choice min-h-28 p-3 disabled:cursor-default">
                     <div className="text-5xl mb-2">{w.emoji}</div>
                   </button>
                 ))}
@@ -190,6 +196,7 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         )}
 
         {feedback && <div className="amari-scene-card mt-4 px-4 py-2 text-center text-lg font-black text-emerald-700" aria-live="polite">{feedback}</div>}
+        {locked && <button type="button" onClick={handleNext} className="mt-4 rounded-full bg-emerald-600 px-10 py-3 text-lg font-black text-white shadow-lg hover:bg-emerald-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-indigo-700">Next</button>}
       </div>
     </div>
   );
