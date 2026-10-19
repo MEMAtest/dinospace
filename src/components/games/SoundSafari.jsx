@@ -10,6 +10,13 @@ import safariScene from '../../assets/game-scenes/sound-safari.webp';
 import './amariScenes.css';
 
 const normalizeSound = (sound) => String(sound ?? '').normalize('NFKC').replace(/^\/|\/$/g, '').trim().toLowerCase();
+// PHONICS_ITEMS contains both C/Cat and K/Kite for the same initial /k/ sound.
+// Keep the teaching graphemes distinct in the UI and narration; canonicalize
+// only for deciding whether an option can answer the current sound prompt.
+const phonemeKey = (sound) => {
+  const normalized = normalizeSound(sound);
+  return normalized === 'c' || normalized === 'k' ? 'k' : normalized;
+};
 
 const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, onReviewComplete, sessionTarget = 0 }) => {
   const currentDifficulty = useGameDifficulty('phonics');
@@ -23,8 +30,8 @@ const SoundSafari = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const buildMatchRound = useCallback(() => {
     const target = pickRandom(phonicsItems);
     const distractors = difficulty === 'starter' ? 2 : 3;
-    const targetSound = normalizeSound(target.sound);
-    const differentSounds = phonicsItems.filter((item) => item !== target && normalizeSound(item.sound) !== targetSound);
+    const targetSound = phonemeKey(target.sound);
+    const differentSounds = phonicsItems.filter((item) => item !== target && phonemeKey(item.sound) !== targetSound);
     return { target, options: shuffle([target, ...shuffle(differentSounds).slice(0, distractors)]) };
   }, [difficulty, phonicsItems]);
   const [safariMode, setSafariMode] = useState(() => difficulty === 'challenge' ? 'blend' : 'match');
