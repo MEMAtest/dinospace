@@ -20,27 +20,22 @@ const makeEmojiRound = (difficulty, littleMode = false, sessionLevel = 0) => {
   return { ...pattern, options: shuffle([pattern.answer, ...decoys]) };
 };
 
-const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, littleMode = false, sessionLevel = 0 }) => {
-  const difficulty = useGameDifficulty('pattern');
+const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, onReviewComplete, sessionTarget = 0, littleMode = false, sessionLevel = 0 }) => {
+  const currentDifficulty = useGameDifficulty('pattern');
+  const [difficulty] = useState(currentDifficulty);
   const [mode, setMode] = useState('emoji');
   const [round, setRound] = useState(() => makeEmojiRound(difficulty, littleMode, sessionLevel));
   const [numRound, setNumRound] = useState(() => pickRandom(numberPatternPoolForDifficulty(difficulty)));
   const [feedback, setFeedback] = useState('');
   const [streak, setStreak] = useState(0);
+  const [completedCount, setCompletedCount] = useState(0);
   const [shake, setShake] = useState(false);
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
   const modeRef = useRef(mode);
-  const roundTimerRef = useRef(null);
-
-  useEffect(() => () => { if (roundTimerRef.current) clearTimeout(roundTimerRef.current); }, []);
 
   const nextRound = (nextMode = mode) => {
-    if (roundTimerRef.current) {
-      clearTimeout(roundTimerRef.current);
-      roundTimerRef.current = null;
-    }
     if (nextMode === 'emoji') {
       setRound(makeEmojiRound(difficulty, littleMode, sessionLevel));
     } else {
@@ -53,13 +48,15 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
   };
 
   useEffect(() => {
-    // Reset the current round when the adaptive band changes so advanced
-    // patterns cannot leak into a starter round (or vice versa).
+    // A level or Askia mode change starts a fresh question from the run's
+    // frozen difficulty pool.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     nextRound(mode);
-  }, [difficulty, littleMode, sessionLevel]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [littleMode, sessionLevel]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const currentLabel = mode === 'emoji' ? round.label : numRound.label;
+  const progressTarget = sessionTarget || 5;
+  const progressCompleted = sessionTarget > 0 ? completedCount : skillRun;
 
   useEffect(() => {
     speak(`What comes next? ${currentLabel}`);
@@ -76,13 +73,13 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       const newStreak = streak + 1;
       setStreak(newStreak);
       setSkillRun((current) => Math.min(current + 1, 5));
+      setCompletedCount((current) => current + 1);
       setLocked(true);
       playSfx('sparkle');
       if (newStreak >= 3) playSfx('combo');
       onCelebrate(newStreak === 5 ? 'Five in a row — Super Star bonus!' : praise, newStreak === 5 ? 14 : 4, 250);
-      onGameEvent?.('pattern', 'answer_correct', { ...attempt, correct: true });
+      onGameEvent?.('pattern', 'answer_correct', { ...attempt, correct: true, deferFinish: sessionTarget > 0 && completedCount + 1 >= sessionTarget });
       speak(`The rule is ${rule}`);
-      roundTimerRef.current = setTimeout(() => nextRound(modeRef.current), 2200);
     } else {
       onGameEvent?.('pattern', 'answer_wrong', { ...attempt, correct: false });
       setHadMistake(true);
@@ -92,6 +89,11 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       playSfx('oops');
       setTimeout(() => setShake(false), 450);
     }
+  };
+
+  const handleNext = () => {
+    if (sessionTarget > 0 && completedCount >= sessionTarget) onReviewComplete?.();
+    else nextRound(modeRef.current);
   };
 
   const currentOptions = mode === 'emoji' ? round.options : numRound.options;
@@ -118,11 +120,13 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
       )}
 
       <div className="flex-1 flex flex-col items-center justify-center px-3 pb-6 relative z-10">
-        {!littleMode && <div className="rounded-full bg-white/90 px-3 shadow-lg"><PracticeProgress skill={mode === 'emoji' ? 'Spot the repeating pattern' : 'Find the number rule'} completed={skillRun} accent="amber" /></div>}
+        {sessionTarget > 0
+          ? <p className="mb-4 rounded-full bg-white/80 px-4 py-2 text-sm font-black text-amber-800" aria-live="polite">Answers completed: {completedCount} of {sessionTarget}</p>
+          : !littleMode && <div className="rounded-full bg-white/90 px-3 shadow-lg"><PracticeProgress skill={mode === 'emoji' ? 'Spot the repeating pattern' : 'Find the number rule'} completed={progressCompleted} target={progressTarget} accent="amber" /></div>}
         <div className={`mb-4 flex gap-2 ${littleMode ? 'hidden' : ''}`}>
           {[{ id: 'emoji', label: '🔷 Shapes' }, { id: 'number', label: '🔢 Numbers' }].map((m) => (
-            <button key={m.id} onClick={() => { modeRef.current = m.id; setMode(m.id); nextRound(m.id); playSfx('click'); }}
-              className={`min-h-11 rounded-full border-2 border-white px-4 py-2 text-sm font-black shadow-lg ${mode === m.id ? 'bg-amber-600 text-white' : 'bg-white text-amber-700'}`}>{m.label}</button>
+            <button key={m.id} disabled={locked} onClick={() => { modeRef.current = m.id; setMode(m.id); nextRound(m.id); playSfx('click'); }}
+              className={`min-h-11 rounded-full border-2 border-white px-4 py-2 text-sm font-black shadow-lg disabled:cursor-not-allowed disabled:opacity-50 ${mode === m.id ? 'bg-amber-600 text-white' : 'bg-white text-amber-700'}`}>{m.label}</button>
           ))}
         </div>
 
@@ -145,6 +149,7 @@ const PatternParade = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCeleb
         </div>
 
         {feedback && <div className="amari-scene-card mt-4 max-w-xl px-5 py-3 text-center text-lg font-black text-blue-900" aria-live="polite">{feedback}</div>}
+        {locked && <button type="button" onClick={handleNext} className="mt-4 rounded-full bg-amber-600 px-10 py-3 text-lg font-black text-white shadow-lg hover:bg-amber-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-indigo-700">Next</button>}
       </div>
     </div>
   );
