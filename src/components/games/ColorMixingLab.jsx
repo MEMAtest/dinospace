@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Home } from 'lucide-react';
 import { COLOR_MIX_ROUNDS } from '../../data/index.js';
 import { shuffle, getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { colourRoundIndexes } from '../../data/gameDifficulty.js';
+import { SESSION_LEVELS } from '../../data/sessionLevels.js';
 
 const makeOptions = (round) => shuffle(round.options);
 
@@ -32,13 +33,15 @@ const ColourSwatch = ({ name, size = 'h-36 w-36' }) => (
   </div>
 );
 
-const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const difficulty = useGameDifficulty('colormix');
+const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, onReviewComplete, sessionLevel = 0, sessionTarget: providedSessionTarget }) => {
+  // GameSession remounts the game for each replay or level, so this snapshot
+  // keeps both the question pool and its answer choices steady for that run.
+  const currentDifficulty = useGameDifficulty('colormix');
+  const [difficulty] = useState(currentDifficulty);
+  const sessionTarget = providedSessionTarget || SESSION_LEVELS.colormix[sessionLevel]?.target || 6;
   const [roundIndex, setRoundIndex] = useState(0);
   const [feedback, setFeedback] = useState('');
-  const [shake, setShake] = useState(false);
   const [score, setScore] = useState(0);
-  const [mixed, setMixed] = useState(false);
   const bandIndexes = colourRoundIndexes(difficulty);
   const round = COLOR_MIX_ROUNDS[bandIndexes[roundIndex % bandIndexes.length]];
   const [options, setOptions] = useState(() => makeOptions(COLOR_MIX_ROUNDS[colourRoundIndexes(difficulty)[0]]));
@@ -46,21 +49,8 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const [skillRun, setSkillRun] = useState(0);
   const [locked, setLocked] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
-  const roundTimerRef = useRef(null);
-
-  useEffect(() => () => { if (roundTimerRef.current) clearTimeout(roundTimerRef.current); }, []);
-
-  useEffect(() => {
-    // Restart from the new band's first round when the adaptive band changes.
-    if (roundTimerRef.current) clearTimeout(roundTimerRef.current);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setRoundIndex(0);
-    setOptions(makeOptions(COLOR_MIX_ROUNDS[colourRoundIndexes(difficulty)[0]]));
-    setMixed(false);
-    setFeedback('');
-    setLocked(false);
-    setHadMistake(false);
-  }, [difficulty]);
+  const progressTarget = sessionTarget || 5;
+  const progressCompleted = sessionTarget > 0 ? score : skillRun;
 
   useEffect(() => {
     speak(`What colour do ${round.name1} and ${round.name2} make when mixed together?`);
@@ -69,7 +59,6 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const nextRound = () => {
     const nextIndex = (roundIndex + 1) % bandIndexes.length;
     setRoundIndex(nextIndex);
-    setMixed(false);
     setFeedback('');
     setLocked(false);
     setHadMistake(false);
@@ -77,35 +66,36 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     setSkillRun((current) => current >= 5 ? 0 : current);
   };
 
-  const handleMix = () => {
-    setMixed(true);
-    playSfx('sparkle');
-    speak('Mix!');
-  };
-
   const handlePick = (answer) => {
     if (locked) return;
     const attempt = { skill: 'colormix', item: `${round.name1}+${round.name2}`, response: answer, expected: round.answer, firstAttempt: !hadMistake, independent: !hadMistake, hints: 0, difficulty };
     if (answer === round.answer) {
       const praise = getPraise();
-      setFeedback(praise);
+      const explanation = round.name1 === 'Black' && round.name2 === 'White'
+          ? 'Black and white paint blend together to make grey.'
+          : round.name2 === 'White'
+          ? `White makes ${round.answer.toLowerCase()} paint lighter.`
+          : `Mixing ${round.name1.toLowerCase()} and ${round.name2.toLowerCase()} paint makes ${round.answer.toLowerCase()}.`;
+      setFeedback(`${praise} ${explanation}`);
       setScore((s) => s + 1);
       setSkillRun((current) => Math.min(current + 1, 5));
       setLocked(true);
       playSfx('success');
-      speak(`It makes ${round.answer}.`);
+      speak(`${round.answer}. ${explanation}`);
       onCelebrate(praise, 4, 200);
-      onGameEvent?.('colormix', 'answer_correct', { ...attempt, correct: true });
-      roundTimerRef.current = setTimeout(nextRound, 1100);
+      onGameEvent?.('colormix', 'answer_correct', { ...attempt, correct: true, deferFinish: sessionTarget > 0 && score + 1 >= sessionTarget });
     } else {
       onGameEvent?.('colormix', 'answer_wrong', { ...attempt, correct: false });
       setHadMistake(true);
-      setShake(true);
       playSfx('wrong');
-      setFeedback(`Not quite! ${round.name1} + ${round.name2} = ${round.answer}`);
-      speak(`It makes ${round.answer}`);
-      setTimeout(() => { setShake(false); setFeedback(''); }, 1200);
+      setFeedback('Have another try. Think about what these paint colours make when they blend.');
+      speak('Have another try. Think about what these paint colours make when they blend.');
     }
+  };
+
+  const handleNext = () => {
+    if (sessionTarget > 0 && score >= sessionTarget) onReviewComplete?.();
+    else nextRound();
   };
 
   return (
@@ -123,37 +113,33 @@ const ColorMixingLab = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </div>
       <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-        <PracticeProgress skill="Predict what two colours make" completed={skillRun} accent="fuchsia" />
+        {sessionTarget > 0
+          ? <p className="mb-4 rounded-full bg-white/80 px-4 py-2 text-sm font-black text-fuchsia-800" aria-live="polite">Answers completed: {score} of {sessionTarget}</p>
+          : <PracticeProgress skill="Predict what two colours make" completed={progressCompleted} target={progressTarget} accent="fuchsia" />}
         <div className="mb-6 flex flex-wrap items-center justify-center gap-4 rounded-[2.5rem] border-4 border-white/80 bg-white/45 px-5 py-8 shadow-xl sm:gap-6 sm:px-10">
           <ColourSwatch name={round.name1} />
           <span className="text-4xl font-black text-fuchsia-500">+</span>
           <ColourSwatch name={round.name2} />
           <span className="text-4xl font-black text-fuchsia-500">=</span>
-          <div className={`relative transition-all duration-700 ${mixed ? 'scale-110 rotate-3' : ''}`}>
-            {mixed ? <ColourSwatch name={round.answer} /> : <div className="flex h-36 w-36 items-center justify-center rounded-full border-4 border-dashed border-fuchsia-300 bg-white text-6xl text-fuchsia-300 shadow-xl">?</div>}
-            {mixed && <span className="pointer-events-none absolute -right-2 -top-2 animate-ping text-2xl" aria-hidden="true">✨</span>}
+          <div className={`relative transition-all duration-700 ${locked ? 'scale-110 rotate-3' : ''}`}>
+            {locked ? <ColourSwatch name={round.answer} /> : <div className="flex h-36 w-36 items-center justify-center rounded-full border-4 border-dashed border-fuchsia-300 bg-white text-6xl text-fuchsia-300 shadow-xl">?</div>}
+            {locked && <span className="pointer-events-none absolute -right-2 -top-2 animate-ping text-2xl" aria-hidden="true">✨</span>}
           </div>
         </div>
-        {!mixed && (
-          <button onClick={handleMix} className="bg-fuchsia-500 text-white text-xl font-black px-8 py-4 rounded-full shadow-lg hover:bg-fuchsia-600 active:translate-y-1 transition-all mb-6">
-            🧪 Mix Colours!
-          </button>
-        )}
-        {mixed && (
-          <div className={`${shake ? 'animate-shake' : ''}`}>
-            <p className="text-xl font-bold text-fuchsia-700 mb-4">What colour did it make?</p>
-            <div className="flex gap-4 flex-wrap justify-center">
-              {visibleOptions.map((opt) => (
-                <button key={opt} disabled={locked} onClick={() => handlePick(opt)}
-                  className="flex items-center gap-3 bg-white text-fuchsia-700 text-xl font-bold px-6 py-4 rounded-2xl shadow-lg border-4 border-fuchsia-200 hover:-translate-y-1 transition">
-                  <span className="h-8 w-8 shrink-0 rounded-full border-2 border-slate-200 shadow-inner" style={{ backgroundColor: COLOUR_HEX[opt] || FALLBACK_HEX }} aria-hidden="true" />
-                  {opt}
-                </button>
-              ))}
-            </div>
+        <div>
+          <p className="text-xl font-bold text-fuchsia-700 mb-4">{locked ? 'Result: here is what the paints made.' : 'Predict first: which colour will these paints make?'}</p>
+          <div className="flex gap-4 flex-wrap justify-center">
+            {visibleOptions.map((opt) => (
+              <button key={opt} disabled={locked} onClick={() => handlePick(opt)} aria-label={`Predict ${opt}`}
+                className="flex items-center gap-3 bg-white text-fuchsia-700 text-xl font-bold px-6 py-4 rounded-2xl shadow-lg border-4 border-fuchsia-200 hover:-translate-y-1 transition disabled:cursor-default disabled:hover:translate-y-0">
+                <span className="h-8 w-8 shrink-0 rounded-full border-2 border-slate-200 shadow-inner" style={{ backgroundColor: COLOUR_HEX[opt] || FALLBACK_HEX }} aria-hidden="true" />
+                {opt}
+              </button>
+            ))}
           </div>
-        )}
-        {feedback && <div className="mt-6 text-2xl font-black text-fuchsia-600 animate-bounce">{feedback}</div>}
+        </div>
+        {feedback && <div className="mt-6 max-w-2xl rounded-2xl bg-white/80 px-5 py-3 text-xl font-black text-fuchsia-700" aria-live="polite">{feedback}</div>}
+        {locked && <button type="button" onClick={handleNext} className="mt-5 rounded-full bg-fuchsia-600 px-10 py-4 text-xl font-black text-white shadow-lg hover:bg-fuchsia-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-indigo-700">Next</button>}
       </div>
     </div>
   );

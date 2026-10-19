@@ -169,7 +169,7 @@ const GameSession = ({
           <div className="h-full rounded-r-full bg-gradient-to-r from-amber-300 to-orange-500 transition-all duration-500" style={{ width: `${(progress.done / target) * 100}%` }} />
         </div>
         <ForcedDifficultyContext.Provider value={levelBand}>
-          <SessionSlot render={children} run={run} onGameEvent={handleEvent} onReviewComplete={acknowledgeFinalAnswer} sessionLevel={levelIndex} />
+          <SessionSlot render={children} run={run} onGameEvent={handleEvent} onReviewComplete={acknowledgeFinalAnswer} sessionLevel={levelIndex} sessionTarget={target} />
         </ForcedDifficultyContext.Provider>
       </>
     );
@@ -191,7 +191,7 @@ const GameSession = ({
             <div className="catalogue-welcome-art grid h-44 w-full min-w-0 place-items-center [&_.kid-pop-icon]:h-32 [&_.kid-pop-icon]:w-40">{game.icon}</div>
             <h1 className="text-3xl font-black text-slate-900">{game.title}</h1>
             <p className="rounded-full bg-sky-100 px-4 py-1 font-black text-sky-900">Level {levelIndex + 1} of {levels.length}: {level?.name}</p>
-            <p className="font-bold text-slate-600">{level?.description || rule.how}</p>
+            <p className="font-bold text-slate-600">Your goal: {level?.description || rule.how}</p>
             {game.id === 'letters' && <LetterLaunchBadgeCollection earnedBadgeIds={earnedChapterBadgeIds} />}
             {levelState.unlocked > 0 && (
               <div className="flex flex-wrap justify-center gap-2" aria-label="Unlocked levels">
@@ -205,8 +205,9 @@ const GameSession = ({
             <div className="flex items-center gap-1.5" aria-label={`${target} to finish`}>
               {Array.from({ length: target }, (_, index) => <span key={index} className="h-3 w-3 rounded-full bg-amber-300" />)}
             </div>
-            <button type="button" onClick={() => start()} aria-label={`Play ${game.title} level ${levelIndex + 1}`} className="mt-2 grid h-28 w-28 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_8px_0_#166534] transition-transform hover:scale-105 active:translate-y-2 active:shadow-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-indigo-700">
-              <Play size={60} fill="currentColor" className="ml-1.5" />
+            <button type="button" onClick={() => start()} aria-label={`Play ${game.title} level ${levelIndex + 1}`} className="mt-2 flex h-28 w-28 flex-col items-center justify-center gap-0.5 rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_8px_0_#166534] transition-transform hover:scale-105 active:translate-y-2 active:shadow-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-indigo-700">
+              <Play size={48} fill="currentColor" className="ml-1" aria-hidden="true" />
+              <span className="text-base font-black leading-none">Start</span>
             </button>
           </>
         ) : (
