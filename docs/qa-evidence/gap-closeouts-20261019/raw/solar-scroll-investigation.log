@@ -1,0 +1,11 @@
+### Result
+{"y":455,"canvas":{"x":56,"y":145,"width":760.5,"height":580},"scrolling":[],"body":{"h":1299,"viewport":844}}
+### Ran Playwright code
+```js
+await (async page=>{return {y:await page.evaluate(()=>scrollY),canvas:await page.locator('canvas').boundingBox(),scrolling:await page.evaluate(()=>[...document.querySelectorAll('*')].filter(e=>e.scrollHeight>e.clientHeight+10&&['auto','scroll'].includes(getComputedStyle(e).overflowY)).map(e=>({tag:e.tagName,cls:e.className,top:e.scrollTop,height:e.clientHeight,scrollHeight:e.scrollHeight}))),body:await page.evaluate(()=>({h:document.body.scrollHeight,viewport:innerHeight}))};})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5180/?qa-solar=1792426355356#/play/solar
+- Page Title: Amari Discovery
+### Events
+- New console entries: .playwright-cli/console-2026-10-19T15-52-43-123Z.log#L12-L17

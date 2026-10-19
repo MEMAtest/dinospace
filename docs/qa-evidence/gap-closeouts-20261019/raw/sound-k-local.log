@@ -1,0 +1,6 @@
+### Result
+{"sound":"k","labels":["Nest","Lion","Kite","Rocket"],"attempts":36,"oneCorrectPhonemeChoice":true}
+### Ran Playwright code
+```js
+await (async page=>{for(let i=0;i<60;i++){await page.getByRole('button',{name:'🔤 Letter Match',exact:true}).click();const sound=(await page.locator('.amari-scene-prompt .text-blue-600').innerText()).replaceAll('/','').toLowerCase();if(sound==='k'){const labels=await page.locator('button.amari-choice').evaluateAll(xs=>xs.map(x=>x.getAttribute('aria-label')));if(labels.filter(x=>x==='Cat'||x==='Kite').length!==1)throw Error('Ambiguous k choices');return {sound,labels,attempts:i+1,oneCorrectPhonemeChoice:true};}}throw Error('k sample not reached');})(page);
+```

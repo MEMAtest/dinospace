@@ -1,0 +1,26 @@
+✔ the three astronaut missions preserve every reviewed question and its source category (3.085375ms)
+✔ Launch Lab is the single recommended first mission (0.258791ms)
+✔ every retained question has an age-appropriate learning fact (0.426708ms)
+✔ each mission starts a balanced five-question run and its next run avoids immediate repeats (1.310167ms)
+✔ answer options shuffle at every difficulty while retaining exactly one correct answer (1.247375ms)
+✔ repeat mission guidance builds the full route in order (2.442208ms)
+✔ worked Repeat blocks preserve the route and produce a four-block program (0.175459ms)
+✔ repeat mission advances from building to both replacements and then Run (0.112541ms)
+✔ child programs solve the three distinct missions; the supplied bug fails before a real edit (0.926875ms)
+✔ repeat semantics match three ordinary moves, with block tracing; boundaries and commands are bounded (0.891416ms)
+✔ saved work is child-scoped, versioned and failure-aware (0.176583ms)
+(node:73751) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Word export produces a real OOXML archive from editable headings, marked runs and a local picture (63.672208ms)
+✔ Solar discovery passport persists only valid completed facts and quizzes for Amari (1.579167ms)
+✔ Every Solar badge requires three distinct discoveries per world (0.309416ms)
+✔ Solar challenge options are deterministic and contain one option per planet (0.85475ms)
+✔ all nine local Blender assets are source-bound, embedded and within mobile budgets (5.461833ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 249.792875

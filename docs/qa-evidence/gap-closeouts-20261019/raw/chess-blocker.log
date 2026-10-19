@@ -1,0 +1,11 @@
+### Result
+{"board":"Pawn practice board, six by six squares","text":"Discovery HQ\nExplore · Learn · Play\nHome\nWorlds\nStickers\nGrown-ups\nAmari\n♔\n♕\n♖\n♗\n♘\n♙\n♚\n♛\n♜\n♝\n♞\n♟\n🏃 Move the Pawn!\n\nOne step forward\n\nGoal: move the Pawn to 5 legal squares. 3 of 5 moves.\n\nGlowing gold squares are legal moves. Tap one, or focus it and press Enter or Space.\n\n♙\n♔\n♕\n♖\n♗\n♘\n♙\n⭕\n0/1","legal":0}
+### Ran Playwright code
+```js
+await (async page=>{return {board:await page.getByRole('group',{name:/practice board, six by six squares/}).getAttribute('aria-label'),text:await page.locator('body').innerText(),legal:await page.locator('button[aria-label*="legal move highlighted in gold"]').count()};})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5180/?qa-chess=1792425705898#/play/chess
+- Page Title: Amari Discovery
+### Events
+- New console entries: .playwright-cli/console-2026-10-19T15-52-43-123Z.log#L5-L6

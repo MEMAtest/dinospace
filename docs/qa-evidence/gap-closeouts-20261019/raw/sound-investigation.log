@@ -1,0 +1,11 @@
+### Result
+{"text":"Discovery HQ\nExplore · Learn · Play\nHome\nWorlds\nStickers\nGrown-ups\nAmari\n🌿 Sound Safari\n\nAnswers completed: 0 of 6\n\n🔤 Letter Match\n🧩 Blend It\nTAP EACH SOUND FROM LEFT TO RIGHT\nD\nO\nG\nWhat word is it? Choose the picture.\n🔊 Hear the instruction\n🐶\n🫳\n🥫","labels":["DOG","PAT","TIN"],"letters":["D","O","G","🔊 Hear the instruction"],"progress":"0"}
+### Ran Playwright code
+```js
+await (async page=>{return {text:await page.locator('body').innerText(),labels:await page.locator('button.amari-choice').evaluateAll(xs=>xs.map(x=>x.getAttribute('aria-label'))),letters:await page.locator('.amari-scene-card button').allTextContents(),progress:await page.getByRole('progressbar',{name:'Session progress',exact:true}).getAttribute('aria-valuenow')};})(page);
+```
+### Page
+- Page URL: http://127.0.0.1:5180/?qa-held=1792426821438#/play/phonics
+- Page Title: Amari Discovery
+### Events
+- New console entries: .playwright-cli/console-2026-10-19T15-52-43-123Z.log#L23

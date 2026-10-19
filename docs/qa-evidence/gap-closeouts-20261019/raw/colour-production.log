@@ -1,0 +1,33 @@
+### Result
+{"rows":[{"width":390,"level":1,"target":5,"complete":true,"finalResultHeld":true,"scrollWidth":390,"broken":[]},{"width":390,"level":2,"target":6,"complete":true,"finalResultHeld":true,"scrollWidth":390,"broken":[]},{"width":390,"level":3,"target":7,"complete":true,"finalResultHeld":true,"scrollWidth":390,"broken":[]},{"width":1440,"level":1,"target":5,"complete":true,"finalResultHeld":true,"scrollWidth":1440,"broken":[]},{"width":1440,"level":2,"target":6,"complete":true,"finalResultHeld":true,"scrollWidth":1440,"broken":[]},{"width":1440,"level":3,"target":7,"complete":true,"finalResultHeld":true,"scrollWidth":1440,"broken":[]}],"pageErrors":[],"assetFailures":[]}
+### Ran Playwright code
+```js
+await (async page=>{
+const assetFailures=[];page.on('response',r=>{if(r.status()>=400&&/\.(png|webp|jpe?g|glb|gltf|mp3|wav|ogg)(?:[?#]|$)/i.test(r.url()))assetFailures.push({url:r.url(),status:r.status()});});
+
+const expected=[{"color1": "\ud83d\udd34", "color2": "\ud83d\udfe1", "name1": "Red", "name2": "Yellow", "answer": "Orange", "answerEmoji": "\ud83d\udfe0", "options": ["Orange", "Green", "Purple", "Brown"]}, {"color1": "\ud83d\udd34", "color2": "\ud83d\udd35", "name1": "Red", "name2": "Blue", "answer": "Purple", "answerEmoji": "\ud83d\udfe3", "options": ["Orange", "Green", "Purple", "Pink"]}, {"color1": "\ud83d\udd35", "color2": "\ud83d\udfe1", "name1": "Blue", "name2": "Yellow", "answer": "Green", "answerEmoji": "\ud83d\udfe2", "options": ["Orange", "Green", "Purple", "Brown"]}, {"color1": "\ud83d\udd34", "color2": "\u2b1c", "name1": "Red", "name2": "White", "answer": "Pink", "answerEmoji": "\ud83e\ude77", "options": ["Pink", "Orange", "Purple", "Brown"]}, {"color1": "\ud83d\udd35", "color2": "\u2b1c", "name1": "Blue", "name2": "White", "answer": "Light Blue", "answerEmoji": "\ud83e\ude75", "options": ["Light Blue", "Green", "Purple", "Grey"]}, {"color1": "\ud83d\udd34", "color2": "\ud83d\udfe2", "name1": "Red", "name2": "Green", "answer": "Brown", "answerEmoji": "\ud83d\udfe4", "options": ["Orange", "Brown", "Purple", "Grey"]}, {"color1": "\u2b1b", "color2": "\u2b1c", "name1": "Black", "name2": "White", "answer": "Grey", "answerEmoji": "\ud83e\ude76", "options": ["Grey", "Brown", "Silver", "Blue"]}];
+const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('**/api/voice**',r=>r.fulfill({status:403,body:'QA guard'}));await page.route('**/api/story**',r=>r.fulfill({status:403,body:'QA guard'}));const rows=[];
+for(const width of [390,1440]){
+ await page.setViewportSize({width,height:844});await page.goto('https://dinospace-eight.vercel.app/?qa-colour='+Date.now()+'#/');await page.getByRole('button',{name:/Age 6\+ Amari/}).click();await page.locator('.discovery-world-card').filter({hasText:'Creative Lab'}).click();await page.locator('.catalogue-game-card').filter({hasText:'Colour Mixing Lab'}).click();const levelOne=page.getByRole('button',{name:'Level 1: First colour mixes',exact:true});if(await levelOne.isVisible())await levelOne.click();const start=page.getByRole('button',{name:'Play Colour Mixing Lab level 1',exact:true});if(!await start.innerText().then(x=>x.includes('Start')))throw Error('Missing visible Start');await page.getByText('Your goal: Mix familiar colours.',{exact:true}).waitFor();await start.click();
+ for(let level=1;level<=3;level++){
+  const progress=page.getByRole('progressbar',{name:'Session progress',exact:true});await progress.waitFor();const target=Number(await progress.getAttribute('aria-valuemax'));
+  for(let n=0;n<target;n++){
+   const paints=await page.locator('[aria-label$=" paint"]').evaluateAll(xs=>xs.map(x=>x.getAttribute('aria-label').replace(' paint','')));if(paints.length!==2)throw Error('Answer revealed before prediction '+paints);const round=expected.find(r=>r.name1===paints[0]&&r.name2===paints[1]);if(!round)throw Error('Unknown paints '+paints);const before=await page.getByRole('button',{name:/^Predict /}).allTextContents();
+   if(n===0&&level===1){await page.getByRole('button',{name:'Predict '+round.options.find(o=>o!==round.answer),exact:true}).click();await page.getByText('Have another try. Think about what these paint colours make when they blend.',{exact:true}).waitFor();if(await page.locator('[aria-label$=" paint"]').count()!==2)throw Error('Wrong guess spoiled answer');}
+   await page.getByRole('button',{name:'Predict '+round.answer,exact:true}).click();await page.getByRole('button',{name:'Next',exact:true}).waitFor();await page.getByText('Answers completed: '+(n+1)+' of '+target,{exact:true}).waitFor();if(Number(await progress.getAttribute('aria-valuenow'))!==n+1)throw Error('Progress duplicated/reset');
+   const wait=(n===0&&level===1||n===target-1&&level===3)?6500:n===target-1?1700:0;if(wait)await page.waitForTimeout(wait);
+   if(!await page.getByRole('button',{name:'Next',exact:true}).isVisible())throw Error('Held result lost');if(JSON.stringify(before)!==JSON.stringify(await page.getByRole('button',{name:/^Predict /}).allTextContents()))throw Error('Options changed in feedback');if(await page.locator('[aria-label="'+round.answer+' paint"]').count()<1)throw Error('Missing mixed result');
+   if(width===390&&level===1&&n===0)await page.screenshot({path:'output/playwright/gap-closeouts-20261019/colour-final.png',fullPage:true});await page.getByRole('button',{name:'Next',exact:true}).click();
+  }
+  await page.getByText('Level '+level+' complete:',{exact:false}).waitFor();const metric=await page.evaluate(()=>({scrollWidth:document.documentElement.scrollWidth,broken:[...document.images].filter(i=>i.complete&&!i.naturalWidth).map(i=>i.src)}));if(metric.scrollWidth>width||metric.broken.length)throw Error(JSON.stringify(metric));rows.push({width,level,target,complete:true,finalResultHeld:true,...metric});if(level<3)await page.getByRole('button',{name:'Next level',exact:true}).click();
+ }
+ await page.getByRole('button',{name:'Replay level',exact:true}).click();await page.getByRole('progressbar',{name:'Session progress',exact:true}).waitFor();if(await page.getByRole('progressbar',{name:'Session progress',exact:true}).getAttribute('aria-valuenow')!=='0')throw Error('Replay did not reset finite run');
+}
+if(errors.length||assetFailures.length)throw Error(JSON.stringify({errors,assetFailures}));return {rows,pageErrors:errors,assetFailures};})(page);
+```
+### Page
+- Page URL: https://dinospace-eight.vercel.app/?qa-colour=1792427572676#/play/colormix
+- Page Title: Amari Discovery
+- Console: 19 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli/console-2026-10-19T15-52-43-123Z.log#L42-L79

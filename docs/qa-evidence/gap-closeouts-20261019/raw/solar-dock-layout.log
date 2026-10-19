@@ -1,0 +1,6 @@
+### Result
+{"self":{"x":29,"y":345.75,"width":332,"height":100,"top":345.75,"right":361,"bottom":445.75,"left":29},"pos":"absolute","z":"12","display":"grid","opacity":"1","transform":"matrix(1, 0, 0, 1, -166, 0)","clip":"hidden","offsetParent":"SECTION","parent":{"x":19,"y":-110,"width":352,"height":567.75,"top":-110,"right":371,"bottom":457.75,"left":19},"parentPosition":"relative","canvas":{"x":21,"y":0,"width":348,"height":455.75,"top":0,"right":369,"bottom":455.75,"left":21}}
+### Ran Playwright code
+```js
+await (async page=>{return await page.locator('.solar-control-dock').evaluate(e=>{const s=getComputedStyle(e),p=e.parentElement,c=p.querySelector('canvas');return {self:e.getBoundingClientRect().toJSON(),pos:s.position,z:s.zIndex,display:s.display,opacity:s.opacity,transform:s.transform,clip:getComputedStyle(p).overflow,offsetParent:e.offsetParent?.tagName,parent:p.getBoundingClientRect().toJSON(),parentPosition:getComputedStyle(p).position,canvas:c.getBoundingClientRect().toJSON()};});})(page);
+```
