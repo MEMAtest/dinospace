@@ -16,6 +16,11 @@ const FLOAT_ITEMS = FLOAT_PIECES.map((piece, i) => ({
   delay: `${i * 0.5}s`,
   anim: i % 2 === 0 ? 'animate-drift-left' : 'animate-drift-right',
 }));
+const PRACTICE_BOARD_SIZE = 6;
+const boardSquareName = (row, column, size) => `${String.fromCharCode(65 + column)}${size - row}`;
+const getPracticeStartPosition = (pieceId) => pieceId === 'pawn'
+  ? [PRACTICE_BOARD_SIZE - 1, Math.floor(PRACTICE_BOARD_SIZE / 2)]
+  : [3, 3];
 const ChessBackground = () => (
   <div className="absolute inset-0 pointer-events-none overflow-hidden">
     {FLOAT_ITEMS.map((it, i) => (
@@ -112,7 +117,7 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
   const [streak, setStreak] = useState(0);
 
   // Practice mode state
-  const [practicePos, setPracticePos] = useState([3, 3]);
+  const [practicePos, setPracticePos] = useState(() => getPracticeStartPosition(CHESS_PIECES[0].id));
   const [practiceMoves, setPracticeMoves] = useState(0);
   const [practiceDone, setPracticeDone] = useState(false);
 
@@ -170,6 +175,9 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
             {CHESS_PIECES.map((p, i) => (
               <button
                 key={p.id}
+                type="button"
+                aria-label={`Choose ${p.name}`}
+                aria-pressed={i === pieceIndex}
                 onClick={() => {
                   setPieceIndex(i);
                   playSfx('click');
@@ -184,6 +192,21 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
               >{p.white}</button>
             ))}
           </div>
+          <div className="mt-5 flex flex-col items-center gap-2">
+            <p className="text-sm font-semibold text-amber-800">Ready? Move the {piece.name} to five legal squares.</p>
+            <button
+              type="button"
+              onClick={() => {
+                setMode('practice');
+                setPracticePos(getPracticeStartPosition(piece.id));
+                setPracticeMoves(0);
+                setPracticeDone(false);
+                playSfx('sparkle');
+                speak(`Move the ${piece.name} to five legal squares. Tap the glowing squares.`);
+              }}
+              className="rounded-full bg-purple-600 px-6 py-3 font-black text-white shadow-lg hover:bg-purple-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-purple-400"
+            >Practice with the {piece.name} →</button>
+          </div>
         </div>
       </div>
     );
@@ -191,7 +214,7 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
 
   // Practice mode ("Move It!")
   if (mode === 'practice') {
-    const boardSize = 6;
+    const boardSize = PRACTICE_BOARD_SIZE;
     const validMoves = computeValidMoves(piece.id, practicePos, boardSize);
     const validSet = new Set(validMoves.map(([r, c]) => `${r}-${c}`));
 
@@ -221,8 +244,9 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
     };
 
     const resetPractice = (newPieceIdx) => {
+      const targetPieceIndex = newPieceIdx ?? pieceIndex;
       if (newPieceIdx !== undefined) setPieceIndex(newPieceIdx);
-      setPracticePos([3, 3]);
+      setPracticePos(getPracticeStartPosition(CHESS_PIECES[targetPieceIndex].id));
       setPracticeMoves(0);
       setPracticeDone(false);
     };
@@ -240,16 +264,19 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         </div>
 
         {/* Progress dots */}
-        <div className="flex justify-center gap-2 mt-2 z-20">
+        <div className="flex justify-center gap-2 mt-2 z-20" aria-hidden="true">
           {Array.from({ length: 5 }, (_, i) => (
             <div key={i} className={`w-3 h-3 rounded-full transition-all ${i < practiceMoves ? 'bg-purple-500 scale-110' : 'bg-purple-200'}`} />
           ))}
         </div>
 
         <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-          {!practiceDone && <p className="text-purple-800 font-bold text-lg mb-3">Tap the glowing squares!</p>}
+          <p className="text-purple-800 font-bold text-lg mb-1" role="status" aria-live="polite">
+            {practiceDone ? `Goal complete: ${practiceMoves} of 5 legal moves.` : `Goal: move the ${piece.name} to 5 legal squares. ${practiceMoves} of 5 moves.`}
+          </p>
+          <p id="practice-board-help" className="text-purple-800/75 font-semibold text-sm mb-3">Glowing gold squares are legal moves. Tap one, or focus it and press Enter or Space.</p>
 
-          <div className="grid gap-1 mx-auto" style={{ gridTemplateColumns: `repeat(${boardSize}, minmax(0, 1fr))`, width: 'min(360px, 90vw)' }}>
+          <div className="grid gap-1 mx-auto" role="group" aria-label={`${piece.name} practice board, six by six squares`} style={{ gridTemplateColumns: `repeat(${boardSize}, minmax(0, 1fr))`, width: 'min(360px, 90vw)' }}>
             {Array.from({ length: boardSize * boardSize }, (_, idx) => {
               const r = Math.floor(idx / boardSize);
               const c = idx % boardSize;
@@ -261,8 +288,11 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
               return (
                 <button
                   key={key}
+                  type="button"
                   onClick={() => handlePracticeTap(r, c)}
-                  disabled={!isValid && !isPiece}
+                  disabled={practiceDone || (!isValid && !isPiece)}
+                  aria-label={`${boardSquareName(r, c, boardSize)} square${isPiece ? `, ${piece.name} is here` : isValid ? practiceDone ? ', legal move; practice complete' : ', legal move highlighted in gold' : ', not a legal move'}`}
+                  aria-describedby="practice-board-help"
                   className={`aspect-square rounded-lg flex items-center justify-center text-2xl font-bold transition-all ${
                     isPiece
                       ? 'bg-purple-300 shadow-lg border-2 border-purple-500'
@@ -291,6 +321,9 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
             {CHESS_PIECES.map((p, i) => (
               <button
                 key={p.id}
+                type="button"
+                aria-label={`Choose ${p.name} for practice`}
+                aria-pressed={i === pieceIndex}
                 onClick={() => { resetPractice(i); playSfx('click'); speak(`Try the ${p.name}! ${p.move}.`); }}
                 className={`w-12 h-12 rounded-xl text-2xl flex items-center justify-center border-3 transition-all ${
                   i === pieceIndex ? 'border-purple-400 bg-purple-50 scale-110' : 'border-slate-200 bg-white hover:scale-105'
@@ -420,10 +453,11 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         )}
 
         <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-          <p className="text-emerald-800 font-bold text-lg mb-3">{puzzle.q}</p>
+          <p className="text-emerald-800 font-bold text-lg mb-1">{puzzle.q}</p>
           <p className="text-emerald-700/60 text-sm font-semibold mb-4">{pieceData.move}</p>
+          <p id="puzzle-board-help" className="text-sm font-semibold text-emerald-800/80 mb-3">Find every legal move for the {pieceData.name}. Tap a square, or focus it and press Enter or Space. Legal move squares turn green when found.</p>
 
-          <div className="grid gap-1 mx-auto" style={{ gridTemplateColumns: `repeat(${boardSize}, minmax(0, 1fr))`, width: 'min(360px, 90vw)' }}>
+          <div className="grid gap-1 mx-auto" role="group" aria-label={`${pieceData.name} puzzle board, six by six squares`} style={{ gridTemplateColumns: `repeat(${boardSize}, minmax(0, 1fr))`, width: 'min(360px, 90vw)' }}>
             {Array.from({ length: boardSize * boardSize }, (_, idx) => {
               const r = Math.floor(idx / boardSize);
               const c = idx % boardSize;
@@ -437,8 +471,12 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
               return (
                 <button
                   key={key}
+                  type="button"
                   onClick={() => handleCellTap(r, c)}
-                  className={`aspect-square rounded-lg flex items-center justify-center text-2xl font-bold transition-all ${
+                  disabled={puzzleDone}
+                  aria-label={`${boardSquareName(r, c, boardSize)} square${isPiece ? `, ${pieceData.name} is here` : tapped ? isValid(r, c) ? ', legal move found' : ', already tried' : isValid(r, c) ? ', legal move' : ', not a legal move'}`}
+                  aria-describedby="puzzle-board-help"
+                  className={`aspect-square rounded-lg flex items-center justify-center text-2xl font-bold transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-1 focus-visible:outline-emerald-600 ${
                     isPiece ? 'bg-amber-300 shadow-lg border-2 border-amber-500'
                     : tapped && justCorrect ? 'bg-green-300 border-2 border-green-500 animate-cell-correct'
                     : tapped ? 'bg-green-300 border-2 border-green-500'
@@ -460,8 +498,8 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
             })}
           </div>
 
-          <p className="mt-3 text-sm font-semibold text-emerald-700/70">
-            Found: {correctCount}/{puzzle.validMoves.length}
+          <p className="mt-3 text-sm font-semibold text-emerald-700/70" role="status" aria-live="polite">
+            Found {correctCount} of {puzzle.validMoves.length} legal moves.
           </p>
 
           {puzzleDone && (
@@ -495,15 +533,16 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
         <div className="flex gap-3 text-6xl mb-2">
           <span>♔</span><span>♞</span><span>♜</span>
         </div>
-        <p className="text-amber-800/80 text-lg font-semibold">Learn chess!</p>
+        <p className="text-amber-800/80 text-lg font-semibold">Learn chess! Start with Learn, then try five legal moves in practice.</p>
         <div className="flex gap-5 flex-wrap justify-center">
           <button
             onClick={() => { setMode('learn'); playSfx('sparkle'); speak('Meet the chess pieces!'); }}
+            aria-label="Recommended first: learn the chess pieces"
             className="bg-white border-4 border-amber-200 rounded-3xl p-8 text-center hover:-translate-y-1 transition-all shadow-lg w-40"
           >
             <div className="text-5xl mb-3">♔</div>
             <h3 className="text-xl font-black text-amber-800">Learn</h3>
-            <p className="text-amber-700/50 text-xs mt-1">Meet the pieces!</p>
+            <p className="text-amber-700 text-xs mt-1">Recommended first · Meet the pieces</p>
           </button>
           <button
             onClick={() => { setMode('puzzle'); setPuzzleIndex(0); setTappedCells({}); setCorrectCount(0); setCorrectCells({}); setPuzzleDone(false); setStreak(0); playSfx('launch'); speak('Find where the piece can move!'); }}
@@ -516,7 +555,7 @@ const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCele
           <button
             onClick={() => {
               setMode('practice');
-              setPracticePos([3, 3]);
+              setPracticePos(getPracticeStartPosition(CHESS_PIECES[0].id));
               setPracticeMoves(0);
               setPracticeDone(false);
               setPieceIndex(0);
