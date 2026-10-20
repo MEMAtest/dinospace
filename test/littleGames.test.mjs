@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  DINO_NAMES, JIGSAW_SCENES, LITTLE_LEVELS, LITTLE_VOICE_LINES, RESCUE_ANIMALS, ROCKET_COLOURS,
+  chooseLittleDinoRound, DINO_NAMES, JIGSAW_SCENES, LITTLE_LEVELS, LITTLE_VOICE_LINES, RESCUE_ANIMALS, ROCKET_COLOURS,
   fuelPrompt, levelRounds, rescuePrompt, starsForMistakes,
 } from '../src/data/littleGames.js';
 import { getLittleLevel, recordLittleResult } from '../src/data/littleProgress.js';
@@ -26,9 +26,13 @@ test('every little game has five levels that get harder and never exceed its con
     levels.forEach((config) => assert.ok(levelRounds(gameId, config) >= 2, gameId));
   });
   const jig = LITTLE_LEVELS.dinojigsaw;
-  assert.equal(pieces(jig[0].grids[0]), 2);
-  assert.ok(Math.max(...jig[4].grids.map(pieces)) > Math.max(...jig[0].grids.map(pieces)));
-  jig.forEach((config) => assert.ok(config.scenes <= JIGSAW_SCENES.length));
+  assert.deepEqual(jig.map(({ grids }) => grids.map(pieces)), [
+    [2, 2, 2, 2], [4, 4, 4, 4], [8, 8, 8, 8], [8, 8, 12, 12], [12, 12, 12, 12],
+  ], 'Askia jigsaw grows through clear 2, 4, 8 and 12 piece steps');
+  jig.forEach((config) => {
+    assert.ok(config.scenes <= JIGSAW_SCENES.length);
+    assert.ok(config.scenes >= config.grids.length, 'each run has enough scenes to avoid repeating a picture');
+  });
   LITTLE_LEVELS.shadowmatch.forEach((config) => {
     assert.ok(config.kinds <= Object.keys(DINO_NAMES).length);
     assert.ok(Math.max(...config.choices) <= config.kinds);
@@ -40,8 +44,24 @@ test('every little game has five levels that get harder and never exceed its con
   LITTLE_LEVELS.ladder.forEach((config) => assert.ok(config.floors <= RESCUE_ANIMALS.length));
   assert.equal(LITTLE_LEVELS.dino[0].spots, 2, 'Askia starts with two hiding places');
   assert.equal(LITTLE_LEVELS.dino.at(-1).spots, 3, 'later searches have more hiding places');
+  assert.deepEqual(LITTLE_LEVELS.dino.map(({ rounds }) => rounds), [5, 5, 6, 6, 7], 'dinosaur searches start with five picks and grow');
   assert.equal(new Set(LITTLE_LEVELS.dino.map(({ rounds, spots, trail }) => `${rounds}-${spots}-${trail}`)).size, 5, 'each Dino Detective level changes the search');
   assert.ok(levelRounds('dino', LITTLE_LEVELS.dino.at(-1)) > levelRounds('dino', LITTLE_LEVELS.dino[0]));
+});
+
+test('Askia dinosaur searches vary species and hiding places without immediate target repeats', () => {
+  const firstPlay = Array.from({ length: 6 }, (_, round) => chooseLittleDinoRound(round, 1, 3, 6, 214));
+  const sameRun = Array.from({ length: 6 }, (_, round) => chooseLittleDinoRound(round, 1, 3, 6, 214));
+  const nextRun = Array.from({ length: 6 }, (_, round) => chooseLittleDinoRound(round, 2, 3, 6, 214));
+  const nextVisit = Array.from({ length: 6 }, (_, round) => chooseLittleDinoRound(round, 1, 3, 6, 9001));
+  assert.deepEqual(firstPlay, sameRun, 'the mounted run keeps stable targets across rerenders');
+  assert.ok(firstPlay.every((choice) => choice.targetIndex >= 0 && choice.targetIndex < 3));
+  assert.ok(firstPlay.every((choice, index) => index === 0 || choice.targetIndex !== firstPlay[index - 1].targetIndex));
+  assert.notDeepEqual(firstPlay, nextRun, 'a replay changes the target pattern');
+  assert.notDeepEqual(firstPlay, nextVisit, 'a remounted visit changes the opening even when playId resets');
+  assert.equal(new Set(firstPlay.map(({ speciesIndex }) => speciesIndex)).size, 6, 'a six-pick run meets all six dinosaur kinds');
+  assert.equal(new Set(nextVisit.map(({ speciesIndex }) => speciesIndex)).size, 6, 'species do not repeat within one six-pick run');
+  assert.equal(chooseLittleDinoRound(-1, 1, 3, 6, 214), null);
 });
 
 test('stars and levels move with how the game went', () => {
@@ -56,6 +76,8 @@ test('stars and levels move with how the game went', () => {
   assert.equal(recordLittleResult('askia', 'fuelup', false, 2, storage).level, 1);
   assert.equal(recordLittleResult('askia', 'fuelup', false, 1, storage).level, 1, 'a hard round never removes an unlocked level');
   assert.equal(getLittleLevel('amari', 'fuelup', true, storage), 2, 'older child starts at level 3');
+  store.set('amari_little_progress', JSON.stringify({ dinojigsaw: { level: 4, plays: 7, best: 3 } }));
+  assert.equal(getLittleLevel('amari', 'dinojigsaw', true, storage), 4, 'existing Amari jigsaw progress remains at the same five-level index');
   for (let i = 0; i < 8; i += 1) recordLittleResult('askia', 'ladder', false, 3, storage);
   assert.equal(getLittleLevel('askia', 'ladder', false, storage), 4, 'capped at the top level');
 });

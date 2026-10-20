@@ -19,27 +19,29 @@ export const shuffleCurriculumAnswers = (options, seed, cursor) => {
   return result;
 };
 
-export const createCurriculumQueue = (rounds, moduleId, seed, recentIds = [], useTeachingStart = false) => {
+export const createCurriculumQueue = (rounds, moduleId, seed, recentIds = []) => {
   if (!rounds.length) return [];
   const targetCount = Math.min(5, rounds.length);
   const recent = new Set(recentIds);
   const candidates = rounds.map((round, index) => index).filter((index) => !recent.has(rounds[index].id));
   const random = randomFromSeed(seed);
-  for (let index = candidates.length - 1; index > 0; index -= 1) {
-    const other = Math.floor(random() * (index + 1));
-    [candidates[index], candidates[other]] = [candidates[other], candidates[index]];
+  const keepTeachingOrder = moduleId === 'time-detectives';
+  if (!keepTeachingOrder) {
+    for (let index = candidates.length - 1; index > 0; index -= 1) {
+      const other = Math.floor(random() * (index + 1));
+      [candidates[index], candidates[other]] = [candidates[other], candidates[index]];
+    }
   }
-  // Exhaust the unseen pool before revisiting the oldest completed questions.
-  // A short band cannot supply eight unseen items, but must not discard the
-  // remaining new questions merely because they cannot fill the entire run.
+  // Use unseen material first. When a band has fewer unseen rounds than the
+  // run length, keep its authored progression while filling from older items.
   if (candidates.length < targetCount) {
     const revisits = rounds.map((_, index) => index).filter((index) => recent.has(rounds[index].id));
     if (candidates.length === 0) {
-      // A completed short band should replay in a new seeded order, rather
-      // than reproducing its previous oldest-to-newest queue indefinitely.
-      for (let index = revisits.length - 1; index > 0; index -= 1) {
-        const other = Math.floor(random() * (index + 1));
-        [revisits[index], revisits[other]] = [revisits[other], revisits[index]];
+      if (!keepTeachingOrder) {
+        for (let index = revisits.length - 1; index > 0; index -= 1) {
+          const other = Math.floor(random() * (index + 1));
+          [revisits[index], revisits[other]] = [revisits[other], revisits[index]];
+        }
       }
       const lastId = recentIds.at(-1);
       if (revisits.length > 1 && rounds[revisits[0]].id === lastId) {
@@ -48,16 +50,19 @@ export const createCurriculumQueue = (rounds, moduleId, seed, recentIds = [], us
     } else {
       revisits.sort((a, b) => recentIds.lastIndexOf(rounds[a].id) - recentIds.lastIndexOf(rounds[b].id));
     }
-    candidates.push(...revisits);
+    candidates.push(...revisits.slice(0, targetCount - candidates.length));
   }
-  const preferredId = moduleId === 'time-detectives' ? 'history-communication'
-    : moduleId === 'nature-lab' ? 'science-animal-bird' : 'continent-africa';
-  const preferredIndex = useTeachingStart && recentIds.length === 0 ? rounds.findIndex((round) => round.id === preferredId) : -1;
-  if (preferredIndex >= 0 && candidates.includes(preferredIndex)) {
-    candidates.splice(candidates.indexOf(preferredIndex), 1);
-    candidates.unshift(preferredIndex);
-  }
+  if (keepTeachingOrder) candidates.sort((left, right) => left - right);
   return candidates.slice(0, targetCount);
+};
+
+export const createCurriculumReplayQueue = (rounds, moduleId, seed, recentIds = [], previousOrder = []) => {
+  const nextOrder = createCurriculumQueue(rounds, moduleId, seed, recentIds);
+  const repeatsPreviousRun = nextOrder.length > 1
+    && nextOrder.length === previousOrder.length
+    && nextOrder.every((roundIndex, index) => roundIndex === previousOrder[index]);
+  if (!repeatsPreviousRun || moduleId === 'time-detectives') return nextOrder;
+  return [...nextOrder.slice(1), nextOrder[0]];
 };
 
 export const makeCurriculumSeed = () => {
