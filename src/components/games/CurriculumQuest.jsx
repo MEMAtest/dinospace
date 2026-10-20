@@ -320,6 +320,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   const [routeStep, setRouteStep] = useState(0);
   const [prediction, setPrediction] = useState('');
   const [sessionResumed, setSessionResumed] = useState(false);
+  const [readySessionKey, setReadySessionKey] = useState('');
   const sessionOwner = useRef('');
   const skipFirstSessionWrite = useRef('');
   const activeModule = getCurriculumModule(moduleId);
@@ -367,6 +368,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
       setLessonOpen(savedSession.lessonOpen);
       setRouteStep(savedSession.routeStep);
       setPrediction(savedSession.prediction);
+      setReadySessionKey(sessionKey);
       return;
     }
     setSessionResumed(false);
@@ -376,6 +378,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     setRoundCursor(0);
     setQueueComplete(false);
     resetRound(nextOrder[0] ?? 0, true);
+    setReadySessionKey(sessionKey);
     saveCurriculumSession(curriculumStorage(), playerId, moduleId, {
       difficulty, seed, order: nextOrder, cursor: 0, complete: false, lessonOpen: true,
       locked: false, selected: '', feedback: '', feedbackVoice: '', mistakes: 0,
@@ -583,6 +586,13 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
     completeRound(answerId, `prediction:${prediction}; conclusion:${answerId}`);
   };
 
+  // Do not briefly render the default Africa/Start screen while a saved fact
+  // or a different module is being restored. Effects commit the whole session.
+  if (readySessionKey !== `${playerId || 'amari'}:${moduleId}:${difficulty}`) {
+    return <main className="grid min-h-[60vh] place-items-center p-6"><p role="status" className="rounded-2xl bg-white p-5 font-bold text-slate-700">Getting your discovery run ready…</p></main>;
+  }
+
+  const positiveRouteFeedback = !locked && round.type === 'route' && feedback.startsWith('Good move:');
   const mapRound = activeModule.id === 'continents' && ['continent', 'country', 'ocean'].includes(round.type);
   const accent = activeModule.id === 'continents' ? 'sky' : activeModule.id === 'time-detectives' ? 'amber' : 'emerald';
   const choiceRound = ['evidence', 'classify', 'map-key', 'direction', 'feature', 'uk-place'].includes(round.type) ? round : null;
@@ -643,7 +653,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
                 <div><span>{locked ? 'Fact' : 'Play'}</span><strong>Question {roundCursor + 1} of {roundOrder.length || Math.min(5, rounds.length)}</strong></div>
                 <div className="quest-round-track" role="progressbar" aria-label="Discovery run progress" aria-valuemin="0" aria-valuemax={roundOrder.length || Math.min(5, rounds.length)} aria-valuenow={roundCursor + (locked ? 1 : 0)}><span style={{ width: `${((roundCursor + (locked ? 1 : 0)) / (roundOrder.length || Math.min(5, rounds.length))) * 100}%` }} /></div>
               </div>
-              {sessionResumed && <p className="quest-resume-note" role="status">Saved round restored. Your answer and fact are here.</p>}
+              {sessionResumed && <p className="quest-resume-note" role="status">Saved round restored. Continue where you left off.</p>}
               <div className="quest-prompt-row"><h2 id="quest-prompt">{round.prompt}</h2>{!locked && <PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} />}</div>
               {!locked && <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>}
               {!locked && <>
@@ -653,7 +663,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
                 {round.type === 'route' && <RouteRound round={round} step={routeStep} onMove={handleRouteMove} disabled={locked} />}
                 {round.type === 'investigation' && <InvestigationRound round={round} prediction={prediction} onPredict={handlePrediction} onConclude={handleInvestigationConclusion} disabled={locked} selected={selected} soundOn={soundOn} />}
               </>}
-              <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : 'is-retry'}`}><p><span className="quest-fact-heading"><Sparkles size={23} />{locked ? 'Explorer fact' : 'Try again'}</span><span className="quest-fact-copy">{feedback}</span></p>{locked ? <><PackagedAudioButton text={round.explanation} label="Hear fact" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">{roundCursor + 1 >= roundOrder.length ? 'Finish run' : 'Next question'} <ArrowRight size={16} /></button></> : <PackagedAudioButton text={feedbackVoice} label="Hear clue" soundOn={soundOn} />}</div>}</div>
+              <div className="quest-feedback" aria-live="polite">{feedback && <div className={`quest-feedback-card ${locked ? 'is-correct' : positiveRouteFeedback ? 'is-progress' : 'is-retry'}`}><p><span className="quest-fact-heading"><Sparkles size={23} />{locked ? 'Explorer fact' : positiveRouteFeedback ? 'Good move' : 'Try again'}</span><span className="quest-fact-copy">{feedback}</span></p>{locked ? <><PackagedAudioButton text={round.explanation} label="Hear fact" soundOn={soundOn} /><button type="button" onClick={advance} className="quest-continue">{roundCursor + 1 >= roundOrder.length ? 'Finish run' : 'Next question'} <ArrowRight size={16} /></button></> : <PackagedAudioButton text={feedbackVoice} label="Hear clue" soundOn={soundOn} />}</div>}</div>
             </div>
           )}
         </section>

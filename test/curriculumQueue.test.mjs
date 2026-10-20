@@ -81,3 +81,19 @@ test('history queues stay in authored order when unseen rounds are mixed with re
   assert.deepEqual(queue, [...queue].sort((left, right) => left - right));
   assert.ok(queue.some((index) => !recent.includes(rounds[index].id)));
 });
+
+ test('explicit history replays vary question order without changing chronology answers', () => {
+ const rounds = getCurriculumModule('time-detectives').rounds.starter;
+ const first = createCurriculumQueue(rounds, 'time-detectives', 10);
+ const variants = new Set();
+ const before = JSON.stringify(rounds);
+ for (let seed = 1; seed <= 12; seed++) {
+ const next = createCurriculumReplayQueue(rounds, 'time-detectives', seed, rounds.map(r => r.id), first);
+ assert.equal(next.length, first.length);
+ assert.notDeepEqual(next, first);
+ assert.equal(new Set(next).size, next.length);
+ variants.add(next.join(','));
+ }
+ assert.ok(variants.size > 1);
+ assert.equal(JSON.stringify(rounds), before);
+ });

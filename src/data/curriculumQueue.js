@@ -57,11 +57,22 @@ export const createCurriculumQueue = (rounds, moduleId, seed, recentIds = []) =>
 };
 
 export const createCurriculumReplayQueue = (rounds, moduleId, seed, recentIds = [], previousOrder = []) => {
-  const nextOrder = createCurriculumQueue(rounds, moduleId, seed, recentIds);
+  let nextOrder = createCurriculumQueue(rounds, moduleId, seed, recentIds);
+  // A first history run follows its authored teaching progression. A deliberate
+  // replay may vary question order; the clues inside each chronology task keep
+  // their actual oldest-to-newest answer order.
+  if (moduleId === 'time-detectives') {
+    const random = randomFromSeed(seed);
+    nextOrder = [...nextOrder];
+    for (let index = nextOrder.length - 1; index > 0; index -= 1) {
+      const other = Math.floor(random() * (index + 1));
+      [nextOrder[index], nextOrder[other]] = [nextOrder[other], nextOrder[index]];
+    }
+  }
   const repeatsPreviousRun = nextOrder.length > 1
     && nextOrder.length === previousOrder.length
     && nextOrder.every((roundIndex, index) => roundIndex === previousOrder[index]);
-  if (!repeatsPreviousRun || moduleId === 'time-detectives') return nextOrder;
+  if (!repeatsPreviousRun) return nextOrder;
   return [...nextOrder.slice(1), nextOrder[0]];
 };
 

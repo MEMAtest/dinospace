@@ -17,7 +17,7 @@ const memoryStorage = () => {
 
 test('Puzzle Pop has twelve unique scenes across three progressively larger boards', () => {
   assert.equal(PUZZLE_POP_SCENE_COUNT, 12);
-  assert.deepEqual(PUZZLE_POP_CHAPTERS.map(({ grid, scenes }) => [grid, scenes.length]), [[2, 4], [3, 4], [5, 4]]);
+  assert.deepEqual(PUZZLE_POP_CHAPTERS.map(({ grid, scenes }) => [grid, scenes.length]), [[3, 4], [4, 4], [5, 4]]);
   const ids = PUZZLE_POP_CHAPTERS.flatMap(({ scenes }) => scenes.map(({ id }) => id));
   assert.equal(new Set(ids).size, 12);
   assert.ok(PUZZLE_POP_CHAPTERS.flatMap(({ scenes }) => scenes).every(({ image, fact, alt }) => image && fact.length > 25 && alt));

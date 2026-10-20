@@ -84,6 +84,7 @@
 .quest-round-progress>div:first-child{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:7px;color:#415776;font-size:12px}
 .quest-round-progress>div:first-child span{color:var(--quest-accent);font-size:11px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}
 .quest-round-progress strong{font-weight:900}
+.quest-resume-note{width:fit-content;max-width:100%;margin:0 auto 9px;padding:7px 12px;border:1px solid color-mix(in srgb,var(--quest-accent),white 55%);border-radius:999px;background:#fff;color:#304565;font-size:12px;font-weight:800;text-align:center}
 .quest-round-track{height:8px;overflow:hidden;border-radius:99px;background:#e4ebf3}
 .quest-round-track>span{display:block;height:100%;border-radius:inherit;background:var(--quest-accent);transition:width .24s ease}
 .quest-play-stage .quest-prompt-row{margin:12px auto 10px}
@@ -147,3 +148,5 @@
 .quest-nature-lab { --quest-action:#087353; }
 .curriculum-quest .quest-start,.curriculum-quest .quest-continue,.curriculum-quest .quest-module-tab[aria-pressed="true"] { background:linear-gradient(125deg,var(--quest-action),color-mix(in srgb,var(--quest-action),#14234c 20%)); color:#fff; }
 .curriculum-quest .quest-stage-label,.curriculum-quest .quest-round-progress>div:first-child span { color:var(--quest-action); }
+
+.quest-feedback-card.is-progress{background:#e7f5ff;border-color:#b5ddf6;color:#17567d}.is-progress .quest-fact-heading{color:#17567d}
