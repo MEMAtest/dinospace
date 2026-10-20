@@ -27,7 +27,7 @@ const PuzzlePicture = ({ scene, cols = 1, rows = 1, index = 0, className = '' })
   </div>;
 };
 
-const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, playSfx, firstRound }) => {
+const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, playSfx, firstRound, bigKid }) => {
   const pieces = useMemo(() => Array.from({ length: cols * rows }, (_, id) => ({ id })), [cols, rows]);
   const [tray, setTray] = useState(() => shuffledOutOfOrder(pieces.map((piece) => piece.id)));
   const [placed, setPlaced] = useState([]);
@@ -81,13 +81,16 @@ const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, play
   const glowSlot = hint.strongHint ? (selected ?? nextPiece) : null;
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center gap-4 px-3 pb-6 lg:max-w-5xl lg:flex-row lg:items-start">
-      <div className="relative w-full max-w-lg overflow-visible lg:flex-1">
+    <div className={`mx-auto flex w-full max-w-3xl flex-1 flex-col items-center gap-4 px-3 pb-6 lg:max-w-5xl lg:flex-row lg:items-start ${bigKid ? 'text-lg' : ''}`}>
+      <div className={`relative w-full ${bigKid ? 'max-w-xl' : 'max-w-lg'} overflow-visible lg:flex-1`}>
+        <p className="mb-2 rounded-full bg-white/90 px-4 py-2 text-center text-sm font-black text-amber-950" aria-live="polite">{cols * rows} pieces · {placed.length} in place</p>
         <div className={`dino-jigsaw-board relative overflow-hidden rounded-[1.6rem] border-[9px] border-amber-700 bg-white/60 shadow-2xl ${solved ? 'ring-8 ring-amber-300' : ''}`} style={{ aspectRatio: '4 / 3' }}>
           <PuzzlePicture scene={scene} className="opacity-30 grayscale" />
           <div className="absolute inset-0 grid" style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gridTemplateRows: `repeat(${rows}, 1fr)` }}>
             {pieces.map((piece) => {
               const isPlaced = placed.includes(piece.id);
+              const row = Math.floor(piece.id / cols) + 1;
+              const column = (piece.id % cols) + 1;
               return (
                 <button
                   key={piece.id}
@@ -95,7 +98,7 @@ const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, play
                   ref={(el) => { slotRefs.current[piece.id] = el; }}
                   data-slot={piece.id}
                   onClick={() => { if (selected != null) tryPlace(selected, piece.id); }}
-                  aria-label={isPlaced ? 'Piece placed' : 'Empty picture space'}
+                  aria-label={isPlaced ? `Picture piece placed in row ${row}, column ${column}` : `Empty picture space, row ${row}, column ${column}`}
                   className={`relative ${solved ? '' : 'border border-dashed border-white/80'} ${wrongSlot === piece.id ? 'animate-shake bg-rose-300/50' : ''} ${glowSlot === piece.id && !isPlaced ? 'animate-cell-pulse bg-amber-200/80' : ''}`}
                 >
                   {isPlaced && <PuzzlePicture scene={scene} cols={cols} rows={rows} index={piece.id} className="animate-pop-in" />}
@@ -112,12 +115,12 @@ const JigsawRound = ({ scene, grid: [cols, rows], complete, mistake, speak, play
       </div>
 
       {!solved && (
-        <div ref={trayRef} className="dino-jigsaw-tray grid w-full max-w-lg gap-3 rounded-[1.6rem] p-3 shadow-inner lg:w-80" style={{ gridTemplateColumns: `repeat(${trayCols}, 1fr)` }}>
-          {tray.map((pieceId) => {
+        <div ref={trayRef} className={`dino-jigsaw-tray grid w-full ${bigKid ? 'max-w-xl lg:w-96' : 'max-w-lg lg:w-80'} gap-3 rounded-[1.6rem] p-3 shadow-inner`} style={{ gridTemplateColumns: `repeat(${trayCols}, 1fr)` }} aria-label={`${pieces.length} picture pieces; ${tray.length} left`}>
+          {tray.map((pieceId, trayIndex) => {
             return (
               <DragItem
                 key={pieceId}
-                label="Picture piece"
+                label={`Loose picture piece ${trayIndex + 1} of ${tray.length} in tray`}
                 data={{ piece: pieceId }}
                 selected={selected === pieceId}
                 onPickUp={hint.touch}
@@ -174,6 +177,7 @@ const DinoJigsaw = (props) => {
             speak={speak}
             playSfx={playSfx}
             firstRound={round === 0}
+            bigKid={props.bigKid}
           />
         );
       }}

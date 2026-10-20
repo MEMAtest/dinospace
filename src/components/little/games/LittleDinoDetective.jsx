@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Search, Volume2 } from 'lucide-react';
 import LittleGameShell from '../LittleGameShell.jsx';
+import { Dino } from '../DinoArt.jsx';
 import { artUrl } from '../littleArt.js';
-import { DINO_NAMES, LITTLE_LINES, shadowFound } from '../../../data/littleGames.js';
+import { chooseLittleDinoRound, DINO_NAMES, LITTLE_LINES, shadowFound } from '../../../data/littleGames.js';
 
 const ASKIA = artUrl('askia-detective');
 const PORTRAIT_SCENE = artUrl('bg-dino-portrait');
@@ -11,11 +12,14 @@ const SPOTS = Object.freeze([
   { id: 'middle', x: 50, y: 59 },
   { id: 'right', x: 79, y: 57 },
 ]);
-const DINOS = Object.freeze(['trike', 'bronto', 'stego', 'trex', 'ankylo']);
+const DINOS = Object.freeze(['trike', 'bronto', 'stego', 'trex', 'ankylo', 'ptero']);
 
-const DetectiveDino = ({ kind, className = '', style }) => (
-  <img src={artUrl(`detective-${kind}`)} alt={DINO_NAMES[kind]} style={style} className={`object-contain ${className}`} draggable={false} />
-);
+const DetectiveDino = ({ kind, className = '', style }) => {
+  const art = artUrl(`detective-${kind}`);
+  return art
+    ? <img src={art} alt={DINO_NAMES[kind]} style={style} className={`object-contain ${className}`} draggable={false} />
+    : <div style={style} className={className}><Dino kind={kind} title={DINO_NAMES[kind]} className="h-full w-full" /></div>;
+};
 
 const Footprint = ({ className = '', style }) => (
   <svg viewBox="0 0 100 100" className={className} style={style} fill="currentColor" aria-hidden="true">
@@ -38,10 +42,11 @@ const Trail = ({ spot, strength }) => (
   </div>
 );
 
-const DetectiveRound = ({ round, playId, config, complete, mistake, speak, playSfx }) => {
+const DetectiveRound = ({ round, playId, runSeed, config, complete, mistake, speak, playSfx }) => {
   const visibleSpots = config.spots === 2 ? [SPOTS[0], SPOTS[2]] : SPOTS;
-  const target = visibleSpots[(round + playId) % visibleSpots.length];
-  const species = DINOS[(round + playId - 1) % DINOS.length];
+  const choice = chooseLittleDinoRound(round, playId, visibleSpots.length, DINOS.length, runSeed);
+  const target = visibleSpots[choice?.targetIndex || 0];
+  const species = DINOS[choice?.speciesIndex || 0];
   const [clueShown, setClueShown] = useState(false);
   const [found, setFound] = useState(false);
   const [wrongSpot, setWrongSpot] = useState(null);
@@ -86,6 +91,7 @@ const DetectiveRound = ({ round, playId, config, complete, mistake, speak, playS
   return (
     <div className="absolute inset-0 overflow-hidden text-center">
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/50 via-transparent to-slate-950/30" />
+      <p className="absolute left-1/2 top-[20%] z-20 -translate-x-1/2 rounded-full border-2 border-white/90 bg-emerald-950/85 px-4 py-1 text-sm font-black text-white shadow-lg" aria-live="polite">Dinosaur {round + 1} of {config.rounds}</p>
       <button type="button" onClick={() => speak?.(clueShown ? LITTLE_LINES.dinoTrail : LITTLE_LINES.dinoPrompt)} aria-label={`Hear again: ${prompt}`} className="absolute left-1/2 top-[11%] z-20 flex w-max max-w-[90%] -translate-x-1/2 items-center gap-2 rounded-[1.5rem] border-4 border-white bg-white/95 px-4 py-2 text-base font-black leading-tight text-blue-950 shadow-xl sm:top-[13%] sm:px-6 sm:text-2xl">
         <span>{prompt}</span><Volume2 className="h-6 w-6 shrink-0 text-blue-600" />
       </button>
@@ -115,12 +121,15 @@ const DetectiveRound = ({ round, playId, config, complete, mistake, speak, playS
   );
 };
 
-const LittleDinoDetective = (props) => (
-  <LittleGameShell {...props} gameId="dino" title="Dino Detective" intro={LITTLE_LINES.dinoIntro} finishLine={LITTLE_LINES.dinoFound} background="from-sky-400 via-emerald-300 to-lime-300" backgroundArtPortrait={PORTRAIT_SCENE} playFullBleed startArt={<img src={ASKIA} alt="Askia ready to look for dinosaurs" className="mx-auto max-h-[36vh] w-full object-contain drop-shadow-2xl" />} renderUnlock={() => <DetectiveDino kind="trike" className="h-full w-full" />}>
-    {({ round, playId, config, complete, mistake }) => (
-      <DetectiveRound key={`${playId}-${round}`} round={round} playId={playId} config={config} complete={complete} mistake={mistake} speak={props.speak} playSfx={props.playSfx} />
-    )}
-  </LittleGameShell>
-);
+const LittleDinoDetective = (props) => {
+  const [visitSeed] = useState(() => Math.floor(Math.random() * 0xffffffff) || 1);
+  return (
+    <LittleGameShell {...props} gameId="dino" title="Dino Detective" intro={LITTLE_LINES.dinoIntro} finishLine={LITTLE_LINES.dinoFound} background="from-sky-400 via-emerald-300 to-lime-300" backgroundArtPortrait={PORTRAIT_SCENE} playFullBleed startArt={<img src={ASKIA} alt="Askia ready to look for dinosaurs" className="mx-auto max-h-[36vh] w-full object-contain drop-shadow-2xl" />} renderUnlock={() => <DetectiveDino kind="trike" className="h-full w-full" />}>
+      {({ round, playId, config, complete, mistake }) => (
+        <DetectiveRound key={`${playId}-${round}`} round={round} playId={playId} runSeed={visitSeed} config={config} complete={complete} mistake={mistake} speak={props.speak} playSfx={props.playSfx} />
+      )}
+    </LittleGameShell>
+  );
+};
 
 export default LittleDinoDetective;

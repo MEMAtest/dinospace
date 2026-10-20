@@ -42,18 +42,18 @@ export const RESCUE_ANIMALS = Object.freeze([
 const ALL_PARTS = ['nose', 'window', 'fins', 'flame'];
 export const LITTLE_LEVELS = Object.freeze({
   dino: [
-    { rounds: 3, spots: 2, trail: 'bright' },
-    { rounds: 3, spots: 3, trail: 'bright', unlock: 'search' },
-    { rounds: 4, spots: 3, trail: 'marks', unlock: 'dino' },
-    { rounds: 4, spots: 3, trail: 'short', unlock: 'dino' },
-    { rounds: 5, spots: 3, trail: 'faint-short', unlock: 'challenge' },
+    { rounds: 5, spots: 2, trail: 'bright' },
+    { rounds: 5, spots: 3, trail: 'bright', unlock: 'search' },
+    { rounds: 6, spots: 3, trail: 'marks', unlock: 'dino' },
+    { rounds: 6, spots: 3, trail: 'short', unlock: 'dino' },
+    { rounds: 7, spots: 3, trail: 'faint-short', unlock: 'challenge' },
   ],
   dinojigsaw: [
-    { grids: [[2, 1], [2, 1], [2, 2]], scenes: 2 },
-    { grids: [[2, 1], [2, 2], [2, 2], [2, 2]], scenes: 3, unlock: 'picture' },
-    { grids: [[2, 2], [2, 2], [3, 2], [3, 2]], scenes: 4, unlock: 'picture' },
-    { grids: [[2, 2], [3, 2], [3, 2], [3, 3]], scenes: 5, unlock: 'picture' },
-    { grids: [[3, 2], [3, 3], [3, 3], [4, 3]], scenes: 6, unlock: 'picture' },
+    { grids: [[2, 1], [2, 1], [2, 1], [2, 1]], scenes: 4 },
+    { grids: [[2, 2], [2, 2], [2, 2], [2, 2]], scenes: 4, unlock: 'picture' },
+    { grids: [[4, 2], [4, 2], [4, 2], [4, 2]], scenes: 4, unlock: 'picture' },
+    { grids: [[4, 2], [4, 2], [4, 3], [4, 3]], scenes: 5, unlock: 'picture' },
+    { grids: [[4, 3], [4, 3], [4, 3], [4, 3]], scenes: 6, unlock: 'picture' },
   ],
   shadowmatch: [
     { choices: [2, 2, 2, 2], kinds: 3 },
@@ -96,8 +96,8 @@ export const LITTLE_LEVELS = Object.freeze({
 // Spoken instructions stay short; these visible labels tell the grown-up and
 // older child exactly what changes at the next level.
 export const LITTLE_LEVEL_GOALS = Object.freeze({
-  dino: ['Find a bright trail with two hiding places', 'Search three leafy hiding places', 'Follow footprint marks to a new dinosaur', 'Follow fewer tracks through the leaves', 'Find faint tracks in the jungle'],
-  dinojigsaw: ['Build pictures from two big pieces', 'Build a four-piece picture', 'Try a six-piece picture', 'Explore a nine-piece scene', 'Build a twelve-piece dinosaur scene'],
+  dino: ['Find five dinosaurs behind two hiding places', 'Search five times among three hiding places', 'Follow marks to six different dinosaurs', 'Use shorter trails in six searches', 'Find seven dinosaurs by their faint tracks'],
+  dinojigsaw: ['Build four pictures from 2 big pieces', 'Fit 4 pieces to complete each picture', 'Join 8 pieces to build each dinosaur', 'Build pictures with 8 and 12 pieces', 'Finish a dinosaur picture with 12 pieces'],
   shadowmatch: ['Match one of two dinosaur shadows', 'Compare three dinosaur shapes', 'Meet more dinosaurs and their shadows', 'Choose among four shadows', 'Match mirrored dinosaur shadows'],
   rocketbuilder: ['Fit the nose and fins', 'Add a window and choose a colour', 'Build a complete rocket', 'Add a new rocket body', 'Build the whole colourful rocket'],
   fuelup: ['Count one to three fuel cans', 'Count up to four cans', 'Count up to five cans', 'Count up to seven cans', 'Count up to ten cans'],
@@ -120,6 +120,33 @@ export const levelRounds = (gameId, config) => {
 // Mistakes in a whole game → 1–3 stars. Generous on purpose: small children
 // should nearly always see two or three stars.
 export const starsForMistakes = (mistakes) => (mistakes <= 1 ? 3 : mistakes <= 4 ? 2 : 1);
+
+const dinoChoiceHash = (runSeed, playId, round) => {
+  const seed = Number.isInteger(runSeed) ? runSeed >>> 0 : 0;
+  const run = (((playId + 1) >>> 0) ^ seed) >>> 0;
+  let value = (Math.imul(run, 0x9e3779b1) ^ Math.imul((round + 1) >>> 0, 0x85ebca6b)) >>> 0;
+  value ^= value >>> 16;
+  value = Math.imul(value, 0x7feb352d) >>> 0;
+  value ^= value >>> 15;
+  return value >>> 0;
+};
+
+// Keep Askia's search order predictable within a round, while varying target
+// leaves between plays and avoiding an immediate repeat when there are choices.
+export const chooseLittleDinoRound = (round, playId, spotCount, speciesCount, runSeed = 0) => {
+  if (!Number.isInteger(round) || round < 0 || !Number.isInteger(spotCount) || spotCount < 1 || !Number.isInteger(speciesCount) || speciesCount < 1) return null;
+  let targetIndex = 0;
+  let previousTarget = -1;
+  for (let index = 0; index <= round; index += 1) {
+    const hash = dinoChoiceHash(runSeed, playId, index);
+    targetIndex = hash % spotCount;
+    if (spotCount > 1 && targetIndex === previousTarget) targetIndex = (targetIndex + 1) % spotCount;
+    previousTarget = targetIndex;
+  }
+  const normalizedPlayId = Number.isInteger(playId) ? Math.abs(playId) : 0;
+  const normalizedSeed = Number.isInteger(runSeed) ? Math.abs(runSeed) : 0;
+  return { targetIndex, speciesIndex: (round + normalizedPlayId + normalizedSeed) % speciesCount };
+};
 
 export const NUMBER_NAMES = Object.freeze(['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']);
 

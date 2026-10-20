@@ -4,7 +4,8 @@ import { CONTINENTS, CURRICULUM_MODULES, getCurriculumModule, OCEANS } from '../
 import { CURRICULUM_LESSON_COPY, getCurriculumVoiceClip } from '../../data/curriculumVoice.js';
 import { getPraise } from '../../utils.js';
 import { getRecommendedDifficulty } from '../../data/learningProgress.js';
-import { createCurriculumQueue, makeCurriculumSeed, shuffleCurriculumAnswers } from '../../data/curriculumQueue.js';
+import { createCurriculumQueue, createCurriculumReplayQueue, makeCurriculumSeed, shuffleCurriculumAnswers } from '../../data/curriculumQueue.js';
+import { loadCurriculumPreferences, loadCurriculumSession, saveCurriculumPreferences, saveCurriculumSession } from '../../data/curriculumSession.js';
 import { SoundToggle } from '../shared/index.jsx';
 import geographyWorld from '../../assets/curriculum/geography-world.webp';
 import historyWorld from '../../assets/curriculum/history-world.webp';
@@ -48,6 +49,19 @@ const loadQueueHistory = (playerId, moduleId, difficulty) => {
 };
 const saveQueueHistory = (playerId, moduleId, difficulty, history) => {
   try { window.localStorage.setItem(queueHistoryKey(playerId, moduleId, difficulty), JSON.stringify(history.slice(-8))); } catch { /* progress storage is optional */ }
+};
+
+const curriculumStorage = () => {
+  try { return window.localStorage; } catch { return null; }
+};
+const initialCurriculumModule = (initialModule, playerId) => {
+  if (CURRICULUM_MODULES.some((module) => module.id === initialModule)) return initialModule;
+  const savedModule = loadCurriculumPreferences(curriculumStorage(), playerId).moduleId;
+  return CURRICULUM_MODULES.some((module) => module.id === savedModule) ? savedModule : 'continents';
+};
+const initialCurriculumDifficulty = (moduleId, playerId) => {
+  const savedDifficulty = loadCurriculumPreferences(curriculumStorage(), playerId).difficulties[moduleId];
+  return savedDifficulty || getRecommendedDifficulty(`worldmap-${moduleId}`);
 };
 
 const skillForRound = (module, round) => {
@@ -283,13 +297,13 @@ const ExplorerWords = ({ module, soundOn, onLaunchGame }) => <details className=
 </details>;
 
 const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound, onCelebrate, onGameEvent, playerId, initialModule }) => {
-  const [moduleId, setModuleId] = useState(initialModule === 'time-detectives' ? initialModule : 'continents');
+  const [moduleId, setModuleId] = useState(() => initialCurriculumModule(initialModule, playerId));
   const [earnedBadges, setEarnedBadges] = useState(() => loadCurriculumBadges(playerId));
   const difficultyGameId = `worldmap-${moduleId}`;
   // Keep one difficulty band for the whole module run. Learning evidence may
   // recommend a harder band after a few answers, but switching bands mid-run
   // must not send the learner back to the first question.
-  const [difficulty, setDifficulty] = useState(() => getRecommendedDifficulty(difficultyGameId));
+  const [difficulty, setDifficulty] = useState(() => initialCurriculumDifficulty(initialCurriculumModule(initialModule, playerId), playerId));
   const [roundIndex, setRoundIndex] = useState(0);
   const [roundOrder, setRoundOrder] = useState([]);
   const [roundCursor, setRoundCursor] = useState(0);
@@ -305,6 +319,9 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   const [lessonOpen, setLessonOpen] = useState(true);
   const [routeStep, setRouteStep] = useState(0);
   const [prediction, setPrediction] = useState('');
+  const [sessionResumed, setSessionResumed] = useState(false);
+  const sessionOwner = useRef('');
+  const skipFirstSessionWrite = useRef('');
   const activeModule = getCurriculumModule(moduleId);
   const rounds = activeModule.rounds[difficulty] || activeModule.rounds.starter;
   const round = rounds[roundIndex % rounds.length];
@@ -326,19 +343,78 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   }, []);
 
   useEffect(() => {
-    // Difficulty is derived from recent learning evidence, not play counters.
+    const sessionKey = `${playerId || 'amari'}:${moduleId}:${difficulty}`;
+    sessionOwner.current = sessionKey;
+    skipFirstSessionWrite.current = sessionKey;
     const seed = makeCurriculumSeed();
     recentRoundIds.current = loadQueueHistory(playerId, moduleId, difficulty);
-    const nextOrder = createCurriculumQueue(rounds, moduleId, seed, recentRoundIds.current, true);
+    const savedSession = loadCurriculumSession(curriculumStorage(), playerId, moduleId, rounds, difficulty);
+    if (savedSession) {
+      setSessionResumed(!savedSession.complete);
+      const nextRoundIndex = savedSession.order[savedSession.cursor] ?? 0;
+      const currentRound = rounds[nextRoundIndex];
+      setQueueSeed(savedSession.seed);
+      setRoundOrder(savedSession.order);
+      setRoundCursor(savedSession.cursor);
+      setQueueComplete(savedSession.complete);
+      setRoundIndex(nextRoundIndex);
+      setMistakes(savedSession.mistakes);
+      setSequence(savedSession.sequence.map((id) => currentRound.items?.find((item) => item.id === id)).filter(Boolean));
+      setSelected(savedSession.selected);
+      setFeedback(savedSession.feedback);
+      setFeedbackVoice(savedSession.feedbackVoice);
+      setLocked(savedSession.locked);
+      setLessonOpen(savedSession.lessonOpen);
+      setRouteStep(savedSession.routeStep);
+      setPrediction(savedSession.prediction);
+      return;
+    }
+    setSessionResumed(false);
+    const nextOrder = createCurriculumQueue(rounds, moduleId, seed, recentRoundIds.current);
     setQueueSeed(seed);
     setRoundOrder(nextOrder);
     setRoundCursor(0);
     setQueueComplete(false);
     resetRound(nextOrder[0] ?? 0, true);
+    saveCurriculumSession(curriculumStorage(), playerId, moduleId, {
+      difficulty, seed, order: nextOrder, cursor: 0, complete: false, lessonOpen: true,
+      locked: false, selected: '', feedback: '', feedbackVoice: '', mistakes: 0,
+      sequence: [], routeStep: 0, prediction: '',
+    });
   }, [difficulty, moduleId, playerId, rounds, resetRound]);
+
+  useEffect(() => {
+    saveCurriculumPreferences(curriculumStorage(), playerId, moduleId, difficulty);
+  }, [difficulty, moduleId, playerId]);
+
+  useEffect(() => {
+    const sessionKey = `${playerId || 'amari'}:${moduleId}:${difficulty}`;
+    if (!queueSeed || !roundOrder.length || sessionOwner.current !== sessionKey) return;
+    if (skipFirstSessionWrite.current === sessionKey) {
+      skipFirstSessionWrite.current = '';
+      return;
+    }
+    saveCurriculumSession(curriculumStorage(), playerId, moduleId, {
+      difficulty,
+      seed: queueSeed,
+      order: roundOrder,
+      cursor: roundCursor,
+      complete: queueComplete,
+      lessonOpen,
+      locked,
+      selected,
+      feedback,
+      feedbackVoice,
+      mistakes,
+      sequence: sequence.map((item) => item.id),
+      routeStep,
+      prediction,
+    });
+  }, [difficulty, moduleId, playerId, queueSeed, roundOrder, roundCursor, queueComplete, lessonOpen, locked, selected, feedback, feedbackVoice, mistakes, sequence, routeStep, prediction]);
 
   const advance = () => {
     if (!locked) return;
+    setSessionResumed(false);
     const history = [...recentRoundIds.current, round.id].slice(-8);
     recentRoundIds.current = history;
     saveQueueHistory(playerId, moduleId, difficulty, history);
@@ -368,7 +444,8 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
 
   const replayQueue = () => {
     const seed = makeCurriculumSeed();
-    const nextOrder = createCurriculumQueue(rounds, moduleId, seed, recentRoundIds.current);
+    const nextOrder = createCurriculumReplayQueue(rounds, moduleId, seed, recentRoundIds.current, roundOrder);
+    setSessionResumed(false);
     setQueueSeed(seed);
     setRoundOrder(nextOrder);
     setRoundCursor(0);
@@ -378,6 +455,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
   };
 
   const startQuestion = () => {
+    setSessionResumed(false);
     setLessonOpen(false);
     onGameEvent?.(difficultyGameId, 'start', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
     onGameEvent?.(difficultyGameId, 'question', { module: moduleId, difficulty, seed: queueSeed, round: roundCursor });
@@ -526,7 +604,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
           <div className="quest-stage-picker-content">
             <nav className="quest-modules" aria-label="Curriculum modules">
               {CURRICULUM_MODULES.map((module) => (
-                <button key={module.id} type="button" onClick={() => { playSfx('click'); setDifficulty(getRecommendedDifficulty(`worldmap-${module.id}`)); setModuleId(module.id); }} aria-pressed={module.id === activeModule.id} className="quest-module-tab">
+                <button key={module.id} type="button" onClick={() => { playSfx('click'); const savedDifficulty = loadCurriculumPreferences(curriculumStorage(), playerId).difficulties[module.id]; setDifficulty(savedDifficulty || getRecommendedDifficulty(`worldmap-${module.id}`)); setModuleId(module.id); }} aria-pressed={module.id === activeModule.id} className="quest-module-tab">
                   <span className="quest-module-icon" aria-hidden="true">{module.icon}</span><span><strong>{module.title}</strong><small>{module.subtitle}</small></span><ArrowRight className="quest-tab-arrow" size={18} />
                 </button>
               ))}
@@ -556,7 +634,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
             <div className="quest-learn-stage">
               <p className="quest-stage-label">Learn</p>
               <h2 id="quest-prompt">Explore {activeModule.title}</h2>
-              <div className="quest-learn-intro-row"><p className="quest-learn-intro">Take a look around, then start your first round when you’re ready.</p><div className="quest-actions quest-learn-actions"><button type="button" onClick={startQuestion} className="quest-start"><Sparkles size={19} /> Start round <ArrowRight size={18} /></button></div></div>
+              <div className="quest-learn-intro-row"><p className="quest-learn-intro">{sessionResumed ? 'Your saved round is ready to continue.' : 'Take a look around, then start your first round when you’re ready.'}</p><div className="quest-actions quest-learn-actions"><button type="button" onClick={startQuestion} className="quest-start"><Sparkles size={19} /> {sessionResumed ? 'Continue round' : 'Start round'} <ArrowRight size={18} /></button></div></div>
               <div className="quest-lesson-grid"><LessonVisual module={activeModule} round={round} /><ExplorerWords module={activeModule} soundOn={soundOn} onLaunchGame={onLaunchGame} /></div>
             </div>
           ) : (
@@ -565,6 +643,7 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
                 <div><span>{locked ? 'Fact' : 'Play'}</span><strong>Question {roundCursor + 1} of {roundOrder.length || Math.min(5, rounds.length)}</strong></div>
                 <div className="quest-round-track" role="progressbar" aria-label="Discovery run progress" aria-valuemin="0" aria-valuemax={roundOrder.length || Math.min(5, rounds.length)} aria-valuenow={roundCursor + (locked ? 1 : 0)}><span style={{ width: `${((roundCursor + (locked ? 1 : 0)) / (roundOrder.length || Math.min(5, rounds.length))) * 100}%` }} /></div>
               </div>
+              {sessionResumed && <p className="quest-resume-note" role="status">Saved round restored. Your answer and fact are here.</p>}
               <div className="quest-prompt-row"><h2 id="quest-prompt">{round.prompt}</h2>{!locked && <PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} />}</div>
               {!locked && <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>}
               {!locked && <>
