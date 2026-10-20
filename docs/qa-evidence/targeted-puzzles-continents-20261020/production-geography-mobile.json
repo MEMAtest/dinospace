@@ -1,0 +1,77 @@
+{
+  "origin": "https://dinospace-eight.vercel.app",
+  "width": 390,
+  "runs": [
+    {
+      "band": "starter",
+      "orders": [
+        [
+          "continent-australia",
+          "map-east",
+          "continent-africa",
+          "continent-antarctica",
+          "continent-south"
+        ],
+        [
+          "map-key-harbour",
+          "continent-asia",
+          "continent-europe",
+          "continent-americas",
+          "continent-australia"
+        ]
+      ],
+      "fiveDistinctPerRun": true,
+      "heldFactAndReloadPassed": true
+    },
+    {
+      "band": "growing",
+      "orders": [
+        [
+          "map-east",
+          "map-route-treasure",
+          "ocean-southern",
+          "continent-asia",
+          "continent-americas"
+        ],
+        [
+          "continent-africa",
+          "map-key-harbour",
+          "continent-australia",
+          "uk-wales-capital",
+          "ocean-pacific"
+        ]
+      ],
+      "fiveDistinctPerRun": true,
+      "heldFactAndReloadPassed": true
+    },
+    {
+      "band": "challenge",
+      "orders": [
+        [
+          "map-physical",
+          "map-globe",
+          "country-brazil",
+          "uk-wales-capital",
+          "local-weather-boundary"
+        ],
+        [
+          "country-kenya",
+          "ocean-southern",
+          "map-east",
+          "uk-sea-west",
+          "country-japan"
+        ]
+      ],
+      "fiveDistinctPerRun": true,
+      "heldFactAndReloadPassed": true
+    }
+  ],
+  "pageErrors": [],
+  "providerCalls": 0,
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "rawLog": {
+    "path": "output/playwright/targeted-puzzles-continents-20261020/curriculum-production-390.log",
+    "sha256": "b07609998747ad390d31c322722e759a0eeff8035f0c4985f91cf89f022fdf8c"
+  }
+}

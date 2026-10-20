@@ -1,0 +1,40 @@
+{
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "runs": [
+    {
+      "partialSequenceAndBandReload": true
+    },
+    {
+      "historyReplayOrders": [
+        [
+          "history-photos",
+          "history-castle",
+          "history-communication",
+          "history-light",
+          "history-source-limit"
+        ],
+        [
+          "history-source-limit",
+          "history-communication",
+          "history-photos",
+          "history-light",
+          "history-castle"
+        ]
+      ]
+    },
+    {
+      "partialRouteRestored": true,
+      "boatSlot": 3,
+      "restoredBoatSlot": 3
+    }
+  ],
+  "pageErrors": [],
+  "providerCalls": 0,
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "tested source carried into 14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "rawLog": {
+    "path": "output/playwright/targeted-puzzles-continents-20261020/curriculum-cross-state-last.log",
+    "sha256": "faa8144b6eb0e60654d55861c8de84b9dcb9495d86af287971eb2f2679f97e03"
+  }
+}

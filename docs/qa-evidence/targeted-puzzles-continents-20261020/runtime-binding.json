@@ -1,0 +1,14 @@
+{
+  "runtimeCommit": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "canonicalDeployment": "dpl_BUNZ6wCdpYGtWEh1TDvx4k9iTbwv",
+  "entryPath": "/assets/arcade-D28FPQ4a.js",
+  "entryBytes": 1389314,
+  "entrySha256": "3b488ca2ae521b5e63c173f5b4bbf9b7a6e1827098bebd065290af46ef8426ee",
+  "sourceWitnesses": {
+    "Getting your discovery run ready": true,
+    "Saved round restored. Continue where you left off.": true,
+    "Choose loose piece": true
+  },
+  "localBuildExactMatch": false,
+  "reason": "Compiled bundles differ; public build-time environment is a possible cause and was not independently reconciled. Identity is bound to Vercel deployment metadata and the served bundle hash; canonical gameplay is tested separately."
+}

@@ -1,0 +1,188 @@
+{
+  "origin": "https://dinospace-eight.vercel.app",
+  "width": 390,
+  "rows": [
+    {
+      "level": 1,
+      "round": 1,
+      "target": "Look behind the right leaves",
+      "found": "You found Stegosaurus!"
+    },
+    {
+      "level": 1,
+      "round": 2,
+      "target": "Look behind the left leaves",
+      "found": "You found T-rex!"
+    },
+    {
+      "level": 1,
+      "round": 3,
+      "target": "Look behind the right leaves",
+      "found": "You found Ankylosaurus!"
+    },
+    {
+      "level": 1,
+      "round": 4,
+      "target": "Look behind the left leaves",
+      "found": "You found Pterodactyl!"
+    },
+    {
+      "level": 1,
+      "round": 5,
+      "target": "Look behind the right leaves",
+      "found": "You found Triceratops!"
+    },
+    {
+      "level": 2,
+      "round": 1,
+      "target": "Look behind the right leaves",
+      "found": "You found T-rex!"
+    },
+    {
+      "level": 2,
+      "round": 2,
+      "target": "Look behind the middle leaves",
+      "found": "You found Ankylosaurus!"
+    },
+    {
+      "level": 2,
+      "round": 3,
+      "target": "Look behind the right leaves",
+      "found": "You found Pterodactyl!"
+    },
+    {
+      "level": 2,
+      "round": 4,
+      "target": "Look behind the left leaves",
+      "found": "You found Triceratops!"
+    },
+    {
+      "level": 2,
+      "round": 5,
+      "target": "Look behind the middle leaves",
+      "found": "You found Brachiosaurus!"
+    },
+    {
+      "level": 3,
+      "round": 1,
+      "target": "Look behind the right leaves",
+      "found": "You found Ankylosaurus!"
+    },
+    {
+      "level": 3,
+      "round": 2,
+      "target": "Look behind the middle leaves",
+      "found": "You found Pterodactyl!"
+    },
+    {
+      "level": 3,
+      "round": 3,
+      "target": "Look behind the right leaves",
+      "found": "You found Triceratops!"
+    },
+    {
+      "level": 3,
+      "round": 4,
+      "target": "Look behind the left leaves",
+      "found": "You found Brachiosaurus!"
+    },
+    {
+      "level": 3,
+      "round": 5,
+      "target": "Look behind the middle leaves",
+      "found": "You found Stegosaurus!"
+    },
+    {
+      "level": 3,
+      "round": 6,
+      "target": "Look behind the right leaves",
+      "found": "You found T-rex!"
+    },
+    {
+      "level": 4,
+      "round": 1,
+      "target": "Look behind the middle leaves",
+      "found": "You found Pterodactyl!"
+    },
+    {
+      "level": 4,
+      "round": 2,
+      "target": "Look behind the right leaves",
+      "found": "You found Triceratops!"
+    },
+    {
+      "level": 4,
+      "round": 3,
+      "target": "Look behind the middle leaves",
+      "found": "You found Brachiosaurus!"
+    },
+    {
+      "level": 4,
+      "round": 4,
+      "target": "Look behind the right leaves",
+      "found": "You found Stegosaurus!"
+    },
+    {
+      "level": 4,
+      "round": 5,
+      "target": "Look behind the left leaves",
+      "found": "You found T-rex!"
+    },
+    {
+      "level": 4,
+      "round": 6,
+      "target": "Look behind the middle leaves",
+      "found": "You found Ankylosaurus!"
+    },
+    {
+      "level": 5,
+      "round": 1,
+      "target": "Look behind the right leaves",
+      "found": "You found Triceratops!"
+    },
+    {
+      "level": 5,
+      "round": 2,
+      "target": "Look behind the middle leaves",
+      "found": "You found Brachiosaurus!"
+    },
+    {
+      "level": 5,
+      "round": 3,
+      "target": "Look behind the right leaves",
+      "found": "You found Stegosaurus!"
+    },
+    {
+      "level": 5,
+      "round": 4,
+      "target": "Look behind the left leaves",
+      "found": "You found T-rex!"
+    },
+    {
+      "level": 5,
+      "round": 5,
+      "target": "Look behind the middle leaves",
+      "found": "You found Ankylosaurus!"
+    },
+    {
+      "level": 5,
+      "round": 6,
+      "target": "Look behind the right leaves",
+      "found": "You found Pterodactyl!"
+    },
+    {
+      "level": 5,
+      "round": 7,
+      "target": "Look behind the left leaves",
+      "found": "You found Triceratops!"
+    }
+  ],
+  "pageErrors": [],
+  "providerCalls": 0,
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "rawLog": {
+    "path": "output/playwright/targeted-puzzles-continents-20261020/detective-production-390.log",
+    "sha256": "3a02737c5e268c1738d91bb0b9ff3fea2373ff3179563f96d19a79ac92328c1b"
+  }
+}

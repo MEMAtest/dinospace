@@ -1,0 +1,39 @@
+{
+  "origin": "https://dinospace-eight.vercel.app",
+  "width": 390,
+  "nativeTouchDragAccepted": true,
+  "wrongSlotRejected": true,
+  "worldBackRestoresFact": true,
+  "nextPromptDiffers": true,
+  "prompt": "Which ocean is around the North Pole?",
+  "nextPrompt": "Which is a physical feature of a place?",
+  "factAudio": {
+    "src": "https://dinospace-eight.vercel.app/audio/en/49ef3b62-matilda.mp3",
+    "ended": true,
+    "volume": 1,
+    "muted": false,
+    "duration": 2.229116
+  },
+  "runtime": {
+    "moduleScripts": [
+      "https://dinospace-eight.vercel.app/assets/arcade-D28FPQ4a.js"
+    ],
+    "shellCaches": [
+      "amari-discovery-media-v1",
+      "amari-discovery-v18"
+    ],
+    "serviceWorkerActive": "activated",
+    "brokenImages": [],
+    "overflow": false
+  },
+  "pageErrors": [],
+  "failedAssets": [],
+  "providerCalls": 0,
+  "humanListening": false,
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "rawLog": {
+    "path": "output/playwright/targeted-puzzles-continents-20261020/production-final-controls-rerun.log",
+    "sha256": "7f6c1e1c3d024fc7a5708eb4ed73642d466b9097ba83b8aaa3f00aecece23b1b"
+  }
+}

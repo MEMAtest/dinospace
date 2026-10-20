@@ -1,0 +1,82 @@
+{
+  "origin": "https://dinospace-eight.vercel.app",
+  "width": 1440,
+  "rows": [
+    {
+      "child": "Askia",
+      "level": 5,
+      "round": 1,
+      "pieces": 12,
+      "minTargetWidth": 62.5,
+      "minTargetHeight": 62.5
+    },
+    {
+      "child": "Askia",
+      "level": 5,
+      "round": 2,
+      "pieces": 12,
+      "minTargetWidth": 62.5,
+      "minTargetHeight": 62.5
+    },
+    {
+      "child": "Askia",
+      "level": 5,
+      "round": 3,
+      "pieces": 12,
+      "minTargetWidth": 62.5,
+      "minTargetHeight": 62.5
+    },
+    {
+      "child": "Askia",
+      "level": 5,
+      "round": 4,
+      "pieces": 12,
+      "minTargetWidth": 62.5,
+      "minTargetHeight": 62.5
+    },
+    {
+      "child": "Askia",
+      "reloadLevel": 5
+    },
+    {
+      "child": "Amari",
+      "level": 5,
+      "round": 1,
+      "pieces": 12,
+      "minTargetWidth": 78.5,
+      "minTargetHeight": 78.5
+    },
+    {
+      "child": "Amari",
+      "level": 5,
+      "round": 2,
+      "pieces": 12,
+      "minTargetWidth": 78.5,
+      "minTargetHeight": 78.5
+    },
+    {
+      "child": "Amari",
+      "level": 5,
+      "round": 3,
+      "pieces": 12,
+      "minTargetWidth": 78.5,
+      "minTargetHeight": 78.5
+    },
+    {
+      "child": "Amari",
+      "level": 5,
+      "round": 4,
+      "pieces": 12,
+      "minTargetWidth": 78.5,
+      "minTargetHeight": 78.5
+    }
+  ],
+  "pageErrors": [],
+  "providerCalls": 0,
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "rawLog": {
+    "path": "output/playwright/targeted-puzzles-continents-20261020/jigsaw-production-1440.log",
+    "sha256": "e345609c7c343ee003bdd9254ccfd31bf7ef896340e280b7f15d17a732282589"
+  }
+}

@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-04T10:23:00Z",
+  "updatedAt": "2026-10-20T08:19:13.316455+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
+  "canonicalRelease": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -930,5 +930,22 @@
     "skyReport": "docs/qa-evidence/sky-entry-scroll-production-qa-20261004/report.md",
     "releaseHold": "Monster mobile entry crop confirmed; Puzzle adjacent repeat observation under reproduction. Hold canonical promotion until repairs and source-bound independent deltas."
   },
-  "batch2CurrentIndependentWorksheet": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md"
+  "batch2CurrentIndependentWorksheet": "docs/qa-evidence/batch2-per-game-gate-score-worksheet-20261004.md",
+  "latestTargetedProductionRelease": {
+    "date": "2026-10-20",
+    "runtimeCommit": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+    "deployment": "dpl_BUNZ6wCdpYGtWEh1TDvx4k9iTbwv",
+    "games": [
+      "Dino Jigsaw (both profiles)",
+      "Askia Dino Detective",
+      "Amari Puzzle Pop",
+      "Curriculum Quest"
+    ],
+    "evidence": "docs/qa-evidence/targeted-puzzles-continents-20261020/report.md",
+    "status": "targeted gameplay acceptance passed at1440and390px",
+    "editorialScoreChange": false,
+    "note": "Historical4.5counts and ratings are unchanged; this targeted release does not recertify the whole catalogue at5/5."
+  },
+  "historicalEditorialCanonicalRelease": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
+  "canonicalReleaseScope": "Current runtime only. Historical editorial scores retain their dated evidence and are not fresh production recertifications."
 }

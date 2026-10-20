@@ -1,0 +1,212 @@
+{
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "newWorktrees": 0,
+  "newCheckouts": 0,
+  "dependencyInstalls": 0,
+  "newBrowserSessions": 1,
+  "reason": "Previous named QA browser had closed between turns; reopened one headless contained Chromium session and used only its original tab. No visible Chrome/incognito windows or extra tabs.",
+  "browser": "amari-targeted-contained",
+  "freeBeforeCaptureEncoding": 102095663104,
+  "freeAfterCaptureEncoding": 102105444352,
+  "encodingOnly": true,
+  "convertedCaptures": [
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-starter-1440.png",
+      "bytes": 1072726,
+      "sha256": "a333084fe83fee2c95249dc26cabc0200485aa0840d20cadd052746814b52102",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-starter-1440.webp",
+      "replacementBytes": 137664
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-growing-390.png",
+      "bytes": 261012,
+      "sha256": "32f5ab888dbc0b9c77bd1eab49bf36a80e62c8cb39ee1b9f19b4ac60e9d3a08a",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-growing-390.webp",
+      "replacementBytes": 43968
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/final-curriculum-play-390.png",
+      "bytes": 230556,
+      "sha256": "f1b2e7f1cb3788c1c918e0ed167769c94712ae31ad64f0ceac31657aeca367e2",
+      "replacement": "docs/qa-evidence/targeted-puzzles-continents-20261020/final-curriculum-play-390.webp",
+      "replacementBytes": 45768
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-25-390.png",
+      "bytes": 363635,
+      "sha256": "11729dc4d73411fd4de5ed5d72acc5598ad366f2ad750104105b11784eda9a31",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-25-390.webp",
+      "replacementBytes": 78934
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-growing-1440.png",
+      "bytes": 1101854,
+      "sha256": "2fb3487eb7b7ab226419c505c05befc5f1757c9bab29c44a16acf53686ed3d9c",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-growing-1440.webp",
+      "replacementBytes": 136530
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Amari-8-390.png",
+      "bytes": 327948,
+      "sha256": "5f6184dd80daeb304a49ab9efaa3d82e91a27c89c91c4886310d592ed8a2f440",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Amari-8-390.webp",
+      "replacementBytes": 69062
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-detective-level5-1440.png",
+      "bytes": 2014322,
+      "sha256": "8f6c42cd628b1d1aded8cd67e23821608e6372c11466a73e6ca084232e1a9680",
+      "replacement": "docs/qa-evidence/targeted-puzzles-continents-20261020/production-detective-level5-1440.webp",
+      "replacementBytes": 293220
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Amari-12-1440.png",
+      "bytes": 805449,
+      "sha256": "e92f952b97fffb9067be8716b64cb982d9da9a0d97c98069a7b81f65a7162c97",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Amari-12-1440.webp",
+      "replacementBytes": 132900
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-detective-level1-390.png",
+      "bytes": 599974,
+      "sha256": "b0baeb170540bb059662db6748e0d06ea7a6b917028c1a8d32df18e437a1130d",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-detective-level1-390.webp",
+      "replacementBytes": 109774
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-16-1440.png",
+      "bytes": 764732,
+      "sha256": "1bfa641efe4d8d3cb39a38526860a488ab49384ba2de02edf9ba49d8a19b13cf",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-16-1440.webp",
+      "replacementBytes": 128786
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Amari-12-390.png",
+      "bytes": 326519,
+      "sha256": "23ce83295589678f527e830ecec53d66b7ba2c8d8c100be439a58500480c3ef9",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Amari-12-390.webp",
+      "replacementBytes": 68084
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-16-390.png",
+      "bytes": 294677,
+      "sha256": "c57d5f94bc068dbdc9f6d836c684c3c7f5696cc340aa3872266b7e68baa24c86",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-16-390.webp",
+      "replacementBytes": 61564
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-detective-level5-390.png",
+      "bytes": 594078,
+      "sha256": "94535ffe6be9333665b92868aacc631c2032b0e42a197f2fc8a26b093edcbb46",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-detective-level5-390.webp",
+      "replacementBytes": 110188
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-challenge-390.png",
+      "bytes": 281656,
+      "sha256": "ba4335d9a82b9a67e11053a5b987c699cd266ea7d53d7e6bcfb13b1dab992dfe",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-challenge-390.webp",
+      "replacementBytes": 46270
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-9-1440.png",
+      "bytes": 834335,
+      "sha256": "3579a48317b4b4f1f039393087d36309d4624fc915429651a53ca784aee3597d",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-9-1440.webp",
+      "replacementBytes": 140914
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-starter-390.png",
+      "bytes": 274824,
+      "sha256": "5e05bedc7b5a6bc893c62dec0b3652233454a31746c3fa2f6b94069d683caa64",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-starter-390.webp",
+      "replacementBytes": 46044
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Askia-12-390.png",
+      "bytes": 304680,
+      "sha256": "1e662696d88e53350fcb8578432ddc1fb15131194b95b9a522b08dac7c4f3b2f",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Askia-12-390.webp",
+      "replacementBytes": 61588
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-challenge-1440.png",
+      "bytes": 1102133,
+      "sha256": "1db2c46285d72b565f5998d8d2325e90e941c9d2264495ffaffd08c137d1e2a2",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-curriculum-challenge-1440.webp",
+      "replacementBytes": 139456
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Askia-8-390.png",
+      "bytes": 315050,
+      "sha256": "f29acc22d53af9aa50c38fa42bff9870c9ae45ce0e69447922d28ae425f181e9",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Askia-8-390.webp",
+      "replacementBytes": 65568
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Askia-12-1440.png",
+      "bytes": 401387,
+      "sha256": "f332c0ae8de1cb6247122abeaf1805ba0bc5cb1734eb997ec51cc9090fc8757b",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-jigsaw-Askia-12-1440.webp",
+      "replacementBytes": 67086
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-9-390.png",
+      "bytes": 272047,
+      "sha256": "f1f5444c11c7882fa84e054fa2f89b1e7f85308bafb3136b546d1dfbb47bdc1a",
+      "replacement": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-9-390.webp",
+      "replacementBytes": 60292
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/final-jigsaw-390.png",
+      "bytes": 339502,
+      "sha256": "8bbcd3b61196dcb0153eab99077a166abaa0727b93bc2e80aea0450e8d9e0068",
+      "replacement": "docs/qa-evidence/targeted-puzzles-continents-20261020/final-jigsaw-390.webp",
+      "replacementBytes": 66410
+    },
+    {
+      "path": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-25-1440.png",
+      "bytes": 931435,
+      "sha256": "e1dc1941e4f11ea3f30fa2acc39ea08766224f5e88cff5bfd1c18c712516a6ea",
+      "replacement": "docs/qa-evidence/targeted-puzzles-continents-20261020/production-puzzle-25-1440.webp",
+      "replacementBytes": 167124
+    }
+  ],
+  "removedBytesNet": 11537337,
+  "qaArtifactBytes": 4948118,
+  "retainedBranches": {
+    "priorProgramme": "codex/solar-blender-planets-20261016 at baf5b56f",
+    "release": "codex/targeted-puzzles-continents-20261020 runtime 14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd"
+  },
+  "recovery": "Prior unreleased programme remains in Git. Merge the targeted release branch before resuming it; do not redeploy the older branch wholesale. Native QA harnesses and unique failure logs retained at output/playwright/targeted-puzzles-continents-20261020. Compiled artefacts reused in dist; no second project copy.",
+  "unrelatedFilesPreserved": [
+    "docs/qa-evidence/functional-release-20261006/canonical-served-identity.json",
+    "docs/qa-evidence/functional-release-20261006/immutable-served-identity.json",
+    "docs/qa-evidence/functional-release-20261006/independent-review.md"
+  ],
+  "finalAcceptedRenderMoves": [
+    {
+      "from": "output/playwright/targeted-puzzles-continents-20261020/final-jigsaw-390.webp",
+      "to": "docs/qa-evidence/targeted-puzzles-continents-20261020/final-jigsaw-390.webp",
+      "sha256": "6a8773995ba25998cd93b91c8a164d671a4ec93c6cfca06f21df0fd37e039805"
+    },
+    {
+      "from": "output/playwright/targeted-puzzles-continents-20261020/final-curriculum-play-390.webp",
+      "to": "docs/qa-evidence/targeted-puzzles-continents-20261020/final-curriculum-play-390.webp",
+      "sha256": "3b8f28c84eb631f65e068e4eb9b753b337472dcb8e2d274e68740a53d118d01c"
+    },
+    {
+      "from": "output/playwright/targeted-puzzles-continents-20261020/production-detective-level5-1440.webp",
+      "to": "docs/qa-evidence/targeted-puzzles-continents-20261020/production-detective-level5-1440.webp",
+      "sha256": "e156000198c553c75f398c9602d52af0ed886dce0add803329b6d883053fb094"
+    },
+    {
+      "from": "output/playwright/targeted-puzzles-continents-20261020/production-puzzle-25-1440.webp",
+      "to": "docs/qa-evidence/targeted-puzzles-continents-20261020/production-puzzle-25-1440.webp",
+      "sha256": "bf79b7b6d2413943e9aa666a490c2c4cd16d70853b61b2ae0bf285b7ac0388a2"
+    }
+  ],
+  "freeAtCloseout": 102105391104,
+  "previewServer": "stopped at closeout",
+  "browserHandoff": "same single contained tab parked at about:blank"
+}
