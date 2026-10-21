@@ -6,7 +6,7 @@ import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
 import { shuffle } from '../../utils.js';
 
 const MAX_MISTAKES = 6;
-import { makeSpellingQueue, spellingLevelWords } from '../../data/spellingStudio.js';
+import { makeSpellingQueue, SPELLING_PREANSWER_CUES, spellingLevelWords } from '../../data/spellingStudio.js';
 
 const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, sessionLevel = 0 }) => {
   const [wordIndex, setWordIndex] = useState(0);
@@ -24,7 +24,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       ? spellingLevelWords(0, taught).filter((item) => item.word.length === 3)
       : spellingLevelWords(sessionLevel + 2, taught);
     return makeSpellingQueue(pool, { seed: runSeed })
-      .map((item) => ({ ...item, clue: item.cue || item.hint, category: `${item.word.length}-letter rescue` }));
+      .map((item) => ({ ...item, clue: item.cue || SPELLING_PREANSWER_CUES[item.word] || item.hint, category: `${item.word.length}-letter rescue` }));
   }, [sessionLevel, runSeed]);
   const word = practiceWords[wordIndex % practiceWords.length] || { word: '', family: '', category: '', clue: '', emoji: '🔒' };
   const wordLetters = useMemo(() => [...new Set(word.word.split(''))], [word.word]);
@@ -55,10 +55,10 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      speak(`Dino Hangman. ${word.category}. ${word.clue}`);
+      if (word.word) speak(word.word);
     }, 60);
     return () => clearTimeout(timer);
-  }, [speak, word.category, word.clue, wordIndex]);
+  }, [speak, word.word, wordIndex]);
 
   useEffect(() => () => {
     if (nextRoundTimerRef.current) clearTimeout(nextRoundTimerRef.current);
@@ -143,7 +143,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   const hearClue = () => {
     playSfx('click');
-    speak(`${word.category}. ${word.clue}`);
+    speak(word.word);
   };
 
   const statusMessage = roundState === 'won'
@@ -187,6 +187,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             </div>
           </div>
 
+          <p className="mt-4 rounded-2xl bg-cyan-100/10 p-3 text-center font-bold text-cyan-50">{word.clue}</p>
           <div className="mt-6 rounded-[1.75rem] border border-white/10 bg-slate-950/45 p-4 sm:p-6">
             <div className="flex flex-wrap items-end justify-center gap-1 sm:gap-3" aria-label={`Word has ${word.word.length} letters`}>
               {word.word.split('').map((letter, index) => {
@@ -208,7 +209,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
           <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
             <button onClick={hearClue} className="ttt-action !bg-white/15 !px-4 !py-2.5">
-              <Volume2 size={19} /> Hear clue
+              <Volume2 size={19} /> Hear the word
             </button>
             <button
               onClick={useHint}
@@ -285,7 +286,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
           <div className="mt-5 rounded-2xl bg-black/20 p-4 text-sm text-white/75">
             <div className="flex items-center gap-2 text-white"><ShieldCheck size={19} className="text-cyan-300" /><strong>How to play</strong></div>
-            <p className="mt-2">Choose letters to uncover the secret word. Each wrong letter uses one shield. A star hint reveals one letter.</p>
+            <p className="mt-2">Listen to the word or use the picture clue. Choose letters to uncover it. Each wrong letter uses one shield. A star hint reveals one letter.</p>
           </div>
 
           {wrongLetters.length > 0 && (
