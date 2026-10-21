@@ -1,0 +1,110 @@
+{
+  "origin": "http://localhost:5180",
+  "width": 1440,
+  "rows": [
+    {
+      "chapter": 1,
+      "title": "River Valley",
+      "pieces": 9,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 1,
+      "title": "Dino Park",
+      "pieces": 9,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 1,
+      "title": "Moon Camp",
+      "pieces": 9,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 1,
+      "title": "Robin\u2019s Tree",
+      "pieces": 9,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 2,
+      "title": "Pattern Festival",
+      "pieces": 16,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 2,
+      "title": "Sound Safari",
+      "pieces": 16,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 2,
+      "title": "Hero City Helpers",
+      "pieces": 16,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 2,
+      "title": "Treehouse Robots",
+      "pieces": 16,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 3,
+      "title": "Nature Lab",
+      "pieces": 25,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 3,
+      "title": "History Hall",
+      "pieces": 25,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 3,
+      "title": "Time Observatory",
+      "pieces": 25,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    },
+    {
+      "chapter": 3,
+      "title": "World Explorer",
+      "pieces": 25,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true
+    }
+  ],
+  "pageErrors": [],
+  "providerCalls": 0,
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "tested source carried into 14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "rawLog": {
+    "path": "output/playwright/targeted-puzzles-continents-20261020/puzzle-local-1440.log",
+    "sha256": "dc3f899d7e2170fe84532ca7a01bed0a3d7b0ed96ed3ee2f74ca2a58230115d3"
+  }
+}

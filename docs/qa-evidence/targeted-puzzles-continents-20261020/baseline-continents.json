@@ -1,0 +1,24 @@
+{
+  "environment": "canonical production before repair",
+  "games": [
+    "DiscoverSolar SystemVisit the planets",
+    "DiscoverAstronaut AcademyExplore space heroes",
+    "DiscoverDino DetectiveFind hidden dinosaurs!",
+    "WordsGerman GarageExplore colours, vehicles, parts and directions in German",
+    "NEWDiscoverCurriculum QuestGeography, history and science"
+  ],
+  "reopenedFirstPrompts": [
+    "Find Africa on the map.",
+    "Find Africa on the map.",
+    "Find Africa on the map."
+  ],
+  "mapButtons": [],
+  "pageErrors": [],
+  "providerRequestsBlocked": [],
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "aaef3be4c4630f06575949351ee7e39230432664",
+  "rawLog": {
+    "path": "output/playwright/targeted-puzzles-continents-20261020/live-baseline.log",
+    "sha256": "b0421f21e4b1e0293709b92029a7c3a635ce1f3fc749c52cbb353983db7154b3"
+  }
+}

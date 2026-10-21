@@ -1,0 +1,110 @@
+{
+  "origin": "https://dinospace-eight.vercel.app",
+  "width": 390,
+  "rows": [
+    {
+      "chapter": 1,
+      "title": "Moon Camp",
+      "pieces": 9,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 1,
+      "title": "River Valley",
+      "pieces": 9,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 1,
+      "title": "Dino Park",
+      "pieces": 9,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 1,
+      "title": "Robin\u2019s Tree",
+      "pieces": 9,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 2,
+      "title": "Pattern Festival",
+      "pieces": 16,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 2,
+      "title": "Hero City Helpers",
+      "pieces": 16,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 2,
+      "title": "Treehouse Robots",
+      "pieces": 16,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 2,
+      "title": "Sound Safari",
+      "pieces": 16,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 3,
+      "title": "Time Observatory",
+      "pieces": 25,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 3,
+      "title": "World Explorer",
+      "pieces": 25,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 3,
+      "title": "Nature Lab",
+      "pieces": 25,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    },
+    {
+      "chapter": 3,
+      "title": "History Hall",
+      "pieces": 25,
+      "minTargetWidth": 57.59375,
+      "minTargetHeight": 57.59375,
+      "factHeld": true
+    }
+  ],
+  "pageErrors": [],
+  "providerCalls": 0,
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "rawLog": {
+    "path": "output/playwright/targeted-puzzles-continents-20261020/puzzle-production-390.log",
+    "sha256": "3caf1b98259995dd88a9c2efb9618a31045a2fa870f42f21263125e6d26bb44e"
+  }
+}

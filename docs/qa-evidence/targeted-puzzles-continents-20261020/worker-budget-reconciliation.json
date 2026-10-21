@@ -1,0 +1,13 @@
+{
+  "previousCanonical": {
+    "assets": 160,
+    "workerSha256": "4dbd29a18a62d515d027640fec39e3c830c8e335de0d89dd7a2f25f977fb82f1",
+    "url": "https://dinospace-k5j90otug-memas-projects-23a0001d.vercel.app/sw.js"
+  },
+  "candidateBuilt": {
+    "assets": 160,
+    "workerSha256": "4d1c0b375c8469ff672ad2d912221b79c1360c4454d1f8255afd615b8f1d0004",
+    "bytes": 29101861
+  },
+  "reason": "Optional compiled-worker test had a stale 100-request threshold. Read-only fetch confirms canonical runtime already has160; this release adds no asset requests. Corrected cap to reviewed160, retained40MiB cap and exact asset/media inventory checks. Original failing log preserved."
+}

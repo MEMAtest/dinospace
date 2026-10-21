@@ -1,0 +1,40 @@
+{
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "deployment": "dpl_BUNZ6wCdpYGtWEh1TDvx4k9iTbwv",
+  "url": "https://dinospace-eight.vercel.app",
+  "targetedGames": [
+    "Dino Jigsaw",
+    "Askia Dino Detective",
+    "Amari Puzzle Pop",
+    "Curriculum Quest"
+  ],
+  "status": "targeted acceptance passed on canonical production",
+  "doesNotCertifyWholeCatalogue5of5": true,
+  "production": {
+    "geographyQuestions": 60,
+    "jigsawRounds": 36,
+    "puzzlePopPictures": 24,
+    "detectiveSearches": 36,
+    "widths": [
+      390,
+      1440
+    ],
+    "pageErrors": 0,
+    "providerCalls": 0,
+    "nativeTouchDrag": true,
+    "worldBackAndFactResume": true,
+    "brokenImagesOnFinalControlCheck": 0,
+    "horizontalOverflowOnFinalControlCheck": false
+  },
+  "tests": {
+    "passed": 44,
+    "failed": 0,
+    "skipped": 0,
+    "compiledWorkerBudgetIncluded": true
+  },
+  "lint": "scoped ESLint passed",
+  "build": "passed; existing chunk-size warning retained",
+  "noNewPaidProviderJobs": true,
+  "humanListening": false
+}

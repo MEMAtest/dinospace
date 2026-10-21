@@ -13,7 +13,7 @@ const nature = new URL('../assets/puzzle-pop/nature-lab-leaves-3d.webp', import.
 
 export const PUZZLE_POP_CHAPTERS = Object.freeze([
   Object.freeze({
-    id: 'starter', name: 'Picture Pioneers', band: 'starter', grid: 2,
+    id: 'starter', name: 'Picture Pioneers', band: 'starter', grid: 3,
     skill: 'Match big picture pieces and spot the main shapes.',
     visualTip: 'Compare a piece’s corner or edge with the same spot in the preview.',
     scenes: Object.freeze([
@@ -24,7 +24,7 @@ export const PUZZLE_POP_CHAPTERS = Object.freeze([
     ]),
   }),
   Object.freeze({
-    id: 'growing', name: 'Curious Constructors', band: 'growing', grid: 3,
+    id: 'growing', name: 'Curious Constructors', band: 'growing', grid: 4,
     skill: 'Use edges, colours and smaller details to fit each piece.',
     visualTip: 'Match one clear edge or colour landmark, then fit its neighbours.',
     scenes: Object.freeze([

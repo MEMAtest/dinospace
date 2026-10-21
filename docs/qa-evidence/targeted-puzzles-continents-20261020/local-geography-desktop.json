@@ -1,0 +1,77 @@
+{
+  "origin": "http://localhost:5180",
+  "width": 1440,
+  "runs": [
+    {
+      "band": "starter",
+      "orders": [
+        [
+          "map-key-harbour",
+          "map-east",
+          "continent-asia",
+          "continent-antarctica",
+          "continent-africa"
+        ],
+        [
+          "continent-europe",
+          "continent-south",
+          "continent-americas",
+          "continent-australia",
+          "map-key-harbour"
+        ]
+      ],
+      "fiveDistinctPerRun": true,
+      "heldFactAndReloadPassed": true
+    },
+    {
+      "band": "growing",
+      "orders": [
+        [
+          "uk-wales-capital",
+          "continent-antarctica",
+          "map-east",
+          "uk-england-capital",
+          "ocean-southern"
+        ],
+        [
+          "ocean-arctic",
+          "map-physical",
+          "ocean-pacific",
+          "continent-europe",
+          "map-key-harbour"
+        ]
+      ],
+      "fiveDistinctPerRun": true,
+      "heldFactAndReloadPassed": true
+    },
+    {
+      "band": "challenge",
+      "orders": [
+        [
+          "uk-england-capital",
+          "uk-sea-between",
+          "country-kenya",
+          "weather-not-climate",
+          "country-japan"
+        ],
+        [
+          "island-careful-claim",
+          "ocean-indian",
+          "uk-sea-west",
+          "map-key-harbour",
+          "ocean-pacific"
+        ]
+      ],
+      "fiveDistinctPerRun": true,
+      "heldFactAndReloadPassed": true
+    }
+  ],
+  "pageErrors": [],
+  "providerCalls": 0,
+  "recordedAt": "2026-10-20T08:17:28.472383+00:00",
+  "runtimeCommit": "tested source carried into 14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "rawLog": {
+    "path": "output/playwright/targeted-puzzles-continents-20261020/curriculum-local-1440.log",
+    "sha256": "4d2ee91fb21d5ee266b9ac4f9bada28bda648b4ab1ad7afbc8174c2e6ce506f7"
+  }
+}
