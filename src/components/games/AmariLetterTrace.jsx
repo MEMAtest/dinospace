@@ -246,6 +246,7 @@ const AmariLetterTrace = ({
   }, [keyboardMode, showGuide, traceLetter]);
 
   useEffect(() => {
+    if (phase !== 'play') return undefined;
     drawGuide();
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
@@ -256,7 +257,7 @@ const AmariLetterTrace = ({
       observer?.disconnect();
       window.removeEventListener('resize', drawGuide);
     };
-  }, [drawGuide, roundPassed]);
+  }, [drawGuide, phase, roundPassed]);
 
   const updateReady = useCallback(() => {
     const strokes = guideRef.current;
