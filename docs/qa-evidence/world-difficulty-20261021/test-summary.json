@@ -1,0 +1,11 @@
+{
+  "runtimeSource": "87ad5025f77d5f3da93151e49344e61e89c037c2",
+  "command": "PWA_BUILD_DIR=dist node --test test/spellingStudio.test.mjs test/offlineServiceWorker.test.mjs",
+  "tests": 16,
+  "passed": 16,
+  "failed": 0,
+  "skipped": 0,
+  "lint": "passed with zero warnings on all changed runtime files",
+  "build": "passed; existing bundle-size warnings remain",
+  "technicalPlayback": "13 longer word controls completed locally and in canonical production; human listening not claimed"
+}

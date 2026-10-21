@@ -21,7 +21,7 @@ Production full progression rehearsal is recorded separately in `production-resu
 
 ## Resources
 
-Reused the current checkout, dependencies and one contained headless Chromium session. No new checkout, browser installation, dependency installation, image generation or paid voice/story request. Evidence is bounded to five MiB, including failure diagnostics and representative captures. No real child records were changed by QA.
+Reused the current checkout and dependencies; used one contained headless Chromium session without visible Chrome windows. No new checkout, browser installation, dependency installation, image generation or paid voice/story request. Evidence is bounded to five MiB, including failure diagnostics and representative captures. No real child records were changed by QA.
 
 ## Production-only issue caught before acceptance
 
@@ -34,3 +34,5 @@ The corrected release passed 31 native Spelling answers across all six levels an
 Served entry: `/assets/arcade-CYfxQJpG.js`, SHA256 `21bafa73daef9285fb7776e816247838de3beb9221214bdaee1be69224fde3e8`; active cache inventory includes `amari-discovery-v23` and the preserved media cache. Vercel independently binds that canonical deployment to the exact runtime source above.
 
 Final production audio/desktop supplement: all 13 longer-word Hear the word controls played their packaged recordings to completion with positive volume. The hardest Hangman level exposed all 26 letter choices; a wrong-letter attempt followed by a physical-keyboard solution recovered correctly. No page errors or voice/story API attempts. Screenshots were visually inspected; no new 5/5 score is assigned.
+
+Closeout: approximately 4.3 MiB of canonical and raw QA evidence retained, no new worktree or dependency install. The task preview server was stopped, the QA tab parked, and the three task-owned temporary helper/log files removed. Existing unrelated evidence was preserved. Code and acceptance records pushed to `codex/solar-blender-planets-20261016`.

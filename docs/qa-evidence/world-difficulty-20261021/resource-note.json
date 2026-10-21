@@ -6,5 +6,16 @@
   "initialFreeGiB": 77,
   "artifactBudgetMiB": 5,
   "existingContainedBrowser": "amari-targeted-contained",
-  "existingQAProfileOnly": true
+  "existingQAProfileOnly": true,
+  "canonicalEvidenceApproxKiB": 2408,
+  "rawEvidenceApproxKiB": 1996,
+  "newCheckouts": 0,
+  "temporaryFilesRemoved": [
+    "/tmp/write-amari-rehearsal.mjs",
+    "/tmp/amari-world-difficulty-tests.log",
+    "/tmp/amari-world-difficulty-build.log"
+  ],
+  "taskPreviewServerStopped": true,
+  "qaBrowserParked": "about:blank",
+  "retained": "Source-bound acceptance evidence, representative captures and unique failure diagnostics; unrelated pre-existing evidence preserved"
 }
