@@ -9,6 +9,7 @@ const MAX_MISTAKES = 6;
 import { makeSpellingQueue, SPELLING_PREANSWER_CUES, spellingLevelWords } from '../../data/spellingStudio.js';
 
 const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, sessionLevel = 0 }) => {
+  const narrate = useCallback((text) => speak(text, { premium: false }), [speak]);
   const [wordIndex, setWordIndex] = useState(0);
   const [runSeed] = useState(() => Math.floor(Math.random() * 0xFFFFFFFF));
   const [guessedLetters, setGuessedLetters] = useState([]);
@@ -55,10 +56,10 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (word.word) speak(word.word);
+      if (word.word) narrate(word.word);
     }, 60);
     return () => clearTimeout(timer);
-  }, [speak, word.word, wordIndex]);
+  }, [narrate, word.word, wordIndex]);
 
   useEffect(() => () => {
     if (nextRoundTimerRef.current) clearTimeout(nextRoundTimerRef.current);
@@ -73,9 +74,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       const stars = usedHint ? 6 : 8;
       setRescues((count) => count + 1);
       playSfx('complete');
-      speak(usedHint
-        ? `Great rescue! The word is ${word.word}.`
-        : `Perfect rescue! The word is ${word.word}.`);
+      narrate(word.word);
       onGameEvent?.('hangman', 'word_completed');
       onGameEvent?.('hangman', 'learning_attempt', makeLearningEvent({
         skill: 'known-word-consolidation', item: word.word, response: word.word, correct: true,
@@ -85,11 +84,11 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       onCelebrate(usedHint ? 'Word rescued!' : 'Perfect word rescue!', stars, 0, 'hangman');
     } else {
       playSfx('oops');
-      speak(`That was a tricky one. The word was ${word.word}. Let us try another!`);
+      narrate(word.word);
     }
 
     // Keep the answer visible until the child chooses the next word.
-  }, [onCelebrate, onGameEvent, playSfx, speak, word.family, word.word, wrongLetters.length]);
+  }, [onCelebrate, onGameEvent, playSfx, narrate, word.family, word.word, wrongLetters.length]);
 
   const chooseLetter = useCallback((letter, { fromHint = false } = {}) => {
     if (roundState !== 'playing' || guessedLetters.includes(letter)) return;
@@ -103,7 +102,7 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
         finishRound('won', hintsUsed > 0 || fromHint);
       } else {
         playSfx(fromHint ? 'sparkle' : 'pop');
-        if (!fromHint) speak(`Yes! ${letter} is in the word.`);
+        if (!fromHint) narrate(`Yes! ${letter} is in the word.`);
       }
       return;
     }
@@ -115,8 +114,8 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     }
 
     playSfx('oops');
-    speak(`Not this time. You have ${MAX_MISTAKES - nextMistakes} shields left.`);
-  }, [finishRound, guessedLetters, hintsUsed, playSfx, roundState, speak, word.word, wordLetters]);
+    narrate(`Not this time. You have ${MAX_MISTAKES - nextMistakes} shields left.`);
+  }, [finishRound, guessedLetters, hintsUsed, playSfx, roundState, narrate, word.word, wordLetters]);
 
   useEffect(() => {
     const onKeyDown = (event) => {
@@ -137,13 +136,13 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     if (!letterToReveal) return;
     setHintsUsed(1);
     playSfx('sparkle');
-    speak('A star has revealed a letter.');
+    narrate('A star has revealed a letter.');
     chooseLetter(letterToReveal, { fromHint: true });
   };
 
   const hearClue = () => {
     playSfx('click');
-    speak(word.word);
+    narrate(word.word);
   };
 
   const statusMessage = roundState === 'won'
