@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-21T22:12:40.581157+00:00",
+  "updatedAt": "2026-10-21T22:37:41.920588+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "87ad5025f77d5f3da93151e49344e61e89c037c2",
+  "canonicalRelease": "6960c53fa157f69b67ca699b9b3f31c5a17022fd",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -961,5 +961,14 @@
     "evidence": "docs/qa-evidence/world-difficulty-20261021/report.md",
     "editorialScoreAssigned": false,
     "scope": "Targeted functional improvements; historical editorial counts preserved. Not all-game 5/5 acceptance."
+  },
+  "latestArtworkRelease": {
+    "game": "Shadow Match",
+    "source": "6960c53fa157f69b67ca699b9b3f31c5a17022fd",
+    "deployment": "dpl_77Wh681qiAQg2UER5ygr2dccmU27",
+    "evidence": "docs/qa-evidence/shadow-art-20261021/report.md",
+    "productionMatches": 29,
+    "allSixAssetsDecoded": true,
+    "editorialScoreAssigned": false
   }
 }

@@ -1,0 +1,59 @@
+{
+  "tool": "built-in image_gen",
+  "artwork": {
+    "trike": {
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-fd133bf8-c69e-4e07-a3eb-0dc0066bc647.png",
+      "prompt": "Use case: stylized-concept. Asset type: transparent character sprite for the Amari Discovery HQ preschool Shadow Match game. Create ONE full-body ORANGE TRICERATOPS in a strict right-facing side profile, horizontal composition, entire tail, four feet, nose horn and two brow horns and distinctive big scalloped frill fully visible. Premium polished 3D animated children's film look: soft rounded body, rich warm orange/coral skin, cream belly/horns, subtle tactile detail, large kind expressive eye and cheerful closed-mouth smile, beautiful soft studio lighting and dimensional shading. Strong readable species silhouette even at 100px. Cute and believable proportions rather than a flat icon. Subject centered with 8% clear transparent margin all around. True transparent background, no ground/contact shadow, no floor, no scene, no props, no letters, no labels, no border, no sticker rim, no second animal. Broad landscape full body designed to fit a 5:4 sprite frame.",
+      "sourceSha256": "9d0ddd272ace30ba7b73cca248b152141d3db5c82a8be769d7615350e7a0ed1c",
+      "runtimeAsset": "public/art/shadow-match-v1/trike.webp",
+      "bytes": 81728,
+      "sha256": "ff75918ab59be9b17f0326c2b98b0adc9256aed47d99446221d436ad024deb03"
+    },
+    "trex": {
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-8cbdbe38-f881-4f33-b133-7c5fadfd0d19.png",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated character sprite for Amari Discovery HQ preschool Shadow Match. Input image is STYLE REFERENCE ONLY: match its premium polished 3D children's animation rendering, dimensional tactile skin, lovely soft studio lighting, rounded cute proportions and kind expressive eye; create a DIFFERENT SPECIES specified below, not an orange Triceratops. Subject: GREEN TYRANNOSAURUS REX: a large rounded head, two tiny arms with two fingers, two strong legs, long balancing tail, friendly closed-mouth grin. Upright biped. Distinct T-rex outline, not a horned dinosaur. Full body, right-facing side profile, cheerful and calm. Strong immediately recognizable species silhouette at 100px; keep meaningful gaps between limbs/tail/wings. Centre in a 5:4 landscape canvas with at least 6% clear transparent margins; fit every extremity, do not crop. True transparent alpha background, NO floor, NO cast shadow, NO props, NO labels, NO text, NO border, NO sticker rim. ONE animal only. Same cohesive richly rendered storybook 3D quality as reference.",
+      "sourceSha256": "1fa89c3cd8f034b95f7c91badb31a511ad3145b2632e85c2c44b6d850ba917de",
+      "runtimeAsset": "public/art/shadow-match-v1/trex.webp",
+      "bytes": 68562,
+      "sha256": "7cba3e888c0893f192f00b85ed4e22308d13be8d0ab755515172cf8a6b3fb4bc"
+    },
+    "stego": {
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-8ed0e072-68cb-4363-b804-f40aeece506d.png",
+      "prompt": "Use case: stylized-concept. Asset type: one isolated character sprite for Amari Discovery HQ preschool Shadow Match. Input image is STYLE REFERENCE ONLY: match its premium polished 3D children's animation rendering, dimensional tactile skin, lovely soft studio lighting, rounded cute proportions and kind expressive eye; create a DIFFERENT SPECIES specified below, not an orange Triceratops. Subject: PURPLE STEGOSAURUS: four sturdy feet, low rounded head, two staggered rows of large distinct PINK triangular plates along the back, tapering tail with four clear tail spikes. Clearly a Stegosaurus, no horns or frill. Full body, right-facing side profile, cheerful and calm. Strong immediately recognizable species silhouette at 100px; keep meaningful gaps between limbs/tail/wings. Centre in a 5:4 landscape canvas with at least 6% clear transparent margins; fit every extremity, do not crop. True transparent alpha background, NO floor, NO cast shadow, NO props, NO labels, NO text, NO border, NO sticker rim. ONE animal only. Same cohesive richly rendered storybook 3D quality as reference.",
+      "sourceSha256": "51f7a1381ca716cd9630ff14c59fb98b7a8b058d23d121157fce4bd7d4c939a2",
+      "runtimeAsset": "public/art/shadow-match-v1/stego.webp",
+      "bytes": 78708,
+      "sha256": "97d9ff7ef92a27f3fb3ba375c692d4d501235f74ab668fc8050460501c1abb59"
+    },
+    "ptero": {
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-59b39683-e7cc-4881-83fb-fecf1ed39d4b.png",
+      "prompt": "Create a premium polished 3D animated storybook animal illustration. One adorable CORAL AND GOLD PTERODACTYL flying to the right, broad membrane wings spread with both wingtips fully visible, long beak and backward head crest. Facing right in side profile, kind large eye, cheerful smile, rounded soft character design, richly detailed skin and lovely dimensional soft studio lighting. One isolated animal centred on a fully transparent background. Keep the whole animal inside the image with clear empty margins. No ground, no contact shadow, no scenery, no props, no text or border. Landscape composition for a colourful educational dinosaur matching game. Match the rich friendly rendered look of a high-quality animated family adventure.",
+      "sourceSha256": "f42ca0658d7c658dd4b25fcf6f9b90909132d572ebf902114d40788a10e79608",
+      "runtimeAsset": "public/art/shadow-match-v1/ptero.webp",
+      "bytes": 70476,
+      "sha256": "deb083ae32a94ddc8b7a086aaf2edf5269749b4b1d4003f6771fc4c612e83ed2",
+      "initialSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-3ea224f7-2abb-4936-b001-55c5177c651e.png",
+      "editPrompt": "Background extraction edit. Preserve this exact friendly animal, its pose, anatomy, colours, texture and lighting. Remove ALL of the coloured glowing haze, atmospheric blur, backdrop and floor shadow surrounding the animal. Only the animal itself should remain as a clean transparent cutout with sharply defined silhouette and gently antialiased edges. Every pixel outside the animal, including gaps between limbs and wings, must be genuinely fully transparent alpha zero, not translucent coloured fog. Do not add any shadow, glow, border, text or other objects. Keep the entire animal and extremities visible with some transparent margin. This cutout will be used to generate an exact silhouette in a shape matching game."
+    },
+    "ankylo": {
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-624159f9-ad2c-4155-ab1a-305a81fe29b3.png",
+      "prompt": "Create a premium polished 3D animated storybook animal illustration. One adorable GOLDEN YELLOW ANKYLOSAURUS with a low rounded armoured body, four short legs and a long tail with a large rounded club-shaped tip clearly visible. Facing right in side profile, kind large eye, cheerful smile, rounded soft character design, richly detailed skin and lovely dimensional soft studio lighting. One isolated animal centred on a fully transparent background. Keep the whole animal inside the image with clear empty margins. No ground, no contact shadow, no scenery, no props, no text or border. Landscape composition for a colourful educational dinosaur matching game. Match the rich friendly rendered look of a high-quality animated family adventure.",
+      "sourceSha256": "28804c9493aa79ea1072a340cc1ac034865c47e105181226ce6a7234f4db586d",
+      "runtimeAsset": "public/art/shadow-match-v1/ankylo.webp",
+      "bytes": 80882,
+      "sha256": "2e1bd4491bc74b5f0aca89b5e55aef7e718af7ba6e4dc4f55bd1e86b4c5086f1",
+      "initialSource": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-ce2550ee-1ac2-44b3-b0d5-a85e017134d6.png",
+      "editPrompt": "Background extraction edit. Preserve this exact friendly animal, its pose, anatomy, colours, texture and lighting. Remove ALL of the coloured glowing haze, atmospheric blur, backdrop and floor shadow surrounding the animal. Only the animal itself should remain as a clean transparent cutout with sharply defined silhouette and gently antialiased edges. Every pixel outside the animal, including gaps between limbs and wings, must be genuinely fully transparent alpha zero, not translucent coloured fog. Do not add any shadow, glow, border, text or other objects. Keep the entire animal and extremities visible with some transparent margin. This cutout will be used to generate an exact silhouette in a shape matching game."
+    },
+    "bronto": {
+      "source": "src/assets/little/detective-bronto.webp",
+      "reusedExisting": true,
+      "prompt": "Reused the existing reviewed blue Brachiosaurus illustration; no additional generation.",
+      "sourceSha256": "3e40c262ad4dd85ec97fa68c3fc1a5b274f790f954e7b86823a4bb4ad1886f0c",
+      "runtimeAsset": "public/art/shadow-match-v1/bronto.webp",
+      "bytes": 57786,
+      "sha256": "00be11a2c5343149243fe02eca714673ffed83e563fb9d0a3e2b4cd51205bbe2"
+    }
+  },
+  "notes": "One batch and a subsequent blue Brachiosaurus request received output moderation rejections. No further Brachiosaurus retries; the existing polished app illustration was reused."
+}

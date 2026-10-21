@@ -1,0 +1,274 @@
+{
+  "rows": [
+    {
+      "player": "Amari",
+      "kind": "stego",
+      "nativeMatch": true
+    },
+    {
+      "width": 390,
+      "level": 1,
+      "round": 1,
+      "kind": "stego",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 1,
+      "round": 2,
+      "kind": "trike",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 1,
+      "round": 3,
+      "kind": "trex",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 1,
+      "round": 4,
+      "kind": "trike",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 2,
+      "round": 1,
+      "kind": "trex",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 2,
+      "round": 2,
+      "kind": "bronto",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 2,
+      "round": 3,
+      "kind": "stego",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 2,
+      "round": 4,
+      "kind": "trex",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 3,
+      "round": 1,
+      "kind": "stego",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 3,
+      "round": 2,
+      "kind": "ptero",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 3,
+      "round": 3,
+      "kind": "trex",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 3,
+      "round": 4,
+      "kind": "trike",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 3,
+      "round": 5,
+      "kind": "bronto",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 4,
+      "round": 1,
+      "kind": "stego",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 4,
+      "round": 2,
+      "kind": "bronto",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 4,
+      "round": 3,
+      "kind": "trex",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 4,
+      "round": 4,
+      "kind": "bronto",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 4,
+      "round": 5,
+      "kind": "stego",
+      "sameImageForShadow": true,
+      "mirrored": false
+    },
+    {
+      "width": 390,
+      "level": 5,
+      "round": 1,
+      "kind": "ankylo",
+      "sameImageForShadow": true,
+      "mirrored": true
+    },
+    {
+      "width": 390,
+      "level": 5,
+      "round": 2,
+      "kind": "trex",
+      "sameImageForShadow": true,
+      "mirrored": true
+    },
+    {
+      "width": 390,
+      "level": 5,
+      "round": 3,
+      "kind": "bronto",
+      "sameImageForShadow": true,
+      "mirrored": true
+    },
+    {
+      "width": 390,
+      "level": 5,
+      "round": 4,
+      "kind": "ptero",
+      "sameImageForShadow": true,
+      "mirrored": true
+    },
+    {
+      "width": 390,
+      "level": 5,
+      "round": 5,
+      "kind": "ankylo",
+      "sameImageForShadow": true,
+      "mirrored": true
+    },
+    {
+      "width": 1440,
+      "level": 5,
+      "round": 1,
+      "kind": "stego",
+      "dragged": true
+    },
+    {
+      "width": 1440,
+      "level": 5,
+      "round": 2,
+      "kind": "trex",
+      "dragged": true
+    },
+    {
+      "width": 1440,
+      "level": 5,
+      "round": 3,
+      "kind": "trike",
+      "dragged": true
+    },
+    {
+      "width": 1440,
+      "level": 5,
+      "round": 4,
+      "kind": "trex",
+      "dragged": true
+    },
+    {
+      "width": 1440,
+      "level": 5,
+      "round": 5,
+      "kind": "ptero",
+      "dragged": true
+    }
+  ],
+  "seen": [
+    "stego",
+    "trike",
+    "trex",
+    "bronto",
+    "ptero",
+    "ankylo"
+  ],
+  "assets": [
+    {
+      "kind": "trex",
+      "width": 800,
+      "height": 641
+    },
+    {
+      "kind": "trike",
+      "width": 800,
+      "height": 641
+    },
+    {
+      "kind": "stego",
+      "width": 800,
+      "height": 641
+    },
+    {
+      "kind": "bronto",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "kind": "ptero",
+      "width": 800,
+      "height": 534
+    },
+    {
+      "kind": "ankylo",
+      "width": 800,
+      "height": 534
+    }
+  ],
+  "errors": [],
+  "api": [],
+  "runtime": {
+    "entryPath": "/assets/arcade-77oq1ZO_.js",
+    "workerV24": true
+  }
+}

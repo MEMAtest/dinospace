@@ -1,0 +1,11 @@
+{
+  "runtimeSource": "6960c53fa157f69b67ca699b9b3f31c5a17022fd",
+  "command": "PWA_BUILD_DIR=dist node --test test/littleGames.test.mjs test/shadowMatchArt.test.mjs test/offlineServiceWorker.test.mjs",
+  "passed": 16,
+  "failed": 0,
+  "skipped": 0,
+  "lint": "all changed runtime files passed",
+  "build": "passed; existing bundle-size warnings retained",
+  "assets": "six true-alpha WebP files; 438142 bytes combined; alpha corners zero; playable species covered exactly",
+  "existingTestCorrection": "The older-game test assumed every stage had a distinct three-band label. Spelling now has six stages; replaced that stale constraint for words with real increasing word-length and adequate-pool checks."
+}

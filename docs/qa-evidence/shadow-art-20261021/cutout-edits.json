@@ -1,0 +1,10 @@
+{
+  "ptero": {
+    "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-59b39683-e7cc-4881-83fb-fecf1ed39d4b.png",
+    "editPrompt": "Background extraction edit. Preserve this exact friendly animal, its pose, anatomy, colours, texture and lighting. Remove ALL of the coloured glowing haze, atmospheric blur, backdrop and floor shadow surrounding the animal. Only the animal itself should remain as a clean transparent cutout with sharply defined silhouette and gently antialiased edges. Every pixel outside the animal, including gaps between limbs and wings, must be genuinely fully transparent alpha zero, not translucent coloured fog. Do not add any shadow, glow, border, text or other objects. Keep the entire animal and extremities visible with some transparent margin. This cutout will be used to generate an exact silhouette in a shape matching game."
+  },
+  "ankylo": {
+    "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-624159f9-ad2c-4155-ab1a-305a81fe29b3.png",
+    "editPrompt": "Background extraction edit. Preserve this exact friendly animal, its pose, anatomy, colours, texture and lighting. Remove ALL of the coloured glowing haze, atmospheric blur, backdrop and floor shadow surrounding the animal. Only the animal itself should remain as a clean transparent cutout with sharply defined silhouette and gently antialiased edges. Every pixel outside the animal, including gaps between limbs and wings, must be genuinely fully transparent alpha zero, not translucent coloured fog. Do not add any shadow, glow, border, text or other objects. Keep the entire animal and extremities visible with some transparent margin. This cutout will be used to generate an exact silhouette in a shape matching game."
+  }
+}
