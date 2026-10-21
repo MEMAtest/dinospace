@@ -1,8 +1,18 @@
-# Batch 1 candidate review — 19 October 2026
+# Batch 1 closeout status — 21 October 2026
+
+## Current merged-source verification
+
+- Merged source under closeout: `eba6561ecd67cddff445910b6fd573565e2d9230`.
+- Fresh canonical Vercel identity verification still reports deployment `dpl_BUNZ6wCdpYGtWEh1TDvx4k9iTbwv`, runtime commit `14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd`. This confirms the current canonical runtime identity; it does not show that the merged `eba6561e` source is deployed there.
+- Root's cumulative browser rehearsal of the merged source is in progress as of this update. It is not recorded as complete, and no game score or acceptance is assigned.
+- Source review found no concrete remaining Storybook/API defect. Scoped test counts are reported separately: root reports 60 focused tests, this audit ran 40 Storybook tests, and other scopes report 25 and 15 tests with overlap. These counts must not be summed.
+- Human listening remains pending. Browser playback, receipt matching, byte checks, and media decoding establish technical playback only; they do not establish intelligibility or agreement between spoken audio and story text.
+
+## Historical candidate review — 19 October 2026
 
 ## Release state
 
-Unreleased candidate on `codex/solar-blender-planets-20261016`, based on `d9fff26d`. No game receives a final editorial score yet. Canonical production was reverified as deployment `dpl_AZMdxgc4m9pQdnt4uDdsGAB9fjuY`; this candidate is not that deployment.
+The evidence below was collected against the 19 October candidate, including Storybook source `2e000d34833bc0d99a2ec98601e869c6f42144f8`, not the current canonical runtime. No game received a final editorial score from that candidate review.
 
 ## Repairs made and rehearsed
 
@@ -18,17 +28,18 @@ JSON reports in this directory record actual local browser controls. Story gener
 
 ## Approved provider work — 19 October closeout
 
-Both fixed approvals have now been exercised. See `approved-provider-qa/` for receipts, inventories, deployed identity, native audio controls, readiness and the recoverable one-book backup.
+Both fixed approvals were exercised and are complete. The absence of further provider work is not an open gate. See `approved-provider-qa/` for receipts, inventories, candidate deployment identity, native audio controls, readiness and the recoverable one-book backup. Do not restart or duplicate either approved job.
 
 - **Spelling:** exactly 56 newly generated recordings, no automatic retries; 58/58 words ready including two reused recordings. Every file passed ffmpeg decoding, receipt hash matching and Chromium playback to `ended`. Ten actual “Hear the word” actions passed through the game UI across 390px and 1440px, with zero provider requests and no page errors.
 - **Storybook:** one six-page synthetic book, **Pip and the Sunflower**, reached saved Ready with seven illustrations and seven narrations. All 14 binary files match successful provider receipts. Actual generation made 15 upstream requests, with no fallback/retry. Counting the failed local placeholder POST and a read-only placeholder auth GET conservatively gives 17 provider HTTP requests against the approved cap of 23. The local failure was a Vercel Sensitive export marker, not a broken deployed credential; the subsequent deployed provider handlers succeeded. No second book was generated.
 - **Latency:** successful outline handling took about 11.5 seconds; all media responses arrived about 3 minutes 19 seconds after Create. Ready was observed later; this is not an exact first-Ready timing. The actual readable draft was opened while the last assets were still arriving. A complete narrated illustrated book is not instant, although reading the existing shelf does not require provider generation.
-- **Deployment:** candidate source `2e000d34833bc0d99a2ec98601e869c6f42144f8` is hosted at unaliased deployment `dpl_5fUEez42um6ucgqd7wuPGgtjnoup`. Its API handlers used the configured hosted secrets. The local reader rehearsal used the same committed source through a bounded authenticated proxy; it is not canonical production gameplay proof. Production remains unchanged at `dpl_AZMdxgc4m9pQdnt4uDdsGAB9fjuY`.
+- **Deployment (19 October snapshot):** candidate source `2e000d34833bc0d99a2ec98601e869c6f42144f8` is hosted at unaliased deployment `dpl_5fUEez42um6ucgqd7wuPGgtjnoup`. Its API handlers used the configured hosted secrets. The local reader rehearsal used the same committed source through a bounded authenticated proxy; it is not canonical production gameplay proof. At that time, canonical production was recorded as `dpl_AZMdxgc4m9pQdnt4uDdsGAB9fjuY`; the 21 October identity verification is listed above.
 
-## Required release gates still open
+## Remaining acceptance gates
 
-1. Human listening acceptance remains distinct from technical decoding/playback. It has not been established by browser playback.
-2. Cumulative release acceptance and a canonical production rehearsal remain before assigning final scores or moving to Batch 2. Saved-book restore now passes: all 14 assets validated, the imported cover decoded, existing titles remained, and no provider requests occurred. Fourteen cover/page screens passed at 390px and 1440px, all seven narrations reached their end on mobile, and desktop play/pause passed. Unfinished page 4 survives reload; completed books reopen with Start Again. A local final amendment replaces the nonexistent quiz action with Finish story on generated books without comprehension; native controls pass at both sizes. Neither a hosted candidate nor successful provider calls establishes a 5/5 game or production acceptance.
+1. Human listening remains unverified, distinct from technical decoding and browser playback.
+2. Root's cumulative browser rehearsal is still in progress. After it finishes, reconcile the tested source identity with canonical deployment before final scoring or moving to Batch 2. The current canonical deployment is still the separately identified runtime above.
+3. Historical candidate-only gates that did pass include saved-book restore (all 14 assets validated, existing titles retained, no provider requests), fourteen generated-book cover/page screens at 390px and 1440px, mobile playback through all seven generated narrations, desktop play/pause, unfinished page-4 resume after reload, and completed-book replay. These do not replace the current merged-source rehearsal or human listening.
 
 ## Resources and recovery
 

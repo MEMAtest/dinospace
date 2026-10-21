@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-19T21:46:36.404135+00:00",
+  "updatedAt": "2026-10-21",
   "scope": "34 current catalogue activities; historical 26-game ledger remains intact",
   "target": "5/5 against explicit per-game and shared criteria",
   "counts": {
@@ -19,7 +19,7 @@
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
       "historicalRoadmap": "../game-quality-4.5-roadmap.md",
-      "implementation": "unreleased candidate; root local gameplay evidence retained in batch1/",
+      "implementation": "merged source eba6561e; cumulative closeout rehearsal in progress; no score assigned",
       "acceptanceReport": "batch1/root-review.md"
     },
     {
@@ -31,7 +31,7 @@
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
       "historicalRoadmap": "../game-quality-4.5-roadmap.md",
-      "implementation": "unreleased candidate; root local gameplay evidence retained in batch1/",
+      "implementation": "merged source eba6561e; cumulative closeout rehearsal in progress; no score assigned",
       "acceptanceReport": "batch1/root-review.md"
     },
     {
@@ -43,7 +43,7 @@
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
       "historicalRoadmap": "../game-quality-4.5-roadmap.md",
-      "implementation": "unreleased candidate; root local gameplay evidence retained in batch1/",
+      "implementation": "merged source eba6561e; cumulative closeout rehearsal in progress; no score assigned",
       "acceptanceReport": "batch1/root-review.md"
     },
     {
@@ -55,7 +55,7 @@
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
       "historicalRoadmap": "../game-quality-4.5-roadmap.md",
-      "implementation": "unreleased candidate; root local gameplay evidence retained in batch1/",
+      "implementation": "merged source eba6561e; cumulative closeout rehearsal in progress; no score assigned",
       "acceptanceReport": "batch1/root-review.md"
     },
     {
@@ -359,8 +359,25 @@
       "historicalRoadmap": null
     }
   ],
-  "releaseGate": "Batch 1 remains pending audio, budgeted live provider story, listening and canonical production acceptance.",
+  "releaseGate": "Batch 1 remains pending current merged-source cumulative rehearsal, human listening, canonical-source reconciliation and final scores. Approved provider jobs and recording inventory work are complete.",
+  "currentVerification": {
+    "date": "2026-10-21",
+    "mergedSource": "eba6561ecd67cddff445910b6fd573565e2d9230",
+    "canonicalDeployment": "dpl_BUNZ6wCdpYGtWEh1TDvx4k9iTbwv",
+    "canonicalRuntimeCommit": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+    "identityOnly": true,
+    "mergedSourceCanonicalRehearsal": "in progress; not yet recorded complete",
+    "humanListening": "pending",
+    "focusedTests": {
+      "rootReported": 60,
+      "storybookAudit": 40,
+      "otherScopesReported": [25, 15],
+      "countsOverlap": true,
+      "additiveTotal": null
+    }
+  },
   "approvedProviderWork": {
+    "status": "complete historical approved jobs; do not restart or duplicate",
     "sourceCommit": "2e000d34833bc0d99a2ec98601e869c6f42144f8",
     "newSpellingRecordings": 56,
     "spellingReady": 58,
