@@ -1,0 +1,182 @@
+{
+  "rows": [
+    {
+      "kind": "preview",
+      "width": 1440,
+      "name": "Read & Write"
+    },
+    {
+      "kind": "preview",
+      "width": 1440,
+      "name": "Maths Missions"
+    },
+    {
+      "kind": "preview",
+      "width": 1440,
+      "name": "Explore & Languages"
+    },
+    {
+      "kind": "preview",
+      "width": 1440,
+      "name": "Creative Lab"
+    },
+    {
+      "kind": "preview",
+      "width": 1440,
+      "name": "Thinking & Play"
+    },
+    {
+      "kind": "preview",
+      "width": 390,
+      "name": "Read & Write"
+    },
+    {
+      "kind": "preview",
+      "width": 390,
+      "name": "Maths Missions"
+    },
+    {
+      "kind": "preview",
+      "width": 390,
+      "name": "Explore & Languages"
+    },
+    {
+      "kind": "preview",
+      "width": 390,
+      "name": "Creative Lab"
+    },
+    {
+      "kind": "preview",
+      "width": 390,
+      "name": "Thinking & Play"
+    },
+    {
+      "kind": "spelling",
+      "level": 1,
+      "words": [
+        "HEN",
+        "SAT",
+        "TAP",
+        "MAP",
+        "CAT"
+      ],
+      "width": 390
+    },
+    {
+      "kind": "spelling",
+      "level": 2,
+      "words": [
+        "PAT",
+        "SAD",
+        "MAD",
+        "NAP",
+        "TAG",
+        "KID"
+      ],
+      "width": 390
+    },
+    {
+      "kind": "spelling",
+      "level": 3,
+      "words": [
+        "DOG",
+        "MAT",
+        "LOG",
+        "PIN",
+        "TAN",
+        "DIP",
+        "TIN"
+      ],
+      "width": 390
+    },
+    {
+      "kind": "spelling",
+      "level": 4,
+      "words": [
+        "STEM",
+        "ROCK",
+        "FROG"
+      ],
+      "width": 390
+    },
+    {
+      "kind": "spelling",
+      "level": 5,
+      "words": [
+        "PLANT",
+        "BRICK",
+        "HANDS",
+        "GLASS",
+        "PETAL",
+        "METAL"
+      ],
+      "width": 390
+    },
+    {
+      "kind": "spelling",
+      "level": 6,
+      "words": [
+        "PLASTIC",
+        "RABBIT",
+        "SUMMER",
+        "CANDLE"
+      ],
+      "width": 390
+    },
+    {
+      "kind": "hangman",
+      "level": 1,
+      "words": [
+        "TAN",
+        "NAP",
+        "SAT"
+      ],
+      "width": 390
+    },
+    {
+      "kind": "hangman",
+      "level": 2,
+      "words": [
+        "ROCK",
+        "FROG",
+        "STEM"
+      ],
+      "width": 390
+    },
+    {
+      "kind": "hangman",
+      "level": 3,
+      "words": [
+        "BRICK",
+        "GLASS",
+        "METAL",
+        "PLANT",
+        "PETAL",
+        "HANDS"
+      ],
+      "width": 390
+    },
+    {
+      "kind": "hangman",
+      "level": 4,
+      "words": [
+        "RABBIT",
+        "CANDLE",
+        "PLASTIC",
+        "SUMMER"
+      ],
+      "width": 390
+    }
+  ],
+  "errors": [],
+  "api": [],
+  "runtime": {
+    "entryPath": "/assets/arcade-CYfxQJpG.js",
+    "entrySha256": "21bafa73daef9285fb7776e816247838de3beb9221214bdaee1be69224fde3e8",
+    "cacheKeys": [
+      "amari-discovery-media-v1",
+      "amari-discovery-v23"
+    ],
+    "workerV23": true
+  }
+}

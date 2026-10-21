@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-20T08:19:13.316455+00:00",
+  "updatedAt": "2026-10-21T22:12:40.581157+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "14f992a65ae01f2c0de5d21fcfa3ffb751b8dfbd",
+  "canonicalRelease": "87ad5025f77d5f3da93151e49344e61e89c037c2",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -947,5 +947,19 @@
     "note": "Historical4.5counts and ratings are unchanged; this targeted release does not recertify the whole catalogue at5/5."
   },
   "historicalEditorialCanonicalRelease": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
-  "canonicalReleaseScope": "Current runtime only. Historical editorial scores retain their dated evidence and are not fresh production recertifications."
+  "canonicalReleaseScope": "Current runtime only. Historical editorial scores retain their dated evidence and are not fresh production recertifications.",
+  "latestTargetedFunctionalPatch": {
+    "source": "87ad5025f77d5f3da93151e49344e61e89c037c2",
+    "deployment": "dpl_3GkBnRTWdFep1oz2RGB8FJnZfmhZ",
+    "changes": [
+      "five world hover/focus/tap previews",
+      "six Spelling stages with 4/5/6\u20137 letter words",
+      "four Hangman levels with longer words and full alphabet challenge",
+      "packaged-only rescue narration",
+      "invalid HTML media cache recovery"
+    ],
+    "evidence": "docs/qa-evidence/world-difficulty-20261021/report.md",
+    "editorialScoreAssigned": false,
+    "scope": "Targeted functional improvements; historical editorial counts preserved. Not all-game 5/5 acceptance."
+  }
 }

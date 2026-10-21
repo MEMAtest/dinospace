@@ -1,0 +1,24 @@
+{
+  "audio": [
+    {
+      "src": "http://127.0.0.1:5181/audio/en/d6412308-matilda.mp3",
+      "ended": true,
+      "volume": 1
+    },
+    {
+      "src": "http://127.0.0.1:5181/audio/en/d6412308-matilda.mp3",
+      "ended": true,
+      "volume": 1
+    }
+  ],
+  "wordPromptVisible": [
+    "7-letter rescue",
+    "6 shields left",
+    "Words rescued",
+    "0 \u2b50",
+    "A material used for many bottles and toys.",
+    "Choose from these helpful letters"
+  ],
+  "width": 390,
+  "scrollWidth": 390
+}

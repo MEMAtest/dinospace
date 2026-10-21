@@ -1,0 +1,104 @@
+{
+  "runtimeSource": "87ad5025f77d5f3da93151e49344e61e89c037c2",
+  "files": [
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/spelling-long-production-1440.png",
+      "bytes": 894616,
+      "sha256": "dd7f4479a345d08f5750e23cdc58ef1483d88876a8ff12bf805d722d7888fb99"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/desktop-audio-production-result.json",
+      "bytes": 7190,
+      "sha256": "697034c9a00aa5a6eaa1125763155da6c83dd31ba429c3853913ffe669a17d79"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/rescue-replay-local.json",
+      "bytes": 500,
+      "sha256": "bb62caef65f420ae9de660928d226f552543ed37f3551589e7c155ca64db47ef"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/candidate-final-identity.json",
+      "bytes": 187,
+      "sha256": "9762c556a254dbb07b9f7779ed9df45a664533d42efb45da21877682244353d6"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/superseded-production-guard-failure.json",
+      "bytes": 1286,
+      "sha256": "3ae89f066a3ae5d389e8d3b7e3dc26f25a6e5905fb471e6de4458d1ba7d5b88e"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/lint.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/report.md",
+      "bytes": 4783,
+      "sha256": "57e374cb6cb0622a6e661df6b9115755afd38b940f2b03ff2c0b650e88ea5192"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/canonical-identity.json",
+      "bytes": 187,
+      "sha256": "c056370ce3443367cef118efee280434c49539617719486afd93ad598b4d9a3f"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/resource-note.json",
+      "bytes": 239,
+      "sha256": "1582d2003b1ea583e3e66ef623c1477904787dc4f978829a04c888bc3aeadfaa"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/desktop-audio-result.json",
+      "bytes": 4862,
+      "sha256": "3b085d58b31f3559ef2b4fe98b35cd0ecd75d4deb752671120952d5922875c5e"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/candidate-identity.json",
+      "bytes": 187,
+      "sha256": "c056370ce3443367cef118efee280434c49539617719486afd93ad598b4d9a3f"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/world-preview-audio-production.png",
+      "bytes": 637028,
+      "sha256": "c8e7877c447453815bc4279e9e11660daed1e90071dea29ab90a5cf8a31515d3"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/tests.log",
+      "bytes": 1680,
+      "sha256": "e472863d8866b3c1da0d0398596460c38bba0ca25cb8f517e5d306324675c8eb"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/canonical-final-identity.json",
+      "bytes": 187,
+      "sha256": "9762c556a254dbb07b9f7779ed9df45a664533d42efb45da21877682244353d6"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/hangman-production-390.png",
+      "bytes": 114362,
+      "sha256": "8d76cbe7c04d335cd651ffda0809c51da1c07830cc22208e18d9c687be10ce1d"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/world-preview-production.png",
+      "bytes": 626499,
+      "sha256": "12da621e43ae32b9fdeef85a4d23ad2c46bf73f6f583b3f00773c97fb999513d"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/hangman-keyboard-production-390.png",
+      "bytes": 113871,
+      "sha256": "a6006447cf597848bbf0608222aab6903124522be48be492028fb575a1286fea"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/local-result.json",
+      "bytes": 2714,
+      "sha256": "da12f3f9d52083442b6c8074a3cf6dabe96d3d12fba3158036a4f30f9f3017a7"
+    },
+    {
+      "path": "docs/qa-evidence/world-difficulty-20261021/production-result.json",
+      "bytes": 2978,
+      "sha256": "474609030b996d449b1298d9af22e391d6840219552b0f64e565582516aa7010"
+    }
+  ],
+  "canonicalEvidenceBytes": 2413356,
+  "rawHarnessesAndFailureLogs": "output/playwright/world-difficulty-20261021",
+  "newCheckouts": 0,
+  "dependencyInstalls": 0
+}

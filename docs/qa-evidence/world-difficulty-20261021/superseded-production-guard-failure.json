@@ -1,0 +1,32 @@
+{
+  "errors": [],
+  "api": [
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice",
+    "https://dinospace-eight.vercel.app/api/voice"
+  ],
+  "runtime": {
+    "entryPath": "/assets/arcade-CRoCFFwh.js",
+    "entrySha256": "b4096089ab0985c9c8334de20fdb8455decd391f740abf1571e17ca63ed662cc",
+    "cacheKeys": [
+      "amari-discovery-v22",
+      "amari-discovery-media-v1"
+    ],
+    "workerV22": true
+  },
+  "supersededRuntimeSource": "afd1719bd124b7b0a93b7f60c1c1df69531b6a10",
+  "upstreamProviderRequests": 0,
+  "guard": "Every listed client API attempt received a synthetic QA 403; no provider was contacted."
+}
