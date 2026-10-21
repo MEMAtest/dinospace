@@ -72,6 +72,30 @@ export const SPELLING_TRICKY_WORDS = [
   { word: 'WAS', phase: 3, emoji: '🕰️', hint: 'Was tells that something happened before now.' },
 ];
 
+// Longer-word practice reuses existing reviewed recordings; no provider call is needed.
+export const LONGER_SPELLING_WORDS = [
+  ['ROCK', ['r','o','ck'], '🪨', 'A hard lump of stone.'],
+  ['FROG', ['f','r','o','g'], '🐸', 'A small hopping animal that lives near ponds.'],
+  ['STEM', ['s','t','e','m'], '🌱', 'The stalk that holds up a flower.'],
+  ['BRICK', ['b','r','i','ck'], '🧱', 'A small block used to build a wall.'],
+  ['GLASS', ['g','l','a','ss'], '🥛', 'A see-through material used for windows.'],
+  ['HANDS', ['h','a','n','d','s'], '👐', 'The body parts at the ends of your arms.'],
+  ['PLANT', ['p','l','a','n','t'], '🪴', 'A living thing with roots and leaves.'],
+  ['METAL', ['m','e','t','a','l'], '🥄', 'A strong material used to make many spoons.'],
+  ['PETAL', ['p','e','t','a','l'], '🌸', 'One of the colourful parts around a flower’s centre.'],
+  ['RABBIT', ['r','a','b','b','i','t'], '🐇', 'A furry animal with long ears that hops.'],
+  ['SUMMER', ['s','u','m','m','e','r'], '☀️', 'The warm season after spring.'],
+  ['CANDLE', ['c','a','n','d','l','e'], '🕯️', 'A wax stick with a wick that gives light.'],
+  ['PLASTIC', ['p','l','a','s','t','i','c'], '🧴', 'A material used for many bottles and toys.'],
+].map(([word, graphemes, emoji, cue]) => ({ word, graphemes, emoji, cue, hint: cue, phase: 2, family: 'longer words' }));
+
+export const spellingLevelWords = (level, taught) => {
+  if (level < 3) return decodableSpellingWords(taught);
+  return LONGER_SPELLING_WORDS.filter((item) =>
+    (level === 3 ? item.word.length === 4 : level === 4 ? item.word.length === 5 : item.word.length >= 6)
+    && item.graphemes.every((sound) => taught.has(sound)));
+};
+
 // Meaning cues support spelling without printing the target. Keep the full
 // reviewed hint above for the success explanation and for Copy mode.
 export const SPELLING_PREANSWER_CUES = Object.freeze({

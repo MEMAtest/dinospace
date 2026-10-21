@@ -24,13 +24,19 @@ export const SESSION_LEVELS = Object.freeze({
   german: three(['Colour painter', 'Vehicle workshop', 'Direction driver'], ['Match German colour words to the paint and garage.', 'Learn vehicle names and parts in German.', 'Follow short German directions with English meanings.']),
   colormix: three(['First colour mixes', 'More colours', 'Colour challenge'], ['Mix familiar colours.', 'Explore more colour pairs.', 'Solve the trickier mixes.']),
   pattern: three(['Simple repeats', 'New pattern rules', 'Pattern detective'], ['Find a repeating pattern.', 'Compare more pattern rules.', 'Solve the advanced pattern.']),
-  words: three(['Copy the word', 'Find the missing sound', 'Build the whole word'], ['Put the sounds in order.', 'Complete a word with a missing sound.', 'Spell the word from its sounds.']),
+  words: [
+    ...three(['Copy the word', 'Find the missing sound', 'Build the whole word'], ['Put the sounds in order.', 'Complete a word with a missing sound.', 'Spell the word from its sounds.']),
+    { name: 'Four-letter explorer', description: 'Build longer words such as frog and rock.', band: 'challenge', target: 3 },
+    { name: 'Five-letter builder', description: 'Spell five-letter words with more sounds.', band: 'challenge', target: 6 },
+    { name: 'Long-word challenge', description: 'Build six- and seven-letter words.', band: 'challenge', target: 4 },
+  ],
   trace: three(['Follow the letter', 'Steadier tracing', 'Careful letters'], ['Trace a letter with a wide trail.', 'Follow a narrower letter trail.', 'Trace the whole letter carefully.'], [3, 4, 4]),
   dino: three(['First tracks', 'Follow the trail', 'Dino detective'], ['Find a hidden dinosaur.', 'Follow more clues.', 'Search the trickier scene.'], [1, 1, 1]),
   hangman: [
     { name: 'First words', description: 'Rescue familiar three-letter words.', target: 3 },
-    { name: 'Word families', description: 'Rescue words from more sound families.', target: 4 },
-    { name: 'All taught words', description: 'Rescue words using the sounds you have learned.', target: 5 },
+    { name: 'Four-letter rescue', description: 'Rescue four-letter words.', target: 3 },
+    { name: 'Five-letter rescue', description: 'Rescue five-letter words with more choices.', target: 6 },
+    { name: 'Long-word rescue', description: 'Rescue six- and seven-letter words using the full alphabet.', target: 4 },
   ],
   tictactoe: [
     { name: 'Rookie bot', description: 'Practice three in a row with the rookie bot.', target: 3 },

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Check, RotateCcw, Volume2 } from 'lucide-react';
 import { getPraise, loadSaved, saveSafe, shuffle } from '../../utils.js';
 import { DECODABLE_CAPTIONS, getTaughtGraphemes, LITERACY_PROFILE_KEY, makeLearningEvent, WRITING_SAMPLES_KEY } from '../../data/literacy.js';
-import { appendSpellingRecent, decodableSpellingWords, makeSpellingQueue, qualifiesForIndependentSpelling, SPELLING_PREANSWER_CUES, SPELLING_RECENT_KEY, SPELLING_WORD_ART, spellingTrickyWordsForPhase } from '../../data/spellingStudio.js';
+import { appendSpellingRecent, decodableSpellingWords, spellingLevelWords, makeSpellingQueue, qualifiesForIndependentSpelling, SPELLING_PREANSWER_CUES, SPELLING_RECENT_KEY, SPELLING_WORD_ART, spellingTrickyWordsForPhase } from '../../data/spellingStudio.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { SoundToggle } from '../shared/index.jsx';
 import classroomScene from '../../assets/game-scenes/spelling-studio.webp';
@@ -31,7 +31,7 @@ const makeMissingOptions = (graphemes, missingIndex, taught = getTaughtGraphemes
 };
 
 const STAGE_MODES = ['copy', 'missing', 'spell'];
-const STAGE_NAMES = ['Copy the word', 'Find the missing sound', 'Build the whole word'];
+const STAGE_NAMES = ['Copy the word', 'Find the missing sound', 'Build the whole word', 'Four-letter explorer', 'Five-letter builder', 'Long-word challenge'];
 const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, sessionTarget = 0, sessionLevel = 0, onReviewComplete, initialPracticeMode, hideOptionalPractice = false }) => {
   const difficulty = useGameDifficulty('words');
   const [runDifficulty] = useState(difficulty);
@@ -40,7 +40,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [run] = useState(() => {
     const taught = getTaughtGraphemes();
     const seed = Math.floor(Math.random() * 0xFFFFFFFF);
-    const eligible = decodableSpellingWords(taught);
+    const eligible = sessionTarget > 0 ? spellingLevelWords(sessionLevel, taught) : decodableSpellingWords(taught);
     let recent = [];
     try {
       const savedRecent = JSON.parse(globalThis.localStorage?.getItem(SPELLING_RECENT_KEY) || '[]');
@@ -69,7 +69,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const trickyWords = useMemo(() => spellingTrickyWordsForPhase(runActivePhase), [runActivePhase]);
   const words = mode === 'tricky' ? trickyWords : regularWords;
   const word = useMemo(() => words.length ? words[wordIndex % words.length] : { word: '', graphemes: [], emoji: '🔒', hint: '' }, [words, wordIndex]);
-  const preAnswerCue = SPELLING_PREANSWER_CUES[word.word] || 'Think about what you can hear and see.';
+  const preAnswerCue = word.cue || SPELLING_PREANSWER_CUES[word.word] || 'Think about what you can hear and see.';
   const mayNameAnswer = mode === 'copy' || locked;
   const artworkDescription = mayNameAnswer
     ? (word.word === 'TAN' ? 'A light tan colour swatch' : SPELLING_WORD_ART[word.word]?.alt || word.hint)
@@ -364,11 +364,11 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             </div>
           )}
 
-          <div className="mt-5 flex justify-center gap-2 sm:gap-3" aria-label="Word spaces">
+          <div className="mt-5 flex flex-wrap justify-center gap-1 sm:gap-3" aria-label="Word spaces">
             {word.graphemes.map((letter, index) => {
               const shown = mode === 'missing' ? (index === missingIndex ? (locked ? letter : '') : letter) : typed[index]?.letter;
               return (
-                <div key={`${letter}-${index}`} className={`grid h-14 w-14 place-items-center rounded-xl border-4 text-2xl font-black shadow-md sm:h-16 sm:w-16 sm:text-3xl ${shown ? 'border-blue-700 bg-blue-500 text-white' : 'border-dashed border-blue-300 bg-white text-blue-300'}`}>
+                <div key={`${letter}-${index}`} className={`grid h-12 w-9 place-items-center rounded-xl border-4 text-xl font-black shadow-md sm:h-16 sm:w-16 sm:text-3xl ${shown ? 'border-blue-700 bg-blue-500 text-white' : 'border-dashed border-blue-300 bg-white text-blue-300'}`}>
                   {shown || '•'}
                 </div>
               );

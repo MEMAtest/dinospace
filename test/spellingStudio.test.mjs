@@ -57,3 +57,34 @@ test('an explicit teaching clue blocks independent spelling credit but word repl
   assert.equal(qualifiesForIndependentSpelling({ mode: 'missing' }), false);
   assert.equal(qualifiesForIndependentSpelling({ mode: 'copy' }), false);
 });
+
+test('longer levels increase real word length and keep complete packaged word recordings', async () => {
+  const { LONGER_SPELLING_WORDS, spellingLevelWords } = await import('../src/data/spellingStudio.js');
+  const { getOfflineVoiceClip } = await import('../src/data/offlineVoice.js');
+  const { existsSync } = await import('node:fs');
+  const taught = new Set(DEFAULT_TAUGHT_GRAPHEMES);
+  for (const [level, min, max, count] of [[3,4,4,3],[4,5,5,6],[5,6,7,4]]) {
+    const pool = spellingLevelWords(level, taught);
+    assert.ok(pool.length >= count);
+    assert.ok(pool.every(item => item.word.length >= min && item.word.length <= max));
+    assert.equal(makeSpellingQueue(pool).length, pool.length);
+  }
+  for (const item of LONGER_SPELLING_WORDS) {
+    assert.equal(item.graphemes.join('').toUpperCase(), item.word);
+    assert.ok(!item.cue.toUpperCase().split(/[^A-Z]+/).includes(item.word));
+    const clip = getOfflineVoiceClip(item.word);
+    assert.ok(clip, item.word + ' must have an existing recording');
+    assert.ok(existsSync(new URL('../public' + clip, import.meta.url)));
+  }
+  assert.equal(spellingLevelWords(5, new Set(['s','a','t'])).length, 0);
+});
+
+test('session progression reaches the longer pools without repeating within a level', async () => {
+  const { SESSION_LEVELS } = await import('../src/data/sessionLevels.js');
+  const { spellingLevelWords } = await import('../src/data/spellingStudio.js');
+  const taught = new Set(DEFAULT_TAUGHT_GRAPHEMES);
+  assert.equal(SESSION_LEVELS.words.length, 6);
+  assert.equal(SESSION_LEVELS.hangman.length, 4);
+  for (let level = 3; level < 6; level++) assert.ok(spellingLevelWords(level, taught).length >= SESSION_LEVELS.words[level].target);
+  for (let level = 1; level < 4; level++) assert.ok(spellingLevelWords(level + 2, taught).length >= SESSION_LEVELS.hangman[level].target);
+});

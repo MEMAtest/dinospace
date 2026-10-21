@@ -2,14 +2,15 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Home, Lightbulb, RotateCcw, ShieldCheck, Sparkles, Volume2 } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import DinoIcon from '../shared/DinoIcon.jsx';
-import { getAvailableWords, makeLearningEvent } from '../../data/literacy.js';
-import { loadSaved, shuffle } from '../../utils.js';
+import { getTaughtGraphemes, makeLearningEvent } from '../../data/literacy.js';
+import { shuffle } from '../../utils.js';
 
 const MAX_MISTAKES = 6;
-const SPELLING_PROGRESS_KEY = 'amari_spelling_progress_v1';
+import { makeSpellingQueue, spellingLevelWords } from '../../data/spellingStudio.js';
 
 const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, sessionLevel = 0 }) => {
   const [wordIndex, setWordIndex] = useState(0);
+  const [runSeed] = useState(() => Math.floor(Math.random() * 0xFFFFFFFF));
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [roundState, setRoundState] = useState('playing');
   const [hintsUsed, setHintsUsed] = useState(0);
@@ -18,15 +19,14 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const nextRoundTimerRef = useRef(null);
 
   const practiceWords = useMemo(() => {
-    const available = getAvailableWords();
-    const progress = loadSaved(SPELLING_PROGRESS_KEY, {});
-    const practised = available.filter((item) => progress[item.word]?.attempts > 0);
+    const taught = getTaughtGraphemes();
     const pool = sessionLevel === 0
-      ? (practised.length >= 3 ? practised : available).slice(0, 4)
-      : sessionLevel === 1 ? available.slice(0, 8) : available;
-    return pool.map((item) => ({ ...item, clue: item.hint, category: `${item.family} word family` }));
-  }, [sessionLevel]);
-  const word = practiceWords[wordIndex % practiceWords.length];
+      ? spellingLevelWords(0, taught).filter((item) => item.word.length === 3)
+      : spellingLevelWords(sessionLevel + 2, taught);
+    return makeSpellingQueue(pool, { seed: runSeed })
+      .map((item) => ({ ...item, clue: item.cue || item.hint, category: `${item.word.length}-letter rescue` }));
+  }, [sessionLevel, runSeed]);
+  const word = practiceWords[wordIndex % practiceWords.length] || { word: '', family: '', category: '', clue: '', emoji: '🔒' };
   const wordLetters = useMemo(() => [...new Set(word.word.split(''))], [word.word]);
   const wrongLetters = useMemo(
     () => guessedLetters.filter((letter) => !word.word.includes(letter)),
@@ -36,9 +36,9 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const isRoundOver = roundState !== 'playing';
   const keyboardLetters = useMemo(() => {
     const answerLetters = [...new Set(word.word)];
-    const decoys = shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').filter((letter) => !answerLetters.includes(letter))).slice(0, Math.max(5, 12 - answerLetters.length));
+    const decoys = shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').filter((letter) => !answerLetters.includes(letter))).slice(0, (sessionLevel >= 3 ? 26 : sessionLevel === 2 ? 18 : 12) - answerLetters.length);
     return shuffle([...answerLetters, ...decoys]);
-  }, [word.word]);
+  }, [word.word, sessionLevel]);
 
   const startNextRound = useCallback((withSound = true) => {
     if (nextRoundTimerRef.current) {
@@ -88,8 +88,8 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       speak(`That was a tricky one. The word was ${word.word}. Let us try another!`);
     }
 
-    nextRoundTimerRef.current = setTimeout(() => startNextRound(false), 1350);
-  }, [onCelebrate, onGameEvent, playSfx, speak, startNextRound, word.family, word.word, wrongLetters.length]);
+    // Keep the answer visible until the child chooses the next word.
+  }, [onCelebrate, onGameEvent, playSfx, speak, word.family, word.word, wrongLetters.length]);
 
   const chooseLetter = useCallback((letter, { fromHint = false } = {}) => {
     if (roundState !== 'playing' || guessedLetters.includes(letter)) return;
@@ -152,8 +152,10 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       ? `The word was ${word.word}`
       : `${shieldsLeft} shield${shieldsLeft === 1 ? '' : 's'} left`;
 
+  if (!practiceWords.length) return <div className="min-h-screen bg-slate-950 p-6 text-white"><h1 className="text-2xl font-black">More sounds needed</h1><p className="my-4">There are no words for this level using the sounds selected in Grown-ups. Choose an earlier level or review the sound selection together.</p><button className="min-h-12 rounded-xl bg-white px-5 text-slate-900" onClick={onBack}>Back to levels</button></div>;
+
   return (
-    <div className="h-screen overflow-hidden bg-[#07132f] text-white relative">
+    <div className="min-h-[100dvh] overflow-x-hidden bg-[#07132f] text-white relative">
       <div className="absolute inset-0 ttt-starfield pointer-events-none" />
       <div className="absolute -top-32 right-[-7rem] h-96 w-96 rounded-full bg-fuchsia-500/15 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-28 -left-24 h-[28rem] w-[28rem] rounded-full bg-cyan-400/15 blur-3xl pointer-events-none" />
@@ -186,13 +188,13 @@ const DinoHangman = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
           </div>
 
           <div className="mt-6 rounded-[1.75rem] border border-white/10 bg-slate-950/45 p-4 sm:p-6">
-            <div className="flex items-end justify-center gap-1.5 sm:gap-3" aria-label={`Word has ${word.word.length} letters`}>
+            <div className="flex flex-wrap items-end justify-center gap-1 sm:gap-3" aria-label={`Word has ${word.word.length} letters`}>
               {word.word.split('').map((letter, index) => {
                 const isVisible = guessedLetters.includes(letter) || isRoundOver;
                 return (
                   <div
                     key={`${letter}-${index}`}
-                    className={`grid h-14 w-10 place-items-center rounded-xl border-b-4 text-2xl font-black sm:h-20 sm:w-14 sm:text-4xl ${
+                    className={`grid h-12 w-8 place-items-center rounded-xl border-b-4 text-2xl font-black sm:h-20 sm:w-14 sm:text-4xl ${
                       isVisible ? 'border-fuchsia-300 bg-white text-slate-900 animate-pop-in' : 'border-white/50 bg-white/10 text-transparent'
                     }`}
                     aria-label={isVisible ? `Letter ${letter}` : `Letter ${index + 1}, hidden`}

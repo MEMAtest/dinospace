@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Lock, Play } from 'lucide-react';
 import { SoundToggle } from '../shared/index.jsx';
 import { MiniIcon } from '../shared/Navigation.jsx';
@@ -28,6 +29,8 @@ const ExplorerHome = ({
   player, points, streak, challenge, challengeProgress, challengeCompleted, practiceGames, quickGames,
   favouriteGames, onLaunch, onOpenWorld, onOpenPage, onSwitchPlayer, soundOn, onToggleSound,
 }) => {
+  const [previewWorld, setPreviewWorld] = useState(null);
+  const [pinnedWorld, setPinnedWorld] = useState(null);
   const rank = getRank(points);
   const nextRank = getNextRank(points);
   return (
@@ -75,11 +78,17 @@ const ExplorerHome = ({
         <h2 id="worlds-heading" className="mb-3 text-left text-2xl font-black text-slate-900 sm:text-3xl">Choose a world</h2>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
           {LEARNING_WORLDS.map((world) => (
+            <div key={world.id} className="relative last:col-span-2 lg:last:col-span-1"
+              onMouseEnter={() => { setPinnedWorld(null); setPreviewWorld(world.id); }}
+              onMouseLeave={() => setPreviewWorld(null)}
+              onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) { setPreviewWorld(null); setPinnedWorld(null); } }}
+              onKeyDown={(event) => { if (event.key === 'Escape') { setPreviewWorld(null); setPinnedWorld(null); event.stopPropagation(); } }}>
             <button
-              key={world.id}
+              onFocus={() => { setPinnedWorld(null); setPreviewWorld(world.id); }}
+              aria-describedby={(pinnedWorld || previewWorld) === world.id ? `preview-${world.id}` : undefined}
               type="button"
               onClick={() => onOpenWorld(world.id)}
-              className={`discovery-world-card group relative flex min-h-[14rem] flex-col overflow-hidden rounded-[1.8rem] bg-gradient-to-br ${world.color} p-3 text-left text-white active:translate-y-1 active:shadow-none sm:min-h-[15rem] sm:p-4 last:col-span-2 lg:last:col-span-1`}
+              className={`discovery-world-card group relative flex w-full min-h-[14rem] flex-col overflow-hidden rounded-[1.8rem] bg-gradient-to-br ${world.color} p-3 text-left text-white active:translate-y-1 active:shadow-none sm:min-h-[15rem] sm:p-4 last:col-span-2 lg:last:col-span-1`}
             >
               <span className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-white/20" />
               <span className="pointer-events-none absolute -bottom-12 -left-10 h-28 w-28 rounded-full border-[18px] border-white/10" />
@@ -87,6 +96,16 @@ const ExplorerHome = ({
               <strong className="relative mt-auto block pt-2 text-base font-black leading-tight drop-shadow-sm sm:text-xl">{world.title}</strong>
               <span className="relative mt-2 inline-flex w-max items-center gap-1 rounded-full border border-white/25 bg-white/20 px-2.5 py-1 text-[.68rem] font-black backdrop-blur sm:px-3 sm:text-xs">{world.gameIds.length} games <span aria-hidden="true">→</span></span>
             </button>
+            <div id={`preview-${world.id}`} role="tooltip" hidden={(pinnedWorld || previewWorld) !== world.id}
+              className="pointer-events-none absolute inset-x-2 top-2 z-20 rounded-2xl border border-indigo-100 bg-white/95 p-3 text-sm font-bold text-slate-800 shadow-xl">
+              <strong className="block text-indigo-800">Inside {world.title}</strong>
+              <span className="mt-1 block">{world.desc}</span>
+              <span className="mt-2 block text-xs leading-relaxed">{world.covers}</span>
+            </div>
+            <button type="button" className="mt-1 min-h-11 w-full rounded-xl bg-white/85 px-2 text-xs font-bold text-indigo-800"
+              aria-label={`What’s inside ${world.title}`} aria-expanded={(pinnedWorld || previewWorld) === world.id} aria-controls={`preview-${world.id}`}
+              onClick={() => { setPreviewWorld(null); setPinnedWorld((current) => current === world.id ? null : world.id); }}>What’s inside?</button>
+            </div>
           ))}
         </div>
       </section>
