@@ -121,9 +121,16 @@ test('older games have distinct levels with saved child-specific progress', asyn
     if (levels.every((level) => level.band)) {
       const bands = levels.map((level) => level.band);
       assert.ok(bands.every((band, index) => index === 0 || ['starter', 'growing', 'challenge'].indexOf(band) >= ['starter', 'growing', 'challenge'].indexOf(bands[index - 1])), `${id} difficulty bands must not regress`);
-      if (id !== 'letters') assert.equal(new Set(bands).size, levels.length, `${id} levels must change question band`);
+      if (!['letters', 'words'].includes(id)) assert.equal(new Set(bands).size, levels.length, `${id} levels must change question band`);
     }
   });
+  const { spellingLevelWords } = await import('../src/data/spellingStudio.js');
+  const { DEFAULT_TAUGHT_GRAPHEMES } = await import('../src/data/literacy.js');
+  for (const [level, length] of [[3, 4], [4, 5], [5, 6]]) {
+    const pool = spellingLevelWords(level, new Set(DEFAULT_TAUGHT_GRAPHEMES));
+    assert.ok(pool.length >= SESSION_LEVELS.words[level].target);
+    assert.ok(pool.every((word) => word.word.length >= length), 'later spelling stages increase actual word length');
+  }
   assert.equal(levelsForSession('timeteller', true).length, 0, 'Askia has no clock game');
   const data = new Map();
   const storage = { getItem: (key) => data.get(key) ?? null, setItem: (key, value) => data.set(key, value) };
