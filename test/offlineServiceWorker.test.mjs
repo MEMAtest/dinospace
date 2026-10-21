@@ -380,3 +380,19 @@ test('the first byte-range request fetches the full clip and enables offline ran
   assert.equal(worker.fetchedRequests.length, 1, 'offline range and full replay use the cached clip');
   await fullReplay.settle();
 });
+
+test('HTML fallbacks never become sticky media and previously poisoned entries recover', async () => {
+  let missing = true;
+  const url = `${origin}/audio/word.mp3`;
+  const html = () => asBasicResponse('<!doctype html><html>app shell</html>', { headers: { 'Content-Type': 'text/html' } });
+  const worker = createWorker({ networkRoutes: new Map([['/audio/word.mp3', () => missing ? html() : asBasicResponse('real-audio', { headers: { 'Content-Type': 'audio/mpeg' } })]]) });
+  const first = await worker.dispatch('fetch', { request: new Request(url) });
+  await first.responsePromise; await first.settle();
+  assert.equal(worker.cachesByName.get('amari-discovery-media-v1')?.entries.has(url) || false, false);
+  const cache = await worker.seedCache('amari-discovery-media-v1', []);
+  await cache.put(url, html());
+  missing = false;
+  const retry = await worker.dispatch('fetch', { request: new Request(url) });
+  assert.equal(await (await retry.responsePromise).text(), 'real-audio'); await retry.settle();
+  assert.equal((await worker.cachesByName.get('amari-discovery-media-v1').match(url)).headers.get('Content-Type'), 'audio/mpeg');
+});

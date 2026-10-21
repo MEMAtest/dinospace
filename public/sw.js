@@ -51,10 +51,15 @@ const pruneOldShellAssets = async (sourceCache) => {
   return (await sourceCache.keys()).length > 0;
 };
 
+// A missing asset can be rewritten to the app HTML by a static host. Never
+// retain that page as an audio/image response, or a temporary miss stays broken.
+const isMediaResponse = (response) => !/text\/html/i.test(response.headers.get('content-type') || '');
+
 const cachedMedia = async (url) => {
   const mediaCache = await caches.open(MEDIA_CACHE_NAME);
   const cached = await mediaCache.match(url.href);
-  if (cached) return { response: cached, migrate: null };
+  if (cached && isMediaResponse(cached)) return { response: cached, migrate: null };
+  if (cached) await mediaCache.delete(url.href);
 
   // A migration failure must not destroy media that was already available
   // offline under an older app-shell cache.
@@ -64,7 +69,7 @@ const cachedMedia = async (url) => {
   for (const name of oldCaches) {
     const oldCache = await caches.open(name);
     const oldResponse = await oldCache.match(url.href);
-    if (oldResponse?.status === 200) {
+    if (oldResponse?.status === 200 && isMediaResponse(oldResponse)) {
       const migrationCopy = oldResponse.clone();
       return {
         response: oldResponse,
@@ -217,7 +222,7 @@ self.addEventListener('fetch', (event) => {
           headers.delete('range');
           const fullRequest = new Request(request, { headers });
           const fullResponse = await fetch(fullRequest);
-          if (fullResponse.status === 200 && fullResponse.type === 'basic') {
+          if (fullResponse.status === 200 && fullResponse.type === 'basic' && isMediaResponse(fullResponse)) {
             const copy = fullResponse.clone();
             const cacheWrite = caches.open(MEDIA_CACHE_NAME).then((cache) => cache.put(url.href, copy));
             cacheWrite.then(finishLifetime, finishLifetime);
@@ -228,7 +233,7 @@ self.addEventListener('fetch', (event) => {
         }
 
         const networkResponse = await fetch(request);
-        if (networkResponse.status === 200 && networkResponse.type === 'basic') {
+        if (networkResponse.status === 200 && networkResponse.type === 'basic' && isMediaResponse(networkResponse)) {
           const copy = networkResponse.clone();
           const cacheWrite = caches.open(MEDIA_CACHE_NAME).then((cache) => cache.put(url.href, copy));
           cacheWrite.then(finishLifetime, finishLifetime);
