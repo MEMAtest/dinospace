@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  SKY_SHAPE_EPISODES, SKY_SHAPE_MISSIONS, skyAccuracyStars, skyFinishFlagPosition, skyLearningAttemptDetail, skyMissionQueueForEpisode, skyTraceProgressPercent, tracePointsForOutline,
+  SKY_SHAPE_EPISODES, SKY_SHAPE_MISSIONS, skyAccuracyStars, skyFinishFlagPosition, skyLearningAttemptDetail, skyMissionQueueForEpisode, skyTraceAccuracy, skyTraceProgressPercent, tracePointsForOutline,
 } from '../src/data/skyShapes.js';
 import { GAME_DIAGNOSTICS_KEY, recordGameDiagnostic } from '../src/data/gameDiagnostics.js';
 import {
@@ -59,6 +59,15 @@ test('Sky Shapes progress reaches 100 percent when the final route point is acce
   assert.equal(skyTraceProgressPercent([], 0, 0, true), 0);
 });
 
+test('Sky route accuracy is a bounded average of normalized path samples', () => {
+  assert.equal(skyTraceAccuracy(1, 1), 100);
+  assert.equal(skyTraceAccuracy(0.5, 1), 50);
+  assert.equal(skyTraceAccuracy(0.5, 2), 25);
+  assert.equal(skyTraceAccuracy(150, 1), 100);
+  assert.equal(skyTraceAccuracy(-1, 1), 0);
+  assert.equal(skyTraceAccuracy(1, 0), 0);
+});
+
 test('Sky Shapes queues are seed-stable, varied, and unique within each sky run', () => {
   for (let episodeIndex = 0; episodeIndex < 3; episodeIndex += 1) {
     const missionIdsForEpisode = new Set(SKY_SHAPE_EPISODES[episodeIndex].missions.map((mission) => mission.id));
@@ -98,10 +107,29 @@ test('Sky Shapes learning-attempt diagnostics retain numeric run identity withou
   assert.equal(recordGameDiagnostic('jet', 'learning_attempt', detail, storage), true);
   const [event] = JSON.parse(storage.getItem(GAME_DIAGNOSTICS_KEY));
   assert.deepEqual(event, {
-    at: event.at, game: 'jet', event: 'learning_attempt', level: 2, round: 3, seed: 82341, difficulty: 'challenge', firstAttempt: true, hints: 0, correct: true, independent: true,
+    at: event.at, game: 'jet', event: 'learning_attempt', level: 2, round: 3, seed: 82341, difficulty: 'challenge', firstAttempt: true, hints: 0, correct: true, independent: true, masteryEligible: true, keyboardAlternative: false,
   });
   assert.equal('missionId' in event, false);
   assert.equal(JSON.stringify(event).includes('sky-castle'), false);
+});
+
+test('keyboard completion is supported, has no fabricated pen accuracy, and preserves measured best accuracy', () => {
+  const storage = memoryStorage();
+  const mission = SKY_SHAPE_EPISODES[0].missions[0];
+  const measured = recordSkyMissionCompletion('amari', mission.id, 91, 2, storage);
+  assert.equal(measured.progress.bestAccuracy[mission.id], 91);
+  const supported = recordSkyMissionCompletion('amari', mission.id, null, 1, storage);
+  assert.equal(supported.progress.bestAccuracy[mission.id], 91);
+  assert.equal(supported.progress.bestMissionStars[mission.id], 2);
+  const detail = skyLearningAttemptDetail({
+    level: 0, round: 0, seed: 345, difficulty: 'starter', missionId: mission.id,
+    accuracy: null, firstAttempt: false, hints: 0, keyboardAlternative: true,
+  });
+  assert.equal('response' in detail, false);
+  assert.equal('expected' in detail, false);
+  assert.equal(detail.independent, false);
+  assert.equal(detail.masteryEligible, false);
+  assert.equal(detail.keyboardAlternative, true);
 });
 
 test('Sky Shapes saves mission accuracy and episode rewards per child, unlocking only after all four missions', () => {

@@ -6,6 +6,7 @@ import {
   getNextSpotDifferenceHint,
   getSpotDifferenceProgress,
   resolveSpotDifferenceTap,
+  resolveSpotDifferenceHotspotTap,
   SPOT_DIFFERENCE_CHAPTERS,
   SPOT_DIFFERENCE_PROGRESS_KEY,
   SPOT_DIFFERENCE_SCENES,
@@ -236,6 +237,16 @@ test('Dino Park accepts the pictured dinosaur head and body but keeps adjacent s
   }
   for (const [x, y] of [[5, 20], [40, 45], [28, 94], [55, 80]]) assert.equal(resolveSpotDifferenceTap(scene.differences, [], x, y).kind, 'miss');
   for (const { x, y } of scene.differences) assert.ok(x * 2.8 >= 28 && x * 2.8 <= 252 && y * 2.1 >= 28 && y * 2.1 <= 182);
+});
+
+test('overlapping Dino Park touch targets resolve the actual touched object instead of the topmost button', () => {
+  const scene = SPOT_DIFFERENCE_SCENES.find(({ title }) => title === 'Dino Park');
+  const flower = scene.differences.find(({ id }) => id === 'park-flower');
+  const dinosaur = scene.differences.find(({ id }) => id === 'park-dinosaur');
+  // At 18.25%, 72.75%, the 56px hotspots overlap; the point is on the dinosaur body.
+  assert.equal(resolveSpotDifferenceHotspotTap(scene.differences, [], 18.25, 72.75, flower.id).difference, dinosaur);
+  assert.equal(resolveSpotDifferenceHotspotTap(scene.differences, [], flower.x, flower.y, flower.id).difference, flower);
+  assert.equal(resolveSpotDifferenceHotspotTap(scene.differences, [dinosaur.id], 18.25, 72.75, flower.id).kind, 'already-found');
 });
 
 test('Treehouse real-object changes remain five separate reachable targets after the centered crop', () => {

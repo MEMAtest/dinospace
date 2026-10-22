@@ -10,6 +10,7 @@ import {
   getSpotDifferenceLastQueue,
   getSpotDifferenceProgress,
   resolveSpotDifferenceTap,
+  resolveSpotDifferenceHotspotTap,
   saveSpotDifferenceQueue,
   spotAnswerAttemptDetail,
   spotDifferenceCompletionMessage,
@@ -130,6 +131,7 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
   const [hadMistake, setHadMistake] = useState(false);
   const [wrongTapCount, setWrongTapCount] = useState(0);
   const wrongTimer = useRef(null);
+  const pictureBRef = useRef(null);
   const chapter = SPOT_DIFFERENCE_CHAPTERS[chapterIndex] || SPOT_DIFFERENCE_CHAPTERS[0];
   const scene = queue[sceneIndex];
   const complete = Boolean(scene && found.length === scene.differences.length);
@@ -201,7 +203,8 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
 
   const inspectPicture = (event) => {
     if (!scene || complete || phase !== 'play') return;
-    const bounds = event.currentTarget.getBoundingClientRect();
+    const bounds = pictureBRef.current?.getBoundingClientRect();
+    if (!bounds) return;
     const x = ((event.clientX - bounds.left) / bounds.width) * 100;
     const y = ((event.clientY - bounds.top) / bounds.height) * 100;
     const tap = resolveSpotDifferenceTap(scene.differences, found, x, y);
@@ -215,6 +218,16 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     playSfx('oops');
     if (wrongTimer.current) clearTimeout(wrongTimer.current);
     wrongTimer.current = window.setTimeout(() => setWrongTap(false), 450);
+  };
+
+  const inspectHotspot = (event, difference) => {
+    if (event.detail === 0) { handleFind(difference); return; }
+    const bounds = pictureBRef.current?.getBoundingClientRect();
+    if (!bounds) { handleFind(difference); return; }
+    const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+    const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+    const hit = resolveSpotDifferenceHotspotTap(scene.differences, found, x, y, difference.id);
+    if (hit.kind === 'new') handleFind(hit.difference);
   };
 
   const showHint = () => {
@@ -268,16 +281,16 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
         {phase === 'play' ? <>
           <section className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-white/90 p-3 shadow"><p className="font-black">{scene.title} <span className="text-slate-600">· {found.length} of {scene.differences.length} changes</span></p><div className="flex gap-2"><button type="button" onClick={() => { speakPackagedBatch2Line(speak, spotDifferenceNarration.prompt(scene)); playSfx('click'); }} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={18} /> Hear clue</button><button type="button" onClick={showHint} disabled={hintCount >= chapter.hintTokens || !getNextSpotDifferenceHint(scene.differences, found, hintedTargets)} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-100 px-4 font-black text-amber-900 disabled:opacity-50"><Lightbulb size={18} /> Magnifier {chapter.hintTokens - hintCount} left</button></div></section>
           <div className="grid gap-4 lg:grid-cols-2">
-            {[false, true].map((changed) => <section key={String(changed)} className="min-w-0 rounded-3xl border-4 border-white bg-white p-3 shadow-xl"><h2 className="mb-2 text-center text-lg font-black text-indigo-800">Picture {changed ? 'B · Find changes here' : 'A · Look carefully'}</h2><div className="relative w-full overflow-hidden rounded-2xl bg-sky-100" style={{ aspectRatio: scene.aspectRatio || 4 / 3 }}><img src={changed && scene.imageB && !scene.editRegions ? scene.imageB : scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
+            {[false, true].map((changed) => <section key={String(changed)} className="min-w-0 rounded-3xl border-4 border-white bg-white p-3 shadow-xl"><h2 className="mb-2 text-center text-lg font-black text-indigo-800">Picture {changed ? 'B · Find changes here' : 'A · Look carefully'}</h2><div ref={changed ? pictureBRef : undefined} className="relative w-full overflow-hidden rounded-2xl bg-sky-100" style={{ aspectRatio: scene.aspectRatio || 4 / 3 }}><img src={changed && scene.imageB && !scene.editRegions ? scene.imageB : scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
               {changed && scene.editRegions && <SceneEditLayer scene={scene} />}
               {changed && scene.colorEdits && <SceneColorEditLayer scene={scene} />}
               {scene.differences.map((difference) => { const visible = changed ? difference.visual : difference.normalVisual; const done = found.includes(difference.id); const bespoke = visible.startsWith('prop:'); if (changed && done) return <span key={difference.id} aria-label="Found difference" className="pointer-events-none absolute z-10 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-100/95 ring-4 ring-emerald-500" style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><Check className="text-emerald-800" /></span>; if (scene.pairedArt) return null; return <span key={difference.id} aria-hidden="true" className={`pointer-events-none absolute z-[1] grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full ${bespoke ? '' : 'bg-white/90 shadow'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><DifferenceVisual type={visible} /></span>; })}
               {changed && <button type="button" onClick={inspectPicture} aria-label="Search Picture B for a change" className={`absolute inset-0 z-10 h-full w-full cursor-crosshair bg-transparent ${wrongTap ? 'ring-4 ring-inset ring-rose-400' : ''}`} />}
-              {changed && scene.differences.map((difference) => !found.includes(difference.id) && <button key={`hot-${difference.id}`} type="button" onClick={() => handleFind(difference)} aria-label={`Check ${difference.x < 35 ? 'left' : difference.x > 65 ? 'right' : 'middle'} ${difference.y < 35 ? 'top' : difference.y > 65 ? 'bottom' : 'middle'} detail`} className={`absolute z-20 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 focus-visible:border-indigo-600 focus-visible:bg-indigo-200/40 focus-visible:outline-none ${hintTarget === difference.id ? 'animate-pulse border-amber-500 bg-amber-200/40' : 'border-transparent bg-transparent'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }} />)}
+              {changed && scene.differences.map((difference) => !found.includes(difference.id) && <button key={`hot-${difference.id}`} type="button" onClick={(event) => inspectHotspot(event, difference)} aria-label={`Check ${difference.x < 35 ? 'left' : difference.x > 65 ? 'right' : 'middle'} ${difference.y < 35 ? 'top' : difference.y > 65 ? 'bottom' : 'middle'} detail`} className={`absolute z-20 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 focus-visible:border-indigo-600 focus-visible:bg-indigo-200/40 focus-visible:outline-none ${hintTarget === difference.id ? 'animate-pulse border-amber-500 bg-amber-200/40' : 'border-transparent bg-transparent'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }} />)}
             </div></section>)}
           </div>
           <div className="mt-4 flex flex-wrap justify-center gap-2" aria-label="Changes found">{scene.differences.map((entry, index) => <span key={entry.id} className={`grid h-11 w-11 place-items-center rounded-full border-2 font-black ${found.includes(entry.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-800' : 'border-slate-300 bg-white text-slate-500'}`} aria-label={`Change ${index + 1}${found.includes(entry.id) ? ', found' : ', not found'}`}>{found.includes(entry.id) ? <Check size={19} /> : index + 1}</span>)}</div>
-        </> : <section className="mx-auto max-w-3xl rounded-3xl border-4 border-emerald-200 bg-white p-5 text-center shadow-xl" aria-live="polite"><p className="text-5xl" aria-hidden="true">🏆</p><h2 className="mt-2 text-2xl font-black text-emerald-900">{phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} pair complete!`}</h2><p className="mt-3 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed"><strong>Picture fact:</strong> {scene.fact}</p><div className="mt-4 flex flex-wrap justify-center gap-3">{phase === 'scene-complete' && <button type="button" onClick={nextScene} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">Next picture <ArrowRight size={18} /></button>}{phase === 'chapter-complete' && chapterIndex < SPOT_DIFFERENCE_CHAPTERS.length - 1 && <button type="button" onClick={() => { setChapterIndex(nextSpotChapterIndex(chapterIndex, SPOT_DIFFERENCE_CHAPTERS.length)); setPhase('intro'); }} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">Next chapter <ArrowRight size={18} /></button>}{phase === 'chapter-complete' && <button type="button" onClick={() => startChapter()} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-700 px-5 py-3 font-black text-white"><RotateCcw size={18} /> Replay chapter</button>}</div></section>}
+        </> : <section className="mx-auto max-w-3xl rounded-3xl border-4 border-emerald-200 bg-white p-5 text-center shadow-xl" aria-live="polite"><p className="text-5xl" aria-hidden="true">🏆</p><h2 className="mt-2 text-2xl font-black text-emerald-900">{phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} pair complete!`}</h2><p className="mt-3 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed"><strong>Picture fact:</strong> {scene.fact}</p><button type="button" onClick={() => speakPackagedBatch2Line(speak, spotDifferenceNarration.completed(scene))} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={19} /> Hear fact again</button><div className="mt-4 flex flex-wrap justify-center gap-3">{phase === 'scene-complete' && <button type="button" onClick={nextScene} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">Next picture <ArrowRight size={18} /></button>}{phase === 'chapter-complete' && chapterIndex < SPOT_DIFFERENCE_CHAPTERS.length - 1 && <button type="button" onClick={() => { setChapterIndex(nextSpotChapterIndex(chapterIndex, SPOT_DIFFERENCE_CHAPTERS.length)); setPhase('intro'); }} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">Next chapter <ArrowRight size={18} /></button>}{phase === 'chapter-complete' && <button type="button" onClick={() => startChapter()} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-700 px-5 py-3 font-black text-white"><RotateCcw size={18} /> Replay chapter</button>}</div></section>}
       </>}
     </main>}
   </div>;

@@ -7,6 +7,7 @@ const EXPECTED_GAME_IDS = [
   'memory', 'pattern', 'spot', 'puzzle', 'trace', 'phonics', 'addition', 'subtraction',
   'astronaut', 'worldmap', 'counting', 'words', 'storybooks', 'colormix', 'oddoneout', 'timeteller', 'numberline', 'chess',
   'dinojigsaw', 'shadowmatch', 'rocketbuilder', 'fuelup', 'firerescue', 'ladder',
+  'codecadets', 'writingdesk',
 ];
 
 test('five worlds map every game exactly once', () => {

@@ -363,6 +363,15 @@ export const resolveSpotDifferenceTap = (differences, foundIds, x, y) => {
   return difference ? { kind: 'new', difference } : { kind: 'miss', difference: null };
 };
 
+export const resolveSpotDifferenceHotspotTap = (differences, foundIds, x, y, hotspotId) => {
+  const spatialHit = resolveSpotDifferenceTap(differences, foundIds, x, y);
+  if (spatialHit.kind !== 'miss') return spatialHit;
+  const intended = differences.find(({ id }) => id === hotspotId);
+  return intended && !foundIds.includes(hotspotId)
+    ? { kind: 'new', difference: intended }
+    : { kind: 'miss', difference: null };
+};
+
 export const SPOT_DIFFERENCE_PROGRESS_KEY = 'amari_spot_difference_batch2_v1';
 
 export const spotAnswerAttemptDetail = ({ level, round, seed, correct, hadMistake }) => ({

@@ -4,7 +4,7 @@ import { SoundToggle } from '../shared/index.jsx';
 import { skyShapeNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
 import {
   SKY_SHAPE_EPISODES, SKY_SHAPE_MISSION_BY_ID, SKY_SHAPE_TEACHING, createSkyRunSeed, skyAccuracyStars, skyFinishFlagPosition, skyMissionQueueForEpisode, tracePointsForOutline,
-  skyLearningAttemptDetail, skyTraceProgressPercent,
+  skyLearningAttemptDetail, skyTraceAccuracy, skyTraceProgressPercent,
 } from '../../data/skyShapes.js';
 import {
   getSkyShapesProgress, recordSkyFlightCompletion, rememberSkyMissionQueue,
@@ -13,7 +13,6 @@ import {
 
 const VIEW_WIDTH = 1000;
 const VIEW_HEIGHT = 650;
-const PRAISE = ['Brilliant flying!', 'Beautiful outline!', 'Fantastic tracing!', 'You guided the jet!'];
 const pointString = (point) => `${point[0]},${point[1]}`;
 const percentFor = (done, all) => all ? Math.min(100, Math.round((done / all) * 100)) : 0;
 
@@ -42,9 +41,10 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const cursorRef = useRef(0);
   const routeStartedRef = useRef(false);
   const routeFinishedRef = useRef(false);
+  const keyboardUsedRef = useRef(false);
+  const precisionTotalRef = useRef(0);
   const currentTrailRef = useRef([]);
   const attemptedMovesRef = useRef(0);
-  const onRouteMovesRef = useRef(0);
   const missesRef = useRef(0);
   const missLoggedRef = useRef(false);
   const [progress, setProgress] = useState(() => getSkyShapesProgress(playerId));
@@ -60,9 +60,9 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const [trails, setTrails] = useState([]);
   const [visitedByPath, setVisitedByPath] = useState([]);
   const [, setAttemptedMoves] = useState(0);
-  const [, setOnRouteMoves] = useState(0);
   const [traceReady, setTraceReady] = useState(false);
   const [missionAccuracy, setMissionAccuracy] = useState(0);
+  const [keyboardCompletion, setKeyboardCompletion] = useState(false);
   const [missionStars, setMissionStars] = useState(1);
   const [feedback, setFeedback] = useState('Choose a sky, then follow each glowing outline.');
   const [hadHint, setHadHint] = useState(false);
@@ -81,7 +81,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
 
   useLayoutEffect(() => {
     if (phase === 'play') window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [phase]);
+  }, [mission?.id, phase, roundIndex]);
 
   useEffect(() => {
     speakPackagedBatch2Line(speak, skyShapeNarration.choose);
@@ -103,9 +103,10 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     pointerRef.current = { id: null, drawing: false };
     currentTrailRef.current = [];
     attemptedMovesRef.current = 0;
-    onRouteMovesRef.current = 0;
     missesRef.current = 0;
     missLoggedRef.current = false;
+    keyboardUsedRef.current = false;
+    precisionTotalRef.current = 0;
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setPathIndex(0);
     setCursorIndex(0);
@@ -113,7 +114,6 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
     setTrails(mission.paths.map(() => []));
     setVisitedByPath(mission.paths.map(() => 0));
     setAttemptedMoves(0);
-    setOnRouteMoves(0);
     setTraceReady(false);
     setMissionAccuracy(0);
     setMissionStars(1);
@@ -198,10 +198,12 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
         setTraceReady(true);
         setPathIndex(index);
         setCursorIndex(bounded);
+        const keyboardGuided = keyboardUsedRef.current;
         const sampleCount = attemptedMovesRef.current || 1;
-        const accuracy = Math.round((onRouteMovesRef.current / sampleCount) * 100);
-        const stars = skyAccuracyStars(accuracy);
-        setMissionAccuracy(accuracy);
+        const accuracy = keyboardGuided ? null : skyTraceAccuracy(precisionTotalRef.current, sampleCount);
+        const stars = keyboardGuided ? 1 : skyAccuracyStars(accuracy);
+        setKeyboardCompletion(keyboardGuided);
+        setMissionAccuracy(accuracy ?? 0);
         setMissionStars(stars);
         const result = recordSkyFlightCompletion(playerId, mission.id, accuracy, stars);
         if (result) {
@@ -215,11 +217,14 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
             onGameEvent?.('jet', 'level_complete', { level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band });
           }
         }
-        setFeedback(`${accuracy}% on the glowing route. You earned ${stars} ${stars === 1 ? 'star' : 'stars'}!`);
-        onGameEvent?.('jet', 'answer_correct', { level: episodeIndex, round: roundIndex, seed: runSeed, firstAttempt: !hadMiss && !hadHint, difficulty: episode.band });
+        const firstAttempt = missesRef.current === 0 && !hadHint && !keyboardGuided;
+        setFeedback(keyboardGuided
+          ? 'Keyboard-guided route complete. Completion saved; pen-trace accuracy is not measured with keyboard controls.'
+          : `${accuracy}% route accuracy. ${firstAttempt ? 'Independent trace.' : 'Supported practice: a hint or retry was used.'} You earned ${stars} ${stars === 1 ? 'star' : 'stars'}!`);
+        onGameEvent?.('jet', 'answer_correct', { level: episodeIndex, round: roundIndex, seed: runSeed, firstAttempt, independent: firstAttempt, masteryEligible: !keyboardGuided, keyboardAlternative: keyboardGuided, difficulty: episode.band });
         onGameEvent?.('jet', 'learning_attempt', skyLearningAttemptDetail({
           level: episodeIndex, round: roundIndex, seed: runSeed, difficulty: episode.band,
-          missionId: mission.id, accuracy, firstAttempt: !hadMiss && !hadHint, hints: hadHint ? 1 : 0,
+          missionId: mission.id, accuracy, firstAttempt, keyboardAlternative: keyboardGuided, hints: hadHint ? 1 : 0,
         }));
         const completionSegments = skyShapeNarration.completionSegments(mission);
         speak(completionSegments.join(' '), { segments: completionSegments });
@@ -262,8 +267,9 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
       }
       return;
     }
-    onRouteMovesRef.current += 1;
-    setOnRouteMoves(onRouteMovesRef.current);
+    // Keep each accepted sample in the 0–1 range. Completion converts the
+    // average once to a percentage; multiplying here too inflated scores.
+    precisionTotalRef.current += Math.max(0, 1 - (nearest.distance / guideTolerance));
     const next = Math.min(nearest.index, cursor + 12);
     setGuidedProgress(index, next);
   };
@@ -306,22 +312,19 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
   const handleKeyboardTrace = (event) => {
     if (!['ArrowRight', 'ArrowDown', 'Enter', ' '].includes(event.key) || routeFinishedRef.current) return;
     event.preventDefault();
+    keyboardUsedRef.current = true;
     const index = pathIndexRef.current;
     const points = guidePaths[index];
     if (!points?.length) return;
     if (!routeStartedRef.current) {
       attemptedMovesRef.current += 1;
-      onRouteMovesRef.current += 1;
       setAttemptedMoves(attemptedMovesRef.current);
-      setOnRouteMoves(onRouteMovesRef.current);
       setGuidedProgress(index, 0);
       setFeedback('Keyboard flight started. Press Space or an arrow key to follow each glowing dot.');
       return;
     }
     attemptedMovesRef.current += 1;
-    onRouteMovesRef.current += 1;
     setAttemptedMoves(attemptedMovesRef.current);
-    setOnRouteMoves(onRouteMovesRef.current);
     setGuidedProgress(index, Math.min(points.length - 1, cursorRef.current + Math.max(2, Math.ceil(points.length / 18))));
   };
 
@@ -357,27 +360,23 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
 
   const resetMission = () => {
     if (!mission || traceReady) return;
-    if (routeStartedRef.current || attemptedMovesRef.current) registerMiss('Fresh route ready. Start at the green dot and try the glowing path again.');
+    if (routeStartedRef.current || attemptedMovesRef.current) {
+      registerMiss('Fresh route ready. Start at the green dot and try the glowing path again.');
+    }
     pathIndexRef.current = 0;
     cursorRef.current = 0;
     routeStartedRef.current = false;
     setRouteStarted(false);
     routeFinishedRef.current = false;
-    attemptedMovesRef.current = 0;
-    onRouteMovesRef.current = 0;
-    missesRef.current = 0;
-    missLoggedRef.current = false;
+    setKeyboardCompletion(false);
     setPathIndex(0);
     setCursorIndex(0);
     setCompletedPaths([]);
     setTrails(mission.paths.map(() => []));
     setVisitedByPath(mission.paths.map(() => 0));
-    setAttemptedMoves(0);
-    setOnRouteMoves(0);
     setTraceReady(false);
     setMissionAccuracy(0);
-    setHadMiss(false);
-    setFeedback('Start at the green dot and trace the route again.');
+    setFeedback('Start at the green dot and trace the route again. Earlier retries stay in your accuracy result.');
     playSfx('swish');
   };
 
@@ -468,6 +467,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
           <span className="w-12 text-right text-sm font-black">{overallProgress}%</span>
           <span className="rounded-xl bg-amber-300 px-2 py-1 text-sm font-black text-amber-950">{starsShown ? `${'★'.repeat(starsShown)}${'☆'.repeat(3 - starsShown)}` : '☆☆☆'}</span>
         </div>
+        <p className="mx-1 mt-2 rounded-xl bg-emerald-800 px-3 py-2 text-center text-xs font-black text-white sm:mx-3 sm:text-sm">Start at green 1 → follow the dots and arrow → finish at the flag</p>
         <div className="relative mt-3 overflow-hidden rounded-[1.6rem] border-2 border-sky-100/80 bg-gradient-to-b from-indigo-950 via-blue-900 to-sky-700">
           <div className="pointer-events-none absolute inset-0 opacity-70" aria-hidden="true"><span className="absolute left-[12%] top-[18%] text-3xl">✦</span><span className="absolute right-[16%] top-[24%] text-2xl">✧</span><span className="absolute right-[28%] bottom-[16%] text-xl">✦</span></div>
           <svg
@@ -484,6 +484,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
             onPointerCancel={stopPointer}
             onKeyDown={handleKeyboardTrace}
           >
+            <rect x="0" y="0" width={VIEW_WIDTH} height={VIEW_HEIGHT} fill="transparent" pointerEvents="all" aria-hidden="true" />
             {guidePaths.map((points, index) => {
               const pathString = points.map(pointString).join(' ');
               const complete = completedPaths.includes(index);
@@ -492,6 +493,10 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
               const visited = visitedByPath[index] || 0;
               const start = points[0] || [500, 330];
               const end = points[points.length - 1] || start;
+              const arrowIndex = Math.min(points.length - 1, Math.max(1, Math.floor(points.length * 0.12)));
+              const arrowPoint = points[arrowIndex] || start;
+              const arrowNext = points[Math.min(points.length - 1, arrowIndex + 1)] || arrowPoint;
+              const arrowAngle = Math.atan2(arrowNext[1] - arrowPoint[1], arrowNext[0] - arrowPoint[0]) * (180 / Math.PI);
               const flag = skyFinishFlagPosition(start, end);
               return (
                 <g key={mission?.paths[index]?.id} aria-hidden="true">
@@ -499,6 +504,7 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
                   <polyline points={pathString} fill="none" stroke={active ? '#fde68a' : 'rgba(147,197,253,.55)'} strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="2 21" />
                   {visited > 1 && <polyline points={points.slice(0, visited).map(pointString).join(' ')} fill="none" stroke="#34d399" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />}
                   {trail.length > 1 && <polyline points={trail.map(pointString).join(' ')} fill="none" stroke="#f97316" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" opacity=".8" />}
+                  {!complete && <path d="M -14 -10 L 14 0 L -14 10 Z" transform={`translate(${arrowPoint[0]} ${arrowPoint[1]}) rotate(${arrowAngle})`} fill="#fde047" stroke="#0f172a" strokeWidth="3" />}
                   <circle cx={start[0]} cy={start[1]} r={active ? 33 : 22} fill={complete ? '#059669' : active ? '#16a34a' : '#075985'} stroke="#fff" strokeWidth="8" />
                   <text x={start[0]} y={start[1] + 8} textAnchor="middle" fontSize="24" fontWeight="900" fill="#fff">{index + 1}</text>
                   <g transform={`translate(${flag.x} ${flag.y})`}>
@@ -512,16 +518,16 @@ const JetSkyShapes = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, spea
             })}
             {routeStarted && <g transform={`translate(${hotPoint[0]} ${hotPoint[1]})`} aria-hidden="true"><circle r="40" fill="rgba(253,230,138,.3)" /><text textAnchor="middle" y="16" fontSize="58">✈️</text></g>}
           </svg>
-          <div className="absolute left-2 top-2 z-20 rounded-full bg-emerald-700/90 px-3 py-1 text-xs font-black text-white sm:left-4 sm:top-4">Numbered circle = Start · Checkered flag = Finish</div>
         </div>
 
         <div className="mt-3 rounded-2xl border-2 border-white/20 bg-white/10 p-3 text-center">
           <p className="mx-auto mb-2 max-w-3xl rounded-xl bg-indigo-200/15 px-3 py-2 text-sm font-bold text-indigo-50"><span className="font-black text-yellow-200">Tracing tip: </span>{SKY_SHAPE_TEACHING[mission?.id]?.strategy}</p>
-          <p className="min-h-12 text-base font-black sm:text-lg" role="status" aria-live="polite">{traceReady ? `${missionAccuracy}% accurate · ${missionStars} of 3 accuracy stars.` : feedback}</p>
+          <p className="min-h-12 text-base font-black sm:text-lg" role="status" aria-live="polite">{traceReady ? keyboardCompletion ? 'Keyboard-guided completion · 1 participation star.' : `${missionAccuracy}% route accuracy · ${missionStars} of 3 accuracy stars.` : feedback}</p>
+          {traceReady && <p className="mt-1 text-sm font-bold text-sky-50">{keyboardCompletion ? 'Supported keyboard route. You completed the ordered path.' : !hadMiss && !hadHint ? 'Independent tracing: no hints or retries used.' : 'Supported practice: a hint or retry helped you finish.'}</p>}
           {traceReady && <p className="mx-auto mt-2 max-w-3xl rounded-xl border border-emerald-200/50 bg-emerald-100/15 px-3 py-2 text-sm font-bold text-emerald-50" role="status">Shape idea: {SKY_SHAPE_TEACHING[mission?.id]?.explanation}</p>}
           {traceReady && <p className="mt-1 rounded-xl bg-white/10 px-3 py-2 text-sm font-bold text-sky-50">Your best flight rating is saved. {newMissionStars > 0 ? `${newMissionStars} new ${newMissionStars === 1 ? 'star' : 'stars'} added to your collection!` : 'Try a new mission to collect more stars.'}</p>}
           {traceReady && chapterBonusStars > 0 && <p className="mt-1 font-black text-yellow-200">Aviator badge saved · {chapterBonusStars} bonus stars added!</p>}
-          {traceReady && <div className="mt-2 flex justify-center gap-2 text-3xl" aria-label={`${missionStars} of 3 accuracy stars`}>{Array.from({ length: 3 }, (_, index) => <span key={index} aria-hidden="true" className={index < missionStars ? 'text-yellow-300' : 'text-white/35'}>★</span>)}</div>}
+          {traceReady && <div className="mt-2 flex justify-center gap-2 text-3xl" aria-label={keyboardCompletion ? 'Keyboard-guided completion: 1 participation star' : `${missionStars} of 3 accuracy stars`}>{Array.from({ length: 3 }, (_, index) => <span key={index} aria-hidden="true" className={index < missionStars ? 'text-yellow-300' : 'text-white/35'}>★</span>)}</div>}
           <div className="mt-3 flex flex-wrap justify-center gap-2">
             <button type="button" onClick={speakPrompt} className="min-h-12 rounded-xl bg-white px-4 py-2 font-black text-sky-900"><Volume2 size={18} className="mr-1 inline" />Hear mission again</button>
             <button type="button" onClick={showHint} disabled={traceReady} className="min-h-12 rounded-xl bg-amber-300 px-4 py-2 font-black text-amber-950 disabled:opacity-50">Show a tracing hint</button>

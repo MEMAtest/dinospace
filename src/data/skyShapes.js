@@ -135,6 +135,11 @@ export const tracePointsForOutline = (outline, stepSize = 25) => {
 
 export const skyAccuracyStars = (accuracy) => accuracy >= 95 ? 3 : accuracy >= 82 ? 2 : 1;
 
+export const skyTraceAccuracy = (precisionTotal, sampleCount) => {
+  if (!Number.isFinite(precisionTotal) || !Number.isFinite(sampleCount) || sampleCount <= 0) return 0;
+  return Math.max(0, Math.min(100, Math.round((precisionTotal / sampleCount) * 100)));
+};
+
 export const skyTraceProgressPercent = (guidePaths, pathIndex, cursorIndex, complete = false) => {
   const totalPoints = guidePaths.reduce((total, path) => total + path.length, 0);
   if (!totalPoints) return 0;
@@ -143,18 +148,19 @@ export const skyTraceProgressPercent = (guidePaths, pathIndex, cursorIndex, comp
   return Math.min(100, Math.round((passedPoints / totalPoints) * 100));
 };
 
-export const skyLearningAttemptDetail = ({ level, round, seed, difficulty, missionId, accuracy, firstAttempt, hints }) => ({
+export const skyLearningAttemptDetail = ({ level, round, seed, difficulty, missionId, accuracy, firstAttempt, hints, keyboardAlternative = false }) => ({
   level,
   round,
   seed,
   difficulty,
   skill: 'shape-tracing',
   item: missionId,
-  response: accuracy,
-  expected: 100,
+  ...(Number.isFinite(accuracy) ? { response: accuracy, expected: 100 } : {}),
   correct: true,
   firstAttempt,
   independent: firstAttempt,
+  masteryEligible: !keyboardAlternative,
+  keyboardAlternative,
   hints,
 });
 

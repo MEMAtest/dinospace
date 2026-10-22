@@ -56,6 +56,17 @@ export const puzzlePopTileImageStyle = (slot, grid) => ({
   top: `${-Math.floor(slot / grid) * 100}%`,
   objectFit: 'cover',
 });
+
+export const movePuzzlePopBoardFocus = (slot, key, grid) => {
+  const row = Math.floor(slot / grid);
+  const column = slot % grid;
+  if (key === 'ArrowLeft' && column > 0) return slot - 1;
+  if (key === 'ArrowRight' && column < grid - 1) return slot + 1;
+  if (key === 'ArrowUp' && row > 0) return slot - grid;
+  if (key === 'ArrowDown' && row < grid - 1) return slot + grid;
+  return slot;
+};
+
 export const PUZZLE_POP_PROGRESS_KEY = 'amari_puzzle_pop_batch2_v1';
 
 export const puzzlePopRandomFor = (seed) => {

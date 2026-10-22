@@ -5,6 +5,7 @@ import {
   createPuzzlePopPieceTray,
   createPuzzlePopSceneQueue,
   getPuzzlePopProgress,
+  movePuzzlePopBoardFocus,
   PUZZLE_POP_CHAPTERS,
   PUZZLE_POP_SCENE_COUNT,
   PUZZLE_POP_PROGRESS_KEY,
@@ -51,6 +52,22 @@ test('seeded chapter queues and piece trays are stable, shuffled, complete and r
     assert.deepEqual(tray, createPuzzlePopPieceTray(PUZZLE_POP_CHAPTERS[chapter].grid, 900 + chapter));
     assert.deepEqual([...tray.map(({ correctSlot }) => correctSlot)].sort((a, b) => a - b), Array.from({ length: pieceCount }, (_, index) => index));
   }
+});
+
+test('Puzzle Pop board arrow movement stays within rows and columns at each board size', () => {
+  for (const grid of [3, 4, 5]) {
+    assert.equal(movePuzzlePopBoardFocus(0, 'ArrowLeft', grid), 0);
+    assert.equal(movePuzzlePopBoardFocus(0, 'ArrowUp', grid), 0);
+    assert.equal(movePuzzlePopBoardFocus(0, 'ArrowRight', grid), 1);
+    assert.equal(movePuzzlePopBoardFocus(0, 'ArrowDown', grid), grid);
+    assert.equal(movePuzzlePopBoardFocus(grid - 1, 'ArrowRight', grid), grid - 1);
+    assert.equal(movePuzzlePopBoardFocus(grid - 1, 'ArrowDown', grid), 2 * grid - 1);
+    assert.equal(movePuzzlePopBoardFocus(grid * (grid - 1), 'ArrowLeft', grid), grid * (grid - 1));
+    assert.equal(movePuzzlePopBoardFocus(grid * (grid - 1), 'ArrowDown', grid), grid * (grid - 1));
+    assert.equal(movePuzzlePopBoardFocus(grid * grid - 1, 'ArrowRight', grid), grid * grid - 1);
+    assert.equal(movePuzzlePopBoardFocus(grid * grid - 1, 'ArrowUp', grid), grid * (grid - 1) - 1);
+  }
+  assert.equal(movePuzzlePopBoardFocus(7, 'Enter', 3), 7);
 });
 
 test('progress persists per child and unlocks only after every scene in a chapter is completed', () => {

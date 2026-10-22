@@ -59,12 +59,14 @@ export const rememberSkyMissionQueue = (playerId, missionIds, storage = browserS
 
 export const recordSkyMissionCompletion = (playerId, missionId, accuracy, stars, storage = browserStorage()) => {
   const mission = SKY_SHAPE_MISSION_BY_ID[missionId];
-  if (!mission || !Number.isFinite(accuracy) || accuracy < 0 || accuracy > 100 || !Number.isInteger(stars) || stars < 1 || stars > 3) return null;
+  if (!mission || (accuracy !== null && (!Number.isFinite(accuracy) || accuracy < 0 || accuracy > 100)) || !Number.isInteger(stars) || stars < 1 || stars > 3) return null;
   const progress = getSkyShapesProgress(playerId, storage);
   const awardedStars = Math.max(0, stars - (progress.bestMissionStars[missionId] || 0));
   const completedMissionIds = progress.completedMissionIds.includes(missionId)
     ? progress.completedMissionIds : [...progress.completedMissionIds, missionId];
-  const bestAccuracy = { ...progress.bestAccuracy, [missionId]: Math.max(progress.bestAccuracy[missionId] || 0, accuracy) };
+  // Keyboard-guided completion has no pen-trace measurement. Keep any earlier
+  // measured best and do not store a synthetic accuracy value.
+  const bestAccuracy = accuracy === null ? progress.bestAccuracy : { ...progress.bestAccuracy, [missionId]: Math.max(progress.bestAccuracy[missionId] || 0, accuracy) };
   const bestMissionStars = { ...progress.bestMissionStars, [missionId]: Math.max(progress.bestMissionStars[missionId] || 0, stars) };
   const episode = SKY_SHAPE_EPISODES[mission.episodeIndex];
   const episodeIsComplete = episode.missions.every((entry) => completedMissionIds.includes(entry.id));

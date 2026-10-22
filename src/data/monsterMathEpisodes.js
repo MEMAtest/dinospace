@@ -196,8 +196,23 @@ export const createMonsterMathRun = ({ episodeIndex = 0, seed = 1, recentQuestio
   const pool = MONSTER_QUESTION_POOLS[index];
   const recent = new Set(recentQuestionIds);
   const unseen = pool.filter((question) => !recent.has(question.id));
-  const source = unseen.length >= size ? unseen : pool;
-  const questions = seededShuffle(source, seed).slice(0, Math.min(size, source.length));
+  let questions;
+  if (index === 1 && size === 6) {
+    const source = ['add', 'subtract'].every((kind) => unseen.filter((question) => question.kind === kind).length >= 3) ? unseen : pool;
+    questions = [
+      ...seededShuffle(source.filter((question) => question.kind === 'add'), seed).slice(0, 3),
+      ...seededShuffle(source.filter((question) => question.kind === 'subtract'), seed ^ 0xa511e9b3).slice(0, 3),
+    ];
+  } else if (index === 2 && size === 6) {
+    const quotas = [['word-add', 3], ['word-subtract', 3]];
+    const enoughFresh = quotas.every(([kind, count]) => unseen.filter((question) => question.kind === kind).length >= count);
+    const source = enoughFresh ? unseen : pool;
+    questions = quotas.flatMap(([kind, count], offset) => seededShuffle(source.filter((question) => question.kind === kind), seed ^ Math.imul(offset + 1, 0x45d9f3b)).slice(0, count));
+  } else {
+    const source = unseen.length >= size ? unseen : pool;
+    questions = seededShuffle(source, seed).slice(0, Math.min(size, source.length));
+  }
+  questions = seededShuffle(questions, seed ^ 0x9e3779b9);
   return questions.map((question, round) => Object.freeze({
     ...question,
     round,

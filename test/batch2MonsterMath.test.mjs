@@ -42,6 +42,19 @@ test('each seed produces six stable unique questions with four distinct options 
   }
 });
 
+test('growing and story runs always include both advertised operations with valid matching models', () => {
+  for (let seed = 1; seed <= 100; seed += 1) {
+    const growing = createMonsterMathRun({ episodeIndex: 1, seed });
+    assert.equal(growing.filter((question) => question.kind === 'add').length, 3);
+    assert.equal(growing.filter((question) => question.kind === 'subtract').length, 3);
+    const story = createMonsterMathRun({ episodeIndex: 2, seed });
+    assert.equal(story.filter((question) => question.kind === 'word-add').length, 3);
+    assert.equal(story.filter((question) => question.kind === 'word-subtract').length, 3);
+    assert.equal(isValidMonsterRun(story, 2), true);
+    for (const question of story) assert.equal(question.model.answer, question.answer);
+  }
+});
+
 test('answer positions are balanced over seeded runs instead of fixed to one button', () => {
   const positions = [0, 0, 0, 0];
   for (let seed = 1; seed <= 500; seed += 1) {

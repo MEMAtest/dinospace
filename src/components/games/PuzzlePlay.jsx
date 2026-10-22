@@ -7,6 +7,7 @@ import {
   createPuzzlePopPieceTray,
   createPuzzlePopSceneQueue,
   getPuzzlePopProgress,
+  movePuzzlePopBoardFocus,
   PUZZLE_POP_CHAPTERS,
   puzzlePopTileImageStyle,
   savePuzzlePopQueue,
@@ -29,6 +30,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   const [previousTrayOrder, setPreviousTrayOrder] = useState([]);
   const [placed, setPlaced] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [focusedSlot, setFocusedSlot] = useState(0);
   const [moves, setMoves] = useState(0);
   const [message, setMessage] = useState('Start a chapter to build a picture.');
   const [hintSlot, setHintSlot] = useState(null);
@@ -36,6 +38,10 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   const [hadMistake, setHadMistake] = useState(false);
   const [hintsUsed, setHintsUsed] = useState(0);
   const wrongTimeoutRef = useRef(null);
+  const boardSlotRefs = useRef([]);
+  const trayPieceRefs = useRef({});
+  const feedbackRef = useRef(null);
+  const boardRef = useRef(null);
 
   const chapter = PUZZLE_POP_CHAPTERS[chapterIndex] || PUZZLE_POP_CHAPTERS[0];
   const scene = queue[sceneIndex] || null;
@@ -55,6 +61,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     setPreviousTrayOrder(nextTray.map(({ correctSlot }) => correctSlot));
     setPlaced(Array(chapter.grid ** 2).fill(null));
     setSelected(null);
+    setFocusedSlot(0);
     setMoves(0);
     setHintSlot(null);
     setWrongSlot(null);
@@ -86,14 +93,42 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     speakPackagedBatch2Line(speak, puzzlePopNarration.prompt(scene));
   };
 
-  const choosePiece = (piece) => {
+  const focusBoardSlot = (slot) => {
+    setFocusedSlot(slot);
+    boardSlotRefs.current[slot]?.focus();
+  };
+
+  const scrollBoardContextIntoViewIfNeeded = () => {
+    if (!window.matchMedia('(max-width: 639px)').matches) return;
+    const feedback = feedbackRef.current?.getBoundingClientRect();
+    const board = boardRef.current?.getBoundingClientRect();
+    if (!feedback || !board) return;
+    const stickyHeaderClearance = 72;
+    const contextOffscreen = board.top < stickyHeaderClearance || board.bottom > window.innerHeight
+      || feedback.top < stickyHeaderClearance || feedback.bottom > window.innerHeight;
+    if (contextOffscreen) boardRef.current.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+  };
+
+  const scrollTrayIntoViewIfNeeded = (remainingPieces) => {
+    if (!window.matchMedia('(max-width: 639px)').matches) return;
+    const stickyHeaderClearance = 72;
+    const offscreenPiece = remainingPieces.find(({ id }) => {
+      const bounds = trayPieceRefs.current[id]?.getBoundingClientRect();
+      return bounds && (bounds.top < stickyHeaderClearance || bounds.bottom > window.innerHeight);
+    });
+    if (offscreenPiece) trayPieceRefs.current[offscreenPiece.id]?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+  };
+
+  const choosePiece = (piece, event) => {
     if (solved) return;
     setSelected(piece);
     setMessage('Piece selected. Compare its colours and edges with the preview.');
+    if (event.detail === 0) window.requestAnimationFrame(() => boardSlotRefs.current[focusedSlot]?.focus());
+    else window.requestAnimationFrame(scrollBoardContextIntoViewIfNeeded);
     playSfx('click');
   };
 
-  const placePiece = (slotIndex) => {
+  const placePiece = (slotIndex, event) => {
     if (!scene || solved) return;
     if (!selected) {
       setMessage('Choose one picture piece first.');
@@ -138,17 +173,20 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
       }
     } else {
       setMessage(`Great fit! ${nextPlaced.filter(Boolean).length} of ${nextPlaced.length} pieces are in place.`);
+      if (event.detail === 0 && nextTray.length) window.requestAnimationFrame(() => trayPieceRefs.current[nextTray[0].id]?.focus());
+      else if (nextTray.length) window.requestAnimationFrame(() => scrollTrayIntoViewIfNeeded(nextTray));
       playSfx('sparkle');
     }
   };
 
-  const showHint = () => {
+  const showHint = (event) => {
     if (!scene || solved || tray.length === 0) return;
     const nextPiece = selected || tray[0];
     setSelected(nextPiece);
     setHintSlot(nextPiece.correctSlot);
     setHintsUsed((value) => value + 1);
     setMessage(`Hint: piece ${nextPiece.correctSlot + 1} fits the glowing space. ${chapter.visualTip}`);
+    if (event.detail === 0) window.requestAnimationFrame(() => focusBoardSlot(nextPiece.correctSlot));
     onGameEvent?.('puzzle', 'hint', { level: chapterIndex, round: sceneIndex + 1, seed, hintType: 'next_piece' });
     speakPackagedBatch2Line(speak, puzzlePopNarration.hint(nextPiece.correctSlot + 1));
     playSfx('chime');
@@ -237,28 +275,43 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
               </aside>
 
               <section className="flex min-w-0 flex-col gap-3">
-                <p className="min-h-12 rounded-2xl bg-white/95 px-4 py-3 text-center font-black text-orange-800 shadow" aria-live="polite">{message}</p>
+                <div ref={feedbackRef} className="flex min-h-12 items-center justify-center gap-3 rounded-2xl bg-white/95 px-3 py-2 shadow">
+                  <p className="m-0 min-w-0 flex-1 text-center font-black text-orange-800" aria-live="polite">{message}</p>
+                  {selected && <span role="img" aria-label="Selected picture piece preview" className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border-2 border-orange-400 bg-white shadow-sm"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(selected.correctSlot, chapter.grid)} /></span>}
+                </div>
                 {phase === 'play' ? (
                   <>
-                    <div className="grid aspect-square w-full max-w-[280px] grid-cols-1 gap-1 self-center overflow-hidden rounded-3xl border-4 border-white bg-amber-50 p-1.5 shadow-xl sm:max-w-[460px]" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, width: boardWidth }} aria-label={`${chapter.grid} by ${chapter.grid} puzzle board`}>
-                      {placed.map((piece, slotIndex) => (
-                        <button type="button" key={`slot-${slotIndex}`} onClick={() => placePiece(slotIndex)} aria-label={`Puzzle space ${slotIndex + 1}${hintSlot === slotIndex ? ', hint space' : ''}`} className={`relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-md border border-white/80 focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-400 ${wrongSlot === slotIndex ? 'animate-shake bg-rose-100' : piece ? 'bg-white' : hintSlot === slotIndex ? 'bg-yellow-200 ring-4 ring-yellow-400' : 'bg-emerald-50'}`}>
-                          {piece && <span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(slotIndex, chapter.grid)} /><span className="absolute inset-0 border border-white/15" /></span>}
-                          {!piece && hintSlot === slotIndex && <Lightbulb className="absolute inset-0 m-auto text-orange-600" aria-hidden="true" />}
-                          {piece && <Check className="absolute right-0.5 top-0.5 rounded-full bg-emerald-600 p-0.5 text-white" size={20} aria-hidden="true" />}
-                        </button>
-                      ))}
-                    </div>
-
                     <div className="rounded-3xl border-4 border-white bg-white/90 p-3 shadow-lg sm:p-4">
                       <div className="mb-3 flex items-center justify-between gap-2">
                         <p className="font-black text-slate-800">Picture pieces <span className="text-slate-500">({tray.length} left · {moves} moves)</span></p>
                         <button type="button" onClick={showHint} disabled={!tray.length} className="inline-flex min-h-12 items-center gap-1.5 rounded-full bg-amber-100 px-4 font-black text-orange-800 disabled:opacity-50"><Lightbulb size={18} />{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
                       </div>
                       <div className="grid gap-1.5 sm:gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(48px, 1fr))' }} aria-label="Picture piece tray">
-                        {tray.map((piece, trayIndex) => <button type="button" key={piece.id} onClick={() => choosePiece(piece)} aria-pressed={selected?.id === piece.id} data-piece-slot={piece.correctSlot} aria-label={`Choose loose piece ${trayIndex + 1}`} className={`relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(piece.correctSlot, chapter.grid)} /></span></button>)}
+                        {tray.map((piece, trayIndex) => <button type="button" key={piece.id} ref={(element) => { trayPieceRefs.current[piece.id] = element; }} onClick={(event) => choosePiece(piece, event)} aria-pressed={selected?.id === piece.id} aria-label={`Choose loose piece ${trayIndex + 1}`} className={`relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(piece.correctSlot, chapter.grid)} /></span></button>)}
                       </div>
                       {showMappingDemo && <p className="text-center text-sm font-bold text-orange-900">Try a piece mapping: compare its highlighted preview square with the glowing board space.</p>}
+                    </div>
+
+                    <div ref={boardRef} role="grid" aria-label={`${chapter.grid} by ${chapter.grid} puzzle board`} className="order-first grid aspect-square w-full max-w-[280px] grid-cols-1 gap-1 self-center overflow-hidden rounded-3xl border-4 border-white bg-amber-50 p-1.5 shadow-xl sm:max-w-[460px]" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))`, width: boardWidth, minWidth: `${chapter.grid * 48 + (chapter.grid - 1) * 4 + 20}px` }}>
+                      {Array.from({ length: chapter.grid }, (_, row) => (
+                        <div role="row" key={`row-${row}`} className="col-span-full grid min-h-0 min-w-0 gap-1" style={{ gridColumn: '1 / -1', gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))` }}>
+                          {placed.slice(row * chapter.grid, (row + 1) * chapter.grid).map((piece, column) => {
+                            const slotIndex = row * chapter.grid + column;
+                            return <div role="gridcell" key={`cell-${slotIndex}`} className="min-h-0 min-w-0">
+                              <button type="button" ref={(element) => { boardSlotRefs.current[slotIndex] = element; }} tabIndex={focusedSlot === slotIndex ? 0 : -1} onFocus={() => setFocusedSlot(slotIndex)} onKeyDown={(event) => {
+                                if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(event.key)) return;
+                                event.preventDefault();
+                                const target = movePuzzlePopBoardFocus(slotIndex, event.key, chapter.grid);
+                                if (target !== slotIndex) focusBoardSlot(target);
+                              }} onClick={(event) => placePiece(slotIndex, event)} aria-label={`Puzzle space ${slotIndex + 1}, ${piece ? 'piece in place' : 'empty'}${hintSlot === slotIndex ? ', hint space' : ''}`} className={`relative h-full w-full min-h-12 min-w-12 overflow-hidden rounded-md border border-white/80 focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-400 ${wrongSlot === slotIndex ? 'animate-shake bg-rose-100' : piece ? 'bg-white' : hintSlot === slotIndex ? 'bg-yellow-200 ring-4 ring-yellow-400' : 'bg-emerald-50'}`}>
+                                {piece && <span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(slotIndex, chapter.grid)} /><span className="absolute inset-0 border border-white/15" /></span>}
+                                {!piece && hintSlot === slotIndex && <Lightbulb className="absolute inset-0 m-auto text-orange-600" aria-hidden="true" />}
+                                {piece && <Check className="absolute right-0.5 top-0.5 rounded-full bg-emerald-600 p-0.5 text-white" size={20} aria-hidden="true" />}
+                              </button>
+                            </div>;
+                          })}
+                        </div>
+                      ))}
                     </div>
                   </>
                 ) : (
@@ -266,6 +319,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                     <p className="text-4xl" aria-hidden="true">{phase === 'chapter-complete' ? '🏆' : '🎉'}</p>
                     <h2 className="mt-2 text-xl font-black text-emerald-900">{phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} complete!`}</h2>
                     <p className="mt-2 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed text-emerald-950"><strong>Picture fact:</strong> {scene.fact}</p>
+                    <button type="button" onClick={() => speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene))} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={19} /> Hear fact again</button>
                     <div className="mt-4 flex flex-wrap justify-center gap-3">
                       {sceneIndex + 1 < queue.length && <button type="button" onClick={advanceScene} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white">Next picture <ArrowRight size={19} /></button>}
                       {sceneIndex + 1 === queue.length && chapterIndex < PUZZLE_POP_CHAPTERS.length - 1 && <button type="button" onClick={advanceScene} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white">Next chapter <ArrowRight size={19} /></button>}
