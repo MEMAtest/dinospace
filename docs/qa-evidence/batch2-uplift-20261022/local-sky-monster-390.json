@@ -1,0 +1,475 @@
+{
+  "origin": "http://127.0.0.1:5187",
+  "width": 390,
+  "fixture": {
+    "skyShapesSourceSha256": "b491170b8275afe2aa55bf1f82a01f275c58f2c0079ac20fd2c9e1c2025a0f51",
+    "monsterMathSourceSha256": "c77fd67c2fc3ed4e5c7442c1bebb0c94cb13b9d6f15306e97fa0eb3435c54c95",
+    "skyMissionNames": [
+      "Round Sun",
+      "Mountain Peak",
+      "Window Cloud",
+      "Kite",
+      "Heart Balloon",
+      "Bright Star",
+      "Cloud House",
+      "Puffy Cloud",
+      "Rocket Ship",
+      "Winged Jet",
+      "Sky Castle",
+      "Moon Observatory"
+    ],
+    "skyTracePointCount": 1044,
+    "monsterPromptCount": 3208
+  },
+  "sky": [
+    {
+      "episode": 1,
+      "episodeTitle": "Cloud Meadow",
+      "mission": "Window Cloud",
+      "parts": 1,
+      "input": "keyboard",
+      "retryAndHint": true,
+      "keyboardAlternativeUsed": true
+    },
+    {
+      "episode": 1,
+      "episodeTitle": "Cloud Meadow",
+      "mission": "Round Sun",
+      "parts": 1,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 1,
+      "episodeTitle": "Cloud Meadow",
+      "mission": "Mountain Peak",
+      "parts": 1,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 1,
+      "episodeTitle": "Cloud Meadow",
+      "mission": "Kite",
+      "parts": 1,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 2,
+      "episodeTitle": "Rainbow Ridge",
+      "mission": "Cloud House",
+      "parts": 2,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 2,
+      "episodeTitle": "Rainbow Ridge",
+      "mission": "Puffy Cloud",
+      "parts": 1,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 2,
+      "episodeTitle": "Rainbow Ridge",
+      "mission": "Bright Star",
+      "parts": 1,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 2,
+      "episodeTitle": "Rainbow Ridge",
+      "mission": "Heart Balloon",
+      "parts": 1,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 3,
+      "episodeTitle": "Aurora Station",
+      "mission": "Rocket Ship",
+      "parts": 4,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 3,
+      "episodeTitle": "Aurora Station",
+      "mission": "Moon Observatory",
+      "parts": 4,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 3,
+      "episodeTitle": "Aurora Station",
+      "mission": "Sky Castle",
+      "parts": 6,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 3,
+      "episodeTitle": "Aurora Station",
+      "mission": "Winged Jet",
+      "parts": 3,
+      "input": "native pointer",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    }
+  ],
+  "monster": [
+    {
+      "episode": "Count to 10",
+      "run": "first",
+      "questionCount": 6,
+      "prompts": [
+        "How many crystals can you see? \u2192 3",
+        "How many apples can you see? \u2192 4",
+        "How many planets can you see? \u2192 1",
+        "How many oranges can you see? \u2192 7",
+        "How many moons can you see? \u2192 3",
+        "How many oranges can you see? \u2192 3"
+      ],
+      "details": [
+        {
+          "prompt": "How many crystals can you see?",
+          "answer": 3,
+          "wrongRetry": true,
+          "clue": true,
+          "numberLineStep": null,
+          "feedbackHeldMs": 6100,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many apples can you see?",
+          "answer": 4,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many planets can you see?",
+          "answer": 1,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many oranges can you see?",
+          "answer": 7,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many moons can you see?",
+          "answer": 3,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many oranges can you see?",
+          "answer": 3,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        }
+      ]
+    },
+    {
+      "episode": "Count to 10",
+      "run": "replay",
+      "questionCount": 6,
+      "prompts": [
+        "How many cookies can you see? \u2192 2",
+        "How many shells can you see? \u2192 6",
+        "How many moons can you see? \u2192 6",
+        "How many cookies can you see? \u2192 10",
+        "How many balloons can you see? \u2192 1",
+        "How many planets can you see? \u2192 6"
+      ],
+      "details": [
+        {
+          "prompt": "How many cookies can you see?",
+          "answer": 2,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many shells can you see?",
+          "answer": 6,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many moons can you see?",
+          "answer": 6,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many cookies can you see?",
+          "answer": 10,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many balloons can you see?",
+          "answer": 1,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "How many planets can you see?",
+          "answer": 6,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        }
+      ]
+    },
+    {
+      "episode": "Add and Take Away",
+      "run": "first",
+      "questionCount": 6,
+      "prompts": [
+        "What is 12 take away 10? \u2192 2",
+        "What is 4 plus 8? \u2192 12",
+        "What is 14 take away 13? \u2192 1",
+        "What is 1 plus 2? \u2192 3",
+        "What is 4 plus 1? \u2192 5",
+        "What is 18 take away 12? \u2192 6"
+      ],
+      "details": [
+        {
+          "prompt": "What is 12 take away 10?",
+          "answer": 2,
+          "wrongRetry": false,
+          "clue": true,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "What is 4 plus 8?",
+          "answer": 12,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "What is 14 take away 13?",
+          "answer": 1,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "What is 1 plus 2?",
+          "answer": 3,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "What is 4 plus 1?",
+          "answer": 5,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "What is 18 take away 12?",
+          "answer": 6,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        }
+      ]
+    },
+    {
+      "episode": "Monster Story Problems",
+      "run": "first",
+      "questionCount": 6,
+      "prompts": [
+        "Ava has 20 flowers. Ava gives 11 flowers away. How many are left? \u2192 9",
+        "Bo has 13 balloons. Bo gives 7 balloons away. How many are left? \u2192 6",
+        "Leo has 6 apples. Leo finds 12 more. How many apples are there now? \u2192 18",
+        "Nia has 5 gems. Nia finds 15 more. How many gems are there now? \u2192 20",
+        "Kai has 9 oranges. Kai finds 9 more. How many oranges are there now? \u2192 18",
+        "Max has 8 cookies. Max gives 2 cookies away. How many are left? \u2192 6"
+      ],
+      "details": [
+        {
+          "prompt": "Ava has 20 flowers. Ava gives 11 flowers away. How many are left?",
+          "answer": 9,
+          "wrongRetry": false,
+          "clue": true,
+          "numberLineStep": {
+            "before": "At 20. 11 jumps to go.",
+            "after": "At 19. 10 jumps to go."
+          },
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "Bo has 13 balloons. Bo gives 7 balloons away. How many are left?",
+          "answer": 6,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "Leo has 6 apples. Leo finds 12 more. How many apples are there now?",
+          "answer": 18,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "Nia has 5 gems. Nia finds 15 more. How many gems are there now?",
+          "answer": 20,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "Kai has 9 oranges. Kai finds 9 more. How many oranges are there now?",
+          "answer": 18,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        },
+        {
+          "prompt": "Max has 8 cookies. Max gives 2 cookies away. How many are left?",
+          "answer": 6,
+          "wrongRetry": false,
+          "clue": false,
+          "numberLineStep": null,
+          "feedbackHeldMs": 0,
+          "nextHeldUntilAnimation": false
+        }
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedAssets": [],
+  "provider403": [],
+  "skyCoverage": [
+    {
+      "episode": "Cloud Meadow",
+      "firstQueue": [
+        "Window Cloud",
+        "Round Sun",
+        "Mountain Peak",
+        "Kite"
+      ],
+      "completeFourMissionRun": [
+        "Window Cloud",
+        "Round Sun",
+        "Mountain Peak",
+        "Kite"
+      ]
+    },
+    {
+      "episode": "Rainbow Ridge",
+      "firstQueue": [
+        "Cloud House",
+        "Puffy Cloud",
+        "Bright Star",
+        "Heart Balloon"
+      ],
+      "completeFourMissionRun": [
+        "Cloud House",
+        "Puffy Cloud",
+        "Bright Star",
+        "Heart Balloon"
+      ]
+    },
+    {
+      "episode": "Aurora Station",
+      "firstQueue": [
+        "Rocket Ship",
+        "Moon Observatory",
+        "Sky Castle",
+        "Winged Jet"
+      ],
+      "completeFourMissionRun": [
+        "Rocket Ship",
+        "Moon Observatory",
+        "Sky Castle",
+        "Winged Jet"
+      ]
+    }
+  ],
+  "monsterProgressAfterReload": {
+    "completedEpisodeIds": [
+      "count-garden",
+      "number-workshop",
+      "story-bridge"
+    ],
+    "unlockedEpisode": 2,
+    "unchanged": true
+  }
+}

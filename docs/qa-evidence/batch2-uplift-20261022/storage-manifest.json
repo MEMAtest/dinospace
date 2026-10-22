@@ -1,0 +1,168 @@
+{
+  "newWorktrees": 0,
+  "newDependencyInstalls": 0,
+  "browser": "single existing contained headless Chromium session; no visible Chrome windows or extra tabs",
+  "sourceArtwork": "reused, no new source artwork generated",
+  "removed": [
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-sky-touch.log",
+      "bytes": 246458,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-spot-390.log",
+      "bytes": 16836,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-puzzle-390.log",
+      "bytes": 5169,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-spot-1440.log",
+      "bytes": 16849,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-sky-touch.log",
+      "bytes": 246505,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-spot-1440.log",
+      "bytes": 16881,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-supplement.log",
+      "bytes": 5459,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/candidate-runtime.log",
+      "bytes": 540,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-playback.log",
+      "bytes": 2996,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/candidate-playback.log",
+      "bytes": 3772,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-puzzle-390.log",
+      "bytes": 5216,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-runtime.log",
+      "bytes": 1760,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-supplement.log",
+      "bytes": 5515,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-spot-390.log",
+      "bytes": 16877,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-sky-monster-1440.log",
+      "bytes": 261564,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-sky-diagnostics.log",
+      "bytes": 244067,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-sky-monster-390.log",
+      "bytes": 261634,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-puzzle-1440.log",
+      "bytes": 5032,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-puzzle-1440.log",
+      "bytes": 5181,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-spot-held.log",
+      "bytes": 15626,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-playback.log",
+      "bytes": 3934,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-profile-isolation.log",
+      "bytes": 3104,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-sky-diagnostics.log",
+      "bytes": 244113,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/local-sky-monster-1440.log",
+      "bytes": 261614,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-sky-monster-390.log",
+      "bytes": 261590,
+      "reason": "structured result retained in committed evidence; redundant CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/current-production.cjs",
+      "bytes": 2067,
+      "reason": "derived variant; retained sky-monster.cjs contains reproducible source"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/monster.cjs",
+      "bytes": 245558,
+      "reason": "derived variant; retained sky-monster.cjs contains reproducible source"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/sky.cjs",
+      "bytes": 243380,
+      "reason": "derived variant; retained sky-monster.cjs contains reproducible source"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-spot-390.log",
+      "bytes": 16845,
+      "reason": "structured result retained; duplicate CLI source echo removed"
+    },
+    {
+      "path": "output/playwright/batch2-uplift-20261022/prod-spot-1440.log",
+      "bytes": 187,
+      "reason": "structured result retained; duplicate CLI source echo removed"
+    }
+  ],
+  "retained": [
+    "dated structured acceptance records and curated WebP screenshots here",
+    "bounded rehearsal inputs/remaining screenshots in output/playwright/batch2-uplift-20261022",
+    "existing dist/ build output; existing dependencies reused"
+  ],
+  "freeSpaceBeforeGiB": 92,
+  "retainedEvidenceBytes": 2666655,
+  "retainedTaskOutputBytes": 3818507,
+  "taskServerStopped": "Vite PID83432 command/path/port identity verified, then SIGTERM",
+  "freeSpaceAfterGiBApprox": 91
+}

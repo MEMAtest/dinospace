@@ -1,0 +1,186 @@
+{
+  "origin": "https://dinospace-eight.vercel.app",
+  "width": 390,
+  "fixture": {
+    "skyShapesSourceSha256": "b491170b8275afe2aa55bf1f82a01f275c58f2c0079ac20fd2c9e1c2025a0f51",
+    "monsterMathSourceSha256": "c77fd67c2fc3ed4e5c7442c1bebb0c94cb13b9d6f15306e97fa0eb3435c54c95",
+    "skyMissionNames": [
+      "Round Sun",
+      "Mountain Peak",
+      "Window Cloud",
+      "Kite",
+      "Heart Balloon",
+      "Bright Star",
+      "Cloud House",
+      "Puffy Cloud",
+      "Rocket Ship",
+      "Winged Jet",
+      "Sky Castle",
+      "Moon Observatory"
+    ],
+    "skyTracePointCount": 1044,
+    "monsterPromptCount": 3208
+  },
+  "sky": [
+    {
+      "episode": 1,
+      "episodeTitle": "Cloud Meadow",
+      "mission": "Window Cloud",
+      "parts": 1,
+      "input": "keyboard",
+      "retryAndHint": true,
+      "keyboardAlternativeUsed": true
+    },
+    {
+      "episode": 1,
+      "episodeTitle": "Cloud Meadow",
+      "mission": "Kite",
+      "parts": 1,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 1,
+      "episodeTitle": "Cloud Meadow",
+      "mission": "Mountain Peak",
+      "parts": 1,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 1,
+      "episodeTitle": "Cloud Meadow",
+      "mission": "Round Sun",
+      "parts": 1,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 2,
+      "episodeTitle": "Rainbow Ridge",
+      "mission": "Cloud House",
+      "parts": 2,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 2,
+      "episodeTitle": "Rainbow Ridge",
+      "mission": "Bright Star",
+      "parts": 1,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 2,
+      "episodeTitle": "Rainbow Ridge",
+      "mission": "Puffy Cloud",
+      "parts": 1,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 2,
+      "episodeTitle": "Rainbow Ridge",
+      "mission": "Heart Balloon",
+      "parts": 1,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 3,
+      "episodeTitle": "Aurora Station",
+      "mission": "Sky Castle",
+      "parts": 6,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 3,
+      "episodeTitle": "Aurora Station",
+      "mission": "Winged Jet",
+      "parts": 3,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 3,
+      "episodeTitle": "Aurora Station",
+      "mission": "Rocket Ship",
+      "parts": 4,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    },
+    {
+      "episode": 3,
+      "episodeTitle": "Aurora Station",
+      "mission": "Moon Observatory",
+      "parts": 4,
+      "input": "native Chromium CDP touch",
+      "retryAndHint": false,
+      "keyboardAlternativeUsed": false
+    }
+  ],
+  "monster": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedAssets": [],
+  "provider403": [],
+  "skyCoverage": [
+    {
+      "episode": "Cloud Meadow",
+      "firstQueue": [
+        "Window Cloud",
+        "Kite",
+        "Mountain Peak",
+        "Round Sun"
+      ],
+      "completeFourMissionRun": [
+        "Window Cloud",
+        "Kite",
+        "Mountain Peak",
+        "Round Sun"
+      ]
+    },
+    {
+      "episode": "Rainbow Ridge",
+      "firstQueue": [
+        "Cloud House",
+        "Bright Star",
+        "Puffy Cloud",
+        "Heart Balloon"
+      ],
+      "completeFourMissionRun": [
+        "Cloud House",
+        "Bright Star",
+        "Puffy Cloud",
+        "Heart Balloon"
+      ]
+    },
+    {
+      "episode": "Aurora Station",
+      "firstQueue": [
+        "Sky Castle",
+        "Winged Jet",
+        "Rocket Ship",
+        "Moon Observatory"
+      ],
+      "completeFourMissionRun": [
+        "Sky Castle",
+        "Winged Jet",
+        "Rocket Ship",
+        "Moon Observatory"
+      ]
+    }
+  ]
+}

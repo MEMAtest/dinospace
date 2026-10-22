@@ -1,0 +1,76 @@
+{
+  "origin": "https://dinospace-eight.vercel.app",
+  "rows": [
+    {
+      "game": "puzzle",
+      "grid": 3,
+      "wrongRecovery": true,
+      "keyboard": true,
+      "selectedCropVisible": true
+    },
+    {
+      "game": "puzzle",
+      "grid": 4,
+      "wrongRecovery": true,
+      "keyboard": true,
+      "selectedCropVisible": true
+    },
+    {
+      "game": "puzzle",
+      "grid": 5,
+      "wrongRecovery": true,
+      "keyboard": true,
+      "selectedCropVisible": true
+    },
+    {
+      "game": "Puzzle Pop",
+      "ordinaryQueues": [
+        [
+          "nature-lab",
+          "world-explorer",
+          "time-observatory",
+          "history-hall"
+        ],
+        [
+          "time-observatory",
+          "world-explorer",
+          "nature-lab",
+          "history-hall"
+        ],
+        [
+          "world-explorer",
+          "time-observatory",
+          "nature-lab",
+          "history-hall"
+        ]
+      ],
+      "distinct": true
+    },
+    {
+      "game": "Spot the Difference",
+      "ordinaryQueues": [
+        [
+          "spot-2",
+          "spot-1",
+          "spot-4",
+          "spot-3"
+        ],
+        [
+          "spot-2",
+          "spot-4",
+          "spot-1",
+          "spot-3"
+        ],
+        [
+          "spot-3",
+          "spot-2",
+          "spot-1",
+          "spot-4"
+        ]
+      ],
+      "distinct": true
+    }
+  ],
+  "persistenceUnchanged": true,
+  "providerCalls": 0
+}

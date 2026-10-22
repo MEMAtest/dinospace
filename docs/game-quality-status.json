@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-21T22:37:41.920588+00:00",
+  "updatedAt": "2026-10-22T11:11:17.162298+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "6960c53fa157f69b67ca699b9b3f31c5a17022fd",
+  "canonicalRelease": "3e5c03db350c12cfdbe0295a180b058405031d38",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -48,7 +48,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "docs/batch2-remaining-gates-20261003.md"
+      "evidence": "docs/qa-evidence/batch2-uplift-20261022/README.md"
     },
     {
       "game": "Spot the Difference",
@@ -56,7 +56,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "docs/batch2-remaining-gates-20261003.md"
+      "evidence": "docs/qa-evidence/batch2-uplift-20261022/README.md"
     },
     {
       "game": "Sky Shapes",
@@ -64,7 +64,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "docs/batch2-remaining-gates-20261003.md"
+      "evidence": "docs/qa-evidence/batch2-uplift-20261022/README.md"
     },
     {
       "game": "Monster Math",
@@ -72,7 +72,7 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "docs/batch2-remaining-gates-20261003.md"
+      "evidence": "docs/qa-evidence/batch2-uplift-20261022/README.md"
     },
     {
       "game": "Count the Stars",
@@ -970,5 +970,20 @@
     "productionMatches": 29,
     "allSixAssetsDecoded": true,
     "editorialScoreAssigned": false
+  },
+  "latestFourGameUplift": {
+    "date": "2026-10-22",
+    "runtimeCommit": "3e5c03db350c12cfdbe0295a180b058405031d38",
+    "deployment": "dpl_VZwrqeqTGUkTdWbN847PVoRQ38y5",
+    "games": [
+      "Puzzle Pop",
+      "Spot the Difference",
+      "Sky Shapes",
+      "Monster Math"
+    ],
+    "evidence": "docs/qa-evidence/batch2-uplift-20261022/README.md",
+    "functionalProductionRehearsal": "passed at390 and1440; all authored scenes/missions and all3 maths episodes plus replay",
+    "editorialScoresChanged": false,
+    "remaining": "Human listening review and resulting final editorial scores; historical scores remain tied to their dated release evidence."
   }
 }

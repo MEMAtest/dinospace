@@ -1,10 +1,11 @@
 {
-  "updatedAt": "2026-10-21",
+  "updatedAt": "2026-10-22",
   "scope": "34 current catalogue activities; historical 26-game ledger remains intact",
   "target": "5/5 against explicit per-game and shared criteria",
   "counts": {
-    "planned": 30,
-    "in progress": 4,
+    "planned": 26,
+    "in progress": 0,
+    "released_acceptance_pending": 8,
     "acceptedThisProgramme": 0
   },
   "batchSize": 4,
@@ -14,89 +15,105 @@
       "batch": 1,
       "gameId": "storybooks",
       "game": "Storybook Studio",
-      "status": "in progress",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
       "historicalRoadmap": "../game-quality-4.5-roadmap.md",
-      "implementation": "merged source eba6561e; cumulative closeout rehearsal in progress; no score assigned",
+      "implementation": "released source; current merged-source cumulative rehearsal, human listening, canonical-source reconciliation and final scores remain pending",
       "acceptanceReport": "batch1/root-review.md"
     },
     {
       "batch": 1,
       "gameId": "words",
       "game": "Spelling Studio",
-      "status": "in progress",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
       "historicalRoadmap": "../game-quality-4.5-roadmap.md",
-      "implementation": "merged source eba6561e; cumulative closeout rehearsal in progress; no score assigned",
+      "implementation": "released source; current merged-source cumulative rehearsal, human listening, canonical-source reconciliation and final scores remain pending",
       "acceptanceReport": "batch1/root-review.md"
     },
     {
       "batch": 1,
       "gameId": "memory",
       "game": "Memory Match",
-      "status": "in progress",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
       "historicalRoadmap": "../game-quality-4.5-roadmap.md",
-      "implementation": "merged source eba6561e; cumulative closeout rehearsal in progress; no score assigned",
+      "implementation": "released source; current merged-source cumulative rehearsal, human listening, canonical-source reconciliation and final scores remain pending",
       "acceptanceReport": "batch1/root-review.md"
     },
     {
       "batch": 1,
       "gameId": "trace",
       "game": "Letter Trace",
-      "status": "in progress",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
       "historicalRoadmap": "../game-quality-4.5-roadmap.md",
-      "implementation": "merged source eba6561e; cumulative closeout rehearsal in progress; no score assigned",
+      "implementation": "released source; current merged-source cumulative rehearsal, human listening, canonical-source reconciliation and final scores remain pending",
       "acceptanceReport": "batch1/root-review.md"
     },
     {
       "batch": 2,
       "gameId": "puzzle",
       "game": "Puzzle Pop",
-      "status": "planned",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "implementation": "Released 3e5c03db350c12cfdbe0295a180b058405031d38; full production desktop/mobile gameplay, native touch/keyboard, replay/persistence and packaged playback passed; human listening and final editorial scores pending",
+      "acceptanceReport": "../qa-evidence/batch2-uplift-20261022/README.md",
+      "runtimeCommit": "3e5c03db350c12cfdbe0295a180b058405031d38",
+      "deployment": "dpl_VZwrqeqTGUkTdWbN847PVoRQ38y5"
     },
     {
       "batch": 2,
       "gameId": "spot",
       "game": "Spot the Difference",
-      "status": "planned",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "implementation": "Released 3e5c03db350c12cfdbe0295a180b058405031d38; full production desktop/mobile gameplay, native touch/keyboard, replay/persistence and packaged playback passed; human listening and final editorial scores pending",
+      "acceptanceReport": "../qa-evidence/batch2-uplift-20261022/README.md",
+      "runtimeCommit": "3e5c03db350c12cfdbe0295a180b058405031d38",
+      "deployment": "dpl_VZwrqeqTGUkTdWbN847PVoRQ38y5"
     },
     {
       "batch": 2,
       "gameId": "jet",
       "game": "Sky Shapes",
-      "status": "planned",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "implementation": "Released 3e5c03db350c12cfdbe0295a180b058405031d38; full production desktop/mobile gameplay, native touch/keyboard, replay/persistence and packaged playback passed; human listening and final editorial scores pending",
+      "acceptanceReport": "../qa-evidence/batch2-uplift-20261022/README.md",
+      "runtimeCommit": "3e5c03db350c12cfdbe0295a180b058405031d38",
+      "deployment": "dpl_VZwrqeqTGUkTdWbN847PVoRQ38y5"
     },
     {
       "batch": 2,
       "gameId": "math",
       "game": "Monster Math",
-      "status": "planned",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "implementation": "Released 3e5c03db350c12cfdbe0295a180b058405031d38; full production desktop/mobile gameplay, native touch/keyboard, replay/persistence and packaged playback passed; human listening and final editorial scores pending",
+      "acceptanceReport": "../qa-evidence/batch2-uplift-20261022/README.md",
+      "runtimeCommit": "3e5c03db350c12cfdbe0295a180b058405031d38",
+      "deployment": "dpl_VZwrqeqTGUkTdWbN847PVoRQ38y5"
     },
     {
       "batch": 3,
@@ -359,7 +376,19 @@
       "historicalRoadmap": null
     }
   ],
-  "releaseGate": "Batch 1 remains pending current merged-source cumulative rehearsal, human listening, canonical-source reconciliation and final scores. Approved provider jobs and recording inventory work are complete.",
+  "releaseGate": "Batch 1 is released with acceptance pending: current merged-source cumulative rehearsal, human listening, canonical-source reconciliation and final scores remain unresolved. Batch 2 source review is recorded; its four games are the only active implementation batch and remain pending browser, visual, audio and release acceptance. No scores or accepted count are advanced. Approved provider jobs and recording inventory work are complete.",
+  "batch2Verification": {
+    "date": "2026-10-22",
+    "reviewedBaseSource": "2ef64fe24d1621bb48218319fec01daa63353b80",
+    "workingTreeChanges": "uncommitted source and focused test changes; see batch2/acceptance.md",
+    "canonicalRuntimeCommit": "6960c53f",
+    "canonicalDeployment": "dpl_77Wh681qiAQg2UER5ygr2dccmU27",
+    "canonicalIdentityReverifiedByRoot": true,
+    "identityOnly": true,
+    "browserAcceptance": "pending",
+    "humanListening": "pending",
+    "editorialScoresAssigned": false
+  },
   "currentVerification": {
     "date": "2026-10-21",
     "mergedSource": "eba6561ecd67cddff445910b6fd573565e2d9230",
@@ -371,7 +400,10 @@
     "focusedTests": {
       "rootReported": 60,
       "storybookAudit": 40,
-      "otherScopesReported": [25, 15],
+      "otherScopesReported": [
+        25,
+        15
+      ],
       "countsOverlap": true,
       "additiveTotal": null
     }

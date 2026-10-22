@@ -1,0 +1,116 @@
+{
+  "origin": "http://127.0.0.1:5187",
+  "width": 1440,
+  "rows": [
+    {
+      "chapter": 1,
+      "title": "Dino Park",
+      "pieces": 9,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 144
+    },
+    {
+      "chapter": 1,
+      "title": "Moon Camp",
+      "pieces": 9,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 144
+    },
+    {
+      "chapter": 1,
+      "title": "Robin\u2019s Tree",
+      "pieces": 9,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 144
+    },
+    {
+      "chapter": 1,
+      "title": "River Valley",
+      "pieces": 9,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 144
+    },
+    {
+      "chapter": 2,
+      "title": "Pattern Festival",
+      "pieces": 16,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 107
+    },
+    {
+      "chapter": 2,
+      "title": "Sound Safari",
+      "pieces": 16,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 107
+    },
+    {
+      "chapter": 2,
+      "title": "Treehouse Robots",
+      "pieces": 16,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 107
+    },
+    {
+      "chapter": 2,
+      "title": "Hero City Helpers",
+      "pieces": 16,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 107
+    },
+    {
+      "chapter": 3,
+      "title": "World Explorer",
+      "pieces": 25,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 68.796875
+    },
+    {
+      "chapter": 3,
+      "title": "Nature Lab",
+      "pieces": 25,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 68.796875
+    },
+    {
+      "chapter": 3,
+      "title": "History Hall",
+      "pieces": 25,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 68.796875
+    },
+    {
+      "chapter": 3,
+      "title": "Time Observatory",
+      "pieces": 25,
+      "minTargetWidth": 49.46875,
+      "minTargetHeight": 49.46875,
+      "factHeld": true,
+      "minBoardWidth": 68.796875
+    }
+  ],
+  "pageErrors": [],
+  "providerCalls": 0
+}

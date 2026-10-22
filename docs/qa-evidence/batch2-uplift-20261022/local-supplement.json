@@ -1,0 +1,76 @@
+{
+  "origin": "http://127.0.0.1:5187",
+  "rows": [
+    {
+      "game": "puzzle",
+      "grid": 3,
+      "wrongRecovery": true,
+      "keyboard": true,
+      "selectedCropVisible": true
+    },
+    {
+      "game": "puzzle",
+      "grid": 4,
+      "wrongRecovery": true,
+      "keyboard": true,
+      "selectedCropVisible": true
+    },
+    {
+      "game": "puzzle",
+      "grid": 5,
+      "wrongRecovery": true,
+      "keyboard": true,
+      "selectedCropVisible": true
+    },
+    {
+      "game": "Puzzle Pop",
+      "ordinaryQueues": [
+        [
+          "world-explorer",
+          "history-hall",
+          "nature-lab",
+          "time-observatory"
+        ],
+        [
+          "nature-lab",
+          "history-hall",
+          "world-explorer",
+          "time-observatory"
+        ],
+        [
+          "world-explorer",
+          "history-hall",
+          "nature-lab",
+          "time-observatory"
+        ]
+      ],
+      "distinct": true
+    },
+    {
+      "game": "Spot the Difference",
+      "ordinaryQueues": [
+        [
+          "spot-3",
+          "spot-2",
+          "spot-1",
+          "spot-4"
+        ],
+        [
+          "spot-3",
+          "spot-4",
+          "spot-2",
+          "spot-1"
+        ],
+        [
+          "spot-3",
+          "spot-4",
+          "spot-1",
+          "spot-2"
+        ]
+      ],
+      "distinct": true
+    }
+  ],
+  "persistenceUnchanged": true,
+  "providerCalls": 0
+}

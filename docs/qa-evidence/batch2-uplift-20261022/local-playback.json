@@ -1,0 +1,51 @@
+{
+  "origin": "http://127.0.0.1:5187",
+  "rows": [
+    {
+      "game": "Puzzle Pop",
+      "media": [
+        {
+          "src": "http://127.0.0.1:5187/audio/en/0b011bc7-matilda.mp3",
+          "time": 0.224199,
+          "played": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "game": "Spot the Difference",
+      "media": [
+        {
+          "src": "http://127.0.0.1:5187/audio/en/76eb7889-matilda.mp3",
+          "time": 0.235167,
+          "played": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "game": "Sky Shapes",
+      "media": [
+        {
+          "src": "http://127.0.0.1:5187/audio/en/170e8836-matilda.mp3",
+          "time": 0.228937,
+          "played": true,
+          "error": null
+        }
+      ]
+    },
+    {
+      "game": "Monster Math",
+      "media": [
+        {
+          "src": "http://127.0.0.1:5187/audio/en/eb49b7ec-matilda.mp3",
+          "time": 0.232966,
+          "played": true,
+          "error": null
+        }
+      ]
+    }
+  ],
+  "providerCalls": 0,
+  "scope": "Native packaged playback, not human listening"
+}
