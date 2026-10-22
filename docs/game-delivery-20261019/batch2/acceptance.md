@@ -1,7 +1,7 @@
 # Batch 2 acceptance contract and source review
 
-Updated: 22 October 2026  
-Games: Puzzle Pop, Spot the Difference, Sky Shapes, Monster Math  
+Updated: 22 October 2026
+Games: Puzzle Pop, Spot the Difference, Sky Shapes, Monster Math
 Status: **In progress; no game accepted and no editorial scores assigned.**
 
 ## Evidence boundary
