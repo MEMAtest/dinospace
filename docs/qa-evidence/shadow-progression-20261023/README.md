@@ -59,3 +59,9 @@ Anatomical references: [NHM Carnotaurus](https://www.nhm.ac.uk/discover/dino-dir
 ### Storage close-out
 
 No worktrees, clones or dependency installations created. Six runtime images add **357,298 bytes**. Six generated PNG originals (**11,489,324 bytes**) are retained once in Codex's generated-images directory and referenced by hash; they are not copied into the repository. Compact QA JSON, replay code and three WebP screenshots are retained here. Duplicate task-owned PNG screenshots and parsed raw rehearsal logs were removed. Existing unrelated untracked evidence is preserved.
+
+## Open-tab refresh follow-up
+
+The user's existing in-app tab was still running the pre-release game code (generic shadow labels and no new roster indicator). A normal reload loaded the current production release. The retained level 3 then visibly showed the new Parasaurolophus artwork and eight-creature pool. No answers were completed and no child records were reset. Fresh checks confirmed service-worker cache v26 and all six artwork hashes. A duplicate deployment was unnecessary because the canonical alias already served the released runtime.
+
+Quiet hourly monitoring is active. It always checks deployment identity, entry, service worker and artwork hashes. Native controls are checked only when the existing isolated QA session is available; that daemon was closed during this follow-up, so no fresh isolated gameplay health claim is made. The previous 60-match production rehearsal remains recorded separately. No replacement browser windows are launched. See `post-refresh-verification.json`.

@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-10-23T18:25:29.194287+00:00",
+  "canonicalDeployment": "dpl_EzpDxKaAXaGjPj7ogZsFeev7BrjT",
+  "runtime": "4fd1b8b8922cbd3b5dbf64444e0abbaa065f4aee",
+  "entry": "/assets/arcade-CeTz6ja-.js",
+  "serviceWorkerCache": "amari-discovery-v26",
+  "artwork": [
+    {
+      "kind": "spino",
+      "sha256": "afc5c4591f9bfc66015f60ef598ceba71b4ff0ff7cb26736f362ca06236556d9",
+      "matches": true
+    },
+    {
+      "kind": "para",
+      "sha256": "b6efa9a7d1acdd49a3c4c8bf6cda383f927edf4a6e5ed572beb1e7c6e3eb6d2c",
+      "matches": true
+    },
+    {
+      "kind": "allo",
+      "sha256": "60384780752cd37fd10b68d1ec8ed13aecb8d495b56c7868ed16bb467aae5e00",
+      "matches": true
+    },
+    {
+      "kind": "dillo",
+      "sha256": "6d7667098578b54e3ae0a7f3dff5ff4224aa5b277348fa30f9ec23481d107e94",
+      "matches": true
+    },
+    {
+      "kind": "carno",
+      "sha256": "46572df7306797c2ddf59bf4fd80502b1600c83b6ea4a93e51a3a677bc5202af",
+      "matches": true
+    },
+    {
+      "kind": "cory",
+      "sha256": "8ed591a9743f427d35e9dd7af36a550ba8c6222984b6e47b9a08ce9628ce9457",
+      "matches": true
+    }
+  ],
+  "existingUserTab": {
+    "beforeRefresh": "Old generic A dinosaur shadow controls, no new creature count",
+    "afterRefresh": "New Parasaurolophus asset, 8 creatures and 3 choices at retained level 3; new Shadow option controls",
+    "completedAnswers": 0,
+    "childRecordsReset": false
+  },
+  "monitoring": {
+    "automationId": "amari-shadow-match-production-health",
+    "frequency": "hourly",
+    "notification": "meaningful changes only",
+    "alwaysChecks": "canonical deployment, entry, service worker, six artwork hashes",
+    "nativeControls": "only when existing isolated QA session available; session closed at setup; no replacement windows launched"
+  },
+  "additionalDeploymentNeeded": false
+}
