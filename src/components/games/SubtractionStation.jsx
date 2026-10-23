@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, Lightbulb, Volume2 } from 'lucide-react';
+import { ArrowLeft, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
 import { SUBTRACTION_CHAPTERS, arithmeticNarrationSegments, createSubtractionRun, createArithmeticSeed, arithmeticRewardUnits, scoreArithmeticResults } from '../../data/arithmeticAdventure.js';
 import { getArithmeticProgress, rememberStartedArithmeticRun, saveArithmeticRun } from '../../data/arithmeticProgress.js';
 import { SoundToggle } from '../shared/index.jsx';
@@ -18,7 +18,7 @@ const ObjectToken = ({ object, color }) => {
   if (object === 'cookie') return <><circle cx="16" cy="16" r="13" fill={fill} stroke="#78350f" strokeWidth="1.5"/><g fill="#451a03"><circle cx="10" cy="11" r="1.7"/><circle cx="21" cy="9" r="1.6"/><circle cx="17" cy="18" r="1.8"/><circle cx="10" cy="22" r="1.5"/><circle cx="24" cy="22" r="1.5"/></g></>;
   return <circle cx="16" cy="16" r="11" fill={fill} stroke="#fff" strokeWidth="2"/>;
 };
-const group = (n, color, label, removed = 0, object = 'counter', moving = false) => <div role="group" aria-label={`${label}, ${n} ${n === 1 ? object : `${object}s`}${removed ? `, ${removed} marked for removal` : ''}`} className={`min-w-24 rounded-2xl border-2 border-slate-200 bg-white p-2 transition-all duration-700 motion-reduce:transition-none ${moving ? 'translate-x-4 translate-y-3' : ''}`}><p className="text-xs font-black text-slate-700">{label}: {n === 0 ? '0 (empty)' : n}</p><div className={`mt-1 flex max-w-56 flex-wrap gap-1 transition-opacity duration-700 motion-reduce:transition-none ${moving ? 'opacity-40' : ''}`} aria-hidden="true">{Array.from({ length: n }, (_, i) => <svg key={i} viewBox="0 0 32 32" className={`h-7 w-7 ${i < removed ? 'opacity-45' : ''}`} focusable="false"><ObjectToken object={object} color={color}/>{i < removed && <path d="m5 5 22 22M27 5 5 27" stroke="#be123c" strokeWidth="3"/>}</svg>)}</div></div>;
+const ObjectIcon = ({ object, color }) => <svg viewBox="0 0 32 32" className="h-8 w-8" aria-hidden="true" focusable="false"><ObjectToken object={object} color={color}/></svg>;
 const Chapter = ({ chapter, index, selected, done, locked, onClick }) => <button type="button" disabled={locked} onClick={onClick} aria-pressed={selected} className={`min-h-16 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-50 ${selected ? 'border-violet-600 bg-violet-100' : 'border-white bg-white'}`}><span className="block text-xs uppercase tracking-wide">Chapter {index + 1}{done ? ' · Badge earned' : locked ? ' · Locked' : ''}</span>{chapter.title}</button>;
 
 export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, cancelNarration = noopCancel, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) {
@@ -33,7 +33,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
   const [locked, setLocked] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [completedResults, setCompletedResults] = useState([]);
-  const [motion, setMotion] = useState(false);
+  const [removedTokens, setRemovedTokens] = useState([]);
   const [hintCount, setHintCount] = useState(0);
   const chapter = SUBTRACTION_CHAPTERS[chapterIndex];
   const question = rounds[roundIndex];
@@ -66,7 +66,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     setFeedback('');
     setCompletedResults([]);
     setHintCount(0);
-    setMotion(false);
+    setRemovedTokens([]);
     setPhase('play');
     onGameEvent?.('subtraction', 'start', { level: index, seed: newSeed, difficulty: SUBTRACTION_CHAPTERS[index].id });
     if (progress.completedChapterIds.includes(SUBTRACTION_CHAPTERS[index].id)) {
@@ -85,7 +85,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     if (!correct) {
       setMistake(true);
       const guidance = question.type !== 'compare'
-        ? question.b === 0 ? 'Nothing is taken away. The starting group stays the same.' : 'Look at the marked objects. Count the ones that remain.'
+        ? question.b === 0 ? 'Nothing is taken away. The starting group stays the same.' : `Tap ${question.b} ${question.b === 1 ? question.one : question.many} to mark them as taken away. Count the ones left.`
         : question.a === question.b
           ? 'Pair one counter from each group. They have the same number, so none are left unpaired.'
           : 'Pair one counter from each group. Count what is left unpaired.';
@@ -94,9 +94,9 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
       playSfx('wrong');
       return;
     }
+    if (question.type !== 'compare') setRemovedTokens(Array.from({ length: question.b }, (_, index) => index));
     setLocked(true);
     setFeedback(question.explanation);
-    setMotion(true);
     setCompletedResults((previous) => [...previous, {
       correct: true,
       firstAttempt,
@@ -130,7 +130,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
       setHintUsed(false);
       setLocked(false);
       setFeedback('');
-      setMotion(false);
+      setRemovedTokens([]);
       return;
     }
     const { stars } = scoreArithmeticResults(completedResults);
@@ -156,40 +156,39 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     if (!question) return null;
     if (question.type === 'compare') {
       const paired = Math.min(question.a, question.b);
-      const groupView = (count, label, color) => (
-        <div role="group" aria-label={`${label}, ${count} counters`} className="rounded-xl border-2 border-slate-200 bg-white p-2">
-          <p className="mb-1 text-center text-sm font-black">{label}: {count}</p>
-          <div className="grid grid-cols-5 justify-items-center gap-1">
-            {Array.from({ length: count }, (_, index) => (
-              <span key={index} aria-label={`${label} counter ${index + 1}${locked ? (index >= paired ? ', unpaired' : ', paired') : ''}`} className={`h-6 w-6 rounded-full ${color} ${locked && index >= paired ? 'ring-4 ring-amber-300' : ''}`} />
-            ))}
-            {count === 0 && <span className="col-span-5 py-2 text-xs font-semibold text-slate-500">Empty group</span>}
-          </div>
-        </div>
-      );
+      const pairCount = Math.max(question.a, question.b);
       return <div className="mx-auto max-w-md rounded-2xl border-2 border-violet-200 bg-white p-3">
-        <p className="mb-2 text-sm font-black">Pair matching counters. After you choose, amber rings show any unpaired counters.</p>
-        <div className="grid grid-cols-2 gap-2" aria-label={`Paired groups: Group A has ${question.a}, Group B has ${question.b}`}>
-          {groupView(question.a, 'Group A', colorClass.blue)}
-          {groupView(question.b, 'Group B', colorClass.gold)}
+        <p className="mb-2 text-sm font-black">Match one from each group. Blue is Group A, gold is Group B; outlined counters are unpaired.</p>
+        <div className="mx-auto grid max-w-sm grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label={`Aligned pairs: Group A has ${question.a}; Group B has ${question.b}`}>
+          {pairCount === 0 ? <p className="col-span-2 rounded-xl bg-slate-50 p-3 text-center text-sm font-bold sm:col-span-4">Both groups are empty. There are 0 unpaired.</p> : Array.from({ length: pairCount }, (_, index) => <div key={index} aria-label={`Pair position ${index + 1}`} className="flex min-h-14 items-center justify-center gap-1 rounded-xl border border-slate-200 bg-slate-50 p-2">
+            <span aria-label={index < question.a ? `Group A counter ${index + 1}${index < paired ? ', paired' : ', unpaired'}` : 'No Group A counter'} className={`flex h-9 w-9 items-center justify-center rounded-lg ${index < question.a ? 'bg-sky-100' : 'bg-white'} ${index >= paired && index < question.a ? 'ring-2 ring-amber-500' : ''}`}>{index < question.a ? <span className={`h-6 w-6 rounded-full ${colorClass.blue}`} /> : <span aria-hidden="true" className="text-slate-300">·</span>}</span>
+            <span aria-hidden="true" className={`text-sm font-black ${index < paired ? 'text-violet-700' : 'text-slate-300'}`}>{index < paired ? '↔' : ' '}</span>
+            <span aria-label={index < question.b ? `Group B counter ${index + 1}${index < paired ? ', paired' : ', unpaired'}` : 'No Group B counter'} className={`flex h-9 w-9 items-center justify-center rounded-lg ${index < question.b ? 'bg-amber-100' : 'bg-white'} ${index >= paired && index < question.b ? 'ring-2 ring-amber-500' : ''}`}>{index < question.b ? <span className={`h-6 w-6 rounded-full ${colorClass.gold}`} /> : <span aria-hidden="true" className="text-slate-300">·</span>}</span>
+          </div>)}
         </div>
-        <p className="mt-2 rounded-xl bg-violet-50 p-2 text-sm font-bold">{question.a === question.b ? `The groups have the same number; choose how many are unpaired. ${locked ? '0 unpaired.' : ''}` : `Unpaired difference: ${locked ? question.answer : '?'}`}</p>
+        <p className="mt-2 rounded-xl bg-violet-50 p-2 text-sm font-bold">{question.a === question.b ? `Same number: ${locked ? '0 unpaired.' : 'How many are unpaired?'}` : `Unpaired difference: ${locked ? question.answer : '?'}`}</p>
       </div>;
     }
-    const removed = question.b;
-    return <div className="flex flex-wrap items-center justify-center gap-3">
-      {group(question.a, question.color, 'Starting group', removed, question.object, motion)}
-      <span aria-hidden="true" className="text-2xl font-black">−</span>
-      {group(question.b, 'rose', question.type === 'story' ? 'Given away' : 'Take away', 0, question.object, motion)}
-      <span aria-hidden="true" className="text-2xl">→</span>
-      <div role="group" aria-label={locked ? `Remaining tray, ${question.answer} ${question.answer === 1 ? question.one : question.many}` : 'Empty remaining tray'} className="min-w-24 rounded-2xl border-2 border-dashed border-violet-500 bg-violet-50 p-3">
-        <b>Remaining</b>
-        <div className="mt-1 flex min-h-7 max-w-56 flex-wrap items-center gap-1" aria-hidden="true">
-          {locked && question.answer === 0 ? <span className="text-sm font-black text-violet-900">0 (empty)</span> : locked && Array.from({ length: question.answer }, (_, i) => <span key={i} className={`h-5 w-5 rounded-full ${colorClass[question.color] || colorClass.teal}`} />)}
+    const selected = new Set(removedTokens);
+    const instruction = question.type === 'story' ? 'STORY · Give away the second amount' : 'TAKE AWAY · Remove the second amount';
+    const description = `Start with ${question.a} ${question.a === 1 ? question.one : question.many}.`;
+    const action = question.b === 0 ? 'Nothing is taken away. Every object in the starting group remains.' : `Tap ${question.b} ${question.b === 1 ? question.one : question.many} in the same group to show what is taken away.`;
+    return <section className="mx-auto max-w-xl rounded-2xl border-2 border-violet-200 bg-white p-3" aria-label="Take-away model">
+      <p className="text-xs font-black uppercase tracking-wide text-violet-800">{instruction}</p>
+      <p className="mt-1 text-sm font-bold">{description} {action}</p>
+      <p className="my-2 text-2xl font-black" aria-label={`Equation: ${question.a} minus ${question.b} equals ${locked ? question.answer : 'unknown'}`}>{question.a} − {question.b} = {locked ? question.answer : '?'}</p>
+      <div role="group" aria-label={`Starting group: ${question.a} ${question.a === 1 ? question.one : question.many}. ${removedTokens.length} marked to take away.`} className="rounded-xl border-2 border-slate-200 bg-slate-50 p-3">
+        <div className="mb-2 flex flex-wrap items-center justify-between gap-2"><b>Starting group · {question.a}</b><span className="text-sm font-bold text-rose-700">Take away · {question.b}</span></div>
+        <div className="flex flex-wrap justify-center gap-1" aria-label="Tap objects to mark them for taking away">
+          {Array.from({ length: question.a }, (_, index) => <button key={index} type="button" disabled={locked || (!selected.has(index) && removedTokens.length >= question.b)} onClick={() => setRemovedTokens((previous) => previous.includes(index) ? previous.filter((item) => item !== index) : [...previous, index])} aria-pressed={selected.has(index)} aria-label={`${question.object} ${index + 1}${selected.has(index) ? ', marked to take away' : ', remains'}`} className={`relative flex min-h-12 min-w-12 items-center justify-center rounded-xl border-2 ${selected.has(index) ? 'border-rose-500 bg-rose-100 opacity-70' : 'border-transparent bg-white'} disabled:cursor-default`}><ObjectIcon object={question.object} color={selected.has(index) ? 'rose' : question.color}/>{selected.has(index) && <><span aria-hidden="true" className="absolute inset-x-1/4 top-1/2 h-0.5 -rotate-45 bg-slate-950"/><span aria-hidden="true" className="sr-only">Marked to take away</span></>}</button>)}
+          {question.a === 0 && <span className="py-2 text-sm font-bold text-slate-500">Empty starting group</span>}
         </div>
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-2 text-sm font-bold"><span>Marked: {removedTokens.length} of {question.b}</span><span>Left: {question.a - removedTokens.length}</span></div>
       </div>
-    </div>;
-  }, [question, locked, motion]);
+      {!locked && <div className="mt-2 flex justify-center gap-2"><button type="button" onClick={() => setRemovedTokens((previous) => previous.slice(0, -1))} disabled={!removedTokens.length} className="inline-flex min-h-12 items-center gap-1 rounded-xl border-2 border-slate-300 px-3 font-bold disabled:opacity-50"><RotateCcw size={18}/> Undo</button><button type="button" onClick={() => setRemovedTokens([])} disabled={!removedTokens.length} className="min-h-12 rounded-xl border-2 border-slate-300 px-3 font-bold disabled:opacity-50">Reset</button></div>}
+      {locked && <p className="mt-2 rounded-xl bg-violet-50 p-2 font-bold">Same {question.a} objects: {question.b} taken away, {question.answer} left.</p>}
+    </section>;
+  }, [question, locked, removedTokens]);
   if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>{phase === 'start' ? <main className="mx-auto mt-5 max-w-4xl"><p className="mb-4 rounded-2xl bg-white p-4 text-center font-bold">Take away, compare groups, and solve stories. Each chapter has six questions and a worked answer you control.</p><div className="grid gap-3 sm:grid-cols-3">{SUBTRACTION_CHAPTERS.map((c,i)=><Chapter key={c.id} chapter={c} index={i} selected={chapterIndex===i} done={progress.completedChapterIds.includes(c.id)} locked={i>progress.unlockedChapter} onClick={()=>setChapterIndex(i)} />)}</div><button onClick={()=>start()} className="mt-5 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white">Start {chapter.title}</button></main> : <main className="mx-auto mt-8 max-w-2xl rounded-3xl bg-white p-6 text-center shadow-xl"><p className="text-2xl font-black">{feedback}</p><p className="mt-3">Choose the next unlocked chapter or replay a completed chapter.</p><button className="mt-5 min-h-14 w-full rounded-2xl bg-violet-700 px-5 font-black text-white" onClick={()=>{cancelNarration();setPhase('start');setChapterIndex(progress.unlockedChapter);}}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white px-5 font-black text-violet-800 ring-2 ring-violet-700" onClick={()=>start(chapterIndex)}>Replay {chapter.title}</button></main>}</div>;
-  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-3 text-lg font-bold" aria-live="polite">{question?.prompt}</p><button className="mb-4 inline-flex min-h-12 items-center gap-2 rounded-xl bg-violet-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>{model}<div className="my-4 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-violet-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>{feedback&&<p role="status" className="mx-auto mb-3 max-w-2xl rounded-xl bg-violet-50 p-3 font-bold">{feedback}</p>}{!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}{locked&&<button onClick={next} className="mt-3 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white">{roundIndex===5?'Finish chapter':'Next question'}</button>}</main></div>;
+  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-violet-100 to-purple-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Subtraction Station</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-3 text-lg font-bold" aria-live="polite">{question?.prompt}</p><div className="mb-4 flex flex-wrap justify-center gap-2"><button className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-violet-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>{locked&&<button className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-violet-100 px-4 font-black" onClick={()=>tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'))}><Volume2 size={20}/> Hear explanation</button>}</div>{model}<div className="my-4 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-violet-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>{feedback&&<p role="status" className="mx-auto mb-3 max-w-2xl rounded-xl bg-violet-50 p-3 font-bold">{feedback}</p>}{!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}{locked&&<button onClick={next} className="mt-3 min-h-14 w-full rounded-2xl bg-violet-700 px-5 text-lg font-black text-white">{roundIndex===5?'Finish chapter':'Next question'}</button>}</main></div>;
 }

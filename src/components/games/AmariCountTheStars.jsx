@@ -18,18 +18,18 @@ const CountMotif = ({ kind, accent }) => {
   let art;
   switch (kind) {
     case 'firefly': art = <><ellipse cx="24" cy="25" rx="7" ry="10" {...common}/><ellipse cx="15" cy="19" rx="7" ry="4" fill="#e0f2fe" stroke="#fff" strokeWidth="1.5"/><ellipse cx="33" cy="19" rx="7" ry="4" fill="#e0f2fe" stroke="#fff" strokeWidth="1.5"/><circle cx="24" cy="30" r="5" fill="#fff7b1"/><path d="M18 37l-4 4m16-4 4 4" stroke="#fff7d6" strokeWidth="2"/></>; break;
-    case 'berry': art = <><path d="M24 11c-3-6 2-8 7-8-1 5-3 8-7 8Z" fill="#86efac" stroke="#fff7d6" strokeWidth="1.5"/><circle cx="16" cy="25" r="9" {...common}/><circle cx="31" cy="25" r="9" {...common}/><circle cx="24" cy="34" r="8" {...common}/><circle cx="13" cy="23" r="1" fill="#fff"/><circle cx="30" cy="22" r="1" fill="#fff"/></>; break;
+    case 'berry': art = <><path d="M24 11c-3-6 2-8 7-8-1 5-3 8-7 8Z" fill="#86efac" stroke="#fff7d6" strokeWidth="1.5"/><path d="M24 16c-3-5-12-4-13 4-1 9 8 18 13 22 5-4 14-13 13-22-1-8-10-9-13-4Z" {...common}/><circle cx="19" cy="25" r="1.2" fill="#fff"/><circle cx="29" cy="25" r="1.2" fill="#fff"/><circle cx="24" cy="33" r="1.2" fill="#fff"/></>; break;
     case 'comet-seed': art = <><path d="M6 27 18 20 16 31 7 38m4-22 12 5" fill="none" stroke="#fde68a" strokeWidth="3" strokeLinecap="round"/><path d="m30 7 4 11 11 4-11 4-4 12-4-12-11-4 11-4Z" {...common}/></>; break;
     case 'planet': art = <><ellipse cx="24" cy="25" rx="21" ry="8" fill="none" stroke="#fef3c7" strokeWidth="3" transform="rotate(-23 24 25)"/><circle cx="24" cy="24" r="12" {...common}/><path d="M18 18q6-4 12 0" fill="none" stroke="#fff" strokeWidth="1.5"/></>; break;
     case 'rocket-light': art = <><path d="M24 5c8 6 11 15 9 26l-9 8-9-8C13 20 16 11 24 5Z" {...common}/><circle cx="24" cy="20" r="4" fill="#dbeafe" stroke="#fff" strokeWidth="1.5"/><path d="m15 27-7 8 9-2m17-6 7 8-9-2m-8 6-3 7 4-2 4 2-3-7" fill="#fb7185" stroke="#fff7d6" strokeWidth="1.5"/></>; break;
-    case 'star-cluster': art = <><path d="m24 5 5 12 13 1-10 8 3 13-11-7-11 7 3-13-10-8 13-1Z" {...common}/><circle cx="8" cy="10" r="2" fill="#fff"/><circle cx="40" cy="12" r="2" fill="#fff"/><circle cx="40" cy="37" r="2" fill="#fff"/></>; break;
+    case 'star-cluster': art = <path d="m24 5 5 12 13 1-10 8 3 13-11-7-11 7 3-13-10-8 13-1Z" {...common}/>; break;
     case 'satellite-bolt': art = <><path d="m24 5 13 7v14l-13 7-13-7V12Z" {...common}/><path d="M19 33h10v11H19z" {...common}/><path d="M20 36h8m-8 4h8M21 17h6m-3-3v6" fill="none" stroke="#1e3a8a" strokeWidth="2"/></>; break;
     case 'moon-rock': art = <><path d="m5 31 5-17 11-8 15 6 7 18-10 11H15Z" {...common}/><circle cx="17" cy="20" r="3" fill="#94a3b8"/><circle cx="31" cy="29" r="4" fill="#94a3b8"/><circle cx="27" cy="14" r="2" fill="#94a3b8"/></>; break;
     case 'observatory-window': art = <><path d="M9 6h30v36H9z" rx="4" {...common}/><path d="M24 7v34M10 24h28" stroke="#fff" strokeWidth="2"/><path d="M15 13h5m10 0h4M15 31h5m10 0h4" stroke="#fff7d6" strokeWidth="2"/></>; break;
-    case 'meteor': art = <><path d="M5 30 25 23M8 38l18-6M10 21l10-3" fill="none" stroke="#fef3c7" strokeWidth="2.5" strokeLinecap="round"/><path d="m34 5 4 12 9 5-10 4-5 11-4-11-10-4 10-5Z" {...common}/><circle cx="37" cy="20" r="2" fill="#fff"/></>; break;
+    case 'meteor': art = <><path d="M5 36 23 25m-13 1 9-6" fill="none" stroke="#fef3c7" strokeWidth="3" strokeLinecap="round"/><path d="m31 7 4 11 10 5-10 4-5 12-4-12-10-4 10-5Z" {...common}/></>; break;
     case 'ring-stone': art = <><ellipse cx="24" cy="26" rx="21" ry="8" fill="none" stroke="#fef3c7" strokeWidth="3" transform="rotate(28 24 26)"/><path d="m24 10 9 10-9 19-9-19Z" {...common}/><path d="m15 20 9 3 9-3m-9 3v16" fill="none" stroke="#fff" strokeWidth="1.5"/></>; break;
     case 'solar-panel': art = <><rect x="8" y="7" width="32" height="34" rx="4" fill="#0c4a6e" stroke="#fff7d6" strokeWidth="2"/><rect x="11" y="10" width="26" height="28" rx="2" fill={accent}/><path d="M19.7 10v28M28.3 10v28M11 19.3h26M11 28.7h26" stroke="#1e3a8a" strokeWidth="1.5"/><path d="M13 12h5M13 14h3" stroke="#e0f2fe" strokeWidth="1.5" strokeLinecap="round"/></>; break;
-    case 'nebula': art = <><circle cx="16" cy="25" r="10" {...common}/><circle cx="26" cy="18" r="11" {...common}/><circle cx="34" cy="27" r="9" {...common}/><circle cx="22" cy="29" r="10" fill={accent} stroke="#fff7d6" strokeWidth="1.8"/><circle cx="12" cy="12" r="2" fill="#fff"/><circle cx="39" cy="10" r="2" fill="#fff"/></>; break;
+    case 'nebula': art = <><circle cx="24" cy="24" r="20" fill={accent} opacity=".22"/><circle cx="24" cy="24" r="13" {...common}/><path d="M17 19q2-4 6-4" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round"/></>; break;
     case 'crater-gem': art = <><path d="m24 5 17 12-8 24H15L7 17Z" {...common}/><path d="m7 17 17 8 17-8M24 25v16m-9-24 9 8 9-8" fill="none" stroke="#fff" strokeWidth="1.7"/><circle cx="24" cy="25" r="3" fill="#0e7490" stroke="#fff" strokeWidth="1.3"/></>; break;
     case 'map-star': art = <><path d="m5 12 12-6 14 6 12-6v32l-12 6-14-6-12 6Z" {...common}/><path d="M17 7v30m14-25v30m-14-18 14 6" fill="none" stroke="#fff" strokeWidth="1.5"/><path d="m25 14 2.5 5 5.5.8-4 3.8 1 5.4-5-2.7-5 2.7 1-5.4-4-3.8 5.5-.8Z" fill="#fef08a" stroke="#fff" strokeWidth="1.4"/></>; break;
     default: art = <circle cx="24" cy="24" r="17" {...common}/>;
@@ -71,6 +71,9 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
   const round = run?.rounds[roundIndex] || null;
   const arrangement = getCountQuestionArrangement(round);
   const strategy = getCountQuestionStrategy(round, episode);
+  const nextSurveyIndex = COUNT_THE_STARS_EPISODES.findIndex((entry, index) => (
+    index <= progress.unlockedEpisode && !progress.completedEpisodeIds.includes(entry.id)
+  ));
   const layoutDescription = arrangement === 'split-groups' ? 'two visible groups'
     : arrangement === 'scattered' ? 'scattered one by one'
       : arrangement === 'array' ? 'organized rows or an array' : '';
@@ -143,6 +146,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     onGameEvent?.('counting', 'answer_attempt', { level: episodeIndex, round: roundIndex + 1, seed: run.seed, correct: true, firstAttempt, hints: Number(roundHadHint) });
     onGameEvent?.('counting', 'answer_correct', { level: episodeIndex, round: roundIndex + 1, seed: run.seed, firstAttempt, hints: Number(roundHadHint), difficulty: episode.band });
     setFeedback(praiseFor(firstAttempt && !roundHadHint ? 3 : 2));
+    setHintText('');
     setPhase('fact');
     const narration = countCorrectNarration(praiseFor(firstAttempt && !roundHadHint ? 3 : 2), round.explanation);
     speak(narration.text, { premium: false, segments: narration.segments });
@@ -159,6 +163,23 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     setHintText(clue);
     onGameEvent?.('counting', 'hint', { level: episodeIndex, round: roundIndex + 1, seed: run.seed, hints: 1, hintType: 'counting_strategy', difficulty: episode.band });
     speak(clue, { premium: false, segments: [clue] });
+  };
+
+  const restartCount = () => {
+    if (!round || phase !== 'answer') return;
+    setTappedIds([]);
+    setRoundHadHint(true);
+    setHintCount((count) => count + 1);
+    setHintText('Start again at 1. A recount uses one clue; your answer mistakes stay the same.');
+    setFeedback('Tap each object once, then choose the total again.');
+    setPhase('count');
+    speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] });
+  };
+
+  const replayFact = () => {
+    if (!round || phase !== 'fact') return;
+    const narration = countCorrectNarration(praiseFor(!roundHadMistake && !roundHadHint ? 3 : 2), round.explanation);
+    speak(narration.text, { premium: false, segments: narration.segments });
   };
 
   const advance = () => {
@@ -208,16 +229,19 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
 
       {phase === 'map' && <main className="mx-auto mt-5 max-w-5xl rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl sm:p-7">
         <p className="mx-auto max-w-2xl text-center text-sm font-bold text-indigo-100 sm:text-base">Count one object at a time. Collected totals light up a constellation page.</p>
+        <p className="mt-3 text-center text-lg font-black text-amber-100" aria-live="polite">{nextSurveyIndex >= 0 ? `Next up: ${COUNT_THE_STARS_EPISODES[nextSurveyIndex].name}` : 'All surveys complete. Choose a survey to replay.'}</p>
         <div className="mt-5 grid gap-3 md:grid-cols-3">
           {COUNT_THE_STARS_EPISODES.map((entry, index) => {
             const unlocked = index <= progress.unlockedEpisode;
             const complete = progress.completedEpisodeIds.includes(entry.id);
-            return <article key={entry.id} className={`rounded-3xl border-2 p-4 ${unlocked ? 'border-white/45 bg-indigo-900/70' : 'border-white/10 bg-black/20 opacity-65'}`}>
+            const isNextSurvey = index === nextSurveyIndex;
+            return <article key={entry.id} className={`rounded-3xl border-2 p-4 ${isNextSurvey ? 'border-amber-200 bg-indigo-900 shadow-xl' : unlocked ? 'border-white/25 bg-indigo-900/55' : 'border-white/10 bg-black/20 opacity-65'}`}>
+              {isNextSurvey && <p className="text-sm font-black uppercase tracking-wide text-amber-200">Next survey</p>}
               <ConstellationArt page={{ id: entry.pageId, name: `${entry.name} Constellation` }} />
               <h2 className="mt-2 text-xl font-black">{entry.name}</h2>
               <p className="mt-1 text-sm font-semibold text-indigo-100">Count from {entry.min} to {entry.max}. Six rounds · {entry.band} band.</p>
               <p className="mt-2 text-sm font-bold text-amber-100">{entry.skill}</p>
-              <button type="button" disabled={!unlocked} onClick={() => startEpisode(index)} className="mt-4 min-h-14 w-full rounded-2xl bg-amber-300 px-4 py-3 font-black text-indigo-950 disabled:cursor-not-allowed disabled:bg-slate-500 disabled:text-white">{!unlocked ? 'Locked' : complete ? 'Replay survey' : 'Start survey'}</button>
+              <button type="button" disabled={!unlocked} onClick={() => startEpisode(index)} className={`mt-4 min-h-14 w-full rounded-2xl px-4 py-3 font-black ${isNextSurvey ? 'bg-amber-300 text-indigo-950' : unlocked ? 'bg-white/15 text-white' : 'bg-slate-500 text-white'} disabled:cursor-not-allowed`}>{!unlocked ? 'Locked' : isNextSurvey ? 'Start next survey' : 'Replay survey'}</button>
               {complete && <p className="mt-2 text-sm font-bold text-emerald-200">Best: {progress.bestStars[entry.id] || 0} stars</p>}
             </article>;
           })}
@@ -243,43 +267,44 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
         <section className={`rounded-[2rem] border-2 border-white/30 bg-gradient-to-br ${round.scene.backdrop} p-4 shadow-2xl sm:p-6`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div><p className="text-xs font-black uppercase tracking-widest text-white/70">{episode.name} · {episode.band}</p><h2 className="text-2xl font-black sm:text-3xl">{round.scene.title}</h2></div>
-            <div aria-hidden="true" className="text-4xl">{round.scene.decoration}</div>
           </div>
           <p className="mt-2 rounded-xl bg-black/20 px-3 py-2 text-sm font-bold text-white/90">{strategy}</p>
           <div className="relative mx-auto mt-4 aspect-square w-full max-w-[440px] rounded-3xl border border-white/25 bg-black/15" data-layout-variant={round.layoutVariant} role="group" aria-label={`Counting board for ${round.scene.title}; ${layoutDescription}`}>
-            {round.objects.map((object, index) => {
+            {round.objects.map((object) => {
               const countedIndex = tappedIds.indexOf(object.id);
-              return <button key={object.id} type="button" aria-pressed={countedIndex >= 0} disabled={phase !== 'count'} onClick={() => handleTapObject(object.id)} aria-label={`${round.scene.noun} ${index + 1}${countedIndex >= 0 ? `, counted number ${countedIndex + 1}` : ', not counted yet'}`} style={{ left: `${object.x}%`, top: `${object.y}%` }} className={`absolute grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl border-2 p-0 shadow-lg transition focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-200 ${countedIndex >= 0 ? 'border-yellow-100 bg-yellow-200/30 opacity-75' : 'border-white/20 bg-white/10 hover:scale-105'} disabled:cursor-default`}>
+              return <button key={object.id} type="button" aria-pressed={countedIndex >= 0} disabled={phase !== 'count'} onClick={() => handleTapObject(object.id)} aria-label={`${round.scene.noun}${countedIndex >= 0 ? `, counted as ${countedIndex + 1}` : ', not counted yet'}`} style={{ left: `${object.x}%`, top: `${object.y}%` }} className={`absolute grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl border-2 p-0 shadow-lg transition focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-200 sm:h-14 sm:w-14 ${countedIndex >= 0 ? 'border-yellow-100 bg-yellow-200/30 opacity-75' : 'border-white/20 bg-white/10 hover:scale-105'} disabled:cursor-default`}>
                 <CountMotif kind={round.scene.motif} accent={round.scene.accent} />
                 {countedIndex >= 0 && <span className="absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full border border-slate-900 bg-yellow-300 text-xs font-black text-slate-950">{countedIndex + 1}</span>}
               </button>;
             })}
           </div>
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-black/20 px-3 py-2">
+          {phase !== 'fact' && <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-black/20 px-3 py-2">
             <p className="font-black" aria-live="polite">{phase === 'count' ? (tappedIds.length ? `Counted ${tappedIds.length} object${tappedIds.length === 1 ? '' : 's'}.` : 'Tap each object once to count it.') : phase === 'answer' ? COUNT_THE_STARS_NARRATION.countQuestion : 'Count complete'}</p>
             <div className="flex flex-wrap gap-2"><button type="button" onClick={() => speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] })} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black"><Volume2 size={18} /> Hear instructions</button><button type="button" disabled={roundHadHint || phase === 'fact'} onClick={showCountingClue} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-3 font-black text-indigo-950 disabled:opacity-50"><Lightbulb size={18} /> Show a clue</button></div>
-          </div>
+          </div>}
           {hintText && <p className="mt-2 rounded-xl border border-amber-100/50 bg-amber-200/15 px-3 py-2 text-sm font-bold" role="status" aria-live="polite">{hintText}</p>}
           {phase === 'answer' && <div ref={answerPanelRef} className="mt-4 rounded-2xl border border-white/20 bg-black/20 p-3 text-center">
             <p className="mb-3 text-lg font-black">How many {pluralOf(round.scene.noun)} did you count?</p>
             <div className="flex flex-wrap justify-center gap-3">{round.options.map((option) => <button key={option} type="button" onClick={() => handleAnswer(option)} className="min-h-16 min-w-16 rounded-2xl bg-amber-300 px-4 text-2xl font-black text-slate-950 shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-white">{option}</button>)}</div>
+            <button type="button" onClick={restartCount} className="mt-3 min-h-12 rounded-xl bg-white/15 px-4 font-black text-white underline decoration-white/70 underline-offset-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-200">Recount from 1 · uses a clue</button>
             {feedback && <p className="mt-3 font-bold text-amber-100" role="status" aria-live="polite">{feedback}</p>}
           </div>}
           {phase === 'fact' && <div className="mt-4 rounded-2xl border-2 border-emerald-200/70 bg-emerald-950/50 p-4 text-center" role="status" aria-live="polite">
             <p className="text-xl font-black text-emerald-100">{feedback}</p>
             <p className="mt-2 text-lg font-bold">{round.explanation}</p>
+            <button type="button" onClick={replayFact} className="mt-4 min-h-12 rounded-xl bg-white/15 px-5 font-black text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-200">Hear explanation</button>
             <button type="button" onClick={advance} className="mt-4 min-h-14 rounded-2xl bg-amber-300 px-8 py-3 text-lg font-black text-slate-950">Next</button>
           </div>}
         </section>
       </main>}
 
       {phase === 'complete' && <main className="mx-auto mt-5 max-w-2xl rounded-[2rem] border-2 border-amber-200/60 bg-indigo-900/90 p-6 text-center shadow-2xl sm:p-10">
-        <ConstellationArt page={COUNT_CONSTELLATION_PAGES.find(({ episodeId }) => episodeId === episode.id)} locked={!lastResult?.newlyEarnedPage} />
+        <ConstellationArt page={COUNT_CONSTELLATION_PAGES.find(({ episodeId }) => episodeId === episode.id)} locked={!(lastResult?.progress.earnedConstellationPageIds || progress.earnedConstellationPageIds).includes(episode.pageId)} />
         <h2 className="mt-2 text-3xl font-black">{episode.name} complete!</h2>
         <p className="mt-3 text-lg font-bold">{COUNT_THE_STARS_NARRATION.episodeComplete}</p>
         {lastResult?.newlyEarnedPage && <p className="mt-3 rounded-2xl bg-amber-200 p-4 font-black text-indigo-950">Constellation page earned: {episode.name} Constellation</p>}
         <p className="mt-2 font-bold text-amber-100">Best: {lastResult?.progress.bestStars[episode.id] || progress.bestStars[episode.id] || 0} stars</p>
-        <div className="mt-5 flex flex-wrap justify-center gap-3"><button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="min-h-14 rounded-2xl bg-white px-6 font-black text-indigo-950">Survey map</button><button type="button" onClick={openCollection} className="min-h-14 rounded-2xl bg-amber-300 px-6 font-black text-indigo-950">Constellation book</button></div>
+        <div className="mt-5 flex flex-wrap justify-center gap-3">{episodeIndex < COUNT_THE_STARS_EPISODES.length - 1 && <button type="button" onClick={() => startEpisode(episodeIndex + 1)} className="min-h-14 rounded-2xl bg-amber-300 px-6 font-black text-indigo-950">Next survey: {COUNT_THE_STARS_EPISODES[episodeIndex + 1].name}</button>}<button type="button" onClick={() => { cancelNarration(); setPhase('map'); }} className="min-h-14 rounded-2xl bg-white px-6 font-black text-indigo-950">Survey map</button><button type="button" onClick={openCollection} className="min-h-14 rounded-2xl bg-white/15 px-6 font-black text-white">Constellation book</button></div>
       </main>}
     </div>
   );

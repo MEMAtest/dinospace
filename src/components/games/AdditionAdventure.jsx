@@ -32,7 +32,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
   const [locked, setLocked] = useState(false);
   const [feedback, setFeedback] = useState('');
   const [completedResults, setCompletedResults] = useState([]);
-  const [travel, setTravel] = useState(false);
+  const [modelJoined, setModelJoined] = useState(false);
   const [hintCount, setHintCount] = useState(0);
   const chapter = ARITHMETIC_CHAPTERS[chapterIndex];
   const question = rounds[roundIndex];
@@ -65,7 +65,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     setFeedback('');
     setCompletedResults([]);
     setHintCount(0);
-    setTravel(false);
+    setModelJoined(false);
     setPhase('play');
     onGameEvent?.('addition', 'start', { level: index, seed: newSeed, difficulty: ARITHMETIC_CHAPTERS[index].id });
     if (progress.completedChapterIds.includes(ARITHMETIC_CHAPTERS[index].id)) {
@@ -90,7 +90,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     }
     setLocked(true);
     setFeedback(question.explanation);
-    setTravel(true);
+    setModelJoined(true);
     const result = { correct: true, firstAttempt, priorWrong: mistake, hintCount: hintUsed ? 1 : 0 };
     setCompletedResults((previous) => [...previous, result]);
     playSfx('success');
@@ -120,7 +120,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
       setHintUsed(false);
       setLocked(false);
       setFeedback('');
-      setTravel(false);
+      setModelJoined(false);
       return;
     }
     const { stars } = scoreArithmeticResults(completedResults);
@@ -145,15 +145,31 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
   const model = useMemo(() => {
     if (!question) return null;
     if (question.type === 'groups' || question.type === 'story') {
-      const objectGroup = (count, label, moving) => (
+      const objectGroup = (count, label, joined) => (
         <div
           role="group"
-          aria-label={`${label}, ${count} ${count === 1 ? question.one : question.many}`}
-          className={`min-w-24 rounded-2xl border-2 border-slate-200 bg-white p-2 transition-all duration-700 motion-reduce:transition-none ${moving ? 'translate-x-6 translate-y-4' : ''}`}
+          aria-label={joined ? `${label} moved into the joined group` : `${label}, ${count} ${count === 1 ? question.one : question.many}`}
+          className={`min-w-24 rounded-2xl border-2 border-slate-200 bg-white p-2 transition-all duration-500 motion-reduce:transition-none ${joined ? 'opacity-45' : ''}`}
         >
-          <p className="text-xs font-black">{label}: {count === 0 ? '0 (empty)' : count}</p>
+          <p className="text-xs font-black">{joined ? `Moved from ${label.toLowerCase()}` : `${label}: ${count === 0 ? '0 (empty)' : count}`}</p>
           <div className="mt-1 flex max-w-56 flex-wrap gap-1" aria-hidden="true">
-            {Array.from({ length: count }, (_, index) => (
+            {Array.from({ length: joined ? 0 : count }, (_, index) => (
+              <svg key={index} viewBox="0 0 32 32" className="h-7 w-7" focusable="false">
+                <ObjectToken object={question.object} color={question.color} />
+              </svg>
+            ))}
+          </div>
+        </div>
+      );
+      const joinedGroup = (
+        <div
+          className="mx-auto min-w-36 rounded-2xl border-2 border-dashed border-emerald-500 bg-emerald-50 p-3"
+          role="group"
+          aria-label={`Joined group, ${question.answer} ${question.answer === 1 ? question.one : question.many}`}
+        >
+          <b>Joined group: {question.answer}</b>
+          <div className="mt-1 flex max-w-56 flex-wrap justify-center gap-1" aria-hidden="true">
+            {Array.from({ length: question.answer }, (_, index) => (
               <svg key={index} viewBox="0 0 32 32" className="h-7 w-7" focusable="false">
                 <ObjectToken object={question.object} color={question.color} />
               </svg>
@@ -162,41 +178,36 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
         </div>
       );
       return (
-        <div className="flex flex-wrap items-center justify-center gap-2" aria-label="Two groups shown separately before adding">
-          {objectGroup(question.a, 'First group', travel)}
-          <span aria-hidden="true" className="text-2xl font-black">+</span>
-          {objectGroup(question.b, 'Second group', travel)}
-          <span aria-hidden="true" className="text-2xl">→</span>
-          <div
-            className="min-w-24 rounded-2xl border-2 border-dashed border-emerald-500 bg-emerald-50 p-3"
-            role="group"
-            aria-label={locked ? `Result tray, ${question.answer} ${question.answer === 1 ? question.one : question.many}` : 'Empty result tray'}
-          >
-            <b>Result tray</b>
-            <div className="mt-1 flex max-w-56 flex-wrap gap-1" aria-hidden="true">
-              {locked && Array.from({ length: question.answer }, (_, index) => (
-                <svg key={index} viewBox="0 0 32 32" className="h-7 w-7" focusable="false">
-                  <ObjectToken object={question.object} color={question.color} />
-                </svg>
-              ))}
+        <div className="mx-auto w-full max-w-md" aria-label="Two groups shown separately before adding">
+          {modelJoined ? joinedGroup : (
+            <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-2">
+              {objectGroup(question.a, 'First group', false)}
+              <span aria-hidden="true" className="text-2xl font-black">+</span>
+              {objectGroup(question.b, 'Second group', false)}
             </div>
-          </div>
+          )}
         </div>
       );
     }
     return (
       <div className="mx-auto flex max-w-sm flex-col items-center gap-3" role="group" aria-label="Whole and two parts diagram">
-        <div className="rounded-2xl border-2 border-emerald-400 bg-white px-6 py-3 font-black">Whole: {question.total}</div>
-        <div className="flex items-center gap-3">
-          <div className="rounded-xl bg-white px-4 py-3 font-bold">Part: {question.a}</div>
-          <div className={`rounded-xl border-2 border-dashed px-4 py-3 font-bold ${locked ? 'border-emerald-500 bg-emerald-50' : 'border-slate-400'}`} aria-label={locked ? `Missing part ${question.b}` : 'Missing part'}>
-            Part: {locked ? question.b : '?'}
+        <div className="rounded-2xl border-2 border-emerald-400 bg-white px-4 py-3 font-black" role="group" aria-label={`Whole, ${question.total} counters`}>
+          <span>Whole: {question.total}</span><div className="mt-2 flex max-w-64 flex-wrap justify-center gap-1" aria-hidden="true">{Array.from({length: question.total},(_,i)=><span key={i} className="h-3 w-3 rounded-full border border-teal-800 bg-teal-500" />)}</div>
+        </div>
+        <div aria-hidden="true" className="h-5 w-px bg-emerald-700" />
+        <div className="flex items-start gap-3">
+          <div className="min-w-24 rounded-xl border-2 border-teal-300 bg-teal-50 px-3 py-3 font-bold" role="group" aria-label={`Known part, ${question.a} counters`}><span>Part: {question.a}</span><div className="mt-2 flex max-w-24 flex-wrap justify-center gap-1" aria-hidden="true">{Array.from({length:question.a},(_,i)=><span key={i} className="h-3 w-3 rounded-full border border-teal-800 bg-teal-500" />)}</div></div>
+          <div className={`min-w-24 rounded-xl border-2 border-dashed px-3 py-3 font-bold ${locked ? 'border-emerald-500 bg-emerald-50' : 'border-slate-400'}`} role="group" aria-label={locked ? `Missing part, ${question.b} counters` : 'Missing part, unknown number of counters'}>
+            <span>Part: {locked ? question.b : '?'}</span><div className="mt-2 flex max-w-24 flex-wrap justify-center gap-1" aria-hidden="true">{locked && Array.from({length:question.b},(_,i)=><span key={i} className="h-3 w-3 rounded-full border border-emerald-800 bg-emerald-500" />)}</div>
           </div>
         </div>
         <p className="text-sm font-semibold">Both parts make the whole.</p>
       </div>
     );
-  }, [question, locked, travel]);
+  }, [question, locked, modelJoined]);
   if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-emerald-100 to-teal-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Addition Adventure</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>{phase === 'start' ? <main className="mx-auto mt-5 max-w-4xl"><p className="mb-4 rounded-2xl bg-white p-4 text-center font-bold">Three ways to think about addition. Each chapter has six questions; your worked answer stays here until Next.</p><div className="grid gap-3 sm:grid-cols-3">{ARITHMETIC_CHAPTERS.map((c,i)=><Chapter key={c.id} chapter={c} index={i} selected={chapterIndex===i} done={progress.completedChapterIds.includes(c.id)} locked={i>progress.unlockedChapter} onClick={()=>setChapterIndex(i)} />)}</div><button onClick={()=>start()} className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 text-lg font-black text-white">Start {chapter.title}</button></main> : <main className="mx-auto mt-8 max-w-2xl rounded-3xl bg-white p-6 text-center shadow-xl"><p className="text-2xl font-black">{feedback}</p><p className="mt-3">{progress.completedChapterIds.length < 3 ? 'Choose the next unlocked chapter or replay this one.' : 'All three chapters are complete. Replay any chapter.'}</p><button className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 font-black text-white" onClick={()=>{cancelNarration();setPhase('start');setChapterIndex(progress.unlockedChapter);}}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white px-5 font-black text-emerald-800 ring-2 ring-emerald-700" onClick={()=>start(chapterIndex)}>Replay {chapter.title}</button></main>}</div>;
-  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-emerald-100 to-teal-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Addition Adventure</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-3 text-lg font-bold" aria-live="polite">{question?.prompt}</p><button className="mb-4 inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>{model}<div className="my-4 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-emerald-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>{feedback&&<p role="status" className="mx-auto mb-3 max-w-2xl rounded-xl bg-emerald-50 p-3 font-bold">{feedback}</p>}{!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}{locked&&<button onClick={next} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 text-lg font-black text-white">{roundIndex===5?'Finish chapter':'Next question'}</button>}</main></div>;
+  const equation = question?.type === 'bond'
+    ? `${question.a} + ${locked ? question.b : '?'} = ${question.total}`
+    : `${question?.a} + ${question?.b} = ${locked ? question?.answer : '?'}`;
+  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-emerald-100 to-teal-200 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back to Maths Missions"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex+1} of 3 · Question {roundIndex+1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Addition Adventure</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-3 text-lg font-bold" aria-live="polite">{question?.prompt}</p><p className="mb-3 text-xl font-black" aria-label={`Equation: ${equation}`}>{equation}</p><button className="mb-4 inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-100 px-4 font-black" onClick={()=>tell(speak, question.prompt, arithmeticNarrationSegments(question))}><Volume2 size={20}/> Hear question</button>{model}{question?.type !== 'bond' && !locked && <button onClick={()=>setModelJoined((joined)=>!joined)} className="my-3 min-h-12 rounded-xl border-2 border-teal-700 bg-teal-50 px-4 font-black">{modelJoined ? 'Split the groups apart' : 'Bring the groups together'}</button>}<div className="my-4 flex flex-wrap justify-center gap-3" role="group" aria-label="Choose the answer">{question?.options.map(option=><button key={option} disabled={locked} onClick={()=>attempt(option)} className="min-h-14 min-w-16 rounded-2xl bg-emerald-700 px-5 text-2xl font-black text-white shadow disabled:opacity-60" aria-label={`Answer ${option}`}>{option}</button>)}</div>{feedback&&<p role="status" className="mx-auto mb-3 max-w-2xl rounded-xl bg-emerald-50 p-3 font-bold">{feedback}</p>}{locked&&<button onClick={()=>tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'))} className="mx-auto inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-emerald-700 bg-white px-4 font-black"><Volume2 size={20}/> Hear explanation again</button>}{!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}{locked&&<button onClick={next} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 text-lg font-black text-white">{roundIndex===5?'Finish chapter':'Next question'}</button>}</main></div>;
 }
