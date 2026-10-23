@@ -1,0 +1,44 @@
+{
+  "baseline-addition": {
+    "prompt": "Put 10 stars and 0 stars together. How many altogether?",
+    "groups": [
+      {
+        "label": "First group, 10 stars",
+        "tokens": 10
+      },
+      {
+        "label": "Second group, 0 stars",
+        "tokens": 0
+      },
+      {
+        "label": "Empty result tray",
+        "tokens": 0
+      },
+      {
+        "label": "Choose the answer",
+        "tokens": 0
+      }
+    ]
+  },
+  "baseline-after-answer": {
+    "groups": [
+      {
+        "label": "First group, 10 stars",
+        "tokens": 10
+      },
+      {
+        "label": "Second group, 0 stars",
+        "tokens": 0
+      },
+      {
+        "label": "Result tray, 10 stars",
+        "tokens": 10
+      },
+      {
+        "label": "Choose the answer",
+        "tokens": 0
+      }
+    ],
+    "next": true
+  }
+}

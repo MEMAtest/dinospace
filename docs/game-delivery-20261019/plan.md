@@ -85,3 +85,8 @@ Every row inherits the shared evidence/imagery standard and the corresponding de
 For each game store: route/profile, source SHA, deployment, rendered asset identities, baseline, discovered defects, exact fixes, scenario results, visual/audio review, timings, unresolved gates and reasoned scores. For each batch store the four per-game verdicts and canonical production rehearsal. Mark a batch complete only when each game passes. The last two-game batch is intentionally smaller.
 
 Reuse this checkout and compatible dependencies. No new checkout/install without a fresh resource check. Use one contained synthetic browser, no real child-data writes, and failure-only traces/videos. Retain a compact summary plus representative final images and unique failures once; aim for under 10 MiB per batch. Close task-owned processes at handoff and preserve unrelated files. The user has authorized built-in imagery generation allowance/credits; no autonomous paid story/voice corpus jobs or monitoring restarts are part of this plan.
+
+
+## Latest three-game scope — 23 October 2026
+
+The user requested three games after Shadow Match. The selected next backlog entries are Count the Stars, Addition Adventure and Subtraction Station. Their concrete acceptance scenarios, builder/root fixes and source-bound evidence are in `../qa-evidence/three-maths-20261023/README.md`. Number Line Jump remains queued. Functional release and rehearsals do not assign independent editorial scores.

@@ -1,0 +1,118 @@
+{
+  "removed": [
+    {
+      "path": "output/playwright/three-maths-20261023/subtraction-0-1440.png",
+      "bytes": 326823
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/subtraction-1-1440.png",
+      "bytes": 344018
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/addition-2-390.png",
+      "bytes": 142582
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/baseline-addition.png",
+      "bytes": 364738
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/counting-0-1440.png",
+      "bytes": 583538
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/counting-1-1440.png",
+      "bytes": 566612
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/addition-1-390.png",
+      "bytes": 142077
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/addition-2-1440.png",
+      "bytes": 308112
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/addition-0-390.png",
+      "bytes": 139934
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/subtraction-1-390.png",
+      "bytes": 164792
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/counting-2-1440.png",
+      "bytes": 588709
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/counting-2-390.png",
+      "bytes": 286941
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/subtraction-0-390.png",
+      "bytes": 162400
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/subtraction-2-1440.png",
+      "bytes": 330733
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/addition-0-1440.png",
+      "bytes": 366127
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/addition-1-1440.png",
+      "bytes": 315558
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/subtraction-2-390.png",
+      "bytes": 168046
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/counting-0-390.png",
+      "bytes": 264973
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/counting-1-390.png",
+      "bytes": 233562
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/local-390.log",
+      "bytes": 25037
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/local-1440.log",
+      "bytes": 27883
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/candidate-390.log",
+      "bytes": 31149
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/production-390.log",
+      "bytes": 29576
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/production-1440.log",
+      "bytes": 29807
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/production-parent-390.log",
+      "bytes": 421
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/baseline-world.log",
+      "bytes": 854
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/baseline-addition.log",
+      "bytes": 992
+    },
+    {
+      "path": "output/playwright/three-maths-20261023/baseline-after-answer.log",
+      "bytes": 580
+    }
+  ],
+  "canonicalEvidence": "Parsed JSON, six WebP screenshots and replay source retained in this folder; no worktrees or installations created.",
+  "retainedBuild": "Existing dist directory reused; approximately389MiB."
+}

@@ -1,11 +1,10 @@
 {
-  "updatedAt": "2026-10-22",
+  "updatedAt": "2026-10-23",
   "scope": "34 current catalogue activities; historical 26-game ledger remains intact",
   "target": "5/5 against explicit per-game and shared criteria",
   "counts": {
-    "planned": 26,
-    "in progress": 0,
-    "released_acceptance_pending": 8,
+    "released_acceptance_pending": 12,
+    "planned": 22,
     "acceptedThisProgramme": 0
   },
   "batchSize": 4,
@@ -119,31 +118,43 @@
       "batch": 3,
       "gameId": "counting",
       "game": "Count the Stars",
-      "status": "planned",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "runtimeCommit": "03773d034120af12605e7037c23de1eda964b5de",
+      "deployment": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "implementation": "Released03773d03; allchapters, native touch/keyboard, held/replayed packagedaudio, prior-chapter replays, persistedprogress and parentnavigation passed onproduction at390/1440. Independentlistening/finaleditorialscore unassigned.",
+      "acceptanceReport": "../qa-evidence/three-maths-20261023/README.md"
     },
     {
       "batch": 3,
       "gameId": "addition",
       "game": "Addition Adventure",
-      "status": "planned",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "runtimeCommit": "03773d034120af12605e7037c23de1eda964b5de",
+      "deployment": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "implementation": "Released03773d03; allchapters, native touch/keyboard, held/replayed packagedaudio, prior-chapter replays, persistedprogress and parentnavigation passed onproduction at390/1440. Independentlistening/finaleditorialscore unassigned.",
+      "acceptanceReport": "../qa-evidence/three-maths-20261023/README.md"
     },
     {
       "batch": 3,
       "gameId": "subtraction",
       "game": "Subtraction Station",
-      "status": "planned",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": "../game-quality-4.5-roadmap.md"
+      "historicalRoadmap": "../game-quality-4.5-roadmap.md",
+      "runtimeCommit": "03773d034120af12605e7037c23de1eda964b5de",
+      "deployment": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "implementation": "Released03773d03; allchapters, native touch/keyboard, held/replayed packagedaudio, prior-chapter replays, persistedprogress and parentnavigation passed onproduction at390/1440. Independentlistening/finaleditorialscore unassigned.",
+      "acceptanceReport": "../qa-evidence/three-maths-20261023/README.md"
     },
     {
       "batch": 3,
@@ -329,7 +340,7 @@
       "batch": 8,
       "gameId": "shadowmatch",
       "game": "Shadow Match",
-      "status": "planned",
+      "status": "released_acceptance_pending",
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
@@ -382,7 +393,7 @@
       "historicalRoadmap": null
     }
   ],
-  "releaseGate": "Batch 1 is released with acceptance pending: current merged-source cumulative rehearsal, human listening, canonical-source reconciliation and final scores remain unresolved. Batch 2 source review is recorded; its four games are the only active implementation batch and remain pending browser, visual, audio and release acceptance. No scores or accepted count are advanced. Approved provider jobs and recording inventory work are complete.",
+  "releaseGate": "Latest three-game functional uplift released from03773d03 and production rehearsed at390/1440. Prior two four-game batches and Shadow Match retain dated evidence. Independent listening and final editorial scores remain separate; no accepted count advanced.",
   "batch2Verification": {
     "date": "2026-10-22",
     "reviewedBaseSource": "2ef64fe24d1621bb48218319fec01daa63353b80",
@@ -426,5 +437,16 @@
     "canonicalProductionChanged": false,
     "humanListeningAccepted": false,
     "evidence": "batch1/approved-provider-qa/"
+  },
+  "latestScopedRelease": {
+    "runtimeCommit": "03773d034120af12605e7037c23de1eda964b5de",
+    "deployment": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+    "games": [
+      "counting",
+      "addition",
+      "subtraction"
+    ],
+    "evidence": "docs/qa-evidence/three-maths-20261023/README.md",
+    "productionRehearsal": "passed at390and1440;144questions includingreplay; all15countscenes atbothwidths"
   }
 }

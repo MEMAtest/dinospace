@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-23T16:58:17.447791+00:00",
+  "updatedAt": "2026-10-23T19:00:22.848131+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "4fd1b8b8922cbd3b5dbf64444e0abbaa065f4aee",
+  "canonicalRelease": "03773d034120af12605e7037c23de1eda964b5de",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1014,5 +1014,18 @@
     "allTwelveTargetsSeenAtBothWidths": true,
     "editorialScoreAssigned": false,
     "scope": "Targeted roster/progression and held-fact uplift; historical editorial scores unchanged."
+  },
+  "latestThreeGameUplift": {
+    "date": "2026-10-23",
+    "games": [
+      "Count the Stars",
+      "Addition Adventure",
+      "Subtraction Station"
+    ],
+    "runtimeCommit": "03773d034120af12605e7037c23de1eda964b5de",
+    "deployment": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+    "evidence": "docs/qa-evidence/three-maths-20261023/README.md",
+    "productionRehearsal": "passed144questions includingreplay at390and1440; all15countscenes ateachwidth; native touch/keyboard, held and replayed audio, persistence and parent returns",
+    "editorialScoresChanged": false
   }
 }

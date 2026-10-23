@@ -1,0 +1,54 @@
+{
+  "verifiedAt": "2026-10-23T19:04:52.056775+00:00",
+  "runtimeCommit": "03773d034120af12605e7037c23de1eda964b5de",
+  "deployment": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+  "games": [
+    "Count the Stars",
+    "Addition Adventure",
+    "Subtraction Station"
+  ],
+  "tests": {
+    "total": 350,
+    "passed": 349,
+    "failed": 0,
+    "existingSkip": 1
+  },
+  "emittedPwaAudit": {
+    "passed": 8,
+    "skipped": 0
+  },
+  "build": "passed; existing chunk-size warning",
+  "scopedLint": "passed",
+  "localNative": {
+    "phoneQuestions": 54,
+    "desktopQuestionsIncludingReplays": 72,
+    "allCountingScenesPerViewport": 15
+  },
+  "candidateNative": {
+    "phoneQuestionsIncludingReplays": 72
+  },
+  "productionNative": {
+    "viewports": [
+      390,
+      1440
+    ],
+    "questionsIncludingReplaysPerViewport": 72,
+    "allCountingScenesPerViewport": 15,
+    "correctExplanationPlaybackEachMainRound": true,
+    "heldSecondsRepresentativeEachChapter": 6.1,
+    "nativeTouchAndKeyboard": true,
+    "wrongHintAndRecountRecovery": true,
+    "earlierChapterCompletionDoesNotRegress": true,
+    "reloadPersistence": true,
+    "parentWorldReturn": true,
+    "pageErrors": 0,
+    "consoleErrors": 0,
+    "brokenAssets": 0,
+    "providerApiRequests": 0
+  },
+  "editorialScoreAssigned": false,
+  "newPaidProviderCalls": 0,
+  "newWorktrees": 0,
+  "newInstalls": 0,
+  "newGeneratedRasterArtwork": 0
+}
