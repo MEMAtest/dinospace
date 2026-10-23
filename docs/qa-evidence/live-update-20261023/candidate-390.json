@@ -1,0 +1,34 @@
+{
+  "origin": "https://dinospace-l9nssvrve-memas-projects-23a0001d.vercel.app",
+  "width": 390,
+  "games": [
+    {
+      "game": "addition",
+      "equation": "6 + 0 = ?",
+      "answer": 6,
+      "recordedExplanationPlayed": true
+    },
+    {
+      "game": "subtraction",
+      "equation": "5 \u2212 0 = ?",
+      "answer": 5,
+      "recordedExplanationPlayed": true
+    },
+    {
+      "game": "counting",
+      "count": 5,
+      "recordedExplanationPlayed": true
+    },
+    {
+      "game": "shadowmatch",
+      "target": "para",
+      "src": "/art/shadow-match-v2/para.webp",
+      "matched": true
+    }
+  ],
+  "noFalseUpdateNotice": true,
+  "errors": [],
+  "consoleErrors": [],
+  "api": [],
+  "broken": []
+}

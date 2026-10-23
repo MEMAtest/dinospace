@@ -1,0 +1,21 @@
+{
+  "before": {
+    "route": "#/home",
+    "entry": "/assets/arcade-CeTz6ja-.js",
+    "overlay": "Break Time reminder covering controls",
+    "visibleWorldGraphicsDecoded": true
+  },
+  "afterInitialReload": {
+    "route": "#/play/addition",
+    "entry": "/assets/arcade-wsV7W-0p.js",
+    "openedFromHomePracticeCard": true
+  },
+  "afterFixReload": {
+    "route": "#/play/addition",
+    "entry": "/assets/arcade-1e7QzwSn.js",
+    "renderedStyledGameIntro": true,
+    "savedPointsBeforeAndAfter": 3
+  },
+  "answersCompletedInRealProfile": 0,
+  "progressReset": false
+}

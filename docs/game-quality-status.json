@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-23T19:00:22.848131+00:00",
+  "updatedAt": "2026-10-23T19:29:41.397620+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "03773d034120af12605e7037c23de1eda964b5de",
+  "canonicalRelease": "cf0156060c364f3b0fa9d91cdb5af4212fbd5f50",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1027,5 +1027,11 @@
     "evidence": "docs/qa-evidence/three-maths-20261023/README.md",
     "productionRehearsal": "passed144questions includingreplay at390and1440; all15countscenes ateachwidth; native touch/keyboard, held and replayed audio, persistence and parent returns",
     "editorialScoresChanged": false
+  },
+  "latestOpenTabUpdateRepair": {
+    "runtimeCommit": "cf0156060c364f3b0fa9d91cdb5af4212fbd5f50",
+    "deployment": "dpl_9dmAihwKWuyYCWbUy92MRiEADnqh",
+    "evidence": "docs/qa-evidence/live-update-20261023/README.md",
+    "scope": "Open-tab release notice; same four gameplay components unchanged; current representative production checks at390/1440. No new editorial scores."
   }
 }

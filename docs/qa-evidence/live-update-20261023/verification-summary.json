@@ -1,0 +1,34 @@
+{
+  "verifiedAt": "2026-10-23T19:29:41.397620+00:00",
+  "runtimeCommit": "cf0156060c364f3b0fa9d91cdb5af4212fbd5f50",
+  "deployment": "dpl_9dmAihwKWuyYCWbUy92MRiEADnqh",
+  "tests": {
+    "total": 354,
+    "passed": 353,
+    "failed": 0,
+    "existingSkip": 1
+  },
+  "emittedPwaAudit": {
+    "passed": 8,
+    "skipped": 0
+  },
+  "build": "passed",
+  "scopedLint": "passed",
+  "productionGames": [
+    "addition",
+    "subtraction",
+    "counting",
+    "shadowmatch"
+  ],
+  "productionViewports": [
+    390,
+    1440
+  ],
+  "cleanFinalProductionChecks": true,
+  "transientCutoverCss404Preserved": true,
+  "earlierFullMathsRehearsal": "Unchanged gameplay source from03773d03;144-question record retained in ../three-maths-20261023; current fix has representative four-game checks only.",
+  "simulatedReleaseBannerChecks": "show, Later, explicit Refresh, no unsaved-progress reset at390/1440",
+  "newWorktrees": 0,
+  "newInstalls": 0,
+  "newProviderCalls": 0
+}

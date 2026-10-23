@@ -1,0 +1,96 @@
+{
+  "served": [
+    {
+      "origin": "https://dinospace-l9nssvrve-memas-projects-23a0001d.vercel.app",
+      "assets": [
+        {
+          "path": "/assets/arcade-1e7QzwSn.js",
+          "status": 200,
+          "sha256": "44425593bd9f133800e4c15b0ffbabc7be3e981c13f91866071bc27d9eb00829"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DnOT3jtR.js",
+          "status": 200,
+          "sha256": "14ccbf0d05491bcba5fc15f9f220a1b86e0a14c819fd538a1266edc16485bc9a"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CR9YWEY8.css",
+          "status": 200,
+          "sha256": "ebe119927f4acfd036dfd30be091e5c33a611820f644057d2ee2ed1d0cddf976"
+        },
+        {
+          "path": "/assets/arcade-DU7D2KCy.css",
+          "status": 200,
+          "sha256": "b9b2d9db46b694e1e28bbfd747066fc67b7c7b8a0d5481c9ed29e7e801f16e1f"
+        }
+      ],
+      "cacheVersion": "v28",
+      "candidateCanonicalIdentical": true
+    },
+    {
+      "origin": "https://dinospace-eight.vercel.app",
+      "assets": [
+        {
+          "path": "/assets/arcade-1e7QzwSn.js",
+          "status": 200,
+          "sha256": "44425593bd9f133800e4c15b0ffbabc7be3e981c13f91866071bc27d9eb00829"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DnOT3jtR.js",
+          "status": 200,
+          "sha256": "14ccbf0d05491bcba5fc15f9f220a1b86e0a14c819fd538a1266edc16485bc9a"
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CR9YWEY8.css",
+          "status": 200,
+          "sha256": "ebe119927f4acfd036dfd30be091e5c33a611820f644057d2ee2ed1d0cddf976"
+        },
+        {
+          "path": "/assets/arcade-DU7D2KCy.css",
+          "status": 200,
+          "sha256": "b9b2d9db46b694e1e28bbfd747066fc67b7c7b8a0d5481c9ed29e7e801f16e1f"
+        }
+      ],
+      "cacheVersion": "v28",
+      "candidateCanonicalIdentical": true
+    }
+  ],
+  "newDinosaurArt": [
+    {
+      "kind": "spino",
+      "path": "/art/shadow-match-v2/spino.webp",
+      "sha256": "afc5c4591f9bfc66015f60ef598ceba71b4ff0ff7cb26736f362ca06236556d9",
+      "matches": true
+    },
+    {
+      "kind": "para",
+      "path": "/art/shadow-match-v2/para.webp",
+      "sha256": "b6efa9a7d1acdd49a3c4c8bf6cda383f927edf4a6e5ed572beb1e7c6e3eb6d2c",
+      "matches": true
+    },
+    {
+      "kind": "allo",
+      "path": "/art/shadow-match-v2/allo.webp",
+      "sha256": "60384780752cd37fd10b68d1ec8ed13aecb8d495b56c7868ed16bb467aae5e00",
+      "matches": true
+    },
+    {
+      "kind": "dillo",
+      "path": "/art/shadow-match-v2/dillo.webp",
+      "sha256": "6d7667098578b54e3ae0a7f3dff5ff4224aa5b277348fa30f9ec23481d107e94",
+      "matches": true
+    },
+    {
+      "kind": "carno",
+      "path": "/art/shadow-match-v2/carno.webp",
+      "sha256": "46572df7306797c2ddf59bf4fd80502b1600c83b6ea4a93e51a3a677bc5202af",
+      "matches": true
+    },
+    {
+      "kind": "cory",
+      "path": "/art/shadow-match-v2/cory.webp",
+      "sha256": "8ed591a9743f427d35e9dd7af36a550ba8c6222984b6e47b9a08ce9628ce9457",
+      "matches": true
+    }
+  ]
+}

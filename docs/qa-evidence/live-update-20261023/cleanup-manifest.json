@@ -1,0 +1,47 @@
+{
+  "removed": [
+    {
+      "path": "output/playwright/live-update-20261023/live-shadow-1440.png",
+      "bytes": 333879
+    },
+    {
+      "path": "output/playwright/live-update-20261023/live-shadow-390.png",
+      "bytes": 110356
+    },
+    {
+      "path": "output/playwright/live-update-20261023/update-390.png",
+      "bytes": 366404
+    },
+    {
+      "path": "output/playwright/live-update-20261023/refreshed-user-tab.png",
+      "bytes": 60745
+    },
+    {
+      "path": "output/playwright/live-update-20261023/update-1440.png",
+      "bytes": 928307
+    },
+    {
+      "path": "output/playwright/live-update-20261023/candidate-390.log",
+      "bytes": 5308
+    },
+    {
+      "path": "output/playwright/live-update-20261023/update-rehearsal.log",
+      "bytes": 3196
+    },
+    {
+      "path": "output/playwright/live-update-20261023/production-390.log",
+      "bytes": 142
+    },
+    {
+      "path": "output/playwright/live-update-20261023/production-390-recheck.log",
+      "bytes": 5471
+    },
+    {
+      "path": "output/playwright/live-update-20261023/production-1440.log",
+      "bytes": 5382
+    }
+  ],
+  "retained": "Canonical JSON, three WebP captures, replay sources and unique failure log; cropped user screenshot remains local output only.",
+  "newWorktrees": 0,
+  "newInstalls": 0
+}

@@ -1,0 +1,9 @@
+{
+  "observed": [
+    {
+      "source": ".playwright-cli/console-2026-10-23T18-33-17-736Z.log",
+      "line": "[ 2984873ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://dinospace-eight.vercel.app/assets/arcade-DU7D2KCy.css:0"
+    }
+  ],
+  "subsequentChecks": "Current CSS returned200 and byte matched candidate; clean native rechecks at390 and1440."
+}

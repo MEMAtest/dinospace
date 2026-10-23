@@ -1,0 +1,35 @@
+{
+  "origin": "https://dinospace-eight.vercel.app",
+  "width": 1440,
+  "games": [
+    {
+      "game": "addition",
+      "equation": "15 + 0 = ?",
+      "answer": 15,
+      "recordedExplanationPlayed": true
+    },
+    {
+      "game": "subtraction",
+      "equation": "9 \u2212 3 = ?",
+      "answer": 6,
+      "recordedExplanationPlayed": true
+    },
+    {
+      "game": "counting",
+      "count": 3,
+      "recordedExplanationPlayed": true
+    },
+    {
+      "game": "shadowmatch",
+      "target": "para",
+      "src": "/art/shadow-match-v2/para.webp",
+      "matched": true
+    }
+  ],
+  "noFalseUpdateNotice": true,
+  "errors": [],
+  "consoleErrors": [],
+  "api": [],
+  "broken": [],
+  "failed": []
+}
