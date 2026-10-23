@@ -4,6 +4,7 @@ import {
   chooseLittleDinoRound, DINO_NAMES, JIGSAW_SCENES, LITTLE_LEVELS, LITTLE_VOICE_LINES, RESCUE_ANIMALS, ROCKET_COLOURS,
   fuelPrompt, levelRounds, rescuePrompt, starsForMistakes,
 } from '../src/data/littleGames.js';
+import { SHADOW_DINO_KINDS } from '../src/data/shadowMatchProgression.js';
 import { getLittleLevel, recordLittleResult } from '../src/data/littleProgress.js';
 import { PENDING_VOICE_CORPUS, OFFLINE_VOICE_CORPUS } from '../scripts/offline-voice-corpus.mjs';
 import { voiceClipKey, normalizeVoiceText } from '../src/data/voiceKey.js';
@@ -34,7 +35,7 @@ test('every little game has five levels that get harder and never exceed its con
     assert.ok(config.scenes >= config.grids.length, 'each run has enough scenes to avoid repeating a picture');
   });
   LITTLE_LEVELS.shadowmatch.forEach((config) => {
-    assert.ok(config.kinds <= Object.keys(DINO_NAMES).length);
+    assert.ok(config.kinds <= SHADOW_DINO_KINDS.length);
     assert.ok(Math.max(...config.choices) <= config.kinds);
   });
   LITTLE_LEVELS.rocketbuilder.forEach((config) => assert.ok(config.colours <= ROCKET_COLOURS.length));

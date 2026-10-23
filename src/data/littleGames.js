@@ -56,12 +56,12 @@ export const LITTLE_LEVELS = Object.freeze({
     { grids: [[4, 3], [4, 3], [4, 3], [4, 3]], scenes: 6, unlock: 'picture' },
   ],
   shadowmatch: [
-    { choices: [2, 2, 2, 2], kinds: 3 },
-    { choices: [2, 2, 3, 3], kinds: 4, unlock: 'dino' },
-    { choices: [3, 3, 3, 3, 3], kinds: 5, unlock: 'dino' },
-    { choices: [3, 3, 4, 4, 4], kinds: 6, unlock: 'dino' },
+    { choices: [2, 2, 2, 2], kinds: 3, previousKinds: 0 },
+    { choices: [3, 3, 3, 3, 3], kinds: 6, previousKinds: 3, unlock: 'dino' },
+    { choices: [3, 4, 4, 4, 4, 4], kinds: 8, previousKinds: 6, similar: true, unlock: 'dino' },
+    { choices: [4, 4, 4, 4, 4, 4, 4], kinds: 10, previousKinds: 8, similar: true, unlock: 'dino' },
     // Top level mirrors the shadows, so the child must really look at shapes.
-    { choices: [4, 4, 4, 4, 4], kinds: 6, mirror: true, unlock: 'challenge' },
+    { choices: [4, 4, 5, 5, 6, 6, 6, 6], kinds: 12, previousKinds: 10, similar: true, mirror: true, unlock: 'challenge' },
   ],
   rocketbuilder: [
     { rounds: [['nose'], ['nose', 'fins']], colours: 2 },
