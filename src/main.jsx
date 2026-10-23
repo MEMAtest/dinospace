@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import './discoveryPremium.css'
 import App from './App.jsx'
+import AppUpdateNotice from './components/shared/AppUpdateNotice.jsx'
 import { startupNavigation } from './navigation.js'
 
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
@@ -21,6 +22,7 @@ window.history.replaceState(startup.state, '', `${window.location.pathname}${win
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AppUpdateNotice />
     <App />
   </StrictMode>,
 )
