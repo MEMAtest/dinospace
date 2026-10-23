@@ -1,0 +1,812 @@
+{
+  "origin": "https://dinospace-eight.vercel.app",
+  "width": 1440,
+  "height": 844,
+  "rows": [
+    {
+      "level": 1,
+      "round": 1,
+      "target": "stego",
+      "pool": 3,
+      "choices": 2,
+      "minTargetWidth": 426,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.168191,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.168191,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.168191,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "round": 2,
+      "target": "trex",
+      "pool": 3,
+      "choices": 2,
+      "minTargetWidth": 426,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+          "time": 0.168068,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+          "time": 0.168068,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+          "time": 0.168068,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "round": 3,
+      "target": "trike",
+      "pool": 3,
+      "choices": 2,
+      "minTargetWidth": 426,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/0ee03dcf-matilda.mp3",
+          "time": 0.156641,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/0ee03dcf-matilda.mp3",
+          "time": 0.156641,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/0ee03dcf-matilda.mp3",
+          "time": 0.156641,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "round": 4,
+      "target": "stego",
+      "pool": 3,
+      "choices": 2,
+      "minTargetWidth": 426,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.157036,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.157036,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.157036,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "round": 1,
+      "target": "ptero",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 277.328125,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/7c805bc1-matilda.mp3",
+          "time": 0.166899,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/7c805bc1-matilda.mp3",
+          "time": 0.166899,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/7c805bc1-matilda.mp3",
+          "time": 0.166899,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "round": 2,
+      "target": "ankylo",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 277.328125,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/717508c6-matilda.mp3",
+          "time": 0.158917,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/717508c6-matilda.mp3",
+          "time": 0.158917,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/717508c6-matilda.mp3",
+          "time": 0.158917,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "round": 3,
+      "target": "bronto",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 277.328125,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.161364,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.161364,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.161364,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "round": 4,
+      "target": "trike",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 277.328125,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/0ee03dcf-matilda.mp3",
+          "time": 0.157197,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/0ee03dcf-matilda.mp3",
+          "time": 0.157197,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/0ee03dcf-matilda.mp3",
+          "time": 0.157197,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "round": 5,
+      "target": "stego",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 277.328125,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.166447,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.166447,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.166447,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "round": 1,
+      "target": "para",
+      "pool": 8,
+      "choices": 3,
+      "minTargetWidth": 277.328125,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/1d34ca61-matilda.mp3",
+          "time": 0.157298,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/1d34ca61-matilda.mp3",
+          "time": 0.157298,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/1d34ca61-matilda.mp3",
+          "time": 0.157298,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "round": 2,
+      "target": "spino",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/68d5f96d-matilda.mp3",
+          "time": 0.159644,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/68d5f96d-matilda.mp3",
+          "time": 0.159644,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/68d5f96d-matilda.mp3",
+          "time": 0.159644,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "round": 3,
+      "target": "bronto",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.158762,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.158762,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.158762,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "round": 4,
+      "target": "trex",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+          "time": 0.155773,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+          "time": 0.155773,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+          "time": 0.155773,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "round": 5,
+      "target": "ptero",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/7c805bc1-matilda.mp3",
+          "time": 0.165069,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/7c805bc1-matilda.mp3",
+          "time": 0.165069,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/7c805bc1-matilda.mp3",
+          "time": 0.165069,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "round": 6,
+      "target": "stego",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.159579,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.159579,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/2c9108b1-matilda.mp3",
+          "time": 0.159579,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "round": 1,
+      "target": "allo",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9db34942-matilda.mp3",
+          "time": 0.16007,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9db34942-matilda.mp3",
+          "time": 0.16007,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9db34942-matilda.mp3",
+          "time": 0.16007,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "round": 2,
+      "target": "dillo",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/f5db223c-matilda.mp3",
+          "time": 0.152197,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/f5db223c-matilda.mp3",
+          "time": 0.152197,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/f5db223c-matilda.mp3",
+          "time": 0.152197,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "round": 3,
+      "target": "bronto",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.160914,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.160914,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.160914,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "round": 4,
+      "target": "ptero",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/7c805bc1-matilda.mp3",
+          "time": 0.155793,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/7c805bc1-matilda.mp3",
+          "time": 0.155793,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/7c805bc1-matilda.mp3",
+          "time": 0.155793,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "round": 5,
+      "target": "ankylo",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/717508c6-matilda.mp3",
+          "time": 0.165051,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/717508c6-matilda.mp3",
+          "time": 0.165051,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/717508c6-matilda.mp3",
+          "time": 0.165051,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "round": 6,
+      "target": "spino",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/68d5f96d-matilda.mp3",
+          "time": 0.159828,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/68d5f96d-matilda.mp3",
+          "time": 0.159828,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/68d5f96d-matilda.mp3",
+          "time": 0.159828,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "round": 7,
+      "target": "trike",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": false,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/0ee03dcf-matilda.mp3",
+          "time": 0.154017,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/0ee03dcf-matilda.mp3",
+          "time": 0.154017,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/0ee03dcf-matilda.mp3",
+          "time": 0.154017,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "round": 1,
+      "target": "carno",
+      "pool": 12,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": true,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/d19ae22c-matilda.mp3",
+          "time": 0.16887,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/d19ae22c-matilda.mp3",
+          "time": 0.16887,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/d19ae22c-matilda.mp3",
+          "time": 0.16887,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "round": 2,
+      "target": "cory",
+      "pool": 12,
+      "choices": 4,
+      "minTargetWidth": 203,
+      "mirrored": true,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/932d4aa9-matilda.mp3",
+          "time": 0.157425,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/932d4aa9-matilda.mp3",
+          "time": 0.157425,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/932d4aa9-matilda.mp3",
+          "time": 0.157425,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "round": 3,
+      "target": "para",
+      "pool": 12,
+      "choices": 5,
+      "minTargetWidth": 277.328125,
+      "mirrored": true,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/1d34ca61-matilda.mp3",
+          "time": 0.165136,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/1d34ca61-matilda.mp3",
+          "time": 0.165136,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/1d34ca61-matilda.mp3",
+          "time": 0.165136,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "round": 4,
+      "target": "spino",
+      "pool": 12,
+      "choices": 5,
+      "minTargetWidth": 277.328125,
+      "mirrored": true,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/68d5f96d-matilda.mp3",
+          "time": 0.164913,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/68d5f96d-matilda.mp3",
+          "time": 0.164913,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/68d5f96d-matilda.mp3",
+          "time": 0.164913,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "round": 5,
+      "target": "ankylo",
+      "pool": 12,
+      "choices": 6,
+      "minTargetWidth": 277.328125,
+      "mirrored": true,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/717508c6-matilda.mp3",
+          "time": 0.163611,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/717508c6-matilda.mp3",
+          "time": 0.163611,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/717508c6-matilda.mp3",
+          "time": 0.163611,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "round": 6,
+      "target": "bronto",
+      "pool": 12,
+      "choices": 6,
+      "minTargetWidth": 277.328125,
+      "mirrored": true,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.158228,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.158228,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/824c8162-matilda.mp3",
+          "time": 0.158228,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "round": 7,
+      "target": "dillo",
+      "pool": 12,
+      "choices": 6,
+      "minTargetWidth": 277.328125,
+      "mirrored": true,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/f5db223c-matilda.mp3",
+          "time": 0.155703,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/f5db223c-matilda.mp3",
+          "time": 0.155703,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/f5db223c-matilda.mp3",
+          "time": 0.155703,
+          "ready": 4
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "round": 8,
+      "target": "trex",
+      "pool": 12,
+      "choices": 6,
+      "minTargetWidth": 277.328125,
+      "mirrored": true,
+      "audio": [
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+          "time": 0.164824,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+          "time": 0.164824,
+          "ready": 4
+        },
+        {
+          "src": "https://dinospace-eight.vercel.app/audio/en/9385938b-matilda.mp3",
+          "time": 0.164824,
+          "ready": 4
+        }
+      ]
+    }
+  ],
+  "seen": [
+    "stego",
+    "trex",
+    "trike",
+    "ptero",
+    "ankylo",
+    "bronto",
+    "para",
+    "spino",
+    "allo",
+    "dillo",
+    "carno",
+    "cory"
+  ],
+  "priorSyntheticLedgerPresent": true,
+  "saved": {
+    "level": 4,
+    "plays": 5,
+    "best": 3
+  },
+  "progressRetainedAfterReload": true,
+  "errors": [],
+  "consoleErrors": [],
+  "api": [],
+  "badAssets": []
+}

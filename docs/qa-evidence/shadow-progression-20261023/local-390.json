@@ -1,0 +1,302 @@
+{
+  "origin": "http://127.0.0.1:5187",
+  "width": 390,
+  "height": 844,
+  "rows": [
+    {
+      "level": 1,
+      "round": 1,
+      "target": "trex",
+      "pool": 3,
+      "choices": 2,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 1,
+      "round": 2,
+      "target": "trike",
+      "pool": 3,
+      "choices": 2,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 1,
+      "round": 3,
+      "target": "stego",
+      "pool": 3,
+      "choices": 2,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 1,
+      "round": 4,
+      "target": "trike",
+      "pool": 3,
+      "choices": 2,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 2,
+      "round": 1,
+      "target": "ankylo",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 114,
+      "mirrored": false
+    },
+    {
+      "level": 2,
+      "round": 2,
+      "target": "ptero",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 114,
+      "mirrored": false
+    },
+    {
+      "level": 2,
+      "round": 3,
+      "target": "bronto",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 114,
+      "mirrored": false
+    },
+    {
+      "level": 2,
+      "round": 4,
+      "target": "trike",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 114,
+      "mirrored": false
+    },
+    {
+      "level": 2,
+      "round": 5,
+      "target": "stego",
+      "pool": 6,
+      "choices": 3,
+      "minTargetWidth": 114,
+      "mirrored": false
+    },
+    {
+      "level": 3,
+      "round": 1,
+      "target": "spino",
+      "pool": 8,
+      "choices": 3,
+      "minTargetWidth": 114,
+      "mirrored": false
+    },
+    {
+      "level": 3,
+      "round": 2,
+      "target": "para",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 3,
+      "round": 3,
+      "target": "stego",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 3,
+      "round": 4,
+      "target": "ankylo",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 3,
+      "round": 5,
+      "target": "ptero",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 3,
+      "round": 6,
+      "target": "trex",
+      "pool": 8,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 4,
+      "round": 1,
+      "target": "allo",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 4,
+      "round": 2,
+      "target": "dillo",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 4,
+      "round": 3,
+      "target": "spino",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 4,
+      "round": 4,
+      "target": "trex",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 4,
+      "round": 5,
+      "target": "stego",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 4,
+      "round": 6,
+      "target": "trike",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 4,
+      "round": 7,
+      "target": "ankylo",
+      "pool": 10,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": false
+    },
+    {
+      "level": 5,
+      "round": 1,
+      "target": "cory",
+      "pool": 12,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": true
+    },
+    {
+      "level": 5,
+      "round": 2,
+      "target": "carno",
+      "pool": 12,
+      "choices": 4,
+      "minTargetWidth": 177,
+      "mirrored": true
+    },
+    {
+      "level": 5,
+      "round": 3,
+      "target": "trex",
+      "pool": 12,
+      "choices": 5,
+      "minTargetWidth": 114,
+      "mirrored": true
+    },
+    {
+      "level": 5,
+      "round": 4,
+      "target": "trike",
+      "pool": 12,
+      "choices": 5,
+      "minTargetWidth": 114,
+      "mirrored": true
+    },
+    {
+      "level": 5,
+      "round": 5,
+      "target": "ankylo",
+      "pool": 12,
+      "choices": 6,
+      "minTargetWidth": 114,
+      "mirrored": true
+    },
+    {
+      "level": 5,
+      "round": 6,
+      "target": "bronto",
+      "pool": 12,
+      "choices": 6,
+      "minTargetWidth": 114,
+      "mirrored": true
+    },
+    {
+      "level": 5,
+      "round": 7,
+      "target": "allo",
+      "pool": 12,
+      "choices": 6,
+      "minTargetWidth": 114,
+      "mirrored": true
+    },
+    {
+      "level": 5,
+      "round": 8,
+      "target": "spino",
+      "pool": 12,
+      "choices": 6,
+      "minTargetWidth": 114,
+      "mirrored": true
+    }
+  ],
+  "seen": [
+    "trex",
+    "trike",
+    "stego",
+    "ankylo",
+    "ptero",
+    "bronto",
+    "spino",
+    "para",
+    "allo",
+    "dillo",
+    "cory",
+    "carno"
+  ],
+  "priorSyntheticLedgerPresent": false,
+  "saved": {
+    "level": 4,
+    "plays": 5,
+    "best": 3
+  },
+  "progressRetainedAfterReload": true,
+  "errors": [],
+  "consoleErrors": [],
+  "api": [],
+  "badAssets": []
+}

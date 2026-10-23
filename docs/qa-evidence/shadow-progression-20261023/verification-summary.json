@@ -1,0 +1,47 @@
+{
+  "verifiedAt": "2026-10-23T17:00:07.593634+00:00",
+  "runtimeCommit": "4fd1b8b8922cbd3b5dbf64444e0abbaa065f4aee",
+  "tests": {
+    "total": 349,
+    "pass": 348,
+    "fail": 0,
+    "skip": 1
+  },
+  "emittedPwaAudit": {
+    "pass": 8,
+    "fail": 0,
+    "skip": 0
+  },
+  "build": "passed; existing chunk-size advisory",
+  "scopedEslint": "passed",
+  "production": {
+    "viewports": [
+      390,
+      1440
+    ],
+    "matchesPerViewport": 30,
+    "allTwelveTargetsPerViewport": true,
+    "savedLevel": 5,
+    "keyboardEnter": true,
+    "mouseDrag": true,
+    "touchDrag": true,
+    "touchCancel": true,
+    "soundOffFeedback": true,
+    "factHoldSeconds": 6.1,
+    "packagedPlaybackPerMatch": true,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "brokenShadowArt": 0,
+    "providerApiRequests": 0
+  },
+  "editorialScoreAssigned": false,
+  "storage": {
+    "newWorktrees": 0,
+    "newDependencyInstalls": 0,
+    "runtimeArtBytes": 357298,
+    "originalPngBytes": 11489324,
+    "originalsLocation": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/",
+    "retainedOriginals": "Six tool originals referenced by provenance; no duplicate corpus",
+    "temporaryCleanup": "Duplicate task-owned PNG screenshots and raw rehearsal logs removed after canonical JSON and representative WebP capture"
+  }
+}

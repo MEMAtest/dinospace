@@ -333,7 +333,13 @@
       "targetEditorialScore": 5,
       "currentFullEditorialScore": null,
       "instructions": "plan.md",
-      "historicalRoadmap": null
+      "historicalRoadmap": null,
+      "targetedUplift": {
+        "status": "released and production rehearsed",
+        "runtimeCommit": "4fd1b8b8922cbd3b5dbf64444e0abbaa065f4aee",
+        "evidence": "docs/qa-evidence/shadow-progression-20261023/README.md",
+        "scope": "Twelve creatures; five progressively harder levels; held facts. Broader 5/5 editorial programme remains unscored."
+      }
     },
     {
       "batch": 8,

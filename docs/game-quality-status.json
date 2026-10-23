@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-22T11:11:17.162298+00:00",
+  "updatedAt": "2026-10-23T16:58:17.447791+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "3e5c03db350c12cfdbe0295a180b058405031d38",
+  "canonicalRelease": "4fd1b8b8922cbd3b5dbf64444e0abbaa065f4aee",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -985,5 +985,34 @@
     "functionalProductionRehearsal": "passed at390 and1440; all authored scenes/missions and all3 maths episodes plus replay",
     "editorialScoresChanged": false,
     "remaining": "Human listening review and resulting final editorial scores; historical scores remain tied to their dated release evidence."
+  },
+  "latestShadowProgressionRelease": {
+    "date": "2026-10-23",
+    "game": "Shadow Match",
+    "runtimeCommit": "4fd1b8b8922cbd3b5dbf64444e0abbaa065f4aee",
+    "deployment": "dpl_EzpDxKaAXaGjPj7ogZsFeev7BrjT",
+    "evidence": "docs/qa-evidence/shadow-progression-20261023/README.md",
+    "creaturePools": [
+      3,
+      6,
+      8,
+      10,
+      12
+    ],
+    "maximumChoices": [
+      2,
+      3,
+      4,
+      4,
+      6
+    ],
+    "productionMatches": 60,
+    "productionViewports": [
+      390,
+      1440
+    ],
+    "allTwelveTargetsSeenAtBothWidths": true,
+    "editorialScoreAssigned": false,
+    "scope": "Targeted roster/progression and held-fact uplift; historical editorial scores unchanged."
   }
 }
