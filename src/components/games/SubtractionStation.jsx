@@ -35,6 +35,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
   const [completedResults, setCompletedResults] = useState([]);
   const [removedTokens, setRemovedTokens] = useState([]);
   const [hintCount, setHintCount] = useState(0);
+  const [completion, setCompletion] = useState(null);
   const chapter = SUBTRACTION_CHAPTERS[chapterIndex];
   const question = rounds[roundIndex];
 
@@ -66,6 +67,7 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     setFeedback('');
     setCompletedResults([]);
     setHintCount(0);
+    setCompletion(null);
     setRemovedTokens([]);
     setPhase('play');
     onGameEvent?.('subtraction', 'start', { level: index, seed: newSeed, difficulty: SUBTRACTION_CHAPTERS[index].id });
@@ -97,12 +99,9 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     if (question.type !== 'compare') setRemovedTokens(Array.from({ length: question.b }, (_, index) => index));
     setLocked(true);
     setFeedback(question.explanation);
-    setCompletedResults((previous) => [...previous, {
-      correct: true,
-      firstAttempt,
-      priorWrong: mistake,
-      hintCount: hintUsed ? 1 : 0,
-    }]);
+    const results = [...completedResults, { correct: true, firstAttempt, priorWrong: mistake, hintCount: hintUsed ? 1 : 0 }];
+    setCompletedResults(results);
+    if (roundIndex === rounds.length - 1) finishChapter(results);
     playSfx('success');
     onGameEvent?.('subtraction', 'answer_correct', {
       level: chapterIndex, round: roundIndex, seed, difficulty: chapter.id,
@@ -121,6 +120,20 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
     tell(speak, question.clue, arithmeticNarrationSegments(question, 'clue'));
   };
 
+  const finishChapter = (results) => {
+    const { stars } = scoreArithmeticResults(results);
+    const result = saveArithmeticRun('subtraction', playerId, chapterIndex, rounds, stars);
+    if (!result) return null;
+    setProgress(result.progress);
+    if (result.awardedStars > 0) {
+      onCelebrate?.(`${chapter.title} complete!`, arithmeticRewardUnits(result.awardedStars), 0, 'subtraction');
+    }
+    onGameEvent?.('subtraction', 'level_complete', { level: chapterIndex, round: 5, seed, difficulty: chapter.id, hintCount });
+    const saved = { ...result, stars };
+    setCompletion(saved);
+    return saved;
+  };
+
   const next = () => {
     if (!locked) return;
     cancelNarration();
@@ -133,14 +146,9 @@ export default function SubtractionStation({ onBack, playSfx = () => {}, soundOn
       setRemovedTokens([]);
       return;
     }
-    const { stars } = scoreArithmeticResults(completedResults);
-    const result = saveArithmeticRun('subtraction', playerId, chapterIndex, rounds, stars);
+    const result = completion;
     if (!result) return;
-    setProgress(result.progress);
-    if (result.awardedStars > 0) {
-      onCelebrate?.(`${chapter.title} complete!`, arithmeticRewardUnits(result.awardedStars), 0, 'subtraction');
-    }
-    onGameEvent?.('subtraction', 'level_complete', { level: chapterIndex, round: 5, seed, difficulty: chapter.id, hintCount });
+    const { stars } = result;
     setFeedback(result.newlyCompleted
       ? `Chapter complete! You earned ${stars} ${stars === 1 ? 'star' : 'stars'}.`
       : `Replay complete! Your best is ${result.progress.bestStars[chapter.id]} ${result.progress.bestStars[chapter.id] === 1 ? 'star' : 'stars'}.`);

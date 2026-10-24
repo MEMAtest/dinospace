@@ -8,7 +8,7 @@ import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { App as CapacitorApp } from '@capacitor/app';
-import { ACHIEVEMENTS, STICKERS } from './data/index.js';
+import { ACHIEVEMENTS } from './data/index.js';
 import { createBursts, createConfetti, getPraise, getTodaysChallenge, loadSaved, saveSafe } from './utils.js';
 import { useSfx, useVoice, useInstallPrompt } from './hooks.js';
 import { useHashRouter } from './hooks/useHashRouter.js';
@@ -32,6 +32,7 @@ import {
   BONUS_GAME_IDS as BONUS_GAME_ID_LIST, LEARNING_WORLDS, LITTLE_EXPLORER_GAME_IDS, PRACTICE_GAME_IDS,
 } from './data/learningWorlds.js';
 import { ACTIVE_PLAYER_KEY, getPlayer, isLittleExplorer, playerStorageKey } from './data/players.js';
+import { commitPlayerReward, mergeRewards, readPlayerRewards, rewardKey } from './data/playerRewards.js';
 import { getGame } from './gameCatalog.jsx';
 
 const BONUS_GAME_IDS = new Set(BONUS_GAME_ID_LIST);
@@ -70,18 +71,15 @@ const PlayerSession = ({
   const registerDraftDirty=useCallback(fn=>{draftDirtyRef.current=fn;},[]);
   const [favouriteGames, setFavouriteGames] = useState(() => loadPlayerValue(player.id, 'favourite_games', []));
   const [recentGames, setRecentGames] = useState(() => loadPlayerValue(player.id, 'recent_games', []));
-  const [points, setPoints] = useState(() => Math.max(0, loadPlayerValue(player.id, 'points', 0)));
-  const [earnedStickerIds, setEarnedStickerIds] = useState(() => {
-    const savedPoints = Math.max(0, loadPlayerValue(player.id, 'points', 0));
-    const saved = loadPlayerValue(player.id, 'earned_sticker_ids_v1', []);
-    return [...new Set([...saved, ...STICKERS.filter((sticker) => savedPoints >= sticker.points).map((sticker) => sticker.id)])];
-  });
+  const [rewards, setRewards] = useState(() => readPlayerRewards(player.id));
+  const { points, earnedStickerIds, gamesPlayed } = rewards;
+  const rewardsRef = useRef(rewards);
+  const [rewardSaveFailed, setRewardSaveFailed] = useState(false);
   const [celebration, setCelebration] = useState(null);
   const [streak, setStreak] = useState(() => Math.max(0, loadPlayerValue(player.id, 'streak', 0)));
   const [lastPlayDate, setLastPlayDate] = useState(() => loadPlayerValue(player.id, 'lastplay', ''));
   const [challengeProgress, setChallengeProgress] = useState(() => Math.max(0, loadPlayerValue(player.id, 'challenge_progress', 0)));
   const [challengeCompleted, setChallengeCompleted] = useState(() => loadPlayerValue(player.id, 'challenge_done', false));
-  const [gamesPlayed, setGamesPlayed] = useState(() => loadPlayerValue(player.id, 'games_played', {}));
   const [leaveDialog, setLeaveDialog] = useState(false);
   const [sessionPhase, setSessionPhase] = useState('play');
   // Games with a start/finish flow report their phase; leaving from the start
@@ -91,7 +89,6 @@ const PlayerSession = ({
     gamePhaseRef.current = phase;
     setSessionPhase(phase);
   }, []);
-  const pointsRef = useRef(points);
   const challengeProgressRef = useRef(challengeProgress);
   const challengeCompletedRef = useRef(challengeCompleted);
   const gameOpenedAtRef = useRef(0);
@@ -102,13 +99,23 @@ const PlayerSession = ({
   const currentGame = route.name === 'game' ? getGame(route.id) : null;
 
   const save = useCallback((key, value) => saveSafe(playerStorageKey(player.id, key), value), [player.id]);
-  useEffect(() => { pointsRef.current = points; save('points', points); }, [points, save]);
-  useEffect(() => { save('earned_sticker_ids_v1', earnedStickerIds); }, [earnedStickerIds, save]);
+  useEffect(() => {
+    const refresh = () => {
+      const next = mergeRewards(rewardsRef.current, readPlayerRewards(player.id));
+      rewardsRef.current = next;
+      setRewards(next);
+    };
+    const onStorage = (event) => {
+      if (event.key === rewardKey(player.id) || ["points", "earned_sticker_ids_v1", "games_played"].some((key) => event.key === playerStorageKey(player.id, key))) refresh();
+    };
+    window.addEventListener('storage', onStorage);
+    window.addEventListener('focus', refresh);
+    return () => { window.removeEventListener('storage', onStorage); window.removeEventListener('focus', refresh); };
+  }, [player.id]);
   useEffect(() => { save('streak', streak); }, [save, streak]);
   useEffect(() => { save('lastplay', lastPlayDate); }, [lastPlayDate, save]);
   useEffect(() => { challengeProgressRef.current = challengeProgress; save('challenge_progress', challengeProgress); }, [challengeProgress, save]);
   useEffect(() => { challengeCompletedRef.current = challengeCompleted; save('challenge_done', challengeCompleted); }, [challengeCompleted, save]);
-  useEffect(() => { save('games_played', gamesPlayed); }, [gamesPlayed, save]);
   useEffect(() => { save('favourite_games', favouriteGames); }, [favouriteGames, save]);
   useEffect(() => { save('recent_games', recentGames); }, [recentGames, save]);
 
@@ -198,11 +205,11 @@ const PlayerSession = ({
     const finalMessage = message || getPraise();
     const gameIdAtCall = gameIdOverride || currentGameIdRef.current;
     const run = () => {
-      const total = pointsRef.current + pointsEarned;
-      pointsRef.current = total;
-      setPoints(total);
-      setEarnedStickerIds((current) => [...new Set([...current, ...STICKERS.filter((sticker) => total >= sticker.points).map((sticker) => sticker.id)])]);
-      if (gameIdAtCall) setGamesPlayed((prev) => ({ ...prev, [gameIdAtCall]: (prev[gameIdAtCall] || 0) + 1 }));
+      const next = commitPlayerReward(player.id, rewardsRef.current, pointsEarned, gameIdAtCall);
+      rewardsRef.current = next;
+      setRewards(next);
+      setRewardSaveFailed(!next.persisted);
+      const total = next.points;
       if (quiet) return;
       setCelebration({
         id: Date.now(), message: finalMessage, points: pointsEarned, total, bursts: createBursts(), confetti: createConfetti(),
@@ -210,7 +217,7 @@ const PlayerSession = ({
     };
     if (delayMs > 0) setTimeout(run, Math.min(delayMs, 100));
     else run();
-  }, []);
+  }, [player.id]);
 
   const scaledCelebrate = useCallback(
     (message, pointsEarned = 5, ...rest) => celebrate(message, Math.max(1, Math.round(pointsEarned / 4)), ...rest),
@@ -324,6 +331,7 @@ const PlayerSession = ({
     content = (
       <div className={`flex min-h-[100dvh] w-full flex-col items-center gap-2 bg-gradient-to-b p-3 sm:p-6 ${little ? 'from-amber-200 to-sky-200' : 'from-amber-100 via-white to-sky-100'}`}>
         <PageHeader title={`${player.name}’s stickers`} subtitle={`⭐ ${points} stars`} onBack={() => back()} backLabel="Back to home" {...soundProps} />
+        <p className="max-w-2xl rounded-2xl bg-white px-4 py-3 text-center text-sm font-bold text-slate-700">Stars and collected badges are kept in this browser on this device. Finish a chapter to earn its badge. Other browsers and devices have separate collections.</p>
         <LetterLaunchBadgeCollection earnedBadgeIds={getEarnedChapterBadgeIds(player.id, 'letters')} />
         <CurriculumBadgeCollection playerId={player.id} />
         <Batch3BadgeCollections playerId={player.id} />
@@ -391,6 +399,7 @@ const PlayerSession = ({
 
   return (
     <>
+      {rewardSaveFailed && <aside role="alert" className="relative z-40 border-b-2 border-amber-400 bg-amber-50 p-4 text-center font-bold text-amber-950">Your reward is here, but this browser could not save it. Keep this page open and free some browser storage, then <button type="button" className="min-h-12 rounded-xl border-2 border-amber-700 px-4 underline" onClick={() => { const next = commitPlayerReward(player.id, rewardsRef.current, 0); rewardsRef.current = next; setRewards(next); setRewardSaveFailed(!next.persisted); }}>Try saving again</button></aside>}
       {route.name==='game'&&!little?<div className="discovery-game-surface" data-discovery-game={currentGame?.id}><DiscoveryHeader playerName={player.name} points={points} onHome={()=>openDiscoveryPage('home')} onWorlds={()=>back({toParent:true})} onStickers={()=>openDiscoveryPage('stickers')} onGrownups={()=>openDiscoveryPage('grownups')}/><div className="discovery-game-content">{content}</div></div>:content}
       {currentGame && !little && !currentGame.little && !NO_CHALLENGE_TRACKER.has(currentGame.id) && (!GAME_SESSIONS[currentGame.id] || sessionPhase === 'play') && (
         <DailyChallengeTracker

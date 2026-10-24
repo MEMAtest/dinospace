@@ -34,6 +34,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
   const [completedResults, setCompletedResults] = useState([]);
   const [modelJoined, setModelJoined] = useState(false);
   const [hintCount, setHintCount] = useState(0);
+  const [completion, setCompletion] = useState(null);
   const chapter = ARITHMETIC_CHAPTERS[chapterIndex];
   const question = rounds[roundIndex];
 
@@ -65,6 +66,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     setFeedback('');
     setCompletedResults([]);
     setHintCount(0);
+    setCompletion(null);
     setModelJoined(false);
     setPhase('play');
     onGameEvent?.('addition', 'start', { level: index, seed: newSeed, difficulty: ARITHMETIC_CHAPTERS[index].id });
@@ -92,7 +94,9 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     setFeedback(question.explanation);
     setModelJoined(true);
     const result = { correct: true, firstAttempt, priorWrong: mistake, hintCount: hintUsed ? 1 : 0 };
-    setCompletedResults((previous) => [...previous, result]);
+    const results = [...completedResults, result];
+    setCompletedResults(results);
+    if (roundIndex === rounds.length - 1) finishChapter(results);
     playSfx('success');
     onGameEvent?.('addition', 'answer_correct', {
       level: chapterIndex, round: roundIndex, seed, difficulty: chapter.id,
@@ -111,6 +115,20 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     tell(speak, question.clue, arithmeticNarrationSegments(question, 'clue'));
   };
 
+  const finishChapter = (results) => {
+    const { stars } = scoreArithmeticResults(results);
+    const result = saveArithmeticRun('addition', playerId, chapterIndex, rounds, stars);
+    if (!result) return null;
+    setProgress(result.progress);
+    if (result.awardedStars > 0) {
+      onCelebrate?.(`${chapter.title} complete!`, arithmeticRewardUnits(result.awardedStars), 0, 'addition');
+    }
+    onGameEvent?.('addition', 'level_complete', { level: chapterIndex, round: 5, seed, difficulty: chapter.id, hintCount });
+    const saved = { ...result, stars };
+    setCompletion(saved);
+    return saved;
+  };
+
   const next = () => {
     if (!locked) return;
     cancelNarration();
@@ -123,14 +141,9 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
       setModelJoined(false);
       return;
     }
-    const { stars } = scoreArithmeticResults(completedResults);
-    const result = saveArithmeticRun('addition', playerId, chapterIndex, rounds, stars);
+    const result = completion;
     if (!result) return;
-    setProgress(result.progress);
-    if (result.awardedStars > 0) {
-      onCelebrate?.(`${chapter.title} complete!`, arithmeticRewardUnits(result.awardedStars), 0, 'addition');
-    }
-    onGameEvent?.('addition', 'level_complete', { level: chapterIndex, round: 5, seed, difficulty: chapter.id, hintCount });
+    const { stars } = result;
     setFeedback(result.newlyCompleted
       ? `Chapter complete! You earned ${stars} ${stars === 1 ? 'star' : 'stars'}.`
       : `Replay complete! Your best is ${result.progress.bestStars[chapter.id]} ${result.progress.bestStars[chapter.id] === 1 ? 'star' : 'stars'}.`);

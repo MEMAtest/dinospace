@@ -131,6 +131,17 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     }
   };
 
+  const saveCompletedSurvey = () => {
+    const stars = mistakeCount === 0 && hintCount === 0 ? 3 : mistakeCount <= 2 ? 2 : 1;
+    const completion = recordCountTheStarsCompletion(playerId, episodeIndex, stars, run.rounds.map(({ id }) => id));
+    setLastResult(completion);
+    if (completion) {
+      setProgress(completion.progress);
+      onGameEvent?.('counting', 'level_complete', { level: episodeIndex, round: run.rounds.length, seed: run.seed, firstAttempt: mistakeCount === 0, hints: hintCount, difficulty: episode.band });
+      if (completion.awardedStars > 0) onCelebrate(`${episode.name} constellation complete!`, completion.awardedStars * 4, 0);
+    }
+  };
+
   const handleAnswer = (answer) => {
     if (!round || phase !== 'answer') return;
     if (answer !== round.count) {
@@ -147,6 +158,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     onGameEvent?.('counting', 'answer_correct', { level: episodeIndex, round: roundIndex + 1, seed: run.seed, firstAttempt, hints: Number(roundHadHint), difficulty: episode.band });
     setFeedback(praiseFor(firstAttempt && !roundHadHint ? 3 : 2));
     setHintText('');
+    if (roundIndex === run.rounds.length - 1) saveCompletedSurvey();
     setPhase('fact');
     const narration = countCorrectNarration(praiseFor(firstAttempt && !roundHadHint ? 3 : 2), round.explanation);
     speak(narration.text, { premium: false, segments: narration.segments });
@@ -197,14 +209,6 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
       onGameEvent?.('counting', 'question', { level: episodeIndex, round: nextIndex + 1, seed: run.seed, difficulty: episode.band });
       speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] });
       return;
-    }
-    const stars = mistakeCount === 0 && hintCount === 0 ? 3 : mistakeCount <= 2 ? 2 : 1;
-    const completion = recordCountTheStarsCompletion(playerId, episodeIndex, stars, run.rounds.map(({ id }) => id));
-    setLastResult(completion);
-    if (completion) {
-      setProgress(completion.progress);
-      onGameEvent?.('counting', 'level_complete', { level: episodeIndex, round: run.rounds.length, seed: run.seed, firstAttempt: mistakeCount === 0, hints: hintCount, difficulty: episode.band });
-      if (completion.awardedStars > 0) onCelebrate(`${episode.name} constellation complete!`, completion.awardedStars * 4, 0);
     }
     setPhase('complete');
     setFeedback(COUNT_THE_STARS_NARRATION.episodeComplete);
