@@ -1,0 +1,329 @@
+{
+  "checkedAt": "2026-10-24T08:18:53.257441+01:00",
+  "userConfirmedExpectedPersonalStories": [
+    8,
+    9
+  ],
+  "includedStories": 7,
+  "expectedCombinedLibrary": [
+    15,
+    16
+  ],
+  "recoveredPersonalStories": 0,
+  "requestedLogWindow": "since2026-09-25 / since30d through query time; all environments and deployments, project-level unfiltered validation plus exact outline filter",
+  "firstPrefixQueryCaveat": "requestPath:/api/story is exact and returned no matches; it is not evidence of no creation. Unfiltered project query and exact /api/story/outline found records.",
+  "availableRows": 28,
+  "successfulStoryPostsByPath": {
+    "/api/story/narration": 7,
+    "/api/story/image": 7,
+    "/api/story/outline": 1,
+    "/api/story/session": 1
+  },
+  "allStoryPostsReturned200": true,
+  "storyPostStartLondon": "2026-10-23T20:20:35.825000+01:00",
+  "storyPostEndLondon": "2026-10-23T20:23:42.971000+01:00",
+  "originEvidence": "OPTIONS logs permit Origin https://dinospace.netlify.app. This identifies a web origin, not the device or person.",
+  "interpretation": "One outline plus7image/7narration successful responses, consistent with a6-page story and cover; not proof of final browser save or a title. A primary image provider400 moderation warning was followed by final image response200.",
+  "earlierWindowResults": [
+    {
+      "since": "2026-09-25T00:00:00Z",
+      "until": "2026-10-23T00:00:00Z",
+      "error": "Response Error400; cannot classify older activity as zero"
+    },
+    {
+      "since": "2026-10-16T00:00:00Z",
+      "until": "2026-10-23T00:00:00Z",
+      "error": "Response Error400; cannot classify older activity as zero"
+    }
+  ],
+  "configuredLegacyLogDrains": 0,
+  "teamPlan": "pro",
+  "retentionNote": "Official runtime-log docs list Pro default1day and30days with Observability Plus; actual add-on state not confirmed. Older queried windows were rejected, not proven empty.",
+  "storageHistory": "Same IndexedDB database amari-storybooks from original custom-story implementation through September deployment and current source; v1-to-v2 adds profiles/series stores and retains books/assets. No database rename or migration deletion identified.",
+  "backupsFound": "Canonical workspace backups contain only three identified QA books: Pip and the Sunflower; QA Garden Walk1440; QA Garden Walk390. Not counted as user-created recoveries. Downloads/Desktop exported filename search found no family backup.",
+  "noPaidCalls": true,
+  "noBrowserDataModified": true,
+  "records": [
+    {
+      "id": "d9rgv-1792825565448-429c8d738696",
+      "timestamp": 1792825565448,
+      "deploymentId": "dpl_GCHUV1udjSrKdViZzY1nQjYgL9CQ",
+      "domain": "dinospace-nnujrb2r7-memas-projects-23a0001d.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/story/session",
+      "responseStatusCode": 200,
+      "message": "Story CORS preflight { origin: 'https://dinospace.netlify.app', permitted: true }"
+    },
+    {
+      "id": "5jnp7-1792825565152-7e729861cb85",
+      "timestamp": 1792825565152,
+      "deploymentId": "dpl_GCHUV1udjSrKdViZzY1nQjYgL9CQ",
+      "domain": "dinospace-nnujrb2r7-memas-projects-23a0001d.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/voice",
+      "responseStatusCode": 204,
+      "message": ""
+    },
+    {
+      "id": "r2qnt-1792825498856-d68f44b9064b",
+      "timestamp": 1792825498856,
+      "deploymentId": "dpl_GCHUV1udjSrKdViZzY1nQjYgL9CQ",
+      "domain": "dinospace-nnujrb2r7-memas-projects-23a0001d.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/story/session",
+      "responseStatusCode": 200,
+      "message": "Story CORS preflight { origin: 'https://dinospace.netlify.app', permitted: true }"
+    },
+    {
+      "id": "nmcqv-1792825498234-7e604bf38811",
+      "timestamp": 1792825498234,
+      "deploymentId": "dpl_GCHUV1udjSrKdViZzY1nQjYgL9CQ",
+      "domain": "dinospace-nnujrb2r7-memas-projects-23a0001d.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/voice",
+      "responseStatusCode": 204,
+      "message": ""
+    },
+    {
+      "id": "4zvjx-1792802323939-f0722633c51e",
+      "timestamp": 1792802323939,
+      "deploymentId": "dpl_CmasMHH5Q3PqUeEirVEG73HXCvyZ",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/story/session",
+      "responseStatusCode": 200,
+      "message": "Story CORS preflight { origin: 'https://dinospace.netlify.app', permitted: true }"
+    },
+    {
+      "id": "lvhtp-1792802323673-d7318702f479",
+      "timestamp": 1792802323673,
+      "deploymentId": "dpl_CmasMHH5Q3PqUeEirVEG73HXCvyZ",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/voice",
+      "responseStatusCode": 204,
+      "message": ""
+    },
+    {
+      "id": "xhmqk-1792802123055-8bd8e69a050f",
+      "timestamp": 1792802123055,
+      "deploymentId": "dpl_CmasMHH5Q3PqUeEirVEG73HXCvyZ",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/voice",
+      "responseStatusCode": 204,
+      "message": ""
+    },
+    {
+      "id": "m748w-1792801913405-cd3321d6b0e3",
+      "timestamp": 1792801913405,
+      "deploymentId": "dpl_CmasMHH5Q3PqUeEirVEG73HXCvyZ",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "GET",
+      "requestPath": "/api/voice",
+      "responseStatusCode": 403,
+      "message": ""
+    },
+    {
+      "id": "8thzf-1792783422971-f5ea29403bc3",
+      "timestamp": 1792783422971,
+      "deploymentId": "dpl_9dmAihwKWuyYCWbUy92MRiEADnqh",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/narration",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "fwwj7-1792783420882-09d544da4fad",
+      "timestamp": 1792783420882,
+      "deploymentId": "dpl_9dmAihwKWuyYCWbUy92MRiEADnqh",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/narration",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "8thzf-1792783419610-88d4b0b4c6cf",
+      "timestamp": 1792783419610,
+      "deploymentId": "dpl_9dmAihwKWuyYCWbUy92MRiEADnqh",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/narration",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "dxrdx-1792783382898-3b49aaeb50c4",
+      "timestamp": 1792783382898,
+      "deploymentId": "dpl_9dmAihwKWuyYCWbUy92MRiEADnqh",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/image",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "v2kth-1792783379931-52c559119d95",
+      "timestamp": 1792783379931,
+      "deploymentId": "dpl_9dmAihwKWuyYCWbUy92MRiEADnqh",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/narration",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "fnsfw-1792783378449-949ca4053187",
+      "timestamp": 1792783378449,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/image",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "4cnw4-1792783377039-fe1b3313674c",
+      "timestamp": 1792783377039,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/image",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "kp5jg-1792783375849-63e37760cecb",
+      "timestamp": 1792783375849,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/narration",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "fnsfw-1792783374241-46da63efa6cf",
+      "timestamp": 1792783374241,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/narration",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "4cnw4-1792783340345-7907800830fc",
+      "timestamp": 1792783340345,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/image",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "d7pq2-1792783340321-f4ea63d8d1f6",
+      "timestamp": 1792783340321,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/image",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "d7pq2-1792783340305-f68046dc705e",
+      "timestamp": 1792783340305,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/image",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "qtdhm-1792783334745-659d20e15857",
+      "timestamp": 1792783334745,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/narration",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "mt8qx-1792783334562-5388ffd6654a",
+      "timestamp": 1792783334562,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/story/narration",
+      "responseStatusCode": 200,
+      "message": "Story CORS preflight { origin: 'https://dinospace.netlify.app', permitted: true }"
+    },
+    {
+      "id": "f62x4-1792783244751-e2cd805ccf53",
+      "timestamp": 1792783244751,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/image",
+      "responseStatusCode": 200,
+      "message": "Story image provider request failed {\n  model: 'bytedance-seed/seedream-5-0-lite',\n  provider: 'seed',\n  status: 400,\n  detail: '{\"error\":{\"message\":\"Seedream blocked this request through content moderation.\",\"code\":400,\"metadata\":{\"provider_name\":\"Seed\"}}}'\n}"
+    },
+    {
+      "id": "f62x4-1792783244574-6c52e35465a0",
+      "timestamp": 1792783244574,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/story/image",
+      "responseStatusCode": 200,
+      "message": "Story CORS preflight { origin: 'https://dinospace.netlify.app', permitted: true }"
+    },
+    {
+      "id": "f62x4-1792783236500-01c9cd8064e8",
+      "timestamp": 1792783236500,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/outline",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "f62x4-1792783236293-63f07e0e3561",
+      "timestamp": 1792783236293,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/story/outline",
+      "responseStatusCode": 200,
+      "message": "Story CORS preflight { origin: 'https://dinospace.netlify.app', permitted: true }"
+    },
+    {
+      "id": "mfbhq-1792783235825-48076877cfac",
+      "timestamp": 1792783235825,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "POST",
+      "requestPath": "/api/story/session",
+      "responseStatusCode": 200,
+      "message": ""
+    },
+    {
+      "id": "f62x4-1792783235613-fd2dd98bf539",
+      "timestamp": 1792783235613,
+      "deploymentId": "dpl_AHueSG9Lk5TNwPVgkHxHc5hvRmg3",
+      "domain": "dinospace-eight.vercel.app",
+      "requestMethod": "OPTIONS",
+      "requestPath": "/api/story/session",
+      "responseStatusCode": 200,
+      "message": "Story CORS preflight { origin: 'https://dinospace.netlify.app', permitted: true }"
+    }
+  ],
+  "configuredCurrentDrains": 0
+}

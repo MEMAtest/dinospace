@@ -23,14 +23,18 @@ The existing real desktop Vercel tab displays seven included and zero browser-sa
 
 ## Recovery remains open
 
-The user expects about8–9 stories. Only the seven included books are confirmed. Custom stories are stored in IndexedDB `amari-storybooks`, separately for each device/browser/origin; there is no cloud story catalogue or cross-device synchronisation. Keeping Netlify on its original origin preserves access to any existing phone records, but does not recover deleted records or move Vercel/localhost records automatically.
+Clarified by the user on24October: **8–9 personal stories they created**, in addition to the seven included books (expected total15–16). No personal stories have been recovered. Custom stories are stored in IndexedDB `amari-storybooks`, separately for each device/browser/origin; there is no cloud story catalogue or cross-device synchronisation. Keeping Netlify on its original origin preserves access to any existing phone records, but does not recover deleted records or move Vercel/localhost records automatically.
 
 Historical workspace backups contain synthetic QA books (two QA Garden Walk books and a separately approved provider QA story, Pip and the Sunflower). They are not evidence of the user's missing personal books and were not imported into the family library. No new paid voice/story calls were made.
 
-Next required evidence is the inventory displayed in the original phone's Netlify browser after normal online refresh, and any remembered missing title or genuine exported backup. Keep its site data intact. Do not claim the extra1–2 stories were recovered, deleted, or never existed without that evidence. Existing backup/restore controls remain under Parent tools.
+Next required evidence is the inventory displayed in the original phone's Netlify browser after normal online refresh, and any remembered missing title or genuine exported backup. Keep its site data intact. Do not claim the8–9 personal stories were recovered, deleted, or never existed without that evidence. Existing backup/restore controls remain under Parent tools.
 
 ## Footprint and rollback
 
 Reused the canonical checkout, dependencies and single existing contained Chromium tab. No new worktrees, installations, browser windows or sessions. Compact report plus two representative screenshots retained; the temporary localhost server is stopped after inspection. Existing unrelated files/backups retained.
 
 Previous runtime `4a5313ceef1538e0df98df308b35d1931e1dbd75` / `dpl_CmasMHH5Q3PqUeEirVEG73HXCvyZ` is available for deployment rollback. Rollback is not a story-data restoration and must never clear localStorage/IndexedDB.
+
+## Later log investigation
+
+See ../personal-story-recovery-20261024/README.md. Available logs confirm a Netlify creation sequence on23October20:20–20:23 UK time; no title, story payload or final browser-save proof. Older windows were rejected and no legacy log drain was configured. This is not a recovered personal book.

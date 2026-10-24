@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T07:07:38.941459+00:00",
+  "updatedAt": "2026-10-24T07:18:53.263631+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1059,7 +1059,7 @@
     "evidence": "docs/qa-evidence/storybook-inventory-20261024/README.md",
     "includedBooks": 7,
     "missingPersonalBooksRecovered": false,
-    "scope": "Both live origins verified. Included versus browser-saved count, readable/blocked storage distinction, filter reset, local/candidate/Netlify synthetic 7-to-9-to-7 inventory rehearsal; live Netlify packaged narration and page turn at390. Seven included books have154available media files. Existing desktop Vercel and localhost Chrome libraries show7included/0saved. User phone IndexedDB is not accessible from this Mac; expected additional1-2 books remain unlocated. No test books imported into family data, paid providers or all-game editorial score changes."
+    "scope": "Both live origins verified. Included versus browser-saved count, readable/blocked storage distinction, filter reset, local/candidate/Netlify synthetic 7-to-9-to-7 inventory rehearsal; live Netlify packaged narration and page turn at390. Seven included books have154available media files. Existing desktop Vercel and localhost Chrome libraries show7included/0saved. User phone IndexedDB is not accessible from this Mac; user confirms8\u20139 personal stories remain unlocated, in addition to7included books. No test books imported into family data, paid providers or all-game editorial score changes."
   },
   "publicUrl": "https://dinospace.netlify.app",
   "singlePublicSiteRelease": {
@@ -1073,5 +1073,21 @@
     "oldPublicAlias": "Redirect-only root/index app entry; legacy API/static routes retained for installed clients",
     "nativeCheck": "Existing real in-app Vercel Storybook tab reloaded and landed at Netlify welcome. No new browser resources or child gameplay. No storage cleared or automatic cross-origin data merge.",
     "scope": "Single public address, Netlify story API default and Android API configuration; no new game/editorial acceptance or personal-book recovery."
+  },
+  "personalStoryRecovery": {
+    "userConfirmedExpectedPersonalStories": [
+      8,
+      9
+    ],
+    "includedStories": 7,
+    "expectedCombinedLibrary": [
+      15,
+      16
+    ],
+    "recoveredPersonalStories": 0,
+    "logsConfirm": "23October20:20\u201320:23 Europe/London,1outline7images7narrations successful responses; title/content/client-save not logged",
+    "olderLogs": "Historical windows rejected400; no legacy log drains returned",
+    "evidence": "docs/qa-evidence/personal-story-recovery-20261024/README.md",
+    "status": "unresolved; original device browser/backup still required"
   }
 }
