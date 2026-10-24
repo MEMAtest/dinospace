@@ -22,6 +22,13 @@ export const advanceClock = ({ hour, minute }, minutes) => {
 const wrap = (hour) => ((hour - 1 + 12) % 12) + 1;
 const makeTimeOptions = (target, pool, seed) => {
   const labels = new Set([timeLabel(target)]); const options = [target];
+  // Include a different minute on the same hour: the hour hand alone must not
+  // reveal the answer in a lesson that is teaching half/quarter hours.
+  const alternateMinute = seededShuffle(pool.filter((minute) => minute !== target.minute), seed)[0];
+  if (alternateMinute !== undefined) {
+    const near = { hour: target.hour, minute: alternateMinute };
+    options.push(near); labels.add(timeLabel(near));
+  }
   const candidates = [];
   for (const h of [wrap(target.hour - 2), wrap(target.hour - 1), wrap(target.hour + 1), wrap(target.hour + 2)]) for (const m of pool) candidates.push({ hour: h, minute: m });
   for (const time of seededShuffle(candidates, seed)) { const label = timeLabel(time); if (!labels.has(label)) { labels.add(label); options.push(time); } if (options.length === 4) break; }

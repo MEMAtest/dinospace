@@ -54,3 +54,12 @@ test('clock runs include both whole/half and past/to teaching cases without dupl
     assert.ok(replay.every(q => !quarter.some(old => old.id === q.id)));
   }
 });
+
+test('reading-clock distractors require reading minutes as well as the hour', () => {
+  for (let chapter = 0; chapter < 3; chapter++) for (let seed = 1; seed <= 50; seed++) {
+    for (const q of createTimeRun({ chapter, seed }).filter(q => q.type === 'read')) {
+      assert.ok(q.options.some(t => t.hour === q.target.hour && t.minute !== q.target.minute));
+      assert.ok(q.options.some(t => t.hour !== q.target.hour));
+    }
+  }
+});
