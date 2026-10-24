@@ -1,0 +1,40 @@
+{
+  "warning": "Your reward is here, but this browser could not save it. Keep this page open and free some browser storage, then Try saving again",
+  "before": {
+    "version": 2,
+    "points": 17,
+    "gamesPlayed": {
+      "addition": 1,
+      "subtraction": 1,
+      "counting": 1
+    },
+    "earnedStickerIds": [
+      "rocket"
+    ]
+  },
+  "after": {
+    "version": 2,
+    "points": 20,
+    "gamesPlayed": {
+      "addition": 2,
+      "subtraction": 1,
+      "counting": 1
+    },
+    "earnedStickerIds": [
+      "rocket"
+    ]
+  },
+  "restored": {
+    "version": 2,
+    "points": 20,
+    "gamesPlayed": {
+      "addition": 2,
+      "subtraction": 1,
+      "counting": 1
+    },
+    "earnedStickerIds": [
+      "rocket"
+    ]
+  },
+  "retryDurable": true
+}

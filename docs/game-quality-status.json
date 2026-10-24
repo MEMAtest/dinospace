@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-23T19:29:41.397620+00:00",
+  "updatedAt": "2026-10-24T00:09:23.921108+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "cf0156060c364f3b0fa9d91cdb5af4212fbd5f50",
+  "canonicalRelease": "4a5313ceef1538e0df98df308b35d1931e1dbd75",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1033,5 +1033,12 @@
     "deployment": "dpl_9dmAihwKWuyYCWbUy92MRiEADnqh",
     "evidence": "docs/qa-evidence/live-update-20261023/README.md",
     "scope": "Open-tab release notice; same four gameplay components unchanged; current representative production checks at390/1440. No new editorial scores."
+  },
+  "latestRewardPersistenceRepair": {
+    "runtimeCommit": "4a5313ceef1538e0df98df308b35d1931e1dbd75",
+    "deployment": "dpl_CmasMHH5Q3PqUeEirVEG73HXCvyZ",
+    "cache": "v29",
+    "evidence": "docs/qa-evidence/reward-persistence-20261024/README.md",
+    "scope": "Shared immediate reward record merges saved totals; earned maths chapter records commit on final correct answer before final Next. Three games/reloads at390 in local, immutable candidate and canonical synthetic namespace. Blocked reward write/retry tested locally. Real tab3stars retained. No cross-device sync, recovered historical data, in-progress resume or new editorial acceptance claimed."
   }
 }
