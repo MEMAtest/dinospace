@@ -1,0 +1,19 @@
+[
+  {
+    "game": "timeteller",
+    "text": "What time is shown on the clock?\n\nHear mission\nHear hand lesson\n\nClock lesson: The short red hand shows the hour. The long blue hand shows minutes. The hour hand moves between numbers as minutes pass.\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n8 o\u2019clock\nhalf past 9\nhalf past 8\n11 o\u2019clock\nUse one hint",
+    "geometry": [],
+    "overflow": false
+  },
+  {
+    "game": "numberline",
+    "text": "Start at 7. Hop 3 forward. Where do you land?\n\nHear mission\n\nStart at 7. Make 3 hops forward \u2192.\n\nScroll along the number line. Use Enter, Space, or the arrow keys on the hop buttons.\n\n0\n1\n2\n3\n4\n5\n6\n7\nF\n8\n9\n10\n\nFrog at 7 \u00b7 0 of 3 hops made\n\nHop forward \u2192\n\u2190 Hop back\nAccepted hops: none\nUse one hint",
+    "geometry": [
+      {
+        "width": 308,
+        "contentWidth": 760
+      }
+    ],
+    "overflow": false
+  }
+]

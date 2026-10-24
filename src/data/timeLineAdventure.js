@@ -47,7 +47,8 @@ export const createTimeRun = ({ chapter = 0, seed = 1, recentIds = [] } = {}) =>
   if (!Number.isInteger(chapter) || chapter < 0 || chapter > 2 || !Number.isInteger(seed)) return [];
   const rows = canonicalTimeRows(chapter);
   const pool = timePool(chapter);
-  const required = chapter === 2 ? [(row) => row.type === 'read', (row) => row.type === 'set'] : [];
+  const required = chapter === 2 ? [(row) => row.type === 'read', (row) => row.type === 'set']
+    : (chapter === 0 ? [0, 30] : [15, 45]).map((minute) => (row) => row.target.minute === minute);
   return freezeMissionMix(rows, required, recentIds, seed).map((row, i) => ({ ...row, chapter, seed, options: row.type === 'read' ? makeTimeOptions(row.target, pool, seed + i * 7919) : [] }));
 };
 

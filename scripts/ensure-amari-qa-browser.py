@@ -4,6 +4,7 @@ import argparse
 import datetime as dt
 import fcntl
 import json
+import re
 from pathlib import Path
 import subprocess
 
@@ -80,7 +81,7 @@ def main():
         if str(PROFILE) not in section or "headed: false" not in section:
             raise RuntimeError("Session is not the expected isolated headless profile; left untouched.")
         tabs = command("-s="+SESSION,"tab-list")
-        if len([line for line in tabs.splitlines() if line.startswith("- ")]) != 1:
+        if len(re.findall(r"^[-] \d+:", tabs, re.MULTILINE)) != 1:
             raise RuntimeError("Expected one dedicated QA tab; no tabs were closed or created.")
         processes = subprocess.run(["ps","-axo","command"],capture_output=True,text=True,check=True).stdout
         daemon = [line for line in processes.splitlines() if "cliDaemon.js" in line and SESSION in line]

@@ -1,32 +1,12 @@
 import { createArithmeticSeed } from '../../data/arithmeticAdventure.js';
 import { useEffect, useState } from 'react';
-import { ArrowLeft, Lightbulb, Volume2 } from 'lucide-react';
-import { TIME_CHAPTERS, clockAngles, advanceClock, createTimeRun, formatClock, timeLabel } from '../../data/timeLineAdventure.js';
+import { Lightbulb, Volume2 } from 'lucide-react';
+import { TIME_CHAPTERS, createTimeRun, formatClock, timeLabel } from '../../data/timeLineAdventure.js';
 import { TIME_TELLER_NARRATION, timeNarrationSegments } from '../../data/batch4Narration.js';
 import { getTimeLineProgress, rememberTimeLineRun, saveTimeLineRun } from '../../data/timeLineProgress.js';
-import { SoundToggle } from '../shared/index.jsx';
+import { LearningHeader, LearningChapters, LearningClock, ClockPractice, Explanation } from './TimeLineLearningUI.jsx';
 const tell = (speak, line, segments) => speak?.(line, { premium: false, segments });
 const noopCancel = () => {};
-const Clock = ({
-  time,
-  label = 'Learning clock'
-}) => {
-  const angles = clockAngles(time);
-  return <svg viewBox="0 0 200 200" role="img" aria-label={label} className="h-full w-full"><circle cx="100" cy="100" r="95" fill="#fffdf6" stroke="#f5bd45" strokeWidth="8" /><circle cx="100" cy="100" r="84" fill="none" stroke="#dbeafe" strokeWidth="2" />{Array.from({
-      length: 12
-    }, (_, i) => {
-      const a = (i + 1) * Math.PI / 6 - Math.PI / 2;
-      return <text key={i} x={100 + 67 * Math.cos(a)} y={100 + 67 * Math.sin(a)} textAnchor="middle" dominantBaseline="central" fill="#173b77" fontSize="18" fontWeight="900">{i + 1}</text>;
-    })}<line x1="100" y1="100" x2="100" y2="55" stroke="#e45345" strokeWidth="11" strokeLinecap="round" transform={`rotate(${angles.hour} 100 100)`} /><line x1="100" y1="100" x2="100" y2="30" stroke="#1874c9" strokeWidth="7" strokeLinecap="round" transform={`rotate(${angles.minute} 100 100)`} /><circle cx="100" cy="100" r="8" fill="#f6bd45" stroke="#8a5a0b" strokeWidth="2" /></svg>;
-};
-const ChapterButton = ({
-  c,
-  i,
-  selected,
-  complete,
-  locked,
-  onClick
-}) => <button type="button" disabled={locked} onClick={onClick} aria-pressed={selected} className={`min-h-16 rounded-2xl border-2 p-3 text-left font-black disabled:opacity-50 ${selected ? 'border-emerald-700 bg-emerald-100' : 'border-white bg-white'}`}><span className="block text-xs uppercase">Chapter {i + 1}{complete ? ' · Badge earned' : locked ? ' · Locked' : ''}</span>{c.title}</button>;
 export default function TimeTeller({
   onBack,
   playSfx = () => {},
@@ -50,6 +30,7 @@ export default function TimeTeller({
   const [locked, setLocked] = useState(false);
   const [first, setFirst] = useState(0);
   const [feedback, setFeedback] = useState('');
+  const [completion, setCompletion] = useState(null);
   const [setTime, setSetTime] = useState({
     hour: 12,
     minute: 0
@@ -90,6 +71,7 @@ export default function TimeTeller({
     setLocked(false);
     setFirst(0);
     setFeedback('');
+    setCompletion(null);
     setSetTime({
       hour: 12,
       minute: 0
@@ -125,7 +107,9 @@ export default function TimeTeller({
     }
     setLocked(true);
     setFeedback(q.explanation);
-    setFirst(n => n + (!mistake && !hintUsed ? 1 : 0));
+    const newFirst = first + (!mistake && !hintUsed ? 1 : 0);
+    setFirst(newFirst);
+    if (ri === run.length - 1) finishChapter(newFirst);
     playSfx('success');
     onGameEvent?.('timeteller', 'answer_correct', {
       level: chapterIndex,
@@ -171,7 +155,11 @@ export default function TimeTeller({
       });
       return;
     }
-    const stars = first >= 5 ? 3 : first >= 3 ? 2 : 1;
+    setPhase('done');
+    playSfx('complete');
+  };
+  const finishChapter = earnedFirst => {
+    const stars = earnedFirst >= 5 ? 3 : earnedFirst >= 3 ? 2 : 1;
     const result = saveTimeLineRun('timeteller', playerId, chapterIndex, run, stars);
     if (!result) return;
     setProgress(result.progress);
@@ -182,11 +170,7 @@ export default function TimeTeller({
       seed,
       difficulty: chapter.id
     });
-    setFeedback(result.newlyCompleted
-      ? `${chapter.title} complete. You earned ${stars} ${stars === 1 ? 'star' : 'stars'}.`
-      : `Replay complete. Your best is ${result.progress.bestStars[chapter.id]} ${result.progress.bestStars[chapter.id] === 1 ? 'star' : 'stars'}.`);
-    setPhase('done');
-    playSfx('complete');
+    setCompletion({ stars, newlyCompleted: result.newlyCompleted, best: result.progress.bestStars[chapter.id] });
   };
   const leave = () => {
     if (phase === 'play') onGameEvent?.('timeteller', 'leave', {
@@ -197,13 +181,30 @@ export default function TimeTeller({
     });
     onBack?.();
   };
-  const change = (unit, delta) => {
-    setSetTime(t => advanceClock(t, unit === 'minute' ? delta : delta * 60));
-  };
-  if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-sky-100 via-emerald-50 to-amber-100 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back"><ArrowLeft /></button><h1 className="text-xl font-black sm:text-3xl">Time Teller</h1><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header>{phase === 'start' ? <main className="mx-auto mt-5 max-w-4xl"><p className="mb-4 rounded-2xl bg-white p-4 text-center font-bold">Read the clock, set its hands, and think about daily routines. Each chapter has six missions. A worked answer stays until Next.</p><div className="grid gap-3 sm:grid-cols-3">{TIME_CHAPTERS.map((c, i) => <ChapterButton key={c.id} c={c} i={i} selected={i === chapterIndex} complete={progress.completedChapterIds.includes(c.id)} locked={i > progress.unlockedChapter} onClick={() => setChapterIndex(i)} />)}</div><button onClick={() => start()} className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 text-lg font-black text-white">Start {chapter.title}</button></main> : <main className="mx-auto mt-8 max-w-2xl rounded-3xl bg-white p-6 text-center shadow-xl"><p className="text-2xl font-black">{feedback}</p><p className="mt-3">{progress.completedChapterIds.length < 3 ? 'Choose the next unlocked chapter or replay this one.' : 'All three chapters are complete. Replay any chapter.'}</p><button className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-800 font-black text-white" onClick={() => {
-        cancelNarration();
-        setChapterIndex(progress.unlockedChapter);
-        setPhase('start');
-      }}>Continue</button><button className="mt-3 min-h-14 w-full rounded-2xl bg-white font-black text-emerald-900 ring-2 ring-emerald-700" onClick={() => start(chapterIndex)}>Replay {chapter.title}</button></main>}</div>;
-  return <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-b from-sky-100 via-emerald-50 to-amber-100 p-3 text-slate-900 sm:p-6"><header className="mx-auto flex max-w-4xl items-center justify-between rounded-3xl bg-white p-3 shadow"><button className="game-icon-button !min-h-12 !min-w-12" onClick={leave} aria-label="Back"><ArrowLeft /></button><div className="text-center"><p className="text-xs font-black uppercase">Chapter {chapterIndex + 1} of 3 · Mission {ri + 1} of 6</p><h1 className="text-xl font-black sm:text-3xl">Time Teller</h1></div><SoundToggle soundOn={soundOn} onToggle={onToggleSound} /></header><main className="mx-auto mt-4 max-w-4xl rounded-3xl bg-white/90 p-4 text-center shadow-xl sm:p-6"><p className="mb-2 text-lg font-bold" aria-live="polite">{q?.prompt}</p><div className="mb-3 flex flex-wrap justify-center gap-2"><button className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-sky-100 px-4 font-black" onClick={() => tell(speak, q.prompt, timeNarrationSegments(q))}><Volume2 size={20} /> Hear mission</button><button className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-sky-100 px-4 font-black" onClick={() => tell(speak, TIME_TELLER_NARRATION.lesson, timeNarrationSegments(TIME_TELLER_NARRATION.lesson))}><Volume2 size={20} /> Hear hand lesson</button></div><p className="mx-auto mb-3 max-w-xl rounded-2xl bg-sky-50 p-3 text-sm font-semibold"><b>Clock lesson:</b> The short red hand shows the hour. The long blue hand shows minutes. The hour hand moves between numbers as minutes pass.</p><div className="mx-auto h-56 w-56 max-w-full sm:h-64 sm:w-64"><Clock time={q?.type === 'set' ? setTime : q?.target} label={q?.type === 'set' ? 'Clock setting controls' : locked ? `Clock showing ${timeLabel(q.target)}` : 'Clock face with short red hour hand and long blue minute hand'} /></div>{q?.type === 'set' ? <><p className="mt-2 font-bold" aria-live="polite">Set time: {formatClock(setTime)}</p><div className="my-3 grid grid-cols-2 gap-2"><button disabled={locked} className="min-h-12 rounded-xl bg-sky-100 font-black disabled:opacity-50" onClick={() => change('hour', -1)} aria-label="Hour earlier">Hour −</button><button disabled={locked} className="min-h-12 rounded-xl bg-sky-100 font-black disabled:opacity-50" onClick={() => change('hour', 1)} aria-label="Hour later">Hour +</button><button disabled={locked} className="min-h-12 rounded-xl bg-blue-100 font-black disabled:opacity-50" onClick={() => change('minute', -15)} aria-label="Minute hand back 15 minutes">Minute −15</button><button disabled={locked} className="min-h-12 rounded-xl bg-blue-100 font-black disabled:opacity-50" onClick={() => change('minute', 15)} aria-label="Minute hand forward 15 minutes">Minute +15</button></div><button disabled={locked} onClick={() => attempt(setTime)} className="min-h-14 w-full rounded-2xl bg-emerald-700 text-lg font-black text-white disabled:opacity-50">Check clock</button></> : <div className="my-4 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Choose the time">{q?.options.map(t => <button key={formatClock(t)} disabled={locked} onClick={() => attempt(t)} className="min-h-14 rounded-2xl bg-emerald-700 px-3 text-lg font-black text-white disabled:opacity-60">{timeLabel(t)}</button>)}</div>}{feedback && <p role="status" className="mx-auto mb-3 max-w-2xl rounded-xl bg-emerald-50 p-3 font-bold">{feedback}</p>}{!locked && <button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20} />{hintUsed ? 'Hint used' : 'Use one hint'}</button>}{locked && <button onClick={next} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-800 text-lg font-black text-white">{ri === 5 ? 'Finish chapter' : 'Next mission'}</button>}</main></div>;
+  const header = <LearningHeader title="Time Teller" subtitle={phase === 'play' ? `Chapter ${chapterIndex + 1} · Mission ${ri + 1} of 6` : 'Look · Move · Tell the time'} onBack={leave} soundOn={soundOn} onToggleSound={onToggleSound} />;
+  if (phase === 'start' || phase === 'done') return <div className="min-h-[100dvh] bg-gradient-to-b from-sky-100 via-emerald-50 to-amber-100 p-3 text-slate-900 sm:p-6">{header}
+    {phase === 'start' ? <main className="mx-auto mt-5 max-w-4xl">
+      <section className="mb-4 rounded-3xl border-2 border-white bg-white/95 p-5 text-center shadow-md"><p className="text-2xl font-black text-sky-950">What time is it?</p><p className="mt-2 font-semibold text-slate-600">Read the hands, then set a clock for your day. Six missions in each chapter.</p></section>
+      <LearningChapters chapters={TIME_CHAPTERS} selected={chapterIndex} progress={progress} onSelect={setChapterIndex} />
+      <button type="button" onClick={() => start()} className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 text-lg font-black text-white shadow-md">Start {chapter.title} →</button>
+      <ClockPractice />
+    </main> : <main className="mx-auto mt-6 max-w-2xl rounded-3xl border-2 border-white bg-white p-6 text-center shadow-xl">
+      <p className="text-4xl text-amber-500" aria-label={`${completion?.best || 1} best stars`}>{'★'.repeat(completion?.best || 1)}</p><h2 className="mt-3 text-2xl font-black">{chapter.title} complete!</h2><p className="mt-2 font-semibold">{completion?.newlyCompleted ? 'Your clock badge and best stars are saved.' : 'Your best stars and unlocked chapters are safe.'}</p>
+      <button className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-800 px-3 font-black text-white" onClick={() => { cancelNarration(); setChapterIndex(progress.unlockedChapter); setPhase('start'); }}>Choose next chapter →</button><button className="mt-3 min-h-12 w-full rounded-2xl border-2 border-emerald-700 bg-white px-3 font-black text-emerald-900" onClick={() => start(chapterIndex)}>Replay {chapter.title}</button>
+    </main>}
+  </div>;
+  return <div className="min-h-[100dvh] bg-gradient-to-b from-sky-100 via-emerald-50 to-amber-100 p-3 text-slate-900 sm:p-6">{header}
+    <main className="mx-auto mt-4 max-w-4xl rounded-3xl border-2 border-white bg-white/95 p-4 text-center shadow-xl sm:p-6" data-mission-type={q.type}>
+      <p className="mb-1 text-xs font-black uppercase tracking-wide text-sky-800">{q.type === 'set' ? 'Move the hands' : 'Read the clock'}</p>
+      <h2 className="mx-auto max-w-2xl text-xl font-black" aria-live="polite">{locked ? timeLabel(q.target) : q.prompt}</h2>
+      {!locked && <button className="my-3 inline-flex min-h-12 items-center gap-2 rounded-xl bg-sky-50 px-4 font-black text-sky-900" onClick={() => tell(speak, q.prompt, timeNarrationSegments(q))}><Volume2 size={20} />Hear mission</button>}
+      <div className="mt-3"><LearningClock time={q.type === 'set' ? setTime : q.target} onChange={q.type === 'set' && !locked ? setSetTime : undefined} label={q.type === 'set' ? 'Clock setting controls' : locked ? `Clock showing ${timeLabel(q.target)}` : 'Clock face with short red hour hand and long blue minute hand'} /></div>
+      {!locked && (q.type === 'set' ? <button onClick={() => attempt(setTime)} className="mx-auto mt-4 min-h-14 w-full max-w-sm rounded-2xl bg-emerald-800 px-4 text-lg font-black text-white">Check clock</button> : <div className="my-4 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Choose the time">{q.options.map(t => <button key={formatClock(t)} onClick={() => attempt(t)} className="min-h-14 rounded-2xl bg-emerald-800 px-3 text-lg font-black text-white">{timeLabel(t)}</button>)}</div>)}
+      {locked ? <Explanation text={feedback} onHear={() => tell(speak, q.explanation, timeNarrationSegments(q, 'explanation'))} onNext={next} nextLabel={ri === 5 ? 'Finish chapter' : 'Next mission'} /> : <>
+        {feedback && <p role="status" className="my-3 rounded-xl bg-amber-50 p-3 font-bold">{feedback}</p>}
+        <button disabled={hintUsed} onClick={hint} className="mt-3 inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-400 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20} />{hintUsed ? 'Hint used' : 'Use one hint'}</button>
+        <details className="mx-auto mt-3 max-w-xl rounded-xl bg-sky-50 p-3 text-left"><summary className="min-h-12 cursor-pointer p-3 font-bold text-sky-900">How the two hands work</summary><p className="p-3 text-sm font-semibold">The short hand shows the hour. The long hand shows minutes. As minutes pass, the hour hand moves between numbers.</p><button className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 font-bold" onClick={() => tell(speak, TIME_TELLER_NARRATION.lesson, timeNarrationSegments(TIME_TELLER_NARRATION.lesson))}><Volume2 size={20} />Hear hand lesson</button></details>
+      </>}
+    </main>
+  </div>;
 }

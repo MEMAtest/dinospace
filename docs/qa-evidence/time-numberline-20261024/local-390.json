@@ -1,0 +1,1056 @@
+{
+  "origin": "http://127.0.0.1:5328",
+  "width": 390,
+  "rows": [
+    {
+      "signature": "165:180",
+      "game": "timeteller",
+      "chapter": 1,
+      "round": 1,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "half past 5",
+      "model": {
+        "hour": 5,
+        "minute": 30
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nhalf past 5 means the minute hand points to 6, and the hour hand is moving between numbers.\n\nHear explanation\nNext mission \u2192",
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5328/audio/en/5851a6ba-matilda.mp3",
+          "time": 0.158601
+        }
+      ],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "150:0",
+      "game": "timeteller",
+      "chapter": 1,
+      "round": 2,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "5 o\u2019clock",
+      "model": {
+        "hour": 5,
+        "minute": 0
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n5 o\u2019clock means the minute hand points to 12, and the hour hand is on the hour number.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "180:0",
+      "game": "timeteller",
+      "chapter": 1,
+      "round": 3,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "6 o\u2019clock",
+      "model": {
+        "hour": 6,
+        "minute": 0
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n6 o\u2019clock means the minute hand points to 12, and the hour hand is on the hour number.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "270:0",
+      "game": "timeteller",
+      "chapter": 1,
+      "round": 4,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "9 o\u2019clock",
+      "model": {
+        "hour": 9,
+        "minute": 0
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n9 o\u2019clock means the minute hand points to 12, and the hour hand is on the hour number.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "195:180",
+      "game": "timeteller",
+      "chapter": 1,
+      "round": 5,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "half past 6",
+      "model": {
+        "hour": 6,
+        "minute": 30
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nhalf past 6 means the minute hand points to 6, and the hour hand is moving between numbers.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "315:180",
+      "game": "timeteller",
+      "chapter": 1,
+      "round": 6,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "half past 10",
+      "model": {
+        "hour": 10,
+        "minute": 30
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nhalf past 10 means the minute hand points to 6, and the hour hand is moving between numbers.\n\nHear explanation\nFinish chapter \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "217.5:90",
+      "game": "timeteller",
+      "chapter": 2,
+      "round": 1,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "quarter past 7",
+      "model": {
+        "hour": 7,
+        "minute": 15
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nquarter past 7 means the minute hand points to 3, and the hour hand is moving between numbers.\n\nHear explanation\nNext mission \u2192",
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5328/audio/en/7f29b3b4-matilda.mp3",
+          "time": 0.152306
+        }
+      ],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "22.5:270",
+      "game": "timeteller",
+      "chapter": 2,
+      "round": 2,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "quarter to 1",
+      "model": {
+        "hour": 12,
+        "minute": 45
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nquarter to 1 means the minute hand points to 9, and the hour hand is moving between numbers.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "345:180",
+      "game": "timeteller",
+      "chapter": 2,
+      "round": 3,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "half past 11",
+      "model": {
+        "hour": 11,
+        "minute": 30
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nhalf past 11 means the minute hand points to 6, and the hour hand is moving between numbers.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "45:180",
+      "game": "timeteller",
+      "chapter": 2,
+      "round": 4,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "half past 1",
+      "model": {
+        "hour": 1,
+        "minute": 30
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nhalf past 1 means the minute hand points to 6, and the hour hand is moving between numbers.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "337.5:90",
+      "game": "timeteller",
+      "chapter": 2,
+      "round": 5,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "quarter past 11",
+      "model": {
+        "hour": 11,
+        "minute": 15
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nquarter past 11 means the minute hand points to 3, and the hour hand is moving between numbers.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "270:0",
+      "game": "timeteller",
+      "chapter": 2,
+      "round": 6,
+      "type": "read",
+      "prompt": "What time is shown on the clock?",
+      "answer": "9 o\u2019clock",
+      "model": {
+        "hour": 9,
+        "minute": 0
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n9 o\u2019clock means the minute hand points to 12, and the hour hand is on the hour number.\n\nHear explanation\nFinish chapter \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "217.5:90",
+      "game": "timeteller",
+      "chapter": 3,
+      "round": 1,
+      "type": "read",
+      "prompt": "It is the morning and breakfast is happening. What time is shown on the clock?",
+      "answer": "quarter past 7",
+      "model": {
+        "hour": 7,
+        "minute": 15
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nquarter past 7 means the minute hand points to 3, and the hour hand is moving between numbers. This routine is in the morning.\n\nHear explanation\nNext mission \u2192",
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5328/audio/en/7f29b3b4-matilda.mp3",
+          "time": 0.159402
+        }
+      ],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "Set the clock to quarter past 8, school activity time in the morning.",
+      "game": "timeteller",
+      "chapter": 3,
+      "round": 2,
+      "type": "set",
+      "prompt": "Set the clock to quarter past 8, school activity time in the morning.",
+      "answer": "quarter past 8",
+      "model": {
+        "hour": 8,
+        "minute": 15
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nquarter past 8 means the minute hand points to 3, and the hour hand is moving between numbers. This routine is in the morning.\n\nHear explanation\nNext mission \u2192",
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5328/audio/en/18e8e5f7-matilda.mp3",
+          "time": 0.168612
+        }
+      ],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "52.5:270",
+      "game": "timeteller",
+      "chapter": 3,
+      "round": 3,
+      "type": "read",
+      "prompt": "It is the afternoon and after-school play is happening. What time is shown on the clock?",
+      "answer": "quarter to 2",
+      "model": {
+        "hour": 1,
+        "minute": 45
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nquarter to 2 means the minute hand points to 9, and the hour hand is moving between numbers. This routine is in the afternoon.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "37.5:90",
+      "game": "timeteller",
+      "chapter": 3,
+      "round": 4,
+      "type": "read",
+      "prompt": "It is the afternoon and after-school play is happening. What time is shown on the clock?",
+      "answer": "quarter past 1",
+      "model": {
+        "hour": 1,
+        "minute": 15
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nquarter past 1 means the minute hand points to 3, and the hour hand is moving between numbers. This routine is in the afternoon.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "210:0",
+      "game": "timeteller",
+      "chapter": 3,
+      "round": 5,
+      "type": "read",
+      "prompt": "It is the morning and breakfast is happening. What time is shown on the clock?",
+      "answer": "7 o\u2019clock",
+      "model": {
+        "hour": 7,
+        "minute": 0
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n7 o\u2019clock means the minute hand points to 12, and the hour hand is on the hour number. This routine is in the morning.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "Set the clock to quarter to 4, after-school play time in the afternoon.",
+      "game": "timeteller",
+      "chapter": 3,
+      "round": 6,
+      "type": "set",
+      "prompt": "Set the clock to quarter to 4, after-school play time in the afternoon.",
+      "answer": "quarter to 4",
+      "model": {
+        "hour": 3,
+        "minute": 45
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nquarter to 4 means the minute hand points to 9, and the hour hand is moving between numbers. This routine is in the afternoon.\n\nHear explanation\nFinish chapter \u2192",
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5328/audio/en/f449c20a-matilda.mp3",
+          "time": 0.157977
+        }
+      ],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": []
+      }
+    },
+    {
+      "signature": "Start at 5. Hop 5 back. Where do you land?",
+      "game": "numberline",
+      "chapter": 1,
+      "round": 1,
+      "type": "hop",
+      "prompt": "Start at 5. Hop 5 back. Where do you land?",
+      "answer": 0,
+      "model": {
+        "start": 5,
+        "hops": 5,
+        "dir": -1,
+        "arcs": 5
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n5 \u2212 5 = 0. The frog moved 5 hops and landed on 0.\n\nHear explanation\nNext mission \u2192",
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5328/audio/en/10e89941-matilda.mp3",
+          "time": 0.157344
+        }
+      ],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Start at 6. Hop 6 back. Where do you land?",
+      "game": "numberline",
+      "chapter": 1,
+      "round": 2,
+      "type": "hop",
+      "prompt": "Start at 6. Hop 6 back. Where do you land?",
+      "answer": 0,
+      "model": {
+        "start": 6,
+        "hops": 6,
+        "dir": -1,
+        "arcs": 6
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n6 \u2212 6 = 0. The frog moved 6 hops and landed on 0.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Start at 6. Hop 4 forward. Where do you land?",
+      "game": "numberline",
+      "chapter": 1,
+      "round": 3,
+      "type": "hop",
+      "prompt": "Start at 6. Hop 4 forward. Where do you land?",
+      "answer": 10,
+      "model": {
+        "start": 6,
+        "hops": 4,
+        "dir": 1,
+        "arcs": 4
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n6 + 4 = 10. The frog moved 4 hops and landed on 10.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Start at 0. Hop 1 forward. Where do you land?",
+      "game": "numberline",
+      "chapter": 1,
+      "round": 4,
+      "type": "hop",
+      "prompt": "Start at 0. Hop 1 forward. Where do you land?",
+      "answer": 1,
+      "model": {
+        "start": 0,
+        "hops": 1,
+        "dir": 1,
+        "arcs": 1
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n0 + 1 = 1. The frog moved 1 hop and landed on 1.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Start at 8. Hop 8 back. Where do you land?",
+      "game": "numberline",
+      "chapter": 1,
+      "round": 5,
+      "type": "hop",
+      "prompt": "Start at 8. Hop 8 back. Where do you land?",
+      "answer": 0,
+      "model": {
+        "start": 8,
+        "hops": 8,
+        "dir": -1,
+        "arcs": 8
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n8 \u2212 8 = 0. The frog moved 8 hops and landed on 0.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Start at 4. Hop 4 back. Where do you land?",
+      "game": "numberline",
+      "chapter": 1,
+      "round": 6,
+      "type": "hop",
+      "prompt": "Start at 4. Hop 4 back. Where do you land?",
+      "answer": 0,
+      "model": {
+        "start": 4,
+        "hops": 4,
+        "dir": -1,
+        "arcs": 4
+      },
+      "explanation": "YOU WORKED IT OUT!\n\n4 \u2212 4 = 0. The frog moved 4 hops and landed on 0.\n\nHear explanation\nFinish world \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "? + 4 = 17. Which number is the start?",
+      "game": "numberline",
+      "chapter": 2,
+      "round": 1,
+      "type": "missing",
+      "prompt": "? + 4 = 17. Which number is the start?",
+      "answer": 13,
+      "model": {},
+      "explanation": "YOU WORKED IT OUT!\n\n13 + 4 = 17; the missing number is 13.\n\nHear explanation\nNext mission \u2192",
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5328/audio/en/0bef7b93-matilda.mp3",
+          "time": 0.152374
+        }
+      ],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "? + 5 = 19. Which number is the start?",
+      "game": "numberline",
+      "chapter": 2,
+      "round": 2,
+      "type": "missing",
+      "prompt": "? + 5 = 19. Which number is the start?",
+      "answer": 14,
+      "model": {},
+      "explanation": "YOU WORKED IT OUT!\n\n14 + 5 = 19; the missing number is 14.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "? + 16 = 20. Which number is the start?",
+      "game": "numberline",
+      "chapter": 2,
+      "round": 3,
+      "type": "missing",
+      "prompt": "? + 16 = 20. Which number is the start?",
+      "answer": 4,
+      "model": {},
+      "explanation": "YOU WORKED IT OUT!\n\n4 + 16 = 20; the missing number is 4.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "12 + ? = 16. How many hops?",
+      "game": "numberline",
+      "chapter": 2,
+      "round": 4,
+      "type": "missing",
+      "prompt": "12 + ? = 16. How many hops?",
+      "answer": 4,
+      "model": {},
+      "explanation": "YOU WORKED IT OUT!\n\n12 + 4 = 16; the missing number is 4.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "11 + 3 = ?. Where do you land?",
+      "game": "numberline",
+      "chapter": 2,
+      "round": 5,
+      "type": "missing",
+      "prompt": "11 + 3 = ?. Where do you land?",
+      "answer": 14,
+      "model": {},
+      "explanation": "YOU WORKED IT OUT!\n\n11 + 3 = 14; the missing number is 14.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "11 + 2 = ?. Where do you land?",
+      "game": "numberline",
+      "chapter": 2,
+      "round": 6,
+      "type": "missing",
+      "prompt": "11 + 2 = ?. Where do you land?",
+      "answer": 13,
+      "model": {},
+      "explanation": "YOU WORKED IT OUT!\n\n11 + 2 = 13; the missing number is 13.\n\nHear explanation\nFinish world \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Which frog landed on the larger number: A (7 to 20) or B (15 to 20)?",
+      "game": "numberline",
+      "chapter": 3,
+      "round": 1,
+      "type": "compare",
+      "prompt": "Which frog landed on the larger number: A (7 to 20) or B (15 to 20)?",
+      "answer": "Same",
+      "model": {
+        "a": 7,
+        "b": 20,
+        "c": 15,
+        "d": 20,
+        "comparison": "landing"
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nA moved 13 spaces and landed on 20. B moved 5 spaces and landed on 20. They are the same.\n\nHear explanation\nNext mission \u2192",
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5328/audio/en/4ae4d387-matilda.mp3",
+          "time": 0.160065
+        }
+      ],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          },
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Which frog travelled farther: A (2 to 12) or B (11 to 20)?",
+      "game": "numberline",
+      "chapter": 3,
+      "round": 2,
+      "type": "compare",
+      "prompt": "Which frog travelled farther: A (2 to 12) or B (11 to 20)?",
+      "answer": "Frog A",
+      "model": {
+        "a": 2,
+        "b": 12,
+        "c": 11,
+        "d": 20,
+        "comparison": "distance"
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nA moved 10 spaces and landed on 12. B moved 9 spaces and landed on 20. A is farther.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          },
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Which frog travelled farther: A (17 to 20) or B (5 to 14)?",
+      "game": "numberline",
+      "chapter": 3,
+      "round": 3,
+      "type": "compare",
+      "prompt": "Which frog travelled farther: A (17 to 20) or B (5 to 14)?",
+      "answer": "Frog B",
+      "model": {
+        "a": 17,
+        "b": 20,
+        "c": 5,
+        "d": 14,
+        "comparison": "distance"
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nA moved 3 spaces and landed on 20. B moved 9 spaces and landed on 14. B is farther.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          },
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Which frog landed on the larger number: A (19 to 20) or B (8 to 20)?",
+      "game": "numberline",
+      "chapter": 3,
+      "round": 4,
+      "type": "compare",
+      "prompt": "Which frog landed on the larger number: A (19 to 20) or B (8 to 20)?",
+      "answer": "Same",
+      "model": {
+        "a": 19,
+        "b": 20,
+        "c": 8,
+        "d": 20,
+        "comparison": "landing"
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nA moved 1 space and landed on 20. B moved 12 spaces and landed on 20. They are the same.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          },
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Which frog travelled farther: A (13 to 14) or B (1 to 6)?",
+      "game": "numberline",
+      "chapter": 3,
+      "round": 5,
+      "type": "compare",
+      "prompt": "Which frog travelled farther: A (13 to 14) or B (1 to 6)?",
+      "answer": "Frog B",
+      "model": {
+        "a": 13,
+        "b": 14,
+        "c": 1,
+        "d": 6,
+        "comparison": "distance"
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nA moved 1 space and landed on 14. B moved 5 spaces and landed on 6. B is farther.\n\nHear explanation\nNext mission \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          },
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    },
+    {
+      "signature": "Which frog travelled farther: A (3 to 14) or B (11 to 20)?",
+      "game": "numberline",
+      "chapter": 3,
+      "round": 6,
+      "type": "compare",
+      "prompt": "Which frog travelled farther: A (3 to 14) or B (11 to 20)?",
+      "answer": "Frog A",
+      "model": {
+        "a": 3,
+        "b": 14,
+        "c": 11,
+        "d": 20,
+        "comparison": "distance"
+      },
+      "explanation": "YOU WORKED IT OUT!\n\nA moved 11 spaces and landed on 14. B moved 9 spaces and landed on 20. A is farther.\n\nHear explanation\nFinish world \u2192",
+      "audio": [],
+      "geometry": {
+        "overflow": false,
+        "badImages": [],
+        "scrollPanels": [
+          {
+            "w": 304,
+            "content": 304
+          },
+          {
+            "w": 304,
+            "content": 304
+          }
+        ]
+      }
+    }
+  ],
+  "persisted": {
+    "timeteller": {
+      "version": 1,
+      "completedChapterIds": [
+        "clock-explorers",
+        "past-and-to",
+        "daily-routines"
+      ],
+      "bestStars": {
+        "clock-explorers": 3,
+        "past-and-to": 3,
+        "daily-routines": 3
+      },
+      "recentQuestionIds": {
+        "0": [
+          "0:6:30:read",
+          "0:10:30:read",
+          "0:9:30:read",
+          "0:3:30:read",
+          "0:7:30:read",
+          "0:2:30:read",
+          "0:2:0:read",
+          "0:8:30:read"
+        ],
+        "1": [
+          "1:5:0:read",
+          "1:11:45:read",
+          "1:7:15:read",
+          "1:12:45:read",
+          "1:11:30:read",
+          "1:1:30:read",
+          "1:11:15:read",
+          "1:9:0:read"
+        ],
+        "2": [
+          "2:4:30:set",
+          "2:5:45:read",
+          "2:7:15:read",
+          "2:8:15:set",
+          "2:1:45:read",
+          "2:1:15:read",
+          "2:7:0:read",
+          "2:3:45:set"
+        ]
+      },
+      "unlockedChapter": 2
+    },
+    "numberline": {
+      "version": 1,
+      "completedChapterIds": [
+        "forward-back",
+        "missing-numbers",
+        "compare-distances"
+      ],
+      "bestStars": {
+        "forward-back": 3,
+        "missing-numbers": 3,
+        "compare-distances": 3
+      },
+      "recentQuestionIds": {
+        "0": [
+          "hop:8:-1:8",
+          "hop:4:-1:4",
+          "hop:4:1:5",
+          "hop:7:1:3",
+          "hop:3:-1:3",
+          "hop:4:1:6",
+          "hop:2:1:3",
+          "hop:3:1:5"
+        ],
+        "1": [
+          "missing:10:1:0",
+          "missing:3:15:1",
+          "missing:13:4:0",
+          "missing:14:5:0",
+          "missing:4:16:0",
+          "missing:12:4:1",
+          "missing:11:3:2",
+          "missing:11:2:2"
+        ],
+        "2": [
+          "compare:larger:2:10:10:10",
+          "compare:farther:14:1:2:6",
+          "compare:larger:7:13:15:5",
+          "compare:farther:2:10:11:9",
+          "compare:farther:17:3:5:9",
+          "compare:larger:19:1:8:12",
+          "compare:farther:13:1:1:5",
+          "compare:farther:3:11:11:9"
+        ]
+      },
+      "unlockedChapter": 2
+    }
+  },
+  "replay": [
+    {
+      "game": "timeteller",
+      "round": 1,
+      "signature": "285:180"
+    },
+    {
+      "game": "timeteller",
+      "round": 2,
+      "signature": "105:180"
+    },
+    {
+      "game": "timeteller",
+      "round": 3,
+      "signature": "225:180"
+    },
+    {
+      "game": "timeteller",
+      "round": 4,
+      "signature": "75:180"
+    },
+    {
+      "game": "timeteller",
+      "round": 5,
+      "signature": "60:0"
+    },
+    {
+      "game": "timeteller",
+      "round": 6,
+      "signature": "255:180"
+    },
+    {
+      "game": "numberline",
+      "round": 1,
+      "signature": "Start at 4. Hop 5 forward. Where do you land?"
+    },
+    {
+      "game": "numberline",
+      "round": 2,
+      "signature": "Start at 7. Hop 3 forward. Where do you land?"
+    },
+    {
+      "game": "numberline",
+      "round": 3,
+      "signature": "Start at 3. Hop 3 back. Where do you land?"
+    },
+    {
+      "game": "numberline",
+      "round": 4,
+      "signature": "Start at 4. Hop 6 forward. Where do you land?"
+    },
+    {
+      "game": "numberline",
+      "round": 5,
+      "signature": "Start at 2. Hop 3 forward. Where do you land?"
+    },
+    {
+      "game": "numberline",
+      "round": 6,
+      "signature": "Start at 3. Hop 5 forward. Where do you land?"
+    }
+  ],
+  "resetLedgers": false,
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "badAssets": [],
+  "parentWorldReturn": true,
+  "savedBeforeFinish": true,
+  "progressRetainedAfterReload": true
+}

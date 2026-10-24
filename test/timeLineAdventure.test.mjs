@@ -42,3 +42,15 @@ test('moving clock hands preserves elapsed time across hour and twelve-hour boun
     }
   }
 });
+
+// Every new clock chapter must actually teach both named skills, for every seed.
+test('clock runs include both whole/half and past/to teaching cases without duplicates', () => {
+  for (let seed = 1; seed <= 100; seed++) {
+    const first = createTimeRun({ chapter: 0, seed });
+    for (const minute of [0, 30]) assert.ok(first.some(q => q.target.minute === minute));
+    const quarter = createTimeRun({ chapter: 1, seed });
+    for (const minute of [15, 45]) assert.ok(quarter.some(q => q.target.minute === minute));
+    const replay = createTimeRun({ chapter: 1, seed: seed + 100, recentIds: quarter.map(q => q.id) });
+    assert.ok(replay.every(q => !quarter.some(old => old.id === q.id)));
+  }
+});

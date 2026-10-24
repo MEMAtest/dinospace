@@ -1,0 +1,24 @@
+{
+  "sourceChecks": {
+    "lint": "passed",
+    "suite": {
+      "tests": 364,
+      "passed": 363,
+      "failed": 0,
+      "skipped": 1,
+      "skip": "Emitted PWA needs fresh build; rerun separately after build"
+    },
+    "focusedInteractionTests": 8
+  },
+  "packagedAudio": {
+    "ready": 5246,
+    "pending": 0,
+    "newProviderRequests": 0
+  },
+  "firstLocalFailure": {
+    "width": 390,
+    "issue": "Comparison figure content307px in304px inner width at endpoint",
+    "repair": "Increased inset and aligned SVG/HTML positions",
+    "accepted": false
+  }
+}
