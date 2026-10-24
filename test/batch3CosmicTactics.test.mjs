@@ -2,6 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   applyTicMove,
+  cosmicTacticPaths,
+  isCosmicTacticMove,
+  recordCosmicFreeResult,
+  getCosmicFreeProgress,
   chooseCosmicBotMove,
   completeCosmicTactic,
   COSMIC_PROGRESS_KEY,
@@ -116,4 +120,68 @@ test('orphan future chapter missions and badges are removed until prior chapter 
   assert.deepEqual(progress.completedByChapter, [2, 0, 0]);
   assert.deepEqual(progress.badges, []);
   assert.equal(progress.unlocked, 0);
+});
+
+
+test('Captain cannot lose against any legal sequence of human moves from an empty board', () => {
+  for (const seed of [0, 19, 92]) {
+    const seen = new Set();
+    const visit = board => {
+      const signature = board.map(mark => mark || '-').join('');
+      if (seen.has(signature)) return;
+      seen.add(signature);
+      const result = getBoardResult(board);
+      assert.notEqual(result.winner, 'X', signature);
+      if (result.winner || result.draw) return;
+      for (const human of legalTicMoves(board)) {
+        const afterHuman = applyTicMove(board, human, 'X');
+        assert.notEqual(getBoardResult(afterHuman).winner, 'X', afterHuman.join(''));
+        if (getBoardResult(afterHuman).draw) continue;
+        const bot = chooseCosmicBotMove(afterHuman, { seed, difficulty: 'captain' });
+        assert.ok(legalTicMoves(afterHuman).includes(bot));
+        visit(applyTicMove(afterHuman, bot, 'O'));
+      }
+    };
+    visit(Array(9).fill(null));
+    assert.ok(seen.size > 100);
+  }
+});
+
+test('solved explanations follow actual winning, blocking and both fork paths in every orientation', () => {
+  for (let level = 0; level < 3; level++) for (let round = 0; round < 8; round++) {
+    const scenario = makeTacticScenario({ level, round, seed: 7 });
+    const solved = applyTicMove(scenario.board, scenario.target, 'X');
+    const paths = cosmicTacticPaths(solved, scenario.target, scenario.tactic);
+    assert.equal(paths.length, level === 2 ? 2 : 1);
+    assert.ok(paths.every(line => line.includes(scenario.target)));
+  }
+});
+
+test('free-game totals save terminal outcomes once per board and isolate players', () => {
+  const storage = memoryStorage();
+  const win = ['X','X','X','O','O',null,null,null,null];
+  const loss = ['X','X',null,'O','O','O',null,null,'X'];
+  const draw = ['X','O','X','X','O','O','O','X','X'];
+  recordCosmicFreeResult({ playerId:'amari',board:win,boardId:'win',storage });
+  recordCosmicFreeResult({ playerId:'amari',board:win,boardId:'win',storage });
+  recordCosmicFreeResult({ playerId:'amari',board:loss,boardId:'loss',storage });
+  recordCosmicFreeResult({ playerId:'amari',board:draw,boardId:'draw',storage });
+  const before = getCosmicFreeProgress('amari',storage);
+  assert.deepEqual([before.X,before.O,before.draws],[1,1,1]);
+  for (const board of [Array(9).fill(null), ['X','X','X','O','O','O',null,null,null]]) recordCosmicFreeResult({playerId:'amari',board,boardId:'invalid',storage});
+  assert.deepEqual(getCosmicFreeProgress('amari',storage),before);
+  assert.equal(getCosmicFreeProgress('askia',storage).X,0);
+});
+
+
+test('fork lessons accept every valid alternate fork rather than only the authored hint square', () => {
+ for(let round=0;round<8;round++) {
+  const scenario=makeTacticScenario({level:2,round,seed:7});
+  const valid=findForkMoves(scenario.board,'X');
+  assert.ok(valid.length>1);
+  for(const cell of valid) {
+   assert.equal(isCosmicTacticMove(scenario.board,cell,'fork'),true);
+   assert.equal(cosmicTacticPaths(applyTicMove(scenario.board,cell,'X'),cell,'fork').length,2);
+  }
+ }
 });

@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Check, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
-import { TRACE_LETTERS } from '../../data/index.js';
+import { ArrowLeft, Check, Lightbulb, Volume2 } from 'lucide-react';
 import { makeLearningEvent } from '../../data/literacy.js';
 import {
   completeLetterTraceLevel,
@@ -13,6 +12,7 @@ import {
   makeLetterTraceRun,
   makeTraceWordChoices,
   recordLetterTraceMastery,
+  recordLetterTracePractice,
   resetUnfinishedTraceStroke,
   isTraceDotStroke,
   traceToleranceForSize,
@@ -32,7 +32,6 @@ const getSeed = () => {
 
 const phaseName = (phase) => ({ map: 'intro', play: 'play', complete: 'complete' })[phase] || phase;
 const noopCancel = () => {};
-const letterMetadata = (lower) => TRACE_LETTERS.find((item) => item.lower === lower) || TRACE_LETTERS[0];
 
 const AmariLetterTrace = ({
   onBack,
@@ -45,9 +44,8 @@ const AmariLetterTrace = ({
   onGameEvent,
   onPhaseChange,
   playerId = 'amari',
-  sessionLevel = 0,
 }) => {
-  const [activeLevel, setActiveLevel] = useState(Math.max(0, Math.min(2, sessionLevel)));
+  const [activeLevel, setActiveLevel] = useState(() => getLetterTraceProgress(playerId).unlocked);
   const level = activeLevel;
   const canvasRef = useRef(null);
   const guideRef = useRef([]);
@@ -74,9 +72,11 @@ const AmariLetterTrace = ({
   const [showGuide, setShowGuide] = useState(false);
   const [keyboardMode, setKeyboardMode] = useState(false);
   const [error, setError] = useState('');
+  const [demoVersion, setDemoVersion] = useState(0);
+  const demoRef = useRef(null);
+  const usedKeyboardRef = useRef(false);
 
   const chapter = LETTER_TRACE_LEVELS[level];
-  const currentMeta = letterMetadata(letter.lower);
   const traceLetter = letter.requested || (level === 2 ? letter.lower : letter.upper);
   const storyChoices = useMemo(() => wordChoices, [wordChoices]);
   // The drawing effect updates guideRef after render. Derive the announced
@@ -87,7 +87,6 @@ const AmariLetterTrace = ({
     : `Trace ${traceLetter}. Stroke ${Math.min(strokeStateRef.current.completed + 1, currentStrokeCount)} of ${currentStrokeCount}.`;
 
   useEffect(() => { onPhaseChange?.(phaseName(phase)); }, [onPhaseChange, phase]);
-  useEffect(() => { setActiveLevel(Math.max(0, Math.min(2, sessionLevel))); }, [sessionLevel]);
   useEffect(() => { if (keyboardMode && phase === 'play') canvasRef.current?.focus(); }, [keyboardMode, phase]);
   useEffect(() => {
     setMastery(getLetterTraceProgress(playerId));
@@ -116,27 +115,32 @@ const AmariLetterTrace = ({
     setSelectedWord(null);
     setError('');
     setShowGuide(false);
+    demoRef.current = null;
+    usedKeyboardRef.current = false;
+    setKeyboardMode(false);
     setFeedback(AMARI_TRACE_NARRATION[0]);
   }, []);
 
-  const beginChapter = useCallback((retry = false) => {
+  const beginChapter = useCallback((retry = false, requestedLevel = level) => {
     const saved = getLetterTraceProgress(playerId);
     const nextRun = makeLetterTraceRun({
       seed: getSeed(),
-      level,
-      recentLetters: retry ? [] : saved.recentByLevel[level] || [],
+      level: requestedLevel,
+      recentLetters: saved.recentByLevel[requestedLevel] || [],
     });
     if (nextRun.error) {
       setError('Choose at least eight taught letter sounds in the grown-ups learning settings before starting this chapter.');
       return;
     }
+    if (requestedLevel > saved.unlocked) return;
     cancelNarration();
+    setActiveLevel(requestedLevel);
     setRun(nextRun);
     setRoundIndex(0);
     resetRoundState(nextRun.rounds[0]);
     progressAtStartRef.current = saved;
     lastCompletionRef.current = null;
-    onGameEvent?.('trace', 'start', { level, round: 0, seed: nextRun.seed, difficulty: ['starter', 'growing', 'challenge'][level] });
+    onGameEvent?.('trace', retry ? 'replay' : 'start', { level: requestedLevel, round: 0, seed: nextRun.seed, difficulty: ['starter', 'growing', 'challenge'][requestedLevel] });
     setPhase('play');
     playSfx('launch');
     say(AMARI_TRACE_NARRATION[0]);
@@ -162,11 +166,6 @@ const AmariLetterTrace = ({
     ctx.clearRect(0, 0, rect.width, rect.height);
     ctx.fillStyle = '#f8fcff';
     ctx.fillRect(0, 0, rect.width, rect.height);
-    ctx.font = `900 ${Math.round(Math.min(rect.width, rect.height) * 0.57)}px "Avenir Next", "Trebuchet MS", sans-serif`;
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillStyle = 'rgba(191,219,254,.38)';
-    ctx.fillText(traceLetter, rect.width / 2, rect.height / 2);
     const activeStroke = Math.min(strokeStateRef.current.completed, strokes.length - 1);
     strokes.forEach((stroke, index) => {
       ctx.beginPath();
@@ -243,6 +242,14 @@ const AmariLetterTrace = ({
       });
     }
 
+    if (demoRef.current && !pointerRef.current.active) {
+      const stroke = strokes[activeStroke];
+      const point = interpolateGuidePoint(stroke, demoRef.current.cursor * (stroke.length - 1));
+      if (point) {
+        ctx.beginPath(); ctx.arc(point.x, point.y, 12, 0, Math.PI * 2);
+        ctx.fillStyle = '#f97316'; ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; ctx.stroke();
+      }
+    }
   }, [keyboardMode, showGuide, traceLetter]);
 
   useEffect(() => {
@@ -258,6 +265,21 @@ const AmariLetterTrace = ({
       window.removeEventListener('resize', drawGuide);
     };
   }, [drawGuide, phase, roundPassed]);
+
+  useEffect(() => {
+    if (!showGuide || traceReady || roundPassed || phase !== 'play') { demoRef.current = null; return undefined; }
+    let frame;
+    const started = performance.now();
+    const animate = now => {
+      const cursor = Math.min(1, (now - started) / 1800);
+      demoRef.current = { cursor };
+      drawGuide();
+      if (cursor < 1) frame = requestAnimationFrame(animate);
+      else { demoRef.current = null; drawGuide(); }
+    };
+    frame = requestAnimationFrame(animate);
+    return () => { cancelAnimationFrame(frame); demoRef.current = null; };
+  }, [showGuide, demoVersion, traceReady, roundPassed, phase, drawGuide]);
 
   const updateReady = useCallback(() => {
     const strokes = guideRef.current;
@@ -306,6 +328,8 @@ const AmariLetterTrace = ({
   const startPointer = (event) => {
     if (roundPassed || keyboardMode || event.button !== undefined && event.button !== 0) return;
     event.preventDefault();
+    setShowGuide(false);
+    demoRef.current = null;
     const point = pointFromEvent(event);
     const index = strokeStateRef.current.completed;
     const stroke = guideRef.current[index];
@@ -361,6 +385,8 @@ const AmariLetterTrace = ({
     const activeIndex = strokeStateRef.current.completed;
     strokeStateRef.current = resetUnfinishedTraceStroke(strokeStateRef.current);
     pointerRef.current = { active: false, id: null, last: null };
+    setFirstTry(false);
+    setHadIncorrectResponse(true);
     setFeedback(`Touch stopped. Restart this stroke at green ${activeIndex + 1}.`);
     updateReady();
     drawGuide();
@@ -419,7 +445,7 @@ const AmariLetterTrace = ({
     setRoundPassed(true);
     setSelectedWord(word);
     const firstAttempt = !hadIncorrectResponse;
-    const nowFirstTry = firstAttempt && firstTry && !hintUsed && !keyboardMode;
+    const nowFirstTry = firstAttempt && firstTry && !hintUsed && !usedKeyboardRef.current;
     const resultText = level === 2 ? AMARI_TRACE_NARRATION[5] : AMARI_TRACE_NARRATION[4];
     setFeedback(resultText);
     say(resultText);
@@ -427,19 +453,26 @@ const AmariLetterTrace = ({
     const award = nowFirstTry
       ? recordLetterTraceMastery({ playerId, level, letter: letter.lower })
       : { newlyMastered: false };
+    if (!nowFirstTry) recordLetterTracePractice({ playerId, level, letter: letter.lower });
+    if (roundIndex + 1 === LETTER_TRACE_ROUNDS_PER_LEVEL && lastCompletionRef.current !== run.seed) {
+      lastCompletionRef.current = run.seed;
+      const result = completeLetterTraceLevel({ playerId, level, completedRounds: LETTER_TRACE_ROUNDS_PER_LEVEL });
+      if (result.newlyCompleted) onCelebrate(`${chapter.title} badge earned!`, 4, 250, 'trace');
+      onGameEvent?.('trace', 'level_completed', { level, round: roundIndex, seed: run.seed, badge: chapter.id });
+    }
     setMastery(getLetterTraceProgress(playerId));
     if (award.newlyMastered && nowFirstTry) onCelebrate('New letter mastered!', 4, 250, 'trace');
     onGameEvent?.('trace', 'learning_attempt', makeLearningEvent({
       skill: level === 2 ? 'letter-sound-and-word' : 'letter-formation',
       item: level === 2 ? word?.word : traceLetter,
-      response: keyboardMode ? 'keyboard-guide' : hintUsed ? 'guided-pointer-trace' : 'pointer-trace',
+      response: usedKeyboardRef.current ? 'keyboard-guide' : hintUsed ? 'guided-pointer-trace' : 'pointer-trace',
       correct: true,
       firstTry: firstAttempt,
       hints: hintCount,
       difficulty: ['starter', 'growing', 'challenge'][level],
-      extra: { level, round: roundIndex, seed: run.seed, independent: nowFirstTry, masteryEligible: !keyboardMode, unassistedFirstTry: nowFirstTry, handwritingMastery: Boolean(award.newlyMastered && nowFirstTry), keyboardAlternative: keyboardMode },
+      extra: { level, round: roundIndex, seed: run.seed, independent: nowFirstTry, masteryEligible: !usedKeyboardRef.current, unassistedFirstTry: nowFirstTry, handwritingMastery: Boolean(award.newlyMastered && nowFirstTry), keyboardAlternative: usedKeyboardRef.current },
     }));
-    onGameEvent?.('trace', 'answer_correct', { firstAttempt, hints: hintCount, keyboardAlternative: keyboardMode, level, round: roundIndex, seed: run.seed, difficulty: ['starter', 'growing', 'challenge'][level] });
+    onGameEvent?.('trace', 'answer_correct', { firstAttempt, hints: hintCount, keyboardAlternative: usedKeyboardRef.current, level, round: roundIndex, seed: run.seed, difficulty: ['starter', 'growing', 'challenge'][level] });
   };
 
   const checkTrace = () => {
@@ -473,6 +506,7 @@ const AmariLetterTrace = ({
     setHintCount((count) => count + 1);
     setFirstTry(false);
     setShowGuide(true);
+    setDemoVersion(value => value + 1);
     setFeedback(AMARI_TRACE_NARRATION[2]);
     onGameEvent?.('trace', 'hint', { level, round: roundIndex, seed: run.seed, hintType: 'next_piece', hints: hintCount + 1 });
     say(AMARI_TRACE_NARRATION[2]);
@@ -491,11 +525,6 @@ const AmariLetterTrace = ({
       say(AMARI_TRACE_NARRATION[0]);
       return;
     }
-    const result = completeLetterTraceLevel({ playerId, level, completedRounds: LETTER_TRACE_ROUNDS_PER_LEVEL });
-    lastCompletionRef.current = run.seed;
-    setMastery(getLetterTraceProgress(playerId));
-    if (result.newlyCompleted) onCelebrate(`${chapter.title} badge earned!`, 4, 250, 'trace');
-    onGameEvent?.('trace', 'level_completed', { level, round: roundIndex, seed: run.seed, badge: chapter.id });
     setPhase('complete');
     playSfx('complete');
   };
@@ -509,81 +538,77 @@ const AmariLetterTrace = ({
     playSfx('click');
   };
 
+  const toggleKeyboard = () => {
+    if (!keyboardMode) { usedKeyboardRef.current = true; setFirstTry(false); }
+    setKeyboardMode(value => !value);
+    keyboardRef.current = { cursor: 0, active: false };
+    setFeedback(keyboardMode ? 'Pointer tracing is ready.' : 'Press Space to start. Right or Down follows the dots. Left or Up goes back. Space finishes the stroke.');
+  };
   const renderIntro = () => (
-    <main className="mx-auto grid min-h-[70vh] w-full max-w-3xl content-center gap-5 px-4 py-8 text-center">
-      <div className="text-7xl" aria-hidden="true">✍️</div>
-      <p className="mx-auto rounded-full bg-blue-100 px-5 py-2 font-black text-blue-900">Chapter {level + 1} of 3</p>
-      <h1 className="text-4xl font-black text-blue-950">{chapter.title}</h1>
-      <p className="mx-auto max-w-xl text-xl font-bold text-slate-700">{chapter.prompt}</p>
-      <p className="text-sm font-semibold text-slate-600">{mastery.completedLevels.length} chapters earned · {mastery.masteredLetters.length} letters independently mastered</p>
-      <div className="flex flex-wrap justify-center gap-2" aria-label="Trace chapters">
-        {LETTER_TRACE_LEVELS.map((item, index) => <button key={item.id} type="button" onClick={() => chooseLevel(index)} disabled={index > mastery.unlocked} aria-pressed={index === level} aria-label={`${item.title}${index > mastery.unlocked ? ', locked' : ''}`} className={`min-h-12 rounded-2xl px-4 font-black ${index === level ? 'bg-blue-700 text-white' : index > mastery.unlocked ? 'bg-slate-200 text-slate-500' : 'bg-white text-blue-800 shadow'}`}>{item.title}</button>)}
-      </div>
-      <button type="button" onClick={() => beginChapter()} className="mx-auto min-h-14 rounded-2xl bg-emerald-600 px-8 text-xl font-black text-white shadow-lg">Start chapter</button>
-      {error && <p className="rounded-xl bg-amber-50 p-3 font-bold text-amber-950" role="alert">{error}</p>}
-    </main>
-  );
-
-  const renderComplete = () => (
-    <main className="mx-auto grid min-h-[70vh] w-full max-w-2xl content-center justify-items-center gap-5 px-4 py-8 text-center">
-      <div className="text-7xl" aria-hidden="true">🏅</div>
-      <h1 className="text-4xl font-black text-blue-950">Chapter complete!</h1>
-      <p className="max-w-xl text-lg font-bold text-slate-700">You finished all eight {level === 2 ? 'letter-and-word' : 'letter-tracing'} rounds. Your {chapter.title.toLowerCase()} badge is saved.</p>
-      <p className="font-semibold text-slate-600">{mastery.completedLevels.length} chapters earned · {mastery.masteredLetters.length} letters independently mastered</p>
-      <div className="flex flex-wrap justify-center gap-3"><button type="button" className="min-h-12 rounded-xl bg-blue-700 px-5 font-black text-white" onClick={() => beginChapter(true)}><RotateCcw className="mr-2 inline" size={18} />Replay chapter</button><button type="button" className="min-h-12 rounded-xl bg-white px-5 font-black text-blue-800 shadow" onClick={onBack}><ArrowLeft className="mr-2 inline" size={18} />Back to world</button></div>
-    </main>
-  );
-
-  const renderRound = () => (
-    <main className="mx-auto grid w-full max-w-5xl flex-1 content-start gap-4 px-3 py-4 sm:px-6">
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white/90 p-3 shadow">
-        <div><p className="font-black text-blue-900">{chapter.title} · round {roundIndex + 1} of {LETTER_TRACE_ROUNDS_PER_LEVEL}</p><h1 className="text-2xl font-black text-slate-900">Trace <span className="text-blue-700">{traceLetter}</span> {letter.word ? roundPassed ? `→ ${selectedWord?.word || letter.word.word}` : '· then find its starting word' : `· ${currentMeta.word}`}</h1></div>
-        <div className="flex items-center gap-2"><button type="button" onClick={() => say(AMARI_TRACE_NARRATION[0])} className="grid min-h-12 min-w-12 place-items-center rounded-xl bg-blue-100 text-blue-900" aria-label="Hear the tracing instruction again"><Volume2 size={22} /></button><button type="button" onClick={onToggleSound} aria-pressed={soundOn} className="min-h-12 rounded-xl bg-slate-100 px-3 font-black text-slate-800">Sound {soundOn ? 'on' : 'off'}</button></div>
-      </div>
-      <section className="rounded-2xl border border-blue-100 bg-white/90 p-3 shadow" aria-label="Letter tracing exercise">
-        {level === 1 && <div className="mb-3 rounded-2xl bg-indigo-50 p-3 text-center" aria-label={`Same letter pair: capital ${letter.upper} and lowercase ${letter.lower}`}>
-          <div className="flex justify-center gap-4">
-            {[['Capital', letter.upper], ['Lowercase', letter.lower]].map(([label, form]) => <div key={label} className={`min-w-24 rounded-xl border-2 px-4 py-2 ${form === traceLetter ? 'border-blue-600 bg-white' : 'border-indigo-100 bg-indigo-100/50'}`}>
-              <p className="text-xs font-bold text-indigo-900">{label}</p><p className="text-4xl font-black text-blue-900">{form}</p>
-            </div>)}
-          </div>
-          <p className="mt-2 text-sm font-bold text-indigo-950">Both forms are the same letter. Compare their shapes, then trace {traceLetter === letter.upper ? 'the capital' : 'the lowercase'} form.</p>
-        </div>}
-        <div className="mb-2 flex flex-wrap items-center justify-between gap-2"><p className="font-bold text-slate-800">{roundPassed ? 'Letter complete. Choose Next when you are ready.' : traceReady ? level === 2 ? 'All strokes traced. Find the matching word.' : 'All strokes traced. Check your shape.' : `Start at green ${strokeStateRef.current.completed + 1}; follow the arrows.`}</p><p className="font-black text-blue-800" aria-live="polite">{traceProgress}% traced</p></div>
-        <div className="h-3 overflow-hidden rounded-full bg-blue-100" role="progressbar" aria-label="Letter path progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={traceProgress}><div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-700" style={{ width: `${traceProgress}%` }} /></div>
-        <div className="relative mt-3 min-h-[280px] h-[min(48vh,440px)] w-full overflow-hidden rounded-2xl border-4 border-blue-200 bg-sky-50 sm:min-h-[340px]">
-          <canvas ref={canvasRef} aria-label={`${traceLetter} letter guide. ${strokeAnnouncement}`} role="img" onPointerDown={startPointer} onPointerMove={movePointer} onPointerUp={endPointer} onPointerCancel={cancelPointer} onKeyDown={handleKeyDown} tabIndex={keyboardMode ? 0 : -1} className={`absolute inset-0 block h-full w-full min-h-0 min-w-0 touch-none ${keyboardMode ? 'focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-500' : 'cursor-crosshair'}`} />
-        </div>
-        <div className="mt-3 flex flex-wrap justify-center gap-2">
-          <button type="button" onClick={showHint} disabled={roundPassed} className="min-h-12 rounded-xl bg-amber-100 px-4 font-black text-amber-950"><Lightbulb className="mr-2 inline" size={18} />Show this stroke</button>
-          <button type="button" onClick={restartTrace} disabled={roundPassed} className="min-h-12 rounded-xl bg-slate-100 px-4 font-black text-slate-900"><RotateCcw className="mr-2 inline" size={18} />Retry trace</button>
-          <button type="button" onClick={() => { setKeyboardMode((value) => !value); keyboardRef.current = { cursor: 0, active: false }; setFeedback(keyboardMode ? 'Pointer tracing is ready.' : 'Focus the guide. Press Space to start. Right or Down moves forward along the guide; Left or Up goes back. Press Space at the end to finish the stroke.'); }} disabled={roundPassed} aria-pressed={keyboardMode} className="min-h-12 rounded-xl bg-violet-100 px-4 font-black text-violet-950">{keyboardMode ? 'Use touch or mouse' : 'Use keyboard'}</button>
-          <button type="button" onClick={checkTrace} disabled={!traceReady || roundPassed} className="min-h-12 rounded-xl bg-emerald-700 px-5 font-black text-white disabled:opacity-40"><Check className="mr-2 inline" size={20} />{level === 2 ? 'Find the word' : 'Check shape'}</button>
-        </div>
+    <main className="mx-auto w-full max-w-4xl space-y-4 p-4 sm:p-6">
+      <section className="rounded-3xl border-2 border-white bg-white/95 p-5 text-center shadow-md">
+        <span aria-hidden="true" className="mx-auto mb-3 grid h-20 w-24 place-items-center rounded-2xl border-2 border-sky-200 bg-sky-50 text-5xl font-black text-sky-800">Aa</span>
+        <h1 className="text-3xl font-black text-blue-950">Make letters come to life</h1>
+        <p className="mt-2 font-semibold text-slate-600">Start at the green number. Follow one stroke, then lift.</p>
       </section>
-      {level === 2 && traceReady && !roundPassed && wordChoices.length > 0 && <section className="grid gap-3 rounded-2xl bg-white p-4 shadow" aria-label="Choose the word that starts with this sound"><h2 className="text-center text-xl font-black">Which word starts with {letter.lower}?</h2><div className="flex flex-wrap justify-center gap-3">{storyChoices.map((word) => {
-        const art = SPELLING_WORD_ART[word.word];
-        return <button type="button" key={word.word} onClick={() => answerWord(word)} aria-label={word.word} className="flex min-h-14 min-w-24 items-center justify-center gap-2 rounded-xl border-2 border-blue-200 bg-sky-50 px-3 text-lg font-black text-slate-900 sm:min-w-28 sm:px-4">
-          {art ? <img src={art.src} alt={art.alt} className="h-10 w-10 shrink-0 object-contain sm:h-12 sm:w-12" /> : <span aria-hidden="true">{word.emoji}</span>}
-          <span>{word.word}</span>
-        </button>;
-      })}</div></section>}
-      {roundPassed && <section className="grid gap-3 rounded-2xl border-2 border-emerald-300 bg-emerald-50 p-4 text-center" aria-live="polite"><h2 className="text-xl font-black text-emerald-950">{feedback}</h2><p className="font-semibold text-slate-800">The explanation stays here until you are ready.</p><button type="button" onClick={advance} className="min-h-14 rounded-xl bg-emerald-700 px-6 text-lg font-black text-white">{roundIndex + 1 === LETTER_TRACE_ROUNDS_PER_LEVEL ? 'Finish chapter' : 'Next letter'}</button></section>}
-      {!roundPassed && <p className="min-h-8 text-center font-bold text-slate-700" aria-live="polite">{feedback}</p>}
+      <div className="grid gap-3 sm:grid-cols-3" aria-label="Trace chapters">{LETTER_TRACE_LEVELS.map((item, index) => <button key={item.id} type="button" onClick={() => chooseLevel(index)} disabled={index > mastery.unlocked} aria-pressed={index === level} aria-label={`${item.title}${index > mastery.unlocked ? ', locked' : ''}`} className={`min-h-24 rounded-2xl border-2 p-4 text-left disabled:opacity-50 ${index === level ? 'border-blue-600 bg-white shadow-md' : 'border-white bg-white/75'}`}>
+        <span className="block text-xs font-black uppercase text-blue-800">Chapter {index + 1} · {mastery.completedLevels.includes(index) ? 'Badge earned' : index > mastery.unlocked ? 'Locked' : 'Ready'}</span><strong className="mt-1 block text-lg text-blue-950">{item.title}</strong><span className="mt-1 block text-sm font-semibold text-slate-600">{item.prompt}</span>
+      </button>)}</div>
+      <button type="button" onClick={() => beginChapter()} className="min-h-14 w-full rounded-2xl bg-emerald-800 px-5 text-xl font-black text-white shadow-md">Start {chapter.title} →</button>
+      <p className="text-center text-sm font-semibold text-slate-600">{mastery.completedLevels.length} of 3 chapter badges · {mastery.masteredLetters.length} letters mastered</p>
+      {error && <p className="rounded-xl bg-amber-50 p-3 font-bold text-amber-950" role="alert">{error}</p>}
+      <details className="rounded-2xl bg-white/75 p-3 text-sm text-slate-600"><summary className="min-h-12 cursor-pointer p-3 font-bold">For grown-ups: practice and mastery</summary><p className="p-3">Guided and keyboard practice can earn chapter badges. Letter mastery records unaided, first-try hand tracing.</p></details>
     </main>
   );
+  const renderComplete = () => (
+    <main className="mx-auto my-6 w-full max-w-2xl rounded-3xl border-2 border-white bg-white p-6 text-center shadow-xl">
+      <p aria-hidden="true" className="text-5xl text-amber-500">★</p><h1 className="mt-3 text-3xl font-black text-blue-950">{chapter.title} complete!</h1>
+      <p className="mt-3 font-semibold text-slate-700">Eight letters practised. Your chapter badge is saved.</p>
+      {level < 2 ? <button type="button" onClick={() => beginChapter(false, level + 1)} className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 font-black text-white">Next chapter: {LETTER_TRACE_LEVELS[level + 1].title} →</button> : <button type="button" onClick={() => { setActiveLevel(mastery.unlocked); setPhase('map'); }} className="mt-5 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 font-black text-white">Choose a chapter</button>}
+      <button type="button" onClick={() => beginChapter(true)} className="mt-3 min-h-12 w-full rounded-xl border-2 border-sky-300 bg-white px-5 font-black text-sky-900">Replay chapter</button>
+      <button type="button" onClick={onBack} className="mt-3 min-h-12 w-full rounded-xl px-5 font-black text-slate-700">Back to world</button>
+    </main>
+  );
+  const renderRound = () => {
+    const wordStep = level === 2 && wordChoices.length > 0 && !roundPassed;
+    return <main className="mx-auto w-full max-w-4xl space-y-4 p-3 sm:p-6" data-trace-letter={traceLetter}>
+      <section className="rounded-3xl border-2 border-white bg-white/95 p-4 shadow-md">
+        <p className="text-center text-xs font-black uppercase text-blue-800">{chapter.title} · Letter {roundIndex + 1} of 8</p>
+        <h1 className="mt-1 text-center text-2xl font-black text-blue-950">{roundPassed ? 'You did it!' : wordStep ? `Find a word for ${letter.lower}` : `Trace ${traceLetter}`}</h1>
+        {!roundPassed && !wordStep && <>
+          <p className="mt-2 text-center font-bold text-slate-700">{traceReady ? 'All strokes traced. Check your shape.' : `Start at green ${strokeStateRef.current.completed + 1}. Follow the arrows, then lift.`}</p>
+          {level === 1 && <p className="mt-2 text-center font-bold text-indigo-800" aria-label={`Same letter pair: capital ${letter.upper} and lowercase ${letter.lower}`}>Same letter: <span className="px-2 text-3xl">{letter.upper} {letter.lower}</span> · trace {traceLetter}</p>}
+          <div className="mt-3 h-3 overflow-hidden rounded-full bg-sky-100" role="progressbar" aria-label="Letter path progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={traceProgress}><div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-blue-700" style={{ width: `${traceProgress}%` }} /></div>
+          <div className="relative mt-3 h-[min(46vh,400px)] min-h-[280px] w-full overflow-hidden rounded-2xl border-2 border-sky-200 bg-sky-50 sm:min-h-[340px]">
+            <canvas ref={canvasRef} aria-label={`${traceLetter} letter guide. ${strokeAnnouncement}`} role="img" onPointerDown={startPointer} onPointerMove={movePointer} onPointerUp={endPointer} onPointerCancel={cancelPointer} onKeyDown={handleKeyDown} tabIndex={keyboardMode ? 0 : -1} className={`absolute inset-0 block h-full w-full touch-none ${keyboardMode ? 'focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-500' : 'cursor-crosshair'}`} />
+          </div>
+          <p className="mt-2 text-center text-sm font-bold text-blue-800" aria-live="polite">{traceProgress}% traced · {Math.min(strokeStateRef.current.completed, currentStrokeCount)} of {currentStrokeCount} strokes done</p>
+          <button type="button" onClick={checkTrace} disabled={!traceReady} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-800 px-5 text-lg font-black text-white disabled:bg-slate-200 disabled:text-slate-500"><Check className="mr-2 inline" size={20} />{level === 2 ? 'Find the word →' : 'Check shape'}</button>
+          <button type="button" onClick={showHint} className="mt-3 min-h-12 w-full rounded-xl bg-amber-50 px-4 font-black text-amber-950"><Lightbulb className="mr-2 inline" size={18} />{showGuide ? 'Watch stroke again' : 'Watch this stroke'}</button>
+          <details className="mt-3 rounded-xl bg-slate-50 p-2"><summary className="min-h-12 cursor-pointer p-3 font-bold text-slate-700">More tracing tools</summary><div className="grid gap-2 sm:grid-cols-2"><button type="button" onClick={restartTrace} className="min-h-12 rounded-xl bg-white px-4 font-black text-slate-800">Retry trace</button><button type="button" onClick={toggleKeyboard} aria-pressed={keyboardMode} className="min-h-12 rounded-xl bg-violet-100 px-4 font-black text-violet-950">{keyboardMode ? 'Use touch or mouse' : 'Use keyboard'}</button></div></details>
+          {keyboardMode && <p className="mt-2 text-sm font-bold text-violet-900">Focus the guide. Space starts/finishes a stroke. Right/Down follows the dots; Left/Up goes back.</p>}
+        </>}
+        {wordStep && <section aria-label="Choose the word that starts with this sound" className="mt-4 text-center"><span className="mx-auto block text-7xl font-black text-sky-700">{letter.lower}</span><p className="mt-2 font-bold">Which word starts with {letter.lower}?</p><div className="mt-4 grid gap-3 sm:grid-cols-3">{storyChoices.map(word => {
+          const art = SPELLING_WORD_ART[word.word];
+          return <button type="button" key={word.word} onClick={() => answerWord(word)} aria-label={word.word} className="flex min-h-24 items-center justify-center gap-3 rounded-2xl border-2 border-sky-200 bg-sky-50 p-3 text-xl font-black text-sky-950">{art ? <img src={art.src} alt={art.alt} className="h-16 w-16 object-contain" /> : <span aria-hidden="true" className="text-4xl">{word.emoji}</span>}<span>{word.word}</span></button>;
+        })}</div></section>}
+        {roundPassed && <section aria-label="Completed letter" aria-live="polite" className="mt-3 rounded-2xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="text-7xl font-black text-emerald-800">{traceLetter}</p>{selectedWord && <p className="mt-3 text-2xl font-black text-emerald-900">{selectedWord.word}</p>}<p className="mt-3 text-lg font-bold text-slate-800">{feedback}</p><button type="button" onClick={() => say(level === 2 ? AMARI_TRACE_NARRATION[5] : AMARI_TRACE_NARRATION[4])} className="mt-3 min-h-12 w-full rounded-xl border-2 border-emerald-600 bg-white px-4 font-black text-emerald-900"><Volume2 className="mr-2 inline" size={20} />Hear explanation</button><button type="button" onClick={advance} className="mt-3 min-h-14 w-full rounded-xl bg-emerald-800 px-5 text-lg font-black text-white">{roundIndex + 1 === LETTER_TRACE_ROUNDS_PER_LEVEL ? 'Finish chapter' : 'Next letter'} →</button></section>}
+        {!roundPassed && <p className="mt-3 min-h-8 text-center font-bold text-slate-700" aria-live="polite">{feedback}</p>}
+      </section>
+    </main>;
+  };
 
   return (
     <div className="flex min-h-[100dvh] flex-col bg-gradient-to-b from-blue-100 via-sky-100 to-indigo-100 text-slate-900">
       <header className="sticky top-0 z-10 flex min-h-[68px] items-center justify-between gap-2 bg-white/95 px-3 py-2 shadow sm:px-5">
         <button type="button" onClick={onBack} aria-label="Back to learning world" className="grid min-h-12 min-w-12 place-items-center rounded-full bg-blue-100 text-blue-950"><ArrowLeft /></button>
-        <div className="text-center"><p className="text-xs font-black uppercase tracking-wide text-blue-900">Words · age-six practice</p><p className="text-xl font-black">Letter Trace</p></div>
+        <div className="text-center"><p className="text-xs font-black uppercase tracking-wide text-blue-900">One stroke at a time</p><p className="text-xl font-black">Letter Trace</p></div>
         <button type="button" onClick={onToggleSound} aria-label={`Sound ${soundOn ? 'on' : 'off'}`} aria-pressed={soundOn} className="grid min-h-12 min-w-12 place-items-center rounded-xl bg-slate-100 text-slate-900"><Volume2 /></button>
       </header>
       {phase === 'map' && renderIntro()}
       {phase === 'play' && renderRound()}
       {phase === 'complete' && renderComplete()}
-      <footer className="px-4 pb-3 text-center text-xs font-semibold text-slate-600">Pointer completion records letter mastery only after an unhinted, first-try hand trace. Keyboard practice can complete the chapter without recording handwriting mastery.</footer>
+
     </div>
   );
 };

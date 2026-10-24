@@ -11,6 +11,7 @@ import {
   makeLetterTraceRun,
   makeTraceWordChoices,
   recordLetterTraceMastery,
+  recordLetterTracePractice,
   resetUnfinishedTraceStroke,
   traceToleranceForSize,
 } from '../src/data/letterTraceLearning.js';
@@ -97,4 +98,14 @@ test('malformed saved completion does not grant a noncontiguous unlock', () => {
   assert.equal(getLetterTraceProgress('amari', storage).unlocked, 1);
   assert.deepEqual(getLetterTraceShelfBadgeIds('amari', storage), ['trace-follow-path']);
   assert.deepEqual(getLetterTraceProgress('amari', storage).masteredLetters, ['a']);
+});
+
+
+test('guided practice updates recent history without handwriting mastery or another player award', () => {
+  const storage = memoryStorage();
+  recordLetterTracePractice({playerId:'amari',level:0,letter:'a',storage});
+  const progress = getLetterTraceProgress('amari',storage);
+  assert.deepEqual(progress.masteredLetters,[]);
+  assert.deepEqual(progress.recentByLevel[0],['a']);
+  assert.deepEqual(getLetterTraceProgress('askia',storage).recentByLevel,{0:[],1:[],2:[]});
 });

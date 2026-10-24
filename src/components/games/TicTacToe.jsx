@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, Bot, Lightbulb, RotateCcw, Sparkles, Users } from 'lucide-react';
+import { ArrowLeft, Bot, Lightbulb, RotateCcw, Users, Volume2 } from 'lucide-react';
+import rocketMark from '../../assets/little/fuel-rocket.webp';
 import { SoundToggle } from '../shared/index.jsx';
 import {
   applyTicMove,
   chooseCosmicBotMove,
   completeCosmicTactic,
+  cosmicTacticPaths,
+  isCosmicTacticMove,
+  getCosmicFreeProgress,
+  recordCosmicFreeResult,
   COSMIC_BOARDS_PER_CHAPTER,
   COSMIC_CHAPTERS,
   COSMIC_TACTIC_NARRATION,
@@ -17,7 +22,7 @@ import {
 export { COSMIC_TACTIC_NARRATION } from '../../data/cosmicTactics.js';
 
 
-const MARK = Object.freeze({ X: { name: 'Dino', emoji: '🦖', color: 'text-lime-300' }, O: { name: 'Rocket', emoji: '🚀', color: 'text-cyan-300' } });
+const MARK = Object.freeze({ X: { name: 'Dino', src: '/art/shadow-match-v1/trex.webp', color: 'text-lime-300' }, O: { name: 'Rocket', src: rocketMark, color: 'text-cyan-300' } });
 const PLAYER_MARK = 'X';
 const otherMark = (mark) => mark === 'X' ? 'O' : 'X';
 const phaseName = (phase) => ({ map: 'intro', play: 'play', complete: 'complete' })[phase] || phase;
@@ -42,10 +47,9 @@ const TicTacToe = ({
   onGameEvent,
   onPhaseChange,
   playerId = 'amari',
-  sessionLevel = 0,
 }) => {
   const [progress, setProgress] = useState(() => getCosmicProgress(playerId));
-  const [chapterIndex, setChapterIndex] = useState(Math.max(0, Math.min(2, sessionLevel)));
+  const [chapterIndex, setChapterIndex] = useState(() => getCosmicProgress(playerId).unlocked);
   const [phase, setPhase] = useState('map');
   const [confirmLeaveBoard, setConfirmLeaveBoard] = useState(false);
   const [activity, setActivity] = useState('mission');
@@ -65,7 +69,7 @@ const TicTacToe = ({
   const [missionSolved, setMissionSolved] = useState(false);
   const [missionWrong, setMissionWrong] = useState(false);
   const [feedback, setFeedback] = useState('');
-  const [scores, setScores] = useState({ X: 0, O: 0, draws: 0 });
+  const [scores, setScores] = useState(() => getCosmicFreeProgress(playerId));
   const [freeRound, setFreeRound] = useState(0);
   const botTimerRef = useRef(null);
   const completedResultRef = useRef('');
@@ -75,17 +79,18 @@ const TicTacToe = ({
   const chapter = COSMIC_CHAPTERS[chapterIndex];
   const result = useMemo(() => getBoardResult(board), [board]);
   const terminal = Boolean(result.winner || result.draw);
-  const botThinking = phase === 'play' && activity === 'free' && opponent === 'bot' && turn === 'O' && !terminal;
+  const botThinking = phase === 'play' && activity === 'free' && opponent === 'bot' && turn === 'O' && !terminal && !confirmLeaveBoard;
   const requestLeaveBoard = () => setConfirmLeaveBoard(true);
   const keepPlaying = () => setConfirmLeaveBoard(false);
   const leaveBoard = () => {
     cancelNarration();
     setConfirmLeaveBoard(false);
+    clearTimeout(botTimerRef.current);
     setPhase('map');
   };
 
   useEffect(() => { onPhaseChange?.(phaseName(phase)); }, [onPhaseChange, phase]);
-  useEffect(() => { setProgress(getCosmicProgress(playerId)); }, [playerId]);
+  useEffect(() => { setProgress(getCosmicProgress(playerId)); setScores(getCosmicFreeProgress(playerId)); }, [playerId]);
   useEffect(() => () => {
     clearTimeout(botTimerRef.current);
     cancelNarration();
@@ -121,7 +126,7 @@ const TicTacToe = ({
     setHadMistake(false);
     setMissionSolved(false);
     setMissionWrong(false);
-    setFeedback(chapterIndex === requestedChapter ? COSMIC_CHAPTERS[requestedChapter].instruction : COSMIC_CHAPTERS[requestedChapter].instruction);
+    setFeedback(COSMIC_CHAPTERS[requestedChapter].instruction);
     setPhase('play');
     onGameEvent?.('tictactoe', 'start', { level: requestedChapter, round: nextMissionIndex, seed: nextSeed, difficulty: ['starter', 'growing', 'challenge'][requestedChapter] });
     say(COSMIC_CHAPTERS[requestedChapter].instruction);
@@ -164,18 +169,17 @@ const TicTacToe = ({
     setMissionTarget(null);
     setMissionSolved(false);
     setMissionWrong(false);
-    setScores({ X: 0, O: 0, draws: 0 });
     setFreeRound((value) => value + 1);
     onGameEvent?.('tictactoe', 'start', { level: chapterIndex, round: freeRound + 1, seed: nextSeed, difficulty: opponent === 'bot' ? difficulty : 'two-player' });
   };
 
   const placeMissionMove = (index) => {
-    if (missionSolved || missionWrong || board[index]) return;
-    if (index !== missionTarget) {
+    if (missionSolved || board[index]) return;
+    if (!isCosmicTacticMove(board, index, chapter.tactic)) {
       setMissionWrong(true);
       setHadMistake(true);
-      setFeedback(COSMIC_TACTIC_NARRATION[4]);
-      say(COSMIC_TACTIC_NARRATION[4]);
+      setFeedback('Try another empty square. Your board stays the same.');
+      say(chapter.instruction);
       onGameEvent?.('tictactoe', 'answer_attempt', { level: chapterIndex, round: missionIndex, seed, firstAttempt: false, tactic: chapter.tactic });
       playSfx('oops');
       return;
@@ -183,6 +187,7 @@ const TicTacToe = ({
     const next = applyTicMove(board, index, 'X');
     if (!next) return;
     setBoard(next);
+    setMissionTarget(index);
     setMissionSolved(true);
     setMissionWrong(false);
     setHintCell(null);
@@ -229,7 +234,9 @@ const TicTacToe = ({
 
   const showHint = () => {
     if (phase !== 'play' || activity !== 'mission' || missionSolved) return;
+    if (hintUsed) return;
     setHintUsed(true);
+    setMissionWrong(false);
     setHintCount((count) => count + 1);
     setHintCell(missionTarget);
     setFeedback(chapter.tactic === 'win'
@@ -315,18 +322,18 @@ const TicTacToe = ({
     const outcome = result.draw ? 'draw' : result.winner === 'X' ? 'player_win' : 'opponent_win';
     onGameEvent?.('tictactoe', 'round_completed', { level: chapterIndex, round: freeRound, seed, result: outcome });
     if (result.draw) {
-      setScores((saved) => ({ ...saved, draws: saved.draws + 1 }));
+      setScores(recordCosmicFreeResult({ playerId, board, boardId: `${seed}:${freeRound}` }));
       setFeedback(COSMIC_TACTIC_NARRATION[6]);
       say(COSMIC_TACTIC_NARRATION[6]);
       playSfx('chime');
     } else {
       const winner = result.winner;
-      setScores((saved) => ({ ...saved, [winner]: saved[winner] + 1 }));
+      setScores(recordCosmicFreeResult({ playerId, board, boardId: `${seed}:${freeRound}` }));
       setFeedback(winner === 'X' ? COSMIC_TACTIC_NARRATION[8] : `${opponent === 'bot' ? 'Nova Bot' : 'Rocket'} made a line of three. Try a new plan.`);
       say(winner === 'X' ? COSMIC_TACTIC_NARRATION[8] : COSMIC_TACTIC_NARRATION[9]);
       playSfx(winner === 'X' ? 'complete' : 'oops');
     }
-  }, [activity, board, chapterIndex, freeRound, onGameEvent, opponent, phase, playSfx, result, seed, say, terminal]);
+  }, [activity, board, chapterIndex, freeRound, onGameEvent, opponent, phase, playerId, playSfx, result, seed, say, terminal]);
 
   const moveFocus = (event, index) => {
     const deltas = { ArrowUp: -3, ArrowDown: 3, ArrowLeft: -1, ArrowRight: 1 };
@@ -338,51 +345,43 @@ const TicTacToe = ({
     cellRefs.current[next]?.focus();
   };
 
-  const renderBoard = () => (
-    <div className="mx-auto grid aspect-square w-full max-w-[min(88vw,28rem)] grid-cols-3 gap-2 rounded-3xl border-4 border-cyan-100 bg-slate-900/50 p-3 shadow-2xl" role="grid" aria-label="Cosmic three by three board">
-      {board.map((mark, index) => {
-        const winning = result.line.includes(index);
-        const clue = hintCell === index && !mark;
-        const target = activity === 'mission' && missionTarget === index && !missionSolved && !missionWrong;
-        const targetShown = target && hintUsed;
-        return <button key={index} type="button" ref={(node) => { cellRefs.current[index] = node; }} onClick={() => onCellClick(index)} onKeyDown={(event) => moveFocus(event, index)} disabled={Boolean(mark) || activity === 'free' && (terminal || botThinking || opponent === 'bot' && turn === 'O') || activity === 'mission' && (missionSolved || missionWrong)} role="gridcell" aria-label={`Row ${Math.floor(index / 3) + 1}, column ${index % 3 + 1}, square ${index + 1}${mark ? `, ${MARK[mark].name}` : ', empty'}${targetShown ? ', lesson target' : ''}${clue ? ', hint' : ''}`} className={`grid min-h-0 min-w-0 aspect-square place-items-center rounded-2xl border-2 text-5xl font-black transition focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-amber-300 sm:text-6xl ${winning ? 'border-lime-300 bg-lime-300/20' : clue || targetShown ? 'border-amber-300 bg-amber-300/15' : 'border-white/20 bg-white/10'} ${mark ? MARK[mark].color : 'text-white'} disabled:cursor-default`}>
-          {mark ? MARK[mark].emoji : clue ? <Lightbulb className="text-amber-200" size={30} /> : target && hintUsed ? <Sparkles className="text-amber-200" size={27} /> : ''}
-        </button>;
-      })}
-    </div>
-  );
+  const renderBoard = () => {
+    const paths = activity === 'mission' && missionSolved ? cosmicTacticPaths(board, missionTarget, chapter.tactic) : result.line.length ? [result.line] : [];
+    return <div className="relative mx-auto w-full max-w-[min(88vw,28rem)]">
+      <div className="grid aspect-square w-full grid-cols-3 gap-2 rounded-3xl border-4 border-cyan-100 bg-slate-900/50 p-3 shadow-xl" role="grid" aria-label="Cosmic three by three board">
+        {board.map((mark, index) => {
+          const winning = paths.some(line => line.includes(index));
+          const clue = hintCell === index && !mark;
+          const pathIndex = paths.findIndex(line => line.includes(index));
+          return <button key={index} type="button" ref={node => { cellRefs.current[index] = node; }} onClick={() => onCellClick(index)} onKeyDown={event => moveFocus(event, index)} disabled={Boolean(mark) || activity === 'free' && (terminal || botThinking || opponent === 'bot' && turn === 'O') || activity === 'mission' && missionSolved} role="gridcell" aria-label={`Row ${Math.floor(index / 3) + 1}, column ${index % 3 + 1}, square ${index + 1}${mark ? `, ${MARK[mark].name}` : ', empty'}${clue ? ', hint' : ''}${pathIndex >= 0 ? ', explained path' : ''}`} className={`relative z-10 grid min-h-0 min-w-0 aspect-square place-items-center rounded-2xl border-2 font-black transition focus-visible:z-20 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-amber-300 ${winning ? 'border-lime-300 bg-lime-300/10' : clue ? 'border-amber-300 bg-amber-300/20' : 'border-white/20 bg-white/10'} disabled:cursor-default`}>
+            {mark ? <img src={MARK[mark].src} alt="" aria-hidden="true" className="h-12 w-12 object-contain drop-shadow-md sm:h-20 sm:w-20" /> : clue ? <Lightbulb className="text-amber-200" size={30} /> : ''}
+          </button>;
+        })}
+      </div>
+      {paths.length > 0 && <svg viewBox="0 0 300 300" role="img" aria-label={activity === 'mission' && chapter.tactic === 'block' ? 'Rocket line blocked by Dino' : paths.length > 1 ? 'Two different winning paths' : 'A line of three Dino marks'} className="pointer-events-none absolute inset-4 z-20 h-[calc(100%-2rem)] w-[calc(100%-2rem)]">
+        {paths.map((line, i) => { const center = cell => ({ x: 50 + cell % 3 * 100, y: 50 + Math.floor(cell / 3) * 100 }); const from = center(line[0]), to = center(line[2]); return <line key={line.join('-')} data-tactic-path x1={from.x} y1={from.y} x2={to.x} y2={to.y} stroke={i ? '#67e8f9' : '#bef264'} strokeWidth="6" strokeDasharray={chapter.tactic === 'block' ? '9 7' : undefined} opacity=".85" strokeLinecap="round" />; })}
+      </svg>}
+    </div>;
+  };
 
   const renderMap = () => (
-    <main className="mx-auto grid min-h-[70vh] w-full max-w-4xl content-center gap-5 px-4 py-8 text-center">
-      <div className="text-7xl" aria-hidden="true">🌌</div>
-      <p className="text-sm font-black uppercase tracking-[.22em] text-cyan-100">Dino Space Arena · age-six strategy</p>
-      <h1 className="text-4xl font-black">Cosmic Tic-Tac-Toe</h1>
-      <p className="mx-auto max-w-2xl text-lg font-bold text-white/80">Practice a winning line, block a threat, and make a fork. Each lesson board holds its explanation until you move on.</p>
-      <section className="grid gap-3 text-left sm:grid-cols-3" aria-label="Tactic chapters">
-        {COSMIC_CHAPTERS.map((item, index) => <button key={item.id} type="button" onClick={() => startMission(index)} disabled={index > progress.unlocked} aria-label={`${item.title}, ${progress.completedByChapter[index]} of ${COSMIC_BOARDS_PER_CHAPTER} boards complete${index > progress.unlocked ? ', locked' : ''}`} className={`min-h-28 rounded-2xl border-2 p-4 text-left ${index <= progress.unlocked ? 'border-cyan-100/30 bg-white/10 hover:bg-white/15' : 'border-white/10 bg-white/5 text-white/45'}`}><span className="block text-xl font-black">{item.title}</span><span className="mt-1 block text-sm font-semibold">Rival {item.rival}</span><span className="mt-2 block text-sm font-bold text-cyan-100">{progress.completedByChapter[index]} / 3 boards solved</span></button>)}
-      </section>
-      <section className="mx-auto grid w-full max-w-lg gap-2 rounded-2xl border border-white/15 bg-white/10 p-4 text-left">
-        <p className="font-black">Free play</p>
-        <div className="grid grid-cols-2 gap-2"><button type="button" onClick={() => startFreePlay('bot', difficulty)} className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-cyan-200 font-black text-slate-950"><Bot size={18} />Play Nova Bot</button><button type="button" onClick={() => startFreePlay('buddy', difficulty)} className="flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white font-black text-slate-950"><Users size={18} />Two players</button></div>
-      </section>
-      <button type="button" onClick={onBack} className="mx-auto min-h-12 rounded-xl bg-white/10 px-5 font-black">Back to learning world</button>
+    <main className="mx-auto w-full max-w-4xl space-y-4 p-4 sm:p-6">
+      <section className="rounded-3xl border-2 border-cyan-200/30 bg-white/10 p-5 text-center"><img src={MARK.X.src} alt="" className="mx-auto h-24 w-24 object-contain" /><h1 className="mt-2 text-3xl font-black">Think one move ahead</h1><p className="mt-2 font-semibold text-sky-100">Learn three little tricks, then play a whole game.</p></section>
+      <button type="button" onClick={() => startMission(progress.unlocked)} className="min-h-14 w-full rounded-2xl bg-lime-300 px-5 text-lg font-black text-slate-950">{progress.badges.length === 3 ? 'Practise' : 'Start'} {COSMIC_CHAPTERS[progress.unlocked].title} →</button>
+      <section className="grid gap-3 sm:grid-cols-3" aria-label="Tactic chapters">{COSMIC_CHAPTERS.map((item, index) => <button key={item.id} type="button" onClick={() => startMission(index, progress.completedByChapter[index] === 3)} disabled={index > progress.unlocked} aria-label={`${item.title}, ${progress.completedByChapter[index]} of 3 boards complete${index > progress.unlocked ? ', locked' : ''}`} className="min-h-24 rounded-2xl border-2 border-cyan-100/30 bg-white/10 p-4 text-left disabled:opacity-45"><span className="text-xs font-black uppercase text-cyan-100">Lesson {index + 1} · {index > progress.unlocked ? 'Locked' : progress.completedByChapter[index] === 3 ? 'Badge earned' : 'Ready'}</span><strong className="mt-1 block text-lg">{item.title}</strong><span className="mt-2 block text-sm font-semibold text-sky-100">{progress.completedByChapter[index]} / 3 boards solved</span></button>)}</section>
+      <details className="rounded-2xl border border-white/20 bg-white/10 p-3"><summary className="min-h-12 cursor-pointer p-3 font-black">Play a whole game</summary><div className="grid gap-2 sm:grid-cols-2"><button type="button" onClick={() => startFreePlay('bot', difficulty)} className="min-h-14 rounded-xl bg-cyan-200 px-3 font-black text-slate-950"><Bot className="mr-2 inline" size={20} />Play Nova Bot</button><button type="button" onClick={() => startFreePlay('buddy', difficulty)} className="min-h-14 rounded-xl bg-white px-3 font-black text-slate-950"><Users className="mr-2 inline" size={20} />Two players</button></div></details>
     </main>
   );
 
   const renderMission = () => (
-    <main className="mx-auto grid w-full max-w-5xl flex-1 content-start gap-4 px-3 py-4 sm:px-5">
-      <section className="grid gap-2 rounded-2xl border border-white/15 bg-white/10 p-4">
-        <div className="flex flex-wrap items-center justify-between gap-3"><div><p className="text-xs font-black uppercase tracking-widest text-cyan-100">{chapter.title} · board {missionIndex + 1} of 3</p><h1 className="text-2xl font-black">Rival {chapter.rival}</h1></div><button type="button" onClick={showHint} disabled={missionSolved} className="flex min-h-12 items-center gap-2 rounded-xl bg-amber-200 px-4 font-black text-amber-950 disabled:opacity-50"><Lightbulb size={20} />Show hint</button></div>
-        <p className="text-lg font-bold" aria-live="polite">{chapter.instruction}</p>
-        <p className="text-sm font-semibold text-white/75">{progress.completedByChapter[chapterIndex]} of 3 tactic boards solved · the move stays yours to choose.</p>
+    <main className="mx-auto w-full max-w-3xl space-y-4 p-3 sm:p-5">
+      <section className="rounded-3xl border border-cyan-100/25 bg-white/10 p-4 text-center"><p className="text-xs font-black uppercase tracking-wide text-cyan-100">Lesson {chapterIndex + 1} · Board {missionRunStep + 1} of {missionRunIds.length}</p><h1 className="mt-1 text-2xl font-black">{chapter.title}</h1><p className="mt-2 text-lg font-bold">{chapter.instruction}</p>
+        <p className="mt-3 flex flex-wrap items-center justify-center gap-2 text-sm font-bold text-sky-100"><img src={MARK.X.src} alt="" className="h-8 w-8 object-contain" />You are Dino<span className="px-1">·</span><img src={MARK.O.src} alt="" className="h-8 w-8 object-contain" />Stop Rocket</p>
+        {!missionSolved && <div className="mt-2 flex flex-wrap justify-center gap-2"><button type="button" onClick={() => say(chapter.instruction)} className="min-h-12 rounded-xl bg-white/10 px-4 font-black"><Volume2 className="mr-2 inline" size={18} />Hear mission</button><button type="button" onClick={showHint} disabled={hintUsed} className="min-h-12 rounded-xl bg-amber-200 px-4 font-black text-amber-950 disabled:opacity-50"><Lightbulb className="mr-2 inline" size={18} />{hintUsed ? 'Hint used' : 'Show hint'}</button></div>}
       </section>
       {renderBoard()}
-      <div className="mx-auto w-full max-w-xl rounded-2xl border border-cyan-100/20 bg-white/10 p-4 text-center">
-        <p className="min-h-14 text-lg font-bold" aria-live="polite">{feedback}</p>
-        {missionWrong && <button type="button" onClick={retryMission} className="mt-2 min-h-12 rounded-xl bg-white px-5 font-black text-slate-950"><RotateCcw className="mr-2 inline" size={18} />Retry this board</button>}
-        {missionSolved && <div className="mt-2 grid gap-3"><p className="font-black text-lime-100">Tactic solved. The explanation is held until you choose to continue.</p><button type="button" onClick={nextMission} className="min-h-12 rounded-xl bg-lime-300 px-5 font-black text-slate-950">{missionRunStep >= missionRunIds.length - 1 ? 'Finish chapter' : 'Next tactic board'}</button></div>}
-      </div>
-      <button type="button" onClick={requestLeaveBoard} className="mx-auto min-h-12 rounded-xl bg-white/10 px-5 font-black">Chapter map</button>
+      {missionSolved ? <section aria-label="Tactic explained" className="rounded-2xl border-2 border-lime-200 bg-lime-50 p-4 text-center text-slate-950"><p role="status" className="text-lg font-black">{feedback}</p><p className="mt-2 text-sm font-bold">{chapter.tactic === 'fork' ? 'Follow both coloured paths. Rocket can block only one on its next move.' : chapter.tactic === 'block' ? 'The dashed path shows the line you stopped.' : 'Follow the bright line through all three Dino marks.'}</p><button type="button" onClick={() => say(feedback)} className="mt-3 min-h-12 w-full rounded-xl border-2 border-emerald-700 bg-white px-4 font-black text-emerald-900"><Volume2 className="mr-2 inline" size={20} />Hear explanation</button><button type="button" onClick={nextMission} className="mt-3 min-h-14 w-full rounded-xl bg-emerald-800 px-5 text-lg font-black text-white">{missionRunStep >= missionRunIds.length - 1 ? 'Finish chapter' : 'Next tactic board'} →</button></section> : <p role="status" className={`rounded-2xl p-4 text-center font-bold ${missionWrong ? 'border-2 border-amber-300 bg-amber-50 text-amber-950' : 'bg-white/10 text-white'}`}>{missionWrong ? feedback : 'Tap an empty square for Dino.'}</p>}
+      <details className="rounded-2xl bg-white/5 p-2"><summary className="min-h-12 cursor-pointer p-3 font-bold text-sky-100">Lesson options</summary><div className="grid gap-2 sm:grid-cols-2">{!missionSolved && <button type="button" onClick={retryMission} className="min-h-12 rounded-xl bg-white/10 px-4 font-black">Retry this board</button>}<button type="button" onClick={requestLeaveBoard} className="min-h-12 rounded-xl bg-white/10 px-4 font-black">Chapter map</button></div></details>
     </main>
   );
 
@@ -394,7 +393,7 @@ const TicTacToe = ({
       </section>
       <div className="flex items-center justify-between rounded-2xl border border-white/15 bg-white/10 px-4 py-3"><p className="text-lg font-black" aria-live="polite">{terminal ? result.draw ? 'Cosmic draw' : `${MARK[result.winner].name} wins this board` : botThinking ? 'Nova Bot is thinking…' : `${MARK[turn].name}’s turn`}</p><button type="button" onClick={resetFreeBoard} className="flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-4 font-black"><RotateCcw size={18} />{terminal ? 'New board' : 'Reset board'}</button></div>
       {renderBoard()}
-      <div className="mx-auto w-full max-w-xl rounded-2xl border border-cyan-100/20 bg-white/10 p-4 text-center"><p className="min-h-8 font-bold" aria-live="polite">{feedback}</p><p className="mt-2 text-sm font-semibold text-white/70">Dino {scores.X} · {opponent === 'bot' ? 'Nova' : 'Rocket'} {scores.O} · draws {scores.draws}</p></div>
+      <div className="mx-auto w-full max-w-xl rounded-2xl border border-cyan-100/20 bg-white/10 p-4 text-center"><p className="min-h-8 font-bold" aria-live="polite">{feedback}</p><p className="mt-2 text-sm font-semibold text-white/70">Saved totals · Dino {scores.X} · Rocket {scores.O} · draws {scores.draws}</p></div>
       <button type="button" onClick={requestLeaveBoard} className="mx-auto min-h-12 rounded-xl bg-white/10 px-5 font-black">Back to chapters</button>
     </main>
   );
@@ -410,7 +409,7 @@ const TicTacToe = ({
       <div className="text-7xl" aria-hidden="true">🏅</div><h1 className="text-4xl font-black">{chapter.title} complete!</h1>
       <p className="max-w-2xl text-lg font-bold text-white/80">You solved three different {chapter.tactic === 'win' ? 'winning-line' : chapter.tactic === 'block' ? 'blocking' : 'fork'} boards. Your chapter badge and next chapter unlock are saved.</p>
       <p className="rounded-full bg-white/10 px-5 py-2 font-black">Saved badges: {progress.badges.length} · next chapter {chapterIndex < 2 ? progress.unlocked >= chapterIndex + 1 ? 'unlocked' : 'locked' : 'last chapter complete'}</p>
-      <div className="flex flex-wrap justify-center gap-3"><button type="button" onClick={() => startMission(chapterIndex, true)} className="min-h-12 rounded-xl bg-cyan-200 px-5 font-black text-slate-950"><RotateCcw className="mr-2 inline" size={18} />Replay chapter</button><button type="button" onClick={showChapterMap} className="min-h-12 rounded-xl bg-white/15 px-5 font-black">Choose another chapter</button><button type="button" onClick={onBack} className="min-h-12 rounded-xl bg-white/15 px-5 font-black"><ArrowLeft className="mr-2 inline" size={18} />Back to world</button></div>
+      <button type="button" onClick={() => chapterIndex < 2 ? startMission(chapterIndex + 1) : showChapterMap()} className="min-h-14 w-full max-w-xl rounded-xl bg-lime-300 px-5 text-lg font-black text-slate-950">{chapterIndex < 2 ? `Next lesson: ${COSMIC_CHAPTERS[chapterIndex + 1].title}` : 'Choose what to play'} →</button><div className="flex flex-wrap justify-center gap-3"><button type="button" onClick={() => startMission(chapterIndex, true)} className="min-h-12 rounded-xl bg-cyan-200 px-5 font-black text-slate-950"><RotateCcw className="mr-2 inline" size={18} />Replay chapter</button><button type="button" onClick={showChapterMap} className="min-h-12 rounded-xl bg-white/15 px-5 font-black">Choose another chapter</button><button type="button" onClick={onBack} className="min-h-12 rounded-xl bg-white/15 px-5 font-black"><ArrowLeft className="mr-2 inline" size={18} />Back to world</button></div>
     </main>
   );
 

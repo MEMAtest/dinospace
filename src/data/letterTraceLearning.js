@@ -71,6 +71,8 @@ export const makeLetterTraceRun = ({ seed, level = 0, taught = getTaughtGrapheme
   const fresh = eligible.filter((item) => !recent.has(item.lower));
   const pool = fresh.length >= LETTER_TRACE_ROUNDS_PER_LEVEL ? fresh : eligible;
   const roundItems = shuffle(pool, seededRandom(normalizedSeed)).slice(0, LETTER_TRACE_ROUNDS_PER_LEVEL);
+  // Finite taught pools can repeat letters; never immediately repeat the last one.
+  if (roundItems.length > 1 && roundItems[0].lower === recentLetters.at(-1)) roundItems.push(roundItems.shift());
   return {
     seed: normalizedSeed,
     rounds: roundItems.map((item, index) => ({
@@ -255,4 +257,14 @@ export const completeLetterTraceLevel = ({ playerId = 'amari', level, completedR
   const next = { ...previous, unlocked: Math.max(previous.unlocked, Math.min(2, level + 1)), completedLevels };
   try { storage?.setItem(LETTER_TRACE_PROGRESS_KEY, JSON.stringify({ ...all, [playerId]: next })); } catch { /* local progress remains optional */ }
   return { ...next, newlyCompleted };
+};
+
+// Guided/keyboard practice belongs in replay history without granting handwriting mastery.
+export const recordLetterTracePractice = ({ playerId = 'amari', level, letter, storage = globalThis.localStorage }) => {
+  const previous = getLetterTraceProgress(playerId, storage);
+  if (!Number.isInteger(level) || level < 0 || level > previous.unlocked || !getTraceEligibleItems(level).some(item => item.lower === letter)) return { ...previous, invalid: true };
+  const recent = previous.recentByLevel[level] || [];
+  const next = { ...previous, recentByLevel: { ...previous.recentByLevel, [level]: [...recent.filter(item => item !== letter), letter].slice(-8) } };
+  try { storage?.setItem(LETTER_TRACE_PROGRESS_KEY, JSON.stringify({ ...safeRead(storage), [playerId]: next })); } catch { /* Preserve the current visit when device storage is unavailable. */ }
+  return next;
 };

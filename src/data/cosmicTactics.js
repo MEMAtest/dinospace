@@ -66,6 +66,14 @@ export const findForkMoves = (board, mark) => legalTicMoves(board).filter((index
   return findImmediateMoves(next, mark).length >= 2;
 });
 
+export const isCosmicTacticMove = (board, index, tactic) => {
+  const next = applyTicMove(board, index, 'X');
+  if (!next) return false;
+  if (tactic === 'win') return getBoardResult(next).winner === 'X';
+  if (tactic === 'block') return findImmediateMoves(board, 'O').includes(index) && findImmediateMoves(next, 'O').length === 0;
+  return tactic === 'fork' && !getBoardResult(next).winner && findImmediateMoves(next, 'X').length >= 2;
+};
+
 export const seededRandom = (seed) => {
   let state = Number(seed) >>> 0;
   return () => {
@@ -122,6 +130,22 @@ export const chooseCosmicBotMove = (board, { seed = 0, difficulty = 'scout' } = 
   const moves = legalTicMoves(board);
   if (!moves.length || getBoardResult(board).winner || getBoardResult(board).draw) return null;
   const random = seededRandom(seed);
+  if (difficulty === 'captain') {
+    const memo = new Map();
+    const score = (state, turn) => {
+      const result = getBoardResult(state);
+      if (result.winner) return (state.filter(mark => mark === null).length + 1) * (result.winner === 'O' ? 1 : -1);
+      if (result.draw) return 0;
+      const key = state.map(mark => mark || '-').join('') + turn;
+      if (memo.has(key)) return memo.get(key);
+      const values = legalTicMoves(state).map(move => score(applyTicMove(state, move, turn), turn === 'O' ? 'X' : 'O'));
+      const value = turn === 'O' ? Math.max(...values) : Math.min(...values);
+      memo.set(key, value); return value;
+    };
+    const ranked = moves.map(move => ({ move, value: score(applyTicMove(board, move, 'O'), 'X') }));
+    const best = Math.max(...ranked.map(row => row.value));
+    return pickSeeded(ranked.filter(row => row.value === best).map(row => row.move), random);
+  }
   const winning = findImmediateMoves(board, 'O');
   if (winning.length) return pickSeeded(winning, random);
   const threats = findImmediateMoves(board, 'X');
@@ -180,4 +204,31 @@ export const completeCosmicTactic = ({ playerId = 'amari', level, missionId, sto
   const next = { completedMissionIds, unlocked: chapterComplete ? Math.max(previous.unlocked, Math.min(2, level + 1)) : previous.unlocked, badges };
   try { storage?.setItem(COSMIC_PROGRESS_KEY, JSON.stringify({ ...all, [playerId]: next })); } catch { /* device storage may be unavailable */ }
   return { ...next, completedByChapter, newlyCompleted: completedMissionIds[level].length > before, newlyAwardedBadge: chapterComplete && !previous.badges.includes(COSMIC_CHAPTERS[level].id) };
+};
+
+// Derive the explanation from the actual solved geometry, not a decorative line.
+export const cosmicTacticPaths = (board, target, tactic) => {
+  if (!Array.isArray(board) || board.length !== 9 || !Number.isInteger(target)) return [];
+  return WIN_LINES.filter(line => line.includes(target) && (tactic === 'win'
+    ? line.every(cell => board[cell] === 'X')
+    : tactic === 'block' ? board[target] === 'X' && line.filter(cell => cell !== target).every(cell => board[cell] === 'O')
+      : line.filter(cell => board[cell] === 'X').length === 2 && line.filter(cell => board[cell] === null).length === 1));
+};
+export const COSMIC_FREE_PROGRESS_KEY = 'amari_cosmic_freeplay_v1';
+const readFreePlay = storage => { try { const value = JSON.parse(storage?.getItem(COSMIC_FREE_PROGRESS_KEY) || '{}'); return value && typeof value === 'object' && !Array.isArray(value) ? value : {}; } catch { return {}; } };
+export const getCosmicFreeProgress = (playerId = 'amari', storage = globalThis.localStorage) => {
+  const raw = readFreePlay(storage)[playerId] || {};
+  const number = value => Number.isSafeInteger(value) && value >= 0 ? Math.min(value, 1000000) : 0;
+  return { X: number(raw.X), O: number(raw.O), draws: number(raw.draws), recentBoards: Array.isArray(raw.recentBoards) ? raw.recentBoards.filter(value => typeof value === 'string').slice(-20) : [] };
+};
+export const recordCosmicFreeResult = ({ playerId = 'amari', board, boardId, storage = globalThis.localStorage }) => {
+  const previous = getCosmicFreeProgress(playerId, storage);
+  if (!Array.isArray(board) || board.length !== 9 || board.some(mark => ![null, 'X', 'O'].includes(mark)) || typeof boardId !== 'string' || !boardId || previous.recentBoards.includes(boardId)) return previous;
+  if (['X', 'O'].every(mark => WIN_LINES.some(line => line.every(cell => board[cell] === mark)))) return previous;
+  const result = getBoardResult(board), xs = board.filter(mark => mark === 'X').length, os = board.filter(mark => mark === 'O').length;
+  if ((!result.winner && !result.draw) || xs < os || xs > os + 1 || result.winner === 'X' && xs !== os + 1 || result.winner === 'O' && xs !== os) return previous;
+  const key = result.draw ? 'draws' : result.winner;
+  const next = { ...previous, [key]: previous[key] + 1, recentBoards: [...previous.recentBoards, boardId].slice(-20) };
+  try { storage?.setItem(COSMIC_FREE_PROGRESS_KEY, JSON.stringify({ ...readFreePlay(storage), [playerId]: next })); } catch { /* Device-local totals remain available for this visit. */ }
+  return next;
 };
