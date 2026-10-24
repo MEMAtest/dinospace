@@ -9,7 +9,7 @@ import StorybookProfiles from './StorybookProfiles.jsx';
 import StorybookSeriesLibrary from './StorybookSeriesLibrary.jsx';
 import { createStoryImage, createStoryNarration, createStoryOutline, createStorySession } from '../../data/storybookApi.js';
 import { isUsableStoryBlob, storyAssetInventory, validateStoryMediaAssets, validateStoryMediaBlob } from '../../data/storybookAssets.js';
-import { getStoryAsset, getStoryBookRecord, getStoryBooks, getChildProfiles, saveChildProfile, deleteChildProfile, getStorySeries, saveStorySeries, saveStoryAsset, saveStoryBook, importStorybookRecords } from '../../data/storybookStorage.js';
+import { getStoryAsset, getStoryBookRecord, getStoryBooks, getStoryLibraryInventory, getChildProfiles, saveChildProfile, deleteChildProfile, getStorySeries, saveStorySeries, saveStoryAsset, saveStoryBook, importStorybookRecords } from '../../data/storybookStorage.js';
 import { pagesForAgeBand } from '../../data/storybookValidation.js';
 import { getBookProgress, readActiveChildId, readStoryProgress, saveActiveChildId, updateStoryProgress } from '../../data/storybookProfiles.js';
 import { decorateStoryBook, filterStoryBooks, STORYBOOK_SHELVES } from '../../data/storybookLibrary.js';
@@ -161,6 +161,7 @@ const continuityPrompt = (book) => book.characters.map((character) => `${charact
 
 const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleSound, onCelebrate, onGameEvent }) => {
   const [library, setLibrary] = useState(STORYBOOK_CATALOG);
+  const [libraryStorageState, setLibraryStorageState] = useState('loading');
   const [bundledBooks, setBundledBooks] = useState(STORYBOOK_CATALOG);
   const [customRecords, setCustomRecords] = useState([]);
   const customRecordsRef = useRef(customRecords);
@@ -247,9 +248,11 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
   const customRecordIds = customRecords.map((record) => record.id).join('|');
   useEffect(() => {
     let cancelled = false;
-    Promise.all([Promise.all(STORYBOOK_CATALOG.map((book) => loadStoryBookManifest(book))), getStoryBooks(), getChildProfiles(), getStorySeries()])
-      .then(([books, records, loadedProfiles, loadedSeries]) => {
+    Promise.all([Promise.all(STORYBOOK_CATALOG.map((book) => loadStoryBookManifest(book))), getStoryLibraryInventory(), getChildProfiles(), getStorySeries()])
+      .then(([books, inventory, loadedProfiles, loadedSeries]) => {
         if (!cancelled) {
+          const records = inventory.books;
+          setLibraryStorageState(inventory.available ? 'available' : 'unavailable');
           const loadedBooks = books.filter(Boolean);
           setBundledBooks(loadedBooks);
           setCustomRecords(records || []);
@@ -883,6 +886,9 @@ const StorybookStudio = ({ onBack, playSfx, speak = () => {}, soundOn, onToggleS
             <div className="flex min-w-0 items-center justify-center gap-1.5 text-center sm:gap-2"><img src="/art/storybook-v4/reading-crew.webp" alt="" aria-hidden="true" className="h-8 w-10 shrink-0 object-contain sm:h-12 sm:w-[4.5rem]" /><div className="min-w-0"><p className="hidden text-xs font-black uppercase tracking-[0.22em] text-cyan-200 sm:block">Read &amp; Write</p><h1 className="text-2xl font-black leading-tight sm:text-5xl">Storybook Studio</h1></div></div>
             <button type="button" onClick={onToggleSound} className="storybook-icon-button" aria-label={soundOn ? 'Turn sound off' : 'Turn sound on'}>{soundOn ? <Volume2 /> : <VolumeX />}</button>
           </header>
+          <div role="status" aria-label="Story library inventory" className="mt-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-bold text-cyan-50">
+            {libraryStorageState === 'loading' ? 'Checking stories saved in this browser…' : libraryStorageState === 'unavailable' ? <><strong>Saved stories could not be read in this browser.</strong> This does not mean they were deleted. Your included stories are still available. Keep this browser’s site data intact.</> : <><strong>{bundledBooks.length + customRecords.length} stories in this library</strong><span className="block text-cyan-100">{bundledBooks.length} included · {customRecords.length} saved in this browser</span>{visibleBooks.length < bundledBooks.length + customRecords.length && <button type="button" onClick={() => { setShelf('all'); setAgeFilter('all'); setSeriesFilter('all'); }} className="mt-2 min-h-12 rounded-xl bg-white px-4 font-black text-indigo-950">Show all stories</button>}</>}
+          </div>
           <div className="mt-2 flex justify-end sm:mt-4"><button type="button" onClick={() => setParentToolsOpen((open) => !open)} aria-expanded={parentToolsOpen} className="min-h-11 rounded-xl border border-white/25 bg-white/10 px-4 py-2 text-sm font-black text-white">{parentToolsOpen ? 'Hide parent tools' : 'Parent tools'}</button></div>
           {parentToolsOpen && <section className="mt-3 rounded-[2rem] border border-white/20 bg-white/10 p-5 text-center shadow-2xl backdrop-blur-xl sm:p-8">
             <div className="mx-auto grid h-20 w-20 place-items-center rounded-3xl bg-gradient-to-br from-amber-300 to-orange-500 text-5xl shadow-lg">📚</div>

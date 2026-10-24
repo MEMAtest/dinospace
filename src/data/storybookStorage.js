@@ -50,6 +50,17 @@ export const getStoryBooks = async () => {
   return Array.isArray(result) ? result : [];
 };
 
+// An unreadable database is not evidence that a family's stories are gone.
+// Keep that distinction visible when inventorying the library.
+export const getStoryLibraryInventory = async () => {
+  try {
+    const books = await transaction(BOOKS_STORE, 'readonly', (store) => requestResult(store.getAll()));
+    return Array.isArray(books) ? { available: true, books } : { available: false, books: [] };
+  } catch {
+    return { available: false, books: [] };
+  }
+};
+
 export const getStoryBookRecord = async (id) => transaction(BOOKS_STORE, 'readonly', (store) => requestResult(store.get(id))).catch(() => null);
 
 export const saveStoryAsset = async (key, blob) => {
