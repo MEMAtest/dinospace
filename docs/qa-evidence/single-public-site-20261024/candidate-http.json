@@ -1,0 +1,27 @@
+{
+  "candidate": "https://6adc586b67aea5964a386267--dinospace.netlify.app",
+  "originRetained": true,
+  "matchesRuntimeHtml": true,
+  "cache31": true,
+  "htmlSha256": "4e2ef42cbbfd0336a97dd5a0d1c48aca3ee632899cb91e6316d0c5e321669bdd",
+  "swSha256": "06fa7390006d1292019419eeacf4fe333bd24ebdc5547fcb71dcbb37212f3d48",
+  "assets": {
+    "/assets/arcade-Dq45LZsx.js": 200,
+    "/assets/DiscoveryHeader-DnOT3jtR.js": 200,
+    "/assets/DiscoveryHeader-CR9YWEY8.css": 200,
+    "/assets/arcade-DU7D2KCy.css": 200
+  },
+  "storyApiUsesNetlify": true,
+  "preflights": {
+    "/api/voice": {
+      "status": 204,
+      "allowOrigin": "https://dinospace.netlify.app"
+    },
+    "/api/story/session": {
+      "status": 200,
+      "allowOrigin": "https://dinospace.netlify.app"
+    }
+  },
+  "preflightGate": "Voice204 and Storybook200 are valid successful preflights; both retain Netlify allow-origin.",
+  "passed": true
+}

@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-10-24T07:06:07.227375+00:00",
+  "publicUrl": "https://dinospace.netlify.app",
+  "netlifyDeploy": "6adc58c0e6b2d6bc9c733299",
+  "runtimeCommit": "8efdde9d7b1f130f2c720e64584127303b04032e",
+  "runtimeDeployment": "dpl_GCHUV1udjSrKdViZzY1nQjYgL9CQ",
+  "originRetained": true,
+  "oldLinkRedirects": [
+    {
+      "path": "/",
+      "status": 307,
+      "location": "https://dinospace.netlify.app/"
+    },
+    {
+      "path": "/index.html",
+      "status": 307,
+      "location": "https://dinospace.netlify.app/"
+    },
+    {
+      "path": "/?source=old-link",
+      "status": 307,
+      "location": "https://dinospace.netlify.app/?source=old-link"
+    }
+  ],
+  "oldLinkFinalUrl": "https://dinospace.netlify.app/?source=old-link",
+  "htmlMatchesCandidate": true,
+  "workerMatchesCandidate": true,
+  "cache31": true,
+  "assets": {
+    "/assets/arcade-Dq45LZsx.js": 200,
+    "/assets/DiscoveryHeader-DnOT3jtR.js": 200,
+    "/assets/DiscoveryHeader-CR9YWEY8.css": 200,
+    "/assets/arcade-DU7D2KCy.css": 200
+  },
+  "preflights": {
+    "/api/voice": {
+      "status": 204,
+      "allowOrigin": "https://dinospace.netlify.app"
+    },
+    "/api/story/session": {
+      "status": 200,
+      "allowOrigin": "https://dinospace.netlify.app"
+    }
+  },
+  "legacyBuildsStopped": true,
+  "publishedNetlifyDeploy": "6adc58c0e6b2d6bc9c733299"
+}
