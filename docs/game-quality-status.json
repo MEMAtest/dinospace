@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-24T00:45:57.092644+00:00",
+  "updatedAt": "2026-10-24T01:09:36.943926+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "4a5313ceef1538e0df98df308b35d1931e1dbd75",
+  "canonicalRelease": "aea35a36dd7e2abaeb80d6fdc64e45da8fc77911",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1051,5 +1051,14 @@
     "cache": "v29",
     "evidence": "docs/qa-evidence/netlify-origin-repair-20261024/README.md",
     "scope": "User screenshots established phone uses stale September Netlify host. Production gateway now rewrites same origin to canonical app, not a client redirect. Both entry/worker match;39art hashes;18questions/reloads on Netlify; synthetic prior stars/stickers/favourites/IndexedDB retained; legacy Git builds stopped. Monitoring updated for both origins. No remote-phone or all-game editorial acceptance claim."
+  },
+  "latestStorybookInventoryRepair": {
+    "runtimeCommit": "aea35a36dd7e2abaeb80d6fdc64e45da8fc77911",
+    "deployment": "dpl_8mTLHU5kiZm32WSEFqepCGvPoq4S",
+    "cache": "v30",
+    "evidence": "docs/qa-evidence/storybook-inventory-20261024/README.md",
+    "includedBooks": 7,
+    "missingPersonalBooksRecovered": false,
+    "scope": "Both live origins verified. Included versus browser-saved count, readable/blocked storage distinction, filter reset, local/candidate/Netlify synthetic 7-to-9-to-7 inventory rehearsal; live Netlify packaged narration and page turn at390. Seven included books have154available media files. Existing desktop Vercel and localhost Chrome libraries show7included/0saved. User phone IndexedDB is not accessible from this Mac; expected additional1-2 books remain unlocated. No test books imported into family data, paid providers or all-game editorial score changes."
   }
 }

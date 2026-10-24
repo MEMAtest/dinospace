@@ -1,0 +1,809 @@
+{
+  "checkedAt": "2026-10-24T00:55:12.165324+00:00",
+  "origin": "https://dinospace.netlify.app",
+  "books": [
+    {
+      "slug": "rex-missing-moon-map",
+      "title": "Rex and the Missing Moon Map"
+    },
+    {
+      "slug": "luna-whispering-forest",
+      "title": "Luna and the Whispering Forest"
+    },
+    {
+      "slug": "nia-great-river-journey",
+      "title": "Nia\u2019s Great River Journey"
+    },
+    {
+      "slug": "bo-busy-bee-garden",
+      "title": "Bo and the Busy Bee Garden"
+    },
+    {
+      "slug": "sami-night-light-parade",
+      "title": "Sami and the Night-Light Parade"
+    },
+    {
+      "slug": "mina-mountain-seed",
+      "title": "Mina\u2019s Mountain Seed"
+    },
+    {
+      "slug": "kai-lost-library-book",
+      "title": "Kai and the Lost Library Book"
+    }
+  ],
+  "shippedCount": 7,
+  "assetChecks": [
+    {
+      "path": "/storybooks/rex-missing-moon-map/cover.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-cover.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-01.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-01.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-02.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-02.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-03.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-03.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-04.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-04.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-05.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-05.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-06.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-07.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-07.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-08.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-08.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-09.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-09.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/page-10.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/rex-missing-moon-map/audio-page-10.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/cover.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-cover.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-01.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-01.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-02.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-02.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-03.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-03.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-04.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-04.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-05.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-05.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-06.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-07.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-07.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-08.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-08.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-09.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-09.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/page-10.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/luna-whispering-forest/audio-page-10.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/cover.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-cover.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-01.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-01.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-02.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-02.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-03.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-03.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-04.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-04.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-05.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-05.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-06.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-07.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-07.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-08.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-08.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-09.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-09.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/page-10.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/nia-great-river-journey/audio-page-10.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/cover.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-cover.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-01.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-01.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-02.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-02.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-03.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-03.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-04.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-04.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-05.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-05.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-06.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-07.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-07.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-08.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-08.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-09.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-09.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/page-10.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/bo-busy-bee-garden/audio-page-10.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/cover.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-cover.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-01.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-01.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-02.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-02.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-03.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-03.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-04.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-04.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-05.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-05.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-06.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-07.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-07.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-08.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-08.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-09.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-09.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/page-10.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/sami-night-light-parade/audio-page-10.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/cover.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-cover.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-01.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-01.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-02.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-02.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-03.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-03.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-04.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-04.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-05.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-05.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-06.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-07.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-07.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-08.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-08.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-09.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-09.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/page-10.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/mina-mountain-seed/audio-page-10.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/cover.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-cover.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-01.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-01.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-02.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-02.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-03.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-03.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-04.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-04.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-05.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-05.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-06.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-06.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-07.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-07.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-08.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-08.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-09.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-09.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/page-10.webp",
+      "status": 200,
+      "type": "image/webp"
+    },
+    {
+      "path": "/storybooks/kai-lost-library-book/audio-page-10.mp3",
+      "status": 200,
+      "type": "audio/mpeg"
+    }
+  ],
+  "allAssetsAvailable": true,
+  "personalBooksNotEstablishedByThisCheck": true
+}

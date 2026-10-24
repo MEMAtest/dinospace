@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-10-24T01:07:28.537207+00:00",
+  "deployment": {
+    "id": "dpl_8mTLHU5kiZm32WSEFqepCGvPoq4S",
+    "sha": "aea35a36dd7e2abaeb80d6fdc64e45da8fc77911",
+    "ready": "READY",
+    "url": "dinospace-fndjslun3-memas-projects-23a0001d.vercel.app"
+  },
+  "origins": [
+    {
+      "origin": "https://dinospace-eight.vercel.app",
+      "htmlSha256": "4e8b2da27dc26ddd207f504835e0c06317027effd1f4a9ebc060240ea7d57de7",
+      "swSha256": "0cd167227fb91f1fde4d627e1342b3809b0f785a636e6ea83f13c0dbac920edf",
+      "cache": "amari-discovery-v30",
+      "assets": [
+        {
+          "path": "/assets/arcade-EZ0CzKNp.js",
+          "status": 200
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DnOT3jtR.js",
+          "status": 200
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CR9YWEY8.css",
+          "status": 200
+        },
+        {
+          "path": "/assets/arcade-DU7D2KCy.css",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "origin": "https://dinospace.netlify.app",
+      "htmlSha256": "4e8b2da27dc26ddd207f504835e0c06317027effd1f4a9ebc060240ea7d57de7",
+      "swSha256": "0cd167227fb91f1fde4d627e1342b3809b0f785a636e6ea83f13c0dbac920edf",
+      "cache": "amari-discovery-v30",
+      "assets": [
+        {
+          "path": "/assets/arcade-EZ0CzKNp.js",
+          "status": 200
+        },
+        {
+          "path": "/assets/DiscoveryHeader-DnOT3jtR.js",
+          "status": 200
+        },
+        {
+          "path": "/assets/DiscoveryHeader-CR9YWEY8.css",
+          "status": 200
+        },
+        {
+          "path": "/assets/arcade-DU7D2KCy.css",
+          "status": 200
+        }
+      ]
+    }
+  ],
+  "sameHtml": true,
+  "sameWorker": true
+}
