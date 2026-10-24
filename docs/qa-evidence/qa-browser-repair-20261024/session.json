@@ -1,0 +1,14 @@
+{
+  "session": "amari-targeted-contained",
+  "daemon": [
+    "64762     1 /opt/homebrew/Cellar/node/25.4.0/bin/node /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/entry/cliDaemon.js amari-targeted-contained --profile=/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/tmp/amari-production-qa-profile --config=/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/scripts/amari-qa-browser.json --idle-timeout=0"
+  ],
+  "persistentProfile": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/tmp/amari-production-qa-profile",
+  "profileBytes": 62611456,
+  "idleTimeoutMs": 0,
+  "headless": true,
+  "tabs": 1,
+  "freshQaOnly": true,
+  "originalProblem": "Default headless idle timeout is3600000ms; hourly monitor can arrive after session automatically closed.",
+  "verification": "One controlled close/reopen restored same profile and its actual earned records; helper reuse returned restored:false; active-other-owner test returned busy without browser touch."
+}

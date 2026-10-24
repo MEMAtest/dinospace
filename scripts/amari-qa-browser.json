@@ -1,0 +1,10 @@
+{
+  "browser": {
+    "browserName": "chromium",
+    "launchOptions": {
+      "headless": true,
+      "args": ["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--disk-cache-size=33554432", "--media-cache-size=33554432"]
+    },
+    "contextOptions": { "viewport": { "width": 390, "height": 844 } }
+  }
+}

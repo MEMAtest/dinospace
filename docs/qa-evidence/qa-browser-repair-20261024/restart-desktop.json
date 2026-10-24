@@ -1,0 +1,57 @@
+{
+  "origin": "https://dinospace.netlify.app",
+  "restartRetained": true,
+  "retained": {
+    "progress": {
+      "version": 1,
+      "unlockedEpisode": 1,
+      "completedEpisodeIds": [
+        "star-garden"
+      ],
+      "bestStars": {
+        "star-garden": 2
+      },
+      "earnedConstellationPageIds": [
+        "constellation-star-garden"
+      ],
+      "recentQuestionIds": {
+        "0": [
+          "tiny-planets:4:orbit",
+          "rocket-lights:2:grouped",
+          "comet-seeds:1:grouped",
+          "fireflies:5:grouped",
+          "tiny-planets:4:grouped",
+          "moon-berries:3:orbit"
+        ]
+      }
+    },
+    "rewards": {
+      "version": 2,
+      "points": 2,
+      "gamesPlayed": {
+        "counting": 1
+      },
+      "earnedStickerIds": []
+    }
+  },
+  "width": 1440,
+  "game": "Addition Adventure",
+  "equation": "2 + 6 = ?",
+  "modelBefore": 8,
+  "modelAfter": 8,
+  "wrongRetry": "Count both groups, then count on.",
+  "audio": [
+    {
+      "src": "https://dinospace.netlify.app/audio/en/c0c0d111-matilda.mp3",
+      "time": 0.208246
+    }
+  ],
+  "held": true,
+  "nextEquation": "0 + 9 = ?",
+  "parentNavigation": true,
+  "overflow": false,
+  "badImages": [],
+  "errors": [],
+  "providers": [],
+  "badAssets": []
+}

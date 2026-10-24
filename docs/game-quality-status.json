@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T07:18:53.263631+00:00",
+  "updatedAt": "2026-10-24T10:56:41.906401+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1089,5 +1089,19 @@
     "olderLogs": "Historical windows rejected400; no legacy log drains returned",
     "evidence": "docs/qa-evidence/personal-story-recovery-20261024/README.md",
     "status": "unresolved; original device browser/backup still required"
+  },
+  "qaBrowserRepair": {
+    "date": "2026-10-24",
+    "runtimeChanged": false,
+    "rootCause": "Headless CLI default idle timeout1hour conflicts with approximately hourly monitor intervals.",
+    "repair": "One named headless session, persistent synthetic profile, idle-timeout0; guarded single-session recovery helper and monitor ownership handling.",
+    "evidence": "docs/qa-evidence/qa-browser-repair-20261024/README.md",
+    "verified": [
+      "6Counting rounds at390px, wrong retry and packaged audio, completion/stars saved before finalNext and retained on reload",
+      "Controlled browser close/reopen retained actual earned Counting records",
+      "Addition at1440px: matching object model, wrong retry, packaged audio, held Next, progression and parent return; no observed errors or provider requests",
+      "Helper repeated call reuses same session; active-other-owner test leaves browser untouched"
+    ],
+    "scope": "Restores monitoring capability. Not all-game editorial acceptance or personal-story recovery."
   }
 }
