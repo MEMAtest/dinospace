@@ -1,0 +1,21 @@
+{
+  "site": "c9dcd11b-4029-44c0-910d-d40a13339eb8",
+  "priorDeploy": "6abb06d64bc8ac000897eb8b",
+  "currentGatewayDeploy": "6adbfd835211194016579d30",
+  "originalStopBuilds": false,
+  "currentStopBuilds": true,
+  "sourceGatewayCommit": "d48bff06",
+  "rollbackAction": "Netlify restoreSiteDeploy to priorDeploy only after review: restores the stale September app. Re-enable Git builds only after reviewing source branch. No site-data clearing.",
+  "removedTaskOwnedRawMetadata": [
+    {
+      "path": "tmp/netlify-sites-20261024.json",
+      "bytes": 83608
+    },
+    {
+      "path": "tmp/netlify-site-after-20261024.json",
+      "bytes": 7318
+    }
+  ],
+  "retained": "Whitelisted deploy/site proof, compact native/HTTP reports,2QA jpgs, first unique worker failure in tmp/netlify-migration-native.log",
+  "browser": "Existing amari-targeted-contained retained; one tab at Netlify Read & Write using existing synthetic namespace qa_rewards_20261024_."
+}

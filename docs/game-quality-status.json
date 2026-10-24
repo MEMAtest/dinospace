@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T00:09:23.921108+00:00",
+  "updatedAt": "2026-10-24T00:45:57.092644+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1040,5 +1040,16 @@
     "cache": "v29",
     "evidence": "docs/qa-evidence/reward-persistence-20261024/README.md",
     "scope": "Shared immediate reward record merges saved totals; earned maths chapter records commit on final correct answer before final Next. Three games/reloads at390 in local, immutable candidate and canonical synthetic namespace. Blocked reward write/retry tested locally. Real tab3stars retained. No cross-device sync, recovered historical data, in-progress resume or new editorial acceptance claimed."
+  },
+  "latestNetlifyOriginRepair": {
+    "gatewayCommit": "d48bff06",
+    "netlifySite": "c9dcd11b-4029-44c0-910d-d40a13339eb8",
+    "netlifyDeploy": "6adbfd835211194016579d30",
+    "url": "https://dinospace.netlify.app",
+    "canonicalRuntime": "4a5313ceef1538e0df98df308b35d1931e1dbd75",
+    "canonicalDeployment": "dpl_CmasMHH5Q3PqUeEirVEG73HXCvyZ",
+    "cache": "v29",
+    "evidence": "docs/qa-evidence/netlify-origin-repair-20261024/README.md",
+    "scope": "User screenshots established phone uses stale September Netlify host. Production gateway now rewrites same origin to canonical app, not a client redirect. Both entry/worker match;39art hashes;18questions/reloads on Netlify; synthetic prior stars/stickers/favourites/IndexedDB retained; legacy Git builds stopped. Monitoring updated for both origins. No remote-phone or all-game editorial acceptance claim."
   }
 }
