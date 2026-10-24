@@ -157,6 +157,6 @@ Batch 2 runtime repairs are now canonical production at `3cdfc426e91b46a85544869
 
 The separate Batch 3 branch has a frozen local candidate `7c79f47154d97f877858bd3d5124c37cf23bb5e6` passing 198/198 tests, lint and build. Independent Luna reviewers are exercising its four games at desktop and 390px. Narration packaging/runtime wiring and all production/editorial acceptance remain pending; it is not deployed. The next four games now have a [concrete arithmetic and time implementation plan](batch4-arithmetic-time-implementation-plan-20261003.md), based on a source audit. Plans alone leave their status not started. Counts remain 4 accepted, 8 in progress, 14 not started.
 
-###24October targeted time/number-line close-out
+### 24 October targeted time/number-line close-out
 
 Time Teller and Number Line Jump received a coordinated public Netlify release at runtime`f85db347ab536951be3a7e10ddbda839597b088e`, backend`dpl_CDiS4ZxG8NrXZs1VHwdJ4KcPhPGD`, gateway`6adcedbc9cb8b516a859de79`, worker32. [Targeted acceptance and production rehearsal](qa-evidence/time-numberline-20261024/README.md) cover96 actual missions/replays across390/1440, interactive clock hands, clear full-width number-line models, packaged playback, final-solve persistence beforeFinish, replay and parent/Curriculum returns. Historical editorial scores remain source-bound and unchanged; this is not a catalogue-wide5/5 certification.
