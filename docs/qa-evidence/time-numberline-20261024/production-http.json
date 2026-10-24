@@ -1,0 +1,56 @@
+{
+  "publicUrl": "https://dinospace.netlify.app",
+  "originRetained": true,
+  "htmlSha256": "1f6ad79d44ed65e87b2809b09d0cf691ae2cf46bc406aff395804eb9c7ad0c24",
+  "workerSha256": "bb031ad3b86ce5ad78e4e23f16a9db05a61721b249caaf46689ef2ae8513caee",
+  "cache": "v32",
+  "entryAssets": [
+    {
+      "path": "/assets/arcade-BB3v0Cy6.js",
+      "status": 200,
+      "sha256": "d39e059c063f32a457bf854d7f49d2010211ffa8ecf413f62d3c32198ac3c8a0",
+      "bytes": 1456063
+    },
+    {
+      "path": "/assets/DiscoveryHeader-DnOT3jtR.js",
+      "status": 200,
+      "sha256": "14ccbf0d05491bcba5fc15f9f220a1b86e0a14c819fd538a1266edc16485bc9a",
+      "bytes": 197953
+    },
+    {
+      "path": "/assets/DiscoveryHeader-CR9YWEY8.css",
+      "status": 200,
+      "sha256": "ebe119927f4acfd036dfd30be091e5c33a611820f644057d2ee2ed1d0cddf976",
+      "bytes": 8431
+    },
+    {
+      "path": "/assets/arcade-CuU0Khmi.css",
+      "status": 200,
+      "sha256": "e3e296fb1ae8cd8fe3089c2f84e5de065a2962c3f4d9d578df9d1a53c129e7ca",
+      "bytes": 249967
+    }
+  ],
+  "netlifyDeploy": "6adcedbc9cb8b516a859de79",
+  "gitBuildsStopped": true,
+  "apiIdentity": {
+    "id": "dpl_CDiS4ZxG8NrXZs1VHwdJ4KcPhPGD",
+    "url": "dinospace-3siiwrc3a-memas-projects-23a0001d.vercel.app",
+    "readyState": "READY",
+    "target": "production",
+    "sourceSha": "f85db347ab536951be3a7e10ddbda839597b088e",
+    "supersedesUnpublishedCandidate": "dpl_81j9ZsqCWK6c1DSe3ttsPCivdUrx"
+  },
+  "publicCutoverVerified": true,
+  "legacyRedirects": [
+    {
+      "path": "/",
+      "status": 307,
+      "location": "https://dinospace.netlify.app/"
+    },
+    {
+      "path": "/index.html",
+      "status": 307,
+      "location": "https://dinospace.netlify.app/"
+    }
+  ]
+}

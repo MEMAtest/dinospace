@@ -1,0 +1,46 @@
+{
+  "worktreesCreated": 0,
+  "dependencyInstalls": 0,
+  "paidCalls": 0,
+  "newBrowserSessionsProfilesTabs": 0,
+  "retainedEvidenceBytes": 468514,
+  "retainedProfileBytes": 163778560,
+  "profileMaintenanceRequired": false,
+  "buildDirectory": "dist (existing389MiB rebuilt in place)",
+  "removed": [
+    "scripts/__pycache__/ensure-amari-qa-browser.cpython-314.pyc"
+  ],
+  "stoppedTaskServers": [
+    {
+      "pid": 32397,
+      "command": "node /Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/node_modules/.bin/vite --host 127.0.0.1 --port 5328 --strictPort",
+      "stopped": true
+    }
+  ],
+  "finalRenders": [
+    {
+      "path": "docs/qa-evidence/time-numberline-20261024/timeteller-390.jpg",
+      "bytes": 58480,
+      "sha256": "f4f5d4836b51aa845f03ef07e8c93c8681411200c2c78b7d4b209b9378d7f9f9"
+    },
+    {
+      "path": "docs/qa-evidence/time-numberline-20261024/timeteller-1440.jpg",
+      "bytes": 110079,
+      "sha256": "6a60571fe0c8b1e2e7cdde7f780145bfa9ce2e15d2f7a825c20258da01ec9291"
+    },
+    {
+      "path": "docs/qa-evidence/time-numberline-20261024/numberline-390.jpg",
+      "bytes": 49419,
+      "sha256": "dd6c81655cae20ec3aeea31990ed04d5fac180e800c68366080f3d3aee19f973"
+    },
+    {
+      "path": "docs/qa-evidence/time-numberline-20261024/numberline-1440.jpg",
+      "bytes": 102826,
+      "sha256": "90d240d24ac0519f50ac521c6ea55a37c5c994f751483c08a3eb234ea8115a3e"
+    }
+  ],
+  "freeDiskBytesAfter": 54218190848,
+  "freeDiskBeforeApproxGiB": 51,
+  "otherWorktreesAndEvidence": "Preserved; no checkout retirement or unrelated cleanup",
+  "rollback": "Pin gateway to previous immutable dinospace-nnujrb2r7-memas-projects-23a0001d.vercel.app; never target redirecting oldalias; no storage clearing."
+}

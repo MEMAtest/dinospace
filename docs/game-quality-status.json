@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-24T10:56:41.906401+00:00",
+  "updatedAt": "2026-10-24T17:47:26.353446+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "8efdde9d7b1f130f2c720e64584127303b04032e",
+  "canonicalRelease": "f85db347ab536951be3a7e10ddbda839597b088e",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1064,15 +1064,15 @@
   "publicUrl": "https://dinospace.netlify.app",
   "singlePublicSiteRelease": {
     "publicUrl": "https://dinospace.netlify.app",
-    "runtimeCommit": "8efdde9d7b1f130f2c720e64584127303b04032e",
-    "runtimeDeployment": "dpl_GCHUV1udjSrKdViZzY1nQjYgL9CQ",
-    "runtimeUrl": "https://dinospace-nnujrb2r7-memas-projects-23a0001d.vercel.app",
-    "netlifyDeploy": "6adc58c0e6b2d6bc9c733299",
-    "cache": "v31",
-    "evidence": "docs/qa-evidence/single-public-site-20261024/README.md",
+    "runtimeCommit": "f85db347ab536951be3a7e10ddbda839597b088e",
+    "runtimeDeployment": "dpl_CDiS4ZxG8NrXZs1VHwdJ4KcPhPGD",
+    "runtimeUrl": "https://dinospace-3siiwrc3a-memas-projects-23a0001d.vercel.app",
+    "netlifyDeploy": "6adcedbc9cb8b516a859de79",
+    "cache": "v32",
+    "evidence": "docs/qa-evidence/time-numberline-20261024/README.md",
     "oldPublicAlias": "Redirect-only root/index app entry; legacy API/static routes retained for installed clients",
-    "nativeCheck": "Existing real in-app Vercel Storybook tab reloaded and landed at Netlify welcome. No new browser resources or child gameplay. No storage cleared or automatic cross-origin data merge.",
-    "scope": "Single public address, Netlify story API default and Android API configuration; no new game/editorial acceptance or personal-book recovery."
+    "nativeCheck": "Full public production390/1440 Playwright rehearsal passed:36missions+12replays perwidth, native touch/keyboard/mouse, packaged audio, held feedback, saved badges beforeFinish/reload, Maths and Curriculum return. Dedicated synthetic profile only.",
+    "scope": "Targeted Time Teller and Number Line Jump teaching/interaction/persistence uplift. Other games and historical personal-story recovery unchanged."
   },
   "personalStoryRecovery": {
     "userConfirmedExpectedPersonalStories": [
@@ -1103,5 +1103,19 @@
       "Helper repeated call reuses same session; active-other-owner test leaves browser untouched"
     ],
     "scope": "Restores monitoring capability. Not all-game editorial acceptance or personal-story recovery."
+  },
+  "latestTimeNumberLineUplift": {
+    "date": "2026-10-24",
+    "games": [
+      "Time Teller",
+      "Number Line Jump"
+    ],
+    "runtimeCommit": "f85db347ab536951be3a7e10ddbda839597b088e",
+    "deployment": "dpl_CDiS4ZxG8NrXZs1VHwdJ4KcPhPGD",
+    "netlifyDeploy": "6adcedbc9cb8b516a859de79",
+    "evidence": "docs/qa-evidence/time-numberline-20261024/README.md",
+    "productionRehearsal": "passed96missions/replays at390and1440; all3chapters/worlds forbothgames; exactNetlify/runtime/workeridentity verified",
+    "editorialScoresChanged": false,
+    "functionalAcceptance": true
   }
 }

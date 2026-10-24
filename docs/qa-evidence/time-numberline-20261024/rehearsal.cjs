@@ -24,6 +24,8 @@ async page => {
   const layout = async () => {
     const state = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth > innerWidth, badImages: [...document.images].filter(i => i.complete && !i.naturalWidth).map(i => i.src), scrollPanels: [...document.querySelectorAll('main figure')].map(e => ({ w: e.clientWidth, content: e.scrollWidth })) }));
     if (state.overflow || state.badImages.length || state.scrollPanels.some(e => e.content > e.w + 2)) throw Error('Layout/assets ' + JSON.stringify(state));
+    const small = await page.locator('main button:visible, main summary:visible').evaluateAll(es => es.map(e => ({ text: e.innerText, w: e.getBoundingClientRect().width, h: e.getBoundingClientRect().height })).filter(e => e.w < 48 || e.h < 48));
+    if (small.length) throw Error('Controls below48px ' + JSON.stringify(small));
     return state;
   };
   const replayAudio = async () => {

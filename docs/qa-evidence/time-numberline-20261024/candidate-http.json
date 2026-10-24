@@ -1,0 +1,31 @@
+{
+  "origins": [
+    {
+      "origin": "https://6adced017bccf309e291c6a8--dinospace.netlify.app",
+      "retainedOrigin": true,
+      "htmlSha256": "1f6ad79d44ed65e87b2809b09d0cf691ae2cf46bc406aff395804eb9c7ad0c24",
+      "workerSha256": "bb031ad3b86ce5ad78e4e23f16a9db05a61721b249caaf46689ef2ae8513caee",
+      "entryAssets": {
+        "/assets/arcade-BB3v0Cy6.js": 200,
+        "/assets/DiscoveryHeader-DnOT3jtR.js": 200,
+        "/assets/DiscoveryHeader-CR9YWEY8.css": 200,
+        "/assets/arcade-CuU0Khmi.css": 200
+      },
+      "cache": "v32"
+    },
+    {
+      "origin": "https://dinospace-3siiwrc3a-memas-projects-23a0001d.vercel.app",
+      "retainedOrigin": true,
+      "htmlSha256": "1f6ad79d44ed65e87b2809b09d0cf691ae2cf46bc406aff395804eb9c7ad0c24",
+      "workerSha256": "bb031ad3b86ce5ad78e4e23f16a9db05a61721b249caaf46689ef2ae8513caee",
+      "entryAssets": {
+        "/assets/arcade-BB3v0Cy6.js": 200,
+        "/assets/DiscoveryHeader-DnOT3jtR.js": 200,
+        "/assets/DiscoveryHeader-CR9YWEY8.css": 200,
+        "/assets/arcade-CuU0Khmi.css": 200
+      },
+      "cache": "v32"
+    }
+  ],
+  "apiPreflights": "passed; no provider calls"
+}

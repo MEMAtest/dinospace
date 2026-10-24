@@ -1,0 +1,135 @@
+{
+  "url": "https://dinospace.netlify.app/?clock-origin=20261024#/play/worldmap/time-detectives",
+  "currentEntry": "/assets/arcade-BB3v0Cy6.js",
+  "updateNoticeCount": 0,
+  "saved": {
+    "amari_timeteller_progress_v1": {
+      "version": 1,
+      "completedChapterIds": [
+        "clock-explorers",
+        "past-and-to",
+        "daily-routines"
+      ],
+      "bestStars": {
+        "clock-explorers": 3,
+        "past-and-to": 3,
+        "daily-routines": 3
+      },
+      "recentQuestionIds": {
+        "0": [
+          "0:12:30:read",
+          "0:11:30:read",
+          "0:3:0:read",
+          "0:8:0:read",
+          "0:10:0:read",
+          "0:6:30:read",
+          "0:1:30:read",
+          "0:9:30:read"
+        ],
+        "1": [
+          "1:5:30:read",
+          "1:4:45:read",
+          "1:10:15:read",
+          "1:1:15:read",
+          "1:6:15:read",
+          "1:10:45:read",
+          "1:1:45:read",
+          "1:3:0:read"
+        ],
+        "2": [
+          "2:11:0:read",
+          "2:5:15:set",
+          "2:5:30:read",
+          "2:11:45:read",
+          "2:7:30:set",
+          "2:12:0:set",
+          "2:3:45:set",
+          "2:9:15:read"
+        ]
+      },
+      "unlockedChapter": 2
+    },
+    "amari_numberline_progress_v1": {
+      "version": 1,
+      "completedChapterIds": [
+        "forward-back",
+        "missing-numbers",
+        "compare-distances"
+      ],
+      "bestStars": {
+        "forward-back": 3,
+        "missing-numbers": 3,
+        "compare-distances": 3
+      },
+      "recentQuestionIds": {
+        "0": [
+          "hop:5:1:5",
+          "hop:4:1:6",
+          "hop:4:-1:4",
+          "hop:3:-1:3",
+          "hop:1:-1:1",
+          "hop:9:-1:1",
+          "hop:3:1:4",
+          "hop:2:1:3"
+        ],
+        "1": [
+          "missing:10:2:1",
+          "missing:5:15:0",
+          "missing:10:2:0",
+          "missing:8:12:2",
+          "missing:13:4:1",
+          "missing:18:2:0",
+          "missing:11:2:2",
+          "missing:0:12:1"
+        ],
+        "2": [
+          "compare:larger:1:9:10:10",
+          "compare:larger:14:1:1:6",
+          "compare:farther:13:1:1:6",
+          "compare:farther:9:11:18:1",
+          "compare:farther:14:2:2:7",
+          "compare:larger:8:12:16:1",
+          "compare:farther:11:9:19:1",
+          "compare:larger:16:4:4:9"
+        ]
+      },
+      "unlockedChapter": 2
+    },
+    "amari_amari_count_the_stars_batch3_v1": {
+      "version": 1,
+      "unlockedEpisode": 1,
+      "completedEpisodeIds": [
+        "star-garden"
+      ],
+      "bestStars": {
+        "star-garden": 2
+      },
+      "earnedConstellationPageIds": [
+        "constellation-star-garden"
+      ],
+      "recentQuestionIds": {
+        "0": [
+          "tiny-planets:4:orbit",
+          "rocket-lights:2:grouped",
+          "comet-seeds:1:grouped",
+          "fireflies:5:grouped",
+          "tiny-planets:4:grouped",
+          "moon-berries:3:orbit"
+        ],
+        "1": [
+          "star-clusters:8:grouped",
+          "observatory-windows:6:orbit",
+          "star-clusters:2:grouped",
+          "meteor-trails:7:grouped",
+          "moon-rocks:3:grouped",
+          "satellite-bolts:10:grouped"
+        ]
+      }
+    },
+    "askia_little_progress": null
+  },
+  "workerCaches": [
+    "amari-discovery-media-v1",
+    "amari-discovery-v32"
+  ]
+}
