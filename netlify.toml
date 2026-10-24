@@ -1,3 +1,6 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
+  # This existing public address serves the canonical app in place. Keeping
+  # the Netlify origin preserves its localStorage, IndexedDB and installed PWA.
+  # Do not publish a second independently ageing copy of the Vite build here.
+  command = "node -e \"console.log('Serving canonical Amari release through the Netlify gateway')\""
+  publish = "netlify-gateway"
