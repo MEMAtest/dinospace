@@ -5,22 +5,22 @@ import { resolveStoryApiBase } from '../src/data/storybookApi.js';
 test('storybook API uses the hosted endpoint when no explicit route is provided', () => {
   assert.equal(
     resolveStoryApiBase(''),
-    'https://dinospace-eight.vercel.app/api/story',
+    'https://dinospace.netlify.app/api/story',
   );
   assert.equal(
     resolveStoryApiBase(''),
-    'https://dinospace-eight.vercel.app/api/story',
+    'https://dinospace.netlify.app/api/story',
   );
   assert.equal(
     resolveStoryApiBase(''),
-    'https://dinospace-eight.vercel.app/api/story',
+    'https://dinospace.netlify.app/api/story',
   );
 });
 
 test('storybook API honours explicit configuration', () => {
   assert.equal(
     resolveStoryApiBase(''),
-    'https://dinospace-eight.vercel.app/api/story',
+    'https://dinospace.netlify.app/api/story',
   );
   assert.equal(
     resolveStoryApiBase('https://example.test/api/story/'),

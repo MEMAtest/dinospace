@@ -1,6 +1,7 @@
 [build]
-  # This existing public address serves the canonical app in place. Keeping
+  # This is the single public app address. Keep the verified immutable runtime
+  # in netlify-gateway/_redirects current on every release. Keeping
   # the Netlify origin preserves its localStorage, IndexedDB and installed PWA.
   # Do not publish a second independently ageing copy of the Vite build here.
-  command = "node -e \"console.log('Serving canonical Amari release through the Netlify gateway')\""
+  command = "node -e \"console.log('Serving Amari at dinospace.netlify.app')\""
   publish = "netlify-gateway"

@@ -1,7 +1,7 @@
 import { pagesForAgeBand, validateStoryOutline, validateStoryRequest } from './storybookValidation.js';
 import { withStoryRequestTimeout } from './storybookRequest.js';
 
-const HOSTED_STORY_API = 'https://dinospace-eight.vercel.app/api/story';
+const HOSTED_STORY_API = 'https://dinospace.netlify.app/api/story';
 
 export const resolveStoryApiBase = (configuredBase) => {
   if (configuredBase) return configuredBase.replace(/\/$/, '');

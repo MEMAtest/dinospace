@@ -1,4 +1,18 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "dinospace-eight.vercel.app" }],
+      "destination": "https://dinospace.netlify.app/",
+      "permanent": false
+    },
+    {
+      "source": "/index.html",
+      "has": [{ "type": "host", "value": "dinospace-eight.vercel.app" }],
+      "destination": "https://dinospace.netlify.app/",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/sw.js",

@@ -1,3 +1,4 @@
-# A server-side rewrite, not a browser redirect: retain the child's origin.
-# Force it for every path, including index, service worker, assets and API.
-/*  https://dinospace-eight.vercel.app/:splat  200!
+# Netlify is the one public app address. Pin a verified immutable runtime;
+# never proxy through the old public alias, which redirects back to Netlify.
+# Every release must publish its verified runtime URL here before promotion.
+/*  https://dinospace-fndjslun3-memas-projects-23a0001d.vercel.app/:splat  200!
