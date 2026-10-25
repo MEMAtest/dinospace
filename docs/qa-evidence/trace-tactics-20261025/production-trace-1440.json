@@ -1,0 +1,431 @@
+{
+  "origin": "https://dinospace.netlify.app",
+  "width": 1440,
+  "game": "trace",
+  "entry": "/assets/arcade-mE5Uz1qP.js",
+  "runtimeExpected": "88b979ccff207a8b11d27e0dc241e04938f93555",
+  "cacheKeys": [
+    "amari-discovery-media-v1",
+    "amari-discovery-v34"
+  ],
+  "at": "2026-10-25T00:01:41.188Z",
+  "passed": true,
+  "before": {
+    "amari": {
+      "unlocked": 2,
+      "completedLevels": [
+        0,
+        1,
+        2
+      ],
+      "masteredLetters": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "r",
+        "s",
+        "t",
+        "u"
+      ],
+      "recentByLevel": {
+        "0": [
+          "i",
+          "b",
+          "k",
+          "l",
+          "f",
+          "r",
+          "n",
+          "h"
+        ],
+        "1": [
+          "f",
+          "t",
+          "d",
+          "m",
+          "e",
+          "h",
+          "k",
+          "p"
+        ],
+        "2": [
+          "r",
+          "a",
+          "p",
+          "s",
+          "d",
+          "k",
+          "c",
+          "l"
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "level": 0,
+      "round": 0,
+      "letter": "U",
+      "input": "mouse",
+      "word": null,
+      "demo": {
+        "a": {
+          "x": 315,
+          "y": 222
+        },
+        "b": {
+          "x": 384.55442176870747,
+          "y": 330.187074829932
+        }
+      },
+      "dotStrokes": 0,
+      "audio": [
+        {
+          "src": "https://dinospace.netlify.app/audio/en/435f52be-matilda.mp3",
+          "time": 0.169576
+        }
+      ]
+    },
+    {
+      "level": 0,
+      "round": 1,
+      "letter": "A",
+      "input": "keyboard then pointer-toggle",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 2,
+      "letter": "E",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 3,
+      "letter": "P",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 4,
+      "letter": "S",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 5,
+      "letter": "M",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 6,
+      "letter": "T",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 7,
+      "letter": "C",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 0,
+      "letter": "N",
+      "input": "mouse",
+      "word": null,
+      "demo": {
+        "a": {
+          "x": 315,
+          "y": 248
+        },
+        "b": {
+          "x": 369.5,
+          "y": 155.78231292517006
+        }
+      },
+      "dotStrokes": 0,
+      "audio": [
+        {
+          "src": "https://dinospace.netlify.app/audio/en/435f52be-matilda.mp3",
+          "time": 0.159554
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "round": 1,
+      "letter": "a",
+      "input": "keyboard then pointer-toggle",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 2,
+      "letter": "C",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 3,
+      "letter": "b",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 4,
+      "letter": "R",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 5,
+      "letter": "g",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 6,
+      "letter": "S",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 7,
+      "letter": "u",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 0,
+      "letter": "m",
+      "input": "mouse",
+      "word": "MAP",
+      "demo": {
+        "a": {
+          "x": 308.16610169491526,
+          "y": 309.57966101694916
+        },
+        "b": {
+          "x": 308,
+          "y": 263
+        }
+      },
+      "dotStrokes": 0,
+      "audio": [
+        {
+          "src": "https://dinospace.netlify.app/audio/en/6d8b847b-matilda.mp3",
+          "time": 0.163708
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "round": 1,
+      "letter": "k",
+      "input": "keyboard then pointer-toggle",
+      "word": "KID",
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 2,
+      "letter": "c",
+      "input": "mouse",
+      "word": "CAT",
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 3,
+      "letter": "a",
+      "input": "mouse",
+      "word": "ANT",
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 4,
+      "letter": "h",
+      "input": "mouse",
+      "word": "HEN",
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 5,
+      "letter": "s",
+      "input": "mouse",
+      "word": "SAT",
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 6,
+      "letter": "d",
+      "input": "mouse",
+      "word": "DOG",
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 7,
+      "letter": "l",
+      "input": "mouse",
+      "word": "LOG",
+      "demo": null,
+      "dotStrokes": 0,
+      "audio": []
+    }
+  ],
+  "shelfLabels": [
+    "Follow the path: collected",
+    "Big and little: collected",
+    "Trace and read: collected"
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "badAssets": [],
+  "after": {
+    "amari": {
+      "unlocked": 2,
+      "completedLevels": [
+        0,
+        1,
+        2
+      ],
+      "masteredLetters": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "r",
+        "s",
+        "t",
+        "u"
+      ],
+      "recentByLevel": {
+        "0": [
+          "u",
+          "a",
+          "e",
+          "p",
+          "s",
+          "m",
+          "t",
+          "c"
+        ],
+        "1": [
+          "n",
+          "a",
+          "c",
+          "b",
+          "r",
+          "g",
+          "s",
+          "u"
+        ],
+        "2": [
+          "m",
+          "k",
+          "c",
+          "a",
+          "h",
+          "s",
+          "d",
+          "l"
+        ]
+      }
+    }
+  },
+  "url": "https://dinospace.netlify.app/?trace-tactics-qa=1792886461039#/world/read-write"
+}

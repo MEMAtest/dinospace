@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-25T00:02:01.323698+00:00",
+  "runtime": "88b979ccff207a8b11d27e0dc241e04938f93555",
+  "tests": {
+    "total": 370,
+    "passed": 370,
+    "failed": 0,
+    "skipped": 0,
+    "command": "PWA_BUILD_DIR=dist npm test"
+  },
+  "build": {
+    "passed": true,
+    "command": "VITE_ELEVENLABS_ENABLED=true npm run build"
+  },
+  "lint": {
+    "passed": true,
+    "command": "npm run lint -- --quiet"
+  },
+  "newPaidCalls": 0,
+  "installs": 0,
+  "newWorktrees": 0
+}

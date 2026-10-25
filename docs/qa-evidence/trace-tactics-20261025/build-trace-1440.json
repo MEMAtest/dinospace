@@ -1,0 +1,395 @@
+{
+  "origin": "http://127.0.0.1:5180",
+  "width": 1440,
+  "game": "trace",
+  "at": "2026-10-24T23:49:29.234Z",
+  "passed": true,
+  "before": {
+    "amari": {
+      "unlocked": 2,
+      "completedLevels": [
+        0,
+        1,
+        2
+      ],
+      "masteredLetters": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "h",
+        "i",
+        "k",
+        "n",
+        "o",
+        "p",
+        "r",
+        "s",
+        "t",
+        "u"
+      ],
+      "recentByLevel": {
+        "0": [
+          "m",
+          "l",
+          "r",
+          "a",
+          "c",
+          "f",
+          "i",
+          "p"
+        ],
+        "1": [
+          "s",
+          "a",
+          "h",
+          "n",
+          "d",
+          "b",
+          "r",
+          "e"
+        ],
+        "2": [
+          "s",
+          "r",
+          "c",
+          "t",
+          "k",
+          "h",
+          "d",
+          "p"
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "level": 0,
+      "round": 0,
+      "letter": "O",
+      "input": "mouse",
+      "word": null,
+      "demo": {
+        "a": {
+          "x": 329,
+          "y": 101
+        },
+        "b": {
+          "x": 358.1855670103093,
+          "y": 325.8556701030928
+        }
+      },
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5180/audio/en/435f52be-matilda.mp3",
+          "time": 0.156858
+        }
+      ]
+    },
+    {
+      "level": 0,
+      "round": 1,
+      "letter": "K",
+      "input": "keyboard then pointer-toggle",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 2,
+      "letter": "U",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 3,
+      "letter": "T",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 4,
+      "letter": "H",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 5,
+      "letter": "B",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 6,
+      "letter": "G",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 7,
+      "letter": "S",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 0,
+      "letter": "I",
+      "input": "mouse",
+      "word": null,
+      "demo": {
+        "a": {
+          "x": 338.6081081081081,
+          "y": 76.10810810810811
+        },
+        "b": {
+          "x": 392.061433447099,
+          "y": 76.02389078498294
+        }
+      },
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5180/audio/en/435f52be-matilda.mp3",
+          "time": 0.168461
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "round": 1,
+      "letter": "u",
+      "input": "keyboard then pointer-toggle",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 2,
+      "letter": "L",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 3,
+      "letter": "o",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 4,
+      "letter": "T",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 5,
+      "letter": "c",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 6,
+      "letter": "K",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 7,
+      "letter": "p",
+      "input": "mouse",
+      "word": null,
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 0,
+      "letter": "s",
+      "input": "mouse",
+      "word": "SAT",
+      "demo": {
+        "a": {
+          "x": 427.2278911564626,
+          "y": 171.4387755102041
+        },
+        "b": {
+          "x": 345.222602739726,
+          "y": 235.22260273972603
+        }
+      },
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5180/audio/en/6d8b847b-matilda.mp3",
+          "time": 0.15581
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "round": 1,
+      "letter": "c",
+      "input": "keyboard then pointer-toggle",
+      "word": "CAT",
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 2,
+      "letter": "a",
+      "input": "mouse",
+      "word": "ANT",
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 3,
+      "letter": "t",
+      "input": "mouse",
+      "word": "TAP",
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 4,
+      "letter": "m",
+      "input": "mouse",
+      "word": "MAP",
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 5,
+      "letter": "h",
+      "input": "mouse",
+      "word": "HEN",
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 6,
+      "letter": "d",
+      "input": "mouse",
+      "word": "DOG",
+      "demo": null,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 7,
+      "letter": "p",
+      "input": "mouse",
+      "word": "PIN",
+      "demo": null,
+      "audio": []
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "badAssets": [],
+  "after": {
+    "amari": {
+      "unlocked": 2,
+      "completedLevels": [
+        0,
+        1,
+        2
+      ],
+      "masteredLetters": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "r",
+        "s",
+        "t",
+        "u"
+      ],
+      "recentByLevel": {
+        "0": [
+          "o",
+          "k",
+          "u",
+          "t",
+          "h",
+          "b",
+          "g",
+          "s"
+        ],
+        "1": [
+          "i",
+          "u",
+          "l",
+          "o",
+          "t",
+          "c",
+          "k",
+          "p"
+        ],
+        "2": [
+          "s",
+          "c",
+          "a",
+          "t",
+          "m",
+          "h",
+          "d",
+          "p"
+        ]
+      }
+    }
+  },
+  "url": "http://127.0.0.1:5180/?trace-tactics-qa=1792885744415#/world/read-write"
+}

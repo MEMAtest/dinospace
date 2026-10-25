@@ -1,0 +1,349 @@
+{
+  "origin": "https://dinospace.netlify.app",
+  "width": 1440,
+  "game": "tictactoe",
+  "entry": "/assets/arcade-mE5Uz1qP.js",
+  "runtimeExpected": "88b979ccff207a8b11d27e0dc241e04938f93555",
+  "cacheKeys": [
+    "amari-discovery-media-v1",
+    "amari-discovery-v34"
+  ],
+  "at": "2026-10-25T00:01:57.111Z",
+  "passed": true,
+  "before": {
+    "amari": {
+      "completedMissionIds": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "unlocked": 2,
+      "badges": [
+        "make-a-line",
+        "block-the-rocket",
+        "find-a-fork"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "level": 0,
+      "round": 0,
+      "board": [
+        "X",
+        "O",
+        null,
+        "X",
+        "O",
+        null,
+        null,
+        null,
+        null
+      ],
+      "target": 6,
+      "paths": 1,
+      "audio": [
+        {
+          "src": "https://dinospace.netlify.app/audio/en/e7e450d7-matilda.mp3",
+          "time": 0.24991
+        }
+      ]
+    },
+    {
+      "level": 0,
+      "round": 1,
+      "board": [
+        null,
+        "X",
+        "X",
+        null,
+        "O",
+        "O",
+        null,
+        null,
+        null
+      ],
+      "target": 0,
+      "paths": 1,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 2,
+      "board": [
+        null,
+        null,
+        null,
+        "X",
+        "O",
+        null,
+        "X",
+        "O",
+        null
+      ],
+      "target": 0,
+      "paths": 1,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 0,
+      "board": [
+        "O",
+        "O",
+        null,
+        null,
+        "X",
+        "X",
+        null,
+        null,
+        null
+      ],
+      "target": 2,
+      "paths": 1,
+      "audio": [
+        {
+          "src": "https://dinospace.netlify.app/audio/en/fff67abc-matilda.mp3",
+          "time": 0.182477
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "round": 1,
+      "board": [
+        "O",
+        null,
+        null,
+        "O",
+        "X",
+        null,
+        null,
+        "X",
+        null
+      ],
+      "target": 6,
+      "paths": 1,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 2,
+      "board": [
+        null,
+        "O",
+        "O",
+        "X",
+        "X",
+        null,
+        null,
+        null,
+        null
+      ],
+      "target": 0,
+      "paths": 1,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 0,
+      "board": [
+        "X",
+        null,
+        null,
+        "O",
+        null,
+        null,
+        "X",
+        "O",
+        null
+      ],
+      "target": 2,
+      "paths": 2,
+      "audio": [
+        {
+          "src": "https://dinospace.netlify.app/audio/en/7f63350c-matilda.mp3",
+          "time": 0.237853
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "round": 1,
+      "board": [
+        "X",
+        "O",
+        "X",
+        "O",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "target": 4,
+      "paths": 2,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 2,
+      "board": [
+        "X",
+        "O",
+        null,
+        "O",
+        null,
+        null,
+        "X",
+        null,
+        null
+      ],
+      "target": 4,
+      "paths": 2,
+      "audio": []
+    },
+    {
+      "free": "win",
+      "board": [
+        "X",
+        "X",
+        "X",
+        "O",
+        "O",
+        null,
+        null,
+        null,
+        null
+      ],
+      "scores": {
+        "amari": {
+          "X": 3,
+          "O": 2,
+          "draws": 2,
+          "recentBoards": [
+            "406846021:1",
+            "1609633163:2",
+            "1680404587:3",
+            "3325753255:1",
+            "1212972971:2",
+            "3713071922:3",
+            "1446612690:1"
+          ]
+        }
+      }
+    },
+    {
+      "free": "loss",
+      "board": [
+        "X",
+        "X",
+        null,
+        "O",
+        "O",
+        "O",
+        null,
+        null,
+        "X"
+      ],
+      "scores": {
+        "amari": {
+          "X": 3,
+          "O": 3,
+          "draws": 2,
+          "recentBoards": [
+            "406846021:1",
+            "1609633163:2",
+            "1680404587:3",
+            "3325753255:1",
+            "1212972971:2",
+            "3713071922:3",
+            "1446612690:1",
+            "2985169929:2"
+          ]
+        }
+      }
+    },
+    {
+      "free": "draw",
+      "board": [
+        "X",
+        "O",
+        "X",
+        "X",
+        "O",
+        "O",
+        "O",
+        "X",
+        "X"
+      ],
+      "scores": {
+        "amari": {
+          "X": 3,
+          "O": 3,
+          "draws": 3,
+          "recentBoards": [
+            "406846021:1",
+            "1609633163:2",
+            "1680404587:3",
+            "3325753255:1",
+            "1212972971:2",
+            "3713071922:3",
+            "1446612690:1",
+            "2985169929:2",
+            "335813423:3"
+          ]
+        }
+      }
+    }
+  ],
+  "shelfLabels": [
+    "Make a line: collected",
+    "Block the Rocket: collected",
+    "Find a fork: collected"
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "badAssets": [],
+  "after": {
+    "amari": {
+      "completedMissionIds": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "unlocked": 2,
+      "badges": [
+        "make-a-line",
+        "block-the-rocket",
+        "find-a-fork"
+      ]
+    }
+  },
+  "url": "https://dinospace.netlify.app/?trace-tactics-qa=1792886502579#/world/thinking"
+}

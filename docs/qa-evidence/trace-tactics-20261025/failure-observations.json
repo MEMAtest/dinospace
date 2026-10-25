@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-25",
+  "appRegressionFound": {
+    "game": "Cosmic Tic-Tac-Toe",
+    "case": "Fork lessons rejected a different valid fork square.",
+    "observedBoard": [
+      "X",
+      null,
+      null,
+      "O",
+      null,
+      null,
+      "X",
+      "O",
+      null
+    ],
+    "authoredHint": 4,
+    "validAlternate": 2,
+    "repair": "Validate the chosen tactic semantically and derive paths from the actual placed mark. All eight transforms and alternate forks tested."
+  },
+  "harnessCorrections": [
+    "Actual world route is read-write, not words.",
+    "A reward snapshot taken immediately after Next observed the preceding deferred celebration. Allow transition to settle before measuring demonstration. Demo did not grant progress.",
+    "A previously interrupted lesson correctly resumed its one remaining board; the three-board replay harness was rerun after natural completion. No saved ledgers reset."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "at": "2026-10-25T00:05:40.464309+00:00",
+  "worktreesCreated": 0,
+  "dependencyInstalls": 0,
+  "newBrowserResources": 0,
+  "retained": [
+    {
+      "path": "docs/qa-evidence/trace-tactics-20261025/baseline-trace-390.jpg",
+      "bytes": 58056,
+      "sha256": "17e56b03f8d6ad7d272ea0efdd859c7699ec9353897cd8fee238256294767263"
+    },
+    {
+      "path": "docs/qa-evidence/trace-tactics-20261025/baseline-tactics-390.jpg",
+      "bytes": 59064,
+      "sha256": "cd15a74fc9464ca22eff6f54c760cb80b156b7af83c114500447e464b54b019a"
+    },
+    {
+      "path": "docs/qa-evidence/trace-tactics-20261025/trace-390.jpg",
+      "bytes": 45827,
+      "sha256": "6ad46ae77e6d6b6fce04d1c9e9af0c0a378c23fb6f67ee9a674edee96fadde30"
+    },
+    {
+      "path": "docs/qa-evidence/trace-tactics-20261025/trace-1440.jpg",
+      "bytes": 90093,
+      "sha256": "30ee2867007c3c4a457635f42e6499c9d6a80121360f76be23e61008e4da8ffc"
+    },
+    {
+      "path": "docs/qa-evidence/trace-tactics-20261025/tactics-390.jpg",
+      "bytes": 75158,
+      "sha256": "90e511c2adc7fdbf85072308476634e348cfbb4a565d0345f742c0390e55db00"
+    },
+    {
+      "path": "docs/qa-evidence/trace-tactics-20261025/tactics-1440.jpg",
+      "bytes": 131063,
+      "sha256": "d9610585c3a266d9d70567523a1e98dcf2c230a0cbd028e903a72e08d6f64e3a"
+    }
+  ],
+  "removed": [
+    {
+      "path": "output/playwright/trace-tactics-trace-390-complete.jpg",
+      "bytes": 38264
+    },
+    {
+      "path": "output/playwright/trace-tactics-tictactoe-390-task.jpg",
+      "bytes": 60164
+    },
+    {
+      "path": "output/playwright/trace-tactics-tictactoe-1440-task.jpg",
+      "bytes": 107621
+    },
+    {
+      "path": "output/playwright/trace-tactics-trace-1440-complete.jpg",
+      "bytes": 86908
+    },
+    {
+      "path": "docs/qa-evidence/trace-tactics-20261025/local-tactics-390.json.failure.txt",
+      "bytes": 170
+    },
+    {
+      "path": "docs/qa-evidence/trace-tactics-20261025/local-trace-390.json.failure.txt",
+      "bytes": 32
+    }
+  ],
+  "profile": {
+    "path": "tmp/amari-production-qa-profile",
+    "preserved": true,
+    "clearSavedState": false,
+    "allocatedKiB": 250192,
+    "ownerReleased": true
+  },
+  "build": {
+    "path": "dist",
+    "rebuiltInPlace": true
+  },
+  "rollback": {
+    "previousStableRuntime": "f85db347ab536951be3a7e10ddbda839597b088e",
+    "previousImmutableBackend": "https://dinospace-3siiwrc3a-memas-projects-23a0001d.vercel.app",
+    "previousGatewayDeploy": "6adcedbc9cb8b516a859de79",
+    "instructions": "If a confirmed regression requires rollback, republish the single Netlify gateway pinned to the prior immutable backend; retain Netlify origin and all browser saved data. Do not redirect through the legacy public Vercel alias."
+  },
+  "disk": {
+    "beforeApproxGiB": 38,
+    "afterFreeBytes": 38000771072,
+    "sharedVolumeChangeNotAttributableToThisTask": true
+  },
+  "servers": {
+    "taskDevelopmentSession": 37332,
+    "taskPreviewSession": 91482,
+    "bothStopped": true,
+    "port5180Listening": false
+  },
+  "evidenceBytes": 558079
+}

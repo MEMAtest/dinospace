@@ -1,0 +1,174 @@
+{
+  "passed": true,
+  "game": "trace-dot",
+  "width": 390,
+  "origin": "https://dinospace.netlify.app",
+  "at": "2026-10-25T00:03:04.496Z",
+  "runtimeExpected": "88b979ccff207a8b11d27e0dc241e04938f93555",
+  "entry": "/assets/arcade-mE5Uz1qP.js",
+  "before": {
+    "amari": {
+      "unlocked": 2,
+      "completedLevels": [
+        0,
+        1,
+        2
+      ],
+      "masteredLetters": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "r",
+        "s",
+        "t",
+        "u"
+      ],
+      "recentByLevel": {
+        "0": [
+          "u",
+          "a",
+          "e",
+          "p",
+          "s",
+          "m",
+          "t",
+          "c"
+        ],
+        "1": [
+          "n",
+          "a",
+          "c",
+          "b",
+          "r",
+          "g",
+          "s",
+          "u"
+        ],
+        "2": [
+          "m",
+          "k",
+          "c",
+          "a",
+          "h",
+          "s",
+          "d",
+          "l"
+        ]
+      }
+    }
+  },
+  "after": {
+    "amari": {
+      "unlocked": 2,
+      "completedLevels": [
+        0,
+        1,
+        2
+      ],
+      "masteredLetters": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "k",
+        "l",
+        "m",
+        "n",
+        "o",
+        "p",
+        "r",
+        "s",
+        "t",
+        "u"
+      ],
+      "recentByLevel": {
+        "0": [
+          "u",
+          "a",
+          "e",
+          "p",
+          "s",
+          "m",
+          "t",
+          "c"
+        ],
+        "1": [
+          "s",
+          "u",
+          "k",
+          "m",
+          "h",
+          "d",
+          "l",
+          "i"
+        ],
+        "2": [
+          "m",
+          "k",
+          "c",
+          "a",
+          "h",
+          "s",
+          "d",
+          "l"
+        ]
+      }
+    }
+  },
+  "rows": [
+    {
+      "run": 0,
+      "round": 0,
+      "letter": "K",
+      "input": "keyboard practice"
+    },
+    {
+      "run": 0,
+      "round": 1,
+      "letter": "m",
+      "input": "keyboard practice"
+    },
+    {
+      "run": 0,
+      "round": 2,
+      "letter": "H",
+      "input": "keyboard practice"
+    },
+    {
+      "run": 0,
+      "round": 3,
+      "letter": "d",
+      "input": "keyboard practice"
+    },
+    {
+      "run": 0,
+      "round": 4,
+      "letter": "L",
+      "input": "keyboard practice"
+    },
+    {
+      "run": 0,
+      "round": 5,
+      "letter": "i",
+      "input": "native touch line and dot tap"
+    }
+  ],
+  "errors": [],
+  "providers": []
+}

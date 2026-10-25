@@ -1,0 +1,49 @@
+[
+  {
+    "game": "Letter Trace",
+    "text": "Follow the path \u00b7 round 1 of 8\n\nTrace E \u00b7 Elephant\nSound on\n\nStart at green 1; follow the arrows.\n\n0% traced\n\nShow this stroke\nRetry trace\nUse keyboard\nCheck shape\n\nFollow the dotted path in order. Start at the green number and move toward the arrow.",
+    "canvas": "E letter guide. Trace E. Stroke 1 of 2."
+  },
+  {
+    "game": "Cosmic Tic-Tac-Toe",
+    "text": "MAKE A LINE \u00b7 BOARD 1 OF 3\n\nRival Comet\nShow hint\n\nTwo Dino marks are waiting. Find the square that makes three in a row.\n\n0 of 3 tactic boards solved \u00b7 the move stays yours to choose.\n\n\ud83e\udd96\n\ud83e\udd96\n\ud83d\ude80\n\ud83d\ude80\n\nTwo Dino marks are waiting. Find the square that makes three in a row.\n\nChapter map",
+    "cells": [
+      {
+        "label": "Row 1, column 1, square 1, Dino",
+        "disabled": true
+      },
+      {
+        "label": "Row 1, column 2, square 2, Dino",
+        "disabled": true
+      },
+      {
+        "label": "Row 1, column 3, square 3, empty",
+        "disabled": false
+      },
+      {
+        "label": "Row 2, column 1, square 4, Rocket",
+        "disabled": true
+      },
+      {
+        "label": "Row 2, column 2, square 5, Rocket",
+        "disabled": true
+      },
+      {
+        "label": "Row 2, column 3, square 6, empty",
+        "disabled": false
+      },
+      {
+        "label": "Row 3, column 1, square 7, empty",
+        "disabled": false
+      },
+      {
+        "label": "Row 3, column 2, square 8, empty",
+        "disabled": false
+      },
+      {
+        "label": "Row 3, column 3, square 9, empty",
+        "disabled": false
+      }
+    ]
+  }
+]

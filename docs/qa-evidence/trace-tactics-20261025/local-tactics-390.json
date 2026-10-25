@@ -1,0 +1,320 @@
+{
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "game": "tictactoe",
+  "at": "2026-10-24T23:47:40.975Z",
+  "passed": true,
+  "before": {
+    "amari": {
+      "completedMissionIds": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "unlocked": 2,
+      "badges": [
+        "make-a-line",
+        "block-the-rocket",
+        "find-a-fork"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "level": 0,
+      "round": 0,
+      "board": [
+        "X",
+        "X",
+        null,
+        "O",
+        "O",
+        null,
+        null,
+        null,
+        null
+      ],
+      "target": 2,
+      "paths": 1,
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5180/audio/en/e7e450d7-matilda.mp3",
+          "time": 0.163251
+        }
+      ]
+    },
+    {
+      "level": 0,
+      "round": 1,
+      "board": [
+        "X",
+        "O",
+        null,
+        "X",
+        "O",
+        null,
+        null,
+        null,
+        null
+      ],
+      "target": 6,
+      "paths": 1,
+      "audio": []
+    },
+    {
+      "level": 0,
+      "round": 2,
+      "board": [
+        null,
+        "X",
+        "X",
+        null,
+        "O",
+        "O",
+        null,
+        null,
+        null
+      ],
+      "target": 0,
+      "paths": 1,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 0,
+      "board": [
+        "O",
+        null,
+        null,
+        "O",
+        "X",
+        null,
+        null,
+        "X",
+        null
+      ],
+      "target": 6,
+      "paths": 1,
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5180/audio/en/fff67abc-matilda.mp3",
+          "time": 0.165192
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "round": 1,
+      "board": [
+        null,
+        "O",
+        "O",
+        "X",
+        "X",
+        null,
+        null,
+        null,
+        null
+      ],
+      "target": 0,
+      "paths": 1,
+      "audio": []
+    },
+    {
+      "level": 1,
+      "round": 2,
+      "board": [
+        null,
+        "X",
+        null,
+        "O",
+        "X",
+        null,
+        "O",
+        null,
+        null
+      ],
+      "target": 0,
+      "paths": 1,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 0,
+      "board": [
+        "X",
+        null,
+        null,
+        "O",
+        null,
+        null,
+        "X",
+        "O",
+        null
+      ],
+      "target": 2,
+      "paths": 2,
+      "audio": [
+        {
+          "src": "http://127.0.0.1:5180/audio/en/7f63350c-matilda.mp3",
+          "time": 0.163625
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "round": 1,
+      "board": [
+        "X",
+        "O",
+        "X",
+        "O",
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "target": 4,
+      "paths": 2,
+      "audio": []
+    },
+    {
+      "level": 2,
+      "round": 2,
+      "board": [
+        "X",
+        "O",
+        null,
+        "O",
+        null,
+        null,
+        "X",
+        null,
+        null
+      ],
+      "target": 4,
+      "paths": 2,
+      "audio": []
+    },
+    {
+      "free": "win",
+      "board": [
+        "X",
+        "X",
+        "X",
+        "O",
+        "O",
+        null,
+        null,
+        null,
+        null
+      ],
+      "scores": {
+        "amari": {
+          "X": 1,
+          "O": 0,
+          "draws": 0,
+          "recentBoards": [
+            "3981520776:1"
+          ]
+        }
+      }
+    },
+    {
+      "free": "loss",
+      "board": [
+        "X",
+        "X",
+        null,
+        "O",
+        "O",
+        "O",
+        null,
+        null,
+        "X"
+      ],
+      "scores": {
+        "amari": {
+          "X": 1,
+          "O": 1,
+          "draws": 0,
+          "recentBoards": [
+            "3981520776:1",
+            "417298750:2"
+          ]
+        }
+      }
+    },
+    {
+      "free": "draw",
+      "board": [
+        "X",
+        "O",
+        "X",
+        "X",
+        "O",
+        "O",
+        "O",
+        "X",
+        "X"
+      ],
+      "scores": {
+        "amari": {
+          "X": 1,
+          "O": 1,
+          "draws": 1,
+          "recentBoards": [
+            "3981520776:1",
+            "417298750:2",
+            "3067603332:3"
+          ]
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "badAssets": [],
+  "after": {
+    "amari": {
+      "completedMissionIds": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "unlocked": 2,
+      "badges": [
+        "make-a-line",
+        "block-the-rocket",
+        "find-a-fork"
+      ]
+    }
+  },
+  "url": "http://127.0.0.1:5180/?trace-tactics-qa=1792885653779#/world/thinking"
+}
