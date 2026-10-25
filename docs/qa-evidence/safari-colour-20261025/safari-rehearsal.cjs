@@ -1,0 +1,46 @@
+async page => {
+ const origin=QA_ORIGIN,width=QA_WIDTH,words=QA_WORDS,rows=[],errors=[],consoleErrors=[],providers=[],failedAssets=[];
+ page.setDefaultTimeout(14000);await page.setViewportSize({width,height:900});
+ await page.unroute('**/api/**');await page.route('**/api/**',r=>{providers.push(r.request().url());return r.fulfill({status:403,body:'Synthetic QA provider guard'});});
+ page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')consoleErrors.push(m.text());});page.on('response',r=>{if(r.status()>=400&&/\.(mp3|webp|png)/.test(r.url()))failedAssets.push({url:r.url(),status:r.status()});});
+ await page.addInitScript(()=>{if(window.__qaAudioTagged)return;window.__qaAudioTagged=true;window.__qaMedia=[];const original=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(...args){const row={tag:'safari-colour-v2',src:this.currentSrc||this.src,started:false,advanced:false,ended:false};window.__qaMedia.push(row);this.addEventListener('playing',()=>row.started=true);this.addEventListener('timeupdate',()=>{if(this.currentTime>0.05)row.advanced=true;});this.addEventListener('ended',()=>row.ended=true);return original.apply(this,args);};});
+ const root=origin+'/?safari-acceptance='+Date.now();await page.goto(root+'#/');await page.getByRole('button',{name:/Age 6\+.*Amari/}).click();await page.goto(root+'#/world/read-write');await page.getByRole('button').filter({has:page.getByRole('heading',{name:'Sound Safari',exact:true})}).click();
+ const sound=page.getByRole('button',{name:'Turn sound on',exact:true});if(await sound.count())await sound.click();
+ const snapshot=()=>page.evaluate(()=>({progress:JSON.parse(localStorage.getItem('amari_sound_safari_adventure_v1')||'null'),rewards:localStorage.getItem('amari_rewards_v2')}));
+ const runtime=await page.evaluate(async()=>({entry:document.querySelector('script[type=module][src]')?.getAttribute('src'),worker:(await navigator.serviceWorker?.getRegistration())?.active?.scriptURL||null}));const initial=await snapshot(),chapterTitles=['Listen for a sound','Blend the sounds','Pull a word apart'],chapterIds=['listen','blend','segment'];
+ const checkLayout=()=>page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,badImages:[...document.images].filter(i=>i.complete&&!i.naturalWidth).map(i=>i.src)}));
+ for(let chapter=0;chapter<3;chapter++){
+  await page.getByRole('button',{name:new RegExp('Chapter '+(chapter+1)+' .*'+chapterTitles[chapter])}).click();
+  const seen=new Set();
+  for(let ri=0;ri<6;ri++){
+   const section=page.locator('section[data-safari-round]');await section.waitFor();const id=await section.getAttribute('data-safari-round');if(seen.has(id))throw Error('Repeated round '+id);seen.add(id);
+   const target=chapter===0?id.slice(7):null,word=chapter===0?null:words.find(w=>id===chapterIds[chapter]+'-'+w.id);if(chapter>0&&!word)throw Error('Unknown word '+id);
+   const hear=async()=>{
+    if(chapter===0){await page.getByRole('button',{name:'Hear /'+target+'/',exact:true}).click();await page.waitForTimeout(350);}
+    else if(chapter===1){for(let i=0;i<word.phonemes.length;i++){await page.getByRole('button',{name:'Hear sound '+(i+1),exact:true}).click();await page.waitForTimeout(350);}await page.getByRole('button',{name:'Hear sound 1',exact:true}).click();await page.waitForTimeout(350);}
+    else{await page.getByRole('button',{name:'Hear the word again',exact:true}).click();await page.waitForTimeout(450);}
+   };
+   await hear();
+   const chooseSegments=async sounds=>{for(const s of sounds){await page.locator('button[aria-label="Hear /'+s+'/ and add it"][aria-pressed="false"]').first().click();await page.waitForTimeout(80);}await page.getByRole('button',{name:'Check sounds',exact:true}).click();};
+   let correct;
+   if(chapter<2){const options=await page.locator('button[data-word]').evaluateAll(els=>els.map(e=>e.dataset.word));correct=chapter===0?options.find(o=>words.find(w=>w.id===o).initialSound===target):word.id;if(!correct)throw Error('No target picture '+id);
+    if(ri===0){await page.locator('button[data-word="'+options.find(o=>o!==correct)+'"]').click();if(await page.getByRole('button',{name:/^(Next challenge|Finish chapter)$/}).count())throw Error('Wrong answer advanced');await page.getByRole('button',{name:'Try this challenge again',exact:true}).click();await hear();await page.getByRole('button',{name:'Use one clue',exact:true}).click();}
+    await page.locator('button[data-word="'+correct+'"]').focus();await page.keyboard.press('Enter');
+   }else{
+    if(ri===0){const sounds=await page.locator('button[aria-label^="Hear /"][aria-pressed]').evaluateAll(els=>els.map(e=>e.getAttribute('aria-label').split('/')[1]));const bad=[...word.phonemes];const j=bad.findIndex(s=>s!==bad[0]);if(j>=0)[bad[0],bad[j]]=[bad[j],bad[0]];else bad[0]=sounds.find(s=>s!==bad[0]);await chooseSegments(bad);await page.getByRole('button',{name:'Try this challenge again',exact:true}).click();await hear();}
+    await chooseSegments(word.phonemes);
+   }
+   const next=page.getByRole('button',{name:ri===5?'Finish chapter':'Next challenge',exact:true});await next.waitFor();
+   if(ri===0){await page.waitForTimeout(450);if(!await next.isVisible())throw Error('Explanation not held');await page.getByRole('button',{name:'Read explanation again',exact:true}).click();const before=await page.evaluate(()=>window.__qaMedia.length);await page.getByRole('button',{name:'Hear sounds and word',exact:true}).click();await page.waitForFunction(n=>window.__qaMedia.slice(n).some(x=>x.ended&&/\/audio\/en\//.test(x.src)),before,{timeout:12000});const layout=await checkLayout();if(layout.overflow||layout.badImages.length)throw Error('Layout '+JSON.stringify(layout));if(chapter===1)await page.screenshot({path:'docs/qa-evidence/safari-colour-20261025/local-safari-'+width+'.jpg',type:'jpeg',quality:78,fullPage:true});}
+   if(ri===5){const saved=await snapshot();if(!saved.progress?.earnedChapterIds.includes(chapterIds[chapter]))throw Error('Chapter not saved before Finish');}
+   rows.push({chapter:chapterTitles[chapter],id,target:target||word.word,held:true});await next.click();
+  }
+  await page.getByRole('heading',{name:'Chapter complete!',exact:true}).waitFor();await page.getByRole('button',{name:'Choose next chapter',exact:true}).click();
+ }
+ const earned=await snapshot();const beforePoints=JSON.parse(initial.rewards||'{}').points||0,afterPoints=JSON.parse(earned.rewards||'{}').points||0,newChapters=3-(initial.progress?.earnedChapterIds.length||0);if(afterPoints-beforePoints<newChapters*2)throw Error('Earned reward not committed');const media=await page.evaluate(()=>window.__qaMedia.filter(x=>x.tag==='safari-colour-v2'));await page.reload();await page.getByRole('heading',{name:'Choose a sound mission',exact:true}).waitFor();if(JSON.stringify(earned)!==JSON.stringify(await snapshot()))throw Error('Saved records changed on reload');
+ await page.getByRole('button',{name:'Back to home',exact:true}).click();await page.getByRole('heading',{name:'Read & Write',exact:true}).waitFor();
+ await page.getByRole('button',{name:'Back to home',exact:true}).click();await page.getByRole('button',{name:/Stickers/}).click();await page.getByRole('region',{name:'Sound Safari discoveries',exact:true}).waitFor();const shelf=await page.getByRole('region',{name:'Sound Safari discoveries',exact:true}).innerText();if(!shelf.includes('3 / 3 collected'))throw Error('Collection missing saved chapters');await page.reload();await page.getByRole('region',{name:'Sound Safari discoveries',exact:true}).waitFor();if(JSON.stringify(earned)!==JSON.stringify(await snapshot()))throw Error('Shelf visit changed rewards');
+ const playedPhonemes=[...new Set(media.filter(x=>x.started&&x.advanced&&/\/phonemes\//.test(x.src)).map(x=>x.src.split('/').pop().split('-')[0]))];if(playedPhonemes.length!==6)throw Error('Incomplete six sound playback '+playedPhonemes);
+ if(errors.length||consoleErrors.length||providers.length||failedAssets.length)throw Error(JSON.stringify({errors,consoleErrors,providers,failedAssets}));
+ if(await page.getByRole('status',{name:'Game update available',exact:true}).count())throw Error('Unexpected stale release notice');return{passed:true,origin,width,runtime,game:'Sound Safari',rows,initialChapterCount:initial.progress?.earnedChapterIds.length||0,finalChapterCount:earned.progress.earnedChapterIds.length,retainedAfterReload:true,parentNavigation:true,playedPhonemes,startedAndAdvanced:media.filter(x=>x.started&&x.advanced).length,completedExplanationSequences:3,collectionRetained:true,rewardPointsBefore:beforePoints,rewardPointsAfter:afterPoints,articulationReview:'Human user confirmed all six trial sounds correct on 25 October 2026',errors,consoleErrors,providers,failedAssets};
+}

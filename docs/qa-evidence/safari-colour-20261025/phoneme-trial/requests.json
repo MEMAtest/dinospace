@@ -1,0 +1,76 @@
+{
+  "cap": 6,
+  "automaticRetries": 0,
+  "model": "eleven_flash_v2",
+  "voice": "Daniel",
+  "voiceId": "onwK4e9ZLuTAKqWW03F9",
+  "requests": [
+    {
+      "phoneme": "s",
+      "requestedAt": "2026-10-25T16:29:33.921Z",
+      "status": "saved",
+      "httpStatus": 200,
+      "profile": "british-phoneme-trial",
+      "model": "eleven_flash_v2",
+      "bytes": 6312,
+      "sha256": "5a274aac2b50f6b64cc4ad0b8035fcec15ee8e4602a70c83134d8d4b4a61c988"
+    },
+    {
+      "phoneme": "a",
+      "requestedAt": "2026-10-25T16:29:34.820Z",
+      "status": "saved",
+      "httpStatus": 200,
+      "profile": "british-phoneme-trial",
+      "model": "eleven_flash_v2",
+      "bytes": 7148,
+      "sha256": "c2357a777ec1ccb9d91047e071c0889bfba1e4fbe6595375af5358314b86f966"
+    },
+    {
+      "phoneme": "t",
+      "requestedAt": "2026-10-25T16:29:35.237Z",
+      "status": "saved",
+      "httpStatus": 200,
+      "profile": "british-phoneme-trial",
+      "model": "eleven_flash_v2",
+      "bytes": 7566,
+      "sha256": "d28b82658063757219e4cd348133c3b8b7413c45c673744723b59992cc307a41"
+    },
+    {
+      "phoneme": "p",
+      "requestedAt": "2026-10-25T16:29:35.688Z",
+      "status": "saved",
+      "httpStatus": 200,
+      "profile": "british-phoneme-trial",
+      "model": "eleven_flash_v2",
+      "bytes": 7566,
+      "sha256": "ac7106e2c86a4df578a762c3b11973ae613e2a17b1715df043056d1860424e80"
+    },
+    {
+      "phoneme": "i",
+      "requestedAt": "2026-10-25T16:29:36.022Z",
+      "status": "saved",
+      "httpStatus": 200,
+      "profile": "british-phoneme-trial",
+      "model": "eleven_flash_v2",
+      "bytes": 6312,
+      "sha256": "427d5342a6365b324783d05f879f03ec01f5a0608798f02f0e5e7f0ddd1a9f9f"
+    },
+    {
+      "phoneme": "n",
+      "requestedAt": "2026-10-25T16:29:36.326Z",
+      "status": "saved",
+      "httpStatus": 200,
+      "profile": "british-phoneme-trial",
+      "model": "eleven_flash_v2",
+      "bytes": 7566,
+      "sha256": "f0f31d8c4cbff313b7b2940e2f4c6e6a4c112a8af76d8f24a5cf2e149e888dc0"
+    }
+  ],
+  "articulationReview": {
+    "status": "accepted",
+    "reviewer": "human user",
+    "response": "All six sound correct",
+    "date": "2026-10-25",
+    "scope": "Six-clip trial only; no further phonemes generated"
+  }
+}

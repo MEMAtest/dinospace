@@ -1,0 +1,24 @@
+{
+  "at": "2026-10-25T16:44:56.162008+00:00",
+  "tests": {
+    "total": 391,
+    "passed": 391,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lint": "passed for changed app/components/data",
+  "build": "production configured VITE_ELEVENLABS_ENABLED=true, passed",
+  "worker": "v35",
+  "entry": "see built/runtime entry",
+  "diffCheck": "passed",
+  "audio": {
+    "required": 79,
+    "decoded": 79,
+    "generatedNarration": 64,
+    "phonemeTrial": 6,
+    "reused": 9,
+    "automaticRetries": 0,
+    "phonemeHumanReview": "All six sound correct"
+  },
+  "independentReview": "No remaining source blocker after clarification that visible mixed paint is the intended observation model, not a hidden-result prediction quiz."
+}

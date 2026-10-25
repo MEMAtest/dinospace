@@ -32,3 +32,10 @@ test('unmodified sessions retain their wrapper and existing board games keep the
     assert.equal(ownsGameProgression(game), true, game);
   }
 });
+
+
+test('Safari and Colour own their held chapter flow for both profiles', () => {
+  for (const little of [true, false]) for (const game of ['phonics', 'colormix']) {
+    assert.equal(ownsGameProgression(game, little), true, game);
+  }
+});

@@ -1,0 +1,189 @@
+/* global Buffer, process */
+
+const MAX_TEXT_LENGTH = 420;
+const RATE_LIMIT_WINDOW_MS = 5 * 60 * 1000;
+const MAX_REQUESTS_PER_WINDOW = 45;
+const DEFAULT_ENGLISH_VOICE_ID = 'XrExE9yKIg1WjnnlVkGX'; // Matilda — warm, friendly narrator
+// Fixed English sound requests only; callers cannot select a model, voice or
+// inject SSML. Multilingual narration must never masquerade as pure phonemes.
+const PHONEMES = Object.freeze({ s: 's', a: 'æ', t: 't', p: 'p', i: 'ɪ', n: 'n' });
+const BRITISH_PHONEME_VOICE_ID = 'onwK4e9ZLuTAKqWW03F9'; // Daniel
+const requestBuckets = new Map();
+const ALLOWED_APP_ORIGINS = new Set([
+  'https://dinospace-eight.vercel.app',
+  'https://dinospace.netlify.app',
+  'https://dinospace-memas-projects-23a0001d.vercel.app',
+  'https://dinospace-git-main-memas-projects-23a0001d.vercel.app',
+  'http://localhost',
+  'https://localhost',
+  'capacitor://localhost',
+]);
+
+const applyCors = (request, response) => {
+  const origin = request.headers.origin;
+  if (origin && ALLOWED_APP_ORIGINS.has(origin)) {
+    response.setHeader('Access-Control-Allow-Origin', origin);
+    response.setHeader('Vary', 'Origin');
+    response.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    // The browser verifies that dynamic audio came from ElevenLabs. Expose
+    // the provenance headers to cross-origin web and Android clients.
+    response.setHeader('Access-Control-Expose-Headers', 'X-Amari-Voice-Provider, X-Amari-Voice-Model, X-Amari-Voice-Profile, Retry-After');
+  }
+};
+
+const hasAllowedOrigin = (request) => {
+  const origin = request.headers.origin;
+  if (typeof origin !== 'string') return false;
+  if (ALLOWED_APP_ORIGINS.has(origin)) return true;
+  try {
+    const parsed = new URL(origin);
+    return parsed.protocol === 'http:' && (parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1');
+  } catch {
+    return false;
+  }
+};
+
+const getClientId = (request) => {
+  const forwarded = request.headers['x-forwarded-for'];
+  if (typeof forwarded === 'string' && forwarded) return forwarded.split(',')[0].trim();
+  return request.socket?.remoteAddress || 'unknown';
+};
+
+const canGenerateVoice = (clientId) => {
+  const now = Date.now();
+  const current = requestBuckets.get(clientId);
+  if (!current || now - current.startedAt >= RATE_LIMIT_WINDOW_MS) {
+    requestBuckets.set(clientId, { startedAt: now, count: 1 });
+    return true;
+  }
+  if (current.count >= MAX_REQUESTS_PER_WINDOW) return false;
+  current.count += 1;
+  return true;
+};
+
+const respondJson = (response, status, body) => {
+  response.setHeader('Cache-Control', 'no-store');
+  response.status(status).json(body);
+};
+
+export default async function handler(request, response) {
+  applyCors(request, response);
+  if (!hasAllowedOrigin(request)) {
+    respondJson(response, 403, { error: 'Voice requests are only available inside Amari Discovery' });
+    return;
+  }
+  if (request.method === 'OPTIONS') {
+    response.status(204).end();
+    return;
+  }
+
+  if (request.method !== 'POST') {
+    response.setHeader('Allow', 'POST');
+    respondJson(response, 405, { error: 'Method not allowed' });
+    return;
+  }
+
+  let payload = request.body;
+  if (typeof payload === 'string') {
+    try { payload = JSON.parse(payload); } catch {
+      respondJson(response, 400, { error: 'Invalid request' });
+      return;
+    }
+  }
+  const phoneme = payload?.phoneme;
+  const isPhoneme = phoneme !== undefined;
+  if (isPhoneme && (payloadLanguage(payload) !== 'en' || typeof phoneme !== 'string' || !Object.hasOwn(PHONEMES, phoneme))) {
+    respondJson(response, 400, { error: 'Unsupported English sound' });
+    return;
+  }
+  const apiKey = process.env.ELEVENLABS_API_KEY;
+  const requestedLanguage = payloadLanguage(request.body);
+  // German must use an explicitly selected German ElevenLabs voice. Falling
+  // back to the English narrator produces an accent/pronunciation mismatch,
+  // which is worse than declining the dynamic request. The offline German
+  // word pack remains available regardless of this optional API setting.
+  const voiceId = isPhoneme ? BRITISH_PHONEME_VOICE_ID : requestedLanguage === 'de'
+    ? process.env.ELEVENLABS_GERMAN_VOICE_ID
+    : (process.env.ELEVENLABS_ENGLISH_VOICE_ID || DEFAULT_ENGLISH_VOICE_ID);
+  if (!apiKey || !voiceId) {
+    response.status(204).end();
+    return;
+  }
+
+  const clientId = getClientId(request);
+  if (!canGenerateVoice(clientId)) {
+    const bucket = requestBuckets.get(clientId);
+    const remainingMs = Math.max(1, RATE_LIMIT_WINDOW_MS - (Date.now() - bucket.startedAt));
+    response.setHeader('Retry-After', String(Math.ceil(remainingMs / 1000)));
+    respondJson(response, 429, { error: 'Please try the voice again shortly' });
+    return;
+  }
+
+  const rawText = isPhoneme ? `<phoneme alphabet="ipa" ph="${PHONEMES[phoneme]}">${phoneme}</phoneme>` : typeof payload?.text === 'string' ? payload.text : '';
+  const text = rawText
+    .split('')
+    .filter((character) => {
+      const code = character.charCodeAt(0);
+      return code >= 32 && code !== 127;
+    })
+    .join('')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!text || text.length > MAX_TEXT_LENGTH) {
+    respondJson(response, 400, { error: 'Voice text must be between 1 and 420 characters' });
+    return;
+  }
+
+  try {
+    const url = new URL(`https://api.elevenlabs.io/v1/text-to-speech/${encodeURIComponent(voiceId)}`);
+    url.searchParams.set('output_format', 'mp3_44100_128');
+    const providerResponse = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'xi-api-key': apiKey,
+      },
+      body: JSON.stringify({
+        text,
+        model_id: isPhoneme ? 'eleven_flash_v2' : process.env.ELEVENLABS_MODEL_ID || 'eleven_multilingual_v2',
+        voice_settings: {
+          stability: 0.5,
+          similarity_boost: 0.75,
+          style: 0,
+          use_speaker_boost: true,
+          speed: 0.95,
+        },
+      }),
+    });
+
+    if (!providerResponse.ok) {
+      respondJson(response, 502, { error: 'Premium voice is temporarily unavailable' });
+      return;
+    }
+
+    const audio = Buffer.from(await providerResponse.arrayBuffer());
+    if (!audio.length) {
+      respondJson(response, 502, { error: 'Premium voice returned no audio' });
+      return;
+    }
+
+    response.setHeader('Content-Type', providerResponse.headers.get('content-type') || 'audio/mpeg');
+    response.setHeader('Content-Length', String(audio.length));
+    response.setHeader('Cache-Control', 'private, no-store');
+    response.setHeader('X-Amari-Voice-Provider', 'elevenlabs');
+    response.setHeader('X-Amari-Voice-Profile', isPhoneme ? 'british-phoneme-trial' : requestedLanguage === 'de' ? 'german-native' : 'matilda');
+    response.setHeader('X-Amari-Voice-Model', isPhoneme ? 'eleven_flash_v2' : process.env.ELEVENLABS_MODEL_ID || 'eleven_multilingual_v2');
+    response.status(200).send(audio);
+  } catch {
+    respondJson(response, 502, { error: 'Premium voice is temporarily unavailable' });
+  }
+}
+
+function payloadLanguage(rawPayload) {
+  let payload = rawPayload;
+  if (typeof payload === 'string') {
+    try { payload = JSON.parse(payload); } catch { return 'en'; }
+  }
+  return typeof payload?.language === 'string' ? payload.language.toLowerCase().split('-')[0] : 'en';
+}

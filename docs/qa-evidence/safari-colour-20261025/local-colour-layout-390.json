@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "game": "Colour Mixing Lab",
+  "rows": [
+    {
+      "lab": "Paint Mixer",
+      "id": "mix-purple",
+      "scoops": {
+        "Red": 1,
+        "Blue": 1
+      },
+      "total": 2,
+      "answer": "Purple",
+      "held": true
+    }
+  ],
+  "initialChapterCount": 3,
+  "finalChapterCount": 3,
+  "retainedAfterReload": true,
+  "parentNavigation": true,
+  "audio": "Not run: required packaged narration pending",
+  "errors": [],
+  "consoleErrors": [],
+  "providers": []
+}

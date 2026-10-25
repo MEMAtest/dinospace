@@ -1,0 +1,138 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "width": 1440,
+  "game": "Sound Safari",
+  "rows": [
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-p",
+      "target": "p",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-i",
+      "target": "i",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-n",
+      "target": "n",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-a",
+      "target": "a",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-t",
+      "target": "t",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-s",
+      "target": "s",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-snap",
+      "target": "SNAP",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-snip",
+      "target": "SNIP",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-sip",
+      "target": "SIP",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-nap",
+      "target": "NAP",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-pat",
+      "target": "PAT",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-pin",
+      "target": "PIN",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-pip",
+      "target": "PIP",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-tin",
+      "target": "TIN",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-ant",
+      "target": "ANT",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-sap",
+      "target": "SAP",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-pants",
+      "target": "PANTS",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-snap",
+      "target": "SNAP",
+      "held": true
+    }
+  ],
+  "initialChapterCount": 3,
+  "finalChapterCount": 3,
+  "retainedAfterReload": true,
+  "parentNavigation": true,
+  "playedPhonemes": [
+    "p",
+    "i",
+    "n",
+    "a",
+    "t",
+    "s"
+  ],
+  "startedAndAdvanced": 312,
+  "completedExplanationSequences": 3,
+  "collectionRetained": true,
+  "rewardPointsBefore": 57,
+  "rewardPointsAfter": 57,
+  "articulationReview": "Human user confirmed all six trial sounds correct on 25 October 2026",
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "failedAssets": []
+}

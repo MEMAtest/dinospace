@@ -1,0 +1,219 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "game": "Colour Mixing Lab",
+  "rows": [
+    {
+      "lab": "Paint Mixer",
+      "id": "mix-teal",
+      "scoops": {
+        "Blue": 2,
+        "Yellow": 1
+      },
+      "total": 3,
+      "answer": "Teal",
+      "held": true
+    },
+    {
+      "lab": "Paint Mixer",
+      "id": "mix-purple",
+      "scoops": {
+        "Red": 1,
+        "Blue": 1
+      },
+      "total": 2,
+      "answer": "Purple",
+      "held": true
+    },
+    {
+      "lab": "Paint Mixer",
+      "id": "mix-green",
+      "scoops": {
+        "Blue": 1,
+        "Yellow": 1
+      },
+      "total": 2,
+      "answer": "Green",
+      "held": true
+    },
+    {
+      "lab": "Paint Mixer",
+      "id": "mix-orange",
+      "scoops": {
+        "Red": 1,
+        "Yellow": 1
+      },
+      "total": 2,
+      "answer": "Orange",
+      "held": true
+    },
+    {
+      "lab": "Paint Mixer",
+      "id": "mix-brown",
+      "scoops": {
+        "Red": 1,
+        "Yellow": 1,
+        "Blue": 1
+      },
+      "total": 3,
+      "answer": "Brown",
+      "held": true
+    },
+    {
+      "lab": "Paint Mixer",
+      "id": "mix-lime",
+      "scoops": {
+        "Blue": 1,
+        "Yellow": 3
+      },
+      "total": 4,
+      "answer": "Lime",
+      "held": true
+    },
+    {
+      "lab": "Light & Shade",
+      "id": "light-coral",
+      "scoops": {
+        "Red": 2,
+        "Black": 1
+      },
+      "total": 3,
+      "answer": "Darker",
+      "held": true
+    },
+    {
+      "lab": "Light & Shade",
+      "id": "light-charcoal",
+      "scoops": {
+        "White": 2,
+        "Black": 1
+      },
+      "total": 3,
+      "answer": "Darker",
+      "held": true
+    },
+    {
+      "lab": "Light & Shade",
+      "id": "light-peach",
+      "scoops": {
+        "Blue": 2,
+        "Black": 1
+      },
+      "total": 3,
+      "answer": "Darker",
+      "held": true
+    },
+    {
+      "lab": "Light & Shade",
+      "id": "light-grey",
+      "scoops": {
+        "Black": 1,
+        "White": 4
+      },
+      "total": 5,
+      "answer": "Lighter",
+      "held": true
+    },
+    {
+      "lab": "Light & Shade",
+      "id": "light-pink",
+      "scoops": {
+        "Red": 1,
+        "White": 2
+      },
+      "total": 3,
+      "answer": "Lighter",
+      "held": true
+    },
+    {
+      "lab": "Light & Shade",
+      "id": "light-sky",
+      "scoops": {
+        "Blue": 1,
+        "White": 3
+      },
+      "total": 4,
+      "answer": "Lighter",
+      "held": true
+    },
+    {
+      "lab": "Colour Makers",
+      "id": "make-cloud",
+      "scoops": {
+        "Blue": 1,
+        "White": 3
+      },
+      "total": 4,
+      "answer": "Sky Blue",
+      "held": true
+    },
+    {
+      "lab": "Colour Makers",
+      "id": "make-berry",
+      "scoops": {
+        "Red": 1,
+        "Blue": 1
+      },
+      "total": 2,
+      "answer": "Purple",
+      "held": true
+    },
+    {
+      "lab": "Colour Makers",
+      "id": "make-wave",
+      "scoops": {
+        "Blue": 2,
+        "Yellow": 1
+      },
+      "total": 3,
+      "answer": "Teal",
+      "held": true
+    },
+    {
+      "lab": "Colour Makers",
+      "id": "make-flower",
+      "scoops": {
+        "Red": 1,
+        "White": 2
+      },
+      "total": 3,
+      "answer": "Pink",
+      "held": true
+    },
+    {
+      "lab": "Colour Makers",
+      "id": "make-leaf",
+      "scoops": {
+        "Blue": 1,
+        "Yellow": 1
+      },
+      "total": 2,
+      "answer": "Green",
+      "held": true
+    },
+    {
+      "lab": "Colour Makers",
+      "id": "make-sun",
+      "scoops": {
+        "Red": 1,
+        "Yellow": 1
+      },
+      "total": 2,
+      "answer": "Orange",
+      "held": true
+    }
+  ],
+  "initialChapterCount": 3,
+  "finalChapterCount": 3,
+  "retainedAfterReload": true,
+  "parentNavigation": true,
+  "audio": {
+    "startedAndAdvanced": 8,
+    "completedReplayExplanations": 3,
+    "packaged": true
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "providers": []
+}
