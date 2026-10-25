@@ -1,0 +1,143 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "width": 1440,
+  "runtime": {
+    "entry": "/assets/arcade-Cq6KRfD2.js",
+    "worker": "https://dinospace.netlify.app/sw.js",
+    "activeCache": "amari-discovery-v35"
+  },
+  "game": "Sound Safari",
+  "rows": [
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-p",
+      "target": "p",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-i",
+      "target": "i",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-n",
+      "target": "n",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-a",
+      "target": "a",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-t",
+      "target": "t",
+      "held": true
+    },
+    {
+      "chapter": "Listen for a sound",
+      "id": "listen-s",
+      "target": "s",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-tin",
+      "target": "TIN",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-spin",
+      "target": "SPIN",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-tip",
+      "target": "TIP",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-pip",
+      "target": "PIP",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-sit",
+      "target": "SIT",
+      "held": true
+    },
+    {
+      "chapter": "Blend the sounds",
+      "id": "blend-pants",
+      "target": "PANTS",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-pat",
+      "target": "PAT",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-pan",
+      "target": "PAN",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-sip",
+      "target": "SIP",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-tip",
+      "target": "TIP",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-sit",
+      "target": "SIT",
+      "held": true
+    },
+    {
+      "chapter": "Pull a word apart",
+      "id": "segment-tap",
+      "target": "TAP",
+      "held": true
+    }
+  ],
+  "initialChapterCount": 3,
+  "finalChapterCount": 3,
+  "retainedAfterReload": true,
+  "parentNavigation": true,
+  "playedPhonemes": [
+    "p",
+    "i",
+    "n",
+    "a",
+    "t",
+    "s"
+  ],
+  "startedAndAdvanced": 75,
+  "completedExplanationSequences": 3,
+  "collectionRetained": true,
+  "rewardPointsBefore": 76,
+  "rewardPointsAfter": 76,
+  "articulationReview": "Human user confirmed all six trial sounds correct on 25 October 2026",
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "failedAssets": []
+}

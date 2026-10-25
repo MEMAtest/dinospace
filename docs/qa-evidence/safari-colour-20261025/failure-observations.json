@@ -1,0 +1,21 @@
+{
+  "observations": [
+    {
+      "type": "harness",
+      "detail": "First Safari phone run completed 18 rounds then failed a nonexistent world-page Stickers selector; corrected by returning Home first. No record reset."
+    },
+    {
+      "type": "source-test",
+      "detail": "Worker cache intentionally bumped34 to35; the source assertion was updated, then391/391passed."
+    },
+    {
+      "type": "deployment-tool",
+      "detail": "Vercel inspect --json omits meta; full v13 API confirmed runtimeSource and gitCommitSha. An unpublished gateway draft retained the old pin after that failed metadata assertion; it was superseded with a separately verified correct-pin draft. No stale draft was published."
+    },
+    {
+      "type": "audit",
+      "detail": "Visible paint blend was questioned, then reviewer withdrew finding after confirming mix-observe-name prompt model and no printed result/ARIA answer leak."
+    }
+  ],
+  "paidRetries": 0
+}

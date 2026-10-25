@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-25T00:05:40.463401+00:00",
+  "updatedAt": "2026-10-25T16:52:57.302874+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "88b979ccff207a8b11d27e0dc241e04938f93555",
+  "canonicalRelease": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -144,7 +144,13 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
+      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md",
+      "latestFunctionalUplift": {
+        "accepted": true,
+        "runtime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
+        "evidence": "docs/qa-evidence/safari-colour-20261025/README.md",
+        "scope": "Targeted three-chapter functional release; no new editorial score assigned."
+      }
     },
     {
       "game": "Spelling Studio",
@@ -160,7 +166,13 @@
       "status": "in progress",
       "recordedEditorialScore": null,
       "instructions": "docs/game-quality-4.5-roadmap.md",
-      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md"
+      "evidence": "work/dinospace-batch5-quality/docs/batch5-literate-reasoning-implementation-plan-20261003.md",
+      "latestFunctionalUplift": {
+        "accepted": true,
+        "runtime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
+        "evidence": "docs/qa-evidence/safari-colour-20261025/README.md",
+        "scope": "Targeted three-chapter functional release; no new editorial score assigned."
+      }
     },
     {
       "game": "Odd One Out",
@@ -536,7 +548,7 @@
       "productionEvidence": "docs/qa-evidence/monster-clue-canonical-20261004/report.md"
     }
   ],
-  "canonicalRuntimeRecheck": "docs/qa-evidence/puzzle-spot-replay-canonical-identity-20261004.json",
+  "canonicalRuntimeRecheck": "docs/qa-evidence/safari-colour-20261025/production-identity.json",
   "skyAccessibleCopyCandidate": {
     "sourceSha": "2923ca6e10c46609504f41529bf46286e17f8434",
     "identity": "docs/qa-evidence/sky-accessible-progress-identity-20261004.json",
@@ -1064,15 +1076,15 @@
   "publicUrl": "https://dinospace.netlify.app",
   "singlePublicSiteRelease": {
     "publicUrl": "https://dinospace.netlify.app",
-    "runtimeCommit": "88b979ccff207a8b11d27e0dc241e04938f93555",
-    "runtimeDeployment": "dpl_Ex2ttDUcu7FPtkbCs2vDC2RbNspi",
-    "runtimeUrl": "https://dinospace-bxci4lt96-memas-projects-23a0001d.vercel.app",
-    "netlifyDeploy": "6add476ad9832e1b3bb2beb5",
-    "cache": "v34",
-    "evidence": "docs/qa-evidence/trace-tactics-20261025/README.md",
+    "runtimeCommit": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
+    "runtimeDeployment": "dpl_C2QV4SPZvED5AtXMDWm5MJe22ZTi",
+    "runtimeUrl": "https://dinospace-c85xitlmy-memas-projects-23a0001d.vercel.app",
+    "netlifyDeploy": "6ade32f95c7d7bd2b8aeb2ba",
+    "cache": "v35",
+    "evidence": "docs/qa-evidence/safari-colour-20261025/README.md",
     "oldPublicAlias": "Redirect-only root/index app entry; legacy API/static routes retained for installed clients",
-    "nativeCheck": "Passed final Netlify390/1440 actual-control rehearsal:48 traced letters,18 tactic boards,6 full-game results, plus6 targeted practice letters including a touch-drawn lower i and dot tap. Held packaged playback, wrong retry, saved badges beforeFinish, reload and sticker shelf verified; no errors/provider requests. Exact loaded entry and worker34 verified.",
-    "scope": "Targeted Letter Trace and Cosmic Tic-Tac-Toe clarity, teaching, gameplay and saved-record acceptance. Other games, historical editorial scores and personal-story recovery unchanged."
+    "nativeCheck": "passed18missions pergame at390/1440:72total, activeworker35, packagedplayback, wrong retry, savednewchapters beforeFinish, reload and collections; userconfirmed six phonemes",
+    "scope": "Targeted Sound Safari and Colour Mixing Lab functional acceptance; historical editorial scores and other games remain separately scoped."
   },
   "personalStoryRecovery": {
     "userConfirmedExpectedPersonalStories": [
@@ -1131,5 +1143,20 @@
     "productionRehearsal": "passed all3chapters ofboth games at390/1440;72rounds/boards plus6targeted practice letters; source/worker/sticker shelf/reload verified",
     "editorialScoresChanged": false,
     "functionalAcceptance": true
+  },
+  "latestSafariColourUplift": {
+    "date": "2026-10-25",
+    "games": [
+      "Sound Safari",
+      "Colour Mixing Lab"
+    ],
+    "runtimeCommit": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
+    "deployment": "dpl_C2QV4SPZvED5AtXMDWm5MJe22ZTi",
+    "netlifyDeploy": "6ade32f95c7d7bd2b8aeb2ba",
+    "evidence": "docs/qa-evidence/safari-colour-20261025/README.md",
+    "productionRehearsal": "passed18missions pergame at390/1440:72total, activeworker35, packagedplayback, wrong retry, savednewchapters beforeFinish, reload and collections; userconfirmed six phonemes",
+    "editorialScoresChanged": false,
+    "functionalAcceptance": true,
+    "monitoring": "Automation amari-shadow-match-production-health deleted at user request; not recreated"
   }
 }

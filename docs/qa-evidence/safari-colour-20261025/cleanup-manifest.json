@@ -1,0 +1,88 @@
+{
+  "at": "2026-10-25T16:52:57.302874+00:00",
+  "worktreesCreated": 0,
+  "installs": 0,
+  "newBrowserSessions": 0,
+  "retainedProfile": "tmp/amari-production-qa-profile",
+  "profileAllocatedKiB": 506460,
+  "profileAbove256MiB": true,
+  "freeBytesAfter": 55008968704,
+  "freeAtStartReported": "51 GiB",
+  "newAudioBytes": 3170276,
+  "evidenceBytes": 733340,
+  "removed": [
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/local-colour-390.jpg",
+      "bytes": 62956
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/local-colour-1440.jpg",
+      "bytes": 112688
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/local-safari-390.jpg",
+      "bytes": 80494
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/local-safari-1440.jpg",
+      "bytes": 173197
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/build-colour-390.jpg",
+      "bytes": 63110
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/build-safari-390.jpg",
+      "bytes": 60992
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/safari-audio-gate-390.jpg",
+      "bytes": 61412
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/phoneme-trial/s.mp3",
+      "bytes": 6312,
+      "canonical": "public/audio/phonemes/en/s-daniel-v1.mp3"
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/phoneme-trial/a.mp3",
+      "bytes": 7148,
+      "canonical": "public/audio/phonemes/en/a-daniel-v1.mp3"
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/phoneme-trial/t.mp3",
+      "bytes": 7566,
+      "canonical": "public/audio/phonemes/en/t-daniel-v1.mp3"
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/phoneme-trial/p.mp3",
+      "bytes": 7566,
+      "canonical": "public/audio/phonemes/en/p-daniel-v1.mp3"
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/phoneme-trial/i.mp3",
+      "bytes": 6312,
+      "canonical": "public/audio/phonemes/en/i-daniel-v1.mp3"
+    },
+    {
+      "path": "docs/qa-evidence/safari-colour-20261025/phoneme-trial/n.mp3",
+      "bytes": 7566,
+      "canonical": "public/audio/phonemes/en/n-daniel-v1.mp3"
+    },
+    {
+      "path": "tmp/safari-colour-production.env",
+      "bytes": 2135
+    }
+  ],
+  "removedBytes": 659454,
+  "trialDeploymentRemoved": "dpl_EWCFnHqb8U9px2MXANLvEDzC32pN, after replacement removed its alias; canonical release retained",
+  "servers": "Task dev78782 and preview1980 stopped; headless browser left running with ownership released",
+  "unrelatedData": "All preexisting untracked/ignored evidence and saved browser records preserved",
+  "rollback": {
+    "runtime": "88b979ccff207a8b11d27e0dc241e04938f93555",
+    "backend": "https://dinospace-bxci4lt96-memas-projects-23a0001d.vercel.app",
+    "netlifyGateway": "6add476ad9832e1b3bb2beb5",
+    "warning": "Pin the immutable backend; never proxy through the redirecting legacy public alias. Do not clear saved data."
+  },
+  "maintenance": "Persistent QA profile exceeds256MiB. Separate root cache-growth review required; preserve all saved state and the one profile/session. No automatic clearing or replacement."
+}

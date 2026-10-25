@@ -9,7 +9,7 @@
   "lint": "passed for changed app/components/data",
   "build": "production configured VITE_ELEVENLABS_ENABLED=true, passed",
   "worker": "v35",
-  "entry": "see built/runtime entry",
+  "entry": "/assets/arcade-Cq6KRfD2.js",
   "diffCheck": "passed",
   "audio": {
     "required": 79,
@@ -20,5 +20,36 @@
     "automaticRetries": 0,
     "phonemeHumanReview": "All six sound correct"
   },
-  "independentReview": "No remaining source blocker after clarification that visible mixed paint is the intended observation model, not a hidden-result prediction quiz."
+  "independentReview": "No remaining source blocker after clarification that visible mixed paint is the intended observation model, not a hidden-result prediction quiz.",
+  "runtime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
+  "publicRehearsal": [
+    {
+      "file": "docs/qa-evidence/safari-colour-20261025/production-safari-390.json",
+      "game": "safari",
+      "width": 390,
+      "rounds": 18,
+      "passed": true
+    },
+    {
+      "file": "docs/qa-evidence/safari-colour-20261025/production-safari-1440.json",
+      "game": "safari",
+      "width": 1440,
+      "rounds": 18,
+      "passed": true
+    },
+    {
+      "file": "docs/qa-evidence/safari-colour-20261025/production-colour-390.json",
+      "game": "colour",
+      "width": 390,
+      "rounds": 18,
+      "passed": true
+    },
+    {
+      "file": "docs/qa-evidence/safari-colour-20261025/production-colour-1440.json",
+      "game": "colour",
+      "width": 1440,
+      "rounds": 18,
+      "passed": true
+    }
+  ]
 }
