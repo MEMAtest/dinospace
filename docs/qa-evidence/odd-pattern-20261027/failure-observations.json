@@ -1,0 +1,21 @@
+{
+  "confirmedSourceDefects": [
+    {
+      "id": "blue-kite",
+      "detail": "Actual phone screenshot shows pink/red kite labelled Blue kite, so visual-colour has two red options. Returned to builder before release.",
+      "image": "failure-blue-kite-390.jpg"
+    },
+    {
+      "id": "reachable-art-placeholders",
+      "detail": "Reachable zebra, boot, snow and car fell through to a labelled placeholder circle. Require explicit recognisable vector art for every authored item."
+    },
+    {
+      "id": "final-feedback",
+      "detail": "Initial Pattern implementation jumped to finish on last correct answer; corrected to save first and hold until Finish."
+    },
+    {
+      "id": "ambiguous-reasons",
+      "detail": "Equivalent true reasons such as round/no-corners were incorrectly false; replaced with specifically false claims."
+    }
+  ]
+}

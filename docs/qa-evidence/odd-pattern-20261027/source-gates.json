@@ -1,0 +1,57 @@
+{
+  "at": "2026-10-27T23:03:58.501581+00:00",
+  "tests": {
+    "passed": 408,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scopedLint": "passed",
+  "configuredBuild": "passed",
+  "nativeFunctionalRows": 108,
+  "reports": [
+    {
+      "file": "docs/qa-evidence/odd-pattern-20261027/local-odd-390.json",
+      "game": "odd",
+      "width": 390,
+      "rows": 18,
+      "unique": 18,
+      "audioRequired": false
+    },
+    {
+      "file": "docs/qa-evidence/odd-pattern-20261027/local-odd-1440.json",
+      "game": "odd",
+      "width": 1440,
+      "rows": 18,
+      "unique": 18,
+      "audioRequired": false
+    },
+    {
+      "file": "docs/qa-evidence/odd-pattern-20261027/local-pattern-390.json",
+      "game": "pattern",
+      "width": 390,
+      "rows": 36,
+      "unique": 24,
+      "audioRequired": false
+    },
+    {
+      "file": "docs/qa-evidence/odd-pattern-20261027/local-pattern-1440.json",
+      "game": "pattern",
+      "width": 1440,
+      "rows": 36,
+      "unique": 24,
+      "audioRequired": false
+    }
+  ],
+  "audio": {
+    "status": "awaiting separate human provider approval",
+    "fixedRequests": 104,
+    "characters": 6591,
+    "requestsMade": 0,
+    "maxAutomaticRetries": 0
+  },
+  "production": {
+    "changed": false,
+    "runtime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4"
+  },
+  "acceptance": "not accepted: packaged audio and candidate/public rehearsal are mandatory open gates"
+}

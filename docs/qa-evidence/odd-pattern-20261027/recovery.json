@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-27T23:04:11.016740+00:00",
+  "worktreesCreated": 0,
+  "dependencyInstalls": 0,
+  "newBrowserProfiles": 0,
+  "newRecordings": 0,
+  "evidenceBytes": 806043,
+  "queueBytes": 34492,
+  "taskServer": "Vite5180 stopped at audio approval gate",
+  "browser": "One existing headless synthetic profile retained; ownership released",
+  "build": "Existing dist417MiB rebuilt in place; no project/corpus copies",
+  "freeBytes": 132123648000,
+  "unrelated": "All preexisting untracked/ignored evidence and saved data retained",
+  "production": "Unchanged runtime5e69c2c3, worker35; current pair not accepted/deployed",
+  "resume": "Read queue.json active pair1, approve fixed104 narration if human reply arrives, run generation-runner only once with explicit approved-fixed-104 flag, then validate audio and built/public rehearsals before moving directly to pair2."
+}

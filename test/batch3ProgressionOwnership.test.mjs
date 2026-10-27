@@ -21,7 +21,7 @@ test('Amari chapter games bypass the answer-count wrapper while Askia counting k
 });
 
 test('unmodified sessions retain their wrapper and existing board games keep their owner', () => {
-  for (const game of ['letters', 'german', 'pattern']) {
+  for (const game of ['letters', 'german']) {
     assert.equal(ownsGameProgression(game), false, game);
     assert.ok(GAME_SESSIONS[game]);
   }
@@ -37,5 +37,12 @@ test('unmodified sessions retain their wrapper and existing board games keep the
 test('Safari and Colour own their held chapter flow for both profiles', () => {
   for (const little of [true, false]) for (const game of ['phonics', 'colormix']) {
     assert.equal(ownsGameProgression(game, little), true, game);
+  }
+});
+
+test('Classification and pattern chapters avoid premature wrapper completion', () => {
+  for (const game of ['oddoneout', 'pattern']) {
+    assert.equal(ownsGameProgression(game, false), true);
+    assert.equal(ownsGameProgression(game, true), game === 'pattern');
   }
 });

@@ -1,0 +1,389 @@
+{
+  "generatedAt": "2026-10-27",
+  "purpose": "Read-only reconciliation of the Oct19 delivery ledger against current catalogue, dated source-bound evidence and actual source scope; no scores assigned and no new acceptance inferred.",
+  "catalogue": {
+    "count": 34,
+    "source": [
+      "src/gameCatalog.jsx",
+      "src/data/learningWorlds.js"
+    ],
+    "historicalLedgerCount": 26,
+    "note": "Do not conflate the historical 26 Amari editorial ledger with the current 34 catalogue activities."
+  },
+  "ledgerReconciliation": {
+    "statusFile": "docs/game-delivery-20261019/status.json",
+    "staleAsOf": "2026-10-23",
+    "headline": "The 12 released_acceptance_pending / 22 planned split is stale. Later production evidence exists for Time Teller, Number Line Jump, Sound Safari, Colour Mixing Lab, Shadow Match, Astronaut, Code Cadets, Hangman, and Trace/Tic-Tac-Toe; batch1 and earlier targeted acceptance rows still need per-game exact-head ledger reconciliation. `game-quality-status.json` is a separate historical Amari editorial record: 4 recorded 4.5 scores do not mean those games were just functionally recertified; null/unscored is not zero.",
+    "latestQualityStatus": "docs/game-quality-status.json (updated 2026-10-25; 4 historical 4.5 records, 22 in progress; explicitly not fresh all-game production certification)",
+    "noMonitoring": "This is an inventory snapshot; it does not create or propose monitoring."
+  },
+  "games": [
+    {
+      "id": "storybooks",
+      "name": "Storybook Studio",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/StorybookStudio.jsx",
+      "recentEvidence": "docs/qa-evidence/batch1-cumulative-20261021/report.md (full canonical run/listening open); docs/qa-evidence/storybook-inventory-20261024/README.md (narrower shelf/reader); personal-story-recovery-20261024/README.md",
+      "sourceBoundRemainingScope": "Reconcile the seven curated books, page/image/audio/navigation and source-backed comprehension; verify resume/favourites/child isolation. The Oct21 cumulative report says full canonical Storybook rerun and human listening remain open; Oct24 inventory is a narrower shelf/reader recheck. Preserve separately the unresolved personal-story recovery: 0/8–9 identified stories recovered."
+    },
+    {
+      "id": "words",
+      "name": "Spelling Studio",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/WordBuilder.jsx",
+      "recentEvidence": "docs/qa-evidence/batch1-cumulative-20261021/report.md (local matrix and partial hosted; listening still open)",
+      "sourceBoundRemainingScope": "Rehearse Copy, Missing Sound and Build Whole Word across levels, wrong retry, clue vs independent credit, caption/reload; 58 packaged words. Human listening remains a distinct open gate; no new provider generation authorized/needed."
+    },
+    {
+      "id": "memory",
+      "name": "Memory Match",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/MemoryMatch.jsx",
+      "recentEvidence": "docs/qa-evidence/batch1-cumulative-20261021/report.md (canonical partial; full matrix/listening open)",
+      "sourceBoundRemainingScope": "Rehearse all 10 board sizes/pair counts, mismatch lock, touch/keyboard, replay and reload/resume. Oct21 report has partial canonical 8-board check; full cumulative Memory closeout/listening is not evidenced as complete."
+    },
+    {
+      "id": "trace",
+      "name": "Letter Trace",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/LetterTrace.jsx",
+      "recentEvidence": "docs/qa-evidence/trace-tactics-20261025/README.md (full current Trace production plus Tic-Tac-Toe; reconcile batch1 acceptance ledger)",
+      "sourceBoundRemainingScope": "Recheck complete chapters and fresh-start canvas lifecycle, pointer cancellation, i/j dots, keyboard/touch, rewards and route return against current served source. Oct25 Trace/Tic-Tac-Toe report gives strong current production coverage for Trace; reconcile its exact source with the batch1 cumulative acceptance ledger before any claim of batch1 closeout."
+    },
+    {
+      "id": "puzzle",
+      "name": "Puzzle Pop",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/PuzzlePlay.jsx",
+      "recentEvidence": "docs/qa-evidence/batch2-uplift-20261022/README.md",
+      "sourceBoundRemainingScope": "Only if extending the targeted release: full board sizes/chapters, drag/touch/keyboard, wrong placement, replay/reload and packaged playback. Oct22 uplift records production gameplay; human listening/editorial score remain separate."
+    },
+    {
+      "id": "spot",
+      "name": "Spot the Difference",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/SpotDifference.jsx",
+      "recentEvidence": "docs/qa-evidence/batch2-uplift-20261022/README.md",
+      "sourceBoundRemainingScope": "Only if extending targeted release: all scenes/differences, hint/fact hold, native touch/keyboard, replay/persistence, packaged audio and licence/provenance for art/audio. Oct22 uplift is current production evidence; old Oct4 missing clip note is superseded for runtime only if exact new asset manifest confirms it, while subjective listening remains open."
+    },
+    {
+      "id": "jet",
+      "name": "Sky Shapes",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/JetSkyShapes.jsx",
+      "recentEvidence": "docs/qa-evidence/batch2-uplift-20261022/README.md",
+      "sourceBoundRemainingScope": "Recheck drawing input/retry, taught shape progression, packaged sound, save/replay and responsive controls. Oct22 uplift evidence; close human listening separately."
+    },
+    {
+      "id": "math",
+      "name": "Monster Math",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/MonsterMath.jsx",
+      "recentEvidence": "docs/qa-evidence/batch2-uplift-20261022/README.md",
+      "sourceBoundRemainingScope": "Recheck six-question chapter variety, equation/model agreement, wrong recovery/clue, explanation, keyboard/touch, replay and durable rewards. Oct22 uplift evidence; keep any historical provisional score out of accepted status."
+    },
+    {
+      "id": "counting",
+      "name": "Count the Stars",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/CountTheStars.jsx",
+      "recentEvidence": "docs/qa-evidence/three-maths-20261023/README.md",
+      "sourceBoundRemainingScope": "No new implementation implied: Oct23 three-maths release passed all 15 scenes/viewport, native inputs, packaged playback, persistence and parent navigation. Reconcile game-delivery ledger; listening/editorial score still open."
+    },
+    {
+      "id": "addition",
+      "name": "Addition Adventure",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/AdditionAdventure.jsx",
+      "recentEvidence": "docs/qa-evidence/three-maths-20261023/README.md",
+      "sourceBoundRemainingScope": "No new implementation implied: Oct23 production covered all chapters, replays, model/answer and persistence. Reconcile ledger; listening/editorial score still open."
+    },
+    {
+      "id": "subtraction",
+      "name": "Subtraction Station",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/games/SubtractionStation.jsx",
+      "recentEvidence": "docs/qa-evidence/three-maths-20261023/README.md",
+      "sourceBoundRemainingScope": "No new implementation implied: Oct23 production covered all chapters, replays, model/answer and persistence. Reconcile ledger; listening/editorial score still open."
+    },
+    {
+      "id": "numberline",
+      "name": "Number Line Jump",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/NumberLineJump.jsx",
+      "recentEvidence": "docs/qa-evidence/time-numberline-20261024/README.md",
+      "sourceBoundRemainingScope": "No new implementation implied: Oct24 targeted release passed all three worlds, 96 production missions/replays at 390/1440, input/recovery/audio/persistence/parent-return. Reconcile status, do not treat old planned row as unchanged functionality."
+    },
+    {
+      "id": "timeteller",
+      "name": "Time Teller",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/TimeTeller.jsx",
+      "recentEvidence": "docs/qa-evidence/time-numberline-20261024/README.md",
+      "sourceBoundRemainingScope": "No new implementation implied: Oct24 targeted release passed all chapters, clock setting and 96 production missions/replays at 390/1440. Reconcile status; listening/editorial remain distinct."
+    },
+    {
+      "id": "worldmap",
+      "name": "Curriculum Quest",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/CurriculumQuest.jsx",
+      "recentEvidence": "docs/qa-evidence/targeted-ux-20261018/report.md; docs/qa-evidence/world-difficulty-20261021/report.md",
+      "sourceBoundRemainingScope": "Recheck merged current route only if changed: Oct18 targeted production full 90-question matrix plus investigation and world return; Oct21 previews update. Existing 4.5 editorial record is historical; do not count as a new 5/5."
+    },
+    {
+      "id": "german",
+      "name": "German Garage",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/GermanGarage.jsx",
+      "recentEvidence": "No dated game-specific full production acceptance identified in this audit; component is present in current source.",
+      "sourceBoundRemainingScope": "Scoped source-bound language journey: all authored lessons/word audio, answer/retry, replay/progress, parent return and widths; status currently planned despite a pre-existing editorial 4.5 record. No recent game-specific full release report found in this audit."
+    },
+    {
+      "id": "letters",
+      "name": "Letter Launch",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/LetterLaunch.jsx",
+      "recentEvidence": "No dated game-specific full production acceptance identified in this audit; component is present in current source.",
+      "sourceBoundRemainingScope": "Recheck phoneme/letter progression, available narration/audio, hint vs unaided learning, replay/progress and route. Status planned despite historical 4.5 record; do not infer fresh production acceptance from the score."
+    },
+    {
+      "id": "dino",
+      "name": "Dino Detective",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/DinoDetective.jsx",
+      "recentEvidence": "No dated game-specific full production acceptance identified in this audit; component is present in current source.",
+      "sourceBoundRemainingScope": "Scope all authored worlds/rounds, nonrepeating random runs, wrong recovery, held facts/audio, touch/keyboard, replay and persistence. Existing complete implementation is reusable; no recent full production acceptance identified."
+    },
+    {
+      "id": "hangman",
+      "name": "Dino Hangman",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/Hangman.jsx",
+      "recentEvidence": "docs/qa-evidence/world-difficulty-20261021/report.md",
+      "sourceBoundRemainingScope": "Recheck all four difficulty stages incl 26-key level, physical keyboard/touch, wrong-letter recovery, word cue/audio playback, replay and no voice-provider calls. Oct21 production report covers all stages; reuse it and close only any source-bound gaps."
+    },
+    {
+      "id": "tictactoe",
+      "name": "Cosmic Tic-Tac-Toe",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/TicTacToe.jsx",
+      "recentEvidence": "docs/qa-evidence/trace-tactics-20261025/README.md",
+      "sourceBoundRemainingScope": "Oct25 Trace/Tactics closeout covers all lesson tactics and free play at both widths, alternate fork solutions, persistence/replay and packaged explanations. Reconcile exact runtime into game-delivery ledger; no editorial score implied."
+    },
+    {
+      "id": "astronaut",
+      "name": "Astronaut Academy",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/AstronautAcademy.jsx",
+      "recentEvidence": "docs/qa-evidence/targeted-ux-20261018/report.md",
+      "sourceBoundRemainingScope": "Seven categories / 46-question pool now use three mission paths; verify full chapter/replay, wrong recovery/fact hold, storage and responsive controls. Oct18 full target-contract production passed 30 questions + full repeated run; reuse evidence for scoped regression, no broad uplift necessary absent a concrete change."
+    },
+    {
+      "id": "phonics",
+      "name": "Sound Safari",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/SoundSafari.jsx",
+      "recentEvidence": "docs/qa-evidence/safari-colour-20261025/README.md",
+      "sourceBoundRemainingScope": "Oct25 release already upgraded to 18 missions with taught-sound filtering, phoneme/blending/segmentation, replayable clips and production 390/1440. 79 required clips decoded; six phoneme clips human-reviewed. Reconcile ledger; remaining editorial breadth is separate."
+    },
+    {
+      "id": "colormix",
+      "name": "Colour Mixing Lab",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/ColorMixingLab.jsx",
+      "recentEvidence": "docs/qa-evidence/safari-colour-20261025/README.md",
+      "sourceBoundRemainingScope": "Oct25 release already covers 18 missions, visible/countable recipes, retry and production 390/1440. Reconcile ledger; no additional hidden-result quiz should be invented (mixed paint observation is intended)."
+    },
+    {
+      "id": "oddoneout",
+      "name": "Odd One Out",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/OddOneOut.jsx",
+      "recentEvidence": "in flight in current root task; no acceptance evidence read",
+      "sourceBoundRemainingScope": "Root is implementing this alongside Pattern Parade in the active task. Audit only after that work lands: explainable categories, meaningful distractors, retry/feedback, level progression, accessible inputs and persistence. This inventory does not inspect or accept in-flight changes."
+    },
+    {
+      "id": "pattern",
+      "name": "Pattern Parade",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/PatternParade.jsx",
+      "recentEvidence": "in flight in current root task; no acceptance evidence read",
+      "sourceBoundRemainingScope": "Root is implementing this alongside Odd One Out in the active task. After merge, check progressively varied patterns, non-ambiguous answers, explanation, retry, input accessibility, progression and persistence."
+    },
+    {
+      "id": "solar",
+      "name": "Solar System",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/SolarSystem.jsx",
+      "recentEvidence": "docs/qa-evidence/gap-closeouts-20261019/solar-production.json; docs/qa-evidence/b7-solar-audio-package-20261005/package.json",
+      "sourceBoundRemainingScope": "Recheck full planet/mission journey, model/label facts, navigation/launch, audio and progression. Reusable authored experience with Oct16–19 rehearsal evidence; inspect exact current source and served identity before extending. B7 audio package decode alone is not a human listening or full-game acceptance."
+    },
+    {
+      "id": "chess",
+      "name": "Chess Explorers",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/games/ChessExplorers.jsx",
+      "recentEvidence": "docs/qa-evidence/gap-closeouts-20261019/chess-production.json",
+      "sourceBoundRemainingScope": "Scope pieces/move rules, valid/invalid move recovery, guided missions, progression, keyboard/touch and saved state. Oct19 local/production targeted evidence exists; do not assume it satisfies the broader catalogue contract without enumerating its exact coverage."
+    },
+    {
+      "id": "codecadets",
+      "name": "Code Cadets",
+      "ledgerStatus": "planned",
+      "currentSource": "src/rehearsal/CodeCadets.jsx; src/rehearsal/DigitalSkillGame.jsx",
+      "recentEvidence": "docs/qa-evidence/code-navigation-20261018/report.md; docs/qa-evidence/targeted-ux-20261018/report.md",
+      "sourceBoundRemainingScope": "Three guided missions, block sequencing/repeat, direct debugging, save/reopen/run, keyboard/focus, parent navigation. Oct18 production 5/5 targeted UX plus Oct18 navigation repair; exact later code-navigation report supersedes old gap. No fresh broad editorial score."
+    },
+    {
+      "id": "writingdesk",
+      "name": "My Writing Desk",
+      "ledgerStatus": "planned",
+      "currentSource": "src/rehearsal/WritingDesk.jsx; src/rehearsal/DigitalSkillGame.jsx",
+      "recentEvidence": "No dated game-specific full production acceptance identified in this audit; component is present in current source.",
+      "sourceBoundRemainingScope": "Rehearse free writing/postcard save/reopen/export, child separation and dirty-state/leave confirmation, keyboard and mobile layout. Reuse authored tool; no comparable current full production report surfaced."
+    },
+    {
+      "id": "dinojigsaw",
+      "name": "Dino Jigsaw",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/little/games/DinoJigsaw.jsx",
+      "recentEvidence": "No dated game-specific full production acceptance identified in this audit; component is present in current source.",
+      "sourceBoundRemainingScope": "Recheck puzzle assembly, age-scaled pieces, drag/touch/keyboard alternative, wrong-placement recovery, level completion/replay and progress. Current catalogue/source only; no dated full production report surfaced."
+    },
+    {
+      "id": "shadowmatch",
+      "name": "Shadow Match",
+      "ledgerStatus": "released_acceptance_pending",
+      "currentSource": "src/components/little/games/ShadowMatch.jsx",
+      "recentEvidence": "docs/qa-evidence/shadow-progression-20261023/README.md",
+      "sourceBoundRemainingScope": "Oct23 evidence passes all 12 targets, five stages, held facts, touch/mouse/keyboard, packaged playback and persistence at 390/1440. Reconcile status; no editorial score assigned."
+    },
+    {
+      "id": "rocketbuilder",
+      "name": "Rocket Builder",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/little/games/RocketBuilder.jsx",
+      "recentEvidence": "No dated game-specific full production acceptance identified in this audit; component is present in current source.",
+      "sourceBoundRemainingScope": "Recheck build-piece order/placement, repair/retry, launch payoff, age/difficulty progression, touch/keyboard, persistence and required packaged audio. Current implementation exists; no recent full release evidence found."
+    },
+    {
+      "id": "fuelup",
+      "name": "Fuel Up",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/little/games/FuelUp.jsx",
+      "recentEvidence": "No dated game-specific full production acceptance identified in this audit; component is present in current source.",
+      "sourceBoundRemainingScope": "Recheck counting/refuelling sequence, number feedback, wrong recovery, increasing quantities, touch/keyboard, replay/progress and packaged audio. Source exists; do not infer acceptance from Oct23 Maths trio because Fuel Up is a separate game."
+    },
+    {
+      "id": "firerescue",
+      "name": "Fire Truck Rescue",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/little/games/FireRescue.jsx",
+      "recentEvidence": "No dated game-specific full production acceptance identified in this audit; component is present in current source.",
+      "sourceBoundRemainingScope": "Recheck each rescue count/sequence, spray interaction, response to wrong input, age progression, input alternatives, rewards and audio. Distinct from Ladder Rescue; source exists, no recent production acceptance surfaced."
+    },
+    {
+      "id": "ladder",
+      "name": "Ladder Rescue",
+      "ledgerStatus": "planned",
+      "currentSource": "src/components/little/games/LadderRescue.jsx",
+      "recentEvidence": "No dated game-specific full production acceptance identified in this audit; component is present in current source.",
+      "sourceBoundRemainingScope": "Recheck ladder placement/height, animal rescue, wrong recovery, increasing floors, touch/keyboard and persistence/audio. Existing component is reusable; no recent full release evidence found."
+    }
+  ],
+  "recommendations": [
+    {
+      "sequence": "after Odd One Out + Pattern Parade",
+      "pair": [
+        "astronaut",
+        "chess"
+      ],
+      "why": "Astronaut already has robust Oct18 production evidence, so its role can be a bounded current-source regression; Chess has substantial authored implementation and Oct19 rehearsal evidence that can be reconciled into a tight two-game functional closeout."
+    },
+    {
+      "sequence": "next",
+      "pair": [
+        "codecadets",
+        "writingdesk"
+      ],
+      "why": "Both are digital-skill tools in the rehearsal folder; Code Cadets has Oct18 hosted coverage including a later navigation repair, leaving Writing Desk as the evidence gap."
+    },
+    {
+      "sequence": "then",
+      "pair": [
+        "solar",
+        "memory"
+      ],
+      "why": "Solar has existing full authored journey/package evidence; Memory has the older partial canonical matrix and needs a bounded full matrix/reload closeout."
+    },
+    {
+      "sequence": "then",
+      "pair": [
+        "rocketbuilder",
+        "fuelup"
+      ],
+      "why": "Related rocket flow, but test each separately; the Maths trio is not Fuel Up acceptance."
+    },
+    {
+      "sequence": "then",
+      "pair": [
+        "firerescue",
+        "ladder"
+      ],
+      "why": "Related fire/rescue theme, distinct state machines and game acceptance."
+    },
+    {
+      "sequence": "then",
+      "pair": [
+        "dino",
+        "hangman"
+      ],
+      "why": "Hangman has Oct21 hosted progression; pair a recheck with Dino Detective, whose authored implementation needs full acceptance evidence."
+    },
+    {
+      "sequence": "then",
+      "pair": [
+        "storybooks",
+        "words"
+      ],
+      "why": "Their functional flows are authored and earlier work exists, but canonical reruns plus separate human listening remain open. Personal-story recovery is a distinct unresolved data problem and must not block or be misreported as recovery."
+    },
+    {
+      "sequence": "parallel-ledger-reconciliation",
+      "games": [
+        "worldmap",
+        "german",
+        "letters",
+        "numberline",
+        "timeteller",
+        "counting",
+        "addition",
+        "subtraction",
+        "phonics",
+        "colormix",
+        "shadowmatch",
+        "tictactoe",
+        "trace"
+      ],
+      "why": "Reconcile targeted acceptance and historical scores to the exact current source; do not reimplement or call old 4.5/5 editorial acceptance a current all-game production pass."
+    }
+  ],
+  "genuineOpenGates": [
+    {
+      "gate": "subjective audio review",
+      "scope": "Explicitly remains separate from technical decode/playback for Storybook/Spelling/Memory and older released batches; recent exceptions: Safari’s six phoneme clips were human-reviewed in the Oct25 source-gates record. Confirm per-game required clip inventory before marking each audio gate."
+    },
+    {
+      "gate": "missing asset / licence",
+      "scope": "Older Oct4 Spot reports identify one absent narration clip and individual art/audio provenance questions. Oct22 targeted release is newer runtime evidence; confirm its exact manifest/licence provenance rather than carrying the old missing clip forward or declaring all rights resolved. This audit found no general missing-audio blocker for the Oct23–25 releases."
+    },
+    {
+      "gate": "personal-story source data",
+      "scope": "docs/qa-evidence/personal-story-recovery-20261024/README.md: expected 8–9 user-created stories; 0 recovered. Existing API logs evidence creation requests, not saved books/contents; original browser IndexedDB or a genuine export is required. Seven curated stories and three synthetic QA books are not the personal-story recovery."
+    },
+    {
+      "gate": "catalogue/editorial ledger",
+      "scope": "No automatic 5/5 or programme-complete claim. Keep targeted functional acceptance, subjective audio, historical editorial score and personal data recovery as separate facts."
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "date": "2026-10-27",
+  "authorization": "Proceed through ALL remaining games, two at a time; do not stop for another ordinary proceed confirmation.",
+  "publicUrl": "https://dinospace.netlify.app",
+  "monitoring": "deleted; do not recreate",
+  "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
+  "batchSize": 2,
+  "activePair": 1,
+  "pairs": [
+    {
+      "number": 1,
+      "games": [
+        {
+          "id": "oddoneout",
+          "name": "Odd One Out"
+        },
+        {
+          "id": "pattern",
+          "name": "Pattern Parade"
+        }
+      ],
+      "status": "awaiting_audio_approval",
+      "evidence": "docs/qa-evidence/odd-pattern-20261027/README.md",
+      "reviewFindings": [
+        "Pattern last answer skipped its held explanation",
+        "Odd duplicate scene and generic overlapping reasons",
+        "Finite new narration inventory pending packaged recording approval"
+      ],
+      "sourceGates": "docs/qa-evidence/odd-pattern-20261027/source-gates.json",
+      "openGate": "104 fixed narration requests need separate human approval; no requests sent. Candidate/public playback and final acceptance follow."
+    },
+    {
+      "number": 2,
+      "games": [
+        {
+          "id": "astronaut",
+          "name": "Astronaut Academy"
+        },
+        {
+          "id": "chess",
+          "name": "Chess Explorers"
+        }
+      ],
+      "status": "queued",
+      "evidence": null
+    },
+    {
+      "number": 3,
+      "games": [
+        {
+          "id": "codecadets",
+          "name": "Code Cadets"
+        },
+        {
+          "id": "writingdesk",
+          "name": "My Writing Desk"
+        }
+      ],
+      "status": "queued",
+      "evidence": null
+    },
+    {
+      "number": 4,
+      "games": [
+        {
+          "id": "solar",
+          "name": "Solar System"
+        },
+        {
+          "id": "memory",
+          "name": "Memory Match"
+        }
+      ],
+      "status": "queued",
+      "evidence": null
+    },
+    {
+      "number": 5,
+      "games": [
+        {
+          "id": "rocketbuilder",
+          "name": "Rocket Builder"
+        },
+        {
+          "id": "fuelup",
+          "name": "Fuel Up"
+        }
+      ],
+      "status": "queued",
+      "evidence": null
+    },
+    {
+      "number": 6,
+      "games": [
+        {
+          "id": "firerescue",
+          "name": "Fire Truck Rescue"
+        },
+        {
+          "id": "ladder",
+          "name": "Ladder Rescue"
+        }
+      ],
+      "status": "queued",
+      "evidence": null
+    },
+    {
+      "number": 7,
+      "games": [
+        {
+          "id": "dino",
+          "name": "Dino Detective"
+        },
+        {
+          "id": "hangman",
+          "name": "Dino Hangman"
+        }
+      ],
+      "status": "queued",
+      "evidence": null
+    },
+    {
+      "number": 8,
+      "games": [
+        {
+          "id": "storybooks",
+          "name": "Storybook Studio"
+        },
+        {
+          "id": "words",
+          "name": "Spelling Studio"
+        }
+      ],
+      "status": "queued",
+      "evidence": null
+    },
+    {
+      "number": 9,
+      "games": [
+        {
+          "id": "dinojigsaw",
+          "name": "Dino Jigsaw"
+        },
+        {
+          "id": "worldmap",
+          "name": "Curriculum Quest"
+        }
+      ],
+      "status": "queued",
+      "evidence": null
+    },
+    {
+      "number": 10,
+      "games": [
+        {
+          "id": "german",
+          "name": "German Garage"
+        },
+        {
+          "id": "letters",
+          "name": "Letter Launch"
+        }
+      ],
+      "status": "queued",
+      "evidence": null
+    }
+  ],
+  "retainedReleasedScopes": [
+    {
+      "id": "trace",
+      "name": "Letter Trace",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "tictactoe",
+      "name": "Cosmic Tic-Tac-Toe",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "puzzle",
+      "name": "Puzzle Pop",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "spot",
+      "name": "Spot the Difference",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "jet",
+      "name": "Sky Shapes",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "math",
+      "name": "Monster Math",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "counting",
+      "name": "Count the Stars",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "addition",
+      "name": "Addition Adventure",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "subtraction",
+      "name": "Subtraction Station",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "numberline",
+      "name": "Number Line Jump",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "timeteller",
+      "name": "Time Teller",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "phonics",
+      "name": "Sound Safari",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "colormix",
+      "name": "Colour Mixing Lab",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    },
+    {
+      "id": "shadowmatch",
+      "name": "Shadow Match",
+      "status": "existing source-bound functional release retained; final integration regression required"
+    }
+  ],
+  "editorialNote": "Historical scores remain separate. A targeted implementation/release does not silently award a new 5/5 or recover historical missing family data."
+}
