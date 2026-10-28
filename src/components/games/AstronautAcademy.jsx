@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowLeft, ArrowRight, Bird, Brain, Bug, Calendar, CalendarDays, Car,
   Cat, Check, CircleHelp, Dog, Ear, Eye, Fish, Footprints, Globe2, Hand,
@@ -10,7 +10,10 @@ import { ASTRONAUT_CATEGORIES, ASTRONAUT_PROFILES } from '../../data/index.js';
 import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-import { buildAstronautMissions, createAstronautOptions, createAstronautRun } from './astronautMissions.js';
+import { readAstronautProgress, saveAstronautRun, recordAstronautResult, completeAstronautChapter } from '../../data/astronautProgress.js';
+import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
+import { buildAstronautMissions, createAstronautOptions, createAstronautRun, createSeededRandom, createAstronautSeed } from './astronautMissions.js';
+import dolphinCard from '../../assets/memory-match/dolphin-v1-card.webp';
 import './astronautAcademy.css';
 
 const MISSION_ART = '/art/catalog-v3/game-astronaut.webp';
@@ -62,7 +65,7 @@ const AnimalGlyph = ({ label }) => {
   if (name === 'elephant') return <svg viewBox="0 0 56 56" aria-hidden="true" className="astro-animal-svg"><path d="M13 31c0-12 7-20 18-20 9 0 15 6 15 15v6c0 4-2 7-6 8v5h-7v-7H24v7h-7v-7c-3-1-4-4-4-7Z"/><path d="M15 20c-7-1-8 13-1 17m22-18c4 3 5 7 5 12 0 3-2 5-5 5v5"/><path d="m33 30 3 2"/></svg>;
   if (name === 'giraffe') return <svg viewBox="0 0 56 56" aria-hidden="true" className="astro-animal-svg"><path d="M19 47V29l7-6V13l-3-5h13l-2 5v11l7 6v17M18 34h26M25 18h9M24 36l3 2m8-3 3 3m-12 5 3 2m7-1 3 2"/><circle cx="27" cy="11" r="1.5"/><circle cx="34" cy="11" r="1.5"/></svg>;
   if (name === 'cow') return <svg viewBox="0 0 56 56" aria-hidden="true" className="astro-animal-svg"><path d="m17 19-5-8 12 4m15 4 5-8-12 4M14 24c0-6 6-9 14-9s14 3 14 9v13c0 5-6 9-14 9s-14-4-14-9V24Z"/><path d="M14 27c4 0 5 4 9 4 3 0 4-3 8-3 3 0 4 3 11 2M22 38c0 3 3 6 6 6s6-3 6-6-3-5-6-5-6 2-6 5Z"/><circle cx="21" cy="24" r="1.5"/><circle cx="35" cy="24" r="1.5"/></svg>;
-  if (name === 'dolphin') return <svg viewBox="0 0 56 56" aria-hidden="true" className="astro-animal-svg"><path d="M6 34c9-13 22-19 35-13l9-8-2 14 5 8-14-3c-8 9-20 11-33 2l8-1-8 1Z"/><path d="m28 23 6 8-10 1m-4 7-2 6m27-14 5 4"/></svg>;
+  if (name === 'dolphin') return <img src={dolphinCard} alt="" className="astro-animal-raster" />;
   if (name === 'snake') return <svg viewBox="0 0 56 56" aria-hidden="true" className="astro-animal-svg"><path d="M11 41c8 0 8-12 17-12h7c6 0 8-5 8-10 0-5-3-8-8-8s-8 3-8 7 3 6 7 6h4M11 41c-3 0-5-2-5-5"/><circle cx="36" cy="16" r="1"/></svg>;
   if (name === 'bear') return <svg viewBox="0 0 56 56" aria-hidden="true" className="astro-animal-svg"><circle cx="16" cy="16" r="7"/><circle cx="40" cy="16" r="7"/><path d="M10 30c0-11 8-18 18-18s18 7 18 18v6c0 8-7 13-18 13s-18-5-18-13v-6Z"/><ellipse cx="28" cy="35" rx="9" ry="7"/><circle cx="28" cy="32" r="2"/></svg>;
   if (name === 'wolf') return <svg viewBox="0 0 56 56" aria-hidden="true" className="astro-animal-svg"><path d="m11 9 14 9h7l13-9-2 25-9 12H22l-9-12-2-25Z"/><path d="m19 29 9-4 9 4-9 11-9-11Zm9 11v5"/><circle cx="20" cy="25" r="1"/><circle cx="36" cy="25" r="1"/></svg>;
@@ -88,7 +91,20 @@ const ANSWER_ICONS = {
   trees: TreePine, clouds: Waves, eight: Globe2,
 };
 
+const GearGlyph = ({ label }) => {
+  const suit = label === 'space suit';
+  const rain = label === 'raincoat';
+  const swim = label === 'swimsuit';
+  const fill = suit ? '#f4f7fc' : rain ? '#f1c74b' : swim ? '#52a3b2' : '#a5b0bf';
+  return <svg viewBox="0 0 80 88" aria-hidden="true" className="astro-gear-svg">
+    {!swim && <><path d="M23 30V18a17 17 0 0 1 34 0v12" fill={fill} stroke="#3c536c" strokeWidth="3"/><path d="M28 18h24v15H28z" fill={suit ? '#85cde2' : rain ? '#f8e4b1' : '#5a6b80'} stroke="#3c536c" strokeWidth="2"/></>}
+    <path d={swim ? 'M27 18h9v10h8V18h9l6 46-10 14H31L21 64z' : 'M26 35h28l17 17-8 11-10-9v27H27V54l-10 9-8-11z'} fill={fill} stroke="#3c536c" strokeWidth="3" strokeLinejoin="round"/>
+    {suit ? <><rect x="31" y="43" width="18" height="17" rx="3" fill="#89b6cf" stroke="#3c536c" strokeWidth="2"/><circle cx="36" cy="49" r="2" fill="#df6d61"/><path d="M27 69h26M39 60v21" stroke="#3c536c" strokeWidth="3"/></> : rain ? <><path d="M40 36v44m-10-24h7m6 0h7" stroke="#8b6a30" strokeWidth="3"/><circle cx="44" cy="45" r="1.5" fill="#8b6a30"/></> : !swim && <path d="M28 45h24m-24 10h24m-24 10h24m-12-29v44" stroke="#5a6b80" strokeWidth="3"/>}
+  </svg>;
+};
+
 const AnswerVisual = ({ category, label }) => {
+  if (['space suit', 'raincoat', 'swimsuit', 'armour'].includes(label.toLowerCase())) return <GearGlyph label={label.toLowerCase()} />;
   if (category.id === 'numbers') return <span className="astro-answer-number" aria-hidden="true">{label}</span>;
   if (category.id === 'shapes') return <ShapeGlyph label={label} />;
   if (category.id === 'animals' || category.id === 'dinosaurs') return <AnimalGlyph label={label} />;
@@ -131,7 +147,7 @@ const QuestionVisual = ({ question, category }) => {
   return <DinosaurGlyph label="dinosaur" />;
 };
 
-const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
+const AstronautAcademy = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, cancelNarration = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) => {
   const difficulty = useGameDifficulty('astronaut');
   // A recommendation may change after a correct answer. Apply it to the
   // next mission so choices never move or multiply during feedback.
@@ -142,7 +158,15 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
   const [hadMistake, setHadMistake] = useState(false);
   const [score, setScore] = useState(0);
   const [combo, setCombo] = useState(0);
-  const [lastRunIds, setLastRunIds] = useState({});
+  const [progress, setProgress] = useState(() => readAstronautProgress(playerId));
+  const [seed, setSeed] = useState(0);
+  const [saveError, setSaveError] = useState(false);
+  const [rewardGranted, setRewardGranted] = useState(false);
+  const [chapterSaved, setChapterSaved] = useState(false);
+  const [projectSelection, setProjectSelection] = useState(null);
+  const feedbackActionRef = useRef(null);
+  const firstAnswerRef = useRef(null);
+  const retrySaveRef = useRef(null);
 
   const question = mission?.questions[qIndex] ?? null;
   const category = question?.sourceCategory ?? null;
@@ -151,27 +175,54 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
     () => (isHeroQuestion ? ASTRONAUT_PROFILES.find((person) => person.id === question.astronaut) : null),
     [isHeroQuestion, question],
   );
-  const questionOptions = useMemo(() => createAstronautOptions(question, runDifficulty), [question, runDifficulty]);
+  const questionOptions = question?.runOptions ?? [];
   const complete = Boolean(mission && qIndex >= mission.questions.length);
 
+  const say = useCallback((text) => {
+    if (!soundOn || !text) return;
+    if (getOfflineVoiceClip(text)) { cancelNarration(); speak(text, { premium: false, segments: [text] }); }
+  }, [cancelNarration, soundOn, speak]);
+  useEffect(() => { onPhaseChange?.(mission ? (complete ? 'finish' : feedback ? 'feedback' : 'play') : 'intro'); }, [complete, feedback, mission, onPhaseChange]);
+  useEffect(() => { if (!soundOn) cancelNarration(); }, [soundOn, cancelNarration]);
+  useEffect(() => () => cancelNarration(), [cancelNarration]);
+  useEffect(() => { setProgress(readAstronautProgress(playerId)); }, [playerId]);
   useEffect(() => {
-    if (question && !feedback) speak(question.q);
-  }, [question, feedback, speak]);
+    if (!question) return;
+    const target = saveError ? retrySaveRef.current : feedback ? feedbackActionRef.current : firstAnswerRef.current;
+    target?.focus();
+  }, [feedback, qIndex, saveError, question]);
+
+  useEffect(() => {
+    if (question && !feedback) say(question.q);
+  }, [question, feedback, say]);
 
   const startMission = (nextMission) => {
+    const canonicalMission = MISSIONS.find((item) => item.id === nextMission?.id);
+    if (!canonicalMission) return;
+    const latest = readAstronautProgress(playerId);
+    const index = MISSIONS.findIndex((item) => item.id === canonicalMission.id);
+    if (index > latest.unlockedChapterIndex && !latest.completedChapterIds.includes(nextMission.id)) return;
+    cancelNarration();
     setRunDifficulty(difficulty);
-    const runQuestions = createAstronautRun(nextMission, lastRunIds[nextMission.id] ?? []);
-    setMission({ ...nextMission, questions: runQuestions });
-    setLastRunIds((previous) => ({ ...previous, [nextMission.id]: runQuestions.map((item) => item.questionId) }));
+    const runSeed = createAstronautSeed();
+    const runQuestions = createAstronautRun(canonicalMission, latest.recentQuestionIdsByChapter[canonicalMission.id] ?? [], createSeededRandom(runSeed), latest.missedConceptIdsByChapter[canonicalMission.id] ?? []).map((item, itemIndex) => ({ ...item, runOptions: createAstronautOptions(item, difficulty, createSeededRandom(runSeed ^ ((itemIndex + 1) * 0x9e3779b9))) }));
+    setMission({ ...canonicalMission, questions: runQuestions });
+    setSeed(runSeed);
+    setProgress(saveAstronautRun(playerId, canonicalMission.id, runQuestions.map((item) => item.questionId)));
     setQIndex(0);
     setFeedback(null);
     setHadMistake(false);
     setScore(0);
     setCombo(0);
+    setSaveError(false);
+    setRewardGranted(false);
+    setChapterSaved(false);
+    setProjectSelection(null);
     playSfx('launch');
   };
 
   const returnToMissions = () => {
+    cancelNarration();
     setMission(null);
     setQIndex(0);
     setFeedback(null);
@@ -187,10 +238,10 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       const praise = getPraise();
       const nextCombo = combo + 1;
       setFeedback({ kind: 'correct', message: praise, fact: profile?.funFact ?? question.learningFact });
+      setProgress(recordAstronautResult(playerId, mission.id, question.conceptId, !hadMistake));
       setScore((value) => value + 1);
       setCombo(nextCombo);
       playSfx('success');
-      onCelebrate(praise, 6, 200);
       onGameEvent?.('astronaut', 'answer_correct', {
         skill: `astronaut-${category.id}`,
         item: question.q,
@@ -198,29 +249,56 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
         expected: question.answer,
         correct: true,
         firstAttempt: !hadMistake,
-        independent: true,
+        independent: !hadMistake,
         difficulty: runDifficulty,
+        seed,
+        level: MISSIONS.findIndex((item) => item.id === mission.id),
+        round: qIndex + 1,
+        taskType: question.transferProject ? 'transfer-project' : 'question',
+        projectId: question.transferProject?.id,
+        projectAction: question.transferProject?.actionLabel,
       });
       if (nextCombo >= 3) playSfx('combo');
-      speak(profile?.funFact ?? praise);
+      say(`The answer is ${question.answer}!`);
+      if (qIndex === mission.questions.length - 1) saveFinalChapter();
       return;
     }
 
     setHadMistake(true);
+    setProgress(recordAstronautResult(playerId, mission.id, question.conceptId, false));
     setCombo(0);
     setFeedback({ kind: 'retry', message: 'Good try. Have another look!', fact: null });
     playSfx('wrong');
-    speak('Try again.');
+    onGameEvent?.('astronaut', 'answer_incorrect', { skill: `astronaut-${category.id}`, item: question.q, response: option.text, expected: question.answer, correct: false, firstAttempt: !hadMistake, independent: false, difficulty: runDifficulty, seed, level: MISSIONS.findIndex((item) => item.id === mission.id), round: qIndex + 1, taskType: question.transferProject ? 'transfer-project' : 'question', projectId: question.transferProject?.id, projectAction: question.transferProject?.actionLabel });
+    say('Try again.');
   };
+
+  const saveFinalChapter = () => {
+    const saved = completeAstronautChapter(playerId, mission.id);
+    setProgress(saved);
+    setChapterSaved(Boolean(saved.persisted));
+    if (!saved.persisted) { setSaveError(true); return; }
+    setSaveError(false);
+    if (saved.newlyEarnedReward) { onCelebrate('Mission badge earned!', 4, 0, 'astronaut', { quiet: true }); setRewardGranted(true); }
+  };
+
+  const finishMission = () => {
+    if (!chapterSaved) return;
+    cancelNarration();
+    setQIndex(mission.questions.length);
+  };
+  const leaveAcademy = () => { cancelNarration(); onBack?.(); };
 
   const advance = () => {
     if (!mission || !feedback) return;
+    cancelNarration();
     if (feedback.kind === 'retry') {
       setFeedback(null);
       return;
     }
     setFeedback(null);
     setHadMistake(false);
+    setProjectSelection(null);
     if (qIndex + 1 < mission.questions.length) {
       setQIndex((value) => value + 1);
       return;
@@ -234,7 +312,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
       <main className="astronaut-academy">
         <div className="astro-shell astro-home">
           <header className="astro-topbar">
-            <button className="astro-icon-button" onClick={onBack} aria-label="Back to learning world"><ArrowLeft size={20} /></button>
+            <button className="astro-icon-button" onClick={leaveAcademy} aria-label="Back to learning world"><ArrowLeft size={20} /></button>
             <div className="astro-brand"><span>DISCOVERY HQ</span><strong>Astronaut Academy</strong></div>
             <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="astro-sound-toggle" />
           </header>
@@ -254,6 +332,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
                 key={item.id}
                 className={`astro-mission-card ${item.recommended ? 'is-recommended' : ''}`}
                 onClick={() => startMission(item)}
+                disabled={index > progress.unlockedChapterIndex && !progress.completedChapterIds.includes(item.id)}
               >
                 <span className="astro-mission-number">0{index + 1}</span>
                 <span className="astro-mission-icon"><MissionIcon mission={item} /></span>
@@ -261,7 +340,7 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
                   <span className="astro-mission-eyebrow">{item.recommended ? 'A GREAT FIRST MISSION' : item.eyebrow}</span>
                   <strong>{item.title}</strong>
                   <span className="astro-mission-description">{item.description}</span>
-                  <span className="astro-mission-count">5 quick questions</span>
+                  <span className="astro-mission-count">{progress.completedChapterIds.includes(item.id) ? '✓ Badge earned · Replay' : index > progress.unlockedChapterIndex ? 'Complete the earlier mission to unlock' : '6 discoveries · Finish a project'}</span>
                 </span>
                 <span className="astro-mission-arrow" aria-hidden="true"><ArrowRight size={21} /></span>
               </button>
@@ -287,10 +366,11 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
             <span className="astro-kicker">MISSION COMPLETE</span>
             <h1>Look how far you went!</h1>
             <p className="astro-score"><strong>{score}</strong><span> / {mission.questions.length} questions answered</span></p>
-            <p className="astro-complete-copy">You explored {mission.title}. Ready for another discovery?</p>
+            <p className="astro-complete-copy">{rewardGranted ? 'Your mission badge is saved.' : 'Your mission badge is saved. Choose the next unlocked mission or replay this one.'}</p>
             <div className="astro-complete-actions">
-              <button className="astro-primary-button" onClick={returnToMissions}>Choose another mission <ArrowRight size={18} /></button>
-              <button className="astro-secondary-button" onClick={onBack}>Back to games</button>
+              <button autoFocus className="astro-primary-button" onClick={returnToMissions}>Choose another mission <ArrowRight size={18} /></button>
+              <button className="astro-secondary-button" onClick={() => startMission(mission)}>Replay {mission.title}</button>
+              <button className="astro-secondary-button" onClick={leaveAcademy}>Back to games</button>
             </div>
           </section>
         </div>
@@ -298,9 +378,10 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
     );
   }
 
-  const progress = qIndex / mission.questions.length;
+  const progressFraction = qIndex / mission.questions.length;
   const answerLocked = Boolean(feedback);
   const lastQuestion = qIndex === mission.questions.length - 1;
+  const project = question.transferProject ?? null;
 
   return (
     <main className="astronaut-academy">
@@ -309,29 +390,38 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
           <button className="astro-icon-button" onClick={returnToMissions} aria-label="Back to missions"><ArrowLeft size={20} /></button>
           <div className="astro-progress-block">
             <div className="astro-progress-heading"><span>{mission.title}</span><span>Question {qIndex + 1} of {mission.questions.length}</span></div>
-            <div className="astro-progress-track" role="progressbar" aria-label="Mission progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(progress * 100)}>
-              <span style={{ width: `${progress * 100}%` }} />
+            <div className="astro-progress-track" role="progressbar" aria-label="Mission progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow={Math.round(progressFraction * 100)}>
+              <span style={{ width: `${progressFraction * 100}%` }} />
             </div>
           </div>
           <SoundToggle soundOn={soundOn} onToggle={onToggleSound} className="astro-sound-toggle" />
         </header>
 
         <section className="astro-question-stage" aria-live="polite">
-          <div className="astro-question-card">
+          <div className={`astro-question-card ${feedback?.kind === 'correct' ? 'is-solved' : ''}`} data-astro-question={question.questionId} data-astro-mission={mission.id} data-run-seed={seed}>
             <div className="astro-question-meta">
               <span className="astro-question-tag"><MissionIcon mission={mission} /> {category.name}</span>
               <span className="astro-star-count"><Star size={16} fill="currentColor" /> {score}</span>
             </div>
-            <div className="astro-question-illustration"><QuestionVisual question={question} category={category} /></div>
+            {feedback?.kind !== 'correct' && <div className="astro-question-illustration"><QuestionVisual question={question} category={category} /></div>}
             <h1>{question.q}</h1>
-            <p className="astro-prompt">Choose your answer</p>
+            {feedback?.kind !== 'correct' && <p className="astro-prompt">{project ? project.prompt : 'Look closely at the details, then choose the answer that fits.'}</p>}
 
-            <div className="astro-answer-grid">
+            {project && <section className="astro-transfer-project" data-project={project.id} aria-label={project.name}>
+              <div><span className="astro-project-context" aria-hidden="true">{project.id === 'rocket-window' ? <Rocket size={38} /> : project.id === 'sea-research-map' ? <Waves size={38} /> : <UserRound size={38} />}</span><span className="astro-project-eyebrow">YOUR PROJECT</span><strong>{project.name}</strong><span>{project.slotLabel}</span></div>
+              <div className="astro-project-slot" data-placement={feedback?.kind || 'preview'} role="status" aria-live="polite">
+                {projectSelection ? <><AnswerVisual category={category} label={projectSelection} /><strong>{projectSelection}<small>{feedback?.kind === 'correct' ? 'Placed!' : 'Ready to place'}</small></strong></> : <span>Choose an item below to fill this slot</span>}
+              </div>
+            </section>}
+
+            {feedback?.kind === 'correct' ? !project && <div className="astro-solved-answer"><AnswerVisual category={category} label={question.answer} /><strong>{question.answer}</strong></div> : <div className="astro-answer-grid">
               {questionOptions.map((option, index) => (
                 <button
                   key={option.text}
+                  ref={index === 0 ? firstAnswerRef : undefined}
                   className={`astro-answer ${feedback?.kind === 'correct' && option.text === question.answer ? 'is-right' : ''}`}
-                  onClick={() => { playSfx('tap'); handlePick(option); }}
+                  aria-pressed={project ? projectSelection === option.text : undefined}
+                  onClick={() => { playSfx('tap'); if (project) setProjectSelection(option.text); else handlePick(option); }}
                   disabled={answerLocked}
                 >
                   <span className="astro-answer-letter">{String.fromCharCode(65 + index)}</span>
@@ -339,25 +429,28 @@ const AstronautAcademy = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCe
                   <span>{option.text}</span>
                 </button>
               ))}
-            </div>
+            </div>}
+
+            {project && feedback?.kind !== 'correct' && <button type="button" className="astro-primary-button astro-project-place" disabled={!projectSelection || answerLocked} onClick={() => handlePick(questionOptions.find((option) => option.text === projectSelection))}>{project.actionLabel}</button>}
 
             {feedback && (
               <div className={`astro-feedback ${feedback.kind === 'correct' ? 'is-correct' : 'is-retry'}`} role="status">
                 <div className="astro-feedback-copy">
                   <span className="astro-feedback-icon">{feedback.kind === 'correct' ? <Check size={18} /> : <CircleHelp size={18} />}</span>
                   <div><strong>{feedback.message}</strong>
-                    {feedback.fact && <p><b>Did you know?</b> {feedback.fact}</p>}
+                    {feedback.fact && <><p><b>Did you know?</b> {feedback.fact}</p>{getOfflineVoiceClip(feedback.fact) && <button type="button" className="astro-secondary-button" disabled={!soundOn} onClick={() => say(feedback.fact)}>Hear this fact again</button>}</>}
                     {feedback.kind === 'retry' && <p>Take your time, then choose another answer.</p>}
                   </div>
                 </div>
-                <button className={feedback.kind === 'correct' ? 'astro-primary-button' : 'astro-retry-button'} onClick={advance}>
+                <button ref={feedbackActionRef} className={feedback.kind === 'correct' ? 'astro-primary-button' : 'astro-retry-button'} onClick={feedback.kind === 'correct' && lastQuestion ? finishMission : advance} disabled={feedback.kind === 'correct' && lastQuestion && !chapterSaved}>
                   {feedback.kind === 'correct' ? (lastQuestion ? 'Finish mission' : 'Next question') : 'Try again'}
                   {feedback.kind === 'correct' && <ArrowRight size={17} />}
                 </button>
               </div>
             )}
           </div>
-          <div className="astro-play-hint"><Volume2 size={15} /> {combo >= 2 ? `${combo} answers in a row! Keep exploring.` : 'Listen to the question, then tap an answer.'}</div>
+        {saveError && <div className="astro-feedback is-retry" role="alert"><div><strong>Badge not saved yet.</strong><p>Your solved answer and explanation are still here. Retry saving, then Finish.</p></div><button ref={retrySaveRef} className="astro-retry-button" onClick={saveFinalChapter}>Retry save</button></div>}
+        <div className="astro-play-hint"><Volume2 size={15} /> {feedback?.kind === 'correct' ? (!soundOn ? 'Sound is off. Read your discovery, then continue.' : 'Replay the question or answer, then continue.') : !soundOn ? 'Sound is off. Read the question and compare the pictures.' : project ? `Choose an item, then press ${project.actionLabel}.` : combo >= 2 ? `${combo} answers in a row! Keep exploring.` : 'Listen to the question, then tap an answer.'} <button type="button" disabled={!soundOn || !getOfflineVoiceClip(question.q)} onClick={() => say(question.q)}>Replay question</button>{feedback?.kind === 'correct' && <button type="button" disabled={!soundOn || !getOfflineVoiceClip(`The answer is ${question.answer}!`)} onClick={() => say(`The answer is ${question.answer}!`)}>Replay answer</button>}</div>
         </section>
       </div>
     </main>

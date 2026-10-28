@@ -1,577 +1,184 @@
-import { useState, useEffect, useRef } from 'react';
-import { Home, ArrowLeft } from 'lucide-react';
-import { CHESS_PIECES, CHESS_PUZZLES, PIECE_DEMO_MOVES, MOVE_PRAISE } from '../../data/index.js';
+import { useEffect, useRef, useState } from 'react';
+import { ArrowLeft } from 'lucide-react';
+import { analyzeChessMove, analyzeKingMove, attackedBySide, CHESS_ADVENTURES, CHESS_AUDIO_LINES, CHESS_CHAPTERS, CHESS_PIECES, chessMoveIsLegal, chessSquare, getChessPuzzleMoveAnalysis, seededChessRun } from '../../data/chessAdventure.js';
+import { completeChessChapter, readChessProgress, recordChessRun } from '../../data/chessProgress.js';
+import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 import { SoundToggle } from '../shared/index.jsx';
-import { getDifficultyIndex, useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-import { getPraise, pickRandom, computeValidMoves } from '../../utils.js';
 import { makeLearningEvent } from '../../data/literacy.js';
 
-// Floating chess background decoration — deterministic positions seeded by index
-const FLOAT_PIECES = ['♔', '♕', '♖', '♗', '♘', '♙', '♚', '♛', '♜', '♝', '♞', '♟'];
-const FLOAT_ITEMS = FLOAT_PIECES.map((piece, i) => ({
-  piece,
-  left: `${(i * 8.3 + (((i * 17 + 3) % 11) / 11) * 5) % 100}%`,
-  top: `${(i * 7.7 + (((i * 13 + 7) % 11) / 11) * 8) % 95}%`,
-  size: `${(((i * 19 + 5) % 11) / 11) * 1.2 + 1.6}rem`,
-  delay: `${i * 0.5}s`,
-  anim: i % 2 === 0 ? 'animate-drift-left' : 'animate-drift-right',
-}));
-const PRACTICE_BOARD_SIZE = 6;
-const boardSquareName = (row, column, size) => `${String.fromCharCode(65 + column)}${size - row}`;
-const getPracticeStartPosition = (pieceId) => pieceId === 'pawn'
-  ? [PRACTICE_BOARD_SIZE - 1, Math.floor(PRACTICE_BOARD_SIZE / 2)]
-  : [3, 3];
-const ChessBackground = () => (
-  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-    {FLOAT_ITEMS.map((it, i) => (
-      <span
-        key={i}
-        className={`absolute opacity-[0.04] ${it.anim}`}
-        style={{ left: it.left, top: it.top, fontSize: it.size, animationDelay: it.delay }}
-      >{it.piece}</span>
-    ))}
-  </div>
-);
+export default function ChessExplorers({ onBack = () => {}, playSfx = () => {}, soundOn, onToggleSound, cancelNarration = () => {}, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) {
+  const [mode, setMode] = useState('menu');
+  const [progress, setProgress] = useState(() => readChessProgress(playerId));
+  const [chapterIndex, setChapterIndex] = useState(0);
+  const [run, setRun] = useState([]);
+  const [runSeed, setRunSeed] = useState(null);
+  const [index, setIndex] = useState(0);
+  const [solved, setSolved] = useState(false);
+  const [solvedAt, setSolvedAt] = useState(null);
+  const [helpUsed, setHelpUsed] = useState(false);
+  const [hadMistake, setHadMistake] = useState(false);
+  const [saveFailed, setSaveFailed] = useState(false);
+  const [chapterSaved, setChapterSaved] = useState(false);
+  const [message, setMessage] = useState('');
+  const [practicePiece, setPracticePiece] = useState(CHESS_PIECES[0]);
+  const [practiceFrom, setPracticeFrom] = useState([4, 2]);
+  const focusNext = useRef(null);
+  const audioRef = useRef(null);
+  const audioGeneration = useRef(0);
+  const puzzle = run[index];
+  const chapter = CHESS_CHAPTERS[chapterIndex];
+  const phase = mode === 'finish' || saveFailed ? 'finish' : mode === 'menu' ? 'intro' : 'play';
+  useEffect(() => { onPhaseChange?.(phase); }, [phase, onPhaseChange]);
+  useEffect(() => { setProgress(readChessProgress(playerId)); }, [playerId]);
+  useEffect(() => { if (!soundOn) { audioGeneration.current += 1; if (audioRef.current) { audioRef.current.onended = null; audioRef.current.pause?.(); } audioRef.current = null; cancelNarration(); } }, [soundOn, cancelNarration]);
+  useEffect(() => () => { audioGeneration.current += 1; if (audioRef.current) { audioRef.current.onended = null; audioRef.current.pause?.(); } audioRef.current = null; cancelNarration(); }, [cancelNarration]);
 
-// Mini 4x4 board for animated move demo in Learn mode
-const MoveDemo = ({ piece }) => {
-  const demoMoves = PIECE_DEMO_MOVES[piece.id] || [];
-  const movesRef = useRef(demoMoves);
-  movesRef.current = demoMoves;
-  const [moveIdx, setMoveIdx] = useState(-1); // -1 = at center
-  const center = [2, 2];
-  const boardSize = 4;
-  const trailRef = useRef(new Set());
+  const stopVoice = () => { audioGeneration.current += 1; if (audioRef.current) { audioRef.current.onended = null; audioRef.current.pause?.(); } audioRef.current = null; cancelNarration(); };
+  const toggleSound = () => { stopVoice(); onToggleSound?.(); };
+  const replay = (lines) => {
+    stopVoice();
+    if (!soundOn) return;
+    const clips = lines.map((line) => getOfflineVoiceClip(line, 'en-US'));
+    if (clips.some((clip) => !clip)) return;
+    let clipIndex = 0; const generation = audioGeneration.current;
+    const playNext = () => { if (generation !== audioGeneration.current || clipIndex >= clips.length) return; const audio = new Audio(clips[clipIndex++]); audioRef.current = audio; audio.onended = playNext; audio.play().catch(() => {}); };
+    playNext();
+  };
+  const begin = (nextChapterIndex, seed = (globalThis.crypto?.getRandomValues?.(new Uint32Array(1))?.[0] ?? Math.floor(Math.random() * 0x100000000)) >>> 0) => {
+    stopVoice();
+    const selectedChapter = CHESS_CHAPTERS[nextChapterIndex];
+    const nextRun = seededChessRun(selectedChapter.id, seed, progress.recentPuzzleIds);
+    setRunSeed(Number(seed) >>> 0);
+    setChapterIndex(nextChapterIndex); setRun(nextRun); setIndex(0); setSolved(false); setSolvedAt(null); setChapterSaved(false); setMessage(''); setHelpUsed(false); setHadMistake(false); setSaveFailed(false); setMode('play');
+    recordChessRun(playerId, selectedChapter.id, nextRun.map((p) => p.id));
+    replay([CHESS_AUDIO_LINES[nextRun[0].piece].prompt, CHESS_AUDIO_LINES[nextRun[0].piece].rule]);
+  };
+  const finishChapter = () => {
+    const result = completeChessChapter(playerId, chapter.id);
+    if (!result?.persisted) { setSaveFailed(true); setMessage('Your badge could not be saved. Try again to save it before finishing.'); return; }
+    setProgress(result); setChapterSaved(true); if (saveFailed) setMessage('Badge saved. The final puzzle explanation remains below.'); setSaveFailed(false);
+    if (result.newlyCompleted) { onCelebrate('Chapter badge earned!', 4, 0, 'chess', { quiet: true }); onGameEvent?.('chess', 'chapter_complete', { chapterId: chapter.id }); }
+    focusNext.current?.focus();
+  };
+  const recordCorrect = (to) => {
+    onGameEvent?.('chess', 'answer_correct', { diagnosticOnly: true, seed: runSeed, level: chapterIndex, round: index, item: puzzle.id, correct: true, firstAttempt: !helpUsed && !hadMistake, independent: !helpUsed && !hadMistake });
+    onGameEvent?.('chess', 'learning_attempt', makeLearningEvent({ skill: puzzle.kind === 'safe-capture' ? 'chess-safe-capture' : puzzle.kind === 'king-safety' ? 'chess-king-safety' : 'chess-movement', item: puzzle.id, response: `${chessSquare(puzzle.from)} to ${chessSquare(to)}`, correct: true, firstTry: !helpUsed && !hadMistake, hints: helpUsed ? 1 : 0, difficulty: ['starter', 'growing', 'challenge'][chapterIndex], extra: { seed: runSeed, level: chapterIndex, round: index } }));
+  };
+  const giveFeedback = (feedback) => { setHadMistake(true); setMessage(feedback); };
+  const solve = (r, c) => {
+    if (solved || !puzzle) return;
+    const to = [r, c], occupant = puzzle.pieces.find((piece) => piece.at[0] === r && piece.at[1] === c);
+    if (puzzle.kind === 'safe-capture') {
+      const analysis = analyzeChessMove(puzzle, to);
+      if (analysis.legal && !analysis.capture) { giveFeedback('That is a legal move, but the goal is to capture a safe opposing piece.'); return; }
+      if (!analysis.legal) { giveFeedback(occupant?.side === 'white' ? 'That is your own piece. You cannot capture it, and it blocks the path.' : 'That square is not a reachable opposing piece for this capture; occupied pieces can block the path.'); return; }
+      if (!analysis.safe) { giveFeedback(`That is a legal capture, but it is unsafe: ${analysis.attackedBy.map((piece) => piece.type).join(' and ')} attacks the landing square after the capture.`); return; }
+      setSolved(true); setSolvedAt(to); setMessage(`Safe capture: ${chessSquare(puzzle.from)} → ${chessSquare(to)}.`); playSfx('chess-move'); recordCorrect(to); if (index === run.length - 1) finishChapter(); return;
+    }
+    if (puzzle.kind === 'king-safety') {
+      const analysis = analyzeKingMove(puzzle, to);
+      if (!analysis.legal) { giveFeedback(occupant?.side === 'white' ? 'That square is occupied by your own piece.' : 'The king moves only one square in any direction.'); return; }
+      if (!analysis.safe) { giveFeedback(`That square is still attacked by the black ${analysis.attackedBy.map((piece) => piece.type).join(' and ')} after the move. Choose a safe neighboring square.`); return; }
+      setSolved(true); setSolvedAt(to); setMessage(`Safe king move: ${chessSquare(puzzle.from)} → ${chessSquare(to)}.`); playSfx('chess-move'); recordCorrect(to); if (index === run.length - 1) finishChapter(); return;
+    }
+    const [fr, fc] = puzzle.from;
+    if (r === fr && c === fc) { giveFeedback('That square is already occupied by your piece. Choose a different square.'); return; }
+    const legal = chessMoveIsLegal(puzzle.piece, puzzle.from, to, puzzle.pieces, { side: 'white' });
+    if (!legal && occupant?.side === 'black' && chessMoveIsLegal(puzzle.piece, puzzle.from, to, puzzle.pieces, { side: 'white', capture: true })) { giveFeedback('That is a legal capture, but the goal is to move to the empty marked square.'); return; }
+    if (!legal && occupant?.side === 'white') { giveFeedback('That is your own piece. It blocks sliding paths and you cannot land on or capture it.'); return; }
+    if (!legal) { giveFeedback('That square is not reachable by this piece. Check its movement rule and any blockers.'); return; }
+    if (!puzzle.goalSquares.some((square) => square[0] === r && square[1] === c)) { giveFeedback('That is a legal move, but it does not meet the stated goal. Try the highlighted square.'); return; }
+    setSolved(true); setSolvedAt(to); setMessage(`Solved: ${chessSquare(puzzle.from)} → ${chessSquare(to)}.`); playSfx('chess-move');
+    recordCorrect(to);
+    if (index === run.length - 1) finishChapter();
+  };
+  const advance = () => {
+    stopVoice();
+    if (index === run.length - 1) { if (chapterSaved) setMode('finish'); else finishChapter(); return; }
+    const nextIndex = index + 1; setIndex(nextIndex); setSolved(false); setSolvedAt(null); setHelpUsed(false); setHadMistake(false); setMessage(''); replay([CHESS_AUDIO_LINES[run[nextIndex].piece].prompt, CHESS_AUDIO_LINES[run[nextIndex].piece].rule]);
+  };
+  const backMenu = () => { stopVoice(); setMode('menu'); setSaveFailed(false); setMessage(''); setProgress(readChessProgress(playerId)); };
 
-  useEffect(() => {
-    setMoveIdx(-1);
-    trailRef.current = new Set();
-    const moves = movesRef.current;
-    if (moves.length === 0) return;
-    let idx = 0;
-    const timer = setInterval(() => {
-      const m = movesRef.current;
-      if (idx >= m.length) {
-        trailRef.current = new Set();
-        setMoveIdx(-1);
-        idx = 0;
-        return;
-      }
-      setMoveIdx(idx);
-      trailRef.current.add(`${m[idx][0]}-${m[idx][1]}`);
-      idx++;
-    }, 2000);
-    return () => clearInterval(timer);
-  }, [piece.id]);
+  const shell = 'min-h-screen flex flex-col bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100 px-3 pb-6';
+  const header = (title, back = backMenu) => <header className="flex items-center justify-between gap-2 py-3"><button type="button" className="game-icon-button" onClick={back} aria-label="Back to chapters"><ArrowLeft /></button><h1 className="text-xl sm:text-2xl font-black text-amber-900 text-center">{title}</h1><SoundToggle soundOn={soundOn} onToggle={toggleSound} /></header>;
+  const audioButton = (lines) => { const available = lines.every((line) => getOfflineVoiceClip(line, 'en-US')); const label = lines.length > 1 ? 'Replay recorded piece prompt and rule' : 'Replay recorded piece rule'; return <button type="button" className="min-h-12 rounded-full border-2 border-amber-400 bg-white px-4 py-2 font-bold text-amber-900" onClick={() => replay(lines)} disabled={!soundOn || !available} aria-label={!soundOn ? 'Narration muted' : available ? label : 'Recorded guidance unavailable'}>{!soundOn ? 'Narration muted' : available ? lines.length > 1 ? '🔊 Replay recorded prompt & rule' : '🔊 Replay recorded rule' : 'Recorded guidance unavailable'}</button>; };
 
-  const currentPos = moveIdx >= 0 && moveIdx < demoMoves.length ? demoMoves[moveIdx] : center;
-
-  return (
-    <div className="mt-4 flex justify-center">
-      <div className="relative grid gap-0.5" style={{ gridTemplateColumns: `repeat(${boardSize}, 1fr)`, width: 140, height: 140 }}>
-        {Array.from({ length: boardSize * boardSize }, (_, idx) => {
-          const r = Math.floor(idx / boardSize);
-          const c = idx % boardSize;
-          const isLight = (r + c) % 2 === 0;
-          const isTrail = trailRef.current.has(`${r}-${c}`);
-          return (
-            <div
-              key={idx}
-              className={`aspect-square rounded-sm flex items-center justify-center text-xs transition-all duration-300 ${
-                isTrail ? 'bg-amber-300/60' : isLight ? 'bg-amber-100' : 'bg-amber-600/20'
-              }`}
-            />
-          );
-        })}
-        {/* Animated piece overlay */}
-        <div
-          className="absolute text-2xl transition-all duration-600 ease-in-out z-10"
-          style={{
-            transform: `translate(${currentPos[1] * (140 / boardSize) + 2}px, ${currentPos[0] * (140 / boardSize) + 1}px)`,
-            width: 140 / boardSize,
-            height: 140 / boardSize,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            transitionDuration: '0.6s',
-          }}
-        >
-          {piece.white}
-        </div>
-      </div>
+  if (mode === 'menu') return <main className={`${shell} items-center`}>
+    <header className="w-full flex items-center justify-between py-3"><button className="game-icon-button" onClick={onBack} aria-label="Back to Thinking & Play"><ArrowLeft /></button><h1 className="text-2xl sm:text-3xl font-black text-amber-900">♟ Chess Explorers</h1><SoundToggle soundOn={soundOn} onToggle={toggleSound} /></header>
+    <div className="w-full max-w-3xl text-center"><p className="text-lg font-bold text-amber-900">Explore how pieces move and make simple captures.</p><p className="mt-2 text-sm text-amber-950">Start with movement, then learn captures and help a king escape an attack.</p>
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">{CHESS_CHAPTERS.map((item, i) => { const unlocked = i <= progress.unlockedChapterIndex; return <button key={item.id} disabled={!unlocked} onClick={() => begin(i)} className="rounded-3xl border-4 border-amber-200 bg-white p-5 text-left shadow-lg disabled:opacity-50"><span className="text-3xl">{progress.completedChapterIds.includes(item.id) ? '🏅' : ['♘', '♖', '🧩'][i]}</span><span className="mt-2 block text-lg font-black text-amber-900">{item.title}</span><span className="mt-1 block text-sm text-amber-800">{item.intro}</span><span className="mt-2 block font-bold">{progress.completedChapterIds.includes(item.id) ? 'Badge earned · Replay' : unlocked ? 'Start five puzzles' : 'Complete the previous chapter to unlock'}</span></button>; })}</div>
+      <div className="mt-4 flex flex-wrap justify-center gap-3"><button onClick={() => { setMode('pieces'); setPracticePiece(CHESS_PIECES[0]); }} className="min-h-12 rounded-full bg-purple-700 px-5 py-3 font-black text-white">Meet the pieces</button><button onClick={() => { setPracticePiece(CHESS_PIECES[0]); setPracticeFrom([4,2]); setMode('practice'); }} className="min-h-12 rounded-full bg-purple-700 px-5 py-3 font-black text-white">Move It! practice</button></div>
     </div>
-  );
-};
+  </main>;
 
-const ChessExplorers = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent }) => {
-  const difficulty = useGameDifficulty('chess');
-  const [mode, setMode] = useState(null); // 'learn' | 'puzzle' | 'practice'
-  const [pieceIndex, setPieceIndex] = useState(0);
-  const [puzzleIndex, setPuzzleIndex] = useState(0);
-  const [tappedCells, setTappedCells] = useState({});
-  const [correctCount, setCorrectCount] = useState(0);
-  const [wrongCells, setWrongCells] = useState({});
-  const [correctCells, setCorrectCells] = useState({});
-  const [puzzleDone, setPuzzleDone] = useState(false);
-  const [puzzleHadMistake, setPuzzleHadMistake] = useState(false);
-  const [streak, setStreak] = useState(0);
+  if (mode === 'pieces') { const piece = practicePiece; return <main className={`${shell} items-center`}>{header('Meet the pieces')}<section className="w-full max-w-lg rounded-3xl bg-white p-6 text-center shadow-xl"><div className="text-7xl" aria-hidden="true">{piece.glyph}</div><h2 className="text-3xl font-black text-amber-900">{piece.name}</h2><p className="mt-2 text-lg font-semibold">{piece.rule}</p><div className="mt-4 flex flex-wrap justify-center gap-2">{CHESS_PIECES.map((p) => <button key={p.id} onClick={() => { stopVoice(); setPracticePiece(p); }} aria-pressed={p.id === piece.id} className="min-h-12 min-w-12 rounded-xl border-2 border-amber-300 p-2 text-3xl" aria-label={`Choose ${p.name}`}>{p.glyph}</button>)}</div><div className="mt-4">{audioButton([CHESS_AUDIO_LINES[piece.id].rule])}</div></section></main>; }
 
-  // Practice mode state
-  const [practicePos, setPracticePos] = useState(() => getPracticeStartPosition(CHESS_PIECES[0].id));
-  const [practiceMoves, setPracticeMoves] = useState(0);
-  const [practiceDone, setPracticeDone] = useState(false);
+  if (mode === 'finish') return <main className={`${shell} items-center`}>{header('Chapter complete')}<section className="m-auto max-w-lg rounded-3xl bg-white p-8 text-center shadow-xl"><div className="text-6xl">🏅</div><h2 className="mt-2 text-2xl font-black text-amber-900">{chapter.title} badge earned</h2><p className="mt-2">You solved all five puzzles. Your chapter badge is saved.</p><button ref={focusNext} autoFocus onClick={backMenu} className="mt-5 rounded-full bg-amber-600 px-6 py-3 font-black text-white">Back to chapters</button></section></main>;
 
-  useEffect(() => {
-    const targetLevel = getDifficultyIndex(difficulty) + 1;
-    const nextPuzzleIndex = CHESS_PUZZLES.findIndex((entry) => entry.level === targetLevel);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setPuzzleIndex(Math.max(0, nextPuzzleIndex));
-  }, [difficulty]);
-
-  const piece = CHESS_PIECES[pieceIndex];
-  const puzzle = CHESS_PUZZLES[puzzleIndex];
-  const currentLevel = puzzle?.level || 1;
-
-  // Voice on mode mount
-  useEffect(() => {
-    if (mode === null) speak("Let's learn chess!");
-  }, [mode, speak]);
-
-  // Learn mode
-  if (mode === 'learn') {
-    return (
-      <div className="min-h-screen flex flex-col bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100 relative overflow-hidden">
-        <ChessBackground />
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-8 right-8 w-40 h-40 bg-amber-200/60 rounded-full blur-3xl" />
-        </div>
-        <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={() => setMode(null)} className="game-icon-button" aria-label="Back to Chess Explorers menu"><ArrowLeft strokeWidth={3} /></button>
-          <h2 className="text-2xl font-black text-amber-800">♟ Meet the Pieces</h2>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-        </div>
-        <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-          {/* Upgraded learn card with gradient + depth + piece-color glow */}
-          <div
-            className="bg-gradient-to-b from-white to-amber-50/80 rounded-3xl p-8 shadow-xl max-w-sm w-full text-center"
-            style={{ border: `4px solid ${piece.color}`, boxShadow: `0 8px 32px ${piece.color}30, 0 4px 12px rgba(0,0,0,0.08)` }}
-          >
-            <div className="text-8xl mb-2">{piece.white}</div>
-            <h3 className="text-3xl font-black" style={{ color: piece.color }}>{piece.name}</h3>
-            <p className="text-slate-600 font-semibold text-lg mt-1">{piece.desc}</p>
-            <div className="mt-4 bg-slate-50 rounded-2xl p-4 border-2 border-slate-200">
-              <span className="text-2xl mr-2">{piece.moveEmoji}</span>
-              <span className="text-lg font-bold text-slate-700">{piece.move}</span>
-            </div>
-            {/* Animated Move Demo */}
-            <MoveDemo piece={piece} />
-            <button
-              onClick={() => { playSfx('sparkle'); speak(`The ${piece.name}. ${piece.desc} It moves ${piece.move}.`); }}
-              className="mt-4 text-amber-700 font-semibold"
-            >🔊 Hear about it</button>
-          </div>
-          {/* Piece selector with hover glow + bounce */}
-          <div className="flex gap-3 mt-6 flex-wrap justify-center">
-            {CHESS_PIECES.map((p, i) => (
-              <button
-                key={p.id}
-                type="button"
-                aria-label={`Choose ${p.name}`}
-                aria-pressed={i === pieceIndex}
-                onClick={() => {
-                  setPieceIndex(i);
-                  playSfx('click');
-                  speak(`${p.name}. ${p.desc}`);
-                }}
-                className={`w-16 h-16 rounded-2xl text-3xl flex items-center justify-center border-4 transition-all duration-200 ${
-                  i === pieceIndex
-                    ? 'border-amber-400 bg-amber-50 scale-115 animate-piece-bounce'
-                    : 'border-slate-200 bg-white hover:scale-105 hover:border-amber-300/60'
-                }`}
-                style={i === pieceIndex ? { boxShadow: `0 0 16px ${p.color}50` } : {}}
-              >{p.white}</button>
-            ))}
-          </div>
-          <div className="mt-5 flex flex-col items-center gap-2">
-            <p className="text-sm font-semibold text-amber-800">Ready? Move the {piece.name} to five legal squares.</p>
-            <button
-              type="button"
-              onClick={() => {
-                setMode('practice');
-                setPracticePos(getPracticeStartPosition(piece.id));
-                setPracticeMoves(0);
-                setPracticeDone(false);
-                playSfx('sparkle');
-                speak(`Move the ${piece.name} to five legal squares. Tap the glowing squares.`);
-              }}
-              className="rounded-full bg-purple-600 px-6 py-3 font-black text-white shadow-lg hover:bg-purple-700 focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-purple-400"
-            >Practice with the {piece.name} →</button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Practice mode ("Move It!")
   if (mode === 'practice') {
-    const boardSize = PRACTICE_BOARD_SIZE;
-    const validMoves = computeValidMoves(piece.id, practicePos, boardSize);
-    const validSet = new Set(validMoves.map(([r, c]) => `${r}-${c}`));
-
-    const handlePracticeTap = (r, c) => {
-      if (practiceDone) return;
-      const key = `${r}-${c}`;
-      if (!validSet.has(key)) return; // Only valid cells are tappable
-
-      playSfx('chess-move');
-      const newMoves = practiceMoves + 1;
-      setPracticePos([r, c]);
-      setPracticeMoves(newMoves);
-      speak(pickRandom(MOVE_PRAISE));
-      onCelebrate(pickRandom(MOVE_PRAISE), 3, 150);
-
-      if (newMoves >= 5) {
-        setPracticeDone(true);
-        playSfx('levelup-big');
-        speak('Amazing! You made five moves!');
-        onCelebrate('Amazing!', 10, 300);
-        onGameEvent?.('chess', 'answer_correct');
-        onGameEvent?.('chess', 'learning_attempt', makeLearningEvent({
-          skill: 'chess-movement', item: piece.name, response: 'five valid moves',
-          correct: true, firstTry: true, difficulty,
-        }));
-      }
-    };
-
-    const resetPractice = (newPieceIdx) => {
-      const targetPieceIndex = newPieceIdx ?? pieceIndex;
-      if (newPieceIdx !== undefined) setPieceIndex(newPieceIdx);
-      setPracticePos(getPracticeStartPosition(CHESS_PIECES[targetPieceIndex].id));
-      setPracticeMoves(0);
-      setPracticeDone(false);
-    };
-
-    return (
-      <div className="min-h-screen flex flex-col bg-gradient-to-b from-purple-50 via-violet-50 to-purple-100 relative overflow-hidden">
-        <ChessBackground />
-        <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={() => setMode(null)} className="game-icon-button" aria-label="Back to Chess Explorers menu"><ArrowLeft strokeWidth={3} /></button>
-          <div className="text-center">
-            <h2 className="text-2xl font-black text-purple-800">🏃 Move the {piece.name}!</h2>
-            <p className="text-purple-700/60 text-sm font-semibold">{piece.move}</p>
-          </div>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-        </div>
-
-        {/* Progress dots */}
-        <div className="flex justify-center gap-2 mt-2 z-20" aria-hidden="true">
-          {Array.from({ length: 5 }, (_, i) => (
-            <div key={i} className={`w-3 h-3 rounded-full transition-all ${i < practiceMoves ? 'bg-purple-500 scale-110' : 'bg-purple-200'}`} />
-          ))}
-        </div>
-
-        <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-          <p className="text-purple-800 font-bold text-lg mb-1" role="status" aria-live="polite">
-            {practiceDone ? `Goal complete: ${practiceMoves} of 5 legal moves.` : `Goal: move the ${piece.name} to 5 legal squares. ${practiceMoves} of 5 moves.`}
-          </p>
-          <p id="practice-board-help" className="text-purple-800/75 font-semibold text-sm mb-3">Glowing gold squares are legal moves. Tap one, or focus it and press Enter or Space.</p>
-
-          <div className="grid gap-1 mx-auto" role="group" aria-label={`${piece.name} practice board, six by six squares`} style={{ gridTemplateColumns: `repeat(${boardSize}, minmax(0, 1fr))`, width: 'min(360px, 90vw)' }}>
-            {Array.from({ length: boardSize * boardSize }, (_, idx) => {
-              const r = Math.floor(idx / boardSize);
-              const c = idx % boardSize;
-              const isPiece = r === practicePos[0] && c === practicePos[1];
-              const key = `${r}-${c}`;
-              const isLight = (r + c) % 2 === 0;
-              const isValid = validSet.has(key);
-
-              return (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => handlePracticeTap(r, c)}
-                  disabled={practiceDone || (!isValid && !isPiece)}
-                  aria-label={`${boardSquareName(r, c, boardSize)} square${isPiece ? `, ${piece.name} is here` : isValid ? practiceDone ? ', legal move; practice complete' : ', legal move highlighted in gold' : ', not a legal move'}`}
-                  aria-describedby="practice-board-help"
-                  className={`aspect-square rounded-lg flex items-center justify-center text-2xl font-bold transition-all ${
-                    isPiece
-                      ? 'bg-purple-300 shadow-lg border-2 border-purple-500'
-                      : isValid && !practiceDone
-                      ? 'animate-cell-pulse bg-amber-300/50 border-2 border-amber-400/60 hover:bg-amber-400/60 cursor-pointer'
-                      : isLight
-                      ? 'bg-gradient-to-br from-amber-100 to-amber-200 border border-amber-200'
-                      : 'bg-gradient-to-br from-amber-600/25 to-amber-700/30 border border-amber-300/40'
-                  }`}
-                  style={
-                    isLight && !isPiece && !isValid
-                      ? { boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.06)' }
-                      : !isLight && !isPiece && !isValid
-                      ? { boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.08)' }
-                      : {}
-                  }
-                >
-                  {isPiece ? piece.white : ''}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Piece selector for practice */}
-          <div className="flex gap-2 mt-4 flex-wrap justify-center">
-            {CHESS_PIECES.map((p, i) => (
-              <button
-                key={p.id}
-                type="button"
-                aria-label={`Choose ${p.name} for practice`}
-                aria-pressed={i === pieceIndex}
-                onClick={() => { resetPractice(i); playSfx('click'); speak(`Try the ${p.name}! ${p.move}.`); }}
-                className={`w-12 h-12 rounded-xl text-2xl flex items-center justify-center border-3 transition-all ${
-                  i === pieceIndex ? 'border-purple-400 bg-purple-50 scale-110' : 'border-slate-200 bg-white hover:scale-105'
-                }`}
-              >{p.white}</button>
-            ))}
-          </div>
-
-          {practiceDone && (
-            <div className="mt-4 bg-white/90 p-4 rounded-2xl shadow-lg text-center animate-scale-in">
-              <div className="text-4xl mb-1">🎉</div>
-              <p className="text-lg font-black text-purple-700">You did it!</p>
-              <div className="flex gap-3 mt-3 justify-center">
-                <button onClick={() => resetPractice()} className="bg-purple-500 text-white font-bold px-5 py-2 rounded-full shadow hover:bg-purple-600 transition">
-                  Again!
-                </button>
-                <button onClick={() => {
-                  const next = (pieceIndex + 1) % CHESS_PIECES.length;
-                  resetPractice(next);
-                  speak(`Try the ${CHESS_PIECES[next].name}!`);
-                }} className="bg-amber-500 text-white font-bold px-5 py-2 rounded-full shadow hover:bg-amber-600 transition">
-                  Next Piece
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    );
+    const legalSquares = Array.from({ length: 36 }, (_, n) => [Math.floor(n/6), n%6]).filter((to) => chessMoveIsLegal(practicePiece.id, practiceFrom, to));
+    return <main className={`${shell} items-center`}>{header('Move It! practice')}<p className="mb-3 text-center font-bold">Practice has no chapter reward. {practicePiece.rule}</p><div className="mb-3 flex flex-wrap justify-center gap-2">{CHESS_PIECES.map((p) => <button key={p.id} aria-label={`Choose ${p.name} for practice`} onClick={() => { stopVoice(); setPracticePiece(p); setPracticeFrom([4,2]); }} aria-pressed={p.id === practicePiece.id} className="min-h-12 min-w-12 rounded-lg border-2 border-amber-300 bg-white px-2 py-1 text-2xl">{p.glyph}</button>)}</div><div className="grid w-[min(90vw,420px)] grid-cols-6 gap-1" role="group" aria-label={`${practicePiece.name} practice board, six by six`}>
+      {Array.from({length:36},(_,n)=>{const r=Math.floor(n/6),c=n%6,from=r===practiceFrom[0]&&c===practiceFrom[1],legal=legalSquares.some(([a,b])=>a===r&&b===c);return <button key={n} onClick={()=>legal&&setPracticeFrom([r,c])} disabled={!legal} aria-label={`${chessSquare([r,c])} ${from?`${practicePiece.name} is here`:legal?'legal move':'square'}`} className={`aspect-square min-w-0 rounded-md text-2xl ${from?'bg-purple-300':legal?'bg-amber-300':'bg-amber-100'} ${legal?'cursor-pointer':''}`}>{from?practicePiece.glyph:''}</button>;})}</div><p role="status" className="mt-3">Tap a gold square to move. Try another piece whenever you like.</p><button type="button" onClick={() => { stopVoice(); setPracticeFrom([4,2]); }} className="mt-3 min-h-12 rounded-xl border-2 border-purple-300 bg-white px-4 font-bold text-purple-900">Reset practice board</button>
+    </main>;
   }
 
-  // Puzzle mode
-  if (mode === 'puzzle') {
-    const pieceData = CHESS_PIECES.find((p) => p.id === puzzle.piece);
-    const boardSize = 6;
-    const isValid = (r, c) => puzzle.validMoves.some(([vr, vc]) => vr === r && vc === c);
-
-    const handleCellTap = (r, c) => {
-      if (puzzleDone) return;
-      const key = `${r}-${c}`;
-      if (r === puzzle.pos[0] && c === puzzle.pos[1]) return;
-      if (tappedCells[key]) return;
-
-      if (isValid(r, c)) {
-        setTappedCells((prev) => ({ ...prev, [key]: true }));
-        setCorrectCells((prev) => ({ ...prev, [key]: true }));
-        setCorrectCount((prev) => prev + 1);
-        const newStreak = streak + 1;
-        setStreak(newStreak);
-        playSfx('chess-move');
-        if (newStreak >= 3) playSfx('combo');
-        onCelebrate(newStreak === 5 ? 'Five in a row — Super Star bonus!' : getPraise(), newStreak === 5 ? 14 : 4, 200);
-
-        // Clear correct animation after a short time
-        setTimeout(() => setCorrectCells((prev) => { const next = { ...prev }; delete next[key]; return next; }), 500);
-
-        const newTapped = { ...tappedCells, [key]: true };
-        if (puzzle.validMoves.every(([vr, vc]) => newTapped[`${vr}-${vc}`])) {
-          setPuzzleDone(true);
-          playSfx('levelup-big');
-          speak(`You found all the moves! The ${pieceData.name} is happy!`);
-          onCelebrate('Amazing!', 10, 300);
-          onGameEvent?.('chess', 'answer_correct');
-          onGameEvent?.('chess', 'learning_attempt', makeLearningEvent({
-            skill: 'chess-movement', item: pieceData.name, response: 'all valid moves',
-            correct: true, firstTry: !puzzleHadMistake, difficulty,
-          }));
-        }
-      } else {
-        setPuzzleHadMistake(true);
-        setWrongCells((prev) => ({ ...prev, [key]: true }));
-        setStreak(0);
-        playSfx('oops');
-        setTimeout(() => setWrongCells((prev) => { const next = { ...prev }; delete next[key]; return next; }), 600);
-      }
-    };
-
-    const nextPuzzle = () => {
-      setPuzzleIndex((prev) => (prev + 1) % CHESS_PUZZLES.length);
-      setTappedCells({});
-      setCorrectCount(0);
-      setWrongCells({});
-      setCorrectCells({});
-      setPuzzleDone(false);
-      setPuzzleHadMistake(false);
-      const nextP = CHESS_PUZZLES[(puzzleIndex + 1) % CHESS_PUZZLES.length];
-      const nextPiece = CHESS_PIECES.find((p) => p.id === nextP.piece);
-      speak(`${nextPiece.name}! ${nextP.q}`);
-    };
-
-    return (
-      <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 via-teal-50 to-emerald-100 relative overflow-hidden">
-        <ChessBackground />
-        <div className="flex items-center justify-between px-4 pt-4 z-20">
-          <button onClick={() => setMode(null)} className="game-icon-button" aria-label="Back to Chess Explorers menu"><ArrowLeft strokeWidth={3} /></button>
-          <div className="text-center">
-            <h2 className="text-2xl font-black text-emerald-800">{pieceData.moveEmoji} {pieceData.name} Moves</h2>
-            <p className="text-emerald-700/60 text-sm font-semibold">Puzzle {puzzleIndex + 1}/{CHESS_PUZZLES.length}</p>
-          </div>
-          <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-        </div>
-
-        {/* Level progress dots */}
-        <div className="flex justify-center gap-1.5 mt-1 z-20">
-          {CHESS_PUZZLES.map((_, i) => (
-            <div key={i} className={`w-2.5 h-2.5 rounded-full transition-all ${
-              i < puzzleIndex ? 'bg-emerald-500' : i === puzzleIndex ? 'bg-emerald-400 scale-125' : 'bg-emerald-200'
-            }`} />
-          ))}
-        </div>
-
-        {/* Level badge */}
-        <div className="text-center mt-1 z-20">
-          <span className={`text-xs font-black px-3 py-0.5 rounded-full ${
-            currentLevel === 1 ? 'bg-green-200 text-green-800' : currentLevel === 2 ? 'bg-blue-200 text-blue-800' : 'bg-amber-200 text-amber-800'
-          }`}>
-            {currentLevel === 1 ? 'Beginner' : currentLevel === 2 ? 'Explorer' : 'Champion'}
-          </span>
-        </div>
-
-        {streak >= 2 && (
-          <div className="text-center z-20 animate-count-up">
-            <span className="text-2xl font-black text-emerald-600">
-              {streak >= 4 ? '🔥'.repeat(streak) : '⚡'.repeat(streak)} {streak}!
-            </span>
-          </div>
-        )}
-
-        <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10">
-          <p className="text-emerald-800 font-bold text-lg mb-1">{puzzle.q}</p>
-          <p className="text-emerald-700/60 text-sm font-semibold mb-4">{pieceData.move}</p>
-          <p id="puzzle-board-help" className="text-sm font-semibold text-emerald-800/80 mb-3">Find every legal move for the {pieceData.name}. Tap a square, or focus it and press Enter or Space. Legal move squares turn green when found.</p>
-
-          <div className="grid gap-1 mx-auto" role="group" aria-label={`${pieceData.name} puzzle board, six by six squares`} style={{ gridTemplateColumns: `repeat(${boardSize}, minmax(0, 1fr))`, width: 'min(360px, 90vw)' }}>
-            {Array.from({ length: boardSize * boardSize }, (_, idx) => {
-              const r = Math.floor(idx / boardSize);
-              const c = idx % boardSize;
-              const isPiece = r === puzzle.pos[0] && c === puzzle.pos[1];
-              const key = `${r}-${c}`;
-              const isLight = (r + c) % 2 === 0;
-              const tapped = tappedCells[key];
-              const wrong = wrongCells[key];
-              const justCorrect = correctCells[key];
-
-              return (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => handleCellTap(r, c)}
-                  disabled={puzzleDone}
-                  aria-label={`${boardSquareName(r, c, boardSize)} square${isPiece ? `, ${pieceData.name} is here` : tapped ? isValid(r, c) ? ', legal move found' : ', already tried' : isValid(r, c) ? ', legal move' : ', not a legal move'}`}
-                  aria-describedby="puzzle-board-help"
-                  className={`aspect-square rounded-lg flex items-center justify-center text-2xl font-bold transition-all focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-1 focus-visible:outline-emerald-600 ${
-                    isPiece ? 'bg-amber-300 shadow-lg border-2 border-amber-500'
-                    : tapped && justCorrect ? 'bg-green-300 border-2 border-green-500 animate-cell-correct'
-                    : tapped ? 'bg-green-300 border-2 border-green-500'
-                    : wrong ? 'bg-red-300 animate-shake border-2 border-red-400'
-                    : isLight ? 'bg-gradient-to-br from-amber-100 to-amber-200 hover:from-amber-200 hover:to-amber-300 border border-amber-200'
-                    : 'bg-gradient-to-br from-amber-600/25 to-amber-700/30 hover:from-amber-600/35 hover:to-amber-700/40 border border-amber-300/40'
-                  }`}
-                  style={
-                    isLight && !isPiece && !tapped && !wrong
-                      ? { boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.06)' }
-                      : !isLight && !isPiece && !tapped && !wrong
-                      ? { boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.08)' }
-                      : {}
-                  }
-                >
-                  {isPiece ? pieceData.white : tapped ? '✓' : ''}
-                </button>
-              );
-            })}
-          </div>
-
-          <p className="mt-3 text-sm font-semibold text-emerald-700/70" role="status" aria-live="polite">
-            Found {correctCount} of {puzzle.validMoves.length} legal moves.
-          </p>
-
-          {puzzleDone && (
-            <div className="mt-4 bg-white/90 p-4 rounded-2xl shadow-lg text-center animate-scale-in">
-              <div className="text-4xl mb-1">🎉</div>
-              <p className="text-lg font-black text-emerald-700">{getPraise()}</p>
-              <button onClick={nextPuzzle} className="mt-2 bg-emerald-500 text-white font-bold px-6 py-2 rounded-full shadow hover:bg-emerald-600 transition">
-                Next Puzzle
-              </button>
-            </div>
-          )}
-        </div>
+  if (!puzzle) return <main className={shell}>{header('Chess Explorers')}</main>;
+  const prompt = [CHESS_AUDIO_LINES[puzzle.piece].prompt, CHESS_AUDIO_LINES[puzzle.piece].rule];
+  const isSolvedPath = (r, c) => {
+    if (!solved) return false;
+    if ((r === puzzle.from[0] && c === puzzle.from[1]) || (r === solvedAt?.[0] && c === solvedAt?.[1])) return true;
+    if (!solvedAt) return false;
+    const [dr, dc] = [solvedAt[0] - puzzle.from[0], solvedAt[1] - puzzle.from[1]];
+    if (puzzle.piece === 'knight' || puzzle.piece === 'king' || puzzle.piece === 'pawn') return false;
+    const aligned = puzzle.piece === 'rook' ? dr === 0 || dc === 0 : puzzle.piece === 'bishop' ? Math.abs(dr) === Math.abs(dc) : dr === 0 || dc === 0 || Math.abs(dr) === Math.abs(dc);
+    if (!aligned) return false;
+    const steps = Math.max(Math.abs(dr), Math.abs(dc));
+    for (let step = 1; step < steps; step += 1) if (r === puzzle.from[0] + Math.sign(dr) * step && c === puzzle.from[1] + Math.sign(dc) * step) return true;
+    return false;
+  };
+  const goalAt = (r,c) => puzzle.goalSquares.some(([gr,gc]) => gr===r && gc===c);
+  const isAttackPath = (r,c,attacker,target) => {
+    if (attacker.at[0]===r&&attacker.at[1]===c) return true;
+    if (target[0]===r&&target[1]===c) return true;
+    if (['knight','pawn','king'].includes(attacker.type)) return false;
+    const dr=target[0]-attacker.at[0],dc=target[1]-attacker.at[1];
+    const aligned=attacker.type==='rook'?dr===0||dc===0:attacker.type==='bishop'?Math.abs(dr)===Math.abs(dc):dr===0||dc===0||Math.abs(dr)===Math.abs(dc);
+    if(!aligned)return false;
+    const steps=Math.max(Math.abs(dr),Math.abs(dc));
+    for(let i=1;i<steps;i+=1)if(r===attacker.at[0]+Math.sign(dr)*i&&c===attacker.at[1]+Math.sign(dc)*i)return true;
+    return false;
+  };
+  const showTeaching = helpUsed || hadMistake || solved;
+  const outcomes = getChessPuzzleMoveAnalysis(puzzle);
+  const currentAttackers = puzzle.kind === 'king-safety' ? attackedBySide(puzzle.from, 'black', puzzle.pieces) : [];
+  const dangerModels = showTeaching ? outcomes.filter((result) => result.legal && !result.safe && (puzzle.kind === 'king-safety' || result.capture)).map((result) => ({ target: result.square, attackers: result.attackedBy })) : [];
+  if (currentAttackers.length) dangerModels.push({ target: puzzle.from, attackers: currentAttackers });
+  return <main className={`${shell} items-center`}>
+    {header(chapter.title)}
+    <section data-chess-puzzle={puzzle.id} data-run-seed={runSeed} className="w-full max-w-xl text-center"><p className="text-sm font-bold text-amber-900">Puzzle {index+1} of {run.length} · Simplified 6×6 board</p><h2 className="mt-2 text-xl font-black text-slate-900">{puzzle.objective}</h2><p className="mt-2 text-sm font-semibold text-slate-800">{CHESS_PIECES.find((p)=>p.id===puzzle.piece).rule}</p><p className="mt-1 text-sm text-slate-700">Light pieces are yours. Dark pieces are opponents. {puzzle.kind === 'move' ? 'Find the named square.' : puzzle.kind === 'king-safety' ? 'Keep your king away from the rook’s line.' : 'Look for a capture the other enemies cannot attack.'}</p><details className="mx-auto mt-2 max-w-lg rounded-xl border border-amber-200 bg-white/80 px-3 text-left"><summary className="flex min-h-12 cursor-pointer items-center font-bold text-amber-900">How these small boards work</summary><p className="pb-3 text-sm">Friendly pieces block sliding paths and cannot be captured; knights can jump. Here, pawns take one forward step or capture on either forward diagonal. A capture is safe when no other displayed enemy attacks the landing square afterward. A king cannot enter a shown attacked square. These six-by-six positions omit full turns, the pawn’s opening double step, castling, en passant, promotion and checkmate.</p></details><div className="mt-3 flex justify-center gap-2">{audioButton(prompt)}<button type="button" disabled={helpUsed||solved} onClick={()=>{setHelpUsed(true);setMessage(puzzle.explanation); replay([CHESS_AUDIO_LINES[puzzle.piece].rule]);}} className="min-h-12 rounded-full border-2 border-purple-400 bg-white px-4 py-2 font-bold text-purple-900 disabled:opacity-50">{helpUsed?'Clue used':'One-use clue'}</button></div>
+      <div className="relative mx-auto mt-4 grid w-[min(90vw,420px)] grid-cols-6 gap-1" role="group" aria-label={`${CHESS_PIECES.find((p)=>p.id===puzzle.piece).name} board, six by six squares`}>
+        {outcomes.map((analysis, n) => {
+          const [r,c] = analysis.square;
+          const from = r === puzzle.from[0] && c === puzzle.from[1];
+          const movedHere = solved && r === solvedAt?.[0] && c === solvedAt?.[1];
+          const occupant = puzzle.pieces.find((piece) => piece.at[0] === r && piece.at[1] === c);
+          const goal = goalAt(r,c);
+          const showGoal = goal && (puzzle.kind === 'move' || showTeaching);
+          const path = isSolvedPath(r,c);
+          const danger = analysis.legal && !analysis.safe && (puzzle.kind === 'king-safety' || analysis.capture);
+          const showDanger = (showTeaching && danger) || (from && currentAttackers.length > 0);
+          const attackPath = dangerModels.some((model) => model.attackers.some((attacker) => isAttackPath(r,c,attacker,model.target)));
+          const movingHere = movedHere || (!solved && from);
+          const glyph = movingHere ? CHESS_PIECES.find((piece) => piece.id === puzzle.piece).glyph : occupant && !movedHere ? (occupant.side === 'white' ? CHESS_PIECES.find((piece) => piece.id === occupant.type)?.glyph : ({king:'♚',queen:'♛',rook:'♜',bishop:'♝',knight:'♞',pawn:'♟'})[occupant.type]) : solved && from ? '·' : '';
+          const label = movingHere ? `, your ${puzzle.piece} is here` : solved && from ? ', starting square' : occupant ? `, ${occupant.side === 'white' ? 'your' : 'opposing'} ${occupant.type}` : '';
+          return <button key={n} type="button" disabled={solved} onClick={() => solve(r,c)} data-square={`${r},${c}`} aria-label={`${chessSquare(analysis.square)} square${label}${showDanger ? ', attacked square' : ''}${attackPath ? ', attack path' : ''}${path ? ', solved path' : ''}`} className={`relative aspect-square min-w-0 rounded-md border text-2xl sm:text-3xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-1 focus-visible:outline-blue-700 ${(r+c)%2 ? 'bg-amber-700/30' : 'bg-amber-100'} ${path ? 'bg-emerald-300' : showDanger ? 'ring-4 ring-red-600 bg-red-100' : showGoal && !solved ? 'ring-4 ring-emerald-500' : attackPath ? 'bg-red-200' : showTeaching && analysis.legal && !solved ? 'bg-amber-300' : ''}`}>
+            <span className="absolute left-0.5 top-0 text-[10px] font-bold text-slate-800">{chessSquare(analysis.square)}</span><span style={{ fontSize: 32, lineHeight: 1 }} aria-hidden="true">{glyph}</span>{showGoal && !solved && <span className="absolute bottom-0 right-0 text-[9px] font-black text-emerald-950">GOAL</span>}{showDanger && !solved && <span className="absolute bottom-0 left-0 text-[9px] font-black text-red-900">ATTACK</span>}
+          </button>;
+        })}
       </div>
-    );
-  }
-
-  // Mode chooser
-  return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100 relative overflow-hidden">
-      <ChessBackground />
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-8 right-8 w-40 h-40 bg-amber-200/60 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-200/60 rounded-full blur-3xl" />
-      </div>
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button onClick={onBack} className="game-icon-button" aria-label="Back to home"><Home /></button>
-        <h2 className="text-3xl font-black text-amber-800">♟ Chess Explorers</h2>
-        <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </div>
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 z-10 gap-6">
-        <div className="flex gap-3 text-6xl mb-2">
-          <span>♔</span><span>♞</span><span>♜</span>
-        </div>
-        <p className="text-amber-800/80 text-lg font-semibold">Learn chess! Start with Learn, then try five legal moves in practice.</p>
-        <div className="flex gap-5 flex-wrap justify-center">
-          <button
-            onClick={() => { setMode('learn'); playSfx('sparkle'); speak('Meet the chess pieces!'); }}
-            aria-label="Recommended first: learn the chess pieces"
-            className="bg-white border-4 border-amber-200 rounded-3xl p-8 text-center hover:-translate-y-1 transition-all shadow-lg w-40"
-          >
-            <div className="text-5xl mb-3">♔</div>
-            <h3 className="text-xl font-black text-amber-800">Learn</h3>
-            <p className="text-amber-700 text-xs mt-1">Recommended first · Meet the pieces</p>
-          </button>
-          <button
-            onClick={() => { setMode('puzzle'); setPuzzleIndex(0); setTappedCells({}); setCorrectCount(0); setCorrectCells({}); setPuzzleDone(false); setStreak(0); playSfx('launch'); speak('Find where the piece can move!'); }}
-            className="bg-white border-4 border-emerald-200 rounded-3xl p-8 text-center hover:-translate-y-1 transition-all shadow-lg w-40"
-          >
-            <div className="text-5xl mb-3">🧩</div>
-            <h3 className="text-xl font-black text-emerald-800">Puzzles</h3>
-            <p className="text-emerald-700/50 text-xs mt-1">Tap where it goes!</p>
-          </button>
-          <button
-            onClick={() => {
-              setMode('practice');
-              setPracticePos(getPracticeStartPosition(CHESS_PIECES[0].id));
-              setPracticeMoves(0);
-              setPracticeDone(false);
-              setPieceIndex(0);
-              playSfx('sparkle');
-              speak('Move the pieces! Tap the glowing squares!');
-            }}
-            className="bg-white border-4 border-purple-200 rounded-3xl p-8 text-center hover:-translate-y-1 transition-all shadow-lg w-40"
-          >
-            <div className="text-5xl mb-3">🏃</div>
-            <h3 className="text-xl font-black text-purple-800">Move It!</h3>
-            <p className="text-purple-700/50 text-xs mt-1">Slide the pieces!</p>
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ChessExplorers;
+      <p aria-live="polite" role="status" className="mt-3 min-h-12 font-semibold text-slate-900">{message||'Choose a square. Wrong tries leave this same board in place.'}</p>
+      {solved&&!saveFailed&&<div className="mt-3 rounded-2xl bg-white p-4 shadow"><p className="font-bold">{puzzle.explanation}</p>{index===run.length-1&&chapterSaved&&<p className="mt-2 font-bold text-emerald-900">Mission badge saved.</p>}<button ref={focusNext} autoFocus onClick={advance} className="mt-3 min-h-12 rounded-full bg-emerald-700 px-6 py-3 font-black text-white">{index===run.length-1?'Finish chapter':'Next puzzle'}</button></div>}
+      {saveFailed&&<div className="mt-3 rounded-2xl border-2 border-red-400 bg-white p-4" role="alert"><p className="font-bold text-red-900">{message}</p><button ref={focusNext} autoFocus onClick={finishChapter} className="mt-2 min-h-12 rounded-full bg-red-700 px-5 py-2 font-bold text-white">Retry save</button></div>}
+    </section>
+  </main>;
+}

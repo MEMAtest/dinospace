@@ -14,6 +14,8 @@
   font-family: inherit;
 }
 
+.astronaut-academy button { min-height: 48px; }
+
 .astro-shell {
   width: min(100%, 1160px);
   min-height: 100vh;
@@ -485,6 +487,29 @@
   font-weight: 700;
 }
 
+.astro-transfer-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, auto);
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 560px);
+  margin: 0 auto 13px;
+  padding: 12px 14px;
+  border: 1px solid #d7dcf3;
+  border-radius: 16px;
+  background: linear-gradient(110deg, #f4f3ff, #eef9ff);
+  text-align: left;
+}
+
+.astro-transfer-project > div:first-child { display: grid; gap: 3px; }
+.astro-transfer-project strong { color: #283965; font-size: 15px; font-weight: 900; }
+.astro-transfer-project > div:first-child > span:last-child { color: #687796; font-size: 12px; font-weight: 750; }
+.astro-project-eyebrow { color: #615bb0; font-size: 9px; font-weight: 900; letter-spacing: .12em; }
+.astro-project-slot { display: flex; min-width: 150px; min-height: 58px; align-items: center; justify-content: center; gap: 8px; padding: 7px 10px; border: 2px dashed #a6acd9; border-radius: 13px; color: #687796; background: rgb(255 255 255 / 80%); font-size: 11px; font-weight: 750; text-align: center; }
+.astro-project-slot .astro-visual-lucide, .astro-project-slot .astro-visual-svg, .astro-project-slot .astro-animal-svg { width: 29px; height: 29px; color: #514fb3; }
+.astro-project-slot strong { font-size: 13px; }
+.astro-project-place { width: min(100%, 560px); margin-top: 10px; }
+
 .astro-answer-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -628,7 +653,7 @@
   align-items: center;
   justify-content: center;
   gap: 9px;
-  min-height: 46px;
+  min-height: 48px;
   padding: 10px 17px;
   border: 0;
   border-radius: 14px;
@@ -759,8 +784,8 @@
 
   .astro-icon-button,
   .astro-sound-toggle {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 14px;
   }
 
@@ -896,6 +921,9 @@
     font-size: 11px;
   }
 
+  .astro-transfer-project { grid-template-columns: minmax(0, 1fr) minmax(115px, auto); gap: 8px; margin-bottom: 10px; padding: 9px; }
+  .astro-project-slot { min-width: 115px; min-height: 54px; gap: 5px; padding: 6px; }
+
   .astro-answer-grid {
     gap: 8px;
   }
@@ -929,7 +957,7 @@
   .astro-feedback .astro-primary-button,
   .astro-feedback .astro-retry-button {
     width: 100%;
-    min-height: 44px;
+    min-height: 48px;
   }
 
   .astro-play-hint {
@@ -988,3 +1016,23 @@
  .astro-welcome-copy { max-width:65%; }
  .astro-welcome img { width:112px; height:120px; }
 }
+
+/* Concrete project objects and compact held explanations. */
+.astro-animal-raster { width:64px; height:64px; object-fit:contain; }
+.astro-gear-svg { width:58px; height:58px; }
+.astro-project-context { color:#5a70a5; }
+.astro-project-slot { flex-direction:column; min-height:112px; }
+.astro-project-slot .astro-animal-raster,.astro-project-slot .astro-gear-svg { width:64px; height:64px; }
+.astro-project-slot small { display:block; margin-top:3px; font-size:11px; color:#66748b; }
+.astro-project-slot[data-placement="correct"] { border-style:solid; border-color:#3d916e; background:#edf9ef; }
+.astro-project-slot[data-placement="retry"] { border-color:#cf8c60; background:#fff8ed; }
+.astro-transfer-project[data-project="sea-research-map"] { background:linear-gradient(165deg,#e8f4d6 18%,#a0dced 19%,#d3f0f7 100%); }
+.astro-transfer-project[data-project="moonwalk-kit"] { background:linear-gradient(145deg,#e9e9fa,#f5f2dd); }
+.astro-solved-answer { display:flex; align-items:center; justify-content:center; gap:12px; padding:14px; border-radius:18px; background:#f3f8ff; }
+.astro-solved-answer .astro-visual-svg,.astro-solved-answer .astro-visual-lucide { width:52px;height:52px; }
+.astro-question-card.is-solved { padding-top:20px; padding-bottom:20px; }
+.astro-question-card.is-solved .astro-feedback { margin-top:16px; }
+
+.astro-play-hint { flex-wrap:wrap; justify-content:center; gap:8px; text-align:center; }
+.astro-play-hint button { display:inline-flex; min-width:86px; align-items:center; justify-content:center; border:1px solid #c9d3e8; border-radius:12px; padding:7px 10px; background:#fff; color:#44528f; font-size:12px; font-weight:800; }
+.astro-play-hint button:disabled { opacity:.45; cursor:not-allowed; }
