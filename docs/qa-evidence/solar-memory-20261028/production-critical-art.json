@@ -1,0 +1,389 @@
+{
+  "at": "2026-10-28T20:24:58.814Z",
+  "origin": "https://dinospace.netlify.app",
+  "passed": true,
+  "shadowHashes": 6,
+  "catalogueAvailable": 39,
+  "models": [
+    {
+      "path": "/models/solar-v1/mercury.glb",
+      "status": 200,
+      "bytes": 402068,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/mercury.png",
+      "status": 200,
+      "bytes": 99651,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/venus.glb",
+      "status": 200,
+      "bytes": 247508,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/venus.png",
+      "status": 200,
+      "bytes": 77051,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v2/earth.glb",
+      "status": 200,
+      "bytes": 299656,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v2/earth.png",
+      "status": 200,
+      "bytes": 114849,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/mars.glb",
+      "status": 200,
+      "bytes": 369604,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/mars.png",
+      "status": 200,
+      "bytes": 94047,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/jupiter.glb",
+      "status": 200,
+      "bytes": 326784,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/jupiter.png",
+      "status": 200,
+      "bytes": 93799,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/saturn.glb",
+      "status": 200,
+      "bytes": 291200,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/saturn.png",
+      "status": 200,
+      "bytes": 75836,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/uranus.glb",
+      "status": 200,
+      "bytes": 238280,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/uranus.png",
+      "status": 200,
+      "bytes": 74015,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/neptune.glb",
+      "status": 200,
+      "bytes": 274352,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/neptune.png",
+      "status": 200,
+      "bytes": 80833,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/pluto.glb",
+      "status": 200,
+      "bytes": 318480,
+      "method": "HEAD"
+    },
+    {
+      "path": "/models/solar-v1/pluto.png",
+      "status": 200,
+      "bytes": 100318,
+      "method": "HEAD"
+    }
+  ],
+  "rows": [
+    {
+      "path": "/art/shadow-match-v2/spino.webp",
+      "status": 200,
+      "sha256": "afc5c4591f9bfc66015f60ef598ceba71b4ff0ff7cb26736f362ca06236556d9",
+      "bytes": 70558
+    },
+    {
+      "path": "/art/shadow-match-v2/para.webp",
+      "status": 200,
+      "sha256": "b6efa9a7d1acdd49a3c4c8bf6cda383f927edf4a6e5ed572beb1e7c6e3eb6d2c",
+      "bytes": 57332
+    },
+    {
+      "path": "/art/shadow-match-v2/allo.webp",
+      "status": 200,
+      "sha256": "60384780752cd37fd10b68d1ec8ed13aecb8d495b56c7868ed16bb467aae5e00",
+      "bytes": 60496
+    },
+    {
+      "path": "/art/shadow-match-v2/dillo.webp",
+      "status": 200,
+      "sha256": "6d7667098578b54e3ae0a7f3dff5ff4224aa5b277348fa30f9ec23481d107e94",
+      "bytes": 52582
+    },
+    {
+      "path": "/art/shadow-match-v2/carno.webp",
+      "status": 200,
+      "sha256": "46572df7306797c2ddf59bf4fd80502b1600c83b6ea4a93e51a3a677bc5202af",
+      "bytes": 57720
+    },
+    {
+      "path": "/art/shadow-match-v2/cory.webp",
+      "status": 200,
+      "sha256": "8ed591a9743f427d35e9dd7af36a550ba8c6222984b6e47b9a08ce9628ce9457",
+      "bytes": 58610
+    },
+    {
+      "path": "/art/catalog-v3/game-addition.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-astronaut.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-chess.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-codecadets.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-colormix.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-counting.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-dino.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-dinojigsaw.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-firerescue.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-fuelup.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-german.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-hangman.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-jet.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-ladder.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-letters.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-math.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-memory.webp",
+      "status": 200,
+      "method": "GET",
+      "sha256": "b5a32b04a743de79ecc04fbe9cc9f053074fc38d20a37d0dd6f88299c4cb3a96"
+    },
+    {
+      "path": "/art/catalog-v3/game-numberline.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-oddoneout.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-pattern.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-phonics.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-puzzle.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-rocketbuilder.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-shadowmatch.webp",
+      "status": 200,
+      "method": "GET",
+      "sha256": "d9b5562cd36ec237a1c77d8f24367daecdb4c172b0942f582ca11df89eb830cc"
+    },
+    {
+      "path": "/art/catalog-v3/game-solar.webp",
+      "status": 200,
+      "method": "GET",
+      "sha256": "525032706cfcc6eb5db907cdf94ad2d2c945f406a25bf2617c579b94b28a1de9"
+    },
+    {
+      "path": "/art/catalog-v3/game-spot.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-storybooks.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-subtraction.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-tictactoe.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-timeteller.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-trace.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-words.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-worldmap.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/game-writingdesk.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/world-creative.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/world-explore.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/world-maths.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/world-read-write.webp",
+      "status": 200,
+      "method": "HEAD",
+      "sha256": null
+    },
+    {
+      "path": "/art/catalog-v3/world-thinking.webp",
+      "status": 200,
+      "method": "GET",
+      "sha256": "0e4eb46644fbbc3f311d5d4116056ccbe4ac8f2eef4210a7fb613a6b000878ac"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-28T20:26:59.373909+00:00",
+  "runtime": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa",
+  "androidCompiledNativeEntry": "/assets/arcade-DbpfrR0g.js",
+  "webCompiledAndHostedEntry": "/assets/arcade-BtjYOk2I.js",
+  "difference": "build:android explicitly embeds canonical absolute voice/story URLs. The production web build uses /api/voice and the default canonical story URL. The deployment gate rejected the first HTML comparison before any public cutover.",
+  "resolution": "Rebuilt with VITE_ELEVENLABS_ENABLED=true npm run build, reran PWA_BUILD_DIR=dist npm test455/455 zero skips. HTML,6entry/preload/stylesheet assets and generated worker byte hashes match immutable backend and Netlify draft/public. A separate compiled web UI delta verified actual9model Solar replay and Memory card input with0provider/page errors.",
+  "sourceChangesAfterReviewedCommit": false,
+  "publicVerification": "Full pair rehearsals remain required after cutover; no equivalence inferred solely from this config reconciliation."
+}

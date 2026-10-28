@@ -6,7 +6,7 @@ The catalogue has34activities; the older quality ledger covers26. Reconcile actu
 
 ## Active pair
 
-**Solar System + Memory Match**. The first three pairs are live-verified. Audit the existing discovery passport and growing memory boards before changing them; retain the strong current artwork and progression, repair remaining learning, replay, storage and navigation gaps, then verify the whole pair live.
+**Rocket Builder + Fuel Up**. The first four pairs are live-verified. Audit and uplift the actual building/fuel learning journeys, preserving good current art and controls; verify the whole pair live before advancing.
 
 ## Workflow
 

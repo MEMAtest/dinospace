@@ -1,0 +1,66 @@
+{
+  "at": "2026-10-28T20:24:38.369Z",
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "backend": "https://dinospace-fxi4hea7j-memas-projects-23a0001d.vercel.app",
+  "runtime": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa",
+  "htmlSha256": "e4b44618d4df55dc227e94cf8959eee05ef709ba4658b4ad6b51be882899add9",
+  "workerSha256": "21a949107d2c9621495e1eda799ded150852e4e14a70f60f2b76f3d2e2bfe49e",
+  "cache": "v39",
+  "assets": [
+    {
+      "path": "/assets/arcade-BtjYOk2I.js",
+      "status": 200,
+      "sha256": "6ee09ccade14c15cdcdf108f338826a45e052c19458e7a6fec8f7c0afe7575b6"
+    },
+    {
+      "path": "/assets/DiscoveryHeader-DnOT3jtR.js",
+      "status": 200,
+      "sha256": "14ccbf0d05491bcba5fc15f9f220a1b86e0a14c819fd538a1266edc16485bc9a"
+    },
+    {
+      "path": "/assets/codeProgress-C_DMyTmD.js",
+      "status": 200,
+      "sha256": "961608e134881f9813460d3c220fe2f68e3a02501a01a602c01e252be0f247e8"
+    },
+    {
+      "path": "/assets/writingProgress-BANozLWz.js",
+      "status": 200,
+      "sha256": "9987d91600a121640f33aab91fe7395942b2d6a44a1cced8286b32a769e031dc"
+    },
+    {
+      "path": "/assets/DiscoveryHeader-CR9YWEY8.css",
+      "status": 200,
+      "sha256": "ebe119927f4acfd036dfd30be091e5c33a611820f644057d2ee2ed1d0cddf976"
+    },
+    {
+      "path": "/assets/arcade-Dh38qaAx.css",
+      "status": 200,
+      "sha256": "a64d2328bb3c56be410d8e7efc108840874e904b2cf59a4d45b018e956a17e1c"
+    }
+  ],
+  "preflights": [
+    {
+      "path": "/api/voice",
+      "status": 204,
+      "allow": "https://dinospace.netlify.app"
+    },
+    {
+      "path": "/api/story/outline",
+      "status": 200,
+      "allow": "https://dinospace.netlify.app"
+    }
+  ],
+  "redirects": [
+    {
+      "path": "/",
+      "status": 307,
+      "location": "https://dinospace.netlify.app/"
+    },
+    {
+      "path": "/index.html",
+      "status": 307,
+      "location": "https://dinospace.netlify.app/"
+    }
+  ]
+}

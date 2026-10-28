@@ -1,0 +1,25 @@
+{
+  "worktreesCreated": 0,
+  "dependencyInstalls": 0,
+  "browserProfilesCreated": 0,
+  "removed": [
+    {
+      "path": "tmp/solar-memory-remote.js",
+      "bytes": 1123589
+    },
+    {
+      "path": "tmp/solar-memory-remote.html",
+      "bytes": 1441
+    },
+    {
+      "path": "tmp/solar-memory-identity-private.json",
+      "bytes": 14274
+    }
+  ],
+  "retained": "Canonical source/media and existing dependencies/dist; compact identity/protocol/public reports and representative renders; the one persistent synthetic QA profile and all saved records. No site data or unrelated files cleared.",
+  "status": "Final public acceptance complete",
+  "evidenceBytes": 1526021,
+  "profileApproxMiB": 599.5,
+  "distApproxMiB": 399.3,
+  "freeGiBObserved": 107
+}

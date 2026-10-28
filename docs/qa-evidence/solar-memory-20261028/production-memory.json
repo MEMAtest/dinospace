@@ -1,0 +1,350 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "viewports": [
+    {
+      "width": 390,
+      "rows": [
+        {
+          "level": 1,
+          "pairs": 4,
+          "moves": 6,
+          "mismatchSeen": true,
+          "coach": "Scan one row at a time. Say the picture and remember its place before turning another card.",
+          "mode": "normal-progression",
+          "hintAudioStarted": true,
+          "saveFaultRetried": true,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 4,
+            "columns": "4"
+          }
+        },
+        {
+          "level": 2,
+          "pairs": 8,
+          "moves": 11,
+          "mismatchSeen": true,
+          "coach": "Group the board into small areas. Finish scanning one area before you move to the next.",
+          "mode": "normal-progression",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 8,
+            "columns": "4"
+          }
+        },
+        {
+          "level": 3,
+          "pairs": 10,
+          "moves": 16,
+          "mismatchSeen": true,
+          "coach": "Group the board into small areas. Finish scanning one area before you move to the next.",
+          "mode": "normal-progression",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 10,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 4,
+          "pairs": 12,
+          "moves": 19,
+          "mismatchSeen": true,
+          "coach": "Group the board into small areas. Finish scanning one area before you move to the next.",
+          "mode": "normal-progression",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 12,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 5,
+          "pairs": 13,
+          "moves": 21,
+          "mismatchSeen": true,
+          "coach": "This board is busy. Remember each picture with its row and place. When a picture returns, find where its partner appeared.",
+          "mode": "normal-progression",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 13,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 6,
+          "pairs": 14,
+          "moves": 22,
+          "mismatchSeen": true,
+          "coach": "This board is busy. Remember each picture with its row and place. When a picture returns, find where its partner appeared.",
+          "mode": "normal-progression",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 14,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 7,
+          "pairs": 15,
+          "moves": 24,
+          "mismatchSeen": true,
+          "coach": "This board is busy. Remember each picture with its row and place. When a picture returns, find where its partner appeared.",
+          "mode": "normal-progression",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 15,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 8,
+          "pairs": 16,
+          "moves": 23,
+          "mismatchSeen": true,
+          "coach": "This board is busy. Remember each picture with its row and place. When a picture returns, find where its partner appeared.",
+          "mode": "normal-progression",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 16,
+            "columns": "6"
+          }
+        },
+        {
+          "level": 9,
+          "pairs": 17,
+          "moves": 28,
+          "mismatchSeen": true,
+          "coach": "This board is busy. Remember each picture with its row and place. When a picture returns, find where its partner appeared.",
+          "mode": "normal-progression",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 17,
+            "columns": "6"
+          }
+        },
+        {
+          "level": 10,
+          "pairs": 18,
+          "moves": 29,
+          "mismatchSeen": true,
+          "coach": "This board is busy. Remember each picture with its row and place. When a picture returns, find where its partner appeared.",
+          "mode": "normal-progression",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 390,
+            "scrollWidth": 390,
+            "boardPairs": 18,
+            "columns": "6"
+          }
+        }
+      ],
+      "passportReloaded": true,
+      "canonicalResumeIndex": 9,
+      "canonicalUnlockedIndex": 9,
+      "finalResumePairCount": 18
+    },
+    {
+      "width": 1440,
+      "rows": [
+        {
+          "level": 1,
+          "pairs": 4,
+          "moves": 7,
+          "mismatchSeen": true,
+          "coach": "Scan one row at a time. Say the picture and remember its place before turning another card.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": true,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 4,
+            "columns": "4"
+          }
+        },
+        {
+          "level": 2,
+          "pairs": 8,
+          "moves": 13,
+          "mismatchSeen": true,
+          "coach": "Group the board into small areas. Finish scanning one area before you move to the next.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 8,
+            "columns": "4"
+          }
+        },
+        {
+          "level": 3,
+          "pairs": 10,
+          "moves": 17,
+          "mismatchSeen": true,
+          "coach": "Group the board into small areas. Finish scanning one area before you move to the next.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 10,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 4,
+          "pairs": 12,
+          "moves": 18,
+          "mismatchSeen": true,
+          "coach": "Group the board into small areas. Finish scanning one area before you move to the next.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": false,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 12,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 5,
+          "pairs": 13,
+          "moves": 21,
+          "mismatchSeen": true,
+          "coach": "Try recalling both places before you turn the second card. Keep the same board until every pair is found.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": true,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 13,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 6,
+          "pairs": 14,
+          "moves": 21,
+          "mismatchSeen": true,
+          "coach": "Try recalling both places before you turn the second card. Keep the same board until every pair is found.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": true,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 14,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 7,
+          "pairs": 15,
+          "moves": 25,
+          "mismatchSeen": true,
+          "coach": "Try recalling both places before you turn the second card. Keep the same board until every pair is found.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": true,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 15,
+            "columns": "5"
+          }
+        },
+        {
+          "level": 8,
+          "pairs": 16,
+          "moves": 26,
+          "mismatchSeen": true,
+          "coach": "Try recalling both places before you turn the second card. Keep the same board until every pair is found.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": true,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 16,
+            "columns": "6"
+          }
+        },
+        {
+          "level": 9,
+          "pairs": 17,
+          "moves": 27,
+          "mismatchSeen": true,
+          "coach": "Try recalling both places before you turn the second card. Keep the same board until every pair is found.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": true,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 17,
+            "columns": "6"
+          }
+        },
+        {
+          "level": 10,
+          "pairs": 18,
+          "moves": 28,
+          "mismatchSeen": true,
+          "coach": "Try recalling both places before you turn the second card. Keep the same board until every pair is found.",
+          "mode": "replay-existing-earned-state",
+          "hintAudioStarted": true,
+          "saveFaultRetried": false,
+          "layout": {
+            "width": 1440,
+            "scrollWidth": 1440,
+            "boardPairs": 18,
+            "columns": "6"
+          }
+        }
+      ],
+      "passportReloaded": true,
+      "canonicalResumeIndex": 9,
+      "canonicalUnlockedIndex": 9,
+      "finalResumePairCount": 18
+    }
+  ],
+  "readOnlyShelf": true,
+  "providerRequests": [],
+  "failedAssets": [],
+  "errors": [],
+  "consoleErrors": [],
+  "entry": "/assets/arcade-BtjYOk2I.js"
+}

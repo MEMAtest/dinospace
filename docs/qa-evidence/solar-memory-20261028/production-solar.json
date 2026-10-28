@@ -1,0 +1,337 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "viewports": [
+    {
+      "width": 390,
+      "mode": "initial progression plus saved-state recheck",
+      "initial3d": {
+        "canvas": true,
+        "models": "9",
+        "fallback": null,
+        "canvasSize": {
+          "width": 348,
+          "height": 470
+        }
+      },
+      "rows": [
+        {
+          "planet": "Mercury",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": false,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Venus",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": false,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Earth",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": false,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Mars",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": false,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Jupiter",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": false,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Saturn",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": false,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Uranus",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": false,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Neptune",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": false,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Pluto",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": false,
+          "saveFaultRetried": true,
+          "answerOrderStable": true,
+          "passportSaved": true
+        }
+      ],
+      "passportCounts": {
+        "facts": 27,
+        "challenges": 9
+      },
+      "passportReloaded": true,
+      "passportReadOnly": true,
+      "allDestinations": true
+    },
+    {
+      "width": 1440,
+      "mode": "replay-existing-earned-state",
+      "initial3d": {
+        "canvas": true,
+        "models": "9",
+        "fallback": null,
+        "canvasSize": {
+          "width": 761,
+          "height": 580
+        }
+      },
+      "rows": [
+        {
+          "planet": "Mercury",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": true,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Venus",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": true,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Earth",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": true,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Mars",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": true,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Jupiter",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": true,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Saturn",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": true,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Uranus",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": true,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Neptune",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": true,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        },
+        {
+          "planet": "Pluto",
+          "missionSteps": [
+            "discover",
+            "compare",
+            "challenge",
+            "complete"
+          ],
+          "factsVisited": 3,
+          "challengeRetried": true,
+          "wasEarned": true,
+          "saveFaultRetried": false,
+          "answerOrderStable": true,
+          "passportSaved": true
+        }
+      ],
+      "passportCounts": {
+        "facts": 27,
+        "challenges": 9
+      },
+      "passportReloaded": true,
+      "passportReadOnly": true,
+      "allDestinations": true
+    }
+  ],
+  "cancellation": {
+    "index": 1,
+    "total": 2,
+    "row": {
+      "src": "https://dinospace.netlify.app/audio/en/8363d10a-matilda.mp3",
+      "started": true,
+      "advanced": true,
+      "ended": false,
+      "paused": true
+    },
+    "muteTested": true
+  },
+  "providerRequests": [],
+  "failedAssets": [],
+  "errors": [],
+  "consoleErrors": [],
+  "entry": "/assets/arcade-BtjYOk2I.js"
+}

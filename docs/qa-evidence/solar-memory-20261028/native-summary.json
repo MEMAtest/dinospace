@@ -1,0 +1,80 @@
+{
+  "candidate": {
+    "runtimeCommit": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa",
+    "compiledEntry": "/assets/arcade-DbpfrR0g.js",
+    "serviceWorkerCacheVersion": 39,
+    "origin": "http://127.0.0.1:5180",
+    "status": "local compiled candidate evidence only; not public acceptance"
+  },
+  "sourceGates": {
+    "configuredBuild": "npm run build:android passed",
+    "fullPwaTest": "PWA_BUILD_DIR=dist npm test: 455 passed, 0 failed, 0 skipped",
+    "scopedPairTests": "28 passed in focused Solar/Memory/SW tests; one PWA-only assertion skipped in this scoped invocation because PWA_BUILD_DIR was not set",
+    "scopedLint": "passed",
+    "diffCheck": "passed"
+  },
+  "solarNative": {
+    "viewports": [
+      390,
+      1440
+    ],
+    "journey": "nine destinations replayed through Discover -> Compare -> Challenge on already-earned saved state at both widths; each used 3 distinct facts, authored challenge answer, wrong-answer retry with stable options, and completion persisted",
+    "destinations": [
+      "Mercury",
+      "Venus",
+      "Earth",
+      "Mars",
+      "Jupiter",
+      "Saturn",
+      "Uranus",
+      "Neptune",
+      "Pluto (dwarf planet)"
+    ],
+    "firstEarnedStatus": "The final complete run was replay coverage only; it does not claim first-time progression across all nine destinations. An earlier rehearsal reached Mercury before a harness assertion stopped.",
+    "blockedWrite": "390px Pluto challenge write failure kept challenge pending and strip disabled; 3D canvas selection did not clear mission; Retry persisted the same solved challenge.",
+    "persistence": "27 selected facts and 9 challenges survived explicit reload; read-only passport/strip caused no storage change; rewards did not change on earned replay.",
+    "scene": "both viewports reported actual canvas, 9 GLB models, no fallback; overview, Earth focus, turn/tilt/zoom/pause and planet-strip navigation exercised.",
+    "audio": "exact packaged Matilda clip started; mute cancelled it; Back to Explore cancelled clip after bounded route cleanup wait.",
+    "errors": {
+      "providerRequests": 0,
+      "monitoredMissingAssets": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0
+    },
+    "terminal": "Final harness pass. Earlier harness-only interruptions were: transient completion toast not observed despite durable completion; strip text assertion omitted visible accessible Pluto label; synchronous narration cleanup check raced route unmount. Corrected assertions/wait passed; no runtime change followed."
+  },
+  "memoryNative": {
+    "viewports": [
+      390,
+      1440
+    ],
+    "journey": "all 10 Amari boards exercised in rising pair counts [4,8,10,12,13,14,15,16,17,18], including actual mismatch, completion save failure then Retry, replay, reload to Level 10 with resume/unlock index 9, sticker passport and replay/no-farming check.",
+    "terminal": "The main scripted run reached the final shelf step but attempted the Stickers control directly from Thinking & Play. A focused normal-UI follow-up used the parent route (Thinking & Play -> Home -> Stickers), observed 10/10 Memory stickers, and found all persisted keys unchanged. The two artifacts are separate; no missing run rows were fabricated.",
+    "renders": [
+      "memory-390-final.jpg",
+      "memory-1440-final.jpg"
+    ],
+    "harnessFreeze": "After the native attempt, the Memory harness added a 150ms settle before reward comparison and stopped requiring every board to randomly produce a mismatch; aggregate run still requires at least one real mismatch. No runtime source change or full rerun followed."
+  },
+  "littleModeRegression": {
+    "syntheticPlayer": "Askia",
+    "actualUi": "Little Memory Match",
+    "match": "Board 1 Meet the Friends visibly matched rocket, long-neck dinosaur, and fire-engine pairs; normal UI awarded +2 stars.",
+    "wrongRetry": "Board 2 Star Pairs visibly showed different rocket/fire-engine cards and the correct mismatch feedback; no injected answers or storage state.",
+    "audio": "Find the pairs exact packaged clip started and was cancelled by mute. Leaving while board was dirty showed the ordinary Leave the game? dialog; selecting Back to home returned to Askia Home and recent clip rows were paused/ended.",
+    "state": "Askia synthetic game progress/reward was added by normal UI and preserved; no reset/clear was used."
+  },
+  "criticalAssetHttp": {
+    "artifact": "critical-art-http.json",
+    "passed": true,
+    "catalogueArtwork": 39,
+    "shadowHashes": 6,
+    "planetAssets": 18,
+    "status": "all checked HEAD/GET requests returned 200; byte lengths for all nine GLB+PNG pairs agree with source"
+  },
+  "boundaries": [
+    "No human listening score was assigned.",
+    "No provider call, deployment, source acceptance or public verification is claimed here; root owns independent review and public verification.",
+    "No browser data was cleared; only synthetic normal-UI activity was added."
+  ]
+}

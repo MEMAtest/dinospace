@@ -1,0 +1,25 @@
+{
+  "entry": "/assets/arcade-BtjYOk2I.js",
+  "notice": false,
+  "worker": {
+    "state": "activated",
+    "url": "https://dinospace.netlify.app/sw.js"
+  },
+  "caches": [
+    "amari-discovery-media-v1",
+    "amari-discovery-v39"
+  ],
+  "memory": {
+    "stickers": 10,
+    "resume": 9,
+    "unlocked": 9
+  },
+  "solar": {
+    "facts": 27,
+    "challenges": 9
+  },
+  "points": 162,
+  "overflow": false,
+  "priorNonGlobalSavedKeysUnchanged": 20,
+  "passed": true
+}

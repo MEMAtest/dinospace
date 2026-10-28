@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 4,
+  "activePair": 5,
   "pairs": [
     {
       "number": 1,
@@ -88,8 +88,12 @@
           "name": "Memory Match"
         }
       ],
-      "status": "audit_in_progress",
-      "evidence": "docs/qa-evidence/solar-memory-20261028/README.md"
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/solar-memory-20261028/README.md",
+      "runtime": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa",
+      "publicUrl": "https://dinospace.netlify.app",
+      "sourceGates": "docs/qa-evidence/solar-memory-20261028/source-gates.json",
+      "verifiedAt": "2026-10-28T20:36:21.235988+00:00"
     },
     {
       "number": 5,
@@ -103,7 +107,7 @@
           "name": "Fuel Up"
         }
       ],
-      "status": "queued",
+      "status": "audit_in_progress",
       "evidence": null
     },
     {
@@ -254,5 +258,14 @@
       "status": "existing source-bound functional release retained; final integration regression required"
     }
   ],
-  "editorialNote": "Historical scores remain separate. A targeted implementation/release does not silently award a new 5/5 or recover historical missing family data."
+  "editorialNote": "Historical scores remain separate. A targeted implementation/release does not silently award a new 5/5 or recover historical missing family data.",
+  "additionalRequestedWork": [
+    {
+      "id": "learning-wiki",
+      "name": "Kid-friendly learning wiki",
+      "status": "queued_after_existing_catalogue_pairs",
+      "request": "Earlier human request: select or search for an animal/topic and get a clear, friendly learning explainer. Not yet present as a separate source component.",
+      "scope": "Audit whether existing discovery content can supply a curated search/select learning library with existing art and verified facts. Preserve as a distinct outstanding feature; do not count catalogue gameplay checks as its delivery."
+    }
+  ]
 }

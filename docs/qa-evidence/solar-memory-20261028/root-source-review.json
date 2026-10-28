@@ -1,0 +1,56 @@
+{
+  "at": "2026-10-28T20:12:30.964613+00:00",
+  "scope": "Independent root source/visual review completed; full public functional acceptance recorded in source-gates.json",
+  "findingsResolved": [
+    "Solar replay separates current mission facts/stage from already-earned passport",
+    "Solar writes fail closed on unreadable or malformed prior bytes; merge/read-back before UI/reward transition",
+    "Solar pending transaction guards strip and3Dselection; actual durable before/after determines first reward",
+    "Memory one-key sticker/resume commit, failure Retry, final index clamped9",
+    "Memory start/replay does not rewrite Amari resume; retained little shared-map writes preflight existing bytes",
+    "Memory all10counts preserved and hint use excluded from independent attribution",
+    "Exact packaged-only narration; no provider/device fallback; existing3D/card art retained"
+  ],
+  "independentReviewer": "Luna read-only review confirmed live start-path gap; lead removed it",
+  "rendersReviewed": [
+    "memory-390-final.jpg",
+    "memory-1440-final.jpg"
+  ],
+  "runtimeFiles": [
+    {
+      "path": "src/components/games/SolarSystem.jsx",
+      "sha256": "44a2b957bfc6352f849bebace1ed0ab32027d65b44983c4a9efb2c75643ad5b2"
+    },
+    {
+      "path": "src/data/solarDiscoveryPassport.js",
+      "sha256": "1b02d5a02f7b4787e810413b31fc28291b48e9dab83d022f200efd31a41b75f3"
+    },
+    {
+      "path": "src/components/games/MemoryMatch.jsx",
+      "sha256": "09c73c2ef7d3891c51c16d303d8c8e9fb5557ff78f2ba56f5dc45587bac2260c"
+    },
+    {
+      "path": "src/data/memoryMatchProgress.js",
+      "sha256": "40657bb728c0f48fd59374432be60e7a80be93c17eba188b062bb1e745453b5d"
+    },
+    {
+      "path": "public/sw.js",
+      "sha256": "0a17db9f19b7afe19252e70ac703e7e0e6daea4af4b5b347037f1a27e3cf36f4"
+    },
+    {
+      "path": "test/memoryMatchProgress.test.mjs",
+      "sha256": "f11706bbdfbf281a277d6c9edbe6abec2398f88a15a593b7e12c2b0a9e5495b8"
+    },
+    {
+      "path": "test/solarDiscoveryPassport.test.mjs",
+      "sha256": "b73ea82d932606b57fb5c510db668d0b60234f70ecc9b6cc745481da0116d616"
+    },
+    {
+      "path": "test/offlineServiceWorker.test.mjs",
+      "sha256": "e5acb870f1c0a25a535be12ba114123664d7d5e5036def9310f09be60f93f981"
+    }
+  ],
+  "publicRendersReviewed": [
+    "production-solar-1440.jpg",
+    "production-memory-390.jpg"
+  ]
+}

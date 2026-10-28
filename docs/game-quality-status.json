@@ -6,7 +6,7 @@
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
+  "canonicalRelease": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": 4,
+  "activeDeliveryPair": 5,
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1198,6 +1198,20 @@
     "status": "Released and functionally verified: all12coding missions and3writing projects at390/1440;6actual Word downloads verified",
     "evidence": "docs/qa-evidence/code-writing-20261028/README.md",
     "sourceTests": 441,
+    "editorialScoresChanged": false,
+    "paidCalls": 0,
+    "functionalAcceptance": true
+  },
+  "latestSolarMemoryUplift": {
+    "runtime": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-fxi4hea7j-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_9opBnNNhXwkzVSf7JcKzVDXUjhDE",
+    "netlifyGatewayDeploy": "6ae259e6fd3bc6aceb487c83",
+    "serviceWorkerCache": "amari-discovery-v39",
+    "status": "Released and functionally verified: all9Solar missions and10Memory boards at390/1440; first earnings/replay, failed-save Retry, durable passports, shelves and prior-record retention",
+    "evidence": "docs/qa-evidence/solar-memory-20261028/README.md",
+    "sourceTests": 455,
     "editorialScoresChanged": false,
     "paidCalls": 0,
     "functionalAcceptance": true
