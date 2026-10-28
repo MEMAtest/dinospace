@@ -57,11 +57,11 @@ export const LevelDots = ({ level, total, className = '' }) => (
   </div>
 );
 
-const PairLevelSelector = ({ enabled, level, highestLevel, minimumLevel, onSelect }) => {
+const PairLevelSelector = ({ enabled, level, highestLevel, minimumLevel, onSelect, compact = false }) => {
   if (!enabled) return null;
   return (
-    <div role="group" aria-label="Unlocked practice levels" className="w-full max-w-md rounded-2xl bg-white/80 p-3 shadow">
-      <p className="mb-2 font-black text-slate-800">Choose an unlocked level to play or practise</p>
+    <div role="group" aria-label="Unlocked practice levels" className={`w-full max-w-md rounded-2xl bg-white/80 shadow ${compact ? 'p-2' : 'p-3'}`}>
+      <p className={`${compact ? 'mb-1 text-sm' : 'mb-2'} font-black text-slate-800`}>Choose an unlocked level to play or practise</p>
       <div className="flex flex-wrap justify-center gap-2">
         {Array.from({ length: highestLevel - minimumLevel + 1 }, (_, offset) => {
           const index = minimumLevel + offset;
@@ -79,7 +79,7 @@ const PairLevelSelector = ({ enabled, level, highestLevel, minimumLevel, onSelec
           );
         })}
       </div>
-      <p className="mt-2 text-sm font-bold text-slate-700">Available through Level {highestLevel + 1}.</p>
+      {!compact && <p className="mt-2 text-sm font-bold text-slate-700">Available through Level {highestLevel + 1}.</p>}
     </div>
   );
 };
@@ -112,6 +112,7 @@ const LittleGameShell = ({
   registerDirty,
   pairSafeProgress = false,
   compactStart = false,
+  compactDone = false,
   manualNext = false,
   manualNextPrompt = 'Great counting! Ready for the next rocket?',
   manualNextReviewLabel = 'Fuel count review',
@@ -320,6 +321,7 @@ const LittleGameShell = ({
   return (
     <div
       className={`relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-gradient-to-b ${background} bg-cover bg-center font-sans text-slate-800 select-none`}
+      data-pair-compact={compactStart || compactDone ? 'true' : undefined}
       style={backgroundArt && !backgroundArtPortrait ? { backgroundImage: `url(${backgroundArt})` } : undefined}
     >
       {backgroundArt && backgroundArtPortrait && (
@@ -343,7 +345,7 @@ const LittleGameShell = ({
       {phase === 'start' && (
         <main className={`relative z-10 flex flex-1 flex-col items-center ${compactStart ? 'justify-start gap-2 px-4 pb-3 pt-2' : 'justify-center gap-5 px-4 pb-8'} text-center`}>
           {pairSaveWarning && <p role="alert" className="max-w-xl rounded-2xl border-2 border-amber-500 bg-amber-50 px-4 py-3 font-bold text-amber-950">{pairSaveWarning}</p>}
-          <div className={`w-full animate-bounce-slow ${compactStart ? 'relative h-40 max-w-[18rem]' : 'max-w-md'}`}>{startArt}</div>
+          <div className={`pair-compact-start-hero w-full animate-bounce-slow ${compactStart ? 'relative h-40 max-w-[18rem]' : 'max-w-md'}`}>{startArt}</div>
           <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} />
           <LevelDots level={level} total={levels.length} />
           <p className="max-w-md rounded-2xl bg-white/90 px-5 py-2 text-lg font-black text-slate-800 shadow-lg">{level < highestLevel ? 'Practice ' : ''}Level {level + 1} of {levels.length}: {LITTLE_LEVEL_GOALS[gameId]?.[level]}{pairSafeProgress && !compactStart ? `. Available through Level ${highestLevel + 1}.` : ''}</p>
@@ -351,7 +353,7 @@ const LittleGameShell = ({
             type="button"
             onClick={start}
             aria-label={`Play ${title}`}
-            className="grid h-32 w-32 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_10px_0_#166534,0_20px_40px_rgba(22,101,52,.35)] transition hover:scale-105 active:translate-y-2 active:shadow-none sm:h-40 sm:w-40"
+            className="pair-compact-start-play grid h-32 w-32 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_10px_0_#166534,0_20px_40px_rgba(22,101,52,.35)] transition hover:scale-105 active:translate-y-2 active:shadow-none sm:h-40 sm:w-40"
           >
             <Play size={72} fill="currentColor" className="ml-2" />
           </button>
@@ -364,9 +366,9 @@ const LittleGameShell = ({
       {phase === 'play' && (
         <main key={playId} className={playFullBleed && !roundComplete ? 'absolute inset-0 z-10' : 'relative z-10 flex flex-1 flex-col'}>
           {roundComplete && manualNext ? (
-            <section aria-label="Round complete" className="relative z-30 mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-5 rounded-[2rem] bg-white/95 p-6 text-center shadow-2xl">
+            <section aria-label="Round complete" className={`pair-compact-review relative z-30 mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-5 rounded-[2rem] bg-white/95 p-6 text-center shadow-2xl`}>
               {roundComplete.review && <div role="group" aria-label={manualNextReviewLabel} className="w-full">{roundComplete.review}</div>}
-              {roundComplete.art && <div className="max-h-64 w-full">{roundComplete.art}</div>}
+              {roundComplete.art && <div className="pair-compact-review-art max-h-64 w-full">{roundComplete.art}</div>}
               <h2 className="text-3xl font-black text-slate-900">{manualNextPrompt}</h2>
               <button type="button" onClick={advanceHeldRound} className="min-h-16 rounded-full border-4 border-white bg-gradient-to-b from-lime-400 to-green-600 px-8 text-xl font-black text-white shadow-[0_6px_0_#166534]">
                 {round + 1 < rounds ? 'Next round' : 'Finish game'}
@@ -400,48 +402,48 @@ const LittleGameShell = ({
       )}
 
       {phase === 'done' && result && (
-        <main className="relative z-10 flex flex-1 flex-col items-center justify-center gap-4 px-4 pb-10 text-center">
-          <div className="flex gap-2 text-6xl sm:text-7xl" aria-label={`${result.stars} of 3 stars`}>
+        <main className={`pair-compact-done relative z-10 flex flex-1 flex-col items-center ${compactDone ? 'justify-start gap-2 px-4 pb-2 pt-1' : 'justify-center gap-4 px-4 pb-10'} text-center`}>
+          <div className={`pair-compact-done-stars flex gap-2 ${compactDone ? 'text-5xl' : 'text-6xl sm:text-7xl'}`} aria-label={`${result.stars} of 3 stars`}>
             {Array.from({ length: 3 }, (_, index) => (
               <span key={index} className={`animate-pop-in ${index < result.stars ? '' : 'opacity-25 grayscale'}`} style={{ animationDelay: `${index * 250}ms` }} aria-hidden="true">⭐</span>
             ))}
           </div>
-          <div className={`w-full ${result.levelUp || newStickers.length ? 'max-w-[12rem]' : 'max-w-xs'}`}>{finishArt || startArt}</div>
-          <h2 className="text-4xl font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)] sm:text-5xl">
+          <div className={`pair-compact-done-art w-full ${compactDone ? 'max-w-[10rem]' : result.levelUp || newStickers.length ? 'max-w-[12rem]' : 'max-w-xs'}`}>{finishArt || startArt}</div>
+          <h2 className={`${compactDone ? 'text-3xl' : 'text-4xl sm:text-5xl'} font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)]`}>
             {playerName ? `Well done, ${playerName}!` : 'Well done!'}
           </h2>
           {pairSafeProgress && Number.isInteger(result.playedLevel) && (
-            <p className="max-w-lg rounded-xl bg-white/85 px-4 py-2 font-bold text-slate-800">
+            <p className={`max-w-lg rounded-xl bg-white/85 px-4 ${compactDone ? 'py-1 text-sm' : 'py-2'} font-bold text-slate-800`}>
               Completed Level {result.playedLevel + 1}. Progress saved; Level {result.level + 1} is available.
             </p>
           )}
           {(result.levelUp || newStickers.length > 0) && (
             <div className="flex flex-wrap items-stretch justify-center gap-3">
               {result.levelUp && (
-                <div className="flex items-center gap-3 rounded-[1.6rem] border-4 border-amber-300 bg-white/90 px-4 py-3 shadow-xl animate-pop-in" style={{ animationDelay: '700ms' }}>
+                  <div className={`flex items-center ${compactDone ? 'gap-2 rounded-xl border-2 px-2 py-1' : 'gap-3 rounded-[1.6rem] border-4 px-4 py-3'} border-amber-300 bg-white/90 shadow-xl animate-pop-in`} style={{ animationDelay: '700ms' }}>
                   <div className="text-left">
-                    <p className="text-2xl font-black text-amber-600">Level up!</p>
-                    <p className="max-w-48 text-sm font-bold text-slate-700">Level {result.level + 1}: {LITTLE_LEVEL_GOALS[gameId]?.[result.level]}</p>
+                    <p className={`${compactDone ? 'text-lg' : 'text-2xl'} font-black text-amber-600`}>Level up!</p>
+                    <p className={`max-w-48 ${compactDone ? 'text-xs' : 'text-sm'} font-bold text-slate-700`}>Level {result.level + 1}: {LITTLE_LEVEL_GOALS[gameId]?.[result.level]}</p>
                     <LevelDots level={result.level} total={levels.length} className="mt-1 !px-0 !py-0 !shadow-none" />
                   </div>
-                  {renderUnlock && <div className="h-20 w-24">{renderUnlock(levels[result.level], levels[result.previous])}</div>}
+                  {renderUnlock && <div className={compactDone ? 'h-12 w-16' : 'h-20 w-24'}>{renderUnlock(levels[result.level], levels[result.previous])}</div>}
                 </div>
               )}
               {newStickers.map((sticker) => (
-                <div key={sticker.id} className="flex items-center gap-3 rounded-[1.6rem] border-4 border-fuchsia-300 bg-white/90 px-4 py-3 shadow-xl animate-pop-in" style={{ animationDelay: '1100ms' }}>
-                  <RewardSticker rewardId={sticker.id} size={72} />
-                  <p className="text-xl font-black text-fuchsia-600">New sticker!</p>
+                <div key={sticker.id} className={`flex items-center ${compactDone ? 'gap-2 rounded-xl border-2 px-2 py-1' : 'gap-3 rounded-[1.6rem] border-4 px-4 py-3'} border-fuchsia-300 bg-white/90 shadow-xl animate-pop-in`} style={{ animationDelay: '1100ms' }}>
+                  <RewardSticker rewardId={sticker.id} size={compactDone ? 48 : 72} />
+                  <p className={`${compactDone ? 'text-sm' : 'text-xl'} font-black text-fuchsia-600`}>New sticker!</p>
                 </div>
               ))}
             </div>
           )}
-          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} />
-          <div className="mt-2 flex items-end gap-5">
+          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} compact={compactDone} />
+          <div className={`flex items-end ${compactDone ? 'gap-3' : 'mt-2 gap-5'}`}>
             <div className="flex flex-col items-center gap-1">
               <BigRoundButton
                 onClick={start}
                 label={pairSafeProgress ? pairRunActionLabel(level, result) : result.levelUp ? 'Next level' : 'Try level again'}
-                size="h-28 w-28"
+                size={compactDone ? 'h-20 w-20' : 'h-28 w-28'}
                 tone="bg-gradient-to-b from-lime-400 to-green-600 text-white"
               >
                 {result.levelUp && !(pairSafeProgress && level < highestLevel) ? <SkipForward size={50} strokeWidth={2.8} fill="currentColor" /> : <RotateCcw size={46} strokeWidth={2.8} />}
@@ -450,14 +452,14 @@ const LittleGameShell = ({
             </div>
             {onNextGame && (
               <div className="flex flex-col items-center gap-1">
-                <BigRoundButton onClick={onNextGame} label="Next game" size="h-24 w-24" tone="bg-gradient-to-b from-sky-400 to-blue-600 text-white">
+                <BigRoundButton onClick={onNextGame} label="Next game" size={compactDone ? 'h-16 w-16' : 'h-24 w-24'} tone="bg-gradient-to-b from-sky-400 to-blue-600 text-white">
                   <SkipForward size={54} strokeWidth={2.8} fill="currentColor" />
                 </BigRoundButton>
                 <span className="text-sm font-black text-slate-700">Next game</span>
               </div>
             )}
             <div className="flex flex-col items-center gap-1">
-              <BigRoundButton onClick={onBack} label="Go home" size="h-24 w-24" tone="bg-gradient-to-b from-amber-300 to-orange-500 text-white">
+              <BigRoundButton onClick={onBack} label="Go home" size={compactDone ? 'h-16 w-16' : 'h-24 w-24'} tone="bg-gradient-to-b from-amber-300 to-orange-500 text-white">
                 <Home size={46} strokeWidth={2.8} />
               </BigRoundButton>
               <span className="text-sm font-black text-slate-700">Home</span>

@@ -184,14 +184,13 @@ const LadderRound = ({ animals, targetFloor, byFloorNumber, complete, mistake, s
         <span aria-hidden="true">🔊</span>
         {byFloorNumber ? <span className="text-4xl text-rose-600">{targetFloor}</span> : <Animal animal={target} fixed className="h-12 w-12" />}
       </button>
-      {feedback && (
-        <p role={rescueStarted ? 'status' : 'alert'} aria-live="polite" className="mx-auto mb-2 max-w-2xl rounded-xl border-2 border-amber-700 bg-amber-50 px-4 py-2 text-center font-black text-amber-950 shadow">
-          {feedback}
-        </p>
-      )}
-
-      <div className="relative mx-auto w-full overflow-hidden rounded-[2rem] border-[6px] border-white bg-gradient-to-b from-sky-300 to-sky-100 shadow-2xl" style={{ aspectRatio: '4 / 5', maxWidth: 'calc((100dvh - 11rem) * 0.8)' }}>
+      <div className="relative mx-auto w-full overflow-hidden rounded-[2rem] border-[6px] border-white bg-gradient-to-b from-sky-300 to-sky-100 shadow-2xl" style={{ aspectRatio: '4 / 5', maxWidth: 'calc((100dvh - var(--rescue-ladder-chrome, 12rem)) * 0.8)' }}>
         <div className="absolute inset-x-0 bottom-0 h-[12%] bg-gradient-to-b from-slate-400 to-slate-600" />
+        {feedback && (
+          <p role={rescueStarted ? 'status' : 'alert'} aria-live="polite" className="absolute left-[3%] top-[3%] z-30 w-[38%] rounded-xl border-2 border-amber-700 bg-amber-50 px-2 py-2 text-center text-xs font-black leading-tight text-amber-950 shadow sm:text-sm">
+            {feedback}
+          </p>
+        )}
         <div
           className="absolute rounded-t-xl border-4 border-slate-800 bg-orange-300"
           style={{ left: `${BUILDING.left}%`, right: `${100 - BUILDING.right}%`, top: `${BUILDING.top}%`, bottom: `${100 - BUILDING.bottom}%`, backgroundImage: 'repeating-linear-gradient(0deg, transparent 0 18px, rgba(154,52,18,.18) 18px 20px)' }}
@@ -296,6 +295,7 @@ const LadderRescue = (props) => {
       title="Ladder Rescue"
       pairSafeProgress
       compactStart
+      compactDone
       manualNext
       manualNextPrompt="The animal is safe. Ready for the next rescue?"
       manualNextReviewLabel="Ladder rescue review"

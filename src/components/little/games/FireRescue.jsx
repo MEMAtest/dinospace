@@ -195,7 +195,7 @@ const FireRound = ({ count, targetSpots, houseColour, complete, speak, playSfx, 
         role="application"
         aria-label="Hold and aim water at the flames. Keyboard users can focus a flame and hold Space or Enter."
         className="relative mx-auto h-full touch-none overflow-hidden bg-gradient-to-b from-sky-300 to-sky-100 shadow-2xl"
-        style={{ width: 'min(100vw, 56.25dvh)' }}
+        style={{ width: 'min(100%, 56.25dvh)' }}
       >
         {artUrl('fire-house') ? (
           <img src={artUrl('fire-house')} alt="" className="pointer-events-none absolute inset-0 h-full w-full object-fill" draggable={false} />
@@ -294,6 +294,7 @@ const FireRescue = (props) => {
       title="Fire Truck Rescue"
       pairSafeProgress
       compactStart
+      compactDone
       manualNext
       manualNextPrompt="Ready for the next rescue?"
       manualNextReviewLabel="Fire rescue review"
