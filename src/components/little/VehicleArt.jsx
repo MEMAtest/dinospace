@@ -1,5 +1,6 @@
 // Rockets, fire trucks and flames for the little-explorer games. Each piece
 // can be replaced by a drop-in image (see littleArt.js).
+import { useState } from 'react';
 import { artUrl, hueFilterFor } from './littleArt.js';
 
 const OUTLINE = '#1e293b';
@@ -14,16 +15,31 @@ export const ROCKET_PARTS = Object.freeze([
   { id: 'flame', label: 'engine flame', box: [66, 214, 68, 84] },
 ]);
 
-const RasterPart = ({ part, url, colour, ghost }) => {
+// Ignore export padding when aligning the optional cutouts to the authored
+// assembly boxes. The source pixels and the drop-zone geometry stay intact.
+const ILLUSTRATED_PART_FRAMES = Object.freeze({
+  body: { width: 384, height: 544, viewBox: '25 32 334 488' },
+  nose: { width: 384, height: 336, viewBox: '8 23 369 292' },
+  window: { width: 256, height: 256, viewBox: '11 9 234 233' },
+  fins: { width: 656, height: 336, viewBox: '28 37 600 271' },
+  flame: { width: 272, height: 336, viewBox: '35 16 202 307' },
+});
+
+const RasterPart = ({ part, url, colour, ghost, onError, illustrated }) => {
   const [x, y, w, h] = ROCKET_PARTS.find((p) => p.id === part).box;
   const tint = part === 'nose' || part === 'fins' ? hueFilterFor(colour) : '';
   const style = ghost ? { filter: 'grayscale(1) brightness(1.7)', opacity: 0.4 } : tint ? { filter: tint } : undefined;
-  return <image href={url} x={x} y={y} width={w} height={h} preserveAspectRatio="xMidYMid meet" style={style} />;
+  const frame = illustrated ? ILLUSTRATED_PART_FRAMES[part] : null;
+  if (frame) return <svg x={x} y={y} width={w} height={h} viewBox={frame.viewBox} preserveAspectRatio="none" overflow="hidden" style={style}><image href={url} width={frame.width} height={frame.height} onError={onError} /></svg>;
+  return <image href={url} x={x} y={y} width={w} height={h} preserveAspectRatio="xMidYMid meet" style={style} onError={onError} />;
 };
 
-export const RocketPart = ({ part, colour = '#ef4444', ghost = false }) => {
-  const raster = artUrl(`rocket-${part}`);
-  if (raster) return <RasterPart part={part} url={raster} colour={colour} ghost={ghost} />;
+export const RocketPart = ({ part, colour = '#ef4444', ghost = false, illustrated = false }) => {
+  const [failedUrl, setFailedUrl] = useState(null);
+  // The optional part set is loaded only by its game, outside the eager art
+  // glob. Keep the authored vector usable if an offline sprite is unavailable.
+  const raster = illustrated ? `/art/rocket-parts-v2/rocket-${part}.webp` : artUrl(`rocket-${part}`);
+  if (raster && raster !== failedUrl) return <RasterPart part={part} url={raster} colour={colour} ghost={ghost} illustrated={illustrated} onError={() => setFailedUrl(raster)} />;
   const stroke = ghost ? '#94a3b8' : OUTLINE;
   const dash = ghost ? '8 7' : undefined;
   const fill = (value) => (ghost ? 'rgba(255,255,255,.35)' : value);
@@ -66,31 +82,31 @@ export const RocketPart = ({ part, colour = '#ef4444', ghost = false }) => {
   }
 };
 
-export const Rocket = ({ colour = '#ef4444', parts = ROCKET_PARTS.map((p) => p.id), className = '', title, flameOn = true }) => (
+export const Rocket = ({ colour = '#ef4444', parts = ROCKET_PARTS.map((p) => p.id), className = '', title, flameOn = true, illustrated = false }) => (
   <svg viewBox="0 0 200 300" className={className} role={title ? 'img' : undefined} aria-label={title} aria-hidden={title ? undefined : true} overflow="visible">
-    {ROCKET_PARTS.filter((p) => parts.includes(p.id) && (flameOn || p.id !== 'flame')).map((p) => <RocketPart key={p.id} part={p.id} colour={colour} />)}
+    {ROCKET_PARTS.filter((p) => parts.includes(p.id) && (flameOn || p.id !== 'flame')).map((p) => <RocketPart key={p.id} part={p.id} colour={colour} illustrated={illustrated} />)}
   </svg>
 );
 
-export const RocketPartIcon = ({ part, colour, className = '' }) => {
+export const RocketPartIcon = ({ part, colour, className = '', illustrated = false }) => {
   const info = ROCKET_PARTS.find((p) => p.id === part);
   const [x, y, w, h] = info.box;
   return (
     <svg viewBox={`${x - 6} ${y - 6} ${w + 12} ${h + 12}`} className={className} aria-hidden="true">
-      {part === 'fins' && <RocketPart part="body" ghost />}
-      <RocketPart part={part} colour={colour} />
+      {part === 'fins' && <RocketPart part="body" ghost illustrated={illustrated} />}
+      <RocketPart part={part} colour={colour} illustrated={illustrated} />
     </svg>
   );
 };
 
 // A half-built rocket: the icon for Rocket Builder.
-export const RocketBlueprint = ({ colour = '#ef4444', className = '' }) => (
+export const RocketBlueprint = ({ colour = '#ef4444', className = '', illustrated = false }) => (
   <svg viewBox="0 0 200 300" className={className} aria-hidden="true" overflow="visible">
-    <RocketPart part="fins" ghost />
-    <RocketPart part="flame" ghost />
-    <RocketPart part="body" colour={colour} />
-    <RocketPart part="window" colour={colour} />
-    <RocketPart part="nose" colour={colour} />
+    <RocketPart part="fins" ghost illustrated={illustrated} />
+    <RocketPart part="flame" ghost illustrated={illustrated} />
+    <RocketPart part="body" colour={colour} illustrated={illustrated} />
+    <RocketPart part="window" colour={colour} illustrated={illustrated} />
+    <RocketPart part="nose" colour={colour} illustrated={illustrated} />
   </svg>
 );
 

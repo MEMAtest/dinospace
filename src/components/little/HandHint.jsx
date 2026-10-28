@@ -21,7 +21,7 @@ const HandArt = () => {
 // A cartoon hand that shows the child what to do: drag from one thing to
 // another, tap a thing, or press and hold it. `from`/`to` are functions that
 // return DOM elements, measured once shown and re-measured while visible.
-const HandHint = ({ show, from, to, mode = 'drag' }) => {
+const HandHint = ({ show, from, to, mode = 'drag', onShown }) => {
   const [pos, setPos] = useState(null);
   const targets = useRef({ from, to });
   useEffect(() => { targets.current = { from, to }; });
@@ -44,6 +44,10 @@ const HandHint = ({ show, from, to, mode = 'drag' }) => {
     const interval = setInterval(measure, 600);
     return () => { cancelAnimationFrame(frame); clearInterval(interval); };
   }, [mode, show]);
+
+  useEffect(() => {
+    if (show && pos) onShown?.();
+  }, [onShown, pos, show]);
 
   if (!show || !pos) return null;
   const animation = mode === 'drag' ? 'animate-hand-drag' : mode === 'hold' ? 'animate-hand-hold' : 'animate-hand-tap';

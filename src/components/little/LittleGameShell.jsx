@@ -3,7 +3,10 @@ import { Home, Play, RotateCcw, SkipForward, Volume2, VolumeX } from 'lucide-rea
 import { getPraise } from '../../utils.js';
 import { STICKERS } from '../../data/index.js';
 import { LITTLE_LEVELS, LITTLE_LEVEL_GOALS, LITTLE_LINES, levelRounds, starsForMistakes } from '../../data/littleGames.js';
-import { getLittleLevel, recordLittleResult } from '../../data/littleProgress.js';
+import { getLittleLevel, recordLittleResult, startLevelFor } from '../../data/littleProgress.js';
+import {
+  activePairLevelAfterResult, commitPairLittleResult, getPairLittleStorage, pairRunActionLabel, readPairLittleProgress,
+} from '../../data/pairLittleProgress.js';
 import { RewardSticker } from '../shared/StickerArt.jsx';
 import { artUrl } from './littleArt.js';
 
@@ -54,6 +57,33 @@ export const LevelDots = ({ level, total, className = '' }) => (
   </div>
 );
 
+const PairLevelSelector = ({ enabled, level, highestLevel, minimumLevel, onSelect }) => {
+  if (!enabled) return null;
+  return (
+    <div role="group" aria-label="Unlocked practice levels" className="w-full max-w-md rounded-2xl bg-white/80 p-3 shadow">
+      <p className="mb-2 font-black text-slate-800">Choose an unlocked level to play or practise</p>
+      <div className="flex flex-wrap justify-center gap-2">
+        {Array.from({ length: highestLevel - minimumLevel + 1 }, (_, offset) => {
+          const index = minimumLevel + offset;
+          return (
+          <button
+            key={index}
+            type="button"
+            aria-label={`Practice level ${index + 1}`}
+            aria-pressed={level === index}
+            onClick={() => onSelect(index)}
+            className={`min-h-12 min-w-14 rounded-xl border-2 px-3 font-black shadow ${level === index ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-indigo-300 bg-white text-indigo-950'}`}
+          >
+            {index + 1}
+          </button>
+          );
+        })}
+      </div>
+      <p className="mt-2 text-sm font-bold text-slate-700">Available through Level {highestLevel + 1}.</p>
+    </div>
+  );
+};
+
 const RoundSlot = ({ render, ...roundProps }) => render(roundProps);
 
 const LittleGameShell = ({
@@ -79,27 +109,57 @@ const LittleGameShell = ({
   onGameEvent,
   onNextGame,
   onPhaseChange,
+  registerDirty,
+  pairSafeProgress = false,
+  manualNext = false,
   finishLine = LITTLE_LINES.finish,
   children,
 }) => {
   const levels = LITTLE_LEVELS[gameId];
-  const [level, setLevel] = useState(() => getLittleLevel(playerId, gameId, bigKid));
+  const minimumPairLevel = pairSafeProgress ? startLevelFor(bigKid) : 0;
+  const [initialPairProgress] = useState(() => (pairSafeProgress
+    ? readPairLittleProgress(playerId, gameId, bigKid, getPairLittleStorage())
+    : null));
+  const [level, setLevel] = useState(() => (pairSafeProgress
+    ? initialPairProgress.level
+    : getLittleLevel(playerId, gameId, bigKid)));
+  const [highestLevel, setHighestLevel] = useState(() => (pairSafeProgress ? initialPairProgress.level : 0));
+  const [pairSaveWarning, setPairSaveWarning] = useState(() => (
+    pairSafeProgress && !initialPairProgress.ok
+      ? 'Saved progress could not be read safely. You can play, but this result will stay unsaved until Retry succeeds.'
+      : ''
+  ));
   const config = levels[level];
   const rounds = levelRounds(gameId, config);
   const [phase, setPhase] = useState('start');
   const [round, setRound] = useState(0);
   const [playId, setPlayId] = useState(0);
+  const [playOrdinal, setPlayOrdinal] = useState(0);
   const [result, setResult] = useState(null);
   const [startPoints, setStartPoints] = useState(points);
   const [finishArt, setFinishArt] = useState(null);
+  const [roundComplete, setRoundComplete] = useState(null);
+  const [, setPendingResult] = useState(null);
   const advanceTimer = useRef(null);
   const speechTimers = useRef([]);
   const mistakesRef = useRef(0);
   // Rounds may report completion more than once (re-renders, double taps);
   // only the first report for a round counts.
   const completedRoundRef = useRef(-1);
+  const pendingResultRef = useRef(null);
+  const transactionRef = useRef(null);
+  const transactionCounterRef = useRef(0);
+  const completedPlaysRef = useRef(initialPairProgress?.gameRecord?.plays || 0);
+  const runsSinceSaveRef = useRef(0);
+  const rewardedTransactionsRef = useRef(new Set());
 
-  useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
+  useEffect(() => { onPhaseChange?.(phase === 'save-error' ? 'play' : phase); }, [onPhaseChange, phase]);
+
+  useEffect(() => {
+    if (!registerDirty) return undefined;
+    registerDirty(() => Boolean(pendingResultRef.current));
+    return () => registerDirty(null);
+  }, [registerDirty]);
 
   useEffect(() => () => {
     clearTimeout(advanceTimer.current);
@@ -123,6 +183,15 @@ const LittleGameShell = ({
     setStartPoints(points);
     setResult(null);
     setFinishArt(null);
+    setRoundComplete(null);
+    if (pairSafeProgress) {
+      setPlayOrdinal(completedPlaysRef.current + runsSinceSaveRef.current);
+      runsSinceSaveRef.current += 1;
+      transactionCounterRef.current += 1;
+      transactionRef.current = globalThis.crypto?.randomUUID?.()
+        || `${gameId}-${playerId || 'child'}-${Date.now()}-${transactionCounterRef.current}`;
+      rewardedTransactionsRef.current.delete(transactionRef.current);
+    }
     setRound(0);
     setPlayId((id) => id + 1);
     setPhase('play');
@@ -130,8 +199,61 @@ const LittleGameShell = ({
 
   const mistake = useCallback(() => { mistakesRef.current += 1; }, []);
 
+  const showSavedResult = useCallback((pending, saved) => {
+    if (rewardedTransactionsRef.current.has(pending.transactionId)) return;
+    rewardedTransactionsRef.current.add(pending.transactionId);
+    pendingResultRef.current = null;
+    setPendingResult(null);
+    setPairSaveWarning('');
+    setResult({ stars: pending.stars, ...saved });
+    setHighestLevel(saved.level);
+    setLevel(pairSafeProgress ? activePairLevelAfterResult(saved) : saved.level);
+    completedPlaysRef.current = saved.plays;
+    runsSinceSaveRef.current = 0;
+    playSfx?.(saved.levelUp ? 'levelup-big' : 'complete');
+    onGameEvent?.(gameId, 'level_completed');
+    if (saved.rewardPoints > 0) onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId);
+    speak?.(finishLine);
+    if (saved.levelUp) speechTimers.current.push(setTimeout(() => speak?.(LITTLE_LINES.levelUp), 2200));
+    setPhase('done');
+  }, [finishLine, gameId, onCelebrate, onGameEvent, pairSafeProgress, playSfx, setLevel, speak]);
+
+  const commitPendingResult = useCallback((pending) => {
+    const saved = commitPairLittleResult({
+      playerId,
+      gameId,
+      bigKid,
+      stars: pending.stars,
+      expectedLevel: pending.highestLevel,
+      playedLevel: pending.playedLevel,
+      transactionId: pending.transactionId,
+    });
+    if (!saved.ok) {
+      pendingResultRef.current = pending;
+      setPendingResult(pending);
+      setPairSaveWarning(saved.reason === 'record-invalid' || saved.reason === 'game-record-invalid' || saved.reason === 'record-unreadable'
+        ? 'Saved progress could not be read safely, so it was left untouched. Try again after storage is available.'
+        : 'Your result could not be saved yet. It is still here; try saving again.');
+      setPhase('save-error');
+      return false;
+    }
+    showSavedResult(pending, saved);
+    return true;
+  }, [bigKid, gameId, playerId, showSavedResult]);
+
   const finish = useCallback(() => {
     const stars = starsForMistakes(mistakesRef.current);
+    if (pairSafeProgress) {
+      const pending = pendingResultRef.current || {
+        stars,
+        level,
+        playedLevel: level,
+        highestLevel,
+        transactionId: transactionRef.current || `${gameId}-${playerId || 'child'}-${Date.now()}-finish`,
+      };
+      commitPendingResult(pending);
+      return;
+    }
     const saved = recordLittleResult(playerId, gameId, bigKid, stars);
     setResult({ stars, ...saved });
     setLevel(saved.level);
@@ -141,24 +263,44 @@ const LittleGameShell = ({
     speak?.(finishLine);
     if (saved.levelUp) speechTimers.current.push(setTimeout(() => speak?.(LITTLE_LINES.levelUp), 2200));
     setPhase('done');
-  }, [bigKid, finishLine, gameId, onCelebrate, onGameEvent, playSfx, playerId, speak]);
+  }, [bigKid, commitPendingResult, finishLine, gameId, highestLevel, level, onCelebrate, onGameEvent, pairSafeProgress, playSfx, playerId, speak]);
 
-  const complete = useCallback(({ praise = true, delay = 1400, art, firstAttempt = true, independent = true, hints = 0 } = {}) => {
+  const retrySavingResult = () => {
+    if (pendingResultRef.current) commitPendingResult(pendingResultRef.current);
+  };
+
+  const advanceHeldRound = () => {
+    if (!roundComplete) return;
+    setRoundComplete(null);
+    if (round + 1 >= rounds) {
+      finish();
+      return;
+    }
+    if (!pairSafeProgress) onCelebrate?.(null, 1, 0, gameId, { quiet: true });
+    completedRoundRef.current = -1;
+    setRound((value) => value + 1);
+  };
+
+  const complete = useCallback(({ praise = true, delay = 1400, art, review, firstAttempt = true, independent = true, hints = 0 } = {}) => {
     if (completedRoundRef.current === round) return;
     completedRoundRef.current = round;
     if (art) setFinishArt(art);
     playSfx?.('success');
     onGameEvent?.(gameId, 'answer_correct', { correct: true, firstAttempt, independent, hints, skill: gameId, item: `round-${round + 1}`, difficulty: 'starter', masteryEligible: false });
     if (praise) speak?.(getPraise());
+    if (manualNext) {
+      setRoundComplete({ art: art || null, review: review || null });
+      return;
+    }
     advanceTimer.current = setTimeout(() => {
       if (round + 1 >= rounds) {
         finish();
       } else {
-        onCelebrate?.(null, 1, 0, gameId, { quiet: true });
+        if (!pairSafeProgress) onCelebrate?.(null, 1, 0, gameId, { quiet: true });
         setRound((value) => value + 1);
       }
     }, delay);
-  }, [finish, gameId, onCelebrate, onGameEvent, playSfx, round, rounds, speak]);
+  }, [finish, gameId, manualNext, onCelebrate, onGameEvent, pairSafeProgress, playSfx, round, rounds, speak]);
 
   const newStickers = phase === 'done'
     ? STICKERS.filter((sticker) => sticker.points > startPoints && sticker.points <= points).slice(-1)
@@ -197,9 +339,11 @@ const LittleGameShell = ({
 
       {phase === 'start' && (
         <main className="relative z-10 flex flex-1 flex-col items-center justify-center gap-5 px-4 pb-8 text-center">
+          {pairSaveWarning && <p role="alert" className="max-w-xl rounded-2xl border-2 border-amber-500 bg-amber-50 px-4 py-3 font-bold text-amber-950">{pairSaveWarning}</p>}
           <div className="w-full max-w-md animate-bounce-slow">{startArt}</div>
+          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} />
           <LevelDots level={level} total={levels.length} />
-          <p className="max-w-md rounded-2xl bg-white/90 px-5 py-2 text-lg font-black text-slate-800 shadow-lg">Level {level + 1} of {levels.length}: {LITTLE_LEVEL_GOALS[gameId]?.[level]}</p>
+          <p className="max-w-md rounded-2xl bg-white/90 px-5 py-2 text-lg font-black text-slate-800 shadow-lg">{level < highestLevel ? 'Practice ' : ''}Level {level + 1} of {levels.length}: {LITTLE_LEVEL_GOALS[gameId]?.[level]}{pairSafeProgress ? `. Available through Level ${highestLevel + 1}.` : ''}</p>
           <button
             type="button"
             onClick={start}
@@ -215,18 +359,40 @@ const LittleGameShell = ({
       )}
 
       {phase === 'play' && (
-        <main key={playId} className={playFullBleed ? 'absolute inset-0 z-10' : 'relative z-10 flex flex-1 flex-col'}>
-          <RoundSlot
-            render={children}
-            round={round}
-            rounds={rounds}
-            complete={complete}
-            mistake={mistake}
-            playId={playId}
-            level={level}
-            config={config}
-            firstRound={round === 0}
-          />
+        <main key={playId} className={playFullBleed && !roundComplete ? 'absolute inset-0 z-10' : 'relative z-10 flex flex-1 flex-col'}>
+          {roundComplete && manualNext ? (
+            <section aria-label="Round complete" className="relative z-30 mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-5 rounded-[2rem] bg-white/95 p-6 text-center shadow-2xl">
+              {roundComplete.review && <div role="group" aria-label="Fuel count review" className="w-full">{roundComplete.review}</div>}
+              {roundComplete.art && <div className="max-h-64 w-full">{roundComplete.art}</div>}
+              <h2 className="text-3xl font-black text-slate-900">Great counting! Ready for the next rocket?</h2>
+              <button type="button" onClick={advanceHeldRound} className="min-h-16 rounded-full border-4 border-white bg-gradient-to-b from-lime-400 to-green-600 px-8 text-xl font-black text-white shadow-[0_6px_0_#166534]">
+                {round + 1 < rounds ? 'Next round' : 'Finish game'}
+              </button>
+            </section>
+          ) : (
+            <RoundSlot
+              render={children}
+              round={round}
+              rounds={rounds}
+              complete={complete}
+              mistake={mistake}
+              playId={playId}
+              playOrdinal={playOrdinal}
+              level={level}
+              config={config}
+              firstRound={round === 0}
+            />
+          )}
+        </main>
+      )}
+
+      {phase === 'save-error' && (
+        <main className="relative z-40 mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-4 px-5 pb-10 text-center">
+          <div className="max-h-56 w-full">{finishArt || startArt}</div>
+          <h2 className="text-3xl font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)]">Your result is ready, but it is not saved yet.</h2>
+          <p role="alert" className="rounded-2xl border-2 border-amber-500 bg-amber-50 px-4 py-3 font-bold text-amber-950">{pairSaveWarning || 'Your result could not be saved yet. It is still here; try saving again.'}</p>
+          <button type="button" onClick={retrySavingResult} className="min-h-16 rounded-full border-4 border-white bg-gradient-to-b from-lime-400 to-green-600 px-8 text-xl font-black text-white shadow-[0_6px_0_#166534]">Retry saving this result</button>
+          <button type="button" onClick={onBack} className="min-h-12 rounded-full bg-white/80 px-6 font-black text-slate-900">Go home</button>
         </main>
       )}
 
@@ -241,6 +407,11 @@ const LittleGameShell = ({
           <h2 className="text-4xl font-black text-white drop-shadow-[0_3px_0_rgba(15,23,42,.35)] sm:text-5xl">
             {playerName ? `Well done, ${playerName}!` : 'Well done!'}
           </h2>
+          {pairSafeProgress && Number.isInteger(result.playedLevel) && (
+            <p className="max-w-lg rounded-xl bg-white/85 px-4 py-2 font-bold text-slate-800">
+              Completed Level {result.playedLevel + 1}. Progress saved; Level {result.level + 1} is available.
+            </p>
+          )}
           {(result.levelUp || newStickers.length > 0) && (
             <div className="flex flex-wrap items-stretch justify-center gap-3">
               {result.levelUp && (
@@ -261,12 +432,18 @@ const LittleGameShell = ({
               ))}
             </div>
           )}
+          <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} />
           <div className="mt-2 flex items-end gap-5">
             <div className="flex flex-col items-center gap-1">
-              <BigRoundButton onClick={start} label={result.levelUp ? 'Next level' : 'Try level again'} size="h-28 w-28" tone="bg-gradient-to-b from-lime-400 to-green-600 text-white">
-                {result.levelUp ? <SkipForward size={50} strokeWidth={2.8} fill="currentColor" /> : <RotateCcw size={46} strokeWidth={2.8} />}
+              <BigRoundButton
+                onClick={start}
+                label={pairSafeProgress ? pairRunActionLabel(level, result) : result.levelUp ? 'Next level' : 'Try level again'}
+                size="h-28 w-28"
+                tone="bg-gradient-to-b from-lime-400 to-green-600 text-white"
+              >
+                {result.levelUp && !(pairSafeProgress && level < highestLevel) ? <SkipForward size={50} strokeWidth={2.8} fill="currentColor" /> : <RotateCcw size={46} strokeWidth={2.8} />}
               </BigRoundButton>
-              <span className="text-sm font-black text-slate-700">{result.levelUp ? 'Next level' : 'Try again'}</span>
+              <span className="text-sm font-black text-slate-700">{pairSafeProgress ? pairRunActionLabel(level, result) : result.levelUp ? 'Next level' : 'Try again'}</span>
             </div>
             {onNextGame && (
               <div className="flex flex-col items-center gap-1">
