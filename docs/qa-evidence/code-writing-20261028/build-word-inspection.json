@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/build-space-postcard-390.docx",
+      "bytes": 125201,
+      "sha256": "e52786e1d3c4e5414ccfd2266ee5fdf6aecffc70ce17c415d5556f6ec8a042ba",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": false,
+      "embeddedImageMatches": "solar-v2/earth.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/build-planet-field-notes-390.docx",
+      "bytes": 104469,
+      "sha256": "0bc482796c6475330b592144eaf7b533131985bb17914db616539989f01e1c0d",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": true,
+      "embeddedImageMatches": "solar-v1/mars.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/build-planet-mini-report-390.docx",
+      "bytes": 86102,
+      "sha256": "9a2cc715af8d311f1d8af7677748f67ae9a9f2967f0506aff7ef702aa4880868",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": true,
+      "embeddedImageMatches": "solar-v1/saturn.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/build-space-postcard-1440.docx",
+      "bytes": 125227,
+      "sha256": "051d838f1ab0861b7b0930104ef741bb2b7638ed5a2da2a9e65f2b467d94113e",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": false,
+      "embeddedImageMatches": "solar-v2/earth.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/build-planet-field-notes-1440.docx",
+      "bytes": 104475,
+      "sha256": "bc2bd7c89d83edf2f72f5f255ac15a5d9a7144b187b6a4de5ebacd84ff1dd9f9",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": true,
+      "embeddedImageMatches": "solar-v1/mars.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/build-planet-mini-report-1440.docx",
+      "bytes": 86108,
+      "sha256": "b16ffa6fe92a14d40b78cbdaf411d9f2daf1a27550a8f82a205b41884e80515e",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": true,
+      "embeddedImageMatches": "solar-v1/saturn.png"
+    }
+  ]
+}

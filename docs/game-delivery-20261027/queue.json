@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 3,
+  "activePair": 4,
   "pairs": [
     {
       "number": 1,
@@ -69,8 +69,12 @@
           "name": "My Writing Desk"
         }
       ],
-      "status": "audit_in_progress",
-      "evidence": "docs/qa-evidence/code-writing-20261028/README.md"
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/code-writing-20261028/README.md",
+      "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
+      "publicChallenges": 30,
+      "sourceGates": "docs/qa-evidence/code-writing-20261028/source-gates.json",
+      "scope": "Twelve coding missions and three writing projects at390/1440, six inspected Word downloads; functional acceptance."
     },
     {
       "number": 4,
@@ -84,8 +88,8 @@
           "name": "Memory Match"
         }
       ],
-      "status": "queued",
-      "evidence": null
+      "status": "audit_in_progress",
+      "evidence": "docs/qa-evidence/solar-memory-20261028/README.md"
     },
     {
       "number": 5,

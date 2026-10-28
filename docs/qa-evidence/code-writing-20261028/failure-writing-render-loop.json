@@ -1,0 +1,11 @@
+{
+  "scope": "Local candidate only; production unchanged",
+  "observed": "Repeated saved-project authoring/reload/replay recorded React185 maximum update depth errors despite the visible steps completing.",
+  "devTrace": [
+    "WritingDesk onUpdate \u2192 dispatchSetState",
+    "Tiptap Editor.onUpdate \u2192 Editor.emit \u2192 dispatchTransaction"
+  ],
+  "sourceReview": "Fresh configured extension objects, initial document and editorProps were created every render. Installed Tiptap compares these references and calls editor.setOptions, updating the ProseMirror view during the editing render cycle.",
+  "repair": "Stable editor options plus shouldRerenderOnTransaction:false and coalesced React state updates outside ProseMirror dispatch. Synchronous authoritative draft/milestone refs preserve same-frame changes; rendering cannot overwrite them. Stable options alone did not eliminate the loop.",
+  "acceptance": "Full repeated development and compiled three-project flows pass390/1440 without errors; held-RAF edit/format/leave regression passes. Production still required."
+}

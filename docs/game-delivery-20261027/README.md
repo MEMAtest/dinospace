@@ -6,7 +6,7 @@ The catalogue has34activities; the older quality ledger covers26. Reconcile actu
 
 ## Active pair
 
-**Code Cadets + My Writing Desk**. Sorting/Pattern and Astronaut/Chess are live-verified. This pair expands coding beyond the three guided examples and adds richer writing projects with recoverable drafts. The exact current contract is in `../qa-evidence/code-writing-20261028/README.md`.
+**Solar System + Memory Match**. The first three pairs are live-verified. Audit the existing discovery passport and growing memory boards before changing them; retain the strong current artwork and progression, repair remaining learning, replay, storage and navigation gaps, then verify the whole pair live.
 
 ## Workflow
 

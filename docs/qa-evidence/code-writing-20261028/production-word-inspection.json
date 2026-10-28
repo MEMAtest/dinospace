@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/production-space-postcard-390.docx",
+      "bytes": 125194,
+      "sha256": "78a4373bd71c7ae5920ae81b4e493e6f678c71691cd89db869bf1c3ba65c5559",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": false,
+      "embeddedImageMatches": "solar-v2/earth.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/production-planet-field-notes-390.docx",
+      "bytes": 104425,
+      "sha256": "663f69f25551d46d2a322648b5c67789e98513fe0d43616b73632f6f96992267",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": true,
+      "embeddedImageMatches": "solar-v1/mars.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/production-planet-mini-report-390.docx",
+      "bytes": 86047,
+      "sha256": "395614bb71b2b834c7189217c3387a6637f3f364524bfa96390c93d70f7a85f1",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": true,
+      "embeddedImageMatches": "solar-v1/saturn.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/production-space-postcard-1440.docx",
+      "bytes": 125219,
+      "sha256": "b4f27d1f8e93abca6b051147a0106024561755b0e04de5df6ca5741545717d74",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": false,
+      "embeddedImageMatches": "solar-v2/earth.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/production-planet-field-notes-1440.docx",
+      "bytes": 104434,
+      "sha256": "1a374c77830e5a1aff26b44ed3fdd29283bf65597d8bad954338a6bc7b37557b",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": true,
+      "embeddedImageMatches": "solar-v1/mars.png"
+    },
+    {
+      "file": "docs/qa-evidence/code-writing-20261028/production-planet-mini-report-1440.docx",
+      "bytes": 86048,
+      "sha256": "b39fdf867bf26485afb5ccb4b6f7fee1db2efbee15b3679eaf0f9731295f41a6",
+      "authoredTextMatches": true,
+      "bold": true,
+      "italicRequired": true,
+      "embeddedImageMatches": "solar-v1/saturn.png"
+    }
+  ]
+}

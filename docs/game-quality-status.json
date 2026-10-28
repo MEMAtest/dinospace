@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-28T18:28:00.265441+00:00",
+  "updatedAt": "2026-10-28T19:35:03.896357+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "8d8e120fc752f7df65aa48871ecdd78c83af586f",
+  "canonicalRelease": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1184,6 +1184,22 @@
     "sourceTests": 424,
     "editorialScoresChanged": false,
     "humanListening": "not claimed; existing exact packaged narration decode and playback verified",
+    "functionalAcceptance": true
+  },
+  "deliveryQueue": "docs/game-delivery-20261027/queue.json",
+  "activeDeliveryPair": 4,
+  "latestCodeWritingUplift": {
+    "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-eg8ddohov-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_DcvnviTr6FLqQkDiRbriqFYQomx8",
+    "netlifyGatewayDeploy": "6ae24d21081271ef49a2444c",
+    "serviceWorkerCache": "amari-discovery-v38",
+    "status": "Released and functionally verified: all12coding missions and3writing projects at390/1440;6actual Word downloads verified",
+    "evidence": "docs/qa-evidence/code-writing-20261028/README.md",
+    "sourceTests": 441,
+    "editorialScoresChanged": false,
+    "paidCalls": 0,
     "functionalAcceptance": true
   }
 }

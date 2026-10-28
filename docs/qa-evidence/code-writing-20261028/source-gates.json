@@ -1,0 +1,145 @@
+{
+  "at": "2026-10-28T19:25:29.507757+00:00",
+  "tests": {
+    "passed": 441,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scopedLint": "passed",
+  "configuredBuild": "passed",
+  "diffCheck": "passed",
+  "compiledReports": [
+    {
+      "file": "build-code-390.json",
+      "rows": 12,
+      "entry": "/assets/arcade-DNPAD9rW.js"
+    },
+    {
+      "file": "build-code-1440.json",
+      "rows": 12,
+      "entry": "/assets/arcade-DNPAD9rW.js"
+    },
+    {
+      "file": "build-writing-390.json",
+      "rows": 3,
+      "entry": "/assets/arcade-DNPAD9rW.js"
+    },
+    {
+      "file": "build-writing-1440.json",
+      "rows": 3,
+      "entry": "/assets/arcade-DNPAD9rW.js"
+    }
+  ],
+  "compiledRows": 30,
+  "exports": "Six actual OOXML downloads match authored text, bold/italic/alignment and exact embedded image hashes.",
+  "paidCalls": 0,
+  "instructionAudio": "No exact packaged project/mission instruction recordings; clear written guidance and sound-gated rover SFX. No dynamic/device fallback.",
+  "liveAcceptance": true,
+  "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
+  "runtimeFiles": [
+    {
+      "path": "public/sw.js",
+      "sha256": "70a6a34f6f78aea173466921935c07a0b8679fa9ca816d2665c3c44d52f50fa0"
+    },
+    {
+      "path": "scripts/ensure-amari-qa-browser.py",
+      "sha256": "fcc870bbac7d1cd8528de8bb933c7b6f041760bd2ba5133e3dbac4c17cb5bc2d"
+    },
+    {
+      "path": "src/App.jsx",
+      "sha256": "2efa153ff79f77ed2076fc00c3a9fc71ee1d4ddfcc7620e3e2c2bb513850e0e6"
+    },
+    {
+      "path": "src/components/shared/CreativeProjectCollections.jsx",
+      "sha256": "f5310ad809543799820a33c1ecb30a647aa5c3762667a2587c398e8a2cfcfb54"
+    },
+    {
+      "path": "src/gameCatalog.jsx",
+      "sha256": "0f6ae69ce29f0d66a59d408ca6c963d23d7932983a507f891502b12ffa8d5ca2"
+    },
+    {
+      "path": "src/rehearsal/CodeCadets.jsx",
+      "sha256": "9ff69c3f148759fdd3c1f6fcb3c02401d62317bfd512181e7332f30da6064dc6"
+    },
+    {
+      "path": "src/rehearsal/DigitalSkillGame.jsx",
+      "sha256": "481c091e6944304b827f1c29fb74428e5cf56753a83010f3e837a32c3d1f90cd"
+    },
+    {
+      "path": "src/rehearsal/WritingDesk.jsx",
+      "sha256": "19ebf22f687bffa97d0aae453988f5328c84b6916fe78c501be2eb130440665e"
+    },
+    {
+      "path": "src/rehearsal/codeCadets.css",
+      "sha256": "e310ab8ceeb478eba64cd015e3535c6b5ab16ac685a8a2b7501eaab532328426"
+    },
+    {
+      "path": "src/rehearsal/codeCadetsFlow.js",
+      "sha256": "0bf674bc0b78a12361cb3a7dfa1dd51af8008a9b0c6e0a67e85644a16c81e0df"
+    },
+    {
+      "path": "src/rehearsal/codeProgress.js",
+      "sha256": "8c929424532b631ca2eaef436a1a2a669848433cd545569733a656811df4d0e1"
+    },
+    {
+      "path": "src/rehearsal/rover.js",
+      "sha256": "4c92b5bc549eb339d6e08b35007c2f02f2d74819eb9aaf1794f9240aadea576b"
+    },
+    {
+      "path": "src/rehearsal/writingDesk.css",
+      "sha256": "e54f521d43a558495c1e400c3bad46de58c2d036894386285138146f8de8a6bc"
+    },
+    {
+      "path": "src/rehearsal/writingProgress.js",
+      "sha256": "f1aa30a56623d21ad7eda108873b199fa8c2ab558736c3547db849a1e0cb4d75"
+    },
+    {
+      "path": "src/rehearsal/writingProjects.js",
+      "sha256": "91eb0db34a5455a9bd35b33dfe2e7fd53e9288938eb3c9b6c4ac1d723fce037d"
+    },
+    {
+      "path": "test/code-cadets-flow.test.mjs",
+      "sha256": "7478ad3f2108a346c94204614c071b3a8130333312e344e8c479ccf432dd30cf"
+    },
+    {
+      "path": "test/code-progress.test.mjs",
+      "sha256": "0ceb2d6019a022c44d7d4e90f09ee80d33ba00a0219b598414bcedf242faf1a9"
+    },
+    {
+      "path": "test/offlineServiceWorker.test.mjs",
+      "sha256": "3b8aa6b63a5e469c8e24b98f800c8f5903a5471ef06f2e474ab290842aaf56bc"
+    },
+    {
+      "path": "test/rehearsal.test.mjs",
+      "sha256": "e4ad077f9e8b208f0513a465607c2340659425813d69fc9818b2b51a9e02a27e"
+    },
+    {
+      "path": "test/writing-projects.test.mjs",
+      "sha256": "824052095a3f5699a136a8fa58e3141e5d1a7461b8e7d17e61ad5e4a3a094c2b"
+    }
+  ],
+  "publicReports": [
+    {
+      "file": "production-code-390.json",
+      "rows": 12,
+      "entry": "/assets/arcade-DNPAD9rW.js"
+    },
+    {
+      "file": "production-code-1440.json",
+      "rows": 12,
+      "entry": "/assets/arcade-DNPAD9rW.js"
+    },
+    {
+      "file": "production-writing-390.json",
+      "rows": 3,
+      "entry": "/assets/arcade-DNPAD9rW.js"
+    },
+    {
+      "file": "production-writing-1440.json",
+      "rows": 3,
+      "entry": "/assets/arcade-DNPAD9rW.js"
+    }
+  ],
+  "publicRows": 30,
+  "scope": "Current-pair functional criteria met; no new editorial/listening score or historical family-story recovery."
+}

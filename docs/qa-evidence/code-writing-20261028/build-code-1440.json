@@ -1,0 +1,105 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "width": 1440,
+  "rows": [
+    {
+      "id": "first-route",
+      "chapter": "sequence",
+      "blocks": 3,
+      "expanded": 3,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "sequence-detour",
+      "chapter": "sequence",
+      "blocks": 9,
+      "expanded": 9,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "sequence-sample",
+      "chapter": "sequence",
+      "blocks": 5,
+      "expanded": 5,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "sequence-independent",
+      "chapter": "sequence",
+      "blocks": 10,
+      "expanded": 10,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "debug-turn",
+      "chapter": "debug",
+      "blocks": 5,
+      "expanded": 5,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "debug-wall",
+      "chapter": "debug",
+      "blocks": 9,
+      "expanded": 9,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "debug-collect",
+      "chapter": "debug",
+      "blocks": 5,
+      "expanded": 5,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "debug-independent",
+      "chapter": "debug",
+      "blocks": 9,
+      "expanded": 9,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "repeat-rescue",
+      "chapter": "repeat",
+      "blocks": 4,
+      "expanded": 8,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "repeat-wall",
+      "chapter": "repeat",
+      "blocks": 4,
+      "expanded": 6,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "repeat-compress",
+      "chapter": "repeat",
+      "blocks": 4,
+      "expanded": 8,
+      "savedBeforeNext": true
+    },
+    {
+      "id": "repeat-independent",
+      "chapter": "repeat",
+      "blocks": 4,
+      "expanded": 8,
+      "savedBeforeNext": true
+    }
+  ],
+  "legacyChecked": true,
+  "saveFaultRecovered": false,
+  "stopChecked": true,
+  "reloadedDraft": true,
+  "retainedAfterReload": true,
+  "collection": true,
+  "parentReturn": true,
+  "rewardsBefore": 75,
+  "rewardsAfter": 75,
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "failedAssets": [],
+  "entry": "/assets/arcade-DNPAD9rW.js"
+}

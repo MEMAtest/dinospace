@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-28T18:56:43.508675+00:00",
+  "previousCanonicalRequests": 160,
+  "reviewedCandidateRequests": 163,
+  "candidateBytes": 29381247,
+  "byteCeiling": 41943040,
+  "newRequestCeiling": 163,
+  "reason": "Current two-project implementation creates three additional shared JavaScript chunk requests. Shared chunk filenames include the existing offline narration manifest and library code moved out of other chunks, not a new recording corpus. No new eager artwork/media/fonts added. Explicitly reviewed the emitted unique inventory and actual total bytes; 28.02MiB remains below40MiB. Keep exact emitted inventory/media exclusion checks and reject any future request increase beyond163 without another review.",
+  "originalFailure": "Full440test run:439passed, compiled precache163 exceeded prior160request ceiling. Retain this record; no live release before updated reviewed gate passes."
+}
