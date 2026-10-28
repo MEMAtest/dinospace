@@ -50,6 +50,7 @@ test('seeded runs freeze six distinct questions and independently shuffle valid 
       assert.equal(round.options.filter((option) => option === round.answer).length, 1);
       if (round.kind === 'repeat') assert.equal(round.sequence.length >= round.cycle.length * 2, true);
       else assert.equal(round.sequence.length, 3);
+      if (round.kind === 'repeat') assert.equal(round.options.some((option) => option !== round.answer && round.cycle.includes(option)), true, 'choices test order rather than merely spotting a familiar shape');
     }
   }
   for (const seed of ['finale-one', 'finale-two', 'finale-three', 'finale-four']) {
@@ -66,6 +67,27 @@ test('seeded runs freeze six distinct questions and independently shuffle valid 
   assert.equal(normalizePatternSeed('123'), 123);
   assert.equal(seededPatternRunSeed(() => 0.5), 0x80000000);
   assert.equal(Number.isSafeInteger(seededPatternRunSeed()) && seededPatternRunSeed() <= 0xffffffff, true);
+});
+
+test('every normal run covers its advertised chapter skills, including after recent runs', () => {
+  for (const chapter of PATTERN_CHAPTERS) for (let seed = 1; seed <= 120; seed++) {
+    const previous = createPatternRun(chapter.id, seed);
+    const run = createPatternRun(chapter.id, seed + 200, previous.rounds.map(({ id }) => id));
+    const rounds = run.rounds;
+    if (chapter.id === 'colour-courtyard') {
+      assert.ok(rounds.some((round) => round.kind === 'growing'));
+      assert.ok(rounds.some((round) => round.cycle?.length === 2));
+    } else {
+      assert.ok(rounds.some((round) => round.cycle?.length === 3 && round.cycle[0] === round.cycle[1]));
+      assert.ok(rounds.some((round) => round.cycle?.length === 3 && round.cycle[1] === round.cycle[2]));
+      if (chapter.id === 'festival-friends') assert.ok(rounds.some((round) => round.cycle?.length === 3 && new Set(round.cycle).size === 3));
+      else {
+        assert.ok(rounds.some((round) => round.kind === 'growing'));
+        assert.ok(rounds.some((round) => round.cycle?.length === 4));
+      }
+    }
+    assert.equal(new Set([...previous.rounds, ...rounds].map(({ id }) => id)).size, 8, 'two runs cover the whole authored pool');
+  }
 });
 
 test('run selection avoids recent missions when six fresh missions remain', () => {
@@ -145,4 +167,9 @@ test('finite-pool repeats do not repeat the immediately preceding mission at a r
     const next = createPatternRun(chapter.id, seed + 100, recent);
     assert.notEqual(next.rounds[0].id, recent.at(-1));
   }
+});
+
+test('invalid run sizes never produce an empty or partial-count run', () => {
+  for (const length of [NaN, Infinity, -Infinity, 0, -1, 1.5, '6', null, 9]) assert.equal(createPatternRun('colour-courtyard', 1, [], length), null);
+  for (const length of [1, 2, 6, 8]) assert.equal(createPatternRun('colour-courtyard', 1, [], length).rounds.length, length);
 });

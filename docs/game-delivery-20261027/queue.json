@@ -19,7 +19,7 @@
           "name": "Pattern Parade"
         }
       ],
-      "status": "awaiting_audio_approval",
+      "status": "compiled_acceptance_in_progress",
       "evidence": "docs/qa-evidence/odd-pattern-20261027/README.md",
       "reviewFindings": [
         "Pattern last answer skipped its held explanation",
@@ -27,7 +27,13 @@
         "Finite new narration inventory pending packaged recording approval"
       ],
       "sourceGates": "docs/qa-evidence/odd-pattern-20261027/source-gates.json",
-      "openGate": "104 fixed narration requests need separate human approval; no requests sent. Candidate/public playback and final acceptance follow."
+      "openGate": "103required clips complete after104cappedrequests/onefailurewithoutretry.411tests pass. Finishing compiled Chromium matrix before deployment and public acceptance.",
+      "audioApproval": {
+        "date": "2026-10-28",
+        "requests": 104,
+        "characters": 6591,
+        "automaticRetries": 0
+      }
     },
     {
       "number": 2,

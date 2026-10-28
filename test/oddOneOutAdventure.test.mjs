@@ -47,8 +47,8 @@ test('every round has four unique choices, an explicit property, a valid odd ite
     assert.equal(new Set(round.choices.map(({ text }) => text)).size, 3, round.id);
     assert.ok(round.prompt.includes(round.property), round.id);
   }
-  assert.equal(ODD_ONE_OUT_NARRATION.length, 54);
-  assert.equal(new Set(ODD_ONE_OUT_NARRATION.map(({ text }) => text)).size, 54, 'the finite narration inventory is deduplicated by exact text');
+  assert.equal(ODD_ONE_OUT_NARRATION.length, 53);
+  assert.equal(new Set(ODD_ONE_OUT_NARRATION.map(({ text }) => text)).size, 53, 'the finite narration inventory is deduplicated by exact text');
 });
 
 test('rule examples have the declared exception and all four option records stay together', () => {
@@ -57,6 +57,7 @@ test('rule examples have the declared exception and all four option records stay
   assert.equal(byId['visual-colour'].items.find(({ id }) => id === byId['visual-colour'].oddItemId).color, 'red');
   assert.equal(byId['rule-dots'].items.find(({ id }) => id === byId['rule-dots'].oddItemId).count, 3);
   assert.equal(byId['rule-letters'].items.find(({ id }) => id === byId['rule-letters'].oddItemId).text, 'CAT');
+  assert.equal(byId['visual-sides'].explanation, byId['rule-shapes'].explanation, 'the same accurate triangle recording supports both classification scenes');
   assert.equal(byId['rule-even'].items.find(({ id }) => id === byId['rule-even'].oddItemId).value, 5);
 });
 

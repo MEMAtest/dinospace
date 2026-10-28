@@ -4,12 +4,12 @@ import { readOddOneOutProgress } from '../../data/oddOneOutProgress.js';
 import { PATTERN_CHAPTERS } from '../../data/patternAdventure.js';
 import { readPatternProgress } from '../../data/patternAdventureProgress.js';
 
-export default function ReasoningCollections({ playerId }) {
+export default function ReasoningCollections({ playerId, littleMode = false }) {
   const collections = [
     { id: 'classification', title: 'Sorting discoveries', chapters: ODD_ONE_OUT_CHAPTERS, earned: readOddOneOutProgress(playerId).completedChapterIds },
     { id: 'patterns', title: 'Pattern festival badges', chapters: PATTERN_CHAPTERS, earned: readPatternProgress(playerId).completedChapterIds },
   ];
-  return <div className="grid w-full max-w-4xl gap-3 sm:grid-cols-2">{collections.map(({ id, title, chapters, earned = [] }) => <section key={id} aria-label={title} className="min-w-0 rounded-3xl border-2 border-indigo-100 bg-white/95 p-4 shadow-sm">
+  return <div className={`grid w-full max-w-4xl gap-3 ${littleMode ? '' : 'sm:grid-cols-2'}`}>{collections.filter(({ id }) => !littleMode || id === 'patterns').map(({ id, title, chapters, earned = [] }) => <section key={id} aria-label={title} className="min-w-0 rounded-3xl border-2 border-indigo-100 bg-white/95 p-4 shadow-sm">
     <header className="mb-3 flex flex-wrap items-center justify-between gap-2"><h2 className="font-black text-slate-900">{title}</h2><span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-bold text-indigo-900">{chapters.filter(c => earned.includes(c.id)).length} / {chapters.length} collected</span></header>
     <ul className="grid gap-2">{chapters.map((chapter) => {
       const collected = earned.includes(chapter.id);

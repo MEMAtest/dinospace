@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-28",
+  "reviewers": [
+    "luna_odd_final_review_20261028",
+    "luna_pattern_final_review_20261028"
+  ],
+  "mode": "read-only source review; root owns browser and release",
+  "findingsAndRepairs": [
+    {
+      "finding": "Chapter run could omit advertised pattern form",
+      "repair": "Required forms per chapter with fresh-first selection;360seed/recent-run cases cover skills and eight-mission pool over two runs"
+    },
+    {
+      "finding": "Unordered shape-set cards called a pattern",
+      "repair": "Added separate ordered circle-square reference; choose exception remains classification"
+    },
+    {
+      "finding": "Malformed run length produced empty/fractional run",
+      "repair": "Require finite positive integer not exceeding pool"
+    },
+    {
+      "finding": "Correct answer unmounted focused option",
+      "repair": "Focus new explicit Next button in both games; browser harness asserts actual focus"
+    },
+    {
+      "finding": "Pattern choices only offered one member of sequence",
+      "repair": "Include wrong-order members so sequence order matters"
+    },
+    {
+      "finding": "Younger chapter badges not visible in sticker album",
+      "repair": "Read-only per-child pattern shelf and picture chapter picker"
+    }
+  ],
+  "limits": "Provider audio is decoded and replayed separately; reviewers did not claim listening or production acceptance."
+}

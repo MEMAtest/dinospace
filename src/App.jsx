@@ -328,7 +328,7 @@ const PlayerSession = ({
       />
     );
   } else if (route.name === 'stickers' && little) {
-    content = <LittleStickerAlbum points={points} earnedStickerIds={earnedStickerIds} onBack={() => back()} playSfx={playSfx} />;
+    content = <LittleStickerAlbum playerId={player.id} points={points} earnedStickerIds={earnedStickerIds} onBack={() => back()} playSfx={playSfx} />;
   } else if (route.name === 'stickers') {
     content = (
       <div className={`flex min-h-[100dvh] w-full flex-col items-center gap-2 bg-gradient-to-b p-3 sm:p-6 ${little ? 'from-amber-200 to-sky-200' : 'from-amber-100 via-white to-sky-100'}`}>

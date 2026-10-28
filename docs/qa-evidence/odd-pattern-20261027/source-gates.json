@@ -1,7 +1,7 @@
 {
-  "at": "2026-10-27T23:03:58.501581+00:00",
+  "at": "2026-10-28T17:15:10.160410+00:00",
   "tests": {
-    "passed": 408,
+    "passed": 411,
     "failed": 0,
     "skipped": 0
   },
@@ -43,15 +43,17 @@
     }
   ],
   "audio": {
-    "status": "awaiting separate human provider approval",
-    "fixedRequests": 104,
-    "characters": 6591,
-    "requestsMade": 0,
-    "maxAutomaticRetries": 0
+    "status": "103required distinct clips packaged, completely decoded and hashed",
+    "approvedCap": 104,
+    "requestsMade": 104,
+    "successful": 103,
+    "failedWithoutRetry": 1,
+    "maxAutomaticRetries": 0,
+    "bytes": 6968417
   },
   "production": {
     "changed": false,
     "runtime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4"
   },
-  "acceptance": "not accepted: packaged audio and candidate/public rehearsal are mandatory open gates"
+  "acceptance": "Compiled browser matrix in progress; public release not yet changed. No editorial score or human-listening claim."
 }

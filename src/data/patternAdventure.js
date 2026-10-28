@@ -23,7 +23,7 @@ const repeatMission = (id, chapterId, cycle, rule, clue, turns = 2) => {
   const repeated = repeat(cycle, turns);
   // Preserve two whole examples, then vary how far the next cycle has begun.
   // That makes the missing answer land at different positions within its rule.
-  const offset = Array.from(id).reduce((sum, char) => sum + char.charCodeAt(0), 0) % cycle.length;
+  const offset = id === 'plum-plum-sun' ? 2 : Array.from(id).reduce((sum, char) => sum + char.charCodeAt(0), 0) % cycle.length;
   const sequence = [...repeated, ...cycle.slice(0, offset)];
   return {
     id, chapterId, kind: 'repeat', cycle, sequence, answer: cycle[sequence.length % cycle.length], rule, clue,
@@ -105,8 +105,9 @@ function optionsFor(mission, random) {
   if (mission.kind === 'growing') answers = [mission.answer, mission.answer - 1, mission.answer + 1];
   else {
     const used = new Set(mission.cycle);
-    const otherTokens = Object.keys(PATTERN_SHAPES).filter((id) => !used.has(id));
-    answers = [mission.answer, ...shuffled(otherTokens, random).slice(0, 2)];
+    const wrongOrder = shuffled([...used].filter((id) => id !== mission.answer), random);
+    const otherTokens = shuffled(Object.keys(PATTERN_SHAPES).filter((id) => !used.has(id)), random);
+    answers = [mission.answer, ...[...wrongOrder, ...otherTokens].slice(0, 2)];
   }
   return shuffled(answers, random);
 }
@@ -115,7 +116,7 @@ function optionsFor(mission, random) {
 export function createPatternRun(chapterId, seed, recentMissionIds = [], length = 6) {
   const chapter = PATTERN_CHAPTERS.find((item) => item.id === chapterId);
   const pool = PATTERN_MISSIONS.filter((item) => item.chapterId === chapterId);
-  if (!chapter || pool.length < length || length < 1) return null;
+  if (!chapter || !Number.isInteger(length) || pool.length < length || length < 1) return null;
   const numericSeed = normalizePatternSeed(seed);
   const random = makeRandom(numericSeed);
   const recent = new Set(recentMissionIds);
@@ -127,15 +128,16 @@ export function createPatternRun(chapterId, seed, recentMissionIds = [], length 
     return item;
   };
   const selected = [];
-  if (chapterId === 'grand-finale') {
-    const repeats = pool.filter((item) => item.kind === 'repeat');
-    const hasFirstPair = (item, relation) => item.cycle.length === 3 && (relation === 'AAB' ? item.cycle[0] === item.cycle[1] && item.cycle[1] !== item.cycle[2] : item.cycle[0] !== item.cycle[1] && item.cycle[1] === item.cycle[2]);
-    for (const relation of ['AAB', 'ABB']) {
-      const choices = repeats.filter((item) => hasFirstPair(item, relation));
-      selected.push(choose(choices.filter((item) => fresh.includes(item))) || choose(choices));
-    }
-    const growing = pool.filter((item) => item.kind === 'growing');
-    selected.push(choose(growing.filter((item) => fresh.includes(item))) || choose(growing));
+  const form = (item) => item.kind === 'growing' ? 'growing'
+    : item.cycle.length === 2 ? 'AB'
+      : item.cycle.length === 4 ? 'ABCD'
+        : item.cycle[0] === item.cycle[1] ? 'AAB'
+          : item.cycle[1] === item.cycle[2] ? 'ABB' : 'ABC';
+  const requiredForms = chapterId === 'colour-courtyard' ? ['AB', 'growing']
+    : chapterId === 'festival-friends' ? ['AAB', 'ABB', 'ABC'] : ['AAB', 'ABB', 'growing', 'ABCD'];
+  for (const required of requiredForms.slice(0, length)) {
+    const choices = pool.filter((item) => form(item) === required);
+    selected.push(choose(choices.filter((item) => fresh.includes(item))) || choose(choices));
   }
   const remainingFresh = shuffled(fresh.filter((item) => !used.has(item.id)), random);
   const remainingPool = shuffled(pool.filter((item) => !used.has(item.id) && !fresh.includes(item)), random);

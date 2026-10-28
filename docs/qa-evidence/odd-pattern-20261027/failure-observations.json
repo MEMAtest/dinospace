@@ -17,5 +17,17 @@
       "id": "ambiguous-reasons",
       "detail": "Equivalent true reasons such as round/no-corners were incorrectly false; replaced with specifically false claims."
     }
+  ],
+  "verificationObservations": [
+    {
+      "date": "2026-10-28",
+      "issue": "Compiled PWA media-list check ran while the approved generator was still adding source files",
+      "resolution": "Waited for finished ledger, rebuilt in place, reran complete suite:411passed/0failed/0skipped. No product defect or waived test."
+    },
+    {
+      "date": "2026-10-28",
+      "issue": "Existing browser init probe from27October had no pause-event field, causing a cancellation assertion timeout",
+      "resolution": "Versioned read-only audio instrumentationV2. Actual hook pauses playback; new18-round compiled phone rehearsal passed with started/advanced/ended and mute/Next cancellation evidence."
+    }
   ]
 }

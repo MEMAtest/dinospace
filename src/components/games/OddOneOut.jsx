@@ -100,6 +100,7 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
   const [resultMessage, setResultMessage] = useState('');
   const runSerial = useRef(0);
   const runSeed = useRef(0);
+  const advanceRef = useRef(null);
   const chapter = ODD_ONE_OUT_CHAPTERS.find((entry) => entry.id === chapterId) || ODD_ONE_OUT_CHAPTERS[0];
   const round = run[roundIndex];
   const hasRuleAudio = Boolean(round && getOfflineVoiceClip(round.prompt));
@@ -111,6 +112,7 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
   useEffect(() => { onPhaseChange?.(phase); }, [phase, onPhaseChange]);
   useEffect(() => () => cancelNarration?.(), [cancelNarration]);
   useEffect(() => { if (!soundOn) cancelNarration?.(); }, [soundOn, cancelNarration]);
+  useEffect(() => { if (answerSaved) advanceRef.current?.focus(); }, [answerSaved]);
   useEffect(() => {
     if (phase !== 'play' || !round || !soundOn || !getOfflineVoiceClip(round.prompt)) return;
     cancelNarration?.();
@@ -264,6 +266,10 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
           </div>
           {!soundOn && <p className="mt-2 text-sm font-semibold text-[#718084]">Sound is off. Read the rule and clue on screen.</p>}
           {clueVisible && <p className="mt-3 rounded-2xl border border-[#e9d699] bg-[#fff9e8] p-3 font-bold text-[#6c5b31]" role="note"><Lightbulb className="mr-2 inline" size={18}/>{round.clue}</p>}
+          {round.id === 'rule-pattern' && <div className="mt-3 rounded-2xl border border-[#dce6df] bg-[#f8faf6] p-3" aria-label="Reference pattern: circle, square, circle, square">
+            <p className="text-sm font-bold">Our repeating pattern</p>
+            <div className="mx-auto flex max-w-sm items-center" aria-hidden="true">{['circle', 'square', 'circle', 'square'].map((art, index) => <span className="min-w-0 flex-1" key={index}><PictureArt entry={{ art }} /></span>)}</div>
+          </div>}
           <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
             {round.options.map((entry, index) => {
               const selected = selectedId === entry.id;
@@ -290,7 +296,7 @@ export default function OddOneOut({ onBack, playSfx, soundOn, onToggleSound, spe
             <p className="mt-2 text-sm font-extrabold text-[#607978]">{roundHadSaveError ? 'Saved after a retry.' : clueUsed ? 'Clue used · this round is saved as assisted practice.' : hadMistake ? 'You tried again · this round is saved.' : 'Independent answer · this round is saved.'}</p>
             <button type="button" onClick={() => speakLine(round.explanation)} disabled={!soundOn || !hasExplanationAudio} title={!soundOn ? 'Sound is off.' : !hasExplanationAudio ? 'No packaged recording is available for this explanation yet.' : undefined} className={`${buttonBase} mt-3 border-2 border-[#dce6df] bg-white text-[#49666b]`}><Volume2 size={19}/>Hear explanation again</button>
             {!hasExplanationAudio && <p className="mt-2 text-sm font-semibold text-[#718084]">No recorded explanation is available; read the explanation above.</p>}
-            <button type="button" onClick={nextRound} className={`${buttonBase} mt-4 bg-[#337d72] text-white sm:px-7`}>{roundIndex === run.length - 1 ? 'See chapter results' : 'Next round'}<ArrowRight size={20}/></button>
+            <button ref={advanceRef} type="button" onClick={nextRound} className={`${buttonBase} mt-4 bg-[#337d72] text-white sm:px-7`}>{roundIndex === run.length - 1 ? 'See chapter results' : 'Next round'}<ArrowRight size={20}/></button>
           </div>}
         </div>
       </section>}

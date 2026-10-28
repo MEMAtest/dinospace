@@ -23,7 +23,7 @@ export const ODD_ONE_OUT_CHAPTERS = Object.freeze([
 ]);
 
 const item = (id, label, art, detail = {}) => Object.freeze({ id, label, art, ...detail });
-const round = (id, chapterId, title, property, items, oddItemId, because, fact, clue, alternativeReasons) => {
+const round = (id, chapterId, title, property, items, oddItemId, because, fact, clue, alternativeReasons, recordedExplanation = null) => {
   if (!Array.isArray(alternativeReasons) || alternativeReasons.length !== 2) throw new Error(`Round ${id} needs two specific alternative reasons.`);
   const choices = Object.freeze([
     Object.freeze({ id: 'because-correct', text: `Because ${because}`, correct: true }),
@@ -33,7 +33,7 @@ const round = (id, chapterId, title, property, items, oddItemId, because, fact, 
     id, chapterId, title, property, items: Object.freeze(items), oddItemId,
     because, choices, fact, clue,
     prompt: property,
-    explanation: `${because} ${fact}`,
+    explanation: recordedExplanation || `${because} ${fact}`,
   });
 };
 
@@ -47,7 +47,7 @@ export const ODD_ONE_OUT_ROUNDS = Object.freeze([
   round('semantic-habitat', 'things-and-places', 'Animal homes', 'Three animals live in the sea. Which animal does not fit?', [item('dolphin', 'Dolphin', 'dolphin'), item('octopus', 'Octopus', 'octopus'), item('turtle', 'Sea turtle', 'turtle'), item('rabbit', 'Rabbit', 'rabbit')], 'rabbit', 'a rabbit lives on land, not in the sea.', 'Dolphins, octopuses, and sea turtles live in the ocean; rabbits live on land.', 'Which animal needs a burrow rather than the ocean?', ['it breathes underwater.', 'it has fins.']),
 
   // Chapter 2: visual classification. Each prompt names the visible feature.
-  round('visual-sides', 'look-and-notice', 'Count the sides', 'Three shapes have four straight sides. Which shape has only three?', [item('square', 'Square', 'square'), item('rectangle', 'Rectangle', 'rectangle'), item('rhombus', 'Rhombus', 'rhombus'), item('triangle', 'Triangle', 'triangle')], 'triangle', 'a triangle has three straight sides.', 'A square, rectangle, and rhombus each have four straight sides; a triangle has three.', 'Count the straight sides, one at a time.', ['it has four straight sides.', 'it has a curved edge.']),
+  round('visual-sides', 'look-and-notice', 'Count the sides', 'Three shapes have four straight sides. Which shape has only three?', [item('square', 'Square', 'square'), item('rectangle', 'Rectangle', 'rectangle'), item('rhombus', 'Rhombus', 'rhombus'), item('triangle', 'Triangle', 'triangle')], 'triangle', 'a triangle has three straight sides.', 'A square, rectangle, and rhombus each have four straight sides; a triangle has three.', 'Count the straight sides, one at a time.', ['it has four straight sides.', 'it has a curved edge.'], 'a triangle has exactly three corners. A triangle has three sides and three corners. The other shapes have more.'),
   round('visual-colour', 'look-and-notice', 'Colour clues', 'Three pictures are blue. Which picture is a different colour?', [item('bluebird', 'Blue bird', 'bird', { color: 'blue' }), item('bluefish', 'Blue fish', 'fish', { color: 'blue' }), item('bluekite', 'Blue kite', 'kite', { color: 'blue' }), item('redball', 'Red ball', 'ball', { color: 'red' })], 'redball', 'the ball is red; the other three pictures are blue.', 'A colour can be shared by different things: a bird, fish, and kite can all be blue.', 'Check the colour, not what the object is.', ['it is blue like the other three.', 'it is a fish.']),
   round('visual-parts', 'look-and-notice', 'Wheels or no wheels', 'Three pictures have wheels. Which picture has none?', [item('bicycle', 'Bicycle', 'bicycle'), item('car', 'Car', 'car'), item('pushchair', 'Pushchair', 'pushchair'), item('kite', 'Kite', 'kite')], 'kite', 'a kite has no wheels.', 'A bicycle, car, and pushchair roll on wheels; a kite flies on a string.', 'Look underneath each thing for round wheels.', ['it has wheels.', 'it rolls along the ground.']),
   round('visual-markings', 'look-and-notice', 'Spot the stripes', 'Three animals have stripes. Which animal has spots instead?', [item('tiger', 'Tiger', 'tiger'), item('zebra', 'Zebra', 'zebra'), item('bumblebee', 'Bumblebee', 'bee'), item('ladybird', 'Ladybird', 'ladybird')], 'ladybird', 'a ladybird has spots, not stripes.', 'Tigers, zebras, and many bees have stripes; a ladybird has round spots.', 'Look for spots instead of long bands.', ['it has stripes.', 'its back has long bands.']),

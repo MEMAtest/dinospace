@@ -1,0 +1,733 @@
+{
+  "at": "2026-10-28T17:10:34.680Z",
+  "decoded": 103,
+  "invalid": 0,
+  "requests": 104,
+  "failedWithoutRetry": 1,
+  "automaticRetries": 0,
+  "totalBytes": 6968417,
+  "scope": "Exact text manifest, complete decoding and positive duration; browser playback is verified separately. No claim of human listening review.",
+  "clips": [
+    {
+      "key": "1611511e",
+      "path": "/audio/en/1611511e-matilda.mp3",
+      "bytes": 47690,
+      "durationSeconds": 2.925714,
+      "sha256": "20430ab9791a73fc58e71b38287f7fc392fccc9fd62653eaf8d0aeeba558ef1e"
+    },
+    {
+      "key": "6ba78202",
+      "path": "/audio/en/6ba78202-matilda.mp3",
+      "bytes": 41003,
+      "durationSeconds": 2.507755,
+      "sha256": "b02779b9c619d04910ba529ccf76709328607aa56bbd2aed7551c528ccff0ed8"
+    },
+    {
+      "key": "d08f46dd",
+      "path": "/audio/en/d08f46dd-matilda.mp3",
+      "bytes": 130446,
+      "durationSeconds": 8.080544,
+      "sha256": "124693e486cfeb00d8ee13d7bbaec674a0e8f46420a04f018bfc0dcfbacfbafd"
+    },
+    {
+      "key": "029e666a",
+      "path": "/audio/en/029e666a-matilda.mp3",
+      "bytes": 69424,
+      "durationSeconds": 4.272472,
+      "sha256": "c0b49569614bd33b9e91f74d93b1051a2015a0710fbe9578ff24409d51c8fc31"
+    },
+    {
+      "key": "cb375f47",
+      "path": "/audio/en/cb375f47-matilda.mp3",
+      "bytes": 32225,
+      "durationSeconds": 1.950476,
+      "sha256": "b587a649dde8e2cfac7b409a575f319649c627286ca7efafe65c6c1c05a90494"
+    },
+    {
+      "key": "edd506a8",
+      "path": "/audio/en/edd506a8-matilda.mp3",
+      "bytes": 125848,
+      "durationSeconds": 7.801905,
+      "sha256": "6ccd9a1aaf5d47f2c26cd13dc37bf17e2b375210c91ce288de30621873d005f0"
+    },
+    {
+      "key": "2cfa5017",
+      "path": "/audio/en/2cfa5017-matilda.mp3",
+      "bytes": 58975,
+      "durationSeconds": 3.622313,
+      "sha256": "abd68bd581c8bfb477349c609582c7158bd20a48ef0d40d109ad3644b208d2d4"
+    },
+    {
+      "key": "fbcbf3a1",
+      "path": "/audio/en/fbcbf3a1-matilda.mp3",
+      "bytes": 33897,
+      "durationSeconds": 2.043356,
+      "sha256": "7fdeb4be98770206b52d8564329d0b119786f61885cef783d8887fd787a6a227"
+    },
+    {
+      "key": "a99db91a",
+      "path": "/audio/en/a99db91a-matilda.mp3",
+      "bytes": 134207,
+      "durationSeconds": 8.312744,
+      "sha256": "554f8ec270eb5be1d4b1b348d4b1de57e130ff2a24915e7d3cb8a1f4b24ee879"
+    },
+    {
+      "key": "0f8ee25b",
+      "path": "/audio/en/0f8ee25b-matilda.mp3",
+      "bytes": 67334,
+      "durationSeconds": 4.133152,
+      "sha256": "436c947a35d2d70d5f0b2004c29403f17329562813b3d3c715e49be3ba7d617c"
+    },
+    {
+      "key": "adabd952",
+      "path": "/audio/en/adabd952-matilda.mp3",
+      "bytes": 32225,
+      "durationSeconds": 1.950476,
+      "sha256": "204ed2569be62a957e23af6558c5bfd89ef1cfc14d8f782992f9d093642d1967"
+    },
+    {
+      "key": "c7792931",
+      "path": "/audio/en/c7792931-matilda.mp3",
+      "bytes": 125012,
+      "durationSeconds": 7.755465,
+      "sha256": "669b6bac697bb46e56d3850c6a81d6203f601a7ff90c9789ed17d3b2f351c3c5"
+    },
+    {
+      "key": "a180cdf6",
+      "path": "/audio/en/a180cdf6-matilda.mp3",
+      "bytes": 71514,
+      "durationSeconds": 4.411791,
+      "sha256": "364b7453dcdfe1b6b4d6aa78a0f8905270649f22abb09dc3f3702bedce5a4f6a"
+    },
+    {
+      "key": "312d15f2",
+      "path": "/audio/en/312d15f2-matilda.mp3",
+      "bytes": 42674,
+      "durationSeconds": 2.600635,
+      "sha256": "0c2fbc0ae1cbb316fd2e80e652e4cc31c4c502baecce691ef0adf28a153ce2b3"
+    },
+    {
+      "key": "c2e3f599",
+      "path": "/audio/en/c2e3f599-matilda.mp3",
+      "bytes": 141313,
+      "durationSeconds": 8.777143,
+      "sha256": "1fecb89e7020979521c2cb45e8e37f4e80c352ccc2b65a4ffe4a5a540320f90c"
+    },
+    {
+      "key": "c0ec7201",
+      "path": "/audio/en/c0ec7201-matilda.mp3",
+      "bytes": 66498,
+      "durationSeconds": 4.086712,
+      "sha256": "5b3dcab4797cd1c5b5008adc203acc325914fc355b46a3a3cf6e322f36fb8b82"
+    },
+    {
+      "key": "8a831f21",
+      "path": "/audio/en/8a831f21-matilda.mp3",
+      "bytes": 41003,
+      "durationSeconds": 2.507755,
+      "sha256": "be1fa1bb0841f3c764695ea96d0023cb9611eb1db82ab8e86fc9c4dc52d8bc51"
+    },
+    {
+      "key": "3d9a872d",
+      "path": "/audio/en/3d9a872d-matilda.mp3",
+      "bytes": 145074,
+      "durationSeconds": 9.009342,
+      "sha256": "1087f4260a63f5af30d45ee77b11f48be040c4a87ab00764def60396fbaf667a"
+    },
+    {
+      "key": "ab6ddd63",
+      "path": "/audio/en/ab6ddd63-matilda.mp3",
+      "bytes": 63572,
+      "durationSeconds": 3.900952,
+      "sha256": "2646351b5f660e9ee9763a789bcf378a8a8725cbe8851b789a6ecbcf5778aeb8"
+    },
+    {
+      "key": "4fcb8719",
+      "path": "/audio/en/4fcb8719-matilda.mp3",
+      "bytes": 37659,
+      "durationSeconds": 2.275556,
+      "sha256": "fe2b1a0f1460f0357a6f41e1609c4904bb3a8a1fb6f1ba4fd7cc30169eee4438"
+    },
+    {
+      "key": "9f07bedb",
+      "path": "/audio/en/9f07bedb-matilda.mp3",
+      "bytes": 57721,
+      "durationSeconds": 3.529433,
+      "sha256": "1a3a590d5aabdf801d4fc1636ddc5b273319aa817a7a2efef57d551c8ec23f6d"
+    },
+    {
+      "key": "98f9f87c",
+      "path": "/audio/en/98f9f87c-matilda.mp3",
+      "bytes": 38913,
+      "durationSeconds": 2.368435,
+      "sha256": "5e8cab414a9889a0329415cac5c8e327edddda0206e268b41f8a90b41f9f683a"
+    },
+    {
+      "key": "d8e1dd82",
+      "path": "/audio/en/d8e1dd82-matilda.mp3",
+      "bytes": 144656,
+      "durationSeconds": 8.962902,
+      "sha256": "c0a55a6232026c716cfa04149fa949011c1ebe8fb56ef9ab8a1c322a28f7eaba"
+    },
+    {
+      "key": "0bb336e1",
+      "path": "/audio/en/0bb336e1-matilda.mp3",
+      "bytes": 52287,
+      "durationSeconds": 3.204354,
+      "sha256": "f3873c8fe7a695bef05ef00e3d040bea5b0787276e6520cefce721af72ce8575"
+    },
+    {
+      "key": "741b6999",
+      "path": "/audio/en/741b6999-matilda.mp3",
+      "bytes": 38913,
+      "durationSeconds": 2.368435,
+      "sha256": "41e767f67fc2321da1b7d80b5657c91a5c3ba483dae2dd8678f1c2db10173b16"
+    },
+    {
+      "key": "05b4fc7c",
+      "path": "/audio/en/05b4fc7c-matilda.mp3",
+      "bytes": 107458,
+      "durationSeconds": 6.640907,
+      "sha256": "a6e192463af13144bb19eda056a3070cbd19fefcb07c69c5b22522221f34ad8b"
+    },
+    {
+      "key": "54ada25a",
+      "path": "/audio/en/54ada25a-matilda.mp3",
+      "bytes": 61901,
+      "durationSeconds": 3.808073,
+      "sha256": "db7803da8baff3389e819cd9cfa2b794e5267cf2ba584909a676b0a05e11092d"
+    },
+    {
+      "key": "7ea667f8",
+      "path": "/audio/en/7ea667f8-matilda.mp3",
+      "bytes": 36823,
+      "durationSeconds": 2.229116,
+      "sha256": "476532660f6a98a5b4ef1ef1d1882c6b1bbb1489f7a9548ea3686a9786a1c5d5"
+    },
+    {
+      "key": "784c3ec4",
+      "path": "/audio/en/784c3ec4-matilda.mp3",
+      "bytes": 137969,
+      "durationSeconds": 8.544943,
+      "sha256": "c6dc3260cac03f4f6002f259e02b8dd9041cccc1f7e5dfea170f0e36686feb20"
+    },
+    {
+      "key": "2d5f8db2",
+      "path": "/audio/en/2d5f8db2-matilda.mp3",
+      "bytes": 78201,
+      "durationSeconds": 4.829751,
+      "sha256": "95507294952d3caf50979d8e3c69bacc4bbd90658164c1d8476ae84e7c6af059"
+    },
+    {
+      "key": "7771996d",
+      "path": "/audio/en/7771996d-matilda.mp3",
+      "bytes": 38913,
+      "durationSeconds": 2.368435,
+      "sha256": "dacb2d02e9cfce8df92247514a068465e75810cb86de0d1501eb49fa26832e4d"
+    },
+    {
+      "key": "95406043",
+      "path": "/audio/en/95406043-matilda.mp3",
+      "bytes": 127520,
+      "durationSeconds": 7.894785,
+      "sha256": "56e3158b8cfaf1aab9b1ec13b587a91de46ed89577e08d51f9bb7331461d0ddd"
+    },
+    {
+      "key": "eb2f8e79",
+      "path": "/audio/en/eb2f8e79-matilda.mp3",
+      "bytes": 68588,
+      "durationSeconds": 4.226032,
+      "sha256": "13042c7551fac3f5f754924d935facb1af422a37541b54b393d743cf3fd103e9"
+    },
+    {
+      "key": "4bce8784",
+      "path": "/audio/en/4bce8784-matilda.mp3",
+      "bytes": 34315,
+      "durationSeconds": 2.089796,
+      "sha256": "bf83de508ccda62f3e975cb7a50f43f41b74f7f0c1eb76c49c691a859a59a2e3"
+    },
+    {
+      "key": "f4f8c9f3",
+      "path": "/audio/en/f4f8c9f3-matilda.mp3",
+      "bytes": 137969,
+      "durationSeconds": 8.544943,
+      "sha256": "cba42db92c70d0e4acd39377deb670845ea4170f3ac3e642495809d6deab3ec4"
+    },
+    {
+      "key": "e373801a",
+      "path": "/audio/en/e373801a-matilda.mp3",
+      "bytes": 67752,
+      "durationSeconds": 4.179592,
+      "sha256": "35174a1acfee203c4eb581c6633c1e293c7aaa16d5ed5f07c211acadea9e437f"
+    },
+    {
+      "key": "1dc41e64",
+      "path": "/audio/en/1dc41e64-matilda.mp3",
+      "bytes": 47690,
+      "durationSeconds": 2.925714,
+      "sha256": "4e267b321e963680cce8cbbdf927074a30e56f981b2a2072f60348f43e559723"
+    },
+    {
+      "key": "1220521c",
+      "path": "/audio/en/1220521c-matilda.mp3",
+      "bytes": 140895,
+      "durationSeconds": 8.730703,
+      "sha256": "9876dde1a249fa37da056dd0bcd50987c009d34d1ed4ab4ca2d71020de1926c0"
+    },
+    {
+      "key": "eb8edca4",
+      "path": "/audio/en/eb8edca4-matilda.mp3",
+      "bytes": 64826,
+      "durationSeconds": 3.993832,
+      "sha256": "6f164573118d45d35ce34d566188a651f0af1c8e0f2abd3f526f48cd4f5dac20"
+    },
+    {
+      "key": "23636a1f",
+      "path": "/audio/en/23636a1f-matilda.mp3",
+      "bytes": 36823,
+      "durationSeconds": 2.229116,
+      "sha256": "140e2ede47ed88c5be6261c94379ebcd72f42696920da056b771f06c4eb889bc"
+    },
+    {
+      "key": "023ee4e6",
+      "path": "/audio/en/023ee4e6-matilda.mp3",
+      "bytes": 119161,
+      "durationSeconds": 7.383946,
+      "sha256": "91f591c54afafc7bd63b89e87b2ec46c5ecd9f533774f23104c38a8aaab9aad9"
+    },
+    {
+      "key": "456367bd",
+      "path": "/audio/en/456367bd-matilda.mp3",
+      "bytes": 74021,
+      "durationSeconds": 4.551111,
+      "sha256": "4fb19d76b0bf8b4e46f1c27faaf5ff192efb1a26efb9f67bf4c6a429f9765bef"
+    },
+    {
+      "key": "e0bb5e41",
+      "path": "/audio/en/e0bb5e41-matilda.mp3",
+      "bytes": 28464,
+      "durationSeconds": 1.718277,
+      "sha256": "d94c45234580714b628c99a6a3e1a311cb0ea5e63ab660919af9fd75c2a49a8c"
+    },
+    {
+      "key": "d4e61b03",
+      "path": "/audio/en/d4e61b03-matilda.mp3",
+      "bytes": 134625,
+      "durationSeconds": 8.359184,
+      "sha256": "58de37dadb45cba0714b20a1725afe188ddb91c260e38c9fb960ba143e43b6eb"
+    },
+    {
+      "key": "ab8aeed5",
+      "path": "/audio/en/ab8aeed5-matilda.mp3",
+      "bytes": 84470,
+      "durationSeconds": 5.20127,
+      "sha256": "aad820f20d0006bcb32d32805b9ac76ba09e6ef75d46c9a4934f6f974c5d88fd"
+    },
+    {
+      "key": "f2942bb7",
+      "path": "/audio/en/f2942bb7-matilda.mp3",
+      "bytes": 44764,
+      "durationSeconds": 2.739955,
+      "sha256": "5ec55a851ede8a7bb39829b021ce57f38b8328d7ff23d9f0a0cfca35aacff48f"
+    },
+    {
+      "key": "a74c1376",
+      "path": "/audio/en/a74c1376-matilda.mp3",
+      "bytes": 142985,
+      "durationSeconds": 8.870023,
+      "sha256": "7c81ddf51ada7279b0b7beda41186f5c0fce4be75e48961b45548dc67fd3feb6"
+    },
+    {
+      "key": "0e99bdb7",
+      "path": "/audio/en/0e99bdb7-matilda.mp3",
+      "bytes": 52287,
+      "durationSeconds": 3.204354,
+      "sha256": "51a1426fe2579cb4f8b655567a94297ebbec8ac142528cf20f74730ce718145b"
+    },
+    {
+      "key": "0c71d9ec",
+      "path": "/audio/en/0c71d9ec-matilda.mp3",
+      "bytes": 49362,
+      "durationSeconds": 3.018594,
+      "sha256": "f413c2453d5a8a7d0dc6c42b77eb91247ef915ddbde0a30df07b56d2434959df"
+    },
+    {
+      "key": "0a010b5f",
+      "path": "/audio/en/0a010b5f-matilda.mp3",
+      "bytes": 123758,
+      "durationSeconds": 7.662585,
+      "sha256": "a5b5c758bcc9a9df531623c5e4bf86c8c74c89886493eecf0f78a03fee55d500"
+    },
+    {
+      "key": "7b3a526a",
+      "path": "/audio/en/7b3a526a-matilda.mp3",
+      "bytes": 45600,
+      "durationSeconds": 2.786395,
+      "sha256": "1e0bc9adb9e83533ae90a33d0fe621c0755d9da229804cb8b40393a049b2a1bc"
+    },
+    {
+      "key": "706a6503",
+      "path": "/audio/en/706a6503-matilda.mp3",
+      "bytes": 56049,
+      "durationSeconds": 3.436553,
+      "sha256": "a08fafc980dccafa47dce735f14ffd9606a9505d9e9c1d13dd4a92f8bed89ceb"
+    },
+    {
+      "key": "b16a4c57",
+      "path": "/audio/en/b16a4c57-matilda.mp3",
+      "bytes": 146746,
+      "durationSeconds": 9.102222,
+      "sha256": "e8c7b836f66f8da533842aef267df602bb5a78f1b602c51f32ab78390b2413a6"
+    },
+    {
+      "key": "3dd2f460",
+      "path": "/audio/en/3dd2f460-matilda.mp3",
+      "bytes": 40585,
+      "durationSeconds": 2.461315,
+      "sha256": "d2b3c90a9820189f54ec7cb8c8639e584d6b77d422b8368f62dfc2be3481711f"
+    },
+    {
+      "key": "d38c9b76",
+      "path": "/audio/en/d38c9b76-matilda.mp3",
+      "bytes": 80709,
+      "durationSeconds": 4.96907,
+      "sha256": "93910fd84a6dad3078f001d30c83fda62a8c83a67d03cff95ee644f056b4d08f"
+    },
+    {
+      "key": "142305c4",
+      "path": "/audio/en/142305c4-matilda.mp3",
+      "bytes": 63572,
+      "durationSeconds": 3.900952,
+      "sha256": "144fc5fa20dd0abb6e93ff8d280f335462b5dd1f3aa653542dbf2601530b6892"
+    },
+    {
+      "key": "f14a754d",
+      "path": "/audio/en/f14a754d-matilda.mp3",
+      "bytes": 62736,
+      "durationSeconds": 3.854512,
+      "sha256": "73026ddde15350cd3fcf224c716532fb8efa7d663f0669333a9b6641df7de245"
+    },
+    {
+      "key": "3a1787eb",
+      "path": "/audio/en/3a1787eb-matilda.mp3",
+      "bytes": 71514,
+      "durationSeconds": 4.411791,
+      "sha256": "24ce251b4310b02d826c313b16e9aa339bbf0ab7deed29ac61a9401de770560b"
+    },
+    {
+      "key": "0c595e5d",
+      "path": "/audio/en/0c595e5d-matilda.mp3",
+      "bytes": 39749,
+      "durationSeconds": 2.414875,
+      "sha256": "d8aab8e874956aa7beae54689cfc6692d62a5724b6eb04f7c75f8db15abb9793"
+    },
+    {
+      "key": "45200801",
+      "path": "/audio/en/45200801-matilda.mp3",
+      "bytes": 41838,
+      "durationSeconds": 2.554195,
+      "sha256": "73c161088c4acea126b8eb8ec8b7472dfbf3ed984e715786d1f6128236113a55"
+    },
+    {
+      "key": "bd4846aa",
+      "path": "/audio/en/bd4846aa-matilda.mp3",
+      "bytes": 40585,
+      "durationSeconds": 2.461315,
+      "sha256": "9767e542fed387dbd5bfb2cc0a3eef872fa477375d87242ec5a9cfea0971889e"
+    },
+    {
+      "key": "d9424899",
+      "path": "/audio/en/d9424899-matilda.mp3",
+      "bytes": 86560,
+      "durationSeconds": 5.34059,
+      "sha256": "969c72edfa15396914e3967db8ad0dd5361e0ba3fefded34b0114937f57334ac"
+    },
+    {
+      "key": "419e67b3",
+      "path": "/audio/en/419e67b3-matilda.mp3",
+      "bytes": 58975,
+      "durationSeconds": 3.622313,
+      "sha256": "67d5f8cb9e62fa957e7ac45a3d9f34da8e07c73749ee10b07f5be4e4fd94fbbb"
+    },
+    {
+      "key": "e66480bf",
+      "path": "/audio/en/e66480bf-matilda.mp3",
+      "bytes": 44764,
+      "durationSeconds": 2.739955,
+      "sha256": "2b47d38259e1e96c9670a074e8fc9d407059f5e00f45004cbc2203ecc1c78ee4"
+    },
+    {
+      "key": "e4c1aaf0",
+      "path": "/audio/en/e4c1aaf0-matilda.mp3",
+      "bytes": 40585,
+      "durationSeconds": 2.461315,
+      "sha256": "35ed1ffc72a1b577b16c6b20ba5110be509cd6e53589834d68f4d82b0cb5af81"
+    },
+    {
+      "key": "bad1c0e5",
+      "path": "/audio/en/bad1c0e5-matilda.mp3",
+      "bytes": 47690,
+      "durationSeconds": 2.925714,
+      "sha256": "83af41148f1ce50949c45529d81b50bcc1b4ffaf736b1cc7e5ff02e589461f06"
+    },
+    {
+      "key": "71e978a0",
+      "path": "/audio/en/71e978a0-matilda.mp3",
+      "bytes": 30136,
+      "durationSeconds": 1.811156,
+      "sha256": "35b7c119f8c5a0823705f415b06b56efff42367a50f1b90c773a8190450dc323"
+    },
+    {
+      "key": "c9e11ae9",
+      "path": "/audio/en/c9e11ae9-matilda.mp3",
+      "bytes": 97845,
+      "durationSeconds": 6.037188,
+      "sha256": "910f0e9658fca802e0f948647de752962ef2fac5e5ce66d4333d13a985043c65"
+    },
+    {
+      "key": "1d71f4ca",
+      "path": "/audio/en/1d71f4ca-matilda.mp3",
+      "bytes": 47690,
+      "durationSeconds": 2.925714,
+      "sha256": "b24fb1d79197b47a5c807d29273d352036f38932b2984e50559074d71445fd6d"
+    },
+    {
+      "key": "47a53966",
+      "path": "/audio/en/47a53966-matilda.mp3",
+      "bytes": 85724,
+      "durationSeconds": 5.29415,
+      "sha256": "ddb45c8dc8972cfb9cd8f2ab5ab8d0d286c16db66534d60c23cb78dcb4c90f1d"
+    },
+    {
+      "key": "56fc7c2c",
+      "path": "/audio/en/56fc7c2c-matilda.mp3",
+      "bytes": 43510,
+      "durationSeconds": 2.647075,
+      "sha256": "62af76d8cdb923a06ba91479a6b79ab0ef15e87faf86a5a96b51240d3a06c4f9"
+    },
+    {
+      "key": "c5c7befb",
+      "path": "/audio/en/c5c7befb-matilda.mp3",
+      "bytes": 59811,
+      "durationSeconds": 3.668753,
+      "sha256": "f6c143643240265a2b93aba8eab2e41f8535f091a65dbbab6bed0e666cdfe573"
+    },
+    {
+      "key": "75a763dc",
+      "path": "/audio/en/75a763dc-matilda.mp3",
+      "bytes": 57721,
+      "durationSeconds": 3.529433,
+      "sha256": "42e4bf7fa3cace45f4cf50323b3fa510b10efe29df870f932b637b7cc645c26f"
+    },
+    {
+      "key": "12d08c67",
+      "path": "/audio/en/12d08c67-matilda.mp3",
+      "bytes": 63572,
+      "durationSeconds": 3.900952,
+      "sha256": "f7df5df9a5216b7460d56ec8025cd8dd1893eed4bfa875c98d1a9e6aa2ab5df2"
+    },
+    {
+      "key": "bcbc0c52",
+      "path": "/audio/en/bcbc0c52-matilda.mp3",
+      "bytes": 40585,
+      "durationSeconds": 2.461315,
+      "sha256": "a9dc912f800d8a75af7e86f1aad9a9de8f14196864be21d708f5a1051b7d4779"
+    },
+    {
+      "key": "9bccde63",
+      "path": "/audio/en/9bccde63-matilda.mp3",
+      "bytes": 59811,
+      "durationSeconds": 3.668753,
+      "sha256": "c9783b2b7420988c00ed39acdf82519c56144ecf8f3f8afa44924927d9e81cf7"
+    },
+    {
+      "key": "6f667764",
+      "path": "/audio/en/6f667764-matilda.mp3",
+      "bytes": 38913,
+      "durationSeconds": 2.368435,
+      "sha256": "913b9810ce18ecf6ace7699ebc34d2d056d9675c6f94498b4e0410881530ab51"
+    },
+    {
+      "key": "1c4e0566",
+      "path": "/audio/en/1c4e0566-matilda.mp3",
+      "bytes": 58139,
+      "durationSeconds": 3.575873,
+      "sha256": "d106a6b6cae6c995a3df27d098712495d3401d0e34c738269d80cc940a695d59"
+    },
+    {
+      "key": "b37fb4c0",
+      "path": "/audio/en/b37fb4c0-matilda.mp3",
+      "bytes": 41838,
+      "durationSeconds": 2.554195,
+      "sha256": "50335e9140095e91e0cd4aa63275f6739dcc6552c4bb1b54e7eb8ab1e1cd8b58"
+    },
+    {
+      "key": "0a2e1c4b",
+      "path": "/audio/en/0a2e1c4b-matilda.mp3",
+      "bytes": 103696,
+      "durationSeconds": 6.408707,
+      "sha256": "fb4622e1cf8313257769e87cb74900fba53fd03d7445063f3e813adc5657a2c4"
+    },
+    {
+      "key": "337aee6a",
+      "path": "/audio/en/337aee6a-matilda.mp3",
+      "bytes": 47272,
+      "durationSeconds": 2.879274,
+      "sha256": "441012d82987d1c28944f460a4fc5dab879d18a004f84b4e538aa242ae556a13"
+    },
+    {
+      "key": "bf9e5313",
+      "path": "/audio/en/bf9e5313-matilda.mp3",
+      "bytes": 63572,
+      "durationSeconds": 3.900952,
+      "sha256": "c1eb23ce0653945e0afcc446bb8a5a6f415caec8adacfb2afa82fdb0a5dc36ba"
+    },
+    {
+      "key": "7e9a4651",
+      "path": "/audio/en/7e9a4651-matilda.mp3",
+      "bytes": 64826,
+      "durationSeconds": 3.993832,
+      "sha256": "07ca929b73509c3ebff2ca2864284831d6d8bd2c20713955b66d7da62e8e9ab9"
+    },
+    {
+      "key": "afc8a7da",
+      "path": "/audio/en/afc8a7da-matilda.mp3",
+      "bytes": 59811,
+      "durationSeconds": 3.668753,
+      "sha256": "59078882380687290ad871b924501d8b36b6645d1f9324cb50005dfe4369483d"
+    },
+    {
+      "key": "ab896e76",
+      "path": "/audio/en/ab896e76-matilda.mp3",
+      "bytes": 50198,
+      "durationSeconds": 3.065034,
+      "sha256": "28c68ec82d8ed1320e1f863c735988639745f9f6b9461d8b7c9d3a7fbc8cc92a"
+    },
+    {
+      "key": "19635da2",
+      "path": "/audio/en/19635da2-matilda.mp3",
+      "bytes": 47690,
+      "durationSeconds": 2.925714,
+      "sha256": "f3d8f2e091081f59604098c0717057201ea8040496cf4a58e043b6fb49b08abc"
+    },
+    {
+      "key": "21dbb4c3",
+      "path": "/audio/en/21dbb4c3-matilda.mp3",
+      "bytes": 36823,
+      "durationSeconds": 2.229116,
+      "sha256": "79189c5742fec82bac106d5671ba90776e3df3e880e4d1c9154d5c7adf1c81f9"
+    },
+    {
+      "key": "7fc2dac1",
+      "path": "/audio/en/7fc2dac1-matilda.mp3",
+      "bytes": 77783,
+      "durationSeconds": 4.783311,
+      "sha256": "e0b3363ef074148b5e01daecdbf852bcc9ea818f8bf30deb9a5c4be813032f2f"
+    },
+    {
+      "key": "b0b8d537",
+      "path": "/audio/en/b0b8d537-matilda.mp3",
+      "bytes": 41838,
+      "durationSeconds": 2.554195,
+      "sha256": "71efe26273c2343757ad2f09176c4def7ae18b568338c52bc8f4447ecf5f85c8"
+    },
+    {
+      "key": "9904fffa",
+      "path": "/audio/en/9904fffa-matilda.mp3",
+      "bytes": 46436,
+      "durationSeconds": 2.832834,
+      "sha256": "83c96f19b9ea4555441978a8e832f2eab7448b882620d35ba9ca7f9b4ae2b06a"
+    },
+    {
+      "key": "cd703660",
+      "path": "/audio/en/cd703660-matilda.mp3",
+      "bytes": 44346,
+      "durationSeconds": 2.693515,
+      "sha256": "e973d0e2d45170084b272ff5daf852c633b879684b3fd568c076e714c1913636"
+    },
+    {
+      "key": "cb39f038",
+      "path": "/audio/en/cb39f038-matilda.mp3",
+      "bytes": 54377,
+      "durationSeconds": 3.343673,
+      "sha256": "ab2327e45daa5d1891ad62ac0152ba359b07250551e99f679f12da94f94241b7"
+    },
+    {
+      "key": "dbf0bbbb",
+      "path": "/audio/en/dbf0bbbb-matilda.mp3",
+      "bytes": 44346,
+      "durationSeconds": 2.693515,
+      "sha256": "324e9a66d40dc2f2c72322723c4472cdd9a512eb03cd26a498a095bc1996af97"
+    },
+    {
+      "key": "6c7c3f68",
+      "path": "/audio/en/6c7c3f68-matilda.mp3",
+      "bytes": 57721,
+      "durationSeconds": 3.529433,
+      "sha256": "c59e8e672da42f4fe67eb3d2f3f55758e638bf6443b1981436133db76cfaefb0"
+    },
+    {
+      "key": "1d5b5e36",
+      "path": "/audio/en/1d5b5e36-matilda.mp3",
+      "bytes": 46436,
+      "durationSeconds": 2.832834,
+      "sha256": "f69dd9cddfa85afca8f86fc4987b1822c70eadcbd11ad9de36339adfee817321"
+    },
+    {
+      "key": "c53e4a1a",
+      "path": "/audio/en/c53e4a1a-matilda.mp3",
+      "bytes": 81963,
+      "durationSeconds": 5.06195,
+      "sha256": "b5d5b9e6a8fdee2524033249dfb893c704e63e46dda775578472cc80014b58f4"
+    },
+    {
+      "key": "2b8bf5c4",
+      "path": "/audio/en/2b8bf5c4-matilda.mp3",
+      "bytes": 56049,
+      "durationSeconds": 3.436553,
+      "sha256": "2129c7b2994173b6ce809504e0705d08393983b03750f771fa829710b9122f25"
+    },
+    {
+      "key": "bf793f75",
+      "path": "/audio/en/bf793f75-matilda.mp3",
+      "bytes": 65662,
+      "durationSeconds": 4.040272,
+      "sha256": "fee1b2e8fa5cc9ce315b88d91acb23f89964be065113403e510b0b1478bae86e"
+    },
+    {
+      "key": "ab3570b8",
+      "path": "/audio/en/ab3570b8-matilda.mp3",
+      "bytes": 33897,
+      "durationSeconds": 2.043356,
+      "sha256": "baf006af8db630282e7f036d8495315173b160d2e9ba7cbfaa57ea0a454e8f9b"
+    },
+    {
+      "key": "a5c771e0",
+      "path": "/audio/en/a5c771e0-matilda.mp3",
+      "bytes": 85724,
+      "durationSeconds": 5.29415,
+      "sha256": "8ca402ade0b95f6fc1d53561659526fd9b645c30d43af18d05bc3122823e3fdd"
+    },
+    {
+      "key": "366dfb65",
+      "path": "/audio/en/366dfb65-matilda.mp3",
+      "bytes": 44764,
+      "durationSeconds": 2.739955,
+      "sha256": "8ff2b09b810ebdf6fa99a9a77cba3d112af12aaaab5f63ff27cb3788e8645790"
+    },
+    {
+      "key": "54311102",
+      "path": "/audio/en/54311102-matilda.mp3",
+      "bytes": 79037,
+      "durationSeconds": 4.87619,
+      "sha256": "5e8f6b7fb5a63c171d05b8bd3f4c35db9b7569c7c96dc431566bd2fb24389871"
+    },
+    {
+      "key": "c4875efc",
+      "path": "/audio/en/c4875efc-matilda.mp3",
+      "bytes": 58975,
+      "durationSeconds": 3.622313,
+      "sha256": "b8135960fd08f4e684d5ab0eea4e42285f681ddf285807d89b50a641ccb9aaf7"
+    }
+  ]
+}

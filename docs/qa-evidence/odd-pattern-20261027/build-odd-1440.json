@@ -1,0 +1,173 @@
+{
+  "passed": true,
+  "scope": "Functional and packaged playback",
+  "origin": "http://127.0.0.1:5180",
+  "width": 1440,
+  "kind": "odd",
+  "runtime": {
+    "entry": "/assets/arcade-gYaQ7fwd.js",
+    "activeCache": "amari-discovery-v36"
+  },
+  "rows": [
+    {
+      "chapter": "things-and-places",
+      "id": "semantic-habitat",
+      "run": 0,
+      "round": 0,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "things-and-places",
+      "id": "semantic-fruit",
+      "run": 0,
+      "round": 1,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "things-and-places",
+      "id": "semantic-tools",
+      "run": 0,
+      "round": 2,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "things-and-places",
+      "id": "semantic-vehicles",
+      "run": 0,
+      "round": 3,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "things-and-places",
+      "id": "semantic-clothing",
+      "run": 0,
+      "round": 4,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "things-and-places",
+      "id": "semantic-weather",
+      "run": 0,
+      "round": 5,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "look-and-notice",
+      "id": "visual-sides",
+      "run": 0,
+      "round": 0,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "look-and-notice",
+      "id": "visual-sky",
+      "run": 0,
+      "round": 1,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "look-and-notice",
+      "id": "visual-parts",
+      "run": 0,
+      "round": 2,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "look-and-notice",
+      "id": "visual-colour",
+      "run": 0,
+      "round": 3,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "look-and-notice",
+      "id": "visual-shape",
+      "run": 0,
+      "round": 4,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "look-and-notice",
+      "id": "visual-markings",
+      "run": 0,
+      "round": 5,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "little-rules",
+      "id": "rule-letters",
+      "run": 0,
+      "round": 0,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "little-rules",
+      "id": "rule-shapes",
+      "run": 0,
+      "round": 1,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "little-rules",
+      "id": "rule-size",
+      "run": 0,
+      "round": 2,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "little-rules",
+      "id": "rule-pattern",
+      "run": 0,
+      "round": 3,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "little-rules",
+      "id": "rule-even",
+      "run": 0,
+      "round": 4,
+      "kind": "sorting",
+      "held": true
+    },
+    {
+      "chapter": "little-rules",
+      "id": "rule-dots",
+      "run": 0,
+      "round": 5,
+      "kind": "sorting",
+      "held": true
+    }
+  ],
+  "uniqueMissions": 18,
+  "chapterCount": 3,
+  "initialChapterCount": 3,
+  "rewardBefore": 63,
+  "rewardAfter": 63,
+  "retainedAfterReload": true,
+  "collection": true,
+  "audio": {
+    "required": true,
+    "startedAndAdvanced": 7,
+    "muteAndNextCancellation": true
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "failedAssets": []
+}
