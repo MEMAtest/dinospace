@@ -212,8 +212,8 @@ const LadderRound = ({ animals, targetFloor, byFloorNumber, complete, mistake, s
                 style={{ bottom: `${index * (100 / animals.length) + (100 / animals.length) * 0.1}%`, height: `${(100 / animals.length) * 0.8}%` }}
               >
                 <span className="grid h-full w-8 place-items-center rounded-lg bg-slate-800 text-lg font-black text-white sm:w-10 sm:text-2xl">{floor}</span>
-                <span className={`grid h-full min-h-0 min-w-0 flex-1 place-items-center overflow-hidden rounded-xl border-4 bg-sky-100 text-4xl shadow-inner sm:text-6xl ${glow ? 'animate-cell-pulse border-amber-400 bg-amber-100' : 'border-slate-800'}`}>
-                  <span className={`grid h-full w-full min-h-0 min-w-0 place-items-center p-1 ${gone ? 'opacity-0 transition-opacity' : ''}`}><Animal animal={animal} fixed /></span>
+                <span className={`relative h-full min-h-0 min-w-0 flex-1 overflow-hidden rounded-xl border-4 bg-sky-100 text-4xl shadow-inner sm:text-6xl ${glow ? 'animate-cell-pulse border-amber-400 bg-amber-100' : 'border-slate-800'}`}>
+                  <span className={`absolute inset-1 ${gone ? 'opacity-0 transition-opacity' : ''}`}><Animal animal={animal} fixed /></span>
                 </span>
               </button>
             );
