@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 1,
+  "activePair": 2,
   "pairs": [
     {
       "number": 1,
@@ -19,7 +19,7 @@
           "name": "Pattern Parade"
         }
       ],
-      "status": "compiled_acceptance_in_progress",
+      "status": "live_verified",
       "evidence": "docs/qa-evidence/odd-pattern-20261027/README.md",
       "reviewFindings": [
         "Pattern last answer skipped its held explanation",
@@ -27,13 +27,16 @@
         "Finite new narration inventory pending packaged recording approval"
       ],
       "sourceGates": "docs/qa-evidence/odd-pattern-20261027/source-gates.json",
-      "openGate": "103required clips complete after104cappedrequests/onefailurewithoutretry.411tests pass. Finishing compiled Chromium matrix before deployment and public acceptance.",
+      "openGate": null,
       "audioApproval": {
         "date": "2026-10-28",
         "requests": 104,
         "characters": 6591,
         "automaticRetries": 0
-      }
+      },
+      "runtime": "7846073946f39ec3e9884c20f9bc7a04859053ca",
+      "publicChallenges": 180,
+      "scope": "Functional release criteria passed; no new blanket editorial/listening score."
     },
     {
       "number": 2,
@@ -47,7 +50,7 @@
           "name": "Chess Explorers"
         }
       ],
-      "status": "queued",
+      "status": "audit_in_progress",
       "evidence": null
     },
     {

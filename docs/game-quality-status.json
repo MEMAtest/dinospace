@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-25T16:52:57.302874+00:00",
+  "updatedAt": "2026-10-28T17:21:38.318126+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
+  "canonicalRelease": "7846073946f39ec3e9884c20f9bc7a04859053ca",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1158,5 +1158,18 @@
     "editorialScoresChanged": false,
     "functionalAcceptance": true,
     "monitoring": "Automation amari-shadow-match-production-health deleted at user request; not recreated"
+  },
+  "latestOddPatternUplift": {
+    "runtime": "7846073946f39ec3e9884c20f9bc7a04859053ca",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-d28aqk37j-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_4esd5QHqXYSq8ZxZYbnVrkPeXayN",
+    "netlifyGatewayDeploy": "6ae22e8e968ff87b714dade0",
+    "serviceWorkerCache": "amari-discovery-v36",
+    "status": "Released and functionally verified:180compiled+180publicactualchallenges at390/1440",
+    "evidence": "docs/qa-evidence/odd-pattern-20261027/README.md",
+    "scope": "Sorting and pattern functional uplift, per-child collections including Askia. No new whole-catalogue editorial score, human-listening claim or historical family-story recovery.",
+    "sourceTests": 411,
+    "humanListening": "not claimed; technical decode/playback verified"
   }
 }

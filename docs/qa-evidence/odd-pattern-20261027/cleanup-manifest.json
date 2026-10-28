@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-28",
+  "newWorktrees": 0,
+  "dependencyInstalls": 0,
+  "newBrowserProfiles": 0,
+  "newAudioBytes": 6968417,
+  "evidenceBytes": 911459,
+  "removedSuccessfulIntermediateRenders": [
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/build-colour-feature-390.jpg",
+      "bytes": 49533
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/local-colour-feature-1440.jpg",
+      "bytes": 108199
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/production-colour-feature-1440.jpg",
+      "bytes": 92595
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/local-pattern-1440.jpg",
+      "bytes": 169373
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/build-colour-feature-1440.jpg",
+      "bytes": 92398
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/local-colour-feature-390.jpg",
+      "bytes": 51410
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/local-odd-1440.jpg",
+      "bytes": 110011
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/build-little-1440.jpg",
+      "bytes": 42860
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/refined-odd-390.jpg",
+      "bytes": 47593
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/refined-colour-feature-390.jpg",
+      "bytes": 51348
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/build-little-390.jpg",
+      "bytes": 31590
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/local-pattern-390.jpg",
+      "bytes": 79052
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/build-pattern-1440.jpg",
+      "bytes": 142287
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/build-odd-1440.jpg",
+      "bytes": 86548
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/build-odd-390.jpg",
+      "bytes": 48145
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/local-odd-390.jpg",
+      "bytes": 50430
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/build-pattern-390.jpg",
+      "bytes": 56835
+    },
+    {
+      "path": "docs/qa-evidence/odd-pattern-20261027/refined-pattern-390.jpg",
+      "bytes": 60605
+    }
+  ],
+  "retained": "Two original before renders, unique blue-kite failure, six final gameplay renders, one final colour-render proof, all compact scenario and provenance JSON. Canonical audio retained once in public/audio.",
+  "recovery": "Runtime commit78460739 contains source/audio and earlier intermediate renders; original71911cea retains preliminary source/evidence. No family/QA progress or unrelated ignored evidence cleared.",
+  "monitoring": "off; not recreated"
+}

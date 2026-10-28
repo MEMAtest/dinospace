@@ -52,8 +52,111 @@
     "bytes": 6968417
   },
   "production": {
-    "changed": false,
-    "runtime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4"
+    "changed": true,
+    "runtime": "7846073946f39ec3e9884c20f9bc7a04859053ca",
+    "backend": "dpl_4esd5QHqXYSq8ZxZYbnVrkPeXayN",
+    "gateway": "6ae22e8e968ff87b714dade0",
+    "worker": "v36"
   },
-  "acceptance": "Compiled browser matrix in progress; public release not yet changed. No editorial score or human-listening claim."
+  "acceptance": "Targeted functional release passed all mandatory current-pair controls. Human listening and whole-catalogue editorial scores are not claimed.",
+  "nativeCompiledRows": 180,
+  "compiledReports": [
+    {
+      "file": "build-little-1440.json",
+      "passed": true,
+      "rows": 36,
+      "runtime": {
+        "entry": "/assets/arcade-gYaQ7fwd.js"
+      }
+    },
+    {
+      "file": "build-little-390.json",
+      "passed": true,
+      "rows": 36,
+      "runtime": {
+        "entry": "/assets/arcade-gYaQ7fwd.js"
+      }
+    },
+    {
+      "file": "build-odd-1440.json",
+      "passed": true,
+      "rows": 18,
+      "runtime": {
+        "entry": "/assets/arcade-gYaQ7fwd.js",
+        "activeCache": "amari-discovery-v36"
+      }
+    },
+    {
+      "file": "build-odd-390.json",
+      "passed": true,
+      "rows": 18,
+      "runtime": {
+        "entry": "/assets/arcade-gYaQ7fwd.js",
+        "activeCache": "amari-discovery-v36"
+      }
+    },
+    {
+      "file": "build-pattern-1440.json",
+      "passed": true,
+      "rows": 36,
+      "runtime": {
+        "entry": "/assets/arcade-gYaQ7fwd.js",
+        "activeCache": "amari-discovery-v36"
+      }
+    },
+    {
+      "file": "build-pattern-390.json",
+      "passed": true,
+      "rows": 36,
+      "runtime": {
+        "entry": "/assets/arcade-gYaQ7fwd.js",
+        "activeCache": "amari-discovery-v36"
+      }
+    }
+  ],
+  "nativePublicRows": 180,
+  "publicReports": [
+    {
+      "game": "odd",
+      "width": 390,
+      "rows": 18,
+      "passed": true,
+      "entry": "/assets/arcade-gYaQ7fwd.js"
+    },
+    {
+      "game": "odd",
+      "width": 1440,
+      "rows": 18,
+      "passed": true,
+      "entry": "/assets/arcade-gYaQ7fwd.js"
+    },
+    {
+      "game": "pattern",
+      "width": 390,
+      "rows": 36,
+      "passed": true,
+      "entry": "/assets/arcade-gYaQ7fwd.js"
+    },
+    {
+      "game": "pattern",
+      "width": 1440,
+      "rows": 36,
+      "passed": true,
+      "entry": "/assets/arcade-gYaQ7fwd.js"
+    },
+    {
+      "game": "little-pattern",
+      "width": 390,
+      "rows": 36,
+      "passed": true,
+      "entry": "/assets/arcade-gYaQ7fwd.js"
+    },
+    {
+      "game": "little-pattern",
+      "width": 1440,
+      "rows": 36,
+      "passed": true,
+      "entry": "/assets/arcade-gYaQ7fwd.js"
+    }
+  ]
 }
