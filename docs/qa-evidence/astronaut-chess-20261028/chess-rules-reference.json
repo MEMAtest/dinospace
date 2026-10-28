@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-28",
+  "source": "https://handbook.fide.com/chapter/E012023",
+  "authenticPublication": "https://www.fide.com/2023-fide-laws-of-chess-published/",
+  "articles": {
+    "3.1": "An opposing piece can be captured; landing on your own piece is not allowed.",
+    "3.2-3.6": "Sliding bishops, rooks and queens cannot cross intervening pieces; knights use their L-shaped jump.",
+    "3.7": "Pawns move forward into an empty square and capture a piece on either forward diagonal.",
+    "3.8-3.9": "Kings step to adjacent squares and cannot enter an attacked square."
+  },
+  "lessonScope": "Six-by-six isolated teaching diagrams preserve movement/occupancy/attack rules. Safe capture here means the landing square is not attacked by another displayed enemy after capture. Full game history, initial double pawn moves, en passant, castling, promotion and checkmate are not taught by these positions."
+}

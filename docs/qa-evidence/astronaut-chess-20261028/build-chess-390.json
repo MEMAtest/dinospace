@@ -1,0 +1,542 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "width": 390,
+  "rows": [
+    {
+      "chapter": "movement",
+      "id": "move-pawn",
+      "run": 0,
+      "round": 0,
+      "chosen": [
+        3,
+        2
+      ],
+      "seed": 4032121793
+    },
+    {
+      "chapter": "movement",
+      "id": "move-rook",
+      "run": 0,
+      "round": 1,
+      "chosen": [
+        3,
+        4
+      ],
+      "seed": 4032121793
+    },
+    {
+      "chapter": "movement",
+      "id": "move-bishop",
+      "run": 0,
+      "round": 2,
+      "chosen": [
+        1,
+        4
+      ],
+      "seed": 4032121793
+    },
+    {
+      "chapter": "movement",
+      "id": "move-knight",
+      "run": 0,
+      "round": 3,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 4032121793
+    },
+    {
+      "chapter": "movement",
+      "id": "move-queen",
+      "run": 0,
+      "round": 4,
+      "chosen": [
+        1,
+        4
+      ],
+      "seed": 4032121793
+    },
+    {
+      "chapter": "movement",
+      "id": "move-knight",
+      "run": 1,
+      "round": 0,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 1527712507
+    },
+    {
+      "chapter": "movement",
+      "id": "move-bishop",
+      "run": 1,
+      "round": 1,
+      "chosen": [
+        1,
+        4
+      ],
+      "seed": 1527712507
+    },
+    {
+      "chapter": "movement",
+      "id": "move-rook",
+      "run": 1,
+      "round": 2,
+      "chosen": [
+        3,
+        4
+      ],
+      "seed": 1527712507
+    },
+    {
+      "chapter": "movement",
+      "id": "move-pawn",
+      "run": 1,
+      "round": 3,
+      "chosen": [
+        3,
+        2
+      ],
+      "seed": 1527712507
+    },
+    {
+      "chapter": "movement",
+      "id": "move-queen",
+      "run": 1,
+      "round": 4,
+      "chosen": [
+        1,
+        4
+      ],
+      "seed": 1527712507
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-rook",
+      "run": 0,
+      "round": 0,
+      "chosen": [
+        3,
+        5
+      ],
+      "seed": 1344398838
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-knight",
+      "run": 0,
+      "round": 1,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 1344398838
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-queen",
+      "run": 0,
+      "round": 2,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 1344398838
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-pawn",
+      "run": 0,
+      "round": 3,
+      "chosen": [
+        3,
+        3
+      ],
+      "seed": 1344398838
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-bishop",
+      "run": 0,
+      "round": 4,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 1344398838
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-pawn",
+      "run": 1,
+      "round": 0,
+      "chosen": [
+        3,
+        3
+      ],
+      "seed": 2109595469
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-queen",
+      "run": 1,
+      "round": 1,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 2109595469
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-knight",
+      "run": 1,
+      "round": 2,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 2109595469
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-bishop",
+      "run": 1,
+      "round": 3,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 2109595469
+    },
+    {
+      "chapter": "safe-captures",
+      "id": "capture-rook",
+      "run": 1,
+      "round": 4,
+      "chosen": [
+        3,
+        5
+      ],
+      "seed": 2109595469
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "king-safety",
+      "run": 0,
+      "round": 0,
+      "chosen": [
+        2,
+        2
+      ],
+      "seed": 3481631210
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-bishop",
+      "run": 0,
+      "round": 1,
+      "chosen": [
+        1,
+        1
+      ],
+      "seed": 3481631210
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-rook",
+      "run": 0,
+      "round": 2,
+      "chosen": [
+        2,
+        5
+      ],
+      "seed": 3481631210
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-pawn",
+      "run": 0,
+      "round": 3,
+      "chosen": [
+        3,
+        3
+      ],
+      "seed": 3481631210
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-queen",
+      "run": 0,
+      "round": 4,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 3481631210
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "king-safety",
+      "run": 1,
+      "round": 0,
+      "chosen": [
+        2,
+        4
+      ],
+      "seed": 2152900244
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-bishop",
+      "run": 1,
+      "round": 1,
+      "chosen": [
+        1,
+        1
+      ],
+      "seed": 2152900244
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-pawn",
+      "run": 1,
+      "round": 2,
+      "chosen": [
+        3,
+        3
+      ],
+      "seed": 2152900244
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-rook",
+      "run": 1,
+      "round": 3,
+      "chosen": [
+        2,
+        5
+      ],
+      "seed": 2152900244
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-queen",
+      "run": 1,
+      "round": 4,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 2152900244
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "king-safety",
+      "run": 2,
+      "round": 0,
+      "chosen": [
+        3,
+        2
+      ],
+      "seed": 2945585962
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-pawn",
+      "run": 2,
+      "round": 1,
+      "chosen": [
+        3,
+        3
+      ],
+      "seed": 2945585962
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-bishop",
+      "run": 2,
+      "round": 2,
+      "chosen": [
+        1,
+        1
+      ],
+      "seed": 2945585962
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-rook",
+      "run": 2,
+      "round": 3,
+      "chosen": [
+        2,
+        5
+      ],
+      "seed": 2945585962
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-queen",
+      "run": 2,
+      "round": 4,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 2945585962
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-pawn",
+      "run": 3,
+      "round": 0,
+      "chosen": [
+        3,
+        3
+      ],
+      "seed": 447825744
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-bishop",
+      "run": 3,
+      "round": 1,
+      "chosen": [
+        1,
+        1
+      ],
+      "seed": 447825744
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-queen",
+      "run": 3,
+      "round": 2,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 447825744
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-rook",
+      "run": 3,
+      "round": 3,
+      "chosen": [
+        2,
+        5
+      ],
+      "seed": 447825744
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "king-safety",
+      "run": 3,
+      "round": 4,
+      "chosen": [
+        3,
+        4
+      ],
+      "seed": 447825744
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-pawn",
+      "run": 4,
+      "round": 0,
+      "chosen": [
+        3,
+        3
+      ],
+      "seed": 4240782548
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "king-safety",
+      "run": 4,
+      "round": 1,
+      "chosen": [
+        4,
+        4
+      ],
+      "seed": 4240782548
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-rook",
+      "run": 4,
+      "round": 2,
+      "chosen": [
+        2,
+        5
+      ],
+      "seed": 4240782548
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-bishop",
+      "run": 4,
+      "round": 3,
+      "chosen": [
+        1,
+        1
+      ],
+      "seed": 4240782548
+    },
+    {
+      "chapter": "mini-puzzles",
+      "id": "puzzle-queen",
+      "run": 4,
+      "round": 4,
+      "chosen": [
+        2,
+        3
+      ],
+      "seed": 4240782548
+    }
+  ],
+  "uniquePuzzles": 15,
+  "kingSolutions": [
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      4
+    ]
+  ],
+  "practiceMoves": 30,
+  "referencePieces": 6,
+  "failedSaveRecovered": false,
+  "otherGameUnchanged": true,
+  "retainedAfterReload": true,
+  "collection": true,
+  "parentReturn": true,
+  "rewardsBefore": 69,
+  "rewardsAfter": 69,
+  "audioStartedAndAdvanced": 23,
+  "errors": [],
+  "consoleErrors": [],
+  "providers": [],
+  "failedAssets": [],
+  "runtime": {
+    "entry": "/assets/arcade-Bl7TG7k5.js"
+  }
+}

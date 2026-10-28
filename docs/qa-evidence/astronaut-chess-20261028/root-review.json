@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-28",
+  "repairs": [
+    "Storage null/read-only must not claim save",
+    "Final correct solve saves beforeFinish, quiet idempotent awards",
+    "Fresh run seeds and independent option queues",
+    "Missed-concept review overrides recent avoidance only for scheduled review",
+    "Real select/place transfer projects in all3missions",
+    "Keyboard focus moves to feedback/retry and returns to choices",
+    "Technical seeds removed from child copy; soundoff replays disabled",
+    "Reused accepted dolphin illustration; distinct gear vectors instead of generic shield for every garment",
+    "Compact solved Astronaut panel",
+    "Both pawn diagonals, typed blockers/occupancy, post-capture defenders and king escape",
+    "Safe-capture/king answers withheld until actual help/mistake/solved; no free green/red answer cues",
+    "Correct moved-piece/captured-piece display and full attack-ray context",
+    "Short core chess instruction; extended simplified-rules text disclosed separately",
+    "Replay resolves canonical authored mission pool by id instead of previous six-question run",
+    "Sustained replay exhausts oldest history before immediate prior run, with scheduled review exception",
+    "Chess diagram pieces enlarged and repeated explanation removed"
+  ],
+  "independentCoordinateAudit": {
+    "capture-rook": {
+      "safe": "F3",
+      "defended": "D1",
+      "defender": "A1rook"
+    },
+    "capture-bishop": {
+      "safe": "D4",
+      "defended": "A3",
+      "defender": "F3rook"
+    },
+    "capture-knight": {
+      "safe": "D4",
+      "defended": "A3",
+      "defender": "F3rook"
+    },
+    "capture-pawn": {
+      "safe": "D3",
+      "defended": "B3",
+      "defender": "D5bishop viaC4"
+    },
+    "capture-queen": {
+      "safe": "D4",
+      "defended": "E2",
+      "defender": "E6rook"
+    },
+    "king-safety": {
+      "start": "D3",
+      "safe": [
+        "C4",
+        "E4",
+        "C3",
+        "E3",
+        "E2"
+      ],
+      "attacked": [
+        "D4",
+        "D2"
+      ],
+      "friendlyOccupied": "C2"
+    }
+  },
+  "status": "Awaiting full compiled and public actual-control proof. No accepted score.",
+  "independentReview": {
+    "astronaut": "Luna final source review: no substantive blocker; root sustained-history correction followed",
+    "chess": "Luna final source review: no concrete blocker; final visual-only glyph/copy corrections followed"
+  }
+}

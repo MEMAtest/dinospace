@@ -6,7 +6,7 @@ The catalogue has34activities; the older quality ledger covers26. Reconcile actu
 
 ## Active pair
 
-**Odd One Out + Pattern Parade**. Existing Odd One Out uses unqualified emoji groups and overlapping generic reasons; Pattern Parade randomly picks shallow shapes/numbers without a coherent saved learning route. Both need three purposeful six-round chapters, unambiguous content, independent seeded options and held teaching feedback. Actual controls and stored earned collections must work on the one public Netlify origin.
+**Code Cadets + My Writing Desk**. Sorting/Pattern and Astronaut/Chess are live-verified. This pair expands coding beyond the three guided examples and adds richer writing projects with recoverable drafts. The exact current contract is in `../qa-evidence/code-writing-20261028/README.md`.
 
 ## Workflow
 

@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-28T17:21:38.318126+00:00",
+  "updatedAt": "2026-10-28T18:28:00.265441+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "7846073946f39ec3e9884c20f9bc7a04859053ca",
+  "canonicalRelease": "8d8e120fc752f7df65aa48871ecdd78c83af586f",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1171,5 +1171,19 @@
     "scope": "Sorting and pattern functional uplift, per-child collections including Askia. No new whole-catalogue editorial score, human-listening claim or historical family-story recovery.",
     "sourceTests": 411,
     "humanListening": "not claimed; technical decode/playback verified"
+  },
+  "latestAstronautChessUplift": {
+    "runtime": "8d8e120fc752f7df65aa48871ecdd78c83af586f",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-602zbytwm-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_4NmvvUqijqSzzV4Ygs6W1k5s5cRX",
+    "netlifyGatewayDeploy": "6ae23d5103686ee9e579378f",
+    "serviceWorkerCache": "amari-discovery-v37",
+    "status": "Released and functionally verified:162compiled+162publicquestion/board tasks at390/1440, reference/practice and persistence checks",
+    "evidence": "docs/qa-evidence/astronaut-chess-20261028/README.md",
+    "sourceTests": 424,
+    "editorialScoresChanged": false,
+    "humanListening": "not claimed; existing exact packaged narration decode and playback verified",
+    "functionalAcceptance": true
   }
 }

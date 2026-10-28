@@ -1,0 +1,43 @@
+async page => {
+ COMMON_HELPERS
+ const origin=QA_ORIGIN,width=QA_WIDTH,content=QA_CONTENT,stage=QA_STAGE,rows=[];
+ const state=await prepare(page,origin,width);await page.goto(state.root+'#/world/thinking');await page.getByRole('button').filter({has:page.getByRole('heading',{name:'Chess Explorers',exact:true})}).click();const on=page.getByRole('button',{name:'Turn sound on',exact:true});if(await on.count())await on.click();
+ const key='amari_chess_explorers_progress_v1:amari';const snapshot=()=>page.evaluate(key=>({progress:JSON.parse(localStorage.getItem(key)||'null'),rewards:localStorage.getItem('amari_rewards_v2'),other:localStorage.getItem('amari_astronaut_academy_progress_v1')}),key);
+ const initial=await snapshot();let failedSaveRecovered=false;const kingChoices=[];
+ await page.getByRole('button',{name:'Meet the pieces',exact:true}).click();
+ for(const piece of content.pieces){await page.getByRole('button',{name:'Choose '+piece.name,exact:true}).click();await page.getByRole('heading',{name:piece.name,exact:true}).waitFor();await completedReplay(page,page.getByRole('button',{name:'Replay recorded piece rule',exact:true}));}
+ await page.getByRole('button',{name:'Back to chapters',exact:true}).click();await page.getByRole('button',{name:'Move It! practice',exact:true}).click();
+ for(const piece of content.pieces){await page.getByRole('button',{name:'Choose '+piece.name+' for practice',exact:true}).click();for(let n=0;n<5;n++){const available=page.getByRole('button',{name:/legal move$/});if(await available.count()===0)await page.getByRole('button',{name:'Reset practice board',exact:true}).click();await page.getByRole('button',{name:/legal move$/}).first().focus();await page.keyboard.press('Enter');}}
+ if((await snapshot()).rewards!==initial.rewards)throw Error('Free practice farmed rewards');await checkLayout(page,'main');await page.getByRole('button',{name:'Back to chapters',exact:true}).click();
+ for(let ci=0;ci<3;ci++){
+  const chapter=content.chapters[ci],replays=ci===2?5:2;let previousLast=null;
+  for(let run=0;run<replays;run++){
+   await page.getByRole('button').filter({hasText:chapter.title}).click();const seen=new Set();let seed=null;
+   for(let ri=0;ri<5;ri++){
+    const task=page.locator('[data-chess-puzzle]');await task.waitFor();const id=await task.getAttribute('data-chess-puzzle'),currentSeed=await task.getAttribute('data-run-seed');if(!/^\d+$/.test(currentSeed))throw Error('Missing numeric chess seed');if(seed===null)seed=currentSeed;else if(seed!==currentSeed)throw Error('Live seed changed');if(ri===0&&id===previousLast)throw Error('Immediate run boundary repeat');const m=content.puzzles.find(p=>p.id===id);if(!m||seen.has(id))throw Error('Unknown/repeated puzzle');seen.add(id);
+    const cell=square=>task.locator('button[data-square="'+square.join(',')+'"]');
+    if(m.kind!=='move'&&await task.getByText('GOAL',{exact:true}).count())throw Error('Answer highlighted before any clue/attempt');
+    if(ri===0&&run===0){const replay=page.getByRole('button',{name:'Replay recorded piece prompt and rule',exact:true});await completedReplay(page,replay,2);await assertMute(page,replay);}
+    if(run===0){
+     if(m.kind==='safe-capture'){
+      const unsafe=m.outcomes.find(o=>o.legal&&o.capture&&!o.safe);if(!unsafe)throw Error('No defended decoy');await cell(unsafe.square).click();if(!(await task.getByRole('status').first().innerText()).includes('unsafe'))throw Error('Unsafe capture not explained');const manualRay=content.rays[id];if(manualRay&&!(await cell(manualRay).getAttribute('aria-label')).includes('attack path'))throw Error('Actual defender ray missing intermediate square');
+     }else if(m.kind==='king-safety'){
+      await cell([2,3]).click();if(!(await task.getByRole('status').first().innerText()).includes('attacked'))throw Error('Attacked king move accepted');await cell([4,2]).click();if(!(await task.getByRole('status').first().innerText()).includes('own piece'))throw Error('King landed on own pawn');
+     }else{const blocked=m.outcomes.find(o=>!o.legal&&!(o.square[0]===m.from[0]&&o.square[1]===m.from[1]));await cell(blocked.square).click();}
+     if(await page.getByRole('button',{name:/^(Next puzzle|Finish chapter)$/}).count())throw Error('Wrong move advanced');if(await task.getAttribute('data-chess-puzzle')!==id)throw Error('Wrong changed board');if(ri===0)await page.getByRole('button',{name:'One-use clue',exact:true}).click();
+    }
+    const solutions=m.outcomes.filter(o=>o.solvesGoal);if(!solutions.length)throw Error('No goal');const chosen=m.kind==='king-safety'?solutions[run%solutions.length].square:solutions[0].square;if(m.kind==='king-safety')kingChoices.push(chosen);
+    const fault=ci===0&&run===0&&ri===4&&!initial.progress?.completedChapterIds?.includes(chapter.id);
+    if(fault)await page.evaluate(key=>{const prior=Storage.prototype.setItem;window.__chessSaveFault=true;Storage.prototype.setItem=function(k,...args){if(k===key&&window.__chessSaveFault)throw new DOMException('Synthetic save fault','QuotaExceededError');return prior.call(this,k,...args);};},key);
+    await cell(chosen).focus();await page.keyboard.press('Enter');
+    if(fault){await page.getByRole('button',{name:'Retry save',exact:true}).waitFor();const blocked=await snapshot();if(blocked.progress?.completedChapterIds.includes(chapter.id)||blocked.rewards!==initial.rewards)throw Error('Failed write claimed badge/reward');await page.evaluate(()=>window.__chessSaveFault=false);await page.getByRole('button',{name:'Retry save',exact:true}).click();failedSaveRecovered=true;}
+    const next=page.getByRole('button',{name:ri===4?'Finish chapter':'Next puzzle',exact:true});await next.waitFor();await page.waitForFunction(()=>/^(Next puzzle|Finish chapter)$/.test(document.activeElement?.textContent.trim()));const placed=cell(chosen);if(!(await placed.getAttribute('aria-label')).includes('your '+m.piece+' is here'))throw Error('Piece did not visibly move');if(!(await placed.innerText()).includes(content.pieces.find(p=>p.id===m.piece).glyph))throw Error('Wrong moved piece glyph');if(!(await cell(m.from).getAttribute('aria-label')).includes('starting square'))throw Error('Old origin still claims moving piece');
+    if(ri===0){await page.waitForTimeout(350);if(!await next.isVisible())throw Error('Solved review not held');await checkLayout(page,'main');if(ci===1&&run===0)await page.screenshot({path:'docs/qa-evidence/astronaut-chess-20261028/'+stage+'-chess-'+width+'.jpg',type:'jpeg',quality:76,fullPage:true});}
+    if(ri===4&&!(await snapshot()).progress?.completedChapterIds.includes(chapter.id))throw Error('Chapter not saved on final solve');rows.push({chapter:chapter.id,id,run,round:ri,chosen,seed:Number(currentSeed)});previousLast=id;await next.click();
+   }
+   await page.getByRole('button',{name:'Back to chapters',exact:true}).last().click();
+  }
+ }
+ const earned=await snapshot(),media=await page.evaluate(()=>window.__reasoningQaMediaV2);if(earned.other!==initial.other)throw Error('Other game records changed');if(new Set(kingChoices.map(p=>p.join(','))).size!==5)throw Error('Not all five valid king solutions tested');await page.reload();if(JSON.stringify(earned)!==JSON.stringify(await snapshot()))throw Error('Records lost on reload');await page.getByRole('button',{name:'Back to Thinking & Play',exact:true}).click();await page.getByRole('heading',{name:'Thinking & Play',exact:true}).waitFor();await page.getByRole('button',{name:'Back to home',exact:true}).click();await page.getByRole('button',{name:/Stickers/}).click();const shelf=page.getByRole('region',{name:'Chess explorer badges',exact:true});await shelf.waitFor();if(!(await shelf.innerText()).includes('3 / 3 collected'))throw Error('Chess collection missing');await page.reload();if(JSON.stringify(earned)!==JSON.stringify(await snapshot()))throw Error('Shelf mutated earned data');
+ if(state.errors.length||state.consoleErrors.length||state.providers.length||state.failedAssets.length)throw Error(JSON.stringify(state));return{passed:true,origin,width,rows,uniquePuzzles:new Set(rows.map(r=>r.id)).size,kingSolutions:kingChoices,practiceMoves:30,referencePieces:6,failedSaveRecovered,otherGameUnchanged:true,retainedAfterReload:true,collection:true,parentReturn:true,rewardsBefore:JSON.parse(initial.rewards||'{}').points||0,rewardsAfter:JSON.parse(earned.rewards||'{}').points||0,audioStartedAndAdvanced:media.filter(r=>r.started&&r.advanced).length,errors:state.errors,consoleErrors:state.consoleErrors,providers:state.providers,failedAssets:state.failedAssets,runtime:{entry:await page.evaluate(()=>document.querySelector('script[type=module][src]')?.getAttribute('src'))}};
+}

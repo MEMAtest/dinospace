@@ -1,0 +1,145 @@
+{
+  "at": "2026-10-28T18:18:38.516796+00:00",
+  "runtime": "8d8e120fc752f7df65aa48871ecdd78c83af586f",
+  "candidateOnly": false,
+  "tests": {
+    "passed": 424,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scopedLint": "passed",
+  "configuredBuild": "passed",
+  "diffCheck": "passed",
+  "nativeCompiledStatus": "passed",
+  "audio": {
+    "requiredClips": 111,
+    "decoded": 111,
+    "newPaidCalls": 0,
+    "humanListening": false,
+    "ordinaryFactsReadableOnly": 38
+  },
+  "files": [
+    {
+      "path": "public/sw.js",
+      "sha256": "222b85c1fc4173677a59815ef14aac871e6fa83e17542431a7a6e49191f9ead8"
+    },
+    {
+      "path": "src/App.jsx",
+      "sha256": "932b994d625beb067e1fcd6a950c514ed6712fb15d6d722324b14a1ace15eaeb"
+    },
+    {
+      "path": "src/components/games/AstronautAcademy.jsx",
+      "sha256": "099c40ddd25300daf6aabf213df03ee5ae0205d3b7b40d3a9060ba27da47e8d7"
+    },
+    {
+      "path": "src/components/games/ChessExplorers.jsx",
+      "sha256": "f88b21610180a0ad410cfaf7223950a3c3bbf6736fd4c4035ecd264e71d55ccb"
+    },
+    {
+      "path": "src/components/games/astronautAcademy.css",
+      "sha256": "d6b828bd3845f325f70f7b0610af3ffc12b2b31adbe386483cddcfd8ec3a3b96"
+    },
+    {
+      "path": "src/components/games/astronautMissions.js",
+      "sha256": "273760fc5670804b46a4fb123ff4569c3051a964b6dfa3466932a82701b68e46"
+    },
+    {
+      "path": "src/components/shared/SpaceStrategyCollections.jsx",
+      "sha256": "c3c1eaa4ee50203e31f025f7caa07c66de262b7139cf061aac53799e612d8ffe"
+    },
+    {
+      "path": "src/data/astronautProgress.js",
+      "sha256": "12142091e36fffb38db65fb88122016edd5a6cb674e581ab430726ee3ab21cea"
+    },
+    {
+      "path": "src/data/chessAdventure.js",
+      "sha256": "1b5b23c9aa3a662b99df58a3ddc121da6c547125c911eed0f1c1276a92b6e34b"
+    },
+    {
+      "path": "src/data/chessProgress.js",
+      "sha256": "a868d71b2f3fcc18409305566feac0b6daeb2d36185732d678489264e1365695"
+    },
+    {
+      "path": "test/astronaut-missions.test.mjs",
+      "sha256": "29f106851c796eda187e6915173ada03532508f7c107973aa5b638b28d2d46f3"
+    },
+    {
+      "path": "test/chessAdventure.test.mjs",
+      "sha256": "a66343574ea55fbcace96a59bc357a4d2e7d48d410a7271f4fedeaae58e1f2c0"
+    },
+    {
+      "path": "test/offlineServiceWorker.test.mjs",
+      "sha256": "8bbe89ee74b1fdc78ab55ce617a97096cb40ff11ecf2ea3f799df6f3c601be23"
+    }
+  ],
+  "entry": [
+    "<script type=\"module\" crossorigin src=\"/assets/arcade-Bl7TG7k5.js\"></script>"
+  ],
+  "compiledReports": [
+    {
+      "file": "build-astro-390.json",
+      "passed": true,
+      "rows": 36,
+      "entry": "/assets/arcade-Bl7TG7k5.js",
+      "audioStartedAndAdvanced": 26
+    },
+    {
+      "file": "build-astro-1440.json",
+      "passed": true,
+      "rows": 36,
+      "entry": "/assets/arcade-Bl7TG7k5.js",
+      "audioStartedAndAdvanced": 31
+    },
+    {
+      "file": "build-chess-390.json",
+      "passed": true,
+      "rows": 45,
+      "entry": "/assets/arcade-Bl7TG7k5.js",
+      "audioStartedAndAdvanced": 23
+    },
+    {
+      "file": "build-chess-1440.json",
+      "passed": true,
+      "rows": 45,
+      "entry": "/assets/arcade-Bl7TG7k5.js",
+      "audioStartedAndAdvanced": 42
+    }
+  ],
+  "nativeCompiledRows": 162,
+  "nativePublicRows": 162,
+  "publicReports": [
+    {
+      "file": "production-astro-390.json",
+      "passed": true,
+      "rows": 36,
+      "entry": "/assets/arcade-Bl7TG7k5.js",
+      "audioStartedAndAdvanced": 15,
+      "saveFailureRecovered": true
+    },
+    {
+      "file": "production-astro-1440.json",
+      "passed": true,
+      "rows": 36,
+      "entry": "/assets/arcade-Bl7TG7k5.js",
+      "audioStartedAndAdvanced": 14,
+      "saveFailureRecovered": false
+    },
+    {
+      "file": "production-chess-390.json",
+      "passed": true,
+      "rows": 45,
+      "entry": "/assets/arcade-Bl7TG7k5.js",
+      "audioStartedAndAdvanced": 22,
+      "saveFailureRecovered": true
+    },
+    {
+      "file": "production-chess-1440.json",
+      "passed": true,
+      "rows": 45,
+      "entry": "/assets/arcade-Bl7TG7k5.js",
+      "audioStartedAndAdvanced": 41,
+      "saveFailureRecovered": false
+    }
+  ],
+  "acceptance": "Current-pair functional contract passed on compiled and public390/1440; no new editorial/listening score or historical recovery claim."
+}

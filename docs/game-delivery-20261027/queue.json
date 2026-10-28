@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 2,
+  "activePair": 3,
   "pairs": [
     {
       "number": 1,
@@ -50,8 +50,12 @@
           "name": "Chess Explorers"
         }
       ],
-      "status": "audit_in_progress",
-      "evidence": null
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/astronaut-chess-20261028/README.md",
+      "runtime": "8d8e120fc752f7df65aa48871ecdd78c83af586f",
+      "publicChallenges": 162,
+      "sourceGates": "docs/qa-evidence/astronaut-chess-20261028/source-gates.json",
+      "scope": "Functional criteria passed; no blanket editorial/listening score."
     },
     {
       "number": 3,
@@ -65,8 +69,8 @@
           "name": "My Writing Desk"
         }
       ],
-      "status": "queued",
-      "evidence": null
+      "status": "audit_in_progress",
+      "evidence": "docs/qa-evidence/code-writing-20261028/README.md"
     },
     {
       "number": 4,

@@ -1,0 +1,555 @@
+{
+  "scope": "Read-only exact source text lookup; no provider calls",
+  "astronaut": [
+    {
+      "id": "numbers:0",
+      "q": "How many fingers on one hand?",
+      "prompt": "/audio/en/15594436-matilda.mp3",
+      "fact": "Most people have five fingers on each hand, including the thumb.",
+      "factClip": null,
+      "answerClip": "/audio/en/7582ce71-matilda.mp3"
+    },
+    {
+      "id": "numbers:1",
+      "q": "How many days in a week?",
+      "prompt": "/audio/en/dab72265-matilda.mp3",
+      "fact": "A week has seven days, from Monday through Sunday.",
+      "factClip": null,
+      "answerClip": "/audio/en/e97d74df-matilda.mp3"
+    },
+    {
+      "id": "numbers:2",
+      "q": "How many legs does a spider have?",
+      "prompt": "/audio/en/c0e7efda-matilda.mp3",
+      "fact": "Spiders are arachnids, and adult spiders have eight legs.",
+      "factClip": null,
+      "answerClip": "/audio/en/91672408-matilda.mp3"
+    },
+    {
+      "id": "numbers:3",
+      "q": "How many wheels on a car?",
+      "prompt": "/audio/en/72b8a87e-matilda.mp3",
+      "fact": "Most everyday cars have four wheels touching the road.",
+      "factClip": null,
+      "answerClip": "/audio/en/998545b4-matilda.mp3"
+    },
+    {
+      "id": "numbers:4",
+      "q": "How many months in a year?",
+      "prompt": "/audio/en/42b95d7e-matilda.mp3",
+      "fact": "A year is divided into twelve months.",
+      "factClip": null,
+      "answerClip": "/audio/en/00824ddf-matilda.mp3"
+    },
+    {
+      "id": "numbers:5",
+      "q": "How many eyes do you have?",
+      "prompt": "/audio/en/159cd962-matilda.mp3",
+      "fact": "People usually have two eyes that work together to help us see.",
+      "factClip": null,
+      "answerClip": "/audio/en/7576027e-matilda.mp3"
+    },
+    {
+      "id": "shapes:0",
+      "q": "Which shape has 3 sides?",
+      "prompt": "/audio/en/db596bfe-matilda.mp3",
+      "fact": "A triangle has three straight sides and three corners.",
+      "factClip": null,
+      "answerClip": "/audio/en/fbe855d2-matilda.mp3"
+    },
+    {
+      "id": "shapes:1",
+      "q": "Which shape is round?",
+      "prompt": "/audio/en/0bcb1419-matilda.mp3",
+      "fact": "A circle is round and has no straight sides or corners.",
+      "factClip": null,
+      "answerClip": "/audio/en/850608c6-matilda.mp3"
+    },
+    {
+      "id": "shapes:2",
+      "q": "Which shape has 4 equal sides?",
+      "prompt": "/audio/en/d9a2ebfd-matilda.mp3",
+      "fact": "A square has four equal sides and four right-angle corners.",
+      "factClip": null,
+      "answerClip": "/audio/en/830d79df-matilda.mp3"
+    },
+    {
+      "id": "shapes:3",
+      "q": "A football is shaped like a...",
+      "prompt": "/audio/en/2ccd3b1d-matilda.mp3",
+      "fact": "A sphere is round in every direction, like a ball.",
+      "factClip": null,
+      "answerClip": "/audio/en/29c68d65-matilda.mp3"
+    },
+    {
+      "id": "shapes:4",
+      "q": "What shape is a dice?",
+      "prompt": "/audio/en/6ebac86a-matilda.mp3",
+      "fact": "A standard die is a cube with six square faces.",
+      "factClip": null,
+      "answerClip": "/audio/en/0708dd5d-matilda.mp3"
+    },
+    {
+      "id": "shapes:5",
+      "q": "Which shape has 5 points?",
+      "prompt": "/audio/en/f24940c7-matilda.mp3",
+      "fact": "A five-pointed star has five points around its outline.",
+      "factClip": null,
+      "answerClip": "/audio/en/2993a7e2-matilda.mp3"
+    },
+    {
+      "id": "body:0",
+      "q": "What organ pumps blood around your body?",
+      "prompt": "/audio/en/2607242d-matilda.mp3",
+      "fact": "The heart is a strong muscle that pumps blood around the body.",
+      "factClip": null,
+      "answerClip": "/audio/en/38c8f3a8-matilda.mp3"
+    },
+    {
+      "id": "body:1",
+      "q": "What do you use to breathe?",
+      "prompt": "/audio/en/2cbe70f6-matilda.mp3",
+      "fact": "Your lungs take oxygen from the air when you breathe in.",
+      "factClip": null,
+      "answerClip": "/audio/en/1208b897-matilda.mp3"
+    },
+    {
+      "id": "body:2",
+      "q": "What do you think with?",
+      "prompt": "/audio/en/905fe79d-matilda.mp3",
+      "fact": "The brain helps you think, remember, feel and control your body.",
+      "factClip": null,
+      "answerClip": "/audio/en/d3239280-matilda.mp3"
+    },
+    {
+      "id": "body:3",
+      "q": "What covers your whole body?",
+      "prompt": "/audio/en/92bb4833-matilda.mp3",
+      "fact": "Skin protects your body and helps you feel touch, heat and cold.",
+      "factClip": null,
+      "answerClip": "/audio/en/e95349f1-matilda.mp3"
+    },
+    {
+      "id": "body:4",
+      "q": "What helps you chew food?",
+      "prompt": "/audio/en/cbaf2815-matilda.mp3",
+      "fact": "Teeth bite and chew food into smaller pieces.",
+      "factClip": null,
+      "answerClip": "/audio/en/619fc206-matilda.mp3"
+    },
+    {
+      "id": "body:5",
+      "q": "What do you use to hear sounds?",
+      "prompt": "/audio/en/2e64c7a9-matilda.mp3",
+      "fact": "Your ears collect sound and send signals to your brain.",
+      "factClip": null,
+      "answerClip": "/audio/en/f211433d-matilda.mp3"
+    },
+    {
+      "id": "animals:0",
+      "q": "Which animal is the King of the Jungle?",
+      "prompt": "/audio/en/c17542db-matilda.mp3",
+      "fact": "The lion is sometimes called “king of the jungle”, but lions usually live in grasslands.",
+      "factClip": null,
+      "answerClip": "/audio/en/3bf80674-matilda.mp3"
+    },
+    {
+      "id": "animals:1",
+      "q": "Which animal has a long trunk?",
+      "prompt": "/audio/en/73d5276d-matilda.mp3",
+      "fact": "An elephant uses its trunk to smell, breathe, drink and pick things up.",
+      "factClip": null,
+      "answerClip": "/audio/en/cdad7655-matilda.mp3"
+    },
+    {
+      "id": "animals:2",
+      "q": "Which animal says \"Moo\"?",
+      "prompt": "/audio/en/7a4e6fdb-matilda.mp3",
+      "fact": "Cows are grown-up female cattle; their familiar call is a moo.",
+      "factClip": null,
+      "answerClip": "/audio/en/994d8355-matilda.mp3"
+    },
+    {
+      "id": "animals:3",
+      "q": "Which animal can fly?",
+      "prompt": "/audio/en/b45e5039-matilda.mp3",
+      "fact": "Eagles are birds. Their large wings help them soar on air currents.",
+      "factClip": null,
+      "answerClip": "/audio/en/f91474a4-matilda.mp3"
+    },
+    {
+      "id": "animals:4",
+      "q": "Which is the tallest animal?",
+      "prompt": "/audio/en/b701e3d4-matilda.mp3",
+      "fact": "A giraffe’s long neck helps it reach leaves high in trees.",
+      "factClip": null,
+      "answerClip": "/audio/en/f6ce3328-matilda.mp3"
+    },
+    {
+      "id": "animals:5",
+      "q": "Which animal lives in the sea?",
+      "prompt": "/audio/en/df3d5290-matilda.mp3",
+      "fact": "Dolphins are mammals that breathe air at the surface and live in water.",
+      "factClip": null,
+      "answerClip": "/audio/en/507f5db8-matilda.mp3"
+    },
+    {
+      "id": "animals:6",
+      "q": "Which animal is the fastest on land?",
+      "prompt": "/audio/en/6d82e367-matilda.mp3",
+      "fact": "Cheetahs can sprint faster than other land animals over short distances.",
+      "factClip": null,
+      "answerClip": "/audio/en/8dea8c6a-matilda.mp3"
+    },
+    {
+      "id": "dinosaurs:0",
+      "q": "Which dinosaur had tiny arms?",
+      "prompt": "/audio/en/08b5b77d-matilda.mp3",
+      "fact": "Tyrannosaurus rex had two very small arms and two powerful legs.",
+      "factClip": null,
+      "answerClip": "/audio/en/77ef7b56-matilda.mp3"
+    },
+    {
+      "id": "dinosaurs:1",
+      "q": "Which dinosaur had 3 horns?",
+      "prompt": "/audio/en/331e861f-matilda.mp3",
+      "fact": "Triceratops had three horns on its head and a large bony frill.",
+      "factClip": null,
+      "answerClip": "/audio/en/3222c3bc-matilda.mp3"
+    },
+    {
+      "id": "dinosaurs:2",
+      "q": "Which dinosaur had plates on its back?",
+      "prompt": "/audio/en/63324a2d-matilda.mp3",
+      "fact": "Stegosaurus had rows of large plates along its back.",
+      "factClip": null,
+      "answerClip": "/audio/en/73604ba5-matilda.mp3"
+    },
+    {
+      "id": "dinosaurs:3",
+      "q": "Which prehistoric reptile could fly?",
+      "prompt": "/audio/en/cfa84acb-matilda.mp3",
+      "fact": "Pterosaurs were flying reptiles; they were not dinosaurs.",
+      "factClip": null,
+      "answerClip": "/audio/en/b94db373-matilda.mp3"
+    },
+    {
+      "id": "dinosaurs:4",
+      "q": "What did dinosaurs hatch from?",
+      "prompt": "/audio/en/daba0f88-matilda.mp3",
+      "fact": "Dinosaurs hatched from eggs, just as many animals do today.",
+      "factClip": null,
+      "answerClip": "/audio/en/ff779278-matilda.mp3"
+    },
+    {
+      "id": "dinosaurs:5",
+      "q": "Are non-bird dinosaurs still alive today?",
+      "prompt": "/audio/en/23e4f3e2-matilda.mp3",
+      "fact": "Non-bird dinosaurs are extinct, but modern birds are living dinosaur relatives.",
+      "factClip": null,
+      "answerClip": "/audio/en/6e03d313-matilda.mp3"
+    },
+    {
+      "id": "space:0",
+      "q": "What is the closest star to Earth?",
+      "prompt": "/audio/en/bb2da7c8-matilda.mp3",
+      "fact": "The Sun is a star. It looks bigger and brighter because it is much closer than other stars.",
+      "factClip": null,
+      "answerClip": "/audio/en/34e87d67-matilda.mp3"
+    },
+    {
+      "id": "space:1",
+      "q": "How many planets in our solar system?",
+      "prompt": "/audio/en/bf9faf8c-matilda.mp3",
+      "fact": "There are eight planets orbiting the Sun in our solar system.",
+      "factClip": null,
+      "answerClip": "/audio/en/91672408-matilda.mp3"
+    },
+    {
+      "id": "space:2",
+      "q": "What planet are we on?",
+      "prompt": "/audio/en/f06f4f5c-matilda.mp3",
+      "fact": "Earth is the planet where people, animals and plants live.",
+      "factClip": null,
+      "answerClip": "/audio/en/7490b214-matilda.mp3"
+    },
+    {
+      "id": "space:3",
+      "q": "Which planet has beautiful rings?",
+      "prompt": "/audio/en/6c491cae-matilda.mp3",
+      "fact": "Saturn’s rings are made mostly of pieces of ice and rock.",
+      "factClip": null,
+      "answerClip": "/audio/en/c84e2dc3-matilda.mp3"
+    },
+    {
+      "id": "space:4",
+      "q": "What do astronauts wear in space?",
+      "prompt": "/audio/en/bad27952-matilda.mp3",
+      "fact": "A spacesuit supplies air and helps protect an astronaut in space.",
+      "factClip": null,
+      "answerClip": "/audio/en/d8d17f63-matilda.mp3"
+    },
+    {
+      "id": "space:5",
+      "q": "Which planet is called the Red Planet?",
+      "prompt": "/audio/en/8a4e7833-matilda.mp3",
+      "fact": "Mars looks rusty red because iron-rich dust covers much of its surface.",
+      "factClip": null,
+      "answerClip": "/audio/en/66047be5-matilda.mp3"
+    },
+    {
+      "id": "space:6",
+      "q": "What pulls things down to the ground?",
+      "prompt": "/audio/en/8c8eaf05-matilda.mp3",
+      "fact": "Gravity is a force that pulls objects toward Earth.",
+      "factClip": null,
+      "answerClip": "/audio/en/a728ff86-matilda.mp3"
+    },
+    {
+      "id": "heroes:0",
+      "q": "Who was the first person to walk on the Moon?",
+      "prompt": "/audio/en/20787175-matilda.mp3",
+      "fact": "He was the very first person to walk on the Moon!",
+      "factClip": "/audio/en/e42f48c6-matilda.mp3",
+      "answerClip": "/audio/en/6f3c6d45-matilda.mp3"
+    },
+    {
+      "id": "heroes:1",
+      "q": "Who was the first person ever to go to space?",
+      "prompt": "/audio/en/f70f5aa6-matilda.mp3",
+      "fact": "He was the first person ever to fly to space!",
+      "factClip": "/audio/en/a46c471e-matilda.mp3",
+      "answerClip": "/audio/en/a0983e60-matilda.mp3"
+    },
+    {
+      "id": "heroes:2",
+      "q": "Who went to the Moon with Neil Armstrong?",
+      "prompt": "/audio/en/4822927d-matilda.mp3",
+      "fact": "He went to the Moon with Neil and took a selfie in space!",
+      "factClip": "/audio/en/e5b4e4f1-matilda.mp3",
+      "answerClip": "/audio/en/f78b7299-matilda.mp3"
+    },
+    {
+      "id": "heroes:3",
+      "q": "Who was the first Black woman to travel to space?",
+      "prompt": "/audio/en/8d863c3a-matilda.mp3",
+      "fact": "She was the first Black woman to travel to space!",
+      "factClip": "/audio/en/1720caae-matilda.mp3",
+      "answerClip": "/audio/en/ffbdb3a8-matilda.mp3"
+    },
+    {
+      "id": "heroes:4",
+      "q": "Who was the first American woman in space?",
+      "prompt": "/audio/en/19ee94be-matilda.mp3",
+      "fact": "She was the first American woman to go to space!",
+      "factClip": "/audio/en/a86e0ed1-matilda.mp3",
+      "answerClip": "/audio/en/ab0ce7eb-matilda.mp3"
+    },
+    {
+      "id": "heroes:5",
+      "q": "Which astronaut sang a song from space?",
+      "prompt": "/audio/en/ce9ad2ac-matilda.mp3",
+      "fact": "He played guitar and sang a song while floating in space!",
+      "factClip": "/audio/en/12780d41-matilda.mp3",
+      "answerClip": "/audio/en/fef926d8-matilda.mp3"
+    },
+    {
+      "id": "heroes:6",
+      "q": "What was the name of the first dog sent to orbit Earth?",
+      "prompt": "/audio/en/338b0a5d-matilda.mp3",
+      "fact": "She was the first dog to orbit Earth in a spacecraft.",
+      "factClip": "/audio/en/a1d609ad-matilda.mp3",
+      "answerClip": "/audio/en/0f064d22-matilda.mp3"
+    },
+    {
+      "id": "heroes:7",
+      "q": "Which British astronaut ran a marathon in space?",
+      "prompt": "/audio/en/ec3553bd-matilda.mp3",
+      "fact": "He ran a race on a treadmill while flying through space!",
+      "factClip": "/audio/en/e5a4513c-matilda.mp3",
+      "answerClip": "/audio/en/b704c710-matilda.mp3"
+    }
+  ],
+  "chess": [
+    {
+      "text": "The King. The most important piece! It moves One step any direction.",
+      "path": "/audio/en/008842b9-matilda.mp3"
+    },
+    {
+      "text": "Try the Pawn! One step forward.",
+      "path": "/audio/en/04768398-matilda.mp3"
+    },
+    {
+      "text": "King. The most important piece!",
+      "path": "/audio/en/1648fb52-matilda.mp3"
+    },
+    {
+      "text": "Knight. A brave horse!",
+      "path": "/audio/en/1809bfe0-matilda.mp3"
+    },
+    {
+      "text": "Rook. Looks like a castle tower!",
+      "path": "/audio/en/1bdcabbf-matilda.mp3"
+    },
+    {
+      "text": "Meet the chess pieces!",
+      "path": "/audio/en/2f761432-matilda.mp3"
+    },
+    {
+      "text": "Pawn. The little soldier!",
+      "path": "/audio/en/3132e87a-matilda.mp3"
+    },
+    {
+      "text": "Try the Queen!",
+      "path": "/audio/en/332d4dd7-matilda.mp3"
+    },
+    {
+      "text": "The Pawn. The little soldier! It moves One step forward.",
+      "path": "/audio/en/38224c83-matilda.mp3"
+    },
+    {
+      "text": "The Bishop. Wears a pointy hat! It moves Diagonal lines only.",
+      "path": "/audio/en/42778cab-matilda.mp3"
+    },
+    {
+      "text": "The Queen. The most powerful piece! It moves Any direction, any distance.",
+      "path": "/audio/en/4eeb8281-matilda.mp3"
+    },
+    {
+      "text": "Queen! Where can the Queen go?",
+      "path": "/audio/en/5595c072-matilda.mp3"
+    },
+    {
+      "text": "Find the letter Q. Q is for Queen.",
+      "path": "/audio/en/68abbb49-matilda.mp3"
+    },
+    {
+      "text": "Trace the big Q. Queen.",
+      "path": "/audio/en/6c18c311-matilda.mp3"
+    },
+    {
+      "text": "Mercury is baking hot by day and freezing cold at night.",
+      "path": "/audio/en/6d2a9c4b-matilda.mp3"
+    },
+    {
+      "text": "Try the Knight! L-shape jump.",
+      "path": "/audio/en/7163bcb4-matilda.mp3"
+    },
+    {
+      "text": "Bishop! Where can the Bishop go?",
+      "path": "/audio/en/7207b06c-matilda.mp3"
+    },
+    {
+      "text": "Try the King! One step any direction.",
+      "path": "/audio/en/724ae84d-matilda.mp3"
+    },
+    {
+      "text": "You found all the moves! The Knight is happy!",
+      "path": "/audio/en/7bb438e5-matilda.mp3"
+    },
+    {
+      "text": "You found all the moves! The Bishop is happy!",
+      "path": "/audio/en/7bc4e2c1-matilda.mp3"
+    },
+    {
+      "text": "You found all the moves! The Rook is happy!",
+      "path": "/audio/en/7dc6ddf9-matilda.mp3"
+    },
+    {
+      "text": "The Rook. Looks like a castle tower! It moves Straight lines only.",
+      "path": "/audio/en/8218b6ce-matilda.mp3"
+    },
+    {
+      "text": "Pawn! Where can the Pawn go?",
+      "path": "/audio/en/8f3845f4-matilda.mp3"
+    },
+    {
+      "text": "Listen to Queen. Which picture starts with the same sound as Queen?",
+      "path": "/audio/en/946f8ae7-matilda.mp3"
+    },
+    {
+      "text": "Knight! Where can the Knight jump?",
+      "path": "/audio/en/951106e6-matilda.mp3"
+    },
+    {
+      "text": "Try the Bishop! Diagonal lines only.",
+      "path": "/audio/en/9a799816-matilda.mp3"
+    },
+    {
+      "text": "Queen. The most powerful piece!",
+      "path": "/audio/en/9ecb3553-matilda.mp3"
+    },
+    {
+      "text": "Rook! Where can the Rook go?",
+      "path": "/audio/en/aedde688-matilda.mp3"
+    },
+    {
+      "text": "Bishop. Wears a pointy hat!",
+      "path": "/audio/en/b0e98479-matilda.mp3"
+    },
+    {
+      "text": "King! Where can the King go?",
+      "path": "/audio/en/b5759eec-matilda.mp3"
+    },
+    {
+      "text": "You found all the moves! The Pawn is happy!",
+      "path": "/audio/en/bcbd043a-matilda.mp3"
+    },
+    {
+      "text": "Which animal is the King of the Jungle?",
+      "path": "/audio/en/c17542db-matilda.mp3"
+    },
+    {
+      "text": "Try the Bishop!",
+      "path": "/audio/en/c2f0e17a-matilda.mp3"
+    },
+    {
+      "text": "Try the King!",
+      "path": "/audio/en/c370b57c-matilda.mp3"
+    },
+    {
+      "text": "Try the Pawn!",
+      "path": "/audio/en/c64283b3-matilda.mp3"
+    },
+    {
+      "text": "Try the Knight!",
+      "path": "/audio/en/d961005e-matilda.mp3"
+    },
+    {
+      "text": "You found all the moves! The Queen is happy!",
+      "path": "/audio/en/d995de8c-matilda.mp3"
+    },
+    {
+      "text": "Try the Queen! Any direction, any distance.",
+      "path": "/audio/en/dd988ce5-matilda.mp3"
+    },
+    {
+      "text": "Let's learn chess!",
+      "path": "/audio/en/e203d8f0-matilda.mp3"
+    },
+    {
+      "text": "You found all the moves! The King is happy!",
+      "path": "/audio/en/ee4277db-matilda.mp3"
+    },
+    {
+      "text": "Trace the small q. Queen.",
+      "path": "/audio/en/eef724ec-matilda.mp3"
+    },
+    {
+      "text": "Try the Rook! Straight lines only.",
+      "path": "/audio/en/efa0ab6f-matilda.mp3"
+    },
+    {
+      "text": "Discovery 6. Mercury is baking hot by day and freezing cold at night.",
+      "path": "/audio/en/f10aabfd-matilda.mp3"
+    },
+    {
+      "text": "Try the Rook!",
+      "path": "/audio/en/f3eb26da-matilda.mp3"
+    },
+    {
+      "text": "The Knight. A brave horse! It moves L-shape jump.",
+      "path": "/audio/en/febc2bce-matilda.mp3"
+    }
+  ]
+}
