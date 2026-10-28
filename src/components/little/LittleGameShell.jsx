@@ -111,6 +111,7 @@ const LittleGameShell = ({
   onPhaseChange,
   registerDirty,
   pairSafeProgress = false,
+  compactStart = false,
   manualNext = false,
   manualNextPrompt = 'Great counting! Ready for the next rocket?',
   manualNextReviewLabel = 'Fuel count review',
@@ -340,12 +341,12 @@ const LittleGameShell = ({
       </header>
 
       {phase === 'start' && (
-        <main className="relative z-10 flex flex-1 flex-col items-center justify-center gap-5 px-4 pb-8 text-center">
+        <main className={`relative z-10 flex flex-1 flex-col items-center ${compactStart ? 'justify-start gap-2 px-4 pb-3 pt-2' : 'justify-center gap-5 px-4 pb-8'} text-center`}>
           {pairSaveWarning && <p role="alert" className="max-w-xl rounded-2xl border-2 border-amber-500 bg-amber-50 px-4 py-3 font-bold text-amber-950">{pairSaveWarning}</p>}
-          <div className="w-full max-w-md animate-bounce-slow">{startArt}</div>
+          <div className={`w-full animate-bounce-slow ${compactStart ? 'relative h-40 max-w-[18rem]' : 'max-w-md'}`}>{startArt}</div>
           <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} />
           <LevelDots level={level} total={levels.length} />
-          <p className="max-w-md rounded-2xl bg-white/90 px-5 py-2 text-lg font-black text-slate-800 shadow-lg">{level < highestLevel ? 'Practice ' : ''}Level {level + 1} of {levels.length}: {LITTLE_LEVEL_GOALS[gameId]?.[level]}{pairSafeProgress ? `. Available through Level ${highestLevel + 1}.` : ''}</p>
+          <p className="max-w-md rounded-2xl bg-white/90 px-5 py-2 text-lg font-black text-slate-800 shadow-lg">{level < highestLevel ? 'Practice ' : ''}Level {level + 1} of {levels.length}: {LITTLE_LEVEL_GOALS[gameId]?.[level]}{pairSafeProgress && !compactStart ? `. Available through Level ${highestLevel + 1}.` : ''}</p>
           <button
             type="button"
             onClick={start}

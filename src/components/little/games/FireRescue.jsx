@@ -293,6 +293,7 @@ const FireRescue = (props) => {
       gameId="firerescue"
       title="Fire Truck Rescue"
       pairSafeProgress
+      compactStart
       manualNext
       manualNextPrompt="Ready for the next rescue?"
       manualNextReviewLabel="Fire rescue review"
@@ -301,7 +302,7 @@ const FireRescue = (props) => {
       backgroundArtName="fire-house"
       playFullBleed
       speak={speakPackaged}
-      startArt={<RescueTruck className="mx-auto w-full max-w-sm" />}
+      startArt={<RescueTruck className="mx-auto h-full w-full max-w-sm" />}
       renderUnlock={(config) => (
         <div className="flex h-full w-full items-end justify-center">
           {Array.from({ length: Math.max(...config.fires) }, (_, index) => <RescueFlame key={index} className="h-10 w-6" />)}

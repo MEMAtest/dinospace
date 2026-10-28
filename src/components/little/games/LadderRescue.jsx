@@ -295,6 +295,7 @@ const LadderRescue = (props) => {
       gameId="ladder"
       title="Ladder Rescue"
       pairSafeProgress
+      compactStart
       manualNext
       manualNextPrompt="The animal is safe. Ready for the next rescue?"
       manualNextReviewLabel="Ladder rescue review"
@@ -302,7 +303,7 @@ const LadderRescue = (props) => {
       background="from-red-400 via-rose-300 to-sky-200"
       speak={speakPackaged}
       onToggleSound={toggleSound}
-      startArt={<div className="relative mx-auto max-w-sm"><LadderTruckArt className="w-full" title="Fire truck" /><span className="absolute -top-10 right-6 h-20 w-20 animate-wiggle" aria-hidden="true"><Animal animal={RESCUE_ANIMALS[0]} fixed /></span></div>}
+      startArt={<div className="relative mx-auto h-full w-full max-w-sm"><LadderTruckArt className="h-full w-full object-contain" title="Fire truck" /><span className="absolute right-6 top-0 h-16 w-16" aria-hidden="true"><Animal animal={RESCUE_ANIMALS[0]} fixed /></span></div>}
       renderUnlock={(config) => (
         <div className="grid h-full w-full place-items-center rounded-xl bg-orange-200 text-3xl font-black text-slate-800">
           {config.unlock === 'numbers' ? '1 2 3' : `${config.floors} 🏢`}
