@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-28",
+  "pair": "rocketbuilder+fuelup",
+  "status": "Compiled baseline and final copy-only web runtime accepted; full publicmatrix passed",
+  "sourceCommit": "330d946435952e95b99e0c5c092c9b50ee80f51d",
+  "build": {
+    "command": "VITE_ELEVENLABS_ENABLED=true npm run build",
+    "result": "success",
+    "entry": "/assets/arcade-DUz6oOo6.js",
+    "serviceWorkerCacheName": "amari-discovery-v40",
+    "sha256": {
+      "index": {
+        "path": "dist/index.html",
+        "sha256": "99cae821819d745dd46d5965bd99a0ff71832e8d43e6051e8500af7266e4a260"
+      },
+      "worker": {
+        "path": "dist/sw.js",
+        "sha256": "4378f3d55669be1b82e484747bb059d9802777a8df4234ba1026098a9f74b925"
+      },
+      "entry": {
+        "path": "dist/assets/arcade-DUz6oOo6.js",
+        "sha256": "4fa7de1133038c6c0234a53ef4da61c56cab3f2f3df3aaa9ef5e775f60f05a2f"
+      }
+    }
+  },
+  "pwaCompiledGate": {
+    "command": "PWA_BUILD_DIR=dist npm test",
+    "result": "pass",
+    "tests": 479,
+    "passed": 479,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scopedChecks": {
+    "eslint": "pass",
+    "gitDiffCheck": "pass",
+    "commands": [
+      "npx eslint src/components/little/LittleGameShell.jsx src/components/little/games/RocketBuilder.jsx src/components/little/games/rocketBuilderLogic.js src/components/little/games/FuelUp.jsx test/rocketBuilderPair.test.mjs",
+      "git diff --check"
+    ]
+  },
+  "compiledNativeSummary": "compiled-native-summary-DUz6oOo6.json",
+  "nativeTotals": {
+    "runs": 8,
+    "completedLevelRuns": 32,
+    "rocketAssemblyRounds": 44,
+    "fuelCountingRounds": 74,
+    "failedRuns": 0,
+    "providerRequests": 0,
+    "pageErrors": 0,
+    "consoleErrors": 0,
+    "failedResources": 0
+  },
+  "remaining": null,
+  "finalWebDelta": "final-web-build-delta.json",
+  "finalRuntime": "6770807d0ad4fc79b8d1fbd305935441189d241d",
+  "productionSummary": "production-summary.json",
+  "publicAcceptance": true
+}

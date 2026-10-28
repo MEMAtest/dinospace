@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-28T21:05:13.807184+00:00",
+  "cause": "CLI open reopened the named QA browser with default in-memory profile; initial visual captures invalidated for persistence/provider acceptance",
+  "ownedTemporarySession": {
+    "daemonPid": 89178,
+    "started": "2026-10-28T20:53:31Z",
+    "cwd": "canonical checkout",
+    "headless": true,
+    "temporaryStateRetained": "temporary-preview-state.json",
+    "noCompletedPairProgress": true
+  },
+  "repair": "Closed only the identified task-owned temporary named instance; helper restored the SAME retained profile with headless/idle0/one tab/provider guards/namespace. No original profile/data/lock was deleted; no unrelated browser touched.",
+  "restored": true,
+  "entry": "/assets/arcade-BtjYOk2I.js",
+  "points": 162,
+  "memoryStickers": 10,
+  "solarChallenges": 9,
+  "earlierProtectedRecordsUnchanged": 20,
+  "navigationRule": "Use leased existing page.goto/run-code only. Never CLI open for navigation."
+}

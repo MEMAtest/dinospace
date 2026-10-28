@@ -1,0 +1,360 @@
+{
+  "at": "2026-10-28T22:10:10.538885+00:00",
+  "passed": true,
+  "runtime": "6770807d0ad4fc79b8d1fbd305935441189d241d",
+  "entry": "/assets/arcade-DOQI-044.js",
+  "worker": "amari-discovery-v40",
+  "publicUrl": "https://dinospace.netlify.app",
+  "matrix": [
+    {
+      "report": "production-askia-rocketbuilder-390.json",
+      "player": "askia",
+      "game": "rocketbuilder",
+      "width": 390,
+      "levels": [
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 390,
+          "level": 1,
+          "rounds": 2,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 390,
+          "level": 2,
+          "rounds": 2,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 390,
+          "level": 3,
+          "rounds": 3,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 390,
+          "level": 4,
+          "rounds": 3,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 390,
+          "level": 5,
+          "rounds": 3,
+          "mode": "first tracked visit"
+        }
+      ],
+      "interactionRows": 20,
+      "baselineRecorded": true
+    },
+    {
+      "report": "production-askia-rocketbuilder-1440.json",
+      "player": "askia",
+      "game": "rocketbuilder",
+      "width": 1440,
+      "levels": [
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 1,
+          "rounds": 2,
+          "mode": "replay"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 2,
+          "rounds": 2,
+          "mode": "replay"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 3,
+          "rounds": 3,
+          "mode": "replay"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 4,
+          "rounds": 3,
+          "mode": "replay"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 5,
+          "rounds": 3,
+          "mode": "replay"
+        }
+      ],
+      "interactionRows": 16,
+      "baselineRecorded": true
+    },
+    {
+      "report": "production-askia-fuelup-390.json",
+      "player": "askia",
+      "game": "fuelup",
+      "width": 390,
+      "levels": [
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 390,
+          "level": 1,
+          "rounds": 3,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 390,
+          "level": 2,
+          "rounds": 4,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 390,
+          "level": 3,
+          "rounds": 5,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 390,
+          "level": 4,
+          "rounds": 5,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 390,
+          "level": 5,
+          "rounds": 5,
+          "mode": "first tracked visit"
+        }
+      ],
+      "interactionRows": 9,
+      "baselineRecorded": true
+    },
+    {
+      "report": "production-askia-fuelup-1440.json",
+      "player": "askia",
+      "game": "fuelup",
+      "width": 1440,
+      "levels": [
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 1,
+          "rounds": 3,
+          "mode": "replay"
+        },
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 2,
+          "rounds": 4,
+          "mode": "replay"
+        },
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 3,
+          "rounds": 5,
+          "mode": "replay"
+        },
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 4,
+          "rounds": 5,
+          "mode": "replay"
+        },
+        {
+          "game": "fuelup",
+          "player": "askia",
+          "viewport": 1440,
+          "level": 5,
+          "rounds": 5,
+          "mode": "replay"
+        }
+      ],
+      "interactionRows": 9,
+      "baselineRecorded": true
+    },
+    {
+      "report": "production-amari-rocketbuilder-390.json",
+      "player": "amari",
+      "game": "rocketbuilder",
+      "width": 390,
+      "levels": [
+        {
+          "game": "rocketbuilder",
+          "player": "amari",
+          "viewport": 390,
+          "level": 3,
+          "rounds": 3,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "amari",
+          "viewport": 390,
+          "level": 4,
+          "rounds": 3,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "amari",
+          "viewport": 390,
+          "level": 5,
+          "rounds": 3,
+          "mode": "first tracked visit"
+        }
+      ],
+      "interactionRows": 10,
+      "baselineRecorded": true
+    },
+    {
+      "report": "production-amari-rocketbuilder-1440.json",
+      "player": "amari",
+      "game": "rocketbuilder",
+      "width": 1440,
+      "levels": [
+        {
+          "game": "rocketbuilder",
+          "player": "amari",
+          "viewport": 1440,
+          "level": 3,
+          "rounds": 3,
+          "mode": "replay"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "amari",
+          "viewport": 1440,
+          "level": 4,
+          "rounds": 3,
+          "mode": "replay"
+        },
+        {
+          "game": "rocketbuilder",
+          "player": "amari",
+          "viewport": 1440,
+          "level": 5,
+          "rounds": 3,
+          "mode": "replay"
+        }
+      ],
+      "interactionRows": 10,
+      "baselineRecorded": true
+    },
+    {
+      "report": "production-amari-fuelup-390.json",
+      "player": "amari",
+      "game": "fuelup",
+      "width": 390,
+      "levels": [
+        {
+          "game": "fuelup",
+          "player": "amari",
+          "viewport": 390,
+          "level": 3,
+          "rounds": 5,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "fuelup",
+          "player": "amari",
+          "viewport": 390,
+          "level": 4,
+          "rounds": 5,
+          "mode": "first tracked visit"
+        },
+        {
+          "game": "fuelup",
+          "player": "amari",
+          "viewport": 390,
+          "level": 5,
+          "rounds": 5,
+          "mode": "first tracked visit"
+        }
+      ],
+      "interactionRows": 5,
+      "baselineRecorded": true
+    },
+    {
+      "report": "production-amari-fuelup-1440.json",
+      "player": "amari",
+      "game": "fuelup",
+      "width": 1440,
+      "levels": [
+        {
+          "game": "fuelup",
+          "player": "amari",
+          "viewport": 1440,
+          "level": 3,
+          "rounds": 5,
+          "mode": "replay"
+        },
+        {
+          "game": "fuelup",
+          "player": "amari",
+          "viewport": 1440,
+          "level": 4,
+          "rounds": 5,
+          "mode": "replay"
+        },
+        {
+          "game": "fuelup",
+          "player": "amari",
+          "viewport": 1440,
+          "level": 5,
+          "rounds": 5,
+          "mode": "replay"
+        }
+      ],
+      "interactionRows": 4,
+      "baselineRecorded": true
+    }
+  ],
+  "totals": {
+    "journeys": 8,
+    "levelRuns": 32,
+    "rounds": {
+      "rocketbuilder": 44,
+      "fuelup": 74
+    },
+    "interactionRows": 83,
+    "providerRequests": 0,
+    "pageErrors": 0,
+    "consoleErrors": 0,
+    "failedResources": 0
+  },
+  "scope": "Source-bound functional acceptance for these two games. No editorial/listening score or historical family-data recovery claim."
+}

@@ -1,0 +1,137 @@
+{
+  "generator": "Built-in image_gen tool;5calls",
+  "referenceImages": [
+    "src/assets/little/fuel-rocket.webp",
+    "docs/image-templates/rocket-parts-layout.png"
+  ],
+  "export": "cwebp q88 alpha100; proportional4x authored-part dimensions; no semantic pixel edits",
+  "sourceOriginals": "Retained once at the built-in generated-images directory; no duplicate PNG corpus in project",
+  "assets": [
+    {
+      "part": "body",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-627b5eba-04fd-424f-b085-8d674dbedb07.png",
+      "sourceSha256": "cea0120027ae1eb28c08f3cc2ccdf15a105fd8182c3ad1c3436b170f108dd49b",
+      "path": "public/art/rocket-parts-v2/rocket-body.webp",
+      "runtime": "/art/rocket-parts-v2/rocket-body.webp",
+      "sha256": "b8ca61b54ac8ac3548a8ee01fce09673ea1ef52ad3ad5bdd90364524f8fbae00",
+      "bytes": 22860,
+      "dimensions": [
+        384,
+        544
+      ],
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "part": "nose",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-0ab9974e-22fb-4792-b47c-361cfb22d672.png",
+      "sourceSha256": "0beb57326c4c1edc25f3a862022ac0d327385c94d408e57ed307375dc307512c",
+      "path": "public/art/rocket-parts-v2/rocket-nose.webp",
+      "runtime": "/art/rocket-parts-v2/rocket-nose.webp",
+      "sha256": "de833338e35ea2f934e3ee69294ca21ec89d68b516486d647045a22e16f53de4",
+      "bytes": 17100,
+      "dimensions": [
+        384,
+        336
+      ],
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "part": "window",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-ea5ddb86-dd6e-49ee-955d-4bde80d75102.png",
+      "sourceSha256": "bf6f13da1800189fd4e9b5b58dfb9210d8c06d5c439aadfd575b37cac58dfd8b",
+      "path": "public/art/rocket-parts-v2/rocket-window.webp",
+      "runtime": "/art/rocket-parts-v2/rocket-window.webp",
+      "sha256": "81f1315c7b0e88db691729fa038787dfa8a179908af4269406b0f0ed68e280b2",
+      "bytes": 14358,
+      "dimensions": [
+        256,
+        256
+      ],
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "part": "fins",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-dada158c-3de4-47cd-89ce-05e7b5d7f541.png",
+      "sourceSha256": "9100204e7d86bc2e3de12f108bbdd1d962942dd519a67b1ef1cd381da17b2899",
+      "path": "public/art/rocket-parts-v2/rocket-fins.webp",
+      "runtime": "/art/rocket-parts-v2/rocket-fins.webp",
+      "sha256": "4f54febbe9e62145090a3ad18c11941c731067a15eeb40d34e47f5e56bdb8fc3",
+      "bytes": 16018,
+      "dimensions": [
+        656,
+        336
+      ],
+      "alphaRange": [
+        0,
+        254
+      ]
+    },
+    {
+      "part": "flame",
+      "source": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-3a920449-5913-4761-b267-0a658bd5c0e9.png",
+      "sourceSha256": "afd3003821e41b4af7e4571c5c96401e6e07499d3892f11011bdc934cd181e32",
+      "path": "public/art/rocket-parts-v2/rocket-flame.webp",
+      "runtime": "/art/rocket-parts-v2/rocket-flame.webp",
+      "sha256": "c995906e3fbcc257246d103d6d6c76077ff8f2a9fbb24dccec12b432ea496421",
+      "bytes": 13206,
+      "dimensions": [
+        272,
+        336
+      ],
+      "alphaRange": [
+        0,
+        254
+      ]
+    }
+  ],
+  "totalRuntimeBytes": 83542,
+  "prompts": {
+    "body": "Use case: stylized-concept. Production game asset, one transparent cutout: ONLY the main white/silver body of a friendly polished 3D toy rocket, front orthographic view, left-right symmetric. Image 1 is a style/material reference for the finished rocket; Image 2 is a layout guide only, do NOT reproduce its labels, rectangles, or other parts. The body must fit the guide's BODY box (96 wide x136 tall), a tall barrel with straight horizontal joining edge at its top and a gently rounded lower end. White/silver smooth glossy metal, soft light from upper left, subtle red horizontal stripe near the bottom, matching Image1. NO nose cone, NO window or porthole, NO hole, NO fins, NO nozzle, NO flame, NO complete rocket, NO text. Tight crop, minimal even transparent margin, approximately12:17 portrait canvas. The body itself fills almost the full width and height, fully visible, clean alpha edges. Genuinely transparent background, no floor, no cast shadow outside the object, no checkerboard.",
+    "nose": "Use case: stylized-concept. Production game asset: ONLY one red pointed NOSE CONE for a friendly polished 3D toy rocket. Input1 is style/material reference; input2 is assembly guide, not content to copy. Front orthographic view, perfectly left-right symmetric, glossy bright red smooth metal/plastic with soft upper-left lighting matching the reference. A rounded narrow point on top, broad straight horizontal joining base at bottom. Shape should be96units wide and84units tall (about8:7), fill almost entire canvas with only3percent transparent margin. No silver body, no window, no fins, no flame, no complete rocket. No text, no labels or guide marks, no floor, no outside cast shadow, no checkerboard. Fully visible tight cutout on genuinely transparent background.",
+    "window": "Use case: stylized-concept. Production game asset: ONLY a round rocket PORTHOLE WINDOW, isolated front orthographic view. Input1 supplies toy-rocket style/materials, input2 is a layout guide only and must not be drawn. A circular shiny blue glass window inside a silver/grey metal ring with a few rounded rivets. Perfectly circular, centered, glossy friendly polished3D game illustration, soft upper-left lighting matching Input1. The round window fills95percent of a square canvas. No rocket body, no cone, no fins, no flame, no text or letters. Fully visible clean transparent cutout; genuinely transparent background outside the circle, no cast shadow, no checkerboard.",
+    "fins": "Use case: stylized-concept. Production game asset, ONE rocket FINS PAIR on a genuinely transparent background. Input1 is style/material reference; input2 is assembly-position guide only, do not draw the guide. Show only TWO matching red side fins, left and right mirror images, front orthographic view, glossy friendly polished 3D toy-rocket style, softly lit from upper left. Both fins in one wide landscape image, about164:84 aspect ratio (almost2:1). CRITICAL: the middle58.5percent of the full image width is a completely EMPTY TRANSPARENT GAP, body-width96of164. Each fin occupies about20percent of canvas width at the outer left/right; their straight inner vertical joining edges face the gap. The tops begin near their inner sides; rounded swept triangles flare down/outward to bottom tips, like Image1. No connecting bridge, no white/silver body, no nose, no window, no engine, no flame, no complete rocket. Leave only minimal transparent outer margin; all fins fully visible, no shadows crossing empty center, no text, no floor, no checkerboard.",
+    "flame": "Use case: stylized-concept. Production game asset, ONLY a rocket ENGINE NOZZLE WITH FLAME UNDERNEATH, one isolated transparent cutout. Input1 supplies toy-rocket style/materials, Input2 only the assembly box guide, do not draw guide marks. Front orthographic view, perfectly left-right symmetric. At top a small dark grey/silver metal engine nozzle, about70percent of canvas width, flat horizontal joining top. Below it a friendly rounded orange flame with a yellow inner flame, tapering to one rounded point at bottom; the plume can reach almost full canvas width. Glossy polished3D toy-game style, soft upper-left lighting. Entire asset has approximately68:84 portrait aspect ratio, fills almost full height with minimal transparent margins. No rocket body, no red fins, no cone, no window, no complete rocket, no text, no floor or outer cast shadow, no checkerboard. Genuinely transparent background and clean alpha edges."
+  },
+  "runtimeAlignment": "Illustrated-only nested SVG viewBoxes use measured alpha>=64 object bounds to exclude export padding; authored assembly/drop boxes unchanged; original pixels unchanged.",
+  "viewBoxes": {
+    "body": [
+      25,
+      32,
+      334,
+      488
+    ],
+    "nose": [
+      8,
+      23,
+      369,
+      292
+    ],
+    "window": [
+      11,
+      9,
+      234,
+      233
+    ],
+    "fins": [
+      28,
+      37,
+      600,
+      271
+    ],
+    "flame": [
+      35,
+      16,
+      202,
+      307
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "at": "2026-10-28T21:59:19.655890+00:00",
+  "runtime": "6770807d0ad4fc79b8d1fbd305935441189d241d",
+  "deltaFromCompiled": "One truthful Rocket Builder Level2 goal copy change only; nativeDUz functional matrix retained, final publicmatrix required",
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "testsCommand": "PWA_BUILD_DIR=dist npm test",
+  "tests": 479,
+  "pass": 479,
+  "skip": 0,
+  "entry": "/assets/arcade-DOQI-044.js",
+  "sha256": {
+    "dist/index.html": "cfb005b2670b319973ebeff7d8c4344173fd1e610527b4ecc74f8115cdd73221",
+    "dist/sw.js": "dd5ae2858cf0a72ee774f89388ac83461bc386035f310294fc1077b852d3c097",
+    "src/data/littleGames.js": "6a7feac22b7cf9c1bcd28dbd7451cd6da0f37210addad5b709d5336205ef196c"
+  }
+}

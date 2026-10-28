@@ -1,0 +1,1177 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "player": "amari",
+  "game": "rocketbuilder",
+  "viewport": 390,
+  "entryIdentity": "/assets/arcade-DUz6oOo6.js",
+  "expectedEntry": "/assets/arcade-DUz6oOo6.js",
+  "namespaced": true,
+  "baseline": {
+    "currentPlayerLittleProgress": null,
+    "currentPlayerRewards": {
+      "version": 2,
+      "points": 141,
+      "gamesPlayed": {
+        "trace": 21,
+        "tictactoe": 12,
+        "colormix": 18,
+        "phonics": 3,
+        "oddoneout": 3,
+        "pattern": 3,
+        "astronaut": 3,
+        "chess": 3,
+        "codecadets": 3,
+        "writingdesk": 3,
+        "memory": 10,
+        "solar": 18
+      },
+      "earnedStickerIds": [
+        "rocket",
+        "dino",
+        "star",
+        "truck",
+        "heart",
+        "planet",
+        "hero"
+      ]
+    },
+    "otherPlayer": "askia",
+    "otherPlayerLittleProgress": {
+      "rocketbuilder": {
+        "level": 4,
+        "plays": 25,
+        "best": 3,
+        "pairBestByLevel": {
+          "0": 3,
+          "1": 3,
+          "2": 3,
+          "3": 3,
+          "4": 3
+        },
+        "pairTransactionId": "79bb9708-8eba-4e0a-a780-611a1b163e91",
+        "pairPreviousLevel": 4,
+        "pairPlayedLevel": 4,
+        "pairLevelUp": false,
+        "pairRewardPoints": 0,
+        "pairLegacyRewardThrough": -1
+      },
+      "fuelup": {
+        "level": 4,
+        "plays": 18,
+        "best": 3,
+        "pairBestByLevel": {
+          "0": 3,
+          "1": 3,
+          "2": 3,
+          "3": 3,
+          "4": 3
+        },
+        "pairTransactionId": "9ec48ae9-8073-40a7-85ee-356cbf157bb2",
+        "pairPreviousLevel": 4,
+        "pairPlayedLevel": 4,
+        "pairLevelUp": false,
+        "pairRewardPoints": 0,
+        "pairLegacyRewardThrough": -1
+      }
+    },
+    "otherPlayerRewards": {
+      "version": 2,
+      "points": 88,
+      "gamesPlayed": {
+        "pattern": 3,
+        "memory": 4,
+        "rocketbuilder": 5,
+        "fuelup": 5
+      },
+      "earnedStickerIds": [
+        "rocket",
+        "dino",
+        "star",
+        "truck",
+        "heart"
+      ]
+    },
+    "soundWasOn": true
+  },
+  "completedLevelRuns": [
+    {
+      "game": "rocketbuilder",
+      "player": "amari",
+      "viewport": 390,
+      "level": 3,
+      "rounds": 3,
+      "mode": "first tracked visit"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "amari",
+      "viewport": 390,
+      "level": 4,
+      "rounds": 3,
+      "mode": "first tracked visit"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "amari",
+      "viewport": 390,
+      "level": 5,
+      "rounds": 3,
+      "mode": "first tracked visit"
+    }
+  ],
+  "levelRunCount": 3,
+  "mediaEvents": [
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/24f14aff-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/24f14aff-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/24f14aff-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/33bdca83-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/33bdca83-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/33bdca83-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/33bdca83-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/b01653c0-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/b01653c0-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/b01653c0-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/b01653c0-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/b01653c0-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/b01653c0-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/b01653c0-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/b01653c0-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/306d1003-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/306d1003-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/306d1003-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/306d1003-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/abe7bdaf-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/306d1003-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/306d1003-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/306d1003-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/306d1003-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/e5aab24e-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/e5aab24e-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/e5aab24e-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/e5aab24e-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/7dbc5c3b-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/d6b329d1-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/6a1f50af-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "http://127.0.0.1:5180/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "http://127.0.0.1:5180/audio/en/29035f67-matilda.mp3"
+    }
+  ],
+  "rows": [
+    {
+      "game": "rocketbuilder",
+      "player": "amari",
+      "viewport": 390,
+      "level": 3,
+      "rounds": 3,
+      "mode": "first tracked visit",
+      "selectedLevelAfterResult": 4,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 4,
+      "plays": 1,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 8,
+      "points": 149
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "amari",
+      "viewport": 390,
+      "level": 4,
+      "rounds": 3,
+      "mode": "first tracked visit",
+      "selectedLevelAfterResult": 5,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 2,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 8,
+      "points": 157
+    },
+    {
+      "level": 5,
+      "round": 1,
+      "part": "body",
+      "input": "pointer drag to whole visible ghost center",
+      "targetCenter": [
+        100,
+        152
+      ],
+      "response": "accepted in the authored target"
+    },
+    {
+      "level": 5,
+      "round": 1,
+      "part": "fins",
+      "input": "pointer drag to whole visible ghost center",
+      "targetCenter": [
+        100,
+        202
+      ],
+      "response": "accepted in the authored target"
+    },
+    {
+      "level": 5,
+      "round": 2,
+      "part": "body",
+      "input": "pointer drag to whole visible ghost center",
+      "targetCenter": [
+        100,
+        152
+      ],
+      "response": "accepted in the authored target"
+    },
+    {
+      "level": 5,
+      "round": 2,
+      "part": "fins",
+      "input": "pointer drag to whole visible ghost center",
+      "targetCenter": [
+        100,
+        202
+      ],
+      "response": "accepted in the authored target"
+    },
+    {
+      "level": 5,
+      "round": 3,
+      "part": "body",
+      "input": "pointer drag to whole visible ghost center",
+      "targetCenter": [
+        100,
+        152
+      ],
+      "response": "accepted in the authored target"
+    },
+    {
+      "level": 5,
+      "round": 3,
+      "part": "fins",
+      "input": "pointer drag to whole visible ghost center",
+      "targetCenter": [
+        100,
+        202
+      ],
+      "response": "accepted in the authored target"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "amari",
+      "viewport": 390,
+      "level": 5,
+      "rounds": 3,
+      "mode": "first tracked visit",
+      "selectedLevelAfterResult": 5,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 3,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 8,
+      "points": 165
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "amari",
+      "viewport": 390,
+      "parentReturn": "Creative Lab"
+    }
+  ],
+  "omittedLevelFive": [],
+  "providerRequests": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedResources": [],
+  "failures": []
+}

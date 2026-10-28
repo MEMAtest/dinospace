@@ -1,0 +1,2079 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "player": "askia",
+  "game": "fuelup",
+  "viewport": 1440,
+  "entryIdentity": "/assets/arcade-DOQI-044.js",
+  "expectedEntry": "/assets/arcade-DOQI-044.js",
+  "namespaced": true,
+  "baseline": {
+    "currentPlayerLittleProgress": {
+      "rocketbuilder": {
+        "level": 4,
+        "plays": 10,
+        "best": 3,
+        "pairBestByLevel": {
+          "0": 3,
+          "1": 3,
+          "2": 3,
+          "3": 3,
+          "4": 3
+        },
+        "pairTransactionId": "fd722888-a9b9-4968-942b-b1f963fd6b2e",
+        "pairPreviousLevel": 4,
+        "pairPlayedLevel": 4,
+        "pairLevelUp": false,
+        "pairRewardPoints": 0,
+        "pairLegacyRewardThrough": -1
+      },
+      "fuelup": {
+        "level": 4,
+        "plays": 5,
+        "best": 3,
+        "pairBestByLevel": {
+          "0": 3,
+          "1": 3,
+          "2": 3,
+          "3": 3,
+          "4": 3
+        },
+        "pairTransactionId": "8d16db87-4272-4ee9-837c-ce60ba4cc9f7",
+        "pairPreviousLevel": 4,
+        "pairPlayedLevel": 4,
+        "pairLevelUp": false,
+        "pairRewardPoints": 8,
+        "pairLegacyRewardThrough": -1
+      }
+    },
+    "currentPlayerRewards": {
+      "version": 2,
+      "points": 86,
+      "gamesPlayed": {
+        "shadowmatch": 3,
+        "pattern": 3,
+        "rocketbuilder": 5,
+        "fuelup": 5
+      },
+      "earnedStickerIds": [
+        "rocket",
+        "dino",
+        "star",
+        "truck",
+        "heart"
+      ]
+    },
+    "otherPlayer": "amari",
+    "otherPlayerLittleProgress": {
+      "rocketbuilder": {
+        "level": 4,
+        "plays": 6,
+        "best": 3,
+        "pairBestByLevel": {
+          "2": 3,
+          "3": 3,
+          "4": 3
+        },
+        "pairTransactionId": "5dd46023-b18f-438b-910e-0d2bd729011b",
+        "pairPreviousLevel": 4,
+        "pairPlayedLevel": 4,
+        "pairLevelUp": false,
+        "pairRewardPoints": 0,
+        "pairLegacyRewardThrough": -1
+      }
+    },
+    "otherPlayerRewards": {
+      "version": 2,
+      "points": 186,
+      "gamesPlayed": {
+        "counting": 1,
+        "timeteller": 3,
+        "numberline": 3,
+        "trace": 20,
+        "tictactoe": 10,
+        "shadowmatch": 2,
+        "phonics": 3,
+        "colormix": 18,
+        "oddoneout": 3,
+        "pattern": 3,
+        "astronaut": 4,
+        "chess": 3,
+        "codecadets": 3,
+        "writingdesk": 3,
+        "memory": 10,
+        "solar": 18,
+        "rocketbuilder": 3
+      },
+      "earnedStickerIds": [
+        "rocket",
+        "dino",
+        "star",
+        "truck",
+        "heart",
+        "planet",
+        "hero",
+        "trophy"
+      ]
+    },
+    "soundWasOn": true
+  },
+  "completedLevelRuns": [
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 1,
+      "rounds": 3,
+      "mode": "replay"
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 2,
+      "rounds": 4,
+      "mode": "replay"
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 3,
+      "rounds": 5,
+      "mode": "replay"
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 4,
+      "rounds": 5,
+      "mode": "replay"
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 5,
+      "rounds": 5,
+      "mode": "replay"
+    }
+  ],
+  "levelRunCount": 5,
+  "mediaEvents": [
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/4765d76f-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/4765d76f-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/4765d76f-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/11bc4913-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/11bc4913-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/11bc4913-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/427d9139-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/427d9139-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/427d9139-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/427d9139-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/427d9139-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/427d9139-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/427d9139-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/427d9139-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/e31c12e7-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/3cbc2472-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/7adc64ab-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/7adc64ab-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/7adc64ab-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/7adc64ab-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/49a9b7d2-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/49a9b7d2-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/49a9b7d2-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/49a9b7d2-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/4aa9b965-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/4aa9b965-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/4aa9b965-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/4aa9b965-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/b808d0bc-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/2e455a66-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/9fbcfba4-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/9fbcfba4-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/9fbcfba4-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/9fbcfba4-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/44a9aff3-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/45a9b186-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/46a9b319-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/47a9b4ac-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/48a9b63f-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/49a9b7d2-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/49a9b7d2-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/49a9b7d2-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/49a9b7d2-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "ended",
+      "src": "https://dinospace.netlify.app/audio/en/efde6bbe-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/29035f67-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "play",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "playing",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "timeupdate",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    },
+    {
+      "type": "pause",
+      "src": "https://dinospace.netlify.app/audio/en/697e8cc2-matilda.mp3"
+    }
+  ],
+  "rows": [
+    {
+      "level": 1,
+      "round": 1,
+      "input": "pointer drag",
+      "response": "one can counted by dropping on the rocket"
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 1,
+      "rounds": 3,
+      "targets": [
+        1,
+        3,
+        2
+      ],
+      "mode": "replay",
+      "selectedLevelAfterResult": 1,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 6,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 86
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 2,
+      "rounds": 4,
+      "targets": [
+        1,
+        4,
+        2,
+        3
+      ],
+      "mode": "replay",
+      "selectedLevelAfterResult": 2,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 7,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 86
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 3,
+      "rounds": 5,
+      "targets": [
+        2,
+        5,
+        3,
+        4,
+        2
+      ],
+      "mode": "replay",
+      "selectedLevelAfterResult": 3,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 8,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 86
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 4,
+      "rounds": 5,
+      "targets": [
+        7,
+        3,
+        5,
+        4,
+        6
+      ],
+      "mode": "replay",
+      "selectedLevelAfterResult": 4,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 9,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 86
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "level": 5,
+      "leaveBranch": "Leave the game confirmation \u2192 Back to home",
+      "parentRoute": "https://dinospace.netlify.app/?qa_pair5=askia-fuelup-1440#/home",
+      "audioLeaveCancellation": "normal home navigation paused or ended the packaged prompt; incomplete round left progress/rewards unchanged"
+    },
+    {
+      "level": 5,
+      "viewport": 1440,
+      "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/rocket-fuel-20261028/production-fuel-level5-askia-1440.jpg",
+      "layout": {
+        "width": 1440,
+        "height": 844,
+        "documentWidth": 1440,
+        "prompt": {
+          "x": 511.3125,
+          "y": 101.265625,
+          "width": 417.375,
+          "height": 92,
+          "right": 928.6875,
+          "bottom": 193.265625
+        },
+        "cans": [
+          {
+            "x": 512,
+            "y": 615.46875,
+            "width": 76.796875,
+            "height": 89.59375,
+            "right": 588.796875,
+            "bottom": 705.0625
+          },
+          {
+            "x": 596.796875,
+            "y": 615.46875,
+            "width": 76.796875,
+            "height": 89.59375,
+            "right": 673.59375,
+            "bottom": 705.0625
+          },
+          {
+            "x": 681.59375,
+            "y": 615.46875,
+            "width": 76.796875,
+            "height": 89.59375,
+            "right": 758.390625,
+            "bottom": 705.0625
+          },
+          {
+            "x": 766.390625,
+            "y": 615.46875,
+            "width": 76.796875,
+            "height": 89.59375,
+            "right": 843.1875,
+            "bottom": 705.0625
+          },
+          {
+            "x": 851.1875,
+            "y": 615.46875,
+            "width": 76.8125,
+            "height": 89.609375,
+            "right": 928,
+            "bottom": 705.078125
+          },
+          {
+            "x": 512,
+            "y": 713.078125,
+            "width": 76.796875,
+            "height": 89.59375,
+            "right": 588.796875,
+            "bottom": 802.671875
+          },
+          {
+            "x": 596.796875,
+            "y": 713.078125,
+            "width": 76.796875,
+            "height": 89.59375,
+            "right": 673.59375,
+            "bottom": 802.671875
+          },
+          {
+            "x": 681.59375,
+            "y": 713.078125,
+            "width": 76.796875,
+            "height": 89.59375,
+            "right": 758.390625,
+            "bottom": 802.671875
+          },
+          {
+            "x": 766.390625,
+            "y": 713.078125,
+            "width": 76.796875,
+            "height": 89.59375,
+            "right": 843.1875,
+            "bottom": 802.671875
+          },
+          {
+            "x": 851.1875,
+            "y": 713.078125,
+            "width": 76.8125,
+            "height": 89.609375,
+            "right": 928,
+            "bottom": 802.6875
+          }
+        ],
+        "renderedAssets": {
+          "images": [
+            {
+              "src": "https://dinospace.netlify.app/assets/fuel-rocket-C-kzj_uU.webp",
+              "ok": true
+            }
+          ],
+          "sprites": [
+            {
+              "src": "/assets/fuel-can-bG4-uy-5.webp",
+              "ok": true
+            }
+          ]
+        }
+      },
+      "stage": "counting tray visible before first selection"
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 5,
+      "rounds": 5,
+      "targets": [
+        5,
+        9,
+        6,
+        7,
+        10
+      ],
+      "mode": "replay",
+      "selectedLevelAfterResult": 5,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 10,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 86
+    },
+    {
+      "game": "fuelup",
+      "player": "askia",
+      "viewport": 1440,
+      "parentReturn": "Askia home"
+    }
+  ],
+  "omittedLevelFive": [
+    8
+  ],
+  "providerRequests": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedResources": [],
+  "failures": []
+}

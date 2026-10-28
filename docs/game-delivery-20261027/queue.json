@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 5,
+  "activePair": 6,
   "pairs": [
     {
       "number": 1,
@@ -107,8 +107,12 @@
           "name": "Fuel Up"
         }
       ],
-      "status": "audit_in_progress",
-      "evidence": null
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/rocket-fuel-20261028/README.md",
+      "runtime": "6770807d0ad4fc79b8d1fbd305935441189d241d",
+      "verifiedAt": "2026-10-28T22:11:53.297254+00:00",
+      "publicUrl": "https://dinospace.netlify.app",
+      "sourceGates": "docs/qa-evidence/rocket-fuel-20261028/source-gates.json"
     },
     {
       "number": 6,
@@ -122,8 +126,8 @@
           "name": "Ladder Rescue"
         }
       ],
-      "status": "queued",
-      "evidence": null
+      "status": "audit_in_progress",
+      "evidence": "docs/qa-evidence/rescue-pair-20261028/README.md"
     },
     {
       "number": 7,

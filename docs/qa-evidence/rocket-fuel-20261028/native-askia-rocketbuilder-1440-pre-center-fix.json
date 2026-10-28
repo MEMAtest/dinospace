@@ -1,0 +1,324 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "player": "askia",
+  "game": "rocketbuilder",
+  "viewport": 1440,
+  "entryIdentity": "/assets/arcade-CEz74WR0.js",
+  "namespaced": true,
+  "baseline": {
+    "currentPlayerLittleProgress": {
+      "rocketbuilder": {
+        "level": 4,
+        "plays": 5,
+        "best": 3,
+        "pairBestByLevel": {
+          "0": 3,
+          "1": 3,
+          "2": 3,
+          "3": 3,
+          "4": 3
+        },
+        "pairTransactionId": "f6ad3fa3-edbb-4fbe-8884-9db4c655a332",
+        "pairPreviousLevel": 4,
+        "pairPlayedLevel": 4,
+        "pairLevelUp": false,
+        "pairRewardPoints": 8,
+        "pairLegacyRewardThrough": -1
+      }
+    },
+    "currentPlayerRewards": {
+      "version": 2,
+      "points": 48,
+      "gamesPlayed": {
+        "pattern": 3,
+        "memory": 4,
+        "rocketbuilder": 5
+      },
+      "earnedStickerIds": [
+        "rocket",
+        "dino",
+        "star"
+      ]
+    },
+    "otherPlayer": "amari",
+    "otherPlayerLittleProgress": null,
+    "otherPlayerRewards": {
+      "version": 2,
+      "points": 141,
+      "gamesPlayed": {
+        "trace": 21,
+        "tictactoe": 12,
+        "colormix": 18,
+        "phonics": 3,
+        "oddoneout": 3,
+        "pattern": 3,
+        "astronaut": 3,
+        "chess": 3,
+        "codecadets": 3,
+        "writingdesk": 3,
+        "memory": 10,
+        "solar": 18
+      },
+      "earnedStickerIds": [
+        "rocket",
+        "dino",
+        "star",
+        "truck",
+        "heart",
+        "planet",
+        "hero"
+      ]
+    },
+    "soundWasOn": true
+  },
+  "completedLevelRuns": [
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 1,
+      "rounds": 2,
+      "mode": "replay"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 2,
+      "rounds": 2,
+      "mode": "replay"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 3,
+      "rounds": 3,
+      "mode": "replay"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 4,
+      "rounds": 3,
+      "mode": "replay"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 5,
+      "rounds": 3,
+      "mode": "replay"
+    }
+  ],
+  "levelRunCount": 5,
+  "mediaEvents": [],
+  "rows": [
+    {
+      "level": 1,
+      "round": 1,
+      "part": "nose",
+      "input": "drag",
+      "response": "accepted in the authored target"
+    },
+    {
+      "level": 1,
+      "round": 2,
+      "part": "nose",
+      "input": "tap-outline",
+      "response": "accepted in the authored target"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 1,
+      "rounds": 2,
+      "mode": "replay",
+      "selectedLevelAfterResult": 1,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 6,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 48
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 2,
+      "rounds": 2,
+      "mode": "replay",
+      "selectedLevelAfterResult": 2,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 7,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 48
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 3,
+      "rounds": 3,
+      "mode": "replay",
+      "selectedLevelAfterResult": 3,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 8,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 48
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 4,
+      "rounds": 3,
+      "mode": "replay",
+      "selectedLevelAfterResult": 4,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 9,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 48
+    },
+    {
+      "level": 5,
+      "viewport": 1440,
+      "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/rocket-fuel-20261028/native-rocket-level5-askia-1440.png",
+      "layout": {
+        "width": 1440,
+        "height": 844,
+        "documentWidth": 1440,
+        "board": {
+          "x": 394,
+          "y": 88,
+          "width": 320,
+          "height": 480,
+          "right": 714,
+          "bottom": 568
+        },
+        "tray": {
+          "x": 726,
+          "y": 88,
+          "width": 320,
+          "height": 607.671875,
+          "right": 1046,
+          "bottom": 695.671875
+        },
+        "parts": 5,
+        "firstPart": {
+          "x": 738,
+          "y": 100,
+          "width": 142,
+          "height": 142,
+          "right": 880,
+          "bottom": 242
+        },
+        "renderedAssets": {
+          "images": [],
+          "sprites": [
+            {
+              "src": "/art/rocket-parts-v2/rocket-body.webp",
+              "ok": true
+            },
+            {
+              "src": "/art/rocket-parts-v2/rocket-nose.webp",
+              "ok": true
+            },
+            {
+              "src": "/art/rocket-parts-v2/rocket-window.webp",
+              "ok": true
+            },
+            {
+              "src": "/art/rocket-parts-v2/rocket-fins.webp",
+              "ok": true
+            },
+            {
+              "src": "/art/rocket-parts-v2/rocket-flame.webp",
+              "ok": true
+            }
+          ]
+        }
+      },
+      "stage": "five-part board before first placement"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "level": 5,
+      "rounds": 3,
+      "mode": "replay",
+      "selectedLevelAfterResult": 5,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 10,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 0,
+      "points": 48
+    },
+    {
+      "level": 5,
+      "viewport": 1440,
+      "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/rocket-fuel-20261028/native-rocket-finished-askia-1440.png",
+      "stage": "finished Level 5 with composed raster rocket artwork",
+      "renderedAssets": {
+        "images": [],
+        "sprites": [
+          {
+            "src": "/art/rocket-parts-v2/rocket-body.webp",
+            "ok": true
+          },
+          {
+            "src": "/art/rocket-parts-v2/rocket-nose.webp",
+            "ok": true
+          },
+          {
+            "src": "/art/rocket-parts-v2/rocket-window.webp",
+            "ok": true
+          },
+          {
+            "src": "/art/rocket-parts-v2/rocket-fins.webp",
+            "ok": true
+          },
+          {
+            "src": "/art/rocket-parts-v2/rocket-flame.webp",
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 1440,
+      "parentReturn": "Askia home"
+    }
+  ],
+  "omittedLevelFive": [],
+  "providerRequests": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedResources": [],
+  "failures": []
+}

@@ -1,0 +1,70 @@
+{
+  "at": "2026-10-28T22:02:16.488447+00:00",
+  "removed": [
+    {
+      "path": "docs/qa-evidence/rocket-fuel-20261028/build-board-1440.png",
+      "bytes": 173290,
+      "sha256": "ef85cd849a335693a889c01a3ab658039ab49de19f3fbec475029f6fa6482742",
+      "reason": "Invalid temporary-profile preview"
+    },
+    {
+      "path": "docs/qa-evidence/rocket-fuel-20261028/build-board-390.png",
+      "bytes": 108076,
+      "sha256": "6ffdea0e0fad60d0ddbbfc06aa10a0db5ce683fd31921d61d4455a7be19a7719",
+      "reason": "Invalid temporary-profile preview"
+    },
+    {
+      "path": "docs/qa-evidence/rocket-fuel-20261028/build-start-1440.png",
+      "bytes": 100006,
+      "sha256": "632533de7ff032a9d5e36c58e4e076a8e5d46b258ff3a7ec09115dccf677d142",
+      "reason": "Invalid temporary-profile preview"
+    },
+    {
+      "path": "docs/qa-evidence/rocket-fuel-20261028/build-start-390.png",
+      "bytes": 79917,
+      "sha256": "91d3e2f4856a7f8fbd75e3b691031b02304ddde870fd5c4678622b6cf1b90f21",
+      "reason": "Invalid temporary-profile preview"
+    },
+    {
+      "path": "docs/qa-evidence/rocket-fuel-20261028/native-rocket-finished-askia-1440-pre-center-fix.png",
+      "bytes": 120399,
+      "sha256": "9e9c5237280444071496c5c2a6233c7c220fe8219ccb4e4a415438d059b66de4",
+      "reason": "Superseded successful result screenshot; final native/public result retained"
+    },
+    {
+      "path": "docs/qa-evidence/rocket-fuel-20261028/native-rocket-finished-askia-1440-pre-feedback-position.png",
+      "bytes": 118399,
+      "sha256": "9b12c870e60d7858dd3e510716596754ea2ca22168a124fc656d9def92cf594a",
+      "reason": "Superseded successful result screenshot; final native/public result retained"
+    },
+    {
+      "path": "docs/qa-evidence/rocket-fuel-20261028/native-rocket-finished-askia-390-pre-center-fix.png",
+      "bytes": 137895,
+      "sha256": "576d43e1dc740b4472231b486cf4451ee102484553f3a43805c54d7bc39bbab2",
+      "reason": "Superseded successful result screenshot; final native/public result retained"
+    },
+    {
+      "path": "docs/qa-evidence/rocket-fuel-20261028/native-fuel-level5-askia-1440.png",
+      "bytes": 1307479,
+      "sha256": "2c4a5e93bd4185895ad2b69d512fe188db82df3358035da4746121f80b74243b",
+      "reason": "Superseded successful large or transient-obscured screenshot; final equivalent public render retained",
+      "replacement": "docs/qa-evidence/rocket-fuel-20261028/production-fuel-level5-askia-1440.jpg"
+    },
+    {
+      "path": "docs/qa-evidence/rocket-fuel-20261028/production-rocket-level5-askia-390.png",
+      "bytes": 148404,
+      "sha256": "6921fa134c933e0dc454742116c2ec76b348ea15fdd1ae2cddd59e67ce215e72",
+      "reason": "Superseded successful large or transient-obscured screenshot; final equivalent public render retained",
+      "replacement": "docs/qa-evidence/rocket-fuel-20261028/final-rocket-board-390.jpg"
+    }
+  ],
+  "removedBytes": 2293865,
+  "retained": "All original generated art; source/runtime hashes; all JSON failure and acceptance records; pre-fix unique board evidence; final representative native and public renders. No profile, worktree, dependencies or family data removed.",
+  "newWorktrees": 0,
+  "newDependencyInstalls": 0,
+  "retainedNewBrowserProfiles": 0,
+  "temporaryBrowserIncident": "One unintended default ephemeral QA browser instance was created then closed; same retained profile restored. Size/reclaimed bytes unmeasured; see browser-repair.json.",
+  "persistentProfileMiB": 604,
+  "profileMaintenance": "Known above256MiB; retained unchanged, no automated clearing.",
+  "evidenceBytesBeforeFinalCommit": 3813104
+}

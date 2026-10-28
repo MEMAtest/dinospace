@@ -1,0 +1,266 @@
+{
+  "status": "compiled-native-pair-matrix-passed; public release acceptance remains root-owned and pending",
+  "sourceCommit": "330d946435952e95b99e0c5c092c9b50ee80f51d",
+  "candidate": {
+    "origin": "http://127.0.0.1:5180",
+    "entry": "/assets/arcade-DUz6oOo6.js",
+    "serviceWorkerCache": "amari-discovery-v40",
+    "indexSha256": "99cae821819d745dd46d5965bd99a0ff71832e8d43e6051e8500af7266e4a260",
+    "serviceWorkerSha256": "4378f3d55669be1b82e484747bb059d9802777a8df4234ba1026098a9f74b925",
+    "entrySha256": "4fa7de1133038c6c0234a53ef4da61c56cab3f2f3df3aaa9ef5e775f60f05a2f"
+  },
+  "sourceGates": {
+    "configuredBuild": "VITE_ELEVENLABS_ENABLED=true npm run build",
+    "pwaBuildGate": "PWA_BUILD_DIR=dist npm test",
+    "tests": 479,
+    "passed": 479,
+    "skipped": 0,
+    "scopedEslint": "passed",
+    "gitDiffCheck": "passed"
+  },
+  "nativeProtocol": {
+    "session": "amari-targeted-contained",
+    "profile": "tmp/amari-production-qa-profile",
+    "browserContexts": 1,
+    "namespace": "qa_rewards_20261024_",
+    "providerGuard": "403",
+    "resetOrInjectedProgress": false,
+    "invocation": [
+      "python3 scripts/ensure-amari-qa-browser.py --owner remaining-games-batch5",
+      "python3 tmp/run-pair5-native.py <askia|amari> <rocketbuilder|fuelup> <390|1440>",
+      "python3 scripts/ensure-amari-qa-browser.py --owner remaining-games-batch5 --release"
+    ],
+    "entryIdentity": "read dynamically from dist/index.html by tmp/run-pair5-native.py"
+  },
+  "matrix": [
+    {
+      "player": "askia",
+      "game": "rocketbuilder",
+      "viewportWidth": 390,
+      "evidence": "native-askia-rocketbuilder-390.json",
+      "completedLevels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completedLevelRuns": 5,
+      "interactionRows": 20,
+      "qaNamespaceVerified": true,
+      "candidateEntry": "/assets/arcade-DUz6oOo6.js",
+      "providerRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0
+    },
+    {
+      "player": "askia",
+      "game": "rocketbuilder",
+      "viewportWidth": 1440,
+      "evidence": "native-askia-rocketbuilder-1440.json",
+      "completedLevels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completedLevelRuns": 5,
+      "interactionRows": 16,
+      "qaNamespaceVerified": true,
+      "candidateEntry": "/assets/arcade-DUz6oOo6.js",
+      "providerRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0
+    },
+    {
+      "player": "askia",
+      "game": "fuelup",
+      "viewportWidth": 390,
+      "evidence": "native-askia-fuelup-390.json",
+      "completedLevels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completedLevelRuns": 5,
+      "interactionRows": 9,
+      "qaNamespaceVerified": true,
+      "candidateEntry": "/assets/arcade-DUz6oOo6.js",
+      "providerRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0
+    },
+    {
+      "player": "askia",
+      "game": "fuelup",
+      "viewportWidth": 1440,
+      "evidence": "native-askia-fuelup-1440.json",
+      "completedLevels": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "completedLevelRuns": 5,
+      "interactionRows": 9,
+      "qaNamespaceVerified": true,
+      "candidateEntry": "/assets/arcade-DUz6oOo6.js",
+      "providerRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0
+    },
+    {
+      "player": "amari",
+      "game": "rocketbuilder",
+      "viewportWidth": 390,
+      "evidence": "native-amari-rocketbuilder-390.json",
+      "completedLevels": [
+        3,
+        4,
+        5
+      ],
+      "completedLevelRuns": 3,
+      "interactionRows": 10,
+      "qaNamespaceVerified": true,
+      "candidateEntry": "/assets/arcade-DUz6oOo6.js",
+      "providerRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0
+    },
+    {
+      "player": "amari",
+      "game": "rocketbuilder",
+      "viewportWidth": 1440,
+      "evidence": "native-amari-rocketbuilder-1440.json",
+      "completedLevels": [
+        3,
+        4,
+        5
+      ],
+      "completedLevelRuns": 3,
+      "interactionRows": 10,
+      "qaNamespaceVerified": true,
+      "candidateEntry": "/assets/arcade-DUz6oOo6.js",
+      "providerRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0
+    },
+    {
+      "player": "amari",
+      "game": "fuelup",
+      "viewportWidth": 390,
+      "evidence": "native-amari-fuelup-390.json",
+      "completedLevels": [
+        3,
+        4,
+        5
+      ],
+      "completedLevelRuns": 3,
+      "interactionRows": 5,
+      "qaNamespaceVerified": true,
+      "candidateEntry": "/assets/arcade-DUz6oOo6.js",
+      "providerRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0
+    },
+    {
+      "player": "amari",
+      "game": "fuelup",
+      "viewportWidth": 1440,
+      "evidence": "native-amari-fuelup-1440.json",
+      "completedLevels": [
+        3,
+        4,
+        5
+      ],
+      "completedLevelRuns": 3,
+      "interactionRows": 4,
+      "qaNamespaceVerified": true,
+      "candidateEntry": "/assets/arcade-DUz6oOo6.js",
+      "providerRequests": 0,
+      "pageErrors": 0,
+      "consoleErrors": 0,
+      "failedResources": 0
+    }
+  ],
+  "totals": {
+    "runs": 8,
+    "completedLevelRuns": 32,
+    "interactionRows": 83,
+    "providerRequests": 0,
+    "pageErrors": 0,
+    "consoleErrors": 0,
+    "failedResources": 0,
+    "rocketAssemblyRounds": 44,
+    "fuelCountingRounds": 74
+  },
+  "focusedEvidence": {
+    "rocket390WrongFeedbackAndCenters": {
+      "report": "native-askia-rocketbuilder-390.json",
+      "part": "body",
+      "level": 5,
+      "wrongFeedback": "visible role=alert within the fixed board and held with the part available for correction",
+      "alertBoxPx": {
+        "x": 70.59375,
+        "y": 100,
+        "width": 248.796875,
+        "height": 65
+      },
+      "boardBoxPx": {
+        "x": 54.59375,
+        "y": 84,
+        "width": 280.796875,
+        "height": 421.1875
+      },
+      "pointerAcceptedCentersViewBox": {
+        "body": [
+          100,
+          152
+        ],
+        "fins": [
+          100,
+          202
+        ]
+      },
+      "allFiveIllustratedSpritesDecoded": true
+    },
+    "fuel390PackagedReplay": {
+      "report": "native-askia-fuelup-390.json",
+      "level": 5,
+      "completedMutedThenUnmutedReview": true,
+      "exactPackagedNumberClipPlayObserved": true,
+      "mutePauseObserved": true,
+      "NextDuringPlaybackObserved": true,
+      "providerFallback": false
+    },
+    "fuel1440LeaveCancellation": {
+      "report": "native-askia-fuelup-1440.json",
+      "leaveBranch": "Leave the game confirmation \u2192 Back to home",
+      "homeRoute": "#/home",
+      "incompleteProgressAndRewardsUnchanged": true
+    }
+  },
+  "supersededHarnessAttempts": [
+    {
+      "evidence": "native-askia-fuelup-390-pre-center-fix.json",
+      "reason": "document capture missed detached Audio element events; final run uses a versioned HTMLMediaElement.prototype.play tracker and passed"
+    },
+    {
+      "evidence": "native-askia-fuelup-1440-before-dialog-fix.json",
+      "reason": "harness assumed immediate home instead of honoring the normal Leave the game confirmation; final run handles the dialog and passed"
+    }
+  ],
+  "retainedSyntheticProfile": "No reset or key deletion. Each report includes its actual per-child baseline; harness checked the other child, the other Pair 5 game and non-pair game rows remained unchanged.",
+  "nextReleaseGate": "Root will apply one remaining curriculum-goal copy correction, rebuild and run the final configured web/PWA identity gate plus public matrix. This native summary is not public or live acceptance."
+}

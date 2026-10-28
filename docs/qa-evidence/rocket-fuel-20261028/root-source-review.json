@@ -1,0 +1,60 @@
+{
+  "at": "2026-10-28T21:53:59.417982+00:00",
+  "runtimeCandidate": "330d946435952e95b99e0c5c092c9b50ee80f51d",
+  "compiledEntry": "/assets/arcade-DUz6oOo6.js",
+  "worker": "amari-discovery-v40",
+  "sourceTests": 479,
+  "status": "Independent root source/visual review complete; compiled matrix ongoing, no public acceptance yet",
+  "reviewed": [
+    "Opt-in pair-only persistence preflights/readback, preserves unrelated rows and waits forRetry before rewards/unlocks",
+    "Legacy reward ceiling does not fabricate mastery; fresh8/replay0/newlevel8 and legacy1to3zero covered",
+    "Actual playedlevel and durable highest are separate; named playaction matches selection",
+    "Fuel held count/can model plus exact number replay, stable current speaker after unmute, durable omission rotation",
+    "Rocket wrong named target rejected; all5authored center drags accepted includingbody/compositefins",
+    "Actual hint/mistake attribution, timer cleanup, exact packaged-only narration",
+    "83,542bytes of built-in generated sprites, lazy optionalSVGframes with vectors preserved for unavailable media and othergames",
+    "Wrong feedback stays inside fixedboard above rocket, outside scrollingparts; phone5part visual reviewed"
+  ],
+  "knownCopyDeltaQueued": "Goal2 must say Fit the nose, window and fins, because no colour chooser is rendered; root will make this copy-only correction after active matrix, rebuild/PWA, then fullpublicproof",
+  "files": [
+    {
+      "path": "src/components/little/LittleGameShell.jsx",
+      "sha256": "68a7bf46e445c4a6d2efcc5488a4b897c0da43bba6c077a93b4076a8f0cefb33"
+    },
+    {
+      "path": "src/components/little/HandHint.jsx",
+      "sha256": "0d879892ec2e34381c6a5cc8267a8f1bac372e03cde707919711d49433eb79a5"
+    },
+    {
+      "path": "src/components/little/VehicleArt.jsx",
+      "sha256": "f7d0c4917c8e84e5f38c3dc80508cc856013cb934c4d88eb36b6c5ddaefcc134"
+    },
+    {
+      "path": "src/components/little/games/RocketBuilder.jsx",
+      "sha256": "7811eab5f0724475193507505dcb786acd49adb960a3e7163d9fd9ce10c863d7"
+    },
+    {
+      "path": "src/components/little/games/FuelUp.jsx",
+      "sha256": "5b40c1b1841c039b8e2717998c34053a62191d0b86189c6986c228478fe9b3b2"
+    },
+    {
+      "path": "src/components/little/games/rocketBuilderLogic.js",
+      "sha256": "b1c74ef68350b220c3b64caf675b53017615c8a0bfbb89fd960dc3983a70d07b"
+    },
+    {
+      "path": "src/components/little/games/fuelUpLogic.js",
+      "sha256": "f1723a8a67234a4d4554776f05b07dd2ba0d77d3fa5bc4ac6c51cca7c5cba386"
+    },
+    {
+      "path": "src/components/little/games/pairAttemptAttribution.js",
+      "sha256": "b1035c6a01302cb3c9590be6d779e5c6565347a5925c50b13675f906048cd1c8"
+    },
+    {
+      "path": "src/data/pairLittleProgress.js",
+      "sha256": "4964f025a74378ed9de994467dab47f818a8af26c0eba1ff91a011beaad735b5"
+    }
+  ],
+  "finalRuntime": "6770807d0ad4fc79b8d1fbd305935441189d241d",
+  "finalEntry": "/assets/arcade-DOQI-044.js",
+  "copyDeltaResolution": "Applied truthful Level2 goal; actual web build and479/479 PWA tests passed, source-bound final-web-build-delta.json. Full publicmatrix pending."
+}

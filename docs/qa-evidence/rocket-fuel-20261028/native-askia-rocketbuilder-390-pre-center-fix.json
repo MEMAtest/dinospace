@@ -1,0 +1,308 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "player": "askia",
+  "game": "rocketbuilder",
+  "viewport": 390,
+  "entryIdentity": "/assets/arcade-CEz74WR0.js",
+  "namespaced": true,
+  "baseline": {
+    "currentPlayerLittleProgress": null,
+    "currentPlayerRewards": {
+      "version": 2,
+      "points": 8,
+      "gamesPlayed": {
+        "pattern": 3,
+        "memory": 4
+      },
+      "earnedStickerIds": []
+    },
+    "otherPlayer": "amari",
+    "otherPlayerLittleProgress": null,
+    "otherPlayerRewards": {
+      "version": 2,
+      "points": 141,
+      "gamesPlayed": {
+        "trace": 21,
+        "tictactoe": 12,
+        "colormix": 18,
+        "phonics": 3,
+        "oddoneout": 3,
+        "pattern": 3,
+        "astronaut": 3,
+        "chess": 3,
+        "codecadets": 3,
+        "writingdesk": 3,
+        "memory": 10,
+        "solar": 18
+      },
+      "earnedStickerIds": [
+        "rocket",
+        "dino",
+        "star",
+        "truck",
+        "heart",
+        "planet",
+        "hero"
+      ]
+    },
+    "soundWasOn": true
+  },
+  "completedLevelRuns": [
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 1,
+      "rounds": 2,
+      "mode": "first tracked visit"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 2,
+      "rounds": 2,
+      "mode": "first tracked visit"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 3,
+      "rounds": 3,
+      "mode": "first tracked visit"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 4,
+      "rounds": 3,
+      "mode": "first tracked visit"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 5,
+      "rounds": 3,
+      "mode": "first tracked visit"
+    }
+  ],
+  "levelRunCount": 5,
+  "mediaEvents": [],
+  "rows": [
+    {
+      "level": 1,
+      "round": 1,
+      "wrongRetry": "held part remained selectable; accessible wrong-target explanation shown"
+    },
+    {
+      "level": 1,
+      "round": 1,
+      "part": "nose",
+      "input": "drag",
+      "response": "accepted in the authored target"
+    },
+    {
+      "level": 1,
+      "round": 2,
+      "part": "nose",
+      "input": "tap-outline",
+      "response": "accepted in the authored target"
+    },
+    {
+      "level": 1,
+      "blockedWriteRetry": "pre-Retry progress and reward snapshots unchanged; Retry saved one play and its matching reward delta"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 1,
+      "rounds": 2,
+      "mode": "first tracked visit",
+      "selectedLevelAfterResult": 2,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 2,
+      "plays": 1,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 8,
+      "points": 16
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 2,
+      "rounds": 2,
+      "mode": "first tracked visit",
+      "selectedLevelAfterResult": 3,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 3,
+      "plays": 2,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 8,
+      "points": 24
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 3,
+      "rounds": 3,
+      "mode": "first tracked visit",
+      "selectedLevelAfterResult": 4,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 4,
+      "plays": 3,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 8,
+      "points": 32
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 4,
+      "rounds": 3,
+      "mode": "first tracked visit",
+      "selectedLevelAfterResult": 5,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 4,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 8,
+      "points": 40
+    },
+    {
+      "level": 5,
+      "viewport": 390,
+      "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/rocket-fuel-20261028/native-rocket-level5-askia-390.png",
+      "layout": {
+        "width": 390,
+        "height": 844,
+        "documentWidth": 390,
+        "board": {
+          "x": 54.59375,
+          "y": 84,
+          "width": 280.796875,
+          "height": 421.1875,
+          "right": 335.390625,
+          "bottom": 505.1875
+        },
+        "tray": {
+          "x": 35,
+          "y": 517.1875,
+          "width": 320,
+          "height": 303.828125,
+          "right": 355,
+          "bottom": 821.015625
+        },
+        "parts": 5,
+        "firstPart": {
+          "x": 47,
+          "y": 529.1875,
+          "width": 90.65625,
+          "height": 90.65625,
+          "right": 137.65625,
+          "bottom": 619.84375
+        },
+        "renderedAssets": {
+          "images": [],
+          "sprites": [
+            {
+              "src": "/art/rocket-parts-v2/rocket-body.webp",
+              "ok": true
+            },
+            {
+              "src": "/art/rocket-parts-v2/rocket-nose.webp",
+              "ok": true
+            },
+            {
+              "src": "/art/rocket-parts-v2/rocket-window.webp",
+              "ok": true
+            },
+            {
+              "src": "/art/rocket-parts-v2/rocket-fins.webp",
+              "ok": true
+            },
+            {
+              "src": "/art/rocket-parts-v2/rocket-flame.webp",
+              "ok": true
+            }
+          ]
+        }
+      },
+      "stage": "five-part board before first placement"
+    },
+    {
+      "game": "rocketbuilder",
+      "player": "askia",
+      "viewport": 390,
+      "level": 5,
+      "rounds": 3,
+      "mode": "first tracked visit",
+      "selectedLevelAfterResult": 5,
+      "selectedCorrectly": true,
+      "savedHighestLevel": 5,
+      "plays": 5,
+      "bestStars": 3,
+      "levelBestStars": 3,
+      "legacyRewardThrough": -1,
+      "rewardDelta": 8,
+      "points": 48
+    },
+    {
+      "level": 5,
+      "viewport": 390,
+      "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/rocket-fuel-20261028/native-rocket-finished-askia-390.png",
+      "stage": "finished Level 5 with composed raster rocket artwork",
+      "renderedAssets": {
+        "images": [],
+        "sprites": [
+          {
+            "src": "/art/rocket-parts-v2/rocket-body.webp",
+            "ok": true
+          },
+          {
+            "src": "/art/rocket-parts-v2/rocket-nose.webp",
+            "ok": true
+          },
+          {
+            "src": "/art/rocket-parts-v2/rocket-window.webp",
+            "ok": true
+          },
+          {
+            "src": "/art/rocket-parts-v2/rocket-fins.webp",
+            "ok": true
+          },
+          {
+            "src": "/art/rocket-parts-v2/rocket-flame.webp",
+            "ok": true
+          }
+        ]
+      }
+    }
+  ],
+  "omittedLevelFive": [],
+  "providerRequests": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedResources": [],
+  "failures": [
+    {
+      "message": "locator.click: Error: strict mode violation: getByRole('button', { name: 'Go home', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"Go home\" class=\"grid h-16 w-16 shrink-0 place-items-center rounded-full border-4 border-white/80 shadow-[0_6px_0_rgba(15,23,42,.18)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none bg-white text-slate-800 \">\u2026</button> aka getByRole('banner').getByRole('button', { name: 'Go home' })\n    2) <button type=\"button\" aria-label=\"Go home\" class=\"grid h-24 w-24 shrink-0 place-items-center rounded-full border-4 border-white/80 shadow-[0_6px_0_rgba(15,23,42,.18)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none bg-gradient-to-b from-amber-300 to-orange-500 text-white \">\u2026</button> aka getByRole('main').getByRole('button', { name: 'Go home' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Go home', exact: true })\u001b[22m\n",
+      "stack": "locator.click: Error: strict mode violation: getByRole('button', { name: 'Go home', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"Go home\" class=\"grid h-16 w-16 shrink-0 place-items-center rounded-full border-4 border-white/80 shadow-[0_6px_0_rgba(15,23,42,.18)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none bg-white text-slate-800 \">\u2026</button> aka getByRole('banner').getByRole('button', { name: 'Go home' })\n    2) <button type=\"button\" aria-label=\"Go home\" class=\"grid h-24 w-24 shrink-0 place-items-center rounded-full border-4 border-white/80 shadow-[0_6px_0_rgba(15,23,42,.18)] transition hover:-translate-y-0.5 active:translate-y-1 active:shadow-none bg-gradient-to-b from-amber-300 to-orange-500 text-white \">\u2026</button> aka getByRole('main').getByRole('button', { name: 'Go home' })\n\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Go home', exact: true })\u001b[22m\n\n    at evalmachine.<anonymous>:524:70\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13"
+    }
+  ]
+}

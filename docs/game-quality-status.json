@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-28T19:35:03.896357+00:00",
+  "updatedAt": "2026-10-28T22:11:53.297254+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa",
+  "canonicalRelease": "6770807d0ad4fc79b8d1fbd305935441189d241d",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": 5,
+  "activeDeliveryPair": 6,
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1212,6 +1212,20 @@
     "status": "Released and functionally verified: all9Solar missions and10Memory boards at390/1440; first earnings/replay, failed-save Retry, durable passports, shelves and prior-record retention",
     "evidence": "docs/qa-evidence/solar-memory-20261028/README.md",
     "sourceTests": 455,
+    "editorialScoresChanged": false,
+    "paidCalls": 0,
+    "functionalAcceptance": true
+  },
+  "latestRocketFuelUplift": {
+    "runtime": "6770807d0ad4fc79b8d1fbd305935441189d241d",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-ktg4k1bib-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_HdPrBdhZWiTgGWWr9HFiurGLLBb5",
+    "netlifyGatewayDeploy": "6ae2707731274fc3ad52ac35",
+    "serviceWorkerCache": "amari-discovery-v40",
+    "status": "Released and functionally verified:32level-runs/44rocketbuilds/74fuelrounds on both children at390/1440, saveRetry, actual drags/keyboard, held audio review and earned-record reload",
+    "evidence": "docs/qa-evidence/rocket-fuel-20261028/README.md",
+    "sourceTests": 479,
     "editorialScoresChanged": false,
     "paidCalls": 0,
     "functionalAcceptance": true
