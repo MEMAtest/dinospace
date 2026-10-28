@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { buildFireMissionTargets, buildLadderMissionTargets } from '../src/components/little/games/rescueMissionLogic.js';
+import {
+  bindRescuePauseCancellation, buildFireMissionTargets, buildLadderMissionTargets, exactRescueSegments,
+} from '../src/components/little/games/rescueMissionLogic.js';
 import { pairRoundAttribution } from '../src/components/little/games/pairAttemptAttribution.js';
 import { LITTLE_LEVELS, LITTLE_LINES, RESCUE_ANIMALS, rescueDone, rescueFloorPrompt, rescuePrompt } from '../src/data/littleGames.js';
 import { getOfflineVoiceClip } from '../src/data/offlineVoice.js';
@@ -61,4 +63,63 @@ test('rescue mission plans cover authored level counts and all referenced narrat
     ...Array.from({ length: 6 }, (_, index) => String(index + 1)),
   ];
   lines.filter(Boolean).forEach((line) => assert.ok(getOfflineVoiceClip(line, 'en-US'), `exact en-US clip exists for: ${line}`));
+});
+
+test('Fire pause binding stops held spray on actual blur, hidden visibility, freeze and resume events, then cleans up', () => {
+  const documentTarget = new EventTarget();
+  const windowTarget = new EventTarget();
+  let visibilityState = 'visible';
+  let hasFocus = true;
+  Object.defineProperties(documentTarget, {
+    visibilityState: { get: () => visibilityState },
+    hasFocus: { value: () => hasFocus },
+  });
+  let held = true;
+  let stopCalls = 0;
+  const stop = () => { held = false; stopCalls += 1; };
+  const cleanup = bindRescuePauseCancellation(documentTarget, windowTarget, stop);
+  documentTarget.dispatchEvent(new Event('visibilitychange'));
+  assert.equal(held, true, 'a visible, focused page does not cancel');
+  visibilityState = 'hidden';
+  documentTarget.dispatchEvent(new Event('visibilitychange'));
+  assert.equal(held, false, 'a real hidden visibility state cancels');
+  held = true;
+  visibilityState = 'visible';
+  hasFocus = false;
+  documentTarget.dispatchEvent(new Event('visibilitychange'));
+  assert.equal(held, false, 'a page that has lost focus cancels even if visibility reports visible');
+  held = true;
+  hasFocus = true;
+  windowTarget.dispatchEvent(new Event('blur'));
+  assert.equal(held, false, 'window blur cancels');
+  held = true;
+  documentTarget.dispatchEvent(new Event('freeze'));
+  assert.equal(held, false, 'page freeze cancels');
+  held = true;
+  documentTarget.dispatchEvent(new Event('resume'));
+  assert.equal(held, false, 'page resume cannot revive a held gesture');
+  const callsBeforeCleanup = stopCalls;
+  cleanup();
+  held = true;
+  documentTarget.dispatchEvent(new Event('freeze'));
+  documentTarget.dispatchEvent(new Event('resume'));
+  windowTarget.dispatchEvent(new Event('blur'));
+  visibilityState = 'hidden';
+  documentTarget.dispatchEvent(new Event('visibilitychange'));
+  assert.equal(held, true, 'cleanup removes every listener');
+  assert.equal(stopCalls, callsBeforeCleanup);
+});
+
+test('Fire narration accepts exact packaged single and chained clips, and fails closed for gaps or mismatches', () => {
+  const hasClip = (line) => Boolean(getOfflineVoiceClip(line, 'en-US'));
+  assert.deepEqual(exactRescueSegments(LITTLE_LINES.fireDone, undefined, hasClip), [LITTLE_LINES.fireDone]);
+  for (let count = 1; count <= 6; count += 1) {
+    const text = `${count} ${LITTLE_LINES.fireDone}`;
+    assert.deepEqual(exactRescueSegments(text, { segments: [String(count), LITTLE_LINES.fireDone] }, hasClip), [String(count), LITTLE_LINES.fireDone]);
+  }
+  assert.equal(exactRescueSegments('', undefined, hasClip), null);
+  assert.equal(exactRescueSegments('6 All the fires are out!', { segments: ['6', 'Different line'] }, hasClip), null);
+  assert.equal(exactRescueSegments('6 All the fires are out!', { segments: ['6', 'All the fires are out!'] }, (line) => line === '6'), null);
+  assert.equal(exactRescueSegments('6 All the fires are out!', { segments: ['', LITTLE_LINES.fireDone] }, hasClip), null);
+  assert.equal(exactRescueSegments('6 All the fires are out!', { segments: [] }, hasClip), null);
 });

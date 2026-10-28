@@ -7,7 +7,7 @@ import { useRoundHint } from '../useRoundHint.js';
 import { LITTLE_LINES } from '../../../data/littleGames.js';
 import { getOfflineVoiceClip } from '../../../data/offlineVoice.js';
 import { pairRoundAttribution } from './pairAttemptAttribution.js';
-import { buildFireMissionTargets } from './rescueMissionLogic.js';
+import { bindRescuePauseCancellation, buildFireMissionTargets, exactRescueSegments } from './rescueMissionLogic.js';
 
 // Positions are percentages of the authored scene. The house stays on the
 // right and the truck stays on the left, so the hose sprays across the scene.
@@ -67,16 +67,8 @@ const FireRound = ({ count, targetSpots, houseColour, complete, speak, playSfx, 
   }, [firstRound, speak]);
 
   useEffect(() => {
-    const cancelForPageState = () => {
-      if (document.visibilityState === 'hidden' || document.hasFocus?.() === false) stopSpray();
-    };
-    window.addEventListener('blur', stopSpray);
-    document.addEventListener('visibilitychange', cancelForPageState);
-    return () => {
-      window.removeEventListener('blur', stopSpray);
-      document.removeEventListener('visibilitychange', cancelForPageState);
-      stopSpray();
-    };
+    const unbind = bindRescuePauseCancellation(document, window, stopSpray);
+    return () => { unbind(); stopSpray(); };
   }, [stopSpray]);
 
   useEffect(() => {
@@ -84,7 +76,10 @@ const FireRound = ({ count, targetSpots, houseColour, complete, speak, playSfx, 
     const timer = setTimeout(() => {
       if (completedRef.current) return;
       completedRef.current = true;
-      latest.current.speak?.(LITTLE_LINES.fireDone);
+      latest.current.speak?.(`${count} ${LITTLE_LINES.fireDone}`, {
+        premium: false,
+        segments: [String(count), LITTLE_LINES.fireDone],
+      });
       latest.current.complete({
         praise: false,
         delay: 1800,
@@ -120,7 +115,7 @@ const FireRound = ({ count, targetSpots, houseColour, complete, speak, playSfx, 
           if (health === 0) {
             outCountRef.current += 1;
             latest.current.playSfx?.('splash');
-            latest.current.speak?.(String(outCountRef.current));
+            if (outCountRef.current < count) latest.current.speak?.(String(outCountRef.current));
           }
           return { ...fire, health };
         });
@@ -140,7 +135,7 @@ const FireRound = ({ count, targetSpots, houseColour, complete, speak, playSfx, 
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [exposeGuidance]);
+  }, [count, exposeGuidance]);
 
   const toScene = (event) => {
     const rect = sceneRef.current?.getBoundingClientRect();
@@ -285,10 +280,11 @@ const FireRescue = (props) => {
   const { speak, playSfx, soundOn } = props;
   const speechRef = useRef({ speak, soundOn });
   useEffect(() => { speechRef.current = { speak, soundOn }; }, [soundOn, speak]);
-  const speakPackaged = useCallback((text) => {
+  const speakPackaged = useCallback((text, options = {}) => {
     const current = speechRef.current;
-    if (current.soundOn === false || !getOfflineVoiceClip(text)) return;
-    current.speak?.(text, { premium: false, segments: [text] });
+    const segments = exactRescueSegments(text, options, (segment) => Boolean(getOfflineVoiceClip(segment)));
+    if (current.soundOn === false || !segments) return;
+    current.speak?.(text, { ...options, premium: false, segments });
   }, []);
 
   return (

@@ -38,6 +38,99 @@ test('Pair 5 progress fails closed on storage getters, unreadable and malformed 
   assert.equal(empty.values.get('askia_little_progress'), '');
 });
 
+test('Pair 6 Fire and Ladder results persist, grant fresh rewards once, and migrate old progress conservatively', () => {
+  for (const gameId of ['firerescue', 'ladder']) {
+    let blockedWrites = 0;
+    const unreadable = { getItem() { throw new DOMException('blocked read', 'SecurityError'); }, setItem() { blockedWrites += 1; } };
+    const readFailure = commitPairLittleResult({
+      playerId: 'askia', gameId, bigKid: false, stars: 3, expectedLevel: 0, playedLevel: 0,
+      transactionId: `${gameId}-blocked-read`, storage: unreadable,
+    });
+    assert.equal(readFailure.ok, false);
+    assert.equal(blockedWrites, 0, `${gameId} must not write when the shared map cannot be read`);
+
+    const key = pairLittleProgressKey('askia');
+    const preserved = mapStorage({ [key]: JSON.stringify({ memory: { level: 1, plays: 2, best: 2 } }) });
+    const original = preserved.getItem(key);
+    const quota = { getItem: (k) => preserved.getItem(k), setItem() { throw new DOMException('quota', 'QuotaExceededError'); } };
+    const writeFailure = commitPairLittleResult({
+      playerId: 'askia', gameId, bigKid: false, stars: 3, expectedLevel: 0, playedLevel: 0,
+      transactionId: `${gameId}-blocked-write`, storage: quota,
+    });
+    assert.equal(writeFailure.ok, false);
+    assert.equal(preserved.getItem(key), original, `${gameId} blocked write preserves siblings and old bytes`);
+
+    const retryStore = mapStorage();
+    let failReadback = true;
+    const flaky = {
+      getItem(k) {
+        if (failReadback && retryStore.getItem(k)?.includes('pairTransactionId')) {
+          failReadback = false;
+          throw new DOMException('readback unavailable', 'SecurityError');
+        }
+        return retryStore.getItem(k);
+      },
+      setItem: (k, value) => retryStore.setItem(k, value),
+    };
+    const failedReadback = commitPairLittleResult({
+      playerId: 'askia', gameId, bigKid: false, stars: 3, expectedLevel: 0, playedLevel: 0,
+      transactionId: `${gameId}-readback-retry`, storage: flaky,
+    });
+    assert.equal(failedReadback.ok, false);
+    assert.equal(JSON.parse(retryStore.getItem(key))[gameId].plays, 1);
+    const recovered = commitPairLittleResult({
+      playerId: 'askia', gameId, bigKid: false, stars: 3, expectedLevel: 0, playedLevel: 0,
+      transactionId: `${gameId}-readback-retry`, storage: retryStore,
+    });
+    assert.equal(recovered.ok, true);
+    assert.equal(recovered.recovered, true);
+    assert.equal(recovered.rewardPoints, 8);
+    assert.equal(JSON.parse(retryStore.getItem(key))[gameId].plays, 1, 'Retry recovers the same completion without adding another play');
+
+    const fresh = mapStorage();
+    const first = commitPairLittleResult({
+      playerId: 'askia', gameId, bigKid: false, stars: 3, expectedLevel: 0, playedLevel: 0,
+      transactionId: `${gameId}-fresh`, storage: fresh,
+    });
+    assert.equal(first.ok, true, `${gameId} fresh first completion saves`);
+    assert.equal(first.rewardPoints, 8);
+    assert.equal(first.level, 1);
+    const committed = fresh.getItem(pairLittleProgressKey('askia'));
+    const retry = commitPairLittleResult({
+      playerId: 'askia', gameId, bigKid: false, stars: 3, expectedLevel: 0, playedLevel: 0,
+      transactionId: `${gameId}-fresh`, storage: fresh,
+    });
+    assert.equal(retry.recovered, true);
+    assert.equal(retry.rewardPoints, 8);
+    assert.equal(fresh.getItem(pairLittleProgressKey('askia')), committed, 'same transaction retry does not increment a second time');
+    const replay = commitPairLittleResult({
+      playerId: 'askia', gameId, bigKid: false, stars: 3, expectedLevel: 1, playedLevel: 0,
+      transactionId: `${gameId}-replay`, storage: fresh,
+    });
+    assert.equal(replay.ok, true);
+    assert.equal(replay.rewardPoints, 0);
+    assert.equal(JSON.parse(fresh.getItem(pairLittleProgressKey('askia')))[gameId].plays, 2);
+    const secondReplay = commitPairLittleResult({
+      playerId: 'askia', gameId, bigKid: false, stars: 3, expectedLevel: 1, playedLevel: 0,
+      transactionId: `${gameId}-second-replay`, storage: fresh,
+    });
+    assert.equal(secondReplay.ok, true);
+    assert.equal(secondReplay.rewardPoints, 0);
+    assert.equal(JSON.parse(fresh.getItem(pairLittleProgressKey('askia')))[gameId].pairBestByLevel[0], 3);
+
+    const legacy = mapStorage({ [pairLittleProgressKey('amari')]: JSON.stringify({
+      [gameId]: { level: 2, plays: 5, best: 2 },
+    }) });
+    const migrated = commitPairLittleResult({
+      playerId: 'amari', gameId, bigKid: true, stars: 3, expectedLevel: 2, playedLevel: 2,
+      transactionId: `${gameId}-legacy`, storage: legacy,
+    });
+    assert.equal(migrated.ok, true);
+    assert.equal(migrated.rewardPoints, 0, 'an old earned/unscored row cannot farm a new pair reward');
+    assert.equal(JSON.parse(legacy.getItem(pairLittleProgressKey('amari')))[gameId].pairLegacyRewardThrough, 2);
+  }
+});
+
 test('Pair 5 save retries preserve a pending transaction without double-counting and isolate children', () => {
   const storage = mapStorage({
     askia_little_progress: JSON.stringify({ ladder: { level: 2, plays: 3, best: 2 }, fuelup: { level: 1, plays: 4, best: 2 } }),

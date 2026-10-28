@@ -1,5 +1,44 @@
 const safeOrdinal = (value) => (Number.isInteger(value) && value >= 0 ? value : 0);
 
+// Bind cancellation to real browser lifecycle events without coupling the
+// round mechanic to React or a particular browser global implementation.
+export const bindRescuePauseCancellation = (documentTarget, windowTarget, stopSpray) => {
+  if (!documentTarget?.addEventListener || !documentTarget?.removeEventListener
+    || !windowTarget?.addEventListener || !windowTarget?.removeEventListener
+    || typeof stopSpray !== 'function') return () => {};
+  const cancelForPageState = () => {
+    if (documentTarget.visibilityState === 'hidden' || documentTarget.hasFocus?.() === false) stopSpray();
+  };
+  const cancelForLifecycle = () => stopSpray();
+  windowTarget.addEventListener('blur', cancelForLifecycle);
+  documentTarget.addEventListener('visibilitychange', cancelForPageState);
+  documentTarget.addEventListener('freeze', cancelForLifecycle);
+  documentTarget.addEventListener('resume', cancelForLifecycle);
+  return () => {
+    windowTarget.removeEventListener('blur', cancelForLifecycle);
+    documentTarget.removeEventListener('visibilitychange', cancelForPageState);
+    documentTarget.removeEventListener('freeze', cancelForLifecycle);
+    documentTarget.removeEventListener('resume', cancelForLifecycle);
+  };
+};
+
+// Return only exact packaged segments that concatenate to the displayed line.
+// A null result keeps callers on written guidance and cannot activate fallback
+// speech for an incomplete or mismatched sequence.
+export const exactRescueSegments = (text, options, hasPackagedClip) => {
+  if (typeof text !== 'string' || !text.trim() || typeof hasPackagedClip !== 'function') return null;
+  const supplied = options?.segments;
+  const segments = supplied === undefined ? [text] : supplied;
+  if (!Array.isArray(segments) || segments.length === 0
+    || segments.some((segment) => typeof segment !== 'string' || !segment.trim())) return null;
+  if (segments.join(' ') !== text) return null;
+  try {
+    return segments.every((segment) => hasPackagedClip(segment)) ? segments : null;
+  } catch {
+    return null;
+  }
+};
+
 // Rotate the actual visible fire targets by run and round. Equal-sized rounds
 // in one run therefore do not reuse an identical scene; replay shifts the set.
 export const buildFireMissionTargets = (spots, counts, playOrdinal = 0) => {
