@@ -1,5 +1,12 @@
 const REPEAT_MISSION_ROUTE = ['forward', 'forward', 'forward', 'right', 'forward', 'forward', 'forward', 'collect'];
 
+/** Return only the next supported example block; independent missions have no guide program. */
+export function nextGuidedMissionInstruction(program, guidedBlocks) {
+  if (!Array.isArray(program) || !Array.isArray(guidedBlocks) || program.length >= guidedBlocks.length) return null;
+  if (!guidedBlocks.slice(0, program.length).every((op, index) => op === program[index])) return null;
+  return guidedBlocks[program.length] ?? null;
+}
+
 export function nextRepeatMissionInstruction(program) {
   return REPEAT_MISSION_ROUTE[program.length] ?? null;
 }

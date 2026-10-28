@@ -5,6 +5,7 @@ import Batch4BadgeCollections from './components/shared/Batch4BadgeCollections.j
 import SafariColourCollections from './components/shared/SafariColourCollections.jsx';
 import ReasoningCollections from './components/shared/ReasoningCollections.jsx';
 import SpaceStrategyCollections from './components/shared/SpaceStrategyCollections.jsx';
+import CreativeProjectCollections from './components/shared/CreativeProjectCollections.jsx';
 import MemoryBadgeCollection from './components/shared/MemoryBadgeCollection.jsx';
 import { getEarnedChapterBadgeIds } from './data/chapterBadges.js';
 import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.jsx';
@@ -342,6 +343,7 @@ const PlayerSession = ({
         <SafariColourCollections playerId={player.id} />
         <ReasoningCollections playerId={player.id} />
         <SpaceStrategyCollections playerId={player.id} />
+        <CreativeProjectCollections playerId={player.id} />
         <MemoryBadgeCollection playerId={player.id} />
         <RewardsShelf points={points} earnedStickerIds={earnedStickerIds} />
       </div>

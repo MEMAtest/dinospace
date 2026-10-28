@@ -1,7 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { expandProgram } from '../src/rehearsal/rover.js';
-import { nextRepeatMissionInstruction, findForwardTriple, replaceForwardTriple, repeatMissionStage } from '../src/rehearsal/codeCadetsFlow.js';
+import { nextGuidedMissionInstruction, nextRepeatMissionInstruction, findForwardTriple, replaceForwardTriple, repeatMissionStage } from '../src/rehearsal/codeCadetsFlow.js';
+
+test('guided missions add only the next authored block and independent missions never reveal one', () => {
+  const guide=['forward','right','collect'];
+  assert.equal(nextGuidedMissionInstruction([],guide),'forward');
+  assert.equal(nextGuidedMissionInstruction(['forward'],guide),'right');
+  assert.equal(nextGuidedMissionInstruction(['forward','right','collect'],guide),null);
+  assert.equal(nextGuidedMissionInstruction(['right'],guide),null);
+  assert.equal(nextGuidedMissionInstruction([],undefined),null);
+});
 
 test('repeat mission guidance builds the full route in order', () => {
   const program = [];

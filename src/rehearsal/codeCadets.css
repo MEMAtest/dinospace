@@ -61,7 +61,7 @@
 .studio-shell .cc-map-key { display: flex; flex-wrap: wrap; gap: 14px; margin: 12px 0 8px; color: #475f7c; font-size: 14px; font-weight: 800; }
 .studio-shell .cc-facing { margin: 0 0 12px; padding: 10px 12px; border-radius: 12px; background: #fff3bf; line-height: 1.45; }
 .studio-shell .cc-feedback { min-height: 56px; margin: 0; padding: 12px 14px; border-left: 5px solid #0d9baa; border-radius: 11px; background: #e7faff; font-size: 16px; font-weight: 800; line-height: 1.45; }
-.studio-shell .cc-clue { min-height: 46px; margin-top: 8px; padding: 8px 10px; border: 0; background: transparent; color: #075c7d; box-shadow: none; text-decoration: underline; }
+.studio-shell .cc-clue { min-height: 48px; margin-top: 8px; padding: 8px 10px; border: 0; background: transparent; color: #075c7d; box-shadow: none; text-decoration: underline; }
 .studio-shell .cc-tip { margin: 5px 0 0; padding: 12px; border: 1px solid #eac979; border-radius: 12px; background: #fff5d8; line-height: 1.45; }
 .studio-shell .cc-code-list { display: grid; gap: 8px; margin: 0; padding: 0 4px 0 0; list-style: none; }
 .studio-shell .cc-code-list li { display: flex; align-items: center; gap: 11px; min-height: 57px; padding: 7px 10px; border: 2px solid #c5e3fa; border-radius: 14px; background: linear-gradient(#fff, #eaf5ff); }
@@ -103,7 +103,7 @@
 .studio-shell .cc-edit-list { display: grid; gap: 6px; margin: 10px 0; }
 .studio-shell .cc-edit-list > div { display: grid; gap: 7px; padding: 9px; border: 1px solid #d2e3f0; border-radius: 12px; }
 .studio-shell .cc-edit-list > div > span, .studio-shell .cc-tool-buttons, .studio-shell .cc-mission-choices { display: flex; flex-wrap: wrap; gap: 7px; }
-.studio-shell .cc-tool-buttons button, .studio-shell .cc-edit-list button, .studio-shell .cc-mission-choices button { min-height: 46px; padding: 8px 11px; }
+.studio-shell .cc-tool-buttons button, .studio-shell .cc-edit-list button, .studio-shell .cc-mission-choices button { min-height: 48px; padding: 8px 11px; }
 .studio-shell .cc-mission-choices button[aria-current] { background: #1266d6; color: white; border-color: #1266d6; }
 .studio-shell .cc-title-field { display: grid; gap: 5px; font-weight: 800; }
 .studio-shell .cc-title-field input { width: 100%; min-width: 0; min-height: 48px; padding: 9px 12px; border: 2px solid #bad1e6; border-radius: 12px; }
@@ -150,16 +150,43 @@
 .studio-shell .cc-mission-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .studio-shell .cc-mission-nav button { min-height: 48px; padding: 9px 10px; background: #f4faff; border: 2px solid #a9d6ff; border-radius: 14px; color: #17396c; font-size: 15px; }
 .studio-shell .cc-mission-nav button[aria-current] { background: #164cc2; color: white; border-color: white; box-shadow: 0 0 0 2px #83dfff; }
-.studio-shell .cc-next-action, .studio-shell .cc-success { position: sticky; top: 10px; z-index: 8; box-shadow: 0 5px 14px #162d6940; }
+.studio-shell .cc-success { position: static; box-shadow: 0 5px 14px #162d6940; }
 .studio-shell .cc-next-action > .eyebrow { font-size: 15px; letter-spacing: 0; text-transform: none; font-weight: 900; }
 .studio-shell .cc-board-card { scroll-margin-top: 180px; }
 .studio-shell .cc-tile-label { position: absolute; bottom: 1px; left: 0; right: 0; z-index: 3; color: #163d2c; background: #edffe1e8; text-align: center; font-size: 11px; font-weight: 900; }
 .studio-shell .cc-square.is-corner { border: 3px dashed #226343; }
 .studio-shell .cc-code-list li.needs-fix { background: #fff2cf; border: 3px solid #a35c03; }
 .studio-shell .cc-code-list .cc-fix-label { color: #784000; font-weight: 900; }
+.studio-shell .cc-chapter-nav { min-width: 0; padding: 10px; border: 2px solid #b8dcff; border-radius: 16px; background: #f5fbff; }
+.studio-shell .cc-chapter-nav h2 { margin: 0 0 7px; font-size: 16px; color: #142177; }
+.studio-shell .cc-chapter-nav h2 span { color: #27683c; font-size: 13px; }
+.studio-shell .cc-chapter-nav>div { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; }
+.studio-shell .cc-chapter-nav button { min-width: 0; min-height: 48px; padding: 7px; text-align: left; white-space: normal; line-height: 1.25; font-size: 13px; }
+.studio-shell .cc-main-actions { grid-column: 1/-1; display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.studio-shell .cc-main-actions button { min-height: 48px; }
+.studio-shell .cc-main-actions .cc-primary { padding: 10px 15px; }
+.studio-shell .cc-main-actions .cc-stop { border: 2px solid #ba2534; color: #8a1622; background: white; }
+.studio-shell .cc-grid .cc-coordinate { position: absolute; left: 3px; top: 2px; z-index: 3; font-size: clamp(8px,1.5vw,11px); color: #53422f; font-weight: 800; }
+.studio-shell .cc-grid .cc-square.is-wall { background: repeating-linear-gradient(135deg,#3d4d63 0 8px,#26374e 8px 16px); border: 2px solid #14243b; }
+.studio-shell .cc-grid .cc-square.is-wall .cc-coordinate { color: #fff; }
+.studio-shell .cc-wall-label { align-self: end; margin-bottom: 3px; color: #fff; font-size: clamp(8px,1.5vw,11px); font-weight: 900; text-shadow: 0 1px 2px #000; }
+.studio-shell .cc-readable-only { margin: 8px 0 0; color: #526a7a; font-size: 13px; }
+.studio-shell .cc-sound { min-width: 48px; min-height: 48px; }
+@media(max-width:900px){.studio-shell .cc-mission-nav{grid-template-columns:minmax(0,1fr)}.studio-shell .cc-chapter-nav>div{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:360px){.studio-shell .cc-chapter-nav>div{grid-template-columns:minmax(0,1fr)}}
 @media (max-width: 760px) {
  .studio-shell .cc-mission-nav { gap: 5px; }
  .studio-shell .cc-mission-nav button { font-size: 12px; padding: 7px 5px; }
  .studio-shell .cc-coach > div > p:last-child { font-size: 14px; }
- .studio-shell .cc-next-action { top: 4px; }
+.studio-shell .cc-next-action { position: static; }
 }
+.studio-shell .cc-mission-picker { border: 2px solid #a4d8f7; border-radius: 15px; background: #f5fbff; }
+.studio-shell .cc-mission-picker > summary { min-height: 48px; display: flex; align-items: center; padding: 8px 14px; cursor: pointer; font-weight: 900; color: #17396c; }
+.studio-shell .cc-mission-picker[open] { padding: 0 10px 10px; }
+.studio-shell .cc-mission-picker[open] > summary { margin: 0 -10px 8px; border-bottom: 1px solid #c5dff1; }
+.studio-shell .cc-board-goal { margin: 0 0 10px; font-weight: 800; line-height: 1.4; }
+.studio-shell .cc-main-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 0 0 12px; }
+.studio-shell .cc-main-actions button { min-height: 48px; }
+.studio-shell .cc-main-actions .cc-primary { padding: 9px 13px; }
+.studio-shell .cc-retry-save { min-height: 48px; margin: 8px 0; }
+.studio-shell .cc-success:focus { outline: 4px solid #1279bf; outline-offset: 3px; }

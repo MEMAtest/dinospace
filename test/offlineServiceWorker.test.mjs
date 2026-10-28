@@ -169,7 +169,7 @@ const createWorker = ({ precacheAssets = [], networkRoutes = new Map() } = {}) =
 };
 
 test('service worker source keeps its shell and media caches separate', () => {
-  assert.match(workerSource, /const CACHE_NAME = 'amari-discovery-v37'/);
+  assert.match(workerSource, /const CACHE_NAME = 'amari-discovery-v38'/);
   assert.match(workerSource, /const MEDIA_CACHE_NAME = 'amari-discovery-media-v1'/);
   assert.match(workerSource, /await cache\.addAll\(CORE_APP_SHELL\)/);
   assert.match(workerSource, /cacheInBatches\(cache, PRECACHE_ASSETS\)/);
@@ -194,10 +194,10 @@ test('the installed worker contains only compiled assets and stays under the eag
   assert.ok(assets.length > 0);
   assert.equal(new Set(assets).size, assets.length, 'precache paths are unique');
   assert.ok(assets.every((asset) => asset.startsWith('/assets/')), 'audio and story media are excluded from install');
-  // The reviewed canonical 19 October catalogue already emits 160 assets.
-  // Keep that request ceiling and the independent 40 MiB byte ceiling; adding
-  // another eagerly cached asset requires an explicit budget review.
-  assert.ok(assets.length <= 160, `compiled asset count ${assets.length} exceeds the reviewed 160-request budget`);
+  // The28October Code/Writing review adds three shared JS chunk requests.
+  // See docs/qa-evidence/code-writing-20261028/worker-budget-review.json.
+  // Keep the independent40MiB ceiling and require review for another increase.
+  assert.ok(assets.length <= 163, `compiled asset count ${assets.length} exceeds the reviewed 163-request budget`);
   const emittedAssetFiles = (await readdir(path.join(buildDirectory, 'assets')))
     .filter((file) => /\.(?:css|js|mjs|png|jpg|jpeg|webp|svg|woff2?)$/i.test(file))
     .map((file) => `/assets/${file}`)

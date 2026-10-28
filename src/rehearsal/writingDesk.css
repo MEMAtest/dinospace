@@ -12,6 +12,74 @@
 .studio-shell .writing-step-help{color:#805000;font-weight:800;margin:8px 0 0;padding:9px 12px;background:#fff5d8;border-radius:10px}
 .studio-shell .document-panel .writing-step-nav{justify-content:flex-start}
 .studio-shell [data-writing-lesson]:not([data-writing-lesson="2"]) .postcard-paper .tiptap p:has(>br:only-child)::before{content:none}
+.studio-shell .writing-desk button,.studio-shell .writing-desk select{min-height:48px}
+.studio-shell .writing-project-intro{max-width:920px;margin:14px auto 18px;padding:16px 20px;border:2px solid #d1edff;border-radius:18px;background:#f5fcff;color:#304b6d;font-weight:700;line-height:1.5}
+.studio-shell .writing-legacy-notice{display:grid;gap:8px;max-width:920px;margin:0 auto 18px;padding:15px 18px;border:2px solid #f1d18b;border-radius:18px;background:#fff8e7;color:#654d1a}
+.studio-shell .writing-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.studio-shell .writing-project-card{display:flex;min-width:0;flex-direction:column;gap:10px;padding:20px;border:3px solid #fff;border-radius:26px;background:linear-gradient(145deg,#fff,#f1fbff);box-shadow:0 0 0 2px #a4e5ff,0 9px 24px #1c458b22}
+.studio-shell .writing-project-card.is-complete{box-shadow:0 0 0 2px #9ddaae,0 9px 24px #1c458b22}
+.studio-shell .writing-project-card.is-locked{filter:saturate(.55)}
+.studio-shell .writing-project-number,.studio-shell .writing-project-status{font-size:12px;font-weight:900;letter-spacing:.06em;color:#43638b}
+.studio-shell .writing-project-card h2{margin:0;color:#142177;font-size:23px;line-height:1.2}
+.studio-shell .writing-project-card>p{margin:0;color:#3a5373;line-height:1.5}
+.studio-shell .writing-project-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.studio-shell .writing-project-art{width:100%;max-width:290px;margin:8px auto 0;padding:15px}
+.studio-shell .writing-project-art img{width:112px;height:112px;object-fit:contain}
+.studio-shell .writing-project-art p{font-size:18px}
+.studio-shell .writing-planet-art{display:flex;min-height:150px;align-items:center;justify-content:center;gap:12px;margin-top:auto;color:#385477;font-weight:900}
+.studio-shell .writing-planet-art img{width:130px;height:130px;object-fit:contain;filter:drop-shadow(0 6px 7px #405aba33)}
+.studio-shell .writing-project-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 0;color:#fff;font-weight:800}
+.studio-shell .writing-editor-layout{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:18px;align-items:start}
+.studio-shell .writing-project-guide{position:sticky;top:12px}
+.studio-shell .writing-project-guide h2{margin:0 0 8px;color:#142177;font-size:24px}
+.studio-shell .writing-project-guide>p{line-height:1.5}
+.studio-shell .writing-next-action{padding:12px;border-radius:14px;background:#fff4d8;color:#654b13;font-weight:750}
+.studio-shell .writing-checklist{display:grid;gap:7px;margin:12px 0}
+.studio-shell .writing-checklist>div{display:flex;gap:8px;align-items:flex-start;padding:7px 9px;border-radius:10px;background:#f1f7fc;color:#526a83;font-size:13px;line-height:1.35;font-weight:700}
+.studio-shell .writing-checklist>div>span{flex:0 0 auto;font-weight:950}
+.studio-shell .writing-checklist>div.is-done{background:#e2f7e7;color:#246039}
+.studio-shell .writing-word-count{padding:10px;border-radius:12px;background:#e8f9ff;color:#244a69}
+.studio-shell .writing-guidance-note,.studio-shell .writing-audio-note{color:#586f87;font-size:12px;line-height:1.45}
+.studio-shell .writing-document-column{min-width:0}
+.studio-shell .writing-document-panel{display:grid;gap:14px}
+.studio-shell .writing-field{display:grid;gap:6px;color:#253d62;font-weight:850}
+.studio-shell .writing-field input,.studio-shell .writing-field select{width:100%;min-height:50px;padding:10px 12px;border:2px solid #b7d6ed;border-radius:12px;background:white;color:#172c54;font-size:17px}
+.studio-shell .writing-planet-choice{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:10px}
+.studio-shell .writing-format-tools,.studio-shell .writing-save-tools{display:flex;flex-wrap:wrap;gap:8px}
+.studio-shell .writing-button{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:7px;padding:10px 14px;border:2px solid #b7d6ed;border-radius:13px;background:#fff;color:#1f4064;font-weight:850;text-align:center;cursor:pointer}
+.studio-shell .writing-button.primary{border-color:#b5ffeb;color:#fff}
+.studio-shell .writing-button.secondary{background:linear-gradient(#fff,#eaf5ff)}
+.studio-shell .writing-button.retry{border-color:#e9b88d;background:#fff3df;color:#75400b}
+.studio-shell .writing-button:disabled{cursor:not-allowed;opacity:.65}
+.studio-shell .writing-button:focus-visible,.studio-shell .writing-field input:focus-visible,.studio-shell .writing-field select:focus-visible,.studio-shell .writing-paper .tiptap:focus-visible{outline:3px solid #0a81d4;outline-offset:3px}
+.studio-shell .writing-paper{min-height:310px;padding:18px;border:2px solid #d8e6ef;border-radius:18px;background:#fffdf3;box-shadow:inset 0 2px 5px #31527a12}
+.studio-shell .writing-paper .tiptap{min-height:270px;padding:6px;color:#1b2c48;font-family:Georgia,serif;font-size:19px;line-height:1.65;outline:none;overflow-wrap:anywhere}
+.studio-shell .writing-paper .tiptap h1{margin:0 0 18px;font-size:30px;line-height:1.25}
+.studio-shell .writing-paper .tiptap p{min-height:1.7em;margin:0 0 10px}
+.studio-shell .writing-paper .tiptap p:empty::before,.studio-shell .writing-paper .tiptap h1:empty::before{color:#8b9cad;pointer-events:none}
+.studio-shell .writing-paper .tiptap h1:empty::before{content:'Type your document heading here…'}
+.studio-shell .writing-paper .tiptap p:empty::before{content:'Write your own words here…'}
+.studio-shell .writing-paper .tiptap img{display:block;max-width:min(100%,260px);max-height:260px;margin:14px auto;object-fit:contain}
+.studio-shell .writing-paragraph-count{margin:0;color:#526981;font-size:12px;font-weight:750}
+.studio-shell .writing-save-status{padding:11px 14px;border-radius:12px;background:#e8f8eb;color:#23603a;font-weight:800;line-height:1.4}
+.studio-shell .writing-save-status.is-pending,.studio-shell .writing-save-status.is-saving{background:#fff5d8;color:#75520b}
+.studio-shell .writing-save-status.is-failed{background:#fff0e8;color:#8c391f}
+.studio-shell .writing-complete-panel{display:grid;gap:8px;padding:14px;border:2px solid #b8e0bd;border-radius:16px;background:#f0fff1}
+.studio-shell .writing-disabled-help{margin:0;color:#70500b;font-size:13px;font-weight:750;line-height:1.45}
+.studio-shell .writing-completion-card{display:grid;justify-items:center;gap:16px;max-width:780px;margin:25px auto;padding:26px;border:3px solid white;border-radius:28px;background:#f3fff2;box-shadow:0 0 0 2px #9ddaae,0 10px 28px #1b54852b;text-align:center}
+.studio-shell .writing-completion-card img{width:150px;height:150px;object-fit:contain}
+.studio-shell .writing-completion-card p{max-width:580px;color:#304d69;font-size:18px;line-height:1.5}
+.studio-shell .writing-save-status[role=status]{overflow-wrap:anywhere}
+.studio-shell .writing-quick-guide{display:grid;gap:5px;margin:8px 0 12px;padding:12px 15px;border:2px solid #c7e8f7;border-radius:16px;background:#effaff;color:#304b6d;line-height:1.4}
+.studio-shell .writing-quick-guide strong{color:#142177;font-size:18px}
+.studio-shell .writing-heading-entry{margin:0}
+.studio-shell .writing-heading-entry input{font-size:19px}
+.studio-shell .writing-focus-message{justify-self:start}
+.studio-shell .writing-project-checks,.studio-shell .writing-advanced-tools,.studio-shell .writing-document-name,.studio-shell .writing-parent-note{padding:10px 12px;border:1px solid #d7e4ee;border-radius:12px;background:#f8fbfd;color:#304b6d}
+.studio-shell .writing-project-checks summary,.studio-shell .writing-advanced-tools summary,.studio-shell .writing-document-name summary,.studio-shell .writing-parent-note summary{min-height:30px;display:flex;align-items:center;font-weight:800;cursor:pointer}
+.studio-shell .writing-project-checks[open] summary,.studio-shell .writing-advanced-tools[open] summary,.studio-shell .writing-document-name[open] summary,.studio-shell .writing-parent-note[open] summary{margin-bottom:8px}
+@media(max-width:900px){.studio-shell .writing-project-grid{grid-template-columns:1fr}.studio-shell .writing-project-card{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}.studio-shell .writing-project-card h2,.studio-shell .writing-project-card>p,.studio-shell .writing-project-number,.studio-shell .writing-project-status,.studio-shell .writing-project-actions{grid-column:1}.studio-shell .writing-planet-art,.studio-shell .writing-project-art{grid-column:2;grid-row:1/6;width:140px;min-height:100px}.studio-shell .writing-planet-art img{width:100px;height:100px}.studio-shell .writing-project-art{padding:10px}.studio-shell .writing-project-art img{width:80px;height:80px}.studio-shell .writing-editor-layout{grid-template-columns:1fr}.studio-shell .writing-project-guide{position:static}}
+@media(max-width:560px){.studio-shell .writing-project-card{display:flex;align-items:stretch;padding:16px}.studio-shell .writing-project-art{margin:6px auto 0}.studio-shell .writing-planet-art{min-height:100px}.studio-shell .writing-project-nav{align-items:flex-start;flex-direction:column}.studio-shell .writing-planet-choice{grid-template-columns:1fr}.studio-shell .writing-paper{min-height:260px;padding:12px}.studio-shell .writing-paper .tiptap{min-height:230px;font-size:18px}.studio-shell .writing-paper .tiptap h1{font-size:25px}.studio-shell .writing-document-panel{padding:13px}.studio-shell .writing-format-tools .writing-button,.studio-shell .writing-save-tools .writing-button{flex:1 1 calc(50% - 8px)}.studio-shell .writing-project-guide{padding:15px}.studio-shell .writing-completion-card{padding:17px}}
 @media(max-width:600px){
  .studio-shell .section-heading{padding:8px 2px;gap:8px;align-items:center}
  .studio-shell .section-heading .eyebrow{font-size:10px;margin-bottom:4px}
@@ -23,3 +91,8 @@
  .studio-shell .writing-coach-copy h2{font-size:20px}
  .studio-shell .writing-heading-field input{font-size:18px}
 }
+
+/* Keep project titles and saved-state badges inside the phone panel. */
+.studio-shell .writing-desk .section-heading { flex-wrap: wrap; align-items: flex-start; gap: 10px; }
+.studio-shell .writing-desk .section-heading > div { flex: 1 1 200px; min-width: 0; }
+.studio-shell .writing-desk .skill-pill { max-width: 100%; white-space: normal; font-size: 13px; padding: 9px 13px; }

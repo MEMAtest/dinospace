@@ -31,6 +31,23 @@ GUARDS = r"""async page => {
     page.__amariQaNamespaceInstalled = true;
   }
   await page.evaluate(namespace);
+  // Older digital-studio drafts use a separate prefix. Isolate them in the
+  // same synthetic namespace without replacing or clearing any existing key.
+  const digitalNamespace = () => {
+    if (window.__amariQaDigitalNamespaced) return;
+    window.__amariQaDigitalNamespaced = true;
+    for (const method of ['getItem','setItem','removeItem']) {
+      const original = Storage.prototype[method];
+      Storage.prototype[method] = function(key,...args) {
+        return original.call(this,/^discovery_digital_rehearsal_v1:/.test(key)?'qa_rewards_20261024_'+key:key,...args);
+      };
+    }
+  };
+  if (!page.__amariQaDigitalNamespaceInstalled) {
+    await page.addInitScript(digitalNamespace);
+    page.__amariQaDigitalNamespaceInstalled = true;
+  }
+  await page.evaluate(digitalNamespace);
   return {guards:true,namespace:'qa_rewards_20261024_',url:page.url()};
 }"""
 

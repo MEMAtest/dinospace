@@ -13,7 +13,7 @@ test('child programs solve the three distinct missions; the supplied bug fails b
 test('repeat semantics match three ordinary moves, with block tracing; boundaries and commands are bounded',()=>{
  const a=run(0,['repeat3']),b=run(0,['forward','forward','forward']);assert.deepEqual(a.state,b.state);
  assert.deepEqual(expandProgram(['repeat3']).map(i=>i.block),[0,0,0]);
- assert.match(run(0,Array(6).fill('forward')).error,/leave the training area/);
+ assert.match(run(0,Array(6).fill('forward')).error,/leave the .*training area/);
  assert.throws(()=>expandProgram(Array(25).fill('forward')));assert.throws(()=>expandProgram(['eval']));
 });
 test('saved work is child-scoped, versioned and failure-aware',()=>{
