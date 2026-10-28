@@ -112,6 +112,8 @@ const LittleGameShell = ({
   registerDirty,
   pairSafeProgress = false,
   manualNext = false,
+  manualNextPrompt = 'Great counting! Ready for the next rocket?',
+  manualNextReviewLabel = 'Fuel count review',
   finishLine = LITTLE_LINES.finish,
   children,
 }) => {
@@ -362,9 +364,9 @@ const LittleGameShell = ({
         <main key={playId} className={playFullBleed && !roundComplete ? 'absolute inset-0 z-10' : 'relative z-10 flex flex-1 flex-col'}>
           {roundComplete && manualNext ? (
             <section aria-label="Round complete" className="relative z-30 mx-auto flex w-full max-w-xl flex-1 flex-col items-center justify-center gap-5 rounded-[2rem] bg-white/95 p-6 text-center shadow-2xl">
-              {roundComplete.review && <div role="group" aria-label="Fuel count review" className="w-full">{roundComplete.review}</div>}
+              {roundComplete.review && <div role="group" aria-label={manualNextReviewLabel} className="w-full">{roundComplete.review}</div>}
               {roundComplete.art && <div className="max-h-64 w-full">{roundComplete.art}</div>}
-              <h2 className="text-3xl font-black text-slate-900">Great counting! Ready for the next rocket?</h2>
+              <h2 className="text-3xl font-black text-slate-900">{manualNextPrompt}</h2>
               <button type="button" onClick={advanceHeldRound} className="min-h-16 rounded-full border-4 border-white bg-gradient-to-b from-lime-400 to-green-600 px-8 text-xl font-black text-white shadow-[0_6px_0_#166534]">
                 {round + 1 < rounds ? 'Next round' : 'Finish game'}
               </button>
