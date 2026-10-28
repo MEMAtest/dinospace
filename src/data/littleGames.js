@@ -99,7 +99,7 @@ export const LITTLE_LEVEL_GOALS = Object.freeze({
   dino: ['Find five dinosaurs behind two hiding places', 'Search five times among three hiding places', 'Follow marks to six different dinosaurs', 'Use shorter trails in six searches', 'Find seven dinosaurs by their faint tracks'],
   dinojigsaw: ['Build four pictures from 2 big pieces', 'Fit 4 pieces to complete each picture', 'Join 8 pieces to build each dinosaur', 'Build pictures with 8 and 12 pieces', 'Finish a dinosaur picture with 12 pieces'],
   shadowmatch: ['Match one of two dinosaur shadows', 'Compare three dinosaur shapes', 'Meet more dinosaurs and their shadows', 'Choose among four shadows', 'Match mirrored dinosaur shadows'],
-  rocketbuilder: ['Fit the nose and fins', 'Add a window and choose a colour', 'Build a complete rocket', 'Add a new rocket body', 'Build the whole colourful rocket'],
+  rocketbuilder: ['Fit the nose and fins', 'Fit the nose, window and fins', 'Build a complete rocket', 'Add a new rocket body', 'Build the whole colourful rocket'],
   fuelup: ['Count one to three fuel cans', 'Count up to four cans', 'Count up to five cans', 'Count up to seven cans', 'Count up to ten cans'],
   firerescue: ['Spray one or two fires', 'Rescue a scene with three fires', 'Find all the fires', 'Put out five fires', 'Put out six fires'],
   ladder: ['Rescue from two floors', 'Explore a three-floor building', 'Listen for a floor number', 'Rescue from four floors', 'Rescue from five floors'],
