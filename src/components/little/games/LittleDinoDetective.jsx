@@ -90,7 +90,7 @@ const DetectiveRound = ({ round, playId, runSeed, config, complete, mistake, spe
     complete({
       praise: false,
       delay: 2100,
-      art: <DetectiveDino kind={species} className="mx-auto w-full drop-shadow-2xl" />,
+      art: <DetectiveDino kind={species} className="pointer-events-none mx-auto h-32 w-32 object-contain drop-shadow-2xl" />,
       review: <p className="rounded-xl bg-emerald-50 px-4 py-3 text-lg font-black text-emerald-950">You found {DINO_NAMES[species]}!{hintCount.current > 0 ? ' You used a clearer trail.' : ''}</p>,
       ...attribution,
     });
