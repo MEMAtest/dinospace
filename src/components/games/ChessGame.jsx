@@ -117,7 +117,7 @@ export default function ChessGame({
       setDifficulty(result.progress.match.difficulty);
       setHumanColor(result.progress.match.humanColor);
       setFinished(Boolean(result.progress.match.result));
-      setMode(result.progress.match.result ? 'complete' : 'setup');
+      setMode(result.progress.match.result ? 'playing' : 'setup');
       setMessage(result.progress.match.result ? result.progress.match.status.message : 'A saved game is ready to resume.');
     } else {
       gameRef.current = createChessGame();
@@ -163,7 +163,7 @@ export default function ChessGame({
         const ok = await claimReceipt(receipt, true);
         if (!ok && !cancelled) {
           pendingRef.current = { kind: 'parent', receipt, input: null };
-          setFinished(true); setMode('complete');
+          setFinished(true); setMode(matchRef.current ? 'playing' : 'complete');
           setMessage('A saved game reward still needs to be confirmed. Retry it on the result screen.');
         }
       }
@@ -207,7 +207,9 @@ export default function ChessGame({
     pendingRef.current = null;
     setFinished(true);
     setSaving(false);
-    setMode('complete');
+    // Keep the terminal position visible through saving and reward retry.
+    // The child chooses Finish game before leaving this board for the summary.
+    setMode('playing');
     setMessage(result.progress.match.status.message);
     if (result.receipt) {
       const claimed = await claimReceipt(result.receipt, false);
@@ -427,7 +429,7 @@ export default function ChessGame({
     <header className="chess-full-header"><button type="button" className="chess-full-button" onClick={leaveGame}><ArrowLeft size={18} /> Lessons</button><h1>Chess vs computer</h1></header>
     <section className="chess-full-card chess-setup-card">
       <div className="chess-full-badge"><Swords size={21} /> Full 8×8 game</div>
-      {matchRef.current?.result && <div className="chess-full-result" role="status"><h2>{matchRef.current.status.message}</h2><p>{matchRef.current.result.outcome === 'win' ? 'You won.' : matchRef.current.result.outcome === 'loss' ? 'The computer won this game.' : 'This game was a draw.'}</p>{pendingError && <><p role="alert">{message}</p><button className="chess-full-primary" onClick={retryPending} disabled={saving}>Retry reward confirmation</button></>}</div>}
+      {matchRef.current?.result && <div className="chess-full-result" role="status"><h2>{matchRef.current.status.message}</h2><p>{matchRef.current.result.outcome === 'win' ? 'You won.' : matchRef.current.result.outcome === 'loss' ? 'The computer won this game.' : 'This game was a draw.'}</p><button type="button" className="chess-full-button" onClick={() => setMode('playing')}>Review final board</button>{pendingError && <><p role="alert">{message}</p><button className="chess-full-primary" onClick={retryPending} disabled={saving}>Retry reward confirmation</button></>}</div>}
       {matchRef.current && !matchRef.current.result && <div className="chess-full-result"><h2>Saved game ready</h2><p>{DIFFICULTY_LABELS[matchRef.current.difficulty]} · You play {colorName(colorCode(matchRef.current.humanColor))} · {matchRef.current.history.length} moves played</p><button className="chess-full-primary" onClick={resume}>Resume saved game</button></div>}
       <fieldset className="chess-choice-group"><legend>Computer difficulty</legend>{CHESS_DIFFICULTIES.map((choice) => <button key={choice} type="button" aria-pressed={difficulty === choice} className={`chess-choice ${difficulty === choice ? 'is-selected' : ''}`} onClick={() => setDifficulty(choice)}>{DIFFICULTY_LABELS[choice]}</button>)}</fieldset>
       <fieldset className="chess-choice-group"><legend>Your side</legend>{['white', 'black'].map((side) => <button key={side} type="button" aria-pressed={humanColor === side} className={`chess-choice ${humanColor === side ? 'is-selected' : ''}`} onClick={() => setHumanColor(side)}>Play {side}</button>)}</fieldset>
