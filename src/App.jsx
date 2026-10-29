@@ -213,7 +213,7 @@ const PlayerSession = ({
       rewardsRef.current = next;
       setRewards(next);
       // These lessons hold their own receipt and Retry action beside the result.
-      const lessonOwnsRetry = Boolean(rewardToken && ['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters'].includes(gameIdAtCall));
+      const lessonOwnsRetry = Boolean(rewardToken && ['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters', 'puzzle', 'spot'].includes(gameIdAtCall));
       setRewardSaveFailed(!next.persisted && !lessonOwnsRetry);
       const total = next.points;
       if (quiet || (rewardToken && (!next.persisted || next.awardedPoints === 0))) return next;

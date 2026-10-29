@@ -1,17 +1,21 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowRight, Check, Eye, Home, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
-import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
+import './PuzzlePlay.css';
 import { puzzlePopNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
+import { rewardClaimToken } from '../../data/playerRewards.js';
 import {
   createPuzzlePopPieceTray,
   createPuzzlePopSceneQueue,
   getPuzzlePopProgress,
+  getPuzzlePopProgressStrict,
   movePuzzlePopBoardFocus,
   PUZZLE_POP_CHAPTERS,
   puzzlePopTileImageStyle,
-  savePuzzlePopQueue,
-  completePuzzlePopScene,
+  savePuzzlePopQueueStrict,
+  completePuzzlePopSceneStrict,
+  getPuzzlePopPendingChapterReceiptsStrict,
+  markPuzzlePopChapterReceiptClaimedStrict,
 } from '../../data/puzzlePopBatch2.js';
 
 const createSeed = () => Math.floor(Math.random() * 0xffffffff) || 1;
@@ -20,7 +24,13 @@ const createSeed = () => Math.floor(Math.random() * 0xffffffff) || 1;
 export const nextPuzzleChapterIndex = (currentIndex, chapterCount) => Math.min(Math.max(0, currentIndex + 1), chapterCount - 1);
 
 const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, onCelebrate = () => {}, onGameEvent, playerId, onPhaseChange }) => {
-  const [savedProgress, setSavedProgress] = useState(() => getPuzzlePopProgress(playerId));
+  const [progressState, setProgressState] = useState(() => {
+    const loaded = getPuzzlePopProgressStrict(playerId);
+    return loaded.ok
+      ? { ready: true, progress: loaded.progress, error: null }
+      : { ready: false, progress: getPuzzlePopProgress(playerId), error: 'read' };
+  });
+  const savedProgress = progressState.progress;
   const [chapterIndex, setChapterIndex] = useState(() => getPuzzlePopProgress(playerId).unlockedChapter);
   const [phase, setPhase] = useState('intro');
   const [queue, setQueue] = useState([]);
@@ -37,11 +47,21 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   const [wrongSlot, setWrongSlot] = useState(null);
   const [hadMistake, setHadMistake] = useState(false);
   const [hintsUsed, setHintsUsed] = useState(0);
+  const [pendingStart, setPendingStart] = useState(null);
+  const [pendingSceneSave, setPendingSceneSave] = useState(false);
+  const [pendingRewardReceipt, setPendingRewardReceipt] = useState(null);
+  const [rewardClaimError, setRewardClaimError] = useState(false);
+  const [rewardDrainBusy, setRewardDrainBusy] = useState(false);
   const wrongTimeoutRef = useRef(null);
+  const rootRef = useRef(null);
   const boardSlotRefs = useRef([]);
   const trayPieceRefs = useRef({});
   const feedbackRef = useRef(null);
   const boardRef = useRef(null);
+  const chapterPickerRef = useRef(null);
+  const claimedReceiptsRef = useRef(new Set());
+  const claimingReceiptsRef = useRef(new Set());
+  const drainingReceiptsRef = useRef(false);
 
   const chapter = PUZZLE_POP_CHAPTERS[chapterIndex] || PUZZLE_POP_CHAPTERS[0];
   const scene = queue[sceneIndex] || null;
@@ -53,7 +73,84 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   const completedInChapter = useMemo(() => chapter.scenes.filter(({ id }) => savedProgress.completedSceneIds.includes(id)).length, [chapter, savedProgress.completedSceneIds]);
 
   useEffect(() => () => { if (wrongTimeoutRef.current) clearTimeout(wrongTimeoutRef.current); }, []);
-  useEffect(() => { onPhaseChange?.(phase === 'chapter-complete' ? 'finish' : phase === 'intro' ? 'intro' : 'play'); }, [phase, onPhaseChange]);
+  useEffect(() => {
+    const settledFinish = phase === 'chapter-complete' && !pendingSceneSave && !pendingRewardReceipt && !rewardClaimError && !rewardDrainBusy;
+    onPhaseChange?.(settledFinish ? 'finish' : phase === 'intro' ? 'intro' : 'play');
+  }, [onPhaseChange, pendingRewardReceipt, pendingSceneSave, phase, rewardClaimError, rewardDrainBusy]);
+  const scrollToIntroTop = () => {
+    if (rootRef.current) rootRef.current.scrollTop = 0;
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => { if (phase === 'intro') scrollToIntroTop(); }, [phase]);
+
+  const claimChapterReceipt = useCallback(async (receipt) => {
+    if (!receipt) return true;
+    const claimId = `${playerId || 'amari'}:${receipt.id}`;
+    if (claimedReceiptsRef.current.has(claimId)) return true;
+    if (claimingReceiptsRef.current.has(claimId)) return false;
+    claimingReceiptsRef.current.add(claimId);
+    setPendingRewardReceipt(receipt);
+    try {
+      const receiptChapter = PUZZLE_POP_CHAPTERS.find(({ id }) => receipt.id === `${id}:complete`);
+      const parent = await onCelebrate?.(`${receiptChapter?.name || 'Puzzle'} badge earned!`, receipt.rewardDelta * 4, 0, 'puzzle', { quiet: true, rewardToken: rewardClaimToken('puzzle', receipt.id) });
+      if (parent?.persisted !== true) {
+        setPendingRewardReceipt(receipt);
+        setRewardClaimError(true);
+        return false;
+      }
+      const marked = markPuzzlePopChapterReceiptClaimedStrict(playerId, receipt.id);
+      if (!marked.ok) {
+        setPendingRewardReceipt(receipt);
+        setRewardClaimError(true);
+        return false;
+      }
+      claimedReceiptsRef.current.add(claimId);
+      setPendingRewardReceipt(null);
+      setRewardClaimError(false);
+      return true;
+    } catch {
+      setPendingRewardReceipt(receipt);
+      setRewardClaimError(true);
+      return false;
+    } finally {
+      claimingReceiptsRef.current.delete(claimId);
+    }
+  }, [onCelebrate, playerId]);
+
+  const drainPendingRewards = useCallback(async () => {
+    if (drainingReceiptsRef.current) return false;
+    drainingReceiptsRef.current = true;
+    setRewardDrainBusy(true);
+    setRewardClaimError(false);
+    try {
+      const loaded = getPuzzlePopPendingChapterReceiptsStrict(playerId);
+      if (!loaded.ok) {
+        setRewardClaimError(true);
+        return false;
+      }
+      for (const receipt of loaded.receipts) {
+        if (!(await claimChapterReceipt(receipt))) return false;
+      }
+      setPendingRewardReceipt(null);
+      setRewardClaimError(false);
+      return true;
+    } catch {
+      setRewardClaimError(true);
+      return false;
+    } finally {
+      drainingReceiptsRef.current = false;
+      setRewardDrainBusy(false);
+    }
+  }, [claimChapterReceipt, playerId]);
+
+  const retryPendingReward = () => { void drainPendingRewards(); };
+
+  useEffect(() => {
+    if (!progressState.ready) return undefined;
+    void drainPendingRewards();
+    return undefined;
+  }, [drainPendingRewards, progressState.ready]);
 
   const prepareScene = (nextScene, runSeed, layoutOrder = previousTrayOrder) => {
     const nextTray = createPuzzlePopPieceTray(chapter.grid, runSeed, layoutOrder);
@@ -70,22 +167,80 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     setMessage(`Look at the ${nextScene.title} preview. Choose a piece to begin.`);
   };
 
-  const startChapter = (nextChapterIndex = chapterIndex) => {
+  const beginChapterRun = (nextChapterIndex, nextSeed, nextQueue, queueProgress) => {
     const nextChapter = PUZZLE_POP_CHAPTERS[nextChapterIndex];
-    if (!nextChapter || nextChapterIndex > savedProgress.unlockedChapter) return;
-    const nextSeed = createSeed();
-    const nextQueue = createPuzzlePopSceneQueue(nextChapterIndex, nextSeed, savedProgress.lastSceneQueue, savedProgress.lastCompletedSceneId);
+    setProgressState({ ready: true, progress: queueProgress, error: null });
+    scrollToIntroTop();
     setChapterIndex(nextChapterIndex);
     setSeed(nextSeed);
     setQueue(nextQueue);
     setSceneIndex(0);
-    savePuzzlePopQueue(playerId, nextQueue);
     setPhase('play');
     prepareScene(nextQueue[0], nextSeed, []);
     onGameEvent?.('puzzle', 'start', { level: nextChapterIndex, round: 0, seed: nextSeed });
     onGameEvent?.('puzzle', 'scene', { level: nextChapterIndex, round: 1, seed: nextSeed });
     speakPackagedBatch2Line(speak, puzzlePopNarration.start(nextChapter, nextQueue[0]));
     playSfx('launch');
+  };
+
+  const saveQueueAndStart = (attempt) => {
+    const result = savePuzzlePopQueueStrict(playerId, attempt.queue);
+    if (!result.ok) {
+      setPendingStart(attempt);
+      setProgressState((current) => ({ ...current, ready: false, error: 'queue' }));
+      setMessage('This chapter could not be saved yet. Retry saving to start.');
+      return;
+    }
+    setPendingStart(null);
+    beginChapterRun(attempt.chapterIndex, attempt.seed, attempt.queue, result.progress);
+  };
+
+  const startChapter = (nextChapterIndex = chapterIndex) => {
+    const nextChapter = PUZZLE_POP_CHAPTERS[nextChapterIndex];
+    if (!progressState.ready || pendingSceneSave || pendingRewardReceipt || rewardClaimError || rewardDrainBusy || claimingReceiptsRef.current.size > 0 || !nextChapter || nextChapterIndex > savedProgress.unlockedChapter) return;
+    const nextSeed = createSeed();
+    const nextQueue = createPuzzlePopSceneQueue(nextChapterIndex, nextSeed, savedProgress.lastSceneQueue, savedProgress.lastCompletedSceneId);
+    saveQueueAndStart({ chapterIndex: nextChapterIndex, seed: nextSeed, queue: nextQueue });
+  };
+
+  const retryProgressRead = () => {
+    const loaded = getPuzzlePopProgressStrict(playerId);
+    if (!loaded.ok) {
+      setProgressState((current) => ({ ...current, ready: false, error: 'read' }));
+      return;
+    }
+    setProgressState({ ready: true, progress: loaded.progress, error: null });
+    setChapterIndex((current) => Math.min(current, loaded.progress.unlockedChapter));
+  };
+
+  const retryStartSave = () => { if (pendingStart) saveQueueAndStart(pendingStart); };
+
+  const confirmSceneSave = () => {
+    if (!scene) return;
+    const result = completePuzzlePopSceneStrict(playerId, chapterIndex, scene.id);
+    if (!result.ok) {
+      setPendingSceneSave(true);
+      setMessage('Picture ready. Saving did not finish. Retry saving to continue.');
+      setPhase('save-pending');
+      return;
+    }
+
+    setPendingSceneSave(false);
+    setProgressState({ ready: true, progress: result.progress, error: null });
+    setMessage('Picture complete! Read the picture fact below.');
+    setPhase('scene-complete');
+    onGameEvent?.('puzzle', 'scene_complete', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintsUsed });
+    playSfx('success');
+    speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene));
+    if (sceneIndex === queue.length - 1 && result.chapterComplete) {
+      setMessage(`${chapter.name} complete! Read the picture fact below.`);
+      setPhase('chapter-complete');
+      onGameEvent?.('puzzle', 'level_completed', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintsUsed, difficulty: chapter.band });
+    }
+    if (result.receipt) {
+      setPendingRewardReceipt(result.receipt);
+      void drainPendingRewards();
+    }
   };
 
   const hearPrompt = () => {
@@ -157,20 +312,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
     onGameEvent?.('puzzle', 'answer_correct', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake });
 
     if (nextPlaced.every(Boolean)) {
-      const nextProgress = completePuzzlePopScene(playerId, chapterIndex, scene.id);
-      setSavedProgress(nextProgress);
-      setMessage('Picture complete! Read the picture fact below.');
-      setPhase('scene-complete');
-      onGameEvent?.('puzzle', 'scene_complete', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintsUsed });
-      playSfx('success');
-      speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene));
-      if (sceneIndex === queue.length - 1) {
-        const praise = getPraise();
-        setMessage(`${praise} ${chapter.name} complete! Read the picture fact below.`);
-        setPhase('chapter-complete');
-        onCelebrate(praise, 8, 80);
-        onGameEvent?.('puzzle', 'level_completed', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintsUsed, difficulty: chapter.band });
-      }
+      confirmSceneSave();
     } else {
       setMessage(`Great fit! ${nextPlaced.filter(Boolean).length} of ${nextPlaced.length} pieces are in place.`);
       if (event.detail === 0 && nextTray.length) window.requestAnimationFrame(() => trayPieceRefs.current[nextTray[0].id]?.focus());
@@ -193,6 +335,7 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   };
 
   const advanceScene = () => {
+    if (pendingSceneSave || pendingRewardReceipt || rewardClaimError || rewardDrainBusy || claimingReceiptsRef.current.size > 0) return;
     if (sceneIndex + 1 < queue.length) {
       const nextIndex = sceneIndex + 1;
       const nextScene = queue[nextIndex];
@@ -216,10 +359,11 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
   };
 
   const replayChapter = () => startChapter(chapterIndex);
+  const canAdvanceSavedScene = !pendingSceneSave && !pendingRewardReceipt && !rewardClaimError && !rewardDrainBusy && claimingReceiptsRef.current.size === 0;
 
   return (
-    <div className="min-h-[100dvh] overflow-y-auto bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 text-slate-800">
-      <header className="sticky top-0 z-20 flex items-center justify-between gap-2 bg-amber-50/90 px-3 py-3 backdrop-blur sm:px-5">
+    <div ref={rootRef} className="puzzle-pop-root min-h-[100dvh] overflow-y-auto bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 text-slate-800">
+      <header className="puzzle-pop-header sticky top-0 z-20 flex items-center justify-between gap-2 bg-amber-50/90 px-3 py-3 backdrop-blur sm:px-5">
         <button type="button" onClick={() => { onGameEvent?.('puzzle', 'leave', { level: chapterIndex, round: sceneIndex + 1, seed: seed || undefined }); onBack?.(); }} className="game-icon-button" aria-label="Back to learning world"><Home /></button>
         <div className="min-w-0 flex-1 text-center">
           <h1 className="text-2xl font-black text-orange-700 sm:text-3xl">Puzzle Pop</h1>
@@ -232,67 +376,79 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
       </header>
 
       {phase === 'intro' ? (
-        <main className="mx-auto grid w-full max-w-3xl gap-4 px-4 pb-8 pt-4">
-          <section className="rounded-3xl border-4 border-white bg-white/90 p-5 text-center shadow-xl sm:p-7">
-            <p className="text-5xl" aria-hidden="true">🧩</p>
-            <h2 className="mt-2 text-2xl font-black text-orange-800">Twelve pictures. Three puzzle chapters.</h2>
-            <p className="mt-2 text-base font-bold text-slate-700">{chapter.skill}</p>
-            <p className="mt-2 rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold text-orange-900"><strong>Picture tip: </strong>{chapter.visualTip}</p>
-            <div className="mt-4 grid gap-3 sm:grid-cols-3" aria-label="Puzzle Pop chapters">
+        <main className="puzzle-intro-main mx-auto grid w-full max-w-3xl gap-4 px-4 pb-8 pt-4">
+          <section className="puzzle-intro-card rounded-3xl border-4 border-white bg-white/90 p-5 text-center shadow-xl sm:p-7" aria-labelledby="puzzle-intro-chapter">
+            <div className="puzzle-intro-selected">
+              <p className="puzzle-intro-kicker">Chapter {chapterIndex + 1} of {PUZZLE_POP_CHAPTERS.length} · {chapter.grid}×{chapter.grid} · {completedInChapter}/4 pictures</p>
+              <h2 id="puzzle-intro-chapter" className="puzzle-intro-title font-black text-orange-800">{chapter.name}</h2>
+              <p className="puzzle-intro-skill font-bold text-slate-700">{chapter.skill}</p>
+            </div>
+            <p className="puzzle-intro-tip rounded-2xl bg-amber-50 px-4 py-3 text-sm font-bold text-orange-900"><strong>Picture tip: </strong>{chapter.visualTip}</p>
+            {(progressState.error || pendingStart) && <div className="puzzle-save-notice" role="status" aria-live="polite">
+              <p>{progressState.error === 'read' ? 'Saved progress could not be checked yet.' : 'This chapter could not be saved yet.'}</p>
+              <button type="button" onClick={progressState.error === 'read' ? retryProgressRead : retryStartSave}>{progressState.error === 'read' ? 'Retry saved progress' : 'Retry saving to start'}</button>
+            </div>}
+            {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <div className="puzzle-save-notice" role="status" aria-live="polite"><p>{rewardClaimError ? 'A chapter reward confirmation is still pending.' : 'Checking the saved chapter reward…'}</p>{rewardClaimError && <button type="button" onClick={retryPendingReward}>Retry reward confirmation</button>}</div>}
+            <button type="button" disabled={!progressState.ready || Boolean(pendingStart) || !canAdvanceSavedScene} onClick={() => startChapter()} className="puzzle-start-button inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-7 py-3 text-lg font-black text-white shadow-lg disabled:cursor-not-allowed disabled:opacity-50"><Eye /> {completedInChapter ? 'Replay chapter' : 'Start chapter'}</button>
+          </section>
+          <details ref={chapterPickerRef} className="puzzle-chapter-picker rounded-2xl border-2 border-amber-200 bg-white/85">
+            <summary className="min-h-12 cursor-pointer px-4 py-3 font-black text-orange-900">Choose another chapter</summary>
+            <div className="puzzle-chapter-options" role="group" aria-label="Other Puzzle Pop chapters">
               {PUZZLE_POP_CHAPTERS.map((entry, index) => {
+                if (index === chapterIndex) return null;
                 const unlocked = index <= savedProgress.unlockedChapter;
                 const count = entry.scenes.filter(({ id }) => savedProgress.completedSceneIds.includes(id)).length;
-                return <button type="button" key={entry.id} disabled={!unlocked} onClick={() => setChapterIndex(index)} aria-pressed={index === chapterIndex} aria-label={`${entry.name}${unlocked ? '' : ', locked'}`} className={`min-h-12 rounded-2xl border-2 px-3 py-3 text-left font-black ${index === chapterIndex ? 'border-orange-600 bg-orange-100 text-orange-900' : unlocked ? 'border-amber-300 bg-white text-slate-800' : 'border-slate-200 bg-slate-100 text-slate-400'}`}>
-                  <span className="block">{index + 1}. {entry.name}</span>
-                  <span className="mt-1 block text-sm font-bold">{entry.grid}×{entry.grid} · {count}/4 pictures {unlocked ? '' : '· Locked'}</span>
+                return <button type="button" key={entry.id} disabled={!unlocked} onClick={() => { setChapterIndex(index); if (chapterPickerRef.current) chapterPickerRef.current.open = false; }} aria-pressed={index === chapterIndex} aria-label={`${entry.name}${unlocked ? '' : ', locked'}`} className="puzzle-chapter-option min-h-12 rounded-2xl border-2 px-3 py-2 text-left font-black disabled:opacity-50">
+                  <span className="block">Chapter {index + 1} · {entry.name}</span>
+                  <span className="puzzle-chapter-meta mt-1 block text-sm font-bold">{entry.grid}×{entry.grid} · {count}/4 pictures {unlocked ? '' : '· Locked'}</span>
                 </button>;
               })}
             </div>
-            <button type="button" onClick={() => startChapter()} className="mt-5 inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-7 py-3 text-lg font-black text-white shadow-lg"><Eye /> {completedInChapter ? 'Replay chapter' : 'Start chapter'}</button>
-          </section>
+          </details>
         </main>
       ) : (
-        <main className="mx-auto grid w-full max-w-6xl gap-4 px-3 pb-8 pt-4 lg:grid-cols-[minmax(250px,.65fr)_minmax(400px,1fr)] sm:px-5">
+        <main className="puzzle-play-main mx-auto grid w-full max-w-6xl gap-4 px-3 pb-8 pt-4 lg:grid-cols-[minmax(250px,.65fr)_minmax(400px,1fr)] sm:px-5">
           {scene && (
             <>
-              <aside className="grid grid-cols-[96px_minmax(0,1fr)] gap-2 rounded-3xl border-4 border-white bg-white/85 p-3 shadow-xl sm:block sm:p-4">
-                <div className="col-span-2 mb-0 flex items-center justify-between gap-2 text-orange-800 sm:mb-2">
+              <aside className="puzzle-preview-panel grid grid-cols-[96px_minmax(0,1fr)] gap-2 rounded-3xl border-4 border-white bg-white/85 p-3 shadow-xl sm:block sm:p-4">
+                <div className="puzzle-preview-heading col-span-2 mb-0 flex items-center justify-between gap-2 text-orange-800 sm:mb-2">
                   <span className="flex items-center gap-2 font-black"><Eye size={20} /> Picture preview</span>
                   <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-black">{chapter.grid}×{chapter.grid}</span>
                 </div>
-                <h2 className="col-span-2 m-0 rounded-xl bg-orange-50 px-2 py-2 text-center text-sm font-black leading-tight text-orange-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-lg">{scene.title}</h2>
-                <div className="relative row-span-2 aspect-square h-24 w-24 overflow-hidden rounded-xl shadow-md sm:row-span-1 sm:h-auto sm:w-full sm:rounded-2xl">
+                <h2 className="puzzle-preview-title col-span-2 m-0 rounded-xl bg-orange-50 px-2 py-2 text-center text-sm font-black leading-tight text-orange-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-lg">{scene.title}</h2>
+                <div className="puzzle-preview-image relative row-span-2 aspect-square h-24 w-24 overflow-hidden rounded-xl shadow-md sm:row-span-1 sm:h-auto sm:w-full sm:rounded-2xl">
                   <img src={scene.image} alt={`Completed picture preview: ${scene.alt}`} className="absolute inset-0 h-full w-full object-cover" />
                   {hintSlot !== null && <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))` }}>
                     {Array.from({ length: chapter.grid ** 2 }, (_, slot) => <span key={slot} className={`border border-white/60 ${slot === hintSlot ? 'z-10 rounded-sm bg-amber-300/35 ring-2 ring-inset ring-amber-500' : ''}`} />)}
                   </div>}
                 </div>
-                <p className="m-0 rounded-xl bg-emerald-50 px-2 py-2 text-xs font-bold text-emerald-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-sm">{chapter.skill}</p>
-                <button type="button" onClick={hearPrompt} className="inline-flex min-h-12 w-full items-center justify-center gap-1 rounded-xl bg-sky-100 px-2 text-xs font-black text-sky-900 sm:mt-3 sm:gap-2 sm:px-3 sm:text-base"><Volume2 size={19} /> <span className="sm:hidden">Hear again</span><span className="hidden sm:inline">Hear instructions again</span></button>
-                <div className="col-span-2 mt-0 flex flex-wrap justify-center gap-2 sm:mt-3" aria-label="Chapter progress">
+                <p className="puzzle-preview-skill m-0 rounded-xl bg-emerald-50 px-2 py-2 text-xs font-bold text-emerald-900 sm:mt-3 sm:rounded-2xl sm:px-3 sm:py-3 sm:text-sm">{chapter.skill}</p>
+                <button type="button" onClick={hearPrompt} aria-label="Hear puzzle instructions again" className="puzzle-hear-button inline-flex min-h-12 w-full items-center justify-center gap-1 rounded-xl bg-sky-100 px-2 text-xs font-black text-sky-900 sm:mt-3 sm:gap-2 sm:px-3 sm:text-base"><Volume2 size={19} /> <span className="sm:hidden">Hear again</span><span className="hidden sm:inline">Hear instructions again</span></button>
+                <div className="puzzle-picture-progress col-span-2 mt-0 flex flex-wrap justify-center gap-2 sm:mt-3" aria-label="Chapter progress">
                   {queue.map((entry, index) => <span key={entry.id} aria-label={`Picture ${index + 1}${savedProgress.completedSceneIds.includes(entry.id) ? ', completed before' : ''}`} className={`grid h-10 w-10 place-items-center rounded-full border-2 text-sm font-black ${index === sceneIndex ? 'border-orange-700 bg-orange-500 text-white' : savedProgress.completedSceneIds.includes(entry.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-800' : 'border-slate-300 bg-white text-slate-600'}`}>{index + 1}</span>)}
                 </div>
               </aside>
 
-              <section className="flex min-w-0 flex-col gap-3">
-                <div ref={feedbackRef} className="flex min-h-12 items-center justify-center gap-3 rounded-2xl bg-white/95 px-3 py-2 shadow">
+              <section className="puzzle-play-panel flex min-w-0 flex-col gap-3">
+                <div ref={feedbackRef} className="puzzle-play-feedback flex min-h-12 items-center justify-center gap-3 rounded-2xl bg-white/95 px-3 py-2 shadow">
                   <p className="m-0 min-w-0 flex-1 text-center font-black text-orange-800" aria-live="polite">{message}</p>
                   {selected && <span role="img" aria-label="Selected picture piece preview" className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border-2 border-orange-400 bg-white shadow-sm"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(selected.correctSlot, chapter.grid)} /></span>}
                 </div>
                 {phase === 'play' ? (
                   <>
-                    <div className="rounded-3xl border-4 border-white bg-white/90 p-3 shadow-lg sm:p-4">
-                      <div className="mb-3 flex items-center justify-between gap-2">
+                    <div className="puzzle-tray-panel rounded-3xl border-4 border-white bg-white/90 p-3 shadow-lg sm:p-4">
+                      <div className="puzzle-tray-heading mb-3 flex items-center justify-between gap-2">
                         <p className="font-black text-slate-800">Picture pieces <span className="text-slate-500">({tray.length} left · {moves} moves)</span></p>
-                        <button type="button" onClick={showHint} disabled={!tray.length} className="inline-flex min-h-12 items-center gap-1.5 rounded-full bg-amber-100 px-4 font-black text-orange-800 disabled:opacity-50"><Lightbulb size={18} />{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
+                        <button type="button" onClick={showHint} disabled={!tray.length} className="puzzle-hint-button inline-flex min-h-12 items-center gap-1.5 rounded-full bg-amber-100 px-4 font-black text-orange-800 disabled:opacity-50"><Lightbulb size={18} />{showMappingDemo ? 'Show a piece mapping' : 'Hint'}</button>
                       </div>
-                      <div className="grid gap-1.5 sm:gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(48px, 1fr))' }} aria-label="Picture piece tray">
+                      {tray.length > 10 && <p className="puzzle-tray-swipe-cue text-xs font-bold text-orange-900 sm:hidden">Swipe sideways for more pieces ↔</p>}
+                      <div className="puzzle-piece-tray grid gap-1.5 sm:gap-2" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(48px, 1fr))' }} role="group" aria-label="Picture piece tray">
                         {tray.map((piece, trayIndex) => <button type="button" key={piece.id} ref={(element) => { trayPieceRefs.current[piece.id] = element; }} onClick={(event) => choosePiece(piece, event)} aria-pressed={selected?.id === piece.id} aria-label={`Choose loose piece ${trayIndex + 1}`} className={`relative aspect-square min-h-[48px] min-w-[48px] overflow-hidden rounded-xl border-2 bg-white shadow-sm focus-visible:outline focus-visible:outline-4 focus-visible:outline-orange-400 ${selected?.id === piece.id ? 'border-orange-600 ring-4 ring-orange-200' : 'border-white'}`}><span aria-hidden="true" className="absolute inset-0 overflow-hidden"><img src={scene.image} alt="" draggable="false" className="absolute max-w-none object-cover" style={puzzlePopTileImageStyle(piece.correctSlot, chapter.grid)} /></span></button>)}
                       </div>
                       {showMappingDemo && <p className="text-center text-sm font-bold text-orange-900">Try a piece mapping: compare its highlighted preview square with the glowing board space.</p>}
                     </div>
 
-                    <div ref={boardRef} role="grid" aria-label={`${chapter.grid} by ${chapter.grid} puzzle board`} className="order-first grid aspect-square w-full max-w-[280px] grid-cols-1 gap-1 self-center overflow-hidden rounded-3xl border-4 border-white bg-amber-50 p-1.5 shadow-xl sm:max-w-[460px]" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))`, width: boardWidth, minWidth: `${chapter.grid * 48 + (chapter.grid - 1) * 4 + 20}px` }}>
+                    <div ref={boardRef} role="grid" aria-label={`${chapter.grid} by ${chapter.grid} puzzle board`} className="puzzle-board order-first grid aspect-square w-full max-w-[280px] grid-cols-1 gap-1 self-center overflow-hidden rounded-3xl border-4 border-white bg-amber-50 p-1.5 shadow-xl sm:max-w-[460px]" style={{ gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))`, gridTemplateRows: `repeat(${chapter.grid}, minmax(0, 1fr))`, width: boardWidth, minWidth: `${chapter.grid * 48 + (chapter.grid - 1) * 4 + 20}px` }}>
                       {Array.from({ length: chapter.grid }, (_, row) => (
                         <div role="row" key={`row-${row}`} className="col-span-full grid min-h-0 min-w-0 gap-1" style={{ gridColumn: '1 / -1', gridTemplateColumns: `repeat(${chapter.grid}, minmax(0, 1fr))` }}>
                           {placed.slice(row * chapter.grid, (row + 1) * chapter.grid).map((piece, column) => {
@@ -315,16 +471,21 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                     </div>
                   </>
                 ) : (
-                  <section className="rounded-3xl border-4 border-emerald-200 bg-white p-4 text-center shadow-xl sm:p-6" aria-live="polite">
+                  <section className="puzzle-completion-panel rounded-3xl border-4 border-emerald-200 bg-white p-4 text-center shadow-xl sm:p-6" aria-live="polite">
                     <p className="text-4xl" aria-hidden="true">{phase === 'chapter-complete' ? '🏆' : '🎉'}</p>
-                    <h2 className="mt-2 text-xl font-black text-emerald-900">{phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} complete!`}</h2>
-                    <p className="mt-2 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed text-emerald-950"><strong>Picture fact:</strong> {scene.fact}</p>
+                    <h2 className="mt-2 text-xl font-black text-emerald-900">{pendingSceneSave ? `${scene.title} is ready to save` : phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} complete!`}</h2>
+                    <p className="puzzle-completion-fact mt-2 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed text-emerald-950"><strong>Picture fact:</strong> {scene.fact}</p>
+                    {pendingSceneSave && <div className="puzzle-save-notice" role="status" aria-live="polite">
+                      <p>The picture is complete, but its progress has not been saved yet.</p>
+                      <button type="button" onClick={confirmSceneSave}>Retry saving this picture</button>
+                    </div>}
+                    {(rewardClaimError || pendingRewardReceipt || rewardDrainBusy) && <div className="puzzle-save-notice" role="status" aria-live="polite"><p>{rewardClaimError ? 'A chapter reward confirmation is still pending.' : 'Checking the saved chapter reward…'}</p>{rewardClaimError && <button type="button" onClick={retryPendingReward}>Retry reward confirmation</button>}</div>}
                     <button type="button" onClick={() => speakPackagedBatch2Line(speak, puzzlePopNarration.completed(scene))} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={19} /> Hear fact again</button>
                     <div className="mt-4 flex flex-wrap justify-center gap-3">
-                      {sceneIndex + 1 < queue.length && <button type="button" onClick={advanceScene} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white">Next picture <ArrowRight size={19} /></button>}
-                      {sceneIndex + 1 === queue.length && chapterIndex < PUZZLE_POP_CHAPTERS.length - 1 && <button type="button" onClick={advanceScene} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white">Next chapter <ArrowRight size={19} /></button>}
-                      {sceneIndex + 1 === queue.length && chapterIndex === PUZZLE_POP_CHAPTERS.length - 1 && <button type="button" onClick={() => setPhase('chapter-complete')} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white"><ArrowRight size={19} /> See chapter reward</button>}
-                      {phase === 'chapter-complete' && <button type="button" onClick={replayChapter} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-sky-700 px-5 py-3 font-black text-white"><RotateCcw size={19} /> Replay pictures</button>}
+                      {sceneIndex + 1 < queue.length && <button type="button" disabled={!canAdvanceSavedScene} onClick={advanceScene} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Next picture <ArrowRight size={19} /></button>}
+                      {sceneIndex + 1 === queue.length && chapterIndex < PUZZLE_POP_CHAPTERS.length - 1 && <button type="button" disabled={!canAdvanceSavedScene} onClick={advanceScene} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50">Next chapter <ArrowRight size={19} /></button>}
+                      {sceneIndex + 1 === queue.length && chapterIndex === PUZZLE_POP_CHAPTERS.length - 1 && <button type="button" disabled={!canAdvanceSavedScene} onClick={() => setPhase('chapter-complete')} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-orange-500 px-5 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50"><ArrowRight size={19} /> See chapter reward</button>}
+                      {phase === 'chapter-complete' && <button type="button" disabled={!canAdvanceSavedScene} onClick={replayChapter} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-sky-700 px-5 py-3 font-black text-white disabled:cursor-not-allowed disabled:opacity-50"><RotateCcw size={19} /> Replay pictures</button>}
                     </div>
                   </section>
                 )}

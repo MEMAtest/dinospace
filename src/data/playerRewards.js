@@ -19,12 +19,14 @@ export const rewardClaimToken = (gameId, receiptId) => (
     : gameId === 'dinojigsaw' ? `dino:jigsaw:${receiptId}`
       : gameId === 'german' ? `dino:german:${receiptId}`
         : gameId === 'worldmap' ? `dino:curriculum:${receiptId}`
-          : gameId === 'letters' ? `dino:letters:${receiptId}` : `${gameId}:${receiptId}`
+          : gameId === 'letters' ? `dino:letters:${receiptId}`
+            : gameId === 'puzzle' ? `dino:puzzle:${receiptId}`
+              : gameId === 'spot' ? `dino:spot:${receiptId}` : `${gameId}:${receiptId}`
 );
 const normalizeClaimToken = (key) => {
   const alias = key.match(/^(chess|dinojigsaw):/i);
   if (alias) return rewardClaimToken(alias[1].toLowerCase(), key.slice(alias[0].length));
-  const reserved = key.match(/^dino:(chess|jigsaw|german|curriculum|letters):/i);
+  const reserved = key.match(/^dino:(chess|jigsaw|german|curriculum|letters|puzzle|spot):/i);
   if (reserved) return `dino:${reserved[1].toLowerCase()}:${key.slice(reserved[0].length)}`;
   return key;
 };
@@ -32,7 +34,9 @@ const claimGame = (key) => key.startsWith('dino:chess:') ? 'chess'
   : key.startsWith('dino:jigsaw:') ? 'dinojigsaw'
     : key.startsWith('dino:german:') ? 'german'
       : key.startsWith('dino:curriculum:') ? 'worldmap'
-        : key.startsWith('dino:letters:') ? 'letters' : key.split(':')[0];
+        : key.startsWith('dino:letters:') ? 'letters'
+          : key.startsWith('dino:puzzle:') ? 'puzzle'
+            : key.startsWith('dino:spot:') ? 'spot' : key.split(':')[0];
 const read = (storage, key, fallback) => {
   try { return JSON.parse(storage?.getItem(key) ?? 'null') ?? fallback; } catch { return fallback; }
 };
@@ -82,7 +86,7 @@ const commitClaimedReward = (playerId, current, amount, gameId, storage, rewardT
   const failed = (error) => ({ ...before, persisted: false, awardedPoints: 0, recovered: false, error });
   if (typeof rewardToken !== 'string') return failed('Reward claim is invalid.');
   rewardToken = normalizeClaimToken(rewardToken);
-  if (!['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters'].includes(gameId) || claimGame(rewardToken) !== gameId || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
+  if (!['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters', 'puzzle', 'spot'].includes(gameId) || claimGame(rewardToken) !== gameId || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
   if (!storage || typeof storage.getItem !== 'function' || typeof storage.setItem !== 'function') return failed('Reward storage is unavailable.');
   let canonical, canonicalRaw;
   try {

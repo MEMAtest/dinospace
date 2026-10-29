@@ -373,6 +373,7 @@ export const resolveSpotDifferenceHotspotTap = (differences, foundIds, x, y, hot
 };
 
 export const SPOT_DIFFERENCE_PROGRESS_KEY = 'amari_spot_difference_batch2_v1';
+const defaultSpotStorage = () => { try { return globalThis.localStorage; } catch { return null; } };
 
 export const spotAnswerAttemptDetail = ({ level, round, seed, correct, hadMistake }) => ({
   level,
@@ -411,52 +412,141 @@ export const shuffleSpotDifference = (items, seed) => {
   return result;
 };
 
-const readState = (storage) => {
+const freshSpotProgress = () => ({ version: 1, children: {} });
+const knownSpotScenes = new Set(SPOT_DIFFERENCE_SCENES.map(({ id }) => id));
+const spotChapterReceiptValid = (receipts, completedIds) => receipts === undefined || (receipts && typeof receipts === 'object' && !Array.isArray(receipts)
+  && Object.entries(receipts).every(([chapterId, receipt]) => SPOT_DIFFERENCE_CHAPTERS.some(({ id }) => id === chapterId)
+    && receipt && typeof receipt === 'object' && !Array.isArray(receipt)
+    && receipt.id === `${chapterId}:complete` && receipt.rewardDelta === 2 && typeof receipt.claimed === 'boolean'
+    && (completedIds === undefined || SPOT_DIFFERENCE_SCENES.filter(({ chapterIndex }) => SPOT_DIFFERENCE_CHAPTERS[chapterIndex].id === chapterId).every(({ id }) => completedIds.includes(id)))));
+const validSpotChild = (child) => child && typeof child === 'object' && !Array.isArray(child)
+  && (child.unlockedChapter === undefined || (Number.isInteger(child.unlockedChapter) && child.unlockedChapter >= 0 && child.unlockedChapter <= 2))
+  && (child.completedSceneIds === undefined || (Array.isArray(child.completedSceneIds) && child.completedSceneIds.every((id) => knownSpotScenes.has(id)) && new Set(child.completedSceneIds).size === child.completedSceneIds.length))
+  && (child.lastCompletedSceneId === undefined || knownSpotScenes.has(child.lastCompletedSceneId))
+  && (child.lastQueue === undefined || (Array.isArray(child.lastQueue) && (child.lastQueue.length === 0 || child.lastQueue.length === 4) && child.lastQueue.every((id) => knownSpotScenes.has(id)) && new Set(child.lastQueue).size === child.lastQueue.length
+    && child.lastQueue.every((id) => SPOT_DIFFERENCE_SCENES.find(({ id: sceneId }) => sceneId === id).chapterIndex === SPOT_DIFFERENCE_SCENES.find(({ id: sceneId }) => sceneId === child.lastQueue[0])?.chapterIndex)))
+  && spotChapterReceiptValid(child.chapterReceipts, child.completedSceneIds || []);
+const validSpotRoot = (root) => root && typeof root === 'object' && !Array.isArray(root) && root.version === 1
+  && root.children && typeof root.children === 'object' && !Array.isArray(root.children) && Object.values(root.children).every(validSpotChild);
+const readSpotRootStrict = (storage) => {
   try {
-    const value = JSON.parse(storage?.getItem(SPOT_DIFFERENCE_PROGRESS_KEY) || '{}');
-    return value?.version === 1 && value.children && typeof value.children === 'object' ? value : { version: 1, children: {} };
+    if (!storage || typeof storage.getItem !== 'function') return { ok: false, error: 'unavailable' };
+    const raw = storage.getItem(SPOT_DIFFERENCE_PROGRESS_KEY);
+    if (raw === null) return { ok: true, root: freshSpotProgress() };
+    if (typeof raw !== 'string') return { ok: false, error: 'invalid' };
+    const root = JSON.parse(raw);
+    return validSpotRoot(root) ? { ok: true, root } : { ok: false, error: 'invalid' };
+  } catch { return { ok: false, error: 'unavailable' }; }
+};
+const normalizeSpotChild = (child = {}) => ({
+  ...child,
+  unlockedChapter: Number.isInteger(child.unlockedChapter) ? child.unlockedChapter : 0,
+  completedSceneIds: [...new Set(child.completedSceneIds || [])],
+  lastCompletedSceneId: child.lastCompletedSceneId,
+  lastQueue: [...(child.lastQueue || [])],
+});
+const writeSpotRootStrict = (root, storage) => {
+  let serialized;
+  try {
+    if (!storage || typeof storage.setItem !== 'function' || typeof storage.getItem !== 'function') return { ok: false, error: 'unavailable' };
+    serialized = JSON.stringify(root);
+    storage.setItem(SPOT_DIFFERENCE_PROGRESS_KEY, serialized);
+    return storage.getItem(SPOT_DIFFERENCE_PROGRESS_KEY) === serialized ? { ok: true } : { ok: false, error: 'readback' };
   } catch {
-    return { version: 1, children: {} };
+    try { return storage?.getItem(SPOT_DIFFERENCE_PROGRESS_KEY) === serialized ? { ok: true } : { ok: false, error: 'write' }; }
+    catch { return { ok: false, error: 'write' }; }
   }
 };
-
-export const getSpotDifferenceLastQueue = (playerId, storage = globalThis.localStorage) => {
-  const state = readState(storage);
-  const queue = state.children[playerId || 'amari']?.lastQueue;
-  return Array.isArray(queue) ? queue.filter((id) => typeof id === 'string') : [];
+const commitSpotChild = (root, playerId, child, storage) => {
+  const nextRoot = { ...root, children: { ...root.children, [playerId || 'amari']: child } };
+  const saved = writeSpotRootStrict(nextRoot, storage);
+  return saved.ok ? { ok: true, progress: normalizeSpotChild(child) } : saved;
 };
+const spotReceipt = (chapterIndex) => ({ id: `${SPOT_DIFFERENCE_CHAPTERS[chapterIndex].id}:complete`, rewardDelta: 2, claimed: false });
 
-export const getSpotDifferenceProgress = (playerId, storage = globalThis.localStorage) => {
-  const state = readState(storage);
-  const child = state.children[playerId || 'amari'] || {};
-  return {
-    unlockedChapter: Number.isInteger(child.unlockedChapter) ? Math.min(2, Math.max(0, child.unlockedChapter)) : 0,
-    completedSceneIds: Array.isArray(child.completedSceneIds) ? [...new Set(child.completedSceneIds.filter((id) => typeof id === 'string'))] : [],
-    lastCompletedSceneId: typeof child.lastCompletedSceneId === 'string' ? child.lastCompletedSceneId : undefined,
-    lastQueue: Array.isArray(child.lastQueue) ? child.lastQueue.filter((id) => typeof id === 'string') : [],
-  };
+export const getSpotDifferenceProgressStrict = (playerId, storage = defaultSpotStorage()) => {
+  const loaded = readSpotRootStrict(storage);
+  return loaded.ok ? { ok: true, progress: normalizeSpotChild(loaded.root.children[playerId || 'amari'] || {}) } : loaded;
 };
-
-export const saveSpotDifferenceQueue = (playerId, queue, storage = globalThis.localStorage) => {
-  const state = readState(storage);
+export const getSpotDifferenceLastQueueStrict = (playerId, storage = defaultSpotStorage()) => {
+  const result = getSpotDifferenceProgressStrict(playerId, storage);
+  return result.ok ? { ok: true, queue: result.progress.lastQueue } : result;
+};
+export const getSpotDifferencePendingChapterReceiptsStrict = (playerId, storage = defaultSpotStorage()) => {
+  const loaded = readSpotRootStrict(storage);
+  if (!loaded.ok) return loaded;
+  return { ok: true, receipts: Object.values(loaded.root.children[playerId || 'amari']?.chapterReceipts || {}).filter(({ claimed }) => !claimed) };
+};
+export const saveSpotDifferenceQueueStrict = (playerId, queue, storage = defaultSpotStorage()) => {
+  const ids = Array.isArray(queue) ? queue.map((scene) => scene?.id) : [];
+  const firstScene = SPOT_DIFFERENCE_SCENES.find(({ id }) => id === ids[0]);
+  if (!firstScene || ids.length !== 4 || new Set(ids).size !== 4 || !ids.every((id) => SPOT_DIFFERENCE_SCENES.find(({ id: sceneId }) => sceneId === id)?.chapterIndex === firstScene.chapterIndex)) return { ok: false, error: 'invalid' };
+  const loaded = readSpotRootStrict(storage);
+  if (!loaded.ok) return loaded;
   const key = playerId || 'amari';
-  const existing = state.children[key] && typeof state.children[key] === 'object' ? state.children[key] : {};
-  state.children[key] = { ...existing, lastQueue: queue.map(({ id }) => id) };
-  try { storage?.setItem(SPOT_DIFFERENCE_PROGRESS_KEY, JSON.stringify(state)); } catch { /* The scene queue still works without storage. */ }
+  const child = normalizeSpotChild(loaded.root.children[key] || {});
+  if (firstScene.chapterIndex > child.unlockedChapter) return { ok: false, error: 'locked' };
+  return commitSpotChild(loaded.root, playerId, { ...child, lastQueue: ids }, storage);
 };
-
-export const completeSpotDifferenceChapter = (playerId, chapterIndex, completedSceneIds, storage = globalThis.localStorage) => {
-  const state = readState(storage);
-  const key = playerId || 'amari';
-  const child = state.children[key] && typeof state.children[key] === 'object' ? state.children[key] : {};
-  const before = Number.isInteger(child.unlockedChapter) ? Math.min(2, Math.max(0, child.unlockedChapter)) : 0;
+export const completeSpotDifferenceChapterStrict = (playerId, chapterIndex, completedSceneIds, storage = defaultSpotStorage()) => {
+  const chapter = SPOT_DIFFERENCE_CHAPTERS[chapterIndex];
   const sceneIds = SPOT_DIFFERENCE_SCENES.filter((scene) => scene.chapterIndex === chapterIndex).map(({ id }) => id);
-  const newlyCompleted = [...new Set([...(Array.isArray(child.completedSceneIds) ? child.completedSceneIds : []), ...completedSceneIds])];
-  const chapterComplete = sceneIds.length > 0 && sceneIds.every((id) => newlyCompleted.includes(id));
+  if (!chapter || !Array.isArray(completedSceneIds) || !completedSceneIds.length || completedSceneIds.some((id) => !sceneIds.includes(id))) return { ok: false, error: 'invalid' };
+  const loaded = readSpotRootStrict(storage);
+  if (!loaded.ok) return loaded;
+  const key = playerId || 'amari';
+  const rawChild = loaded.root.children[key] || {};
+  const child = normalizeSpotChild(rawChild);
+  if (chapterIndex > child.unlockedChapter) return { ok: false, error: 'locked' };
+  const priorSet = new Set(child.completedSceneIds);
+  const wasComplete = sceneIds.every((id) => priorSet.has(id));
+  const completed = [...new Set([...child.completedSceneIds, ...completedSceneIds])];
+  const chapterComplete = sceneIds.every((id) => completed.includes(id));
+  const chapterReceipts = { ...(rawChild.chapterReceipts || {}) };
+  if (!wasComplete && chapterComplete && !chapterReceipts[chapter.id]) chapterReceipts[chapter.id] = spotReceipt(chapterIndex);
+  const before = child.unlockedChapter;
   const unlockedChapter = chapterComplete ? Math.min(2, Math.max(before, chapterIndex + 1)) : before;
-  state.children[key] = { ...child, unlockedChapter, completedSceneIds: newlyCompleted, lastCompletedSceneId: completedSceneIds.at(-1) || child.lastCompletedSceneId };
-  try { storage?.setItem(SPOT_DIFFERENCE_PROGRESS_KEY, JSON.stringify(state)); } catch { /* Keep the current run playable if storage is full. */ }
-  return { ...getSpotDifferenceProgress(playerId, storage), chapterComplete, newlyUnlocked: unlockedChapter > before };
+  const result = commitSpotChild(loaded.root, playerId, {
+    ...child, unlockedChapter, completedSceneIds: completed,
+    lastCompletedSceneId: completedSceneIds.at(-1) || child.lastCompletedSceneId,
+    ...(Object.keys(chapterReceipts).length ? { chapterReceipts } : {}),
+  }, storage);
+  return result.ok ? { ...result, chapterComplete, newlyUnlocked: unlockedChapter > before, receipt: chapterReceipts[chapter.id] || null } : result;
+};
+export const completeSpotDifferenceSceneStrict = (playerId, chapterIndex, sceneId, storage = defaultSpotStorage()) => completeSpotDifferenceChapterStrict(playerId, chapterIndex, [sceneId], storage);
+export const markSpotDifferenceChapterReceiptClaimedStrict = (playerId, receiptId, storage = defaultSpotStorage()) => {
+  const loaded = readSpotRootStrict(storage);
+  if (!loaded.ok) return loaded;
+  const key = playerId || 'amari';
+  const child = loaded.root.children[key] || {};
+  const receipts = child.chapterReceipts || {};
+  const chapterId = Object.keys(receipts).find((id) => receipts[id].id === receiptId);
+  if (!chapterId) return { ok: false, error: 'missing' };
+  const chapterReceipts = { ...receipts, [chapterId]: { ...receipts[chapterId], claimed: true } };
+  return commitSpotChild(loaded.root, playerId, { ...normalizeSpotChild(child), chapterReceipts }, storage);
+};
+
+const readState = (storage) => {
+  const loaded = readSpotRootStrict(storage);
+  return loaded.ok ? loaded.root : freshSpotProgress();
+};
+export const getSpotDifferenceLastQueue = (playerId, storage = defaultSpotStorage()) => {
+  const state = readState(storage);
+  return normalizeSpotChild(state.children[playerId || 'amari'] || {}).lastQueue;
+};
+export const getSpotDifferenceProgress = (playerId, storage = defaultSpotStorage()) => {
+  const state = readState(storage);
+  return normalizeSpotChild(state.children[playerId || 'amari'] || {});
+};
+export const saveSpotDifferenceQueue = (playerId, queue, storage = defaultSpotStorage()) => {
+  const result = saveSpotDifferenceQueueStrict(playerId, queue, storage);
+  if (!result.ok) throw new Error(`Spot progress save failed: ${result.error}`);
+  return result.progress;
+};
+export const completeSpotDifferenceChapter = (playerId, chapterIndex, completedSceneIds, storage = defaultSpotStorage()) => {
+  const result = completeSpotDifferenceChapterStrict(playerId, chapterIndex, completedSceneIds, storage);
+  if (!result.ok) throw new Error(`Spot progress save failed: ${result.error}`);
+  return { ...result.progress, chapterComplete: result.chapterComplete, newlyUnlocked: result.newlyUnlocked };
 };
 
 export const createSpotDifferenceRun = (chapterIndex, seed, previousQueue = [], lastCompletedSceneId = previousQueue.at(-1)) => {

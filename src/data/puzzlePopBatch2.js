@@ -68,6 +68,7 @@ export const movePuzzlePopBoardFocus = (slot, key, grid) => {
 };
 
 export const PUZZLE_POP_PROGRESS_KEY = 'amari_puzzle_pop_batch2_v1';
+const defaultPuzzleStorage = () => { try { return globalThis.localStorage; } catch { return null; } };
 
 export const puzzlePopRandomFor = (seed) => {
   let state = (Number(seed) >>> 0) || 1;
@@ -109,21 +110,32 @@ export const createPuzzlePopPieceTray = (grid, seed, previousOrder = []) => {
   return tray;
 };
 
-const readProgress = (storage) => {
+const freshPuzzleProgress = () => ({ version: 1, children: {} });
+const knownPuzzleScenes = new Set(PUZZLE_POP_CHAPTERS.flatMap(({ scenes }) => scenes.map(({ id }) => id)));
+const validPuzzleChild = (child) => child && typeof child === 'object' && !Array.isArray(child)
+  && (child.unlockedChapter === undefined || (Number.isInteger(child.unlockedChapter) && child.unlockedChapter >= 0 && child.unlockedChapter <= 2))
+  && (child.completedSceneIds === undefined || (Array.isArray(child.completedSceneIds) && child.completedSceneIds.every((id) => knownPuzzleScenes.has(id)) && new Set(child.completedSceneIds).size === child.completedSceneIds.length))
+  && (child.lastCompletedSceneId === undefined || knownPuzzleScenes.has(child.lastCompletedSceneId))
+  && (child.lastSceneQueue === undefined || (Array.isArray(child.lastSceneQueue) && (child.lastSceneQueue.length === 0 || child.lastSceneQueue.length === 4) && child.lastSceneQueue.every((id) => knownPuzzleScenes.has(id)) && new Set(child.lastSceneQueue).size === child.lastSceneQueue.length
+    && PUZZLE_POP_CHAPTERS.some(({ scenes }) => child.lastSceneQueue.every((id) => scenes.some((scene) => scene.id === id)))));
+const validPuzzleRoot = (root) => root && typeof root === 'object' && !Array.isArray(root) && root.version === 1
+  && root.children && typeof root.children === 'object' && !Array.isArray(root.children)
+  && Object.values(root.children).every((child) => validPuzzleChild(child) && validPuzzleReceipts(child.chapterReceipts, child.completedSceneIds || []));
+const readPuzzleRootStrict = (storage) => {
   try {
-    const saved = JSON.parse(storage?.getItem(PUZZLE_POP_PROGRESS_KEY) || '{}');
-    return {
-      version: 1,
-      children: saved?.version === 1 && saved.children && typeof saved.children === 'object' ? saved.children : {},
-    };
-  } catch {
-    return { version: 1, children: {} };
-  }
+    if (!storage || typeof storage.getItem !== 'function') return { ok: false, error: 'unavailable' };
+    const raw = storage.getItem(PUZZLE_POP_PROGRESS_KEY);
+    if (raw === null) return { ok: true, root: freshPuzzleProgress() };
+    if (typeof raw !== 'string') return { ok: false, error: 'invalid' };
+    const root = JSON.parse(raw);
+    return validPuzzleRoot(root) ? { ok: true, root } : { ok: false, error: 'invalid' };
+  } catch { return { ok: false, error: 'unavailable' }; }
 };
 
 const childProgress = (root, playerId) => {
   const child = root.children[playerId || 'amari'];
   return {
+    ...(child || {}),
     unlockedChapter: Number.isInteger(child?.unlockedChapter) ? Math.min(2, Math.max(0, child.unlockedChapter)) : 0,
     completedSceneIds: Array.isArray(child?.completedSceneIds) ? [...new Set(child.completedSceneIds.filter((id) => typeof id === 'string'))] : [],
     lastCompletedSceneId: typeof child?.lastCompletedSceneId === 'string' ? child.lastCompletedSceneId : undefined,
@@ -131,31 +143,106 @@ const childProgress = (root, playerId) => {
   };
 };
 
-const writeProgress = (root, playerId, nextChild, storage) => {
-  root.children[playerId || 'amari'] = nextChild;
-  try { storage?.setItem(PUZZLE_POP_PROGRESS_KEY, JSON.stringify(root)); } catch { /* Gameplay remains available if storage is full. */ }
-  return nextChild;
+const writePuzzleRootStrict = (root, storage) => {
+  let serialized;
+  try {
+    if (!storage || typeof storage.setItem !== 'function' || typeof storage.getItem !== 'function') return { ok: false, error: 'unavailable' };
+    serialized = JSON.stringify(root);
+    storage.setItem(PUZZLE_POP_PROGRESS_KEY, serialized);
+    return storage.getItem(PUZZLE_POP_PROGRESS_KEY) === serialized ? { ok: true } : { ok: false, error: 'readback' };
+  } catch {
+    try { return storage?.getItem(PUZZLE_POP_PROGRESS_KEY) === serialized ? { ok: true } : { ok: false, error: 'write' }; }
+    catch { return { ok: false, error: 'write' }; }
+  }
 };
 
-export const getPuzzlePopProgress = (playerId, storage = globalThis.localStorage) => childProgress(readProgress(storage), playerId);
-
-export const savePuzzlePopQueue = (playerId, queue, storage = globalThis.localStorage) => {
-  const root = readProgress(storage);
-  const child = childProgress(root, playerId);
-  return writeProgress(root, playerId, { ...child, lastSceneQueue: queue.map(({ id }) => id) }, storage);
+const puzzleChapterReceipt = (chapterIndex) => ({ id: `${PUZZLE_POP_CHAPTERS[chapterIndex].id}:complete`, rewardDelta: 2, claimed: false });
+const validPuzzleReceipts = (receipts, completedIds) => receipts === undefined || (receipts && typeof receipts === 'object' && !Array.isArray(receipts)
+  && Object.entries(receipts).every(([chapterId, receipt]) => {
+    const chapterIndex = PUZZLE_POP_CHAPTERS.findIndex(({ id }) => id === chapterId);
+    return chapterIndex >= 0 && receipt && typeof receipt === 'object' && !Array.isArray(receipt)
+      && receipt.id === `${chapterId}:complete` && receipt.rewardDelta === 2 && typeof receipt.claimed === 'boolean'
+      && (completedIds === undefined || PUZZLE_POP_CHAPTERS[chapterIndex].scenes.every(({ id }) => completedIds.includes(id)));
+  }));
+const readPuzzleProgress = (root, playerId) => childProgress(root, playerId);
+const commitPuzzleChild = (root, playerId, nextChild, storage) => {
+  const nextRoot = { ...root, children: { ...root.children, [playerId || 'amari']: nextChild } };
+  const saved = writePuzzleRootStrict(nextRoot, storage);
+  return saved.ok ? { ok: true, progress: childProgress(nextRoot, playerId) } : saved;
 };
 
-export const completePuzzlePopScene = (playerId, chapterIndex, sceneId, storage = globalThis.localStorage) => {
-  const root = readProgress(storage);
-  const child = childProgress(root, playerId);
-  const before = child.unlockedChapter;
-  const completedSceneIds = [...new Set([...child.completedSceneIds, sceneId])];
-  const chapterSceneIds = (PUZZLE_POP_CHAPTERS[chapterIndex]?.scenes || []).map(({ id }) => id);
-  const chapterComplete = chapterSceneIds.length > 0 && chapterSceneIds.every((id) => completedSceneIds.includes(id));
+export const getPuzzlePopProgressStrict = (playerId, storage = defaultPuzzleStorage()) => {
+  const loaded = readPuzzleRootStrict(storage);
+  return loaded.ok ? { ok: true, progress: readPuzzleProgress(loaded.root, playerId) } : loaded;
+};
+
+export const getPuzzlePopProgress = (playerId, storage = defaultPuzzleStorage()) => {
+  const loaded = readPuzzleRootStrict(storage);
+  return childProgress(loaded.ok ? loaded.root : freshPuzzleProgress(), playerId);
+};
+
+export const savePuzzlePopQueue = (playerId, queue, storage = defaultPuzzleStorage()) => {
+  const result = savePuzzlePopQueueStrict(playerId, queue, storage);
+  if (!result.ok) throw new Error(`Puzzle Pop progress save failed: ${result.error}`);
+  return result.progress;
+};
+
+export const completePuzzlePopScene = (playerId, chapterIndex, sceneId, storage = defaultPuzzleStorage()) => {
+  const result = completePuzzlePopSceneStrict(playerId, chapterIndex, sceneId, storage);
+  if (!result.ok) throw new Error(`Puzzle Pop progress save failed: ${result.error}`);
+  return { ...result.progress, chapterComplete: result.chapterComplete, newlyUnlocked: result.newlyUnlocked };
+};
+
+export const savePuzzlePopQueueStrict = (playerId, queue, storage = defaultPuzzleStorage()) => {
+  const ids = Array.isArray(queue) ? queue.map((scene) => scene?.id) : [];
+  const chapterIndex = ids.length ? PUZZLE_POP_CHAPTERS.findIndex(({ scenes }) => ids.every((id) => scenes.some((scene) => scene.id === id))) : -1;
+  if (chapterIndex < 0 || ids.length !== 4 || new Set(ids).size !== 4) return { ok: false, error: 'invalid' };
+  const loaded = readPuzzleRootStrict(storage);
+  if (!loaded.ok) return loaded;
+  const root = loaded.root;
+  const existing = root.children[playerId || 'amari'] || {};
+  if (chapterIndex > (existing.unlockedChapter || 0)) return { ok: false, error: 'locked' };
+  const result = commitPuzzleChild(root, playerId, { ...childProgress(root, playerId), lastSceneQueue: ids, ...Object.fromEntries(Object.entries(existing).filter(([key]) => !['unlockedChapter', 'completedSceneIds', 'lastCompletedSceneId', 'lastSceneQueue'].includes(key))) }, storage);
+  return result;
+};
+
+export const completePuzzlePopSceneStrict = (playerId, chapterIndex, sceneId, storage = defaultPuzzleStorage()) => {
+  const chapter = PUZZLE_POP_CHAPTERS[chapterIndex];
+  if (!chapter || !chapter.scenes.some(({ id }) => id === sceneId)) return { ok: false, error: 'invalid' };
+  const loaded = readPuzzleRootStrict(storage);
+  if (!loaded.ok) return loaded;
+  const child = loaded.root.children[playerId || 'amari'] || {};
+  if (chapterIndex > (child.unlockedChapter || 0)) return { ok: false, error: 'locked' };
+  if (!validPuzzleReceipts(child.chapterReceipts)) return { ok: false, error: 'invalid' };
+  const priorIds = Array.isArray(child.completedSceneIds) ? child.completedSceneIds : [];
+  const wasComplete = chapter.scenes.every(({ id }) => priorIds.includes(id));
+  const completedSceneIds = [...new Set([...priorIds, sceneId])];
+  const chapterComplete = chapter.scenes.every(({ id }) => completedSceneIds.includes(id));
+  const chapterReceipts = { ...(child.chapterReceipts || {}) };
+  if (!wasComplete && chapterComplete && !chapterReceipts[chapter.id]) chapterReceipts[chapter.id] = puzzleChapterReceipt(chapterIndex);
+  const before = Number.isInteger(child.unlockedChapter) ? child.unlockedChapter : 0;
   const unlockedChapter = chapterComplete ? Math.min(2, Math.max(before, chapterIndex + 1)) : before;
-  return {
-    ...writeProgress(root, playerId, { ...child, completedSceneIds, unlockedChapter, lastCompletedSceneId: sceneId }, storage),
-    chapterComplete,
-    newlyUnlocked: unlockedChapter > before,
-  };
+  const nextChild = { ...child, unlockedChapter, completedSceneIds, lastCompletedSceneId: sceneId, ...(Object.keys(chapterReceipts).length ? { chapterReceipts } : {}) };
+  const saved = commitPuzzleChild(loaded.root, playerId, nextChild, storage);
+  return saved.ok ? { ...saved, chapterComplete, newlyUnlocked: unlockedChapter > before, receipt: chapterReceipts[chapter.id] || null } : saved;
+};
+
+export const getPuzzlePopPendingChapterReceiptsStrict = (playerId, storage = defaultPuzzleStorage()) => {
+  const loaded = readPuzzleRootStrict(storage);
+  if (!loaded.ok) return loaded;
+  const receipts = loaded.root.children[playerId || 'amari']?.chapterReceipts || {};
+  if (!validPuzzleReceipts(receipts)) return { ok: false, error: 'invalid' };
+  return { ok: true, receipts: Object.values(receipts).filter(({ claimed }) => !claimed) };
+};
+
+export const markPuzzlePopChapterReceiptClaimedStrict = (playerId, receiptId, storage = defaultPuzzleStorage()) => {
+  const loaded = readPuzzleRootStrict(storage);
+  if (!loaded.ok) return loaded;
+  const key = playerId || 'amari';
+  const child = loaded.root.children[key] || {};
+  if (!validPuzzleReceipts(child.chapterReceipts)) return { ok: false, error: 'invalid' };
+  const chapterId = Object.keys(child.chapterReceipts || {}).find((id) => child.chapterReceipts[id].id === receiptId);
+  if (!chapterId) return { ok: false, error: 'missing' };
+  const chapterReceipts = { ...child.chapterReceipts, [chapterId]: { ...child.chapterReceipts[chapterId], claimed: true } };
+  return commitPuzzleChild(loaded.root, playerId, { ...child, chapterReceipts }, storage);
 };

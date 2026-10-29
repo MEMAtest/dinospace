@@ -1,17 +1,21 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { ArrowRight, Check, Eye, Home, Lightbulb, RotateCcw, Volume2 } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { SoundToggle } from '../shared/index.jsx';
 import { spotDifferenceNarration, speakPackagedBatch2Line } from '../../data/batch2Narration.js';
+import { rewardClaimToken } from '../../data/playerRewards.js';
 import {
-  completeSpotDifferenceChapter,
   createSpotDifferenceRun,
   getNextSpotDifferenceHint,
-  getSpotDifferenceLastQueue,
+  getSpotDifferenceLastQueueStrict,
+  getSpotDifferencePendingChapterReceiptsStrict,
   getSpotDifferenceProgress,
+  getSpotDifferenceProgressStrict,
+  completeSpotDifferenceSceneStrict,
+  markSpotDifferenceChapterReceiptClaimedStrict,
   resolveSpotDifferenceTap,
   resolveSpotDifferenceHotspotTap,
-  saveSpotDifferenceQueue,
+  saveSpotDifferenceQueueStrict,
   spotAnswerAttemptDetail,
   spotDifferenceCompletionMessage,
   SPOT_DIFFERENCE_CHAPTERS,
@@ -116,12 +120,14 @@ const SceneEditLayer = ({ scene }) => {
 };
 
 const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak = () => {}, onCelebrate = () => {}, onGameEvent, playerId, onPhaseChange }) => {
-  const [progress, setProgress] = useState(() => getSpotDifferenceProgress(playerId));
+  const [progressState, setProgressState] = useState(() => getSpotDifferenceProgressStrict(playerId));
+  const progress = progressState.ok ? progressState.progress : getSpotDifferenceProgress(playerId);
   const [chapterIndex, setChapterIndex] = useState(0);
   const [phase, setPhase] = useState('intro');
   const [seed, setSeed] = useState(0);
   const [queue, setQueue] = useState([]);
   const [sceneIndex, setSceneIndex] = useState(0);
+  const [mobilePicture, setMobilePicture] = useState('B');
   const [found, setFound] = useState([]);
   const [feedback, setFeedback] = useState('Choose a chapter, then compare the two pictures.');
   const [hintCount, setHintCount] = useState(0);
@@ -130,6 +136,15 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
   const [wrongTap, setWrongTap] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
   const [wrongTapCount, setWrongTapCount] = useState(0);
+  const [completionSaveState, setCompletionSaveState] = useState('idle');
+  const [saveError, setSaveError] = useState('');
+  const [claimError, setClaimError] = useState('');
+  const [claimBusy, setClaimBusy] = useState(false);
+  const pendingSceneRef = useRef(null);
+  const completionBusyRef = useRef(false);
+  const claimDrainRef = useRef(null);
+  const claimInFlightRef = useRef(new Map());
+  const reconciledReceiptsRef = useRef(new Set());
   const wrongTimer = useRef(null);
   const pictureBRef = useRef(null);
   const chapter = SPOT_DIFFERENCE_CHAPTERS[chapterIndex] || SPOT_DIFFERENCE_CHAPTERS[0];
@@ -137,18 +152,126 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
   const complete = Boolean(scene && found.length === scene.differences.length);
   const completedCount = SPOT_DIFFERENCE_SCENES.filter((entry) => entry.chapterIndex === chapterIndex && progress.completedSceneIds.includes(entry.id)).length;
 
-  useEffect(() => { onPhaseChange?.(phase === 'chapter-complete' ? 'finish' : phase === 'intro' ? 'intro' : 'play'); }, [phase, onPhaseChange]);
+  useEffect(() => { onPhaseChange?.(phase === 'chapter-complete' && completionSaveState === 'saved' ? 'finish' : phase === 'intro' ? 'intro' : 'play'); }, [completionSaveState, phase, onPhaseChange]);
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'auto' }); }, [phase, chapterIndex, sceneIndex]);
   useEffect(() => () => { if (wrongTimer.current) clearTimeout(wrongTimer.current); }, []);
+
+  const refreshProgress = useCallback(() => {
+    const current = getSpotDifferenceProgressStrict(playerId);
+    setProgressState(current);
+    return current;
+  }, [playerId]);
+
+  const claimReceipt = useCallback(async (receipt, quiet = true) => {
+    if (!receipt?.id || !Number.isInteger(receipt.rewardDelta) || receipt.rewardDelta <= 0 || receipt.claimed || reconciledReceiptsRef.current.has(receipt.id)) return true;
+    const existing = claimInFlightRef.current.get(receipt.id);
+    if (existing) return existing;
+    const operation = Promise.resolve().then(async () => {
+      let parent;
+      try {
+        parent = await onCelebrate('Chapter complete!', receipt.rewardDelta * 4, 0, 'spot', {
+          quiet,
+          rewardToken: rewardClaimToken('spot', receipt.id),
+        });
+      } catch { parent = null; }
+      if (parent?.persisted !== true) {
+        setClaimError('Your chapter and picture facts are saved, but the reward is not confirmed yet. Retry this same result.');
+        return false;
+      }
+      const marked = markSpotDifferenceChapterReceiptClaimedStrict(playerId, receipt.id);
+      if (!marked.ok) {
+        setClaimError('The reward was confirmed, but its saved receipt could not be updated. Retry to confirm this same reward.');
+        return false;
+      }
+      reconciledReceiptsRef.current.add(receipt.id);
+      setClaimError('');
+      refreshProgress();
+      return true;
+    });
+    claimInFlightRef.current.set(receipt.id, operation);
+    try { return await operation; }
+    finally { if (claimInFlightRef.current.get(receipt.id) === operation) claimInFlightRef.current.delete(receipt.id); }
+  }, [onCelebrate, playerId, refreshProgress]);
+
+  const retryPendingClaims = useCallback(async () => {
+    if (claimDrainRef.current) return claimDrainRef.current;
+    const operation = (async () => {
+      const pending = getSpotDifferencePendingChapterReceiptsStrict(playerId);
+      if (!pending.ok) {
+        setClaimError('Saved chapter rewards cannot be checked yet. Retry when storage is available.');
+        return false;
+      }
+      setClaimBusy(true);
+      setClaimError('');
+      let failed = false;
+      for (const receipt of pending.receipts) {
+        if (!await claimReceipt(receipt, true)) failed = true;
+      }
+      refreshProgress();
+      if (failed) {
+        setClaimError('One or more saved chapter rewards still need confirmation. Retry to finish the same saved rewards.');
+        return false;
+      }
+      return true;
+    })();
+    claimDrainRef.current = operation;
+    try { return await operation; }
+    finally {
+      if (claimDrainRef.current === operation) claimDrainRef.current = null;
+      setClaimBusy(false);
+    }
+  }, [claimReceipt, playerId, refreshProgress]);
+
+  useEffect(() => {
+    if (phase !== 'intro') return undefined;
+    const timer = window.setTimeout(async () => {
+      await retryPendingClaims();
+    }, 0);
+    return () => { window.clearTimeout(timer); };
+  }, [phase, retryPendingClaims]);
+
+  const saveCompletedScene = useCallback(async (pending) => {
+    if (!pending || completionBusyRef.current) return false;
+    completionBusyRef.current = true;
+    setCompletionSaveState('saving');
+    setSaveError('');
+    setClaimError('');
+    const saved = completeSpotDifferenceSceneStrict(playerId, pending.chapterIndex, pending.sceneId);
+    if (!saved.ok) {
+      setCompletionSaveState('failed');
+      setSaveError('This picture fact is ready, but its progress could not be saved. Retry this same pair.');
+      completionBusyRef.current = false;
+      return false;
+    }
+    setProgressState({ ok: true, progress: saved.progress });
+    onGameEvent?.('spot', 'scene_complete', { level: pending.chapterIndex, round: pending.sceneIndex + 1, seed: pending.seed, firstAttempt: !pending.hadMistake, hints: pending.hintCount });
+    if (saved.chapterComplete) {
+      setPhase('chapter-complete');
+      const praise = getPraise();
+      setFeedback(spotDifferenceCompletionMessage({ chapterComplete: true, chapterName: SPOT_DIFFERENCE_CHAPTERS[pending.chapterIndex].name, praise }));
+      onGameEvent?.('spot', 'level_completed', { level: pending.chapterIndex, round: pending.sceneIndex + 1, seed: pending.seed, firstAttempt: !pending.hadMistake, hints: pending.hintCount, wrongTaps: pending.wrongTapCount, difficulty: SPOT_DIFFERENCE_CHAPTERS[pending.chapterIndex].band });
+      if (saved.receipt && !saved.receipt.claimed && !await claimReceipt(saved.receipt, false)) {
+        setCompletionSaveState('failed');
+        completionBusyRef.current = false;
+        return false;
+      }
+    }
+    setCompletionSaveState('saved');
+    completionBusyRef.current = false;
+    return true;
+  }, [claimReceipt, onGameEvent, playerId]);
 
   const startChapter = (targetIndex = chapterIndex) => {
     if (targetIndex > progress.unlockedChapter) return;
     const nextSeed = seedNow();
-    const previousQueue = getSpotDifferenceLastQueue(playerId);
+    const queueState = getSpotDifferenceLastQueueStrict(playerId);
+    const previousQueue = queueState.ok ? queueState.queue : [];
     const nextQueue = createSpotDifferenceRun(targetIndex, nextSeed, previousQueue, progress.lastCompletedSceneId);
     setChapterIndex(targetIndex);
     setSeed(nextSeed);
     setQueue(nextQueue);
     setSceneIndex(0);
+    setMobilePicture('B');
     setFound([]);
     setHintCount(0);
     setHintTarget(null);
@@ -156,7 +279,13 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     setHadMistake(false);
     setWrongTapCount(0);
     setFeedback('Look at both pictures. Tap a changed detail in Picture B.');
-    saveSpotDifferenceQueue(playerId, nextQueue);
+    pendingSceneRef.current = null;
+    setCompletionSaveState('idle');
+    const queueSaved = saveSpotDifferenceQueueStrict(playerId, nextQueue);
+    if (queueSaved.ok) {
+      setProgressState({ ok: true, progress: queueSaved.progress });
+      setSaveError('');
+    } else setSaveError('This run can be practised, but its scene order could not be saved yet.');
     setPhase('play');
     onGameEvent?.('spot', 'start', { level: targetIndex, round: 0, seed: nextSeed });
     onGameEvent?.('spot', 'scene', { level: targetIndex, round: 1, seed: nextSeed });
@@ -172,6 +301,9 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     setHadMistake(false);
     setWrongTapCount(0);
     setWrongTap(false);
+    setCompletionSaveState('idle');
+    setSaveError('');
+    pendingSceneRef.current = null;
   };
 
   const handleFind = (difference) => {
@@ -186,18 +318,12 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
     if (nextFound.length === scene.differences.length) {
       setFeedback(spotDifferenceCompletionMessage());
       setPhase('scene-complete');
-      const nextProgress = completeSpotDifferenceChapter(playerId, chapterIndex, [scene.id]);
-      setProgress(nextProgress);
-      onGameEvent?.('spot', 'scene_complete', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintCount });
+      const pending = { sceneId: scene.id, chapterIndex, sceneIndex, seed, hadMistake, hintCount, wrongTapCount };
+      pendingSceneRef.current = pending;
+      setCompletionSaveState('saving');
       speakPackagedBatch2Line(speak, spotDifferenceNarration.completed(scene));
       playSfx('success');
-      if (sceneIndex === queue.length - 1) {
-        const praise = getPraise();
-        setFeedback(spotDifferenceCompletionMessage({ chapterComplete: true, chapterName: chapter.name, praise }));
-        setPhase('chapter-complete');
-        onCelebrate(praise, 8, 80);
-        onGameEvent?.('spot', 'level_completed', { level: chapterIndex, round: sceneIndex + 1, seed, firstAttempt: !hadMistake, hints: hintCount, wrongTaps: wrongTapCount, difficulty: chapter.band });
-      }
+      saveCompletedScene(pending);
     }
   };
 
@@ -244,9 +370,11 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
   };
 
   const nextScene = () => {
+    if (completionSaveState !== 'saved') return;
     if (sceneIndex + 1 < queue.length) {
       const nextIndex = sceneIndex + 1;
       setSceneIndex(nextIndex);
+      setMobilePicture('B');
       clearScene();
       setFeedback(`Picture ${nextIndex + 1} of ${queue.length}. Find ${queue[nextIndex].differences.length} changes.`);
       setPhase('play');
@@ -271,26 +399,32 @@ const SpotDifference = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, sp
       <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
     </header>
 
-    {phase === 'intro' ? <main className="mx-auto max-w-3xl px-4 py-5"><section className="rounded-3xl border-4 border-white bg-white/90 p-5 text-center shadow-xl sm:p-7">
-      <p className="text-5xl" aria-hidden="true">🔎</p><h2 className="mt-2 text-2xl font-black text-indigo-800">Twelve picture pairs. Three chapters.</h2><p className="mt-2 font-bold text-slate-700">Find the changes in four picture pairs. You can use two magnifier hints in each pair.</p><p className="mt-2 rounded-2xl bg-indigo-50 px-4 py-3 text-sm font-bold text-indigo-900"><strong>Compare: </strong>Look at the top, middle, then bottom of Picture A and Picture B.</p>
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">{SPOT_DIFFERENCE_CHAPTERS.map((entry, index) => { const unlocked = index <= progress.unlockedChapter; const count = SPOT_DIFFERENCE_SCENES.filter((item) => item.chapterIndex === index && progress.completedSceneIds.includes(item.id)).length; return <button type="button" key={entry.id} disabled={!unlocked} onClick={() => setChapterIndex(index)} aria-pressed={chapterIndex === index} className={`min-h-12 rounded-2xl border-2 p-3 text-left font-black ${chapterIndex === index ? 'border-indigo-600 bg-indigo-100 text-indigo-900' : unlocked ? 'border-sky-300 bg-white text-slate-800' : 'border-slate-200 bg-slate-100 text-slate-400'}`}><span className="block">{index + 1}. {entry.name}</span><span className="mt-1 block text-sm">Find {entry.differenceCount} changes · {count}/4 pairs {unlocked ? '' : '· Locked'}</span></button>; })}</div>
-      <button type="button" onClick={() => startChapter()} className="mt-5 inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-7 py-3 text-lg font-black text-white"><Eye /> {completedCount ? 'Replay chapter' : 'Start chapter'}</button>
-    </section></main> : <main className="mx-auto max-w-7xl px-3 pb-8 pt-3 sm:px-5">
+    {phase === 'intro' ? <main className="mx-auto max-w-3xl px-3 py-2 sm:px-4 sm:py-5"><section className="rounded-3xl border-4 border-white bg-white/90 p-3 text-center shadow-xl sm:p-7">
+      <p className="text-3xl sm:text-5xl" aria-hidden="true">🔎</p><h2 className="mt-1 text-xl font-black text-indigo-800 sm:mt-2 sm:text-2xl">Twelve picture pairs. Three chapters.</h2><p className="mt-1 text-sm font-bold text-slate-700 sm:mt-2 sm:text-base">Find the changes in four picture pairs. You can use two magnifier hints in each pair.</p><p className="mt-2 rounded-2xl bg-indigo-50 px-3 py-2 text-sm font-bold text-indigo-900 sm:px-4 sm:py-3"><strong>Compare: </strong>Look at the top, middle, then bottom of Picture A and Picture B.</p>
+      {!progressState.ok && <p role="status" className="mt-2 rounded-xl bg-amber-50 p-3 text-sm font-bold text-amber-950">Saved progress is unavailable. You can practise, and completed pairs will stay here until storage can confirm them.</p>}
+      {claimError && <div className="mt-2 rounded-xl bg-amber-50 p-3 text-sm font-bold text-amber-950"><p role="alert">{claimError}</p><button type="button" disabled={claimBusy} onClick={retryPendingClaims} className="mt-2 inline-flex min-h-12 items-center rounded-lg bg-amber-700 px-4 font-black text-white disabled:opacity-60">{claimBusy ? 'Retrying…' : 'Retry saved chapter reward'}</button></div>}
+      <div className="mt-3 rounded-2xl border-2 border-indigo-200 bg-indigo-50/70 p-3 text-left" aria-live="polite"><p className="text-xs font-black uppercase tracking-wide text-indigo-700">Selected chapter · {chapterIndex + 1} of {SPOT_DIFFERENCE_CHAPTERS.length}</p><p className="mt-1 text-lg font-black text-indigo-950">{chapter.name}</p><p className="text-sm font-bold text-indigo-900">Find {chapter.differenceCount} changes · {completedCount}/4 pairs saved</p></div>
+      <button type="button" onClick={() => startChapter()} className="mt-3 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 text-lg font-black text-white sm:w-auto sm:px-7"><Eye /> {completedCount ? 'Replay chapter' : `Start ${chapter.name}`}</button>
+      <details className="mt-2 rounded-2xl border border-sky-200 bg-white text-left"><summary className="flex min-h-12 cursor-pointer items-center justify-center px-3 text-sm font-black text-indigo-800">Choose another chapter</summary><div className="grid gap-2 p-2 sm:grid-cols-3">{SPOT_DIFFERENCE_CHAPTERS.map((entry, index) => { const unlocked = index <= progress.unlockedChapter; const count = SPOT_DIFFERENCE_SCENES.filter((item) => item.chapterIndex === index && progress.completedSceneIds.includes(item.id)).length; return <button type="button" key={entry.id} disabled={!unlocked} onClick={() => setChapterIndex(index)} aria-pressed={index === chapterIndex} className={`min-h-12 rounded-xl border-2 p-2 text-left text-sm font-black ${chapterIndex === index ? 'border-indigo-600 bg-indigo-100 text-indigo-900' : unlocked ? 'border-sky-300 bg-white text-slate-800' : 'border-slate-200 bg-slate-100 text-slate-400'}`}><span className="block">{index + 1}. {entry.name}</span><span className="mt-1 block text-xs">Find {entry.differenceCount} changes · {count}/4 pairs {unlocked ? '' : '· Locked'}</span></button>; })}</div></details>
+    </section></main> : <main className="mx-auto max-w-7xl px-2 pb-4 pt-2 sm:px-5 sm:pb-8 sm:pt-3">
       {scene && <>
-        <p className="mb-3 min-h-12 rounded-2xl bg-white/95 px-4 py-3 text-center font-black text-indigo-800 shadow" aria-live="polite">{feedback}</p>
+        <p className="mb-2 min-h-10 rounded-xl bg-white/95 px-2 py-2 text-center text-sm font-black leading-tight text-indigo-800 shadow sm:mb-3 sm:min-h-12 sm:rounded-2xl sm:px-4 sm:py-3 sm:text-base" aria-live="polite">{feedback}</p>
+        {saveError && completionSaveState === 'idle' && <p role="status" className="mb-2 rounded-xl bg-amber-50 p-2 text-center text-xs font-bold text-amber-950">{saveError}</p>}
         {phase === 'play' ? <>
-          <section className="mb-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-white/90 p-3 shadow"><p className="font-black">{scene.title} <span className="text-slate-600">· {found.length} of {scene.differences.length} changes</span></p><div className="flex gap-2"><button type="button" onClick={() => { speakPackagedBatch2Line(speak, spotDifferenceNarration.prompt(scene)); playSfx('click'); }} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={18} /> Hear clue</button><button type="button" onClick={showHint} disabled={hintCount >= chapter.hintTokens || !getNextSpotDifferenceHint(scene.differences, found, hintedTargets)} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-amber-100 px-4 font-black text-amber-900 disabled:opacity-50"><Lightbulb size={18} /> Magnifier {chapter.hintTokens - hintCount} left</button></div></section>
-          <div className="grid gap-4 lg:grid-cols-2">
-            {[false, true].map((changed) => <section key={String(changed)} className="min-w-0 rounded-3xl border-4 border-white bg-white p-3 shadow-xl"><h2 className="mb-2 text-center text-lg font-black text-indigo-800">Picture {changed ? 'B · Find changes here' : 'A · Look carefully'}</h2><div ref={changed ? pictureBRef : undefined} className="relative w-full overflow-hidden rounded-2xl bg-sky-100" style={{ aspectRatio: scene.aspectRatio || 4 / 3 }}><img src={changed && scene.imageB && !scene.editRegions ? scene.imageB : scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
+          <section className="mb-2 flex flex-wrap items-center justify-between gap-1 rounded-xl bg-white/90 p-2 shadow sm:mb-3 sm:gap-2 sm:rounded-2xl sm:p-3"><p className="min-w-0 flex-1 text-sm font-black leading-tight sm:text-base">{scene.title} <span className="text-slate-600">· {found.length}/{scene.differences.length}</span></p><div className="flex shrink-0 gap-1 sm:gap-2"><button type="button" onClick={() => { speakPackagedBatch2Line(speak, spotDifferenceNarration.prompt(scene)); playSfx('click'); }} className="inline-flex min-h-12 items-center gap-1 rounded-full bg-sky-100 px-2 text-sm font-black sm:gap-2 sm:px-4 sm:text-base text-sky-900"><Volume2 size={18} /> Hear clue</button><button type="button" onClick={showHint} disabled={hintCount >= chapter.hintTokens || !getNextSpotDifferenceHint(scene.differences, found, hintedTargets)} className="inline-flex min-h-12 items-center gap-1 rounded-full bg-amber-100 px-2 text-sm font-black text-amber-900 sm:gap-2 sm:px-4 sm:text-base disabled:opacity-50"><Lightbulb size={18} /> <span className="sm:hidden">Hint {chapter.hintTokens - hintCount}</span><span className="hidden sm:inline">Magnifier {chapter.hintTokens - hintCount} left</span></button></div></section>
+          <div className="mb-2 grid grid-cols-2 gap-2 sm:hidden" role="group" aria-label="Choose picture to compare"><button type="button" aria-pressed={mobilePicture === 'A'} onClick={() => setMobilePicture('A')} className={`min-h-12 rounded-xl border-2 px-3 font-black ${mobilePicture === 'A' ? 'border-indigo-700 bg-indigo-100 text-indigo-950' : 'border-white bg-white/80 text-indigo-800'}`}>Picture A · Compare</button><button type="button" aria-pressed={mobilePicture === 'B'} onClick={() => setMobilePicture('B')} className={`min-h-12 rounded-xl border-2 px-3 font-black ${mobilePicture === 'B' ? 'border-indigo-700 bg-indigo-100 text-indigo-950' : 'border-white bg-white/80 text-indigo-800'}`}>Picture B · Find changes</button></div>
+          <p className="mb-2 text-center text-xs font-bold text-indigo-900 sm:hidden">Compare the same area in A and B, then tap a change in Picture B.</p>
+          <div className="grid grid-cols-1 gap-2 sm:gap-4 lg:grid-cols-2">
+            {[false, true].map((changed) => <section key={String(changed)} role="tabpanel" aria-label={`Picture ${changed ? 'B' : 'A'}${changed ? ' · Find changes here' : ' · Compare'}`} className={`${(changed ? 'B' : 'A') === mobilePicture ? '' : 'hidden'} min-w-0 rounded-2xl border-2 border-white bg-white p-1.5 shadow-lg sm:block sm:rounded-3xl sm:border-4 sm:p-3 sm:shadow-xl`}><h2 className="mb-1 text-center text-xs font-black leading-tight text-indigo-800 sm:mb-2 sm:text-lg">Picture {changed ? 'B · Find changes here' : 'A · Compare'}</h2><div ref={changed ? pictureBRef : undefined} className="relative w-full overflow-hidden rounded-xl bg-sky-100 sm:rounded-2xl" style={{ aspectRatio: scene.aspectRatio || 4 / 3 }}><img src={changed && scene.imageB && !scene.editRegions ? scene.imageB : scene.image} alt={`${scene.alt}, picture ${changed ? 'B' : 'A'}`} className="absolute inset-0 h-full w-full object-cover" />
               {changed && scene.editRegions && <SceneEditLayer scene={scene} />}
               {changed && scene.colorEdits && <SceneColorEditLayer scene={scene} />}
               {scene.differences.map((difference) => { const visible = changed ? difference.visual : difference.normalVisual; const done = found.includes(difference.id); const bespoke = visible.startsWith('prop:'); if (changed && done) return <span key={difference.id} aria-label="Found difference" className="pointer-events-none absolute z-10 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-emerald-100/95 ring-4 ring-emerald-500" style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><Check className="text-emerald-800" /></span>; if (scene.pairedArt) return null; return <span key={difference.id} aria-hidden="true" className={`pointer-events-none absolute z-[1] grid h-10 w-10 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full ${bespoke ? '' : 'bg-white/90 shadow'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }}><DifferenceVisual type={visible} /></span>; })}
               {changed && <button type="button" onClick={inspectPicture} aria-label="Search Picture B for a change" className={`absolute inset-0 z-10 h-full w-full cursor-crosshair bg-transparent ${wrongTap ? 'ring-4 ring-inset ring-rose-400' : ''}`} />}
-              {changed && scene.differences.map((difference) => !found.includes(difference.id) && <button key={`hot-${difference.id}`} type="button" onClick={(event) => inspectHotspot(event, difference)} aria-label={`Check ${difference.x < 35 ? 'left' : difference.x > 65 ? 'right' : 'middle'} ${difference.y < 35 ? 'top' : difference.y > 65 ? 'bottom' : 'middle'} detail`} className={`absolute z-20 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 focus-visible:border-indigo-600 focus-visible:bg-indigo-200/40 focus-visible:outline-none ${hintTarget === difference.id ? 'animate-pulse border-amber-500 bg-amber-200/40' : 'border-transparent bg-transparent'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }} />)}
+              {changed && scene.differences.map((difference) => !found.includes(difference.id) && <button key={`hot-${difference.id}`} type="button" onClick={(event) => inspectHotspot(event, difference)} aria-label={`Check ${difference.x < 35 ? 'left' : difference.x > 65 ? 'right' : 'middle'} ${difference.y < 35 ? 'top' : difference.y > 65 ? 'bottom' : 'middle'} detail`} className={`absolute z-20 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 focus-visible:border-indigo-600 focus-visible:bg-indigo-200/40 focus-visible:outline-none ${hintTarget === difference.id ? 'animate-pulse border-amber-500 bg-amber-200/40' : 'border-transparent bg-transparent'}`} style={{ left: `${difference.x}%`, top: `${difference.y}%` }} />)}
             </div></section>)}
           </div>
-          <div className="mt-4 flex flex-wrap justify-center gap-2" aria-label="Changes found">{scene.differences.map((entry, index) => <span key={entry.id} className={`grid h-11 w-11 place-items-center rounded-full border-2 font-black ${found.includes(entry.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-800' : 'border-slate-300 bg-white text-slate-500'}`} aria-label={`Change ${index + 1}${found.includes(entry.id) ? ', found' : ', not found'}`}>{found.includes(entry.id) ? <Check size={19} /> : index + 1}</span>)}</div>
-        </> : <section className="mx-auto max-w-3xl rounded-3xl border-4 border-emerald-200 bg-white p-5 text-center shadow-xl" aria-live="polite"><p className="text-5xl" aria-hidden="true">🏆</p><h2 className="mt-2 text-2xl font-black text-emerald-900">{phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} pair complete!`}</h2><p className="mt-3 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed"><strong>Picture fact:</strong> {scene.fact}</p><button type="button" onClick={() => speakPackagedBatch2Line(speak, spotDifferenceNarration.completed(scene))} className="mt-3 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={19} /> Hear fact again</button><div className="mt-4 flex flex-wrap justify-center gap-3">{phase === 'scene-complete' && <button type="button" onClick={nextScene} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">Next picture <ArrowRight size={18} /></button>}{phase === 'chapter-complete' && chapterIndex < SPOT_DIFFERENCE_CHAPTERS.length - 1 && <button type="button" onClick={() => { setChapterIndex(nextSpotChapterIndex(chapterIndex, SPOT_DIFFERENCE_CHAPTERS.length)); setPhase('intro'); }} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">Next chapter <ArrowRight size={18} /></button>}{phase === 'chapter-complete' && <button type="button" onClick={() => startChapter()} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-700 px-5 py-3 font-black text-white"><RotateCcw size={18} /> Replay chapter</button>}</div></section>}
+          <div className="mt-2 flex flex-wrap justify-center gap-1.5 sm:mt-4 sm:gap-2" aria-label="Changes found">{scene.differences.map((entry, index) => <span key={entry.id} className={`grid h-9 w-9 place-items-center rounded-full border-2 text-sm font-black sm:h-11 sm:w-11 sm:text-base ${found.includes(entry.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-800' : 'border-slate-300 bg-white text-slate-500'}`} aria-label={`Change ${index + 1}${found.includes(entry.id) ? ', found' : ', not found'}`}>{found.includes(entry.id) ? <Check size={19} /> : index + 1}</span>)}</div>
+        </> : <section className="mx-auto max-w-3xl rounded-3xl border-4 border-emerald-200 bg-white p-4 text-center shadow-xl sm:p-5" aria-live="polite"><p className="text-4xl" aria-hidden="true">🏆</p><h2 className="mt-1 text-xl font-black text-emerald-900 sm:text-2xl">{phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} pair complete!`}</h2><p className="mt-2 rounded-2xl bg-emerald-50 p-3 text-left text-sm font-bold leading-relaxed sm:text-base"><strong>Picture fact:</strong> {scene.fact}</p><button type="button" onClick={() => speakPackagedBatch2Line(speak, spotDifferenceNarration.completed(scene))} className="mt-2 inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-sky-100 px-4 font-black text-sky-900"><Volume2 size={19} /> Hear fact again</button>{completionSaveState === 'saving' && <p role="status" className="mt-2 text-sm font-bold text-indigo-800">Saving this picture pair…</p>}{(saveError || claimError) && <><p role="alert" className="mt-2 rounded-xl bg-amber-50 p-3 text-sm font-bold text-amber-950">{saveError || claimError}</p><button type="button" disabled={completionSaveState === 'saving'} onClick={() => saveCompletedScene(pendingSceneRef.current)} className="mt-2 inline-flex min-h-12 items-center justify-center rounded-xl bg-amber-700 px-5 font-black text-white disabled:opacity-60">{completionSaveState === 'saving' ? 'Retrying…' : 'Retry save'}</button></>}<div className="mt-3 flex flex-wrap justify-center gap-2">{phase === 'scene-complete' && completionSaveState === 'saved' && <button type="button" onClick={nextScene} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">Next picture <ArrowRight size={18} /></button>}{phase === 'chapter-complete' && completionSaveState === 'saved' && chapterIndex < SPOT_DIFFERENCE_CHAPTERS.length - 1 && <button type="button" onClick={() => { setChapterIndex(nextSpotChapterIndex(chapterIndex, SPOT_DIFFERENCE_CHAPTERS.length)); setPhase('intro'); }} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-600 px-5 py-3 font-black text-white">Next chapter <ArrowRight size={18} /></button>}{phase === 'chapter-complete' && completionSaveState === 'saved' && <button type="button" onClick={() => startChapter()} className="inline-flex min-h-12 items-center gap-2 rounded-2xl bg-indigo-700 px-5 py-3 font-black text-white"><RotateCcw size={18} /> Replay chapter</button>}</div></section>}
       </>}
     </main>}
   </div>;
