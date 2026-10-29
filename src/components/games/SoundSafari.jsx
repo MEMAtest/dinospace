@@ -158,6 +158,12 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     phonemeAudioRef.current?.pause();
     phonemeAudioRef.current = null;
   }, []);
+  const reportPhonemeAudioFailure = (audio, error) => {
+    const aborted = error?.name === 'AbortError' || audio.error?.code === 1;
+    if (phonemeAudioRef.current !== audio || aborted) return;
+    phonemeAudioRef.current = null;
+    setVisualPractice(true);
+  };
   const phase = chapterResult ? 'finish' : chapterIndex === null ? 'intro' : 'play';
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
   useEffect(() => () => { cancelNarration(); stopPhonemeAudio(); }, [cancelNarration, stopPhonemeAudio]);
@@ -195,10 +201,10 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
     stopPhonemeAudio();
     const audio = new Audio(source);
     phonemeAudioRef.current = audio;
-    audio.ontimeupdate = () => { if (audio.currentTime >= 0.05) heardRoundRef.current.add(`${round.id}:${sound}`); };
+    audio.ontimeupdate = () => { if (phonemeAudioRef.current === audio && audio.currentTime >= 0.05) heardRoundRef.current.add(`${round.id}:${sound}`); };
     audio.onended = () => { if (phonemeAudioRef.current === audio) phonemeAudioRef.current = null; };
-    audio.onerror = () => { if (phonemeAudioRef.current === audio) phonemeAudioRef.current = null; setVisualPractice(true); };
-    audio.play().catch(() => { if (phonemeAudioRef.current === audio) phonemeAudioRef.current = null; setVisualPractice(true); });
+    audio.onerror = () => reportPhonemeAudioFailure(audio);
+    audio.play().catch((error) => reportPhonemeAudioFailure(audio, error));
   };
 
   const playExplanation = () => {
@@ -217,8 +223,8 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
       index += 1;
       phonemeAudioRef.current = audio;
       audio.onended = () => { if (phonemeAudioRef.current === audio) { phonemeAudioRef.current = null; playNext(); } };
-      audio.onerror = () => { if (phonemeAudioRef.current === audio) phonemeAudioRef.current = null; setVisualPractice(true); };
-      audio.play().catch(() => { if (phonemeAudioRef.current === audio) phonemeAudioRef.current = null; setVisualPractice(true); });
+      audio.onerror = () => reportPhonemeAudioFailure(audio);
+      audio.play().catch((error) => reportPhonemeAudioFailure(audio, error));
     };
     playNext();
   };
@@ -240,10 +246,10 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
       if (!source) { setVisualPractice(true); return; }
       const audio = new Audio(source);
       phonemeAudioRef.current = audio;
-      audio.ontimeupdate = () => { if (audio.currentTime >= 0.05) heardRoundRef.current.add(`${round.id}:word`); };
+      audio.ontimeupdate = () => { if (phonemeAudioRef.current === audio && audio.currentTime >= 0.05) heardRoundRef.current.add(`${round.id}:word`); };
       audio.onended = () => { if (phonemeAudioRef.current === audio) phonemeAudioRef.current = null; };
-      audio.onerror = () => { setVisualPractice(true); };
-      audio.play().catch(() => { setVisualPractice(true); });
+      audio.onerror = () => reportPhonemeAudioFailure(audio);
+      audio.play().catch((error) => reportPhonemeAudioFailure(audio, error));
     } else sayPackaged(speak, promptClipText);
   };
 
@@ -464,13 +470,13 @@ const SoundSafari = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
           <div className="flex gap-1" aria-label={`${roundIndex + 1} of 6 challenges`} role="status">{chapter.rounds.map((item, index) => <span key={item.id} className={`h-2 w-5 rounded-full ${index <= roundIndex ? 'bg-emerald-500' : 'bg-slate-200'}`} />)}</div>
         </div>
         {roundIndex === 0 && feedback?.kind !== 'correct' && <p className="mt-2 hidden rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-950 sm:block">{chapter.intro}</p>}
-        {(visualPractice || !soundOn) && <p role="status" className="mt-2 rounded-xl bg-amber-50 px-2 py-1 text-xs font-semibold text-amber-900 sm:mt-3 sm:px-3 sm:py-2 sm:text-sm">Visual practice: sound was muted or unavailable, so this answer will be marked assisted.</p>}
+        {(visualPractice || !soundOn) && <p role="status" className="mt-1 rounded-xl bg-amber-50 px-2 py-0.5 text-xs font-semibold leading-tight text-amber-900 sm:mt-3 sm:px-3 sm:py-2 sm:text-sm"><span className="sm:hidden">Visual practice · assisted</span><span className="hidden sm:inline">Visual practice: sound was muted or unavailable, so this answer will be marked assisted.</span></p>}
         {feedback?.kind !== 'correct' && <><div className="mt-2 flex flex-wrap items-center justify-center gap-1 rounded-2xl bg-slate-50 p-2 text-center sm:mt-4 sm:gap-2 sm:p-4">
           {chapter.id === 'listen' && <><p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">Which picture begins with this sound?</p><button type="button" disabled={!phonemeAudio?.[round.target.sound] || !soundOn} onClick={() => playPhoneme(round.target.sound)} className={`${button} border-emerald-200 bg-white text-emerald-800`}>Hear /{round.target.sound}/</button> {!feedback && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>}</>}
           {chapter.id === 'blend' && <><p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">Tap each sound from left to right. Then choose the matching picture.</p><div className="flex flex-wrap justify-center gap-1 sm:gap-2">{round.word.phonemes.map((sound, index) => <button type="button" disabled={Boolean(feedback) || index > blendStep} onClick={() => chooseBlendTile(index, sound)} aria-label={`Hear sound ${index + 1}`} aria-pressed={index < blendStep} className={`${button} min-h-12 min-w-12 border-emerald-300 bg-white px-3 py-2 text-lg text-emerald-800 sm:min-h-14 sm:min-w-14 sm:text-xl ${index === blendStep ? 'ring-2 ring-emerald-400' : ''}`} key={`${sound}-${index}`}>{index + 1}</button>)}</div> {!feedback && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>}</>}
-          {chapter.id === 'segment' && <><p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">Listen to the picture word. Tap its sounds from first to last.</p><figure className="w-full" aria-label={`Picture clue for ${round.word.word.toLowerCase()}`}><SvgWordPicture item={round.word} /><figcaption className="text-xs font-bold text-slate-700 sm:text-sm">{round.word.word.toLowerCase()}</figcaption></figure><div className="flex min-h-12 items-center gap-1" aria-live="polite">{selectedSounds.map((id) => { const sound = segmentChoices.find((item) => item.id === id)?.sound; return <span className="rounded-xl bg-emerald-100 px-2 py-1 text-lg font-black text-emerald-800 sm:px-4 sm:py-2 sm:text-xl" key={id}>{sound}</span>; })}</div>{!feedback && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 text-amber-900`}><Lightbulb size={18} className="mr-2 inline" />{usedClue ? 'Clue used' : 'Use one clue'}</button>}</>}
+          {chapter.id === 'segment' && <><p className="w-full text-base font-bold leading-tight text-slate-800 sm:text-lg">Listen to the picture word. Tap its sounds from first to last.</p><figure className="w-full" aria-label={`Picture clue for ${round.word.word.toLowerCase()}`}><SvgWordPicture item={round.word} /><figcaption className="text-xs font-bold text-slate-700 sm:text-sm">{round.word.word.toLowerCase()}</figcaption></figure><div className="flex min-h-12 items-center gap-1" aria-live="polite">{selectedSounds.map((id) => { const sound = segmentChoices.find((item) => item.id === id)?.sound; return <span className="rounded-xl bg-emerald-100 px-2 py-1 text-lg font-black text-emerald-800 sm:px-4 sm:py-2 sm:text-xl" key={id}>{sound}</span>; })}</div>{!feedback && <button type="button" disabled={usedClue} onClick={useClue} className={`${button} border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900 sm:px-4 sm:py-3 sm:text-base`}><Lightbulb size={18} className="mr-1 inline" />{usedClue ? <span role="status" className="text-sm">First sound: /{round.word.phonemes[0]}/</span> : 'Use one clue'}</button>}</>}
           {promptClipText && <button type="button" disabled={!getOfflineVoiceClip(promptClipText)} onClick={playWordPrompt} className={`${button} mt-1 border-blue-200 bg-white text-blue-800`}><Volume2 size={19} className="mr-2 inline" />Hear {chapter.id === 'blend' ? 'instructions' : 'the word again'}</button>}
-          {clueText && <p className="w-full rounded-xl bg-amber-50 p-2 text-center text-sm font-bold text-amber-950 sm:p-3" role="status">{clueText}</p>}
+          {clueText && chapter.id !== 'segment' && <p className="w-full rounded-xl bg-amber-50 p-2 text-center text-sm font-bold text-amber-950 sm:p-3" role="status">{clueText}</p>}
         </div>
         {chapter.id === 'segment' ? <>
           <div className="mt-2 grid grid-cols-3 gap-1 sm:mt-4 sm:grid-cols-3 sm:gap-3">{segmentChoices.map((choice) => <button type="button" key={choice.id} disabled={Boolean(feedback)} onClick={() => chooseSound(choice)} aria-pressed={selectedSounds.includes(choice.id)} aria-label={`Hear /${choice.sound}/ and add it`} className={`${button} min-h-12 border-slate-200 bg-white px-2 py-2 text-sm text-slate-800 hover:border-emerald-300 sm:text-base ${selectedSounds.includes(choice.id) ? 'border-emerald-600 bg-emerald-100 text-emerald-900' : ''}`}>/{choice.sound}/</button>)}</div>
