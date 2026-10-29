@@ -35,7 +35,7 @@ const validate = (value) => {
   }
   return {
     ...empty(), ...value,
-    completedChapterIds: [...completed], earnedChapterIds: [...earned],
+    completedChapterIds: [...completed], earnedChapterIds: [...earned], unlockedChapter: unlocked,
     recentRoundIds: [...recent], rewardReceipts: Object.fromEntries(Object.entries(receipts).map(([id, receipt]) => [id, { ...receipt }])),
   };
 };

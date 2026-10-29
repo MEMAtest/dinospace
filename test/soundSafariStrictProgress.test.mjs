@@ -132,3 +132,15 @@ test('saving completion history never mutates a run snapshot already in progress
   assert.equal(active.chapters[0].rounds.length, 6);
   assert.deepEqual(active.chapters[0].rounds.map(({ id }) => id).sort(), JSON.parse(activeBefore).chapters[0].rounds.map(({ id }) => id).sort());
 });
+
+
+test('legacy earned chapters without an explicit unlock retain their next chapter', () => {
+  const storage = memoryStorage();
+  const raw = JSON.stringify({ version: 1, completedChapterIds: ['listen', 'blend'], earnedChapterIds: ['listen', 'blend'], familyNote: { keep: true } });
+  storage.setItem('child_sound_safari_adventure_v1', raw);
+  const loaded = getSoundSafariProgressStrict('child', storage);
+  assert.equal(loaded.ok, true);
+  assert.equal(loaded.progress.unlockedChapter, 2);
+  assert.deepEqual(loaded.progress.familyNote, { keep: true });
+  assert.equal(storage.getItem('child_sound_safari_adventure_v1'), raw);
+});
