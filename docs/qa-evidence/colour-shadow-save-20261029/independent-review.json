@@ -1,0 +1,168 @@
+{
+  "reviewType": "independent_read_only_source_audit",
+  "reviewedAt": "2026-10-29",
+  "sourceHead": "aea42f6467e5820b420e20e9d9f71d019da5f5da",
+  "scope": [
+    "Shadow Match strict progress and receipt flow",
+    "LittleGameShell pairSafeProgress opt-in impact",
+    "parent point-unit and token compatibility",
+    "source-level reconciliation of Amari/Askia catalogue IDs"
+  ],
+  "verdict": "Earlier shared-helper compatibility issue is fixed. A native Askia practice-selection reset was subsequently found and fixed in LittleGameShell; current native QA is being rerun by root. No current full native or canonical acceptance is claimed by this source review.",
+  "findings": [
+    {
+      "area": "LittleGameShell compatibility",
+      "result": "ShadowMatch is the only newly opted-in pairSafeProgress caller. New receipt-drain and parent-claim paths are guarded by gameId === shadowmatch. Existing Rocket Builder, Fuel Up, Fire Rescue, Ladder Rescue, Dino Detective and Dino Jigsaw callers retain their prior opt-in paths; the generic per-round award suppression was already shared by those paths."
+    },
+    {
+      "area": "Shadow Match save and reward",
+      "result": "Uses existing per-child *_little_progress map and spreads root/game records, preserving sibling and unknown valid metadata. Strict result writes require valid read, exact readback and recover the same transaction after uncertain readback. Legacy high-water becomes pairLegacyRewardThrough, avoiding retroactive rewards. Per-level best receipts are positive-only, stable by level/best, validated against score/legacy ceilings, and marked claimed with readback. Pending receipts drain sequentially before play; local, parent or marker failure leaves a visible Retry."
+    },
+    {
+      "area": "Point units and namespaces",
+      "result": "App gives little games the raw celebrate callback; Shadow Match passes receipt.points directly (first perfect fresh level delta is 8, within parent claim cap 12) and uses rewardClaimToken(shadowmatch,id), normalized to reserved dino:shadowmatch namespace. Colour Mixing Lab is non-little and passes rewardDelta*4 through scaledCelebrate; its one actual point remains one. Parent claims and allowlists recognize both game IDs."
+    },
+    {
+      "area": "Player isolation",
+      "result": "Storage keys are player-scoped (amari_little_progress / askia_little_progress); transaction and receipt records remain under the selected child entry. Existing inventory snapshots show no Shadow Match row for either child before this candidate at either origin; this review did not mutate records."
+    },
+    {
+      "area": "Species and artwork",
+      "result": "Authored levels use 3/6/8/10/12 species; the final level has mirrored silhouettes and up to six choices. Twelve transparent art assets are referenced: six v1 species plus six v2 additions; silhouette rendering derives from the same source alpha, preserving outline. Existing art provenance is recorded in shadow-art-20261021/art-provenance.json."
+    },
+    {
+      "area": "Shared helper compatibility follow-up",
+      "result": "A Shadow-only receipt field was initially included in generic pair metadata validation and recovered-transaction access. This could reject or throw on a different game carrying the same previously-unknown field. Fixed by narrowing receipt validation, retrieval and pending-read API to Shadow Match. Regression now covers opaque object metadata through read, write and same-transaction recovery for Rocket Builder, Fuel Up and Dino Jigsaw."
+    },
+    {
+      "area": "Shadow Match practice-level preservation",
+      "result": "Resolved in committed source aea42f6467e5820b420e20e9d9f71d019da5f5da. A fresh receipt drain before Play used to reset a child-selected lower practice level to the persisted high-water level. It now preserves the selected level clamped to the child minimum and persisted high-water, while refreshing the high-water state and draining pending receipts before play. This is a source/code review finding fixed by this agent; it is not a browser acceptance claim."
+    }
+  ],
+  "catalogueReconciliation": {
+    "amariNormalRoutes": {
+      "count": 35,
+      "unique": 35,
+      "gameIds": [
+        "letters",
+        "phonics",
+        "words",
+        "trace",
+        "hangman",
+        "storybooks",
+        "counting",
+        "fuelup",
+        "firerescue",
+        "addition",
+        "subtraction",
+        "math",
+        "numberline",
+        "timeteller",
+        "solar",
+        "astronaut",
+        "dino",
+        "german",
+        "worldmap",
+        "factfinder",
+        "codecadets",
+        "writingdesk",
+        "rocketbuilder",
+        "dinojigsaw",
+        "jet",
+        "colormix",
+        "puzzle",
+        "memory",
+        "shadowmatch",
+        "ladder",
+        "pattern",
+        "oddoneout",
+        "chess",
+        "spot",
+        "tictactoe"
+      ],
+      "source": "src/data/learningWorlds.js"
+    },
+    "askiaNormalRoutes": {
+      "count": 10,
+      "unique": 10,
+      "gameIds": [
+        "dinojigsaw",
+        "shadowmatch",
+        "dino",
+        "rocketbuilder",
+        "fuelup",
+        "counting",
+        "firerescue",
+        "ladder",
+        "memory",
+        "pattern"
+      ],
+      "source": "src/components/home/LittleHome.jsx"
+    },
+    "unionUniqueGameIds": 35,
+    "queuePairs": 18,
+    "queueLiveVerifiedPairs": 17,
+    "activePair": 18,
+    "pair18": {
+      "games": [
+        "colormix",
+        "shadowmatch"
+      ],
+      "status": "native_verification"
+    },
+    "retainedReleasedScopes": 14,
+    "coverageNote": "The source catalogue reconciles to all 35 Amari IDs and all 10 Askia routes, with Askia routes overlapping Amari IDs; no route ID is omitted from these arrays. This read-only source audit is not actual-control coverage. The final integration template remains its separate runtime acceptance record."
+  },
+  "currentEvidenceLimits": {
+    "pair18SourceGates": {
+      "runtime": "ad0e80386d7a5fb566e8ece45d7cd9e72f91dc37",
+      "buildPassed": true,
+      "testsPassed": 756,
+      "testsSkipped": 0,
+      "parentClaimGroupsPassed": 19,
+      "exactCurrentWorktreeSourceBuilt": false,
+      "note": "This is the older R2 gate record; current R4 build identity is recorded separately above."
+    },
+    "nativeReportsAtReview": [
+      "native-colour-shadow-390x740-arcade-j527bSNS-20261029T202533-878265000.json",
+      "native-colour-shadow-390x740-arcade-SvrIzLOt-20261029T202929-756560000.json"
+    ],
+    "limitation": "The retained native reports listed above are failed phone attempts; root is running the current native checks. No current full native or canonical Shadow Match/Colour acceptance is claimed by this review. Initial inventory shows Colour already capped for the retained profile, so positive Colour receipt branches have no natural eligibility per protocol.",
+    "followUpAfterCandidateBuild": {
+      "reason": "Shadow Match practice-level preservation was committed after the prior R4 build; that older bundle is not proof of the current source.",
+      "scopedLint": "passed for LittleGameShell.jsx",
+      "diffCheck": "passed for LittleGameShell.jsx",
+      "browserQA": "not performed by this independent source review; root owns active native and canonical verification",
+      "sourceHead": "aea42f6467e5820b420e20e9d9f71d019da5f5da",
+      "exactCurrentWorktreeSourceBuilt": false
+    },
+    "pair18": {
+      "sourceHead": "aea42f6467e5820b420e20e9d9f71d019da5f5da",
+      "practiceLevelReset": "fixed in LittleGameShell.jsx at committed source aea42f6467e5820b420e20e9d9f71d019da5f5da",
+      "nativeVerification": "root is running full native QA after the practice fix; no results available to this review",
+      "canonicalVerification": "not established by this review",
+      "priorNativeContext": "An earlier Askia run naturally earned Level 1 after a QA timing failure. Subsequent full-run coverage uses existing progress and does not reset storage; root reports Amari Level 3 as the fresh native completion chain and public Askia Level 1 as naturally fresh."
+    }
+  },
+  "sourceSha256": {
+    "src/data/pairLittleProgress.js": "4ec8ebf838876282400ffb68d7c0efd7c9fde0d57c102a89e3cfc2fc0c594221",
+    "src/components/little/LittleGameShell.jsx": "e8b1822d4a095b74cab47a1bce96fbc1076b71b0350d3dce8ab6db0ac51ae1e3",
+    "src/components/little/games/ShadowMatch.jsx": "d60fa0498888b5ab484a7355236dc0357372b6fd70272aeb4b560b01646fa25e",
+    "src/data/shadowMatchProgression.js": "2508a21cd8487d7e86f1aa15d15e9aa4c027aa877fda3a82c7a3b1567037ce78",
+    "src/data/shadowMatchArt.js": "011c705ebe74bc09150410f65526ea63f5a268e866f9bf98996b80f9de5ab996",
+    "src/components/little/ShadowDino.jsx": "d31157f5a86cf5f44781c500be936f2a201d80f9f76d501ac01e7320374445b5",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/components/games/ColorMixingLab.jsx": "4351809fdfba0e206d59568317844b77f2ebfdeca1ef7864f5f6c57eb217678f",
+    "src/data/colourLabProgress.js": "f43355208f4c9854e6fe60b4b98856180473745e36192c87322c1c8c25f6039d",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/components/home/LittleHome.jsx": "3a563fdad99756d5512e17c10673a3b4b1e511f9766165adabec98e6b31a7a23",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "docs/game-delivery-20261027/queue.json": "bbe812f94bcb0a481cd6e9ffab626cffc1fc3bae6bd8f278ec156dcaf3142dc6",
+    "docs/game-delivery-20261027/final-catalogue-reconciliation-template.md": "a899000bd106f27287dfa88c7a0468a27031a2c2ce8ea79f378a2ecc114504d7",
+    "docs/qa-evidence/colour-shadow-save-20261029/protocol.md": "d817778f8a7ddb7e3e449317fde566c338da1562a47d5a66df4444fa2ff96b13",
+    "docs/qa-evidence/colour-shadow-save-20261029/source-gates.json": "d48aeab71e5a2ecbce184ee75279baecb60c8095fc6b59f399353f1806a0d5f1",
+    "docs/qa-evidence/colour-shadow-save-20261029/initial-progress-inventory.json": "2f24a5645773301afdc0e8ff0c0b99f4dc566a0a0125b0ce8c4f648bf2c281f7",
+    "test/shadowMatchStrictProgress.test.mjs": "3605e84a2709fdb757bf9ef349d726d305548eb4359474e6f97ed271b0aed5fe"
+  }
+}

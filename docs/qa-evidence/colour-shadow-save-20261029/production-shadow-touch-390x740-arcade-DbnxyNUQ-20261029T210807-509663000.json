@@ -1,0 +1,600 @@
+{
+  "passed": true,
+  "origin": "https://dinospace.netlify.app",
+  "viewport": "390x740",
+  "expectedEntry": "/assets/arcade-DbnxyNUQ.js",
+  "touch": {
+    "enabled": false,
+    "emulation": "Chromium CDP touch emulation; not physical-device certification",
+    "cancelRejected": true,
+    "dragMatched": true,
+    "cancelPointerEventObserved": true,
+    "cancelInput": "Input.dispatchTouchEvent touchCancel",
+    "events": [
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "x": 195,
+        "y": 306.59375,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 206.25,
+        "y": 330.66796875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 217.5,
+        "y": 354.7421875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 228.75,
+        "y": 378.81640625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 240,
+        "y": 402.890625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointercancel",
+        "pointerType": "touch",
+        "x": 240,
+        "y": 402.890625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "x": 195,
+        "y": 306.59375,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 206.25,
+        "y": 330.66796875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 217.5,
+        "y": 354.7421875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 228.75,
+        "y": 378.81640625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 240,
+        "y": 402.890625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 251.25,
+        "y": 426.96484375,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 262.5,
+        "y": 451.0390625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 273.75,
+        "y": 475.11328125,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 285,
+        "y": 499.1875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointerup",
+        "pointerType": "touch",
+        "x": 285,
+        "y": 499.1875,
+        "button": "Carnotaurus — drag to its shadow"
+      }
+    ]
+  },
+  "stages": [
+    {
+      "start": {
+        "geometry": {
+          "text": "Play Shadow Match",
+          "rect": {
+            "x": 147,
+            "y": 549,
+            "width": 96,
+            "height": 96,
+            "right": 243,
+            "bottom": 645
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        "heading": null,
+        "url": "https://dinospace.netlify.app/?qa_pair18_shadow_touch=1793308088233#/play/shadowmatch"
+      }
+    }
+  ],
+  "providerAttempts": [],
+  "runtime": {
+    "origin": "https://dinospace.netlify.app",
+    "namespaced": true,
+    "entry": "/assets/arcade-DbnxyNUQ.js"
+  },
+  "target": {
+    "visibleName": "Carnotaurus — drag to its shadow",
+    "image": "https://dinospace.netlify.app/art/shadow-match-v2/carno.webp",
+    "sourceGeometry": {
+      "text": "Carnotaurus — drag to its shadow",
+      "rect": {
+        "x": 115,
+        "y": 241,
+        "width": 160,
+        "height": 131.1875,
+        "right": 275,
+        "bottom": 372.1875
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "options": [
+      {
+        "index": 1,
+        "image": "https://dinospace.netlify.app/art/shadow-match-v1/trex.webp",
+        "geometry": {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 19,
+            "y": 451.1875,
+            "width": 172,
+            "height": 96,
+            "right": 191,
+            "bottom": 547.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      },
+      {
+        "index": 2,
+        "image": "https://dinospace.netlify.app/art/shadow-match-v2/carno.webp",
+        "geometry": {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 451.1875,
+            "width": 172,
+            "height": 96,
+            "right": 371,
+            "bottom": 547.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      },
+      {
+        "index": 3,
+        "image": "https://dinospace.netlify.app/art/shadow-match-v2/cory.webp",
+        "geometry": {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 19,
+            "y": 555.1875,
+            "width": 172,
+            "height": 96,
+            "right": 191,
+            "bottom": 651.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      },
+      {
+        "index": 4,
+        "image": "https://dinospace.netlify.app/art/shadow-match-v2/dillo.webp",
+        "geometry": {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 555.1875,
+            "width": 172,
+            "height": 96,
+            "right": 371,
+            "bottom": 651.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      }
+    ]
+  },
+  "wrongAttemptRetainedSameTarget": true,
+  "heldFact": "🚀\n\n12 creatures · 4 choices · mirrored shadows\n\nCarnotaurus!\n\nCarnotaurus had two horns on top of its head and very small arms.\n\nHear the fact again\nNext match →",
+  "packagedAudio": {
+    "checked": true,
+    "packaged": true,
+    "events": [
+      {
+        "src": "https://dinospace.netlify.app/audio/en/d19ae22c-matilda.mp3",
+        "origin": "https://dinospace.netlify.app",
+        "pathname": "/audio/en/d19ae22c-matilda.mp3",
+        "currentTime": 0.069614,
+        "duration": 4.040272,
+        "paused": false,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 1923.3999999761581
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 1938.8999999761581
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 1941.5
+          }
+        ],
+        "packaged": true
+      }
+    ]
+  },
+  "nextGeometry": {
+    "text": "Next match →",
+    "rect": {
+      "x": 105.0625,
+      "y": 546.59375,
+      "width": 179.859375,
+      "height": 56,
+      "right": 284.921875,
+      "bottom": 602.59375
+    },
+    "viewport": {
+      "width": 390,
+      "height": 740
+    },
+    "centerHit": true,
+    "pointerEvents": "auto"
+  },
+  "parentReturn": {
+    "geometry": {
+      "text": "Go home",
+      "rect": {
+        "x": 23,
+        "y": 81,
+        "width": 64,
+        "height": 64,
+        "right": 87,
+        "bottom": 145
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "heading": null,
+    "url": "https://dinospace.netlify.app/?qa_pair18_shadow_touch=1793308088233#/world/thinking",
+    "audioStopped": true,
+    "media": [
+      {
+        "src": "https://dinospace.netlify.app/audio/en/24f14aff-matilda.mp3",
+        "origin": "https://dinospace.netlify.app",
+        "pathname": "/audio/en/24f14aff-matilda.mp3",
+        "currentTime": 0,
+        "duration": 1.857596,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 306.80000001192093
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 321.69999998807907
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 322.19999998807907
+          },
+          {
+            "type": "pause",
+            "time": 0,
+            "at": 322.19999998807907
+          }
+        ],
+        "packaged": true
+      },
+      {
+        "src": "https://dinospace.netlify.app/audio/en/d19ae22c-matilda.mp3",
+        "origin": "https://dinospace.netlify.app",
+        "pathname": "/audio/en/d19ae22c-matilda.mp3",
+        "currentTime": 0,
+        "duration": 4.040272,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 900.3000000119209
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 914.5
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 916.8000000119209
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 987.8000000119209
+          },
+          {
+            "type": "pause",
+            "time": 0,
+            "at": 987.8000000119209
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 988
+          }
+        ],
+        "packaged": true
+      },
+      {
+        "src": "https://dinospace.netlify.app/audio/en/45d590ff-matilda.mp3",
+        "origin": "https://dinospace.netlify.app",
+        "pathname": "/audio/en/45d590ff-matilda.mp3",
+        "currentTime": 0,
+        "duration": 1.393197,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 973.3999999761581
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 987.8999999761581
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 990
+          },
+          {
+            "type": "timeupdate",
+            "time": 0.234256,
+            "at": 1252.8999999761581
+          },
+          {
+            "type": "timeupdate",
+            "time": 0.48842,
+            "at": 1517.3999999761581
+          },
+          {
+            "type": "timeupdate",
+            "time": 0.764965,
+            "at": 1782.8999999761581
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 1905.3999999761581
+          },
+          {
+            "type": "pause",
+            "time": 0,
+            "at": 1905.3999999761581
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 1905.800000011921
+          }
+        ],
+        "packaged": true
+      },
+      {
+        "src": "https://dinospace.netlify.app/audio/en/d19ae22c-matilda.mp3",
+        "origin": "https://dinospace.netlify.app",
+        "pathname": "/audio/en/d19ae22c-matilda.mp3",
+        "currentTime": 0,
+        "duration": 4.040272,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 1887.199999988079
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 1905.699999988079
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 1908.3999999761581
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 1938.5
+          },
+          {
+            "type": "pause",
+            "time": 0,
+            "at": 1938.5
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 1938.8999999761581
+          }
+        ],
+        "packaged": true
+      },
+      {
+        "src": "https://dinospace.netlify.app/audio/en/d19ae22c-matilda.mp3",
+        "origin": "https://dinospace.netlify.app",
+        "pathname": "/audio/en/d19ae22c-matilda.mp3",
+        "currentTime": 0,
+        "duration": 4.040272,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 1923.3999999761581
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 1938.8999999761581
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 1941.5
+          }
+        ],
+        "packaged": true
+      }
+    ]
+  },
+  "sound": {
+    "original": true,
+    "restored": true
+  },
+  "persistence": {
+    "gameAndRewardKeysUnchanged": true,
+    "before": {
+      "amari_little_progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5dd46023-b18f-438b-910e-0d2bd729011b\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"91b6832d-5785-45eb-9d97-f16ec1abad6e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"f9172a88-adf4-498f-bf00-eeba08fcd962\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"b9fb5304-1092-4fcf-a84e-a684972b04d4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dinojigsaw\":{\"level\":4,\"plays\":7,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"bd2c008f-2c63-46ff-bfee-6f9aa71b1a93\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"shadowmatch\":{\"level\":4,\"plays\":8,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"bc830a57-812f-4937-bdd7-dcd6c63cb577\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1,\"pairRewardReceipts\":[{\"id\":\"shadowmatch:level-3:best-3\",\"level\":2,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-4:best-3\",\"level\":3,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-5:best-3\",\"level\":4,\"points\":8,\"claimed\":true}]}}",
+      "askia_little_progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"fd722888-a9b9-4968-942b-b1f963fd6b2e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3a5bb48f-1831-41eb-9700-6a46cd011e4a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"217f02c6-bdd0-4953-83a7-fc9190dfd532\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3c325bb4-fa50-4d99-8e9e-74c5e8a55ac3\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dino\":{\"level\":4,\"plays\":20,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"1da4ba53-bd1c-4e1f-aca9-49e3f9ef537c\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dinojigsaw\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"fe0a94ed-4f4e-4caf-a8e3-7599b1c13dc5\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"shadowmatch\":{\"level\":4,\"plays\":12,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"dfb515d6-b04f-460b-816e-b1895a464161\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1,\"pairRewardReceipts\":[{\"id\":\"shadowmatch:level-1:best-3\",\"level\":0,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-2:best-3\",\"level\":1,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-3:best-3\",\"level\":2,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-4:best-3\",\"level\":3,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-5:best-3\",\"level\":4,\"points\":8,\"claimed\":true}]}}",
+      "amari_rewards_v2": "{\"version\":2,\"points\":491,\"gamesPlayed\":{\"counting\":4,\"timeteller\":3,\"numberline\":3,\"trace\":20,\"tictactoe\":10,\"shadowmatch\":5,\"phonics\":3,\"colormix\":18,\"oddoneout\":3,\"pattern\":3,\"astronaut\":4,\"chess\":4,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3,\"firerescue\":3,\"ladder\":3,\"dino\":12,\"hangman\":5,\"words\":6,\"storybooks\":7,\"dinojigsaw\":3,\"german\":3,\"worldmap\":9,\"letters\":4,\"puzzle\":3,\"spot\":3,\"jet\":16,\"math\":3,\"addition\":3,\"subtraction\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\",\"crown\",\"legend\",\"galaxy\"],\"rewardClaims\":{\"dino:d9f31f2d-d0cb-4fa9-903d-f8201744c31d\":2,\"dino:919e0a95-3539-444e-ad14-26890f0be5c2\":2,\"dino:9eed4660-8986-45b4-8a73-20627083bcb2\":2,\"dino:8cb33bef-e05c-4074-a8df-c3d3d2365a0f\":2,\"dino:3ead6ff8-4823-4fd1-835b-c876a28baac5\":2,\"dino:36d521ec-ebd8-4866-a355-7fb0136d28f5\":2,\"dino:01d2e675-1c0d-4e40-8dc4-e531b453af0b\":2,\"dino:a717da8d-59bd-4602-95e6-d6efffa67142\":2,\"dino:392ac3c5-b2fc-4d85-a815-513b39de05a2\":2,\"dino:2355b9f3-dbcb-4b7a-b293-31221c336b9f\":2,\"dino:7591be3f-e9ba-48c7-b1c6-bb77ab061e03\":2,\"dino:34078fec-348c-40d9-9608-e61910520d20\":2,\"hangman:first-words-876964074\":2,\"hangman:four-letter-rescue-1015050138\":6,\"hangman:five-letter-rescue-186878005\":6,\"hangman:long-word-rescue-4077150665\":6,\"hangman:first-words-2939227976\":4,\"words:36f8b49d-e872-49d6-bf38-b0f5d92ea847\":6,\"words:859d0b5c-8188-44f1-8d0f-b594dd07736f\":6,\"words:3088c47c-59eb-4a00-bb55-60a1d038ebd2\":6,\"words:2419242a-c1fa-450c-8be6-d66d96055c8e\":6,\"words:ff9f3414-8849-40d4-96cf-f2b588e1d485\":6,\"words:bd1ae71d-9d60-4aa0-acaf-c68faeb371d4\":6,\"storybooks:storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8\":1,\"storybooks:storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00\":1,\"storybooks:storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324\":1,\"storybooks:storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28\":1,\"storybooks:storybook-amari-sami-night-light-parade-275033aa-b11b-4374-b1d3-b52f2c8bc662\":1,\"storybooks:storybook-amari-mina-mountain-seed-286c94f5-90f2-47a6-921a-0357e078c971\":1,\"storybooks:storybook-amari-kai-lost-library-book-d8a296d9-0105-42f1-bb98-cbe98f2ad395\":1,\"dino:chess:4ad9d58cbd9e490b8c4fa810f2d747c3\":1,\"dino:jigsaw:little:c3e0f339-f730-4074-bb9c-432d8df29346\":8,\"dino:jigsaw:little:c83c0b5f-433e-42f1-9724-edb8fd03a034\":8,\"dino:jigsaw:little:a4153a03-9b1f-47bc-acc9-c61fa78ff2ec\":8,\"dino:german:amari_0_127o47w\":1,\"dino:german:amari_1_xpcr4k\":1,\"dino:german:amari_2_homuc\":1,\"dino:curriculum:continents:starter\":1,\"dino:curriculum:continents:growing\":1,\"dino:curriculum:continents:challenge\":1,\"dino:curriculum:time-detectives:starter\":1,\"dino:curriculum:time-detectives:growing\":1,\"dino:curriculum:time-detectives:challenge\":1,\"dino:curriculum:nature-lab:starter\":1,\"dino:curriculum:nature-lab:growing\":1,\"dino:curriculum:nature-lab:challenge\":1,\"dino:letters:878a0f5c-8e44-4977-a138-7163702eb64f\":1,\"dino:letters:ff15103a-93a7-4cf3-b754-bb622e54c96f\":1,\"dino:letters:dc4a6674-ccbb-475c-9e44-a9d137deac91\":1,\"dino:letters:5d4db99e-db5b-4e33-b240-d220237ae241\":1,\"dino:puzzle:starter:complete\":2,\"dino:puzzle:growing:complete\":2,\"dino:puzzle:challenge:complete\":2,\"dino:spot:starter:complete\":2,\"dino:spot:growing:complete\":2,\"dino:spot:challenge:complete\":2,\"dino:jet:mission:sky-triangle:2239455042\":1,\"dino:math:count-garden:best:3\":3,\"dino:math:number-workshop:best:3\":3,\"dino:math:story-bridge:best:3\":3,\"dino:jet:mission:sky-square:1046708459\":2,\"dino:jet:mission:sky-diamond:1046708459\":2,\"dino:jet:mission:sky-circle:1046708459\":3,\"dino:jet:episode:cloud-meadow:complete\":2,\"dino:jet:mission:sky-triangle:1812842887\":1,\"dino:jet:mission:sky-cloud:4087101910\":2,\"dino:jet:mission:sky-star:4087101910\":2,\"dino:jet:mission:sky-house:4087101910\":2,\"dino:jet:mission:sky-heart:4087101910\":2,\"dino:jet:episode:rainbow-ridge:complete\":2,\"dino:jet:mission:sky-rocket:2157104997\":2,\"dino:jet:mission:sky-observatory:2157104997\":2,\"dino:jet:mission:sky-castle:2157104997\":2,\"dino:jet:mission:sky-airplane:2157104997\":2,\"dino:jet:episode:aurora-station:complete\":2,\"dino:counting:star-garden:best:3\":1,\"dino:counting:constellation-workshop:best:3\":3,\"dino:counting:galaxy-survey:best:3\":3,\"dino:addition:groups:best:3\":3,\"dino:addition:bonds:best:3\":3,\"dino:addition:stories:best:3\":3,\"dino:subtraction:take-away:best:3\":3,\"dino:subtraction:compare:best:3\":3,\"dino:subtraction:stories:best:3\":3,\"dino:shadowmatch:shadowmatch:level-3:best-3\":8,\"dino:shadowmatch:shadowmatch:level-4:best-3\":8,\"dino:shadowmatch:shadowmatch:level-5:best-3\":8}}",
+      "askia_rewards_v2": "{\"version\":2,\"points\":286,\"gamesPlayed\":{\"shadowmatch\":8,\"pattern\":3,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5,\"dino\":5,\"dinojigsaw\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\",\"crown\"],\"rewardClaims\":{\"dino:little:e2f37a4c-4bab-495a-8e8e-0e4a19cbbe94\":8,\"dino:little:2a671597-7687-4be6-8eed-9ec416cde5f8\":8,\"dino:little:deff72ed-2050-48b5-8be6-687d2b78f1c2\":8,\"dino:little:07ab0cbd-f11e-4ae2-8ceb-dbe3a4552ef3\":8,\"dino:little:542a2fd5-5c3d-48ed-98b7-77134211cfdd\":8,\"dino:jigsaw:little:aa2e13a3-0c51-41d9-8396-453411660256\":8,\"dino:jigsaw:little:207e91b7-5374-44f6-9f5d-4bba649004bd\":8,\"dino:jigsaw:little:aeb130a1-ce40-4f3b-b557-580c34436e0b\":8,\"dino:jigsaw:little:3ba23312-35b9-43b1-96c8-ccb8c566d234\":8,\"dino:jigsaw:little:ffe01360-97f9-41be-9eb9-21bad82ced13\":8,\"dino:shadowmatch:shadowmatch:level-1:best-3\":8,\"dino:shadowmatch:shadowmatch:level-2:best-3\":8,\"dino:shadowmatch:shadowmatch:level-3:best-3\":8,\"dino:shadowmatch:shadowmatch:level-4:best-3\":8,\"dino:shadowmatch:shadowmatch:level-5:best-3\":8}}"
+    },
+    "after": {
+      "amari_little_progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"5dd46023-b18f-438b-910e-0d2bd729011b\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"91b6832d-5785-45eb-9d97-f16ec1abad6e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"f9172a88-adf4-498f-bf00-eeba08fcd962\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":6,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"b9fb5304-1092-4fcf-a84e-a684972b04d4\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dinojigsaw\":{\"level\":4,\"plays\":7,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"bd2c008f-2c63-46ff-bfee-6f9aa71b1a93\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"shadowmatch\":{\"level\":4,\"plays\":8,\"best\":3,\"pairBestByLevel\":{\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"bc830a57-812f-4937-bdd7-dcd6c63cb577\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1,\"pairRewardReceipts\":[{\"id\":\"shadowmatch:level-3:best-3\",\"level\":2,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-4:best-3\",\"level\":3,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-5:best-3\",\"level\":4,\"points\":8,\"claimed\":true}]}}",
+      "askia_little_progress": "{\"rocketbuilder\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"fd722888-a9b9-4968-942b-b1f963fd6b2e\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"fuelup\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3a5bb48f-1831-41eb-9700-6a46cd011e4a\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"firerescue\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"217f02c6-bdd0-4953-83a7-fc9190dfd532\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"ladder\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"3c325bb4-fa50-4d99-8e9e-74c5e8a55ac3\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dino\":{\"level\":4,\"plays\":20,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"1da4ba53-bd1c-4e1f-aca9-49e3f9ef537c\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"dinojigsaw\":{\"level\":4,\"plays\":10,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"fe0a94ed-4f4e-4caf-a8e3-7599b1c13dc5\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1},\"shadowmatch\":{\"level\":4,\"plays\":12,\"best\":3,\"pairBestByLevel\":{\"0\":3,\"1\":3,\"2\":3,\"3\":3,\"4\":3},\"pairTransactionId\":\"dfb515d6-b04f-460b-816e-b1895a464161\",\"pairPreviousLevel\":4,\"pairPlayedLevel\":4,\"pairLevelUp\":false,\"pairRewardPoints\":0,\"pairLegacyRewardThrough\":-1,\"pairRewardReceipts\":[{\"id\":\"shadowmatch:level-1:best-3\",\"level\":0,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-2:best-3\",\"level\":1,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-3:best-3\",\"level\":2,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-4:best-3\",\"level\":3,\"points\":8,\"claimed\":true},{\"id\":\"shadowmatch:level-5:best-3\",\"level\":4,\"points\":8,\"claimed\":true}]}}",
+      "amari_rewards_v2": "{\"version\":2,\"points\":491,\"gamesPlayed\":{\"counting\":4,\"timeteller\":3,\"numberline\":3,\"trace\":20,\"tictactoe\":10,\"shadowmatch\":5,\"phonics\":3,\"colormix\":18,\"oddoneout\":3,\"pattern\":3,\"astronaut\":4,\"chess\":4,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3,\"firerescue\":3,\"ladder\":3,\"dino\":12,\"hangman\":5,\"words\":6,\"storybooks\":7,\"dinojigsaw\":3,\"german\":3,\"worldmap\":9,\"letters\":4,\"puzzle\":3,\"spot\":3,\"jet\":16,\"math\":3,\"addition\":3,\"subtraction\":3},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\",\"crown\",\"legend\",\"galaxy\"],\"rewardClaims\":{\"dino:d9f31f2d-d0cb-4fa9-903d-f8201744c31d\":2,\"dino:919e0a95-3539-444e-ad14-26890f0be5c2\":2,\"dino:9eed4660-8986-45b4-8a73-20627083bcb2\":2,\"dino:8cb33bef-e05c-4074-a8df-c3d3d2365a0f\":2,\"dino:3ead6ff8-4823-4fd1-835b-c876a28baac5\":2,\"dino:36d521ec-ebd8-4866-a355-7fb0136d28f5\":2,\"dino:01d2e675-1c0d-4e40-8dc4-e531b453af0b\":2,\"dino:a717da8d-59bd-4602-95e6-d6efffa67142\":2,\"dino:392ac3c5-b2fc-4d85-a815-513b39de05a2\":2,\"dino:2355b9f3-dbcb-4b7a-b293-31221c336b9f\":2,\"dino:7591be3f-e9ba-48c7-b1c6-bb77ab061e03\":2,\"dino:34078fec-348c-40d9-9608-e61910520d20\":2,\"hangman:first-words-876964074\":2,\"hangman:four-letter-rescue-1015050138\":6,\"hangman:five-letter-rescue-186878005\":6,\"hangman:long-word-rescue-4077150665\":6,\"hangman:first-words-2939227976\":4,\"words:36f8b49d-e872-49d6-bf38-b0f5d92ea847\":6,\"words:859d0b5c-8188-44f1-8d0f-b594dd07736f\":6,\"words:3088c47c-59eb-4a00-bb55-60a1d038ebd2\":6,\"words:2419242a-c1fa-450c-8be6-d66d96055c8e\":6,\"words:ff9f3414-8849-40d4-96cf-f2b588e1d485\":6,\"words:bd1ae71d-9d60-4aa0-acaf-c68faeb371d4\":6,\"storybooks:storybook-amari-rex-missing-moon-map-4b4aae3d-e157-43fe-982a-2fe95bac50b8\":1,\"storybooks:storybook-amari-luna-whispering-forest-f8ea4984-386c-4f6c-ab79-2eb5b8f5ba00\":1,\"storybooks:storybook-amari-nia-great-river-journey-7e6657e8-aa72-47d2-9e35-939ad7604324\":1,\"storybooks:storybook-amari-bo-busy-bee-garden-24064ffd-fef7-4b74-a4e9-54583e610d28\":1,\"storybooks:storybook-amari-sami-night-light-parade-275033aa-b11b-4374-b1d3-b52f2c8bc662\":1,\"storybooks:storybook-amari-mina-mountain-seed-286c94f5-90f2-47a6-921a-0357e078c971\":1,\"storybooks:storybook-amari-kai-lost-library-book-d8a296d9-0105-42f1-bb98-cbe98f2ad395\":1,\"dino:chess:4ad9d58cbd9e490b8c4fa810f2d747c3\":1,\"dino:jigsaw:little:c3e0f339-f730-4074-bb9c-432d8df29346\":8,\"dino:jigsaw:little:c83c0b5f-433e-42f1-9724-edb8fd03a034\":8,\"dino:jigsaw:little:a4153a03-9b1f-47bc-acc9-c61fa78ff2ec\":8,\"dino:german:amari_0_127o47w\":1,\"dino:german:amari_1_xpcr4k\":1,\"dino:german:amari_2_homuc\":1,\"dino:curriculum:continents:starter\":1,\"dino:curriculum:continents:growing\":1,\"dino:curriculum:continents:challenge\":1,\"dino:curriculum:time-detectives:starter\":1,\"dino:curriculum:time-detectives:growing\":1,\"dino:curriculum:time-detectives:challenge\":1,\"dino:curriculum:nature-lab:starter\":1,\"dino:curriculum:nature-lab:growing\":1,\"dino:curriculum:nature-lab:challenge\":1,\"dino:letters:878a0f5c-8e44-4977-a138-7163702eb64f\":1,\"dino:letters:ff15103a-93a7-4cf3-b754-bb622e54c96f\":1,\"dino:letters:dc4a6674-ccbb-475c-9e44-a9d137deac91\":1,\"dino:letters:5d4db99e-db5b-4e33-b240-d220237ae241\":1,\"dino:puzzle:starter:complete\":2,\"dino:puzzle:growing:complete\":2,\"dino:puzzle:challenge:complete\":2,\"dino:spot:starter:complete\":2,\"dino:spot:growing:complete\":2,\"dino:spot:challenge:complete\":2,\"dino:jet:mission:sky-triangle:2239455042\":1,\"dino:math:count-garden:best:3\":3,\"dino:math:number-workshop:best:3\":3,\"dino:math:story-bridge:best:3\":3,\"dino:jet:mission:sky-square:1046708459\":2,\"dino:jet:mission:sky-diamond:1046708459\":2,\"dino:jet:mission:sky-circle:1046708459\":3,\"dino:jet:episode:cloud-meadow:complete\":2,\"dino:jet:mission:sky-triangle:1812842887\":1,\"dino:jet:mission:sky-cloud:4087101910\":2,\"dino:jet:mission:sky-star:4087101910\":2,\"dino:jet:mission:sky-house:4087101910\":2,\"dino:jet:mission:sky-heart:4087101910\":2,\"dino:jet:episode:rainbow-ridge:complete\":2,\"dino:jet:mission:sky-rocket:2157104997\":2,\"dino:jet:mission:sky-observatory:2157104997\":2,\"dino:jet:mission:sky-castle:2157104997\":2,\"dino:jet:mission:sky-airplane:2157104997\":2,\"dino:jet:episode:aurora-station:complete\":2,\"dino:counting:star-garden:best:3\":1,\"dino:counting:constellation-workshop:best:3\":3,\"dino:counting:galaxy-survey:best:3\":3,\"dino:addition:groups:best:3\":3,\"dino:addition:bonds:best:3\":3,\"dino:addition:stories:best:3\":3,\"dino:subtraction:take-away:best:3\":3,\"dino:subtraction:compare:best:3\":3,\"dino:subtraction:stories:best:3\":3,\"dino:shadowmatch:shadowmatch:level-3:best-3\":8,\"dino:shadowmatch:shadowmatch:level-4:best-3\":8,\"dino:shadowmatch:shadowmatch:level-5:best-3\":8}}",
+      "askia_rewards_v2": "{\"version\":2,\"points\":286,\"gamesPlayed\":{\"shadowmatch\":8,\"pattern\":3,\"rocketbuilder\":5,\"fuelup\":5,\"firerescue\":5,\"ladder\":5,\"dino\":5,\"dinojigsaw\":5},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\",\"crown\"],\"rewardClaims\":{\"dino:little:e2f37a4c-4bab-495a-8e8e-0e4a19cbbe94\":8,\"dino:little:2a671597-7687-4be6-8eed-9ec416cde5f8\":8,\"dino:little:deff72ed-2050-48b5-8be6-687d2b78f1c2\":8,\"dino:little:07ab0cbd-f11e-4ae2-8ceb-dbe3a4552ef3\":8,\"dino:little:542a2fd5-5c3d-48ed-98b7-77134211cfdd\":8,\"dino:jigsaw:little:aa2e13a3-0c51-41d9-8396-453411660256\":8,\"dino:jigsaw:little:207e91b7-5374-44f6-9f5d-4bba649004bd\":8,\"dino:jigsaw:little:aeb130a1-ce40-4f3b-b557-580c34436e0b\":8,\"dino:jigsaw:little:3ba23312-35b9-43b1-96c8-ccb8c566d234\":8,\"dino:jigsaw:little:ffe01360-97f9-41be-9eb9-21bad82ced13\":8,\"dino:shadowmatch:shadowmatch:level-1:best-3\":8,\"dino:shadowmatch:shadowmatch:level-2:best-3\":8,\"dino:shadowmatch:shadowmatch:level-3:best-3\":8,\"dino:shadowmatch:shadowmatch:level-4:best-3\":8,\"dino:shadowmatch:shadowmatch:level-5:best-3\":8}}"
+    },
+    "parentPointsAndClaimsUnchanged": true
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "stage": "production",
+  "runtimeSource": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "sourceHead": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "entry": "/assets/arcade-DbnxyNUQ.js",
+  "entryMatches": true,
+  "nativeEntryAssetSha256": null,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "application/javascript; charset=utf-8",
+    "entryBytes": 1473323,
+    "entrySha256": "e4d09cf96587f4271f326812e0af60d0992886ef7cfa7f083928e84959f8bcfc",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair18-native",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/data/littleProgress.js": "e1dd2bc929ff8b3407897054a2fc1b208808ab0f07dbc848882e18bf0bd41d69",
+    "src/data/pairLittleProgress.js": "4ec8ebf838876282400ffb68d7c0efd7c9fde0d57c102a89e3cfc2fc0c594221",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/components/little/games/ShadowMatch.jsx": "3fd65daa5a3d4afc1b5e5afd8c37f3275c1cab46712f16a329bceab82018247e",
+    "src/components/little/ShadowDino.jsx": "d31157f5a86cf5f44781c500be936f2a201d80f9f76d501ac01e7320374445b5",
+    "src/components/little/DragItem.jsx": "f5b2f52c6b8178b71903908f3194ba2c08ae8ff608e33f46c804b69f6af8659f"
+  },
+  "moduleHashes": {
+    "./integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "./shadow-touch-check.cjs": "7c1511e30855c53b3b3948233ad69219f675a92f11271c04eaf157407add7aa2"
+  },
+  "callbackSha256": "69a863fcc6f1f8d6421466658cf3f8ae7979a624fed7790b688b9e539d48fc06",
+  "runnerSha256": "3b37df50e4050c85f7170f5d2028109c5275d13ea715a45ada13130be31c7d2b",
+  "cliReturnCode": 0,
+  "scope": "Single natural highest-level Shadow Match wrong/cancel/real-touch sample; leaves held fact before Next. No reset, seeded state, hidden answer data, app writes or new browser state."
+}

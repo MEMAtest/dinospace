@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 18,
+  "activePair": null,
   "pairs": [
     {
       "number": 1,
@@ -186,7 +186,7 @@
       "games": [
         {
           "id": "chess",
-          "name": "Chess Explorers \u2014 play against the computer",
+          "name": "Chess Explorers — play against the computer",
           "scope": "New full-game mode alongside retained lessons; requested29October"
         },
         {
@@ -345,15 +345,52 @@
       "status": "live_verified",
       "role": "Strict durable save/reward repair and current viewport integration",
       "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
-      "openGates": [
-        "Strict local/parent receipt recovery",
-        "Full native+canonical affected mechanics both viewports"
-      ],
+      "openGates": [],
       "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161",
       "verifiedAt": "2026-10-29T19:07:09.834444+00:00",
       "production": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
       "sourceGates": "docs/qa-evidence/subtract-numberline-save-20261029/source-gates.json",
       "openGate": null
+    },
+    {
+      "number": 17,
+      "games": [
+        {
+          "id": "timeteller",
+          "name": "Time Teller"
+        },
+        {
+          "id": "phonics",
+          "name": "Sound Safari"
+        }
+      ],
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+      "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+      "sourceGates": "docs/qa-evidence/time-safari-save-20261029/source-gates.json",
+      "publicChallenges": 144,
+      "scope": "Four72row native/canonical current-layout rehearsals; no new editorial score."
+    },
+    {
+      "number": 18,
+      "games": [
+        {
+          "id": "colormix",
+          "name": "Colour Mixing Lab"
+        },
+        {
+          "id": "shadowmatch",
+          "name": "Shadow Match"
+        }
+      ],
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "sourceGates": "docs/qa-evidence/colour-shadow-save-20261029/source-gates.json",
+      "openGate": null,
+      "entry": "/assets/arcade-DbnxyNUQ.js",
+      "publicChallenges": 206,
+      "scope": "Functional release criteria passed; final catalogue integration remains separate, no editorial score assignment."
     }
   ],
   "retainedReleasedScopes": [
@@ -362,86 +399,140 @@
       "name": "Letter Trace",
       "status": "current release full layout integration passed at both viewports",
       "integrationEvidence": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
-      "integrationRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3"
+      "integrationRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "tictactoe",
       "name": "Cosmic Tic-Tac-Toe",
       "status": "current release full layout integration passed at both viewports",
       "integrationEvidence": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
-      "integrationRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3"
+      "integrationRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "puzzle",
       "name": "Puzzle Pop",
       "status": "Full current-layout native/canonical integration and strict-save faults passed at both viewports",
       "integrationEvidence": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
-      "integrationRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4"
+      "integrationRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "spot",
       "name": "Spot the Difference",
       "status": "Full current-layout native/canonical integration and strict-save faults passed at both viewports",
       "integrationEvidence": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
-      "integrationRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4"
+      "integrationRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "jet",
       "name": "Sky Shapes",
       "status": "Full native/canonical mechanics and strict-save/reward recovery passed at both viewports",
       "integrationEvidence": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json",
-      "integrationRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab"
+      "integrationRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "math",
       "name": "Monster Math",
       "status": "Full native/canonical mechanics and strict-save/reward recovery passed at both viewports",
       "integrationEvidence": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json",
-      "integrationRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab"
+      "integrationRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "counting",
       "name": "Count the Stars",
       "status": "Fullnative/canonicalmechanicsandstrict-save/rewardrecoverypassedatbothviewports",
       "integrationEvidence": "docs/qa-evidence/count-add-save-20261029/production-summary.json",
-      "integrationRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d"
+      "integrationRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "addition",
       "name": "Addition Adventure",
       "status": "Fullnative/canonicalmechanicsandstrict-save/rewardrecoverypassedatbothviewports",
       "integrationEvidence": "docs/qa-evidence/count-add-save-20261029/production-summary.json",
-      "integrationRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d"
+      "integrationRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "subtraction",
       "name": "Subtraction Station",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full current-layout native/canonical mechanics and save/reward recovery passed at both viewports within recorded eligibility",
+      "integrationEvidence": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
+      "integrationRuntime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "numberline",
       "name": "Number Line Jump",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full current-layout native/canonical mechanics and save/reward recovery passed at both viewports within recorded eligibility",
+      "integrationEvidence": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
+      "integrationRuntime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "timeteller",
       "name": "Time Teller",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full current-layout native/canonical mechanics and save/reward recovery passed at both viewports within recorded eligibility",
+      "integrationEvidence": "docs/qa-evidence/time-safari-save-20261029/production-summary.json",
+      "integrationRuntime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "phonics",
       "name": "Sound Safari",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full current-layout native/canonical mechanics and save/reward recovery passed at both viewports within recorded eligibility",
+      "integrationEvidence": "docs/qa-evidence/time-safari-save-20261029/production-summary.json",
+      "integrationRuntime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "colormix",
       "name": "Colour Mixing Lab",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full current-layout native/canonical gameplay, strict-save/reward and touch criteria passed within recorded natural eligibility",
+      "integrationEvidence": "docs/qa-evidence/colour-shadow-save-20261029/production-summary.json",
+      "integrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     },
     {
       "id": "shadowmatch",
       "name": "Shadow Match",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full current-layout native/canonical gameplay, strict-save/reward and touch criteria passed within recorded natural eligibility",
+      "integrationEvidence": "docs/qa-evidence/colour-shadow-save-20261029/production-summary.json",
+      "integrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+      "finalIntegrationStatus": "passed native/canonical at both viewports"
     }
   ],
   "editorialNote": "Historical scores remain separate. A targeted implementation/release does not silently award a new 5/5 or recover historical missing family data.",
@@ -471,5 +562,10 @@
       "reason": "User cannot play: support actual dragging alongside verified tap/keyboard controls",
       "verifiedAt": "2026-10-29T15:07:33.392207+00:00"
     }
-  ]
+  ],
+  "completionStatus": "all_pairs_live_verified_final_integration_passed",
+  "completedAt": "2026-10-29T21:46:50.701596+00:00",
+  "currentRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+  "catalogueEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json"
 }

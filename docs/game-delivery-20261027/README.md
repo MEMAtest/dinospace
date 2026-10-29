@@ -6,9 +6,9 @@ The catalogue now has35activities; the older quality ledger covers26. Reconcile 
 
 ## Active work
 
-Pairs 1–17 are live verified. Current accepted runtime is `2df5b70766ae51d6b01c38e959e7391e17de259f`, worker55. Time Teller + Sound Safari pass all four 72-question native/canonical 390×740 and 1440×844 journeys, genuine muted-input geometry, touch setting, saved-record/replay checks and 117-key / all-IDB 14-media refresh retention.
+All18 pairs are live verified. Current functional release is `a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4`, worker56. Colour Mixing Lab + Shadow Match pass all four103-interaction native/canonical phone and desktop journeys, per-child save/reward recovery, capped replay, touch cancellation/dragging and117-record / all-IDB14-media refresh retention.
 
-Pair18 Colour Mixing Lab + Shadow Match is active. After that, the final source-bound catalogue checks cover 35 Amari activities and 10 Askia routes. The historical 8–9 personal stories remain a separate unresolved recovery question. Monitoring stays deleted; no new paid generation is authorized.
+Final catalogue checks pass: 180 entry/return samples cover all 35 Amari activities and 10 Askia routes at both sizes and origins; 56 representative actual-control samples cover the 14 retained games. `final-catalogue-reconciliation.json` separates those checks from each pair's complete gameplay evidence. The historical8–9 personal stories remain unlocated. Monitoring stays deleted; no new paid generation is authorized.
 
 ## Workflow
 
@@ -38,4 +38,6 @@ On 29 October the user requested a full playable chess game alongside the retain
 
 Fourteen games already have recent source-bound functional delivery evidence; retain those implementations and run a final integration regression. This sequence audits or uplifts the original remaining20, the newly requested full Chess mode and the separate Fact Finder feature rather than treating every old unscored ledger row as unimplemented. Each pair remains open until its own concrete gates pass. `queue.json` is the current work queue.
 
-Pair16 Subtraction/Number Line is live verified at runtime4d21a25b, worker53; four 72-question journeys and117key/allIDB cutover checks pass. Active pair17 is Time Teller + Sound Safari.
+Pairs12–18 subsequently repaired/reverified the fourteen retained lanes in seven further pairs: Letter Trace/Cosmic, Puzzle/Spot, Sky Shapes/Monster Math, Counting/Addition, Subtraction/Number Line, Time Teller/Sound Safari, and Colour Mixing Lab/Shadow Match. Their current complete functional matrices are linked from the queue; final integration is separately verified in `final-catalogue-reconciliation.json`.
+
+Final handoff: [FINAL-DELIVERY.md](FINAL-DELIVERY.md). All 18 pair gates and final integration checks are closed; historical personal-story recovery remains unresolved.

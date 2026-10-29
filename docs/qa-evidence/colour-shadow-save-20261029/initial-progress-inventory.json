@@ -1,0 +1,475 @@
+{
+  "scope": "Read-only initial synthetic Colour/Shadow inventory; no reset or acceptance.",
+  "snapshots": [
+    {
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-hFNCOAZH.js",
+      "namespaced": true,
+      "progress": {
+        "amari_colour_lab_adventure_v1:amari": {
+          "version": 1,
+          "completed": [
+            "mix-brown",
+            "mix-orange",
+            "mix-purple",
+            "mix-teal",
+            "mix-green",
+            "mix-lime",
+            "light-peach",
+            "light-charcoal",
+            "light-pink",
+            "light-coral",
+            "light-sky",
+            "light-grey",
+            "make-leaf",
+            "make-berry",
+            "make-sun",
+            "make-cloud",
+            "make-wave",
+            "make-flower"
+          ],
+          "chapters": [
+            "mix",
+            "light",
+            "make"
+          ],
+          "recentMissionIds": [
+            "make-leaf",
+            "make-berry",
+            "make-sun",
+            "make-cloud",
+            "make-wave",
+            "make-flower"
+          ]
+        },
+        "amari_little_progress": {
+          "rocketbuilder": {
+            "level": 4,
+            "plays": 6,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "5dd46023-b18f-438b-910e-0d2bd729011b",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "fuelup": {
+            "level": 4,
+            "plays": 6,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "91b6832d-5785-45eb-9d97-f16ec1abad6e",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "firerescue": {
+            "level": 4,
+            "plays": 6,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "f9172a88-adf4-498f-bf00-eeba08fcd962",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "ladder": {
+            "level": 4,
+            "plays": 6,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "b9fb5304-1092-4fcf-a84e-a684972b04d4",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "dinojigsaw": {
+            "level": 4,
+            "plays": 7,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "bd2c008f-2c63-46ff-bfee-6f9aa71b1a93",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          }
+        },
+        "askia_little_progress": {
+          "rocketbuilder": {
+            "level": 4,
+            "plays": 10,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "fd722888-a9b9-4968-942b-b1f963fd6b2e",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "fuelup": {
+            "level": 4,
+            "plays": 10,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "3a5bb48f-1831-41eb-9700-6a46cd011e4a",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "firerescue": {
+            "level": 4,
+            "plays": 10,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "217f02c6-bdd0-4953-83a7-fc9190dfd532",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "ladder": {
+            "level": 4,
+            "plays": 10,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "3c325bb4-fa50-4d99-8e9e-74c5e8a55ac3",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "dino": {
+            "level": 4,
+            "plays": 20,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "1da4ba53-bd1c-4e1f-aca9-49e3f9ef537c",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "dinojigsaw": {
+            "level": 4,
+            "plays": 10,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "fe0a94ed-4f4e-4caf-a8e3-7599b1c13dc5",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          }
+        }
+      }
+    },
+    {
+      "origin": "http://127.0.0.1:5180",
+      "entry": "/assets/arcade-hFNCOAZH.js",
+      "namespaced": true,
+      "progress": {
+        "amari_colour_lab_adventure_v1:amari": {
+          "version": 1,
+          "completed": [
+            "mix-teal",
+            "mix-green",
+            "mix-brown",
+            "mix-orange",
+            "mix-lime",
+            "mix-purple",
+            "light-grey",
+            "light-peach",
+            "light-coral",
+            "light-pink",
+            "light-charcoal",
+            "light-sky",
+            "make-berry",
+            "make-wave",
+            "make-flower",
+            "make-sun",
+            "make-cloud",
+            "make-leaf"
+          ],
+          "chapters": [
+            "mix",
+            "light",
+            "make"
+          ],
+          "recentMissionIds": [
+            "make-berry",
+            "make-wave",
+            "make-flower",
+            "make-sun",
+            "make-cloud",
+            "make-leaf"
+          ]
+        },
+        "amari_little_progress": {
+          "rocketbuilder": {
+            "level": 4,
+            "plays": 6,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "a24e9fc7-375e-4af2-93bd-a1315fa87bb4",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "fuelup": {
+            "level": 4,
+            "plays": 6,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "9ba24c84-eda1-4be4-8d9d-5f2cc0765395",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "ladder": {
+            "level": 4,
+            "plays": 25,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "675ba999-e28f-4efc-875b-c4bb13f7590e",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "firerescue": {
+            "level": 4,
+            "plays": 15,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "44fe69ce-1e44-47ad-a978-eae7a35f5786",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "dinojigsaw": {
+            "level": 4,
+            "plays": 12,
+            "best": 3,
+            "pairBestByLevel": {
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "f3027dcf-078a-4c55-a153-e3005d5424f1",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 3,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          }
+        },
+        "askia_little_progress": {
+          "rocketbuilder": {
+            "level": 4,
+            "plays": 30,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "5221d4e2-5968-4893-a58c-e67a39be3c6f",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "fuelup": {
+            "level": 4,
+            "plays": 23,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "571d44e9-cefa-4c16-a460-18e0ac96afab",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "firerescue": {
+            "level": 4,
+            "plays": 10,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "c99b6da6-342c-4ab6-93e0-67509face92a",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "ladder": {
+            "level": 4,
+            "plays": 39,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "3de42fcd-65ce-457e-829e-ef0435487e41",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "dino": {
+            "level": 4,
+            "plays": 28,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "c19f2829-48c1-47fa-b247-ed621097723c",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          },
+          "dinojigsaw": {
+            "level": 4,
+            "plays": 33,
+            "best": 3,
+            "pairBestByLevel": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3,
+              "4": 3
+            },
+            "pairTransactionId": "97c28c16-9949-40ea-a25d-80eb05bed33a",
+            "pairPreviousLevel": 4,
+            "pairPlayedLevel": 4,
+            "pairLevelUp": false,
+            "pairRewardPoints": 0,
+            "pairLegacyRewardThrough": -1
+          }
+        }
+      }
+    }
+  ]
+}

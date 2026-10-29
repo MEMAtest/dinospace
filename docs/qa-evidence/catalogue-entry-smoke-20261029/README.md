@@ -1,0 +1,3 @@
+# Final catalogue entry/return check — 29 October 2026
+
+All eight runs pass on the final runtime a0a3d7b4 / entry arcade-DbnxyNUQ: 35 Amari and 10 Askia normal entries, at 390×740 and 1440×844, on compiled preview and canonical Netlify. `final-coverage-summary.json` indexes 180 route/art/parent-return rows with report hashes. Rewards remain unchanged; no page/resource/console/provider errors were observed. This route check is distinct from each pair’s complete functional acceptance and the 14-game actual-control integration matrix. Earlier failed QA attempts remain retained and failed; final reports use the frozen corrected wrapper, image readiness and ordinary session-menu entry handling.

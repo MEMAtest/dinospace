@@ -1,0 +1,1547 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": true,
+  "rows": [
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 1,
+      "replay": false,
+      "missionId": "mix-brown",
+      "title": "Three primary paints",
+      "prompt": "Mix equal scoops of the three primary paints. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop yellow · 1 scoop blue",
+      "targetColor": null,
+      "visibleAnswer": "Brown",
+      "explanation": "Well done! In this simplified recipe, equal scoops of red, yellow and blue make a brown blend. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/8e50f949-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/8e50f949-matilda.mp3",
+            "currentTime": 0.062831,
+            "duration": 4.96907,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1029.6000000238419
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1044.300000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1047.1000000238419
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 2,
+      "replay": false,
+      "missionId": "mix-teal",
+      "title": "Change the proportions",
+      "prompt": "Mix two scoops of blue and one scoop of yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 2 scoops blue · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Teal",
+      "explanation": "Well done! More blue than yellow makes a blue-green blend. We call this recipe teal. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/5e187c55-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/5e187c55-matilda.mp3",
+            "currentTime": 0.054338,
+            "duration": 4.551111,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1360.6000000238419
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1375.8999999761581
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1378.699999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 3,
+      "replay": false,
+      "missionId": "mix-lime",
+      "title": "Change the proportions",
+      "prompt": "Mix more yellow than blue. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 3 scoops yellow",
+      "targetColor": null,
+      "visibleAnswer": "Lime",
+      "explanation": "Great job! A larger share of yellow makes a bright yellow-green blend in our recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/068ab584-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/068ab584-matilda.mp3",
+            "currentTime": 0.053014,
+            "duration": 3.761633,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1745.199999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1759.300000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1762.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 4,
+      "replay": false,
+      "missionId": "mix-purple",
+      "title": "Two primary paints",
+      "prompt": "Mix red and blue. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop blue",
+      "targetColor": null,
+      "visibleAnswer": "Purple",
+      "explanation": "Great job! Equal scoops of red and blue make a purple blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/2329bcfb-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/2329bcfb-matilda.mp3",
+            "currentTime": 0.051026,
+            "duration": 4.179592,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2062.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 2076.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 2079.199999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 5,
+      "replay": false,
+      "missionId": "mix-green",
+      "title": "Two primary paints",
+      "prompt": "Mix blue and yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Green",
+      "explanation": "Great job! Equal scoops of blue and yellow make a green blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9d8ae693-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9d8ae693-matilda.mp3",
+            "currentTime": 0.070187,
+            "duration": 4.179592,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2377
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 2393.100000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 2396
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 6,
+      "replay": false,
+      "missionId": "mix-orange",
+      "title": "Two primary paints",
+      "prompt": "Mix red and yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Orange",
+      "explanation": "Great job! Equal scoops of red and yellow make an orange blend in our simple paint recipe. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/3bba6ff3-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/3bba6ff3-matilda.mp3",
+            "currentTime": 0.066112,
+            "duration": 4.458231,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2694
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 2709.699999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 2712.800000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 1,
+      "replay": true,
+      "missionId": "mix-orange",
+      "title": "Two primary paints",
+      "prompt": "Mix red and yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Orange",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! Equal scoops of red and yellow make an orange blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/3bba6ff3-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/3bba6ff3-matilda.mp3",
+            "currentTime": 0.064329,
+            "duration": 4.458231,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3161.399999976158
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3176
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3178.399999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 2,
+      "replay": true,
+      "missionId": "mix-teal",
+      "title": "Change the proportions",
+      "prompt": "Mix two scoops of blue and one scoop of yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 2 scoops blue · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Teal",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Great job! More blue than yellow makes a blue-green blend. We call this recipe teal. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/5e187c55-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/5e187c55-matilda.mp3",
+            "currentTime": 0.073741,
+            "duration": 4.551111,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3594.800000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3609.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3611.699999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 3,
+      "replay": true,
+      "missionId": "mix-green",
+      "title": "Two primary paints",
+      "prompt": "Mix blue and yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Green",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Well done! Equal scoops of blue and yellow make a green blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9d8ae693-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9d8ae693-matilda.mp3",
+            "currentTime": 0.069423,
+            "duration": 4.179592,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3995.199999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 4009.100000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 4011.600000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 4,
+      "replay": true,
+      "missionId": "mix-brown",
+      "title": "Three primary paints",
+      "prompt": "Mix equal scoops of the three primary paints. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop yellow · 1 scoop blue",
+      "targetColor": null,
+      "visibleAnswer": "Brown",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! In this simplified recipe, equal scoops of red, yellow and blue make a brown blend. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/8e50f949-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/8e50f949-matilda.mp3",
+            "currentTime": 0.053478,
+            "duration": 4.96907,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 4429.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 4443.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 4446.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 5,
+      "replay": true,
+      "missionId": "mix-purple",
+      "title": "Two primary paints",
+      "prompt": "Mix red and blue. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop blue",
+      "targetColor": null,
+      "visibleAnswer": "Purple",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Well done! Equal scoops of red and blue make a purple blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/2329bcfb-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/2329bcfb-matilda.mp3",
+            "currentTime": 0.071927,
+            "duration": 4.179592,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 4829
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 4843.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 4846.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 6,
+      "replay": true,
+      "missionId": "mix-lime",
+      "title": "Change the proportions",
+      "prompt": "Mix more yellow than blue. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 3 scoops yellow",
+      "targetColor": null,
+      "visibleAnswer": "Lime",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! A larger share of yellow makes a bright yellow-green blend in our recipe. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/068ab584-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/068ab584-matilda.mp3",
+            "currentTime": 0.065836,
+            "duration": 3.761633,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 5293.600000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 5310.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 5313.399999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 1,
+      "replay": false,
+      "missionId": "light-coral",
+      "title": "Test a touch of black",
+      "prompt": "Mix these scoops, then look at the paint: did black make the red blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops red · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "explanation": "Great job! A little black makes a darker red blend in this simplified paint activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/c082d2e7-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/c082d2e7-matilda.mp3",
+            "currentTime": 0.057914,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 5711.699999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 5725.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 5729.100000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 2,
+      "replay": false,
+      "missionId": "light-sky",
+      "title": "Test white with blue",
+      "prompt": "Mix these scoops, then look at the paint: did white make the blue blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 3 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "explanation": "Super! More white than blue makes a pale sky-blue blend in our recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/7155fe97-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/7155fe97-matilda.mp3",
+            "currentTime": 0.058837,
+            "duration": 3.622313,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 6095.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 6110.899999976158
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 6113.600000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 3,
+      "replay": false,
+      "missionId": "light-peach",
+      "title": "Test a touch of black",
+      "prompt": "Mix these scoops, then look at the paint: did black make the blue blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops blue · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "explanation": "Well done! A little black makes a darker blue blend in this simplified paint activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9c3996a4-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9c3996a4-matilda.mp3",
+            "currentTime": 0.065122,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 6445
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 6460.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 6463.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 4,
+      "replay": false,
+      "missionId": "light-pink",
+      "title": "Test white with red",
+      "prompt": "Mix these scoops, then look at the paint: did white make the red blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop red · 2 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "explanation": "Great job! Two scoops of white mixed with one red make a lighter pink blend in this activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/69be2f7c-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/69be2f7c-matilda.mp3",
+            "currentTime": 0.077023,
+            "duration": 4.643991,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 6795
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 6809.899999976158
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 6812.899999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 5,
+      "replay": false,
+      "missionId": "light-grey",
+      "title": "Test white with black",
+      "prompt": "Mix these scoops, then look at the paint: did white make the black blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop black · 4 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "explanation": "Well done! A small scoop of black with more white makes a pale grey blend in our simplified model. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/d26a0d98-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/d26a0d98-matilda.mp3",
+            "currentTime": 0.065954,
+            "duration": 4.829751,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 7211.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 7226
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 7228.899999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 6,
+      "replay": false,
+      "missionId": "light-charcoal",
+      "title": "Test black with white",
+      "prompt": "Mix these scoops, then look at the paint: did black make the white blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops white · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "explanation": "Great job! Black darkens white into a dark grey blend in our simplified paint recipe. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/07d0887e-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/07d0887e-matilda.mp3",
+            "currentTime": 0.076164,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 7561.800000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 7575.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 7578.899999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 1,
+      "replay": true,
+      "missionId": "light-pink",
+      "title": "Test white with red",
+      "prompt": "Mix these scoops, then look at the paint: did white make the red blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop red · 2 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! Two scoops of white mixed with one red make a lighter pink blend in this activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/69be2f7c-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/69be2f7c-matilda.mp3",
+            "currentTime": 0.067135,
+            "duration": 4.643991,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 8045
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 8058.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 8061.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 2,
+      "replay": true,
+      "missionId": "light-sky",
+      "title": "Test white with blue",
+      "prompt": "Mix these scoops, then look at the paint: did white make the blue blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 3 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Well done! More white than blue makes a pale sky-blue blend in our recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/7155fe97-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/7155fe97-matilda.mp3",
+            "currentTime": 0.073137,
+            "duration": 3.622313,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 8493.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 8509.100000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 8512
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 3,
+      "replay": true,
+      "missionId": "light-grey",
+      "title": "Test white with black",
+      "prompt": "Mix these scoops, then look at the paint: did white make the black blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop black · 4 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! A small scoop of black with more white makes a pale grey blend in our simplified model. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/d26a0d98-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/d26a0d98-matilda.mp3",
+            "currentTime": 0.060099,
+            "duration": 4.829751,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 8977
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 8993.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 8995.800000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 4,
+      "replay": true,
+      "missionId": "light-coral",
+      "title": "Test a touch of black",
+      "prompt": "Mix these scoops, then look at the paint: did black make the red blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops red · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! A little black makes a darker red blend in this simplified paint activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/c082d2e7-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/c082d2e7-matilda.mp3",
+            "currentTime": 0.075578,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 9393.899999976158
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 9409.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 9412
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 5,
+      "replay": true,
+      "missionId": "light-peach",
+      "title": "Test a touch of black",
+      "prompt": "Mix these scoops, then look at the paint: did black make the blue blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops blue · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Great job! A little black makes a darker blue blend in this simplified paint activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9c3996a4-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9c3996a4-matilda.mp3",
+            "currentTime": 0.063866,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 9810.699999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 9826.600000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 9828.899999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 6,
+      "replay": true,
+      "missionId": "light-charcoal",
+      "title": "Test black with white",
+      "prompt": "Mix these scoops, then look at the paint: did black make the white blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops white · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! Black darkens white into a dark grey blend in our simplified paint recipe. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/07d0887e-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/07d0887e-matilda.mp3",
+            "currentTime": 0.079472,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 10227.600000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 10243.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 10245.800000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 1,
+      "replay": false,
+      "missionId": "make-sun",
+      "title": "Paint a sunny badge",
+      "prompt": "Choose a recipe, mix the paint, and match the sun badge.",
+      "visibleRecipe": "Recipe: 1 Red + 1 Yellow",
+      "targetColor": "Orange",
+      "explanation": "Well done! The sun badge uses our orange recipe: equal scoops of red and yellow. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/cb0e3134-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/cb0e3134-matilda.mp3",
+            "currentTime": 0.06948,
+            "duration": 4.504671,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 10644.600000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 10660.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 10663.600000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 2,
+      "replay": false,
+      "missionId": "make-leaf",
+      "title": "Paint a leaf",
+      "prompt": "Choose a recipe, mix the paint, and match the leaf.",
+      "visibleRecipe": "Recipe: 1 Blue + 1 Yellow",
+      "targetColor": "Green",
+      "explanation": "Great job! The leaf uses our green recipe: equal scoops of blue and yellow. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/c4a4418b-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/c4a4418b-matilda.mp3",
+            "currentTime": 0.075692,
+            "duration": 3.854512,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 11078.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 11093.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 11096.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 3,
+      "replay": false,
+      "missionId": "make-cloud",
+      "title": "Paint a soft cloud",
+      "prompt": "Choose a recipe, mix the paint, and match the cloud.",
+      "visibleRecipe": "Recipe: 1 Blue + 3 White",
+      "targetColor": "Sky Blue",
+      "explanation": "Super! The cloud uses a pale blue recipe with three scoops of white for each blue scoop. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/82336892-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/82336892-matilda.mp3",
+            "currentTime": 0.066323,
+            "duration": 4.829751,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 11495.699999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 11510.699999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 11513.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 4,
+      "replay": false,
+      "missionId": "make-flower",
+      "title": "Paint a flower",
+      "prompt": "Choose a recipe, mix the paint, and match the flower.",
+      "visibleRecipe": "Recipe: 1 Red + 2 White",
+      "targetColor": "Pink",
+      "explanation": "Well done! The flower uses our pink recipe: one red scoop and two white scoops. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/67106744-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/67106744-matilda.mp3",
+            "currentTime": 0.065779,
+            "duration": 4.318912,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 11878.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 11894.100000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 11897.199999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 5,
+      "replay": false,
+      "missionId": "make-berry",
+      "title": "Paint a berry",
+      "prompt": "Choose a recipe, mix the paint, and match the berry.",
+      "visibleRecipe": "Recipe: 1 Red + 1 Blue",
+      "targetColor": "Purple",
+      "explanation": "Great job! The berry uses our purple recipe: equal scoops of red and blue. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/55c9b32d-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/55c9b32d-matilda.mp3",
+            "currentTime": 0.076713,
+            "duration": 3.947392,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 12229.600000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 12242.600000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 12245.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 6,
+      "replay": false,
+      "missionId": "make-wave",
+      "title": "Paint a wave",
+      "prompt": "Choose a recipe, mix the paint, and match the wave.",
+      "visibleRecipe": "Recipe: 2 Blue + 1 Yellow",
+      "targetColor": "Teal",
+      "explanation": "Super! The wave uses a blue-green teal recipe with twice as much blue as yellow. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/75432236-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/75432236-matilda.mp3",
+            "currentTime": 0.074493,
+            "duration": 4.365351,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 12611.399999976158
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 12626.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 12629
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 1,
+      "replay": true,
+      "missionId": "make-cloud",
+      "title": "Paint a soft cloud",
+      "prompt": "Choose a recipe, mix the paint, and match the cloud.",
+      "visibleRecipe": "Recipe: 1 Blue + 3 White",
+      "targetColor": "Sky Blue",
+      "wrongSameMission": true
+    }
+  ],
+  "games": {},
+  "faultCases": {},
+  "eligibility": {
+    "colour": {
+      "completed": [
+        "mix-teal",
+        "mix-green",
+        "mix-brown",
+        "mix-orange",
+        "mix-lime",
+        "mix-purple",
+        "light-grey",
+        "light-peach",
+        "light-coral",
+        "light-pink",
+        "light-charcoal",
+        "light-sky",
+        "make-berry",
+        "make-wave",
+        "make-flower",
+        "make-sun",
+        "make-cloud",
+        "make-leaf"
+      ],
+      "chapters": [
+        "mix",
+        "light",
+        "make"
+      ],
+      "freshMissionIds": [],
+      "positiveFaultsUnexercised": true
+    }
+  },
+  "source": {},
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "providerAttempts": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-ujaaPf0b.js"
+  },
+  "soundOriginals": {
+    "initial": true
+  },
+  "failure": {
+    "message": "Use the visible recipe clue is not wholly inside the viewport: {\"text\":\"One clue\",\"rect\":{\"x\":25,\"y\":716,\"width\":128.46875,\"height\":48,\"right\":153.46875,\"bottom\":764},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}",
+    "stack": "Error: Use the visible recipe clue is not wholly inside the viewport: {\"text\":\"One clue\",\"rect\":{\"x\":25,\"y\":716,\"width\":128.46875,\"height\":48,\"right\":153.46875,\"bottom\":764},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}\n    at measureControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:147:13)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:472:9)\n    at async Object.clickControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:156:22)\n    at async h.clickControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:142:509)\n    at async colorMission (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:73:207)\n    at async runColourShadow (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:160:17)\n    at async evalmachine.<anonymous>:4:8"
+  },
+  "controlAudit": {
+    "checked": 226
+  },
+  "stage": "native",
+  "runtimeSource": "1211e5a23929a38fbdd7d262cb8d9f34fc1a2948",
+  "entry": "/assets/arcade-ujaaPf0b.js",
+  "sourceHead": "1211e5a23929a38fbdd7d262cb8d9f34fc1a2948",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/colourLabAdventure.js": "35b34ac433a1baa5e8a26dbd95f3531592ede3f01abc40b20d3d90ebe08e7192",
+    "src/data/colourLabProgress.js": "f43355208f4c9854e6fe60b4b98856180473745e36192c87322c1c8c25f6039d",
+    "src/data/littleGames.js": "6a7feac22b7cf9c1bcd28dbd7451cd6da0f37210addad5b709d5336205ef196c",
+    "src/data/littleProgress.js": "e1dd2bc929ff8b3407897054a2fc1b208808ab0f07dbc848882e18bf0bd41d69",
+    "src/data/pairLittleProgress.js": "4ec8ebf838876282400ffb68d7c0efd7c9fde0d57c102a89e3cfc2fc0c594221",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/data/shadowMatchProgression.js": "2508a21cd8487d7e86f1aa15d15e9aa4c027aa877fda3a82c7a3b1567037ce78",
+    "src/data/shadowMatchArt.js": "011c705ebe74bc09150410f65526ea63f5a268e866f9bf98996b80f9de5ab996",
+    "src/components/games/ColorMixingLab.jsx": "d0a1c7fd9bf24a729f39e7088c83020ca2c1111222f5552d6eb91a7159d68dbb",
+    "src/components/little/games/ShadowMatch.jsx": "d60fa0498888b5ab484a7355236dc0357372b6fd70272aeb4b560b01646fa25e",
+    "src/components/little/LittleGameShell.jsx": "0f79e159a90ad1dd2674976543a1cbe0acd2b37b0f66dbd239ddf5698ed9f863",
+    "src/components/little/ShadowDino.jsx": "d31157f5a86cf5f44781c500be936f2a201d80f9f76d501ac01e7320374445b5",
+    "src/components/little/DragItem.jsx": "f5b2f52c6b8178b71903908f3194ba2c08ae8ff608e33f46c804b69f6af8659f",
+    "src/components/little/littleKit.js": "e59cb06555cb54c06aff7ddf9b2b027239f223f8b625c38d0b64779a6ceb584f",
+    "src/components/little/useRoundHint.js": "e300060a9dc59b2a207be5ecdba5c539dfaad39577d771a732d6ec42f88190c0",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/shared/Navigation.jsx": "bf30c655c0eee9d601e5ecca3110011b06cc5e9845809d75a48553893aeeb34c",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/colour-shadow-save-20261029/protocol.md": "d817778f8a7ddb7e3e449317fde566c338da1562a47d5a66df4444fa2ff96b13",
+    "docs/qa-evidence/colour-shadow-save-20261029/colour-shadow-native.cjs": "eaff9db966be60ec6ef3599f4348169c490591f84f5b02f45068a6a1b8606118"
+  },
+  "driverSHA256": "eaff9db966be60ec6ef3599f4348169c490591f84f5b02f45068a6a1b8606118",
+  "runnerSHA256": "f1b66eaec0da4e8772fce5aea9fd8bf0fc443446b2dd4ea9dc55789a851d1f26",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1472577,
+    "entrySha256": "529c879b6de2d2a6978b517f0934450b19263eadecdbd2e5fe7aa6cca376e91a",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair18-native",
+  "scope": "Full actual-visible-control Colour Mixing Lab and Shadow Match acceptance at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

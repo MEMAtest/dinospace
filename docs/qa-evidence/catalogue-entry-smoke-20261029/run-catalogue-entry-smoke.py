@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Run the bounded catalogue-entry callback on the existing leased page only."""
 import datetime as dt
+import argparse
 import hashlib
 import json
 import os
 import re
 import subprocess
-import sys
 import time
 from pathlib import Path
 from urllib.parse import urlparse
@@ -28,7 +28,6 @@ SOURCE_FILES = [
     "src/components/home/ExplorerHome.jsx",
     "src/components/home/LittleHome.jsx",
     "src/components/little/LittleGameShell.jsx",
-    "docs/game-quality-status.json",
 ]
 
 
@@ -48,14 +47,21 @@ def check_owner():
 
 
 def main():
-    if len(sys.argv) != 6:
-        raise SystemExit("Usage: run-catalogue-entry-smoke.py ORIGIN WIDTH HEIGHT PLAYER EXPECTED_ENTRY")
-    origin = sys.argv[1].rstrip("/")
-    width, height = map(int, sys.argv[2:4])
-    player, expected_entry = sys.argv[4:6]
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("origin")
+    parser.add_argument("width", type=int)
+    parser.add_argument("height", type=int)
+    parser.add_argument("player", choices=("amari", "askia"))
+    parser.add_argument("expected_entry")
+    parser.add_argument("--runtime-sha", required=True, help="Explicit 40-character source/runtime identity supplied by the release owner")
+    args = parser.parse_args()
+    origin = args.origin.rstrip("/")
+    width, height = args.width, args.height
+    player, expected_entry = args.player, args.expected_entry
+    runtime_sha = args.runtime_sha
     stage = os.environ.get("CATALOGUE_QA_STAGE", "native")
-    if player not in {"amari", "askia"}:
-        raise SystemExit("PLAYER must be amari or askia")
+    if not re.fullmatch(r"[0-9a-f]{40}", runtime_sha):
+        raise SystemExit("--runtime-sha must be a full lowercase 40-character SHA")
     if (width, height) not in {(390, 740), (1440, 844)}:
         raise SystemExit("Supported viewports are 390x740 and 1440x844")
     parsed = urlparse(origin)
@@ -77,7 +83,7 @@ def main():
         raise SystemExit(f"dist entry does not match {expected_entry}")
 
     ids = "all" if player == "amari" else "normal"
-    code = (BASE / "catalogue-entry-smoke.cjs").read_text()
+    code = (BASE / "catalogue-entry-smoke.cjs").read_text().strip().removesuffix(";")
     values = {
         "__ORIGIN__": json.dumps(origin),
         "__EXPECTED_ENTRY__": json.dumps(expected_entry),
@@ -92,6 +98,8 @@ def main():
         code = code.replace(needle, replacement)
     if re.search(r"__[A-Z][A-Z0-9_]*__", code):
         raise RuntimeError("Callback contains unresolved placeholders")
+
+    code = "async page=>{const run=(" + code + ");const attempts=[];const guard=async r=>{if(/\\/api\\/|elevenlabs|openai|story-provider/i.test(r.request().url())){attempts.push(r.request().url());return r.fulfill({status:403,body:'QA startup guard'});}return r.continue();};await page.route('**/*',guard);page.setDefaultTimeout(5000);try{await page.setViewportSize(" + json.dumps({"width": width, "height": height}) + ");await page.goto(" + json.dumps(origin + '/?qa_catalogue_entry=') + "+Date.now()+'#/home',{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>window.__amariQaNamespaced===true,null,{timeout:10000});const report=await run(page);if(attempts.length){report.passed=false;report.providerAttempts=[...(report.providerAttempts||[]),...attempts];}return report;}finally{await page.unroute('**/*',guard);page.setDefaultTimeout(30000);}}"
 
     stamp = dt.datetime.now().strftime("%Y%m%dT%H%M%S") + f"-{time.time_ns() % 1_000_000_000:09d}"
     tag = Path(expected_entry).name.removesuffix(".js")
@@ -117,24 +125,14 @@ def main():
         data = {"passed": False, "profile": player, "origin": origin, "expectedEntry": expected_entry,
                 "rows": [], "failures": [{"message": "run-code returned no structured result", "outputTail": output[-5000:]}]}
     source_head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
-    if stage == "production":
-        ledger_path = ROOT / "docs/game-quality-status.json"
-        try:
-            ledger = json.loads(ledger_path.read_text())
-            expected_runtime = ledger.get("canonicalRelease")
-        except Exception as error:
-            raise SystemExit(f"Cannot read canonicalRelease from docs/game-quality-status.json: {error}") from error
-        if not isinstance(expected_runtime, str) or not re.fullmatch(r"[0-9a-f]{40}", expected_runtime):
-            raise SystemExit("docs/game-quality-status.json has no valid canonicalRelease SHA")
-        runtime_source_label = "docs/game-quality-status.json#canonicalRelease"
-    else:
-        expected_runtime = source_head
-        runtime_source_label = "git rev-parse HEAD"
+    expected_runtime = runtime_sha
+    runtime_source_label = "explicit --runtime-sha"
     data["sourceHead"] = source_head
     data["runtimeSource"] = expected_runtime
     data["runtimeSourceLabel"] = runtime_source_label
     data["expectedRuntime"] = expected_runtime
-    data["runtimeBinding"] = {"stage": stage, "source": runtime_source_label, "sha": expected_runtime}
+    data["runtimeBinding"] = {"stage": stage, "source": runtime_source_label, "sha": expected_runtime,
+                              "verifiedBy": "live page exact entry, origin and QA namespace"}
     data["expectedEntry"] = expected_entry
     data["actualEntry"] = data.get("entryIdentity")
     data["entryMatches"] = data.get("entryIdentity") == expected_entry
@@ -142,6 +140,8 @@ def main():
         data["passed"] = False
         data.setdefault("failures", []).append({"message": "Actual served entry does not match expectedEntry"})
     data["sourceHashes"] = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in SOURCE_FILES}
+    data["runnerSha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    data["callbackSha256"] = hashlib.sha256(code.encode()).hexdigest()
     data["cliReturnCode"] = result.returncode
     report.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
     used = sum(path.stat().st_size for path in BASE.iterdir() if path.is_file() and path.name.startswith(("native-", "production-")))

@@ -1,0 +1,718 @@
+{
+  "scope": "normal catalogue entry, rendered art/error check, and exact parent return only; not game acceptance",
+  "passed": true,
+  "profile": "askia",
+  "origin": "https://dinospace.netlify.app",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "expectedEntry": "/assets/arcade-DbnxyNUQ.js",
+  "entryIdentity": "/assets/arcade-DbnxyNUQ.js",
+  "runtime": {
+    "origin": "https://dinospace.netlify.app",
+    "entry": "/assets/arcade-DbnxyNUQ.js",
+    "namespaced": true,
+    "viewport": {
+      "width": 390,
+      "height": 740
+    }
+  },
+  "requestedIds": "normal",
+  "catalogueActivitiesCovered": 10,
+  "pairActivitiesCovered": 8,
+  "retainedActivitiesCovered": 2,
+  "rows": [
+    {
+      "scope": "retained",
+      "id": "shadowmatch",
+      "title": "Shadow Match",
+      "world": "Dino World",
+      "entry": {
+        "mainText": "Shadow Match\n\nChoose an unlocked level to play or practise\n\n1\n2\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Match mirrored dinosaur shadows\n\n🔊 Shadow Match",
+        "h1": "Shadow Match",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/trike.webp",
+            "alt": "",
+            "width": 800,
+            "height": 641,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/trike.webp",
+            "alt": "",
+            "width": 800,
+            "height": 641,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/detective-stego-Dl69iVLb.webp",
+        "alt": "",
+        "width": 1254,
+        "height": 1254,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 12,
+          "y": 12,
+          "right": 76,
+          "bottom": 76,
+          "width": 64,
+          "height": 64
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Dino World",
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "counting",
+      "title": "Count the Stars",
+      "world": "Rocket World",
+      "entry": {
+        "mainText": "Count the Stars\n\nLevel 1 of 3: One to three\n\nYour goal: Count up to three stars.\n\nStart",
+        "h1": "Count the Stars",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/catalog-v3/game-counting.webp",
+            "alt": "Count the Stars illustration",
+            "width": 640,
+            "height": 427,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/bg-fuelup-Cgvw5K-0.webp",
+        "alt": "",
+        "width": 941,
+        "height": 1672,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 16,
+          "y": 16,
+          "right": 72,
+          "bottom": 72,
+          "width": 56,
+          "height": 56
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Rocket World",
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 9,
+      "id": "dinojigsaw",
+      "title": "Dino Jigsaw",
+      "world": "Dino World",
+      "entry": {
+        "mainText": "Dino Jigsaw\n\nChoose an unlocked level to play or practise\n\n1\n2\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Finish a dinosaur picture with 12 pieces\n\n🔊 Dino Jigsaw",
+        "h1": "Dino Jigsaw",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/bg-dino-DtQjoH27.webp",
+            "alt": "",
+            "width": 1448,
+            "height": 1086,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/detective-stego-Dl69iVLb.webp",
+            "alt": "",
+            "width": 1254,
+            "height": 1254,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/detective-ankylo-BG-VzdVP.webp",
+        "alt": "",
+        "width": 1254,
+        "height": 1254,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 8,
+          "y": 4,
+          "right": 56,
+          "bottom": 52,
+          "width": 48,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Dino World",
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 5,
+      "id": "rocketbuilder",
+      "title": "Rocket Builder",
+      "world": "Rocket World",
+      "entry": {
+        "mainText": "Rocket Builder\n\nChoose an unlocked level to play or practise\n\n1\n2\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Build the whole colourful rocket. Available through Level 5.\n\n🔊 Rocket Builder",
+        "h1": "Rocket Builder",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/fuel-rocket-C-kzj_uU.webp",
+        "alt": "",
+        "width": 1024,
+        "height": 1536,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 12,
+          "y": 12,
+          "right": 76,
+          "bottom": 76,
+          "width": 64,
+          "height": 64
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Rocket World",
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 7,
+      "id": "dino",
+      "title": "Dino Detective",
+      "world": "Dino World",
+      "entry": {
+        "mainText": "Dino Detective\n\nChoose an unlocked level to play or practise\n\n1\n2\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Find seven dinosaurs by their faint tracks\n\n🔊 Dino Detective",
+        "h1": "Dino Detective",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/bg-dino-portrait-DGfbO86R.webp",
+            "alt": "",
+            "width": 941,
+            "height": 1672,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/askia-detective-CPOpmaoU.webp",
+            "alt": "Askia ready to look for dinosaurs",
+            "width": 1254,
+            "height": 1254,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/askia-detective-CPOpmaoU.webp",
+        "alt": "",
+        "width": 1254,
+        "height": 1254,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 12,
+          "y": 12,
+          "right": 76,
+          "bottom": 76,
+          "width": 64,
+          "height": 64
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Dino World",
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 5,
+      "id": "fuelup",
+      "title": "Fuel Up",
+      "world": "Rocket World",
+      "entry": {
+        "mainText": "Fuel Up\n\nChoose an unlocked level to play or practise\n\n1\n2\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Count up to ten cans. Available through Level 5.\n\n🔊 Fuel Up",
+        "h1": "Fuel Up",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/fuel-rocket-C-kzj_uU.webp",
+            "alt": "Rocket",
+            "width": 1024,
+            "height": 1536,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/fuel-can-bG4-uy-5.webp",
+        "alt": "",
+        "width": 1243,
+        "height": 1266,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 12,
+          "y": 12,
+          "right": 76,
+          "bottom": 76,
+          "width": 64,
+          "height": 64
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Rocket World",
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 6,
+      "id": "firerescue",
+      "title": "Fire Truck Rescue",
+      "world": "Rescue World",
+      "entry": {
+        "mainText": "Fire Truck Rescue\n\nChoose an unlocked level to play or practise\n\n1\n2\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Put out six fires\n\n🔊 Fire Truck Rescue",
+        "h1": "Fire Truck Rescue",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/rescue-firetruck-BlvwvPhV.webp",
+            "alt": "Fire truck",
+            "width": 1536,
+            "height": 1024,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/rescue-firetruck-BlvwvPhV.webp",
+        "alt": "",
+        "width": 1536,
+        "height": 1024,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 12,
+          "y": 12,
+          "right": 76,
+          "bottom": 76,
+          "width": 64,
+          "height": 64
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Rescue World",
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 6,
+      "id": "ladder",
+      "title": "Ladder Rescue",
+      "world": "Rescue World",
+      "entry": {
+        "mainText": "Ladder Rescue\n\nChoose an unlocked level to play or practise\n\n1\n2\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Rescue from five floors\n\n🔊 Ladder Rescue",
+        "h1": "Ladder Rescue",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/rescue-animals-v2/ladder-truck.webp",
+            "alt": "Fire truck",
+            "width": 768,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/rescue-animals-v2/animal-kitten.webp",
+            "alt": "",
+            "width": 384,
+            "height": 384,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/fire-house-Byz950kD.webp",
+        "alt": "",
+        "width": 941,
+        "height": 1672,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 12,
+          "y": 12,
+          "right": 76,
+          "bottom": 76,
+          "width": 64,
+          "height": 64
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Rescue World",
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 4,
+      "id": "memory",
+      "title": "Memory Match",
+      "world": "Little Thinkers",
+      "entry": {
+        "mainText": "Find the pairs!\n0 / 3 pairs\n✦\n✦\n✦\n✦\n✦\n✦\n\nTap two cards to find a match.",
+        "h1": null,
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/askia-detective-CPOpmaoU.webp",
+            "alt": "Askia the dinosaur",
+            "width": 1254,
+            "height": 1254,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/askia-detective-CPOpmaoU.webp",
+            "alt": "",
+            "width": 1254,
+            "height": 1254,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/askia-detective-CPOpmaoU.webp",
+            "alt": "",
+            "width": 1254,
+            "height": 1254,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/rescue-firetruck-BlvwvPhV.webp",
+            "alt": "",
+            "width": 1536,
+            "height": 1024,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/fuel-rocket-C-kzj_uU.webp",
+            "alt": "",
+            "width": 1024,
+            "height": 1536,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/fuel-rocket-C-kzj_uU.webp",
+            "alt": "",
+            "width": 1024,
+            "height": 1536,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/rescue-firetruck-BlvwvPhV.webp",
+            "alt": "",
+            "width": 1536,
+            "height": 1024,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/askia-memory-treehouse-Cw_L04Vp.webp",
+        "alt": "",
+        "width": 941,
+        "height": 1672,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 10,
+          "y": 16.3125,
+          "right": 58,
+          "bottom": 64.3125,
+          "width": 48,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Little Thinkers",
+      "storageChanges": [
+        "amari_game_diagnostics_v1",
+        "amari_game_lifecycle_diagnostics_v1"
+      ],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 1,
+      "id": "pattern",
+      "title": "Pattern Parade",
+      "world": "Little Thinkers",
+      "entry": {
+        "mainText": "Find what repeats or grows. Each chapter has six clues. Your choice stays here until you press Next.\n\nA pattern follows a rule.\n\nLook for a group of shapes that comes back in the same order.\n\nReplay spoken rule\nShow the rule again\n\nGrand Fi",
+        "h1": null,
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/assets/askia-memory-treehouse-Cw_L04Vp.webp",
+        "alt": "",
+        "width": 941,
+        "height": 1672,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 28,
+          "y": 346,
+          "right": 362,
+          "bottom": 394,
+          "width": 334,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "leaveGeometry": {
+        "rect": {
+          "x": 12,
+          "y": 12,
+          "right": 60,
+          "bottom": 60,
+          "width": 48,
+          "height": 48
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Little Thinkers",
+      "storageChanges": [
+        "amari_game_diagnostics_v1",
+        "amari_game_lifecycle_diagnostics_v1"
+      ],
+      "rewardStateUnchanged": true
+    }
+  ],
+  "failures": [],
+  "storage": {
+    "baselineKeys": 118,
+    "finalKeys": 118,
+    "changedKeys": [
+      "amari_game_diagnostics_v1",
+      "amari_game_lifecycle_diagnostics_v1",
+      "askia_recent_games"
+    ]
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "failedResponses": [],
+  "providerAttempts": [],
+  "sourceHead": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "runtimeSource": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "runtimeSourceLabel": "explicit --runtime-sha",
+  "expectedRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "runtimeBinding": {
+    "stage": "production",
+    "source": "explicit --runtime-sha",
+    "sha": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+    "verifiedBy": "live page exact entry, origin and QA namespace"
+  },
+  "actualEntry": "/assets/arcade-DbnxyNUQ.js",
+  "entryMatches": true,
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/components/shared/DiscoveryHeader.jsx": "17da0d8be900ae391f6bf22317c0aef1e98899153cfe39e6e6c16832644ab210",
+    "src/components/shared/Navigation.jsx": "bf30c655c0eee9d601e5ecca3110011b06cc5e9845809d75a48553893aeeb34c",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/home/ExplorerHome.jsx": "207db9681a08390c813595debcdf993261e69dff278a21932f2284d5f4b7a638",
+    "src/components/home/LittleHome.jsx": "3a563fdad99756d5512e17c10673a3b4b1e511f9766165adabec98e6b31a7a23",
+    "src/components/little/LittleGameShell.jsx": "e8b1822d4a095b74cab47a1bce96fbc1076b71b0350d3dce8ab6db0ac51ae1e3"
+  },
+  "runnerSha256": "df7aa2eb8006b0e56e003aa8a4f61e3c0a9919cef2a3509df644b5d5b11fd9bc",
+  "callbackSha256": "9bf3d955f0d7f6017879bce03e18c19dc8b351dec981d9cf147be323b254661b",
+  "cliReturnCode": 0
+}

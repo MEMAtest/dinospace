@@ -27,6 +27,14 @@ The bounded driver is `retained-integration-native.cjs`. It accepts the already-
 
 The Playwright CLI callback VM has no Node `require`, `fs`, or `path`. Load these CommonJS recipe modules in the Node host before creating the callback (or inline the four source modules in the bounded runner wrapper); do not call `require` from inside the browser callback. The Letter Trace guide table is embedded as the same authored normalized path data displayed on its tracing canvas, so the callback needs no filesystem lookup.
 
+New retained-lane reports must be invoked with the exact owner-supplied `--runtime-sha` and the expected compiled entry. The runner records the source checkout HEAD separately, verifies the served page's origin, namespace and exact module entry, and does not derive production identity from the historical `canonicalRelease` ledger field. The existing catalogue-entry runner covers all 35 Amari and 10 Askia visible routes; it uses the same explicit SHA and exact-entry binding. Both runners use only the already-leased page and retained profile. For example:
+
+```sh
+FINAL_QA_OWNER=<active-owner> python3 docs/qa-evidence/final-integration-20261029/run-retained.py \
+  390 740 /assets/arcade-<exact-entry>.js --origin https://dinospace.netlify.app \
+  --runtime-sha <exact-40-character-runtime-sha>
+```
+
 ## Cross-integration smoke across Pairs 1–11
 
 Run only after each pair's own release gate, using the canonical QA session and candidate/runtime identity recorded by its owner. The source-reconciled catalogue scope is 35 unique Amari game IDs and 10 normal Askia routes: eight of those Askia routes overlap with Pair 1–11 upgrades, while Count the Stars and Shadow Match are retained routes. Pair-specific level and content coverage stays in each pair's source-bound report; this integration smoke does not infer or repeat those matrices.

@@ -112,9 +112,23 @@ async function tictactoe({ page, helper, lane }) {
 }
 
 async function puzzle({ page, helper, lane }) {
-  const chapters = page.locator('[aria-label="Puzzle Pop chapters"]');
-  await helper.clickControl(chapters.getByRole('button').first(), { label: 'Choose the first visible Puzzle Pop chapter' });
-  const start = button(page, /^(Start|Replay) chapter$/, false);
+  const selectedTitle = page.locator('.puzzle-intro-title');
+  await selectedTitle.waitFor({ state: 'visible' });
+  if ((await selectedTitle.innerText()).trim() !== 'Picture Pioneers') {
+    const picker = page.locator('details.puzzle-chapter-picker');
+    await picker.waitFor({ state: 'visible' });
+    if (!(await picker.evaluate(element => element.open))) {
+      const summary = picker.locator('summary');
+      await summary.evaluate(element => element.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' }));
+      await helper.clickControl(summary, { label: 'Open the secondary Puzzle Pop chapter picker' });
+    }
+    const firstChapter = page.getByRole('group', { name: 'Other Puzzle Pop chapters' })
+      .getByRole('button', { name: 'Picture Pioneers', exact: true });
+    await firstChapter.evaluate(element => element.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' }));
+    await helper.clickControl(firstChapter, { label: 'Select Picture Pioneers from the secondary chapter picker' });
+    await page.waitForFunction(() => document.querySelector('.puzzle-intro-title')?.textContent?.trim() === 'Picture Pioneers');
+  }
+  const start = button(page, /^(Start chapter|Replay chapter)$/, false);
   await helper.clickControl(start, { label: 'Start visible Puzzle Pop chapter' });
   const board = page.getByRole('grid', { name: /\d by \d puzzle board/ }); await board.waitFor();
   const before = await helper.snapshotStorage();
@@ -148,7 +162,7 @@ async function puzzle({ page, helper, lane }) {
     await helper.clickControl(dest, { label: 'Place picture piece in highlighted slot' });
     if (await page.getByRole('heading', { name: /complete!$/ }).count()) break;
   }
-  const held = page.getByRole('region').filter({ has: page.getByText('Picture fact:', { exact: false }) }).first();
+  const held = page.locator('section[aria-live="polite"]').filter({ has: page.getByText('Picture fact:', { exact: false }) }).first();
   await held.waitFor({ state: 'visible', timeout: 15000 });
   const audio = await audioCheck(page, helper, button(page, 'Hear fact again'), 'Puzzle picture fact replay');
   const next = button(page, 'Next picture');
@@ -160,26 +174,37 @@ async function puzzle({ page, helper, lane }) {
 }
 
 async function spot({ page, helper, lane }) {
-  const chapters = page.locator('main').first().locator('button[aria-pressed]');
-  await helper.clickControl(chapters.first(), { label: 'Choose the first visible Spot the Difference chapter' });
-  await helper.clickControl(button(page, /^(Start|Replay) chapter$/, false), { label: 'Start visible Spot the Difference chapter' });
+  const main = page.locator('main').first();
+  await main.waitFor({ state: 'visible' });
+  const selectedChapter = main.locator('[aria-live="polite"]').filter({ hasText: 'Selected chapter' }).first();
+  await selectedChapter.waitFor({ state: 'visible' });
+  if (!(await selectedChapter.innerText()).includes('Bright-Eyed Beginners')) {
+    const picker = main.locator('details').first();
+    await picker.waitFor({ state: 'visible' });
+    if (!(await picker.evaluate(element => element.open))) {
+      const summary = picker.locator('summary');
+      await summary.evaluate(element => element.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' }));
+      await helper.clickControl(summary, { label: 'Open the secondary Spot the Difference chapter picker' });
+    }
+    const firstChapter = picker.getByRole('button').filter({ hasText: 'Bright-Eyed Beginners' });
+    await firstChapter.evaluate(element => element.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' }));
+    await helper.clickControl(firstChapter, { label: 'Select Bright-Eyed Beginners from the secondary chapter picker' });
+    await page.waitForFunction(() => [...document.querySelectorAll('main [aria-live="polite"]')].some(element => element.innerText.includes('Selected chapter') && element.innerText.includes('Bright-Eyed Beginners')));
+  }
+  await helper.clickControl(button(page, /^(Start .+|Replay chapter)$/, false), { label: 'Start the visibly selected Spot the Difference chapter' });
   const search = page.getByRole('button', { name: 'Search Picture B for a change', exact: true }); await search.waitFor();
   const before = await helper.snapshotStorage();
-  const scene = await page.locator('section').filter({ has: search }).first().locator('p').first().innerText();
+  const scene = await main.locator('section p').first().innerText();
   const identity = `Picture comparison: ${scene}`;
   const box = await search.boundingBox(); if (!box) throw new Error('Picture B search area has no visible geometry');
-  await page.mouse.click(box.x + 6, box.y + 6);
+  let miss=null;for(const px of [.03,.15,.5,.85,.97]){for(const py of [.03,.15,.5,.85,.97]){const point={x:box.x+box.width*px,y:box.y+box.height*py};if(await page.evaluate(({x,y})=>document.elementFromPoint(x,y)?.getAttribute('aria-label')==='Search Picture B for a change',point)){miss=point;break;}}if(miss)break;}if(!miss)throw Error('No visible non-target Picture B area for retry');await page.mouse.click(miss.x,miss.y);
   await page.getByText('Not that spot yet. Compare the same area in Picture A.', { exact: true }).waitFor({ timeout: 3000 });
-  if (!await search.isVisible() || (await page.locator('section').filter({ has: search }).first().locator('p').first().innerText()) !== scene) throw new Error('Wrong spot did not retain the same picture pair for retry');
-  let attempts = 0;
-  while (attempts++ < 12) {
-    const highlighted = page.locator('button.animate-pulse[aria-label^="Check "]');
-    if (await highlighted.count() !== 1) {
-      const magnifier = page.getByRole('button', { name: /^Magnifier/ });
-      await helper.clickControl(magnifier, { label: 'Request one Picture B magnifier clue' });
-    }
-    await helper.clickControl(page.locator('button.animate-pulse[aria-label^="Check "]'), { label: 'Inspect magnifier-highlighted picture detail' });
-    if (await page.getByRole('heading', { name: /pair complete!$/ }).count()) break;
+  if (!await search.isVisible() || (await main.locator('section p').first().innerText()) !== scene) throw new Error('Wrong spot did not retain the same picture pair for retry');
+  const magnifier=page.getByRole('button',{name:/^(Magnifier|Hint)\s/});await helper.clickControl(magnifier,{label:'Request one visible Picture B clue'});
+  const targets=page.getByRole('button',{name:/^Check (left|middle|right) (top|middle|bottom) detail$/});
+  for(let attempts=0;attempts<12&&await targets.count();attempts++){
+    const highlighted=page.locator('button.animate-pulse[aria-label^="Check "]');
+    await helper.clickControl(await highlighted.count()?highlighted.first():targets.first(),{label:'Inspect a visible labelled Picture B detail'});
   }
   const held = page.locator('section[aria-live="polite"]').filter({ has: page.getByText('Picture fact:', { exact: false }) }).first(); await held.waitFor();
   const audio = await audioCheck(page, helper, button(page, 'Hear fact again'), 'Picture fact replay');
@@ -191,12 +216,20 @@ async function spot({ page, helper, lane }) {
 
 async function sky({ page, helper, lane }) {
   const picker = page.locator('details').filter({ has: page.getByText('Choose another sky', { exact: true }) });
-  if (await picker.count() && !await picker.evaluate(el => el.open)) {
-    const summary = picker.locator('summary');
-    await summary.evaluate(el => el.scrollIntoView({ block: 'center', inline: 'nearest' }));
-    await helper.clickControl(summary, { label: 'Open secondary Sky Shapes episode choices' });
+  const selectedSky = page.locator('main section p').filter({ hasText: /^Sky \d+ ·/ }).first();
+  await selectedSky.waitFor({ state: 'visible' });
+  if (!(await selectedSky.innerText()).trim().toLowerCase().startsWith('sky 1 ·')) {
+    if (await picker.count() !== 1) throw new Error('Sky Shapes secondary episode picker is missing');
+    if (!await picker.evaluate(element => element.open)) {
+      const summary = picker.locator('summary');
+      await summary.evaluate(element => element.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' }));
+      await helper.clickControl(summary, { label: 'Open the secondary Sky Shapes episode picker' });
+    }
+    const firstSky = picker.getByRole('button', { name: /^Sky 1 ·/i });
+    await firstSky.evaluate(element => element.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' }));
+    await helper.clickControl(firstSky, { label: 'Select Sky 1 from the secondary episode picker' });
+    await page.waitForFunction(() => [...document.querySelectorAll('main section p')].some(element => element.innerText.trim().toLowerCase().startsWith('sky 1 ·')));
   }
-  await helper.clickControl(page.getByRole('button').filter({ hasText: /^Sky 1 ·/ }).first(), { label: 'Choose the first visible Sky Shapes episode' });
   const start = button(page, /^(Start|Replay) this sky$/, false);
   await helper.clickControl(start, { label: 'Start visible Sky Shapes sky' });
   const svg = page.getByRole('application', { name: /^Tracing board for / }); await svg.waitFor();
@@ -245,8 +278,10 @@ async function safari({ page, helper, lane }) {
   await helper.clickControl(chapter, { label: 'Choose Sound Safari listen chapter' });
   const section = page.getByRole('region', { name: 'Sound mission' }); await section.waitFor();
   const roundPrompt = (await section.innerText()).split('\n').slice(0, 3).join(' · ');
-  const soundLabel=await page.getByRole('button',{name:/^Hear \/.+\/$/}).first().getAttribute('aria-label');
-  const sound=soundLabel?.match(/^Hear \/(.+)\/$/)?.[1];
+  const soundControl = page.getByRole('button', { name: /^Hear \/.+\/$/ }).first();
+  const soundLabel = await soundControl.getAttribute('aria-label');
+  const soundText = soundLabel || await soundControl.innerText();
+  const sound = soundText.trim().match(/^Hear \/(.+)\/$/)?.[1];
   if(!sound)throw new Error('No visible initial-sound cue');
   const before = await helper.snapshotStorage();
   const identity = `Listen for /${sound}/ · ${roundPrompt}`;
@@ -260,7 +295,7 @@ async function safari({ page, helper, lane }) {
   if (await button(page, 'Try this challenge again').count()) await helper.clickControl(button(page, 'Try this challenge again'), { label: 'Retry same sound challenge' });
   if ((await section.innerText()).split('\n').slice(0, 3).join(' · ') !== roundPrompt) throw new Error('Wrong sound answer changed the visible challenge');
   await helper.clickControl(button(page, correct.label), { label: 'Choose picture beginning with target sound' });
-  const explanation = page.getByText(/That word begins with|Listen for the first sound/i).first(); await explanation.waitFor();
+  const explanation = page.getByText(/begins with \/|Listen for the first sound/i).first(); await explanation.waitFor();
   const audio = await audioCheck(page, helper, button(page, 'Hear sounds and word'), 'Sound Safari exact sound and word replay', 900);
   const next = button(page, 'Next challenge'); const nextGeometry = await helper.measureControl(next, 'Sound Safari Next challenge');
   const held = page.getByRole('region', { name: 'Sound mission' }); const text = await held.innerText();
@@ -270,16 +305,38 @@ async function safari({ page, helper, lane }) {
 }
 
 async function colour({ page, helper, lane }) {
-  await helper.clickControl(page.getByRole('navigation', { name: 'Colour labs' }).getByRole('button').first(), { label: 'Choose the first Colour Mixing Lab' });
-  await helper.clickControl(button(page, /^Start Paint Mixer$/, false), { label: 'Start first Colour Mixing Lab' });
+  const selectedLab = page.locator('[aria-label="Selected paint lab"]');
+  const selectedTitle = selectedLab.getByRole('heading', { level: 2 });
+  await selectedLab.waitFor({ state: 'visible' });
+  if ((await selectedTitle.innerText()).trim() !== 'Paint Mixer') {
+    const picker = page.locator('details').filter({ has: page.getByText('Choose another lab', { exact: true }) });
+    await picker.waitFor({ state: 'visible' });
+    if (!(await picker.evaluate(element => element.open))) {
+      const summary = picker.locator('summary');
+      await summary.evaluate(element => element.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' }));
+      await helper.clickControl(summary, { label: 'Open secondary Colour Lab picker' });
+    }
+    const paintMixer = page.getByRole('navigation', { name: 'Colour labs' }).getByRole('button').filter({ hasText: 'Paint Mixer' });
+    await helper.clickControl(paintMixer, { label: 'Select Paint Mixer from the secondary lab picker' });
+    await selectedTitle.getByText('Paint Mixer', { exact: true }).waitFor({ state: 'visible' });
+  }
+  const start = page.locator('[data-colour-lab-start]');
+  const startLabel = (await start.innerText()).trim();
+  if (startLabel !== 'Start Paint Mixer') throw new Error(`Expected selected Paint Mixer start, found: ${startLabel}`);
+  await helper.clickControl(start, { label: 'Start the visibly selected Paint Mixer' });
   const mission = page.locator('article[aria-label="Paint mission"]'); await mission.waitFor();
   const before = await helper.snapshotStorage();
   const prompt = await mission.innerText();
   const identity = prompt.split('\n').slice(0, 3).join(' · ');
   const recipe = await page.getByLabel('Recipe proportions').innerText();
-  const ingredientRows = recipe.split('\n').map(line => line.match(/^(\d+)\s+scoops?\s+(.+)$/i)).filter(Boolean);
+  const ingredientRows = recipe.trim().replace(/^Recipe:\s*/i, '').replace(/\u00a0/g, ' ').split(/[·\n]+/)
+    .map(part => part.trim().match(/^(\d+)\s+scoops?\s+([a-z][a-z ]*)$/i)).filter(Boolean);
   if (!ingredientRows.length) throw new Error('First paint mission has no visible proportion model');
-  for (const [, count, name] of ingredientRows) for (let i=0;i<Number(count);i++) await helper.clickControl(button(page, `Add ${name} paint`), { label: `Add ${name} paint from visible recipe` });
+  for (const [, count, rawName] of ingredientRows) {
+    const name = rawName.trim().toLowerCase();
+    const visiblePaintName = `${name[0].toUpperCase()}${name.slice(1)}`;
+    for (let i=0;i<Number(count);i++) await helper.clickControl(button(page, `Add ${visiblePaintName} paint`), { label: `Add ${visiblePaintName} paint from visible recipe` });
+  }
   await helper.clickControl(button(page, 'Mix'), { label: 'Mix visible paint recipe' });
   const choices = page.getByRole('button', { name: /^Choose / });
   const resultColor = await page.locator('.mix-result').evaluate(el => getComputedStyle(el).backgroundColor);

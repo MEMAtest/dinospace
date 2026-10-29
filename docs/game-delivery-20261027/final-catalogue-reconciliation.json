@@ -1,0 +1,3516 @@
+{
+  "documentType": "final-catalogue-reconciliation",
+  "date": "2026-10-29",
+  "status": "all_pairs_live_verified_final_catalogue_integration_passed",
+  "sourceInputs": [
+    "docs/game-delivery-20261027/queue.json",
+    "docs/game-delivery-20261027/final-catalogue-reconciliation-template.md",
+    "docs/game-delivery-20261027/final-integration-protocol.md",
+    "src/data/learningWorlds.js",
+    "src/components/home/LittleHome.jsx",
+    "src/gameCatalog.jsx"
+  ],
+  "pairCoverage": {
+    "pairCount": 18,
+    "pairs": [
+      {
+        "pair": 1,
+        "games": [
+          {
+            "routeId": "oddoneout",
+            "queueId": null,
+            "title": "Odd One Out"
+          },
+          {
+            "routeId": "pattern",
+            "queueId": null,
+            "title": "Pattern Parade"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "7846073946f39ec3e9884c20f9bc7a04859053ca",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/odd-pattern-20261027/README.md",
+        "sourceGates": "docs/qa-evidence/odd-pattern-20261027/source-gates.json",
+        "productionEvidence": null,
+        "verifiedAt": null,
+        "publicUrl": null,
+        "scope": "Functional release criteria passed; no new blanket editorial/listening score.",
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": null
+      },
+      {
+        "pair": 2,
+        "games": [
+          {
+            "routeId": "astronaut",
+            "queueId": null,
+            "title": "Astronaut Academy"
+          },
+          {
+            "routeId": "chess",
+            "queueId": null,
+            "title": "Chess Explorers"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "8d8e120fc752f7df65aa48871ecdd78c83af586f",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/astronaut-chess-20261028/README.md",
+        "sourceGates": "docs/qa-evidence/astronaut-chess-20261028/source-gates.json",
+        "productionEvidence": null,
+        "verifiedAt": null,
+        "publicUrl": null,
+        "scope": "Functional criteria passed; no blanket editorial/listening score.",
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": null
+      },
+      {
+        "pair": 3,
+        "games": [
+          {
+            "routeId": "codecadets",
+            "queueId": null,
+            "title": "Code Cadets"
+          },
+          {
+            "routeId": "writingdesk",
+            "queueId": null,
+            "title": "My Writing Desk"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/code-writing-20261028/README.md",
+        "sourceGates": "docs/qa-evidence/code-writing-20261028/source-gates.json",
+        "productionEvidence": null,
+        "verifiedAt": null,
+        "publicUrl": null,
+        "scope": "Twelve coding missions and three writing projects at390/1440, six inspected Word downloads; functional acceptance.",
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": null
+      },
+      {
+        "pair": 4,
+        "games": [
+          {
+            "routeId": "solar",
+            "queueId": null,
+            "title": "Solar System"
+          },
+          {
+            "routeId": "memory",
+            "queueId": null,
+            "title": "Memory Match"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/solar-memory-20261028/README.md",
+        "sourceGates": "docs/qa-evidence/solar-memory-20261028/source-gates.json",
+        "productionEvidence": null,
+        "verifiedAt": "2026-10-28T20:36:21.235988+00:00",
+        "publicUrl": "https://dinospace.netlify.app",
+        "scope": null,
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": null
+      },
+      {
+        "pair": 5,
+        "games": [
+          {
+            "routeId": "rocketbuilder",
+            "queueId": null,
+            "title": "Rocket Builder"
+          },
+          {
+            "routeId": "fuelup",
+            "queueId": null,
+            "title": "Fuel Up"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "6770807d0ad4fc79b8d1fbd305935441189d241d",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/rocket-fuel-20261028/README.md",
+        "sourceGates": "docs/qa-evidence/rocket-fuel-20261028/source-gates.json",
+        "productionEvidence": null,
+        "verifiedAt": "2026-10-28T22:11:53.297254+00:00",
+        "publicUrl": "https://dinospace.netlify.app",
+        "scope": null,
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": null
+      },
+      {
+        "pair": 6,
+        "games": [
+          {
+            "routeId": "firerescue",
+            "queueId": null,
+            "title": "Fire Truck Rescue"
+          },
+          {
+            "routeId": "ladder",
+            "queueId": null,
+            "title": "Ladder Rescue"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980",
+        "queuedCandidateRuntime": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980",
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/rescue-pair-20261028/README.md",
+        "sourceGates": null,
+        "productionEvidence": "docs/qa-evidence/rescue-pair-20261028/production-summary.json",
+        "verifiedAt": "2026-10-29T00:50:57.562064+00:00",
+        "publicUrl": null,
+        "scope": null,
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": null,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 7,
+        "games": [
+          {
+            "routeId": "dino",
+            "queueId": null,
+            "title": "Dino Detective"
+          },
+          {
+            "routeId": "hangman",
+            "queueId": null,
+            "title": "Dino Hangman"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "c2043b79699752727a33b458473557378b382242",
+        "queuedCandidateRuntime": "c2043b79699752727a33b458473557378b382242",
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/dino-pair-20261029/README.md",
+        "sourceGates": "docs/qa-evidence/dino-pair-20261029/source-gates.json",
+        "productionEvidence": "docs/qa-evidence/dino-pair-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T03:45:13.908133+00:00",
+        "publicUrl": null,
+        "scope": "Amari12worlds/Askia5Detectivelevels and4Hangmanmissions; source/build, six compiled and six canonical journeys passed with saved-record/reward retention.",
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 8,
+        "games": [
+          {
+            "routeId": "storybooks",
+            "queueId": null,
+            "title": "Storybook Studio"
+          },
+          {
+            "routeId": "words",
+            "queueId": null,
+            "title": "Spelling Studio"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+        "queuedCandidateRuntime": "c5e58259170045e51415b12c360efa05e60c7a4f",
+        "queuedCandidateEntry": "/assets/arcade-EBto46V3.js",
+        "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
+        "sourceGates": "docs/qa-evidence/books-spelling-20261029/source-gates.json",
+        "productionEvidence": "docs/qa-evidence/books-spelling-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T07:07:16.903177+00:00",
+        "publicUrl": "https://dinospace.netlify.app",
+        "scope": "Targeted functional acceptance for Storybook Studio and Spelling Studio. Historical phone abort retained as unclassified, with exact-source clean targeted recovery on both viewports. No editorial/listening score or historical personal-book recovery.",
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 9,
+        "games": [
+          {
+            "routeId": "chess",
+            "queueId": null,
+            "title": "Chess Explorers — play against the computer"
+          },
+          {
+            "routeId": "dinojigsaw",
+            "queueId": null,
+            "title": "Dino Jigsaw"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+        "queuedCandidateRuntime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef",
+        "queuedCandidateEntry": "/assets/arcade-Bj2sEAsW.js",
+        "evidence": "docs/qa-evidence/chess-jigsaw-20261029/README.md",
+        "sourceGates": "docs/qa-evidence/chess-jigsaw-20261029/source-gates.json",
+        "productionEvidence": "docs/qa-evidence/chess-jigsaw-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T09:17:33.399389+00:00",
+        "publicUrl": null,
+        "scope": "Targeted full Chess/Jigsaw functional acceptance. No whole-catalogue editorial score, human audio quality score, physical-device certification or personal-book recovery.",
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 10,
+        "games": [
+          {
+            "routeId": "worldmap",
+            "queueId": null,
+            "title": "Curriculum Quest"
+          },
+          {
+            "routeId": "german",
+            "queueId": null,
+            "title": "German Garage"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "e322549af753147d471d646ac32de645d709c356",
+        "queuedCandidateRuntime": "e322549af753147d471d646ac32de645d709c356",
+        "queuedCandidateEntry": "/assets/arcade-mei6ziro.js",
+        "evidence": "docs/qa-evidence/curriculum-german-20261029/README.md",
+        "sourceGates": "docs/qa-evidence/curriculum-german-20261029/source-gates.json",
+        "productionEvidence": "docs/qa-evidence/curriculum-german-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T11:41:32.596668+00:00",
+        "publicUrl": null,
+        "scope": "Targeted Pair10 functional acceptance. Normal Amari catalogue routes; no hidden Askia route, reset, provider call or historical family-book recovery. Editorial/listening scores are unchanged.",
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 11,
+        "games": [
+          {
+            "routeId": "letters",
+            "queueId": null,
+            "title": "Letter Launch"
+          },
+          {
+            "routeId": "factfinder",
+            "queueId": "learning-wiki",
+            "title": "Fact Finder"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
+        "sourceGates": null,
+        "productionEvidence": "docs/qa-evidence/letters-factfinder-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T13:07:26.066455+00:00",
+        "publicUrl": null,
+        "scope": null,
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": null,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 12,
+        "games": [
+          {
+            "routeId": "trace",
+            "queueId": null,
+            "title": "Letter Trace"
+          },
+          {
+            "routeId": "tictactoe",
+            "queueId": null,
+            "title": "Cosmic Tic-Tac-Toe"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+        "sourceGates": "docs/qa-evidence/trace-cosmic-fit-20261029/source-gates.json",
+        "productionEvidence": null,
+        "verifiedAt": "2026-10-29T13:56:04.265390+00:00",
+        "publicUrl": null,
+        "scope": null,
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": null
+      },
+      {
+        "pair": 13,
+        "games": [
+          {
+            "routeId": "puzzle",
+            "queueId": null,
+            "title": "Puzzle Pop"
+          },
+          {
+            "routeId": "spot",
+            "queueId": null,
+            "title": "Spot the Difference"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+        "sourceGates": null,
+        "productionEvidence": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T15:59:02.117262+00:00",
+        "publicUrl": null,
+        "scope": null,
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": null,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 14,
+        "games": [
+          {
+            "routeId": "jet",
+            "queueId": null,
+            "title": "Sky Shapes"
+          },
+          {
+            "routeId": "math",
+            "queueId": null,
+            "title": "Monster Math"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+        "sourceGates": null,
+        "productionEvidence": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T17:38:51.839955+00:00",
+        "publicUrl": null,
+        "scope": null,
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": null,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 15,
+        "games": [
+          {
+            "routeId": "counting",
+            "queueId": null,
+            "title": "Count the Stars"
+          },
+          {
+            "routeId": "addition",
+            "queueId": null,
+            "title": "Addition Adventure"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/count-add-save-20261029/README.md",
+        "sourceGates": null,
+        "productionEvidence": "docs/qa-evidence/count-add-save-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T18:24:25.947138+00:00",
+        "publicUrl": null,
+        "scope": null,
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": null,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 16,
+        "games": [
+          {
+            "routeId": "subtraction",
+            "queueId": null,
+            "title": "Subtraction Station"
+          },
+          {
+            "routeId": "numberline",
+            "queueId": null,
+            "title": "Number Line Jump"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
+        "sourceGates": "docs/qa-evidence/subtract-numberline-save-20261029/source-gates.json",
+        "productionEvidence": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T19:07:09.834444+00:00",
+        "publicUrl": null,
+        "scope": null,
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": true
+      },
+      {
+        "pair": 17,
+        "games": [
+          {
+            "routeId": "timeteller",
+            "queueId": null,
+            "title": "Time Teller"
+          },
+          {
+            "routeId": "phonics",
+            "queueId": null,
+            "title": "Sound Safari"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+        "sourceGates": "docs/qa-evidence/time-safari-save-20261029/source-gates.json",
+        "productionEvidence": null,
+        "verifiedAt": null,
+        "publicUrl": null,
+        "scope": "Four72row native/canonical current-layout rehearsals; no new editorial score.",
+        "openGate": null,
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": null
+      },
+      {
+        "pair": 18,
+        "games": [
+          {
+            "routeId": "colormix",
+            "queueId": null,
+            "title": "Colour Mixing Lab"
+          },
+          {
+            "routeId": "shadowmatch",
+            "queueId": null,
+            "title": "Shadow Match"
+          }
+        ],
+        "queueStatus": "live_verified",
+        "acceptedRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+        "queuedCandidateRuntime": null,
+        "queuedCandidateEntry": null,
+        "evidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+        "sourceGates": "docs/qa-evidence/colour-shadow-save-20261029/source-gates.json",
+        "productionEvidence": "docs/qa-evidence/colour-shadow-save-20261029/production-summary.json",
+        "verifiedAt": "2026-10-29T21:11:51.066760+00:00",
+        "publicUrl": "https://dinospace.netlify.app",
+        "scope": "Four full103-row native/canonical phone/desktop journeys, per-child strict saves and reward-fault recovery, capped replay, actual touch cancel/drag and held-fact departure, plus117-record/all-IDB14-media cached-tab refresh retention. Colour positive browser reward faults remain unexercised on existing completed profiles; no seeded eligibility. Final whole-catalogue integration is separate.",
+        "openGate": null,
+        "finalBinding": "Bound to all four full103-row reports, two touch checks, live identity and cached-tab retention.",
+        "evidenceExists": true,
+        "sourceGatesExists": true,
+        "productionEvidenceExists": true
+      }
+    ],
+    "uniqueNormalizedAmariIds": 35,
+    "matchesCurrentAmariRoutes": true,
+    "missingRouteIds": [],
+    "extraPairIds": [],
+    "learningWikiNormalization": {
+      "queueId": "learning-wiki",
+      "normalizedRouteId": "factfinder",
+      "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md"
+    }
+  },
+  "catalogueScope": {
+    "amari": {
+      "routeCount": 35,
+      "uniqueRouteIds": 35,
+      "worldCount": 5,
+      "routes": [
+        {
+          "worldId": "read-write",
+          "world": "Read & Write",
+          "routeId": "letters",
+          "title": "Letter Launch",
+          "pairReferences": [
+            {
+              "pair": 11,
+              "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
+              "runtime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "read-write",
+          "world": "Read & Write",
+          "routeId": "phonics",
+          "title": "Sound Safari",
+          "pairReferences": [
+            {
+              "pair": 17,
+              "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+              "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "read-write",
+          "world": "Read & Write",
+          "routeId": "words",
+          "title": "Spelling Studio",
+          "pairReferences": [
+            {
+              "pair": 8,
+              "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
+              "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "read-write",
+          "world": "Read & Write",
+          "routeId": "trace",
+          "title": "Letter Trace",
+          "pairReferences": [
+            {
+              "pair": 12,
+              "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+              "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "read-write",
+          "world": "Read & Write",
+          "routeId": "hangman",
+          "title": "Dino Hangman",
+          "pairReferences": [
+            {
+              "pair": 7,
+              "evidence": "docs/qa-evidence/dino-pair-20261029/README.md",
+              "runtime": "c2043b79699752727a33b458473557378b382242"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "read-write",
+          "world": "Read & Write",
+          "routeId": "storybooks",
+          "title": "Storybook Studio",
+          "pairReferences": [
+            {
+              "pair": 8,
+              "evidence": "docs/qa-evidence/books-spelling-20261029/README.md",
+              "runtime": "c5e58259170045e51415b12c360efa05e60c7a4f"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "maths",
+          "world": "Maths Missions",
+          "routeId": "counting",
+          "title": "Count the Stars",
+          "pairReferences": [
+            {
+              "pair": 15,
+              "evidence": "docs/qa-evidence/count-add-save-20261029/README.md",
+              "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "maths",
+          "world": "Maths Missions",
+          "routeId": "fuelup",
+          "title": "Fuel Up",
+          "pairReferences": [
+            {
+              "pair": 5,
+              "evidence": "docs/qa-evidence/rocket-fuel-20261028/README.md",
+              "runtime": "6770807d0ad4fc79b8d1fbd305935441189d241d"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "maths",
+          "world": "Maths Missions",
+          "routeId": "firerescue",
+          "title": "Fire Truck Rescue",
+          "pairReferences": [
+            {
+              "pair": 6,
+              "evidence": "docs/qa-evidence/rescue-pair-20261028/README.md",
+              "runtime": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "maths",
+          "world": "Maths Missions",
+          "routeId": "addition",
+          "title": "Addition Adventure",
+          "pairReferences": [
+            {
+              "pair": 15,
+              "evidence": "docs/qa-evidence/count-add-save-20261029/README.md",
+              "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "maths",
+          "world": "Maths Missions",
+          "routeId": "subtraction",
+          "title": "Subtraction Station",
+          "pairReferences": [
+            {
+              "pair": 16,
+              "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
+              "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "maths",
+          "world": "Maths Missions",
+          "routeId": "math",
+          "title": "Monster Math",
+          "pairReferences": [
+            {
+              "pair": 14,
+              "evidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+              "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "maths",
+          "world": "Maths Missions",
+          "routeId": "numberline",
+          "title": "Number Line Jump",
+          "pairReferences": [
+            {
+              "pair": 16,
+              "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
+              "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "maths",
+          "world": "Maths Missions",
+          "routeId": "timeteller",
+          "title": "Time Teller",
+          "pairReferences": [
+            {
+              "pair": 17,
+              "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+              "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "explore",
+          "world": "Explore & Languages",
+          "routeId": "solar",
+          "title": "Solar System",
+          "pairReferences": [
+            {
+              "pair": 4,
+              "evidence": "docs/qa-evidence/solar-memory-20261028/README.md",
+              "runtime": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "explore",
+          "world": "Explore & Languages",
+          "routeId": "astronaut",
+          "title": "Astronaut Academy",
+          "pairReferences": [
+            {
+              "pair": 2,
+              "evidence": "docs/qa-evidence/astronaut-chess-20261028/README.md",
+              "runtime": "8d8e120fc752f7df65aa48871ecdd78c83af586f"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "explore",
+          "world": "Explore & Languages",
+          "routeId": "dino",
+          "title": "Dino Detective",
+          "pairReferences": [
+            {
+              "pair": 7,
+              "evidence": "docs/qa-evidence/dino-pair-20261029/README.md",
+              "runtime": "c2043b79699752727a33b458473557378b382242"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "explore",
+          "world": "Explore & Languages",
+          "routeId": "german",
+          "title": "German Garage",
+          "pairReferences": [
+            {
+              "pair": 10,
+              "evidence": "docs/qa-evidence/curriculum-german-20261029/README.md",
+              "runtime": "e322549af753147d471d646ac32de645d709c356"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "explore",
+          "world": "Explore & Languages",
+          "routeId": "worldmap",
+          "title": "Curriculum Quest",
+          "pairReferences": [
+            {
+              "pair": 10,
+              "evidence": "docs/qa-evidence/curriculum-german-20261029/README.md",
+              "runtime": "e322549af753147d471d646ac32de645d709c356"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "explore",
+          "world": "Explore & Languages",
+          "routeId": "factfinder",
+          "title": "Fact Finder",
+          "pairReferences": [
+            {
+              "pair": 11,
+              "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
+              "runtime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "creative",
+          "world": "Creative Lab",
+          "routeId": "codecadets",
+          "title": "Code Cadets",
+          "pairReferences": [
+            {
+              "pair": 3,
+              "evidence": "docs/qa-evidence/code-writing-20261028/README.md",
+              "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "creative",
+          "world": "Creative Lab",
+          "routeId": "writingdesk",
+          "title": "My Writing Desk",
+          "pairReferences": [
+            {
+              "pair": 3,
+              "evidence": "docs/qa-evidence/code-writing-20261028/README.md",
+              "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "creative",
+          "world": "Creative Lab",
+          "routeId": "rocketbuilder",
+          "title": "Rocket Builder",
+          "pairReferences": [
+            {
+              "pair": 5,
+              "evidence": "docs/qa-evidence/rocket-fuel-20261028/README.md",
+              "runtime": "6770807d0ad4fc79b8d1fbd305935441189d241d"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "creative",
+          "world": "Creative Lab",
+          "routeId": "dinojigsaw",
+          "title": "Dino Jigsaw",
+          "pairReferences": [
+            {
+              "pair": 9,
+              "evidence": "docs/qa-evidence/chess-jigsaw-20261029/README.md",
+              "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "creative",
+          "world": "Creative Lab",
+          "routeId": "jet",
+          "title": "Sky Shapes",
+          "pairReferences": [
+            {
+              "pair": 14,
+              "evidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+              "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "creative",
+          "world": "Creative Lab",
+          "routeId": "colormix",
+          "title": "Colour Mixing Lab",
+          "pairReferences": [
+            {
+              "pair": 18,
+              "evidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+              "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "creative",
+          "world": "Creative Lab",
+          "routeId": "puzzle",
+          "title": "Puzzle Pop",
+          "pairReferences": [
+            {
+              "pair": 13,
+              "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+              "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinking",
+          "world": "Thinking & Play",
+          "routeId": "memory",
+          "title": "Memory Match",
+          "pairReferences": [
+            {
+              "pair": 4,
+              "evidence": "docs/qa-evidence/solar-memory-20261028/README.md",
+              "runtime": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinking",
+          "world": "Thinking & Play",
+          "routeId": "shadowmatch",
+          "title": "Shadow Match",
+          "pairReferences": [
+            {
+              "pair": 18,
+              "evidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+              "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinking",
+          "world": "Thinking & Play",
+          "routeId": "ladder",
+          "title": "Ladder Rescue",
+          "pairReferences": [
+            {
+              "pair": 6,
+              "evidence": "docs/qa-evidence/rescue-pair-20261028/README.md",
+              "runtime": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinking",
+          "world": "Thinking & Play",
+          "routeId": "pattern",
+          "title": "Pattern Parade",
+          "pairReferences": [
+            {
+              "pair": 1,
+              "evidence": "docs/qa-evidence/odd-pattern-20261027/README.md",
+              "runtime": "7846073946f39ec3e9884c20f9bc7a04859053ca"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinking",
+          "world": "Thinking & Play",
+          "routeId": "oddoneout",
+          "title": "Odd One Out",
+          "pairReferences": [
+            {
+              "pair": 1,
+              "evidence": "docs/qa-evidence/odd-pattern-20261027/README.md",
+              "runtime": "7846073946f39ec3e9884c20f9bc7a04859053ca"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinking",
+          "world": "Thinking & Play",
+          "routeId": "chess",
+          "title": "Chess Explorers",
+          "pairReferences": [
+            {
+              "pair": 2,
+              "evidence": "docs/qa-evidence/astronaut-chess-20261028/README.md",
+              "runtime": "8d8e120fc752f7df65aa48871ecdd78c83af586f"
+            },
+            {
+              "pair": 9,
+              "evidence": "docs/qa-evidence/chess-jigsaw-20261029/README.md",
+              "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinking",
+          "world": "Thinking & Play",
+          "routeId": "spot",
+          "title": "Spot the Difference",
+          "pairReferences": [
+            {
+              "pair": 13,
+              "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+              "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinking",
+          "world": "Thinking & Play",
+          "routeId": "tictactoe",
+          "title": "Cosmic Tic-Tac-Toe",
+          "pairReferences": [
+            {
+              "pair": 12,
+              "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+              "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+              },
+              {
+                "stage": "native",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "390x740",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+              },
+              {
+                "stage": "production",
+                "player": "amari",
+                "viewport": "1440x844",
+                "rows": 35,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        }
+      ]
+    },
+    "askia": {
+      "routeCount": 10,
+      "uniqueRouteIds": 10,
+      "worldCount": 4,
+      "routes": [
+        {
+          "worldId": "dino",
+          "world": "Dino World",
+          "routeId": "dinojigsaw",
+          "title": "Dino Jigsaw",
+          "pairReferences": [
+            {
+              "pair": 9,
+              "evidence": "docs/qa-evidence/chess-jigsaw-20261029/README.md",
+              "runtime": "f23cdf260b3e97af0713025cf23ce9cfe68f2bef"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "dino",
+          "world": "Dino World",
+          "routeId": "shadowmatch",
+          "title": "Shadow Match",
+          "pairReferences": [
+            {
+              "pair": 18,
+              "evidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+              "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "dino",
+          "world": "Dino World",
+          "routeId": "dino",
+          "title": "Dino Detective",
+          "pairReferences": [
+            {
+              "pair": 7,
+              "evidence": "docs/qa-evidence/dino-pair-20261029/README.md",
+              "runtime": "c2043b79699752727a33b458473557378b382242"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "rocket",
+          "world": "Rocket World",
+          "routeId": "rocketbuilder",
+          "title": "Rocket Builder",
+          "pairReferences": [
+            {
+              "pair": 5,
+              "evidence": "docs/qa-evidence/rocket-fuel-20261028/README.md",
+              "runtime": "6770807d0ad4fc79b8d1fbd305935441189d241d"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "rocket",
+          "world": "Rocket World",
+          "routeId": "fuelup",
+          "title": "Fuel Up",
+          "pairReferences": [
+            {
+              "pair": 5,
+              "evidence": "docs/qa-evidence/rocket-fuel-20261028/README.md",
+              "runtime": "6770807d0ad4fc79b8d1fbd305935441189d241d"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "rocket",
+          "world": "Rocket World",
+          "routeId": "counting",
+          "title": "Count the Stars",
+          "pairReferences": [
+            {
+              "pair": 15,
+              "evidence": "docs/qa-evidence/count-add-save-20261029/README.md",
+              "runtime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "rescue",
+          "world": "Rescue World",
+          "routeId": "firerescue",
+          "title": "Fire Truck Rescue",
+          "pairReferences": [
+            {
+              "pair": 6,
+              "evidence": "docs/qa-evidence/rescue-pair-20261028/README.md",
+              "runtime": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "rescue",
+          "world": "Rescue World",
+          "routeId": "ladder",
+          "title": "Ladder Rescue",
+          "pairReferences": [
+            {
+              "pair": 6,
+              "evidence": "docs/qa-evidence/rescue-pair-20261028/README.md",
+              "runtime": "364d9bd4dd439bbb3fa3650a94d1b7b02a8d6980"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinkers",
+          "world": "Little Thinkers",
+          "routeId": "memory",
+          "title": "Memory Match",
+          "pairReferences": [
+            {
+              "pair": 4,
+              "evidence": "docs/qa-evidence/solar-memory-20261028/README.md",
+              "runtime": "9bcbe7db1abf2db3f77a0b67c1d477a1d3199bfa"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        },
+        {
+          "worldId": "thinkers",
+          "world": "Little Thinkers",
+          "routeId": "pattern",
+          "title": "Pattern Parade",
+          "pairReferences": [
+            {
+              "pair": 1,
+              "evidence": "docs/qa-evidence/odd-pattern-20261027/README.md",
+              "runtime": "7846073946f39ec3e9884c20f9bc7a04859053ca"
+            }
+          ],
+          "finalNative": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+              },
+              {
+                "stage": "native",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          },
+          "finalProduction": {
+            "passed": true,
+            "cases": [
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "390x740",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+              },
+              {
+                "stage": "production",
+                "player": "askia",
+                "viewport": "1440x844",
+                "rows": 10,
+                "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+                "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+                "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+              }
+            ],
+            "scope": "Entry/art/parent/reward-isolation only"
+          }
+        }
+      ],
+      "upgradedPair1to11Intersection": 8,
+      "retainedRouteIds": [
+        "counting",
+        "shadowmatch"
+      ]
+    }
+  },
+  "retainedLaneSmoke": {
+    "description": "Fourteen representative actual-control samples at two viewports on compiled preview and canonical production. Earlier complete per-title matrices remain authoritative for full content. No reset, seeded rewards, paid calls, human listening certification or physical-device claim.",
+    "protocol": "docs/game-delivery-20261027/final-integration-protocol.md",
+    "status": "passed",
+    "lanes": [
+      {
+        "routeId": "trace",
+        "title": "Letter Trace",
+        "priorFunctionalStatus": "current release full layout integration passed at both viewports",
+        "priorFunctionalEvidence": "docs/qa-evidence/trace-tactics-20261025/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+        "latestFunctionalRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3"
+      },
+      {
+        "routeId": "tictactoe",
+        "title": "Cosmic Tic-Tac-Toe",
+        "priorFunctionalStatus": "current release full layout integration passed at both viewports",
+        "priorFunctionalEvidence": "docs/qa-evidence/trace-tactics-20261025/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+        "latestFunctionalRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3"
+      },
+      {
+        "routeId": "puzzle",
+        "title": "Puzzle Pop",
+        "priorFunctionalStatus": "Full current-layout native/canonical integration and strict-save faults passed at both viewports",
+        "priorFunctionalEvidence": "docs/qa-evidence/batch2-uplift-20261022/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+        "latestFunctionalRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4"
+      },
+      {
+        "routeId": "spot",
+        "title": "Spot the Difference",
+        "priorFunctionalStatus": "Full current-layout native/canonical integration and strict-save faults passed at both viewports",
+        "priorFunctionalEvidence": "docs/qa-evidence/batch2-uplift-20261022/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+        "latestFunctionalRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4"
+      },
+      {
+        "routeId": "jet",
+        "title": "Sky Shapes",
+        "priorFunctionalStatus": "Full native/canonical mechanics and strict-save/reward recovery passed at both viewports",
+        "priorFunctionalEvidence": "docs/qa-evidence/batch2-uplift-20261022/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+        "latestFunctionalRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab"
+      },
+      {
+        "routeId": "math",
+        "title": "Monster Math",
+        "priorFunctionalStatus": "Full native/canonical mechanics and strict-save/reward recovery passed at both viewports",
+        "priorFunctionalEvidence": "docs/qa-evidence/batch2-uplift-20261022/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+        "latestFunctionalRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab"
+      },
+      {
+        "routeId": "counting",
+        "title": "Count the Stars",
+        "priorFunctionalStatus": "Fullnative/canonicalmechanicsandstrict-save/rewardrecoverypassedatbothviewports",
+        "priorFunctionalEvidence": "docs/qa-evidence/three-maths-20261023/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/count-add-save-20261029/README.md",
+        "latestFunctionalRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d"
+      },
+      {
+        "routeId": "addition",
+        "title": "Addition Adventure",
+        "priorFunctionalStatus": "Fullnative/canonicalmechanicsandstrict-save/rewardrecoverypassedatbothviewports",
+        "priorFunctionalEvidence": "docs/qa-evidence/three-maths-20261023/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/count-add-save-20261029/README.md",
+        "latestFunctionalRuntime": "902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d"
+      },
+      {
+        "routeId": "subtraction",
+        "title": "Subtraction Station",
+        "priorFunctionalStatus": "Full current-layout native/canonical mechanics and save/reward recovery passed at both viewports within recorded eligibility",
+        "priorFunctionalEvidence": "docs/qa-evidence/three-maths-20261023/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
+        "latestFunctionalRuntime": "4d21a25b61f3208ed0114c75b12de414235c5161"
+      },
+      {
+        "routeId": "numberline",
+        "title": "Number Line Jump",
+        "priorFunctionalStatus": "Full current-layout native/canonical mechanics and save/reward recovery passed at both viewports within recorded eligibility",
+        "priorFunctionalEvidence": "docs/qa-evidence/time-numberline-20261024/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
+        "latestFunctionalRuntime": "4d21a25b61f3208ed0114c75b12de414235c5161"
+      },
+      {
+        "routeId": "timeteller",
+        "title": "Time Teller",
+        "priorFunctionalStatus": "Full current-layout native/canonical mechanics and save/reward recovery passed at both viewports within recorded eligibility",
+        "priorFunctionalEvidence": "docs/qa-evidence/time-numberline-20261024/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+        "latestFunctionalRuntime": "2df5b70766ae51d6b01c38e959e7391e17de259f"
+      },
+      {
+        "routeId": "phonics",
+        "title": "Sound Safari",
+        "priorFunctionalStatus": "Full current-layout native/canonical mechanics and save/reward recovery passed at both viewports within recorded eligibility",
+        "priorFunctionalEvidence": "docs/qa-evidence/safari-colour-20261025/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+        "latestFunctionalRuntime": "2df5b70766ae51d6b01c38e959e7391e17de259f"
+      },
+      {
+        "routeId": "colormix",
+        "title": "Colour Mixing Lab",
+        "priorFunctionalStatus": "existing source-bound functional release retained; final integration regression required",
+        "priorFunctionalEvidence": "docs/qa-evidence/safari-colour-20261025/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+        "latestFunctionalRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4"
+      },
+      {
+        "routeId": "shadowmatch",
+        "title": "Shadow Match",
+        "priorFunctionalStatus": "existing source-bound functional release retained; final integration regression required",
+        "priorFunctionalEvidence": "docs/qa-evidence/shadow-progression-20261023/README.md",
+        "priorEvidenceExists": true,
+        "finalIntegrationSmoke": "passed",
+        "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+        "latestFunctionalEvidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+        "latestFunctionalRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4"
+      }
+    ],
+    "evidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json",
+    "samples": 56,
+    "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4"
+  },
+  "knownUnresolved": {
+    "historicalPersonalStories": {
+      "reportedCountRange": "8–9",
+      "status": "unlocated; recovery not established",
+      "evidenceBoundary": "Fact Finder acceptance does not prove recovery of personal story text, narration, illustrations, or original library records."
+    }
+  },
+  "claimsBoundary": {
+    "routeSmokeIsGameplayAcceptance": false,
+    "editorialScore": null,
+    "humanListeningClaims": "No new listening certification; prior human-approved SATPIN trial remains separately documented.",
+    "physicalDeviceClaims": "Not made; viewport/browser evidence is not physical-device certification.",
+    "scores": "No new blanket or historical editorial scores are assigned."
+  },
+  "validation": {
+    "amariRouteCountMatchesPairCoverage": true,
+    "pairCoverageCount": 35,
+    "amariCatalogueCount": 35,
+    "askiaCatalogueCount": 10,
+    "allEvidenceReferenceChecksIncluded": true,
+    "all18PairsLiveVerified": true,
+    "all180CatalogueEntryReturnsPassed": true,
+    "all56RetainedActualControlSamplesPassed": true,
+    "currentChess12InputStepsPassed": true
+  },
+  "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "entry": "/assets/arcade-DbnxyNUQ.js",
+  "publicUrl": "https://dinospace.netlify.app",
+  "updatedAt": "2026-10-29T21:46:50.701596+00:00",
+  "catalogueCoverageEvidence": "docs/qa-evidence/catalogue-entry-smoke-20261029/final-coverage-summary.json",
+  "chessInputEvidence": "docs/qa-evidence/chess-input-20261029/current-56-recheck.json"
+}

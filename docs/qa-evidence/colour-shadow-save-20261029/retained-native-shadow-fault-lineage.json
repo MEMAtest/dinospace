@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-29T20:47:42.807398+00:00",
+  "sourceReport": "native-colour-shadow-390x740-arcade-SD47kOta-20261029T204528-070710000.json",
+  "sourceReportSHA256": "fdad42fd065630290ab4a9af188e2fefe6ca9b39f6340510255ff53b25bad54b",
+  "runtime": "9a45aef4782ed8f84b6d1c3c54271706e5db97d7",
+  "entry": "/assets/arcade-SD47kOta.js",
+  "fullReportPassed": false,
+  "laterFailure": "Amari parent world after Shadow Match not visible in 2500ms",
+  "scope": "Retained actual Amari29row gameplay/reward-fault scope only. Fourfaults fired; same heldresult recovered; laterpendingreceipt reloadpaid8once. Fullcombined report failed onQAparent-route expectation, not a passedpair report. Latercomplete103rowfinal report independentlychecksnormalparent/isolation.",
+  "faultCases": {
+    "shadowCompletionChain": [
+      {
+        "restored": true,
+        "fired": true,
+        "didSet": false,
+        "mode": "write",
+        "key": "amari_little_progress"
+      },
+      {
+        "restored": true,
+        "fired": true,
+        "didSet": true,
+        "mode": "readback",
+        "key": "amari_little_progress"
+      },
+      {
+        "restored": true,
+        "fired": true,
+        "didSet": false,
+        "mode": "write",
+        "key": "amari_rewards_v2"
+      },
+      {
+        "restored": true,
+        "fired": true,
+        "didSet": true,
+        "mode": "readback",
+        "key": "amari_rewards_v2"
+      }
+    ],
+    "shadowPendingReload": {
+      "id": "shadowmatch:level-4:best-3",
+      "points": 8,
+      "claimed": true
+    }
+  },
+  "levelRewardConfirmations": [
+    {
+      "expectedDelta": 8,
+      "actualDelta": 8,
+      "allReceiptsConfirmed": true
+    },
+    {
+      "expectedDelta": 8,
+      "actualDelta": 8,
+      "allReceiptsConfirmed": true
+    },
+    {
+      "expectedDelta": 0,
+      "actualDelta": 0,
+      "allReceiptsConfirmed": true
+    }
+  ],
+  "noReset": true
+}

@@ -1,0 +1,401 @@
+{
+  "passed": true,
+  "at": "2026-10-29T21:08:39.636772+00:00",
+  "stage": "canonical-production",
+  "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "entry": "/assets/arcade-DbnxyNUQ.js",
+  "worker": "amari-discovery-v56",
+  "publicUrl": "https://dinospace.netlify.app",
+  "backend": {
+    "id": "dpl_F7dgv95pWuMm5KiuP74FACfW1b6Y",
+    "url": "dinospace-2fm3y9pei-memas-projects-23a0001d.vercel.app",
+    "readyState": "READY",
+    "projectId": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w",
+    "target": "production",
+    "runtimeSource": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4"
+  },
+  "gateway": {
+    "siteId": "c9dcd11b-4029-44c0-910d-d40a13339eb8",
+    "url": "https://dinospace.netlify.app",
+    "publishedDeploy": {
+      "id": "6ae3b4ed8c6a1eb24f737349",
+      "state": "ready",
+      "published_at": "2026-10-29T21:04:46.337Z",
+      "deploy_url": "http://6ae3b4ed8c6a1eb24f737349--dinospace.netlify.app"
+    },
+    "stopLegacyBuilds": true
+  },
+  "totalActualRows": 412,
+  "cases": [
+    {
+      "report": "native-colour-shadow-390x740-arcade-DbnxyNUQ-20261029T205255-842006000.json",
+      "sha256": "a3552324077e314c51bd51f8eab6b8f55046de50e047e5b93a07938b22fbd118",
+      "stage": "native",
+      "viewport": "390x740",
+      "rows": 103,
+      "counts": {
+        "colour": 36,
+        "shadow": 67
+      },
+      "actors": {
+        "colour": {
+          "parentBefore": 490,
+          "parentAfter": 490,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        },
+        "shadowAskia": {
+          "parentBefore": 288,
+          "parentAfter": 288,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        },
+        "shadowAmari": {
+          "parentBefore": 490,
+          "parentAfter": 490,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        }
+      },
+      "controlAudit": {
+        "checked": 967,
+        "minimumWidth": 55.5,
+        "minimumHeight": 48,
+        "allCenterHits": true,
+        "allInsideViewport": true
+      },
+      "faultCases": {},
+      "eligibility": {
+        "colourPositiveBrowserFaultsUnexercised": true
+      },
+      "speciesObserved": [
+        "Allosaurus",
+        "Ankylosaurus",
+        "Brachiosaurus",
+        "Carnotaurus",
+        "Corythosaurus",
+        "Dilophosaurus",
+        "Parasaurolophus",
+        "Pterodactyl",
+        "Spinosaurus",
+        "Stegosaurus",
+        "T-rex",
+        "Triceratops"
+      ],
+      "faultRehearsals": []
+    },
+    {
+      "report": "native-colour-shadow-1440x844-arcade-DbnxyNUQ-20261029T205211-718592000.json",
+      "sha256": "47b229f3e8b280b1a80c4a4a0a8fe05ae7d4b63d917e9463314a2b0bb72da952",
+      "stage": "native",
+      "viewport": "1440x844",
+      "rows": 103,
+      "counts": {
+        "colour": 36,
+        "shadow": 67
+      },
+      "actors": {
+        "colour": {
+          "parentBefore": 490,
+          "parentAfter": 490,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        },
+        "shadowAskia": {
+          "parentBefore": 288,
+          "parentAfter": 288,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        },
+        "shadowAmari": {
+          "parentBefore": 490,
+          "parentAfter": 490,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        }
+      },
+      "controlAudit": {
+        "checked": 967,
+        "minimumWidth": 56,
+        "minimumHeight": 48,
+        "allCenterHits": true,
+        "allInsideViewport": true
+      },
+      "faultCases": {},
+      "eligibility": {
+        "colourPositiveBrowserFaultsUnexercised": false
+      },
+      "speciesObserved": [
+        "Allosaurus",
+        "Ankylosaurus",
+        "Brachiosaurus",
+        "Carnotaurus",
+        "Corythosaurus",
+        "Dilophosaurus",
+        "Parasaurolophus",
+        "Pterodactyl",
+        "Spinosaurus",
+        "Stegosaurus",
+        "T-rex",
+        "Triceratops"
+      ],
+      "faultRehearsals": []
+    },
+    {
+      "report": "production-colour-shadow-390x740-arcade-DbnxyNUQ-20261029T210601-817921000.json",
+      "sha256": "522f5b9f3c7fc78c90d6bd70a48c4718dc41a684baeafc5f4e4d4dbbf17729cb",
+      "stage": "production",
+      "viewport": "390x740",
+      "rows": 103,
+      "counts": {
+        "colour": 36,
+        "shadow": 67
+      },
+      "actors": {
+        "colour": {
+          "parentBefore": 467,
+          "parentAfter": 467,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        },
+        "shadowAskia": {
+          "parentBefore": 246,
+          "parentAfter": 286,
+          "delta": 40,
+          "unexpectedStorageChanges": []
+        },
+        "shadowAmari": {
+          "parentBefore": 467,
+          "parentAfter": 491,
+          "delta": 24,
+          "unexpectedStorageChanges": []
+        }
+      },
+      "controlAudit": {
+        "checked": 967,
+        "minimumWidth": 55.5,
+        "minimumHeight": 48,
+        "allCenterHits": true,
+        "allInsideViewport": true
+      },
+      "faultCases": {
+        "shadowCompletionChain": [
+          {
+            "restored": true,
+            "fired": true,
+            "didSet": false,
+            "mode": "write",
+            "key": "amari_little_progress"
+          },
+          {
+            "restored": true,
+            "fired": true,
+            "didSet": true,
+            "mode": "readback",
+            "key": "amari_little_progress"
+          },
+          {
+            "restored": true,
+            "fired": true,
+            "didSet": false,
+            "mode": "write",
+            "key": "amari_rewards_v2"
+          },
+          {
+            "restored": true,
+            "fired": true,
+            "didSet": true,
+            "mode": "readback",
+            "key": "amari_rewards_v2"
+          }
+        ],
+        "shadowPendingReload": {
+          "id": "shadowmatch:level-4:best-3",
+          "points": 8,
+          "claimed": true
+        }
+      },
+      "eligibility": {
+        "colourPositiveBrowserFaultsUnexercised": true
+      },
+      "speciesObserved": [
+        "Allosaurus",
+        "Ankylosaurus",
+        "Brachiosaurus",
+        "Carnotaurus",
+        "Corythosaurus",
+        "Dilophosaurus",
+        "Parasaurolophus",
+        "Pterodactyl",
+        "Spinosaurus",
+        "Stegosaurus",
+        "T-rex",
+        "Triceratops"
+      ],
+      "faultRehearsals": [
+        {
+          "player": "askia",
+          "level": 1,
+          "faultRecovery": [
+            {
+              "restored": true,
+              "fired": true,
+              "didSet": false,
+              "mode": "write",
+              "key": "askia_little_progress"
+            },
+            {
+              "restored": true,
+              "fired": true,
+              "didSet": true,
+              "mode": "readback",
+              "key": "askia_little_progress"
+            },
+            {
+              "restored": true,
+              "fired": true,
+              "didSet": false,
+              "mode": "write",
+              "key": "askia_rewards_v2"
+            },
+            {
+              "restored": true,
+              "fired": true,
+              "didSet": true,
+              "mode": "readback",
+              "key": "askia_rewards_v2"
+            }
+          ]
+        },
+        {
+          "player": "askia",
+          "level": 2,
+          "pendingReloadRecovery": {
+            "id": "shadowmatch:level-2:best-3",
+            "points": 8,
+            "claimed": true
+          }
+        },
+        {
+          "player": "amari",
+          "level": 3,
+          "faultRecovery": [
+            {
+              "restored": true,
+              "fired": true,
+              "didSet": false,
+              "mode": "write",
+              "key": "amari_little_progress"
+            },
+            {
+              "restored": true,
+              "fired": true,
+              "didSet": true,
+              "mode": "readback",
+              "key": "amari_little_progress"
+            },
+            {
+              "restored": true,
+              "fired": true,
+              "didSet": false,
+              "mode": "write",
+              "key": "amari_rewards_v2"
+            },
+            {
+              "restored": true,
+              "fired": true,
+              "didSet": true,
+              "mode": "readback",
+              "key": "amari_rewards_v2"
+            }
+          ]
+        },
+        {
+          "player": "amari",
+          "level": 4,
+          "pendingReloadRecovery": {
+            "id": "shadowmatch:level-4:best-3",
+            "points": 8,
+            "claimed": true
+          }
+        }
+      ]
+    },
+    {
+      "report": "production-colour-shadow-1440x844-arcade-DbnxyNUQ-20261029T210659-527946000.json",
+      "sha256": "0922c82bb352c78a226a772eeed5910d5f61c76fa06c4c50674934ad836e6cae",
+      "stage": "production",
+      "viewport": "1440x844",
+      "rows": 103,
+      "counts": {
+        "colour": 36,
+        "shadow": 67
+      },
+      "actors": {
+        "colour": {
+          "parentBefore": 491,
+          "parentAfter": 491,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        },
+        "shadowAskia": {
+          "parentBefore": 286,
+          "parentAfter": 286,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        },
+        "shadowAmari": {
+          "parentBefore": 491,
+          "parentAfter": 491,
+          "delta": 0,
+          "unexpectedStorageChanges": []
+        }
+      },
+      "controlAudit": {
+        "checked": 967,
+        "minimumWidth": 56,
+        "minimumHeight": 48,
+        "allCenterHits": true,
+        "allInsideViewport": true
+      },
+      "faultCases": {},
+      "eligibility": {
+        "colourPositiveBrowserFaultsUnexercised": false
+      },
+      "speciesObserved": [
+        "Allosaurus",
+        "Ankylosaurus",
+        "Brachiosaurus",
+        "Carnotaurus",
+        "Corythosaurus",
+        "Dilophosaurus",
+        "Parasaurolophus",
+        "Pterodactyl",
+        "Spinosaurus",
+        "Stegosaurus",
+        "T-rex",
+        "Triceratops"
+      ],
+      "faultRehearsals": []
+    }
+  ],
+  "limits": [
+    "Colour was already legacy-complete at both origins: zero replay reward; no fresh positive Colour browser claim/fault branch. Strict-helper/parent tests cover it; no reset or seeded eligibility.",
+    "Native positive Shadow fault scope retained separately from a103row report that failed only an incorrect QA parent-route expectation. Final complete native/canonical reports pass independently.",
+    "Browser input/playback, not physical-device or new human-listening/editorial certification.",
+    "Synthetic QA retention is not recovery of the missing8\u20139personal stories."
+  ],
+  "sourceGates": "source-gates.json",
+  "cutover": "cutover-retention.json",
+  "newPaidCalls": 0,
+  "touchReports": [
+    {
+      "report": "native-shadow-touch-390x740-arcade-DbnxyNUQ-20261029T205410-928411000.json",
+      "passed": true
+    },
+    {
+      "report": "production-shadow-touch-390x740-arcade-DbnxyNUQ-20261029T210807-509663000.json",
+      "passed": true
+    }
+  ]
+}

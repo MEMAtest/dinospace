@@ -1,0 +1,70 @@
+{
+  "scope": "normal catalogue entry, rendered art/error check, and exact parent return only; not game acceptance",
+  "passed": false,
+  "profile": "askia",
+  "origin": "https://dinospace.netlify.app",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "expectedEntry": "/assets/arcade-DbnxyNUQ.js",
+  "entryIdentity": "/assets/arcade-DbnxyNUQ.js",
+  "runtime": {
+    "origin": "https://dinospace.netlify.app",
+    "entry": "/assets/arcade-DbnxyNUQ.js",
+    "namespaced": true,
+    "viewport": {
+      "width": 390,
+      "height": 740
+    }
+  },
+  "requestedIds": "normal",
+  "catalogueActivitiesCovered": 10,
+  "pairActivitiesCovered": 8,
+  "retainedActivitiesCovered": 2,
+  "rows": [],
+  "failures": [
+    {
+      "message": "Choose askia through the normal profile picker is outside the viewport: {\"rect\":{\"x\":16,\"y\":546.375,\"right\":374,\"bottom\":876.375,\"width\":358,\"height\":330},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true}",
+      "evidence": null,
+      "stack": "Error: Choose askia through the normal profile picker is outside the viewport: {\"rect\":{\"x\":16,\"y\":546.375,\"right\":374,\"bottom\":876.375,\"width\":358,\"height\":330},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true}\n    at assert (evalmachine.<anonymous>:36:41)\n    at measure (evalmachine.<anonymous>:92:5)\n    at async click (evalmachine.<anonymous>:99:22)\n    at async chooser (evalmachine.<anonymous>:170:7)\n    at async run (evalmachine.<anonymous>:354:5)\n    at async evalmachine.<anonymous>:393:570\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)",
+      "completedIds": []
+    }
+  ],
+  "storage": {
+    "baselineKeys": 118,
+    "finalKeys": 118,
+    "changedKeys": []
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "failedResponses": [],
+  "providerAttempts": [],
+  "sourceHead": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "runtimeSource": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "runtimeSourceLabel": "explicit --runtime-sha",
+  "expectedRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "runtimeBinding": {
+    "stage": "production",
+    "source": "explicit --runtime-sha",
+    "sha": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+    "verifiedBy": "live page exact entry, origin and QA namespace"
+  },
+  "actualEntry": "/assets/arcade-DbnxyNUQ.js",
+  "entryMatches": true,
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/components/shared/DiscoveryHeader.jsx": "17da0d8be900ae391f6bf22317c0aef1e98899153cfe39e6e6c16832644ab210",
+    "src/components/shared/Navigation.jsx": "bf30c655c0eee9d601e5ecca3110011b06cc5e9845809d75a48553893aeeb34c",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/home/ExplorerHome.jsx": "207db9681a08390c813595debcdf993261e69dff278a21932f2284d5f4b7a638",
+    "src/components/home/LittleHome.jsx": "3a563fdad99756d5512e17c10673a3b4b1e511f9766165adabec98e6b31a7a23",
+    "src/components/little/LittleGameShell.jsx": "e8b1822d4a095b74cab47a1bce96fbc1076b71b0350d3dce8ab6db0ac51ae1e3"
+  },
+  "runnerSha256": "df7aa2eb8006b0e56e003aa8a4f61e3c0a9919cef2a3509df644b5d5b11fd9bc",
+  "callbackSha256": "3bca5b4b78a98dd9779480c0f46f4c9e244d2bc313f7e868a5d830a5b628ae41",
+  "cliReturnCode": 0
+}

@@ -1,0 +1,6569 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": true,
+  "rows": [
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 1,
+      "replay": false,
+      "missionId": "mix-purple",
+      "title": "Two primary paints",
+      "prompt": "Mix red and blue. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop blue",
+      "targetColor": null,
+      "visibleAnswer": "Purple",
+      "explanation": "Well done! Equal scoops of red and blue make a purple blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/2329bcfb-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/2329bcfb-matilda.mp3",
+            "currentTime": 0.058886,
+            "duration": 4.179592,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 942.7000000476837
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 957.8000000119209
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 961.1000000238419
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 2,
+      "replay": false,
+      "missionId": "mix-orange",
+      "title": "Two primary paints",
+      "prompt": "Mix red and yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Orange",
+      "explanation": "Super! Equal scoops of red and yellow make an orange blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/3bba6ff3-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/3bba6ff3-matilda.mp3",
+            "currentTime": 0.060212,
+            "duration": 4.458231,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1242.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1256.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1259.6000000238419
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 3,
+      "replay": false,
+      "missionId": "mix-brown",
+      "title": "Three primary paints",
+      "prompt": "Mix equal scoops of the three primary paints. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop yellow · 1 scoop blue",
+      "targetColor": null,
+      "visibleAnswer": "Brown",
+      "explanation": "Well done! In this simplified recipe, equal scoops of red, yellow and blue make a brown blend. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/8e50f949-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/8e50f949-matilda.mp3",
+            "currentTime": 0.051578,
+            "duration": 4.96907,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1574.800000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1590.9000000357628
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1593.9000000357628
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 4,
+      "replay": false,
+      "missionId": "mix-green",
+      "title": "Two primary paints",
+      "prompt": "Mix blue and yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Green",
+      "explanation": "Super! Equal scoops of blue and yellow make a green blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9d8ae693-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9d8ae693-matilda.mp3",
+            "currentTime": 0.054317,
+            "duration": 4.179592,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1875.1000000238419
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1890.9000000357628
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1893.800000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 5,
+      "replay": false,
+      "missionId": "mix-lime",
+      "title": "Change the proportions",
+      "prompt": "Mix more yellow than blue. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 3 scoops yellow",
+      "targetColor": null,
+      "visibleAnswer": "Lime",
+      "explanation": "Super! A larger share of yellow makes a bright yellow-green blend in our recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/068ab584-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/068ab584-matilda.mp3",
+            "currentTime": 0.056364,
+            "duration": 3.761633,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2242.7000000476837
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 2258.300000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 2261.100000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 6,
+      "replay": false,
+      "missionId": "mix-teal",
+      "title": "Change the proportions",
+      "prompt": "Mix two scoops of blue and one scoop of yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 2 scoops blue · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Teal",
+      "explanation": "Well done! More blue than yellow makes a blue-green blend. We call this recipe teal. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/5e187c55-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/5e187c55-matilda.mp3",
+            "currentTime": 0.04972,
+            "duration": 4.551111,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2574
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 2590.7000000476837
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 2593.400000035763
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 1,
+      "replay": true,
+      "missionId": "mix-lime",
+      "title": "Change the proportions",
+      "prompt": "Mix more yellow than blue. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 3 scoops yellow",
+      "targetColor": null,
+      "visibleAnswer": "Lime",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Great job! A larger share of yellow makes a bright yellow-green blend in our recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/068ab584-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/068ab584-matilda.mp3",
+            "currentTime": 0.05621,
+            "duration": 3.761633,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3092.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3107.600000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3110.100000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 2,
+      "replay": true,
+      "missionId": "mix-teal",
+      "title": "Change the proportions",
+      "prompt": "Mix two scoops of blue and one scoop of yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 2 scoops blue · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Teal",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! More blue than yellow makes a blue-green blend. We call this recipe teal. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/5e187c55-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/5e187c55-matilda.mp3",
+            "currentTime": 0.069986,
+            "duration": 4.551111,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3509.800000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3524.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3526.800000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 3,
+      "replay": true,
+      "missionId": "mix-green",
+      "title": "Two primary paints",
+      "prompt": "Mix blue and yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Green",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Great job! Equal scoops of blue and yellow make a green blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9d8ae693-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9d8ae693-matilda.mp3",
+            "currentTime": 0.063168,
+            "duration": 4.179592,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3909.400000035763
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3924.900000035763
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3927.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 4,
+      "replay": true,
+      "missionId": "mix-orange",
+      "title": "Two primary paints",
+      "prompt": "Mix red and yellow. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop yellow",
+      "targetColor": null,
+      "visibleAnswer": "Orange",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! Equal scoops of red and yellow make an orange blend in our simple paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/3bba6ff3-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/3bba6ff3-matilda.mp3",
+            "currentTime": 0.057802,
+            "duration": 4.458231,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 4309.100000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 4324.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 4327.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 5,
+      "replay": true,
+      "missionId": "mix-brown",
+      "title": "Three primary paints",
+      "prompt": "Mix equal scoops of the three primary paints. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop yellow · 1 scoop blue",
+      "targetColor": null,
+      "visibleAnswer": "Brown",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! In this simplified recipe, equal scoops of red, yellow and blue make a brown blend. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/8e50f949-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/8e50f949-matilda.mp3",
+            "currentTime": 0.064948,
+            "duration": 4.96907,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 4742.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 4758.100000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 4760.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 6,
+      "replay": true,
+      "missionId": "mix-purple",
+      "title": "Two primary paints",
+      "prompt": "Mix red and blue. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop blue",
+      "targetColor": null,
+      "visibleAnswer": "Purple",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Well done! Equal scoops of red and blue make a purple blend in our simple paint recipe. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/2329bcfb-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/2329bcfb-matilda.mp3",
+            "currentTime": 0.061777,
+            "duration": 4.179592,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 5142.400000035763
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 5158.100000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 5160.600000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 1,
+      "replay": false,
+      "missionId": "light-peach",
+      "title": "Test a touch of black",
+      "prompt": "Mix these scoops, then look at the paint: did black make the blue blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops blue · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "explanation": "Super! A little black makes a darker blue blend in this simplified paint activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9c3996a4-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9c3996a4-matilda.mp3",
+            "currentTime": 0.073379,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 5559.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 5573.400000035763
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 5576.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 2,
+      "replay": false,
+      "missionId": "light-sky",
+      "title": "Test white with blue",
+      "prompt": "Mix these scoops, then look at the paint: did white make the blue blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 3 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "explanation": "Well done! More white than blue makes a pale sky-blue blend in our recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/7155fe97-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/7155fe97-matilda.mp3",
+            "currentTime": 0.072613,
+            "duration": 3.622313,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 5942.800000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 5957.400000035763
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 5960.200000047684
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 3,
+      "replay": false,
+      "missionId": "light-pink",
+      "title": "Test white with red",
+      "prompt": "Mix these scoops, then look at the paint: did white make the red blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop red · 2 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "explanation": "Super! Two scoops of white mixed with one red make a lighter pink blend in this activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/69be2f7c-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/69be2f7c-matilda.mp3",
+            "currentTime": 0.057536,
+            "duration": 4.643991,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 6290.900000035763
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 6308
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 6310.900000035763
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 4,
+      "replay": false,
+      "missionId": "light-coral",
+      "title": "Test a touch of black",
+      "prompt": "Mix these scoops, then look at the paint: did black make the red blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops red · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "explanation": "Great job! A little black makes a darker red blend in this simplified paint activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/c082d2e7-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/c082d2e7-matilda.mp3",
+            "currentTime": 0.069792,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 6641.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 6657.100000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 6659.800000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 5,
+      "replay": false,
+      "missionId": "light-charcoal",
+      "title": "Test black with white",
+      "prompt": "Mix these scoops, then look at the paint: did black make the white blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops white · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "explanation": "Great job! Black darkens white into a dark grey blend in our simplified paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/07d0887e-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/07d0887e-matilda.mp3",
+            "currentTime": 0.056121,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 6992.400000035763
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 7006.900000035763
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 7009.800000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 6,
+      "replay": false,
+      "missionId": "light-grey",
+      "title": "Test white with black",
+      "prompt": "Mix these scoops, then look at the paint: did white make the black blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop black · 4 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "explanation": "Super! A small scoop of black with more white makes a pale grey blend in our simplified model. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/d26a0d98-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/d26a0d98-matilda.mp3",
+            "currentTime": 0.070455,
+            "duration": 4.829751,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 7408.900000035763
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 7424.300000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 7427.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 1,
+      "replay": true,
+      "missionId": "light-charcoal",
+      "title": "Test black with white",
+      "prompt": "Mix these scoops, then look at the paint: did black make the white blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops white · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Great job! Black darkens white into a dark grey blend in our simplified paint recipe. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/07d0887e-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/07d0887e-matilda.mp3",
+            "currentTime": 0.061149,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 7892.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 7908
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 7911.100000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 2,
+      "replay": true,
+      "missionId": "light-coral",
+      "title": "Test a touch of black",
+      "prompt": "Mix these scoops, then look at the paint: did black make the red blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops red · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Great job! A little black makes a darker red blend in this simplified paint activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/c082d2e7-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/c082d2e7-matilda.mp3",
+            "currentTime": 0.074204,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 8309.200000047684
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 8323.400000035763
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 8325.600000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 3,
+      "replay": true,
+      "missionId": "light-grey",
+      "title": "Test white with black",
+      "prompt": "Mix these scoops, then look at the paint: did white make the black blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop black · 4 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Well done! A small scoop of black with more white makes a pale grey blend in our simplified model. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/d26a0d98-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/d26a0d98-matilda.mp3",
+            "currentTime": 0.062917,
+            "duration": 4.829751,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 8790.600000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 8806.100000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 8808.400000035763
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 4,
+      "replay": true,
+      "missionId": "light-peach",
+      "title": "Test a touch of black",
+      "prompt": "Mix these scoops, then look at the paint: did black make the blue blend lighter or darker?",
+      "visibleRecipe": "Recipe: 2 scoops blue · 1 scoop black",
+      "targetColor": null,
+      "visibleAnswer": "Darker",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! A little black makes a darker blue blend in this simplified paint activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9c3996a4-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9c3996a4-matilda.mp3",
+            "currentTime": 0.079362,
+            "duration": 4.226032,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 9207.200000047684
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 9223
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 9225.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 5,
+      "replay": true,
+      "missionId": "light-pink",
+      "title": "Test white with red",
+      "prompt": "Mix these scoops, then look at the paint: did white make the red blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop red · 2 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Well done! Two scoops of white mixed with one red make a lighter pink blend in this activity. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/69be2f7c-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/69be2f7c-matilda.mp3",
+            "currentTime": 0.066823,
+            "duration": 4.643991,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 9624.200000047684
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 9641.100000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 9643.400000035763
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Light & Shade",
+      "index": 6,
+      "replay": true,
+      "missionId": "light-sky",
+      "title": "Test white with blue",
+      "prompt": "Mix these scoops, then look at the paint: did white make the blue blend lighter or darker?",
+      "visibleRecipe": "Recipe: 1 scoop blue · 3 scoops white",
+      "targetColor": null,
+      "visibleAnswer": "Lighter",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! More white than blue makes a pale sky-blue blend in our recipe. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/7155fe97-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/7155fe97-matilda.mp3",
+            "currentTime": 0.073435,
+            "duration": 3.622313,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 10074.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 10090.200000047684
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 10092.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 1,
+      "replay": false,
+      "missionId": "make-berry",
+      "title": "Paint a berry",
+      "prompt": "Choose a recipe, mix the paint, and match the berry.",
+      "visibleRecipe": "Recipe: 1 Red + 1 Blue",
+      "targetColor": "Purple",
+      "explanation": "Well done! The berry uses our purple recipe: equal scoops of red and blue. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/55c9b32d-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/55c9b32d-matilda.mp3",
+            "currentTime": 0.06537,
+            "duration": 3.947392,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 10475
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 10490.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 10493.900000035763
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 2,
+      "replay": false,
+      "missionId": "make-cloud",
+      "title": "Paint a soft cloud",
+      "prompt": "Choose a recipe, mix the paint, and match the cloud.",
+      "visibleRecipe": "Recipe: 1 Blue + 3 White",
+      "targetColor": "Sky Blue",
+      "explanation": "Well done! The cloud uses a pale blue recipe with three scoops of white for each blue scoop. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/82336892-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/82336892-matilda.mp3",
+            "currentTime": 0.06582,
+            "duration": 4.829751,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 10858.600000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 10873.600000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 10876.400000035763
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 3,
+      "replay": false,
+      "missionId": "make-sun",
+      "title": "Paint a sunny badge",
+      "prompt": "Choose a recipe, mix the paint, and match the sun badge.",
+      "visibleRecipe": "Recipe: 1 Red + 1 Yellow",
+      "targetColor": "Orange",
+      "explanation": "Great job! The sun badge uses our orange recipe: equal scoops of red and yellow. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/cb0e3134-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/cb0e3134-matilda.mp3",
+            "currentTime": 0.121092,
+            "duration": 4.504671,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 11192
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 11207.600000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 11210.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 4,
+      "replay": false,
+      "missionId": "make-wave",
+      "title": "Paint a wave",
+      "prompt": "Choose a recipe, mix the paint, and match the wave.",
+      "visibleRecipe": "Recipe: 2 Blue + 1 Yellow",
+      "targetColor": "Teal",
+      "explanation": "Great job! The wave uses a blue-green teal recipe with twice as much blue as yellow. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/75432236-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/75432236-matilda.mp3",
+            "currentTime": 0.065202,
+            "duration": 4.365351,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 11625
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 11640.900000035763
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 11643.700000047684
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 5,
+      "replay": false,
+      "missionId": "make-flower",
+      "title": "Paint a flower",
+      "prompt": "Choose a recipe, mix the paint, and match the flower.",
+      "visibleRecipe": "Recipe: 1 Red + 2 White",
+      "targetColor": "Pink",
+      "explanation": "Super! The flower uses our pink recipe: one red scoop and two white scoops. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/67106744-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/67106744-matilda.mp3",
+            "currentTime": 0.071368,
+            "duration": 4.318912,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 11992.200000047684
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 12006.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 12009.800000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 6,
+      "replay": false,
+      "missionId": "make-leaf",
+      "title": "Paint a leaf",
+      "prompt": "Choose a recipe, mix the paint, and match the leaf.",
+      "visibleRecipe": "Recipe: 1 Blue + 1 Yellow",
+      "targetColor": "Green",
+      "explanation": "Well done! The leaf uses our green recipe: equal scoops of blue and yellow. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/c4a4418b-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/c4a4418b-matilda.mp3",
+            "currentTime": 0.060391,
+            "duration": 3.854512,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 12325.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 12340.600000023842
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 12343.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 1,
+      "replay": true,
+      "missionId": "make-flower",
+      "title": "Paint a flower",
+      "prompt": "Choose a recipe, mix the paint, and match the flower.",
+      "visibleRecipe": "Recipe: 1 Red + 2 White",
+      "targetColor": "Pink",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Well done! The flower uses our pink recipe: one red scoop and two white scoops. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/67106744-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/67106744-matilda.mp3",
+            "currentTime": 0.061731,
+            "duration": 4.318912,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 13008.800000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 13024.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 13027.100000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 2,
+      "replay": true,
+      "missionId": "make-wave",
+      "title": "Paint a wave",
+      "prompt": "Choose a recipe, mix the paint, and match the wave.",
+      "visibleRecipe": "Recipe: 2 Blue + 1 Yellow",
+      "targetColor": "Teal",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Great job! The wave uses a blue-green teal recipe with twice as much blue as yellow. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/75432236-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/75432236-matilda.mp3",
+            "currentTime": 0.065152,
+            "duration": 4.365351,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 13609.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 13623.700000047684
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 13626
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 3,
+      "replay": true,
+      "missionId": "make-cloud",
+      "title": "Paint a soft cloud",
+      "prompt": "Choose a recipe, mix the paint, and match the cloud.",
+      "visibleRecipe": "Recipe: 1 Blue + 3 White",
+      "targetColor": "Sky Blue",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Super! The cloud uses a pale blue recipe with three scoops of white for each blue scoop. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/82336892-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/82336892-matilda.mp3",
+            "currentTime": 0.065807,
+            "duration": 4.829751,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 14291.900000035763
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 14305.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 14308.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 4,
+      "replay": true,
+      "missionId": "make-sun",
+      "title": "Paint a sunny badge",
+      "prompt": "Choose a recipe, mix the paint, and match the sun badge.",
+      "visibleRecipe": "Recipe: 1 Red + 1 Yellow",
+      "targetColor": "Orange",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Well done! The sun badge uses our orange recipe: equal scoops of red and yellow. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/cb0e3134-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/cb0e3134-matilda.mp3",
+            "currentTime": 0.060319,
+            "duration": 4.504671,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 14841.100000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 14857.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 14860.5
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 5,
+      "replay": true,
+      "missionId": "make-berry",
+      "title": "Paint a berry",
+      "prompt": "Choose a recipe, mix the paint, and match the berry.",
+      "visibleRecipe": "Recipe: 1 Red + 1 Blue",
+      "targetColor": "Purple",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Well done! The berry uses our purple recipe: equal scoops of red and blue. Hear explanation again Next mix",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/55c9b32d-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/55c9b32d-matilda.mp3",
+            "currentTime": 0.081805,
+            "duration": 3.947392,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 15392.700000047684
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 15407.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 15410.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "colour",
+      "lab": "Colour Makers",
+      "index": 6,
+      "replay": true,
+      "missionId": "make-leaf",
+      "title": "Paint a leaf",
+      "prompt": "Choose a recipe, mix the paint, and match the leaf.",
+      "visibleRecipe": "Recipe: 1 Blue + 1 Yellow",
+      "targetColor": "Green",
+      "wrongSameMission": true,
+      "hint": true,
+      "explanation": "Great job! The leaf uses our green recipe: equal scoops of blue and yellow. Hear explanation again Finish chapter",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/c4a4418b-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/c4a4418b-matilda.mp3",
+            "currentTime": 0.077192,
+            "duration": 3.854512,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 15941.600000023842
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 15956
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 15958.600000023842
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 1,
+      "index": 1,
+      "replay": false,
+      "visibleTargetName": "Stegosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 2,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "3 creatures · 2 choices",
+      "fact": "Stegosaurus! Stegosaurus had bony plates along its back. Their exact purpose is still being studied. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 455.59375
+      },
+      "factAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/2c9108b1-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/2c9108b1-matilda.mp3",
+            "currentTime": 0.059198,
+            "duration": 5.433469,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 664.3000000119209
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 678.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 680.3000000119209
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "progressBefore": 0,
+      "answered": true,
+      "progressAfter": 0
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 1,
+      "index": 2,
+      "replay": false,
+      "visibleTargetName": "Triceratops",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 2,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "3 creatures · 2 choices",
+      "fact": "Triceratops! Triceratops had three horns and a large bony frill. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 1,
+      "answered": true,
+      "progressAfter": 1
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 1,
+      "index": 3,
+      "replay": false,
+      "visibleTargetName": "T-rex",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 2,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "3 creatures · 2 choices",
+      "fact": "T-rex! T. rex had short arms and powerful jaws. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 403.59375
+      },
+      "progressBefore": 2,
+      "answered": true,
+      "progressAfter": 2
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 1,
+      "index": 4,
+      "replay": false,
+      "visibleTargetName": "Stegosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 2,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "3 creatures · 2 choices",
+      "fact": "Stegosaurus! Stegosaurus had bony plates along its back. Their exact purpose is still being studied. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 455.59375
+      },
+      "progressBefore": 3,
+      "answered": true,
+      "progressAfter": 3,
+      "levelSpeciesSeen": 3,
+      "levelPoolExpected": 3,
+      "normalStarTarget": 3,
+      "stars": 3,
+      "levelUpText": "Completed Level 1. Progress saved; Level 5 is available.",
+      "rewardConfirmation": {
+        "expectedDelta": 0,
+        "actualDelta": 0,
+        "allReceiptsConfirmed": true
+      }
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 2,
+      "index": 1,
+      "replay": false,
+      "visibleTargetName": "Pterodactyl",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 3,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "6 creatures · 3 choices",
+      "fact": "Pterodactyl! Pterodactyl was a flying reptile, not a dinosaur. Hear the name again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "factAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/7c805bc1-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/7c805bc1-matilda.mp3",
+            "currentTime": 0.060966,
+            "duration": 1.068118,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1580.699999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1595.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1597.0999999642372
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "progressBefore": 0,
+      "answered": true,
+      "progressAfter": 0
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 2,
+      "index": 2,
+      "replay": false,
+      "visibleTargetName": "Ankylosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 3,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "6 creatures · 3 choices",
+      "fact": "Ankylosaurus! Ankylosaurus had bony armor and a heavy club at the end of its tail. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 1,
+      "answered": true,
+      "progressAfter": 1
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 2,
+      "index": 3,
+      "replay": false,
+      "visibleTargetName": "Brachiosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 3,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "6 creatures · 3 choices",
+      "fact": "Brachiosaurus! Brachiosaurus had front legs longer than its back legs. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 2,
+      "answered": true,
+      "progressAfter": 2
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 2,
+      "index": 4,
+      "replay": false,
+      "visibleTargetName": "Triceratops",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 3,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "6 creatures · 3 choices",
+      "fact": "Triceratops! Triceratops had three horns and a large bony frill. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 3,
+      "answered": true,
+      "progressAfter": 3
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 2,
+      "index": 5,
+      "replay": false,
+      "visibleTargetName": "T-rex",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 3,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "6 creatures · 3 choices",
+      "fact": "T-rex! T. rex had short arms and powerful jaws. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 403.59375
+      },
+      "progressBefore": 4,
+      "answered": true,
+      "progressAfter": 4,
+      "levelSpeciesSeen": 6,
+      "levelPoolExpected": 6,
+      "normalStarTarget": 3,
+      "stars": 3,
+      "levelUpText": "Completed Level 2. Progress saved; Level 5 is available.",
+      "rewardConfirmation": {
+        "expectedDelta": 0,
+        "actualDelta": 0,
+        "allReceiptsConfirmed": true
+      }
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 3,
+      "index": 1,
+      "replay": false,
+      "visibleTargetName": "Parasaurolophus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 3,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "8 creatures · 3 choices",
+      "fact": "Parasaurolophus! Parasaurolophus had a long hollow head crest. It may have helped make sounds. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "factAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/1d34ca61-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/1d34ca61-matilda.mp3",
+            "currentTime": 0.071678,
+            "duration": 5.06195,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2696.699999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 2712.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 2714.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "progressBefore": 0,
+      "answered": true,
+      "progressAfter": 0
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 3,
+      "index": 2,
+      "replay": false,
+      "visibleTargetName": "Spinosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "8 creatures · 4 choices",
+      "fact": "Spinosaurus! Spinosaurus had a tall sail on its back. Scientists still study what it was for. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 1,
+      "answered": true,
+      "progressAfter": 1
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 3,
+      "index": 3,
+      "replay": false,
+      "visibleTargetName": "Pterodactyl",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "8 creatures · 4 choices",
+      "fact": "Pterodactyl! Pterodactyl was a flying reptile, not a dinosaur. Hear the name again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 2,
+      "answered": true,
+      "progressAfter": 2
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 3,
+      "index": 4,
+      "replay": false,
+      "visibleTargetName": "T-rex",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "8 creatures · 4 choices",
+      "fact": "T-rex! T. rex had short arms and powerful jaws. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 403.59375
+      },
+      "progressBefore": 3,
+      "answered": true,
+      "progressAfter": 3
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 3,
+      "index": 5,
+      "replay": false,
+      "visibleTargetName": "Ankylosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "8 creatures · 4 choices",
+      "fact": "Ankylosaurus! Ankylosaurus had bony armor and a heavy club at the end of its tail. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 4,
+      "answered": true,
+      "progressAfter": 4
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 3,
+      "index": 6,
+      "replay": false,
+      "visibleTargetName": "Triceratops",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "8 creatures · 4 choices",
+      "fact": "Triceratops! Triceratops had three horns and a large bony frill. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 5,
+      "answered": true,
+      "progressAfter": 5,
+      "levelSpeciesSeen": 8,
+      "levelPoolExpected": 8,
+      "normalStarTarget": 3,
+      "stars": 3,
+      "levelUpText": "Completed Level 3. Progress saved; Level 5 is available.",
+      "rewardConfirmation": {
+        "expectedDelta": 0,
+        "actualDelta": 0,
+        "allReceiptsConfirmed": true
+      }
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 4,
+      "index": 1,
+      "replay": false,
+      "visibleTargetName": "Allosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "10 creatures · 4 choices",
+      "fact": "Allosaurus! Allosaurus was a meat-eating dinosaur with small horns above its eyes. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "factAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/9db34942-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/9db34942-matilda.mp3",
+            "currentTime": 0.073108,
+            "duration": 4.133152,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3996.599999964237
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 4012.099999964237
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 4014.199999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "progressBefore": 0,
+      "answered": true,
+      "progressAfter": 0
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 4,
+      "index": 2,
+      "replay": false,
+      "visibleTargetName": "Dilophosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 160,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 275.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 351.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 447.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 351.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 447.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 455.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 551.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 455.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 551.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "10 creatures · 4 choices",
+      "fact": "Dilophosaurus! Dilophosaurus had two bony crests on its head. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 1,
+      "answered": true,
+      "progressAfter": 1
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 4,
+      "index": 3,
+      "replay": false,
+      "visibleTargetName": "Ankylosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "10 creatures · 4 choices",
+      "fact": "Ankylosaurus! Ankylosaurus had bony armor and a heavy club at the end of its tail. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 2,
+      "answered": true,
+      "progressAfter": 2
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 4,
+      "index": 4,
+      "replay": false,
+      "visibleTargetName": "Brachiosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "10 creatures · 4 choices",
+      "fact": "Brachiosaurus! Brachiosaurus had front legs longer than its back legs. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 3,
+      "answered": true,
+      "progressAfter": 3
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 4,
+      "index": 5,
+      "replay": false,
+      "visibleTargetName": "Pterodactyl",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "10 creatures · 4 choices",
+      "fact": "Pterodactyl! Pterodactyl was a flying reptile, not a dinosaur. Hear the name again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 4,
+      "answered": true,
+      "progressAfter": 4
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 4,
+      "index": 6,
+      "replay": false,
+      "visibleTargetName": "Stegosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "10 creatures · 4 choices",
+      "fact": "Stegosaurus! Stegosaurus had bony plates along its back. Their exact purpose is still being studied. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 455.59375
+      },
+      "progressBefore": 5,
+      "answered": true,
+      "progressAfter": 5
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 4,
+      "index": 7,
+      "replay": false,
+      "visibleTargetName": "T-rex",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp"
+      ],
+      "mirroredOptions": 0,
+      "visiblePoolText": "10 creatures · 4 choices",
+      "fact": "T-rex! T. rex had short arms and powerful jaws. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 403.59375
+      },
+      "progressBefore": 6,
+      "answered": true,
+      "progressAfter": 6,
+      "levelSpeciesSeen": 10,
+      "levelPoolExpected": 10,
+      "normalStarTarget": 3,
+      "stars": 3,
+      "levelUpText": "Completed Level 4. Progress saved; Level 5 is available.",
+      "rewardConfirmation": {
+        "expectedDelta": 0,
+        "actualDelta": 0,
+        "allReceiptsConfirmed": true
+      }
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 1,
+      "replay": false,
+      "visibleTargetName": "Corythosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp"
+      ],
+      "mirroredOptions": 4,
+      "visiblePoolText": "12 creatures · 4 choices · mirrored shadows",
+      "fact": "Corythosaurus! Corythosaurus was a duck-billed dinosaur with a helmet-shaped head crest. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "factAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/932d4aa9-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/932d4aa9-matilda.mp3",
+            "currentTime": 0.065782,
+            "duration": 3.993832,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 5480.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 5493.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 5495.899999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "progressBefore": 0,
+      "answered": true,
+      "progressAfter": 0
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 2,
+      "replay": false,
+      "visibleTargetName": "Carnotaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp"
+      ],
+      "mirroredOptions": 4,
+      "visiblePoolText": "12 creatures · 4 choices · mirrored shadows",
+      "fact": "Carnotaurus! Carnotaurus had two horns on top of its head and very small arms. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 1,
+      "answered": true,
+      "progressAfter": 1
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 3,
+      "replay": false,
+      "visibleTargetName": "Spinosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 5,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp"
+      ],
+      "mirroredOptions": 5,
+      "visiblePoolText": "12 creatures · 5 choices · mirrored shadows",
+      "fact": "Spinosaurus! Spinosaurus had a tall sail on its back. Scientists still study what it was for. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 2,
+      "answered": true,
+      "progressAfter": 2
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 4,
+      "replay": false,
+      "visibleTargetName": "Pterodactyl",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 5,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp"
+      ],
+      "mirroredOptions": 5,
+      "visiblePoolText": "12 creatures · 5 choices · mirrored shadows",
+      "fact": "Pterodactyl! Pterodactyl was a flying reptile, not a dinosaur. Hear the name again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 3,
+      "answered": true,
+      "progressAfter": 3
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 5,
+      "replay": false,
+      "visibleTargetName": "T-rex",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 6,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 6",
+          "rect": {
+            "x": 262.65625,
+            "y": 475.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp"
+      ],
+      "mirroredOptions": 6,
+      "visiblePoolText": "12 creatures · 6 choices · mirrored shadows",
+      "fact": "T-rex! T. rex had short arms and powerful jaws. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 403.59375
+      },
+      "progressBefore": 4,
+      "answered": true,
+      "progressAfter": 4
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 6,
+      "replay": false,
+      "visibleTargetName": "Allosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 6,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 6",
+          "rect": {
+            "x": 262.65625,
+            "y": 475.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp"
+      ],
+      "mirroredOptions": 6,
+      "visiblePoolText": "12 creatures · 6 choices · mirrored shadows",
+      "fact": "Allosaurus! Allosaurus was a meat-eating dinosaur with small horns above its eyes. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 5,
+      "answered": true,
+      "progressAfter": 5
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 7,
+      "replay": false,
+      "visibleTargetName": "Parasaurolophus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 6,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 6",
+          "rect": {
+            "x": 262.65625,
+            "y": 475.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp"
+      ],
+      "mirroredOptions": 6,
+      "visiblePoolText": "12 creatures · 6 choices · mirrored shadows",
+      "fact": "Parasaurolophus! Parasaurolophus had a long hollow head crest. It may have helped make sounds. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 6,
+      "answered": true,
+      "progressAfter": 6
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 8,
+      "replay": false,
+      "visibleTargetName": "Triceratops",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 6,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 6",
+          "rect": {
+            "x": 262.65625,
+            "y": 475.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp"
+      ],
+      "mirroredOptions": 6,
+      "visiblePoolText": "12 creatures · 6 choices · mirrored shadows",
+      "fact": "Triceratops! Triceratops had three horns and a large bony frill. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 7,
+      "answered": true,
+      "progressAfter": 7,
+      "levelSpeciesSeen": 11,
+      "levelPoolExpected": 12,
+      "normalStarTarget": 3,
+      "stars": 3,
+      "levelUpText": "Completed Level 5. Progress saved; Level 5 is available.",
+      "rewardConfirmation": {
+        "expectedDelta": 0,
+        "actualDelta": 0,
+        "allReceiptsConfirmed": true
+      }
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 1,
+      "replay": true,
+      "visibleTargetName": "Carnotaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp"
+      ],
+      "mirroredOptions": 4,
+      "visiblePoolText": "12 creatures · 4 choices · mirrored shadows",
+      "wrongSameTarget": true,
+      "hint": true,
+      "fact": "Carnotaurus! Carnotaurus had two horns on top of its head and very small arms. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "factAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/d19ae22c-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/d19ae22c-matilda.mp3",
+            "currentTime": 0.075523,
+            "duration": 4.040272,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 7278.599999964237
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 7295
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 7296.899999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "progressBefore": 0,
+      "answered": true,
+      "progressAfter": 0
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 2,
+      "replay": true,
+      "visibleTargetName": "Corythosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 4,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 371.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 191,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 475.1875,
+            "width": 183,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp"
+      ],
+      "mirroredOptions": 4,
+      "visiblePoolText": "12 creatures · 4 choices · mirrored shadows",
+      "wrongSameTarget": true,
+      "hint": true,
+      "fact": "Corythosaurus! Corythosaurus was a duck-billed dinosaur with a helmet-shaped head crest. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 1,
+      "answered": true,
+      "progressAfter": 1
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 3,
+      "replay": true,
+      "visibleTargetName": "Allosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 5,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp"
+      ],
+      "mirroredOptions": 5,
+      "visiblePoolText": "12 creatures · 5 choices · mirrored shadows",
+      "wrongSameTarget": true,
+      "hint": true,
+      "fact": "Allosaurus! Allosaurus was a meat-eating dinosaur with small horns above its eyes. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 2,
+      "answered": true,
+      "progressAfter": 2
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 4,
+      "replay": true,
+      "visibleTargetName": "Pterodactyl",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 5,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp"
+      ],
+      "mirroredOptions": 5,
+      "visiblePoolText": "12 creatures · 5 choices · mirrored shadows",
+      "wrongSameTarget": true,
+      "hint": true,
+      "fact": "Pterodactyl! Pterodactyl was a flying reptile, not a dinosaur. Hear the name again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 3,
+      "answered": true,
+      "progressAfter": 3
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 5,
+      "replay": true,
+      "visibleTargetName": "T-rex",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 6,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 6",
+          "rect": {
+            "x": 262.65625,
+            "y": 475.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp"
+      ],
+      "mirroredOptions": 6,
+      "visiblePoolText": "12 creatures · 6 choices · mirrored shadows",
+      "wrongSameTarget": true,
+      "hint": true,
+      "fact": "T-rex! T. rex had short arms and powerful jaws. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 403.59375
+      },
+      "progressBefore": 4,
+      "answered": true,
+      "progressAfter": 4
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 6,
+      "replay": true,
+      "visibleTargetName": "Triceratops",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 6,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 6",
+          "rect": {
+            "x": 262.65625,
+            "y": 475.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/trex.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ankylo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp"
+      ],
+      "mirroredOptions": 6,
+      "visiblePoolText": "12 creatures · 6 choices · mirrored shadows",
+      "wrongSameTarget": true,
+      "hint": true,
+      "fact": "Triceratops! Triceratops had three horns and a large bony frill. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 5,
+      "answered": true,
+      "progressAfter": 5
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 7,
+      "replay": true,
+      "visibleTargetName": "Brachiosaurus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 6,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 6",
+          "rect": {
+            "x": 262.65625,
+            "y": 475.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v1/trike.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/ptero.webp"
+      ],
+      "mirroredOptions": 6,
+      "visiblePoolText": "12 creatures · 6 choices · mirrored shadows",
+      "wrongSameTarget": true,
+      "hint": true,
+      "fact": "Brachiosaurus! Brachiosaurus had front legs longer than its back legs. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 6,
+      "answered": true,
+      "progressAfter": 6
+    },
+    {
+      "game": "shadow",
+      "player": "askia",
+      "level": 5,
+      "index": 8,
+      "replay": true,
+      "visibleTargetName": "Parasaurolophus",
+      "targetArt": "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+      "targetBounds": {
+        "x": 123,
+        "y": 180,
+        "width": 144,
+        "height": 115.1875,
+        "right": 267,
+        "bottom": 295.1875
+      },
+      "instruction": "Tap the matching shadow, or drag the creature to it.",
+      "choiceCount": 6,
+      "choiceGeometry": [
+        {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 8,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 135.328125,
+            "y": 371.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 262.65625,
+            "y": 371.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 467.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 8,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 127.328125,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 5",
+          "rect": {
+            "x": 135.328125,
+            "y": 475.1875,
+            "width": 119.328125,
+            "height": 96,
+            "right": 254.65625,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        {
+          "text": "Shadow option 6",
+          "rect": {
+            "x": 262.65625,
+            "y": 475.1875,
+            "width": 119.34375,
+            "height": 96,
+            "right": 382,
+            "bottom": 571.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      ],
+      "matchByRenderedImageSource": true,
+      "choiceArtSources": [
+        "http://127.0.0.1:5180/art/shadow-match-v2/para.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/cory.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v2/spino.webp",
+        "http://127.0.0.1:5180/art/shadow-match-v1/bronto.webp"
+      ],
+      "mirroredOptions": 6,
+      "visiblePoolText": "12 creatures · 6 choices · mirrored shadows",
+      "wrongSameTarget": true,
+      "hint": true,
+      "fact": "Parasaurolophus! Parasaurolophus had a long hollow head crest. It may have helped make sounds. Hear the fact again Next match →",
+      "heldBounds": {
+        "x": 8,
+        "y": 124,
+        "width": 374,
+        "height": 429.59375
+      },
+      "progressBefore": 7,
+      "answered": true,
+      "progressAfter": 7,
+      "levelSpeciesSeen": 12,
+      "levelPoolExpected": 12,
+      "normalStarTarget": 1,
+      "stars": 1,
+      "levelUpText": "Completed Level 5. Progress saved; Level 5 is available.",
+      "rewardConfirmation": {
+        "expectedDelta": 0,
+        "actualDelta": 0,
+        "allReceiptsConfirmed": true
+      }
+    }
+  ],
+  "games": {
+    "colour": {
+      "key": "amari_colour_lab_adventure_v1:amari",
+      "initial": {
+        "version": 1,
+        "completed": [
+          "mix-teal",
+          "mix-green",
+          "mix-brown",
+          "mix-orange",
+          "mix-lime",
+          "mix-purple",
+          "light-grey",
+          "light-peach",
+          "light-coral",
+          "light-pink",
+          "light-charcoal",
+          "light-sky",
+          "make-berry",
+          "make-wave",
+          "make-flower",
+          "make-sun",
+          "make-cloud",
+          "make-leaf"
+        ],
+        "chapters": [
+          "mix",
+          "light",
+          "make"
+        ],
+        "recentMissionIds": [
+          "make-berry",
+          "make-wave",
+          "make-flower",
+          "make-sun",
+          "make-cloud",
+          "make-leaf"
+        ]
+      },
+      "final": {
+        "version": 1,
+        "completed": [
+          "mix-teal",
+          "mix-green",
+          "mix-brown",
+          "mix-orange",
+          "mix-lime",
+          "mix-purple",
+          "light-grey",
+          "light-peach",
+          "light-coral",
+          "light-pink",
+          "light-charcoal",
+          "light-sky",
+          "make-berry",
+          "make-wave",
+          "make-flower",
+          "make-sun",
+          "make-cloud",
+          "make-leaf"
+        ],
+        "chapters": [
+          "mix",
+          "light",
+          "make"
+        ],
+        "recentMissionIds": [
+          "make-berry",
+          "make-wave",
+          "make-flower",
+          "make-sun",
+          "make-cloud",
+          "make-leaf"
+        ]
+      },
+      "parentBefore": 466,
+      "parentAfter": 466,
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_skill_mastery_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_numberline_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+          "qa_rewards_20261024_amari_storybook_active_child_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_profiles_v1",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_subtraction_progress_v1",
+          "qa_rewards_20261024_amari_timeteller_progress_v1",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_game_levels_v1",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      }
+    }
+  },
+  "faultCases": {},
+  "eligibility": {
+    "colour": {
+      "completed": [
+        "mix-teal",
+        "mix-green",
+        "mix-brown",
+        "mix-orange",
+        "mix-lime",
+        "mix-purple",
+        "light-grey",
+        "light-peach",
+        "light-coral",
+        "light-pink",
+        "light-charcoal",
+        "light-sky",
+        "make-berry",
+        "make-wave",
+        "make-flower",
+        "make-sun",
+        "make-cloud",
+        "make-leaf"
+      ],
+      "chapters": [
+        "mix",
+        "light",
+        "make"
+      ],
+      "freshMissionIds": [],
+      "positiveFaultsUnexercised": true
+    },
+    "askia": {
+      "level": 4,
+      "gameRecord": {
+        "level": 4,
+        "plays": 7,
+        "best": 3,
+        "pairBestByLevel": {
+          "0": 3,
+          "1": 3,
+          "2": 3,
+          "3": 3,
+          "4": 3
+        },
+        "pairTransactionId": "0f10755a-b6e0-442b-9012-29422c6ef926",
+        "pairPreviousLevel": 4,
+        "pairPlayedLevel": 4,
+        "pairLevelUp": false,
+        "pairRewardPoints": 8,
+        "pairLegacyRewardThrough": -1,
+        "pairRewardReceipts": [
+          {
+            "id": "shadowmatch:level-1:best-3",
+            "level": 0,
+            "points": 8,
+            "claimed": true
+          },
+          {
+            "id": "shadowmatch:level-2:best-3",
+            "level": 1,
+            "points": 8,
+            "claimed": true
+          },
+          {
+            "id": "shadowmatch:level-3:best-3",
+            "level": 2,
+            "points": 8,
+            "claimed": true
+          },
+          {
+            "id": "shadowmatch:level-4:best-3",
+            "level": 3,
+            "points": 8,
+            "claimed": true
+          },
+          {
+            "id": "shadowmatch:level-5:best-3",
+            "level": 4,
+            "points": 8,
+            "claimed": true
+          }
+        ]
+      }
+    }
+  },
+  "source": {},
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "providerAttempts": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-SD47kOta.js"
+  },
+  "soundOriginals": {
+    "initial": true,
+    "askia": true
+  },
+  "failure": {
+    "message": "Return from Askia Shadow Match to Dino World is missing or not uniquely visible",
+    "stack": "Error: Return from Askia Shadow Match to Dino World is missing or not uniquely visible\n    at measureControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:128:13)\n    at async clickControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:156:22)\n    at async Object.clickLeave (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:240:20)\n    at async runColourShadow (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:175:315)\n    at async evalmachine.<anonymous>:4:8\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)"
+  },
+  "controlAudit": {
+    "checked": 664
+  },
+  "stage": "native",
+  "runtimeSource": "9a45aef4782ed8f84b6d1c3c54271706e5db97d7",
+  "entry": "/assets/arcade-SD47kOta.js",
+  "sourceHead": "9a45aef4782ed8f84b6d1c3c54271706e5db97d7",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/colourLabAdventure.js": "35b34ac433a1baa5e8a26dbd95f3531592ede3f01abc40b20d3d90ebe08e7192",
+    "src/data/colourLabProgress.js": "f43355208f4c9854e6fe60b4b98856180473745e36192c87322c1c8c25f6039d",
+    "src/data/littleGames.js": "6a7feac22b7cf9c1bcd28dbd7451cd6da0f37210addad5b709d5336205ef196c",
+    "src/data/littleProgress.js": "e1dd2bc929ff8b3407897054a2fc1b208808ab0f07dbc848882e18bf0bd41d69",
+    "src/data/pairLittleProgress.js": "4ec8ebf838876282400ffb68d7c0efd7c9fde0d57c102a89e3cfc2fc0c594221",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/data/shadowMatchProgression.js": "2508a21cd8487d7e86f1aa15d15e9aa4c027aa877fda3a82c7a3b1567037ce78",
+    "src/data/shadowMatchArt.js": "011c705ebe74bc09150410f65526ea63f5a268e866f9bf98996b80f9de5ab996",
+    "src/components/games/ColorMixingLab.jsx": "4351809fdfba0e206d59568317844b77f2ebfdeca1ef7864f5f6c57eb217678f",
+    "src/components/little/games/ShadowMatch.jsx": "fdd0c964902147aa06c1c401bfd071a43226893845adaafe47d65e1e35b9ecb4",
+    "src/components/little/LittleGameShell.jsx": "e8b1822d4a095b74cab47a1bce96fbc1076b71b0350d3dce8ab6db0ac51ae1e3",
+    "src/components/little/ShadowDino.jsx": "d31157f5a86cf5f44781c500be936f2a201d80f9f76d501ac01e7320374445b5",
+    "src/components/little/DragItem.jsx": "f5b2f52c6b8178b71903908f3194ba2c08ae8ff608e33f46c804b69f6af8659f",
+    "src/components/little/littleKit.js": "e59cb06555cb54c06aff7ddf9b2b027239f223f8b625c38d0b64779a6ceb584f",
+    "src/components/little/useRoundHint.js": "e300060a9dc59b2a207be5ecdba5c539dfaad39577d771a732d6ec42f88190c0",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/shared/Navigation.jsx": "bf30c655c0eee9d601e5ecca3110011b06cc5e9845809d75a48553893aeeb34c",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/colour-shadow-save-20261029/protocol.md": "d817778f8a7ddb7e3e449317fde566c338da1562a47d5a66df4444fa2ff96b13",
+    "docs/qa-evidence/colour-shadow-save-20261029/colour-shadow-native.cjs": "3a7b024d3164c1a813d20c16da39ee0d239fc19b1ca16358e9a6e4fe2492d6cd"
+  },
+  "driverSHA256": "3a7b024d3164c1a813d20c16da39ee0d239fc19b1ca16358e9a6e4fe2492d6cd",
+  "runnerSHA256": "f1b66eaec0da4e8772fce5aea9fd8bf0fc443446b2dd4ea9dc55789a851d1f26",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1473338,
+    "entrySha256": "83a971ddc12efff73573265d055b5a0ac16c58ecdb9dc6516853b758e45c82a4",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair18-native",
+  "scope": "Full actual-visible-control Colour Mixing Lab and Shadow Match acceptance at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

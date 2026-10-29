@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "at": "2026-10-29T20:12:47.915823+00:00",
+  "metadataHead": "c96b931c1f3d93eb8a8dc735d0ebbf219cce69e6",
+  "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "1f2d5a485311c0fefca29e45e9919cc91374dfcd31c8b0f263bef3faeceea333",
+      "matchesFrozenDist": true
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "sha256": "18c99e074c9a164c5364a23c1bdf6f65839fc7bdea249f9e7e84fd5ea76cf2b7",
+      "matchesFrozenDist": true
+    }
+  ]
+}

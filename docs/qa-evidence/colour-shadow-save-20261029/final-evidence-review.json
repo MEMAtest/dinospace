@@ -1,0 +1,329 @@
+{
+  "reviewType": "final_evidence_audit",
+  "reviewedAt": "2026-10-29",
+  "attribution": "This agent reconciled retained reports and source hashes; root/QA owned and executed browser journeys.",
+  "pair18": {
+    "passed": true,
+    "publicUrl": "https://dinospace.netlify.app",
+    "runtimeCommit": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+    "entry": "/assets/arcade-DbnxyNUQ.js",
+    "entrySha256": "e4d09cf96587f4271f326812e0af60d0992886ef7cfa7f083928e84959f8bcfc",
+    "worker": "amari-discovery-v56",
+    "backend": {
+      "id": "dpl_F7dgv95pWuMm5KiuP74FACfW1b6Y",
+      "target": "production",
+      "readyState": "READY",
+      "source": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4"
+    },
+    "gatewayDeployId": "6ae3b4ed8c6a1eb24f737349",
+    "gatewayState": "ready",
+    "viewports": [
+      {
+        "id": "native-390",
+        "report": "docs/qa-evidence/colour-shadow-save-20261029/native-colour-shadow-390x740-arcade-DbnxyNUQ-20261029T205255-842006000.json",
+        "sha256": "a3552324077e314c51bd51f8eab6b8f55046de50e047e5b93a07938b22fbd118",
+        "passed": true,
+        "origin": "http://127.0.0.1:5180",
+        "viewport": "390x740",
+        "entry": "/assets/arcade-DbnxyNUQ.js",
+        "runtime": "/assets/arcade-DbnxyNUQ.js",
+        "rows": 103,
+        "colourRows": 36,
+        "shadowRows": 67,
+        "controlsChecked": 967,
+        "minimumTargetWidth": 55.5,
+        "minimumTargetHeight": 48,
+        "allCenterHits": true,
+        "allControlsInsideViewport": true,
+        "errors": {
+          "pageErrors": [],
+          "consoleErrors": [],
+          "providerAttempts": [],
+          "requestErrors": [],
+          "responseErrors": []
+        }
+      },
+      {
+        "id": "native-1440",
+        "report": "docs/qa-evidence/colour-shadow-save-20261029/native-colour-shadow-1440x844-arcade-DbnxyNUQ-20261029T205211-718592000.json",
+        "sha256": "47b229f3e8b280b1a80c4a4a0a8fe05ae7d4b63d917e9463314a2b0bb72da952",
+        "passed": true,
+        "origin": "http://127.0.0.1:5180",
+        "viewport": "1440x844",
+        "entry": "/assets/arcade-DbnxyNUQ.js",
+        "runtime": "/assets/arcade-DbnxyNUQ.js",
+        "rows": 103,
+        "colourRows": 36,
+        "shadowRows": 67,
+        "controlsChecked": 967,
+        "minimumTargetWidth": 56,
+        "minimumTargetHeight": 48,
+        "allCenterHits": true,
+        "allControlsInsideViewport": true,
+        "errors": {
+          "pageErrors": [],
+          "consoleErrors": [],
+          "providerAttempts": [],
+          "requestErrors": [],
+          "responseErrors": []
+        }
+      },
+      {
+        "id": "public-390",
+        "report": "docs/qa-evidence/colour-shadow-save-20261029/production-colour-shadow-390x740-arcade-DbnxyNUQ-20261029T210601-817921000.json",
+        "sha256": "522f5b9f3c7fc78c90d6bd70a48c4718dc41a684baeafc5f4e4d4dbbf17729cb",
+        "passed": true,
+        "origin": "https://dinospace.netlify.app",
+        "viewport": "390x740",
+        "entry": "/assets/arcade-DbnxyNUQ.js",
+        "runtime": "/assets/arcade-DbnxyNUQ.js",
+        "rows": 103,
+        "colourRows": 36,
+        "shadowRows": 67,
+        "controlsChecked": 967,
+        "minimumTargetWidth": 55.5,
+        "minimumTargetHeight": 48,
+        "allCenterHits": true,
+        "allControlsInsideViewport": true,
+        "errors": {
+          "pageErrors": [],
+          "consoleErrors": [],
+          "providerAttempts": [],
+          "requestErrors": [],
+          "responseErrors": []
+        }
+      },
+      {
+        "id": "public-1440",
+        "report": "docs/qa-evidence/colour-shadow-save-20261029/production-colour-shadow-1440x844-arcade-DbnxyNUQ-20261029T210659-527946000.json",
+        "sha256": "0922c82bb352c78a226a772eeed5910d5f61c76fa06c4c50674934ad836e6cae",
+        "passed": true,
+        "origin": "https://dinospace.netlify.app",
+        "viewport": "1440x844",
+        "entry": "/assets/arcade-DbnxyNUQ.js",
+        "runtime": "/assets/arcade-DbnxyNUQ.js",
+        "rows": 103,
+        "colourRows": 36,
+        "shadowRows": 67,
+        "controlsChecked": 967,
+        "minimumTargetWidth": 56,
+        "minimumTargetHeight": 48,
+        "allCenterHits": true,
+        "allControlsInsideViewport": true,
+        "errors": {
+          "pageErrors": [],
+          "consoleErrors": [],
+          "providerAttempts": [],
+          "requestErrors": [],
+          "responseErrors": []
+        }
+      }
+    ],
+    "publicNewRewards": {
+      "Askia": {
+        "pointsBefore": 246,
+        "pointsAfter": 286,
+        "delta": 40,
+        "newReceiptCount": 5,
+        "newReceiptPoints": 40,
+        "allReceiptMarkersClaimed": true,
+        "replayExpectedDelta": 0,
+        "replayActualDelta": 0
+      },
+      "Amari": {
+        "pointsBefore": 467,
+        "pointsAfter": 491,
+        "delta": 24,
+        "newReceiptCount": 3,
+        "newReceiptPoints": 24,
+        "allReceiptMarkersClaimed": true,
+        "replayExpectedDelta": 0,
+        "replayActualDelta": 0
+      }
+    },
+    "shadowFaults": {
+      "shadowCompletionChain": [
+        {
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_little_progress"
+        },
+        {
+          "restored": true,
+          "fired": true,
+          "didSet": true,
+          "mode": "readback",
+          "key": "amari_little_progress"
+        },
+        {
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_rewards_v2"
+        },
+        {
+          "restored": true,
+          "fired": true,
+          "didSet": true,
+          "mode": "readback",
+          "key": "amari_rewards_v2"
+        }
+      ],
+      "shadowPendingReload": {
+        "id": "shadowmatch:level-4:best-3",
+        "points": 8,
+        "claimed": true
+      }
+    },
+    "colourReplay": {
+      "storedProgressUnchanged": true,
+      "parentPointsBefore": 467,
+      "parentPointsAfter": 467,
+      "delta": 0,
+      "freshPositiveBrowserFaultsExercised": true
+    },
+    "touchChecks": [
+      {
+        "report": "docs/qa-evidence/colour-shadow-save-20261029/native-shadow-touch-390x740-arcade-DbnxyNUQ-20261029T205410-928411000.json",
+        "passed": true,
+        "errors": {
+          "pageErrors": [],
+          "consoleErrors": [],
+          "requestErrors": [],
+          "responseErrors": []
+        }
+      },
+      {
+        "report": "docs/qa-evidence/colour-shadow-save-20261029/production-shadow-touch-390x740-arcade-DbnxyNUQ-20261029T210807-509663000.json",
+        "passed": true,
+        "errors": {
+          "pageErrors": [],
+          "consoleErrors": [],
+          "requestErrors": [],
+          "responseErrors": []
+        }
+      }
+    ]
+  },
+  "cutoverRetention": {
+    "passed": true,
+    "oldEntry": "/assets/arcade-hFNCOAZH.js",
+    "newEntry": "/assets/arcade-DbnxyNUQ.js",
+    "protectedRecords": 117,
+    "indexedDbVersion": 2,
+    "bookCount": 1,
+    "assetCount": 14,
+    "assetSha256": "2fda770f91a876d3d29b5dbea72ab77600f11b612d3af55a8184804a3a8eb0d9",
+    "mediaCacheRetained": true,
+    "scopeNote": "Actual cached-tab Refresh games55\u219256. One synthetic QAbook/14media retained; not historicalfamilybookrecovery."
+  },
+  "buildAndTests": {
+    "passed": true,
+    "testsPassed": 757,
+    "testsFailed": 0,
+    "testsSkipped": 0,
+    "parentClaimGroupsPassed": 19,
+    "scopedLint": "passed",
+    "paidCalls": 0,
+    "precacheRequests": 167,
+    "precacheBytes": 29874720
+  },
+  "sourceIdentity": {
+    "sourceHead": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+    "matchesRuntimeCommit": true,
+    "allReportSourceHashesMatchCurrentWorktree": true,
+    "sourceHashCount": 23,
+    "hashes": {
+      "src/data/pairLittleProgress.js": "4ec8ebf838876282400ffb68d7c0efd7c9fde0d57c102a89e3cfc2fc0c594221",
+      "src/components/little/games/ShadowMatch.jsx": "3fd65daa5a3d4afc1b5e5afd8c37f3275c1cab46712f16a329bceab82018247e",
+      "src/components/little/LittleGameShell.jsx": "e8b1822d4a095b74cab47a1bce96fbc1076b71b0350d3dce8ab6db0ac51ae1e3",
+      "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+      "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb"
+    },
+    "entrySha256VerifiedAgainstOriginAndBackend": true
+  },
+  "catalogueEntrySmoke": {
+    "passed": true,
+    "rows": 180,
+    "scope": "All35 Amari and10 Askia catalogue entries at two viewports on native/canonical; route/art/parent/reward-isolation only, not full content acceptance.",
+    "cases": [
+      {
+        "stage": "native",
+        "player": "amari",
+        "viewport": "390x740",
+        "rows": 35,
+        "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+        "sha256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+      },
+      {
+        "stage": "native",
+        "player": "amari",
+        "viewport": "1440x844",
+        "rows": 35,
+        "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+        "sha256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+      },
+      {
+        "stage": "native",
+        "player": "askia",
+        "viewport": "390x740",
+        "rows": 10,
+        "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+        "sha256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+      },
+      {
+        "stage": "native",
+        "player": "askia",
+        "viewport": "1440x844",
+        "rows": 10,
+        "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+        "sha256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+      },
+      {
+        "stage": "production",
+        "player": "amari",
+        "viewport": "390x740",
+        "rows": 35,
+        "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+        "sha256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+      },
+      {
+        "stage": "production",
+        "player": "amari",
+        "viewport": "1440x844",
+        "rows": 35,
+        "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+        "sha256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+      },
+      {
+        "stage": "production",
+        "player": "askia",
+        "viewport": "390x740",
+        "rows": 10,
+        "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+        "sha256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+      },
+      {
+        "stage": "production",
+        "player": "askia",
+        "viewport": "1440x844",
+        "rows": 10,
+        "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+        "sha256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+      }
+    ]
+  },
+  "retainedGameGate": {
+    "status": "open",
+    "reason": "The separate 14-retained-game gameplay smoke was still ongoing and not accepted at the time of this audit; this does not change Pair18 evidence."
+  },
+  "limitations": [
+    "Colour Mixing Lab was already legacy-complete: it replayed without a parent-point change, and the report explicitly says fresh positive Colour browser fault branches were unexercised. No rewards were manufactured; strict helper and parent-claim test gates are separate evidence.",
+    "The only retained personal-looking story asset set in cutover evidence is one synthetic QA book with 14 media assets. It is not recovery evidence for missing historical family books.",
+    "The cutover report records retention of 117 protected records and the IndexedDB book/assets stores; the protocol prohibited progress resets, seeding, hidden queue injection, or provider calls.",
+    "Catalogue entry smoke covers route, art, parent and reward isolation, not full content acceptance for all 45 catalogue routes."
+  ]
+}

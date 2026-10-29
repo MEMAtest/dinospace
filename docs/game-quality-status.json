@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T20:11:09.915892+00:00",
+  "updatedAt": "2026-10-29",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -292,7 +292,7 @@
     "editorialAccepted": false,
     "independentReport": "work/dinospace-batch4-quality/docs/qa-evidence/batch4-final-repair-local-20261003/report.md",
     "independentReportCommit": "aab31f0de1badd5003ffbb9cff0aa15d8c70ce83",
-    "coverage": "All four games: three chapters/worlds \u00d7 six missions at both1280\u00d7800 and390\u00d7844, full same-band replay; saved chapter badges/best-star improvement, sibling isolation, reload, clock wraps, NumberLine markers/frog and parent-world routes. Exact local5227 candidate only."
+    "coverage": "All four games: three chapters/worlds × six missions at both1280×800 and390×844, full same-band replay; saved chapter badges/best-star improvement, sibling isolation, reload, clock wraps, NumberLine markers/frog and parent-world routes. Exact local5227 candidate only."
   },
   "latestCheckpoint": "docs/game-quality-checkpoint-20261003-current.md",
   "batch5Implementation": {
@@ -326,7 +326,7 @@
     "soundRepairIdentity": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-progress-sounds-identity-20261003.json",
     "soundQaOrigin": "http://127.0.0.1:5295",
     "soundRepairEvidence": "work/dinospace-batch6-quality/docs/qa-evidence/batch6-progress-sounds-independent-20261004/report.md",
-    "soundRepairScope": "Independent fresh desktop1280\u00d7720 and mobile390\u00d7844 actual wrong/correct controls emitted expected native oscillator/envelope events in all four games. Chess selection and partial Hangman letters emitted no answer cue. Desktop Pattern mute interrupted active notes and suppressed the next answer cue. Five served hashes matched dedicated5295 origin. This is event proof, not human listening or narration completeness; no release/4.5 acceptance."
+    "soundRepairScope": "Independent fresh desktop1280×720 and mobile390×844 actual wrong/correct controls emitted expected native oscillator/envelope events in all four games. Chess selection and partial Hangman letters emitted no answer cue. Desktop Pattern mute interrupted active notes and suppressed the next answer cue. Five served hashes matched dedicated5295 origin. This is event proof, not human listening or narration completeness; no release/4.5 acceptance."
   },
   "batch4PackagingPlan": {
     "source": "ac3b3cc",
@@ -366,7 +366,7 @@
     "memory374IndependentCommit": "51ac9f2c4839ab28ee0840a8fc74adfa422e23b7",
     "memoryRepairSource": "44b9807eeec169cc5d48809c8c5a5eff29297c5f",
     "memoryRepairIdentity": "work/dinospace-batch7-quality/docs/qa-evidence/batch7-memory-visual-identity-20261004.json",
-    "memoryRepairScope": "Independent44/5288 actual390px earned Levels1\u20135 and formerblockedcard24 flippedinplace, ten53.5x48pills/nooverlay/console0. Vehicles unobserved inthat narrowdelta. Subsequentart/e771caption-selector candidates retainseparate evidence;183-line narration isnotyetaccepted.",
+    "memoryRepairScope": "Independent44/5288 actual390px earned Levels1–5 and formerblockedcard24 flippedinplace, ten53.5x48pills/nooverlay/console0. Vehicles unobserved inthat narrowdelta. Subsequentart/e771caption-selector candidates retainseparate evidence;183-line narration isnotyetaccepted.",
     "nextArtwork": "Fruit e771 independently passed1b009f9: ordinary Fruit and later8/9/10 boards both widths, full long captions and48pxdesktopselectors. Dolphin was not independently repeated in this delta.",
     "gardenArtworkProvenance": "work/dinospace-batch7-quality/docs/qa-evidence/memory-garden-art-provenance-20261004.json",
     "memoryArtworkSource": "ee38737b1bbb2dbfc7a158c796ea1f18289f40df",
@@ -541,7 +541,7 @@
       "deploymentId": "dpl_2STuJZUmaGLU6Vpvj5sb6uSj4B7t",
       "url": "https://dinospace-eight.vercel.app",
       "renderedAssetsMatched": 7,
-      "productionPlaywright": "Independent fresh canonical checks passed at1280\u00d7800 and390\u00d7844: ordinary unlock, clue once, wrong retry, held correct explanation, Next reset, Keep playing and confirmed Back to Maths. The56px mobile Next control is reachable by scrolling with no horizontal overflow; console clean. Exact2+10 did not appear naturally. Sound was off; no new playback or listening claim.",
+      "productionPlaywright": "Independent fresh canonical checks passed at1280×800 and390×844: ordinary unlock, clue once, wrong retry, held correct explanation, Next reset, Keep playing and confirmed Back to Maths. The56px mobile Next control is reachable by scrolling with no horizontal overflow; console clean. Exact2+10 did not appear naturally. Sound was off; no new playback or listening claim.",
       "editorialAccepted": false,
       "identityEvidence": "docs/qa-evidence/monster-clue-canonical-identity-20261003.json",
       "candidateProductionEvidence": "docs/qa-evidence/monster-clue-once-vercel-candidate-20261003/report.md",
@@ -598,7 +598,7 @@
   "puzzleTitleRepair": {
     "sourceSha": "2084095",
     "report": "docs/qa-evidence/puzzle-pop-title-repair-local-20261004.md",
-    "scope": "Dino Park Picnic\u2192Dino Park to match art.12focusedtests/lint/build passed.1371 corpus unique lines,3changed lines missing packaged media. Local only; no release before media/readiness/independent delta. Canonical c478 audit retains old title."
+    "scope": "Dino Park Picnic→Dino Park to match art.12focusedtests/lint/build passed.1371 corpus unique lines,3changed lines missing packaged media. Local only; no release before media/readiness/independent delta. Canonical c478 audit retains old title."
   },
   "puzzleReplayInvestigation": {
     "canonicalSource": "c47864404cff1f31c9cefe9b8a363d0ba5542b24",
@@ -672,7 +672,7 @@
     "commit": "f5a789ebcff694af4b3200363332346ff64669dc",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-identity-20261004.json",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-report-20261004.md",
-    "scope": "Independent5319 PASS: normalLevels1\u20138/fullGarden17pairsdesktop and fullGardenreplay390. At82pxsixant/eightspiderlegsreadable,nospecks/halos;distinctworm/caterpillar.34facedownzeroimgs,48pxselectors,reload9/10stickerpersistence,Keepplaying/confirmedBack/re-entry,7hashes,guardedAPI0/console0. Builderinventory72/87 isseparate. Localartdeltaonly;audio/remainingart/production/4.5open.",
+    "scope": "Independent5319 PASS: normalLevels1–8/fullGarden17pairsdesktop and fullGardenreplay390. At82pxsixant/eightspiderlegsreadable,nospecks/halos;distinctworm/caterpillar.34facedownzeroimgs,48pxselectors,reload9/10stickerpersistence,Keepplaying/confirmedBack/re-entry,7hashes,guardedAPI0/console0. Builderinventory72/87 isseparate. Localartdeltaonly;audio/remainingart/production/4.5open.",
     "independentCommit": "7c7c5c7",
     "independentReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-garden-crawlers-independent-20261004/report.md"
   },
@@ -726,7 +726,7 @@
     "builderCommit": "ab6ce142ee0bab38e34673e3f4b62ad19e02304b",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-report-20261004.md",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-identity-20261004.json",
-    "scope": "Independent local scoped PASS: normal-earned Levels1\u20135, fullVehicles14pairs bothwidths, distinctBus/Tractor/Bicycle/Scooter, captions82px,48pxselectors, face-down28cardszeroimages/labels, selectedLevel6reload, Back/re-entry and7hashes. API network URLs zero/console clean. Harness limits: default sound initially on (49localMP3GETs; no listeningclaim); route listing lost guards during intermediate navigation so continuity unproven (reinstalled verified finalreload). No fullinventory, Askia, audio, production or4.5 acceptance. Builderinventory76/87 remainsseparate.",
+    "scope": "Independent local scoped PASS: normal-earned Levels1–5, fullVehicles14pairs bothwidths, distinctBus/Tractor/Bicycle/Scooter, captions82px,48pxselectors, face-down28cardszeroimages/labels, selectedLevel6reload, Back/re-entry and7hashes. API network URLs zero/console clean. Harness limits: default sound initially on (49localMP3GETs; no listeningclaim); route listing lost guards during intermediate navigation so continuity unproven (reinstalled verified finalreload). No fullinventory, Askia, audio, production or4.5 acceptance. Builderinventory76/87 remainsseparate.",
     "independentCommit": "6bc032879d6285701bfda38b99fb7e0add4239d2",
     "independentReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-vehicle-four-independent-20261004/report.md"
   },
@@ -768,7 +768,7 @@
     "origin": "http://127.0.0.1:5331",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-mountain-tulip-lolly-chips-identity-20261004.json",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-mountain-tulip-lolly-chips-builder-report-20261004.md",
-    "scope": "Builder80/87illustrated: Mountain/Tulip/Lolly/Chips actualDino/Garden/Party/Foodboards at1280/390, normal-earned1\u20139/replays,82pxcards/face-downhiding/captions. Finalguardedblank+gotorecaptures supersedeinitialopenresetpreliminaryevidence.17tests/lint/configuredbuildpass. MemoryMatch.jsx onlyimports/mapadditions;progressionunchanged. Sevenremainingracingcar/drink/partyface/duck/waterlily/dinonest/speedboat. Independentreviewqueued; noaudio/production/4.5."
+    "scope": "Builder80/87illustrated: Mountain/Tulip/Lolly/Chips actualDino/Garden/Party/Foodboards at1280/390, normal-earned1–9/replays,82pxcards/face-downhiding/captions. Finalguardedblank+gotorecaptures supersedeinitialopenresetpreliminaryevidence.17tests/lint/configuredbuildpass. MemoryMatch.jsx onlyimports/mapadditions;progressionunchanged. Sevenremainingracingcar/drink/partyface/duck/waterlily/dinonest/speedboat. Independentreviewqueued; noaudio/production/4.5."
   },
   "spotGrowingLandscapePrototype": {
     "sourceSha": "77940e9",
@@ -802,7 +802,7 @@
     "origin": "http://127.0.0.1:5333",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-identity-20261004.json",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-racing-drink-partyface-duck-builder-report-20261004.md",
-    "scope": "Builder 84/87 tokens illustrated: Racing Car, Drink, Party Face and Duck; imports/map additions only. 18 tests, lint and configured build pass. Normal earned Levels 1\u20139 and full target boards at both widths, 82px mobile cards/captions and guarded goto/hash/console checks. Follow-up selects fresh rounds and verifies actual 24/28/30/34 face-down cards before and after reload, with zero front images/labels. This supersedes the initial vacuous post-completion check. Independent review pending. Final water lily, dinosaur nest and speedboat are being integrated. No audio, production or 4.5 acceptance.",
+    "scope": "Builder 84/87 tokens illustrated: Racing Car, Drink, Party Face and Duck; imports/map additions only. 18 tests, lint and configured build pass. Normal earned Levels 1–9 and full target boards at both widths, 82px mobile cards/captions and guarded goto/hash/console checks. Follow-up selects fresh rounds and verifies actual 24/28/30/34 face-down cards before and after reload, with zero front images/labels. This supersedes the initial vacuous post-completion check. Independent review pending. Final water lily, dinosaur nest and speedboat are being integrated. No audio, production or 4.5 acceptance.",
     "builderReloadEvidenceCommit": "04f00cbf54add155dca8e800ac169f27af8339ad",
     "builderReportCorrectionCommit": "31c6543"
   },
@@ -824,7 +824,7 @@
     "origin": "http://127.0.0.1:5334",
     "identity": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-waterlily-dinonest-speedboat-identity-20261004.json",
     "report": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-waterlily-dinonest-speedboat-builder-report-20261004.md",
-    "scope": "Builder final water lily/dinosaur nest/speedboat maps complete 87/87 art coverage. 19 focused tests, lint/configured build and served identity pass. Normal earned 1\u20139 and three actual target boards completed both widths; 82px mobile cards and 26/28/34 face-down counts with zero fronts before/after visible selector/reload. Final independent full ten-level desktop/mobile review queued after Observatory; no audio/production/4.5 acceptance.",
+    "scope": "Builder final water lily/dinosaur nest/speedboat maps complete 87/87 art coverage. 19 focused tests, lint/configured build and served identity pass. Normal earned 1–9 and three actual target boards completed both widths; 82px mobile cards and 26/28/34 face-down counts with zero fronts before/after visible selector/reload. Final independent full ten-level desktop/mobile review queued after Observatory; no audio/production/4.5 acceptance.",
     "independentCommit": "92c7048",
     "independentReport": "../dinospace-batch7-quality/docs/qa-evidence/batch7-memory-final87-independent-20261004/report.md",
     "independentScope": "Full ten-level ordinary desktop/mobile gameplay passes:10/10stickers/Played10, Level5retains26cards13pairs, targetboards26/28/34cardsandGalaxy36, 82pxmobilecards/48pxcontrols, threefinalart+Ocean/Fossil/Mooncontextfidelity andselectedreloadface-downprivacy pass. Sixidentityfilesmatch, guards/API/consoleclean. Soundresetsenabledafterreloadonthisstalebranch: independentlyobservedregression, rootcarriedcanonicalc478fixinto1410edb/frozen5335. No all87premiumart/humanlistening/production/4.5 acceptance."
@@ -965,7 +965,7 @@
     "deployment": "dpl_3GkBnRTWdFep1oz2RGB8FJnZfmhZ",
     "changes": [
       "five world hover/focus/tap previews",
-      "six Spelling stages with 4/5/6\u20137 letter words",
+      "six Spelling stages with 4/5/6–7 letter words",
       "four Hangman levels with longer words and full alphabet challenge",
       "packaged-only rescue narration",
       "invalid HTML media cache recovery"
@@ -1071,7 +1071,7 @@
     "evidence": "docs/qa-evidence/storybook-inventory-20261024/README.md",
     "includedBooks": 7,
     "missingPersonalBooksRecovered": false,
-    "scope": "Both live origins verified. Included versus browser-saved count, readable/blocked storage distinction, filter reset, local/candidate/Netlify synthetic 7-to-9-to-7 inventory rehearsal; live Netlify packaged narration and page turn at390. Seven included books have154available media files. Existing desktop Vercel and localhost Chrome libraries show7included/0saved. User phone IndexedDB is not accessible from this Mac; user confirms8\u20139 personal stories remain unlocated, in addition to7included books. No test books imported into family data, paid providers or all-game editorial score changes."
+    "scope": "Both live origins verified. Included versus browser-saved count, readable/blocked storage distinction, filter reset, local/candidate/Netlify synthetic 7-to-9-to-7 inventory rehearsal; live Netlify packaged narration and page turn at390. Seven included books have154available media files. Existing desktop Vercel and localhost Chrome libraries show7included/0saved. User phone IndexedDB is not accessible from this Mac; user confirms8–9 personal stories remain unlocated, in addition to7included books. No test books imported into family data, paid providers or all-game editorial score changes."
   },
   "publicUrl": "https://dinospace.netlify.app",
   "singlePublicSiteRelease": {
@@ -1084,7 +1084,7 @@
     "evidence": "docs/qa-evidence/count-add-save-20261029/README.md",
     "oldPublicAlias": "Redirect-only root/index app entry; legacy API/static routes retained for installed clients",
     "nativeCheck": "CompleteCount+Additionnative/canonicalbothviewportsandactualpublicsave/rewardfault/reloadpassed",
-    "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2\u21923only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
+    "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2→3only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
   },
   "personalStoryRecovery": {
     "userConfirmedExpectedPersonalStories": [
@@ -1097,7 +1097,7 @@
       16
     ],
     "recoveredPersonalStories": 0,
-    "logsConfirm": "23October20:20\u201320:23 Europe/London,1outline7images7narrations successful responses; title/content/client-save not logged",
+    "logsConfirm": "23October20:20–20:23 Europe/London,1outline7images7narrations successful responses; title/content/client-save not logged",
     "olderLogs": "Historical windows rejected400; no legacy log drains returned",
     "evidence": "docs/qa-evidence/personal-story-recovery-20261024/README.md",
     "status": "unresolved; original device browser/backup still required"
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": 18,
+  "activeDeliveryPair": null,
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1245,27 +1245,27 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 17,
-    "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
-    "entry": "/assets/arcade-hFNCOAZH.js",
+    "pair": 18,
+    "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+    "entry": "/assets/arcade-DbnxyNUQ.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-h9vbjonm7-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_3ETCJv9StJRRg4fUGUiZ6CJh8rpM",
-    "netlifyGatewayDeploy": "6ae3a685d48c4344a90b61ad",
-    "serviceWorkerCache": "amari-discovery-v55",
+    "backendUrl": "https://dinospace-2fm3y9pei-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_F7dgv95pWuMm5KiuP74FACfW1b6Y",
+    "netlifyGatewayDeploy": "6ae3b4ed8c6a1eb24f737349",
+    "serviceWorkerCache": "amari-discovery-v56",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
-    "production": "docs/qa-evidence/time-safari-save-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/time-safari-save-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+    "production": "docs/qa-evidence/colour-shadow-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/colour-shadow-save-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 745,
+      "passed": 757,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T20:11:09.915892+00:00",
+    "verifiedAt": "2026-10-29T21:11:51.066760+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Four72rownative/canonical390/1440journeys; strictsaves/localfaults, genuine muted-input Safari geometry/no false fallbacks, touch clocksetting,6approvedphonemes, legacyreplay0,117key/allIDB14media refresh retention. FreshTimefaults retained; positiveSafari browserclaim unexercised due existingbadges. Functional scope only."
+    "scope": "Four full103-row native/canonical phone/desktop journeys, per-child strict saves and reward-fault recovery, capped replay, actual touch cancel/drag and held-fact departure, plus117-record/all-IDB14-media cached-tab refresh retention. Colour positive browser reward faults remain unexercised on existing completed profiles; no seeded eligibility. Final whole-catalogue integration is separate."
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
@@ -1293,37 +1293,29 @@
       "earlierProgressAndStickersRetained": true
     }
   },
-  "activeDeliveryCandidate": {
-    "pair": 18,
-    "games": [
-      "colormix",
-      "shadowmatch"
-    ],
-    "status": "implementation",
-    "publicBaselineRuntime": "2df5b70766ae51d6b01c38e959e7391e17de259f"
-  },
+  "activeDeliveryCandidate": null,
   "lastVerifiedDeliveryRelease": {
-    "pair": 17,
-    "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
-    "entry": "/assets/arcade-hFNCOAZH.js",
+    "pair": 18,
+    "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+    "entry": "/assets/arcade-DbnxyNUQ.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-h9vbjonm7-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_3ETCJv9StJRRg4fUGUiZ6CJh8rpM",
-    "netlifyGatewayDeploy": "6ae3a685d48c4344a90b61ad",
-    "serviceWorkerCache": "amari-discovery-v55",
+    "backendUrl": "https://dinospace-2fm3y9pei-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_F7dgv95pWuMm5KiuP74FACfW1b6Y",
+    "netlifyGatewayDeploy": "6ae3b4ed8c6a1eb24f737349",
+    "serviceWorkerCache": "amari-discovery-v56",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
-    "production": "docs/qa-evidence/time-safari-save-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/time-safari-save-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+    "production": "docs/qa-evidence/colour-shadow-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/colour-shadow-save-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 745,
+      "passed": 757,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T20:11:09.915892+00:00",
+    "verifiedAt": "2026-10-29T21:11:51.066760+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Four72rownative/canonical390/1440journeys; strictsaves/localfaults, genuine muted-input Safari geometry/no false fallbacks, touch clocksetting,6approvedphonemes, legacyreplay0,117key/allIDB14media refresh retention. FreshTimefaults retained; positiveSafari browserclaim unexercised due existingbadges. Functional scope only."
+    "scope": "Four full103-row native/canonical phone/desktop journeys, per-child strict saves and reward-fault recovery, capped replay, actual touch cancel/drag and held-fact departure, plus117-record/all-IDB14-media cached-tab refresh retention. Colour positive browser reward faults remain unexercised on existing completed profiles; no seeded eligibility. Final whole-catalogue integration is separate."
   },
   "deliveryReleaseHistory": [
     {
@@ -1570,7 +1562,7 @@
       "verifiedAt": "2026-10-29T18:24:25.947138+00:00",
       "paidCalls": 0,
       "editorialScoresChanged": false,
-      "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2\u21923only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
+      "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2→3only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
     },
     {
       "pair": 16,
@@ -1812,7 +1804,7 @@
     "verifiedAt": "2026-10-29T18:24:25.947138+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2\u21923only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
+    "scope": "Complete72-question native/canonical390x740 and1440x844 journeys (36Count+36Addition each), three chapters and lower replays. Actual public queue/local/parent write/readback retries; Count legacy2→3only+1, pending-marker reload0duplicate, Addition unpaid reward reload+3once;117-key/all-IDB14-media update retention. No new editorial/listening score, physical-device certification or historical personal-book recovery."
   },
   "latestSubtractionNumberLineSaveUplift": {
     "pair": 16,
@@ -1859,5 +1851,31 @@
     "paidCalls": 0,
     "editorialScoresChanged": false,
     "scope": "Four72rownative/canonical390/1440journeys; strictsaves/localfaults, genuine muted-input Safari geometry/no false fallbacks, touch clocksetting,6approvedphonemes, legacyreplay0,117key/allIDB14media refresh retention. FreshTimefaults retained; positiveSafari browserclaim unexercised due existingbadges. Functional scope only."
-  }
+  },
+  "latestColourShadowSaveUplift": {
+    "pair": 18,
+    "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+    "entry": "/assets/arcade-DbnxyNUQ.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-2fm3y9pei-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_F7dgv95pWuMm5KiuP74FACfW1b6Y",
+    "netlifyGatewayDeploy": "6ae3b4ed8c6a1eb24f737349",
+    "serviceWorkerCache": "amari-discovery-v56",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/colour-shadow-save-20261029/README.md",
+    "production": "docs/qa-evidence/colour-shadow-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/colour-shadow-save-20261029/source-gates.json",
+    "sourceTests": {
+      "passed": 757,
+      "failed": 0,
+      "skipped": 0
+    },
+    "verifiedAt": "2026-10-29T21:11:51.066760+00:00",
+    "paidCalls": 0,
+    "editorialScoresChanged": false,
+    "scope": "Four full103-row native/canonical phone/desktop journeys, per-child strict saves and reward-fault recovery, capped replay, actual touch cancel/drag and held-fact departure, plus117-record/all-IDB14-media cached-tab refresh retention. Colour positive browser reward faults remain unexercised on existing completed profiles; no seeded eligibility. Final whole-catalogue integration is separate."
+  },
+  "deliveryCompletionStatus": "All 18 pairs live verified; final catalogue and retained-game integration passed",
+  "finalDeliveryEvidence": "docs/game-delivery-20261027/final-catalogue-reconciliation.json",
+  "finalIntegrationEvidence": "docs/qa-evidence/final-integration-20261029/final-coverage-summary.json"
 }

@@ -1,0 +1,196 @@
+{
+  "at": "2026-10-29T20:15:42.626069+00:00",
+  "newCheckouts": 0,
+  "newProfiles": 0,
+  "newDependencyInstalls": 0,
+  "paidCalls": 0,
+  "evidenceBudgetBytes": 8388608,
+  "profileBeforeKiB": 1140288,
+  "profileGrowthBudgetBytes": 67108864,
+  "newAssets": "Existing Colour art/audio and12provenance-backed Shadow dinosaurs reused; no paid jobs",
+  "freeSpaceBeforeGiB": "87",
+  "cleanupAt": "2026-10-29T21:27:22.253115+00:00",
+  "removedDisposableDuplicates": [
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/build-r8.log",
+      "bytes": 14592,
+      "sha256": "921f79f460074c5d69ab9b1baa58913db3db5a1f06e3de1bf83df0446069f031"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/tests-r8.log",
+      "bytes": 75175,
+      "sha256": "189a0b160347f5228e05f1be12b63c261daef45e25462ba6d58dfe5ba68a022c"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/tests-r7.log",
+      "bytes": 75158,
+      "sha256": "20f3c9fa21d09de4e97e96ebd2629a8238b70b277df78dea7d47de99500c551f"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/tests-r6.log",
+      "bytes": 75160,
+      "sha256": "3aa49c5f117bc412c063c3f9d8e8eb8d037c82b6a9ed4dfde2ce56bd7be88c4f"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/tests-r4.log",
+      "bytes": 75121,
+      "sha256": "12f596ba5333e85a7fc6bf0f9b899b4990517a5acd18f14e67ed483d1260cdc3"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/tests-r5.log",
+      "bytes": 75103,
+      "sha256": "4ffbda8027ed84b10a58c3f9aafc242b6a8aeb1c1402d89d500d3e301b3640d3"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/tests-r2.log",
+      "bytes": 75032,
+      "sha256": "a10a721918b5322d15f28b6902380516865713da78e120b9427b3b53ea130cd7"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/tests.log",
+      "bytes": 75054,
+      "sha256": "3e33c68abba113e99528a18257af3f8085d2050919465614ff2ea7716f3f8e16"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/build-r4.log",
+      "bytes": 14591,
+      "sha256": "4218bb6d8d8180e9bb547f8d563cbf7b0509dfa1285de65e16b04a4d27176852"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/build-r5.log",
+      "bytes": 14592,
+      "sha256": "a137677736c4a0ebd6faa493c3dc7a0f4f19f18fe0cfd06c1cc071b77340f801"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/build-r7.log",
+      "bytes": 14592,
+      "sha256": "46b77c68f7016b865453407711f6cae1d784d7054b7442e249f11898ba08128e"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/build-r6.log",
+      "bytes": 14592,
+      "sha256": "11df890aaf2c41b1eb00b7ddbea032ade742789fdd0a32d471449796af26f4a1"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/build-r2.log",
+      "bytes": 14592,
+      "sha256": "3840b87e0f741f212f5f5886fad1c01359490dbdd3052dc07bf46e090eee69f3"
+    },
+    {
+      "path": "docs/qa-evidence/colour-shadow-save-20261029/source-checks/build.log",
+      "bytes": 14592,
+      "sha256": "69994cf359c75ae86fdd67c8ce6089e69a034de1c01e48d2bad26ae44147947d"
+    },
+    {
+      "path": "tmp/pair18-build-r1.log",
+      "bytes": 14592,
+      "sha256": "69994cf359c75ae86fdd67c8ce6089e69a034de1c01e48d2bad26ae44147947d"
+    },
+    {
+      "path": "tmp/pair18-build-r2.log",
+      "bytes": 14592,
+      "sha256": "3840b87e0f741f212f5f5886fad1c01359490dbdd3052dc07bf46e090eee69f3"
+    },
+    {
+      "path": "tmp/pair18-build-r3.log",
+      "bytes": 14592,
+      "sha256": "859a895c70f453839a6531ace4afe7d3ba726a252d164c61df00eb4242f4b060"
+    },
+    {
+      "path": "tmp/pair18-build-r4.log",
+      "bytes": 14591,
+      "sha256": "4218bb6d8d8180e9bb547f8d563cbf7b0509dfa1285de65e16b04a4d27176852"
+    },
+    {
+      "path": "tmp/pair18-build-r5.log",
+      "bytes": 14592,
+      "sha256": "a137677736c4a0ebd6faa493c3dc7a0f4f19f18fe0cfd06c1cc071b77340f801"
+    },
+    {
+      "path": "tmp/pair18-build-r6.log",
+      "bytes": 14592,
+      "sha256": "11df890aaf2c41b1eb00b7ddbea032ade742789fdd0a32d471449796af26f4a1"
+    },
+    {
+      "path": "tmp/pair18-build-r7.log",
+      "bytes": 14592,
+      "sha256": "46b77c68f7016b865453407711f6cae1d784d7054b7442e249f11898ba08128e"
+    },
+    {
+      "path": "tmp/pair18-build-r8.log",
+      "bytes": 14592,
+      "sha256": "921f79f460074c5d69ab9b1baa58913db3db5a1f06e3de1bf83df0446069f031"
+    },
+    {
+      "path": "tmp/pair18-build-r9.log",
+      "bytes": 14592,
+      "sha256": "ce87a805c56a6e2d394efce28b16a95d772fbdf310c05a75645c3067760e41cd"
+    },
+    {
+      "path": "tmp/pair18-tests-r1.log",
+      "bytes": 75054,
+      "sha256": "3e33c68abba113e99528a18257af3f8085d2050919465614ff2ea7716f3f8e16"
+    },
+    {
+      "path": "tmp/pair18-tests-r2.log",
+      "bytes": 75032,
+      "sha256": "a10a721918b5322d15f28b6902380516865713da78e120b9427b3b53ea130cd7"
+    },
+    {
+      "path": "tmp/pair18-tests-r4.log",
+      "bytes": 75121,
+      "sha256": "12f596ba5333e85a7fc6bf0f9b899b4990517a5acd18f14e67ed483d1260cdc3"
+    },
+    {
+      "path": "tmp/pair18-tests-r5.log",
+      "bytes": 75103,
+      "sha256": "4ffbda8027ed84b10a58c3f9aafc242b6a8aeb1c1402d89d500d3e301b3640d3"
+    },
+    {
+      "path": "tmp/pair18-tests-r6.log",
+      "bytes": 75160,
+      "sha256": "3aa49c5f117bc412c063c3f9d8e8eb8d037c82b6a9ed4dfde2ce56bd7be88c4f"
+    },
+    {
+      "path": "tmp/pair18-tests-r7.log",
+      "bytes": 75158,
+      "sha256": "20f3c9fa21d09de4e97e96ebd2629a8238b70b277df78dea7d47de99500c551f"
+    },
+    {
+      "path": "tmp/pair18-tests-r8.log",
+      "bytes": 75175,
+      "sha256": "189a0b160347f5228e05f1be12b63c261daef45e25462ba6d58dfe5ba68a022c"
+    },
+    {
+      "path": "tmp/pair18-tests-r9.log",
+      "bytes": 75119,
+      "sha256": "f01dec237d63d6939d66afc6add26ec55828ac0293b92c5a70e21872c1a16ae0"
+    },
+    {
+      "path": "tmp/pair18-vercel-identity-raw.json",
+      "bytes": 14277,
+      "sha256": "6381e16c4c91933619913819b32726aa09e8ea8e50d6d70fc2574d941b57c7b1"
+    },
+    {
+      "path": "tmp/pair18-netlify-site-raw.json",
+      "bytes": 7246,
+      "sha256": "1d47c5649388fb3785179210a64d42ad41680d01031de208999283789b7b71ed"
+    }
+  ],
+  "removedLogicalBytes": 1381718,
+  "recovery": "Source app commits retained. Rerun VITE_ELEVENLABS_ENABLED=true npm run build and PWA_BUILD_DIR=dist npm test for disposable logs; sanitized canonical deployment receipts retained. Unique failed screenshots/JSON and final gate logs retained; no browser/profile/state clearing.",
+  "finalMeasuredAt": "2026-10-29T21:47:26.859722+00:00",
+  "finalAllocatedKiB": {
+    "docs/qa-evidence/colour-shadow-save-20261029": 3644,
+    "docs/qa-evidence/final-integration-20261029": 3684,
+    "docs/qa-evidence/catalogue-entry-smoke-20261029": 488,
+    "docs/qa-evidence/chess-input-20261029": 1224,
+    "tmp/amari-production-qa-profile": 1173580
+  },
+  "profileAfterKiB": 1173580,
+  "profileGrowthBytes": 34091008,
+  "preview": "Verified task-owned Vite preview PID18926, cwd canonical checkout, port5180; stopped after final native verification.",
+  "browser": "Ownership released; one retained headless session and synthetic profile preserved.",
+  "freeSpaceAfterAvailableKiB": 71060208,
+  "freeSpaceInterpretation": "Global free-space changes include unrelated activity; removedLogicalBytes is the bounded logical cleanup amount, not claimed global recovery."
+}

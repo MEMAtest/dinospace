@@ -21,11 +21,13 @@ async function startVisibleRun(page, lane, helper) {
   // Saved profiles may open a later chapter. Select the first enabled authored
   // chapter/survey using its ordinary control, without changing saved progress.
   if (lane.id === 'counting') {
-    const firstSurvey = page.locator('main article').first().getByRole('button');
-    if (await firstSurvey.count() !== 1 || !await firstSurvey.isVisible() || !await firstSurvey.isEnabled()) {
-      throw new Error('The first counting survey is not visibly unlocked');
+    const selected=page.locator('main section h2').first();await selected.waitFor();
+    if((await selected.innerText()).trim()!=='Star Garden'){
+      const picker=page.locator('main details').first(),summary=picker.locator('summary');await summary.scrollIntoViewIfNeeded();await helper.clickControl(summary,{label:'Open the secondary counting survey picker'});
+      const first=picker.getByRole('button',{name:/^Star Garden(?: ·|$)/});await first.scrollIntoViewIfNeeded();await helper.clickControl(first,{label:'Select Star Garden survey'});
     }
-    await helper.clickControl(firstSurvey, { label: 'Start or replay the first unlocked counting survey' });
+    const firstSurvey=page.getByRole('button',{name:/^(Start|Replay) selected survey$/});
+    await helper.clickControl(firstSurvey,{label:'Start or replay the selected counting survey'});
     return;
   } else {
     const chapterButtons = page.locator('main button[aria-pressed="true"], main button[aria-pressed="false"]');
@@ -40,8 +42,8 @@ async function startVisibleRun(page, lane, helper) {
   const startLabels = {
     math: /^(Start six questions|Replay this episode)$/,
     counting: /^(Start next survey|Replay survey|Start survey)$/,
-    addition: /^Start .+$/,
-    subtraction: /^Start .+$/,
+    addition: /^(Start|Replay) .+$/,
+    subtraction: /^(Start|Replay) .+$/,
     numberline: /^(Start|Replay) .+$/,
     timeteller: /^(Start|Replay) .+$/,
   };
@@ -112,12 +114,12 @@ async function answerFromVisibleModel(page, laneId, prompt) {
   if (laneId === 'timeteller') {
     const checkClock = exactButton(page, 'Check clock');
     if (await checkClock.count() === 1 && await checkClock.isVisible()) {
-      const target = prompt.match(/Set the clock to (\d{1,2} o'clock|half past \d{1,2}|quarter past \d{1,2}|quarter to \d{1,2})(?:,|\.|$)/i)?.[1];
+      const target = prompt.match(/Set the clock to (\d{1,2} o['’]clock|half past \d{1,2}|quarter past \d{1,2}|quarter to \d{1,2})(?:,|\.|$)/i)?.[1];
       const parsed = parseTimeLabel(target);
       if (!parsed) throw new Error(`Cannot parse the visible set-clock target: ${prompt}`);
       return parsed;
     }
-    const svg = page.locator('svg[viewBox="0 0 200 200"][role="img"]').first();
+    const svg = page.locator('svg[viewBox="0 0 200 200"][role="img"]:visible').first();
     const angles = await visibleClockHandAngles(svg);
     const minute = Math.round(angles.minute / 6) % 60;
     const hour = ((Math.round((angles.hour - minute * 0.5) / 30) % 12) || 12);
@@ -135,7 +137,7 @@ async function answerFromVisibleModel(page, laneId, prompt) {
 }
 
 function parseTimeLabel(label = '') {
-  let match = label.match(/^(\d{1,2}) o'clock$/i);
+  let match = label.match(/^(\d{1,2}) o['’]clock$/i);
   if (match) return `${Number(match[1])}:00`;
   match = label.match(/^half past (\d{1,2})$/i);
   if (match) return `${Number(match[1])}:30`;
@@ -147,7 +149,7 @@ function parseTimeLabel(label = '') {
 }
 
 function formatTimeLabel(hour, minute) {
-  if (minute === 0) return `${hour} o'clock`;
+  if (minute === 0) return `${hour} o’clock`;
   if (minute === 30) return `half past ${hour}`;
   if (minute === 15) return `quarter past ${hour}`;
   if (minute === 45) return `quarter to ${hour === 12 ? 1 : hour + 1}`;
@@ -166,15 +168,15 @@ async function taskIdentity(page, laneId, promptLocator) {
   if (laneId === 'counting') {
     const board = page.locator('[data-layout-variant]').first();
     const details = await board.evaluate(element => ({
-      variant: element.getAttribute('data-layout-variant'),
-      objects: [...element.querySelectorAll('button')].map(button => `${button.getAttribute('style') || ''}:${button.innerHTML}`),
+      variant: element.getAttribute('aria-label'),
+      objects: [...element.querySelectorAll('button')].map(button => button.getAttribute('style') || ''),
     }));
     return `${prompt}|${details.variant}|${details.objects.join(',')}`;
   }
   if (laneId === 'timeteller') {
     const checkClock = exactButton(page, 'Check clock');
     if (await checkClock.count() === 1 && await checkClock.isVisible()) return prompt;
-    const svg = page.locator('svg[viewBox="0 0 200 200"][role="img"]').first();
+    const svg = page.locator('svg[viewBox="0 0 200 200"][role="img"]:visible').first();
     const hands = await visibleClockHandAngles(svg);
     const angles = `${hands.hour}:${hands.minute}`;
     return `${prompt}|clock:${angles}`;
@@ -214,7 +216,7 @@ async function clickAnswer(page, laneId, value, helper, label) {
     return;
   }
   if (laneId === 'numberline') {
-    const promptText = await visiblePrompt(page, laneId).innerText();
+    const promptText = await (await visiblePrompt(page, laneId)).innerText();
     const buttonName = value === 'same' ? 'Same' : /^Which frog/i.test(promptText) ? `Frog ${value}` : String(value);
     await helper.clickControl(page.getByRole('group', { name: 'Choose the answer' }).getByRole('button', { name: buttonName, exact: true }), { label });
     return;
@@ -233,7 +235,7 @@ async function clickAnswer(page, laneId, value, helper, label) {
 async function setClockFromVisibleTarget(page, helper, target) {
   const [hourRaw, minuteRaw] = target.split(':').map(Number);
   if (!Number.isInteger(hourRaw) || !Number.isInteger(minuteRaw)) throw new Error(`Cannot read target time from visible prompt: ${target}`);
-  const svg = page.locator('svg[role="img"][aria-label="Clock setting controls"]');
+  const svg = page.locator('svg[role="img"][aria-label="Clock setting controls"]:visible');
   const hand = async (name, degrees) => {
     await helper.clickControl(exactButton(page, name), { label: `Select ${name} for clock model` });
     await helper.measureControl(svg, 'Visible clock face');
@@ -244,7 +246,7 @@ async function setClockFromVisibleTarget(page, helper, target) {
     await svg.click({ position: { x, y } });
   };
   await hand('Long · minute', minuteRaw * 6);
-  await hand('Short · hour', ((hourRaw % 12) * 30) + minuteRaw * 0.5);
+  await hand('Short · hour', (hourRaw % 12) * 30);
 }
 
 async function performModelCorrect(page, laneId, answer, prompt, helper) {
@@ -269,10 +271,10 @@ async function performModelCorrect(page, laneId, answer, prompt, helper) {
   if (laneId === 'subtraction') {
     const model = page.getByRole('region', { name: 'Take-away model' });
     if (await model.count()) {
-      const buttons = model.getByRole('button');
+      const buttons = model.getByRole('button', {name:/, remains$/});
       const match = prompt.match(/Take away (\d+)/i) || prompt.match(/gives? (\d+) /i);
       const toMark = match ? Number(match[1]) : 0;
-      for (let i = 0; i < toMark; i += 1) await helper.clickControl(buttons.nth(i), { label: `Mark visible object ${i + 1} as taken away` });
+      for (let i = 0; i < toMark; i += 1) await helper.clickControl(buttons.first(), { label: `Mark visible object ${i + 1} as taken away` });
     }
     await clickAnswer(page, laneId, answer, helper, 'Choose the result shown by the subtraction model');
     return;
@@ -312,6 +314,7 @@ function makeExercise(laneId) {
     const answer = await answerFromVisibleModel(page, laneId, prompt);
     if (answer === null) throw new Error(`Could not derive a visible-model answer for ${lane.title}: ${prompt}`);
     const initialIdentity = await taskIdentity(page, laneId, promptLocator);
+    if(laneId==='counting'){const uncounted=page.locator('[aria-label$="not counted yet"]');const total=await uncounted.count();for(let n=0;n<total;n++)await helper.clickControl(uncounted.first(),{label:`Count visible object ${n+1} before first answer`});}
 
     const wrongValue = laneId === 'numberline' && typeof answer === 'string'
       ? (answer === 'A' ? 'B' : 'A')
@@ -360,6 +363,7 @@ function makeExercise(laneId) {
     }
 
     if (await taskIdentity(page, laneId, await visiblePrompt(page, laneId)) !== initialIdentity) throw new Error(`${lane.title} changed prompt after a wrong answer`);
+    if(laneId==='counting'){const recount=exactButton(page,'Recount from 1 · uses a clue');await helper.clickControl(recount,{label:'Reopen the visible count model and its narration after wrong retry'});}
     const audioControl = laneId === 'math'
       ? exactButton(page, 'Hear the question again')
       : laneId === 'counting' ? exactButton(page, 'Hear instructions')
@@ -377,7 +381,7 @@ function makeExercise(laneId) {
           ? page.getByRole('button', { name: /^(Next mission|Finish world|Finish chapter) →$/ })
           : page.getByRole('button', { name: /^(Next question|Finish chapter)$/ });
     const heldRegion = laneId === 'counting' ? page.getByRole('status').filter({ hasText: /Brilliant counting|Great counting|kept counting/ }).first()
-      : laneId === 'math' ? page.locator('main p[role="status"]').filter({ hasText: /./ }).first()
+      : laneId === 'math' ? page.locator('main section[aria-live="polite"] p').first()
         : laneId === 'numberline' || laneId === 'timeteller' ? page.getByRole('region', { name: 'Worked answer' }).getByRole('status')
           : page.locator('main p[role="status"]').first();
     await heldNext.waitFor({ state: 'visible', timeout: 5000 });

@@ -1,6 +1,6 @@
 # Pair 1–11 catalogue entry and return smoke
 
-This is a bounded route/art/error smoke only. It does not replay any previously accepted gameplay matrix and does not claim full game acceptance. The callback uses the already leased caller page, normal profile selection and ordinary catalogue controls. It does not navigate with `goto`, create browser state, write application storage, seed progress or inject answers.
+This is a bounded route/art/error smoke only. It does not replay any previously accepted gameplay matrix and does not claim full game acceptance. The inner callback uses the already leased caller page, normal profile selection and ordinary catalogue controls. The wrapper installs provider/namespace guards before one navigation to the requested origin and Home; it then selects the ordinary profile through visible UI. It creates no session, tab, context or profile and does not write application storage, seed progress or inject answers.
 
 ## Exact catalogue scope
 
@@ -69,7 +69,7 @@ The 14 separately retained IDs are `trace`, `tictactoe`, `puzzle`, `spot`, `jet`
 ## Per-entry checks
 
 - Locate the title in the correct normal parent, scroll only that secondary navigation target into the viewport, and require a complete 44px target with center hit before clicking.
-- Confirm the catalogue/parent portrait decodes and has nonzero dimensions; in the mounted activity require a visible, nonempty `main` and no broken visible images. Record the visible heading when the activity provides an `h1`.
+- Confirm the catalogue/parent portrait decodes and has nonzero dimensions. Allow the ordinary session menu to enter its selected activity; require visible mounted activity content, decoded visible images and no broken visible art, including authored backgrounds outside `main`. Record available visible h1/h2 headings without requiring a title element that the activity does not expose.
 - Use the app's visible **Worlds** header for Amari or the game's visible **Go home/Back to home** action for Askia. If the ordinary unsaved-leave dialog appears, measure and choose its explicit parent destination. Confirm return to the exact Amari world or Askia parent section and the game's ordinary card.
 - Track page, console, failed-request/response and guarded provider calls. Compare reward/points/game-count/sticker storage before and after every launch/return and require it to remain unchanged. Report other storage changes by key; this route smoke is not a claim that every game's mount-side diagnostics or navigation metadata is write-free.
 
@@ -80,9 +80,10 @@ Root supplies the active lease owner and exact frozen entry. `PLAYER` is `amari`
 ```sh
 CATALOGUE_BROWSER_OWNER=<active-owner> CATALOGUE_QA_STAGE=native \
   python3 docs/qa-evidence/catalogue-entry-smoke-20261029/run-catalogue-entry-smoke.py \
-  http://127.0.0.1:5180 390 740 amari /assets/arcade-<exact-entry>.js
+  http://127.0.0.1:5180 390 740 amari /assets/arcade-<exact-entry>.js \
+  --runtime-sha <exact-40-character-runtime-sha>
 ```
 
-For canonical use `CATALOGUE_QA_STAGE=production`, the Netlify origin, and the exact canonical entry. The wrapper only calls `playwright_cli.sh ... run-code` on the existing leased session; it does not open, launch, or create a browser, page, context or profile. Reports are compact JSON; no screenshots or videos are collected.
+For canonical use `CATALOGUE_QA_STAGE=production`, the Netlify origin, the exact canonical entry, and its owner-supplied runtime SHA. The wrapper only calls `playwright_cli.sh ... run-code` on the existing leased session; it does not open, launch, or create a browser, page, context or profile. Reports are compact JSON; no screenshots or videos are collected.
 
-The runner keeps `sourceHead` as the current checkout HEAD. `expectedRuntime` and `runtimeSource` are stage-bound separately: native reports bind to that HEAD; production reports bind to `docs/game-quality-status.json#canonicalRelease`. `expectedEntry` is the caller's exact bundle path, `actualEntry` is what the page served, and `entryMatches` records the comparison. This records the release expectation without turning a route smoke into a full runtime acceptance claim.
+The runner keeps `sourceHead` as the current checkout HEAD and records the explicit `--runtime-sha` as `expectedRuntime` and `runtimeSource`; it never infers a production identity from the historical `canonicalRelease` field. The supplied runtime SHA is the release owner's binding. The callback independently checks that the live page's origin, QA namespace and served module entry match the run, with `expectedEntry`, `actualEntry`, and `entryMatches` recorded separately. This remains a route smoke, not a full runtime acceptance claim.

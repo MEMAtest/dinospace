@@ -97,7 +97,7 @@ async page => {
   };
   const click = async (locator, label, options = {}) => {
     const geometry = await measure(locator, label, options.min || 44);
-    await locator.click();
+    await locator.click({timeout:5000});
     if (options.waitFor) await options.waitFor.waitFor({ state: 'visible', timeout: options.timeout || 10000 });
     return geometry;
   };
@@ -114,19 +114,17 @@ async page => {
     return result;
   };
   const inspectEntrySurface = async title => {
-    const main = page.locator('main:visible, [data-little-game]:visible').first();
+    const main = page.locator('main:visible, [data-little-game]:visible, .discovery-session-menu:visible').first();
     await main.waitFor({ state: 'visible', timeout: 12000 });
     const content = await main.innerText().catch(() => '');
     assert(content.trim().length > 0, `${title} route mounted an empty main surface`);
-    const heading = await main.locator('h1:visible').first().innerText().catch(() => '');
-    await page.waitForFunction(() => [...document.querySelectorAll('main img')].filter(image => {
-      const r = image.getBoundingClientRect();
-      return r.width > 0 && r.height > 0;
-    }).every(image => image.complete), null, { timeout: 10000 });
-    const visibleImages = await main.evaluate(element => [...element.querySelectorAll('img')].filter(image => {
-      const r = image.getBoundingClientRect();
-      return r.width > 0 && r.height > 0;
-    }).map(image => ({ src: image.currentSrc || image.src, alt: image.alt || '', width: image.naturalWidth, height: image.naturalHeight, complete: image.complete })));
+    const titleHeading=main.locator('h1:visible,h2:visible').first();const heading=await titleHeading.count()?await titleHeading.innerText():'';
+    const imageDeadline=Date.now()+10000;let visibleImages=[];
+    do {
+      visibleImages=await main.evaluate(element=>[...element.querySelectorAll('img')].filter(image=>{const r=image.getBoundingClientRect();return r.width>0&&r.height>0;}).map(image=>({src:image.currentSrc||image.src,alt:image.alt||'',width:image.naturalWidth,height:image.naturalHeight,complete:image.complete})));
+      if(visibleImages.every(image=>image.complete))break;
+      await page.waitForTimeout(50);
+    }while(Date.now()<imageDeadline);
     const broken = visibleImages.filter(image => !image.complete || image.width <= 0 || image.height <= 0);
     assert(broken.length === 0, `${title} entry has a broken visible image`, { visibleImages, broken });
     return { mainText: content.trim().slice(0, 240), h1: heading.trim() || null, visibleImages };
@@ -167,7 +165,7 @@ async page => {
     }
     const desiredIntroCard = page.locator(PLAYER === 'askia' ? '.discovery-intro-card--askia' : '.discovery-intro-card--amari');
     if (await desiredIntroCard.count() && await desiredIntroCard.isVisible()) {
-      await click(desiredIntroCard, `Choose ${PLAYER} through the normal profile picker`);
+      await clickNavigation(desiredIntroCard, `Choose ${PLAYER} through the normal profile picker`);
     }
     if (PLAYER === 'askia') await page.locator('#askia-home h1').filter({ hasText: 'Hi Askia!' }).waitFor({ state: 'visible', timeout: 12000 });
     else await page.getByRole('heading', { name: 'Choose a world', exact: true }).waitFor({ state: 'visible', timeout: 12000 });
@@ -194,7 +192,7 @@ async page => {
     const portrait = await decodeImage(card.locator('img.catalogue-game-art'));
     const cardGeometry = await clickNavigation(card, `Open Amari ${lane.title} card`);
     await card.waitFor({ state: 'hidden', timeout: 12000 });
-    await page.locator('.discovery-game-surface main:visible, .discovery-game-surface [data-little-game]:visible').first().waitFor({ state: 'visible', timeout: 12000 });
+    await page.locator('.discovery-game-surface main:visible, .discovery-game-surface [data-little-game]:visible, .discovery-game-surface .discovery-session-menu:visible').first().waitFor({ state: 'visible', timeout: 12000 });
     const entry = await inspectEntrySurface(lane.title);
     const rewardBefore = await rewardSnapshot();
     const storageBefore = await snapshotStorage();
@@ -232,7 +230,7 @@ async page => {
     let portrait = await decodeImage(launch.locator('img').first());
     if (!portrait) portrait = await decodeImage(section.locator('.askia-world__scene img').first());
     const cardGeometry = await clickNavigation(launch, `Open Askia ${lane.title} from ${world}`);
-    await page.locator('main:visible, [data-little-game]:visible').first().waitFor({ state: 'visible', timeout: 12000 });
+    await page.locator('main:visible, [data-little-game]:visible, .discovery-session-menu:visible').first().waitFor({ state: 'visible', timeout: 12000 });
     const entry = await inspectEntrySurface(lane.title);
     const rewardBefore = await rewardSnapshot();
     const storageBefore = await snapshotStorage();

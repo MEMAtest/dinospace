@@ -1,0 +1,581 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "expectedEntry": "/assets/arcade-DbnxyNUQ.js",
+  "touch": {
+    "enabled": false,
+    "emulation": "Chromium CDP touch emulation; not physical-device certification",
+    "cancelRejected": true,
+    "dragMatched": true,
+    "cancelPointerEventObserved": true,
+    "cancelInput": "Input.dispatchTouchEvent touchCancel",
+    "events": [
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "x": 195,
+        "y": 306.59375,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 183.75,
+        "y": 343.66796875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 172.5,
+        "y": 380.7421875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 161.25,
+        "y": 417.81640625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 150,
+        "y": 454.890625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointercancel",
+        "pointerType": "touch",
+        "x": 150,
+        "y": 454.890625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "x": 195,
+        "y": 306.59375,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 183.75,
+        "y": 343.66796875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 172.5,
+        "y": 380.7421875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 161.25,
+        "y": 417.81640625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 150,
+        "y": 454.890625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 138.75,
+        "y": 491.96484375,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 127.5,
+        "y": 529.0390625,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 116.25,
+        "y": 566.11328125,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointermove",
+        "pointerType": "touch",
+        "x": 105,
+        "y": 603.1875,
+        "button": "Carnotaurus — drag to its shadow"
+      },
+      {
+        "type": "pointerup",
+        "pointerType": "touch",
+        "x": 105,
+        "y": 603.1875,
+        "button": "Carnotaurus — drag to its shadow"
+      }
+    ]
+  },
+  "stages": [
+    {
+      "start": {
+        "geometry": {
+          "text": "Play Shadow Match",
+          "rect": {
+            "x": 147,
+            "y": 549,
+            "width": 96,
+            "height": 96,
+            "right": 243,
+            "bottom": 645
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        "heading": null,
+        "url": "http://127.0.0.1:5180/?qa_pair18_shadow_touch=1793307231086#/play/shadowmatch"
+      }
+    }
+  ],
+  "providerAttempts": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-DbnxyNUQ.js"
+  },
+  "target": {
+    "visibleName": "Carnotaurus — drag to its shadow",
+    "image": "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+    "sourceGeometry": {
+      "text": "Carnotaurus — drag to its shadow",
+      "rect": {
+        "x": 115,
+        "y": 241,
+        "width": 160,
+        "height": 131.1875,
+        "right": 275,
+        "bottom": 372.1875
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "options": [
+      {
+        "index": 1,
+        "image": "http://127.0.0.1:5180/art/shadow-match-v2/allo.webp",
+        "geometry": {
+          "text": "Shadow option 1",
+          "rect": {
+            "x": 19,
+            "y": 451.1875,
+            "width": 172,
+            "height": 96,
+            "right": 191,
+            "bottom": 547.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      },
+      {
+        "index": 2,
+        "image": "http://127.0.0.1:5180/art/shadow-match-v2/dillo.webp",
+        "geometry": {
+          "text": "Shadow option 2",
+          "rect": {
+            "x": 199,
+            "y": 451.1875,
+            "width": 172,
+            "height": 96,
+            "right": 371,
+            "bottom": 547.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      },
+      {
+        "index": 3,
+        "image": "http://127.0.0.1:5180/art/shadow-match-v2/carno.webp",
+        "geometry": {
+          "text": "Shadow option 3",
+          "rect": {
+            "x": 19,
+            "y": 555.1875,
+            "width": 172,
+            "height": 96,
+            "right": 191,
+            "bottom": 651.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      },
+      {
+        "index": 4,
+        "image": "http://127.0.0.1:5180/art/shadow-match-v1/stego.webp",
+        "geometry": {
+          "text": "Shadow option 4",
+          "rect": {
+            "x": 199,
+            "y": 555.1875,
+            "width": 172,
+            "height": 96,
+            "right": 371,
+            "bottom": 651.1875
+          },
+          "viewport": {
+            "width": 390,
+            "height": 740
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        }
+      }
+    ]
+  },
+  "wrongAttemptRetainedSameTarget": true,
+  "heldFact": "🚀\n\n12 creatures · 4 choices · mirrored shadows\n\nCarnotaurus!\n\nCarnotaurus had two horns on top of its head and very small arms.\n\nHear the fact again\nNext match →",
+  "packagedAudio": {
+    "checked": true,
+    "packaged": true,
+    "events": [
+      {
+        "src": "http://127.0.0.1:5180/audio/en/d19ae22c-matilda.mp3",
+        "origin": "http://127.0.0.1:5180",
+        "pathname": "/audio/en/d19ae22c-matilda.mp3",
+        "currentTime": 0.051993,
+        "duration": 4.040272,
+        "paused": false,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 1728.699999988079
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 1743.300000011921
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 1745.6000000238419
+          }
+        ],
+        "packaged": true
+      }
+    ]
+  },
+  "nextGeometry": {
+    "text": "Next match →",
+    "rect": {
+      "x": 105.0625,
+      "y": 546.59375,
+      "width": 179.859375,
+      "height": 56,
+      "right": 284.921875,
+      "bottom": 602.59375
+    },
+    "viewport": {
+      "width": 390,
+      "height": 740
+    },
+    "centerHit": true,
+    "pointerEvents": "auto"
+  },
+  "parentReturn": {
+    "geometry": {
+      "text": "Go home",
+      "rect": {
+        "x": 23,
+        "y": 81,
+        "width": 64,
+        "height": 64,
+        "right": 87,
+        "bottom": 145
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "heading": null,
+    "url": "http://127.0.0.1:5180/?qa_pair18_shadow_touch=1793307231086#/world/thinking",
+    "audioStopped": true,
+    "media": [
+      {
+        "src": "http://127.0.0.1:5180/audio/en/24f14aff-matilda.mp3",
+        "origin": "http://127.0.0.1:5180",
+        "pathname": "/audio/en/24f14aff-matilda.mp3",
+        "currentTime": 0,
+        "duration": 1.857596,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 163.19999998807907
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 179
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 179
+          },
+          {
+            "type": "pause",
+            "time": 0,
+            "at": 179
+          }
+        ],
+        "packaged": true
+      },
+      {
+        "src": "http://127.0.0.1:5180/audio/en/d19ae22c-matilda.mp3",
+        "origin": "http://127.0.0.1:5180",
+        "pathname": "/audio/en/d19ae22c-matilda.mp3",
+        "currentTime": 0,
+        "duration": 4.040272,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 778.9000000357628
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 811.9000000357628
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 814.9000000357628
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 886.4000000357628
+          },
+          {
+            "type": "pause",
+            "time": 0,
+            "at": 886.4000000357628
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 886.6999999880791
+          }
+        ],
+        "packaged": true
+      },
+      {
+        "src": "http://127.0.0.1:5180/audio/en/45d590ff-matilda.mp3",
+        "origin": "http://127.0.0.1:5180",
+        "pathname": "/audio/en/45d590ff-matilda.mp3",
+        "currentTime": 0,
+        "duration": 1.393197,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 862
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 886.6999999880791
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 919.6000000238419
+          },
+          {
+            "type": "timeupdate",
+            "time": 0.230452,
+            "at": 1175.699999988079
+          },
+          {
+            "type": "timeupdate",
+            "time": 0.494485,
+            "at": 1440.199999988079
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 1709
+          },
+          {
+            "type": "pause",
+            "time": 0,
+            "at": 1709
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 1709.4000000357628
+          }
+        ],
+        "packaged": true
+      },
+      {
+        "src": "http://127.0.0.1:5180/audio/en/d19ae22c-matilda.mp3",
+        "origin": "http://127.0.0.1:5180",
+        "pathname": "/audio/en/d19ae22c-matilda.mp3",
+        "currentTime": 0,
+        "duration": 4.040272,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 1694.199999988079
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 1709.300000011921
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 1711.6000000238419
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 1743.1000000238419
+          },
+          {
+            "type": "pause",
+            "time": 0,
+            "at": 1743.1000000238419
+          },
+          {
+            "type": "timeupdate",
+            "time": 0,
+            "at": 1743.300000011921
+          }
+        ],
+        "packaged": true
+      },
+      {
+        "src": "http://127.0.0.1:5180/audio/en/d19ae22c-matilda.mp3",
+        "origin": "http://127.0.0.1:5180",
+        "pathname": "/audio/en/d19ae22c-matilda.mp3",
+        "currentTime": 0,
+        "duration": 4.040272,
+        "paused": true,
+        "ended": false,
+        "events": [
+          {
+            "type": "play-call",
+            "time": 0,
+            "at": 1728.699999988079
+          },
+          {
+            "type": "play",
+            "time": 0,
+            "at": 1743.300000011921
+          },
+          {
+            "type": "playing",
+            "time": 0,
+            "at": 1745.6000000238419
+          }
+        ],
+        "packaged": true
+      }
+    ]
+  },
+  "failure": {
+    "message": "Amari parent after leaving held fact did not become visible within 5000ms",
+    "stack": "Error: Amari parent after leaving held fact did not become visible within 5000ms\n    at waitVisible (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:15:9)\n    at async runShadowTouchCheck (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:207:5)\n    at async evalmachine.<anonymous>:4:8\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)",
+    "screenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/colour-shadow-save-20261029/failure-shadow-touch-390x740-arcade-DbnxyNUQ-20261029T205350-269226000.jpg"
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "stage": "native",
+  "runtimeSource": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "sourceHead": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "entry": "/assets/arcade-DbnxyNUQ.js",
+  "entryMatches": true,
+  "nativeEntryAssetSha256": "e4d09cf96587f4271f326812e0af60d0992886ef7cfa7f083928e84959f8bcfc",
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1473323,
+    "entrySha256": "e4d09cf96587f4271f326812e0af60d0992886ef7cfa7f083928e84959f8bcfc",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair18-native",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/data/littleProgress.js": "e1dd2bc929ff8b3407897054a2fc1b208808ab0f07dbc848882e18bf0bd41d69",
+    "src/data/pairLittleProgress.js": "4ec8ebf838876282400ffb68d7c0efd7c9fde0d57c102a89e3cfc2fc0c594221",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/components/little/games/ShadowMatch.jsx": "3fd65daa5a3d4afc1b5e5afd8c37f3275c1cab46712f16a329bceab82018247e",
+    "src/components/little/ShadowDino.jsx": "d31157f5a86cf5f44781c500be936f2a201d80f9f76d501ac01e7320374445b5",
+    "src/components/little/DragItem.jsx": "f5b2f52c6b8178b71903908f3194ba2c08ae8ff608e33f46c804b69f6af8659f"
+  },
+  "moduleHashes": {
+    "./integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "./shadow-touch-check.cjs": "d4407baf1b899c84e47858c40874aed7c79177b52fb96d22899cac3ec4e2f2ce"
+  },
+  "callbackSha256": "fdca587d9e55ffe06a0859fc5938271ec19726d41ac466ab033f40d9bce7ed55",
+  "runnerSha256": "3b37df50e4050c85f7170f5d2028109c5275d13ea715a45ada13130be31c7d2b",
+  "cliReturnCode": 0,
+  "scope": "Single natural highest-level Shadow Match wrong/cancel/real-touch sample; leaves held fact before Next. No reset, seeded state, hidden answer data, app writes or new browser state."
+}

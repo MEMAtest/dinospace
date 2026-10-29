@@ -1,0 +1,1911 @@
+{
+  "scope": "normal catalogue entry, rendered art/error check, and exact parent return only; not game acceptance",
+  "passed": true,
+  "profile": "amari",
+  "origin": "https://dinospace.netlify.app",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "expectedEntry": "/assets/arcade-DbnxyNUQ.js",
+  "entryIdentity": "/assets/arcade-DbnxyNUQ.js",
+  "runtime": {
+    "origin": "https://dinospace.netlify.app",
+    "entry": "/assets/arcade-DbnxyNUQ.js",
+    "namespaced": true,
+    "viewport": {
+      "width": 1440,
+      "height": 844
+    }
+  },
+  "requestedIds": "all",
+  "catalogueActivitiesCovered": 35,
+  "pairActivitiesCovered": 21,
+  "retainedActivitiesCovered": 14,
+  "rows": [
+    {
+      "scope": "retained",
+      "id": "trace",
+      "title": "Letter Trace",
+      "world": "Read & Write",
+      "entry": {
+        "mainText": "Aa\nMake letters come to life\n\nStart at the green number. Follow one stroke, then lift.\n\nCHAPTER 3 · BADGE EARNED\n\nTrace and read\n\nTrace a letter, then find a word that starts with its sound.\n\nStart Trace and read →\n\n3 of 3 chapter badges · ",
+        "h1": "Make letters come to life",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-trace.webp",
+        "alt": "Letter Trace illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 1052,
+          "y": 194,
+          "right": 1360,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Read & Write",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "phonics",
+      "title": "Sound Safari",
+      "world": "Read & Write",
+      "entry": {
+        "mainText": "Choose a sound mission\n\nEach mission has six short challenges. New missions open as you finish them.\n\nCHAPTER 1 ✓\nListen for a sound\nCHAPTER 2 ✓\nBlend the sounds\nCHAPTER 3 ✓\nPull a word apart",
+        "h1": "Choose a sound mission",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-phonics.webp",
+        "alt": "Sound Safari illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 194,
+          "right": 712,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Read & Write",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "counting",
+      "title": "Count the Stars",
+      "world": "Maths Missions",
+      "entry": {
+        "mainText": "YOUR NEXT SURVEY\n\nGalaxy Survey\n\nCount 1 to 20 objects in six star scenes.\n\nCount a full array or combine two visible groups.\n\nReplay selected survey\nChoose another survey\nConstellation book (3/3)",
+        "h1": "Galaxy Survey",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-counting.webp",
+        "alt": "Count the Stars illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 194,
+          "right": 388,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Maths Missions",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "addition",
+      "title": "Addition Adventure",
+      "world": "Maths Missions",
+      "entry": {
+        "mainText": "Three ways to think about addition. Each chapter has six questions. Your worked answer stays here until Next, and chapter progress saves when you finish.\n\nChecking saved chapter rewards…\n\nSELECTED · CHAPTER 3 OF 3\n\nAddition Stories\n\nSolve a",
+        "h1": "Addition Stories",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-addition.webp",
+        "alt": "Addition Adventure illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 1052,
+          "y": 194,
+          "right": 1360,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Maths Missions",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "subtraction",
+      "title": "Subtraction Station",
+      "world": "Maths Missions",
+      "entry": {
+        "mainText": "Take away, compare groups, and solve stories. Each chapter has six questions. Your worked answer stays until Finish chapter, and chapter progress saves then.\n\nChecking saved chapter rewards…\n\nSELECTED · CHAPTER 3 OF 3\n\nSubtraction Stories\n\n",
+        "h1": "Subtraction Stories",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-subtraction.webp",
+        "alt": "Subtraction Station illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 490,
+          "right": 388,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Maths Missions",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "math",
+      "title": "Monster Math",
+      "world": "Maths Missions",
+      "entry": {
+        "mainText": "Count the pictures, move counters, and solve a short story. Every answer stays on screen until you choose Next.\n\nChecking saved episode rewards…\n\nEPISODE 3 · CHALLENGE\n\nMonster Story Problems\n★★★ best\n\nListen to a short story and show what ",
+        "h1": "Monster Story Problems",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-math.webp",
+        "alt": "Monster Math illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 490,
+          "right": 712,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Maths Missions",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "numberline",
+      "title": "Number Line Jump",
+      "world": "Maths Missions",
+      "entry": {
+        "mainText": "Checking saved world rewards…\n\nSELECTED · WORLD 3 OF 3\n\nCompare Values and Distances\n\nCompare number line journeys · 6 missions\n\nReplay Compare Values and Distances\nChoose another world",
+        "h1": "Compare Values and Distances",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-numberline.webp",
+        "alt": "Number Line Jump illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 728,
+          "y": 490,
+          "right": 1036,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Maths Missions",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "timeteller",
+      "title": "Time Teller",
+      "world": "Maths Missions",
+      "entry": {
+        "mainText": "Checking saved chapter rewards…\n\nSELECTED · CHAPTER 3 OF 3\n\nDaily Routines\n\nRead and set a routine time · six missions\n\nReplay Daily Routines\nChoose another chapter\nTry moving the clock hands",
+        "h1": "Daily Routines",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-timeteller.webp",
+        "alt": "Time Teller illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 1052,
+          "y": 490,
+          "right": 1360,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Maths Missions",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "jet",
+      "title": "Sky Shapes",
+      "world": "Creative Lab",
+      "entry": {
+        "mainText": "Trace the glowing path. You can also guide the jet with Enter, Space, or arrow keys.\n\nSKY 3 · CHALLENGE\n\nAurora Station\n\nPut several outlines together to guide each flying machine.\n\nSky goal: finish each numbered part before starting the ne",
+        "h1": "Aurora Station",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-jet.webp",
+        "alt": "Sky Shapes illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 490,
+          "right": 388,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Creative Lab",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "colormix",
+      "title": "Colour Mixing Lab",
+      "world": "Creative Lab",
+      "entry": {
+        "mainText": "YOUR PAINT STUDIO\nColour Mixing Lab\n\nChecking saved paint rewards…\n\nSELECTED · LAB 1 OF 3\n\nPaint Mixer\n\nSix paint missions\n\nStart Paint Mixer\n\nA little paint from each pot can blend into a new colour. Our recipes use the same scoop sizes ev",
+        "h1": "Colour Mixing Lab",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-colormix.webp",
+        "alt": "Colour Mixing Lab illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 490,
+          "right": 712,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Creative Lab",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "puzzle",
+      "title": "Puzzle Pop",
+      "world": "Creative Lab",
+      "entry": {
+        "mainText": "Chapter 3 of 3 · 5×5 · 4/4 pictures\n\nDetail Detectives\n\nStudy small details and use the preview to solve a bigger board.\n\nPicture tip: Scan one row or column at a time. Check a small feature in the preview.\n\nReplay chapter\nChoose another ch",
+        "h1": "Detail Detectives",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-puzzle.webp",
+        "alt": "Puzzle Pop illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 728,
+          "y": 490,
+          "right": 1036,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Creative Lab",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "shadowmatch",
+      "title": "Shadow Match",
+      "world": "Thinking & Play",
+      "entry": {
+        "mainText": "Shadow Match\n\nChoose an unlocked level to play or practise\n\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Match mirrored dinosaur shadows\n\n🔊 Shadow Match",
+        "h1": "Shadow Match",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/trike.webp",
+            "alt": "",
+            "width": 800,
+            "height": 641,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/trike.webp",
+            "alt": "",
+            "width": 800,
+            "height": 641,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-shadowmatch.webp",
+        "alt": "Shadow Match illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 194,
+          "right": 712,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Thinking & Play",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "spot",
+      "title": "Spot the Difference",
+      "world": "Thinking & Play",
+      "entry": {
+        "mainText": "🔎\n\nTwelve picture pairs. Three chapters.\n\nFind the changes in four picture pairs. You can use two magnifier hints in each pair.\n\nCompare: Look at the top, middle, then bottom of Picture A and Picture B.\n\nSELECTED CHAPTER · 1 OF 3\n\nBright-E",
+        "h1": "Twelve picture pairs. Three chapters.",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-spot.webp",
+        "alt": "Spot the Difference illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 728,
+          "y": 490,
+          "right": 1036,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Thinking & Play",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "scope": "retained",
+      "id": "tictactoe",
+      "title": "Cosmic Tic-Tac-Toe",
+      "world": "Thinking & Play",
+      "entry": {
+        "mainText": "Think one move ahead\n\nLearn three little tricks, then play a whole game.\n\nPractise Find a fork →\n1 ·\nMake a line\n3/3\nBadge earned boards solved\n2 ·\nBlock the Rocket\n3/3\nBadge earned boards solved\n3 ·\nFind a fork\n3/3\nBadge earned boards solv",
+        "h1": "Think one move ahead",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/trex.webp",
+            "alt": "",
+            "width": 800,
+            "height": 641,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-tictactoe.webp",
+        "alt": "Cosmic Tic-Tac-Toe illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 1052,
+          "y": 490,
+          "right": 1360,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Thinking & Play",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 1,
+      "id": "oddoneout",
+      "title": "Odd One Out",
+      "world": "Thinking & Play",
+      "entry": {
+        "mainText": "DISCOVERY HQ · SORTING TRAIL\n\nOdd One Out\n\nTHREE SORTING CHAPTERS\n\nSpot the rule. Find what does not fit.\n\nRead the rule first, compare all four picture cards, then choose the one that does not belong. After that, choose a “because” reason ",
+        "h1": "Odd One Out",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-oddoneout.webp",
+        "alt": "Odd One Out illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 490,
+          "right": 388,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Thinking & Play",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 1,
+      "id": "pattern",
+      "title": "Pattern Parade",
+      "world": "Thinking & Play",
+      "entry": {
+        "mainText": "Find what repeats or grows. Each chapter has six clues. Your choice stays here until you press Next.\n\nA pattern follows a rule.\n\nLook for a group of shapes that comes back in the same order.\n\nReplay spoken rule\nShow the rule again\n1. Colour",
+        "h1": null,
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-pattern.webp",
+        "alt": "Pattern Parade illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 1052,
+          "y": 194,
+          "right": 1360,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Thinking & Play",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 2,
+      "id": "astronaut",
+      "title": "Astronaut Academy",
+      "world": "Explore & Languages",
+      "entry": {
+        "mainText": "DISCOVERY HQ\nAstronaut Academy\nYOUR NEXT ADVENTURE\nReady for a mission?\n\nChoose one place to explore. Every answer brings you a little further.\n\n01\nA GREAT FIRST MISSION\nLaunch Lab\nObserve patterns, explain what you notice, and apply your i",
+        "h1": "Ready for a mission?",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/catalog-v3/game-astronaut.webp",
+            "alt": "A friendly astronaut ready for a space mission",
+            "width": 640,
+            "height": 427,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-astronaut.webp",
+        "alt": "Astronaut Academy illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 194,
+          "right": 712,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Explore & Languages",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 2,
+      "id": "chess",
+      "title": "Chess Explorers",
+      "world": "Thinking & Play",
+      "entry": {
+        "mainText": "♟ Chess Explorers\n\nPlay a match against the computer, or explore the lessons below.\n\nChoose your side and difficulty for a full game. Lessons help you practise each piece.\n\n♟\nPlay a full game vs computer\n→\n🏅\nPiece movement\nLearn movement, ",
+        "h1": "♟ Chess Explorers",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-chess.webp",
+        "alt": "Chess Explorers illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 490,
+          "right": 712,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Thinking & Play",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 3,
+      "id": "codecadets",
+      "title": "Code Cadets",
+      "world": "Creative Lab",
+      "entry": {
+        "mainText": "⚑\n\nYOUR FIRST CODING ADVENTURE\n\nMeet Pip, your Mars rover!\n\nA program is a list of instructions. Build, test, and improve it. The three chapters move from sequences to debugging and Repeat blocks.\n\nForward\n→\nMove one square\nStart Sequence ·",
+        "h1": "Meet Pip, your Mars rover!",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/discovery-v2/pip.webp",
+            "alt": "",
+            "width": 1222,
+            "height": 1287,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-codecadets.webp",
+        "alt": "Code Cadets illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 194,
+          "right": 388,
+          "bottom": 543,
+          "width": 308,
+          "height": 349
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Creative Lab",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 3,
+      "id": "writingdesk",
+      "title": "My Writing Desk",
+      "world": "Creative Lab",
+      "entry": {
+        "mainText": "TYPE · EDIT · SAVE · SHARE\n\nMy Writing Desk\n3 of 3 projects complete\n\nChoose a project. Your draft saves for this explorer on this device.\n\nAn older saved postcard is available.\nIts original manual copy remains separate and unchanged.\nOpen ",
+        "h1": "My Writing Desk",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v2/earth.png",
+            "alt": "Earth with blue oceans and continents",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/mars.png",
+            "alt": "Mars planet",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/saturn.png",
+            "alt": "Saturn planet",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-writingdesk.webp",
+        "alt": "My Writing Desk illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 194,
+          "right": 712,
+          "bottom": 543,
+          "width": 308,
+          "height": 349
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Creative Lab",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 4,
+      "id": "solar",
+      "title": "Solar System",
+      "world": "Explore & Languages",
+      "entry": {
+        "mainText": "Meet Earth up close\n\nDrag with a mouse · use two fingers to turn · scroll vertically to move the page\n\nSizes, distances and motion are simplified.\n\n↶\nTurn left\n↷\nTurn right\n↑\nTilt up\n↓\nTilt down\n＋\nZoom in\n−\nZoom out\nⅡ\nPause\n\nMISSION CONTROL",
+        "h1": null,
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-solar.webp",
+        "alt": "Solar System illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 194,
+          "right": 388,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Explore & Languages",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 4,
+      "id": "memory",
+      "title": "Memory Match",
+      "world": "Thinking & Play",
+      "entry": {
+        "mainText": "Focus on cards\nYOUR MEMORY TIP\n\nTry recalling both places before you turn the second card. Keep the same board until every pair is found.\n\nResume point: Level 10. Choose an earlier number to replay.\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n0\nPAIRS\n0\nMOVES\n0:0",
+        "h1": null,
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/askia-detective-CPOpmaoU.webp",
+            "alt": "",
+            "width": 1254,
+            "height": 1254,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-memory.webp",
+        "alt": "Memory Match illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 194,
+          "right": 388,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Thinking & Play",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [
+        "amari_game_diagnostics_v1",
+        "amari_game_lifecycle_diagnostics_v1"
+      ],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 5,
+      "id": "rocketbuilder",
+      "title": "Rocket Builder",
+      "world": "Creative Lab",
+      "entry": {
+        "mainText": "Rocket Builder\n\nChoose an unlocked level to play or practise\n\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Build the whole colourful rocket. Available through Level 5.\n\n🔊 Rocket Builder",
+        "h1": "Rocket Builder",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-rocketbuilder.webp",
+        "alt": "Rocket Builder illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 728,
+          "y": 190.46206665039062,
+          "right": 1036,
+          "bottom": 520.4620361328125,
+          "width": 308,
+          "height": 329.9999694824219
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Creative Lab",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 5,
+      "id": "fuelup",
+      "title": "Fuel Up",
+      "world": "Maths Missions",
+      "entry": {
+        "mainText": "Fuel Up\n\nChoose an unlocked level to play or practise\n\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Count up to ten cans. Available through Level 5.\n\n🔊 Fuel Up",
+        "h1": "Fuel Up",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-fuelup.webp",
+        "alt": "Fuel Up illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 192.17120361328125,
+          "right": 712,
+          "bottom": 522.1712036132812,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Maths Missions",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 6,
+      "id": "firerescue",
+      "title": "Fire Truck Rescue",
+      "world": "Maths Missions",
+      "entry": {
+        "mainText": "Fire Truck Rescue\n\nChoose an unlocked level to play or practise\n\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Put out six fires\n\n🔊 Fire Truck Rescue",
+        "h1": "Fire Truck Rescue",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/rescue-firetruck-BlvwvPhV.webp",
+            "alt": "Fire truck",
+            "width": 1536,
+            "height": 1024,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-firerescue.webp",
+        "alt": "Fire Truck Rescue illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 728,
+          "y": 194,
+          "right": 1036,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Maths Missions",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 6,
+      "id": "ladder",
+      "title": "Ladder Rescue",
+      "world": "Thinking & Play",
+      "entry": {
+        "mainText": "Ladder Rescue\n\nChoose an unlocked level to play or practise\n\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Rescue from five floors\n\n🔊 Ladder Rescue",
+        "h1": "Ladder Rescue",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/rescue-animals-v2/ladder-truck.webp",
+            "alt": "Fire truck",
+            "width": 768,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/rescue-animals-v2/animal-kitten.webp",
+            "alt": "",
+            "width": 384,
+            "height": 384,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-ladder.webp",
+        "alt": "Ladder Rescue illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 728,
+          "y": 194,
+          "right": 1036,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Thinking & Play",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 7,
+      "id": "dino",
+      "title": "Dino Detective",
+      "world": "Explore & Languages",
+      "entry": {
+        "mainText": "Explore one world at a time. Find the featured animal in five places to earn its sticker.\n\nStarter\nJungle Jive\n\nT-Rex · Complete\n\nReplay\nVolcano Valley\n\nSpinosaurus · Complete\n\nReplay\nRiver Run\n\nSunny the Parasaurolophus · Complete\n\nReplay\n",
+        "h1": "Starter",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-dino.webp",
+        "alt": "Dino Detective illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 728,
+          "y": 194,
+          "right": 1036,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Explore & Languages",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 7,
+      "id": "hangman",
+      "title": "Dino Hangman",
+      "world": "Read & Write",
+      "entry": {
+        "mainText": "CHOOSE YOUR RESCUE\n\nFour levels of word clues\n\nUse the picture and meaning clue, then choose letters. Longer words unlock as you rescue words. Only words made from the selected taught sounds appear.\n\nStart Four-letter rescue →\n\n4 letters · ",
+        "h1": "Four levels of word clues",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-hangman.webp",
+        "alt": "Dino Hangman illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 490,
+          "right": 388,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Read & Write",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 8,
+      "id": "storybooks",
+      "title": "Storybook Studio",
+      "world": "Read & Write",
+      "entry": {
+        "mainText": "READ & WRITE\n\nStorybook Studio\n8 stories in this library\n7 included · My stories (1) saved in this browser\nMy stories (1)\nIncluded (7)\nShowing 1–8 of 8 matching stories\nParent tools\nREADING PROGRESS FOR\nAmari · 5-6\nFind a story\n⌄\nSearch inc",
+        "h1": "Storybook Studio",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/storybook-v4/reading-crew.webp",
+            "alt": "",
+            "width": 600,
+            "height": 400,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/storybooks/rex-missing-moon-map/cover.webp",
+            "alt": "",
+            "width": 1600,
+            "height": 1201,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/storybooks/luna-whispering-forest/cover.webp",
+            "alt": "",
+            "width": 1600,
+            "height": 1201,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/storybooks/nia-great-river-journey/cover.webp",
+            "alt": "",
+            "width": 1600,
+            "height": 1201,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/storybooks/bo-busy-bee-garden/cover.webp",
+            "alt": "",
+            "width": 1600,
+            "height": 1201,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/storybooks/sami-night-light-parade/cover.webp",
+            "alt": "",
+            "width": 1600,
+            "height": 1201,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/storybooks/mina-mountain-seed/cover.webp",
+            "alt": "",
+            "width": 1600,
+            "height": 1201,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/storybooks/kai-lost-library-book/cover.webp",
+            "alt": "",
+            "width": 1600,
+            "height": 1201,
+            "complete": true
+          },
+          {
+            "src": "blob:https://dinospace.netlify.app/d39fe5d8-3312-47be-85a2-8c55257e780c",
+            "alt": "",
+            "width": 2218,
+            "height": 1664,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-storybooks.webp",
+        "alt": "Storybook Studio illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 490,
+          "right": 712,
+          "bottom": 820,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Read & Write",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 8,
+      "id": "words",
+      "title": "Spelling Studio",
+      "world": "Read & Write",
+      "entry": {
+        "mainText": "Spelling Studio\n\nLevel 6 of 6: Long-word challenge\n\nYour goal: Build six- and seven-letter words.\n\n1\n2\n3\n4\n5\n6\nStart",
+        "h1": "Spelling Studio",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/art/catalog-v3/game-words.webp",
+            "alt": "Spelling Studio illustration",
+            "width": 640,
+            "height": 427,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-words.webp",
+        "alt": "Spelling Studio illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 728,
+          "y": 194,
+          "right": 1036,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Read & Write",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 9,
+      "id": "dinojigsaw",
+      "title": "Dino Jigsaw",
+      "world": "Creative Lab",
+      "entry": {
+        "mainText": "Dino Jigsaw\n\nChoose an unlocked level to play or practise\n\n3\n4\n5\n\nAvailable through Level 5.\n\nLevel 5 of 5: Finish a dinosaur picture with 12 pieces\n\n🔊 Dino Jigsaw",
+        "h1": "Dino Jigsaw",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/bg-dino-DtQjoH27.webp",
+            "alt": "",
+            "width": 1448,
+            "height": 1086,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/detective-ankylo-BG-VzdVP.webp",
+            "alt": "",
+            "width": 1254,
+            "height": 1254,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-dinojigsaw.webp",
+        "alt": "Dino Jigsaw illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 1052,
+          "y": 194,
+          "right": 1360,
+          "bottom": 524,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Creative Lab",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 10,
+      "id": "worldmap",
+      "title": "Curriculum Quest",
+      "world": "Explore & Languages",
+      "entry": {
+        "mainText": "Getting your discovery run ready…",
+        "h1": null,
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-worldmap.webp",
+        "alt": "Curriculum Quest illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 471,
+          "right": 388,
+          "bottom": 820,
+          "width": 308,
+          "height": 349
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Explore & Languages",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 10,
+      "id": "german",
+      "title": "German Garage",
+      "world": "Explore & Languages",
+      "entry": {
+        "mainText": "Three garage chapters · 11 extra word themes stay open for practice.\n\nCHAPTER 1 · COMPLETE\n\nColour Painter\n\nPaint the car and find its garage\n\nReplay · no reward\n\nCHAPTER 2 · COMPLETE\n\nVehicle Workshop\n\nName vehicles and their parts\n\nReplay",
+        "h1": "Colour Painter",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/empty-garage-Dh7_uG_S.png",
+            "alt": "",
+            "width": 1935,
+            "height": 812,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/vehicles-CP9CNLzZ.webp",
+            "alt": "",
+            "width": 1148,
+            "height": 460,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/garage-WPCnaFvh.webp",
+            "alt": "",
+            "width": 1148,
+            "height": 460,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-german.webp",
+        "alt": "German Garage illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 1052,
+          "y": 194,
+          "right": 1360,
+          "bottom": 563,
+          "width": 308,
+          "height": 369
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Explore & Languages",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 11,
+      "id": "letters",
+      "title": "Letter Launch",
+      "world": "Read & Write",
+      "entry": {
+        "mainText": "Letter Launch\n\nFour letter missions · sound first, then build and read.\n\n1\n\nChapter 1 · Complete\n\nWord sound finder\n\nHear a word and find the letter at its start.\n\n★ Sound Scout\nReplay · no reward\n2\n\nChapter 2 · Complete\n\nNew word explorer\n",
+        "h1": "Letter Launch",
+        "visibleImages": []
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-letters.webp",
+        "alt": "Letter Launch illustration",
+        "width": 640,
+        "height": 427,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 80,
+          "y": 190,
+          "right": 388,
+          "bottom": 520,
+          "width": 308,
+          "height": 330
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Read & Write",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    },
+    {
+      "pair": 11,
+      "id": "factfinder",
+      "title": "Fact Finder",
+      "world": "Explore & Languages",
+      "factFinderPriorFullAcceptance": true,
+      "entry": {
+        "mainText": "Back\n\nLOOK, READ, DISCOVER\n\nFact Finder\n\nPick a topic to meet an animal, plant, dinosaur or space world.\n\nSearch topics\nEverything\nAnimals\nDinosaurs\nSpace\nNature\n\n34 topics\n\nAnt\nBee\nButterfly\nLadybird\nFrog\nMonkey\nDolphin\nJellyfish\nSea turtl",
+        "h1": "Fact Finder",
+        "visibleImages": [
+          {
+            "src": "https://dinospace.netlify.app/assets/garden-ant-v1-card-DaUpvewp.webp",
+            "alt": "",
+            "width": 427,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/garden-bee-v1-card-1yYhz_wO.webp",
+            "alt": "",
+            "width": 512,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/garden-butterfly-v1-card-9Y3B8fXF.webp",
+            "alt": "",
+            "width": 512,
+            "height": 424,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/garden-ladybird-v1-card-7_2PAs34.webp",
+            "alt": "",
+            "width": 512,
+            "height": 427,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/isolated-frog-v1-card-89MVsj26.webp",
+            "alt": "",
+            "width": 512,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/isolated-monkey-v1-card-IlBechiJ.webp",
+            "alt": "",
+            "width": 512,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/dolphin-v1-card-NM9OSLvy.webp",
+            "alt": "",
+            "width": 488,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/jellyfish-v1-card-CTkr0Z9M.webp",
+            "alt": "",
+            "width": 506,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/turtle-v1-card-BnUqJ5vT.webp",
+            "alt": "",
+            "width": 512,
+            "height": 341,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/whale-v1-card-BRu9nzHo.webp",
+            "alt": "",
+            "width": 512,
+            "height": 341,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/shark-v1-card-XIn6E67F.webp",
+            "alt": "",
+            "width": 512,
+            "height": 341,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/garden-spider-v1-card-BMWkBzG7.webp",
+            "alt": "",
+            "width": 512,
+            "height": 468,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/garden-snail-v1-card-CeiAS19L.webp",
+            "alt": "",
+            "width": 512,
+            "height": 430,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/fact-finder-v1/earthworm.webp",
+            "alt": "",
+            "width": 640,
+            "height": 640,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/duck-v1-card-DhrJ_HIL.webp",
+            "alt": "",
+            "width": 512,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/fox-v1-DuiqcITQ.webp",
+            "alt": "",
+            "width": 512,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/trex.webp",
+            "alt": "",
+            "width": 800,
+            "height": 641,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/bronto.webp",
+            "alt": "",
+            "width": 800,
+            "height": 800,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/trike.webp",
+            "alt": "",
+            "width": 800,
+            "height": 641,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/stego.webp",
+            "alt": "",
+            "width": 800,
+            "height": 641,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/art/shadow-match-v1/ankylo.webp",
+            "alt": "",
+            "width": 800,
+            "height": 534,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/mercury.png",
+            "alt": "",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/venus.png",
+            "alt": "",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/earth.png",
+            "alt": "",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/mars.png",
+            "alt": "",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/jupiter.png",
+            "alt": "",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/saturn.png",
+            "alt": "",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/uranus.png",
+            "alt": "",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/neptune.png",
+            "alt": "",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/models/solar-v1/pluto.png",
+            "alt": "",
+            "width": 320,
+            "height": 320,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/tulip-v1-card-DtYEAub1.webp",
+            "alt": "",
+            "width": 512,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/seedling-v1-card-ZBCh6oF9.webp",
+            "alt": "",
+            "width": 512,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/leaf-sprig-v1-card-B0y3aOaJ.webp",
+            "alt": "",
+            "width": 512,
+            "height": 512,
+            "complete": true
+          },
+          {
+            "src": "https://dinospace.netlify.app/assets/tree-v1-card-CAXHki_D.webp",
+            "alt": "",
+            "width": 512,
+            "height": 512,
+            "complete": true
+          }
+        ]
+      },
+      "cataloguePortrait": {
+        "src": "https://dinospace.netlify.app/art/catalog-v3/game-factfinder.webp",
+        "alt": "Fact Finder illustration",
+        "width": 640,
+        "height": 640,
+        "complete": true
+      },
+      "cardGeometry": {
+        "rect": {
+          "x": 404,
+          "y": 471,
+          "right": 712,
+          "bottom": 820,
+          "width": 308,
+          "height": 349
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true
+      },
+      "returnedTo": "Explore & Languages",
+      "leave": {
+        "dialogShown": false,
+        "destination": null
+      },
+      "storageChanges": [],
+      "rewardStateUnchanged": true
+    }
+  ],
+  "failures": [],
+  "storage": {
+    "baselineKeys": 118,
+    "finalKeys": 118,
+    "changedKeys": [
+      "amari_game_diagnostics_v1",
+      "amari_game_lifecycle_diagnostics_v1"
+    ]
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "failedResponses": [],
+  "providerAttempts": [],
+  "sourceHead": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "runtimeSource": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "runtimeSourceLabel": "explicit --runtime-sha",
+  "expectedRuntime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "runtimeBinding": {
+    "stage": "production",
+    "source": "explicit --runtime-sha",
+    "sha": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+    "verifiedBy": "live page exact entry, origin and QA namespace"
+  },
+  "actualEntry": "/assets/arcade-DbnxyNUQ.js",
+  "entryMatches": true,
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/components/shared/DiscoveryHeader.jsx": "17da0d8be900ae391f6bf22317c0aef1e98899153cfe39e6e6c16832644ab210",
+    "src/components/shared/Navigation.jsx": "bf30c655c0eee9d601e5ecca3110011b06cc5e9845809d75a48553893aeeb34c",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/home/ExplorerHome.jsx": "207db9681a08390c813595debcdf993261e69dff278a21932f2284d5f4b7a638",
+    "src/components/home/LittleHome.jsx": "3a563fdad99756d5512e17c10673a3b4b1e511f9766165adabec98e6b31a7a23",
+    "src/components/little/LittleGameShell.jsx": "e8b1822d4a095b74cab47a1bce96fbc1076b71b0350d3dce8ab6db0ac51ae1e3"
+  },
+  "runnerSha256": "df7aa2eb8006b0e56e003aa8a4f61e3c0a9919cef2a3509df644b5d5b11fd9bc",
+  "callbackSha256": "55dda77e068e48d22443d01e31c214e38da7be4cde86ac64c9f225888ee71078",
+  "cliReturnCode": 0
+}

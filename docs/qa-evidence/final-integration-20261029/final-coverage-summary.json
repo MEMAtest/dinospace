@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "at": "2026-10-29T21:46:50.701596+00:00",
+  "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "entry": "/assets/arcade-DbnxyNUQ.js",
+  "totalActualControlSamples": 56,
+  "routeIds": [
+    "trace",
+    "tictactoe",
+    "puzzle",
+    "spot",
+    "jet",
+    "math",
+    "counting",
+    "addition",
+    "subtraction",
+    "numberline",
+    "timeteller",
+    "phonics",
+    "colormix",
+    "shadowmatch"
+  ],
+  "cases": [
+    {
+      "stage": "native",
+      "viewport": "390x740",
+      "report": "docs/qa-evidence/final-integration-20261029/native-retained-390x740-20261029T214126-631517000.json",
+      "reportSHA256": "55c1d5b1a6d2b200739a0bc31f6b10cac7d23fd56af1b45a7c9a32d607f79e8d",
+      "lanes": 14,
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "entry": "/assets/arcade-DbnxyNUQ.js"
+    },
+    {
+      "stage": "native",
+      "viewport": "1440x844",
+      "report": "docs/qa-evidence/final-integration-20261029/native-retained-1440x844-20261029T214153-52155000.json",
+      "reportSHA256": "7ffb927f4b94b5c8602c8bbdecbbc280da67d9c7fc0f68eb99093fae9484301e",
+      "lanes": 14,
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "entry": "/assets/arcade-DbnxyNUQ.js"
+    },
+    {
+      "stage": "production",
+      "viewport": "390x740",
+      "report": "docs/qa-evidence/final-integration-20261029/production-retained-390x740-20261029T214018-588751000.json",
+      "reportSHA256": "0a5e6d16e4d7581f49ebf92b21cb1db6f2bf89632576f015261fb701156814d0",
+      "lanes": 14,
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "entry": "/assets/arcade-DbnxyNUQ.js"
+    },
+    {
+      "stage": "production",
+      "viewport": "1440x844",
+      "report": "docs/qa-evidence/final-integration-20261029/production-retained-1440x844-20261029T214045-612658000.json",
+      "reportSHA256": "78b5430f278106a7d70c224ce7fa227787ad99c54bbabcde03138f4a3664f9b8",
+      "lanes": 14,
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "entry": "/assets/arcade-DbnxyNUQ.js"
+    }
+  ],
+  "scope": "Fourteen representative actual-control samples at two viewports on compiled preview and canonical production. Earlier complete per-title matrices remain authoritative for full content. No reset, seeded rewards, paid calls, human listening certification or physical-device claim."
+}

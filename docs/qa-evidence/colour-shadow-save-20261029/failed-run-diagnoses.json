@@ -1,0 +1,44 @@
+{
+  "reports": [
+    {
+      "report": "native-colour-shadow-390x740-arcade-j527bSNS-20261029T202533-878265000.json",
+      "cause": "Actual Choice Lime belowviewport; compact recipe change attempted"
+    },
+    {
+      "report": "native-colour-shadow-390x740-arcade-SvrIzLOt-20261029T202929-756560000.json",
+      "cause": "Actual Choice Brown stillbelowviewport; mixedstate structuralcollapse repaired"
+    },
+    {
+      "report": "native-colour-shadow-390x740-arcade-CGUDvoYb-20261029T203259-555703000.json",
+      "cause": "QA targetreader counted decorative outline as Navy. Filter visible rendered colors to exact paintpalette, nohiddenanswerstate. 24priorColour rows passed; entirecombined report remainsfailed."
+    },
+    {
+      "report": "native-colour-shadow-390x740-arcade-CGUDvoYb-20261029T203333-626569000.json",
+      "cause": "Actual Colour Makers wrongrecipe Emptybowl state leftClue y710\u2013758; disabledunusedpaints caused3rows andtargetpicturebelowviewport. Structuralphonefixrequested; QA nowalsoauditsactualtargetSVGviewport."
+    },
+    {
+      "report": "native-colour-shadow-390x740-arcade-ujaaPf0b-20261029T203537-339908000.json",
+      "cause": "Actual Cloudwrongrecipe/Emptybowl state Cluey716\u2013764 despiteunusedpaintremoval andvisiblemodel. Further target/recipe/prep structuralcompaction required."
+    },
+    {
+      "report": "native-colour-shadow-390x740-arcade-B_w9xkzF-20261029T203803-104845000.json",
+      "cause": "QA did not await Shadow heldfact-to-nexttarget transition. All36Colourrows passed onexactfinalR6appsource. Entirecombined report remainsfailed. Reader nowwaits actualvisible nexttarget5s."
+    },
+    {
+      "report": "native-colour-shadow-390x740-arcade-B_w9xkzF-20261029T203837-017181000.json",
+      "cause": "QA removed storagefault immediately afterclick before delayedcomplete; callback nowwaitsactualfaultfired beforefinallyrestore. NativeAskiaL1 naturallysaved+8afterfaultwasremoved. Nofaultclaimfromthisreport."
+    },
+    {
+      "report": "native-colour-shadow-390x740-arcade-B_w9xkzF-20261029T203914-786258000.json",
+      "cause": "REAL practicelevelselected1 overwrittenwithsavedhighest2insideStartreceiptDrain. Shell nowpreserves/clampsselection; fullrerunrequired. No progressreset."
+    },
+    {
+      "report": "native-colour-shadow-390x740-arcade-B00LYMoU-20261029T204142-056489000.json",
+      "cause": "QA expectedintroPlayShadowMatch afterdonePractice selection; actualcorrectdoneCTA isPlaylevelN. Driver nowusesactualvisiblelevelCTA."
+    },
+    {
+      "report": "native-colour-shadow-390x740-arcade-B00LYMoU-20261029T204228-119736000.json",
+      "cause": "REAL ShadowL5wrongresponsefeedback pushedClue y765\u2013813. All36Colour and30Askia normalrows passed; latter includesactualpositiveperleveltokens andpendingreload. Overallreportremainsfailed; phoneShadowplaycompactionrequired."
+    }
+  ]
+}

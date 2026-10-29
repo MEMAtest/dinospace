@@ -94,6 +94,8 @@ function validateExercise(lane, exercise) {
   }
 }
 
+async function horizontalLayout(page,title){const layout=await page.evaluate(()=>({viewportWidth:innerWidth,documentWidth:document.documentElement.scrollWidth,bodyWidth:document.body.scrollWidth}));if(Math.max(layout.documentWidth,layout.bodyWidth)>layout.viewportWidth+1)throw Error(title+' has horizontal page overflow '+JSON.stringify(layout));return {...layout,noHorizontalOverflow:true};}
+
 async function runLaneSample(page, helper, lane, exercise) {
   validateExercise(lane, exercise);
   const before = await helper.snapshotStorage();
@@ -112,7 +114,7 @@ async function runLaneSample(page, helper, lane, exercise) {
       allowedPrefixes: sample.allowedPrefixes || [],
     });
     if (storage.unexpected.length) throw new Error(`${lane.title} changed records outside its declared scope`);
-    return { id: lane.id, title: lane.title, ...sample, storage };
+    return { id: lane.id, title: lane.title, ...sample, storage, layout: await horizontalLayout(page,lane.title) };
   }
   const taskIdentity = await exercise.taskIdentity();
   if (typeof taskIdentity !== 'string' || !taskIdentity.trim()) throw new Error(`${lane.id} task identity must come from visible prompt content`);
@@ -153,6 +155,7 @@ async function runLaneSample(page, helper, lane, exercise) {
     id: lane.id,
     title: lane.title,
     taskIdentity,
+    layout: await horizontalLayout(page,lane.title),
     wrongRetryRetained: true,
     heldExplanation: exercise.heldRegion ? heldText.trim() : null,
     heldNextGeometry,

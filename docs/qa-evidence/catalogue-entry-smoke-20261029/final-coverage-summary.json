@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+  "entry": "/assets/arcade-DbnxyNUQ.js",
+  "totalEntryReturnRows": 180,
+  "scope": "All35 Amari and10 Askia catalogue entries at two viewports on native/canonical; route/art/parent/reward-isolation only, not full content acceptance.",
+  "cases": [
+    {
+      "stage": "native",
+      "player": "amari",
+      "viewport": "390x740",
+      "rows": 35,
+      "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-390x740-arcade-DbnxyNUQ-20261029T210233-074292000.json",
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "reportSHA256": "0eb36cb1efb9dd982da477827651740de20e39f52d1e085c4eed266147e649fb"
+    },
+    {
+      "stage": "native",
+      "player": "amari",
+      "viewport": "1440x844",
+      "rows": 35,
+      "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-amari-1440x844-arcade-DbnxyNUQ-20261029T211449-035502000.json",
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "reportSHA256": "da78f77f3cd111549bb12ea849a8887f99a17bce6b498f42524e0aaf6802f488"
+    },
+    {
+      "stage": "native",
+      "player": "askia",
+      "viewport": "390x740",
+      "rows": 10,
+      "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-390x740-arcade-DbnxyNUQ-20261029T211521-314988000.json",
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "reportSHA256": "a766b1e3cb4e8f27f95a1f16aeaeb5343bd1e5f97a2b62c72adbd97fbb4606d0"
+    },
+    {
+      "stage": "native",
+      "player": "askia",
+      "viewport": "1440x844",
+      "rows": 10,
+      "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/native-askia-1440x844-arcade-DbnxyNUQ-20261029T211525-097715000.json",
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "reportSHA256": "b2abf35b1439a5c2a9230f4f4389754851e6e26b52a5f67b4fd1a9301df2fd7d"
+    },
+    {
+      "stage": "production",
+      "player": "amari",
+      "viewport": "390x740",
+      "rows": 35,
+      "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-390x740-arcade-DbnxyNUQ-20261029T211108-961545000.json",
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "reportSHA256": "770ca76e2a38afad0371bfc3589eabebc9b7f15682e0af3cf88a2a5d080d972b"
+    },
+    {
+      "stage": "production",
+      "player": "amari",
+      "viewport": "1440x844",
+      "rows": 35,
+      "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-amari-1440x844-arcade-DbnxyNUQ-20261029T211133-888747000.json",
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "reportSHA256": "a17c6eb6e7aaa3b438ba0b10bba7b555886af01bc6f5ab63296503de034c4464"
+    },
+    {
+      "stage": "production",
+      "player": "askia",
+      "viewport": "390x740",
+      "rows": 10,
+      "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-390x740-arcade-DbnxyNUQ-20261029T211439-671733000.json",
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "reportSHA256": "67601ed2df16e695094c26b102a42555354544b7c96e5636f82c9e2a7205665d"
+    },
+    {
+      "stage": "production",
+      "player": "askia",
+      "viewport": "1440x844",
+      "rows": 10,
+      "report": "docs/qa-evidence/catalogue-entry-smoke-20261029/production-askia-1440x844-arcade-DbnxyNUQ-20261029T211443-747857000.json",
+      "runtime": "a0a3d7b4a5d2459861860bc9c1ecd2c1ca2377f4",
+      "reportSHA256": "4cc997ae2ee038c9d41ca55c6f545e76144c63b2b22b2174af13eafd4963b30b"
+    }
+  ]
+}

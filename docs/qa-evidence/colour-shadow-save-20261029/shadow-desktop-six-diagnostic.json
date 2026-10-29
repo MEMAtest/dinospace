@@ -1,0 +1,118 @@
+{
+  "passed": false,
+  "scope": "Geometry diagnostic only; no answers or progress reset",
+  "entry": "/assets/arcade-SD47kOta.js",
+  "rows": [
+    {
+      "name": "Ankylosaurus \u2014 drag to its shadow",
+      "x": 592,
+      "y": 235,
+      "width": 256,
+      "height": 209.59375,
+      "bottom": 444.59375,
+      "right": 848
+    },
+    {
+      "name": "Shadow option 1",
+      "x": 284,
+      "y": 524.59375,
+      "width": 277.328125,
+      "height": 221.859375,
+      "bottom": 746.453125,
+      "right": 561.328125
+    },
+    {
+      "name": "Shadow option 2",
+      "x": 581.328125,
+      "y": 524.59375,
+      "width": 277.328125,
+      "height": 221.859375,
+      "bottom": 746.453125,
+      "right": 858.65625
+    },
+    {
+      "name": "Shadow option 3",
+      "x": 878.65625,
+      "y": 524.59375,
+      "width": 277.34375,
+      "height": 221.875,
+      "bottom": 746.46875,
+      "right": 1156
+    },
+    {
+      "name": "Shadow option 4",
+      "x": 284,
+      "y": 766.46875,
+      "width": 277.328125,
+      "height": 221.859375,
+      "bottom": 988.328125,
+      "right": 561.328125
+    },
+    {
+      "name": "Shadow option 5",
+      "x": 581.328125,
+      "y": 766.46875,
+      "width": 277.328125,
+      "height": 221.859375,
+      "bottom": 988.328125,
+      "right": 858.65625
+    },
+    {
+      "name": "Shadow option 6",
+      "x": 878.65625,
+      "y": 766.46875,
+      "width": 277.34375,
+      "height": 221.875,
+      "bottom": 988.34375,
+      "right": 1156
+    },
+    {
+      "name": "Show me a clue",
+      "x": 636.078125,
+      "y": 1000.34375,
+      "width": 167.84375,
+      "height": 48,
+      "bottom": 1048.34375,
+      "right": 803.921875
+    }
+  ],
+  "failures": [
+    {
+      "name": "Shadow option 4",
+      "x": 284,
+      "y": 766.46875,
+      "width": 277.328125,
+      "height": 221.859375,
+      "bottom": 988.328125,
+      "right": 561.328125
+    },
+    {
+      "name": "Shadow option 5",
+      "x": 581.328125,
+      "y": 766.46875,
+      "width": 277.328125,
+      "height": 221.859375,
+      "bottom": 988.328125,
+      "right": 858.65625
+    },
+    {
+      "name": "Shadow option 6",
+      "x": 878.65625,
+      "y": 766.46875,
+      "width": 277.34375,
+      "height": 221.875,
+      "bottom": 988.34375,
+      "right": 1156
+    },
+    {
+      "name": "Show me a clue",
+      "x": 636.078125,
+      "y": 1000.34375,
+      "width": 167.84375,
+      "height": 48,
+      "bottom": 1048.34375,
+      "right": 803.921875
+    }
+  ],
+  "providers": []
+}

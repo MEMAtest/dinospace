@@ -3,12 +3,24 @@
 import argparse,datetime as dt,hashlib,json,os,re,subprocess,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[3];BASE=Path(__file__).resolve().parent
-p=argparse.ArgumentParser();p.add_argument('width',type=int);p.add_argument('height',type=int);p.add_argument('entry');p.add_argument('--lanes',default='');p.add_argument('--origin',default='https://dinospace.netlify.app');a=p.parse_args()
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('width',type=int);p.add_argument('height',type=int);p.add_argument('entry');p.add_argument('--runtime-sha',required=True,help='Explicit 40-character source/runtime identity supplied by the release owner');p.add_argument('--lanes',default='');p.add_argument('--origin',default='https://dinospace.netlify.app');a=p.parse_args()
 if a.origin not in ['https://dinospace.netlify.app','http://127.0.0.1:5180']:raise SystemExit('Unapproved origin')
 stage='production'if a.origin.startswith('https:')else'native'
+if (a.width,a.height) not in [(390,740),(1440,844)]:raise SystemExit('Unsupported viewport')
+if not re.fullmatch(r'[0-9a-f]{40}',a.runtime_sha):raise SystemExit('--runtime-sha must be a full lowercase 40-character SHA')
+if not re.fullmatch(r'/assets/arcade-[A-Za-z0-9_-]+\.js',a.entry):raise SystemExit('Invalid exact entry path')
 owner=json.loads((ROOT/'tmp/amari-qa-browser-owner.json').read_text())
 if owner.get('owner')!=os.environ.get('FINAL_QA_OWNER')or not owner.get('active')or dt.datetime.fromisoformat(owner['expiresAt'])<=dt.datetime.now(dt.timezone.utc):raise SystemExit('Matching active browser lease required')
-if not re.fullmatch(r'/assets/arcade-[\w-]+\.js',a.entry)or(a.width,a.height)not in[(390,740),(1440,844)]:raise SystemExit('Invalid viewport/entry')
+if Path(owner.get('profile','')).resolve()!=(ROOT/'tmp/amari-production-qa-profile').resolve():raise SystemExit('Lease does not target the retained QA profile')
+if stage=='native':
+ html=ROOT/'dist/index.html'
+ if not html.is_file():raise SystemExit('Native dist/index.html is missing; root owns build output')
+ script=re.search(r'<script[^>]+type="module"[^>]+src="([^"]+)"',html.read_text())
+ if not script or script.group(1)!=a.entry:raise SystemExit(f'Native dist entry does not match exact expected entry {a.entry}')
+ entry_file=ROOT/'dist'/a.entry.lstrip('/')
+ if not entry_file.is_file():raise SystemExit(f'Expected native entry asset is missing: {entry_file}')
+ native_entry_sha=hashlib.sha256(entry_file.read_bytes()).hexdigest()
+else:native_entry_sha=None
 sourceRoot=ROOT/'docs/game-delivery-20261027'
 mods={f'./{name}.cjs':(sourceRoot/f'{name}.cjs').read_text()for name in ['integration-native','retained-visual-exercises','retained-maths-exercises','retained-integration-native']}
 code=r'''async page=>{
@@ -23,14 +35,15 @@ const setSound=async wanted=>{const current=await sound();if(current!==null&&cur
 const rewards=()=>page.evaluate(()=>Object.fromEntries(['amari','askia'].map(id=>[id,localStorage.getItem(id+'_rewards_v2')])));
 let originalSound=null,before=null,report=null;
 try{
- await page.route('**/*',guard);
+ await page.route('**/*',guard);page.setDefaultTimeout(5000);
  await page.setViewportSize({width,height});
  await page.goto(origin+'/?qa_final_retained='+Date.now()+'#/',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>window.__amariQaNamespaced===true);
- const amari=page.getByRole('button',{name:/Age 6\+.*Amari/}),chooser=page.getByRole('heading',{name:'Choose a world',exact:true});await amari.or(chooser).first().waitFor({timeout:10000});if(await amari.isVisible())await amari.click();
+ const amari=page.locator('.discovery-intro-card--amari'),chooser=page.getByRole('heading',{name:'Choose a world',exact:true}),askiaHome=page.getByRole('heading',{name:'Hi Askia!',exact:true});await amari.or(chooser).or(askiaHome).first().waitFor({timeout:10000});if(await askiaHome.isVisible()){const chip=page.getByRole('button',{name:/Askia.*is playing/}).first();await chip.click();await amari.waitFor();}if(await amari.isVisible()){await amari.scrollIntoViewIfNeeded();await amari.click();}
  await chooser.waitFor();
  originalSound=await sound();before=await rewards();await setSound(true);
  const lanes=ids.length?run.RETAINED_LANES.filter(x=>ids.includes(x.id)):run.RETAINED_LANES;
+ if(ids.length&&(lanes.length!==ids.length||new Set(ids).size!==ids.length))throw Error('Unknown or duplicate retained lane id');
  if(ids.length&&lanes.length!==ids.length)throw Error('Unknown lane');
  report=await run(page,{origin,expectedEntry,viewport:{width,height},lanes});
  const after=await rewards();
@@ -38,16 +51,24 @@ try{
  report.rewardRetention={passed:true,before,after};
  if(providerAttempts.length)throw Error('Provider attempt blocked');
 }catch(error){report=error.retainedIntegrationPartial||report||{passed:false,lanes:[]};report.passed=false;report.failure={message:error.message,completedLaneIds:report.lanes?.map(x=>x.id)||[]};const file=__FAILURE_IMAGE__;await page.screenshot({path:file,type:'jpeg',quality:65}).catch(()=>{});report.failure.render=file;
-}finally{try{if(originalSound!==null)await setSound(originalSound);}catch(e){report??={passed:false};report.passed=false;report.soundRestoreError=e.message;}await page.unroute('**/*',guard);}
+}finally{try{if(originalSound!==null)await setSound(originalSound);}catch(e){report??={passed:false};report.passed=false;report.soundRestoreError=e.message;}await page.unroute('**/*',guard);page.setDefaultTimeout(30000);}
 return {...report,providerAttempts,originalSound,finalSound:await sound(),at:new Date().toISOString()};
 }'''
 stamp=dt.datetime.now().strftime('%Y%m%dT%H%M%S')+'-'+str(time.time_ns()%1000000000)
 report=BASE/f'{stage}-retained-{a.width}x{a.height}-{stamp}.json'
+if report.exists():raise SystemExit(f'Refusing to overwrite evidence: {report}')
+used=sum(path.stat().st_size for path in BASE.iterdir()if path.is_file())
+if used>=8*1024*1024:raise SystemExit(f'Evidence budget is already {used} bytes; root review required')
 values={'__ORIGIN__':json.dumps(a.origin),'__SOURCES__':json.dumps(mods),'__WIDTH__':str(a.width),'__HEIGHT__':str(a.height),'__ENTRY__':json.dumps(a.entry),'__LANES__':json.dumps(a.lanes.split(',')if a.lanes else[]),'__FAILURE_IMAGE__':json.dumps(str(BASE/f'failure-{a.width}-{stamp}.jpg'))}
 for k,v in values.items():code=code.replace(k,v)
 r=subprocess.run(['bash',str(Path.home()/'.codex/skills/playwright/scripts/playwright_cli.sh'),'-s=amari-targeted-contained','run-code',code],cwd=ROOT,capture_output=True,text=True,timeout=1800)
 try:d=json.loads(r.stdout.split('### Result\n',1)[1].split('\n### Ran',1)[0])
 except Exception:d={'passed':False,'failure':{'message':(r.stdout+r.stderr)[-3000:]}}
-d['sourceHead']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip();d['runtimeSource']=json.loads((ROOT/'docs/game-quality-status.json').read_text())['canonicalRelease']if stage=='production'else d['sourceHead'];d['stage']=stage;d['entry']=a.entry;d['harnessHashes']={k:hashlib.sha256(v.encode()).hexdigest()for k,v in mods.items()};d['scope']='Bounded current-release actual-control integration smoke. Prior full source-bound title acceptance retained; no reset or new editorial score.'
+d['sourceHead']=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip();d['runtimeSource']=a.runtime_sha;d['expectedRuntime']=a.runtime_sha;d['runtimeSourceLabel']='explicit --runtime-sha';d['runtimeBinding']={'stage':stage,'source':'explicit --runtime-sha','sha':a.runtime_sha,'verifiedBy':'live page exact entry, origin and QA namespace'};d['stage']=stage;d['entry']=a.entry;d['actualEntry']=(d.get('runtime')or{}).get('entry');d['entryMatches']=d['actualEntry']==a.entry;d['nativeEntryAssetSha256']=native_entry_sha;d['runnerSha256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest();d['callbackSha256']=hashlib.sha256(code.encode()).hexdigest();d['harnessHashes']={k:hashlib.sha256(v.encode()).hexdigest()for k,v in mods.items()};d['scope']='Bounded current-release actual-control integration smoke. Prior full source-bound title acceptance retained; no reset or new editorial score.'
+if not d['entryMatches']:
+ d['passed']=False
+ d.setdefault('failure',{'message':'Live page served-entry identity did not match the explicit entry binding'})
 report.write_text(json.dumps(d,indent=2)+'\n');print(json.dumps({'passed':d.get('passed'),'lanes':[x['id']for x in d.get('lanes',[])],'failure':d.get('failure'),'report':str(report)}))
-if not d.get('passed')or r.returncode:raise SystemExit(1)
+used=sum(path.stat().st_size for path in BASE.iterdir()if path.is_file())
+if used>8*1024*1024:raise SystemExit('Evidence exceeded 8 MiB; retain unique failures and ask root to review')
+if not d.get('passed')or not d['entryMatches']or r.returncode:raise SystemExit(1)

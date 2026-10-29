@@ -1,0 +1,119 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": true,
+  "rows": [
+    {
+      "game": "colour",
+      "lab": "Paint Mixer",
+      "index": 1,
+      "replay": false,
+      "missionId": "mix-brown",
+      "title": "Three primary paints",
+      "prompt": "Mix equal scoops of the three primary paints. Which colour did you make?",
+      "visibleRecipe": "Recipe: 1 scoop red · 1 scoop yellow · 1 scoop blue",
+      "targetColor": null,
+      "visibleAnswer": "Brown"
+    }
+  ],
+  "games": {},
+  "faultCases": {},
+  "eligibility": {
+    "colour": {
+      "completed": [
+        "mix-teal",
+        "mix-green",
+        "mix-brown",
+        "mix-orange",
+        "mix-lime",
+        "mix-purple",
+        "light-grey",
+        "light-peach",
+        "light-coral",
+        "light-pink",
+        "light-charcoal",
+        "light-sky",
+        "make-berry",
+        "make-wave",
+        "make-flower",
+        "make-sun",
+        "make-cloud",
+        "make-leaf"
+      ],
+      "chapters": [
+        "mix",
+        "light",
+        "make"
+      ],
+      "freshMissionIds": [],
+      "positiveFaultsUnexercised": true
+    }
+  },
+  "source": {},
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "providerAttempts": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-SvrIzLOt.js"
+  },
+  "soundOriginals": {
+    "initial": true
+  },
+  "failure": {
+    "message": "Submit the visible correct paint result is not wholly inside the viewport: {\"text\":\"Choose Brown\",\"rect\":{\"x\":25,\"y\":718,\"width\":109.328125,\"height\":48,\"right\":134.328125,\"bottom\":766},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}",
+    "stack": "Error: Submit the visible correct paint result is not wholly inside the viewport: {\"text\":\"Choose Brown\",\"rect\":{\"x\":25,\"y\":718,\"width\":109.328125,\"height\":48,\"right\":134.328125,\"bottom\":766},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}\n    at measureControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:147:13)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:472:9)\n    at async Object.clickControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:156:22)\n    at async h.clickControl (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:135:509)\n    at async colorMission (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:88:7)\n    at async runColourShadow (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:145:17)\n    at async evalmachine.<anonymous>:4:8"
+  },
+  "controlAudit": {
+    "checked": 9
+  },
+  "stage": "native",
+  "runtimeSource": "ad0e80386d7a5fb566e8ece45d7cd9e72f91dc37",
+  "entry": "/assets/arcade-SvrIzLOt.js",
+  "sourceHead": "ad0e80386d7a5fb566e8ece45d7cd9e72f91dc37",
+  "sourceHashes": {
+    "src/App.jsx": "684a66884499e635a7dae6400c73ace2db77f60fad550c1ef4029e5cfc94c3bb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/colourLabAdventure.js": "35b34ac433a1baa5e8a26dbd95f3531592ede3f01abc40b20d3d90ebe08e7192",
+    "src/data/colourLabProgress.js": "f43355208f4c9854e6fe60b4b98856180473745e36192c87322c1c8c25f6039d",
+    "src/data/littleGames.js": "6a7feac22b7cf9c1bcd28dbd7451cd6da0f37210addad5b709d5336205ef196c",
+    "src/data/littleProgress.js": "e1dd2bc929ff8b3407897054a2fc1b208808ab0f07dbc848882e18bf0bd41d69",
+    "src/data/pairLittleProgress.js": "25dae73d5ae2c9979ce6ad264250293a5def140c611c425fdfe39b2f60fcf99a",
+    "src/data/playerRewards.js": "4a465a9d8c9922e7a80e272c0256513dd6cb180c2991c2aedcb41e07d4d92c31",
+    "src/data/shadowMatchProgression.js": "2508a21cd8487d7e86f1aa15d15e9aa4c027aa877fda3a82c7a3b1567037ce78",
+    "src/data/shadowMatchArt.js": "011c705ebe74bc09150410f65526ea63f5a268e866f9bf98996b80f9de5ab996",
+    "src/components/games/ColorMixingLab.jsx": "c258e4a426a9036549220829d6a4d0b21ca1ddcdb91782e3872215347773bbb1",
+    "src/components/little/games/ShadowMatch.jsx": "d60fa0498888b5ab484a7355236dc0357372b6fd70272aeb4b560b01646fa25e",
+    "src/components/little/LittleGameShell.jsx": "0f79e159a90ad1dd2674976543a1cbe0acd2b37b0f66dbd239ddf5698ed9f863",
+    "src/components/little/ShadowDino.jsx": "d31157f5a86cf5f44781c500be936f2a201d80f9f76d501ac01e7320374445b5",
+    "src/components/little/DragItem.jsx": "f5b2f52c6b8178b71903908f3194ba2c08ae8ff608e33f46c804b69f6af8659f",
+    "src/components/little/littleKit.js": "e59cb06555cb54c06aff7ddf9b2b027239f223f8b625c38d0b64779a6ceb584f",
+    "src/components/little/useRoundHint.js": "e300060a9dc59b2a207be5ecdba5c539dfaad39577d771a732d6ec42f88190c0",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/shared/Navigation.jsx": "bf30c655c0eee9d601e5ecca3110011b06cc5e9845809d75a48553893aeeb34c",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/colour-shadow-save-20261029/protocol.md": "d817778f8a7ddb7e3e449317fde566c338da1562a47d5a66df4444fa2ff96b13",
+    "docs/qa-evidence/colour-shadow-save-20261029/colour-shadow-native.cjs": "e30f1c3465128666c989be9b00ebde9f49db1bb5a9e590d277cd82f8c0d629a1"
+  },
+  "driverSHA256": "e30f1c3465128666c989be9b00ebde9f49db1bb5a9e590d277cd82f8c0d629a1",
+  "runnerSHA256": "f1b66eaec0da4e8772fce5aea9fd8bf0fc443446b2dd4ea9dc55789a851d1f26",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1471469,
+    "entrySha256": "8a4c8f3a1c9972751e7bce10ca356242260beb80a8be1fd2dc021f0a60555cb0",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair18-native",
+  "scope": "Full actual-visible-control Colour Mixing Lab and Shadow Match acceptance at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}
