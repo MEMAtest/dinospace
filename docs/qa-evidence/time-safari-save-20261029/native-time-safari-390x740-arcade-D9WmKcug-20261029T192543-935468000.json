@@ -1,0 +1,119 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": true,
+  "rows": [
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 0,
+      "replay": false,
+      "expectedRewardDelta": 3,
+      "normalTargetStars": 3
+    }
+  ],
+  "games": {},
+  "eligibility": {
+    "timeteller": {
+      "completed": [],
+      "bestStars": {},
+      "material": [
+        {
+          "id": "clock-explorers",
+          "index": 0,
+          "completed": false,
+          "best": 0
+        },
+        {
+          "id": "past-and-to",
+          "index": 1,
+          "completed": false,
+          "best": 0
+        },
+        {
+          "id": "daily-routines",
+          "index": 2,
+          "completed": false,
+          "best": 0
+        }
+      ],
+      "completionIndex": 0,
+      "pendingIndex": 1
+    }
+  },
+  "faultCases": {
+    "timetellerStart": {
+      "restored": true,
+      "fired": true,
+      "didSet": false,
+      "mode": "write",
+      "key": "amari_timeteller_progress_v1",
+      "retryLabel": "Retry saving this same six-mission run",
+      "sameQueueRetried": true
+    }
+  },
+  "soundOriginals": {
+    "timeteller": {}
+  },
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-D9WmKcug.js"
+  },
+  "providerAttempts": [],
+  "failure": {
+    "message": "Visible Time Teller mission-kind label missing",
+    "stack": "Error: Visible Time Teller mission-kind label missing\n    at ok (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:11:30)\n    at runTimeQuestion (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:39:351)\n    at async runTimeGame (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:58:151)\n    at async runPair17 (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:137:772)\n    at async evalmachine.<anonymous>:4:8\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13"
+  },
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "controlAudit": {
+    "checked": 7
+  },
+  "stage": "native",
+  "runtimeSource": "54296288d28d315c372c0cf12f5f5224b20e2792",
+  "entry": "/assets/arcade-D9WmKcug.js",
+  "sourceHead": "54296288d28d315c372c0cf12f5f5224b20e2792",
+  "sourceHashes": {
+    "src/App.jsx": "edcc16d013a6cf67b7c840c15727b50f6436f3991cc5a65090d23c65c6d80fcb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/timeLineAdventure.js": "d1f4eb687db00094019a580e76625bc3c526844659b46c085185149f5984b42c",
+    "src/data/timeLineProgress.js": "32fcdc6eceebdca607a158894d338ae453d4998d283a8283d9331443cf936400",
+    "src/data/timeLineInteraction.js": "9213bd2a1cb63ff93bec27951a589c1799d15d134859cf0c48b4843509ef3a0c",
+    "src/data/batch4Narration.js": "88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d",
+    "src/data/playerRewards.js": "d5e7eec429b310769cf24f7400dd86120ec6f413e2c12bfaf6cce84280291271",
+    "src/data/offlineVoice.js": "8ee6e48db9a73a1a064803e92b3152105d40b2c90a5251c68d80e61547e19697",
+    "src/data/literacy.js": "3665da245342ddf8ff585933ad644a33f08fd7c538aec72bf8ba0ec4e0b65ec0",
+    "src/data/soundSafariAdventure.js": "6abfa185cf9f364d3c5d9893e3d5502f423ef83c3513a8df5ca68f6940c53eff",
+    "src/data/soundSafariProgress.js": "fdb4eb9c82d5c4cc338e469942482d7375c32553bcc4308090f164582b840126",
+    "src/components/games/TimeTeller.jsx": "e03b44956aca6fddeebda1b24ea7a5520b8b646f0ee6cd1701450825924d619a",
+    "src/components/games/TimeLineLearningUI.jsx": "3e4f96220a35b533810376bbacf2c8777edc547d126cefa62eeb093705f2ce94",
+    "src/components/games/SoundSafari.jsx": "d2d74c57f52025f087ef828767d83be348693f737a21e55db6f6324a67e07587",
+    "src/components/games/amariScenes.css": "28d6a96160ce465d367a51df2c3fa10f6448ed32159f8620de3e039ac89c0d50",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/time-safari-save-20261029/protocol.md": "0eee9b1e9a6f7409c1fd9e27bb4b3240dee7310453f7af42e8b013091d7709ae",
+    "docs/qa-evidence/time-safari-save-20261029/time-safari-native.cjs": "157bfeecffabed8ea0e5af65adb976d264d3895009150312c47d7181e68d3afc"
+  },
+  "driverSHA256": "157bfeecffabed8ea0e5af65adb976d264d3895009150312c47d7181e68d3afc",
+  "runnerSHA256": "7e8873e9416b2f9d7e222e7a15c40be66d7a4234b03bf7afd614a29e06186055",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1457853,
+    "entrySha256": "397c9b06ea26c7933b08f9c119a47013a05eba11284efd5f9714e33a8f8eafd8",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair17-native",
+  "scope": "Full actual-visible-control Time Teller and Sound Safari acceptance: three chapters, six normal questions and six lower-rated replay questions per game at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

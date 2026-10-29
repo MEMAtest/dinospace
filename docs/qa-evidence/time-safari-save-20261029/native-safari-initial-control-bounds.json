@@ -1,0 +1,66 @@
+{
+  "passed": false,
+  "scope": "Read-only current Sound Safari phone control bounds; no challenge answer or stored progress read/changed.",
+  "entry": "/assets/arcade-B3nSssQb.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "rows": [
+    {
+      "name": "Picture choice 1: snap",
+      "rect": {
+        "x": 44,
+        "y": 503.4375,
+        "width": 145,
+        "height": 128,
+        "bottom": 631.4375
+      },
+      "inside": true
+    },
+    {
+      "name": "Picture choice 2: snip",
+      "rect": {
+        "x": 201,
+        "y": 503.4375,
+        "width": 145,
+        "height": 128,
+        "bottom": 631.4375
+      },
+      "inside": true
+    },
+    {
+      "name": "Picture choice 3: pants",
+      "rect": {
+        "x": 44,
+        "y": 643.4375,
+        "width": 145,
+        "height": 128,
+        "bottom": 771.4375
+      },
+      "inside": false
+    },
+    {
+      "name": "Picture choice 4: spin",
+      "rect": {
+        "x": 201,
+        "y": 643.4375,
+        "width": 145,
+        "height": 128,
+        "bottom": 771.4375
+      },
+      "inside": false
+    },
+    {
+      "name": "Use one clue",
+      "rect": {
+        "x": 44,
+        "y": 787.4375,
+        "width": 161.796875,
+        "height": 52,
+        "bottom": 839.4375
+      },
+      "inside": false
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "scope": "Failed reports remain failed; final exact-entry successful reports prove repairs.",
+  "reports": [
+    {
+      "report": "native-time-safari-390x740-arcade-D9WmKcug-20261029T192543-935468000.json",
+      "passed": false,
+      "rows": 1,
+      "classification": "QA driver defect",
+      "failure": "Visible Time Teller mission-kind label missing"
+    },
+    {
+      "report": "native-time-safari-390x740-arcade-D9WmKcug-20261029T192623-001864000.json",
+      "passed": false,
+      "rows": 1,
+      "classification": "QA driver defect",
+      "failure": "Time Teller packaged question audio did not play and advance within the bounded window"
+    },
+    {
+      "report": "native-time-safari-390x740-arcade-D9WmKcug-20261029T192745-357701000.json",
+      "passed": false,
+      "rows": 50,
+      "classification": "QA driver defect",
+      "failure": "Heard visible phoneme sequence s s i p did not match a visible choice"
+    },
+    {
+      "report": "native-time-safari-390x740-arcade-D9WmKcug-20261029T193044-226978000.json",
+      "passed": false,
+      "rows": 26,
+      "classification": "QA driver defect",
+      "failure": "Cannot parse authored visible time prompt: Set the clock to 6 o\u2019clock, story time time in the evening."
+    },
+    {
+      "report": "native-time-safari-390x740-arcade-hFNCOAZH-20261029T195344-020653000.json",
+      "passed": false,
+      "rows": 67,
+      "classification": "QA driver defect",
+      "failure": "Intentional assisted banner disappeared before Next"
+    },
+    {
+      "report": "production-time-safari-390x740-arcade-D9WmKcug-20261029T194553-747501000.json",
+      "passed": false,
+      "rows": 70,
+      "classification": "product assisted-mode layout defect",
+      "failure": "Check visible visible word spelling phoneme sequence is not wholly inside the viewport: {\"text\":\"Check sounds\",\"rect\":{\"x\":28,\"y\":703.4375,\"width\":334,\"height\":52,\"right\":362,\"bottom\":755.4375},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"pointerEvents\":\"auto\"}"
+    }
+  ],
+  "additionalDiagnostic": "native-safari-initial-control-bounds.json separately proves initial picture/clue overflow; old retained diagnostic191738failed for an aria/text selector and its screenshot showed that layout. QA sound-preference repair is recorded separately."
+}

@@ -1,0 +1,27 @@
+✔ an older tab awards against the latest saved total instead of overwriting stars and stickers (2.41625ms)
+✔ the single record restores all reward fields if legacy mirror writes fail (0.15225ms)
+✔ failed authoritative writes are reported and retry preserves the in-memory reward without awarding twice (0.122291ms)
+✔ migration preserves higher legacy totals and valid previously earned stickers without copying another child (0.121542ms)
+✔ Pair7 reward claims pay once across remounts, stale tabs and later ordinary game rewards (0.811625ms)
+✔ words stage claims recover quietly once and preserve Dino, Hangman and ordinary game rewards (0.269917ms)
+✔ storybook completion claims accept only storybooks tokens and stay idempotent alongside existing claims (0.188375ms)
+✔ a committed words claim with failed readback quietly recovers without a second play (0.140125ms)
+✔ a committed reward with failed readback recovers after a fresh read without duplicate points or plays (0.146458ms)
+✔ blocked claim writes hold the old reward and retry the same claim exactly once (0.168542ms)
+✔ claimed rewards preserve malformed or unreadable authoritative and legacy data without writes (0.242834ms)
+✔ claim scope and amount mismatches are rejected, while valid unknown metadata and other children survive (0.185542ms)
+✔ retained historical claims do not strand a new saved result at an arbitrary capacity boundary (2.080542ms)
+✔ opted-in game claims retry committed writes without replay or sibling loss (2.166583ms)
+✔ new game claims survive the previous public decoder and an older open-tab reward write (0.360333ms)
+✔ unpublished native claim aliases normalize without paying or counting a second completion (0.11475ms)
+✔ German and Curriculum claims survive old-tab decoding and reject other game scopes (0.261459ms)
+✔ Letter Launch claims survive the retained decoder, recover once and stay scoped (0.132167ms)
+✔ Catalogue claims survive old tabs and reject replay or cross-game payment (1.392084ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 98.709875

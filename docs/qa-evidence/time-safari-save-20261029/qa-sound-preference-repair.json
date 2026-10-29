@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "scope": "Restore synthetic native sound preference true through visible UI after QA missing-await restore defect; baseline from passed Time diagnostic191953.",
+  "beforeWasOff": true,
+  "restoredSound": true,
+  "url": "http://127.0.0.1:5180/?qa_time_safari=1793302066176#/play/phonics"
+}

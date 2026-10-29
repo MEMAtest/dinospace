@@ -1,0 +1,134 @@
+{
+  "scope": "Read-only initial synthetic progress inventory; no acceptance/reset",
+  "snapshots": [
+    {
+      "origin": "https://dinospace.netlify.app",
+      "entry": "/assets/arcade-Ci1bLa53.js",
+      "namespaced": true,
+      "progress": {
+        "amari_timeteller_progress_v1": {
+          "version": 1,
+          "completedChapterIds": [
+            "clock-explorers",
+            "past-and-to",
+            "daily-routines"
+          ],
+          "bestStars": {
+            "clock-explorers": 3,
+            "past-and-to": 3,
+            "daily-routines": 3
+          },
+          "recentQuestionIds": {
+            "0": [
+              "0:6:0:read",
+              "0:7:0:read",
+              "0:4:30:read",
+              "0:5:30:read",
+              "0:9:0:read",
+              "0:8:0:read",
+              "0:12:0:read",
+              "0:10:0:read"
+            ],
+            "1": [
+              "1:1:45:read",
+              "1:3:0:read",
+              "1:9:15:read",
+              "1:1:0:read",
+              "1:12:45:read",
+              "1:7:0:read",
+              "1:7:45:read",
+              "1:9:0:read"
+            ],
+            "2": [
+              "2:11:0:read",
+              "2:5:15:set",
+              "2:5:30:read",
+              "2:11:45:read",
+              "2:7:30:set",
+              "2:12:0:set",
+              "2:3:45:set",
+              "2:9:15:read"
+            ]
+          },
+          "unlockedChapter": 2
+        },
+        "amari_sound_safari_adventure_v1": {
+          "version": 1,
+          "unlockedChapter": 2,
+          "completedChapterIds": [
+            "listen",
+            "blend",
+            "segment"
+          ],
+          "earnedChapterIds": [
+            "listen",
+            "blend",
+            "segment"
+          ],
+          "recentRoundIds": [
+            "segment-pip",
+            "segment-tin",
+            "segment-ant",
+            "segment-sap",
+            "segment-pants",
+            "segment-snap",
+            "blend-tin",
+            "blend-spin",
+            "blend-tip",
+            "blend-pip",
+            "blend-sit",
+            "blend-pants",
+            "segment-pat",
+            "segment-pan",
+            "segment-sip",
+            "segment-tip",
+            "segment-sit",
+            "segment-tap"
+          ]
+        }
+      }
+    },
+    {
+      "origin": "http://127.0.0.1:5180",
+      "entry": "/assets/arcade-Ci1bLa53.js",
+      "namespaced": true,
+      "progress": {
+        "amari_timeteller_progress_v1": null,
+        "amari_sound_safari_adventure_v1": {
+          "version": 1,
+          "unlockedChapter": 2,
+          "completedChapterIds": [
+            "listen",
+            "blend",
+            "segment"
+          ],
+          "earnedChapterIds": [
+            "listen",
+            "blend",
+            "segment"
+          ],
+          "recentRoundIds": [
+            "segment-pip",
+            "segment-tin",
+            "segment-ant",
+            "segment-sap",
+            "segment-pants",
+            "segment-snap",
+            "blend-tin",
+            "blend-spin",
+            "blend-tip",
+            "blend-pip",
+            "blend-sit",
+            "blend-pants",
+            "segment-pat",
+            "segment-pan",
+            "segment-sip",
+            "segment-tip",
+            "segment-sit",
+            "segment-tap"
+          ]
+        }
+      }
+    }
+  ]
+}

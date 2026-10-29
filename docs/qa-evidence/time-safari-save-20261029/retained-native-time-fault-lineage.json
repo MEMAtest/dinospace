@@ -1,0 +1,268 @@
+{
+  "scope": "Completed Time-only scope from an overall failed combined report; Safari later failed in QA phoneme event attribution. The report remains failed overall.",
+  "report": "native-time-safari-390x740-arcade-D9WmKcug-20261029T192745-357701000.json",
+  "reportSHA256": "2348d71ac709c275426ee073bd261ee3782fa8b4b39f1f1ad6c8bfb8a4a21af4",
+  "runtime": "54296288d28d315c372c0cf12f5f5224b20e2792",
+  "entry": "/assets/arcade-D9WmKcug.js",
+  "completedRows": 36,
+  "allTimeRowsAnswered": true,
+  "game": {
+    "key": "amari_timeteller_progress_v1",
+    "initial": {
+      "version": 1,
+      "completedChapterIds": [],
+      "bestStars": {},
+      "recentQuestionIds": {
+        "0": [
+          "0:12:0:read",
+          "0:3:30:read",
+          "0:11:0:read",
+          "0:6:30:read",
+          "0:1:30:read",
+          "0:8:30:read",
+          "0:9:0:read",
+          "0:11:30:read"
+        ]
+      },
+      "unlockedChapter": 0,
+      "rewardReceipts": {}
+    },
+    "final": {
+      "version": 1,
+      "completedChapterIds": [
+        "clock-explorers",
+        "past-and-to",
+        "daily-routines"
+      ],
+      "bestStars": {
+        "clock-explorers": 3,
+        "past-and-to": 3,
+        "daily-routines": 3
+      },
+      "recentQuestionIds": {
+        "0": [
+          "0:12:30:read",
+          "0:9:30:read",
+          "0:2:0:read",
+          "0:6:0:read",
+          "0:7:30:read",
+          "0:12:0:read",
+          "0:4:30:read",
+          "0:1:30:read"
+        ],
+        "1": [
+          "1:5:30:read",
+          "1:12:15:read",
+          "1:10:15:read",
+          "1:9:0:read",
+          "1:11:30:read",
+          "1:2:30:read",
+          "1:10:45:read",
+          "1:7:45:read"
+        ],
+        "2": [
+          "2:12:30:read",
+          "2:6:30:read",
+          "2:2:30:read",
+          "2:2:15:set",
+          "2:1:45:read",
+          "2:5:45:read",
+          "2:2:45:read",
+          "2:1:15:read"
+        ]
+      },
+      "unlockedChapter": 2,
+      "rewardReceipts": {
+        "clock-explorers:best:3": {
+          "id": "clock-explorers:best:3",
+          "chapterId": "clock-explorers",
+          "bestStars": 3,
+          "rewardDelta": 3,
+          "claimed": true
+        },
+        "past-and-to:best:3": {
+          "id": "past-and-to:best:3",
+          "chapterId": "past-and-to",
+          "bestStars": 3,
+          "rewardDelta": 3,
+          "claimed": true
+        },
+        "daily-routines:best:3": {
+          "id": "daily-routines:best:3",
+          "chapterId": "daily-routines",
+          "bestStars": 3,
+          "rewardDelta": 3,
+          "claimed": true
+        }
+      }
+    },
+    "rows": 36,
+    "storage": {
+      "changed": [
+        "qa_rewards_20261024_amari_game_diagnostics_v1",
+        "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+        "qa_rewards_20261024_amari_games_played",
+        "qa_rewards_20261024_amari_learning_attempts_v1",
+        "qa_rewards_20261024_amari_points",
+        "qa_rewards_20261024_amari_rewards_v2",
+        "qa_rewards_20261024_amari_skill_mastery_v1",
+        "qa_rewards_20261024_amari_timeteller_progress_v1"
+      ],
+      "unexpected": [],
+      "unchanged": [
+        "amari-sound-on",
+        "qa_rewards_20261024_amari_addition_progress_v1",
+        "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+        "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+        "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+        "qa_rewards_20261024_amari_challenge_done",
+        "qa_rewards_20261024_amari_challenge_progress",
+        "qa_rewards_20261024_amari_chapter_badges_v1",
+        "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+        "qa_rewards_20261024_amari_chess_game_v1",
+        "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+        "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+        "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+        "qa_rewards_20261024_amari_cosmic_tactics_v1",
+        "qa_rewards_20261024_amari_curriculum_badges_v1",
+        "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+        "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+        "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+        "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+        "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+        "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+        "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+        "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+        "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+        "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+        "qa_rewards_20261024_amari_curriculum_preferences_v1",
+        "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+        "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+        "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+        "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+        "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+        "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+        "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+        "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+        "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+        "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+        "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+        "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+        "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+        "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+        "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+        "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+        "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+        "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+        "qa_rewards_20261024_amari_discovery_active_player",
+        "qa_rewards_20261024_amari_discovery_passport_v1",
+        "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+        "qa_rewards_20261024_amari_favourite_games",
+        "qa_rewards_20261024_amari_game_levels_v1",
+        "qa_rewards_20261024_amari_german_chapter_progress_v1",
+        "qa_rewards_20261024_amari_german_recent_targets_v1",
+        "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+        "qa_rewards_20261024_amari_lastplay",
+        "qa_rewards_20261024_amari_learning_migration_v1",
+        "qa_rewards_20261024_amari_letter_launch_progress_v1",
+        "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+        "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+        "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+        "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+        "qa_rewards_20261024_amari_letter_trace_progress_v1",
+        "qa_rewards_20261024_amari_little_progress",
+        "qa_rewards_20261024_amari_memory_best",
+        "qa_rewards_20261024_amari_memory_completion_v1",
+        "qa_rewards_20261024_amari_memory_passport_v1",
+        "qa_rewards_20261024_amari_memory_resume_v1",
+        "qa_rewards_20261024_amari_monster_math_progress_v1",
+        "qa_rewards_20261024_amari_numberline_progress_v1",
+        "qa_rewards_20261024_amari_oddoneout_progress_v1",
+        "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+        "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+        "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+        "qa_rewards_20261024_amari_recent_games",
+        "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+        "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+        "qa_rewards_20261024_amari_spelling_progress_v1",
+        "qa_rewards_20261024_amari_spelling_recent_v1",
+        "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+        "qa_rewards_20261024_amari_storybook_active_child_v1",
+        "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+        "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+        "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+        "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+        "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+        "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+        "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+        "qa_rewards_20261024_amari_storybook_profiles_v1",
+        "qa_rewards_20261024_amari_storybook_progress_v1",
+        "qa_rewards_20261024_amari_streak",
+        "qa_rewards_20261024_amari_subtraction_progress_v1",
+        "qa_rewards_20261024_amari_voice_mode_v4",
+        "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+        "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+        "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+        "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+        "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+        "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+        "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+        "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+        "qa_rewards_20261024_amari_writing_samples_v1",
+        "qa_rewards_20261024_askia_challenge_done",
+        "qa_rewards_20261024_askia_challenge_progress",
+        "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+        "qa_rewards_20261024_askia_favourite_games",
+        "qa_rewards_20261024_askia_game_levels_v1",
+        "qa_rewards_20261024_askia_games_played",
+        "qa_rewards_20261024_askia_lastplay",
+        "qa_rewards_20261024_askia_little_progress",
+        "qa_rewards_20261024_askia_points",
+        "qa_rewards_20261024_askia_recent_games",
+        "qa_rewards_20261024_askia_rewards_v2",
+        "qa_rewards_20261024_askia_streak",
+        "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+        "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+      ]
+    },
+    "rewardBefore": 457,
+    "rewardAfter": 466,
+    "receiptCheck": {
+      "receiptCount": 3,
+      "changedTokens": [
+        "dino:timeteller:clock-explorers:best:3",
+        "dino:timeteller:past-and-to:best:3",
+        "dino:timeteller:daily-routines:best:3"
+      ],
+      "pointDelta": 9
+    }
+  },
+  "faultCaseSummaries": {
+    "timetellerStart": {
+      "restored": true,
+      "fired": true,
+      "didSet": false,
+      "mode": "write",
+      "key": "amari_timeteller_progress_v1",
+      "retryLabel": "Retry saving this same six-mission run",
+      "sameQueueRetried": true
+    },
+    "timetellerCompletionChain": {
+      "done": true
+    },
+    "timetellerPendingReload": {
+      "reload": true
+    }
+  },
+  "sourceEqualToCurrent": {
+    "src/components/games/TimeTeller.jsx": true,
+    "src/components/games/TimeLineLearningUI.jsx": true,
+    "src/data/timeLineProgress.js": true,
+    "src/data/timeLineAdventure.js": true,
+    "src/data/playerRewards.js": true,
+    "src/App.jsx": true
+  },
+  "evidenceLimit": "The old caller overwrote per-stage detail with done/reload summaries. Retained result and parent records prove three claimed3-point receipts (+9); the executed fault path asserted local/parent fault firing and exact pending delta. Do not manufacture missing stage arrays. Original driver SHA is recorded in the report; final callback fixes audio attribution, time parser/touch sampling and preserves fault details. Current full native reports separately verify touch/model/controls and capped local faults.",
+  "independentReview": "Luna QA confirmed all36Time rows, 3chapter best3, receiptsclaimed, parent457\u2192466, sibling-safe storage and zero errors/providers. The earlier slice had no touch sample; final72row reports close touch coverage.",
+  "currentSourceRuntime": "2df5b70766ae51d6b01c38e959e7391e17de259f"
+}

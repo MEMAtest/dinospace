@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+  "previousRuntime": "4d21a25b61f3208ed0114c75b12de414235c5161",
+  "unchangedPaths": [
+    "public/art",
+    "public/audio",
+    "public/storybooks"
+  ],
+  "reference": {
+    "path": "docs/qa-evidence/subtract-numberline-save-20261029/retained-art-lineage.json",
+    "sha256": "62ec491c0168770ac0685389e8c89b9107217e7520b6effbc96a8b017883503d"
+  },
+  "verification": "Existing served corpus retained through source equality. Current gameplay checks advancing packaged media; six phoneme pronunciation approval remains a separate prior human check.",
+  "currentSourceRuntime": "2df5b70766ae51d6b01c38e959e7391e17de259f"
+}

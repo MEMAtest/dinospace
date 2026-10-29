@@ -1,0 +1,33 @@
+{
+  "at": "2026-10-29T19:52:46.047074+00:00",
+  "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+  "entry": "/assets/arcade-hFNCOAZH.js",
+  "worker": "amari-discovery-v55",
+  "build": {
+    "passed": true,
+    "log": "source-checks/build.log"
+  },
+  "tests": {
+    "passed": 745,
+    "failed": 0,
+    "skipped": 0,
+    "log": "source-checks/tests.log"
+  },
+  "parentClaimGroups": {
+    "passed": 19,
+    "failed": 0,
+    "newGames": [
+      "timeteller",
+      "phonics"
+    ],
+    "log": "source-checks/parent-claims.log"
+  },
+  "scopedLint": "passed",
+  "precache": {
+    "requests": 167,
+    "bytes": 29858086,
+    "maxRequests": 168,
+    "maxBytes": 41943040
+  },
+  "paidCalls": 0
+}

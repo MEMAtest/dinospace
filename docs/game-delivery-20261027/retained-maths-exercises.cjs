@@ -1,3 +1,14 @@
+async function visibleClockHandAngles(svg) {
+  return svg.evaluate(element => {
+    const rotation = color => {
+      const hand = element.querySelector(`line[stroke="${color}"]`);
+      const value = hand?.getAttribute('transform')?.match(/rotate\(([-\d.]+)/)?.[1];
+      if (value === undefined) throw Error('Visible clock hand rotation is missing');
+      return Number(value);
+    };
+    return { hour: rotation('#be123c'), minute: rotation('#0369a1') };
+  });
+}
 // Visible-control samples for the six retained maths lanes. The runner has
 // already entered each game through the normal catalogue. These recipes only
 // inspect rendered prompts/models and interact with visible controls; they do
@@ -106,8 +117,8 @@ async function answerFromVisibleModel(page, laneId, prompt) {
       if (!parsed) throw new Error(`Cannot parse the visible set-clock target: ${prompt}`);
       return parsed;
     }
-    const svg = page.locator('svg[data-hour-angle][data-minute-angle]').first();
-    const angles = await svg.evaluate(element => ({ hour: Number(element.dataset.hourAngle), minute: Number(element.dataset.minuteAngle) }));
+    const svg = page.locator('svg[viewBox="0 0 200 200"][role="img"]').first();
+    const angles = await visibleClockHandAngles(svg);
     const minute = Math.round(angles.minute / 6) % 60;
     const hour = ((Math.round((angles.hour - minute * 0.5) / 30) % 12) || 12);
     return formatTimeLabel(hour, minute);
@@ -163,8 +174,9 @@ async function taskIdentity(page, laneId, promptLocator) {
   if (laneId === 'timeteller') {
     const checkClock = exactButton(page, 'Check clock');
     if (await checkClock.count() === 1 && await checkClock.isVisible()) return prompt;
-    const svg = page.locator('svg[data-hour-angle][data-minute-angle]').first();
-    const angles = await svg.evaluate(element => `${element.dataset.hourAngle}:${element.dataset.minuteAngle}`);
+    const svg = page.locator('svg[viewBox="0 0 200 200"][role="img"]').first();
+    const hands = await visibleClockHandAngles(svg);
+    const angles = `${hands.hour}:${hands.minute}`;
     return `${prompt}|clock:${angles}`;
   }
   return prompt;

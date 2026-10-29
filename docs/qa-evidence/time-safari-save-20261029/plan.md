@@ -1,0 +1,9 @@
+# Pair17 — Time Teller and Sound Safari
+
+Preserve the existing authored clock and six-phoneme lessons, add strict saved-progress reads, exact write/readback and durable parent receipts, and keep final answers held until explicit Finish. Missing storage may create a fresh record; unavailable or malformed storage must block replacement. Preserve unknown metadata, legacy completed chapters and sibling state. Replay must not pay again. No paid media jobs or new browser/profile/dependency installation.
+
+Root owns shared reward mappings, retry ownership, compact chrome and worker54. Existing Luna agents own Time Teller and Sound Safari source; a third Luna agent owns bounded QA. Root alone uses the retained headless QA tab. Full native/canonical phone and desktop journeys are required before moving to Pair18 Colour Mixing Lab and Shadow Match.
+
+Initial read-only inventory: canonical Time Teller has3legacy best3chapters, native Time Teller is missing/fresh. Sound Safari has3legacy earned chapters at both origins, so new-parent-reward browser faults cannot be exercised without altering earned state. Do not reset or seed it; report those branches unexercised, while strict-helper and reserved-parent fault tests remain explicit unit evidence. Legacy Safari chapters must create no receipt and pay0. There is no Safari start-history write: its active run is latched after fresh strict progress/reward checks, and its six IDs are committed at Finish. Time Teller persists history before Start and holds the same queue on retry.
+
+Safari picture captions/accessible names identify the pictured word without exposing its expected sound sequence. Time answers are derived from visible SVG hand transforms and set-clock prompts, never hidden answer IDs. Packaged playback is measured separately from the prior human approval of phoneme quality.

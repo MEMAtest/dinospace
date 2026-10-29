@@ -6,7 +6,9 @@ The catalogue now has35activities; the older quality ledger covers26. Reconcile 
 
 ## Active work
 
-Pairs1–15 are live-verified. Current runtime is `902c75af7a77f4b9f30ed4271f2ae6a6cb492c6d`, worker52. Count the Stars and Addition Adventure passed complete72-question native/canonical390x740/1440x844 journeys, actual public save/reward faults and pending-receipt recovery, and117-key/all-IDB14-media update retention. Pair16 is Subtraction Station + Number Line Jump strict-save and final integration work. Six retained scopes and35-Amari/10-Askia catalogue route checks remain. Historical8–9personal books remain unlocated. No new paid generation is authorized.
+Pairs 1–17 are live verified. Current accepted runtime is `2df5b70766ae51d6b01c38e959e7391e17de259f`, worker55. Time Teller + Sound Safari pass all four 72-question native/canonical 390×740 and 1440×844 journeys, genuine muted-input geometry, touch setting, saved-record/replay checks and 117-key / all-IDB 14-media refresh retention.
+
+Pair18 Colour Mixing Lab + Shadow Match is active. After that, the final source-bound catalogue checks cover 35 Amari activities and 10 Askia routes. The historical 8–9 personal stories remain a separate unresolved recovery question. Monitoring stays deleted; no new paid generation is authorized.
 
 ## Workflow
 
@@ -36,4 +38,4 @@ On 29 October the user requested a full playable chess game alongside the retain
 
 Fourteen games already have recent source-bound functional delivery evidence; retain those implementations and run a final integration regression. This sequence audits or uplifts the original remaining20, the newly requested full Chess mode and the separate Fact Finder feature rather than treating every old unscored ledger row as unimplemented. Each pair remains open until its own concrete gates pass. `queue.json` is the current work queue.
 
-Pair16 Subtraction/Number Line is live verified at runtime4d21a25b, worker53; four72question journeys and117key/allIDB cutover checks pass. Active pair17 is Time Teller + Sound Safari.
+Pair16 Subtraction/Number Line is live verified at runtime4d21a25b, worker53; four 72-question journeys and117key/allIDB cutover checks pass. Active pair17 is Time Teller + Sound Safari.

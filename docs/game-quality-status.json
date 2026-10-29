@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29T19:07:09.834444+00:00",
+  "updatedAt": "2026-10-29T20:11:09.915892+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": 17,
+  "activeDeliveryPair": 18,
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1245,27 +1245,27 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 16,
-    "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161",
-    "entry": "/assets/arcade-Ci1bLa53.js",
+    "pair": 17,
+    "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+    "entry": "/assets/arcade-hFNCOAZH.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-ijea23dp4-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_7YmMNH4vjAcMy1xXNk798MXkNP9e",
-    "netlifyGatewayDeploy": "6ae398676c9e2ee54e48c3d2",
-    "serviceWorkerCache": "amari-discovery-v53",
+    "backendUrl": "https://dinospace-h9vbjonm7-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_3ETCJv9StJRRg4fUGUiZ6CJh8rpM",
+    "netlifyGatewayDeploy": "6ae3a685d48c4344a90b61ad",
+    "serviceWorkerCache": "amari-discovery-v55",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
-    "production": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/subtract-numberline-save-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+    "production": "docs/qa-evidence/time-safari-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/time-safari-save-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 733,
+      "passed": 745,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T19:07:09.834444+00:00",
+    "verifiedAt": "2026-10-29T20:11:09.915892+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Allfour72question native/canonical390/1440journeys; strict save/reward retry and replay0, actualpublicSubtraction faults+9/pendingsync+3once, legacyNumberLine3badges retained0award; nativefreshNumberLine fault lineage; actual117key/allIDB14media refresh retention. Functional scope only."
+    "scope": "Four72rownative/canonical390/1440journeys; strictsaves/localfaults, genuine muted-input Safari geometry/no false fallbacks, touch clocksetting,6approvedphonemes, legacyreplay0,117key/allIDB14media refresh retention. FreshTimefaults retained; positiveSafari browserclaim unexercised due existingbadges. Functional scope only."
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
@@ -1294,36 +1294,36 @@
     }
   },
   "activeDeliveryCandidate": {
-    "pair": 17,
+    "pair": 18,
     "games": [
-      "timeteller",
-      "phonics"
+      "colormix",
+      "shadowmatch"
     ],
     "status": "implementation",
-    "publicBaselineRuntime": "4d21a25b61f3208ed0114c75b12de414235c5161"
+    "publicBaselineRuntime": "2df5b70766ae51d6b01c38e959e7391e17de259f"
   },
   "lastVerifiedDeliveryRelease": {
-    "pair": 16,
-    "runtime": "4d21a25b61f3208ed0114c75b12de414235c5161",
-    "entry": "/assets/arcade-Ci1bLa53.js",
+    "pair": 17,
+    "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+    "entry": "/assets/arcade-hFNCOAZH.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-ijea23dp4-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_7YmMNH4vjAcMy1xXNk798MXkNP9e",
-    "netlifyGatewayDeploy": "6ae398676c9e2ee54e48c3d2",
-    "serviceWorkerCache": "amari-discovery-v53",
+    "backendUrl": "https://dinospace-h9vbjonm7-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_3ETCJv9StJRRg4fUGUiZ6CJh8rpM",
+    "netlifyGatewayDeploy": "6ae3a685d48c4344a90b61ad",
+    "serviceWorkerCache": "amari-discovery-v55",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/subtract-numberline-save-20261029/README.md",
-    "production": "docs/qa-evidence/subtract-numberline-save-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/subtract-numberline-save-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+    "production": "docs/qa-evidence/time-safari-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/time-safari-save-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 733,
+      "passed": 745,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T19:07:09.834444+00:00",
+    "verifiedAt": "2026-10-29T20:11:09.915892+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Allfour72question native/canonical390/1440journeys; strict save/reward retry and replay0, actualpublicSubtraction faults+9/pendingsync+3once, legacyNumberLine3badges retained0award; nativefreshNumberLine fault lineage; actual117key/allIDB14media refresh retention. Functional scope only."
+    "scope": "Four72rownative/canonical390/1440journeys; strictsaves/localfaults, genuine muted-input Safari geometry/no false fallbacks, touch clocksetting,6approvedphonemes, legacyreplay0,117key/allIDB14media refresh retention. FreshTimefaults retained; positiveSafari browserclaim unexercised due existingbadges. Functional scope only."
   },
   "deliveryReleaseHistory": [
     {
@@ -1594,6 +1594,29 @@
       "paidCalls": 0,
       "editorialScoresChanged": false,
       "scope": "Allfour72question native/canonical390/1440journeys; strict save/reward retry and replay0, actualpublicSubtraction faults+9/pendingsync+3once, legacyNumberLine3badges retained0award; nativefreshNumberLine fault lineage; actual117key/allIDB14media refresh retention. Functional scope only."
+    },
+    {
+      "pair": 17,
+      "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+      "entry": "/assets/arcade-hFNCOAZH.js",
+      "publicUrl": "https://dinospace.netlify.app",
+      "backendUrl": "https://dinospace-h9vbjonm7-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_3ETCJv9StJRRg4fUGUiZ6CJh8rpM",
+      "netlifyGatewayDeploy": "6ae3a685d48c4344a90b61ad",
+      "serviceWorkerCache": "amari-discovery-v55",
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+      "production": "docs/qa-evidence/time-safari-save-20261029/production-summary.json",
+      "sourceGates": "docs/qa-evidence/time-safari-save-20261029/source-gates.json",
+      "sourceTests": {
+        "passed": 745,
+        "failed": 0,
+        "skipped": 0
+      },
+      "verifiedAt": "2026-10-29T20:11:09.915892+00:00",
+      "paidCalls": 0,
+      "editorialScoresChanged": false,
+      "scope": "Four72rownative/canonical390/1440journeys; strictsaves/localfaults, genuine muted-input Safari geometry/no false fallbacks, touch clocksetting,6approvedphonemes, legacyreplay0,117key/allIDB14media refresh retention. FreshTimefaults retained; positiveSafari browserclaim unexercised due existingbadges. Functional scope only."
     }
   ],
   "latestChessJigsawUplift": {
@@ -1813,5 +1836,28 @@
     "paidCalls": 0,
     "editorialScoresChanged": false,
     "scope": "Allfour72question native/canonical390/1440journeys; strict save/reward retry and replay0, actualpublicSubtraction faults+9/pendingsync+3once, legacyNumberLine3badges retained0award; nativefreshNumberLine fault lineage; actual117key/allIDB14media refresh retention. Functional scope only."
+  },
+  "latestTimeSafariSaveUplift": {
+    "pair": 17,
+    "runtime": "2df5b70766ae51d6b01c38e959e7391e17de259f",
+    "entry": "/assets/arcade-hFNCOAZH.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-h9vbjonm7-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_3ETCJv9StJRRg4fUGUiZ6CJh8rpM",
+    "netlifyGatewayDeploy": "6ae3a685d48c4344a90b61ad",
+    "serviceWorkerCache": "amari-discovery-v55",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/time-safari-save-20261029/README.md",
+    "production": "docs/qa-evidence/time-safari-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/time-safari-save-20261029/source-gates.json",
+    "sourceTests": {
+      "passed": 745,
+      "failed": 0,
+      "skipped": 0
+    },
+    "verifiedAt": "2026-10-29T20:11:09.915892+00:00",
+    "paidCalls": 0,
+    "editorialScoresChanged": false,
+    "scope": "Four72rownative/canonical390/1440journeys; strictsaves/localfaults, genuine muted-input Safari geometry/no false fallbacks, touch clocksetting,6approvedphonemes, legacyreplay0,117key/allIDB14media refresh retention. FreshTimefaults retained; positiveSafari browserclaim unexercised due existingbadges. Functional scope only."
   }
 }

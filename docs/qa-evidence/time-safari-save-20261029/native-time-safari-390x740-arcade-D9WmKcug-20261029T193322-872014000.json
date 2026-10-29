@@ -1,0 +1,5273 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "faultModeRequested": true,
+  "rows": [
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 0,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "questionAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/1ea0e4b5-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/1ea0e4b5-matilda.mp3",
+            "currentTime": 0.062796,
+            "duration": 1.671837,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 779
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 794.4000000357628
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 796.6000000238419
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 0,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "12 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 12 o’clock means the minute hand points to 12, and the hour hand is on the hour number. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/01a6fa2c-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/01a6fa2c-matilda.mp3",
+            "currentTime": 0.072545,
+            "duration": 2.554195,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 979.1000000238419
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 994.4000000357628
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 996.6000000238419
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "signature": "read:12 o’clock",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 1,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 210,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(210 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "7 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 7 o’clock means the minute hand points to 12, and the hour hand is on the hour number. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:7 o’clock",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 2,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 255,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(255 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 8",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 8 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 8",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 3,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 150,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(150 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "5 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 5 o’clock means the minute hand points to 12, and the hour hand is on the hour number. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:5 o’clock",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 4,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 240,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(240 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "8 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 8 o’clock means the minute hand points to 12, and the hour hand is on the hour number. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:8 o’clock",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 5,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 135,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(135 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 4",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 4 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Finish chapter →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 4",
+      "localFaultRecovery": {
+        "done": true,
+        "positiveReceiptUnexercised": true,
+        "stages": [
+          {
+            "mode": "write",
+            "key": "amari_timeteller_progress_v1",
+            "restored": true,
+            "fired": true,
+            "didSet": false
+          },
+          {
+            "mode": "readback",
+            "key": "amari_timeteller_progress_v1",
+            "restored": true,
+            "fired": true,
+            "didSet": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 0,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "questionAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/1ea0e4b5-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/1ea0e4b5-matilda.mp3",
+            "currentTime": 0.053848,
+            "duration": 1.671837,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 227.39999997615814
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 243.89999997615814
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 245.89999997615814
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 315,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(315 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answerFromVisible": "half past 10",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 10 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/489b4b4e-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/489b4b4e-matilda.mp3",
+            "currentTime": 0.062474,
+            "duration": 2.879274,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 511.69999998807907
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 527
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 529.2999999523163
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "signature": "read:half past 10",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 1,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 195,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(195 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "half past 6",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 6 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 6",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 2,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 105,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(105 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "half past 3",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 3 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 3",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 3,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 90,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(90 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "3 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 3 o’clock means the minute hand points to 12, and the hour hand is on the hour number. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:3 o’clock",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 4,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 165,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(165 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "half past 5",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 5 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 5",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 1,
+      "chapterId": "clock-explorers",
+      "index": 5,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 15,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(15 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "half past 12",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 12 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Finish chapter →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 12",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 0,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "questionAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/1ea0e4b5-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/1ea0e4b5-matilda.mp3",
+            "currentTime": 0.072753,
+            "duration": 1.671837,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1711.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1727
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1729.2999999523163
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 45,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(45 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 1",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 1 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/b4392806-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/b4392806-matilda.mp3",
+            "currentTime": 0.05809,
+            "duration": 2.972154,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1911.699999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1926.7999999523163
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1929
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "signature": "read:half past 1",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 1,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 22.5,
+          "minuteAngle": 270,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(22.5 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(270 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "quarter to 1",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! quarter to 1 means the minute hand points to 9, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:quarter to 1",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 2,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 285,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(285 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 9",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 9 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 9",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 3,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 157.5,
+          "minuteAngle": 90,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(157.5 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(90 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "quarter past 5",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! quarter past 5 means the minute hand points to 3, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:quarter past 5",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 4,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 292.5,
+          "minuteAngle": 270,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(292.5 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(270 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "quarter to 10",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! quarter to 10 means the minute hand points to 9, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:quarter to 10",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 5,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 75,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(75 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 2",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 2 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Finish chapter →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 2",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 0,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "questionAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/1ea0e4b5-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/1ea0e4b5-matilda.mp3",
+            "currentTime": 0.072945,
+            "duration": 1.671837,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2861.399999976158
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 2876.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 2878.199999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 142.5,
+          "minuteAngle": 270,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(142.5 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(270 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answerFromVisible": "quarter to 5",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! quarter to 5 means the minute hand points to 9, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/4c61a0af-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/4c61a0af-matilda.mp3",
+            "currentTime": 0.077954,
+            "duration": 2.972154,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3143.899999976158
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3158.699999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3161.099999964237
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "signature": "read:quarter to 5",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 1,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 127.5,
+          "minuteAngle": 90,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(127.5 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(90 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "quarter past 4",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! quarter past 4 means the minute hand points to 3, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:quarter past 4",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 2,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 247.5,
+          "minuteAngle": 90,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(247.5 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(90 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "quarter past 8",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! quarter past 8 means the minute hand points to 3, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:quarter past 8",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 3,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 345,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(345 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "half past 11",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 11 means the minute hand points to 6, and the hour hand is moving between numbers. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 11",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 4,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 150,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(150 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "5 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 5 o’clock means the minute hand points to 12, and the hour hand is on the hour number. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:5 o’clock",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 2,
+      "chapterId": "past-and-to",
+      "index": 5,
+      "replay": true,
+      "prompt": "What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 258.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 418.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 210,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(210 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "7 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 7 o’clock means the minute hand points to 12, and the hour hand is on the hour number. Hear explanation Finish chapter →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:7 o’clock",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 0,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "It is the middle of the day and lunch is happening. What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "It is the middle of the day and lunch is happening. What time is shown on the clock?",
+      "questionAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/65bc3ae8-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/65bc3ae8-matilda.mp3",
+            "currentTime": 0.071855,
+            "duration": 2.739955,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 4327
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 4342.699999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 4344.899999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 303.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 463.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 7.5,
+          "minuteAngle": 90,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(7.5 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(90 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "quarter past 12",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! quarter past 12 means the minute hand points to 3, and the hour hand is moving between numbers. This routine is in the middle of the day. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 252,
+          "right": 361,
+          "bottom": 662.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/dfe65fd2-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/dfe65fd2-matilda.mp3",
+            "currentTime": 0.075152,
+            "duration": 3.018594,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 4545.099999964237
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 4558.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 4560.699999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "signature": "read:quarter past 12",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 1,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "It is the middle of the day and lunch is happening. What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "It is the middle of the day and lunch is happening. What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 303.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 463.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 15,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(15 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "half past 12",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 12 means the minute hand points to 6, and the hour hand is moving between numbers. This routine is in the middle of the day. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 252,
+          "right": 361,
+          "bottom": 662.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 12",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 2,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "It is the morning and school activity is happening. What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "It is the morning and school activity is happening. What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 303.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 463.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 322.5,
+          "minuteAngle": 270,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(322.5 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(270 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "quarter to 11",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! quarter to 11 means the minute hand points to 9, and the hour hand is moving between numbers. This routine is in the morning. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 252,
+          "right": 361,
+          "bottom": 662.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:quarter to 11",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 3,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "It is the afternoon and after-school play is happening. What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "It is the afternoon and after-school play is happening. What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 303.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 463.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 52.5,
+          "minuteAngle": 270,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(52.5 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(270 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "quarter to 2",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! quarter to 2 means the minute hand points to 9, and the hour hand is moving between numbers. This routine is in the afternoon. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 252,
+          "right": 361,
+          "bottom": 662.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:quarter to 2",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 4,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "It is the morning and school activity is happening. What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "It is the morning and school activity is happening. What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 303.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 463.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 300,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(300 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "answerFromVisible": "10 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 10 o’clock means the minute hand points to 12, and the hour hand is on the hour number. This routine is in the morning. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:10 o’clock",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 5,
+      "replay": false,
+      "expectedRewardDelta": 0,
+      "normalTargetStars": 3,
+      "prompt": "Set the clock to half past 7, breakfast time in the morning.",
+      "missionType": "set",
+      "questionIdentity": "Set the clock to half past 7, breakfast time in the morning.",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 337,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 497
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "setText": "Set time: 7:30",
+          "angles": {
+            "hourAngle": 225,
+            "minuteAngle": 180,
+            "visibleHandLines": [
+              {
+                "stroke": "#be123c",
+                "transform": "rotate(225 100 100)",
+                "x1": 100,
+                "y1": 108,
+                "x2": 100,
+                "y2": 61
+              },
+              {
+                "stroke": "#0369a1",
+                "transform": "rotate(180 100 100)",
+                "x1": 100,
+                "y1": 111,
+                "x2": 100,
+                "y2": 32
+              }
+            ]
+          },
+          "actual": {
+            "hour": 7,
+            "minute": 30
+          }
+        },
+        "touch": {
+          "startAngle": 270,
+          "endAngle": 180,
+          "start": {
+            "x": 132.6,
+            "y": 417
+          },
+          "end": {
+            "x": 195,
+            "y": 479.4
+          },
+          "kind": "same-page emulated touch drag on visible SVG"
+        }
+      },
+      "touchSample": true,
+      "answerFromVisible": "half past 7",
+      "derivedFrom": "visible prompt + live clock readout",
+      "explanation": "YOU WORKED IT OUT! half past 7 means the minute hand points to 6, and the hour hand is moving between numbers. This routine is in the morning. Hear explanation Finish chapter →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 252,
+          "right": 361,
+          "bottom": 662.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "set:Set the clock to half past 7, breakfast time in the morning.",
+      "answered": true
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 0,
+      "replay": true,
+      "prompt": "Set the clock to half past 1, after-school play time in the afternoon.",
+      "missionType": "set",
+      "questionIdentity": "Set the clock to half past 1, after-school play time in the afternoon.",
+      "questionAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/486901ba-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/486901ba-matilda.mp3",
+            "currentTime": 0.074904,
+            "duration": 1.811156,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 5928
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 5943.399999976158
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 5945.599999964237
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 337,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 497
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "setText": "Set time: 1:30",
+          "angles": {
+            "hourAngle": 45,
+            "minuteAngle": 180,
+            "visibleHandLines": [
+              {
+                "stroke": "#be123c",
+                "transform": "rotate(45 100 100)",
+                "x1": 100,
+                "y1": 108,
+                "x2": 100,
+                "y2": 61
+              },
+              {
+                "stroke": "#0369a1",
+                "transform": "rotate(180 100 100)",
+                "x1": 100,
+                "y1": 111,
+                "x2": 100,
+                "y2": 32
+              }
+            ]
+          },
+          "actual": {
+            "hour": 1,
+            "minute": 30
+          }
+        },
+        "touch": null
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "answerFromVisible": "half past 1",
+      "derivedFrom": "visible prompt + live clock readout",
+      "explanation": "YOU WORKED IT OUT! half past 1 means the minute hand points to 6, and the hour hand is moving between numbers. This routine is in the afternoon. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 252,
+          "right": 361,
+          "bottom": 662.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/b4392806-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/b4392806-matilda.mp3",
+            "currentTime": 0.088337,
+            "duration": 2.972154,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 6877
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 6893.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 6895.699999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "signature": "set:Set the clock to half past 1, after-school play time in the afternoon.",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 1,
+      "replay": true,
+      "prompt": "It is the evening and family dinner is happening. What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "It is the evening and family dinner is happening. What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 303.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 463.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 165,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(165 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "half past 5",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 5 means the minute hand points to 6, and the hour hand is moving between numbers. This routine is in the evening. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 252,
+          "right": 361,
+          "bottom": 662.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 5",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 2,
+      "replay": true,
+      "prompt": "Set the clock to half past 10, school activity time in the morning.",
+      "missionType": "set",
+      "questionIdentity": "Set the clock to half past 10, school activity time in the morning.",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 337,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 497
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "setText": "Set time: 10:30",
+          "angles": {
+            "hourAngle": 315,
+            "minuteAngle": 180,
+            "visibleHandLines": [
+              {
+                "stroke": "#be123c",
+                "transform": "rotate(315 100 100)",
+                "x1": 100,
+                "y1": 108,
+                "x2": 100,
+                "y2": 61
+              },
+              {
+                "stroke": "#0369a1",
+                "transform": "rotate(180 100 100)",
+                "x1": 100,
+                "y1": 111,
+                "x2": 100,
+                "y2": 32
+              }
+            ]
+          },
+          "actual": {
+            "hour": 10,
+            "minute": 30
+          }
+        },
+        "touch": null
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "half past 10",
+      "derivedFrom": "visible prompt + live clock readout",
+      "explanation": "YOU WORKED IT OUT! half past 10 means the minute hand points to 6, and the hour hand is moving between numbers. This routine is in the morning. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 252,
+          "right": 361,
+          "bottom": 662.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "set:Set the clock to half past 10, school activity time in the morning.",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 3,
+      "replay": true,
+      "prompt": "It is the afternoon and after-school play is happening. What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "It is the afternoon and after-school play is happening. What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 303.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 463.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 120,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(120 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "4 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 4 o’clock means the minute hand points to 12, and the hour hand is on the hour number. This routine is in the afternoon. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:4 o’clock",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 4,
+      "replay": true,
+      "prompt": "It is the afternoon and after-school play is happening. What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "It is the afternoon and after-school play is happening. What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 303.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 463.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 105,
+          "minuteAngle": 180,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(105 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(180 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "half past 3",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! half past 3 means the minute hand points to 6, and the hour hand is moving between numbers. This routine is in the afternoon. Hear explanation Next mission →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 252,
+          "right": 361,
+          "bottom": 662.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:half past 3",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "timeteller",
+      "chapter": 3,
+      "chapterId": "daily-routines",
+      "index": 5,
+      "replay": true,
+      "prompt": "It is the morning and school activity is happening. What time is shown on the clock?",
+      "missionType": "read",
+      "questionIdentity": "It is the morning and school activity is happening. What time is shown on the clock?",
+      "modelBounds": {
+        "rect": {
+          "x": 115,
+          "y": 303.5,
+          "width": 160,
+          "height": 160,
+          "right": 275,
+          "bottom": 463.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "model": {
+        "visibleClock": {
+          "hourAngle": 240,
+          "minuteAngle": 0,
+          "visibleHandLines": [
+            {
+              "stroke": "#be123c",
+              "transform": "rotate(240 100 100)",
+              "x1": 100,
+              "y1": 108,
+              "x2": 100,
+              "y2": 61
+            },
+            {
+              "stroke": "#0369a1",
+              "transform": "rotate(0 100 100)",
+              "x1": 100,
+              "y1": 111,
+              "x2": 100,
+              "y2": 32
+            }
+          ]
+        },
+        "derivedFromVisibleHandTransforms": true
+      },
+      "wrongRetry": true,
+      "answerFromVisible": "8 o’clock",
+      "derivedFrom": "rendered SVG hand geometry",
+      "explanation": "YOU WORKED IT OUT! 8 o’clock means the minute hand points to 12, and the hour hand is on the hour number. This routine is in the morning. Hear explanation Finish chapter →",
+      "heldModelBounds": {
+        "rect": {
+          "x": 29,
+          "y": 410.5,
+          "width": 332,
+          "height": 228,
+          "right": 361,
+          "bottom": 638.5
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      "signature": "read:8 o’clock",
+      "answered": true,
+      "replayInvariant": {
+        "bestStarsBefore": 3,
+        "bestStarsAfter": 3,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 0,
+      "replay": false,
+      "prompt": "CHAPTER 1 · CHALLENGE 1 OF 6 Listen for a sound Which picture begins with this sound? Hear /p/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 1 OF 6 Listen for a sound Which picture begins with this sound? Hear /p/ Use one clue",
+      "targetPhoneme": "p",
+      "visibleQuestionIdentity": "listen:p",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/p-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/p-daniel-v1.mp3",
+            "currentTime": 0.092125,
+            "duration": 0.417959,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 9629.699999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 9643.099999964237
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 9646.299999952316
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "pants",
+      "explanation": "PANTS begins with /p/. The first sound matches.",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/p-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/p-daniel-v1.mp3",
+            "currentTime": 0.086672,
+            "duration": 0.417959,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 9843
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 9860
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 9862.299999952316
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 1,
+      "replay": false,
+      "prompt": "CHAPTER 1 · CHALLENGE 2 OF 6 Listen for a sound Which picture begins with this sound? Hear /i/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 2 OF 6 Listen for a sound Which picture begins with this sound? Hear /i/ Use one clue",
+      "targetPhoneme": "i",
+      "visibleQuestionIdentity": "listen:i",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/i-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/i-daniel-v1.mp3",
+            "currentTime": 0.076162,
+            "duration": 0.325079,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 10044.899999976158
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 10059.599999964237
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 10062.299999952316
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "insect",
+      "explanation": "INSECT begins with /i/. The first sound matches.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 2,
+      "replay": false,
+      "prompt": "CHAPTER 1 · CHALLENGE 3 OF 6 Listen for a sound Which picture begins with this sound? Hear /n/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 3 OF 6 Listen for a sound Which picture begins with this sound? Hear /n/ Use one clue",
+      "targetPhoneme": "n",
+      "visibleQuestionIdentity": "listen:n",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/n-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/n-daniel-v1.mp3",
+            "currentTime": 0.083943,
+            "duration": 0.417959,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 10328
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 10343.099999964237
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 10345.399999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "nap",
+      "explanation": "NAP begins with /n/. The first sound matches.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 3,
+      "replay": false,
+      "prompt": "CHAPTER 1 · CHALLENGE 4 OF 6 Listen for a sound Which picture begins with this sound? Hear /a/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 4 OF 6 Listen for a sound Which picture begins with this sound? Hear /a/ Use one clue",
+      "targetPhoneme": "a",
+      "visibleQuestionIdentity": "listen:a",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/a-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/a-daniel-v1.mp3",
+            "currentTime": 0.091813,
+            "duration": 0.371519,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 10610.699999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 10625.699999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 10628.399999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "ant",
+      "explanation": "ANT begins with /a/. The first sound matches.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 4,
+      "replay": false,
+      "prompt": "CHAPTER 1 · CHALLENGE 5 OF 6 Listen for a sound Which picture begins with this sound? Hear /t/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 5 OF 6 Listen for a sound Which picture begins with this sound? Hear /t/ Use one clue",
+      "targetPhoneme": "t",
+      "visibleQuestionIdentity": "listen:t",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/t-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/t-daniel-v1.mp3",
+            "currentTime": 0.074562,
+            "duration": 0.417959,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 10893.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 10910.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 10913
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "tap",
+      "explanation": "TAP begins with /t/. The first sound matches.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 5,
+      "replay": false,
+      "prompt": "CHAPTER 1 · CHALLENGE 6 OF 6 Listen for a sound Which picture begins with this sound? Hear /s/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 6 OF 6 Listen for a sound Which picture begins with this sound? Hear /s/ Use one clue",
+      "targetPhoneme": "s",
+      "visibleQuestionIdentity": "listen:s",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/s-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/s-daniel-v1.mp3",
+            "currentTime": 0.079618,
+            "duration": 0.325079,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 11176.799999952316
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 11192.699999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 11195.199999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "spin",
+      "explanation": "SPIN begins with /s/. The first sound matches.",
+      "localFaultRecovery": [
+        {
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_sound_safari_adventure_v1"
+        },
+        {
+          "restored": true,
+          "fired": true,
+          "didSet": true,
+          "mode": "readback",
+          "key": "amari_sound_safari_adventure_v1"
+        }
+      ],
+      "faultRecovery": {
+        "sequence": [
+          {
+            "restored": true,
+            "fired": true,
+            "didSet": false,
+            "mode": "write",
+            "key": "amari_sound_safari_adventure_v1"
+          },
+          {
+            "restored": true,
+            "fired": true,
+            "didSet": true,
+            "mode": "readback",
+            "key": "amari_sound_safari_adventure_v1"
+          }
+        ],
+        "localCommitRetained": true,
+        "positiveReward": false
+      },
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 0,
+      "replay": true,
+      "prompt": "CHAPTER 1 · CHALLENGE 1 OF 6 Listen for a sound Which picture begins with this sound? Hear /p/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 1 OF 6 Listen for a sound Which picture begins with this sound? Hear /p/ Use one clue",
+      "targetPhoneme": "p",
+      "visibleQuestionIdentity": "listen:p",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/p-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/p-daniel-v1.mp3",
+            "currentTime": 0.092167,
+            "duration": 0.417959,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 153.19999998807907
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 168.69999998807907
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 170.80000001192093
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "pants",
+      "wrongRetry": true,
+      "hint": true,
+      "clueText": "The first sound is /p/.",
+      "explanation": "PANTS begins with /p/. The first sound matches.",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/p-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/p-daniel-v1.mp3",
+            "currentTime": 0.067835,
+            "duration": 0.417959,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 452.19999998807907
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 467.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 469.5999999642372
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 1,
+      "replay": true,
+      "prompt": "CHAPTER 1 · CHALLENGE 2 OF 6 Listen for a sound Which picture begins with this sound? Hear /i/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 2 OF 6 Listen for a sound Which picture begins with this sound? Hear /i/ Use one clue",
+      "targetPhoneme": "i",
+      "visibleQuestionIdentity": "listen:i",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/i-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/i-daniel-v1.mp3",
+            "currentTime": 0.071835,
+            "duration": 0.325079,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 602.5999999642372
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 617.1999999880791
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 619.1999999880791
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "insect",
+      "wrongRetry": true,
+      "hint": true,
+      "clueText": "The first sound is /i/.",
+      "explanation": "INSECT begins with /i/. The first sound matches.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 2,
+      "replay": true,
+      "prompt": "CHAPTER 1 · CHALLENGE 3 OF 6 Listen for a sound Which picture begins with this sound? Hear /n/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 3 OF 6 Listen for a sound Which picture begins with this sound? Hear /n/ Use one clue",
+      "targetPhoneme": "n",
+      "visibleQuestionIdentity": "listen:n",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/n-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/n-daniel-v1.mp3",
+            "currentTime": 0.060453,
+            "duration": 0.417959,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 953.3999999761581
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 968.3999999761581
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 970.6999999880791
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "nap",
+      "wrongRetry": true,
+      "hint": true,
+      "clueText": "The first sound is /n/.",
+      "explanation": "NAP begins with /n/. The first sound matches.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 3,
+      "replay": true,
+      "prompt": "CHAPTER 1 · CHALLENGE 4 OF 6 Listen for a sound Which picture begins with this sound? Hear /a/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 4 OF 6 Listen for a sound Which picture begins with this sound? Hear /a/ Use one clue",
+      "targetPhoneme": "a",
+      "visibleQuestionIdentity": "listen:a",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/a-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/a-daniel-v1.mp3",
+            "currentTime": 0.066281,
+            "duration": 0.371519,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1301.699999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1318.199999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1320.300000011921
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "ant",
+      "wrongRetry": true,
+      "hint": true,
+      "clueText": "The first sound is /a/.",
+      "explanation": "ANT begins with /a/. The first sound matches.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 4,
+      "replay": true,
+      "prompt": "CHAPTER 1 · CHALLENGE 5 OF 6 Listen for a sound Which picture begins with this sound? Hear /t/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 5 OF 6 Listen for a sound Which picture begins with this sound? Hear /t/ Use one clue",
+      "targetPhoneme": "t",
+      "visibleQuestionIdentity": "listen:t",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/t-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/t-daniel-v1.mp3",
+            "currentTime": 0.072137,
+            "duration": 0.417959,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 1668.199999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 1685.5999999642372
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 1687.699999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "tap",
+      "wrongRetry": true,
+      "hint": true,
+      "clueText": "The first sound is /t/.",
+      "explanation": "TAP begins with /t/. The first sound matches.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 1,
+      "chapterId": "listen",
+      "index": 5,
+      "replay": true,
+      "prompt": "CHAPTER 1 · CHALLENGE 6 OF 6 Listen for a sound Which picture begins with this sound? Hear /s/ Use one clue",
+      "chapterTitle": "Listen for a sound",
+      "questionIdentity": "CHAPTER 1 · CHALLENGE 6 OF 6 Listen for a sound Which picture begins with this sound? Hear /s/ Use one clue",
+      "targetPhoneme": "s",
+      "visibleQuestionIdentity": "listen:s",
+      "audio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/s-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/s-daniel-v1.mp3",
+            "currentTime": 0.059119,
+            "duration": 0.325079,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 2018.199999988079
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 2035.3999999761581
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 2037.699999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "visibleChoiceWord": "spin",
+      "wrongRetry": true,
+      "hint": true,
+      "clueText": "The first sound is /s/.",
+      "explanation": "SPIN begins with /s/. The first sound matches.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 0,
+      "replay": false,
+      "prompt": "CHAPTER 2 · CHALLENGE 1 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 4 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 1 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 4 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "s",
+        "n",
+        "a",
+        "p"
+      ],
+      "visibleChoiceWord": "snap",
+      "visibleQuestionIdentity": "blend:snap:sip,snap,tip",
+      "instructionAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/18bd2b88-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/18bd2b88-matilda.mp3",
+            "currentTime": 0.073787,
+            "duration": 3.715193,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3053
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3067.300000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3070.099999964237
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "explanation": "s · n · a · p slide together to make snap.",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/s-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/s-daniel-v1.mp3",
+            "currentTime": 0.061994,
+            "duration": 0.325079,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 3236.5
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 3251.899999976158
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 3254.099999964237
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 1,
+      "replay": false,
+      "prompt": "CHAPTER 2 · CHALLENGE 2 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 4 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 2 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 4 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "s",
+        "n",
+        "i",
+        "p"
+      ],
+      "visibleChoiceWord": "snip",
+      "visibleQuestionIdentity": "blend:snip:pants,sip,snip",
+      "explanation": "s · n · i · p slide together to make snip.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 2,
+      "replay": false,
+      "prompt": "CHAPTER 2 · CHALLENGE 3 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 3 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "s",
+        "i",
+        "p"
+      ],
+      "visibleChoiceWord": "sip",
+      "visibleQuestionIdentity": "blend:sip:pat,pin,sip",
+      "explanation": "s · i · p slide together to make sip.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 3,
+      "replay": false,
+      "prompt": "CHAPTER 2 · CHALLENGE 4 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 4 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "n",
+        "a",
+        "p"
+      ],
+      "visibleChoiceWord": "nap",
+      "visibleQuestionIdentity": "blend:nap:nap,sit,tin",
+      "explanation": "n · a · p slide together to make nap.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 4,
+      "replay": false,
+      "prompt": "CHAPTER 2 · CHALLENGE 5 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 5 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "p",
+        "a",
+        "t"
+      ],
+      "visibleChoiceWord": "pat",
+      "visibleQuestionIdentity": "blend:pat:pat,sit,tin",
+      "explanation": "p · a · t slide together to make pat.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 5,
+      "replay": false,
+      "prompt": "CHAPTER 2 · CHALLENGE 6 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 6 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "p",
+        "i",
+        "n"
+      ],
+      "visibleChoiceWord": "pin",
+      "visibleQuestionIdentity": "blend:pin:pin,sit,snap",
+      "explanation": "p · i · n slide together to make pin.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 0,
+      "replay": true,
+      "prompt": "CHAPTER 2 · CHALLENGE 1 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 1 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "s",
+        "a",
+        "p"
+      ],
+      "visibleChoiceWord": "sap",
+      "visibleQuestionIdentity": "blend:sap:sap,snip,tap",
+      "instructionAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/18bd2b88-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/18bd2b88-matilda.mp3",
+            "currentTime": 0.075754,
+            "duration": 3.715193,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 7020
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 7033.599999964237
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 7036.199999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "wrongRetry": true,
+      "hint": true,
+      "retryPhonemeSequence": [
+        "s",
+        "a",
+        "p"
+      ],
+      "explanation": "s · a · p slide together to make sap.",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/phonemes/en/s-daniel-v1.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/phonemes/en/s-daniel-v1.mp3",
+            "currentTime": 0.067876,
+            "duration": 0.325079,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 7718.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 7733.699999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 7735.699999988079
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 1,
+      "replay": true,
+      "prompt": "CHAPTER 2 · CHALLENGE 2 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 2 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "a",
+        "n",
+        "t"
+      ],
+      "visibleChoiceWord": "ant",
+      "visibleQuestionIdentity": "blend:ant:ant,pan,tip",
+      "wrongRetry": true,
+      "hint": true,
+      "retryPhonemeSequence": [
+        "a",
+        "n",
+        "t"
+      ],
+      "explanation": "a · n · t slide together to make ant.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 2,
+      "replay": true,
+      "prompt": "CHAPTER 2 · CHALLENGE 3 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 3 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "t",
+        "i",
+        "p"
+      ],
+      "visibleChoiceWord": "tip",
+      "visibleQuestionIdentity": "blend:tip:pat,tap,tip",
+      "wrongRetry": true,
+      "hint": true,
+      "retryPhonemeSequence": [
+        "t",
+        "i",
+        "p"
+      ],
+      "explanation": "t · i · p slide together to make tip.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 3,
+      "replay": true,
+      "prompt": "CHAPTER 2 · CHALLENGE 4 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 4 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 4 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 4 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "s",
+        "p",
+        "i",
+        "n"
+      ],
+      "visibleChoiceWord": "spin",
+      "visibleQuestionIdentity": "blend:spin:pants,sip,spin",
+      "wrongRetry": true,
+      "hint": true,
+      "retryPhonemeSequence": [
+        "s",
+        "p",
+        "i",
+        "n"
+      ],
+      "explanation": "s · p · i · n slide together to make spin.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 4,
+      "replay": true,
+      "prompt": "CHAPTER 2 · CHALLENGE 5 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 5 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "p",
+        "a",
+        "n"
+      ],
+      "visibleChoiceWord": "pan",
+      "visibleQuestionIdentity": "blend:pan:nap,pan,tip",
+      "wrongRetry": true,
+      "hint": true,
+      "retryPhonemeSequence": [
+        "p",
+        "a",
+        "n"
+      ],
+      "explanation": "p · a · n slide together to make pan.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 2,
+      "chapterId": "blend",
+      "index": 5,
+      "replay": true,
+      "prompt": "CHAPTER 2 · CHALLENGE 6 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "chapterTitle": "Blend the sounds",
+      "questionIdentity": "CHAPTER 2 · CHALLENGE 6 OF 6 Blend the sounds Tap each sound from left to right. Then choose the matching picture. 1 2 3 Use one clue Hear instructions",
+      "visiblePhonemeSequence": [
+        "t",
+        "i",
+        "n"
+      ],
+      "visibleChoiceWord": "tin",
+      "visibleQuestionIdentity": "blend:tin:pip,pit,tin",
+      "wrongRetry": true,
+      "hint": true,
+      "retryPhonemeSequence": [
+        "t",
+        "i",
+        "n"
+      ],
+      "explanation": "t · i · n slide together to make tin.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 0,
+      "replay": false,
+      "prompt": "CHAPTER 3 · CHALLENGE 1 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. pat Use one clue Hear the word again /n/ /a/ /s/ /p/ /t/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 1 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. pat Use one clue Hear the word again /n/ /a/ /s/ /p/ /t/ Check sounds Choose sounds above, then check your ans",
+      "visibleWord": "pat",
+      "visibleQuestionIdentity": "segment:pat",
+      "wordAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/ae709a65-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/ae709a65-matilda.mp3",
+            "currentTime": 0.067312,
+            "duration": 0.510839,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 14069.300000011921
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 14084.699999988079
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 14087.899999976158
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "segmentPhonemeSequence": [
+        "p",
+        "a",
+        "t"
+      ],
+      "explanation": "pat has 3 sounds: p, a, t.",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/ae709a65-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/ae709a65-matilda.mp3",
+            "currentTime": 0.077183,
+            "duration": 0.510839,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 14779.399999976158
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 14784.800000011921
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 14787
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 1,
+      "replay": false,
+      "prompt": "CHAPTER 3 · CHALLENGE 2 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. sit Use one clue Hear the word again /s/ /a/ /n/ /i/ /t/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 2 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. sit Use one clue Hear the word again /s/ /a/ /n/ /i/ /t/ Check sounds Choose sounds above, then check your ans",
+      "visibleWord": "sit",
+      "visibleQuestionIdentity": "segment:sit",
+      "segmentPhonemeSequence": [
+        "s",
+        "i",
+        "t"
+      ],
+      "explanation": "sit has 3 sounds: s, i, t.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 2,
+      "replay": false,
+      "prompt": "CHAPTER 3 · CHALLENGE 3 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. spin Use one clue Hear the word again /s/ /t/ /n/ /a/ /p/ /i/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 3 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. spin Use one clue Hear the word again /s/ /t/ /n/ /a/ /p/ /i/ Check sounds Choose sounds above, then check you",
+      "visibleWord": "spin",
+      "visibleQuestionIdentity": "segment:spin",
+      "segmentPhonemeSequence": [
+        "s",
+        "p",
+        "i",
+        "n"
+      ],
+      "explanation": "spin has 4 sounds: s, p, i, n.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 3,
+      "replay": false,
+      "prompt": "CHAPTER 3 · CHALLENGE 4 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. snap Use one clue Hear the word again /n/ /p/ /i/ /s/ /t/ /a/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 4 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. snap Use one clue Hear the word again /n/ /p/ /i/ /s/ /t/ /a/ Check sounds Choose sounds above, then check you",
+      "visibleWord": "snap",
+      "visibleQuestionIdentity": "segment:snap",
+      "segmentPhonemeSequence": [
+        "s",
+        "n",
+        "a",
+        "p"
+      ],
+      "explanation": "snap has 4 sounds: s, n, a, p.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 4,
+      "replay": false,
+      "prompt": "CHAPTER 3 · CHALLENGE 5 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. sap Use one clue Hear the word again /s/ /a/ /n/ /t/ /p/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 5 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. sap Use one clue Hear the word again /s/ /a/ /n/ /t/ /p/ Check sounds Choose sounds above, then check your ans",
+      "visibleWord": "sap",
+      "visibleQuestionIdentity": "segment:sap",
+      "segmentPhonemeSequence": [
+        "s",
+        "a",
+        "p"
+      ],
+      "explanation": "sap has 3 sounds: s, a, p.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 5,
+      "replay": false,
+      "prompt": "CHAPTER 3 · CHALLENGE 6 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. pan Use one clue Hear the word again /p/ /i/ /a/ /s/ /n/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 6 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. pan Use one clue Hear the word again /p/ /i/ /a/ /s/ /n/ Check sounds Choose sounds above, then check your ans",
+      "visibleWord": "pan",
+      "visibleQuestionIdentity": "segment:pan",
+      "segmentPhonemeSequence": [
+        "p",
+        "a",
+        "n"
+      ],
+      "explanation": "pan has 3 sounds: p, a, n.",
+      "answered": true
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 0,
+      "replay": true,
+      "prompt": "CHAPTER 3 · CHALLENGE 1 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. nap Use one clue Hear the word again /s/ /i/ /n/ /a/ /p/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 1 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. nap Use one clue Hear the word again /s/ /i/ /n/ /a/ /p/ Check sounds Choose sounds above, then check your ans",
+      "visibleWord": "nap",
+      "visibleQuestionIdentity": "segment:nap",
+      "wordAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/68daca43-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/68daca43-matilda.mp3",
+            "currentTime": 0.079785,
+            "duration": 0.603719,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 18619
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 18634.5
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 18637.30000001192
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "wrongRetry": true,
+      "wrongSegmentSequence": [
+        "a",
+        "n",
+        "p"
+      ],
+      "hint": true,
+      "clueText": "The first sound is /n/.",
+      "segmentPhonemeSequence": [
+        "n",
+        "a",
+        "p"
+      ],
+      "explanation": "nap has 3 sounds: n, a, p.",
+      "explanationAudio": {
+        "checked": true,
+        "packaged": true,
+        "events": [
+          {
+            "src": "http://127.0.0.1:5180/audio/en/68daca43-matilda.mp3",
+            "origin": "http://127.0.0.1:5180",
+            "pathname": "/audio/en/68daca43-matilda.mp3",
+            "currentTime": 0.076342,
+            "duration": 0.603719,
+            "paused": false,
+            "ended": false,
+            "events": [
+              {
+                "type": "play-call",
+                "time": 0,
+                "at": 20068.80000001192
+              },
+              {
+                "type": "play",
+                "time": 0,
+                "at": 20084.599999964237
+              },
+              {
+                "type": "playing",
+                "time": 0,
+                "at": 20086.599999964237
+              }
+            ],
+            "packaged": true
+          }
+        ]
+      },
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 1,
+      "replay": true,
+      "prompt": "CHAPTER 3 · CHALLENGE 2 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. pip Use one clue Hear the word again /n/ /p/ /s/ /i/ /p/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 2 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. pip Use one clue Hear the word again /n/ /p/ /s/ /i/ /p/ Check sounds Choose sounds above, then check your ans",
+      "visibleWord": "pip",
+      "visibleQuestionIdentity": "segment:pip",
+      "wrongRetry": true,
+      "wrongSegmentSequence": [
+        "i",
+        "p",
+        "p"
+      ],
+      "hint": true,
+      "clueText": "The first sound is /p/.",
+      "segmentPhonemeSequence": [
+        "p",
+        "i",
+        "p"
+      ],
+      "explanation": "pip has 3 sounds: p, i, p.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 2,
+      "replay": true,
+      "prompt": "CHAPTER 3 · CHALLENGE 3 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. snip Use one clue Hear the word again /t/ /p/ /s/ /n/ /a/ /i/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 3 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. snip Use one clue Hear the word again /t/ /p/ /s/ /n/ /a/ /i/ Check sounds Choose sounds above, then check you",
+      "visibleWord": "snip",
+      "visibleQuestionIdentity": "segment:snip",
+      "wrongRetry": true,
+      "wrongSegmentSequence": [
+        "n",
+        "s",
+        "i",
+        "p"
+      ],
+      "hint": true,
+      "clueText": "The first sound is /s/.",
+      "segmentPhonemeSequence": [
+        "s",
+        "n",
+        "i",
+        "p"
+      ],
+      "explanation": "snip has 4 sounds: s, n, i, p.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 3,
+      "replay": true,
+      "prompt": "CHAPTER 3 · CHALLENGE 4 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. tap Use one clue Hear the word again /a/ /s/ /t/ /n/ /p/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 4 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. tap Use one clue Hear the word again /a/ /s/ /t/ /n/ /p/ Check sounds Choose sounds above, then check your ans",
+      "visibleWord": "tap",
+      "visibleQuestionIdentity": "segment:tap",
+      "wrongRetry": true,
+      "wrongSegmentSequence": [
+        "a",
+        "t",
+        "p"
+      ],
+      "hint": true,
+      "clueText": "The first sound is /t/.",
+      "segmentPhonemeSequence": [
+        "t",
+        "a",
+        "p"
+      ],
+      "explanation": "tap has 3 sounds: t, a, p.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 4,
+      "replay": true,
+      "prompt": "CHAPTER 3 · CHALLENGE 5 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. tin Use one clue Hear the word again /i/ /t/ /p/ /s/ /n/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 5 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. tin Use one clue Hear the word again /i/ /t/ /p/ /s/ /n/ Check sounds Choose sounds above, then check your ans",
+      "visibleWord": "tin",
+      "visibleQuestionIdentity": "segment:tin",
+      "wrongRetry": true,
+      "wrongSegmentSequence": [
+        "i",
+        "t",
+        "n"
+      ],
+      "hint": true,
+      "clueText": "The first sound is /t/.",
+      "segmentPhonemeSequence": [
+        "t",
+        "i",
+        "n"
+      ],
+      "explanation": "tin has 3 sounds: t, i, n.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    },
+    {
+      "game": "safari",
+      "chapter": 3,
+      "chapterId": "segment",
+      "index": 5,
+      "replay": true,
+      "prompt": "CHAPTER 3 · CHALLENGE 6 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. pit Use one clue Hear the word again /n/ /p/ /i/ /s/ /t/ Check sounds Choose sounds above, then check your answer.",
+      "chapterTitle": "Pull a word apart",
+      "questionIdentity": "CHAPTER 3 · CHALLENGE 6 OF 6 Pull a word apart Listen to the picture word. Tap its sounds from first to last. pit Use one clue Hear the word again /n/ /p/ /i/ /s/ /t/ Check sounds Choose sounds above, then check your ans",
+      "visibleWord": "pit",
+      "visibleQuestionIdentity": "segment:pit",
+      "wrongRetry": true,
+      "wrongSegmentSequence": [
+        "i",
+        "p",
+        "t"
+      ],
+      "hint": true,
+      "clueText": "The first sound is /p/.",
+      "segmentPhonemeSequence": [
+        "p",
+        "i",
+        "t"
+      ],
+      "explanation": "pit has 3 sounds: p, i, t.",
+      "answered": true,
+      "replayInvariant": {
+        "badgeRetained": true,
+        "parentRawUnchanged": true
+      }
+    }
+  ],
+  "games": {
+    "timeteller": {
+      "key": "amari_timeteller_progress_v1",
+      "initial": {
+        "version": 1,
+        "completedChapterIds": [
+          "clock-explorers",
+          "past-and-to",
+          "daily-routines"
+        ],
+        "bestStars": {
+          "clock-explorers": 3,
+          "past-and-to": 3,
+          "daily-routines": 3
+        },
+        "recentQuestionIds": {
+          "0": [
+            "0:10:30:read",
+            "0:9:0:read",
+            "0:10:0:read",
+            "0:12:30:read",
+            "0:7:30:read",
+            "0:9:30:read",
+            "0:11:30:read",
+            "0:2:0:read"
+          ],
+          "1": [
+            "1:2:45:read",
+            "1:4:15:read",
+            "1:10:15:read",
+            "1:3:15:read",
+            "1:12:0:read",
+            "1:7:30:read",
+            "1:6:45:read",
+            "1:8:0:read"
+          ],
+          "2": [
+            "2:2:45:read",
+            "2:1:15:read",
+            "2:6:15:read",
+            "2:6:0:set",
+            "2:2:0:read",
+            "2:11:30:read",
+            "2:4:45:read",
+            "2:3:45:set"
+          ]
+        },
+        "unlockedChapter": 2,
+        "rewardReceipts": {
+          "clock-explorers:best:3": {
+            "id": "clock-explorers:best:3",
+            "chapterId": "clock-explorers",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "past-and-to:best:3": {
+            "id": "past-and-to:best:3",
+            "chapterId": "past-and-to",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "daily-routines:best:3": {
+            "id": "daily-routines:best:3",
+            "chapterId": "daily-routines",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          }
+        }
+      },
+      "final": {
+        "version": 1,
+        "completedChapterIds": [
+          "clock-explorers",
+          "past-and-to",
+          "daily-routines"
+        ],
+        "bestStars": {
+          "clock-explorers": 3,
+          "past-and-to": 3,
+          "daily-routines": 3
+        },
+        "recentQuestionIds": {
+          "0": [
+            "0:8:0:read",
+            "0:4:30:read",
+            "0:10:30:read",
+            "0:6:30:read",
+            "0:3:30:read",
+            "0:3:0:read",
+            "0:5:30:read",
+            "0:12:30:read"
+          ],
+          "1": [
+            "1:9:45:read",
+            "1:2:30:read",
+            "1:4:45:read",
+            "1:4:15:read",
+            "1:8:15:read",
+            "1:11:30:read",
+            "1:5:0:read",
+            "1:7:0:read"
+          ],
+          "2": [
+            "2:10:0:read",
+            "2:7:30:set",
+            "2:1:30:set",
+            "2:5:30:read",
+            "2:10:30:set",
+            "2:4:0:read",
+            "2:3:30:read",
+            "2:8:0:read"
+          ]
+        },
+        "unlockedChapter": 2,
+        "rewardReceipts": {
+          "clock-explorers:best:3": {
+            "id": "clock-explorers:best:3",
+            "chapterId": "clock-explorers",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "past-and-to:best:3": {
+            "id": "past-and-to:best:3",
+            "chapterId": "past-and-to",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          },
+          "daily-routines:best:3": {
+            "id": "daily-routines:best:3",
+            "chapterId": "daily-routines",
+            "bestStars": 3,
+            "rewardDelta": 3,
+            "claimed": true
+          }
+        }
+      },
+      "rows": 36,
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_skill_mastery_v1",
+          "qa_rewards_20261024_amari_timeteller_progress_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_numberline_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+          "qa_rewards_20261024_amari_storybook_active_child_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_profiles_v1",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_subtraction_progress_v1",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_game_levels_v1",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      },
+      "rewardBefore": 466,
+      "rewardAfter": 466,
+      "receiptCheck": {
+        "receiptCount": 3,
+        "changedTokens": [],
+        "pointDelta": 0
+      }
+    },
+    "safari": {
+      "key": "amari_sound_safari_adventure_v1",
+      "initial": {
+        "version": 1,
+        "unlockedChapter": 2,
+        "completedChapterIds": [
+          "listen",
+          "blend",
+          "segment"
+        ],
+        "earnedChapterIds": [
+          "listen",
+          "blend",
+          "segment"
+        ],
+        "recentRoundIds": [
+          "blend-tin",
+          "blend-spin",
+          "blend-tip",
+          "blend-pip",
+          "blend-sit",
+          "blend-pants",
+          "segment-pat",
+          "segment-pan",
+          "segment-sip",
+          "segment-tip",
+          "segment-sit",
+          "segment-tap",
+          "listen-p",
+          "listen-i",
+          "listen-n",
+          "listen-a",
+          "listen-t",
+          "listen-s"
+        ],
+        "rewardReceipts": {}
+      },
+      "final": {
+        "version": 1,
+        "unlockedChapter": 2,
+        "completedChapterIds": [
+          "listen",
+          "blend",
+          "segment"
+        ],
+        "earnedChapterIds": [
+          "listen",
+          "blend",
+          "segment"
+        ],
+        "recentRoundIds": [
+          "blend-sap",
+          "blend-ant",
+          "blend-tip",
+          "blend-spin",
+          "blend-pan",
+          "blend-tin",
+          "segment-pat",
+          "segment-sit",
+          "segment-spin",
+          "segment-snap",
+          "segment-sap",
+          "segment-pan",
+          "segment-nap",
+          "segment-pip",
+          "segment-snip",
+          "segment-tap",
+          "segment-tin",
+          "segment-pit"
+        ],
+        "rewardReceipts": {}
+      },
+      "rows": 36,
+      "storage": {
+        "changed": [
+          "qa_rewards_20261024_amari_game_diagnostics_v1",
+          "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+          "qa_rewards_20261024_amari_learning_attempts_v1",
+          "qa_rewards_20261024_amari_skill_mastery_v1",
+          "qa_rewards_20261024_amari_sound_safari_adventure_v1"
+        ],
+        "unexpected": [],
+        "unchanged": [
+          "amari-sound-on",
+          "qa_rewards_20261024_amari_addition_progress_v1",
+          "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1",
+          "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+          "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+          "qa_rewards_20261024_amari_challenge_done",
+          "qa_rewards_20261024_amari_challenge_progress",
+          "qa_rewards_20261024_amari_chapter_badges_v1",
+          "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+          "qa_rewards_20261024_amari_chess_game_v1",
+          "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+          "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+          "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+          "qa_rewards_20261024_amari_cosmic_tactics_v1",
+          "qa_rewards_20261024_amari_curriculum_badges_v1",
+          "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_preferences_v1",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+          "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+          "qa_rewards_20261024_amari_discovery_active_player",
+          "qa_rewards_20261024_amari_discovery_passport_v1",
+          "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+          "qa_rewards_20261024_amari_favourite_games",
+          "qa_rewards_20261024_amari_game_levels_v1",
+          "qa_rewards_20261024_amari_games_played",
+          "qa_rewards_20261024_amari_german_chapter_progress_v1",
+          "qa_rewards_20261024_amari_german_recent_targets_v1",
+          "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+          "qa_rewards_20261024_amari_lastplay",
+          "qa_rewards_20261024_amari_learning_migration_v1",
+          "qa_rewards_20261024_amari_letter_launch_progress_v1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+          "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+          "qa_rewards_20261024_amari_letter_trace_progress_v1",
+          "qa_rewards_20261024_amari_little_progress",
+          "qa_rewards_20261024_amari_memory_best",
+          "qa_rewards_20261024_amari_memory_completion_v1",
+          "qa_rewards_20261024_amari_memory_passport_v1",
+          "qa_rewards_20261024_amari_memory_resume_v1",
+          "qa_rewards_20261024_amari_monster_math_progress_v1",
+          "qa_rewards_20261024_amari_numberline_progress_v1",
+          "qa_rewards_20261024_amari_oddoneout_progress_v1",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+          "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+          "qa_rewards_20261024_amari_points",
+          "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+          "qa_rewards_20261024_amari_recent_games",
+          "qa_rewards_20261024_amari_rewards_v2",
+          "qa_rewards_20261024_amari_sky_shapes_progress_v1",
+          "qa_rewards_20261024_amari_spelling_progress_v1",
+          "qa_rewards_20261024_amari_spelling_recent_v1",
+          "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+          "qa_rewards_20261024_amari_storybook_active_child_v1",
+          "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+          "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+          "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+          "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+          "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+          "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+          "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+          "qa_rewards_20261024_amari_storybook_profiles_v1",
+          "qa_rewards_20261024_amari_storybook_progress_v1",
+          "qa_rewards_20261024_amari_streak",
+          "qa_rewards_20261024_amari_subtraction_progress_v1",
+          "qa_rewards_20261024_amari_timeteller_progress_v1",
+          "qa_rewards_20261024_amari_voice_mode_v4",
+          "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+          "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+          "qa_rewards_20261024_amari_writing_samples_v1",
+          "qa_rewards_20261024_askia_challenge_done",
+          "qa_rewards_20261024_askia_challenge_progress",
+          "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+          "qa_rewards_20261024_askia_favourite_games",
+          "qa_rewards_20261024_askia_game_levels_v1",
+          "qa_rewards_20261024_askia_games_played",
+          "qa_rewards_20261024_askia_lastplay",
+          "qa_rewards_20261024_askia_little_progress",
+          "qa_rewards_20261024_askia_points",
+          "qa_rewards_20261024_askia_recent_games",
+          "qa_rewards_20261024_askia_rewards_v2",
+          "qa_rewards_20261024_askia_streak",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+          "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+        ]
+      },
+      "rewardBefore": 466,
+      "rewardAfter": 466,
+      "receiptCheck": {
+        "receiptCount": 0,
+        "changedTokens": [],
+        "pointDelta": 0
+      }
+    }
+  },
+  "eligibility": {
+    "timeteller": {
+      "completed": [
+        "clock-explorers",
+        "past-and-to",
+        "daily-routines"
+      ],
+      "bestStars": {
+        "clock-explorers": 3,
+        "past-and-to": 3,
+        "daily-routines": 3
+      },
+      "material": [],
+      "completionIndex": null,
+      "pendingIndex": null
+    },
+    "safari": {
+      "completed": [
+        "listen",
+        "blend",
+        "segment"
+      ],
+      "positiveRewardEligible": [],
+      "schema": "completion badges only; no star rating"
+    }
+  },
+  "faultCases": {
+    "timetellerStart": "unexercised: all normal start buttons were replay CTAs; no fresh start queue branch was available.",
+    "timetellerLocalOnly": {
+      "done": true,
+      "positiveReceiptUnexercised": true,
+      "stages": [
+        {
+          "mode": "write",
+          "key": "amari_timeteller_progress_v1",
+          "restored": true,
+          "fired": true,
+          "didSet": false
+        },
+        {
+          "mode": "readback",
+          "key": "amari_timeteller_progress_v1",
+          "restored": true,
+          "fired": true,
+          "didSet": true
+        }
+      ]
+    },
+    "timetellerPositiveCompletionUnexercised": "No naturally eligible positive star delta at the pre-run snapshot; a capped-result local write/readback branch was used if available.",
+    "timetellerPendingReloadUnexercised": "No second naturally material positive-reward chapter at the pre-run snapshot.",
+    "safariStartQueue": "structurally inapplicable: selecting a chapter performs a strict read/drain and latches the run in component state; no planned-queue storage write exists.",
+    "safariLocalCompletion": {
+      "sequence": [
+        {
+          "restored": true,
+          "fired": true,
+          "didSet": false,
+          "mode": "write",
+          "key": "amari_sound_safari_adventure_v1"
+        },
+        {
+          "restored": true,
+          "fired": true,
+          "didSet": true,
+          "mode": "readback",
+          "key": "amari_sound_safari_adventure_v1"
+        }
+      ],
+      "localCommitRetained": true,
+      "positiveReward": false
+    },
+    "safariPositiveReceiptUnexercised": "No naturally new Sound Safari badge was eligible in the initial saved profile; badges are already earned and replay does not issue positive rewards.",
+    "safariPendingReloadUnexercised": "No naturally pending positive Sound Safari receipt was eligible for parent-write/reload recovery."
+  },
+  "soundOriginals": {
+    "timeteller": true,
+    "safari": true
+  },
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-D9WmKcug.js"
+  },
+  "providerAttempts": [],
+  "clockTouchSample": true,
+  "safariPhonemes": [
+    "a",
+    "i",
+    "n",
+    "p",
+    "s",
+    "t"
+  ],
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "providerAttempts": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "controlAudit": {
+    "checked": 631,
+    "minimumWidth": 48,
+    "minimumHeight": 48,
+    "allCenterHits": true,
+    "allInsideViewport": true
+  },
+  "stage": "native",
+  "runtimeSource": "54296288d28d315c372c0cf12f5f5224b20e2792",
+  "entry": "/assets/arcade-D9WmKcug.js",
+  "sourceHead": "54296288d28d315c372c0cf12f5f5224b20e2792",
+  "sourceHashes": {
+    "src/App.jsx": "edcc16d013a6cf67b7c840c15727b50f6436f3991cc5a65090d23c65c6d80fcb",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/timeLineAdventure.js": "d1f4eb687db00094019a580e76625bc3c526844659b46c085185149f5984b42c",
+    "src/data/timeLineProgress.js": "32fcdc6eceebdca607a158894d338ae453d4998d283a8283d9331443cf936400",
+    "src/data/timeLineInteraction.js": "9213bd2a1cb63ff93bec27951a589c1799d15d134859cf0c48b4843509ef3a0c",
+    "src/data/batch4Narration.js": "88743fa76c2006ef369b3bbe7ec236e7b661f62996411f37d9c7ce6417bd790d",
+    "src/data/playerRewards.js": "d5e7eec429b310769cf24f7400dd86120ec6f413e2c12bfaf6cce84280291271",
+    "src/data/offlineVoice.js": "8ee6e48db9a73a1a064803e92b3152105d40b2c90a5251c68d80e61547e19697",
+    "src/data/literacy.js": "3665da245342ddf8ff585933ad644a33f08fd7c538aec72bf8ba0ec4e0b65ec0",
+    "src/data/soundSafariAdventure.js": "6abfa185cf9f364d3c5d9893e3d5502f423ef83c3513a8df5ca68f6940c53eff",
+    "src/data/soundSafariProgress.js": "fdb4eb9c82d5c4cc338e469942482d7375c32553bcc4308090f164582b840126",
+    "src/components/games/TimeTeller.jsx": "e03b44956aca6fddeebda1b24ea7a5520b8b646f0ee6cd1701450825924d619a",
+    "src/components/games/TimeLineLearningUI.jsx": "3e4f96220a35b533810376bbacf2c8777edc547d126cefa62eeb093705f2ce94",
+    "src/components/games/SoundSafari.jsx": "d2d74c57f52025f087ef828767d83be348693f737a21e55db6f6324a67e07587",
+    "src/components/games/amariScenes.css": "28d6a96160ce465d367a51df2c3fa10f6448ed32159f8620de3e039ac89c0d50",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/time-safari-save-20261029/protocol.md": "0eee9b1e9a6f7409c1fd9e27bb4b3240dee7310453f7af42e8b013091d7709ae",
+    "docs/qa-evidence/time-safari-save-20261029/time-safari-native.cjs": "4c9d567662dcec4217233bd77bb08c7b6951e25f51f751e8495c93387e610848"
+  },
+  "driverSHA256": "4c9d567662dcec4217233bd77bb08c7b6951e25f51f751e8495c93387e610848",
+  "runnerSHA256": "7e8873e9416b2f9d7e222e7a15c40be66d7a4234b03bf7afd614a29e06186055",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1457853,
+    "entrySha256": "397c9b06ea26c7933b08f9c119a47013a05eba11284efd5f9714e33a8f8eafd8",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair17-native",
+  "scope": "Full actual-visible-control Time Teller and Sound Safari acceptance: three chapters, six normal questions and six lower-rated replay questions per game at this viewport. No state reset, answer/queue injection, provider call, or automatic primary-control scrolling."
+}

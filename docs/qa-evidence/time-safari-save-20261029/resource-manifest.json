@@ -1,0 +1,65 @@
+{
+  "at": "2026-10-29T20:11:09.915892+00:00",
+  "newCheckouts": 0,
+  "newProfiles": 0,
+  "newDependencyInstalls": 0,
+  "paidCalls": 0,
+  "evidenceBudgetBytes": 8388608,
+  "profileBeforeKiB": 1139276,
+  "profileGrowthBudgetBytes": 67108864,
+  "newAssets": "Existing art, six approved phonemes and packaged narration reused; no paid jobs",
+  "freeSpaceBeforeGiB": "87",
+  "profileAfterKiB": 1140288,
+  "profileGrowthBytes": 1036288,
+  "evidenceBytesBeforeManifest": 2175643,
+  "retained": "Final and unique failed JSON/JPG, source checks, compact deployment identities and scoped fresh-Time evidence; one existing QA profile retained.",
+  "profileWithinOriginalGrowthBudget": true,
+  "removedTaskOwnedTemps": [
+    {
+      "path": "tmp/pair17-build-r4.log",
+      "bytes": 14592,
+      "reason": "Passed intermediate check; final full source checks retained, source revisions committed."
+    },
+    {
+      "path": "tmp/pair17-build-r2.log",
+      "bytes": 14591,
+      "reason": "Passed intermediate check; final full source checks retained, source revisions committed."
+    },
+    {
+      "path": "tmp/pair17-build-r3.log",
+      "bytes": 14592,
+      "reason": "Passed intermediate check; final full source checks retained, source revisions committed."
+    },
+    {
+      "path": "tmp/pair17-build-r1.log",
+      "bytes": 14592,
+      "reason": "Passed intermediate check; final full source checks retained, source revisions committed."
+    },
+    {
+      "path": "tmp/pair17-tests-r4.log",
+      "bytes": 74034,
+      "reason": "Passed intermediate check; final full source checks retained, source revisions committed."
+    },
+    {
+      "path": "tmp/pair17-tests-r1.log",
+      "bytes": 73766,
+      "reason": "Passed intermediate check; final full source checks retained, source revisions committed."
+    },
+    {
+      "path": "tmp/pair17-tests-r2.log",
+      "bytes": 73891,
+      "reason": "Passed intermediate check; final full source checks retained, source revisions committed."
+    },
+    {
+      "path": "tmp/pair17-tests-r3.log",
+      "bytes": 73886,
+      "reason": "Passed intermediate check; final full source checks retained, source revisions committed."
+    },
+    {
+      "path": "tmp/pair17-parent-claims.log",
+      "bytes": 2148,
+      "reason": "Passed intermediate check; final full source checks retained, source revisions committed."
+    }
+  ],
+  "removedLogicalBytes": 356092
+}

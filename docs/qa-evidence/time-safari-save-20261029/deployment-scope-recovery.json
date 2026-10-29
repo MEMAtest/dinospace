@@ -1,0 +1,14 @@
+{
+  "initialAttempt": {
+    "status": "rejected before deployment",
+    "reason": "Not authorized",
+    "publicSiteChanged": false
+  },
+  "readIdentity": {
+    "login": "mematest",
+    "teamId": "team_29nVF2DDp3aEQN11NjTifvQa",
+    "projectId": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w",
+    "membershipRole": "OWNER"
+  },
+  "recovery": "Explicit --scope memas-projects-23a0001d deploy succeeded with same account/project; deployment identity captured separately. No credential or account changes."
+}
