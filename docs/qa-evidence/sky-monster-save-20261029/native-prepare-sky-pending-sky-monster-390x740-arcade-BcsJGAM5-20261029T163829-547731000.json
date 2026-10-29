@@ -1,0 +1,72 @@
+{
+  "passed": false,
+  "mode": "prepare-sky-pending",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "providerAttempts": [],
+  "errors": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-BcsJGAM5.js",
+    "initialSurface": "player-chooser"
+  },
+  "targetEligibility": {
+    "completedMissionIds": [
+      "sky-square",
+      "sky-triangle"
+    ],
+    "zeroStarUnfinishedSkyOneIds": [
+      "sky-circle",
+      "sky-diamond"
+    ]
+  },
+  "failure": {
+    "message": "Normal Amari player/world chooser did not mount after bounded navigation",
+    "stack": [
+      "Error: Normal Amari player/world chooser did not mount after bounded navigation",
+      "    at eval (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:45:26)",
+      "    at runNextTicks (node:internal/process/task_queues:65:5)",
+      "    at process.processImmediate (node:internal/timers:472:9)",
+      "    at async selectAmariAtHome (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:42:26)",
+      "    at async runSkyMonster.prepareSkyPendingReload (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:1008:5)",
+      "    at async evalmachine.<anonymous>:5:8",
+      "    at async evalmachine.<anonymous>:3:20"
+    ]
+  },
+  "failureScreenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/sky-monster-save-20261029/failure-390x740-arcade-BcsJGAM5-20261029T163829-547731000.jpg",
+  "stage": "native",
+  "runtimeSource": "778ac7b11aec5591492b39016ff6985ca0120efc",
+  "entry": "/assets/arcade-BcsJGAM5.js",
+  "sourceHead": "778ac7b11aec5591492b39016ff6985ca0120efc",
+  "sourceHashes": {
+    "src/App.jsx": "68e40e0e280522524a27bfa7c7ec99b0fc4afb70727458792fc821689afe0855",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/skyShapes.js": "b491170b8275afe2aa55bf1f82a01f275c58f2c0079ac20fd2c9e1c2025a0f51",
+    "src/data/skyShapesProgress.js": "8484f3a6f4e2e11b7600e97bfd0110c33e9b7d06a8d0cf0db249b78b87e73904",
+    "src/data/monsterMathEpisodes.js": "c77fd67c2fc3ed4e5c7442c1bebb0c94cb13b9d6f15306e97fa0eb3435c54c95",
+    "src/data/monsterMathProgress.js": "d3985cfc9789b3880e3c1277d781b951e9529bd8a7654a030c23bcd593b78a06",
+    "src/data/playerRewards.js": "87fe34c0fa3b69bf22b5a66f4d368da305230b064ac29994d57f643afc092e01",
+    "src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "src/components/games/JetSkyShapes.jsx": "bd6d4c1da541d7e13c1abebf89cea236619f632520cfcc17570df160d9ce4c96",
+    "src/components/games/MonsterMath.jsx": "dbb3cc94007b187b26f1276e1f232c479bc221c5b54e61697f4c0db28467608b",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/sky-monster-save-20261029/protocol.md": "b4722d3e64285aa8391ce5ebd9e1e1848c982ce30388ccf587c738ae2718a5da",
+    "docs/qa-evidence/sky-monster-save-20261029/sky-monster-native.cjs": "1cecfded6ae47e463abc991ff374e1ad50b045c0ae4a8d60e4b5246eb95d017f"
+  },
+  "driverSHA256": "1cecfded6ae47e463abc991ff374e1ad50b045c0ae4a8d60e4b5246eb95d017f",
+  "runnerSHA256": "6464b7681a62be13c58a293d656fb8accac2eaa622f1b798f6862cf42eaa20fd",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1407423,
+    "entrySha256": "19090b344d5cb42062332a3505226f2c915a487e40d5c80695fb9b8295b7fa9a",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair14-native",
+  "scope": "Targeted visible-control Sky Shapes pending-receipt reload recovery only; a natural one-star keyboard receipt must be pending before same-page reload and claimed exactly once after intro drain.",
+  "faultModeRequested": true
+}

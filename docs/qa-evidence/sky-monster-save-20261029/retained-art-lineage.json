@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "previousRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+  "unchangedPaths": [
+    "public/art",
+    "public/audio",
+    "public/storybooks"
+  ],
+  "verification": "Source-equal to prior served corpus. Current visible models/packaged playback independently measured in browser reports. No repeated corpus downloads.",
+  "references": [
+    {
+      "path": "docs/qa-evidence/puzzle-spot-fit-20261029/retained-art-lineage.json",
+      "sha256": "0a6a23fa4c5ac489a7ed9213deab7a697a29c0fe8be27048b23ab906d1159289"
+    }
+  ]
+}

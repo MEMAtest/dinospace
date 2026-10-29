@@ -1,0 +1,71 @@
+{
+  "at": "2026-10-29T16:15:34.360307+00:00",
+  "scope": "Retained baseline/current-source review findings; none is relabelled as accepted gameplay",
+  "baselineRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+  "reports": [
+    {
+      "path": "docs/qa-evidence/final-integration-20261029/production-retained-390x740-20261029T160153-484833000.json",
+      "classification": "product",
+      "finding": "Sky Shapes Start y1234\u20131298 exceeds390x740 viewport; compact selected-sky intro implemented, verification pending"
+    },
+    {
+      "path": "docs/qa-evidence/final-integration-20261029/production-retained-390x740-20261029T160308-572125000.json",
+      "classification": "product",
+      "finding": "Monster Math Start y1090\u20131154 exceeds390x740 viewport; compact selected-episode intro implemented, verification pending"
+    },
+    {
+      "path": "docs/qa-evidence/final-integration-20261029/production-retained-1440x844-20261029T160423-828317000.json",
+      "classification": "driver and separate visible product finding",
+      "finding": "Driver expected SVG img but actual role is application; screenshot separately shows giant tracing board extends belowviewport. Corrected role and viewport board layout await exact-candidate verification"
+    },
+    {
+      "path": "docs/qa-evidence/final-integration-20261029/production-retained-1440x844-20261029T160558-209039000.json",
+      "classification": "driver",
+      "finding": "Driver expected answer group absent in oldpublic50, while screenshot clearlyshows4options. New source adds semantic answergroup; no false missing-distractor product claim"
+    }
+  ],
+  "sourceReviewCorrections": [
+    "Strict local+parent+claimed-marker confirmation before advances",
+    "No legacy missing-rating replay backpay or future-sky writes",
+    "Current keyboard/lower attempt star display separate from saved best",
+    "Monster queue-save Retry and original new-badge fact preserved across failed confirmation"
+  ],
+  "withdrawnReviewFinding": "dino:math anddino:jet are valid: rootdino namespace permitscolon-containing remainder. Existing exactparentclaim tests pass; no validatorchange required.",
+  "nativeCandidateFindings": [
+    {
+      "report": "docs/qa-evidence/final-integration-20261029/native-retained-390x740-20261029T162241-491013000.json",
+      "classification": "product",
+      "finding": "Sky completed-flight Hear mission control y944\u20131008 beyondphone740; compact solved view/sharedcompactheaderimplemented subsequent778candidate, full acceptance pending"
+    },
+    {
+      "report": "docs/qa-evidence/final-integration-20261029/native-retained-390x740-20261029T162908-528344000.json",
+      "classification": "driver",
+      "finding": "Subsequent quick sample reached and used held audio/Next but overall failed oldretainedhelperreward-keyallowlist after naturallyearningstars. This failedreport is not relabelled as a pass; own fullcurrentdriver requires exactpendingreceipt checks."
+    },
+    {
+      "report": "docs/qa-evidence/sky-monster-save-20261029/native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T170932-849226000.json",
+      "classification": "driver",
+      "finding": "25 rows passed then visible number-line model had no counter aria label; zero matching locator was incorrectly described as not unique. Correct visible model selector required; report stays failed."
+    },
+    {
+      "report": "docs/qa-evidence/sky-monster-save-20261029/native-guided-numberline-390-baseline.json",
+      "classification": "product",
+      "finding": "Actual Try the jumps control pushed answer bottom row to y734-790 at390x740; R8two-column jump/reset and hidden used clue await current actual-control verification."
+    },
+    {
+      "report": "docs/qa-evidence/sky-monster-save-20261029/native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171252-038125000.json",
+      "classification": "driver",
+      "finding": "30questionrows including guided phone jumps and chapter3save/parentfaults completed; lower replay failed while direct-clicking offscreen secondaryepisode3mapcard. Secondary navigation now uses permitted visible scrolling; report remains failed."
+    },
+    {
+      "report": "docs/qa-evidence/sky-monster-save-20261029/native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171353-046720000.json",
+      "classification": "driver",
+      "finding": "36 Monster questions and four Sky flights completed; Sky done banner is outside main. Corrected only scope of visible done p locator. Overall report remains failed."
+    },
+    {
+      "report": "docs/qa-evidence/sky-monster-save-20261029/native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171543-108979000.json",
+      "classification": "driver",
+      "finding": "Equal/lower Sky replay lawfully serializes identical record; old assertion incorrectly required byte change after an observed committed write. Now checks actual didSet and held readback error; unchanged raw is an evidence boolean. Failure retained; subsequent fullnative390passed without forcing fault eligibility."
+    }
+  ]
+}

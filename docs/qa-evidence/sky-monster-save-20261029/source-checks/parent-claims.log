@@ -1,0 +1,27 @@
+✔ an older tab awards against the latest saved total instead of overwriting stars and stickers (2.111459ms)
+✔ the single record restores all reward fields if legacy mirror writes fail (0.149292ms)
+✔ failed authoritative writes are reported and retry preserves the in-memory reward without awarding twice (0.110584ms)
+✔ migration preserves higher legacy totals and valid previously earned stickers without copying another child (0.104167ms)
+✔ Pair7 reward claims pay once across remounts, stale tabs and later ordinary game rewards (0.679417ms)
+✔ words stage claims recover quietly once and preserve Dino, Hangman and ordinary game rewards (0.266291ms)
+✔ storybook completion claims accept only storybooks tokens and stay idempotent alongside existing claims (0.158791ms)
+✔ a committed words claim with failed readback quietly recovers without a second play (0.132292ms)
+✔ a committed reward with failed readback recovers after a fresh read without duplicate points or plays (0.151625ms)
+✔ blocked claim writes hold the old reward and retry the same claim exactly once (0.158667ms)
+✔ claimed rewards preserve malformed or unreadable authoritative and legacy data without writes (0.219292ms)
+✔ claim scope and amount mismatches are rejected, while valid unknown metadata and other children survive (0.192208ms)
+✔ retained historical claims do not strand a new saved result at an arbitrary capacity boundary (1.89875ms)
+✔ opted-in game claims retry committed writes without replay or sibling loss (1.235167ms)
+✔ new game claims survive the previous public decoder and an older open-tab reward write (0.365041ms)
+✔ unpublished native claim aliases normalize without paying or counting a second completion (0.107833ms)
+✔ German and Curriculum claims survive old-tab decoding and reject other game scopes (0.244ms)
+✔ Letter Launch claims survive the retained decoder, recover once and stay scoped (0.138958ms)
+✔ Puzzle, Spot, Sky and Monster claims survive old tabs and reject replay or cross-game payment (0.351292ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 91.097458

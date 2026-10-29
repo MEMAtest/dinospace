@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "currentRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "proofRuntime": "50772c66473ec294a63ce2566f3b0e4297bd51e4",
+  "proofEntry": "/assets/arcade-BFELVM97.js",
+  "unchangedMechanicFiles": [
+    "src/App.jsx",
+    "src/components/games/JetSkyShapes.jsx",
+    "src/data/skyShapesProgress.js",
+    "src/data/playerRewards.js",
+    "src/discoveryPremium.css"
+  ],
+  "proof": "native-prepare-sky-pending-sky-monster-390x740-arcade-BFELVM97-20261029T164620-661614000.json",
+  "proofSHA256": "93b151e92ee51c458203e8abfb4b0fc96e03d682bcab512e4b71ef4d7df32a77",
+  "scope": "Exact prior-native Sky pending-reload proof retained by unchanged source files; not relabelled as a later-bundle run. Later changes only improve Monster picture size and guided-control layout. Canonical current-runtime pending recovery still required."
+}

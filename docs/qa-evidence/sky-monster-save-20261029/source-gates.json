@@ -1,0 +1,35 @@
+{
+  "at": "2026-10-29T17:05:35.312840+00:00",
+  "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "entry": "/assets/arcade-CffuUT0f.js",
+  "worker": 51,
+  "tests": {
+    "passed": 704,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lint": "Scoped changed source ESLint passed",
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "hashes": {
+    "src/App.jsx": "68e40e0e280522524a27bfa7c7ec99b0fc4afb70727458792fc821689afe0855",
+    "src/data/playerRewards.js": "87fe34c0fa3b69bf22b5a66f4d368da305230b064ac29994d57f643afc092e01",
+    "src/data/skyShapesProgress.js": "8484f3a6f4e2e11b7600e97bfd0110c33e9b7d06a8d0cf0db249b78b87e73904",
+    "src/data/monsterMathProgress.js": "d3985cfc9789b3880e3c1277d781b951e9529bd8a7654a030c23bcd593b78a06",
+    "src/components/games/JetSkyShapes.jsx": "bd6d4c1da541d7e13c1abebf89cea236619f632520cfcc17570df160d9ce4c96",
+    "src/components/games/MonsterMath.jsx": "91ea50d60547ff2c70068f276994cd19da7e7be36ef72bcd585543ea55ba8675",
+    "public/sw.js": "b2479df75c6771797f9732885d95f6d842c9f4418fcf3f7d6b4a4d5abcbda70c",
+    "src/discoveryPremium.css": "abd923b43950289f83d912fd6e2096f966e3d2f3e9289e99d2a06dc8a894ec90"
+  },
+  "precache": {
+    "requests": 167,
+    "bytes": 29799525,
+    "requestCeiling": 168,
+    "byteCeiling": 41943040
+  },
+  "native": "Both full viewports passed; source-equal scoped prior fault branches indexed separately",
+  "production": "Both full canonical viewports and current pending-Sky preparation passed",
+  "nativePhoneReport": "native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171704-608908000.json",
+  "driverSHA256": "75ed154fde60a08f4bac4fa8df9177cd70937ef843a1cd2b8b4449ce5026f78e",
+  "runnerSHA256": "a460b27ef647969d97f3ec1f734f8e0ef289151eea7e3c3cb9bfbd80fa847554",
+  "verifiedAt": "2026-10-29T17:38:51.839955+00:00"
+}

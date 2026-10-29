@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "at": "2026-10-29T17:28:16.298247+00:00",
+  "trigger": "Actual Refresh games after focus observer event on existing cached50QA tab",
+  "beforeEntry": "/assets/arcade-Cqz6yf-q.js",
+  "afterEntry": "/assets/arcade-CffuUT0f.js",
+  "protectedKeysRetained": 117,
+  "allProtectedHashesIdentical": true,
+  "allIndexedDbStoresIdentical": true,
+  "mediaBlobBytes": 3729264,
+  "syntheticBooks": 1,
+  "syntheticMedia": 14,
+  "oldShellRemoved": true,
+  "mediaCacheRetained": "amari-discovery-media-v1",
+  "currentNoticeAbsent": true,
+  "files": {
+    "cutover-before.json": "d947c8ff2e8dcff0624c4b59c6c92d8b20585d1b79fe7b7248a5ff8905117522",
+    "cutover-after.json": "f432d288591968fa9d1bd498956755c6ffa6d847c53661b66f79dd999254836f"
+  }
+}

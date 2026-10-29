@@ -190,10 +190,17 @@ async function spot({ page, helper, lane }) {
 }
 
 async function sky({ page, helper, lane }) {
+  const picker = page.locator('details').filter({ has: page.getByText('Choose another sky', { exact: true }) });
+  if (await picker.count() && !await picker.evaluate(el => el.open)) {
+    const summary = picker.locator('summary');
+    await summary.evaluate(el => el.scrollIntoView({ block: 'center', inline: 'nearest' }));
+    await helper.clickControl(summary, { label: 'Open secondary Sky Shapes episode choices' });
+  }
   await helper.clickControl(page.getByRole('button').filter({ hasText: /^Sky 1 ·/ }).first(), { label: 'Choose the first visible Sky Shapes episode' });
   const start = button(page, /^(Start|Replay) this sky$/, false);
   await helper.clickControl(start, { label: 'Start visible Sky Shapes sky' });
-  const svg = page.getByRole('img', { name: /^Tracing board for / }); await svg.waitFor();
+  const svg = page.getByRole('application', { name: /^Tracing board for / }); await svg.waitFor();
+  await helper.measureControl(svg, 'Full visible Sky Shapes tracing board');
   const before = await helper.snapshotStorage();
   const identity = await svg.getAttribute('aria-label');
   const trace = async () => {
@@ -228,6 +235,8 @@ async function sky({ page, helper, lane }) {
   const text = await page.getByRole('status').filter({ hasText: /Shape idea:/ }).innerText().catch(() => status.innerText());
   await helper.clickControl(next, { label: 'Continue Sky Shapes route' });
   await svg.waitFor();
+  await page.waitForFunction(previous => document.querySelector('svg[aria-label^="Tracing board for "]')?.getAttribute('aria-label') !== previous, identity, { timeout: 5000 });
+  if (await svg.getAttribute('aria-label') === identity) throw new Error('Sky Shapes Next did not change the visible mission');
   return result(identity, text, nextGeometry, audio, await storageDelta(helper, before, lane));
 }
 

@@ -1,0 +1,11 @@
+{
+  "worker": "amari-discovery-v51",
+  "requests": 167,
+  "bytes": 29799525,
+  "requestCeiling": 168,
+  "byteCeiling": 41943040,
+  "withinBounds": true,
+  "artAudioStorySourcesUnchanged": true,
+  "evidence": "retained-art-lineage.json",
+  "cutover": "Actual cached worker50 to51 retained media cache and all protected state; cutover-retention.json"
+}

@@ -1,0 +1,6953 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "1440x844",
+  "lanes": [],
+  "errors": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-CffuUT0f.js",
+    "initialSurface": "player-chooser"
+  },
+  "soundPreference": {
+    "original": true,
+    "enabledForAudio": true
+  },
+  "initialMonsterMath": {
+    "present": true,
+    "unlockedEpisode": 2,
+    "completedEpisodeIds": [
+      "count-garden",
+      "number-workshop",
+      "story-bridge"
+    ],
+    "bestStars": {
+      "count-garden": 3,
+      "number-workshop": 3,
+      "story-bridge": 3
+    },
+    "pendingBeforeIntroDrain": 0,
+    "rewardReceipts": {
+      "count-garden:best:3": {
+        "id": "count-garden:best:3",
+        "episodeId": "count-garden",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      },
+      "number-workshop:best:3": {
+        "id": "number-workshop:best:3",
+        "episodeId": "number-workshop",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      },
+      "story-bridge:best:3": {
+        "id": "story-bridge:best:3",
+        "episodeId": "story-bridge",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      }
+    }
+  },
+  "monsterMathRows": [
+    {
+      "episode": 1,
+      "question": 1,
+      "prompt": "How many shells can you see?|Counting pictures|🐚 🐚 🐚 🐚 🐚 🐚 🐚|shell,shell,shell,shell,shell,shell,shell",
+      "answer": 7,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 104,
+          "right": 687.59375,
+          "bottom": 575
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/cff77deb-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 7 shells.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many shells can you see?|Counting pictures|🐚 🐚 🐚 🐚 🐚 🐚 🐚 🐚 🐚|shell,shell,shell,shell,shell,shell,shell,shell,shell"
+    },
+    {
+      "episode": 1,
+      "question": 2,
+      "prompt": "How many shells can you see?|Counting pictures|🐚 🐚 🐚 🐚 🐚 🐚 🐚 🐚 🐚|shell,shell,shell,shell,shell,shell,shell,shell,shell",
+      "answer": 9,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 104,
+          "right": 687.59375,
+          "bottom": 575
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/cff77deb-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 9 shells.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many planets can you see?|Counting pictures|🪐 🪐 🪐 🪐 🪐 🪐 🪐|planet,planet,planet,planet,planet,planet,planet"
+    },
+    {
+      "episode": 1,
+      "question": 3,
+      "prompt": "How many planets can you see?|Counting pictures|🪐 🪐 🪐 🪐 🪐 🪐 🪐|planet,planet,planet,planet,planet,planet,planet",
+      "answer": 7,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 104,
+          "right": 687.59375,
+          "bottom": 575
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/eda369f1-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 7 planets.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many gems can you see?|Counting pictures|💎|gem"
+    },
+    {
+      "episode": 1,
+      "question": 4,
+      "prompt": "How many gems can you see?|Counting pictures|💎|gem",
+      "answer": 1,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 48,
+          "right": 687.59375,
+          "bottom": 519
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/637cbf0e-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There is 1 gem.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many crystals can you see?|Counting pictures|🔷 🔷|crystal,crystal"
+    },
+    {
+      "episode": 1,
+      "question": 5,
+      "prompt": "How many crystals can you see?|Counting pictures|🔷 🔷|crystal,crystal",
+      "answer": 2,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 48,
+          "right": 687.59375,
+          "bottom": 519
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/5f1114b3-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 2 crystals.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many balloons can you see?|Counting pictures|🎈 🎈 🎈 🎈 🎈|balloon,balloon,balloon,balloon,balloon"
+    },
+    {
+      "episode": 1,
+      "question": 6,
+      "prompt": "How many balloons can you see?|Counting pictures|🎈 🎈 🎈 🎈 🎈|balloon,balloon,balloon,balloon,balloon",
+      "answer": 5,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 48,
+          "right": 687.59375,
+          "bottom": 519
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/74b62802-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 5 balloons.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 629.21875,
+          "y": 717,
+          "width": 181.5625,
+          "height": 56,
+          "right": 810.78125,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    },
+    {
+      "episode": 1,
+      "question": 1,
+      "prompt": "How many cookies can you see?|Counting pictures|🍪 🍪 🍪|cookie,cookie,cookie",
+      "answer": 3,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 48,
+          "right": 687.59375,
+          "bottom": 519
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/adb54ed9-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 3 cookies.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many planets can you see?|Counting pictures|🪐|planet"
+    },
+    {
+      "episode": 1,
+      "question": 2,
+      "prompt": "How many planets can you see?|Counting pictures|🪐|planet",
+      "answer": 1,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 48,
+          "right": 687.59375,
+          "bottom": 519
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/eda369f1-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There is 1 planet.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many moons can you see?|Counting pictures|🌙 🌙 🌙 🌙|moon,moon,moon,moon"
+    },
+    {
+      "episode": 1,
+      "question": 3,
+      "prompt": "How many moons can you see?|Counting pictures|🌙 🌙 🌙 🌙|moon,moon,moon,moon",
+      "answer": 4,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 48,
+          "right": 687.59375,
+          "bottom": 519
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/b36037d6-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 4 moons.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many shells can you see?|Counting pictures|🐚 🐚 🐚 🐚|shell,shell,shell,shell"
+    },
+    {
+      "episode": 1,
+      "question": 4,
+      "prompt": "How many shells can you see?|Counting pictures|🐚 🐚 🐚 🐚|shell,shell,shell,shell",
+      "answer": 4,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 48,
+          "right": 687.59375,
+          "bottom": 519
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/cff77deb-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 4 shells.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many crystals can you see?|Counting pictures|🔷 🔷 🔷 🔷 🔷 🔷|crystal,crystal,crystal,crystal,crystal,crystal"
+    },
+    {
+      "episode": 1,
+      "question": 5,
+      "prompt": "How many crystals can you see?|Counting pictures|🔷 🔷 🔷 🔷 🔷 🔷|crystal,crystal,crystal,crystal,crystal,crystal",
+      "answer": 6,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 104,
+          "right": 687.59375,
+          "bottom": 575
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/5f1114b3-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 6 crystals.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 717,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many flowers can you see?|Counting pictures|🌼 🌼 🌼 🌼 🌼 🌼|flower,flower,flower,flower,flower,flower"
+    },
+    {
+      "episode": 1,
+      "question": 6,
+      "prompt": "How many flowers can you see?|Counting pictures|🌼 🌼 🌼 🌼 🌼 🌼|flower,flower,flower,flower,flower,flower",
+      "answer": 6,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 335.59375,
+          "y": 471,
+          "width": 352,
+          "height": 104,
+          "right": 687.59375,
+          "bottom": 575
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/89e04970-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 6 flowers.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 629.21875,
+          "y": 717,
+          "width": 181.5625,
+          "height": 56,
+          "right": 810.78125,
+          "bottom": 773
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    },
+    {
+      "episode": 2,
+      "question": 1,
+      "prompt": "What is 3 plus 13?|3 counters; add 13 more. Put both groups together, then count them.||",
+      "answer": 16,
+      "modelGeometry": {
+        "text": "3 counters; add 13 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "19",
+          "geometry": {
+            "text": "19",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "12",
+          "geometry": {
+            "text": "12",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "13",
+          "geometry": {
+            "text": "13",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "16",
+          "geometry": {
+            "text": "16",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/9614308c-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "3 counters. Add 13 more. That makes 16 counters.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 10 take away 3?|10 counters, take away 3 counters. Count what is left.||"
+    },
+    {
+      "episode": 2,
+      "question": 2,
+      "prompt": "What is 10 take away 3?|10 counters, take away 3 counters. Count what is left.||",
+      "answer": 7,
+      "modelGeometry": {
+        "text": "10 counters, take away 3 counters. Count what is left.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "11",
+          "geometry": {
+            "text": "11",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/9aab71ea-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 10 counters. Take 3 away. 7 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 11 plus 3?|11 counters; add 3 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 3,
+      "prompt": "What is 11 plus 3?|11 counters; add 3 more. Put both groups together, then count them.||",
+      "answer": 14,
+      "modelGeometry": {
+        "text": "11 counters; add 3 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "18",
+          "geometry": {
+            "text": "18",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "16",
+          "geometry": {
+            "text": "16",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "13",
+          "geometry": {
+            "text": "13",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/78f271ee-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "11 counters. Add 3 more. That makes 14 counters.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 19 take away 18?|19 counters, take away 18 counters. Count what is left.||"
+    },
+    {
+      "episode": 2,
+      "question": 4,
+      "prompt": "What is 19 take away 18?|19 counters, take away 18 counters. Count what is left.||",
+      "answer": 1,
+      "modelGeometry": {
+        "text": "19 counters, take away 18 counters. Count what is left.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/83ef58a5-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 19 counters. Take 18 away. 1 counter stays.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 7 plus 8?|7 counters; add 8 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 5,
+      "prompt": "What is 7 plus 8?|7 counters; add 8 more. Put both groups together, then count them.||",
+      "answer": 15,
+      "modelGeometry": {
+        "text": "7 counters; add 8 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "17",
+          "geometry": {
+            "text": "17",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "15",
+          "geometry": {
+            "text": "15",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "19",
+          "geometry": {
+            "text": "19",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/ed785dea-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "7 counters. Add 8 more. That makes 15 counters.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 13 take away 3?|13 counters, take away 3 counters. Count what is left.||"
+    },
+    {
+      "episode": 2,
+      "question": 6,
+      "prompt": "What is 13 take away 3?|13 counters, take away 3 counters. Count what is left.||",
+      "answer": 10,
+      "modelGeometry": {
+        "text": "13 counters, take away 3 counters. Count what is left.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "13",
+          "geometry": {
+            "text": "13",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/799f163d-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 13 counters. Take 3 away. 10 counters stay.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 629.21875,
+          "y": 719.40625,
+          "width": 181.5625,
+          "height": 56,
+          "right": 810.78125,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    },
+    {
+      "episode": 2,
+      "question": 1,
+      "prompt": "What is 4 take away 1?|4 counters, take away 1 counter. Count what is left.||",
+      "answer": 3,
+      "modelGeometry": {
+        "text": "4 counters, take away 1 counter. Count what is left.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/b5752af7-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 4 counters. Take 1 away. 3 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 16 take away 12?|16 counters, take away 12 counters. Count what is left.||"
+    },
+    {
+      "episode": 2,
+      "question": 2,
+      "prompt": "What is 16 take away 12?|16 counters, take away 12 counters. Count what is left.||",
+      "answer": 4,
+      "modelGeometry": {
+        "text": "16 counters, take away 12 counters. Count what is left.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/a1173056-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 16 counters. Take 12 away. 4 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 13 plus 6?|13 counters; add 6 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 3,
+      "prompt": "What is 13 plus 6?|13 counters; add 6 more. Put both groups together, then count them.||",
+      "answer": 19,
+      "modelGeometry": {
+        "text": "13 counters; add 6 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "18",
+          "geometry": {
+            "text": "18",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "20",
+          "geometry": {
+            "text": "20",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "19",
+          "geometry": {
+            "text": "19",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "16",
+          "geometry": {
+            "text": "16",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/8b61221d-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "13 counters. Add 6 more. That makes 19 counters.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 11 take away 1?|11 counters, take away 1 counter. Count what is left.||"
+    },
+    {
+      "episode": 2,
+      "question": 4,
+      "prompt": "What is 11 take away 1?|11 counters, take away 1 counter. Count what is left.||",
+      "answer": 10,
+      "modelGeometry": {
+        "text": "11 counters, take away 1 counter. Count what is left.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "12",
+          "geometry": {
+            "text": "12",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/62f1f215-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 11 counters. Take 1 away. 10 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 3 plus 16?|3 counters; add 16 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 5,
+      "prompt": "What is 3 plus 16?|3 counters; add 16 more. Put both groups together, then count them.||",
+      "answer": 19,
+      "modelGeometry": {
+        "text": "3 counters; add 16 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "18",
+          "geometry": {
+            "text": "18",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "16",
+          "geometry": {
+            "text": "16",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "15",
+          "geometry": {
+            "text": "15",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "19",
+          "geometry": {
+            "text": "19",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/161bb5d1-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "3 counters. Add 16 more. That makes 19 counters.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 719.40625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 7 plus 10?|7 counters; add 10 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 6,
+      "prompt": "What is 7 plus 10?|7 counters; add 10 more. Put both groups together, then count them.||",
+      "answer": 17,
+      "modelGeometry": {
+        "text": "7 counters; add 10 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 239.59375,
+          "y": 467,
+          "width": 544,
+          "height": 118.40625,
+          "right": 783.59375,
+          "bottom": 585.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "18",
+          "geometry": {
+            "text": "18",
+            "rect": {
+              "x": 851.1875,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "15",
+          "geometry": {
+            "text": "15",
+            "rect": {
+              "x": 1035.59375,
+              "y": 475,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 539
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "17",
+          "geometry": {
+            "text": "17",
+            "rect": {
+              "x": 851.1875,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 1035.59375,
+              "y": 551,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 615
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/d4effd67-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "7 counters. Add 10 more. That makes 17 counters.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 629.21875,
+          "y": 719.40625,
+          "width": 181.5625,
+          "height": 56,
+          "right": 810.78125,
+          "bottom": 775.40625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    },
+    {
+      "episode": 3,
+      "question": 1,
+      "prompt": "Max has 4 cookies. Max finds 2 more. How many cookies are there now?||NUMBER LINE · FOLLOW EACH JUMP 2 3 ● 4 5 6 7 8 Start at 4, then jump forward 2 steps.|",
+      "answer": 6,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n2\n3\n●\n4\n5\n6\n7\n8\n\nStart at 4, then jump forward 2 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "guidedJump": {
+        "clueGeometry": {
+          "text": "Try the jumps",
+          "rect": {
+            "x": 851.1875,
+            "y": 663,
+            "width": 356.8125,
+            "height": 48,
+            "right": 1208,
+            "bottom": 711
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        "stepGeometry": {
+          "text": "Jump one step forward",
+          "rect": {
+            "x": 228,
+            "y": 619,
+            "width": 277.59375,
+            "height": 48,
+            "right": 505.59375,
+            "bottom": 667
+          },
+          "viewport": {
+            "width": 1440,
+            "height": 844
+          },
+          "centerHit": true,
+          "pointerEvents": "auto"
+        },
+        "answerGeometries": [
+          {
+            "text": "9",
+            "rect": {
+              "x": 851.1875,
+              "y": 531.75,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 595.75
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          {
+            "text": "3",
+            "rect": {
+              "x": 1035.59375,
+              "y": 531.75,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 595.75
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          {
+            "text": "6",
+            "rect": {
+              "x": 851.1875,
+              "y": 607.75,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 671.75
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          {
+            "text": "8",
+            "rect": {
+              "x": 1035.59375,
+              "y": 607.75,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 671.75
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        ],
+        "finalAnswerGeometries": [
+          {
+            "text": "9",
+            "rect": {
+              "x": 851.1875,
+              "y": 531.75,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 595.75
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          {
+            "text": "3",
+            "rect": {
+              "x": 1035.59375,
+              "y": 531.75,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 595.75
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          {
+            "text": "6",
+            "rect": {
+              "x": 851.1875,
+              "y": 607.75,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 671.75
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          },
+          {
+            "text": "8",
+            "rect": {
+              "x": 1035.59375,
+              "y": 607.75,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 671.75
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        ],
+        "stepLabel": "Jump one step forward",
+        "steps": 2,
+        "readouts": [
+          "At 4. 2 jumps to go.",
+          "At 5. 1 jump to go.",
+          "At 6. All jumps done."
+        ],
+        "readoutGeometries": [
+          {
+            "text": "At 4. 2 jumps to go.",
+            "rect": {
+              "x": 228,
+              "y": 679,
+              "width": 567.1875,
+              "height": 17.5,
+              "right": 795.1875,
+              "bottom": 696.5
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            }
+          },
+          {
+            "text": "At 5. 1 jump to go.",
+            "rect": {
+              "x": 228,
+              "y": 679,
+              "width": 567.1875,
+              "height": 17.5,
+              "right": 795.1875,
+              "bottom": 696.5
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            }
+          },
+          {
+            "text": "At 6. All jumps done.",
+            "rect": {
+              "x": 228,
+              "y": 679,
+              "width": 567.1875,
+              "height": 17.5,
+              "right": 795.1875,
+              "bottom": 696.5
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            }
+          }
+        ],
+        "completed": true
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/f9de06b2-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Max had 4 cookies. Max found 2 more. Now there are 6 cookies.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Ava has 6 flowers. Ava finds 6 more. How many flowers are there now?||NUMBER LINE · FOLLOW EACH JUMP 4 5 ● 6 7 8 9 10 11 12 13 14 Start at 6, then jump forward 6 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 2,
+      "prompt": "Ava has 6 flowers. Ava finds 6 more. How many flowers are there now?||NUMBER LINE · FOLLOW EACH JUMP 4 5 ● 6 7 8 9 10 11 12 13 14 Start at 6, then jump forward 6 steps.|",
+      "answer": 12,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n4\n5\n●\n6\n7\n8\n9\n10\n11\n12\n13\n14\n\nStart at 6, then jump forward 6 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "12",
+          "geometry": {
+            "text": "12",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "11",
+          "geometry": {
+            "text": "11",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "15",
+          "geometry": {
+            "text": "15",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/a83b54fe-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Ava had 6 flowers. Ava found 6 more. Now there are 12 flowers.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Ava has 12 flowers. Ava gives 7 flowers away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 3 4 5 6 7 8 9 10 11 ● 12 13 14 Start at 12, then jump back 7 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 3,
+      "prompt": "Ava has 12 flowers. Ava gives 7 flowers away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 3 4 5 6 7 8 9 10 11 ● 12 13 14 Start at 12, then jump back 7 steps.|",
+      "answer": 5,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n3\n4\n5\n6\n7\n8\n9\n10\n11\n●\n12\n13\n14\n\nStart at 12, then jump back 7 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/a83b54fe-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Ava starts with 12 flowers. Ava gives 7 flowers away. 5 flowers are left.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Max has 18 cookies. Max gives 8 cookies away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 8 9 10 11 12 13 14 15 16 17 ● 18 19 20 Start at 18, then jump back 8 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 4,
+      "prompt": "Max has 18 cookies. Max gives 8 cookies away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 8 9 10 11 12 13 14 15 16 17 ● 18 19 20 Start at 18, then jump back 8 steps.|",
+      "answer": 10,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n●\n18\n19\n20\n\nStart at 18, then jump back 8 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "12",
+          "geometry": {
+            "text": "12",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/f9de06b2-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Max starts with 18 cookies. Max gives 8 cookies away. 10 cookies are left.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Kai has 2 oranges. Kai finds 2 more. How many oranges are there now?||NUMBER LINE · FOLLOW EACH JUMP 0 1 ● 2 3 4 5 6 Start at 2, then jump forward 2 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 5,
+      "prompt": "Kai has 2 oranges. Kai finds 2 more. How many oranges are there now?||NUMBER LINE · FOLLOW EACH JUMP 0 1 ● 2 3 4 5 6 Start at 2, then jump forward 2 steps.|",
+      "answer": 4,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n0\n1\n●\n2\n3\n4\n5\n6\n\nStart at 2, then jump forward 2 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/2062dec7-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Kai had 2 oranges. Kai found 2 more. Now there are 4 oranges.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tess has 20 stars. Tess gives 8 stars away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 10 11 12 13 14 15 16 17 18 19 ● 20 Start at 20, then jump back 8 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 6,
+      "prompt": "Tess has 20 stars. Tess gives 8 stars away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 10 11 12 13 14 15 16 17 18 19 ● 20 Start at 20, then jump back 8 steps.|",
+      "answer": 12,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n●\n20\n\nStart at 20, then jump back 8 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "12",
+          "geometry": {
+            "text": "12",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "13",
+          "geometry": {
+            "text": "13",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/76824dc9-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Tess starts with 20 stars. Tess gives 8 stars away. 12 stars are left.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 629.21875,
+          "y": 753,
+          "width": 181.5625,
+          "height": 56,
+          "right": 810.78125,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    },
+    {
+      "episode": 3,
+      "question": 1,
+      "prompt": "Bo has 10 balloons. Bo finds 2 more. How many balloons are there now?||NUMBER LINE · FOLLOW EACH JUMP 8 9 ● 10 11 12 13 14 Start at 10, then jump forward 2 steps.|",
+      "answer": 12,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n8\n9\n●\n10\n11\n12\n13\n14\n\nStart at 10, then jump forward 2 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "15",
+          "geometry": {
+            "text": "15",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "16",
+          "geometry": {
+            "text": "16",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "11",
+          "geometry": {
+            "text": "11",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "12",
+          "geometry": {
+            "text": "12",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/44a46ab7-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Bo had 10 balloons. Bo found 2 more. Now there are 12 balloons.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Bo has 12 balloons. Bo finds 2 more. How many balloons are there now?||NUMBER LINE · FOLLOW EACH JUMP 10 11 ● 12 13 14 15 16 Start at 12, then jump forward 2 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 2,
+      "prompt": "Bo has 12 balloons. Bo finds 2 more. How many balloons are there now?||NUMBER LINE · FOLLOW EACH JUMP 10 11 ● 12 13 14 15 16 Start at 12, then jump forward 2 steps.|",
+      "answer": 14,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n10\n11\n●\n12\n13\n14\n15\n16\n\nStart at 12, then jump forward 2 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "12",
+          "geometry": {
+            "text": "12",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "15",
+          "geometry": {
+            "text": "15",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "18",
+          "geometry": {
+            "text": "18",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/44a46ab7-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Bo had 12 balloons. Bo found 2 more. Now there are 14 balloons.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Bo has 20 balloons. Bo gives 3 balloons away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 15 16 17 18 19 ● 20 Start at 20, then jump back 3 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 3,
+      "prompt": "Bo has 20 balloons. Bo gives 3 balloons away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 15 16 17 18 19 ● 20 Start at 20, then jump back 3 steps.|",
+      "answer": 17,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n15\n16\n17\n18\n19\n●\n20\n\nStart at 20, then jump back 3 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "17",
+          "geometry": {
+            "text": "17",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "18",
+          "geometry": {
+            "text": "18",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "20",
+          "geometry": {
+            "text": "20",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/44a46ab7-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Bo starts with 20 balloons. Bo gives 3 balloons away. 17 balloons are left.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Kai has 7 oranges. Kai finds 10 more. How many oranges are there now?||NUMBER LINE · FOLLOW EACH JUMP 5 6 ● 7 8 9 10 11 12 13 14 15 16 17 18 19 Start at 7, then jump forward 10 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 4,
+      "prompt": "Kai has 7 oranges. Kai finds 10 more. How many oranges are there now?||NUMBER LINE · FOLLOW EACH JUMP 5 6 ● 7 8 9 10 11 12 13 14 15 16 17 18 19 Start at 7, then jump forward 10 steps.|",
+      "answer": 17,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n5\n6\n●\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n\nStart at 7, then jump forward 10 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "17",
+          "geometry": {
+            "text": "17",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "19",
+          "geometry": {
+            "text": "19",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "13",
+          "geometry": {
+            "text": "13",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/2062dec7-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Kai had 7 oranges. Kai found 10 more. Now there are 17 oranges.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tess has 18 stars. Tess gives 10 stars away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 6 7 8 9 10 11 12 13 14 15 16 17 ● 18 19 20 Start at 18, then jump back 10 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 5,
+      "prompt": "Tess has 18 stars. Tess gives 10 stars away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 6 7 8 9 10 11 12 13 14 15 16 17 ● 18 19 20 Start at 18, then jump back 10 steps.|",
+      "answer": 8,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n●\n18\n19\n20\n\nStart at 18, then jump back 10 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "11",
+          "geometry": {
+            "text": "11",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/76824dc9-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Tess starts with 18 stars. Tess gives 10 stars away. 8 stars are left.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 632.015625,
+          "y": 753,
+          "width": 175.953125,
+          "height": 56,
+          "right": 807.96875,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Nia has 18 gems. Nia gives 13 gems away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 ● 18 19 20 Start at 18, then jump back 13 steps.|"
+    },
+    {
+      "episode": 3,
+      "question": 6,
+      "prompt": "Nia has 18 gems. Nia gives 13 gems away. How many are left?||NUMBER LINE · FOLLOW EACH JUMP 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 ● 18 19 20 Start at 18, then jump back 13 steps.|",
+      "answer": 5,
+      "modelGeometry": {
+        "text": "NUMBER LINE · FOLLOW EACH JUMP\n\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n●\n18\n19\n20\n\nStart at 18, then jump back 13 steps.",
+        "rect": {
+          "x": 208,
+          "y": 455,
+          "width": 607.1875,
+          "height": 280,
+          "right": 815.1875,
+          "bottom": 735
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 851.1875,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 1035.59375,
+              "y": 511,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 575
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 851.1875,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1023.59375,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 1035.59375,
+              "y": 587,
+              "width": 172.40625,
+              "height": 64,
+              "right": 1208,
+              "bottom": 651
+            },
+            "viewport": {
+              "width": 1440,
+              "height": 844
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/e4ef8f60-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Nia starts with 18 gems. Nia gives 13 gems away. 5 gems are left.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 629.21875,
+          "y": 753,
+          "width": 181.5625,
+          "height": 56,
+          "right": 810.78125,
+          "bottom": 809
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    }
+  ],
+  "monsterFaultEligibility": {
+    "naturallyMaterialEpisodes": [],
+    "localAndParentFaultEpisode": null,
+    "pendingReloadEpisode": null
+  },
+  "monsterReplay1": {
+    "pointsBefore": 421,
+    "pointsAfter": 421,
+    "parentClaimsUnchanged": true,
+    "rewardReceiptsUnchanged": true,
+    "bestStarsBefore": 3,
+    "replayStars": 1,
+    "retainedBestStars": 3
+  },
+  "monsterReplay2": {
+    "pointsBefore": 421,
+    "pointsAfter": 421,
+    "parentClaimsUnchanged": true,
+    "rewardReceiptsUnchanged": true,
+    "bestStarsBefore": 3,
+    "replayStars": 1,
+    "retainedBestStars": 3
+  },
+  "guidedJump": {
+    "attempted": true,
+    "exercised": true,
+    "episode": 3,
+    "question": 1,
+    "prompt": "Max has 4 cookies. Max finds 2 more. How many cookies are there now?||NUMBER LINE · FOLLOW EACH JUMP 2 3 ● 4 5 6 7 8 Start at 4, then jump forward 2 steps.|",
+    "clueGeometry": {
+      "text": "Try the jumps",
+      "rect": {
+        "x": 851.1875,
+        "y": 663,
+        "width": 356.8125,
+        "height": 48,
+        "right": 1208,
+        "bottom": 711
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "stepGeometry": {
+      "text": "Jump one step forward",
+      "rect": {
+        "x": 228,
+        "y": 619,
+        "width": 277.59375,
+        "height": 48,
+        "right": 505.59375,
+        "bottom": 667
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "answerGeometries": [
+      {
+        "text": "9",
+        "rect": {
+          "x": 851.1875,
+          "y": 531.75,
+          "width": 172.40625,
+          "height": 64,
+          "right": 1023.59375,
+          "bottom": 595.75
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "3",
+        "rect": {
+          "x": 1035.59375,
+          "y": 531.75,
+          "width": 172.40625,
+          "height": 64,
+          "right": 1208,
+          "bottom": 595.75
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "6",
+        "rect": {
+          "x": 851.1875,
+          "y": 607.75,
+          "width": 172.40625,
+          "height": 64,
+          "right": 1023.59375,
+          "bottom": 671.75
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "8",
+        "rect": {
+          "x": 1035.59375,
+          "y": 607.75,
+          "width": 172.40625,
+          "height": 64,
+          "right": 1208,
+          "bottom": 671.75
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      }
+    ],
+    "finalAnswerGeometries": [
+      {
+        "text": "9",
+        "rect": {
+          "x": 851.1875,
+          "y": 531.75,
+          "width": 172.40625,
+          "height": 64,
+          "right": 1023.59375,
+          "bottom": 595.75
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "3",
+        "rect": {
+          "x": 1035.59375,
+          "y": 531.75,
+          "width": 172.40625,
+          "height": 64,
+          "right": 1208,
+          "bottom": 595.75
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "6",
+        "rect": {
+          "x": 851.1875,
+          "y": 607.75,
+          "width": 172.40625,
+          "height": 64,
+          "right": 1023.59375,
+          "bottom": 671.75
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "8",
+        "rect": {
+          "x": 1035.59375,
+          "y": 607.75,
+          "width": 172.40625,
+          "height": 64,
+          "right": 1208,
+          "bottom": 671.75
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      }
+    ],
+    "stepLabel": "Jump one step forward",
+    "steps": 2,
+    "readouts": [
+      "At 4. 2 jumps to go.",
+      "At 5. 1 jump to go.",
+      "At 6. All jumps done."
+    ],
+    "readoutGeometries": [
+      {
+        "text": "At 4. 2 jumps to go.",
+        "rect": {
+          "x": 228,
+          "y": 679,
+          "width": 567.1875,
+          "height": 17.5,
+          "right": 795.1875,
+          "bottom": 696.5
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        }
+      },
+      {
+        "text": "At 5. 1 jump to go.",
+        "rect": {
+          "x": 228,
+          "y": 679,
+          "width": 567.1875,
+          "height": 17.5,
+          "right": 795.1875,
+          "bottom": 696.5
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        }
+      },
+      {
+        "text": "At 6. All jumps done.",
+        "rect": {
+          "x": 228,
+          "y": 679,
+          "width": 567.1875,
+          "height": 17.5,
+          "right": 795.1875,
+          "bottom": 696.5
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        }
+      }
+    ],
+    "completed": true
+  },
+  "monsterReplay3": {
+    "pointsBefore": 421,
+    "pointsAfter": 421,
+    "parentClaimsUnchanged": true,
+    "rewardReceiptsUnchanged": true,
+    "bestStarsBefore": 3,
+    "replayStars": 1,
+    "retainedBestStars": 3
+  },
+  "monsterMathPersisted": {
+    "completedEpisodeIds": [
+      "count-garden",
+      "number-workshop",
+      "story-bridge"
+    ],
+    "bestStars": {
+      "count-garden": 3,
+      "number-workshop": 3,
+      "story-bridge": 3
+    },
+    "rewardReceipts": {
+      "count-garden:best:3": {
+        "id": "count-garden:best:3",
+        "episodeId": "count-garden",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      },
+      "number-workshop:best:3": {
+        "id": "number-workshop:best:3",
+        "episodeId": "number-workshop",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      },
+      "story-bridge:best:3": {
+        "id": "story-bridge:best:3",
+        "episodeId": "story-bridge",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      }
+    },
+    "parentClaimsMatch": true,
+    "rawBytes": 1109
+  },
+  "initialSkyShapes": {
+    "present": true,
+    "unlockedEpisode": 2,
+    "completedMissionIds": [
+      "sky-square",
+      "sky-triangle",
+      "sky-diamond",
+      "sky-circle",
+      "sky-cloud",
+      "sky-heart",
+      "sky-star",
+      "sky-house",
+      "sky-rocket",
+      "sky-castle",
+      "sky-observatory",
+      "sky-airplane"
+    ],
+    "completedEpisodeIds": [
+      "cloud-meadow",
+      "rainbow-ridge",
+      "aurora-station"
+    ],
+    "bestMissionStars": {
+      "sky-square": 2,
+      "sky-triangle": 2,
+      "sky-diamond": 2,
+      "sky-circle": 3,
+      "sky-cloud": 2,
+      "sky-heart": 2,
+      "sky-star": 2,
+      "sky-house": 2,
+      "sky-rocket": 2,
+      "sky-castle": 2,
+      "sky-observatory": 2,
+      "sky-airplane": 2
+    }
+  },
+  "skyRows": [
+    {
+      "episode": 1,
+      "cycle": 1,
+      "mission": 1,
+      "taskIdentity": "Tracing board for Mountain Peak. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-triangle",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "93% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: A triangle has 3 straight sides and 3 corners.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/5e00ba97-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 595,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 643
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission",
+      "final": false,
+      "missionGeometry": {
+        "text": "Tracing board for Mountain Peak. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tracing board for Round Sun. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace."
+    },
+    {
+      "episode": 1,
+      "cycle": 1,
+      "mission": 2,
+      "taskIdentity": "Tracing board for Round Sun. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-circle",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "96% route accuracy · 3 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: A circle is one smooth curve. It has no corners.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/37504663-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 595,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 643
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission",
+      "final": false,
+      "missionGeometry": {
+        "text": "Tracing board for Round Sun. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tracing board for Kite. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace."
+    },
+    {
+      "episode": 1,
+      "cycle": 1,
+      "mission": 3,
+      "taskIdentity": "Tracing board for Kite. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-diamond",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "92% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: A diamond has 4 straight sides and 4 corners. Its points sit at the top, bottom, and sides.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/fdd0b02a-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission",
+      "final": false,
+      "missionGeometry": {
+        "text": "Tracing board for Kite. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tracing board for Window Cloud. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace."
+    },
+    {
+      "episode": 1,
+      "cycle": 1,
+      "mission": 4,
+      "taskIdentity": "Tracing board for Window Cloud. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-square",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "92% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: A square has 4 equal straight sides and 4 corners.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/71a7d200-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Complete this sky",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Complete this sky",
+      "final": true,
+      "missionGeometry": {
+        "text": "Tracing board for Window Cloud. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      }
+    },
+    {
+      "episode": 2,
+      "cycle": 1,
+      "mission": 1,
+      "taskIdentity": "Tracing board for Cloud House. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-house",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "91% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: The house is made from an outside outline and a separate door. The numbers show the order.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/adae704c-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission",
+      "final": false,
+      "missionGeometry": {
+        "text": "Tracing board for Cloud House. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tracing board for Heart Balloon. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace."
+    },
+    {
+      "episode": 2,
+      "cycle": 1,
+      "mission": 2,
+      "taskIdentity": "Tracing board for Heart Balloon. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-heart",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "94% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: A heart outline has two rounded bumps and a pointed bottom.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/87aafa6e-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission",
+      "final": false,
+      "missionGeometry": {
+        "text": "Tracing board for Heart Balloon. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tracing board for Puffy Cloud. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace."
+    },
+    {
+      "episode": 2,
+      "cycle": 1,
+      "mission": 3,
+      "taskIdentity": "Tracing board for Puffy Cloud. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-cloud",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "92% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: A cloud edge is made from connected curves, with no sharp corners.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/cb7bf16a-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission",
+      "final": false,
+      "missionGeometry": {
+        "text": "Tracing board for Puffy Cloud. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tracing board for Bright Star. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace."
+    },
+    {
+      "episode": 2,
+      "cycle": 1,
+      "mission": 4,
+      "taskIdentity": "Tracing board for Bright Star. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-star",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "92% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: This star has 5 outer points and 5 inward corners.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/19e442a9-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Complete this sky",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Complete this sky",
+      "final": true,
+      "missionGeometry": {
+        "text": "Tracing board for Bright Star. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      }
+    },
+    {
+      "episode": 3,
+      "cycle": 1,
+      "mission": 1,
+      "taskIdentity": "Tracing board for Winged Jet. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-airplane",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "89% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: The airplane uses 3 separate lines for its body, main wings, and tail wings.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/63d62a20-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission",
+      "final": false,
+      "missionGeometry": {
+        "text": "Tracing board for Winged Jet. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tracing board for Rocket Ship. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace."
+    },
+    {
+      "episode": 3,
+      "cycle": 1,
+      "mission": 2,
+      "taskIdentity": "Tracing board for Rocket Ship. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-rocket",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "91% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: The rocket is built from 4 parts: body, two fins, and a round window.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/5a82c18f-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission",
+      "final": false,
+      "missionGeometry": {
+        "text": "Tracing board for Rocket Ship. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tracing board for Moon Observatory. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace."
+    },
+    {
+      "episode": 3,
+      "cycle": 1,
+      "mission": 3,
+      "taskIdentity": "Tracing board for Moon Observatory. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-observatory",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "92% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: The observatory has a base, a roof, a dome, and a separate moon.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/8060f730-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission",
+      "final": false,
+      "missionGeometry": {
+        "text": "Tracing board for Moon Observatory. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "Tracing board for Sky Castle. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace."
+    },
+    {
+      "episode": 3,
+      "cycle": 1,
+      "mission": 4,
+      "taskIdentity": "Tracing board for Sky Castle. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "partial": false,
+      "missionId": "sky-castle",
+      "heading": "",
+      "wrongRetryRetained": true,
+      "traceMode": "pointer-following-visible-route",
+      "accuracyText": "89% route accuracy · 2 of 3 accuracy stars.",
+      "keyboardGuided": false,
+      "shapeExplanation": "Shape idea: The castle has 6 parts: a wall, two towers, two roofs, and a door.",
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/170e8836-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldNextGeometry": {
+        "text": "Complete this sky",
+        "rect": {
+          "x": 1043.9375,
+          "y": 615,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 663
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Complete this sky",
+      "final": true,
+      "missionGeometry": {
+        "text": "Tracing board for Sky Castle. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      }
+    }
+  ],
+  "skyIntroDrain": {
+    "pendingBeforeDrain": 0,
+    "pendingAfterDrain": 0,
+    "allParentClaimsConfirmed": true
+  },
+  "skyReplay": {
+    "eligible": false,
+    "reason": "No naturally completed first-sky record reached the 3-star cap in the normal route; no progress was altered to create replay eligibility.",
+    "existingBestMissionStars": [
+      3,
+      2,
+      2,
+      2
+    ]
+  },
+  "skyPersisted": {
+    "completedMissionIds": [
+      "sky-square",
+      "sky-triangle",
+      "sky-diamond",
+      "sky-circle",
+      "sky-cloud",
+      "sky-heart",
+      "sky-star",
+      "sky-house",
+      "sky-rocket",
+      "sky-castle",
+      "sky-observatory",
+      "sky-airplane"
+    ],
+    "completedEpisodeIds": [
+      "cloud-meadow",
+      "rainbow-ridge",
+      "aurora-station"
+    ],
+    "bestMissionStars": {
+      "sky-square": 2,
+      "sky-triangle": 2,
+      "sky-diamond": 2,
+      "sky-circle": 3,
+      "sky-cloud": 2,
+      "sky-heart": 2,
+      "sky-star": 2,
+      "sky-house": 2,
+      "sky-rocket": 2,
+      "sky-castle": 2,
+      "sky-observatory": 2,
+      "sky-airplane": 2
+    },
+    "rawBytes": 3677
+  },
+  "skyInputModalities": {
+    "keyboard": {
+      "taskIdentity": "Tracing board for Round Sun. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "status": "Keyboard-guided completion · 1 participation star.",
+      "participationStars": 1,
+      "accuracyWritten": false,
+      "priorBestStars": 3,
+      "bestStarsUnchanged": true,
+      "nextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 603,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 651
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      }
+    },
+    "touch": {
+      "taskIdentity": "Tracing board for Mountain Peak. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+      "mode": "emulated Chromium touch via CDP on the supplied page",
+      "touchEvents": 120,
+      "geometry": {
+        "text": "Tracing board for Mountain Peak. Start at the numbered circle and follow the glowing dots to the checkered flag. Press Enter, then Space or an arrow key to trace.",
+        "rect": {
+          "x": 170,
+          "y": 349,
+          "width": 623.890625,
+          "height": 405.515625,
+          "right": 793.890625,
+          "bottom": 754.515625
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "status": "93% route accuracy · 2 of 3 accuracy stars.",
+      "packagedAudio": true,
+      "heldExplanation": "Shape idea: A triangle has 3 straight sides and 3 corners.",
+      "nextGeometry": {
+        "text": "Next mission",
+        "rect": {
+          "x": 1043.9375,
+          "y": 595,
+          "width": 214.046875,
+          "height": 48,
+          "right": 1257.984375,
+          "bottom": 643
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 844
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextLabel": "Next mission"
+    },
+    "physicalDeviceTouchCertified": false
+  },
+  "skyPersistedAfterInputSamples": {
+    "completedMissionIds": [
+      "sky-square",
+      "sky-triangle",
+      "sky-diamond",
+      "sky-circle",
+      "sky-cloud",
+      "sky-heart",
+      "sky-star",
+      "sky-house",
+      "sky-rocket",
+      "sky-castle",
+      "sky-observatory",
+      "sky-airplane"
+    ],
+    "completedEpisodeIds": [
+      "cloud-meadow",
+      "rainbow-ridge",
+      "aurora-station"
+    ],
+    "rewardReceipts": [
+      {
+        "id": "mission:sky-square:1337559867",
+        "kind": "mission",
+        "missionId": "sky-square",
+        "episodeId": "cloud-meadow",
+        "seed": 1337559867,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-triangle:2652655757",
+        "kind": "mission",
+        "missionId": "sky-triangle",
+        "episodeId": "cloud-meadow",
+        "seed": 2652655757,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-diamond:4203640201",
+        "kind": "mission",
+        "missionId": "sky-diamond",
+        "episodeId": "cloud-meadow",
+        "seed": 4203640201,
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-circle:1960829844",
+        "kind": "mission",
+        "missionId": "sky-circle",
+        "episodeId": "cloud-meadow",
+        "seed": 1960829844,
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      {
+        "id": "episode:cloud-meadow:complete",
+        "kind": "episode",
+        "episodeId": "cloud-meadow",
+        "createdBySeed": 1960829844,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-diamond:3355711980",
+        "kind": "mission",
+        "missionId": "sky-diamond",
+        "episodeId": "cloud-meadow",
+        "seed": 3355711980,
+        "rewardDelta": 1,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-circle:3355711980",
+        "kind": "mission",
+        "missionId": "sky-circle",
+        "episodeId": "cloud-meadow",
+        "seed": 3355711980,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-cloud:1506025748",
+        "kind": "mission",
+        "missionId": "sky-cloud",
+        "episodeId": "rainbow-ridge",
+        "seed": 1506025748,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-heart:1506025748",
+        "kind": "mission",
+        "missionId": "sky-heart",
+        "episodeId": "rainbow-ridge",
+        "seed": 1506025748,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-star:1506025748",
+        "kind": "mission",
+        "missionId": "sky-star",
+        "episodeId": "rainbow-ridge",
+        "seed": 1506025748,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-house:1506025748",
+        "kind": "mission",
+        "missionId": "sky-house",
+        "episodeId": "rainbow-ridge",
+        "seed": 1506025748,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "episode:rainbow-ridge:complete",
+        "kind": "episode",
+        "episodeId": "rainbow-ridge",
+        "createdBySeed": 1506025748,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-rocket:1848604151",
+        "kind": "mission",
+        "missionId": "sky-rocket",
+        "episodeId": "aurora-station",
+        "seed": 1848604151,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-castle:1848604151",
+        "kind": "mission",
+        "missionId": "sky-castle",
+        "episodeId": "aurora-station",
+        "seed": 1848604151,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-observatory:1848604151",
+        "kind": "mission",
+        "missionId": "sky-observatory",
+        "episodeId": "aurora-station",
+        "seed": 1848604151,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "mission:sky-airplane:1848604151",
+        "kind": "mission",
+        "missionId": "sky-airplane",
+        "episodeId": "aurora-station",
+        "seed": 1848604151,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      },
+      {
+        "id": "episode:aurora-station:complete",
+        "kind": "episode",
+        "episodeId": "aurora-station",
+        "createdBySeed": 1848604151,
+        "rewardDelta": 2,
+        "parentClaimed": true
+      }
+    ],
+    "rawBytes": 3685
+  },
+  "soundRestoration": {
+    "original": true,
+    "restored": true,
+    "viaVisibleControl": true
+  },
+  "overflow": {
+    "viewport": {
+      "width": 1440,
+      "height": 844
+    },
+    "document": {
+      "width": 1440,
+      "height": 913
+    },
+    "horizontalOverflow": false
+  },
+  "storage": {
+    "changed": [
+      "qa_rewards_20261024_amari_game_diagnostics_v1",
+      "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1",
+      "qa_rewards_20261024_amari_learning_attempts_v1",
+      "qa_rewards_20261024_amari_monster_math_progress_v1",
+      "qa_rewards_20261024_amari_skill_mastery_v1",
+      "qa_rewards_20261024_amari_sky_shapes_progress_v1"
+    ],
+    "unexpected": [],
+    "unchanged": [
+      "amari-sound-on",
+      "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1",
+      "qa_rewards_20261024_amari_astronaut_academy_progress_v1",
+      "qa_rewards_20261024_amari_challenge_done",
+      "qa_rewards_20261024_amari_challenge_progress",
+      "qa_rewards_20261024_amari_chapter_badges_v1",
+      "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari",
+      "qa_rewards_20261024_amari_chess_game_v1",
+      "qa_rewards_20261024_amari_code_cadets_progress_v1:amari",
+      "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari",
+      "qa_rewards_20261024_amari_cosmic_freeplay_v1",
+      "qa_rewards_20261024_amari_cosmic_tactics_v1",
+      "qa_rewards_20261024_amari_curriculum_badges_v1",
+      "qa_rewards_20261024_amari_curriculum_completion_receipts_v1",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing",
+      "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter",
+      "qa_rewards_20261024_amari_curriculum_preferences_v1",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing",
+      "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter",
+      "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge",
+      "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing",
+      "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter",
+      "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge",
+      "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing",
+      "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter",
+      "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge",
+      "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing",
+      "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter",
+      "qa_rewards_20261024_amari_discovery_active_player",
+      "qa_rewards_20261024_amari_discovery_passport_v1",
+      "qa_rewards_20261024_amari_earned_sticker_ids_v1",
+      "qa_rewards_20261024_amari_favourite_games",
+      "qa_rewards_20261024_amari_game_levels_v1",
+      "qa_rewards_20261024_amari_games_played",
+      "qa_rewards_20261024_amari_german_chapter_progress_v1",
+      "qa_rewards_20261024_amari_german_recent_targets_v1",
+      "qa_rewards_20261024_amari_hangman_progress_v1:amari",
+      "qa_rewards_20261024_amari_lastplay",
+      "qa_rewards_20261024_amari_learning_migration_v1",
+      "qa_rewards_20261024_amari_letter_launch_progress_v1",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_0",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_1",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_2",
+      "qa_rewards_20261024_amari_letter_launch_recent_v1_3",
+      "qa_rewards_20261024_amari_letter_trace_progress_v1",
+      "qa_rewards_20261024_amari_little_progress",
+      "qa_rewards_20261024_amari_memory_best",
+      "qa_rewards_20261024_amari_memory_completion_v1",
+      "qa_rewards_20261024_amari_memory_passport_v1",
+      "qa_rewards_20261024_amari_memory_resume_v1",
+      "qa_rewards_20261024_amari_oddoneout_progress_v1",
+      "qa_rewards_20261024_amari_pattern_adventure_v2:amari",
+      "qa_rewards_20261024_amari_pattern_adventure_v2:askia",
+      "qa_rewards_20261024_amari_points",
+      "qa_rewards_20261024_amari_puzzle_pop_batch2_v1",
+      "qa_rewards_20261024_amari_recent_games",
+      "qa_rewards_20261024_amari_rewards_v2",
+      "qa_rewards_20261024_amari_sound_safari_adventure_v1",
+      "qa_rewards_20261024_amari_spelling_progress_v1",
+      "qa_rewards_20261024_amari_spelling_recent_v1",
+      "qa_rewards_20261024_amari_spot_difference_batch2_v1",
+      "qa_rewards_20261024_amari_storybook_active_child_v1",
+      "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden",
+      "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book",
+      "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest",
+      "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed",
+      "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey",
+      "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map",
+      "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade",
+      "qa_rewards_20261024_amari_storybook_profiles_v1",
+      "qa_rewards_20261024_amari_storybook_progress_v1",
+      "qa_rewards_20261024_amari_streak",
+      "qa_rewards_20261024_amari_voice_mode_v4",
+      "qa_rewards_20261024_amari_words_session_progress_v1:amari",
+      "qa_rewards_20261024_amari_writing_desk_progress_v1:amari",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard",
+      "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good",
+      "qa_rewards_20261024_amari_writing_samples_v1",
+      "qa_rewards_20261024_askia_challenge_done",
+      "qa_rewards_20261024_askia_challenge_progress",
+      "qa_rewards_20261024_askia_earned_sticker_ids_v1",
+      "qa_rewards_20261024_askia_favourite_games",
+      "qa_rewards_20261024_askia_game_levels_v1",
+      "qa_rewards_20261024_askia_games_played",
+      "qa_rewards_20261024_askia_lastplay",
+      "qa_rewards_20261024_askia_little_progress",
+      "qa_rewards_20261024_askia_points",
+      "qa_rewards_20261024_askia_recent_games",
+      "qa_rewards_20261024_askia_rewards_v2",
+      "qa_rewards_20261024_askia_streak",
+      "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code",
+      "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing"
+    ]
+  },
+  "keyDigestsAfterReload": {
+    "mathMatches": true,
+    "skyMatches": true,
+    "mathBytes": 1109,
+    "skyBytes": 3685,
+    "urlAfterReload": "http://127.0.0.1:5180/?qa_pair14_sky_monster=1793294464519#/world/creative",
+    "runtime": {
+      "origin": "http://127.0.0.1:5180",
+      "namespaced": true,
+      "entry": "/assets/arcade-CffuUT0f.js"
+    }
+  },
+  "providerAttempts": [],
+  "runtimeErrors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "requestErrors": [],
+    "responseErrors": []
+  },
+  "stage": "native",
+  "runtimeSource": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "entry": "/assets/arcade-CffuUT0f.js",
+  "sourceHead": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "sourceHashes": {
+    "src/App.jsx": "68e40e0e280522524a27bfa7c7ec99b0fc4afb70727458792fc821689afe0855",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/skyShapes.js": "b491170b8275afe2aa55bf1f82a01f275c58f2c0079ac20fd2c9e1c2025a0f51",
+    "src/data/skyShapesProgress.js": "8484f3a6f4e2e11b7600e97bfd0110c33e9b7d06a8d0cf0db249b78b87e73904",
+    "src/data/monsterMathEpisodes.js": "c77fd67c2fc3ed4e5c7442c1bebb0c94cb13b9d6f15306e97fa0eb3435c54c95",
+    "src/data/monsterMathProgress.js": "d3985cfc9789b3880e3c1277d781b951e9529bd8a7654a030c23bcd593b78a06",
+    "src/data/playerRewards.js": "87fe34c0fa3b69bf22b5a66f4d368da305230b064ac29994d57f643afc092e01",
+    "src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "src/components/games/JetSkyShapes.jsx": "bd6d4c1da541d7e13c1abebf89cea236619f632520cfcc17570df160d9ce4c96",
+    "src/components/games/MonsterMath.jsx": "91ea50d60547ff2c70068f276994cd19da7e7be36ef72bcd585543ea55ba8675",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/sky-monster-save-20261029/protocol.md": "02ee46bae466687e43e6c46f48f09db34aa07a6820634eb9c527390368ada6b4",
+    "docs/qa-evidence/sky-monster-save-20261029/sky-monster-native.cjs": "d08a7acf9c4f83ec7df18c80bda9cf32970ae9ca3877f0ecad3d4b5a7a287f63"
+  },
+  "driverSHA256": "d08a7acf9c4f83ec7df18c80bda9cf32970ae9ca3877f0ecad3d4b5a7a287f63",
+  "runnerSHA256": "a460b27ef647969d97f3ec1f734f8e0ef289151eea7e3c3cb9bfbd80fa847554",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1407467,
+    "entrySha256": "a319e1fd540550064c33ee9dc477cde6d8a819fe01cf71cd8fcb1a253c84016d",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair14-native",
+  "mode": "full",
+  "scope": "Full actual-visible-control acceptance of all three Monster Math episodes and all three Sky Shapes queues at one viewport. No reset, data injection, provider call, hidden state, or automatic primary-task scrolling.",
+  "faultModeRequested": false
+}

@@ -192,7 +192,7 @@ function optionIsCorrect(laneId, optionText, answer, prompt) {
 
 async function clickAnswer(page, laneId, value, helper, label) {
   if (laneId === 'addition' || laneId === 'subtraction' || laneId === 'math') {
-    const button = page.getByRole('group', { name: 'Choose the answer' }).getByRole('button', { name: `Answer ${value}`, exact: true });
+    const button = page.getByRole('group', { name: 'Choose the answer' }).getByRole('button', { name: laneId === 'math' ? String(value) : `Answer ${value}`, exact: true });
     await helper.clickControl(button, { label });
     return;
   }

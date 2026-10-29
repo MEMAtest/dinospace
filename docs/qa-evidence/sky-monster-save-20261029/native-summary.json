@@ -1,0 +1,80 @@
+{
+  "passed": true,
+  "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "entry": "/assets/arcade-CffuUT0f.js",
+  "cases": [
+    {
+      "report": "native-full-sky-monster-1440x844-arcade-CffuUT0f-20261029T172103-336964000.json",
+      "sha256": "61c54b5c87b1bb8b23909e66e827ff7926a6684549976f8a58cba5276d6547bd",
+      "viewport": "1440x844",
+      "questions": 36,
+      "skyMissions": 12,
+      "reloadStable": {
+        "mathMatches": true,
+        "skyMatches": true,
+        "mathBytes": 1109,
+        "skyBytes": 3685,
+        "urlAfterReload": "http://127.0.0.1:5180/?qa_pair14_sky_monster=1793294464519#/world/creative",
+        "runtime": {
+          "origin": "http://127.0.0.1:5180",
+          "namespaced": true,
+          "entry": "/assets/arcade-CffuUT0f.js"
+        }
+      },
+      "unexpectedStorage": [],
+      "providerAttempts": [],
+      "runtimeErrors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "driverSHA256": "d08a7acf9c4f83ec7df18c80bda9cf32970ae9ca3877f0ecad3d4b5a7a287f63",
+      "scope": "Full actual-visible-control acceptance of all three Monster Math episodes and all three Sky Shapes queues at one viewport. No reset, data injection, provider call, hidden state, or automatic primary-task scrolling."
+    },
+    {
+      "report": "native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171704-608908000.json",
+      "sha256": "95abee7ae867136eaa9da6cf449d97ba7dbad13417fe95f4b4a74b8454301ff9",
+      "viewport": "390x740",
+      "questions": 36,
+      "skyMissions": 12,
+      "reloadStable": {
+        "mathMatches": true,
+        "skyMatches": true,
+        "mathBytes": 1095,
+        "skyBytes": 3685,
+        "urlAfterReload": "http://127.0.0.1:5180/?qa_pair14_sky_monster=1793294225530#/world/creative",
+        "runtime": {
+          "origin": "http://127.0.0.1:5180",
+          "namespaced": true,
+          "entry": "/assets/arcade-CffuUT0f.js"
+        }
+      },
+      "unexpectedStorage": [],
+      "providerAttempts": [],
+      "runtimeErrors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      },
+      "driverSHA256": "d08a7acf9c4f83ec7df18c80bda9cf32970ae9ca3877f0ecad3d4b5a7a287f63",
+      "scope": "Full actual-visible-control acceptance of all three Monster Math episodes and all three Sky Shapes queues at one viewport. No reset, data injection, provider call, hidden state, or automatic primary-task scrolling."
+    }
+  ],
+  "scopedPriorBranches": [
+    "retained-native-monster-fault-branches.json",
+    "retained-native-sky-pending-lineage.json",
+    "retained-native-sky-local-fault-branches.json"
+  ],
+  "limits": [
+    "Main passes did not request fault mode; positive-delta faults are separately indexed, never relabelled as full pass.",
+    "Four-flight capped Sky replay naturally ineligible; keyboard equal/lower invariant passed, extra touch invariant added for canonical rehearsal.",
+    "R6 pending-reload branch source equality is retained; canonical current pending proof remains required."
+  ],
+  "tests": {
+    "passed": 704,
+    "failed": 0,
+    "skipped": 0
+  }
+}

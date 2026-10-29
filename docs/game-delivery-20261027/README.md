@@ -6,7 +6,7 @@ The catalogue now has35activities; the older quality ledger covers26. Reconcile 
 
 ## Active work
 
-Pairs1–13 are live-verified, including full playable Chess and its drag/tap repair, Fact Finder, Trace/Cosmic viewport fixes and Puzzle/Spot strict-save/layout repairs. Current runtime is `e3adcf7f3a2d18c0bf46ed39861602286e846ff4`, worker50. Pair13 passed complete native/canonical12picture/12pair journeys at390x740/1440x844, actual public storage/reward fault retries, replay0 and113-key/14-media update retention. Pair14 is Sky Shapes + Monster Math strict-save and final integration work. Ten retained scopes and35-Amari/10-Askia catalogue route checks remain; these are not silently certified by prior releases. Historical8–9personal books remain unlocated. No new paid generation is authorized.
+Pairs1–14 are live-verified. Current runtime is `9fb29d7ffef645638e062bb27283c41a37dc5cab`, worker51. Sky Shapes and Monster Math passed complete native/canonical390x740/1440x844 journeys, actual public save/reward faults and pending-receipt recovery, and117-key/all-IDB14-media update retention. Pair15 is Count the Stars + Addition Adventure strict-save and final integration work. Eight retained scopes and35-Amari/10-Askia catalogue route checks remain; these are not silently certified by prior releases. Historical8–9personal books remain unlocated. No new paid generation is authorized.
 
 ## Workflow
 

@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 14,
+  "activePair": 15,
   "pairs": [
     {
       "number": 1,
@@ -302,11 +302,31 @@
           "name": "Monster Math"
         }
       ],
+      "status": "live_verified",
+      "role": "Strict durable save/reward repair and current viewport integration",
+      "evidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+      "openGates": [],
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "verifiedAt": "2026-10-29T17:38:51.839955+00:00",
+      "production": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json"
+    },
+    {
+      "number": 15,
+      "games": [
+        {
+          "id": "counting",
+          "name": "Count the Stars"
+        },
+        {
+          "id": "addition",
+          "name": "Addition Adventure"
+        }
+      ],
       "status": "in_progress",
       "role": "Strict durable save/reward repair and current viewport integration",
-      "evidence": "docs/qa-evidence/sky-monster-save-20261029/protocol.md",
+      "evidence": "docs/qa-evidence/count-add-save-20261029/plan.md",
       "openGates": [
-        "Strict save/readback and parent-receipt recovery",
+        "Strict local/parent receipt recovery",
         "Full native+canonical affected mechanics both viewports"
       ]
     }
@@ -343,12 +363,16 @@
     {
       "id": "jet",
       "name": "Sky Shapes",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full native/canonical mechanics and strict-save/reward recovery passed at both viewports",
+      "integrationEvidence": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json",
+      "integrationRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab"
     },
     {
       "id": "math",
       "name": "Monster Math",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full native/canonical mechanics and strict-save/reward recovery passed at both viewports",
+      "integrationEvidence": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json",
+      "integrationRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab"
     },
     {
       "id": "counting",

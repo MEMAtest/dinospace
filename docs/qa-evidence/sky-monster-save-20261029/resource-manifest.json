@@ -1,0 +1,157 @@
+{
+  "at": "2026-10-29T16:13:22.169259+00:00",
+  "newCheckouts": 0,
+  "newProfiles": 0,
+  "newDependencyInstalls": 0,
+  "evidenceBudgetBytes": 8388608,
+  "profileBeforeKiB": 1041684,
+  "profileGrowthBudgetBytes": 67108864,
+  "newAssets": "No new raster, narration, corpora or paid generation; existing SVG guides retained",
+  "completedAt": "2026-10-29T17:39:16.621106+00:00",
+  "profileAfterKiB": 1076552,
+  "profileGrowthBytes": 35704832,
+  "removedTaskTemporaryBytes": 707905,
+  "retainedEvidenceBytesBeforeManifest": 2167157,
+  "cleanup": [
+    {
+      "path": "tmp/pair14-build-r1.log",
+      "bytes": 14592,
+      "sha256": "4295f9ce7134f5d5f0e2c961b2f3eaff031d6d20c3c8ee6168e495be0a929926",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-build-r2.log",
+      "bytes": 14591,
+      "sha256": "00c5e32bb15f7ae02b9ed1f48a674dc18d0603d13945000f6ce2d506b6680c72",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-build-r3.log",
+      "bytes": 14592,
+      "sha256": "4e3010f0a05cab22fc3ea6a8ac9b3054f67d903522b1a4ac7aa84e368b848adc",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-build-r4.log",
+      "bytes": 14592,
+      "sha256": "fe9faacf5fa12715429e33008cadb9a554a67a3645c79164c45c63836668a322",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-build-r5.log",
+      "bytes": 14591,
+      "sha256": "b4e761d65f4cfdd2354eb40fb580add6e9e818cb4e9e94ffd09860f1dd732bfb",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-build-r6.log",
+      "bytes": 14592,
+      "sha256": "36540cf085aee8751322d06c6497ef23aa2aaf41795c56e0bfb38e1fc4b43160",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-build-r7.log",
+      "bytes": 14591,
+      "sha256": "1e8ee4d20471b8262afb3a4d38f8924874aa01d8f852af8a0b198c17bfbe9576",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-build-r8.log",
+      "bytes": 14592,
+      "sha256": "b57bc24c3ee705274fef24bf6a1ce0facddaae2c84726cbda6c0d77ec007711a",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-cutover-after.cjs",
+      "bytes": 5137,
+      "sha256": "ff78f72a526b56993f411a47d0b44368a598686fe78bfb8e9a644e0eec32ec75",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-cutover-before.cjs",
+      "bytes": 5138,
+      "sha256": "5d835ea41b605b8c58bf886d01ddbd41190f15b14f6a8c36f385393e07613b04",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-guided-check.cjs",
+      "bytes": 1951,
+      "sha256": "a9e58cc5d3e2709d08b9a077abf4a183d08ab9af1718993a245b8794020be5e8",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-netlify-draft.json",
+      "bytes": 538,
+      "sha256": "6da70756a3017c8266f6248ff1e02d5accc11a128f6bfe910f4b601b6e64af10",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-netlify-prod.json",
+      "bytes": 502,
+      "sha256": "cf484a83cc4f61923b32224f2316be376003e8ac8f95eb90f2e97de24331c425",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-parent-claims.log",
+      "bytes": 2167,
+      "sha256": "212d5bd581e6b111db1863b53d68e33bbd4d772447a4c61a8114df697157837b",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-tests-r1.log",
+      "bytes": 69752,
+      "sha256": "217f1ae5eab343bafcb32663ab4388310bb5b580c86dbad3c3da4e382c6680cc",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-tests-r2.log",
+      "bytes": 69753,
+      "sha256": "01d8d925f8e4037fd8fe0c08c570ca9f38d05b78d46a7838232a52eb6843c386",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-tests-r3.log",
+      "bytes": 69798,
+      "sha256": "6e501adc9f3679f59286ada09adb55d2d72a3abade7dfe86a2b0e701981e4adb",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-tests-r4.log",
+      "bytes": 69760,
+      "sha256": "139ddb5a10b9cd6fee64eb8d07994505deafd7fc9876f6d411f51b019166f0d9",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-tests-r5.log",
+      "bytes": 69715,
+      "sha256": "1e98bf07c53c148f2dba540f05664c06fc15dc040e6eceb7d449dd0a5e88609e",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-tests-r6.log",
+      "bytes": 69754,
+      "sha256": "b7eb74ec57d34d84685729d50aaf0020ef050c1771dbf23ca4a68a4163b63639",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-tests-r7.log",
+      "bytes": 69784,
+      "sha256": "3e953f51fd6ef6907168d07e4a6329bb7cb6de2ebbf2cb045de96398f96f0297",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-tests-r8.log",
+      "bytes": 69758,
+      "sha256": "0ce0268f782ffc7a78a313b6d4f6791bcbe322dfde313d8de50f93c8495b6024",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    },
+    {
+      "path": "tmp/pair14-vercel.log",
+      "bytes": 17665,
+      "sha256": "6343249600ea73b683a1f2d908a996e37a89551c50ee8ef6ae5a426cf87fba30",
+      "reason": "Task-owned intermediate or generated duplicate; final reports, source and deployment identity retained in canonical Pair14 evidence"
+    }
+  ],
+  "newPaidCalls": 0,
+  "recovery": "Source commits remain on canonical branch; final evidence under this folder. No worktree/profile/data removed."
+}

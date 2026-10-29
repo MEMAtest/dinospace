@@ -1,0 +1,11 @@
+# Sky Shapes and Monster Math — 29 October 2026
+
+Candidate `9fb29d7ffef645638e062bb27283c41a37dc5cab`, entry `/assets/arcade-CffuUT0f.js`, worker51. Accepted on the canonical site after complete native and production journeys at390×740/1440×844. `production-summary.json` indexes the exact-entry proof. See `source-gates.json` and `protocol.md` for exact scope.
+
+Both games previously treated unavailable or failed saves as success. Strict persistence now distinguishes missing from unreadable data, preserves unknown metadata, confirms exact readback, and holds the original result with an in-place Retry. Newly earned positive improvements create durable receipts; the shared parent reward ledger confirms their tokens before local claim markers and progression proceed. Existing completions receive no retrospective reward. Start-queue failure retries the same held queue.
+
+The selected episode/sky and Start now appear before secondary choices. Sky tracing uses the correct viewport aspect ratio; the completed phone view retains its picture, explanation, current attempt rating, audio and Next. Monster counting pictures are44px; solved phone answers make room for held explanation/Next. Guided jump/reset controls share one row and retain visible answer choices.
+
+704 source tests pass with no failures/skips; changed-source lint and build pass. Four actual-control native/canonical full journeys passed. Canonical phone additionally passed queue/local/parent write/readback failures and both games’ natural pending-receipt recovery. Actual Refresh games retained all117protected keys and all IndexedDB/14media hashes. Equal/lower keyboard and touch replay preserve rewards; the conditional full four-flight three-star-cap replay remained naturally ineligible and is explicitly unexercised. Failed runs retain their original status and are classified in `known-failure.json`. The prior native Sky pending-receipt recovery is indexed separately with unchanged-source lineage; it is not a current-bundle full acceptance substitute.
+
+No new checkout, browser profile, dependency install, raster art, paid voice or story call was created. Existing synthetic progress and family-data boundaries are preserved. This does not certify a physical device, assign an editorial score, or recover the user’s historical personal books. Monitoring remains deleted.

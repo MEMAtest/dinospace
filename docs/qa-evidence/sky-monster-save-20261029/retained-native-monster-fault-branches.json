@@ -1,0 +1,331 @@
+{
+  "scope": "Scoped completed branch checks from an overall failed report; not full acceptance",
+  "report": "native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171252-038125000.json",
+  "reportSHA256": "5b7297f8f36da2d090be7a9f22f0d296f6908d1097c02880793bad115122cdd4",
+  "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "entry": "/assets/arcade-CffuUT0f.js",
+  "overallPassed": false,
+  "guidedJump": {
+    "attempted": true,
+    "exercised": true,
+    "episode": 3,
+    "question": 1,
+    "prompt": "Mira has 19 shells. Mira gives 2 shells away. How many are left?||NUMBER LINE \u00b7 FOLLOW EACH JUMP 15 16 17 18 \u25cf 19 20 Start at 19, then jump back 2 steps.|",
+    "clueGeometry": {
+      "text": "Try the jumps",
+      "rect": {
+        "x": 31,
+        "y": 646.5,
+        "width": 328,
+        "height": 44,
+        "right": 359,
+        "bottom": 690.5
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "stepGeometry": {
+      "text": "Jump one step back",
+      "rect": {
+        "x": 29,
+        "y": 476.5,
+        "width": 162,
+        "height": 48,
+        "right": 191,
+        "bottom": 524.5
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "answerGeometries": [
+      {
+        "text": "14",
+        "rect": {
+          "x": 31,
+          "y": 604,
+          "width": 160,
+          "height": 56,
+          "right": 191,
+          "bottom": 660
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "17",
+        "rect": {
+          "x": 199,
+          "y": 604,
+          "width": 160,
+          "height": 56,
+          "right": 359,
+          "bottom": 660
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "16",
+        "rect": {
+          "x": 31,
+          "y": 668,
+          "width": 160,
+          "height": 56,
+          "right": 191,
+          "bottom": 724
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "19",
+        "rect": {
+          "x": 199,
+          "y": 668,
+          "width": 160,
+          "height": 56,
+          "right": 359,
+          "bottom": 724
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      }
+    ],
+    "finalAnswerGeometries": [
+      {
+        "text": "14",
+        "rect": {
+          "x": 31,
+          "y": 604,
+          "width": 160,
+          "height": 56,
+          "right": 191,
+          "bottom": 660
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "17",
+        "rect": {
+          "x": 199,
+          "y": 604,
+          "width": 160,
+          "height": 56,
+          "right": 359,
+          "bottom": 660
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "16",
+        "rect": {
+          "x": 31,
+          "y": 668,
+          "width": 160,
+          "height": 56,
+          "right": 191,
+          "bottom": 724
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      {
+        "text": "19",
+        "rect": {
+          "x": 199,
+          "y": 668,
+          "width": 160,
+          "height": 56,
+          "right": 359,
+          "bottom": 724
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      }
+    ],
+    "stepLabel": "Jump one step back",
+    "steps": 2,
+    "readouts": [
+      "At 19. 2 jumps to go.",
+      "At 18. 1 jump to go.",
+      "At 17. All jumps done."
+    ],
+    "readoutGeometries": [
+      {
+        "text": "At 19. 2 jumps to go.",
+        "rect": {
+          "x": 29,
+          "y": 532.5,
+          "width": 332,
+          "height": 17.5,
+          "right": 361,
+          "bottom": 550
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      {
+        "text": "At 18. 1 jump to go.",
+        "rect": {
+          "x": 29,
+          "y": 532.5,
+          "width": 332,
+          "height": 17.5,
+          "right": 361,
+          "bottom": 550
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      },
+      {
+        "text": "At 17. All jumps done.",
+        "rect": {
+          "x": 29,
+          "y": 532.5,
+          "width": 332,
+          "height": 17.5,
+          "right": 361,
+          "bottom": 550
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        }
+      }
+    ],
+    "completed": true
+  },
+  "monsterFaults": {
+    "write": {
+      "restored": true,
+      "fired": true,
+      "didSet": false,
+      "mode": "write",
+      "key": "amari_monster_math_progress_v1"
+    },
+    "readback": {
+      "restored": true,
+      "fired": true,
+      "didSet": true,
+      "mode": "readback",
+      "key": "amari_monster_math_progress_v1"
+    },
+    "heldRetryGeometry": {
+      "text": "Retry saving this result",
+      "rect": {
+        "x": 90.390625,
+        "y": 663,
+        "width": 209.203125,
+        "height": 48,
+        "right": 299.59375,
+        "bottom": 711
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "writeFailureStorageUnchanged": true,
+    "committedReadbackFailureHeld": true,
+    "finalRetryConfirmed": true,
+    "parentRewardRecovery": {
+      "write": {
+        "restored": true,
+        "fired": true,
+        "didSet": false,
+        "mode": "write",
+        "key": "amari_rewards_v2"
+      },
+      "readback": {
+        "restored": true,
+        "fired": true,
+        "didSet": true,
+        "mode": "readback",
+        "key": "amari_rewards_v2"
+      },
+      "initialPoints": 395,
+      "readbackPoints": 398,
+      "readbackConfirmedClaims": [
+        {
+          "token": "dino:math:story-bridge:best:3",
+          "delta": 3
+        }
+      ],
+      "finalPoints": 398,
+      "exactClaims": [
+        {
+          "token": "dino:math:story-bridge:best:3",
+          "delta": 3
+        }
+      ],
+      "exactDelta": 3,
+      "retryIdempotent": true
+    },
+    "expectedBadgeStatus": "New episode badge saved for this child."
+  },
+  "sourceHashes": {
+    "src/App.jsx": "68e40e0e280522524a27bfa7c7ec99b0fc4afb70727458792fc821689afe0855",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/skyShapes.js": "b491170b8275afe2aa55bf1f82a01f275c58f2c0079ac20fd2c9e1c2025a0f51",
+    "src/data/skyShapesProgress.js": "8484f3a6f4e2e11b7600e97bfd0110c33e9b7d06a8d0cf0db249b78b87e73904",
+    "src/data/monsterMathEpisodes.js": "c77fd67c2fc3ed4e5c7442c1bebb0c94cb13b9d6f15306e97fa0eb3435c54c95",
+    "src/data/monsterMathProgress.js": "d3985cfc9789b3880e3c1277d781b951e9529bd8a7654a030c23bcd593b78a06",
+    "src/data/playerRewards.js": "87fe34c0fa3b69bf22b5a66f4d368da305230b064ac29994d57f643afc092e01",
+    "src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "src/components/games/JetSkyShapes.jsx": "bd6d4c1da541d7e13c1abebf89cea236619f632520cfcc17570df160d9ce4c96",
+    "src/components/games/MonsterMath.jsx": "91ea50d60547ff2c70068f276994cd19da7e7be36ef72bcd585543ea55ba8675",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/sky-monster-save-20261029/protocol.md": "02ee46bae466687e43e6c46f48f09db34aa07a6820634eb9c527390368ada6b4",
+    "docs/qa-evidence/sky-monster-save-20261029/sky-monster-native.cjs": "207cb8a564af6dd94a227e1b9c58e1c59390c888a2f831e9d5159320e9e37d63"
+  },
+  "laterFailure": "Select naturally completed Monster Math episode 3 for no-award replay is not wholly inside the viewport: {\"text\":\"EPISODE 3 \u00b7 CHALLENGE\\n\u2713 Monster Story Problems\\nListen to a short story and show what changed.\",\"rect\":{\"x\":42,\"y\":723,\"width\":306,\"height\":132,\"right\":348,\"bottom\":855},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}"
+}

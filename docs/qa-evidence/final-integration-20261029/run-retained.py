@@ -27,8 +27,8 @@ try{
  await page.setViewportSize({width,height});
  await page.goto(origin+'/?qa_final_retained='+Date.now()+'#/',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>window.__amariQaNamespaced===true);
- const amari=page.getByRole('button',{name:/Age 6\+.*Amari/});if(await amari.count())await amari.click();
- await page.getByRole('heading',{name:'Choose a world',exact:true}).waitFor();
+ const amari=page.getByRole('button',{name:/Age 6\+.*Amari/}),chooser=page.getByRole('heading',{name:'Choose a world',exact:true});await amari.or(chooser).first().waitFor({timeout:10000});if(await amari.isVisible())await amari.click();
+ await chooser.waitFor();
  originalSound=await sound();before=await rewards();await setSound(true);
  const lanes=ids.length?run.RETAINED_LANES.filter(x=>ids.includes(x.id)):run.RETAINED_LANES;
  if(ids.length&&lanes.length!==ids.length)throw Error('Unknown lane');

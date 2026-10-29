@@ -1076,15 +1076,15 @@
   "publicUrl": "https://dinospace.netlify.app",
   "singlePublicSiteRelease": {
     "publicUrl": "https://dinospace.netlify.app",
-    "runtimeCommit": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
-    "runtimeDeployment": "dpl_G3ih5CUxPUxRuqwH7MRByJAhNxbH",
-    "runtimeUrl": "https://dinospace-jt59t8k44-memas-projects-23a0001d.vercel.app",
-    "netlifyDeploy": "6ae36c37632598ff25b513b0",
-    "cache": "v50",
-    "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+    "runtimeCommit": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+    "runtimeDeployment": "dpl_EQY9pfWdL5iWK8W6xYw9hA4eSj3x",
+    "runtimeUrl": "https://dinospace-rj3ao5803-memas-projects-23a0001d.vercel.app",
+    "netlifyDeploy": "6ae381f8095704487b61b1d3",
+    "cache": "v51",
+    "evidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
     "oldPublicAlias": "Redirect-only root/index app entry; legacy API/static routes retained for installed clients",
-    "nativeCheck": "Complete native/canonical Puzzle+Spot390x740/1440x844; actual public local/parent fault retry + cached update retention passed",
-    "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
+    "nativeCheck": "Full native/canonical Sky+Monster both viewports and actual current pending-receipt recoveries passed",
+    "scope": "Full three-chapter native/canonical390x740 and1440x844 journeys:36Monster questions per run and12uniqueSky missions, canonical39015flights to cover natural partial progress. Actual public queue/local/parent write/readback retries, both pending-receipt reloads, keyboard/touch equal-or-lower reward invariance,117-key/all-IDB update retention. Four-flight all-three-star Sky replay remains explicitly ineligible; no new editorial/listening score, physical-device certification or personal-book recovery."
   },
   "personalStoryRecovery": {
     "userConfirmedExpectedPersonalStories": [
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": 14,
+  "activeDeliveryPair": 15,
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1245,27 +1245,27 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 13,
-    "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
-    "entry": "/assets/arcade-Cqz6yf-q.js",
+    "pair": 14,
+    "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+    "entry": "/assets/arcade-CffuUT0f.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-jt59t8k44-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_G3ih5CUxPUxRuqwH7MRByJAhNxbH",
-    "netlifyGatewayDeploy": "6ae36c37632598ff25b513b0",
-    "serviceWorkerCache": "amari-discovery-v50",
+    "backendUrl": "https://dinospace-rj3ao5803-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_EQY9pfWdL5iWK8W6xYw9hA4eSj3x",
+    "netlifyGatewayDeploy": "6ae381f8095704487b61b1d3",
+    "serviceWorkerCache": "amari-discovery-v51",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
-    "production": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/puzzle-spot-fit-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+    "production": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/sky-monster-save-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 685,
+      "passed": 704,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T15:59:02.117262+00:00",
+    "verifiedAt": "2026-10-29T17:38:51.839955+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
+    "scope": "Full three-chapter native/canonical390x740 and1440x844 journeys:36Monster questions per run and12uniqueSky missions, canonical39015flights to cover natural partial progress. Actual public queue/local/parent write/readback retries, both pending-receipt reloads, keyboard/touch equal-or-lower reward invariance,117-key/all-IDB update retention. Four-flight all-three-star Sky replay remains explicitly ineligible; no new editorial/listening score, physical-device certification or personal-book recovery."
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
@@ -1294,38 +1294,38 @@
     }
   },
   "activeDeliveryCandidate": {
-    "status": "in_progress",
-    "pair": 14,
+    "status": "planning",
+    "pair": 15,
     "games": [
-      "jet",
-      "math"
+      "counting",
+      "addition"
     ],
-    "evidence": "docs/qa-evidence/sky-monster-save-20261029/protocol.md",
-    "publicRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+    "evidence": "docs/qa-evidence/count-add-save-20261029/plan.md",
+    "publicRuntime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
     "paidCalls": 0
   },
   "lastVerifiedDeliveryRelease": {
-    "pair": 13,
-    "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
-    "entry": "/assets/arcade-Cqz6yf-q.js",
+    "pair": 14,
+    "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+    "entry": "/assets/arcade-CffuUT0f.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-jt59t8k44-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_G3ih5CUxPUxRuqwH7MRByJAhNxbH",
-    "netlifyGatewayDeploy": "6ae36c37632598ff25b513b0",
-    "serviceWorkerCache": "amari-discovery-v50",
+    "backendUrl": "https://dinospace-rj3ao5803-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_EQY9pfWdL5iWK8W6xYw9hA4eSj3x",
+    "netlifyGatewayDeploy": "6ae381f8095704487b61b1d3",
+    "serviceWorkerCache": "amari-discovery-v51",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
-    "production": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/puzzle-spot-fit-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+    "production": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/sky-monster-save-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 685,
+      "passed": 704,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T15:59:02.117262+00:00",
+    "verifiedAt": "2026-10-29T17:38:51.839955+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
+    "scope": "Full three-chapter native/canonical390x740 and1440x844 journeys:36Monster questions per run and12uniqueSky missions, canonical39015flights to cover natural partial progress. Actual public queue/local/parent write/readback retries, both pending-receipt reloads, keyboard/touch equal-or-lower reward invariance,117-key/all-IDB update retention. Four-flight all-three-star Sky replay remains explicitly ineligible; no new editorial/listening score, physical-device certification or personal-book recovery."
   },
   "deliveryReleaseHistory": [
     {
@@ -1527,6 +1527,29 @@
       "paidCalls": 0,
       "editorialScoresChanged": false,
       "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
+    },
+    {
+      "pair": 14,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "entry": "/assets/arcade-CffuUT0f.js",
+      "publicUrl": "https://dinospace.netlify.app",
+      "backendUrl": "https://dinospace-rj3ao5803-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_EQY9pfWdL5iWK8W6xYw9hA4eSj3x",
+      "netlifyGatewayDeploy": "6ae381f8095704487b61b1d3",
+      "serviceWorkerCache": "amari-discovery-v51",
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+      "production": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json",
+      "sourceGates": "docs/qa-evidence/sky-monster-save-20261029/source-gates.json",
+      "sourceTests": {
+        "passed": 704,
+        "failed": 0,
+        "skipped": 0
+      },
+      "verifiedAt": "2026-10-29T17:38:51.839955+00:00",
+      "paidCalls": 0,
+      "editorialScoresChanged": false,
+      "scope": "Full three-chapter native/canonical390x740 and1440x844 journeys:36Monster questions per run and12uniqueSky missions, canonical39015flights to cover natural partial progress. Actual public queue/local/parent write/readback retries, both pending-receipt reloads, keyboard/touch equal-or-lower reward invariance,117-key/all-IDB update retention. Four-flight all-three-star Sky replay remains explicitly ineligible; no new editorial/listening score, physical-device certification or personal-book recovery."
     }
   ],
   "latestChessJigsawUplift": {
@@ -1677,5 +1700,28 @@
     "paidCalls": 0,
     "editorialScoresChanged": false,
     "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
+  },
+  "latestSkyMonsterSaveUplift": {
+    "pair": 14,
+    "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+    "entry": "/assets/arcade-CffuUT0f.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-rj3ao5803-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_EQY9pfWdL5iWK8W6xYw9hA4eSj3x",
+    "netlifyGatewayDeploy": "6ae381f8095704487b61b1d3",
+    "serviceWorkerCache": "amari-discovery-v51",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/sky-monster-save-20261029/README.md",
+    "production": "docs/qa-evidence/sky-monster-save-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/sky-monster-save-20261029/source-gates.json",
+    "sourceTests": {
+      "passed": 704,
+      "failed": 0,
+      "skipped": 0
+    },
+    "verifiedAt": "2026-10-29T17:38:51.839955+00:00",
+    "paidCalls": 0,
+    "editorialScoresChanged": false,
+    "scope": "Full three-chapter native/canonical390x740 and1440x844 journeys:36Monster questions per run and12uniqueSky missions, canonical39015flights to cover natural partial progress. Actual public queue/local/parent write/readback retries, both pending-receipt reloads, keyboard/touch equal-or-lower reward invariance,117-key/all-IDB update retention. Four-flight all-three-star Sky replay remains explicitly ineligible; no new editorial/listening score, physical-device certification or personal-book recovery."
   }
 }

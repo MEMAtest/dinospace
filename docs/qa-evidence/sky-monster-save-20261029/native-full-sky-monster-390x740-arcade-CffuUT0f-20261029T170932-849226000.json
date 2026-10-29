@@ -1,0 +1,3550 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "viewport": "390x740",
+  "lanes": [],
+  "errors": [],
+  "runtime": {
+    "origin": "http://127.0.0.1:5180",
+    "namespaced": true,
+    "entry": "/assets/arcade-CffuUT0f.js",
+    "initialSurface": "player-chooser"
+  },
+  "soundPreference": {
+    "original": true,
+    "enabledForAudio": true
+  },
+  "initialMonsterMath": {
+    "present": true,
+    "unlockedEpisode": 2,
+    "completedEpisodeIds": [
+      "count-garden",
+      "number-workshop"
+    ],
+    "bestStars": {
+      "count-garden": 3,
+      "number-workshop": 3
+    },
+    "pendingBeforeIntroDrain": 0,
+    "rewardReceipts": {
+      "count-garden:best:3": {
+        "id": "count-garden:best:3",
+        "episodeId": "count-garden",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      },
+      "number-workshop:best:3": {
+        "id": "number-workshop:best:3",
+        "episodeId": "number-workshop",
+        "bestStars": 3,
+        "rewardDelta": 3,
+        "claimed": true
+      }
+    }
+  },
+  "monsterMathRows": [
+    {
+      "episode": 1,
+      "question": 1,
+      "prompt": "How many stars can you see?|Counting pictures|⭐ ⭐ ⭐|star,star,star",
+      "answer": 3,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 44,
+          "right": 359,
+          "bottom": 396.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 31,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 199,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 31,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 199,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/5c823d3b-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 3 stars.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 504.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 560.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many moons can you see?|Counting pictures|🌙 🌙 🌙 🌙 🌙 🌙 🌙 🌙|moon,moon,moon,moon,moon,moon,moon,moon"
+    },
+    {
+      "episode": 1,
+      "question": 2,
+      "prompt": "How many moons can you see?|Counting pictures|🌙 🌙 🌙 🌙 🌙 🌙 🌙 🌙|moon,moon,moon,moon,moon,moon,moon,moon",
+      "answer": 8,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 94,
+          "right": 359,
+          "bottom": 446.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 31,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 199,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 31,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 199,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/b36037d6-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 8 moons.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 554.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 610.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many planets can you see?|Counting pictures|🪐 🪐 🪐 🪐 🪐 🪐|planet,planet,planet,planet,planet,planet"
+    },
+    {
+      "episode": 1,
+      "question": 3,
+      "prompt": "How many planets can you see?|Counting pictures|🪐 🪐 🪐 🪐 🪐 🪐|planet,planet,planet,planet,planet,planet",
+      "answer": 6,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 94,
+          "right": 359,
+          "bottom": 446.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 31,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 199,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 31,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 199,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/eda369f1-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 6 planets.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 554.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 610.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many gems can you see?|Counting pictures|💎|gem"
+    },
+    {
+      "episode": 1,
+      "question": 4,
+      "prompt": "How many gems can you see?|Counting pictures|💎|gem",
+      "answer": 1,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 44,
+          "right": 359,
+          "bottom": 396.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 31,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 199,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 31,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 199,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/637cbf0e-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There is 1 gem.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 504.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 560.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many oranges can you see?|Counting pictures|🍊 🍊|orange,orange"
+    },
+    {
+      "episode": 1,
+      "question": 5,
+      "prompt": "How many oranges can you see?|Counting pictures|🍊 🍊|orange,orange",
+      "answer": 2,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 44,
+          "right": 359,
+          "bottom": 396.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 31,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 199,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 31,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 199,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/bf1cda3d-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 2 oranges.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 504.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 560.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many apples can you see?|Counting pictures|🍎 🍎 🍎 🍎 🍎|apple,apple,apple,apple,apple"
+    },
+    {
+      "episode": 1,
+      "question": 6,
+      "prompt": "How many apples can you see?|Counting pictures|🍎 🍎 🍎 🍎 🍎|apple,apple,apple,apple,apple",
+      "answer": 5,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 44,
+          "right": 359,
+          "bottom": 396.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 31,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 199,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 31,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 199,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/7128e0ed-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 5 apples.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 104.21875,
+          "y": 504.75,
+          "width": 181.5625,
+          "height": 56,
+          "right": 285.78125,
+          "bottom": 560.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    },
+    {
+      "episode": 1,
+      "question": 1,
+      "prompt": "How many crystals can you see?|Counting pictures|🔷 🔷 🔷|crystal,crystal,crystal",
+      "answer": 3,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 44,
+          "right": 359,
+          "bottom": 396.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 31,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 199,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 31,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 199,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/5f1114b3-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 3 crystals.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 504.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 560.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many moons can you see?|Counting pictures|🌙 🌙|moon,moon"
+    },
+    {
+      "episode": 1,
+      "question": 2,
+      "prompt": "How many moons can you see?|Counting pictures|🌙 🌙|moon,moon",
+      "answer": 2,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 44,
+          "right": 359,
+          "bottom": 396.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 31,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 199,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 31,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 199,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/b36037d6-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 2 moons.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 504.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 560.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many oranges can you see?|Counting pictures|🍊 🍊 🍊 🍊 🍊|orange,orange,orange,orange,orange"
+    },
+    {
+      "episode": 1,
+      "question": 3,
+      "prompt": "How many oranges can you see?|Counting pictures|🍊 🍊 🍊 🍊 🍊|orange,orange,orange,orange,orange",
+      "answer": 5,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 44,
+          "right": 359,
+          "bottom": 396.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 31,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 199,
+              "y": 452.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 508.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 31,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 199,
+              "y": 516.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 572.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/bf1cda3d-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 5 oranges.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 504.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 560.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many stars can you see?|Counting pictures|⭐ ⭐ ⭐ ⭐ ⭐ ⭐|star,star,star,star,star,star"
+    },
+    {
+      "episode": 1,
+      "question": 4,
+      "prompt": "How many stars can you see?|Counting pictures|⭐ ⭐ ⭐ ⭐ ⭐ ⭐|star,star,star,star,star,star",
+      "answer": 6,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 94,
+          "right": 359,
+          "bottom": 446.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 31,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 199,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 31,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 199,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/5c823d3b-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 6 stars.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 554.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 610.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many crystals can you see?|Counting pictures|🔷 🔷 🔷 🔷 🔷 🔷 🔷 🔷|crystal,crystal,crystal,crystal,crystal,crystal,crystal,crystal"
+    },
+    {
+      "episode": 1,
+      "question": 5,
+      "prompt": "How many crystals can you see?|Counting pictures|🔷 🔷 🔷 🔷 🔷 🔷 🔷 🔷|crystal,crystal,crystal,crystal,crystal,crystal,crystal,crystal",
+      "answer": 8,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 94,
+          "right": 359,
+          "bottom": 446.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 31,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 199,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 31,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 199,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/5f1114b3-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 8 crystals.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 554.75,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 610.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "How many planets can you see?|Counting pictures|🪐 🪐 🪐 🪐 🪐 🪐 🪐 🪐 🪐|planet,planet,planet,planet,planet,planet,planet,planet,planet"
+    },
+    {
+      "episode": 1,
+      "question": 6,
+      "prompt": "How many planets can you see?|Counting pictures|🪐 🪐 🪐 🪐 🪐 🪐 🪐 🪐 🪐|planet,planet,planet,planet,planet,planet,planet,planet,planet",
+      "answer": 9,
+      "modelGeometry": {
+        "text": "Counting pictures",
+        "rect": {
+          "x": 31,
+          "y": 352.75,
+          "width": 328,
+          "height": 94,
+          "right": 359,
+          "bottom": 446.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 31,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 199,
+              "y": 502.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 558.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 31,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 199,
+              "y": 566.75,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 622.75
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/eda369f1-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "There are 9 planets.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 104.21875,
+          "y": 554.75,
+          "width": 181.5625,
+          "height": 56,
+          "right": 285.78125,
+          "bottom": 610.75
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    },
+    {
+      "episode": 2,
+      "question": 1,
+      "prompt": "What is 16 take away 3?|16 counters, take away 3 counters. Count what is left.||",
+      "answer": 13,
+      "modelGeometry": {
+        "text": "16 counters, take away 3 counters. Count what is left.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "15",
+          "geometry": {
+            "text": "15",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "13",
+          "geometry": {
+            "text": "13",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "12",
+          "geometry": {
+            "text": "12",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/6743c108-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 16 counters. Take 3 away. 13 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 531.65625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 1 plus 18?|1 counter; add 18 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 2,
+      "prompt": "What is 1 plus 18?|1 counter; add 18 more. Put both groups together, then count them.||",
+      "answer": 19,
+      "modelGeometry": {
+        "text": "1 counter; add 18 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "17",
+          "geometry": {
+            "text": "17",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "19",
+          "geometry": {
+            "text": "19",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "18",
+          "geometry": {
+            "text": "18",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "16",
+          "geometry": {
+            "text": "16",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/f29d2805-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "1 counter. Add 18 more. That makes 19 counters.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 531.65625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 9 plus 6?|9 counters; add 6 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 3,
+      "prompt": "What is 9 plus 6?|9 counters; add 6 more. Put both groups together, then count them.||",
+      "answer": 15,
+      "modelGeometry": {
+        "text": "9 counters; add 6 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "16",
+          "geometry": {
+            "text": "16",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "11",
+          "geometry": {
+            "text": "11",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "15",
+          "geometry": {
+            "text": "15",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/1a73b9e6-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "9 counters. Add 6 more. That makes 15 counters.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 531.65625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 5 take away 1?|5 counters, take away 1 counter. Count what is left.||"
+    },
+    {
+      "episode": 2,
+      "question": 4,
+      "prompt": "What is 5 take away 1?|5 counters, take away 1 counter. Count what is left.||",
+      "answer": 4,
+      "modelGeometry": {
+        "text": "5 counters, take away 1 counter. Count what is left.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "0",
+          "geometry": {
+            "text": "0",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/280b9356-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 5 counters. Take 1 away. 4 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 531.65625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 11 take away 5?|11 counters, take away 5 counters. Count what is left.||"
+    },
+    {
+      "episode": 2,
+      "question": 5,
+      "prompt": "What is 11 take away 5?|11 counters, take away 5 counters. Count what is left.||",
+      "answer": 6,
+      "modelGeometry": {
+        "text": "11 counters, take away 5 counters. Count what is left.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "8",
+          "geometry": {
+            "text": "8",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/e2fbb5f1-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 11 counters. Take 5 away. 6 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 531.65625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 11 plus 9?|11 counters; add 9 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 6,
+      "prompt": "What is 11 plus 9?|11 counters; add 9 more. Put both groups together, then count them.||",
+      "answer": 20,
+      "modelGeometry": {
+        "text": "11 counters; add 9 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "17",
+          "geometry": {
+            "text": "17",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "18",
+          "geometry": {
+            "text": "18",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "20",
+          "geometry": {
+            "text": "20",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "19",
+          "geometry": {
+            "text": "19",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": false,
+      "wrongRetry": null,
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/79017c78-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "11 counters. Add 9 more. That makes 20 counters.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 104.21875,
+          "y": 531.65625,
+          "width": 181.5625,
+          "height": 56,
+          "right": 285.78125,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    },
+    {
+      "episode": 2,
+      "question": 1,
+      "prompt": "What is 6 take away 2?|6 counters, take away 2 counters. Count what is left.||",
+      "answer": 4,
+      "modelGeometry": {
+        "text": "6 counters, take away 2 counters. Count what is left.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/debdec06-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 6 counters. Take 2 away. 4 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 531.65625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 15 take away 8?|15 counters, take away 8 counters. Count what is left.||"
+    },
+    {
+      "episode": 2,
+      "question": 2,
+      "prompt": "What is 15 take away 8?|15 counters, take away 8 counters. Count what is left.||",
+      "answer": 7,
+      "modelGeometry": {
+        "text": "15 counters, take away 8 counters. Count what is left.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "9",
+          "geometry": {
+            "text": "9",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/20fbdf80-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 15 counters. Take 8 away. 7 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 531.65625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 16 take away 13?|16 counters, take away 13 counters. Count what is left.||"
+    },
+    {
+      "episode": 2,
+      "question": 3,
+      "prompt": "What is 16 take away 13?|16 counters, take away 13 counters. Count what is left.||",
+      "answer": 3,
+      "modelGeometry": {
+        "text": "16 counters, take away 13 counters. Count what is left.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/a114f1bf-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "Start with 16 counters. Take 13 away. 3 counters stay.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 531.65625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 1 plus 4?|1 counter; add 4 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 4,
+      "prompt": "What is 1 plus 4?|1 counter; add 4 more. Put both groups together, then count them.||",
+      "answer": 5,
+      "modelGeometry": {
+        "text": "1 counter; add 4 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "7",
+          "geometry": {
+            "text": "7",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "5",
+          "geometry": {
+            "text": "5",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "4",
+          "geometry": {
+            "text": "4",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "1",
+          "geometry": {
+            "text": "1",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/96e09cb0-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "1 counter. Add 4 more. That makes 5 counters.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 517.15625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 573.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 13 plus 5?|13 counters; add 5 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 5,
+      "prompt": "What is 13 plus 5?|13 counters; add 5 more. Put both groups together, then count them.||",
+      "answer": 18,
+      "modelGeometry": {
+        "text": "13 counters; add 5 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "17",
+          "geometry": {
+            "text": "17",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "14",
+          "geometry": {
+            "text": "14",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "16",
+          "geometry": {
+            "text": "16",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "18",
+          "geometry": {
+            "text": "18",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/0b68a762-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "13 counters. Add 5 more. That makes 18 counters.",
+      "heldNextGeometry": {
+        "text": "Next question",
+        "rect": {
+          "x": 107.015625,
+          "y": 531.65625,
+          "width": 175.953125,
+          "height": 56,
+          "right": 282.96875,
+          "bottom": 587.65625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "nextTaskIdentity": "What is 5 plus 1?|5 counters; add 1 more. Put both groups together, then count them.||"
+    },
+    {
+      "episode": 2,
+      "question": 6,
+      "prompt": "What is 5 plus 1?|5 counters; add 1 more. Put both groups together, then count them.||",
+      "answer": 6,
+      "modelGeometry": {
+        "text": "5 counters; add 1 more. Put both groups together, then count them.",
+        "rect": {
+          "x": 29,
+          "y": 348.75,
+          "width": 332,
+          "height": 74.40625,
+          "right": 361,
+          "bottom": 423.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "options": [
+        {
+          "text": "10",
+          "geometry": {
+            "text": "10",
+            "rect": {
+              "x": 31,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "3",
+          "geometry": {
+            "text": "3",
+            "rect": {
+              "x": 199,
+              "y": 545.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 601.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "2",
+          "geometry": {
+            "text": "2",
+            "rect": {
+              "x": 31,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 191,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        },
+        {
+          "text": "6",
+          "geometry": {
+            "text": "6",
+            "rect": {
+              "x": 199,
+              "y": 609.15625,
+              "width": 160,
+              "height": 56,
+              "right": 359,
+              "bottom": 665.15625
+            },
+            "viewport": {
+              "width": 390,
+              "height": 740
+            },
+            "centerHit": true,
+            "pointerEvents": "auto"
+          }
+        }
+      ],
+      "wrongRetryRetained": true,
+      "wrongRetry": {
+        "promptRetained": true,
+        "feedback": "Not yet. Try the clue, then count the model again."
+      },
+      "audio": {
+        "packaged": true,
+        "events": [
+          {
+            "pathname": "/audio/en/1ccc6e29-matilda.mp3",
+            "events": [
+              "play-call",
+              "play",
+              "playing"
+            ]
+          }
+        ]
+      },
+      "heldExplanation": "5 counters. Add 1 more. That makes 6 counters.",
+      "heldNextGeometry": {
+        "text": "Finish episode",
+        "rect": {
+          "x": 104.21875,
+          "y": 517.15625,
+          "width": 181.5625,
+          "height": 56,
+          "right": 285.78125,
+          "bottom": 573.15625
+        },
+        "viewport": {
+          "width": 390,
+          "height": 740
+        },
+        "centerHit": true,
+        "pointerEvents": "auto"
+      },
+      "episodeComplete": true
+    },
+    {
+      "episode": 3,
+      "question": 1,
+      "partial": true,
+      "failure": "Question 1: visible answer model is not unique"
+    }
+  ],
+  "monsterFaultEligibility": {
+    "naturallyMaterialEpisodes": [
+      {
+        "id": "story-bridge",
+        "title": "Monster Story Problems",
+        "episodeNo": 3,
+        "delta": 3,
+        "alreadyCompleted": false
+      }
+    ],
+    "localAndParentFaultEpisode": 3,
+    "pendingReloadEpisode": null
+  },
+  "monsterPendingReloadRecovery": {
+    "exercised": false,
+    "reason": "No second naturally incomplete or below-three-star episode can earn a positive delta for reload recovery."
+  },
+  "monsterIntroFaults": {
+    "writeFault": {
+      "restored": true,
+      "fired": true,
+      "didSet": false,
+      "mode": "write",
+      "key": "amari_monster_math_progress_v1"
+    },
+    "retryGeometry": {
+      "text": "Retry saving this episode",
+      "rect": {
+        "x": 33,
+        "y": 425.25,
+        "width": 324,
+        "height": 56,
+        "right": 357,
+        "bottom": 481.25
+      },
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "centerHit": true,
+      "pointerEvents": "auto"
+    },
+    "failedStartStorageUnchanged": true,
+    "didNotAutoplay": true,
+    "sameVisibleRetryStarted": true
+  },
+  "monsterReplay1": {
+    "pointsBefore": 395,
+    "pointsAfter": 395,
+    "parentClaimsUnchanged": true,
+    "rewardReceiptsUnchanged": true,
+    "bestStarsBefore": 3,
+    "replayStars": 1,
+    "retainedBestStars": 3
+  },
+  "monsterReplay2": {
+    "pointsBefore": 395,
+    "pointsAfter": 395,
+    "parentClaimsUnchanged": true,
+    "rewardReceiptsUnchanged": true,
+    "bestStarsBefore": 3,
+    "replayStars": 1,
+    "retainedBestStars": 3
+  },
+  "failure": {
+    "message": "Question 1: visible answer model is not unique",
+    "stack": [
+      "Error: Question 1: visible answer model is not unique",
+      "    at exerciseMonsterQuestion (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:274:47)",
+      "    at async runAndRetainQuestion (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:441:19)",
+      "    at async runMonster (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:476:27)",
+      "    at async runSkyMonster (eval at localRequire (evalmachine.<anonymous>:3:146), <anonymous>:882:18)",
+      "    at async evalmachine.<anonymous>:5:8",
+      "    at async evalmachine.<anonymous>:3:20",
+      "    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13"
+    ]
+  },
+  "failureScreenshot": "/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/sky-monster-save-20261029/failure-390x740-arcade-CffuUT0f-20261029T170932-849226000.jpg",
+  "soundRestorationOnFailure": {
+    "original": true,
+    "restored": true,
+    "viaVisibleControl": true
+  },
+  "stage": "native",
+  "runtimeSource": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "entry": "/assets/arcade-CffuUT0f.js",
+  "sourceHead": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+  "sourceHashes": {
+    "src/App.jsx": "68e40e0e280522524a27bfa7c7ec99b0fc4afb70727458792fc821689afe0855",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/skyShapes.js": "b491170b8275afe2aa55bf1f82a01f275c58f2c0079ac20fd2c9e1c2025a0f51",
+    "src/data/skyShapesProgress.js": "8484f3a6f4e2e11b7600e97bfd0110c33e9b7d06a8d0cf0db249b78b87e73904",
+    "src/data/monsterMathEpisodes.js": "c77fd67c2fc3ed4e5c7442c1bebb0c94cb13b9d6f15306e97fa0eb3435c54c95",
+    "src/data/monsterMathProgress.js": "d3985cfc9789b3880e3c1277d781b951e9529bd8a7654a030c23bcd593b78a06",
+    "src/data/playerRewards.js": "87fe34c0fa3b69bf22b5a66f4d368da305230b064ac29994d57f643afc092e01",
+    "src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "src/components/games/JetSkyShapes.jsx": "bd6d4c1da541d7e13c1abebf89cea236619f632520cfcc17570df160d9ce4c96",
+    "src/components/games/MonsterMath.jsx": "91ea50d60547ff2c70068f276994cd19da7e7be36ef72bcd585543ea55ba8675",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/sky-monster-save-20261029/protocol.md": "acf8be06edc10d2542c8a6886aa0a44149aed742b2072e2488784162abb662a4",
+    "docs/qa-evidence/sky-monster-save-20261029/sky-monster-native.cjs": "ec398f68c99085f74e968562309733d12794489069eb8f269a1ce6a8f6d813d2"
+  },
+  "driverSHA256": "ec398f68c99085f74e968562309733d12794489069eb8f269a1ce6a8f6d813d2",
+  "runnerSHA256": "6464b7681a62be13c58a293d656fb8accac2eaa622f1b798f6862cf42eaa20fd",
+  "cliReturnCode": 0,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1407467,
+    "entrySha256": "a319e1fd540550064c33ee9dc477cde6d8a819fe01cf71cd8fcb1a253c84016d",
+    "cacheControl": "no-cache request"
+  },
+  "leaseOwner": "pair14-native",
+  "mode": "full",
+  "scope": "Full actual-visible-control acceptance of all three Monster Math episodes and all three Sky Shapes queues at one viewport. No reset, data injection, provider call, hidden state, or automatic primary-task scrolling.",
+  "faultModeRequested": true
+}

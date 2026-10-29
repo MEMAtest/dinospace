@@ -1,0 +1,94 @@
+{
+  "passed": false,
+  "scope": "Actual Try the jumps control in existing native story problem; no state seeding or clearing",
+  "state": {
+    "entry": "/assets/arcade-B6xcO8-5.js",
+    "origin": "http://127.0.0.1:5180",
+    "namespace": true
+  },
+  "hintBefore": {
+    "x": 31,
+    "y": 646.5,
+    "width": 328,
+    "height": 44
+  },
+  "answerControls": [
+    {
+      "text": "16",
+      "x": 31,
+      "y": 670.5,
+      "width": 160,
+      "height": 56,
+      "bottom": 726.5,
+      "hit": true
+    },
+    {
+      "text": "12",
+      "x": 199,
+      "y": 670.5,
+      "width": 160,
+      "height": 56,
+      "bottom": 726.5,
+      "hit": true
+    },
+    {
+      "text": "13",
+      "x": 31,
+      "y": 734.5,
+      "width": 160,
+      "height": 56,
+      "bottom": 790.5,
+      "hit": false
+    },
+    {
+      "text": "17",
+      "x": 199,
+      "y": 734.5,
+      "width": 160,
+      "height": 56,
+      "bottom": 790.5,
+      "hit": false
+    }
+  ],
+  "guidedControls": [
+    {
+      "text": "Jump one step forward",
+      "x": 89.921875,
+      "y": 480.5,
+      "width": 210.15625,
+      "height": 48,
+      "bottom": 528.5,
+      "hit": true
+    },
+    {
+      "text": "Start again",
+      "x": 136.4375,
+      "y": 536.5,
+      "width": 117.125,
+      "height": 48,
+      "bottom": 584.5,
+      "hit": true
+    }
+  ],
+  "invalid": [
+    {
+      "text": "13",
+      "x": 31,
+      "y": 734.5,
+      "width": 160,
+      "height": 56,
+      "bottom": 790.5,
+      "hit": false
+    },
+    {
+      "text": "17",
+      "x": 199,
+      "y": 734.5,
+      "width": 160,
+      "height": 56,
+      "bottom": 790.5,
+      "hit": false
+    }
+  ],
+  "providerAttempts": []
+}

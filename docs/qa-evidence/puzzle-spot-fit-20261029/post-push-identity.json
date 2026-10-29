@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "at": "2026-10-29T16:00:20.393906+00:00",
+  "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+  "entry": "/assets/arcade-Cqz6yf-q.js",
+  "worker": 50,
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "34143b46aa2b34adc7b14ed0a870e30aab4474899692b47ec35dbaa8c5729c12"
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "sha256": "020d940f0e2cd9a4ed7ee968bc92afeb31c952be4de94ab54376dbd9be6084e8"
+    }
+  ],
+  "scope": "Small post-push identity check against retained frozen build; full gameplay evidence remains production-summary.json"
+}

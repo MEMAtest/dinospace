@@ -1,0 +1,145 @@
+{
+  "reports": [
+    {
+      "path": "native-full-sky-monster-1440x844-arcade-CffuUT0f-20261029T172103-336964000.json",
+      "sha256": "61c54b5c87b1bb8b23909e66e827ff7926a6684549976f8a58cba5276d6547bd",
+      "passed": true,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "stage": "native",
+      "mode": "full",
+      "viewport": "1440x844",
+      "failure": null
+    },
+    {
+      "path": "native-full-sky-monster-390x740-arcade-B6xcO8-5-20261029T164933-316332000.json",
+      "sha256": "8d2c75d94ce3fa300faee31deb62ab06a288a05721aeaaecf844a246a037adcc",
+      "passed": false,
+      "runtime": "2b588bdea8199badcfd7996134becb1fac539840",
+      "stage": "native",
+      "mode": "full",
+      "viewport": "390x740",
+      "failure": "locator.waitFor: Timeout 2000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('main').getByText('Six questions complete', { exact: true }) to be visible\u001b[22m\n"
+    },
+    {
+      "path": "native-full-sky-monster-390x740-arcade-B6xcO8-5-20261029T165432-196021000.json",
+      "sha256": "300be865c47b7733e8304239690f6f22b96859fd9f08dfe10274e58a4d4215b2",
+      "passed": false,
+      "runtime": "2b588bdea8199badcfd7996134becb1fac539840",
+      "stage": "native",
+      "mode": "full",
+      "viewport": "390x740",
+      "failure": "Monster Math count question has no visible picture model"
+    },
+    {
+      "path": "native-full-sky-monster-390x740-arcade-BFELVM97-20261029T164623-301216000.json",
+      "sha256": "b3b17cff842367522dbd688d6e76ba94575a5fcaab9d8b9fb35a684b80936636",
+      "passed": false,
+      "runtime": "50772c66473ec294a63ce2566f3b0e4297bd51e4",
+      "stage": "native",
+      "mode": "full",
+      "viewport": "390x740",
+      "failure": "Monster Math episode 1 question 4 model is below 44px: {\"text\":\"Counting pictures\",\"rect\":{\"x\":31,\"y\":352.75,\"width\":328,\"height\":40,\"right\":359,\"bottom\":392.75},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":true,\"pointerEvents\":\"auto\"}"
+    },
+    {
+      "path": "native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T170932-849226000.json",
+      "sha256": "8808342b5e3755b3e4e6916bfed08123b5adef570a621e020ec491fa26fdabd3",
+      "passed": false,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "stage": "native",
+      "mode": "full",
+      "viewport": "390x740",
+      "failure": "Question 1: visible answer model is not unique"
+    },
+    {
+      "path": "native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171252-038125000.json",
+      "sha256": "5b7297f8f36da2d090be7a9f22f0d296f6908d1097c02880793bad115122cdd4",
+      "passed": false,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "stage": "native",
+      "mode": "full",
+      "viewport": "390x740",
+      "failure": "Select naturally completed Monster Math episode 3 for no-award replay is not wholly inside the viewport: {\"text\":\"EPISODE 3 \u00b7 CHALLENGE\\n\u2713 Monster Story Problems\\nListen to a short story and show what changed.\",\"rect\":{\"x\":42,\"y\":723,\"width\":306,\"height\":132,\"right\":348,\"bottom\":855},\"viewport\":{\"width\":390,\"height\":740},\"centerHit\":false,\"pointerEvents\":\"auto\"}"
+    },
+    {
+      "path": "native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171353-046720000.json",
+      "sha256": "3dca52369acd87cc5f364a3843deaf6741ffd164999dd5b7f3afa7633c724b9a",
+      "passed": false,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "stage": "native",
+      "mode": "full",
+      "viewport": "390x740",
+      "failure": "locator.waitFor: Timeout 2000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('main').getByText(/^(starter|growing|challenge) sky complete$/i) to be visible\u001b[22m\n"
+    },
+    {
+      "path": "native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171543-108979000.json",
+      "sha256": "1a32ea4c2244cf43871fd62119eaca9ed7f81ea08b96c66288b65cdd073fb17f",
+      "passed": false,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "stage": "native",
+      "mode": "full",
+      "viewport": "390x740",
+      "failure": "Sky Shapes readback fault did not commit the pending flight"
+    },
+    {
+      "path": "native-full-sky-monster-390x740-arcade-CffuUT0f-20261029T171704-608908000.json",
+      "sha256": "95abee7ae867136eaa9da6cf449d97ba7dbad13417fe95f4b4a74b8454301ff9",
+      "passed": true,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "stage": "native",
+      "mode": "full",
+      "viewport": "390x740",
+      "failure": null
+    },
+    {
+      "path": "native-prepare-sky-pending-sky-monster-390x740-arcade-BFELVM97-20261029T164620-661614000.json",
+      "sha256": "93b151e92ee51c458203e8abfb4b0fc96e03d682bcab512e4b71ef4d7df32a77",
+      "passed": true,
+      "runtime": "50772c66473ec294a63ce2566f3b0e4297bd51e4",
+      "stage": "native",
+      "mode": "prepare-sky-pending",
+      "viewport": "390x740",
+      "failure": null
+    },
+    {
+      "path": "native-prepare-sky-pending-sky-monster-390x740-arcade-BcsJGAM5-20261029T163829-547731000.json",
+      "sha256": "01443f28d2605282b3f6bac581bba2929916f74a5e31ac1ce3702288ef16dc2c",
+      "passed": false,
+      "runtime": "778ac7b11aec5591492b39016ff6985ca0120efc",
+      "stage": "native",
+      "mode": "prepare-sky-pending",
+      "viewport": "390x740",
+      "failure": "Normal Amari player/world chooser did not mount after bounded navigation"
+    },
+    {
+      "path": "production-full-sky-monster-1440x844-arcade-CffuUT0f-20261029T173317-900942000.json",
+      "sha256": "0e846514aaa28c7ead020e5dde26a974f9ff988e1b498361e3844e5b174334db",
+      "passed": true,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "stage": "production",
+      "mode": "full",
+      "viewport": "1440x844",
+      "failure": null
+    },
+    {
+      "path": "production-full-sky-monster-390x740-arcade-CffuUT0f-20261029T172827-859204000.json",
+      "sha256": "3e739f86906f50d300bb67113f4e93bd18634324d77f144a87d428c7da1bda88",
+      "passed": true,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "stage": "production",
+      "mode": "full",
+      "viewport": "390x740",
+      "failure": null
+    },
+    {
+      "path": "production-prepare-sky-pending-sky-monster-390x740-arcade-CffuUT0f-20261029T172817-491232000.json",
+      "sha256": "ab95795d5f622707176845c763c999ab891889864d88d5676f418c61ba5764cf",
+      "passed": true,
+      "runtime": "9fb29d7ffef645638e062bb27283c41a37dc5cab",
+      "stage": "production",
+      "mode": "prepare-sky-pending",
+      "viewport": "390x740",
+      "failure": null
+    }
+  ],
+  "failedReportsRetainFailedStatus": true
+}
