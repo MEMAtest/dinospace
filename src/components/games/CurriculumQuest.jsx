@@ -93,7 +93,7 @@ const ChoiceArt = ({ item }) => {
 
 // Deliberately resolves only reviewed, packaged ElevenLabs clips. Missing
 // entries render no control; there is no browser/device speech fallback.
-const PackagedAudioButton = ({ text, label = 'Hear', soundOn }) => {
+const PackagedAudioButton = ({ text, label = 'Hear', soundOn, compact = false }) => {
   const logHint = useContext(CurriculumHintContext);
   const clip = getCurriculumVoiceClip(text);
   const audioRef = useRef(null);
@@ -143,7 +143,7 @@ const PackagedAudioButton = ({ text, label = 'Hear', soundOn }) => {
     }).catch(() => { if (playbackGeneration.current === generation) setPlaying(false); });
   };
   const isPlaying = playing && soundOn;
-  return <button type="button" onClick={play} disabled={!soundOn} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-3 py-2 text-xs font-black text-indigo-700 shadow-sm disabled:cursor-not-allowed disabled:opacity-50" aria-label={`${label}: ${text}`}><Headphones size={16} className={isPlaying ? 'animate-pulse' : ''} />{isPlaying ? 'Playing' : label}</button>;
+  return <button type="button" onClick={play} disabled={!soundOn} className={`inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-indigo-200 bg-white px-3 py-2 text-xs font-black text-indigo-700 shadow-sm disabled:cursor-not-allowed disabled:opacity-50 ${compact ? 'quest-audio-compact' : ''}`} aria-label={`${label}: ${text}`} title={`${label}: ${text}`}><Headphones size={16} className={isPlaying ? 'animate-pulse' : ''} aria-hidden="true" /><span className={compact ? 'sr-only' : undefined}>{isPlaying ? 'Playing' : label}</span></button>;
 };
 
 const CurriculumMap = ({ round, selected, onPick = () => {}, disabled, showLabels = false }) => {
@@ -282,7 +282,7 @@ const InvestigationRound = ({ round, prediction, onPredict, onConclude, disabled
       </div>
     ) : (
       <>
-        <div className="quest-investigation-observation rounded-3xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="text-xs font-black uppercase tracking-wider text-emerald-700">Observation</p><p className="mt-2 font-bold text-slate-700">{round.observation}</p><div className="mt-3"><PackagedAudioButton text={round.observation} label="Hear observation" soundOn={soundOn} /></div></div>
+        <div className="quest-investigation-observation rounded-3xl border-2 border-emerald-200 bg-emerald-50 p-4 text-center"><p className="text-xs font-black uppercase tracking-wider text-emerald-700">Observation</p><div className="quest-investigation-observation-row"><p className="font-bold text-slate-700">{round.observation}</p><PackagedAudioButton compact text={round.observation} label="Hear observation" soundOn={soundOn} /></div></div>
         <h3 className="quest-investigation-question my-4 text-center text-xl font-black text-slate-900">What does the observation tell us?</h3>
         <ChoiceRound round={round} onPick={onConclude} disabled={disabled} selected={selected} />
       </>
@@ -815,8 +815,8 @@ const CurriculumQuest = ({ onBack, onLaunchGame, playSfx, soundOn, onToggleSound
                 <div className="quest-round-track" role="progressbar" aria-label="Discovery run progress" aria-valuemin="0" aria-valuemax={roundOrder.length || Math.min(5, rounds.length)} aria-valuenow={roundCursor + (locked ? 1 : 0)}><span style={{ width: `${((roundCursor + (locked ? 1 : 0)) / (roundOrder.length || Math.min(5, rounds.length))) * 100}%` }} /></div>
               </div>
               {sessionResumed && <p className="quest-resume-note" role="status">Saved round restored. Continue where you left off.</p>}
-              <div className="quest-prompt-row"><h2 id="quest-prompt" tabIndex={-1}>{round.prompt}</h2>{!locked && <PackagedAudioButton text={round.prompt} label="Hear prompt" soundOn={soundOn} />}</div>
-              {!locked && <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>}
+              <div className="quest-prompt-row"><h2 id="quest-prompt" tabIndex={-1}>{round.prompt}</h2>{!locked && <PackagedAudioButton compact={round.type === 'investigation'} text={round.prompt} label="Hear prompt" soundOn={soundOn} />}</div>
+              {!locked && !(round.type === 'investigation' && prediction) && <p className="quest-help"><Compass size={18} />{roundHelpFor(round)}</p>}
               {!locked && <>
                 {mapRound && <CurriculumMap round={round} selected={selected} onPick={handlePick} disabled={locked || Boolean(persistenceIssue)} showLabels={round.type === 'ocean'} />}
                 {choiceRound && <ChoiceRound round={{ ...choiceRound, options: shuffledOptions }} onPick={handlePick} disabled={locked || Boolean(persistenceIssue)} selected={selected} />}

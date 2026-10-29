@@ -200,10 +200,6 @@
   .quest-investigation-predictions button{min-height:74px;padding:4px}
   .quest-investigation-predictions button>span{font-size:30px;line-height:1.1}
   .quest-investigation-predictions button strong{margin-top:2px;font-size:11px;line-height:1.15}
-  .quest-investigation-observation{padding:8px;font-size:13px}
-  .quest-investigation-observation>p.mt-2{margin-top:4px;line-height:1.35}
-  .quest-investigation-observation>div.mt-3{margin-top:5px}
-  .quest-investigation-question{margin:8px 0;font-size:16px;line-height:1.2}
   .quest-route-card{padding:8px}
   .quest-route-card>.mb-3{margin-bottom:6px;font-size:12px}
   .quest-route-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(148px,.95fr);align-items:center;gap:5px}
@@ -211,4 +207,15 @@
   .quest-route-map>div{min-height:48px;font-size:22px}
   .quest-route-body>.mt-4{width:9.75rem;max-width:100%;margin:0;gap:4px}
   .quest-route-body>.mt-4 button{min-width:48px;min-height:48px;padding:2px;font-size:13px}
+}
+
+.quest-audio-compact{width:48px;min-width:48px;min-height:48px;padding:0;justify-content:center;flex:0 0 48px}
+.quest-investigation-observation-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;text-align:left}
+.quest-investigation-observation-row>p{min-width:0;flex:1;margin:0}
+@media(max-width:640px){
+  .quest-investigation-observation{padding:8px}
+  .quest-investigation-observation-row{gap:7px;margin-top:5px}
+  .quest-investigation-observation-row>p{font-size:13px;line-height:1.35}
+  .quest-investigation-observation-row>.quest-audio-compact{width:48px;min-width:48px;min-height:48px}
+  .quest-investigation-question{margin:8px 0;font-size:16px;line-height:1.2}
 }
