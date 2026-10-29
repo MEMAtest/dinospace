@@ -92,3 +92,8 @@
 .discovery-game-surface[data-discovery-game="storybooks"] .storybook-quiz button { padding-block: 10px; }
 
 .discovery-game-surface[data-discovery-game="storybooks"] { --literacy-chrome: 78px; }
+
+/* A failed library save stays discoverable when the story cards are scrolled. */
+.discovery-game-surface[data-discovery-game="storybooks"] .storybook-shell { overflow: clip; }
+.discovery-game-surface[data-discovery-game="storybooks"] .storybook-library-alerts { position: sticky; top: 8px; z-index: 40; }
+.discovery-game-surface[data-discovery-game="storybooks"] .storybook-library-alerts:not(:empty) { filter: drop-shadow(0 5px 8px #091a4566); }
