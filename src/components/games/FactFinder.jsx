@@ -45,7 +45,7 @@ export default function FactFinder({ onBack, onLaunchGame, soundOn = true, onTog
 
   useEffect(() => { onPhaseChange?.('intro'); }, [onPhaseChange]);
   useEffect(() => {
-    if (visibleSelectionId) articleTitleRef.current?.focus();
+    if (visibleSelectionId) articleTitleRef.current?.focus({ preventScroll: true });
   }, [visibleSelectionId]);
   useEffect(() => {
     if (soundOn) return;
@@ -86,6 +86,7 @@ export default function FactFinder({ onBack, onLaunchGame, soundOn = true, onTog
   const openTopic = (id) => {
     stopAudio(audioRef, audioGenerationRef, setPlayingKey);
     returnFocusIdRef.current = id;
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     setSelectedId(id);
   };
   const backToTopics = () => {
