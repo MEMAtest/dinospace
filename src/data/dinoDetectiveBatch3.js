@@ -111,6 +111,47 @@ export const DINO_SEARCH_SPOTS = freeze([
   freeze({ id: 'stone-low-right', label: 'lower right rocks', x: 65, y: 76 }),
 ]);
 
+const regionHintForSpot = (spot) => {
+  if (!spot) return '';
+  const vertical = spot.y < 50 ? 'upper' : 'lower';
+  return `The tracks lead toward the ${vertical} row of hiding places.`;
+};
+
+const spatialWordClueForSpot = (spot) => {
+  if (!spot) return '';
+  const horizontal = spot.x < 40 ? 'left' : spot.x > 60 ? 'right' : 'middle';
+  const vertical = spot.y < 50 ? 'upper' : 'lower';
+  return `Search the ${vertical} row, toward the ${horizontal}.`;
+};
+
+// Bands expose different amounts of evidence. Starter keeps its bright trail;
+// Growing starts with only the trail's first section; Challenge starts without
+// a target-linked trail and reveals it in two child-requested steps.
+export const getDinoCluePlan = (bandIndex, clueStep, round) => {
+  if (!Number.isInteger(bandIndex) || bandIndex < 0 || bandIndex > 2 || !round) return null;
+  const maxStep = bandIndex === 0 ? 1 : 2;
+  const step = Math.max(0, Math.min(maxStep, Number.isInteger(clueStep) ? clueStep : 0));
+  const spot = DINO_SEARCH_SPOTS.find(({ id }) => id === round.targetSpotId);
+  if (!spot) return null;
+  const trail = bandIndex === 0 || (bandIndex === 1 && step >= 2) || (bandIndex === 2 && step >= 2)
+    ? 'full'
+    : bandIndex === 2 && step === 0 ? 'none' : 'partial';
+  const regionText = step === 1 && bandIndex === 1 ? regionHintForSpot(spot)
+    : step === 1 && bandIndex === 2 ? 'Follow the first trail marks to check your search.' : '';
+  const exactText = step === maxStep ? round.hintText : '';
+  return Object.freeze({
+    bandIndex,
+    step,
+    maxStep,
+    trail,
+    revealTarget: step === maxStep,
+    baselineText: bandIndex === 2 ? spatialWordClueForSpot(spot) : '',
+    regionText,
+    exactText,
+    buttonLabel: step === 0 ? 'Show a clue' : step < maxStep ? 'Show a stronger clue' : '',
+  });
+};
+
 export const dinoSearchTargetsAreSafe = (spots = DINO_SEARCH_SPOTS, width = 330, height = 340, targetSize = 64) => {
   if (!Array.isArray(spots) || spots.length !== 5) return false;
   const centers = spots.map(({ x, y }) => ({ x: (x / 100) * width, y: (y / 100) * height }));

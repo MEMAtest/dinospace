@@ -6,6 +6,10 @@ import { playerStorageKey } from './players.js';
 export const rewardKey = (playerId) => playerStorageKey(playerId, 'rewards_v2');
 const record = (value) => value && typeof value === 'object' && !Array.isArray(value) ? value : {};
 const count = (value) => Number.isFinite(value) && value >= 0 ? value : 0;
+const defaultStorage = () => { try { return globalThis.localStorage || null; } catch { return null; } };
+const plainRecord = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+const validClaim = (key, amount) => typeof key === 'string' && /^(dino|hangman):[a-z0-9:_-]{1,160}$/i.test(key)
+  && Number.isInteger(amount) && amount > 0 && amount <= 12;
 const read = (storage, key, fallback) => {
   try { return JSON.parse(storage?.getItem(key) ?? 'null') ?? fallback; } catch { return fallback; }
 };
@@ -19,12 +23,17 @@ export const mergeRewards = (...values) => {
   }
   const validIds = new Set(STICKERS.map(({ id }) => id));
   const ids = values.flatMap((value) => Array.isArray(value?.earnedStickerIds) ? value.earnedStickerIds : []);
+  const rewardClaims = {};
+  for (const value of values) for (const [key, amount] of Object.entries(record(value?.rewardClaims))) {
+    if (validClaim(key, amount)) rewardClaims[key] = Math.max(rewardClaims[key] || 0, amount);
+  }
   return {
     version: 2, points, gamesPlayed,
     earnedStickerIds: [...new Set([...ids.filter((id) => validIds.has(id)), ...STICKERS.filter((sticker) => points >= sticker.points).map(({ id }) => id)])],
+    ...(Object.keys(rewardClaims).length ? { rewardClaims } : {}),
   };
 };
-export const readPlayerRewards = (playerId, storage = globalThis.localStorage) => mergeRewards(
+export const readPlayerRewards = (playerId, storage = defaultStorage()) => mergeRewards(
   read(storage, rewardKey(playerId), {}),
   {
     points: read(storage, playerStorageKey(playerId, 'points'), 0),
@@ -33,7 +42,67 @@ export const readPlayerRewards = (playerId, storage = globalThis.localStorage) =
   },
 );
 
-export const commitPlayerReward = (playerId, current, amount, gameId, storage = globalThis.localStorage) => {
+const writeMirrors = (playerId, next, storage) => {
+  for (const [key, value] of [['points', next.points], ['earned_sticker_ids_v1', next.earnedStickerIds], ['games_played', next.gamesPlayed]]) {
+    try { storage.setItem(playerStorageKey(playerId, key), JSON.stringify(value)); } catch { /* authoritative record is already saved */ }
+  }
+};
+
+// Only Pair7 opts into claims. A claim is stored in the same authoritative
+// record as its points, so a committed-but-unconfirmed award can be recovered
+// after Back/reload without paying twice. Other callers keep their old API.
+const commitClaimedReward = (playerId, current, amount, gameId, storage, rewardToken) => {
+  const before = mergeRewards(readPlayerRewards(playerId, storage), current);
+  const failed = (error) => ({ ...before, persisted: false, awardedPoints: 0, recovered: false, error });
+  if (!['dino', 'hangman'].includes(gameId) || !String(rewardToken).startsWith(`${gameId}:`) || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
+  if (!storage || typeof storage.getItem !== 'function' || typeof storage.setItem !== 'function') return failed('Reward storage is unavailable.');
+  let canonical, canonicalRaw;
+  try {
+    const raw = storage.getItem(rewardKey(playerId));
+    canonicalRaw = raw;
+    canonical = raw === null ? {} : JSON.parse(raw);
+    if (!plainRecord(canonical) || (raw !== null && (canonical.version !== 2
+      || !Number.isFinite(canonical.points) || canonical.points < 0
+      || !plainRecord(canonical.gamesPlayed) || Object.values(canonical.gamesPlayed).some(value => !Number.isFinite(value) || value < 0)
+      || !Array.isArray(canonical.earnedStickerIds) || canonical.earnedStickerIds.some(id => typeof id !== 'string')))) throw Error('Invalid reward record');
+    if (canonical.rewardClaims !== undefined && (!plainRecord(canonical.rewardClaims)
+      || Object.entries(canonical.rewardClaims).some(([key, value]) => !validClaim(key, value)))) throw Error('Invalid reward claims');
+    for (const [name, valid] of [
+      ['points', value => Number.isFinite(value) && value >= 0],
+      ['earned_sticker_ids_v1', value => Array.isArray(value) && value.every(id => typeof id === 'string')],
+      ['games_played', value => plainRecord(value) && Object.values(value).every(n => Number.isFinite(n) && n >= 0)],
+    ]) {
+      const legacy = storage.getItem(playerStorageKey(playerId, name));
+      if (legacy !== null && !valid(JSON.parse(legacy))) throw Error('Invalid legacy reward record');
+    }
+  } catch { return failed('Saved rewards could not be read safely.'); }
+  const claims = before.rewardClaims || {};
+  if (claims[rewardToken] !== undefined) {
+    if (claims[rewardToken] !== amount) return failed('Reward claim does not match the saved award.');
+    try {
+      const encoded = JSON.stringify({ ...canonical, ...before });
+      if (canonicalRaw !== encoded) storage.setItem(rewardKey(playerId), encoded);
+      if (storage.getItem(rewardKey(playerId)) !== encoded) throw Error('Reward recovery readback failed');
+    } catch { return failed('Saved reward claim could not be confirmed.'); }
+    writeMirrors(playerId, before, storage);
+    return { ...before, persisted: true, awardedPoints: 0, recovered: true };
+  }
+  const next = { ...canonical, ...mergeRewards({ ...before,
+    points: before.points + amount,
+    gamesPlayed: { ...before.gamesPlayed, [gameId]: (before.gamesPlayed[gameId] || 0) + 1 },
+    rewardClaims: { ...claims, [rewardToken]: amount },
+  }) };
+  try {
+    const encoded = JSON.stringify(next);
+    storage.setItem(rewardKey(playerId), encoded);
+    if (storage.getItem(rewardKey(playerId)) !== encoded) throw Error('Reward readback failed');
+  } catch { return failed('Earned rewards could not be confirmed. Retry this result.'); }
+  writeMirrors(playerId, next, storage);
+  return { ...next, persisted: true, awardedPoints: amount, recovered: false };
+};
+
+export const commitPlayerReward = (playerId, current, amount, gameId, storage = defaultStorage(), { rewardToken } = {}) => {
+  if (rewardToken !== undefined) return commitClaimedReward(playerId, current, amount, gameId, storage, rewardToken);
   const before = mergeRewards(readPlayerRewards(playerId, storage), current);
   const next = mergeRewards({
     ...before,
@@ -48,9 +117,7 @@ export const commitPlayerReward = (playerId, current, amount, gameId, storage = 
     persisted = true;
   } catch { /* caller shows a save warning, never claims a failed write saved */ }
   if (persisted) {
-    for (const [key, value] of [['points', next.points], ['earned_sticker_ids_v1', next.earnedStickerIds], ['games_played', next.gamesPlayed]]) {
-      try { storage.setItem(playerStorageKey(playerId, key), JSON.stringify(value)); } catch { /* authoritative record is already saved */ }
-    }
+    writeMirrors(playerId, next, storage);
   }
   return { ...next, persisted };
 };

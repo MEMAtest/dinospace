@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { DINO_DETECTIVE_WORLDS, DINO_SEARCH_SPOTS, createDinoDetectiveRun, dinoSearchTargetsAreSafe } from '../src/data/dinoDetectiveBatch3.js';
+import { DINO_DETECTIVE_WORLDS, DINO_SEARCH_SPOTS, createDinoDetectiveRun, dinoSearchTargetsAreSafe, getDinoCluePlan } from '../src/data/dinoDetectiveBatch3.js';
 
 test('twelve worlds form three four-world bands with safe five-round seeded runs', () => {
   assert.equal(DINO_DETECTIVE_WORLDS.length, 12);
@@ -23,4 +23,33 @@ test('recent five-spot layouts are avoided when an alternative exists', () => {
   const first = createDinoDetectiveRun(0, 9);
   const second = createDinoDetectiveRun(0, 9, [first.signature]);
   assert.notEqual(second.signature, first.signature);
+});
+
+test('search clues reveal graduated evidence by band and hold exact direction until requested', () => {
+  const run = createDinoDetectiveRun(0, 17);
+  const round = run.rounds[0];
+  const starter = getDinoCluePlan(0, 0, round);
+  assert.equal(starter.trail, 'full');
+  assert.equal(starter.revealTarget, false);
+  assert.equal(getDinoCluePlan(0, 1, round).exactText, round.hintText);
+
+  const growing = getDinoCluePlan(1, 0, round);
+  assert.equal(growing.trail, 'partial');
+  assert.equal(growing.revealTarget, false);
+  const growingFirst = getDinoCluePlan(1, 1, round);
+  assert.match(growingFirst.regionText, /upper|lower/);
+  assert.equal(growingFirst.exactText, '');
+  const growingSecond = getDinoCluePlan(1, 2, round);
+  assert.equal(growingSecond.trail, 'full');
+  assert.equal(growingSecond.revealTarget, true);
+  assert.equal(growingSecond.exactText, round.hintText);
+
+  const challenge = getDinoCluePlan(2, 0, round);
+  assert.equal(challenge.trail, 'none');
+  assert.equal(challenge.revealTarget, false);
+  assert.match(challenge.baselineText, /^Search the (upper|lower) row, toward the (left|middle|right)\.$/);
+  assert.equal(challenge.baselineText, getDinoCluePlan(2, 1, round).baselineText);
+  assert.equal(getDinoCluePlan(2, 1, round).trail, 'partial');
+  assert.equal(getDinoCluePlan(2, 2, round).exactText, round.hintText);
+  assert.equal(getDinoCluePlan(3, 0, round), null);
 });

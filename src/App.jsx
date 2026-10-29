@@ -205,22 +205,23 @@ const PlayerSession = ({
     setFavouriteGames((current) => (current.includes(gameId) ? current.filter((id) => id !== gameId) : [gameId, ...current]));
   }, [playSfx]);
 
-  const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0, gameIdOverride, { quiet = false } = {}) => {
+  const celebrate = useCallback((message, pointsEarned = 5, delayMs = 0, gameIdOverride, { quiet = false, rewardToken } = {}) => {
     const finalMessage = message || getPraise();
     const gameIdAtCall = gameIdOverride || currentGameIdRef.current;
     const run = () => {
-      const next = commitPlayerReward(player.id, rewardsRef.current, pointsEarned, gameIdAtCall);
+      const next = commitPlayerReward(player.id, rewardsRef.current, pointsEarned, gameIdAtCall, undefined, { rewardToken });
       rewardsRef.current = next;
       setRewards(next);
       setRewardSaveFailed(!next.persisted);
       const total = next.points;
-      if (quiet) return;
+      if (quiet || (rewardToken && (!next.persisted || next.awardedPoints === 0))) return next;
       setCelebration({
         id: Date.now(), message: finalMessage, points: pointsEarned, total, bursts: createBursts(), confetti: createConfetti(),
       });
+      return next;
     };
-    if (delayMs > 0) setTimeout(run, Math.min(delayMs, 100));
-    else run();
+    if (delayMs > 0) { setTimeout(run, Math.min(delayMs, 100)); return null; }
+    return run();
   }, [player.id]);
 
   const scaledCelebrate = useCallback(
@@ -276,7 +277,7 @@ const PlayerSession = ({
       cancelNarration: voice.cancel,
       // The older games award 4–14 stars per answer, which emptied the
       // sticker shelf within days; scale them to match the newer games.
-      onCelebrate: currentGame.little ? celebrate : scaledCelebrate,
+      onCelebrate: currentGame.little || (little && currentGame.id === 'dino') ? celebrate : scaledCelebrate,
       onGameEvent: recordGameEvent,
       playerName: player.name,
       playerId: player.id,

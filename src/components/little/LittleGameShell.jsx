@@ -156,6 +156,34 @@ const LittleGameShell = ({
   const completedPlaysRef = useRef(initialPairProgress?.gameRecord?.plays || 0);
   const runsSinceSaveRef = useRef(0);
   const rewardedTransactionsRef = useRef(new Set());
+  const [restoredDinoReward, setRestoredDinoReward] = useState(() => {
+    const entry = initialPairProgress?.ok && gameId === 'dino' ? initialPairProgress.gameRecord : null;
+    return entry?.pairRewardPoints > 0 && entry.pairTransactionId
+      ? { points: entry.pairRewardPoints, transactionId: entry.pairTransactionId }
+      : null;
+  });
+  const attemptedDinoRecoveryRef = useRef(false);
+  const restoreDinoReward = useCallback(() => {
+    if (!restoredDinoReward) return;
+    const claimed = onCelebrate?.(finishLine, restoredDinoReward.points, 0, 'dino', {
+      quiet: true, rewardToken: `dino:little:${restoredDinoReward.transactionId}`,
+    });
+    if (!claimed?.persisted) {
+      setPairSaveWarning('Your completed dinosaur search is safe. Its reward is waiting to be confirmed. Retry before starting another search.');
+      return;
+    }
+    setRestoredDinoReward(null);
+    setPairSaveWarning('');
+  }, [finishLine, onCelebrate, restoredDinoReward]);
+
+  useEffect(() => {
+    if (!restoredDinoReward || attemptedDinoRecoveryRef.current) return;
+    const timer = setTimeout(() => {
+      attemptedDinoRecoveryRef.current = true;
+      restoreDinoReward();
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [restoredDinoReward, restoreDinoReward]);
 
   useEffect(() => { onPhaseChange?.(phase === 'save-error' ? 'play' : phase); }, [onPhaseChange, phase]);
 
@@ -205,6 +233,18 @@ const LittleGameShell = ({
 
   const showSavedResult = useCallback((pending, saved) => {
     if (rewardedTransactionsRef.current.has(pending.transactionId)) return;
+    if (gameId === 'dino' && saved.rewardPoints > 0) {
+      const claimed = onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId, {
+        rewardToken: `dino:little:${pending.transactionId}`,
+      });
+      if (!claimed?.persisted) {
+        pendingResultRef.current = pending;
+        setPendingResult(pending);
+        setPairSaveWarning('Your dinosaur result is saved, but its reward is not confirmed yet. Retry to finish safely.');
+        setPhase('save-error');
+        return;
+      }
+    }
     rewardedTransactionsRef.current.add(pending.transactionId);
     pendingResultRef.current = null;
     setPendingResult(null);
@@ -216,7 +256,7 @@ const LittleGameShell = ({
     runsSinceSaveRef.current = 0;
     playSfx?.(saved.levelUp ? 'levelup-big' : 'complete');
     onGameEvent?.(gameId, 'level_completed');
-    if (saved.rewardPoints > 0) onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId);
+    if (saved.rewardPoints > 0 && gameId !== 'dino') onCelebrate?.(finishLine, saved.rewardPoints, 0, gameId);
     speak?.(finishLine);
     if (saved.levelUp) speechTimers.current.push(setTimeout(() => speak?.(LITTLE_LINES.levelUp), 2200));
     setPhase('done');
@@ -345,6 +385,7 @@ const LittleGameShell = ({
       {phase === 'start' && (
         <main className={`relative z-10 flex flex-1 flex-col items-center ${compactStart ? 'justify-start gap-2 px-4 pb-3 pt-2' : 'justify-center gap-5 px-4 pb-8'} text-center`}>
           {pairSaveWarning && <p role="alert" className="max-w-xl rounded-2xl border-2 border-amber-500 bg-amber-50 px-4 py-3 font-bold text-amber-950">{pairSaveWarning}</p>}
+          {restoredDinoReward && <button type="button" onClick={restoreDinoReward} className="min-h-12 rounded-full border-4 border-white bg-lime-500 px-5 font-black text-slate-950">Retry saved dinosaur rewards</button>}
           <div className={`pair-compact-start-hero w-full animate-bounce-slow ${compactStart ? 'relative h-40 max-w-[18rem]' : 'max-w-md'}`}>{startArt}</div>
           <PairLevelSelector enabled={pairSafeProgress} level={level} highestLevel={highestLevel} minimumLevel={minimumPairLevel} onSelect={setLevel} />
           <LevelDots level={level} total={levels.length} />
@@ -352,6 +393,7 @@ const LittleGameShell = ({
           <button
             type="button"
             onClick={start}
+            disabled={Boolean(restoredDinoReward)}
             aria-label={`Play ${title}`}
             className="pair-compact-start-play grid h-32 w-32 place-items-center rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_10px_0_#166534,0_20px_40px_rgba(22,101,52,.35)] transition hover:scale-105 active:translate-y-2 active:shadow-none sm:h-40 sm:w-40"
           >

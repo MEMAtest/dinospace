@@ -46,3 +46,10 @@ test('Classification and pattern chapters avoid premature wrapper completion', (
     assert.equal(ownsGameProgression(game, true), game === 'pattern');
   }
 });
+
+test('Hangman owns its held four-mission save and replay flow', () => {
+  assert.equal(ownsGameProgression('hangman', false), true);
+  assert.equal(ownsGameProgression('hangman', true), true);
+  assert.equal(ownsGameProgression('letters', false), false);
+  assert.equal(ownsGameProgression('german', false), false);
+});

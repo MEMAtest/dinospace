@@ -38,8 +38,8 @@ test('Pair 5 progress fails closed on storage getters, unreadable and malformed 
   assert.equal(empty.values.get('askia_little_progress'), '');
 });
 
-test('Pair 6 Fire and Ladder results persist, grant fresh rewards once, and migrate old progress conservatively', () => {
-  for (const gameId of ['firerescue', 'ladder']) {
+test('Opted-in Rescue and Dino results persist, grant fresh rewards once, and migrate old progress conservatively', () => {
+  for (const gameId of ['firerescue', 'ladder', 'dino']) {
     let blockedWrites = 0;
     const unreadable = { getItem() { throw new DOMException('blocked read', 'SecurityError'); }, setItem() { blockedWrites += 1; } };
     const readFailure = commitPairLittleResult({
