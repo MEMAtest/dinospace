@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": 11,
+  "activePair": "final_integration",
   "pairs": [
     {
       "number": 1,
@@ -240,11 +240,16 @@
         {
           "id": "learning-wiki",
           "name": "Fact Finder",
-          "scope": "Separately requested child-friendly curated search/explainer; new feature, not historical game acceptance"
+          "scope": "Separately requested child-friendly curated search/explainer; new feature, not historical game acceptance",
+          "routeId": "factfinder"
         }
       ],
-      "status": "source_audit_complete",
-      "evidence": null
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
+      "runtime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+      "verifiedAt": "2026-10-29T13:07:26.066455+00:00",
+      "production": "docs/qa-evidence/letters-factfinder-20261029/production-summary.json",
+      "openGate": null
     }
   ],
   "retainedReleasedScopes": [
@@ -324,9 +329,12 @@
     {
       "id": "learning-wiki",
       "name": "Kid-friendly learning wiki",
-      "status": "queued_after_existing_catalogue_pairs",
+      "status": "live_verified",
       "request": "Earlier human request: select or search for an animal/topic and get a clear, friendly learning explainer. Not yet present as a separate source component.",
-      "scope": "Audit whether existing discovery content can supply a curated search/select learning library with existing art and verified facts. Preserve as a distinct outstanding feature; do not count catalogue gameplay checks as its delivery."
+      "scope": "Audit whether existing discovery content can supply a curated search/select learning library with existing art and verified facts. Preserve as a distinct outstanding feature; do not count catalogue gameplay checks as its delivery.",
+      "routeId": "factfinder",
+      "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
+      "runtime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab"
     }
   ],
   "queueRevision": {

@@ -1,0 +1,991 @@
+{
+  "passed": false,
+  "flow": "factfinder",
+  "stage": "production",
+  "origin": "https://dinospace.netlify.app",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-BrQh-tMA.js",
+  "startingUrl": "https://dinospace.netlify.app/?qa_pair11_factfinder=1793278595732-390-740#/",
+  "flowResult": null,
+  "rows": [],
+  "failures": [
+    {
+      "message": "Fact Finder did not play and advance an exact packaged clip",
+      "evidence": {
+        "first": {
+          "id": "media-1",
+          "src": "https://dinospace.netlify.app/audio/en/a401d59e-matilda.mp3",
+          "path": "/audio/en/a401d59e-matilda.mp3",
+          "paused": false,
+          "ended": false,
+          "currentTime": 0.042667,
+          "duration": 2.322,
+          "events": [
+            {
+              "type": "play-call",
+              "time": 0,
+              "duration": null,
+              "at": 2581.100000023842
+            },
+            {
+              "type": "play",
+              "time": 0,
+              "duration": null,
+              "at": 2596.400000035763
+            },
+            {
+              "type": "playing",
+              "time": 0,
+              "duration": 2.322,
+              "at": 2819.600000023842
+            }
+          ]
+        }
+      },
+      "stack": "Error: Fact Finder did not play and advance an exact packaged clip\n    at assert (evalmachine.<anonymous>:46:41)\n    at runFactFinder (evalmachine.<anonymous>:614:7)\n    at async evalmachine.<anonymous>:714:65\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13\n    at async waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:65487:15)\n    at async _Tab._raceAgainstModalStates (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66668:18)\n    at async _Tab.waitForCompletion (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:66675:9)\n    at async Object.handle (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69218:11)\n    at async BrowserBackend.callTool (/Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:67582:11)",
+      "partialRows": []
+    }
+  ],
+  "errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "failedResponses": [],
+    "providerAttempts": []
+  },
+  "baselineRawDigestSummary": {
+    "qa_rewards_20261024_amari_letter_trace_progress_v1": {
+      "bytes": 278,
+      "sha256": "a6a33397a1b02d3191e7b9512385f704236cd24ce9b8c27e5dee56169fd17dda"
+    },
+    "qa_rewards_20261024_amari_rewards_v2": {
+      "bytes": 3102,
+      "sha256": "87d0a89c9641e872acae3b4932f2763dfe53e4c557391ad5aa2b8f3bd6cfc7dd"
+    },
+    "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1": {
+      "bytes": 9552,
+      "sha256": "52818933561142f00177f09945157335ec79f18cb1e836e3efa0c014665c85dc"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing": {
+      "bytes": 476,
+      "sha256": "a6fe46ca93298ffb7820151834a97d7a6aa984ac825fb5aa104fa3cf8fbff72d"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing": {
+      "bytes": 179,
+      "sha256": "a07b429a52ca026912b4060e3bc323aed2c5aa776db686c759db950ef2e08d63"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good": {
+      "bytes": 126760,
+      "sha256": "e487301d17292d79dbe59ee4c4f6f554c5af1b043b31453af4e81063be1ddecf"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter": {
+      "bytes": 425,
+      "sha256": "af4fb66309c244c4de4c9af028937b83fe3469165e67a3a87840f4f17a7553a7"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge": {
+      "bytes": 436,
+      "sha256": "c84acab72a5370cfb979b464c399187eb9a725adf31c2730a7949226b6a87aa7"
+    },
+    "qa_rewards_20261024_askia_favourite_games": {
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:amari": {
+      "bytes": 278,
+      "sha256": "4f5b18ff20d0e068369e402a51d433024e952e6aaa75be38b81f2fcd2e38cd43"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge": {
+      "bytes": 138,
+      "sha256": "a5bce1316bd914796a045a14be7b77d8ea071a3f0ea196de62dab93e110d6abb"
+    },
+    "qa_rewards_20261024_amari_cosmic_freeplay_v1": {
+      "bytes": 183,
+      "sha256": "b75c9cb3f20422d9a645093be50cde7bf7d923ca2ca1ff801b099f2060c975d6"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_german_chapter_progress_v1": {
+      "bytes": 531,
+      "sha256": "f299e189cf880494b64a907fedc109e75b267ad584294356ac25b6b188b70fe5"
+    },
+    "qa_rewards_20261024_amari_writing_samples_v1": {
+      "bytes": 293,
+      "sha256": "62e676c233cc949248983b98f7422de295975aa694b12da09f5046fc5a5df250"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter": {
+      "bytes": 154,
+      "sha256": "aad9e3c397e5fd1f6a93e290c0aa5b7e81be1f8e06e540930d9a3176caf27835"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge": {
+      "bytes": 172,
+      "sha256": "fd8d395476c99f0333b062d46ed2c3d8e3867878ada9750768210a791e59638b"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard": {
+      "bytes": 154271,
+      "sha256": "38acb3b5cda24fbd4b0be4b969f8e1910afe11ed020247fcdad5c5e8e44736d1"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter": {
+      "bytes": 367,
+      "sha256": "04309c5306d944c5782cee4a445deb349e7b55ac885a816e1033ea331f8c48cd"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing": {
+      "bytes": 158,
+      "sha256": "8ae3e3c08d53874ce8bc4446090fbb3e09f0ac1b9005b98d8eaaf13a2f31c466"
+    },
+    "qa_rewards_20261024_amari_german_recent_targets_v1": {
+      "bytes": 380,
+      "sha256": "9f8d1b6063b01d4edaa25d545f20fcebd79a72db8f4e692427b916e68acc77aa"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing": {
+      "bytes": 394,
+      "sha256": "9c1ac5d8e9c840c8c2c62e7b94a81ad707bf26622f1b222b8a60abc04433dad8"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge": {
+      "bytes": 190,
+      "sha256": "31c4befee0b5643da663193ff57281ecbc774424aaa8c7ebbe2473b3cdbfb568"
+    },
+    "qa_rewards_20261024_amari_challenge_done": {
+      "bytes": 4,
+      "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+    },
+    "qa_rewards_20261024_amari_letter_launch_progress_v1": {
+      "bytes": 710,
+      "sha256": "86ad888da8c07164424cf3c57c69d51696a36f8a225338ddf4fc6ab9d8ee316a"
+    },
+    "qa_rewards_20261024_askia_earned_sticker_ids_v1": {
+      "bytes": 75,
+      "sha256": "4f285602d1cca7c2d2f0e1acb8afa6304ecc8a07a95ca2df32a714de3aa17dfc"
+    },
+    "qa_rewards_20261024_amari_voice_mode_v4": {
+      "bytes": 7,
+      "sha256": "870dc23d21836b97b58a7753922edc8512764e83c02586f3d8f14c11f760550b"
+    },
+    "qa_rewards_20261024_amari_astronaut_academy_progress_v1": {
+      "bytes": 798,
+      "sha256": "ecf2983df506da9e1dc9e7f5dda82f9a293cb7bc1a0e355580909b51fa095541"
+    },
+    "qa_rewards_20261024_amari_writing_desk_progress_v1:amari": {
+      "bytes": 96,
+      "sha256": "4180f5dcce988b24d87a526bb94ec4115adf9985b84d7bd4e890471c8bbf061c"
+    },
+    "qa_rewards_20261024_askia_challenge_done": {
+      "bytes": 5,
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    "qa_rewards_20261024_askia_streak": {
+      "bytes": 1,
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing": {
+      "bytes": 153714,
+      "sha256": "5f47f87d123f3e48ef71a8b9f176d90f3d1863e42747233917cb4c6a1b75626b"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter": {
+      "bytes": 392,
+      "sha256": "61b7d671f076276b51394960b4ae47b2cfd64e9e4f30fff171c43eaf5af3ae07"
+    },
+    "qa_rewards_20261024_amari_cosmic_tactics_v1": {
+      "bytes": 130,
+      "sha256": "8b4d4123fca4bdb562b092e40e22d816d44ca0e2fe61cdd793e69c74da8aab5e"
+    },
+    "qa_rewards_20261024_amari_favourite_games": {
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter": {
+      "bytes": 146,
+      "sha256": "a711a548f527ccdfd4f805775a09d9838dff9b12e525c83b5abfe3171845ef5f"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge": {
+      "bytes": 339,
+      "sha256": "d3bf94c41b13412c7b6ccd1d8303a6fa2c8fc692ea0c1cda6d83a5a2c5b3ac9e"
+    },
+    "qa_rewards_20261024_amari_curriculum_completion_receipts_v1": {
+      "bytes": 1296,
+      "sha256": "fe1c8f34ed96e6ea09c10fd087d304d2ca322f52ca374b915e3516fb2aef1268"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report": {
+      "bytes": 102984,
+      "sha256": "af50d4bf3e5af18fae31df3c38326e2a2e79b41e149ab9880a59dbb152a501a9"
+    },
+    "qa_rewards_20261024_amari_spelling_recent_v1": {
+      "bytes": 59,
+      "sha256": "abf62b159bf6b3e35fcde4ff9ca256ac81ef312b375b2f7b87a2670b4731b092"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter": {
+      "bytes": 454,
+      "sha256": "9f79f4aa73acfa90ec2581a2fdddcf0ca934e64171c03d12b4363ac37deb1c71"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing": {
+      "bytes": 485,
+      "sha256": "713c52079fea43216bcda3ee3cd8add99a7cfa0a0204b2548c76dd36b55054f5"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge": {
+      "bytes": 407,
+      "sha256": "8f64ed3954f3c7ab29ccc187290b1339c90694082ec05332f694760f66f9b66c"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes": {
+      "bytes": 126724,
+      "sha256": "7cf8670af95384b5169d32a10bc520fe42a0d974443b48d96e3feacdddde844f"
+    },
+    "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari": {
+      "bytes": 252,
+      "sha256": "0d8648eae61ba15771315a90ccecf934dce45ea323055b9da6445aa3ce4eaede"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter": {
+      "bytes": 360,
+      "sha256": "ae7027e5398f152607643c82d9a186ae4950d7c1a3c7309f02102b782383476a"
+    },
+    "qa_rewards_20261024_amari_curriculum_preferences_v1": {
+      "bytes": 132,
+      "sha256": "e2c9f1177dd7065b5630258edbe42c673edecb98e247c9ad2f35fedc4718b298"
+    },
+    "qa_rewards_20261024_amari_oddoneout_progress_v1": {
+      "bytes": 1212,
+      "sha256": "f31ab7820bfb9634fe0b859db77195e2ce4f1c70552340af8787a74a848cb2f3"
+    },
+    "qa_rewards_20261024_amari_hangman_progress_v1:amari": {
+      "bytes": 848,
+      "sha256": "80bce7620e4d0c425ab8babae743b3b71b4dcff2e254b0274d9ffdf922d6eb0c"
+    },
+    "qa_rewards_20261024_amari_numberline_progress_v1": {
+      "bytes": 673,
+      "sha256": "7b86acfaad3bcb7ca349077cb6e3cb78cb2db92644d4b99ebe362db991b17b27"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge": {
+      "bytes": 414,
+      "sha256": "00533d2a5d328e7b696bd672528a510cce3ab0af3befad6052b774f7f92bc892"
+    },
+    "qa_rewards_20261024_amari_earned_sticker_ids_v1": {
+      "bytes": 92,
+      "sha256": "ac26b0d63c8c4c472f2c4be16a97477899a0dabb73afa453bcb72f6d19125de7"
+    },
+    "qa_rewards_20261024_amari_timeteller_progress_v1": {
+      "bytes": 541,
+      "sha256": "81e73edc5a789b6880e15ab6ef53c0a1f0552e80005a7600f224cedbce666bba"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_0": {
+      "bytes": 33,
+      "sha256": "c3d707a51c5f9347581e61dc50880597149fe2a191cd138aaaefa5db33cadc5e"
+    },
+    "amari-sound-on": {
+      "bytes": 5,
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari": {
+      "bytes": 387,
+      "sha256": "176bea07c78604cfd2829ff73e6de375db86807e7a046c407171bbcf4ac0360a"
+    },
+    "qa_rewards_20261024_amari_memory_resume_v1": {
+      "bytes": 17,
+      "sha256": "3ebad643deb9b1a2a98b072d44fde2f970b75d7397ef06e9e770a97ddc9fc3ba"
+    },
+    "qa_rewards_20261024_askia_games_played": {
+      "bytes": 108,
+      "sha256": "0fb0e9461d2c151929a0a6d9b6706d0623e3a1a0c42019ab623880f9cde4ed56"
+    },
+    "qa_rewards_20261024_amari_memory_completion_v1": {
+      "bytes": 577,
+      "sha256": "089869ec33e2c6ddeb26b4e613c6a7ba86410a8aea3abbc36d328f79e122ffad"
+    },
+    "qa_rewards_20261024_amari_streak": {
+      "bytes": 1,
+      "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+    },
+    "qa_rewards_20261024_amari_addition_progress_v1": {
+      "bytes": 250,
+      "sha256": "6119c4c7b8d5ef5c31ab9aaa498f319bc77d3151696c7b7c70f38a137469e81f"
+    },
+    "qa_rewards_20261024_amari_words_session_progress_v1:amari": {
+      "bytes": 1658,
+      "sha256": "b28f6f1b1d0c1338fcd7eddb91d4cedd14a312a6f6f9907a60d7d49a180d8688"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_1": {
+      "bytes": 49,
+      "sha256": "167bc4bcff846e5dc1c7b96a23586df8468d631ef49165a8f9487ffced37ef59"
+    },
+    "qa_rewards_20261024_amari_challenge_progress": {
+      "bytes": 1,
+      "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing": {
+      "bytes": 401,
+      "sha256": "1daa53118c325657cd2170c7d21a0464ffe9dc5909c9d9bb2110c306dbeae2ce"
+    },
+    "qa_rewards_20261024_amari_chess_game_v1": {
+      "bytes": 797,
+      "sha256": "30ad23946c8f8928a10d6b44acf021b47558c665bc8cdb6bb3bafa7ea917be37"
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:askia": {
+      "bytes": 278,
+      "sha256": "bb15ef838559d75c4ca4235fbe65a8b4411bbf44454f95eff7ef266a9b6de7c0"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge": {
+      "bytes": 395,
+      "sha256": "b9c6ccdf9b6e87642d5d876b889d0be324ca4e7cd9048deec55530cd112da924"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good": {
+      "bytes": 102413,
+      "sha256": "3ce69a0c25e34ee6cceed6cb3dfe7346b43326d1eaa6b00d5267e945ff568e7c"
+    },
+    "qa_rewards_20261024_amari_games_played": {
+      "bytes": 369,
+      "sha256": "5f5b0f0fc7c019983658b553600160629e33249bcffed4e9540d6d357fc4fef3"
+    },
+    "qa_rewards_20261024_amari_little_progress": {
+      "bytes": 1261,
+      "sha256": "579f6e8a81a56b087e7d67d3f8e3c7987e604b90f1a18eb05907d8e081297ef5"
+    },
+    "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1": {
+      "bytes": 596,
+      "sha256": "2538d0cbafaa6e58d41a3a4ea8cdac25e9a388ba497068690b389657f9054c30"
+    },
+    "qa_rewards_20261024_amari_discovery_active_player": {
+      "bytes": 7,
+      "sha256": "203225186ef5ddc9cda0bb3dfe73ced878f5271e184c54a70efb4056dda8a6ad"
+    },
+    "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1": {
+      "bytes": 11742,
+      "sha256": "7ae20e285685ea85e0ed3c6ef417b47669d92884635b7101c4176edc908c41b2"
+    },
+    "qa_rewards_20261024_askia_lastplay": {
+      "bytes": 12,
+      "sha256": "e1367037a0810c421521d8e632205e4999e0f2efb694b3212b4c00bd8260ed6d"
+    },
+    "qa_rewards_20261024_amari_code_cadets_progress_v1:amari": {
+      "bytes": 2102,
+      "sha256": "3627839f3dee281d9bb2d15790e9abeb9131c0062efd906511ca24690e3d564a"
+    },
+    "qa_rewards_20261024_amari_learning_attempts_v1": {
+      "bytes": 330231,
+      "sha256": "507fbaa4d25fc8183c2f771086d6e9a9944b708b6ba8f4f28a5cc8f02c1e5aa1"
+    },
+    "qa_rewards_20261024_amari_chapter_badges_v1": {
+      "bytes": 180,
+      "sha256": "579c51460dec184e146a63f47cb2106f2f990a64348c2f82e4da616adb8b1320"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_2": {
+      "bytes": 33,
+      "sha256": "11620e07b33f405c61bb4963f2fd785e7a7c7cee3d8e7ea0785dfa634068884c"
+    },
+    "qa_rewards_20261024_amari_memory_passport_v1": {
+      "bytes": 518,
+      "sha256": "d62250dfa3db49e5fc55dbd4750deade0f6d7176834e982aa211cfb23fe12e39"
+    },
+    "qa_rewards_20261024_askia_challenge_progress": {
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    "qa_rewards_20261024_amari_points": {
+      "bytes": 3,
+      "sha256": "48a1a756f2d83f1dc57bbf14052b70a6f40d0fceed6662812e34903a9fe90924"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good": {
+      "bytes": 154246,
+      "sha256": "347a216d45c48475252b8084ab381e9651263f591621dbf06d64a8cc0d995f3e"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter": {
+      "bytes": 161,
+      "sha256": "d23cd7c01f5945781e3e7f6c31ae4368f98bb5a4c4c9622996093c906ce6b87d"
+    },
+    "qa_rewards_20261024_amari_storybook_progress_v1": {
+      "bytes": 2469,
+      "sha256": "ea776387693888771d06d46534aee66a2ca9b35a3f23a6d88123dbf99b8f61eb"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge": {
+      "bytes": 488,
+      "sha256": "79061e0277c0f3a5d09c412475cf85e7bc263aab7e6e5b71918a3da86816dc94"
+    },
+    "qa_rewards_20261024_amari_game_levels_v1": {
+      "bytes": 188,
+      "sha256": "bbc1b662a80313ac767e30b9f91531308f398aada913dd1bf378ddddcde56e1b"
+    },
+    "qa_rewards_20261024_amari_memory_best": {
+      "bytes": 128,
+      "sha256": "565eb06fd6cf24850203bef035675d12993600ec6d275e2549c1174edb3a653f"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_3": {
+      "bytes": 49,
+      "sha256": "548a3169a9d6567c0dfd3f8ac201c3c4f066c966c7071ec9da5d66572244d29a"
+    },
+    "qa_rewards_20261024_amari_spelling_progress_v1": {
+      "bytes": 8905,
+      "sha256": "1994e673bf721ebd385bb3c07d7fe08f85890731de1eb16e9879688709123818"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter": {
+      "bytes": 343,
+      "sha256": "1fe6fe8db508490d6c9d85e3d36f7e18e36fe11d622c4d24f1b869e5ee868845"
+    },
+    "qa_rewards_20261024_amari_lastplay": {
+      "bytes": 12,
+      "sha256": "e1367037a0810c421521d8e632205e4999e0f2efb694b3212b4c00bd8260ed6d"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_askia_little_progress": {
+      "bytes": 1586,
+      "sha256": "5073668efcd850f77be4b88eee7e5b8d20cc67dcf8057c16ec90bb4b9e5cd285"
+    },
+    "qa_rewards_20261024_askia_recent_games": {
+      "bytes": 43,
+      "sha256": "10d74db0ee18ff083f130f8e5378ada9044f14266383f67aa6c60e9dd7e29eeb"
+    },
+    "qa_rewards_20261024_amari_curriculum_badges_v1": {
+      "bytes": 211,
+      "sha256": "9734fae3202dfbc90c594cbb21b803f1a044173534cdcd66a2e97ad41383353d"
+    },
+    "qa_rewards_20261024_askia_rewards_v2": {
+      "bytes": 826,
+      "sha256": "9c51cfb2677824e9b5ec147d7c43be41a7efb86e3afa41ef0226311cc538afa5"
+    },
+    "qa_rewards_20261024_amari_game_diagnostics_v1": {
+      "bytes": 46369,
+      "sha256": "78740dee5fedb365048126c911f4514f8c1aecb70aa6e4e4ba247a99d164a37b"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing": {
+      "bytes": 365,
+      "sha256": "c485f92dec80ad07f015661d7cbcd491eed2cccb9bf82fea9113641fa95a066f"
+    },
+    "qa_rewards_20261024_askia_points": {
+      "bytes": 3,
+      "sha256": "37c20f19f3272b5ccc3a5d80587eb9deb3f4afcf568c4280fb195568da8eb1a2"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_skill_mastery_v1": {
+      "bytes": 121094,
+      "sha256": "7c69eff2e25ec79eae82e2742e70c33e6b71c893b7d5022d695db7f685bc2518"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing": {
+      "bytes": 441,
+      "sha256": "635d9dfdd3b56c6852fc0fab7bbdb90465b2b20b5ab7f4178a8a57b7623b5a01"
+    },
+    "qa_rewards_20261024_amari_subtraction_progress_v1": {
+      "bytes": 234,
+      "sha256": "4060a84086023894179d8bdecfe3e1571ef88f024d9d2826bdedaabecdf58649"
+    },
+    "qa_rewards_20261024_amari_learning_migration_v1": {
+      "bytes": 41,
+      "sha256": "de8dba63a51409d81bd95b7577f34f6c749ebb607c67846919fed941d01d8a27"
+    },
+    "qa_rewards_20261024_amari_recent_games": {
+      "bytes": 44,
+      "sha256": "20345199e661570425d38284e87bc158cebe56a5677a940f50899b8653733355"
+    },
+    "qa_rewards_20261024_amari_sound_safari_adventure_v1": {
+      "bytes": 397,
+      "sha256": "da7987beaa3237b63ee77bd4382c75263ba27d7ade36d7c7f43da6eab3506fc9"
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code": {
+      "bytes": 125,
+      "sha256": "adb5b3727ae2d4b2c8e5cba9f376d9c3f511aea7ef0b21dc2fc0f71f1518f200"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing": {
+      "bytes": 173,
+      "sha256": "b94f3f9a2f21a5244e0457a70281b1450d53fed70f3beec461021a56369ed36e"
+    },
+    "qa_rewards_20261024_amari_discovery_passport_v1": {
+      "bytes": 573,
+      "sha256": "7c8c4aa18386bb549125ac65dd4ff00d9b8ae40cc6fd94227eb6b54d8b49a0aa"
+    }
+  },
+  "finalRawDigestSummary": {
+    "qa_rewards_20261024_amari_letter_trace_progress_v1": {
+      "bytes": 278,
+      "sha256": "a6a33397a1b02d3191e7b9512385f704236cd24ce9b8c27e5dee56169fd17dda"
+    },
+    "qa_rewards_20261024_amari_rewards_v2": {
+      "bytes": 3102,
+      "sha256": "87d0a89c9641e872acae3b4932f2763dfe53e4c557391ad5aa2b8f3bd6cfc7dd"
+    },
+    "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1": {
+      "bytes": 9552,
+      "sha256": "52818933561142f00177f09945157335ec79f18cb1e836e3efa0c014665c85dc"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing": {
+      "bytes": 476,
+      "sha256": "a6fe46ca93298ffb7820151834a97d7a6aa984ac825fb5aa104fa3cf8fbff72d"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing": {
+      "bytes": 179,
+      "sha256": "a07b429a52ca026912b4060e3bc323aed2c5aa776db686c759db950ef2e08d63"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good": {
+      "bytes": 126760,
+      "sha256": "e487301d17292d79dbe59ee4c4f6f554c5af1b043b31453af4e81063be1ddecf"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter": {
+      "bytes": 425,
+      "sha256": "af4fb66309c244c4de4c9af028937b83fe3469165e67a3a87840f4f17a7553a7"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge": {
+      "bytes": 436,
+      "sha256": "c84acab72a5370cfb979b464c399187eb9a725adf31c2730a7949226b6a87aa7"
+    },
+    "qa_rewards_20261024_askia_favourite_games": {
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:amari": {
+      "bytes": 278,
+      "sha256": "4f5b18ff20d0e068369e402a51d433024e952e6aaa75be38b81f2fcd2e38cd43"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge": {
+      "bytes": 138,
+      "sha256": "a5bce1316bd914796a045a14be7b77d8ea071a3f0ea196de62dab93e110d6abb"
+    },
+    "qa_rewards_20261024_amari_cosmic_freeplay_v1": {
+      "bytes": 183,
+      "sha256": "b75c9cb3f20422d9a645093be50cde7bf7d923ca2ca1ff801b099f2060c975d6"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_german_chapter_progress_v1": {
+      "bytes": 531,
+      "sha256": "f299e189cf880494b64a907fedc109e75b267ad584294356ac25b6b188b70fe5"
+    },
+    "qa_rewards_20261024_amari_writing_samples_v1": {
+      "bytes": 293,
+      "sha256": "62e676c233cc949248983b98f7422de295975aa694b12da09f5046fc5a5df250"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter": {
+      "bytes": 154,
+      "sha256": "aad9e3c397e5fd1f6a93e290c0aa5b7e81be1f8e06e540930d9a3176caf27835"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge": {
+      "bytes": 172,
+      "sha256": "fd8d395476c99f0333b062d46ed2c3d8e3867878ada9750768210a791e59638b"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard": {
+      "bytes": 154271,
+      "sha256": "38acb3b5cda24fbd4b0be4b969f8e1910afe11ed020247fcdad5c5e8e44736d1"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter": {
+      "bytes": 367,
+      "sha256": "04309c5306d944c5782cee4a445deb349e7b55ac885a816e1033ea331f8c48cd"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing": {
+      "bytes": 158,
+      "sha256": "8ae3e3c08d53874ce8bc4446090fbb3e09f0ac1b9005b98d8eaaf13a2f31c466"
+    },
+    "qa_rewards_20261024_amari_german_recent_targets_v1": {
+      "bytes": 380,
+      "sha256": "9f8d1b6063b01d4edaa25d545f20fcebd79a72db8f4e692427b916e68acc77aa"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing": {
+      "bytes": 394,
+      "sha256": "9c1ac5d8e9c840c8c2c62e7b94a81ad707bf26622f1b222b8a60abc04433dad8"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge": {
+      "bytes": 190,
+      "sha256": "31c4befee0b5643da663193ff57281ecbc774424aaa8c7ebbe2473b3cdbfb568"
+    },
+    "qa_rewards_20261024_amari_challenge_done": {
+      "bytes": 4,
+      "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+    },
+    "qa_rewards_20261024_amari_letter_launch_progress_v1": {
+      "bytes": 710,
+      "sha256": "86ad888da8c07164424cf3c57c69d51696a36f8a225338ddf4fc6ab9d8ee316a"
+    },
+    "qa_rewards_20261024_askia_earned_sticker_ids_v1": {
+      "bytes": 75,
+      "sha256": "4f285602d1cca7c2d2f0e1acb8afa6304ecc8a07a95ca2df32a714de3aa17dfc"
+    },
+    "qa_rewards_20261024_amari_voice_mode_v4": {
+      "bytes": 7,
+      "sha256": "870dc23d21836b97b58a7753922edc8512764e83c02586f3d8f14c11f760550b"
+    },
+    "qa_rewards_20261024_amari_astronaut_academy_progress_v1": {
+      "bytes": 798,
+      "sha256": "ecf2983df506da9e1dc9e7f5dda82f9a293cb7bc1a0e355580909b51fa095541"
+    },
+    "qa_rewards_20261024_amari_writing_desk_progress_v1:amari": {
+      "bytes": 96,
+      "sha256": "4180f5dcce988b24d87a526bb94ec4115adf9985b84d7bd4e890471c8bbf061c"
+    },
+    "qa_rewards_20261024_askia_challenge_done": {
+      "bytes": 5,
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    "qa_rewards_20261024_askia_streak": {
+      "bytes": 1,
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing": {
+      "bytes": 153714,
+      "sha256": "5f47f87d123f3e48ef71a8b9f176d90f3d1863e42747233917cb4c6a1b75626b"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter": {
+      "bytes": 392,
+      "sha256": "61b7d671f076276b51394960b4ae47b2cfd64e9e4f30fff171c43eaf5af3ae07"
+    },
+    "qa_rewards_20261024_amari_cosmic_tactics_v1": {
+      "bytes": 130,
+      "sha256": "8b4d4123fca4bdb562b092e40e22d816d44ca0e2fe61cdd793e69c74da8aab5e"
+    },
+    "qa_rewards_20261024_amari_favourite_games": {
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter": {
+      "bytes": 146,
+      "sha256": "a711a548f527ccdfd4f805775a09d9838dff9b12e525c83b5abfe3171845ef5f"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge": {
+      "bytes": 339,
+      "sha256": "d3bf94c41b13412c7b6ccd1d8303a6fa2c8fc692ea0c1cda6d83a5a2c5b3ac9e"
+    },
+    "qa_rewards_20261024_amari_curriculum_completion_receipts_v1": {
+      "bytes": 1296,
+      "sha256": "fe1c8f34ed96e6ea09c10fd087d304d2ca322f52ca374b915e3516fb2aef1268"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report": {
+      "bytes": 102984,
+      "sha256": "af50d4bf3e5af18fae31df3c38326e2a2e79b41e149ab9880a59dbb152a501a9"
+    },
+    "qa_rewards_20261024_amari_spelling_recent_v1": {
+      "bytes": 59,
+      "sha256": "abf62b159bf6b3e35fcde4ff9ca256ac81ef312b375b2f7b87a2670b4731b092"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter": {
+      "bytes": 454,
+      "sha256": "9f79f4aa73acfa90ec2581a2fdddcf0ca934e64171c03d12b4363ac37deb1c71"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing": {
+      "bytes": 485,
+      "sha256": "713c52079fea43216bcda3ee3cd8add99a7cfa0a0204b2548c76dd36b55054f5"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge": {
+      "bytes": 407,
+      "sha256": "8f64ed3954f3c7ab29ccc187290b1339c90694082ec05332f694760f66f9b66c"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes": {
+      "bytes": 126724,
+      "sha256": "7cf8670af95384b5169d32a10bc520fe42a0d974443b48d96e3feacdddde844f"
+    },
+    "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari": {
+      "bytes": 252,
+      "sha256": "0d8648eae61ba15771315a90ccecf934dce45ea323055b9da6445aa3ce4eaede"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter": {
+      "bytes": 360,
+      "sha256": "ae7027e5398f152607643c82d9a186ae4950d7c1a3c7309f02102b782383476a"
+    },
+    "qa_rewards_20261024_amari_curriculum_preferences_v1": {
+      "bytes": 132,
+      "sha256": "e2c9f1177dd7065b5630258edbe42c673edecb98e247c9ad2f35fedc4718b298"
+    },
+    "qa_rewards_20261024_amari_oddoneout_progress_v1": {
+      "bytes": 1212,
+      "sha256": "f31ab7820bfb9634fe0b859db77195e2ce4f1c70552340af8787a74a848cb2f3"
+    },
+    "qa_rewards_20261024_amari_hangman_progress_v1:amari": {
+      "bytes": 848,
+      "sha256": "80bce7620e4d0c425ab8babae743b3b71b4dcff2e254b0274d9ffdf922d6eb0c"
+    },
+    "qa_rewards_20261024_amari_numberline_progress_v1": {
+      "bytes": 673,
+      "sha256": "7b86acfaad3bcb7ca349077cb6e3cb78cb2db92644d4b99ebe362db991b17b27"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge": {
+      "bytes": 414,
+      "sha256": "00533d2a5d328e7b696bd672528a510cce3ab0af3befad6052b774f7f92bc892"
+    },
+    "qa_rewards_20261024_amari_earned_sticker_ids_v1": {
+      "bytes": 92,
+      "sha256": "ac26b0d63c8c4c472f2c4be16a97477899a0dabb73afa453bcb72f6d19125de7"
+    },
+    "qa_rewards_20261024_amari_timeteller_progress_v1": {
+      "bytes": 541,
+      "sha256": "81e73edc5a789b6880e15ab6ef53c0a1f0552e80005a7600f224cedbce666bba"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_0": {
+      "bytes": 33,
+      "sha256": "c3d707a51c5f9347581e61dc50880597149fe2a191cd138aaaefa5db33cadc5e"
+    },
+    "amari-sound-on": {
+      "bytes": 5,
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari": {
+      "bytes": 387,
+      "sha256": "176bea07c78604cfd2829ff73e6de375db86807e7a046c407171bbcf4ac0360a"
+    },
+    "qa_rewards_20261024_amari_memory_resume_v1": {
+      "bytes": 17,
+      "sha256": "3ebad643deb9b1a2a98b072d44fde2f970b75d7397ef06e9e770a97ddc9fc3ba"
+    },
+    "qa_rewards_20261024_askia_games_played": {
+      "bytes": 108,
+      "sha256": "0fb0e9461d2c151929a0a6d9b6706d0623e3a1a0c42019ab623880f9cde4ed56"
+    },
+    "qa_rewards_20261024_amari_memory_completion_v1": {
+      "bytes": 577,
+      "sha256": "089869ec33e2c6ddeb26b4e613c6a7ba86410a8aea3abbc36d328f79e122ffad"
+    },
+    "qa_rewards_20261024_amari_streak": {
+      "bytes": 1,
+      "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+    },
+    "qa_rewards_20261024_amari_addition_progress_v1": {
+      "bytes": 250,
+      "sha256": "6119c4c7b8d5ef5c31ab9aaa498f319bc77d3151696c7b7c70f38a137469e81f"
+    },
+    "qa_rewards_20261024_amari_words_session_progress_v1:amari": {
+      "bytes": 1658,
+      "sha256": "b28f6f1b1d0c1338fcd7eddb91d4cedd14a312a6f6f9907a60d7d49a180d8688"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_1": {
+      "bytes": 49,
+      "sha256": "167bc4bcff846e5dc1c7b96a23586df8468d631ef49165a8f9487ffced37ef59"
+    },
+    "qa_rewards_20261024_amari_challenge_progress": {
+      "bytes": 1,
+      "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing": {
+      "bytes": 401,
+      "sha256": "1daa53118c325657cd2170c7d21a0464ffe9dc5909c9d9bb2110c306dbeae2ce"
+    },
+    "qa_rewards_20261024_amari_chess_game_v1": {
+      "bytes": 797,
+      "sha256": "30ad23946c8f8928a10d6b44acf021b47558c665bc8cdb6bb3bafa7ea917be37"
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:askia": {
+      "bytes": 278,
+      "sha256": "bb15ef838559d75c4ca4235fbe65a8b4411bbf44454f95eff7ef266a9b6de7c0"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge": {
+      "bytes": 395,
+      "sha256": "b9c6ccdf9b6e87642d5d876b889d0be324ca4e7cd9048deec55530cd112da924"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good": {
+      "bytes": 102413,
+      "sha256": "3ce69a0c25e34ee6cceed6cb3dfe7346b43326d1eaa6b00d5267e945ff568e7c"
+    },
+    "qa_rewards_20261024_amari_games_played": {
+      "bytes": 369,
+      "sha256": "5f5b0f0fc7c019983658b553600160629e33249bcffed4e9540d6d357fc4fef3"
+    },
+    "qa_rewards_20261024_amari_little_progress": {
+      "bytes": 1261,
+      "sha256": "579f6e8a81a56b087e7d67d3f8e3c7987e604b90f1a18eb05907d8e081297ef5"
+    },
+    "qa_rewards_20261024_amari_amari_count_the_stars_batch3_v1": {
+      "bytes": 596,
+      "sha256": "2538d0cbafaa6e58d41a3a4ea8cdac25e9a388ba497068690b389657f9054c30"
+    },
+    "qa_rewards_20261024_amari_discovery_active_player": {
+      "bytes": 7,
+      "sha256": "203225186ef5ddc9cda0bb3dfe73ced878f5271e184c54a70efb4056dda8a6ad"
+    },
+    "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1": {
+      "bytes": 11742,
+      "sha256": "7ae20e285685ea85e0ed3c6ef417b47669d92884635b7101c4176edc908c41b2"
+    },
+    "qa_rewards_20261024_askia_lastplay": {
+      "bytes": 12,
+      "sha256": "e1367037a0810c421521d8e632205e4999e0f2efb694b3212b4c00bd8260ed6d"
+    },
+    "qa_rewards_20261024_amari_code_cadets_progress_v1:amari": {
+      "bytes": 2102,
+      "sha256": "3627839f3dee281d9bb2d15790e9abeb9131c0062efd906511ca24690e3d564a"
+    },
+    "qa_rewards_20261024_amari_learning_attempts_v1": {
+      "bytes": 330231,
+      "sha256": "507fbaa4d25fc8183c2f771086d6e9a9944b708b6ba8f4f28a5cc8f02c1e5aa1"
+    },
+    "qa_rewards_20261024_amari_chapter_badges_v1": {
+      "bytes": 180,
+      "sha256": "579c51460dec184e146a63f47cb2106f2f990a64348c2f82e4da616adb8b1320"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_2": {
+      "bytes": 33,
+      "sha256": "11620e07b33f405c61bb4963f2fd785e7a7c7cee3d8e7ea0785dfa634068884c"
+    },
+    "qa_rewards_20261024_amari_memory_passport_v1": {
+      "bytes": 518,
+      "sha256": "d62250dfa3db49e5fc55dbd4750deade0f6d7176834e982aa211cfb23fe12e39"
+    },
+    "qa_rewards_20261024_askia_challenge_progress": {
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    "qa_rewards_20261024_amari_points": {
+      "bytes": 3,
+      "sha256": "48a1a756f2d83f1dc57bbf14052b70a6f40d0fceed6662812e34903a9fe90924"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good": {
+      "bytes": 154246,
+      "sha256": "347a216d45c48475252b8084ab381e9651263f591621dbf06d64a8cc0d995f3e"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter": {
+      "bytes": 161,
+      "sha256": "d23cd7c01f5945781e3e7f6c31ae4368f98bb5a4c4c9622996093c906ce6b87d"
+    },
+    "qa_rewards_20261024_amari_storybook_progress_v1": {
+      "bytes": 2469,
+      "sha256": "ea776387693888771d06d46534aee66a2ca9b35a3f23a6d88123dbf99b8f61eb"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge": {
+      "bytes": 488,
+      "sha256": "79061e0277c0f3a5d09c412475cf85e7bc263aab7e6e5b71918a3da86816dc94"
+    },
+    "qa_rewards_20261024_amari_game_levels_v1": {
+      "bytes": 188,
+      "sha256": "bbc1b662a80313ac767e30b9f91531308f398aada913dd1bf378ddddcde56e1b"
+    },
+    "qa_rewards_20261024_amari_memory_best": {
+      "bytes": 128,
+      "sha256": "565eb06fd6cf24850203bef035675d12993600ec6d275e2549c1174edb3a653f"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_3": {
+      "bytes": 49,
+      "sha256": "548a3169a9d6567c0dfd3f8ac201c3c4f066c966c7071ec9da5d66572244d29a"
+    },
+    "qa_rewards_20261024_amari_spelling_progress_v1": {
+      "bytes": 8905,
+      "sha256": "1994e673bf721ebd385bb3c07d7fe08f85890731de1eb16e9879688709123818"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter": {
+      "bytes": 343,
+      "sha256": "1fe6fe8db508490d6c9d85e3d36f7e18e36fe11d622c4d24f1b869e5ee868845"
+    },
+    "qa_rewards_20261024_amari_lastplay": {
+      "bytes": 12,
+      "sha256": "e1367037a0810c421521d8e632205e4999e0f2efb694b3212b4c00bd8260ed6d"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_askia_little_progress": {
+      "bytes": 1586,
+      "sha256": "5073668efcd850f77be4b88eee7e5b8d20cc67dcf8057c16ec90bb4b9e5cd285"
+    },
+    "qa_rewards_20261024_askia_recent_games": {
+      "bytes": 43,
+      "sha256": "10d74db0ee18ff083f130f8e5378ada9044f14266383f67aa6c60e9dd7e29eeb"
+    },
+    "qa_rewards_20261024_amari_curriculum_badges_v1": {
+      "bytes": 211,
+      "sha256": "9734fae3202dfbc90c594cbb21b803f1a044173534cdcd66a2e97ad41383353d"
+    },
+    "qa_rewards_20261024_askia_rewards_v2": {
+      "bytes": 826,
+      "sha256": "9c51cfb2677824e9b5ec147d7c43be41a7efb86e3afa41ef0226311cc538afa5"
+    },
+    "qa_rewards_20261024_amari_game_diagnostics_v1": {
+      "bytes": 46369,
+      "sha256": "78740dee5fedb365048126c911f4514f8c1aecb70aa6e4e4ba247a99d164a37b"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing": {
+      "bytes": 365,
+      "sha256": "c485f92dec80ad07f015661d7cbcd491eed2cccb9bf82fea9113641fa95a066f"
+    },
+    "qa_rewards_20261024_askia_points": {
+      "bytes": 3,
+      "sha256": "37c20f19f3272b5ccc3a5d80587eb9deb3f4afcf568c4280fb195568da8eb1a2"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_skill_mastery_v1": {
+      "bytes": 121094,
+      "sha256": "7c69eff2e25ec79eae82e2742e70c33e6b71c893b7d5022d695db7f685bc2518"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing": {
+      "bytes": 441,
+      "sha256": "635d9dfdd3b56c6852fc0fab7bbdb90465b2b20b5ab7f4178a8a57b7623b5a01"
+    },
+    "qa_rewards_20261024_amari_subtraction_progress_v1": {
+      "bytes": 234,
+      "sha256": "4060a84086023894179d8bdecfe3e1571ef88f024d9d2826bdedaabecdf58649"
+    },
+    "qa_rewards_20261024_amari_learning_migration_v1": {
+      "bytes": 41,
+      "sha256": "de8dba63a51409d81bd95b7577f34f6c749ebb607c67846919fed941d01d8a27"
+    },
+    "qa_rewards_20261024_amari_recent_games": {
+      "bytes": 44,
+      "sha256": "20345199e661570425d38284e87bc158cebe56a5677a940f50899b8653733355"
+    },
+    "qa_rewards_20261024_amari_sound_safari_adventure_v1": {
+      "bytes": 397,
+      "sha256": "da7987beaa3237b63ee77bd4382c75263ba27d7ade36d7c7f43da6eab3506fc9"
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code": {
+      "bytes": 125,
+      "sha256": "adb5b3727ae2d4b2c8e5cba9f376d9c3f511aea7ef0b21dc2fc0f71f1518f200"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing": {
+      "bytes": 173,
+      "sha256": "b94f3f9a2f21a5244e0457a70281b1450d53fed70f3beec461021a56369ed36e"
+    },
+    "qa_rewards_20261024_amari_discovery_passport_v1": {
+      "bytes": 573,
+      "sha256": "7c8c4aa18386bb549125ac65dd4ff00d9b8ae40cc6fd94227eb6b54d8b49a0aa"
+    }
+  },
+  "sourceHead": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+  "sourceHashes": {
+    "src/App.jsx": "4c120fd6f043224d757a90b41908fc7c61a6989471157c6638b3bd5610644d33",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/letterLaunch.js": "0e2a5dd415706e70c9f71db1aff2c3fb33491960ddd590f15cacda622f531188",
+    "src/data/letterLaunchProgress.js": "150ffda1ad51eb13a4866a7e2dcdd4373d78efd3a790da9fede4405327a990ea",
+    "src/data/factFinder.js": "9899df874a008101e515a05ac9457cfe6983eb6b3d7574c4513d71edeb4fa6fa",
+    "src/components/games/LetterLaunch.jsx": "889ae6bfb7a6465db25071622e66bce019d62e75661a89e8619a198b8f79cbb4",
+    "src/components/games/FactFinder.jsx": "8c8924d4ff2ceb7787698ea96fd8c0f6c0e0897631c573439faced306df430ca",
+    "src/components/games/letterLaunch.css": "bf40c48a7e54bfa779f771b7aa8df5157f3d4e3e22bb0bd863e94b416c5c9ec0",
+    "src/components/games/factFinder.css": "e9c95bdd4d877a3a699efdd4f692270995a9821483eef22338c5f1ca2e8f7777",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/home/discoveryVisuals.css": "637f299d61c12f3b6a567fe896c21bd5256e566b80a603275a25dd66a76cac5f"
+  },
+  "faultPlanRequested": {},
+  "cliReturnCode": 0
+}

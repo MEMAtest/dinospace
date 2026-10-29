@@ -1,0 +1,204 @@
+{
+  "passed": true,
+  "at": "2026-10-29T12:53:05.181416+00:00",
+  "runtimeSource": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+  "scope": "Two new generated/optimized artwork files and bounded exact packaged teaching-audio sample, gateway/backend/local hashes. No provider requests or listening claim.",
+  "rows": [
+    {
+      "kind": "art",
+      "path": "/art/fact-finder-v1/earthworm.webp",
+      "localSha256": "697e3c04c5dca5a262b37535c6a77ee8b4344c3d108256e33c2b42d91771ae49",
+      "origin": {
+        "status": 200,
+        "contentType": "image/webp",
+        "sha256": "697e3c04c5dca5a262b37535c6a77ee8b4344c3d108256e33c2b42d91771ae49",
+        "bytes": 86886
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "image/webp",
+        "sha256": "697e3c04c5dca5a262b37535c6a77ee8b4344c3d108256e33c2b42d91771ae49",
+        "bytes": 86886
+      }
+    },
+    {
+      "kind": "art",
+      "path": "/art/catalog-v3/game-factfinder.webp",
+      "localSha256": "fa594ab71460711665405ef1bee78e0f0b5520900b9369367f729f7c9cf02e0e",
+      "origin": {
+        "status": 200,
+        "contentType": "image/webp",
+        "sha256": "fa594ab71460711665405ef1bee78e0f0b5520900b9369367f729f7c9cf02e0e",
+        "bytes": 67512
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "image/webp",
+        "sha256": "fa594ab71460711665405ef1bee78e0f0b5520900b9369367f729f7c9cf02e0e",
+        "bytes": 67512
+      }
+    },
+    {
+      "kind": "audio",
+      "text": "Listen to apple. Tap the letter for its first sound.",
+      "path": "/audio/en/aad0d402-matilda.mp3",
+      "localSha256": "f5168f09ca6b495b3a8b942412dc3feeafde5ec2e1ec220f17bf4f6fcef9f789",
+      "origin": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "f5168f09ca6b495b3a8b942412dc3feeafde5ec2e1ec220f17bf4f6fcef9f789",
+        "bytes": 56050
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "f5168f09ca6b495b3a8b942412dc3feeafde5ec2e1ec220f17bf4f6fcef9f789",
+        "bytes": 56050
+      }
+    },
+    {
+      "kind": "audio",
+      "text": "Listen to up. Tap the letter for its first sound.",
+      "path": "/audio/en/7baa7085-matilda.mp3",
+      "localSha256": "7527f4e0df49c201c4559b811f43fde932efcbbef79dd88538485bb3c8f59ca8",
+      "origin": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "7527f4e0df49c201c4559b811f43fde932efcbbef79dd88538485bb3c8f59ca8",
+        "bytes": 51035
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "7527f4e0df49c201c4559b811f43fde932efcbbef79dd88538485bb3c8f59ca8",
+        "bytes": 51035
+      }
+    },
+    {
+      "kind": "audio",
+      "text": "Which sound starts Pig? Say the word slowly, then choose its first sound.",
+      "path": "/audio/en/9bc9d585-matilda.mp3",
+      "localSha256": "00fd61e926dea9d78259507e8a6b3571cc1fbcbd21f8bfb78fce1aff0ae08866",
+      "origin": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "00fd61e926dea9d78259507e8a6b3571cc1fbcbd21f8bfb78fce1aff0ae08866",
+        "bytes": 83635
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "00fd61e926dea9d78259507e8a6b3571cc1fbcbd21f8bfb78fce1aff0ae08866",
+        "bytes": 83635
+      }
+    },
+    {
+      "kind": "audio",
+      "text": "Which sound starts HEN? Say the word slowly, then choose its first sound.",
+      "path": "/audio/en/c3af0af0-matilda.mp3",
+      "localSha256": "491f077f41eed393c8df25c637611a29e5a7180f2b1f9796b03513b66a446442",
+      "origin": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "491f077f41eed393c8df25c637611a29e5a7180f2b1f9796b03513b66a446442",
+        "bytes": 84471
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "491f077f41eed393c8df25c637611a29e5a7180f2b1f9796b03513b66a446442",
+        "bytes": 84471
+      }
+    },
+    {
+      "kind": "audio",
+      "text": "Find the capital letter that matches little l.",
+      "path": "/audio/en/d4ad8a2a-matilda.mp3",
+      "localSha256": "5e36e4d8d479b1260b778517d0946be0318fb65b6224e5f3d1e5cad6f2bea0de",
+      "origin": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "5e36e4d8d479b1260b778517d0946be0318fb65b6224e5f3d1e5cad6f2bea0de",
+        "bytes": 38914
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "5e36e4d8d479b1260b778517d0946be0318fb65b6224e5f3d1e5cad6f2bea0de",
+        "bytes": 38914
+      }
+    },
+    {
+      "kind": "audio",
+      "text": "The next sound is the first sound in net.",
+      "path": "/audio/en/3ee786b9-matilda.mp3",
+      "localSha256": "15eb3d987ac790b4aa4b892beb4de36355ac7079abc7f5801b1d0a6618dd7db2",
+      "origin": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "15eb3d987ac790b4aa4b892beb4de36355ac7079abc7f5801b1d0a6618dd7db2",
+        "bytes": 36824
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "15eb3d987ac790b4aa4b892beb4de36355ac7079abc7f5801b1d0a6618dd7db2",
+        "bytes": 36824
+      }
+    },
+    {
+      "kind": "audio",
+      "text": "T. rex had short arms and powerful jaws.",
+      "path": "/audio/en/9385938b-matilda.mp3",
+      "localSha256": "d27ced5745a667d0f6fc90ffa2a7ecc7ab078589bf68ace4e77cbfe876734045",
+      "origin": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "d27ced5745a667d0f6fc90ffa2a7ecc7ab078589bf68ace4e77cbfe876734045",
+        "bytes": 44347
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "d27ced5745a667d0f6fc90ffa2a7ecc7ab078589bf68ace4e77cbfe876734045",
+        "bytes": 44347
+      }
+    },
+    {
+      "kind": "audio",
+      "text": "Rust in Mars\u2019s rocks and dust makes the planet look red.",
+      "path": "/audio/en/c54f10d9-matilda.mp3",
+      "localSha256": "978ff2ec2f090d1c46d08db3bc5b10ccbb70ea1c7b2b4d914cfa746981442491",
+      "origin": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "978ff2ec2f090d1c46d08db3bc5b10ccbb70ea1c7b2b4d914cfa746981442491",
+        "bytes": 56886
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "978ff2ec2f090d1c46d08db3bc5b10ccbb70ea1c7b2b4d914cfa746981442491",
+        "bytes": 56886
+      }
+    },
+    {
+      "kind": "audio",
+      "text": "Uranus spins almost on its side like a rolling ball.",
+      "path": "/audio/en/1f3ec839-matilda.mp3",
+      "localSha256": "f055a1c48a4f2ca33a87bf036d81cd7c4b0614f8537e427e234a6e2361be2af8",
+      "origin": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "f055a1c48a4f2ca33a87bf036d81cd7c4b0614f8537e427e234a6e2361be2af8",
+        "bytes": 49363
+      },
+      "backend": {
+        "status": 200,
+        "contentType": "audio/mpeg",
+        "sha256": "f055a1c48a4f2ca33a87bf036d81cd7c4b0614f8537e427e234a6e2361be2af8",
+        "bytes": 49363
+      }
+    }
+  ]
+}

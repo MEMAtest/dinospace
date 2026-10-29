@@ -1,0 +1,190 @@
+{
+  "startedAt": "2026-10-29T12:10:11.728728+00:00",
+  "checkout": "canonical existing checkout reused",
+  "newWorktrees": 0,
+  "newDependencyInstalls": 0,
+  "newBrowserProfiles": 0,
+  "evidenceBudgetBytes": 8388608,
+  "profileGrowthBudgetBytes": 67108864,
+  "initialProfileKiB": 996368,
+  "newRuntimeArtBytes": 154398,
+  "generatedOriginals": "Retained once in CODEX_HOME generated_images; runtime optimized WebP copies only; see art-provenance.json",
+  "cleanup": [
+    {
+      "path": "tmp/pair11-build-r1.log",
+      "bytes": 14493,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-build-r2.log",
+      "bytes": 14492,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-build-r3.log",
+      "bytes": 14492,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-build-r4.log",
+      "bytes": 14493,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-build-r5.log",
+      "bytes": 14493,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-build-r6.log",
+      "bytes": 14492,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-build-r7.log",
+      "bytes": 14493,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-build-r8.log",
+      "bytes": 14493,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-build-r9.log",
+      "bytes": 14492,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-tests-r2.log",
+      "bytes": 66204,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-tests-r3.log",
+      "bytes": 66182,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-tests-r4.log",
+      "bytes": 66249,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-tests-r5.log",
+      "bytes": 66193,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-tests-r6.log",
+      "bytes": 66222,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-tests-r7.log",
+      "bytes": 66204,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-tests-r9.log",
+      "bytes": 66278,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-focused.log",
+      "bytes": 7119,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-word-regression.log",
+      "bytes": 1616,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-cutover-before.cjs",
+      "bytes": 5138,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-cutover-after.cjs",
+      "bytes": 5137,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-source-snapshot.py",
+      "bytes": 949,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/finalize-pair11.py",
+      "bytes": 5203,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-netlify-draft.log",
+      "bytes": 0,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "tmp/pair11-netlify-production.log",
+      "bytes": 0,
+      "reason": "Task-owned duplicate passing build/test output or generated callback; final logs, unique failures and source templates retained."
+    },
+    {
+      "path": "docs/qa-evidence/letters-factfinder-20261029/__pycache__/verify-pair-assets.cpython-314.pyc",
+      "bytes": 5839,
+      "reason": "Task-generated Python bytecode; source retained."
+    }
+  ],
+  "updatedAt": "2026-10-29T13:08:30.409284+00:00",
+  "evidenceKiB": 2144,
+  "currentProfileKiB": 1004044,
+  "movedToCanonicalEvidence": [
+    {
+      "from": "tmp/pair11-build-r10.log",
+      "to": "docs/qa-evidence/letters-factfinder-20261029/source-checks/build.log",
+      "bytes": 14492
+    },
+    {
+      "from": "tmp/pair11-tests-r10.log",
+      "to": "docs/qa-evidence/letters-factfinder-20261029/source-checks/tests.log",
+      "bytes": 66314
+    },
+    {
+      "from": "tmp/pair11-tests-r1.log",
+      "to": "docs/qa-evidence/letters-factfinder-20261029/source-failures/tests-r1.log",
+      "bytes": 69145
+    },
+    {
+      "from": "tmp/pair11-tests-r8.log",
+      "to": "docs/qa-evidence/letters-factfinder-20261029/source-failures/tests-r8.log",
+      "bytes": 66420
+    },
+    {
+      "from": "tmp/pair11-parent-badge-retry.cjs",
+      "to": "docs/qa-evidence/letters-factfinder-20261029/parent-badge-retry.cjs",
+      "bytes": 2615
+    },
+    {
+      "from": "tmp/pair11-held-recovery.cjs",
+      "to": "docs/qa-evidence/letters-factfinder-20261029/held-recovery-r5.cjs",
+      "bytes": 828
+    },
+    {
+      "from": "tmp/pair11-netlify-draft.json",
+      "to": "docs/qa-evidence/letters-factfinder-20261029/deployment-receipts/netlify-draft.json",
+      "bytes": 538
+    },
+    {
+      "from": "tmp/pair11-netlify-production.json",
+      "to": "docs/qa-evidence/letters-factfinder-20261029/deployment-receipts/netlify-production.json",
+      "bytes": 502
+    },
+    {
+      "from": "tmp/pair11-vercel-deploy.log",
+      "to": "docs/qa-evidence/letters-factfinder-20261029/deployment-receipts/vercel-deploy.log",
+      "bytes": 17567
+    }
+  ],
+  "removedLogicalBytes": 624966
+}

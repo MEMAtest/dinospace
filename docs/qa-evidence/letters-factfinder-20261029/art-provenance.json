@@ -1,0 +1,24 @@
+{
+  "createdAt": "2026-10-29",
+  "tool": "built-in image_gen",
+  "optimization": "cwebp q84 width640; alpha preserved; no manual content edit",
+  "visualReview": "Earthworm has annulated cylindrical body and clitellum with no invented face or limbs; catalogue book/lens readable and distinct. Playful art, not scientific photography.",
+  "assets": [
+    {
+      "path": "public/art/fact-finder-v1/earthworm.webp",
+      "sha256": "697e3c04c5dca5a262b37535c6a77ee8b4344c3d108256e33c2b42d91771ae49",
+      "bytes": 86886,
+      "original": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-683ff889-b329-415b-af48-066b43957e7b.png",
+      "originalSha256": "5292f82ae176a001f759a4207f2e69d7bf11ca4e0b39cfa239462963663e2fb7",
+      "prompt": "Use case: scientific-educational. Asset type: square natural-history portrait for a children's learning encyclopedia. One anatomically accurate common earthworm, reddish-brown cylindrical annulated segmented body with a visible thicker clitellum near its front, lying in a gentle S curve on a small contained patch of dark soil beside one fallen leaf. Friendly soft 3D picture-book rendering, natural warm lighting, full body contained with generous empty margins. Genuinely transparent background around the contained soil patch. No eyes, no face, no smile, no legs, no antennae, no other worms, no text or labels. Teach a real earthworm's body shape while remaining appealing to ages 5\u20138."
+    },
+    {
+      "path": "public/art/catalog-v3/game-factfinder.webp",
+      "sha256": "fa594ab71460711665405ef1bee78e0f0b5520900b9369367f729f7c9cf02e0e",
+      "bytes": 67512,
+      "original": "/Users/omosanya_main/.codex/generated_images/01a0df12-8e78-73a3-bc14-b6794d3fb0cd/exec-59e963c4-9b7a-4e6b-a9ff-21fb4d6589e7.png",
+      "originalSha256": "acd84f334caaece70f5c256e95fd7fb0d5bb971326713610bedcd6e2a9214392",
+      "prompt": "Use case: stylized-concept. Asset type: polished 3D children's educational game catalogue icon, square transparent cutout. An inviting open illustrated encyclopedia book with a large gold magnifying glass leaning beside it. A small simple leaf and paw-print symbol on its open pages, tiny decorative planet symbol above the book, bright teal covers and warm golden accents. Match high-quality glossy toy-like mobile learning game imagery for ages 5\u20138, soft studio light, rounded forms, readable at small tile size. One contained coherent composition, full object with generous clear margins, genuine transparent background. No text, no letters, no numbers, no UI buttons, no border or full background."
+    }
+  ]
+}

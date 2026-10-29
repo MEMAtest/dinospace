@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-29T12:36:29.878636+00:00",
+  "netlify": {
+    "id": "c9dcd11b-4029-44c0-910d-d40a13339eb8",
+    "url": "http://dinospace.netlify.app",
+    "ssl_url": "https://dinospace.netlify.app",
+    "published_deploy": {
+      "id": "6ae32d82b85419377c6ba593",
+      "state": "ready",
+      "deploy_ssl_url": "https://6ae32d82b85419377c6ba593--dinospace.netlify.app",
+      "published_at": "2026-10-29T11:26:59.780Z"
+    },
+    "build_settings": {
+      "stop_builds": true
+    }
+  },
+  "backend": {
+    "id": "dpl_9RR6xdB7WafZgJKCwjf88zXnE6gq",
+    "url": "dinospace-qt8a8d5mc-memas-projects-23a0001d.vercel.app",
+    "readyState": "READY",
+    "projectId": "prj_Ynw7abkJRQph4IebF9jonrYmEC4w",
+    "meta": {
+      "runtimeSource": "e322549af753147d471d646ac32de645d709c356"
+    }
+  }
+}

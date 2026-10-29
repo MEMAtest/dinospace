@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "at": "2026-10-29T12:47:17.940411+00:00",
+  "runtimeSource": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+  "entry": "/assets/arcade-BrQh-tMA.js",
+  "cases": [
+    {
+      "flow": "letters",
+      "viewport": "390x740",
+      "report": "native-letters-390x740-arcade-BrQh-tMA-20261029T124559-771513000.json",
+      "sha256": "37369b19aefe03d93667dba72d9d6c855390bc5627b8fb4fbd1a31d8249ec945",
+      "rows": 32,
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": [],
+        "providerAttempts": []
+      }
+    },
+    {
+      "flow": "letters",
+      "viewport": "1440x844",
+      "report": "native-letters-1440x844-arcade-BrQh-tMA-20261029T124607-928701000.json",
+      "sha256": "bfa7c69a6a9720c0feca61f58e6eb2c85d299c6bc00ea59dcb52932811a21e79",
+      "rows": 32,
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": [],
+        "providerAttempts": []
+      }
+    },
+    {
+      "flow": "factfinder",
+      "viewport": "390x740",
+      "report": "native-factfinder-390x740-arcade-BrQh-tMA-20261029T124510-187710000.json",
+      "sha256": "6f7a74519c6fe4d070bb0c17ccf32ff3eeaab0bda70477810c375821ab77a37a",
+      "rows": 2,
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": [],
+        "providerAttempts": []
+      }
+    },
+    {
+      "flow": "factfinder",
+      "viewport": "1440x844",
+      "report": "native-factfinder-1440x844-arcade-BrQh-tMA-20261029T124619-210299000.json",
+      "sha256": "1b467cef2ad74266e0643974272f7844f44e05d8feda37130a0bdd2f834610fb",
+      "rows": 2,
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": [],
+        "providerAttempts": []
+      }
+    }
+  ],
+  "saveFaultChain": {
+    "report": "native-letters-390x740-arcade-DsTUt1Up-20261029T124018-883114000.json",
+    "sourceBinding": "Exact Letter/App/data hashes unchanged; later source change was FactFinder article controls only. All three stages confirmed same receipt and one reward.",
+    "sha256": "6e07c2e35d4765ca4732e7ac401e1f5f1cf5ce7bf55dd48d84f2e19669918621"
+  },
+  "scope": "Four final-entry native journeys, actual controls, no reset/provider request. No production acceptance yet."
+}

@@ -1,0 +1,1807 @@
+{
+  "passed": false,
+  "flow": "letters",
+  "stage": "native",
+  "origin": "http://127.0.0.1:5180",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "entryIdentity": "/assets/arcade-DwlOlZGZ.js",
+  "startingUrl": "http://127.0.0.1:5180/?qa_pair11_letters=1793277418464-390-740#/",
+  "flowResult": null,
+  "rows": [
+    {
+      "kind": "letters-audio",
+      "chapterId": "letters-sound-scout",
+      "srcPath": "/audio/en/aad0d402-matilda.mp3",
+      "elapsed": 0.227802,
+      "stoppedByMute": true
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 0,
+      "chapterId": "letters-sound-scout",
+      "round": {
+        "clue": "Picture clue for Apple",
+        "answerMethod": "initial",
+        "answer": "A",
+        "roundHeaderBefore": "Word sound finder · 1 of 6",
+        "roundHeaderAfter": "Word sound finder · 1 of 6",
+        "final": false,
+        "wrongOption": "E",
+        "heldFeedback": "Well done! Apple starts with the a sound. The letter is called A."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 0,
+      "chapterId": "letters-sound-scout",
+      "round": {
+        "clue": "Picture clue for Cat",
+        "answerMethod": "initial",
+        "answer": "C",
+        "roundHeaderBefore": "Word sound finder · 2 of 6",
+        "roundHeaderAfter": "Word sound finder · 2 of 6",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Super! Cat starts with the c sound. The letter is called C."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 0,
+      "chapterId": "letters-sound-scout",
+      "round": {
+        "clue": "Picture clue for Lion",
+        "answerMethod": "initial",
+        "answer": "L",
+        "roundHeaderBefore": "Word sound finder · 3 of 6",
+        "roundHeaderAfter": "Word sound finder · 3 of 6",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Great job! Lion starts with the l sound. The letter is called L."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 0,
+      "chapterId": "letters-sound-scout",
+      "round": {
+        "clue": "Picture clue for Insect",
+        "answerMethod": "initial",
+        "answer": "I",
+        "roundHeaderBefore": "Word sound finder · 4 of 6",
+        "roundHeaderAfter": "Word sound finder · 4 of 6",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Super! Insect starts with the i sound. The letter is called I."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 0,
+      "chapterId": "letters-sound-scout",
+      "round": {
+        "clue": "Picture clue for Pig",
+        "answerMethod": "initial",
+        "answer": "P",
+        "roundHeaderBefore": "Word sound finder · 5 of 6",
+        "roundHeaderAfter": "Word sound finder · 5 of 6",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Well done! Pig starts with the p sound. The letter is called P."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 0,
+      "chapterId": "letters-sound-scout",
+      "round": {
+        "clue": "Picture clue for Up",
+        "answerMethod": "initial",
+        "answer": "U",
+        "roundHeaderBefore": "Word sound finder · 6 of 6",
+        "roundHeaderAfter": "Word sound finder · 6 of 6",
+        "final": true,
+        "wrongOption": null,
+        "heldFeedback": "Great job! Up starts with the u sound. The letter is called U."
+      }
+    },
+    {
+      "kind": "letters-audio",
+      "chapterId": "letters-first-sound-finder",
+      "srcPath": "/audio/en/990f6cf2-matilda.mp3",
+      "elapsed": 0.25484300000000004,
+      "stoppedByMute": true
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 1,
+      "chapterId": "letters-first-sound-finder",
+      "round": {
+        "clue": "Picture clue for TAP",
+        "answerMethod": "initial",
+        "answer": "T",
+        "roundHeaderBefore": "New word explorer · 1 of 6",
+        "roundHeaderAfter": "New word explorer · 1 of 6",
+        "final": false,
+        "wrongOption": "B",
+        "heldFeedback": "Super! TAP starts with the t sound."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 1,
+      "chapterId": "letters-first-sound-finder",
+      "round": {
+        "clue": "Picture clue for RED",
+        "answerMethod": "initial",
+        "answer": "R",
+        "roundHeaderBefore": "New word explorer · 2 of 6",
+        "roundHeaderAfter": "New word explorer · 2 of 6",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Super! RED starts with the r sound."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 1,
+      "chapterId": "letters-first-sound-finder",
+      "round": {
+        "clue": "Picture clue for HEN",
+        "answerMethod": "initial",
+        "answer": "H",
+        "roundHeaderBefore": "New word explorer · 3 of 6",
+        "roundHeaderAfter": "New word explorer · 3 of 6",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Well done! HEN starts with the h sound."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 1,
+      "chapterId": "letters-first-sound-finder",
+      "round": {
+        "clue": "Picture clue for MAP",
+        "answerMethod": "initial",
+        "answer": "M",
+        "roundHeaderBefore": "New word explorer · 4 of 6",
+        "roundHeaderAfter": "New word explorer · 4 of 6",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Well done! MAP starts with the m sound."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 1,
+      "chapterId": "letters-first-sound-finder",
+      "round": {
+        "clue": "Picture clue for PAT",
+        "answerMethod": "initial",
+        "answer": "P",
+        "roundHeaderBefore": "New word explorer · 5 of 6",
+        "roundHeaderAfter": "New word explorer · 5 of 6",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Great job! PAT starts with the p sound."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 1,
+      "chapterId": "letters-first-sound-finder",
+      "round": {
+        "clue": "Picture clue for TIN",
+        "answerMethod": "initial",
+        "answer": "T",
+        "roundHeaderBefore": "New word explorer · 6 of 6",
+        "roundHeaderAfter": "New word explorer · 6 of 6",
+        "final": true,
+        "wrongOption": null,
+        "heldFeedback": "Well done! TIN starts with the t sound."
+      }
+    },
+    {
+      "kind": "letters-audio",
+      "chapterId": "letters-letter-match-maker",
+      "srcPath": "/audio/en/f6affe47-matilda.mp3",
+      "elapsed": 0.255214,
+      "stoppedByMute": true
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "round": {
+        "clue": "Little letter m",
+        "answerMethod": "case",
+        "answer": "M",
+        "roundHeaderBefore": "Big and little letters · 1 of 7",
+        "roundHeaderAfter": "Big and little letters · 1 of 7",
+        "final": false,
+        "wrongOption": "K",
+        "heldFeedback": "Super! Big M and little m are the same letter."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "round": {
+        "clue": "Little letter i",
+        "answerMethod": "case",
+        "answer": "I",
+        "roundHeaderBefore": "Big and little letters · 2 of 7",
+        "roundHeaderAfter": "Big and little letters · 2 of 7",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Well done! Big I and little i are the same letter."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "round": {
+        "clue": "Little letter p",
+        "answerMethod": "case",
+        "answer": "P",
+        "roundHeaderBefore": "Big and little letters · 3 of 7",
+        "roundHeaderAfter": "Big and little letters · 3 of 7",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Super! Big P and little p are the same letter."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "round": {
+        "clue": "Little letter o",
+        "answerMethod": "case",
+        "answer": "O",
+        "roundHeaderBefore": "Big and little letters · 4 of 7",
+        "roundHeaderAfter": "Big and little letters · 4 of 7",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Great job! Big O and little o are the same letter."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "round": {
+        "clue": "Little letter c",
+        "answerMethod": "case",
+        "answer": "C",
+        "roundHeaderBefore": "Big and little letters · 5 of 7",
+        "roundHeaderAfter": "Big and little letters · 5 of 7",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Super! Big C and little c are the same letter."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "round": {
+        "clue": "Little letter g",
+        "answerMethod": "case",
+        "answer": "G",
+        "roundHeaderBefore": "Big and little letters · 6 of 7",
+        "roundHeaderAfter": "Big and little letters · 6 of 7",
+        "final": false,
+        "wrongOption": null,
+        "heldFeedback": "Great job! Big G and little g are the same letter."
+      }
+    },
+    {
+      "kind": "letter-round",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "round": {
+        "clue": "Little letter n",
+        "answerMethod": "case",
+        "answer": "N",
+        "roundHeaderBefore": "Big and little letters · 7 of 7",
+        "roundHeaderAfter": "Big and little letters · 7 of 7",
+        "final": true,
+        "wrongOption": null,
+        "heldFeedback": "Great job! Big N and little n are the same letter."
+      }
+    },
+    {
+      "kind": "letter-save-fault-stage",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+      "stage": {
+        "stage": "local",
+        "fault": {
+          "key": "amari_letter_launch_progress_v1",
+          "mode": "stale-readback",
+          "beforeRaw": "{\"version\":1,\"unlockedChapterIndex\":2,\"completedChapterIds\":[\"letters-sound-scout\",\"letters-first-sound-finder\"],\"chapterReceipts\":[{\"transactionId\":\"d59acd39-35b7-43fb-a4e4-0a0581501d7e\",\"chapterId\":\"letters-sound-scout\",\"rewardDelta\":1,\"parentClaimed\":true},{\"transactionId\":\"9e545e2a-e752-4e11-b413-bd9acfcf0999\",\"chapterId\":\"letters-first-sound-finder\",\"rewardDelta\":1,\"parentClaimed\":true}]}",
+          "consumed": true,
+          "committedWrite": true
+        },
+        "receipt": {
+          "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+          "rewardDelta": 1,
+          "parentClaimed": false
+        },
+        "heldClue": "Little letter n",
+        "heldHeader": "Big and little letters · 7 of 7",
+        "message": "Letter Launch progress could not be confirmed. Retry this chapter result.\n\nRetry save",
+        "nextFaultArmed": {
+          "armed": true,
+          "key": "amari_chapter_badges_v1",
+          "mode": "stale-readback",
+          "hadPriorRecord": true
+        },
+        "retryStorageChanged": [
+          "amari_chapter_badges_v1"
+        ]
+      },
+      "retryStorageChanged": [
+        "amari_chapter_badges_v1"
+      ]
+    },
+    {
+      "kind": "letter-save-fault-stage",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+      "stage": {
+        "stage": "badge",
+        "fault": {
+          "key": "amari_chapter_badges_v1",
+          "mode": "stale-readback",
+          "beforeRaw": "{\"version\":1,\"players\":{\"amari\":{\"games\":{\"letters\":{\"earnedChapterIds\":[\"letters-sound-scout\",\"letters-first-sound-finder\"]}}}}}",
+          "consumed": true,
+          "committedWrite": true
+        },
+        "receipt": {
+          "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+          "rewardDelta": 1,
+          "parentClaimed": false
+        },
+        "heldClue": "Little letter n",
+        "heldHeader": "Big and little letters · 7 of 7",
+        "message": "Your chapter is saved, but its badge could not be confirmed. Retry this same result.\n\nRetry save",
+        "nextFaultArmed": {
+          "armed": true,
+          "key": "amari_rewards_v2",
+          "mode": "stale-readback",
+          "hadPriorRecord": true
+        },
+        "retryStorageChanged": [
+          "amari_rewards_v2"
+        ]
+      },
+      "retryStorageChanged": [
+        "amari_rewards_v2"
+      ]
+    },
+    {
+      "kind": "letter-save-fault-stage",
+      "chapterIndex": 2,
+      "chapterId": "letters-letter-match-maker",
+      "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+      "stage": {
+        "stage": "parent",
+        "fault": {
+          "key": "amari_rewards_v2",
+          "mode": "stale-readback",
+          "beforeRaw": "{\"version\":2,\"points\":367,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":4,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3,\"ladder\":3,\"firerescue\":3,\"hangman\":5,\"dino\":12,\"words\":6,\"storybooks\":7,\"dinojigsaw\":3,\"german\":3,\"worldmap\":9,\"letters\":2},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\",\"crown\",\"legend\"],\"rewardClaims\":{\"hangman:first-words-263186679\":2,\"hangman:four-letter-rescue-479170815\":6,\"hangman:five-letter-rescue-778843497\":6,\"hangman:long-word-rescue-2118663940\":6,\"dino:e3ee4326-ecf0-4a23-8978-edea989a9a66\":2,\"dino:55d8ed8c-26f4-4401-96b0-7722f01116d7\":2,\"dino:9abfd8f2-20df-431a-bc29-60c4f224eb74\":2,\"dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e\":2,\"dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69\":2,\"dino:67b3915e-0907-45a7-b377-5b0a7deaf32c\":2,\"dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002\":2,\"dino:2b17d237-c205-4da8-be4c-e1002930beb9\":2,\"dino:66425a33-97b7-4e9c-a72a-9077585472ae\":2,\"dino:65ff0aec-a712-4326-8d70-9427a12494e8\":2,\"dino:37ef2047-c60f-4f90-82b2-3c0009d36840\":2,\"dino:7d50c719-10cc-476a-b186-5352199b1640\":2,\"hangman:first-words-4170493800\":4,\"words:9e438403-ca0e-49d4-928c-ccf5d19d5424\":6,\"words:6692a9a7-b18b-4086-9dcf-bc853d253675\":6,\"words:1b7f23d6-222f-47a7-accf-0e1ef0938b0e\":6,\"words:b73674ad-596f-48ea-9415-0f387fc5fb7e\":6,\"words:2a03774e-87a3-469a-b620-67111c25775a\":6,\"words:14fc64e4-9840-4127-9cef-24bd71250557\":6,\"storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9\":1,\"storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c\":1,\"storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b\":1,\"storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3\":1,\"storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709\":1,\"storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640\":1,\"storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e\":1,\"dino:chess:e9c5097ef3d549b59e7be295e236dbcf\":1,\"dino:jigsaw:little:49823e6d-a0ec-4be7-aa09-318b22e7904a\":8,\"dino:jigsaw:little:38a608b1-3b9b-4924-8ee5-9747cb8d0e32\":8,\"dino:jigsaw:little:ee38a11d-8a2a-4822-a155-c1595ba03984\":8,\"dino:german:amari_0_15m62m2\":1,\"dino:german:amari_1_11yjxcp\":1,\"dino:german:amari_2_ruxrqz\":1,\"dino:curriculum:continents:starter\":1,\"dino:curriculum:continents:growing\":1,\"dino:curriculum:continents:challenge\":1,\"dino:curriculum:time-detectives:starter\":1,\"dino:curriculum:time-detectives:growing\":1,\"dino:curriculum:time-detectives:challenge\":1,\"dino:curriculum:nature-lab:starter\":1,\"dino:curriculum:nature-lab:growing\":1,\"dino:curriculum:nature-lab:challenge\":1,\"dino:letters:d59acd39-35b7-43fb-a4e4-0a0581501d7e\":1,\"dino:letters:9e545e2a-e752-4e11-b413-bd9acfcf0999\":1}}",
+          "consumed": true,
+          "committedWrite": true
+        },
+        "receipt": {
+          "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+          "rewardDelta": 1,
+          "parentClaimed": false
+        },
+        "heldClue": "Little letter n",
+        "heldHeader": "Big and little letters · 7 of 7",
+        "message": "Your chapter is saved, but its reward could not be confirmed. Retry this same result.\n\nRetry save",
+        "retryStorageChanged": [
+          "amari_game_diagnostics_v1",
+          "amari_games_played",
+          "amari_letter_launch_progress_v1",
+          "amari_points"
+        ],
+        "finalReceipt": {
+          "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+          "chapterId": "letters-letter-match-maker",
+          "rewardDelta": 1,
+          "parentClaimed": true
+        }
+      },
+      "retryStorageChanged": [
+        "amari_game_diagnostics_v1",
+        "amari_games_played",
+        "amari_letter_launch_progress_v1",
+        "amari_points"
+      ],
+      "finalReceipt": {
+        "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+        "rewardDelta": 1,
+        "parentClaimed": true
+      }
+    },
+    {
+      "kind": "letters-audio",
+      "chapterId": "letters-cvc-blender",
+      "srcPath": "/audio/en/3b688ea2-matilda.mp3",
+      "elapsed": 0.256176,
+      "stoppedByMute": true
+    }
+  ],
+  "failures": [
+    {
+      "message": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.letter-launch-feedback[role=\"status\"]') to be visible\u001b[22m\n",
+      "evidence": null,
+      "stack": "locator.waitFor: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.letter-launch-feedback[role=\"status\"]') to be visible\u001b[22m\n\n    at solveLetterRound (evalmachine.<anonymous>:289:20)\n    at async runLetterLaunch (evalmachine.<anonymous>:397:23)\n    at async evalmachine.<anonymous>:712:39\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13",
+      "partialRows": [
+        {
+          "kind": "letters-audio",
+          "chapterId": "letters-sound-scout",
+          "srcPath": "/audio/en/aad0d402-matilda.mp3",
+          "elapsed": 0.227802,
+          "stoppedByMute": true
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 0,
+          "chapterId": "letters-sound-scout",
+          "round": {
+            "clue": "Picture clue for Apple",
+            "answerMethod": "initial",
+            "answer": "A",
+            "roundHeaderBefore": "Word sound finder · 1 of 6",
+            "roundHeaderAfter": "Word sound finder · 1 of 6",
+            "final": false,
+            "wrongOption": "E",
+            "heldFeedback": "Well done! Apple starts with the a sound. The letter is called A."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 0,
+          "chapterId": "letters-sound-scout",
+          "round": {
+            "clue": "Picture clue for Cat",
+            "answerMethod": "initial",
+            "answer": "C",
+            "roundHeaderBefore": "Word sound finder · 2 of 6",
+            "roundHeaderAfter": "Word sound finder · 2 of 6",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Super! Cat starts with the c sound. The letter is called C."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 0,
+          "chapterId": "letters-sound-scout",
+          "round": {
+            "clue": "Picture clue for Lion",
+            "answerMethod": "initial",
+            "answer": "L",
+            "roundHeaderBefore": "Word sound finder · 3 of 6",
+            "roundHeaderAfter": "Word sound finder · 3 of 6",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Great job! Lion starts with the l sound. The letter is called L."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 0,
+          "chapterId": "letters-sound-scout",
+          "round": {
+            "clue": "Picture clue for Insect",
+            "answerMethod": "initial",
+            "answer": "I",
+            "roundHeaderBefore": "Word sound finder · 4 of 6",
+            "roundHeaderAfter": "Word sound finder · 4 of 6",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Super! Insect starts with the i sound. The letter is called I."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 0,
+          "chapterId": "letters-sound-scout",
+          "round": {
+            "clue": "Picture clue for Pig",
+            "answerMethod": "initial",
+            "answer": "P",
+            "roundHeaderBefore": "Word sound finder · 5 of 6",
+            "roundHeaderAfter": "Word sound finder · 5 of 6",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Well done! Pig starts with the p sound. The letter is called P."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 0,
+          "chapterId": "letters-sound-scout",
+          "round": {
+            "clue": "Picture clue for Up",
+            "answerMethod": "initial",
+            "answer": "U",
+            "roundHeaderBefore": "Word sound finder · 6 of 6",
+            "roundHeaderAfter": "Word sound finder · 6 of 6",
+            "final": true,
+            "wrongOption": null,
+            "heldFeedback": "Great job! Up starts with the u sound. The letter is called U."
+          }
+        },
+        {
+          "kind": "letters-audio",
+          "chapterId": "letters-first-sound-finder",
+          "srcPath": "/audio/en/990f6cf2-matilda.mp3",
+          "elapsed": 0.25484300000000004,
+          "stoppedByMute": true
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 1,
+          "chapterId": "letters-first-sound-finder",
+          "round": {
+            "clue": "Picture clue for TAP",
+            "answerMethod": "initial",
+            "answer": "T",
+            "roundHeaderBefore": "New word explorer · 1 of 6",
+            "roundHeaderAfter": "New word explorer · 1 of 6",
+            "final": false,
+            "wrongOption": "B",
+            "heldFeedback": "Super! TAP starts with the t sound."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 1,
+          "chapterId": "letters-first-sound-finder",
+          "round": {
+            "clue": "Picture clue for RED",
+            "answerMethod": "initial",
+            "answer": "R",
+            "roundHeaderBefore": "New word explorer · 2 of 6",
+            "roundHeaderAfter": "New word explorer · 2 of 6",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Super! RED starts with the r sound."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 1,
+          "chapterId": "letters-first-sound-finder",
+          "round": {
+            "clue": "Picture clue for HEN",
+            "answerMethod": "initial",
+            "answer": "H",
+            "roundHeaderBefore": "New word explorer · 3 of 6",
+            "roundHeaderAfter": "New word explorer · 3 of 6",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Well done! HEN starts with the h sound."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 1,
+          "chapterId": "letters-first-sound-finder",
+          "round": {
+            "clue": "Picture clue for MAP",
+            "answerMethod": "initial",
+            "answer": "M",
+            "roundHeaderBefore": "New word explorer · 4 of 6",
+            "roundHeaderAfter": "New word explorer · 4 of 6",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Well done! MAP starts with the m sound."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 1,
+          "chapterId": "letters-first-sound-finder",
+          "round": {
+            "clue": "Picture clue for PAT",
+            "answerMethod": "initial",
+            "answer": "P",
+            "roundHeaderBefore": "New word explorer · 5 of 6",
+            "roundHeaderAfter": "New word explorer · 5 of 6",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Great job! PAT starts with the p sound."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 1,
+          "chapterId": "letters-first-sound-finder",
+          "round": {
+            "clue": "Picture clue for TIN",
+            "answerMethod": "initial",
+            "answer": "T",
+            "roundHeaderBefore": "New word explorer · 6 of 6",
+            "roundHeaderAfter": "New word explorer · 6 of 6",
+            "final": true,
+            "wrongOption": null,
+            "heldFeedback": "Well done! TIN starts with the t sound."
+          }
+        },
+        {
+          "kind": "letters-audio",
+          "chapterId": "letters-letter-match-maker",
+          "srcPath": "/audio/en/f6affe47-matilda.mp3",
+          "elapsed": 0.255214,
+          "stoppedByMute": true
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "round": {
+            "clue": "Little letter m",
+            "answerMethod": "case",
+            "answer": "M",
+            "roundHeaderBefore": "Big and little letters · 1 of 7",
+            "roundHeaderAfter": "Big and little letters · 1 of 7",
+            "final": false,
+            "wrongOption": "K",
+            "heldFeedback": "Super! Big M and little m are the same letter."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "round": {
+            "clue": "Little letter i",
+            "answerMethod": "case",
+            "answer": "I",
+            "roundHeaderBefore": "Big and little letters · 2 of 7",
+            "roundHeaderAfter": "Big and little letters · 2 of 7",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Well done! Big I and little i are the same letter."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "round": {
+            "clue": "Little letter p",
+            "answerMethod": "case",
+            "answer": "P",
+            "roundHeaderBefore": "Big and little letters · 3 of 7",
+            "roundHeaderAfter": "Big and little letters · 3 of 7",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Super! Big P and little p are the same letter."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "round": {
+            "clue": "Little letter o",
+            "answerMethod": "case",
+            "answer": "O",
+            "roundHeaderBefore": "Big and little letters · 4 of 7",
+            "roundHeaderAfter": "Big and little letters · 4 of 7",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Great job! Big O and little o are the same letter."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "round": {
+            "clue": "Little letter c",
+            "answerMethod": "case",
+            "answer": "C",
+            "roundHeaderBefore": "Big and little letters · 5 of 7",
+            "roundHeaderAfter": "Big and little letters · 5 of 7",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Super! Big C and little c are the same letter."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "round": {
+            "clue": "Little letter g",
+            "answerMethod": "case",
+            "answer": "G",
+            "roundHeaderBefore": "Big and little letters · 6 of 7",
+            "roundHeaderAfter": "Big and little letters · 6 of 7",
+            "final": false,
+            "wrongOption": null,
+            "heldFeedback": "Great job! Big G and little g are the same letter."
+          }
+        },
+        {
+          "kind": "letter-round",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "round": {
+            "clue": "Little letter n",
+            "answerMethod": "case",
+            "answer": "N",
+            "roundHeaderBefore": "Big and little letters · 7 of 7",
+            "roundHeaderAfter": "Big and little letters · 7 of 7",
+            "final": true,
+            "wrongOption": null,
+            "heldFeedback": "Great job! Big N and little n are the same letter."
+          }
+        },
+        {
+          "kind": "letter-save-fault-stage",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+          "stage": {
+            "stage": "local",
+            "fault": {
+              "key": "amari_letter_launch_progress_v1",
+              "mode": "stale-readback",
+              "beforeRaw": "{\"version\":1,\"unlockedChapterIndex\":2,\"completedChapterIds\":[\"letters-sound-scout\",\"letters-first-sound-finder\"],\"chapterReceipts\":[{\"transactionId\":\"d59acd39-35b7-43fb-a4e4-0a0581501d7e\",\"chapterId\":\"letters-sound-scout\",\"rewardDelta\":1,\"parentClaimed\":true},{\"transactionId\":\"9e545e2a-e752-4e11-b413-bd9acfcf0999\",\"chapterId\":\"letters-first-sound-finder\",\"rewardDelta\":1,\"parentClaimed\":true}]}",
+              "consumed": true,
+              "committedWrite": true
+            },
+            "receipt": {
+              "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+              "rewardDelta": 1,
+              "parentClaimed": false
+            },
+            "heldClue": "Little letter n",
+            "heldHeader": "Big and little letters · 7 of 7",
+            "message": "Letter Launch progress could not be confirmed. Retry this chapter result.\n\nRetry save",
+            "nextFaultArmed": {
+              "armed": true,
+              "key": "amari_chapter_badges_v1",
+              "mode": "stale-readback",
+              "hadPriorRecord": true
+            },
+            "retryStorageChanged": [
+              "amari_chapter_badges_v1"
+            ]
+          },
+          "retryStorageChanged": [
+            "amari_chapter_badges_v1"
+          ]
+        },
+        {
+          "kind": "letter-save-fault-stage",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+          "stage": {
+            "stage": "badge",
+            "fault": {
+              "key": "amari_chapter_badges_v1",
+              "mode": "stale-readback",
+              "beforeRaw": "{\"version\":1,\"players\":{\"amari\":{\"games\":{\"letters\":{\"earnedChapterIds\":[\"letters-sound-scout\",\"letters-first-sound-finder\"]}}}}}",
+              "consumed": true,
+              "committedWrite": true
+            },
+            "receipt": {
+              "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+              "rewardDelta": 1,
+              "parentClaimed": false
+            },
+            "heldClue": "Little letter n",
+            "heldHeader": "Big and little letters · 7 of 7",
+            "message": "Your chapter is saved, but its badge could not be confirmed. Retry this same result.\n\nRetry save",
+            "nextFaultArmed": {
+              "armed": true,
+              "key": "amari_rewards_v2",
+              "mode": "stale-readback",
+              "hadPriorRecord": true
+            },
+            "retryStorageChanged": [
+              "amari_rewards_v2"
+            ]
+          },
+          "retryStorageChanged": [
+            "amari_rewards_v2"
+          ]
+        },
+        {
+          "kind": "letter-save-fault-stage",
+          "chapterIndex": 2,
+          "chapterId": "letters-letter-match-maker",
+          "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+          "stage": {
+            "stage": "parent",
+            "fault": {
+              "key": "amari_rewards_v2",
+              "mode": "stale-readback",
+              "beforeRaw": "{\"version\":2,\"points\":367,\"gamesPlayed\":{\"trace\":21,\"tictactoe\":12,\"colormix\":18,\"phonics\":3,\"oddoneout\":3,\"pattern\":3,\"astronaut\":3,\"chess\":4,\"codecadets\":3,\"writingdesk\":3,\"memory\":10,\"solar\":18,\"rocketbuilder\":3,\"fuelup\":3,\"ladder\":3,\"firerescue\":3,\"hangman\":5,\"dino\":12,\"words\":6,\"storybooks\":7,\"dinojigsaw\":3,\"german\":3,\"worldmap\":9,\"letters\":2},\"earnedStickerIds\":[\"rocket\",\"dino\",\"star\",\"truck\",\"heart\",\"planet\",\"hero\",\"trophy\",\"diamond\",\"crown\",\"legend\"],\"rewardClaims\":{\"hangman:first-words-263186679\":2,\"hangman:four-letter-rescue-479170815\":6,\"hangman:five-letter-rescue-778843497\":6,\"hangman:long-word-rescue-2118663940\":6,\"dino:e3ee4326-ecf0-4a23-8978-edea989a9a66\":2,\"dino:55d8ed8c-26f4-4401-96b0-7722f01116d7\":2,\"dino:9abfd8f2-20df-431a-bc29-60c4f224eb74\":2,\"dino:ef00bfd8-4038-4669-8982-550ecb5f6c5e\":2,\"dino:545aaff1-f032-4ecb-a2fa-ac2fcec1aa69\":2,\"dino:67b3915e-0907-45a7-b377-5b0a7deaf32c\":2,\"dino:8d4d0388-d9a3-4f2a-84e2-76eed92cb002\":2,\"dino:2b17d237-c205-4da8-be4c-e1002930beb9\":2,\"dino:66425a33-97b7-4e9c-a72a-9077585472ae\":2,\"dino:65ff0aec-a712-4326-8d70-9427a12494e8\":2,\"dino:37ef2047-c60f-4f90-82b2-3c0009d36840\":2,\"dino:7d50c719-10cc-476a-b186-5352199b1640\":2,\"hangman:first-words-4170493800\":4,\"words:9e438403-ca0e-49d4-928c-ccf5d19d5424\":6,\"words:6692a9a7-b18b-4086-9dcf-bc853d253675\":6,\"words:1b7f23d6-222f-47a7-accf-0e1ef0938b0e\":6,\"words:b73674ad-596f-48ea-9415-0f387fc5fb7e\":6,\"words:2a03774e-87a3-469a-b620-67111c25775a\":6,\"words:14fc64e4-9840-4127-9cef-24bd71250557\":6,\"storybooks:storybook-amari-rex-missing-moon-map-e7e6c5a3-6227-4544-95f9-6bc9e438b5d9\":1,\"storybooks:storybook-amari-luna-whispering-forest-bfb41383-79c8-401c-b18f-d9960c120e8c\":1,\"storybooks:storybook-amari-nia-great-river-journey-4309a5c7-0192-452b-9767-58b2e38e802b\":1,\"storybooks:storybook-amari-bo-busy-bee-garden-7c607440-abbe-448d-983d-4531753f40a3\":1,\"storybooks:storybook-amari-sami-night-light-parade-f15ada74-8817-4512-b083-d95fad3e2709\":1,\"storybooks:storybook-amari-mina-mountain-seed-a8f89738-7167-441d-8c0a-66bfe97e7640\":1,\"storybooks:storybook-amari-kai-lost-library-book-7691ea37-08ca-42ea-876b-27e4864fde3e\":1,\"dino:chess:e9c5097ef3d549b59e7be295e236dbcf\":1,\"dino:jigsaw:little:49823e6d-a0ec-4be7-aa09-318b22e7904a\":8,\"dino:jigsaw:little:38a608b1-3b9b-4924-8ee5-9747cb8d0e32\":8,\"dino:jigsaw:little:ee38a11d-8a2a-4822-a155-c1595ba03984\":8,\"dino:german:amari_0_15m62m2\":1,\"dino:german:amari_1_11yjxcp\":1,\"dino:german:amari_2_ruxrqz\":1,\"dino:curriculum:continents:starter\":1,\"dino:curriculum:continents:growing\":1,\"dino:curriculum:continents:challenge\":1,\"dino:curriculum:time-detectives:starter\":1,\"dino:curriculum:time-detectives:growing\":1,\"dino:curriculum:time-detectives:challenge\":1,\"dino:curriculum:nature-lab:starter\":1,\"dino:curriculum:nature-lab:growing\":1,\"dino:curriculum:nature-lab:challenge\":1,\"dino:letters:d59acd39-35b7-43fb-a4e4-0a0581501d7e\":1,\"dino:letters:9e545e2a-e752-4e11-b413-bd9acfcf0999\":1}}",
+              "consumed": true,
+              "committedWrite": true
+            },
+            "receipt": {
+              "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+              "rewardDelta": 1,
+              "parentClaimed": false
+            },
+            "heldClue": "Little letter n",
+            "heldHeader": "Big and little letters · 7 of 7",
+            "message": "Your chapter is saved, but its reward could not be confirmed. Retry this same result.\n\nRetry save",
+            "retryStorageChanged": [
+              "amari_game_diagnostics_v1",
+              "amari_games_played",
+              "amari_letter_launch_progress_v1",
+              "amari_points"
+            ],
+            "finalReceipt": {
+              "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+              "chapterId": "letters-letter-match-maker",
+              "rewardDelta": 1,
+              "parentClaimed": true
+            }
+          },
+          "retryStorageChanged": [
+            "amari_game_diagnostics_v1",
+            "amari_games_played",
+            "amari_letter_launch_progress_v1",
+            "amari_points"
+          ],
+          "finalReceipt": {
+            "transactionId": "afeed17c-9603-4da7-85f4-96eb9a8eaa46",
+            "rewardDelta": 1,
+            "parentClaimed": true
+          }
+        },
+        {
+          "kind": "letters-audio",
+          "chapterId": "letters-cvc-blender",
+          "srcPath": "/audio/en/3b688ea2-matilda.mp3",
+          "elapsed": 0.256176,
+          "stoppedByMute": true
+        }
+      ]
+    }
+  ],
+  "errors": {
+    "pageErrors": [
+      "Cannot read properties of undefined (reading 'toUpperCase')"
+    ],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "failedResponses": [],
+    "providerAttempts": []
+  },
+  "baselineRawDigestSummary": {
+    "qa_rewards_20261024_amari_letter_trace_progress_v1": {
+      "bytes": 278,
+      "sha256": "d0392a53f3b0ec09f86d3da8d52f82ad7c71452d6c4122fc822df22e731ededb"
+    },
+    "qa_rewards_20261024_amari_rewards_v2": {
+      "bytes": 2936,
+      "sha256": "10aa6a73fbe644828c5dd9fbe0a8e5ce35ceaecf00ed42ef84adc06e69a45d18"
+    },
+    "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1": {
+      "bytes": 11026,
+      "sha256": "7b17c9aeda27a8292625ea681292e573351ac335305b447d6797f2838b9fc6de"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing": {
+      "bytes": 504,
+      "sha256": "9dfd474ddb852c8de90f067deb68bbde4feb66032cb82288164139bbdbc32ad5"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing": {
+      "bytes": 189,
+      "sha256": "031eb6708851737b1216454c880d367ad1b0847508d38883e22668fa3f5c61e3"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good": {
+      "bytes": 129544,
+      "sha256": "999a71b9a80148c275e883d00b0e39d75d51b455d0ea4c118f25393e9ad2d19a"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter": {
+      "bytes": 412,
+      "sha256": "365ab0267d8689c8ab6847a3259362226c5e591177e1966f0871d20a86b77a1a"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge": {
+      "bytes": 397,
+      "sha256": "45dd768c9aedaadab0552a33762003adfc693ad39f4845e800c11d806946c20e"
+    },
+    "qa_rewards_20261024_askia_favourite_games": {
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "qa_rewards_20261024_amari_storybook_active_child_v1": {
+      "bytes": 5,
+      "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:amari": {
+      "bytes": 278,
+      "sha256": "228b87774ce823542f2bf7fbe20fa44a40ff5310c87d9ea0cbe0c7bd2438f782"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge": {
+      "bytes": 127,
+      "sha256": "03d5b3bf6215874962f5de250f6cef80d02799bc75b8fc42909c88f68e339f53"
+    },
+    "qa_rewards_20261024_amari_cosmic_freeplay_v1": {
+      "bytes": 184,
+      "sha256": "5b036eb8589eeadf497436d9c71c9aac776c0935877c7854b2b2591f7086e15b"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_german_chapter_progress_v1": {
+      "bytes": 535,
+      "sha256": "13712b56053c445ab55bea70e9521adfa17d055708aeee74bf09588b4f756ac2"
+    },
+    "qa_rewards_20261024_amari_writing_samples_v1": {
+      "bytes": 439,
+      "sha256": "ee3e0daf688d4c0ac0a1739f03f3a65b0c538dfd44b87745797c0c4fcda33ff4"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter": {
+      "bytes": 154,
+      "sha256": "8dc1ca9daaf1070e4395add73ef7d604200d711e29bd34934cd5e11bba298894"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge": {
+      "bytes": 181,
+      "sha256": "5fffd41eb448ccc2967a6c8a6e3e003174795f1815ef68a30b573c7747b4e400"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard": {
+      "bytes": 155464,
+      "sha256": "0fc027c56c7b5fffda70dc6d9916dfe41206be7167cfe6a686c6d52903ab40cf"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter": {
+      "bytes": 383,
+      "sha256": "e5e14cc24297f6e0c967164e60223224e20374f724e97400909a2cf294cef9fd"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing": {
+      "bytes": 131,
+      "sha256": "e208af2c2d8a248e7241551d444ac2a4da175e43828b75215c673b9127f24a80"
+    },
+    "qa_rewards_20261024_amari_german_recent_targets_v1": {
+      "bytes": 598,
+      "sha256": "79499297d3e13766d5c715cbe033f4bc618b71c85d89b05992ff63207fa07ff0"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing": {
+      "bytes": 399,
+      "sha256": "4d4baed088d5670e85af617730173f7892a2123e26888dda7ba68f1d6e7378cd"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge": {
+      "bytes": 183,
+      "sha256": "ecee93cdb9eb2dafd31adcee6a87afbd31cc76a2e564138244840f3ffec73c12"
+    },
+    "qa_rewards_20261024_amari_challenge_done": {
+      "bytes": 4,
+      "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+    },
+    "qa_rewards_20261024_askia_game_levels_v1": {
+      "bytes": 37,
+      "sha256": "eb5417852eeade960eed5eb4eea9ac329cca9d3caef5bf9cddce2b5eee9d595a"
+    },
+    "qa_rewards_20261024_amari_letter_launch_progress_v1": {
+      "bytes": 396,
+      "sha256": "97f7fbdb3b373791074dd535e9ddaaeadb6f4e0eda562ac3a36eda8afbb924d4"
+    },
+    "qa_rewards_20261024_askia_earned_sticker_ids_v1": {
+      "bytes": 75,
+      "sha256": "4f285602d1cca7c2d2f0e1acb8afa6304ecc8a07a95ca2df32a714de3aa17dfc"
+    },
+    "qa_rewards_20261024_amari_voice_mode_v4": {
+      "bytes": 7,
+      "sha256": "870dc23d21836b97b58a7753922edc8512764e83c02586f3d8f14c11f760550b"
+    },
+    "qa_rewards_20261024_amari_astronaut_academy_progress_v1": {
+      "bytes": 801,
+      "sha256": "de49d7728170b230891d40396241600c5eae9f68e395419ad64fbfb7986f2b61"
+    },
+    "qa_rewards_20261024_amari_writing_desk_progress_v1:amari": {
+      "bytes": 96,
+      "sha256": "4180f5dcce988b24d87a526bb94ec4115adf9985b84d7bd4e890471c8bbf061c"
+    },
+    "qa_rewards_20261024_askia_challenge_done": {
+      "bytes": 5,
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    "qa_rewards_20261024_askia_streak": {
+      "bytes": 1,
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing": {
+      "bytes": 153714,
+      "sha256": "5f47f87d123f3e48ef71a8b9f176d90f3d1863e42747233917cb4c6a1b75626b"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter": {
+      "bytes": 391,
+      "sha256": "f5fb4f1d85228e94253913247987711f3c68105bf19c6c8151b218d0a7a348ed"
+    },
+    "qa_rewards_20261024_amari_cosmic_tactics_v1": {
+      "bytes": 130,
+      "sha256": "8b4d4123fca4bdb562b092e40e22d816d44ca0e2fe61cdd793e69c74da8aab5e"
+    },
+    "qa_rewards_20261024_amari_favourite_games": {
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter": {
+      "bytes": 150,
+      "sha256": "f5b0b6d8eb0dfcab3246340bdaf0d14c057e71ee3560358de083b34eab865a6f"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge": {
+      "bytes": 316,
+      "sha256": "1f37efac4db9f50190a6543a7d119d4b37563a3ab07f2577362744c45e77268a"
+    },
+    "qa_rewards_20261024_amari_curriculum_completion_receipts_v1": {
+      "bytes": 1292,
+      "sha256": "f3f7dd2a1286ac8431fcb5d27c337796a932fe972ef4c45f6dcbae54957edbf4"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report": {
+      "bytes": 107512,
+      "sha256": "fc1244df5b2b4085cace046cfe0171f98e5fd462b6fe15b8fdaa021d83b70d78"
+    },
+    "qa_rewards_20261024_amari_spelling_recent_v1": {
+      "bytes": 59,
+      "sha256": "32088aedad8b69464ea56e52b89f2a26ab73fb05837cfa493fd767388d6e99ad"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing": {
+      "bytes": 440,
+      "sha256": "301bc042190e6032a0c2c16ad8c8add3cdc432b8b43af5b9c837fbcf12d111bd"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter": {
+      "bytes": 450,
+      "sha256": "907c123b62248f2c9b41e8a77e129e22a75cf2c8327fc09ef4e18351dff31b19"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge": {
+      "bytes": 394,
+      "sha256": "a6747ffaabc2cbbb228f151c4f63e4cc8f4f6396fda59b1625f6a606b5721914"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes": {
+      "bytes": 129508,
+      "sha256": "14ba99cedee1977f70ab0afe132c668aedd80ca660472f72944316eed9796b9f"
+    },
+    "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari": {
+      "bytes": 252,
+      "sha256": "81b2bb962a11652249e86bf1d6e707e2fe89f51733a9aef901c0aae83eb35051"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter": {
+      "bytes": 351,
+      "sha256": "8f5d75e49bcbf72442dbc41587abe880eaa3b89dcc12e13957e2515d50c2cf4b"
+    },
+    "qa_rewards_20261024_amari_curriculum_preferences_v1": {
+      "bytes": 134,
+      "sha256": "fa00beb6775130af73e9b01c103f5fbc67acbcd71ef6100b58f1492f8151365a"
+    },
+    "qa_rewards_20261024_amari_oddoneout_progress_v1": {
+      "bytes": 1212,
+      "sha256": "317bc532a3627ddc7174c08e2eb55c2826c842b1d369ed310e3996a33776be6d"
+    },
+    "qa_rewards_20261024_amari_hangman_progress_v1:amari": {
+      "bytes": 847,
+      "sha256": "75ee9d2ca0123e621693f3f9c01cc02bab1e23abbb2710c375b2a70f9727832e"
+    },
+    "qa_rewards_20261024_amari_storybook_profiles_v1": {
+      "bytes": 236,
+      "sha256": "d8a5325350ad04464b47ca3453aaf5b76fd028d0486f93b9836d883f2b252f3b"
+    },
+    "qa_rewards_20261024_amari_earned_sticker_ids_v1": {
+      "bytes": 92,
+      "sha256": "ac26b0d63c8c4c472f2c4be16a97477899a0dabb73afa453bcb72f6d19125de7"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge": {
+      "bytes": 385,
+      "sha256": "6270f9ec36380997b36466eb5b1299ba12231bbe6780c60fd02f5f55b9e9a998"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_0": {
+      "bytes": 33,
+      "sha256": "45e2e7303386a7042059c5f0a660a2cc96fdabb594b9695cd2ddba10bbdae45b"
+    },
+    "amari-sound-on": {
+      "bytes": 5,
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari": {
+      "bytes": 387,
+      "sha256": "ff4d7541c62137af0d02db46508f7285c906667cfec2baf670da8a3e9975c652"
+    },
+    "qa_rewards_20261024_amari_memory_resume_v1": {
+      "bytes": 17,
+      "sha256": "3ebad643deb9b1a2a98b072d44fde2f970b75d7397ef06e9e770a97ddc9fc3ba"
+    },
+    "qa_rewards_20261024_askia_games_played": {
+      "bytes": 103,
+      "sha256": "e438c3e802283d4f3ea94c85434b3d7fc848b05eb85886c2a860ad7fe9d603ab"
+    },
+    "qa_rewards_20261024_amari_memory_completion_v1": {
+      "bytes": 577,
+      "sha256": "cb6ad4acfcecb864daa3e9c5ed082c1f8d6fe8103045f9efb5d5313ad1a91f64"
+    },
+    "qa_rewards_20261024_amari_streak": {
+      "bytes": 1,
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    "qa_rewards_20261024_amari_words_session_progress_v1:amari": {
+      "bytes": 1658,
+      "sha256": "db8f09700b69c5df5abf176b84f4ddca98f0abb6d77f845157be9e6f013c4e24"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_1": {
+      "bytes": 37,
+      "sha256": "81ecc660f10dba75f36a3488cbbc2e5e5c36c72e4fc585ed14212e3518137ff4"
+    },
+    "qa_rewards_20261024_amari_challenge_progress": {
+      "bytes": 1,
+      "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing": {
+      "bytes": 402,
+      "sha256": "67a03f6311954d662d4178067b521d976c23ab561bbef8c4384439620826f489"
+    },
+    "qa_rewards_20261024_amari_chess_game_v1": {
+      "bytes": 797,
+      "sha256": "428734421fc81d45e9027bba0ae78b21e898ff82e4174346613e3503d4c95468"
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:askia": {
+      "bytes": 278,
+      "sha256": "e73d53d4f80c23320e556d25c0340479deb1acd1f17754d480ab6846251eb568"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge": {
+      "bytes": 404,
+      "sha256": "de837b50e8ef26f888f80a56a8fa97148043dcac98c6cd7a822606b431781132"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good": {
+      "bytes": 106945,
+      "sha256": "6731a64ce5f884942a940675bc9761f9b51c699ec3656223c761f4613ef44dfb"
+    },
+    "qa_rewards_20261024_amari_games_played": {
+      "bytes": 310,
+      "sha256": "cc3edae976cfc85136369f31fe1875bbc96b4e4ce891b2a4b2fa8a0ed2630acf"
+    },
+    "qa_rewards_20261024_amari_little_progress": {
+      "bytes": 1264,
+      "sha256": "eb3bea17499c71f4c2047a5f3d21688bbdf08e7fbb1cb39f0e2df017efb9bfd2"
+    },
+    "qa_rewards_20261024_amari_discovery_active_player": {
+      "bytes": 7,
+      "sha256": "203225186ef5ddc9cda0bb3dfe73ced878f5271e184c54a70efb4056dda8a6ad"
+    },
+    "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1": {
+      "bytes": 13233,
+      "sha256": "bc87e4157b63f78fd36930c23b560f8972ecc5d0437cb266f21a6f4d1310c97a"
+    },
+    "qa_rewards_20261024_askia_lastplay": {
+      "bytes": 12,
+      "sha256": "e1367037a0810c421521d8e632205e4999e0f2efb694b3212b4c00bd8260ed6d"
+    },
+    "qa_rewards_20261024_amari_code_cadets_progress_v1:amari": {
+      "bytes": 2102,
+      "sha256": "3627839f3dee281d9bb2d15790e9abeb9131c0062efd906511ca24690e3d564a"
+    },
+    "qa_rewards_20261024_amari_learning_attempts_v1": {
+      "bytes": 371493,
+      "sha256": "58e96a1b64e78df1429bd2170d2e105daa08e21a886325e28570e3a5c91f2518"
+    },
+    "qa_rewards_20261024_amari_chapter_badges_v1": {
+      "bytes": 129,
+      "sha256": "802bc377c833bc7097704bb3b5e33539f553c386175472418aa6f22a61206c5e"
+    },
+    "qa_rewards_20261024_amari_memory_passport_v1": {
+      "bytes": 518,
+      "sha256": "5f97d1bc7fce581df38a196c9787474370cc09da04c013624e2eda4d9d23ace3"
+    },
+    "qa_rewards_20261024_askia_challenge_progress": {
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    "qa_rewards_20261024_amari_points": {
+      "bytes": 3,
+      "sha256": "0788979fc9366e21cd56311511b897a222cf91711481bcd7dc837eac2172d087"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good": {
+      "bytes": 155439,
+      "sha256": "bb2ff465069a11b8bef65ac28d647de44739449b47678cc877235ebbfa0e5191"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter": {
+      "bytes": 162,
+      "sha256": "c08eda62288bc79a60e4a53d837b71b0500f8d92b07510011cc80977830df187"
+    },
+    "qa_rewards_20261024_amari_storybook_progress_v1": {
+      "bytes": 2754,
+      "sha256": "40d2906feec3a402a5d45b98d9f4bca5e19b982edff9a4d20b237cca6a800f26"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge": {
+      "bytes": 489,
+      "sha256": "eb2acd85d1d64513871cfc118a0157a121babee6f10b966cdd586348c49c3aaf"
+    },
+    "qa_rewards_20261024_amari_game_levels_v1": {
+      "bytes": 37,
+      "sha256": "41b88406eff71b4155806e27e396e85de5d5c2fe467f5ea87d7a3ab7d145c53c"
+    },
+    "qa_rewards_20261024_amari_memory_best": {
+      "bytes": 128,
+      "sha256": "7dcb9055ee74bbe658921aa93888a34b7b6cf9a419bcc1101c32bbc6049aa15e"
+    },
+    "qa_rewards_20261024_amari_spelling_progress_v1": {
+      "bytes": 8813,
+      "sha256": "6c0ffac39ddfcb536b5e2148c64ef479b631a53ab93bd5987cfc23a974b63b6d"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter": {
+      "bytes": 349,
+      "sha256": "11baa888f02c5a757d36dcd705acff26d50be80962d0cd63e8e5599e059dd638"
+    },
+    "qa_rewards_20261024_amari_lastplay": {
+      "bytes": 12,
+      "sha256": "e1367037a0810c421521d8e632205e4999e0f2efb694b3212b4c00bd8260ed6d"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_askia_little_progress": {
+      "bytes": 1586,
+      "sha256": "c141400572635dcc78fb297f3efdab781330f494d404853500b69db0a0f403a8"
+    },
+    "qa_rewards_20261024_askia_recent_games": {
+      "bytes": 43,
+      "sha256": "10d74db0ee18ff083f130f8e5378ada9044f14266383f67aa6c60e9dd7e29eeb"
+    },
+    "qa_rewards_20261024_amari_curriculum_badges_v1": {
+      "bytes": 211,
+      "sha256": "9734fae3202dfbc90c594cbb21b803f1a044173534cdcd66a2e97ad41383353d"
+    },
+    "qa_rewards_20261024_askia_rewards_v2": {
+      "bytes": 821,
+      "sha256": "65eba0357e9b5d01c330836cb3e79ee7cdfddcdea78525f7d7841fbe0cda3f84"
+    },
+    "qa_rewards_20261024_amari_game_diagnostics_v1": {
+      "bytes": 41525,
+      "sha256": "0844f55d7b42e1a0b2468587e3580c040a40ea8555bf0b7eb1092904e479d8ce"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing": {
+      "bytes": 332,
+      "sha256": "cd55a5ff68647ab1d056df2da42a9ff22c725f9ee36a96636e05b0c6084b624d"
+    },
+    "qa_rewards_20261024_askia_points": {
+      "bytes": 3,
+      "sha256": "766cb53c753baedac5dc782593e04694b3bae3aed057ac2ff98cc1aef6413137"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_skill_mastery_v1": {
+      "bytes": 92725,
+      "sha256": "0b58c2f497833f6750a2251d745e264e61e25632572bf459664df647adffff1c"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing": {
+      "bytes": 442,
+      "sha256": "cb781bcae685365e8c82dfc6c170b80faa0fc9f12e877eb810a58e0ff47d96f0"
+    },
+    "qa_rewards_20261024_amari_learning_migration_v1": {
+      "bytes": 41,
+      "sha256": "8d1795b476c265d2e47480015768967930d0f860932585483a99cd51106c9efd"
+    },
+    "qa_rewards_20261024_amari_sound_safari_adventure_v1": {
+      "bytes": 397,
+      "sha256": "da7987beaa3237b63ee77bd4382c75263ba27d7ade36d7c7f43da6eab3506fc9"
+    },
+    "qa_rewards_20261024_amari_recent_games": {
+      "bytes": 39,
+      "sha256": "9ffca312598c46269d03ce606dfa7193082617519a4c1cd1d9c63dfa1367cce5"
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code": {
+      "bytes": 125,
+      "sha256": "adb5b3727ae2d4b2c8e5cba9f376d9c3f511aea7ef0b21dc2fc0f71f1518f200"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing": {
+      "bytes": 173,
+      "sha256": "5b8867978cd3ecea609aa40873b83e5b9c3c0bebb20ca78df9305f6a771b8d21"
+    },
+    "qa_rewards_20261024_amari_discovery_passport_v1": {
+      "bytes": 573,
+      "sha256": "7c8c4aa18386bb549125ac65dd4ff00d9b8ae40cc6fd94227eb6b54d8b49a0aa"
+    }
+  },
+  "finalRawDigestSummary": {
+    "qa_rewards_20261024_amari_letter_trace_progress_v1": {
+      "bytes": 278,
+      "sha256": "d0392a53f3b0ec09f86d3da8d52f82ad7c71452d6c4122fc822df22e731ededb"
+    },
+    "qa_rewards_20261024_amari_rewards_v2": {
+      "bytes": 2990,
+      "sha256": "d0750cd7ebb1afa7c7c7d3500713a0349a5273c85e6737b4e25721a85ee03565"
+    },
+    "qa_rewards_20261024_amari_amari_dino_detective_batch3_v1": {
+      "bytes": 11026,
+      "sha256": "7b17c9aeda27a8292625ea681292e573351ac335305b447d6797f2838b9fc6de"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_growing": {
+      "bytes": 504,
+      "sha256": "9dfd474ddb852c8de90f067deb68bbde4feb66032cb82288164139bbdbc32ad5"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_growing": {
+      "bytes": 189,
+      "sha256": "031eb6708851737b1216454c880d367ad1b0847508d38883e22668fa3f5c61e3"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes:last-good": {
+      "bytes": 129544,
+      "sha256": "999a71b9a80148c275e883d00b0e39d75d51b455d0ea4c118f25393e9ad2d19a"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_starter": {
+      "bytes": 412,
+      "sha256": "365ab0267d8689c8ab6847a3259362226c5e591177e1966f0871d20a86b77a1a"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_challenge": {
+      "bytes": 397,
+      "sha256": "45dd768c9aedaadab0552a33762003adfc693ad39f4845e800c11d806946c20e"
+    },
+    "qa_rewards_20261024_askia_favourite_games": {
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "qa_rewards_20261024_amari_storybook_active_child_v1": {
+      "bytes": 5,
+      "sha256": "694449ff298159e443b24c57d3f89da3d2a44c10212d75bdd46ccd6b65f28e59"
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:amari": {
+      "bytes": 278,
+      "sha256": "228b87774ce823542f2bf7fbe20fa44a40ff5310c87d9ea0cbe0c7bd2438f782"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_challenge": {
+      "bytes": 127,
+      "sha256": "03d5b3bf6215874962f5de250f6cef80d02799bc75b8fc42909c88f68e339f53"
+    },
+    "qa_rewards_20261024_amari_cosmic_freeplay_v1": {
+      "bytes": 184,
+      "sha256": "5b036eb8589eeadf497436d9c71c9aac776c0935877c7854b2b2591f7086e15b"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_sami-night-light-parade": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_german_chapter_progress_v1": {
+      "bytes": 535,
+      "sha256": "13712b56053c445ab55bea70e9521adfa17d055708aeee74bf09588b4f756ac2"
+    },
+    "qa_rewards_20261024_amari_writing_samples_v1": {
+      "bytes": 439,
+      "sha256": "ee3e0daf688d4c0ac0a1739f03f3a65b0c538dfd44b87745797c0c4fcda33ff4"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_starter": {
+      "bytes": 154,
+      "sha256": "8dc1ca9daaf1070e4395add73ef7d604200d711e29bd34934cd5e11bba298894"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_challenge": {
+      "bytes": 181,
+      "sha256": "5fffd41eb448ccc2967a6c8a6e3e003174795f1815ef68a30b573c7747b4e400"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard": {
+      "bytes": 155464,
+      "sha256": "0fc027c56c7b5fffda70dc6d9916dfe41206be7167cfe6a686c6d52903ab40cf"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_starter": {
+      "bytes": 383,
+      "sha256": "e5e14cc24297f6e0c967164e60223224e20374f724e97400909a2cf294cef9fd"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_growing": {
+      "bytes": 131,
+      "sha256": "e208af2c2d8a248e7241551d444ac2a4da175e43828b75215c673b9127f24a80"
+    },
+    "qa_rewards_20261024_amari_german_recent_targets_v1": {
+      "bytes": 598,
+      "sha256": "79499297d3e13766d5c715cbe033f4bc618b71c85d89b05992ff63207fa07ff0"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_growing": {
+      "bytes": 399,
+      "sha256": "4d4baed088d5670e85af617730173f7892a2123e26888dda7ba68f1d6e7378cd"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_nature-lab_challenge": {
+      "bytes": 183,
+      "sha256": "ecee93cdb9eb2dafd31adcee6a87afbd31cc76a2e564138244840f3ffec73c12"
+    },
+    "qa_rewards_20261024_amari_challenge_done": {
+      "bytes": 4,
+      "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b"
+    },
+    "qa_rewards_20261024_askia_game_levels_v1": {
+      "bytes": 37,
+      "sha256": "eb5417852eeade960eed5eb4eea9ac329cca9d3caef5bf9cddce2b5eee9d595a"
+    },
+    "qa_rewards_20261024_amari_letter_launch_progress_v1": {
+      "bytes": 560,
+      "sha256": "bc5fd0564eab50721b32c1c467f9fc354bc68c9db1542f334889f0ced953ff99"
+    },
+    "qa_rewards_20261024_askia_earned_sticker_ids_v1": {
+      "bytes": 75,
+      "sha256": "4f285602d1cca7c2d2f0e1acb8afa6304ecc8a07a95ca2df32a714de3aa17dfc"
+    },
+    "qa_rewards_20261024_amari_voice_mode_v4": {
+      "bytes": 7,
+      "sha256": "870dc23d21836b97b58a7753922edc8512764e83c02586f3d8f14c11f760550b"
+    },
+    "qa_rewards_20261024_amari_astronaut_academy_progress_v1": {
+      "bytes": 801,
+      "sha256": "de49d7728170b230891d40396241600c5eae9f68e395419ad64fbfb7986f2b61"
+    },
+    "qa_rewards_20261024_amari_writing_desk_progress_v1:amari": {
+      "bytes": 96,
+      "sha256": "4180f5dcce988b24d87a526bb94ec4115adf9985b84d7bd4e890471c8bbf061c"
+    },
+    "qa_rewards_20261024_askia_challenge_done": {
+      "bytes": 5,
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    "qa_rewards_20261024_askia_streak": {
+      "bytes": 1,
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:writing": {
+      "bytes": 153714,
+      "sha256": "5f47f87d123f3e48ef71a8b9f176d90f3d1863e42747233917cb4c6a1b75626b"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_nature-lab_starter": {
+      "bytes": 391,
+      "sha256": "f5fb4f1d85228e94253913247987711f3c68105bf19c6c8151b218d0a7a348ed"
+    },
+    "qa_rewards_20261024_amari_cosmic_tactics_v1": {
+      "bytes": 130,
+      "sha256": "8b4d4123fca4bdb562b092e40e22d816d44ca0e2fe61cdd793e69c74da8aab5e"
+    },
+    "qa_rewards_20261024_amari_favourite_games": {
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_continents_starter": {
+      "bytes": 150,
+      "sha256": "f5b0b6d8eb0dfcab3246340bdaf0d14c057e71ee3560358de083b34eab865a6f"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_challenge": {
+      "bytes": 316,
+      "sha256": "1f37efac4db9f50190a6543a7d119d4b37563a3ab07f2577362744c45e77268a"
+    },
+    "qa_rewards_20261024_amari_curriculum_completion_receipts_v1": {
+      "bytes": 1292,
+      "sha256": "f3f7dd2a1286ac8431fcb5d27c337796a932fe972ef4c45f6dcbae54957edbf4"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_kai-lost-library-book": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report": {
+      "bytes": 107512,
+      "sha256": "fc1244df5b2b4085cace046cfe0171f98e5fd462b6fe15b8fdaa021d83b70d78"
+    },
+    "qa_rewards_20261024_amari_spelling_recent_v1": {
+      "bytes": 59,
+      "sha256": "32088aedad8b69464ea56e52b89f2a26ab73fb05837cfa493fd767388d6e99ad"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_growing": {
+      "bytes": 440,
+      "sha256": "301bc042190e6032a0c2c16ad8c8add3cdc432b8b43af5b9c837fbcf12d111bd"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_starter": {
+      "bytes": 450,
+      "sha256": "907c123b62248f2c9b41e8a77e129e22a75cf2c8327fc09ef4e18351dff31b19"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_challenge": {
+      "bytes": 394,
+      "sha256": "a6747ffaabc2cbbb228f151c4f63e4cc8f4f6396fda59b1625f6a606b5721914"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-field-notes": {
+      "bytes": 129508,
+      "sha256": "14ba99cedee1977f70ab0afe132c668aedd80ca660472f72944316eed9796b9f"
+    },
+    "qa_rewards_20261024_amari_chess_explorers_progress_v1:amari": {
+      "bytes": 252,
+      "sha256": "81b2bb962a11652249e86bf1d6e707e2fe89f51733a9aef901c0aae83eb35051"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_nature-lab_starter": {
+      "bytes": 351,
+      "sha256": "8f5d75e49bcbf72442dbc41587abe880eaa3b89dcc12e13957e2515d50c2cf4b"
+    },
+    "qa_rewards_20261024_amari_curriculum_preferences_v1": {
+      "bytes": 134,
+      "sha256": "fa00beb6775130af73e9b01c103f5fbc67acbcd71ef6100b58f1492f8151365a"
+    },
+    "qa_rewards_20261024_amari_oddoneout_progress_v1": {
+      "bytes": 1212,
+      "sha256": "317bc532a3627ddc7174c08e2eb55c2826c842b1d369ed310e3996a33776be6d"
+    },
+    "qa_rewards_20261024_amari_hangman_progress_v1:amari": {
+      "bytes": 847,
+      "sha256": "75ee9d2ca0123e621693f3f9c01cc02bab1e23abbb2710c375b2a70f9727832e"
+    },
+    "qa_rewards_20261024_amari_storybook_profiles_v1": {
+      "bytes": 236,
+      "sha256": "d8a5325350ad04464b47ca3453aaf5b76fd028d0486f93b9836d883f2b252f3b"
+    },
+    "qa_rewards_20261024_amari_earned_sticker_ids_v1": {
+      "bytes": 92,
+      "sha256": "ac26b0d63c8c4c472f2c4be16a97477899a0dabb73afa453bcb72f6d19125de7"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_continents_challenge": {
+      "bytes": 385,
+      "sha256": "6270f9ec36380997b36466eb5b1299ba12231bbe6780c60fd02f5f55b9e9a998"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_0": {
+      "bytes": 33,
+      "sha256": "0f633be7fb0ff95459a6ba9cc660e0b763694e264c253ce80b2b03ed6e0d8e02"
+    },
+    "amari-sound-on": {
+      "bytes": 5,
+      "sha256": "fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_mina-mountain-seed": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_colour_lab_adventure_v1:amari": {
+      "bytes": 387,
+      "sha256": "ff4d7541c62137af0d02db46508f7285c906667cfec2baf670da8a3e9975c652"
+    },
+    "qa_rewards_20261024_amari_memory_resume_v1": {
+      "bytes": 17,
+      "sha256": "3ebad643deb9b1a2a98b072d44fde2f970b75d7397ef06e9e770a97ddc9fc3ba"
+    },
+    "qa_rewards_20261024_askia_games_played": {
+      "bytes": 103,
+      "sha256": "e438c3e802283d4f3ea94c85434b3d7fc848b05eb85886c2a860ad7fe9d603ab"
+    },
+    "qa_rewards_20261024_amari_memory_completion_v1": {
+      "bytes": 577,
+      "sha256": "cb6ad4acfcecb864daa3e9c5ed082c1f8d6fe8103045f9efb5d5313ad1a91f64"
+    },
+    "qa_rewards_20261024_amari_streak": {
+      "bytes": 1,
+      "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+    },
+    "qa_rewards_20261024_amari_words_session_progress_v1:amari": {
+      "bytes": 1658,
+      "sha256": "db8f09700b69c5df5abf176b84f4ddca98f0abb6d77f845157be9e6f013c4e24"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_1": {
+      "bytes": 49,
+      "sha256": "74a844db41d99e309805c42bbc7ec7ffe0090fe92b4b00a7e1e6ac17cf22aadd"
+    },
+    "qa_rewards_20261024_amari_challenge_progress": {
+      "bytes": 1,
+      "sha256": "4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_growing": {
+      "bytes": 402,
+      "sha256": "67a03f6311954d662d4178067b521d976c23ab561bbef8c4384439620826f489"
+    },
+    "qa_rewards_20261024_amari_chess_game_v1": {
+      "bytes": 797,
+      "sha256": "428734421fc81d45e9027bba0ae78b21e898ff82e4174346613e3503d4c95468"
+    },
+    "qa_rewards_20261024_amari_pattern_adventure_v2:askia": {
+      "bytes": 278,
+      "sha256": "e73d53d4f80c23320e556d25c0340479deb1acd1f17754d480ab6846251eb568"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_rex-missing-moon-map": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_luna-whispering-forest": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_time-detectives_challenge": {
+      "bytes": 404,
+      "sha256": "de837b50e8ef26f888f80a56a8fa97148043dcac98c6cd7a822606b431781132"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:planet-mini-report:last-good": {
+      "bytes": 106945,
+      "sha256": "6731a64ce5f884942a940675bc9761f9b51c699ec3656223c761f4613ef44dfb"
+    },
+    "qa_rewards_20261024_amari_games_played": {
+      "bytes": 310,
+      "sha256": "45375d5e9148872c089c5f9369940ab8447b9eece52535efa7a1c150cad9ed98"
+    },
+    "qa_rewards_20261024_amari_little_progress": {
+      "bytes": 1264,
+      "sha256": "eb3bea17499c71f4c2047a5f3d21688bbdf08e7fbb1cb39f0e2df017efb9bfd2"
+    },
+    "qa_rewards_20261024_amari_discovery_active_player": {
+      "bytes": 7,
+      "sha256": "203225186ef5ddc9cda0bb3dfe73ced878f5271e184c54a70efb4056dda8a6ad"
+    },
+    "qa_rewards_20261024_amari_game_lifecycle_diagnostics_v1": {
+      "bytes": 12992,
+      "sha256": "ae0e72faf63a573350d31fd712bae5df90f6e78e24f4842f603c479400dbd731"
+    },
+    "qa_rewards_20261024_askia_lastplay": {
+      "bytes": 12,
+      "sha256": "e1367037a0810c421521d8e632205e4999e0f2efb694b3212b4c00bd8260ed6d"
+    },
+    "qa_rewards_20261024_amari_code_cadets_progress_v1:amari": {
+      "bytes": 2102,
+      "sha256": "3627839f3dee281d9bb2d15790e9abeb9131c0062efd906511ca24690e3d564a"
+    },
+    "qa_rewards_20261024_amari_learning_attempts_v1": {
+      "bytes": 371225,
+      "sha256": "b82bc8a1946250b85ac25170e33cd624a5523f4e14c50b844808d30c31244b13"
+    },
+    "qa_rewards_20261024_amari_chapter_badges_v1": {
+      "bytes": 158,
+      "sha256": "aafaa1c7244489060b58a720322bb09a33a5ef35e1dfd61a4c8b1c0abe0c845f"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_2": {
+      "bytes": 29,
+      "sha256": "3e2c12868cf9c5b8f284e818615711809b0ded0c9d72a55cce09f587f78e899b"
+    },
+    "qa_rewards_20261024_amari_memory_passport_v1": {
+      "bytes": 518,
+      "sha256": "5f97d1bc7fce581df38a196c9787474370cc09da04c013624e2eda4d9d23ace3"
+    },
+    "qa_rewards_20261024_askia_challenge_progress": {
+      "bytes": 1,
+      "sha256": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9"
+    },
+    "qa_rewards_20261024_amari_points": {
+      "bytes": 3,
+      "sha256": "8e6aee9efac8086ebac545d45c63e0d0dfcddd0d77d53e45c04d05cafdd2a8a8"
+    },
+    "qa_rewards_20261024_amari_writing_desk_projects_v1:amari:space-postcard:last-good": {
+      "bytes": 155439,
+      "sha256": "bb2ff465069a11b8bef65ac28d647de44739449b47678cc877235ebbfa0e5191"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_starter": {
+      "bytes": 162,
+      "sha256": "c08eda62288bc79a60e4a53d837b71b0500f8d92b07510011cc80977830df187"
+    },
+    "qa_rewards_20261024_amari_storybook_progress_v1": {
+      "bytes": 2754,
+      "sha256": "40d2906feec3a402a5d45b98d9f4bca5e19b982edff9a4d20b237cca6a800f26"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_challenge": {
+      "bytes": 489,
+      "sha256": "eb2acd85d1d64513871cfc118a0157a121babee6f10b966cdd586348c49c3aaf"
+    },
+    "qa_rewards_20261024_amari_game_levels_v1": {
+      "bytes": 37,
+      "sha256": "41b88406eff71b4155806e27e396e85de5d5c2fe467f5ea87d7a3ab7d145c53c"
+    },
+    "qa_rewards_20261024_amari_memory_best": {
+      "bytes": 128,
+      "sha256": "7dcb9055ee74bbe658921aa93888a34b7b6cf9a419bcc1101c32bbc6049aa15e"
+    },
+    "qa_rewards_20261024_amari_letter_launch_recent_v1_3": {
+      "bytes": 7,
+      "sha256": "30a58335bad0449543dff13fbde1a5cf91d13a3e3de07d6af4671d8e6686264d"
+    },
+    "qa_rewards_20261024_amari_spelling_progress_v1": {
+      "bytes": 8813,
+      "sha256": "6c0ffac39ddfcb536b5e2148c64ef479b631a53ab93bd5987cfc23a974b63b6d"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_starter": {
+      "bytes": 349,
+      "sha256": "11baa888f02c5a757d36dcd705acff26d50be80962d0cd63e8e5599e059dd638"
+    },
+    "qa_rewards_20261024_amari_lastplay": {
+      "bytes": 12,
+      "sha256": "e1367037a0810c421521d8e632205e4999e0f2efb694b3212b4c00bd8260ed6d"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_bo-busy-bee-garden": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_askia_little_progress": {
+      "bytes": 1586,
+      "sha256": "c141400572635dcc78fb297f3efdab781330f494d404853500b69db0a0f403a8"
+    },
+    "qa_rewards_20261024_askia_recent_games": {
+      "bytes": 43,
+      "sha256": "10d74db0ee18ff083f130f8e5378ada9044f14266383f67aa6c60e9dd7e29eeb"
+    },
+    "qa_rewards_20261024_amari_curriculum_badges_v1": {
+      "bytes": 211,
+      "sha256": "9734fae3202dfbc90c594cbb21b803f1a044173534cdcd66a2e97ad41383353d"
+    },
+    "qa_rewards_20261024_askia_rewards_v2": {
+      "bytes": 821,
+      "sha256": "65eba0357e9b5d01c330836cb3e79ee7cdfddcdea78525f7d7841fbe0cda3f84"
+    },
+    "qa_rewards_20261024_amari_game_diagnostics_v1": {
+      "bytes": 39172,
+      "sha256": "94ae81a1914977dc2ecbd2f01a10d921d21a52435986689d877c40e248cda389"
+    },
+    "qa_rewards_20261024_amari_curriculum_history_transaction_v1_continents_growing": {
+      "bytes": 332,
+      "sha256": "cd55a5ff68647ab1d056df2da42a9ff22c725f9ee36a96636e05b0c6084b624d"
+    },
+    "qa_rewards_20261024_askia_points": {
+      "bytes": 3,
+      "sha256": "766cb53c753baedac5dc782593e04694b3bae3aed057ac2ff98cc1aef6413137"
+    },
+    "qa_rewards_20261024_amari_storybook_complete_nia-great-river-journey": {
+      "bytes": 1,
+      "sha256": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b"
+    },
+    "qa_rewards_20261024_amari_skill_mastery_v1": {
+      "bytes": 96471,
+      "sha256": "0e91682f58e3e2692564125daf9569881d5f90e129e1c011abf40c737ee04d79"
+    },
+    "qa_rewards_20261024_amari_curriculum_session_v1_time-detectives_growing": {
+      "bytes": 442,
+      "sha256": "cb781bcae685365e8c82dfc6c170b80faa0fc9f12e877eb810a58e0ff47d96f0"
+    },
+    "qa_rewards_20261024_amari_learning_migration_v1": {
+      "bytes": 41,
+      "sha256": "8d1795b476c265d2e47480015768967930d0f860932585483a99cd51106c9efd"
+    },
+    "qa_rewards_20261024_amari_sound_safari_adventure_v1": {
+      "bytes": 397,
+      "sha256": "da7987beaa3237b63ee77bd4382c75263ba27d7ade36d7c7f43da6eab3506fc9"
+    },
+    "qa_rewards_20261024_amari_recent_games": {
+      "bytes": 39,
+      "sha256": "9ffca312598c46269d03ce606dfa7193082617519a4c1cd1d9c63dfa1367cce5"
+    },
+    "qa_rewards_20261024_discovery_digital_rehearsal_v1:amari:code": {
+      "bytes": 125,
+      "sha256": "adb5b3727ae2d4b2c8e5cba9f376d9c3f511aea7ef0b21dc2fc0f71f1518f200"
+    },
+    "qa_rewards_20261024_amari_curriculum_recent_v1_time-detectives_growing": {
+      "bytes": 173,
+      "sha256": "5b8867978cd3ecea609aa40873b83e5b9c3c0bebb20ca78df9305f6a771b8d21"
+    },
+    "qa_rewards_20261024_amari_discovery_passport_v1": {
+      "bytes": 573,
+      "sha256": "7c8c4aa18386bb549125ac65dd4ff00d9b8ae40cc6fd94227eb6b54d8b49a0aa"
+    }
+  },
+  "sourceHead": "88fc1e15ee9a6fccd125efa33e2f156accf81583",
+  "sourceHashes": {
+    "src/App.jsx": "4c120fd6f043224d757a90b41908fc7c61a6989471157c6638b3bd5610644d33",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/letterLaunch.js": "f3ca362409481f425717313edad93367fda7c797593b19932f8ebc105cdebf45",
+    "src/data/letterLaunchProgress.js": "150ffda1ad51eb13a4866a7e2dcdd4373d78efd3a790da9fede4405327a990ea",
+    "src/data/factFinder.js": "9899df874a008101e515a05ac9457cfe6983eb6b3d7574c4513d71edeb4fa6fa",
+    "src/components/games/LetterLaunch.jsx": "889ae6bfb7a6465db25071622e66bce019d62e75661a89e8619a198b8f79cbb4",
+    "src/components/games/FactFinder.jsx": "9690500fa36866277fc13d25c7b520d703615f4d525b688c37fac585a8085acf",
+    "src/components/games/letterLaunch.css": "bf40c48a7e54bfa779f771b7aa8df5157f3d4e3e22bb0bd863e94b416c5c9ec0",
+    "src/components/games/factFinder.css": "90e5151b3c26abf099f3f9d53db6fe94a154f955801bf1a35653a6d4621a7088",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/components/home/discoveryVisuals.css": "637f299d61c12f3b6a567fe896c21bd5256e566b80a603275a25dd66a76cac5f"
+  },
+  "faultPlanRequested": {
+    "2": "chain"
+  },
+  "cliReturnCode": 0
+}

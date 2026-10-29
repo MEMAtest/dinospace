@@ -1,0 +1,360 @@
+{
+  "reviewedOn": "2026-10-29",
+  "reviewRecord": "Manual source review: each linked institutional page was opened and the paraphrased claim compared with the section named below. This records the reviewer check; it is not a scripted fact-verification result, uptime check, or saved browser transcript.",
+  "references": [
+    {
+      "id": "ant",
+      "topic": "Ant",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/ant",
+      "pageSectionChecked": "About; Habitat and Diet (insect classification, six legs, scent trails to food)",
+      "claimsSupported": [
+        "An ant is a small insect with six legs and a hard outer skeleton. Ants use scent trails to guide nest-mates to food."
+      ]
+    },
+    {
+      "id": "bee",
+      "topic": "Bee",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/bee",
+      "pageSectionChecked": "About (pollinator role, nectar and pollen, native bees)",
+      "claimsSupported": [
+        "A bee is a flower-visiting insect that gathers nectar and pollen. Many native bees pollinate wild plants and food crops."
+      ]
+    },
+    {
+      "id": "butterfly",
+      "topic": "Butterfly",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/butterfly-moth-and-skipper",
+      "pageSectionChecked": "About (insect/caterpillar life cycle, taste sensors on feet)",
+      "claimsSupported": [
+        "A butterfly is an insect that grows from a caterpillar. It can taste with sensors on its feet."
+      ]
+    },
+    {
+      "id": "ladybird",
+      "topic": "Ladybird",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/ladybug",
+      "pageSectionChecked": "About (beetle group, spotted wing covers, flight wings)",
+      "claimsSupported": [
+        "A ladybird is a small beetle, often with a rounded body and spotted wing covers. Its hard outer wings open to let delicate flying wings unfold."
+      ]
+    },
+    {
+      "id": "frog",
+      "topic": "Frog",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/frog-and-toad",
+      "pageSectionChecked": "About (amphibian habitats, legs and toe pads)",
+      "claimsSupported": [
+        "A frog is an amphibian that may live in water, on land, or in trees. Many frogs use long legs to hop, and toe pads help some climb."
+      ]
+    },
+    {
+      "id": "monkey",
+      "topic": "Monkey",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/monkey",
+      "pageSectionChecked": "About (arboreal monkeys, prehensile tails)",
+      "claimsSupported": [
+        "A monkey is a primate, and many kinds spend much of their time in trees. Some monkeys have gripping tails that can hold a branch or even pick up a peanut."
+      ]
+    },
+    {
+      "id": "dolphin",
+      "topic": "Dolphin",
+      "publisher": "NOAA Ocean Service",
+      "url": "https://oceanservice.noaa.gov/facts/dolphin.html",
+      "pageSectionChecked": "Main explainer (mammal, lungs and blowhole)",
+      "claimsSupported": [
+        "A dolphin is a sea mammal, not a fish. It breathes air with lungs through a blowhole on top of its head."
+      ]
+    },
+    {
+      "id": "jellyfish",
+      "topic": "Jellyfish",
+      "publisher": "NOAA Ocean Service",
+      "url": "https://oceanservice.noaa.gov/facts/jellyfish.html",
+      "pageSectionChecked": "Main explainer (95% water, nerve net)",
+      "claimsSupported": [
+        "A jellyfish is a soft-bodied sea animal with a simple nerve net. Its body is about 95% water."
+      ]
+    },
+    {
+      "id": "sea-turtle",
+      "topic": "Sea turtle",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/turtle-and-tortoise",
+      "pageSectionChecked": "About (reptiles, sea turtle flippers and body shape)",
+      "claimsSupported": [
+        "A sea turtle is a reptile adapted for life in the ocean. Its long flippers and streamlined body help it swim."
+      ]
+    },
+    {
+      "id": "blue-whale",
+      "topic": "Blue whale",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/whale",
+      "pageSectionChecked": "About (blue whale size, baleen filtering)",
+      "claimsSupported": [
+        "The blue whale is a huge sea mammal and the largest animal known to have lived on Earth. It uses baleen to strain tiny sea creatures from water."
+      ]
+    },
+    {
+      "id": "shark",
+      "topic": "Shark",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/fish",
+      "pageSectionChecked": "Defining characteristics; All kinds of fish (gills, fins, cartilage skeleton)",
+      "claimsSupported": [
+        "A shark is a fish with gills and fins. Its skeleton is made of flexible cartilage, the same bendy material found in your nose and ears."
+      ]
+    },
+    {
+      "id": "spider",
+      "topic": "Spider",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/spider",
+      "pageSectionChecked": "About (arachnid classification, eight legs)",
+      "claimsSupported": [
+        "A spider is an arachnid, not an insect. It has eight legs, while insects have six."
+      ]
+    },
+    {
+      "id": "snail",
+      "topic": "Garden snail",
+      "publisher": "Royal Horticultural Society",
+      "url": "https://www.rhs.org.uk/biodiversity/slugs-and-snails",
+      "pageSectionChecked": "Quick facts; What do slugs and snails look like? (gastropod, shell, recycling)",
+      "claimsSupported": [
+        "A garden snail is a soft-bodied mollusc with a coiled shell. It helps recycle dead leaves and other rotting material."
+      ]
+    },
+    {
+      "id": "earthworm",
+      "topic": "Earthworm",
+      "publisher": "Royal Horticultural Society",
+      "url": "https://www.rhs.org.uk/biodiversity/earthworms",
+      "pageSectionChecked": "What are earthworms? (segmented worms, soil, decaying plant matter)",
+      "claimsSupported": [
+        "An earthworm is a segmented worm that lives in soil. It eats decaying plant material, helping make healthy garden soil."
+      ]
+    },
+    {
+      "id": "duck",
+      "topic": "Duck",
+      "publisher": "San Diego Zoo Wildlife Alliance",
+      "url": "https://animals.sandiegozoo.org/animals/birds",
+      "pageSectionChecked": "Defining characteristics (birds, feathers, eggs)",
+      "claimsSupported": [
+        "A duck is a bird with feathers and wings. Birds are the only animals with feathers, and they lay eggs."
+      ]
+    },
+    {
+      "id": "fox",
+      "topic": "Red fox",
+      "publisher": "National Park Service",
+      "url": "https://home.nps.gov/fiis/learn/nature/red-fox.htm",
+      "pageSectionChecked": "Red Fox Biology (mammal, reddish-orange coat, young called kits)",
+      "claimsSupported": [
+        "A red fox is a medium-sized mammal with a reddish-orange coat. Its young are called kits."
+      ]
+    },
+    {
+      "id": "dino-trex",
+      "topic": "Tyrannosaurus rex",
+      "publisher": "Natural History Museum, London",
+      "url": "https://www.nhm.ac.uk/discover/dino-directory/tyrannosaurus.html",
+      "pageSectionChecked": "Species profile (identifying description and matching feature fact)",
+      "claimsSupported": [
+        "Tyrannosaurus rex was a meat-eating dinosaur that lived near the end of the Cretaceous Period.",
+        "T. rex had short arms and powerful jaws."
+      ]
+    },
+    {
+      "id": "dino-brachiosaurus",
+      "topic": "Brachiosaurus",
+      "publisher": "Natural History Museum, London",
+      "url": "https://www.nhm.ac.uk/discover/dino-directory/Brachiosaurus.html",
+      "pageSectionChecked": "Species profile (identifying description and matching feature fact)",
+      "claimsSupported": [
+        "Brachiosaurus was a tall plant-eating sauropod from the Jurassic Period.",
+        "Brachiosaurus had front legs longer than its back legs."
+      ]
+    },
+    {
+      "id": "dino-triceratops",
+      "topic": "Triceratops",
+      "publisher": "Natural History Museum, London",
+      "url": "https://www.nhm.ac.uk/discover/dino-directory/triceratops.html",
+      "pageSectionChecked": "Species profile (identifying description and matching feature fact)",
+      "claimsSupported": [
+        "Triceratops was a four-legged plant-eating dinosaur from the Late Cretaceous.",
+        "Triceratops had three horns and a large bony frill."
+      ]
+    },
+    {
+      "id": "dino-stegosaurus",
+      "topic": "Stegosaurus",
+      "publisher": "Natural History Museum, London",
+      "url": "https://www.nhm.ac.uk/discover/dino-directory/Stegosaurus.html",
+      "pageSectionChecked": "Species profile (identifying description and matching feature fact)",
+      "claimsSupported": [
+        "Stegosaurus was a large, slow-moving plant-eating dinosaur from the Late Jurassic.",
+        "Stegosaurus had bony plates along its back. Their exact purpose is still being studied."
+      ]
+    },
+    {
+      "id": "dino-ankylosaurus",
+      "topic": "Ankylosaurus",
+      "publisher": "Natural History Museum, London",
+      "url": "https://www.nhm.ac.uk/discover/dino-directory/Ankylosaurus.html",
+      "pageSectionChecked": "Species profile (identifying description and matching feature fact)",
+      "claimsSupported": [
+        "Ankylosaurus was a four-legged, armoured plant-eating dinosaur from the Late Cretaceous.",
+        "Ankylosaurus had bony armor and a heavy club at the end of its tail."
+      ]
+    },
+    {
+      "id": "space-mercury",
+      "topic": "Mercury",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/mercury/",
+      "pageSectionChecked": "Planet/dwarf-planet overview (the selected packaged fact lines)",
+      "claimsSupported": [
+        "Smallest planet in our solar system.",
+        "Mercury is nearest to the Sun and moves around it faster than any other planet."
+      ]
+    },
+    {
+      "id": "space-venus",
+      "topic": "Venus",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/venus/",
+      "pageSectionChecked": "Planet/dwarf-planet overview (the selected packaged fact lines)",
+      "claimsSupported": [
+        "Hottest planet in the whole solar system.",
+        "Spins backwards compared to most planets."
+      ]
+    },
+    {
+      "id": "space-earth",
+      "topic": "Earth",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/earth/",
+      "pageSectionChecked": "Planet/dwarf-planet overview (the selected packaged fact lines)",
+      "claimsSupported": [
+        "Only planet we know with life.",
+        "One big Moon lights up our night sky."
+      ]
+    },
+    {
+      "id": "space-mars",
+      "topic": "Mars",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/mars/",
+      "pageSectionChecked": "Planet/dwarf-planet overview (the selected packaged fact lines)",
+      "claimsSupported": [
+        "Rust in Mars’s rocks and dust makes the planet look red.",
+        "Olympus Mons is much taller than Mount Everest, Earth’s tallest mountain."
+      ]
+    },
+    {
+      "id": "space-jupiter",
+      "topic": "Jupiter",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/jupiter/",
+      "pageSectionChecked": "Planet/dwarf-planet overview (the selected packaged fact lines)",
+      "claimsSupported": [
+        "Largest planet in our solar system.",
+        "Has a giant storm called the Great Red Spot."
+      ]
+    },
+    {
+      "id": "space-saturn",
+      "topic": "Saturn",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/saturn/",
+      "pageSectionChecked": "Planet/dwarf-planet overview (the selected packaged fact lines)",
+      "claimsSupported": [
+        "Rings are made of ice and rock chunks.",
+        "Saturn spins quickly, so it bulges around its middle."
+      ]
+    },
+    {
+      "id": "space-uranus",
+      "topic": "Uranus",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/uranus/",
+      "pageSectionChecked": "Planet/dwarf-planet overview (the selected packaged fact lines)",
+      "claimsSupported": [
+        "Uranus spins almost on its side like a rolling ball.",
+        "Its seasons each last about 21 Earth years."
+      ]
+    },
+    {
+      "id": "space-neptune",
+      "topic": "Neptune",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/neptune/",
+      "pageSectionChecked": "Planet/dwarf-planet overview (the selected packaged fact lines)",
+      "claimsSupported": [
+        "Farthest planet from the Sun.",
+        "A year on Neptune lasts about 165 Earth years."
+      ]
+    },
+    {
+      "id": "space-pluto",
+      "topic": "Pluto",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/dwarf-planets/pluto/",
+      "pageSectionChecked": "Planet/dwarf-planet overview (the selected packaged fact lines)",
+      "claimsSupported": [
+        "Pluto was once called the ninth planet. Today it is called a dwarf planet.",
+        "It takes Pluto 248 Earth years to go around the Sun."
+      ]
+    },
+    {
+      "id": "tulip",
+      "topic": "Tulip",
+      "publisher": "Royal Horticultural Society",
+      "url": "https://www.rhs.org.uk/plants/tulip/growing-guide",
+      "pageSectionChecked": "Quick Facts and Before you get started (spring flowers, bulbs, cup shapes)",
+      "claimsSupported": [
+        "A tulip is a spring-flowering plant that grows from a bulb. Its cup-shaped flowers come in many colours and forms."
+      ]
+    },
+    {
+      "id": "seedling",
+      "topic": "Seedling",
+      "publisher": "Royal Horticultural Society",
+      "url": "https://www.rhs.org.uk/advice/understanding-plants/how-plants-reproduce",
+      "pageSectionChecked": "Seed germination (embryo, first root, first shoot)",
+      "claimsSupported": [
+        "A seedling is a young plant that has just started to grow. Its first root anchors it in the soil, while its first shoot grows towards the light."
+      ]
+    },
+    {
+      "id": "leaf",
+      "topic": "Leaf",
+      "publisher": "Royal Botanic Gardens, Kew",
+      "url": "https://www.kew.org/read-and-watch/what-can-you-spot-on-your-tree",
+      "pageSectionChecked": "Seasonal changes (leaves, chlorophyll, sunlight and sugar)",
+      "claimsSupported": [
+        "A leaf is a plant part that catches sunlight. Its green chlorophyll helps the plant use sunlight to make sugar for growth."
+      ]
+    },
+    {
+      "id": "tree",
+      "topic": "Tree",
+      "publisher": "Royal Botanic Gardens, Kew",
+      "url": "https://www.kew.org/read-and-watch/what-can-you-spot-on-your-tree",
+      "pageSectionChecked": "Working together; Resilient roots (tree parts, anchoring, water and nutrients)",
+      "claimsSupported": [
+        "A tree has roots, a trunk, branches and leaves. Its roots anchor it and absorb water and nutrients from the soil."
+      ]
+    }
+  ]
+}

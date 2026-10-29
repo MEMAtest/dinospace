@@ -137,11 +137,18 @@
       "path": "docs/qa-evidence/curriculum-german-20261029/__pycache__/run-german-render-supplement.cpython-314.pyc",
       "bytes": 7157,
       "sha256": "cec980f4dc7ab1e6fe85f31598609e328fd71b9a39464d8ce5ac1306f2835d5f"
+    },
+    {
+      "path": "\"/Users/omosanya_main/Documents/Codex/2026-09-26/x20-time-detectives-now-uses-clearer/work/dinospace-b7-memory-cumulative-20261006/docs/qa-evidence/curriculum-german-20261029/canonical-german-direction-390x740-20261029T113830-330157000.jpg\"",
+      "bytes": 46598,
+      "sha256": "6a9a0e246cdb5d757b6d79309d813876c1653e3dcdee62aa90393a3772ae1ae0",
+      "reason": "Task-owned quoted-path render attempt; corrected accepted canonical phone render and its report remain retained."
     }
   ],
-  "removedLogicalBytes": 693609,
+  "removedLogicalBytes": 740207,
   "freeBytesBeforeCleanup": 94068899840,
   "freeBytesAfterCleanup": 94068432896,
   "retained": "One existing checkout, one persistent synthetic profile, one dist, exact final revision8 build/test logs and deployment receipts, accepted renders and original unique failure reports; unrelated evidence untouched.",
-  "evidenceBytes": 4352653
+  "evidenceBytes": 4352653,
+  "lateCleanupAt": "2026-10-29T11:47:35.518579+00:00"
 }

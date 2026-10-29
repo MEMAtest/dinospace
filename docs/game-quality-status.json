@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-29T09:17:33.399389+00:00",
+  "updatedAt": "2026-10-29T13:07:26.066455+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "e322549af753147d471d646ac32de645d709c356",
+  "canonicalRelease": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": 11,
+  "activeDeliveryPair": "final_integration",
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1245,41 +1245,46 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 10,
-    "runtime": "e322549af753147d471d646ac32de645d709c356",
+    "pair": 11,
+    "runtime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-qt8a8d5mc-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_9RR6xdB7WafZgJKCwjf88zXnE6gq",
-    "netlifyGatewayDeploy": "6ae32d82b85419377c6ba593",
-    "serviceWorkerCache": "amari-discovery-v46",
+    "backendUrl": "https://dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_HK3DAj3XjdTAWY7EMgNCQT9q4bP9",
+    "netlifyGatewayDeploy": "6ae34171bd571caf57006197",
+    "serviceWorkerCache": "amari-discovery-v47",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/curriculum-german-20261029/README.md",
-    "production": "docs/qa-evidence/curriculum-german-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/curriculum-german-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
+    "production": "docs/qa-evidence/letters-factfinder-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/letters-factfinder-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 647,
+      "command": "PWA_BUILD_DIR=dist npm test",
+      "passed": 674,
       "failed": 0,
       "skipped": 0
     },
-    "editorialScoresChanged": false,
+    "verifiedAt": "2026-10-29T13:07:26.066455+00:00",
     "paidCalls": 0,
-    "verifiedAt": "2026-10-29T11:41:32.596668+00:00",
-    "scope": "Targeted Pair10 functional acceptance. Normal Amari catalogue routes; no hidden Askia route, reset, provider call or historical family-book recovery. Editorial/listening scores are unchanged.",
+    "editorialScoresChanged": false,
+    "scope": "Letter Launch and separate curated Fact Finder verified at390/1440, strict native save retry and canonical replay/badge retention. All games still require final retained integration smoke. Personal stories remain unlocated.",
     "functionalAcceptance": {
-      "nativeCases": 4,
-      "canonicalCases": 4,
-      "curriculumBandsPerViewport": 9,
-      "requiredCurriculumQuestionsPerViewport": 45,
-      "germanChapterWordAnswersPerViewport": 11,
-      "germanRoutesPerViewport": 7,
-      "germanCommandActionsPerViewport": 14,
-      "germanPracticeModesPerViewport": 11,
-      "positiveRetryVerified": true,
-      "replayRewardsZero": true,
-      "parentBadgeReadRetryVerified": true,
-      "earlierProgressAndStickersRetained": true,
-      "protectedCutoverStorageKeys": 77,
-      "protectedQaStoryAssets": 14
+      "nativeJourneys": 4,
+      "canonicalJourneys": 4,
+      "letterRoundsPerViewport": [
+        6,
+        6,
+        7,
+        8
+      ],
+      "curatedTopics": 34,
+      "nativeSaveRetryStages": [
+        "local",
+        "badge",
+        "parent"
+      ],
+      "canonicalReplayRewardsZero": true,
+      "parentBadgeReadRetry": true,
+      "protectedCutoverKeys": 107,
+      "protectedQaBookAssets": 14
     }
   },
   "latestDinoHangmanUplift": {
@@ -1309,49 +1314,52 @@
     }
   },
   "activeDeliveryCandidate": {
-    "pair": 11,
-    "status": "source_audit_complete",
-    "baseRuntime": "e322549af753147d471d646ac32de645d709c356",
-    "evidence": "docs/game-delivery-20261027/queue.json",
-    "paidGenerationRequests": 0,
-    "scope": "Letter Launch and separate Fact Finder; implementation/release gate remains open."
+    "status": "retained_integration_pending",
+    "baseRuntime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+    "evidence": "docs/game-delivery-20261027/final-integration-protocol.md",
+    "paidCalls": 0
   },
   "lastVerifiedDeliveryRelease": {
-    "pair": 10,
-    "runtime": "e322549af753147d471d646ac32de645d709c356",
+    "pair": 11,
+    "runtime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-qt8a8d5mc-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_9RR6xdB7WafZgJKCwjf88zXnE6gq",
-    "netlifyGatewayDeploy": "6ae32d82b85419377c6ba593",
-    "serviceWorkerCache": "amari-discovery-v46",
+    "backendUrl": "https://dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_HK3DAj3XjdTAWY7EMgNCQT9q4bP9",
+    "netlifyGatewayDeploy": "6ae34171bd571caf57006197",
+    "serviceWorkerCache": "amari-discovery-v47",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/curriculum-german-20261029/README.md",
-    "production": "docs/qa-evidence/curriculum-german-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/curriculum-german-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
+    "production": "docs/qa-evidence/letters-factfinder-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/letters-factfinder-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 647,
+      "command": "PWA_BUILD_DIR=dist npm test",
+      "passed": 674,
       "failed": 0,
       "skipped": 0
     },
-    "editorialScoresChanged": false,
+    "verifiedAt": "2026-10-29T13:07:26.066455+00:00",
     "paidCalls": 0,
-    "verifiedAt": "2026-10-29T11:41:32.596668+00:00",
-    "scope": "Targeted Pair10 functional acceptance. Normal Amari catalogue routes; no hidden Askia route, reset, provider call or historical family-book recovery. Editorial/listening scores are unchanged.",
+    "editorialScoresChanged": false,
+    "scope": "Letter Launch and separate curated Fact Finder verified at390/1440, strict native save retry and canonical replay/badge retention. All games still require final retained integration smoke. Personal stories remain unlocated.",
     "functionalAcceptance": {
-      "nativeCases": 4,
-      "canonicalCases": 4,
-      "curriculumBandsPerViewport": 9,
-      "requiredCurriculumQuestionsPerViewport": 45,
-      "germanChapterWordAnswersPerViewport": 11,
-      "germanRoutesPerViewport": 7,
-      "germanCommandActionsPerViewport": 14,
-      "germanPracticeModesPerViewport": 11,
-      "positiveRetryVerified": true,
-      "replayRewardsZero": true,
-      "parentBadgeReadRetryVerified": true,
-      "earlierProgressAndStickersRetained": true,
-      "protectedCutoverStorageKeys": 77,
-      "protectedQaStoryAssets": 14
+      "nativeJourneys": 4,
+      "canonicalJourneys": 4,
+      "letterRoundsPerViewport": [
+        6,
+        6,
+        7,
+        8
+      ],
+      "curatedTopics": 34,
+      "nativeSaveRetryStages": [
+        "local",
+        "badge",
+        "parent"
+      ],
+      "canonicalReplayRewardsZero": true,
+      "parentBadgeReadRetry": true,
+      "protectedCutoverKeys": 107,
+      "protectedQaBookAssets": 14
     }
   },
   "deliveryReleaseHistory": [
@@ -1440,6 +1448,44 @@
         "protectedCutoverStorageKeys": 76,
         "protectedQaStoryAssets": 14
       }
+    },
+    {
+      "pair": 10,
+      "runtime": "e322549af753147d471d646ac32de645d709c356",
+      "publicUrl": "https://dinospace.netlify.app",
+      "backendUrl": "https://dinospace-qt8a8d5mc-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_9RR6xdB7WafZgJKCwjf88zXnE6gq",
+      "netlifyGatewayDeploy": "6ae32d82b85419377c6ba593",
+      "serviceWorkerCache": "amari-discovery-v46",
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/curriculum-german-20261029/README.md",
+      "production": "docs/qa-evidence/curriculum-german-20261029/production-summary.json",
+      "sourceGates": "docs/qa-evidence/curriculum-german-20261029/source-gates.json",
+      "sourceTests": {
+        "passed": 647,
+        "failed": 0,
+        "skipped": 0
+      },
+      "editorialScoresChanged": false,
+      "paidCalls": 0,
+      "verifiedAt": "2026-10-29T11:41:32.596668+00:00",
+      "scope": "Targeted Pair10 functional acceptance. Normal Amari catalogue routes; no hidden Askia route, reset, provider call or historical family-book recovery. Editorial/listening scores are unchanged.",
+      "functionalAcceptance": {
+        "nativeCases": 4,
+        "canonicalCases": 4,
+        "curriculumBandsPerViewport": 9,
+        "requiredCurriculumQuestionsPerViewport": 45,
+        "germanChapterWordAnswersPerViewport": 11,
+        "germanRoutesPerViewport": 7,
+        "germanCommandActionsPerViewport": 14,
+        "germanPracticeModesPerViewport": 11,
+        "positiveRetryVerified": true,
+        "replayRewardsZero": true,
+        "parentBadgeReadRetryVerified": true,
+        "earlierProgressAndStickersRetained": true,
+        "protectedCutoverStorageKeys": 77,
+        "protectedQaStoryAssets": 14
+      }
     }
   ],
   "latestChessJigsawUplift": {
@@ -1470,6 +1516,49 @@
       "earlierProgressAndStickersRetained": true,
       "protectedCutoverStorageKeys": 76,
       "protectedQaStoryAssets": 14
+    }
+  },
+  "latestLettersFactFinderUplift": {
+    "pair": 11,
+    "runtime": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-17oigcsh2-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_HK3DAj3XjdTAWY7EMgNCQT9q4bP9",
+    "netlifyGatewayDeploy": "6ae34171bd571caf57006197",
+    "serviceWorkerCache": "amari-discovery-v47",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/letters-factfinder-20261029/README.md",
+    "production": "docs/qa-evidence/letters-factfinder-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/letters-factfinder-20261029/source-gates.json",
+    "sourceTests": {
+      "command": "PWA_BUILD_DIR=dist npm test",
+      "passed": 674,
+      "failed": 0,
+      "skipped": 0
+    },
+    "verifiedAt": "2026-10-29T13:07:26.066455+00:00",
+    "paidCalls": 0,
+    "editorialScoresChanged": false,
+    "scope": "Letter Launch and separate curated Fact Finder verified at390/1440, strict native save retry and canonical replay/badge retention. All games still require final retained integration smoke. Personal stories remain unlocated.",
+    "functionalAcceptance": {
+      "nativeJourneys": 4,
+      "canonicalJourneys": 4,
+      "letterRoundsPerViewport": [
+        6,
+        6,
+        7,
+        8
+      ],
+      "curatedTopics": 34,
+      "nativeSaveRetryStages": [
+        "local",
+        "badge",
+        "parent"
+      ],
+      "canonicalReplayRewardsZero": true,
+      "parentBadgeReadRetry": true,
+      "protectedCutoverKeys": 107,
+      "protectedQaBookAssets": 14
     }
   }
 }

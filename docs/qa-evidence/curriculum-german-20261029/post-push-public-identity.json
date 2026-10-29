@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-29T11:43:37.333568+00:00",
+  "runtimeSource": "e322549af753147d471d646ac32de645d709c356",
+  "evidenceCommit": "31811192199cc65c08c4f6bf80ac693568521132",
+  "origin": "https://dinospace.netlify.app",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "4e54a748f4f07c9b04d57b869d3df28f8662588ea00c25163ffd9bfd29b5d1c4",
+      "matchesFrozenDist": true
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "sha256": "5e69217521745ad6afe52ec1143d065299dc022b0112b0a4249f60e98d4054bf",
+      "matchesFrozenDist": true
+    }
+  ],
+  "passed": true
+}

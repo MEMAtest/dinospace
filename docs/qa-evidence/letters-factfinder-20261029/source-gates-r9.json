@@ -1,0 +1,133 @@
+{
+  "at": "2026-10-29T12:40:12.472814+00:00",
+  "runtimeSource": "030ee72b5ed5e9fbe7d6a3277a305be73ad9e595",
+  "entry": "/assets/arcade-DsTUt1Up.js",
+  "worker": "amari-discovery-v47",
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "tests": {
+    "command": "PWA_BUILD_DIR=dist npm test",
+    "passed": 674,
+    "failed": 0,
+    "skipped": 0
+  },
+  "native": "Pending final-source full matrix",
+  "production": "Not run",
+  "files": [
+    {
+      "path": "docs/qa-evidence/letters-factfinder-20261029/worker-budget-review.json",
+      "sha256": "fa79ecb19a9efb372f0cf185a464badc498a5b56975385692e3a5dfeaee69c6b"
+    },
+    {
+      "path": "public/art/catalog-v3/game-factfinder.webp",
+      "sha256": "fa594ab71460711665405ef1bee78e0f0b5520900b9369367f729f7c9cf02e0e"
+    },
+    {
+      "path": "public/art/fact-finder-v1/earthworm.webp",
+      "sha256": "697e3c04c5dca5a262b37535c6a77ee8b4344c3d108256e33c2b42d91771ae49"
+    },
+    {
+      "path": "public/sw.js",
+      "sha256": "4a07d79d6d7e889e568393653aeb2d11082f615114c2ab0107a2d4ba555b9d4d"
+    },
+    {
+      "path": "src/App.jsx",
+      "sha256": "4c120fd6f043224d757a90b41908fc7c61a6989471157c6638b3bd5610644d33"
+    },
+    {
+      "path": "src/components/games/FactFinder.jsx",
+      "sha256": "9690500fa36866277fc13d25c7b520d703615f4d525b688c37fac585a8085acf"
+    },
+    {
+      "path": "src/components/games/LetterLaunch.jsx",
+      "sha256": "889ae6bfb7a6465db25071622e66bce019d62e75661a89e8619a198b8f79cbb4"
+    },
+    {
+      "path": "src/components/games/factFinder.css",
+      "sha256": "90e5151b3c26abf099f3f9d53db6fe94a154f955801bf1a35653a6d4621a7088"
+    },
+    {
+      "path": "src/components/games/letterLaunch.css",
+      "sha256": "bf40c48a7e54bfa779f771b7aa8df5157f3d4e3e22bb0bd863e94b416c5c9ec0"
+    },
+    {
+      "path": "src/components/shared/LetterLaunchBadgeCollection.jsx",
+      "sha256": "54c7cd473e815fc3523145df0528e8227b09ba98cf99e871cfabb9d7e64cca25"
+    },
+    {
+      "path": "src/data/chapterBadges.js",
+      "sha256": "e21e98247a5d84aff59df8d78b6de1878377b39a4c65a7384c3e8daf7387aec2"
+    },
+    {
+      "path": "src/data/factFinder.js",
+      "sha256": "9899df874a008101e515a05ac9457cfe6983eb6b3d7574c4513d71edeb4fa6fa"
+    },
+    {
+      "path": "src/data/gameSessions.js",
+      "sha256": "9fdf2389dbb0b77dc421a7ff07a0cb842c72ca1a829ea201786f6bda3c9cd912"
+    },
+    {
+      "path": "src/data/learningWorlds.js",
+      "sha256": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9"
+    },
+    {
+      "path": "src/data/letterLaunch.js",
+      "sha256": "0e2a5dd415706e70c9f71db1aff2c3fb33491960ddd590f15cacda622f531188"
+    },
+    {
+      "path": "src/data/letterLaunchProgress.js",
+      "sha256": "150ffda1ad51eb13a4866a7e2dcdd4373d78efd3a790da9fede4405327a990ea"
+    },
+    {
+      "path": "src/data/playerRewards.js",
+      "sha256": "c28f6fe85ee1bcabce07230b03dfce130fa11953bfaa0c8bae94da3509b92b6f"
+    },
+    {
+      "path": "src/discoveryPremium.css",
+      "sha256": "7499e9ae58ffdaa1e9b7faad3d9203dd3514de443a2c4f94d75e67dbb2b0dc3a"
+    },
+    {
+      "path": "src/gameCatalog.jsx",
+      "sha256": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af"
+    },
+    {
+      "path": "src/navigation.js",
+      "sha256": "5d12307907c2e426f70505b30b94520c3d5710406c4429e5f31673f3c26f6f87"
+    },
+    {
+      "path": "test/batch3ProgressionOwnership.test.mjs",
+      "sha256": "ec25f339fa923efb468fa3f6c4c30e293446a2fabac89163ad480dc231e9d1ac"
+    },
+    {
+      "path": "test/batch4ClockNavigation.test.mjs",
+      "sha256": "ca61a2639b91c6a4308826e71923bc732698f219d9860f3be2c1acbe43ccbe4e"
+    },
+    {
+      "path": "test/chapterBadges.test.mjs",
+      "sha256": "ec382241e8d386101fefd8bb429692b81bad749a3e9b020e676e6a0b453d26b6"
+    },
+    {
+      "path": "test/fact-finder.test.mjs",
+      "sha256": "ff6073f2815a48834890684c6a9494ea25b87d4838a8ead15b376444831d5947"
+    },
+    {
+      "path": "test/learningWorlds.test.mjs",
+      "sha256": "bde4b0707004f91c17d3f29cdee2e6dd39816babd74f2301f2b673c92e56ad21"
+    },
+    {
+      "path": "test/letterLaunch.test.mjs",
+      "sha256": "77cf0339ce072a8f32102e0324acea909c1372a3cc0c78af215a0a749aa3bcce"
+    },
+    {
+      "path": "test/letterLaunchProgress.test.mjs",
+      "sha256": "de72281e2daee3f4bbcf74d46b61453347bdd2df12a52975e98a775311a76d86"
+    },
+    {
+      "path": "test/offlineServiceWorker.test.mjs",
+      "sha256": "d1e646a9dd2975fa7aa6bc8bd4655073107cd69c82913a4a8a34c57c4948e02e"
+    },
+    {
+      "path": "test/playerRewards.test.mjs",
+      "sha256": "4195387dde72da975b9cc3eec28418ada8f9df15e387c2349ae77824410cdc34"
+    }
+  ]
+}

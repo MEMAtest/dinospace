@@ -1,0 +1,159 @@
+{
+  "passed": true,
+  "at": "2026-10-29T13:07:26.066455+00:00",
+  "runtimeSource": "62ff5c2bd78baccffc9d3e1c3cf7c4f6073651ab",
+  "entry": "/assets/arcade-BrQh-tMA.js",
+  "worker": "amari-discovery-v47",
+  "publicUrl": "https://dinospace.netlify.app",
+  "backendDeployment": "dpl_HK3DAj3XjdTAWY7EMgNCQT9q4bP9",
+  "netlifyGatewayDeploy": "6ae34171bd571caf57006197",
+  "scope": "Four canonical actual-control title/viewport journeys. Clean Letter replays pay zero; native exact-Letter-source chain proves all three successive save recoveries. Original failed initial public allowlist report retained and scoped, not relabelled as a pass. No historical family-story recovery or editorial score.",
+  "cases": [
+    {
+      "flow": "letters",
+      "viewport": "390x740",
+      "report": "production-letters-390x740-arcade-BrQh-tMA-20261029T125626-308300000.json",
+      "sha256": "981aa41d6c40a02c5e5d8681abe42791ed60f43b32b3a8f83bb465d8f812a4e3",
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": [],
+        "providerAttempts": []
+      },
+      "requiredRounds": [
+        6,
+        6,
+        7,
+        8
+      ],
+      "actualRounds": [
+        6,
+        6,
+        7,
+        8
+      ],
+      "replayPointDelta": 0
+    },
+    {
+      "flow": "letters",
+      "viewport": "1440x844",
+      "report": "production-letters-1440x844-arcade-BrQh-tMA-20261029T130031-711269000.json",
+      "sha256": "17cace2ddf48ca2b8be7e3ef8a5692af7fe1fc2b1b8e0a0c8da30200c342d7ea",
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": [],
+        "providerAttempts": []
+      },
+      "requiredRounds": [
+        6,
+        6,
+        7,
+        8
+      ],
+      "actualRounds": [
+        6,
+        6,
+        7,
+        8
+      ],
+      "replayPointDelta": 0
+    },
+    {
+      "flow": "factfinder",
+      "viewport": "390x740",
+      "report": "production-factfinder-390x740-arcade-BrQh-tMA-20261029T130023-948616000.json",
+      "sha256": "5fb9ca7f2975927c27c031c175e0f42108e386f3f7b2f3948d945c0eef332bfa",
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": [],
+        "providerAttempts": []
+      },
+      "categories": 5,
+      "articles": [
+        "Mercury",
+        "Bee",
+        "Tyrannosaurus rex",
+        "Tulip"
+      ],
+      "exploreRoutes": [
+        {
+          "topic": "Tulip",
+          "hash": "#/play/worldmap/nature-lab",
+          "heading": "Nature Lab"
+        },
+        {
+          "topic": "Tyrannosaurus rex",
+          "hash": "#/play/dino",
+          "heading": "Dino Detective"
+        },
+        {
+          "topic": "Mercury",
+          "hash": "#/play/solar",
+          "heading": "Solar System Explorer"
+        }
+      ],
+      "readOnlyChanges": {
+        "changed": [],
+        "unexpected": []
+      }
+    },
+    {
+      "flow": "factfinder",
+      "viewport": "1440x844",
+      "report": "production-factfinder-1440x844-arcade-BrQh-tMA-20261029T130042-261680000.json",
+      "sha256": "784947c7bab5b3f50858a86a1cc87c737caa3547bfefe365b694e52a1c33979c",
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "failedRequests": [],
+        "failedResponses": [],
+        "providerAttempts": []
+      },
+      "categories": 5,
+      "articles": [
+        "Mercury",
+        "Bee",
+        "Tyrannosaurus rex",
+        "Tulip"
+      ],
+      "exploreRoutes": [
+        {
+          "topic": "Tulip",
+          "hash": "#/play/worldmap/nature-lab",
+          "heading": "Nature Lab"
+        },
+        {
+          "topic": "Tyrannosaurus rex",
+          "hash": "#/play/dino",
+          "heading": "Dino Detective"
+        },
+        {
+          "topic": "Mercury",
+          "hash": "#/play/solar",
+          "heading": "Solar System Explorer"
+        }
+      ],
+      "readOnlyChanges": {
+        "changed": [],
+        "unexpected": []
+      }
+    }
+  ],
+  "cutover": "cutover-retention.json",
+  "parentBadges": "production-parent-badge-retry.json",
+  "native": "native-summary.json",
+  "http": "production-core.json",
+  "art": "production-critical-art.json",
+  "newArtAndAudio": "production-pair-assets.json",
+  "sourceTests": {
+    "passed": 674,
+    "failed": 0,
+    "skipped": 0
+  },
+  "providerGenerationCalls": 0
+}
