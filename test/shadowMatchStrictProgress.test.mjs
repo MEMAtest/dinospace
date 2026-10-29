@@ -133,3 +133,24 @@ test('Shadow Match treats undefined storage reads as unavailable rather than an 
   assert.equal(readPairLittleProgress('amari', 'shadowmatch', false, undefinedStorage).ok, false);
   assert.equal(commitPairLittleResult({ playerId: 'amari', gameId: 'shadowmatch', bigKid: false, stars: 3, transactionId: 'undefined-read', storage: undefinedStorage }).ok, false);
 });
+
+test('Shadow Match receipt metadata remains opaque and preserved on other little-game rows', () => {
+  const key = pairLittleProgressKey('amari');
+  for (const gameId of ['rocketbuilder', 'fuelup', 'dinojigsaw']) {
+    const storage = storageWith();
+    const first = commitPairLittleResult({ playerId: 'amari', gameId, bigKid: false, stars: 3, transactionId: `${gameId}-first`, storage });
+    assert.equal(first.ok, true, `${gameId} initial result persists`);
+    const withOpaqueField = JSON.parse(storage.getItem(key));
+    withOpaqueField[gameId].pairRewardReceipts = { futureFeature: ['keep', 'as-is'] };
+    storage.setItem(key, JSON.stringify(withOpaqueField));
+    assert.equal(readPairLittleProgress('amari', gameId, false, storage).ok, true, `${gameId} treats the field as opaque metadata`);
+
+    const replay = commitPairLittleResult({ playerId: 'amari', gameId, bigKid: false, stars: 2, transactionId: `${gameId}-replay`, expectedLevel: 1, playedLevel: 0, storage });
+    assert.equal(replay.ok, true, `${gameId} updates its own progress`);
+    assert.deepEqual(JSON.parse(storage.getItem(key))[gameId].pairRewardReceipts, { futureFeature: ['keep', 'as-is'] }, `${gameId} preserves the field on write`);
+    const recovered = commitPairLittleResult({ playerId: 'amari', gameId, bigKid: false, stars: 2, transactionId: `${gameId}-replay`, expectedLevel: 1, playedLevel: 0, storage });
+    assert.equal(recovered.ok, true, `${gameId} recovers the same transaction without interpreting the field`);
+    assert.equal(recovered.recovered, true);
+    assert.deepEqual(recovered.rewardReceipt, null);
+  }
+});

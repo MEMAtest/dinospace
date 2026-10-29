@@ -30,8 +30,9 @@ const readRawRecord = (playerId, gameId, bigKid, storage) => {
       || !Number.isInteger(entry.best) || entry.best < 0 || entry.best > 3)) {
       return { ok: false, reason: 'game-record-invalid', level: floor };
     }
-    const pairMetadata = ['pairBestByLevel', 'pairTransactionId', 'pairPreviousLevel', 'pairLevelUp', 'pairRewardPoints', 'pairLegacyRewardThrough', 'pairRewardReceipts'];
-    const hasPairMetadata = entry && pairMetadata.some((key) => Object.hasOwn(entry, key));
+    const pairMetadata = ['pairBestByLevel', 'pairTransactionId', 'pairPreviousLevel', 'pairLevelUp', 'pairRewardPoints', 'pairLegacyRewardThrough'];
+    const hasPairMetadata = entry && (pairMetadata.some((key) => Object.hasOwn(entry, key))
+      || (gameId === 'shadowmatch' && Object.hasOwn(entry, 'pairRewardReceipts')));
     if (hasPairMetadata && (!isPlainRecord(entry.pairBestByLevel)
       || Object.entries(entry.pairBestByLevel).some(([index, best]) => !/^\d+$/.test(index)
         || Number(index) > max || !Number.isInteger(best) || best < 0 || best > 3))) {
@@ -46,7 +47,7 @@ const readRawRecord = (playerId, gameId, bigKid, storage) => {
         && (!Number.isInteger(entry.pairLegacyRewardThrough) || entry.pairLegacyRewardThrough < -1 || entry.pairLegacyRewardThrough > max)))) {
       return { ok: false, reason: 'game-record-invalid', level: floor };
     }
-    if (hasPairMetadata && entry.pairRewardReceipts !== undefined && (gameId !== 'shadowmatch' || !Array.isArray(entry.pairRewardReceipts)
+    if (gameId === 'shadowmatch' && hasPairMetadata && entry.pairRewardReceipts !== undefined && (!Array.isArray(entry.pairRewardReceipts)
       || entry.pairRewardReceipts.some((receipt) => {
         const match = isPlainRecord(receipt) && typeof receipt.id === 'string'
           ? /^shadowmatch:level-(\d+):best-([1-3])$/.exec(receipt.id)
@@ -94,7 +95,9 @@ export const commitPairLittleResult = ({ playerId, gameId, bigKid, stars, transa
   // Recover the same pending result after a write succeeded but its readback
   // failed. The shell keeps the transaction id while showing Retry.
   if (oldEntry.pairTransactionId === transactionId) {
-    const recoveredReceipt = oldEntry.pairRewardReceipts?.find((receipt) => receipt.id === `${gameId}:level-${oldEntry.pairPlayedLevel + 1}:best-${oldEntry.pairBestByLevel?.[oldEntry.pairPlayedLevel]}`) || null;
+    const recoveredReceipt = gameId === 'shadowmatch' && Array.isArray(oldEntry.pairRewardReceipts)
+      ? oldEntry.pairRewardReceipts.find((receipt) => receipt.id === `${gameId}:level-${oldEntry.pairPlayedLevel + 1}:best-${oldEntry.pairBestByLevel?.[oldEntry.pairPlayedLevel]}`) || null
+      : null;
     return {
       ok: true,
       recovered: true,
@@ -165,6 +168,7 @@ export const commitPairLittleResult = ({ playerId, gameId, bigKid, stars, transa
 };
 
 export const getPendingPairLittleRewardReceipts = (playerId, gameId, bigKid, storage = getPairLittleStorage()) => {
+  if (gameId !== 'shadowmatch') return { ok: false, reason: 'game-not-in-pair-reward-flow', receipts: [] };
   const loaded = readPairLittleProgress(playerId, gameId, bigKid, storage);
   if (!loaded.ok) return { ...loaded, receipts: [] };
   return { ...loaded, receipts: (loaded.gameRecord?.pairRewardReceipts || []).filter((receipt) => !receipt.claimed) };
