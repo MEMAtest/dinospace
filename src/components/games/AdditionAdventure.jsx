@@ -40,7 +40,6 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
   const [completedResults, setCompletedResults] = useState([]);
   const [modelJoined, setModelJoined] = useState(false);
   const [hintCount, setHintCount] = useState(0);
-  const [completion, setCompletion] = useState(null);
   const [completionPending, setCompletionPending] = useState(false);
   const [completionError, setCompletionError] = useState('');
   const [startError, setStartError] = useState('');
@@ -185,7 +184,6 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     setFeedback('');
     setCompletedResults([]);
     setHintCount(0);
-    setCompletion(null);
     setModelJoined(false);
     setCompletionPending(false);
     setCompletionError('');
@@ -220,7 +218,8 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     setCompletedResults(results);
     if (roundIndex === rounds.length - 1) {
       const stars = scoreArithmeticResults(results).stars;
-      void finishChapter({ chapterIndex, rounds, stars, seed, hintCount: hintCount + (hintUsed ? 1 : 0), completionEventSent: false });
+      pendingCompletionRef.current = { chapterIndex, rounds, stars, seed, hintCount: hintCount + (hintUsed ? 1 : 0), completionEventSent: false };
+      setCompletionError('');
     }
     playSfx('success');
     onGameEvent?.('addition', 'answer_correct', {
@@ -265,8 +264,6 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     }
     draft.newlyCompleted = Boolean(draft.newlyCompleted || result.newlyCompleted);
     setProgressState({ ok: true, status: 'ready', progress: result.progress });
-    const saved = { ...result, stars: draft.stars, newlyCompleted: draft.newlyCompleted };
-    setCompletion(saved);
     if (!draft.completionEventSent) {
       draft.completionEventSent = true;
       onGameEvent?.('addition', 'level_complete', { level: draft.chapterIndex, round: 5, seed: draft.seed, difficulty: ARITHMETIC_CHAPTERS[draft.chapterIndex].id, hintCount: draft.hintCount });
@@ -287,7 +284,6 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
       return false;
     }
     setProgressState(latest);
-    setCompletion({ ...saved, progress: latest.progress });
     setCompletionPending(false);
     setCompletionError('');
     setFeedback(draft.newlyCompleted
@@ -321,14 +317,8 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
       setModelJoined(false);
       return;
     }
-    const result = completion;
-    if (!result) return;
-    const { stars } = result;
-    setFeedback(result.newlyCompleted
-      ? `Chapter complete! You earned ${stars} ${stars === 1 ? 'star' : 'stars'}.`
-      : `Replay complete! Your best is ${result.progress.bestStars[chapter.id]} ${result.progress.bestStars[chapter.id] === 1 ? 'star' : 'stars'}.`);
-    setPhase('done');
-    playSfx('complete');
+    if (!pendingCompletionRef.current) return;
+    void finishChapter(pendingCompletionRef.current);
   };
 
   const leave = () => {
@@ -453,8 +443,8 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
         {feedback&&<p role="status" className="mx-auto mb-2 max-w-2xl rounded-xl bg-emerald-50 p-3 font-bold">{feedback}</p>}
         {locked&&<button onClick={()=>tell(speak, question.explanation, arithmeticNarrationSegments(question, 'explanation'))} className="mx-auto inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-emerald-700 bg-white px-4 font-black"><Volume2 size={20}/> Hear explanation again</button>}
         {!locked&&<button disabled={hintUsed} onClick={hint} className="inline-flex min-h-12 items-center gap-2 rounded-xl border-2 border-amber-500 bg-amber-50 px-4 font-black disabled:opacity-50"><Lightbulb size={20}/>{hintUsed?'Hint used':'Use one hint'}</button>}
-        {completionError&&<section role="alert" className="mx-auto mt-3 max-w-2xl rounded-2xl border-2 border-rose-600 bg-white p-3 font-bold"><p>{completionError}</p><button data-addition-result-retry onClick={()=>void finishChapter(pendingCompletionRef.current)} disabled={completionPending} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{completionPending?'Saving…':'Retry saving this result'}</button></section>}
-        {locked&&roundIndex<5&&<button onClick={next} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 text-lg font-black text-white">Next question</button>}
+        {completionError&&<section role="alert" className="mx-auto mt-3 max-w-2xl rounded-2xl border-2 border-rose-600 bg-white p-3 font-bold"><p>{completionError}</p><button data-addition-result-retry onClick={()=>void finishChapter(pendingCompletionRef.current)} disabled={completionPending} className="mt-2 min-h-12 rounded-xl bg-rose-700 px-4 text-white">{completionPending?'Saving…':completionError.includes('reward') || completionError.includes('rewards') ? 'Retry reward confirmation' : 'Retry saving this result'}</button></section>}
+        {locked&&!completionError&&<button onClick={next} disabled={completionPending} className="mt-3 min-h-14 w-full rounded-2xl bg-emerald-700 px-5 text-lg font-black text-white disabled:opacity-60">{roundIndex===5?'Finish chapter':'Next question'}</button>}
       </main>
     </div>
   );
