@@ -7,8 +7,10 @@ import {
   createCountRunSeed, createCountTheStarsRun, getCountQuestionArrangement, getCountQuestionStrategy,
 } from '../../data/countTheStarsBatch3.js';
 import {
-  getCountTheStarsProgress, recordCountTheStarsCompletion, rememberCountTheStarsRun, recentCountQuestionIds,
+  getCountTheStarsProgressStrict, recordCountTheStarsCompletionStrict, rememberCountTheStarsRunStrict,
+  getCountTheStarsPendingReceiptsStrict, markCountTheStarsReceiptClaimedStrict,
 } from '../../data/countTheStarsProgress.js';
+import { rewardClaimToken } from '../../data/playerRewards.js';
 
 const praiseFor = (stars) => stars === 3 ? 'Brilliant counting!' : stars === 2 ? 'Great counting!' : 'You kept counting!';
 const pluralOf = (noun) => noun.endsWith('y') ? `${noun.slice(0, -1)}ies` : `${noun}s`;
@@ -52,7 +54,7 @@ const ConstellationArt = ({ page, locked = false }) => {
 };
 
 const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, cancelNarration = () => {}, soundOn, onToggleSound, onCelebrate = () => {}, onGameEvent, onPhaseChange, playerId = 'amari' }) => {
-  const [progress, setProgress] = useState(() => getCountTheStarsProgress(playerId));
+  const [progressState, setProgressState] = useState(() => getCountTheStarsProgressStrict(playerId));
   const [phase, setPhase] = useState('map');
   const [episodeIndex, setEpisodeIndex] = useState(0);
   const [run, setRun] = useState(null);
@@ -65,40 +67,75 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
   const [hintText, setHintText] = useState('');
   const [feedback, setFeedback] = useState('Choose an unlocked star survey to begin.');
   const [lastResult, setLastResult] = useState(null);
-  const answerPanelRef = useRef(null);
+  const [saveMessage, setSaveMessage] = useState('');
+  const [pendingStart, setPendingStart] = useState(null);
+  const [selectedEpisode, setSelectedEpisode] = useState(() => {
+    const initial = getCountTheStarsProgressStrict(playerId);
+    return initial.ok ? initial.progress.unlockedEpisode : 0;
+  });
+  const [selectedEpisodeDetails, setSelectedEpisodeDetails] = useState(false);
+  const [receiptBusy, setReceiptBusy] = useState(false);
+  const [receiptError, setReceiptError] = useState('');
+  const receiptBusyRef = useRef(false);
+  const [completionSaved, setCompletionSaved] = useState(false);
+  const [completionReady, setCompletionReady] = useState(false);
+  const completionRef = useRef(null);
+  const progress = progressState.progress || { unlockedEpisode: 0, completedEpisodeIds: [], bestStars: {}, earnedConstellationPageIds: [], rewardReceipts: [], recentQuestionIds: {} };
 
   const episode = COUNT_THE_STARS_EPISODES[episodeIndex] || COUNT_THE_STARS_EPISODES[0];
   const round = run?.rounds[roundIndex] || null;
   const arrangement = getCountQuestionArrangement(round);
   const strategy = getCountQuestionStrategy(round, episode);
-  const nextSurveyIndex = COUNT_THE_STARS_EPISODES.findIndex((entry, index) => (
-    index <= progress.unlockedEpisode && !progress.completedEpisodeIds.includes(entry.id)
-  ));
   const layoutDescription = arrangement === 'split-groups' ? 'two visible groups'
     : arrangement === 'scattered' ? 'scattered one by one'
       : arrangement === 'array' ? 'organized rows or an array' : '';
 
   useEffect(() => { onPhaseChange?.(phase === 'map' || phase === 'collection' ? 'map' : phase === 'complete' ? 'complete' : 'play'); }, [onPhaseChange, phase]);
-  useEffect(() => {
-    if (phase !== 'answer' || !window.matchMedia('(max-width: 640px)').matches) return;
-    const frame = window.requestAnimationFrame(() => answerPanelRef.current?.scrollIntoView({
-      block: 'center', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-    }));
-    return () => window.cancelAnimationFrame(frame);
-  }, [phase]);
   useEffect(() => () => cancelNarration(), [cancelNarration]);
 
-  const startEpisode = (index) => {
-    if (index > progress.unlockedEpisode) return;
-    cancelNarration();
+  const refreshProgress = () => {
+    const result = getCountTheStarsProgressStrict(playerId);
+    setProgressState(result);
+    return result;
+  };
+
+  const drainReceipts = async () => {
+    if (receiptBusyRef.current) return false;
+    receiptBusyRef.current = true;
+    setReceiptBusy(true);
+    setReceiptError('');
+    try {
+      const pending = getCountTheStarsPendingReceiptsStrict(playerId);
+      if (!pending.ok) { setReceiptError(pending.error || 'Saved stars could not be checked.'); return false; }
+      setProgressState({ ok: true, progress: pending.progress });
+      for (const receipt of pending.receipts) {
+        let parentResult;
+        try {
+          parentResult = await onCelebrate(`${COUNT_THE_STARS_EPISODES.find(({ id }) => receipt.id.startsWith(`${id}:`))?.name || 'Survey'} stars saved`, receipt.rewardDelta * 4, 0, 'counting', { quiet: true, rewardToken: rewardClaimToken('counting', receipt.id) });
+        } catch { parentResult = null; }
+        if (parentResult?.persisted !== true) { setReceiptError('Your stars are waiting to sync. Retry saved stars.'); return false; }
+        const marked = markCountTheStarsReceiptClaimedStrict(playerId, receipt.id);
+        if (!marked.ok) { setReceiptError(marked.error || 'Your stars were saved, but the receipt needs a retry.'); return false; }
+        setProgressState({ ok: true, progress: marked.progress });
+      }
+      setReceiptError('');
+      return true;
+    } finally { receiptBusyRef.current = false; setReceiptBusy(false); }
+  };
+
+  useEffect(() => {
+    if (phase === 'map' && progressState.ok) void drainReceipts();
+    // Pending receipts are read again after an explicit retry; avoid rerunning the drain for each state write.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase, progressState.ok]);
+
+  const beginSavedRun = (index, nextRun) => {
     const selectedEpisode = COUNT_THE_STARS_EPISODES[index];
-    const seed = createCountRunSeed();
-    const nextRun = createCountTheStarsRun(index, seed, recentCountQuestionIds(playerId, index));
-    if (!nextRun) return;
-    rememberCountTheStarsRun(playerId, index, nextRun.rounds.map(({ id }) => id));
-    setProgress(getCountTheStarsProgress(playerId));
+    setPendingStart(null);
+    setSaveMessage('');
+    setProgressState({ ok: true, progress: nextRun.savedProgress });
     setEpisodeIndex(index);
-    setRun(nextRun);
+    setRun(nextRun.run);
     setRoundIndex(0);
     setTappedIds([]);
     setRoundHadMistake(false);
@@ -107,14 +144,47 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     setHintCount(0);
     setHintText('');
     setLastResult(null);
+    completionRef.current = null;
+    setCompletionSaved(false);
+    setCompletionReady(false);
     setFeedback('Tap each object once, then choose how many you counted.');
     setPhase('count');
-    if (progress.completedEpisodeIds.includes(selectedEpisode.id)) onGameEvent?.('counting', 'replay', { level: index, round: 0, seed, difficulty: selectedEpisode.band });
-    onGameEvent?.('counting', 'start', { level: index, round: 0, seed, difficulty: selectedEpisode.band });
-    onGameEvent?.('counting', 'question', { level: index, round: 1, seed, difficulty: selectedEpisode.band });
+    if (progress.completedEpisodeIds.includes(selectedEpisode.id)) onGameEvent?.('counting', 'replay', { level: index, round: 0, seed: nextRun.run.seed, difficulty: selectedEpisode.band });
+    onGameEvent?.('counting', 'start', { level: index, round: 0, seed: nextRun.run.seed, difficulty: selectedEpisode.band });
+    onGameEvent?.('counting', 'question', { level: index, round: 1, seed: nextRun.run.seed, difficulty: selectedEpisode.band });
     speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] });
     playSfx('launch');
   };
+
+  const prepareEpisode = (index, preserved = null) => {
+    if (index > progress.unlockedEpisode) return;
+    cancelNarration();
+    const currentProgress = refreshProgress();
+    if (!currentProgress.ok || index > currentProgress.progress.unlockedEpisode) { setSaveMessage('Saved surveys could not be checked. Retry before starting.'); return; }
+    const pendingRewards = getCountTheStarsPendingReceiptsStrict(playerId);
+    if (!pendingRewards.ok) { setReceiptError(pendingRewards.error || 'Saved stars could not be checked.'); return; }
+    if (pendingRewards.receipts.length) {
+      setSelectedEpisode(index);
+      setReceiptError('Sync saved stars before starting another survey.');
+      void drainReceipts();
+      return;
+    }
+    const seed = preserved?.seed ?? createCountRunSeed();
+    const nextRun = preserved?.run ?? createCountTheStarsRun(index, seed, currentProgress.progress.recentQuestionIds[index] || []);
+    if (!nextRun) return;
+    const saved = rememberCountTheStarsRunStrict(playerId, index, nextRun.rounds.map(({ id }) => id));
+    if (!saved.ok) {
+      setPendingStart({ index, seed, run: nextRun });
+      setSaveMessage('Your survey is ready, but its progress could not be saved. Retry saving survey.');
+      setSelectedEpisode(index);
+      setPhase('map');
+      return;
+    }
+    beginSavedRun(index, { run: nextRun, seed, savedProgress: saved.progress });
+  };
+
+  const startEpisode = (index) => prepareEpisode(index);
+  const retryStart = () => pendingStart && prepareEpisode(pendingStart.index, pendingStart);
 
   const handleTapObject = (objectId) => {
     if (phase !== 'count' || !round || tappedIds.includes(objectId)) return;
@@ -131,16 +201,40 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     }
   };
 
-  const saveCompletedSurvey = () => {
+  const saveCompletedSurvey = async () => {
     const stars = mistakeCount === 0 && hintCount === 0 ? 3 : mistakeCount <= 2 ? 2 : 1;
-    const completion = recordCountTheStarsCompletion(playerId, episodeIndex, stars, run.rounds.map(({ id }) => id));
-    setLastResult(completion);
-    if (completion) {
-      setProgress(completion.progress);
+    let completion = completionRef.current;
+    if (!completion?.localSaved) {
+      const priorDraft = completion?.draft || {
+        newlyCompleted: !progress.completedEpisodeIds.includes(episode.id),
+        newlyEarnedPage: !progress.completedEpisodeIds.includes(episode.id) && !progress.earnedConstellationPageIds.includes(episode.pageId),
+      };
+      completionRef.current = { draft: priorDraft, localSaved: false };
+      const result = recordCountTheStarsCompletionStrict(playerId, episodeIndex, stars, run.rounds.map(({ id }) => id));
+      if (!result.ok) {
+        setCompletionSaved(false);
+        setCompletionReady(false);
+        setSaveMessage(result.error || 'The survey result could not be saved.');
+        setLastResult({ pending: true, stars });
+        return false;
+      }
+      completion = { ...result, newlyCompleted: result.newlyCompleted || priorDraft.newlyCompleted, newlyEarnedPage: result.newlyEarnedPage || priorDraft.newlyEarnedPage, draft: priorDraft, localSaved: true };
+      completionRef.current = completion;
+      setLastResult(completion);
+      setProgressState({ ok: true, progress: result.progress });
+      setCompletionSaved(true);
+      if (result.newlyCompleted && episodeIndex < COUNT_THE_STARS_EPISODES.length - 1) setSelectedEpisode(episodeIndex + 1);
       onGameEvent?.('counting', 'level_complete', { level: episodeIndex, round: run.rounds.length, seed: run.seed, firstAttempt: mistakeCount === 0, hints: hintCount, difficulty: episode.band });
-      if (completion.awardedStars > 0) onCelebrate(`${episode.name} constellation complete!`, completion.awardedStars * 4, 0);
     }
+    const claimsConfirmed = await drainReceipts();
+    const refreshed = getCountTheStarsPendingReceiptsStrict(playerId);
+    const noPending = refreshed.ok && refreshed.receipts.length === 0;
+    setCompletionReady(Boolean(claimsConfirmed && noPending));
+    setSaveMessage(noPending ? '' : 'Your survey is saved. Retry saved stars to finish syncing.');
+    return Boolean(claimsConfirmed && noPending);
   };
+
+  const retryCompletion = () => { if (phase === 'fact' && completionRef.current) void saveCompletedSurvey(); else if (phase === 'fact') void saveCompletedSurvey(); };
 
   const handleAnswer = (answer) => {
     if (!round || phase !== 'answer') return;
@@ -158,11 +252,11 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
     onGameEvent?.('counting', 'answer_correct', { level: episodeIndex, round: roundIndex + 1, seed: run.seed, firstAttempt, hints: Number(roundHadHint), difficulty: episode.band });
     setFeedback(praiseFor(firstAttempt && !roundHadHint ? 3 : 2));
     setHintText('');
-    if (roundIndex === run.rounds.length - 1) saveCompletedSurvey();
     setPhase('fact');
     const narration = countCorrectNarration(praiseFor(firstAttempt && !roundHadHint ? 3 : 2), round.explanation);
     speak(narration.text, { premium: false, segments: narration.segments });
     playSfx('success');
+    if (roundIndex === run.rounds.length - 1) void saveCompletedSurvey();
   };
 
   const showCountingClue = () => {
@@ -196,6 +290,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
 
   const advance = () => {
     if (phase !== 'fact' || !run) return;
+    if (roundIndex === run.rounds.length - 1 && !completionReady) return;
     cancelNarration();
     if (roundIndex < run.rounds.length - 1) {
       const nextIndex = roundIndex + 1;
@@ -231,26 +326,31 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
 
-      {phase === 'map' && <main className="mx-auto mt-5 max-w-5xl rounded-[2rem] border border-white/20 bg-white/10 p-4 shadow-2xl sm:p-7">
-        <p className="mx-auto max-w-2xl text-center text-sm font-bold text-indigo-100 sm:text-base">Count one object at a time. Collected totals light up a constellation page.</p>
-        <p className="mt-3 text-center text-lg font-black text-amber-100" aria-live="polite">{nextSurveyIndex >= 0 ? `Next up: ${COUNT_THE_STARS_EPISODES[nextSurveyIndex].name}` : 'All surveys complete. Choose a survey to replay.'}</p>
-        <div className="mt-5 grid gap-3 md:grid-cols-3">
-          {COUNT_THE_STARS_EPISODES.map((entry, index) => {
-            const unlocked = index <= progress.unlockedEpisode;
-            const complete = progress.completedEpisodeIds.includes(entry.id);
-            const isNextSurvey = index === nextSurveyIndex;
-            return <article key={entry.id} className={`rounded-3xl border-2 p-4 ${isNextSurvey ? 'border-amber-200 bg-indigo-900 shadow-xl' : unlocked ? 'border-white/25 bg-indigo-900/55' : 'border-white/10 bg-black/20 opacity-65'}`}>
-              {isNextSurvey && <p className="text-sm font-black uppercase tracking-wide text-amber-200">Next survey</p>}
-              <ConstellationArt page={{ id: entry.pageId, name: `${entry.name} Constellation` }} />
-              <h2 className="mt-2 text-xl font-black">{entry.name}</h2>
-              <p className="mt-1 text-sm font-semibold text-indigo-100">Count from {entry.min} to {entry.max}. Six rounds · {entry.band} band.</p>
-              <p className="mt-2 text-sm font-bold text-amber-100">{entry.skill}</p>
-              <button type="button" disabled={!unlocked} onClick={() => startEpisode(index)} className={`mt-4 min-h-14 w-full rounded-2xl px-4 py-3 font-black ${isNextSurvey ? 'bg-amber-300 text-indigo-950' : unlocked ? 'bg-white/15 text-white' : 'bg-slate-500 text-white'} disabled:cursor-not-allowed`}>{!unlocked ? 'Locked' : isNextSurvey ? 'Start next survey' : 'Replay survey'}</button>
-              {complete && <p className="mt-2 text-sm font-bold text-emerald-200">Best: {progress.bestStars[entry.id] || 0} stars</p>}
-            </article>;
-          })}
-        </div>
-        <button type="button" onClick={openCollection} className="mx-auto mt-5 flex min-h-14 items-center gap-2 rounded-2xl bg-white/15 px-5 font-black"><BookOpen /> Constellation book ({progress.earnedConstellationPageIds.length}/3)</button>
+      {phase === 'map' && <main className="mx-auto mt-3 max-w-5xl rounded-[2rem] border border-white/20 bg-white/10 p-3 shadow-2xl sm:mt-5 sm:p-7">
+        <section className="rounded-3xl border-2 border-amber-200 bg-indigo-900/90 p-4 text-center shadow-xl sm:p-6">
+          <p className="text-xs font-black uppercase tracking-widest text-amber-200">Your next survey</p>
+          <h2 className="mt-1 text-2xl font-black sm:text-3xl">{COUNT_THE_STARS_EPISODES[selectedEpisode]?.name}</h2>
+          <p className="mt-1 text-sm font-bold text-indigo-100">Count {COUNT_THE_STARS_EPISODES[selectedEpisode]?.min} to {COUNT_THE_STARS_EPISODES[selectedEpisode]?.max} objects in six star scenes.</p>
+          <p className="mt-2 text-sm font-bold text-amber-100">{COUNT_THE_STARS_EPISODES[selectedEpisode]?.skill}</p>
+          <button type="button" disabled={selectedEpisode > progress.unlockedEpisode || !progressState.ok || receiptBusy || Boolean(pendingStart)} onClick={() => startEpisode(selectedEpisode)} className="mt-3 min-h-14 w-full rounded-2xl bg-amber-300 px-4 py-3 font-black text-indigo-950 disabled:opacity-50">{progress.completedEpisodeIds.includes(COUNT_THE_STARS_EPISODES[selectedEpisode]?.id) ? 'Replay selected survey' : 'Start selected survey'}</button>
+          {pendingStart && <button type="button" onClick={retryStart} className="mt-2 min-h-12 w-full rounded-2xl bg-white px-4 font-black text-indigo-950">Retry saving survey</button>}
+          {(saveMessage || receiptError || !progressState.ok) && <p role="status" className="mt-3 rounded-xl border border-amber-200/50 bg-black/25 p-3 text-sm font-bold text-amber-100">{saveMessage || receiptError || 'Saved progress could not be checked.'}</p>}
+          {receiptError && <button type="button" disabled={receiptBusy} onClick={() => void drainReceipts()} className="mt-2 min-h-12 w-full rounded-2xl bg-white px-4 font-black text-indigo-950 disabled:opacity-50">Retry saved stars</button>}
+          {!progressState.ok && <button type="button" onClick={() => { const refreshed = refreshProgress(); if (refreshed.ok) { setSaveMessage(''); setReceiptError(''); } }} className="mt-2 min-h-12 w-full rounded-2xl bg-white/15 px-4 font-black">Retry reading saved surveys</button>}
+        </section>
+        <details className="mt-3 rounded-2xl border border-white/20 bg-black/20 p-3" open={selectedEpisodeDetails} onToggle={(event) => setSelectedEpisodeDetails(event.currentTarget.open)}>
+          <summary className="min-h-12 cursor-pointer content-center font-black">Choose another survey</summary>
+          <div className="mt-2 grid gap-2 sm:grid-cols-3">
+            {COUNT_THE_STARS_EPISODES.map((entry, index) => {
+              const unlocked = index <= progress.unlockedEpisode;
+              const complete = progress.completedEpisodeIds.includes(entry.id);
+              return <button key={entry.id} type="button" disabled={!unlocked} aria-pressed={selectedEpisode === index} onClick={() => { setSelectedEpisode(index); setSelectedEpisodeDetails(false); }} className="min-h-14 rounded-xl border border-white/25 bg-indigo-900/70 p-2 text-left font-bold disabled:opacity-50">
+                {entry.name} · {entry.min}–{entry.max}{complete ? ` · Best ${progress.bestStars[entry.id] || 0} stars` : !unlocked ? ' · Locked' : ''}
+              </button>;
+            })}
+          </div>
+        </details>
+        <button type="button" onClick={openCollection} className="mx-auto mt-3 flex min-h-12 items-center gap-2 rounded-2xl bg-white/15 px-5 font-black"><BookOpen /> Constellation book ({progress.earnedConstellationPageIds.length}/3)</button>
       </main>}
 
       {phase === 'collection' && <main className="mx-auto mt-5 max-w-4xl rounded-[2rem] border border-white/20 bg-white/10 p-5 shadow-2xl sm:p-8">
@@ -268,12 +368,12 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
       </main>}
 
       {(phase === 'count' || phase === 'answer' || phase === 'fact') && round && <main className="mx-auto mt-4 max-w-4xl">
-        <section className={`rounded-[2rem] border-2 border-white/30 bg-gradient-to-br ${round.scene.backdrop} p-4 shadow-2xl sm:p-6`}>
+        <section className={`rounded-[2rem] border-2 border-white/30 bg-gradient-to-br ${round.scene.backdrop} p-2 shadow-2xl sm:p-6`}>
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div><p className="text-xs font-black uppercase tracking-widest text-white/70">{episode.name} · {episode.band}</p><h2 className="text-2xl font-black sm:text-3xl">{round.scene.title}</h2></div>
           </div>
-          <p className="mt-2 rounded-xl bg-black/20 px-3 py-2 text-sm font-bold text-white/90">{strategy}</p>
-          <div className="relative mx-auto mt-4 aspect-square w-full max-w-[440px] rounded-3xl border border-white/25 bg-black/15" data-layout-variant={round.layoutVariant} role="group" aria-label={`Counting board for ${round.scene.title}; ${layoutDescription}`}>
+          <p className="mt-1 rounded-xl bg-black/20 px-3 py-1.5 text-xs font-bold text-white/90 sm:mt-2 sm:py-2 sm:text-sm">{strategy}</p>
+          <div className="relative mx-auto mt-2 aspect-square w-full max-w-[288px] rounded-3xl border border-white/25 bg-black/15 sm:mt-4 sm:max-w-[440px]" data-layout-variant={round.layoutVariant} data-count-episode={episode.id} data-count-question={round.id} data-run-seed={run.seed} data-round-index={roundIndex + 1} role="group" aria-label={`Counting board for ${round.scene.title}; ${layoutDescription}`}>
             {round.objects.map((object) => {
               const countedIndex = tappedIds.indexOf(object.id);
               return <button key={object.id} type="button" aria-pressed={countedIndex >= 0} disabled={phase !== 'count'} onClick={() => handleTapObject(object.id)} aria-label={`${round.scene.noun}${countedIndex >= 0 ? `, counted as ${countedIndex + 1}` : ', not counted yet'}`} style={{ left: `${object.x}%`, top: `${object.y}%` }} className={`absolute grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl border-2 p-0 shadow-lg transition focus-visible:z-10 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-200 sm:h-14 sm:w-14 ${countedIndex >= 0 ? 'border-yellow-100 bg-yellow-200/30 opacity-75' : 'border-white/20 bg-white/10 hover:scale-105'} disabled:cursor-default`}>
@@ -282,14 +382,14 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
               </button>;
             })}
           </div>
-          {phase !== 'fact' && <div className="mt-3 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-black/20 px-3 py-2">
+          {phase !== 'fact' && <div className="mt-2 flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-black/20 px-3 py-2 sm:mt-3">
             <p className="font-black" aria-live="polite">{phase === 'count' ? (tappedIds.length ? `Counted ${tappedIds.length} object${tappedIds.length === 1 ? '' : 's'}.` : 'Tap each object once to count it.') : phase === 'answer' ? COUNT_THE_STARS_NARRATION.countQuestion : 'Count complete'}</p>
             <div className="flex flex-wrap gap-2"><button type="button" onClick={() => speak(COUNT_THE_STARS_NARRATION.instruction, { premium: false, segments: [COUNT_THE_STARS_NARRATION.instruction] })} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-white/15 px-3 font-black"><Volume2 size={18} /> Hear instructions</button><button type="button" disabled={roundHadHint || phase === 'fact'} onClick={showCountingClue} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-300 px-3 font-black text-indigo-950 disabled:opacity-50"><Lightbulb size={18} /> Show a clue</button></div>
           </div>}
           {hintText && <p className="mt-2 rounded-xl border border-amber-100/50 bg-amber-200/15 px-3 py-2 text-sm font-bold" role="status" aria-live="polite">{hintText}</p>}
-          {phase === 'answer' && <div ref={answerPanelRef} className="mt-4 rounded-2xl border border-white/20 bg-black/20 p-3 text-center">
-            <p className="mb-3 text-lg font-black">How many {pluralOf(round.scene.noun)} did you count?</p>
-            <div className="flex flex-wrap justify-center gap-3">{round.options.map((option) => <button key={option} type="button" onClick={() => handleAnswer(option)} className="min-h-16 min-w-16 rounded-2xl bg-amber-300 px-4 text-2xl font-black text-slate-950 shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-white">{option}</button>)}</div>
+          {phase === 'answer' && <div className="mt-2 rounded-2xl border border-white/20 bg-black/20 p-2 text-center sm:mt-4 sm:p-3">
+            <p className="mb-2 text-base font-black sm:mb-3 sm:text-lg">How many {pluralOf(round.scene.noun)} did you count?</p>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">{round.options.map((option) => <button key={option} type="button" onClick={() => handleAnswer(option)} className="min-h-16 min-w-16 rounded-2xl bg-amber-300 px-4 text-2xl font-black text-slate-950 shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-white">{option}</button>)}</div>
             <button type="button" onClick={restartCount} className="mt-3 min-h-12 rounded-xl bg-white/15 px-4 font-black text-white underline decoration-white/70 underline-offset-4 focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-200">Recount from 1 · uses a clue</button>
             {feedback && <p className="mt-3 font-bold text-amber-100" role="status" aria-live="polite">{feedback}</p>}
           </div>}
@@ -297,7 +397,11 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
             <p className="text-xl font-black text-emerald-100">{feedback}</p>
             <p className="mt-2 text-lg font-bold">{round.explanation}</p>
             <button type="button" onClick={replayFact} className="mt-4 min-h-12 rounded-xl bg-white/15 px-5 font-black text-white focus-visible:outline focus-visible:outline-4 focus-visible:outline-amber-200">Hear explanation</button>
-            <button type="button" onClick={advance} className="mt-4 min-h-14 rounded-2xl bg-amber-300 px-8 py-3 text-lg font-black text-slate-950">Next</button>
+            {roundIndex === run.rounds.length - 1 && !completionReady && <div className="mx-auto mt-3 max-w-xl rounded-xl border border-amber-200/60 bg-black/25 p-3 text-left">
+              <p className="font-bold text-amber-100" role="status">{saveMessage || receiptError || (completionSaved ? 'Your survey is saved. Stars still need to sync.' : 'Saving your survey…')}</p>
+              <button type="button" disabled={receiptBusy} onClick={retryCompletion} className="mt-2 min-h-12 w-full rounded-xl bg-white px-4 font-black text-indigo-950 disabled:opacity-50">{completionSaved ? 'Retry saved stars' : 'Retry saving survey'}</button>
+            </div>}
+            <button type="button" disabled={roundIndex === run.rounds.length - 1 && !completionReady} onClick={advance} className="mt-4 min-h-14 rounded-2xl bg-amber-300 px-8 py-3 text-lg font-black text-slate-950 disabled:cursor-not-allowed disabled:opacity-50">Next</button>
           </div>}
         </section>
       </main>}

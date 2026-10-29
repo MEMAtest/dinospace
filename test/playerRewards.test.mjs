@@ -218,7 +218,7 @@ test('retained historical claims do not strand a new saved result at an arbitrar
 
 
 test('opted-in game claims retry committed writes without replay or sibling loss', () => {
-  for (const [game, amount] of [['chess', 1], ['dinojigsaw', 8], ['german', 1], ['worldmap', 1], ['letters', 1], ['puzzle', 2], ['spot', 2], ['jet', 5], ['math', 3]]) {
+  for (const [game, amount] of [['chess', 1], ['dinojigsaw', 8], ['german', 1], ['worldmap', 1], ['letters', 1], ['puzzle', 2], ['spot', 2], ['jet', 5], ['math', 3], ['counting', 3], ['addition', 3]]) {
     const backing = store();
     const prior = claim('amari', {}, 6, 'words', backing, 'words:previous-proof');
     backing.setItem('askia_rewards_v2', JSON.stringify({ version:2, points:19, gamesPlayed:{shadowmatch:2}, earnedStickerIds:['rocket'], familyTag:'untouched' }));
@@ -350,10 +350,10 @@ test('Letter Launch claims survive the retained decoder, recover once and stay s
 });
 
 
-test('Puzzle, Spot, Sky and Monster claims survive old tabs and reject replay or cross-game payment', () => {
+test('Catalogue claims survive old tabs and reject replay or cross-game payment', () => {
   const storage = store();
   let current = {};
-  for (const game of ['puzzle', 'spot', 'jet', 'math']) {
+  for (const game of ['puzzle', 'spot', 'jet', 'math', 'counting', 'addition']) {
     const token = rewardClaimToken(game, 'starter:complete');
     assert.equal(token, `dino:${game}:starter:complete`);
     current = claim('amari', current, 2, game, storage, token);
@@ -369,5 +369,5 @@ test('Puzzle, Spot, Sky and Monster claims survive old tabs and reject replay or
     assert.equal(claim('amari', retry, 2, game === 'spot' ? 'puzzle' : 'spot', storage, token).persisted, false);
     assert.equal(claim('amari', retry, 2, game, storage, `${game}:unshipped`).persisted, false);
   }
-  assert.equal(readPlayerRewards('amari', storage).points, 8);
+  assert.equal(readPlayerRewards('amari', storage).points, 12);
 });

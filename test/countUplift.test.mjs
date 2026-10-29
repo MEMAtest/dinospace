@@ -12,6 +12,10 @@ test('all phone and desktop count layouts fit their touch targets without overla
         `${layout} count ${count} fits 48px phone targets on the 308px board`,
       );
       assert.ok(
+        countCentersAreSafe(objects, 288, 288, 48),
+        `${layout} count ${count} fits 48px phone targets in the compact board`,
+      );
+      assert.ok(
         countCentersAreSafe(objects, 440, 440, 56),
         `${layout} count ${count} fits 56px desktop targets on the 440px board`,
       );
