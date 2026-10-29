@@ -133,6 +133,19 @@ const LetterLaunch = ({
     }
     setClaimRetryBusy(true);
     setClaimError('');
+    // A played legacy chapter can have a confirmed completion without a new
+    // reward receipt. Recover its badge too, while keeping reward calls below
+    // restricted to durable pending receipts. Unlock high-water is not proof.
+    for (const chapterId of current.storedProgress.completedChapterIds) {
+      const index = CHAPTERS.findIndex(({ id }) => id === chapterId);
+      const badge = saveChapterBadgeStrict(playerId, 'letters', index);
+      if (badge.status !== 'saved') {
+        setClaimError('A completed chapter badge could not be confirmed. Retry to finish saving it.');
+        setClaimRetryBusy(false);
+        return false;
+      }
+      setEarnedBadgeIds(badge.earnedChapterIds);
+    }
     const pending = pendingLetterLaunchRewards(current.storedProgress);
     for (const receipt of pending) {
       const index = CHAPTERS.findIndex(({ id }) => id === receipt.chapterId);
@@ -182,7 +195,8 @@ const LetterLaunch = ({
     Promise.resolve().then(() => {
       if (!active) return;
       const loaded = readLetterLaunchProgress(playerId);
-      if (loaded.ok && pendingLetterLaunchRewards(loaded.storedProgress).length > 0) retryPendingClaims();
+      if (loaded.ok && (pendingLetterLaunchRewards(loaded.storedProgress).length > 0
+        || loaded.storedProgress.completedChapterIds.length > 0)) retryPendingClaims();
     });
     return () => { active = false; };
   }, [playerId, retryPendingClaims]);
