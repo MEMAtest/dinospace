@@ -1,0 +1,13 @@
+{
+  "oldRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "oldEntry": "/assets/arcade-7ZCV5a_T.js",
+  "confirmed": "Live g1\u2192f3 mouse drag left saved history unchanged; click e2\u2192e4 produced that move and legal computer a7\u2192a5 response. User-specific cause is not assumed from this isolated QA observation.",
+  "harnessSetupFailures": [
+    "First loopback attempt used offline cached48 shell after previous preview process had stopped; exact-entry guard failed correctly. Existing preview port restored without clearing data.",
+    "Driver mount timing and New game confirmation assumptions corrected. Original failed reports remain failed."
+  ],
+  "peerReview": [
+    "Root corrected generic button touch-action scope",
+    "Click suppression clears on the next pointer gesture or synthesized click, with keyboard preserved"
+  ]
+}

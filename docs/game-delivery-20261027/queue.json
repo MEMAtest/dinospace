@@ -364,5 +364,15 @@
     "date": "2026-10-29",
     "reason": "User explicitly requested actual playable Chess against the computer. Schedule it in the next batch with Dino Jigsaw after Pair8 gate. Shift remaining queued titles forward without dropping any; preserve all accepted historical pairs.",
     "runtimeChanged": false
-  }
+  },
+  "urgentRepairs": [
+    {
+      "game": "chess",
+      "status": "live_verified",
+      "runtime": "6447d273486c35cb20e4bf9d2565714a88175e26",
+      "evidence": "docs/qa-evidence/chess-input-20261029/README.md",
+      "reason": "User cannot play: support actual dragging alongside verified tap/keyboard controls",
+      "verifiedAt": "2026-10-29T15:07:33.392207+00:00"
+    }
+  ]
 }

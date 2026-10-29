@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-29T13:56:04.265390+00:00",
+  "updatedAt": "2026-10-29T15:07:33.392207+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "canonicalRelease": "6447d273486c35cb20e4bf9d2565714a88175e26",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1076,15 +1076,15 @@
   "publicUrl": "https://dinospace.netlify.app",
   "singlePublicSiteRelease": {
     "publicUrl": "https://dinospace.netlify.app",
-    "runtimeCommit": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
-    "runtimeDeployment": "dpl_7XSPy9H4Q4rroUdW8ZDXMf8WXc1H",
-    "runtimeUrl": "https://dinospace-d52yebake-memas-projects-23a0001d.vercel.app",
-    "netlifyDeploy": "6ae34f3b63620612434d1bdf",
-    "cache": "v48",
-    "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
+    "runtimeCommit": "6447d273486c35cb20e4bf9d2565714a88175e26",
+    "runtimeDeployment": "dpl_CaooxMSfEMtDkJNKnPCxXniwQCbo",
+    "runtimeUrl": "https://dinospace-eik91fgxl-memas-projects-23a0001d.vercel.app",
+    "netlifyDeploy": "6ae360214fafa0a96af0bddd",
+    "cache": "v49",
+    "evidence": "docs/qa-evidence/chess-input-20261029/README.md",
     "oldPublicAlias": "Redirect-only root/index app entry; legacy API/static routes retained for installed clients",
-    "nativeCheck": "Complete Trace/Cosmic native+canonical matrices at390x740/1440x844; cutover retention passed",
-    "scope": "Targeted complete Trace/Cosmic phone/desktop layout repair, retaining earlier functional evidence. Final12 retained lanes and catalogue smoke still pending."
+    "nativeCheck": "Four native/canonical Chess input journeys at390/1440; cached-shell update retention passed",
+    "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
   },
   "personalStoryRecovery": {
     "userConfirmedExpectedPersonalStories": [
@@ -1245,34 +1245,27 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "pair": 12,
-    "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+    "kind": "chess_input_hotfix",
+    "runtime": "6447d273486c35cb20e4bf9d2565714a88175e26",
+    "entry": "/assets/arcade-p_lH5uAR.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-d52yebake-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_7XSPy9H4Q4rroUdW8ZDXMf8WXc1H",
-    "netlifyGatewayDeploy": "6ae34f3b63620612434d1bdf",
-    "serviceWorkerCache": "amari-discovery-v48",
+    "backendUrl": "https://dinospace-eik91fgxl-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_CaooxMSfEMtDkJNKnPCxXniwQCbo",
+    "netlifyGatewayDeploy": "6ae360214fafa0a96af0bddd",
+    "serviceWorkerCache": "amari-discovery-v49",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
-    "production": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/trace-cosmic-fit-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/chess-input-20261029/README.md",
+    "production": "docs/qa-evidence/chess-input-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/chess-input-20261029/source-gates.json",
     "sourceTests": {
       "passed": 674,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T13:56:04.265390+00:00",
+    "verifiedAt": "2026-10-29T15:07:33.392207+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Targeted complete Trace/Cosmic phone/desktop layout repair, retaining earlier functional evidence. Final12 retained lanes and catalogue smoke still pending.",
-    "functionalAcceptance": {
-      "nativeJourneys": 4,
-      "canonicalJourneys": 4,
-      "traceVisibleTasksPerViewport": 32,
-      "cosmicBoardsPerViewport": 9,
-      "protectedCutoverKeys": 113,
-      "protectedQaBookAssets": 14
-    }
+    "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
@@ -1302,39 +1295,32 @@
   },
   "activeDeliveryCandidate": {
     "status": "retained_integration_pending",
-    "baseRuntime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+    "baseRuntime": "6447d273486c35cb20e4bf9d2565714a88175e26",
     "evidence": "docs/game-delivery-20261027/final-integration-protocol.md",
     "paidCalls": 0
   },
   "lastVerifiedDeliveryRelease": {
-    "pair": 12,
-    "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+    "kind": "chess_input_hotfix",
+    "runtime": "6447d273486c35cb20e4bf9d2565714a88175e26",
+    "entry": "/assets/arcade-p_lH5uAR.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-d52yebake-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_7XSPy9H4Q4rroUdW8ZDXMf8WXc1H",
-    "netlifyGatewayDeploy": "6ae34f3b63620612434d1bdf",
-    "serviceWorkerCache": "amari-discovery-v48",
+    "backendUrl": "https://dinospace-eik91fgxl-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_CaooxMSfEMtDkJNKnPCxXniwQCbo",
+    "netlifyGatewayDeploy": "6ae360214fafa0a96af0bddd",
+    "serviceWorkerCache": "amari-discovery-v49",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
-    "production": "docs/qa-evidence/trace-cosmic-fit-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/trace-cosmic-fit-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/chess-input-20261029/README.md",
+    "production": "docs/qa-evidence/chess-input-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/chess-input-20261029/source-gates.json",
     "sourceTests": {
       "passed": 674,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T13:56:04.265390+00:00",
+    "verifiedAt": "2026-10-29T15:07:33.392207+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Targeted complete Trace/Cosmic phone/desktop layout repair, retaining earlier functional evidence. Final12 retained lanes and catalogue smoke still pending.",
-    "functionalAcceptance": {
-      "nativeJourneys": 4,
-      "canonicalJourneys": 4,
-      "traceVisibleTasksPerViewport": 32,
-      "cosmicBoardsPerViewport": 9,
-      "protectedCutoverKeys": 113,
-      "protectedQaBookAssets": 14
-    }
+    "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
   },
   "deliveryReleaseHistory": [
     {
@@ -1490,6 +1476,29 @@
         "protectedCutoverKeys": 113,
         "protectedQaBookAssets": 14
       }
+    },
+    {
+      "kind": "chess_input_hotfix",
+      "runtime": "6447d273486c35cb20e4bf9d2565714a88175e26",
+      "entry": "/assets/arcade-p_lH5uAR.js",
+      "publicUrl": "https://dinospace.netlify.app",
+      "backendUrl": "https://dinospace-eik91fgxl-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_CaooxMSfEMtDkJNKnPCxXniwQCbo",
+      "netlifyGatewayDeploy": "6ae360214fafa0a96af0bddd",
+      "serviceWorkerCache": "amari-discovery-v49",
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/chess-input-20261029/README.md",
+      "production": "docs/qa-evidence/chess-input-20261029/production-summary.json",
+      "sourceGates": "docs/qa-evidence/chess-input-20261029/source-gates.json",
+      "sourceTests": {
+        "passed": 674,
+        "failed": 0,
+        "skipped": 0
+      },
+      "verifiedAt": "2026-10-29T15:07:33.392207+00:00",
+      "paidCalls": 0,
+      "editorialScoresChanged": false,
+      "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
     }
   ],
   "latestChessJigsawUplift": {
@@ -1594,5 +1603,28 @@
       "protectedCutoverKeys": 113,
       "protectedQaBookAssets": 14
     }
+  },
+  "latestChessInputRepair": {
+    "kind": "chess_input_hotfix",
+    "runtime": "6447d273486c35cb20e4bf9d2565714a88175e26",
+    "entry": "/assets/arcade-p_lH5uAR.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-eik91fgxl-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_CaooxMSfEMtDkJNKnPCxXniwQCbo",
+    "netlifyGatewayDeploy": "6ae360214fafa0a96af0bddd",
+    "serviceWorkerCache": "amari-discovery-v49",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/chess-input-20261029/README.md",
+    "production": "docs/qa-evidence/chess-input-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/chess-input-20261029/source-gates.json",
+    "sourceTests": {
+      "passed": 674,
+      "failed": 0,
+      "skipped": 0
+    },
+    "verifiedAt": "2026-10-29T15:07:33.392207+00:00",
+    "paidCalls": 0,
+    "editorialScoresChanged": false,
+    "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
   }
 }

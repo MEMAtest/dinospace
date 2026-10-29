@@ -1,0 +1,22 @@
+{
+  "passed": false,
+  "origin": "http://127.0.0.1:5180",
+  "entry": "/assets/arcade-UDsnB_lO.js",
+  "viewport": {
+    "width": 390,
+    "height": 740
+  },
+  "rows": [],
+  "errors": [],
+  "providers": [],
+  "failedResources": [],
+  "consoleErrors": [],
+  "failure": {
+    "message": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Play white', exact: true })\u001b[22m\n",
+    "stack": "locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Play white', exact: true })\u001b[22m\n\n    at start (evalmachine.<anonymous>:16:65)\n    at async evalmachine.<anonymous>:35:3\n    at async evalmachine.<anonymous>:3:20\n    at async /Users/omosanya_main/.npm/_npx/31e32ef8478fbf80/node_modules/playwright-core/lib/coreBundle.js:69222:13"
+  },
+  "runtimeSource": "c04d613f62dbf773c1034f2b37e35f1a0e2d543a",
+  "sourceHead": "c04d613f62dbf773c1034f2b37e35f1a0e2d543a",
+  "stage": "native",
+  "driverSHA256": "e8720939e90272c65159d6e60707b01e3355975e4048b2d1d75102a5c2086c59"
+}

@@ -1,0 +1,118 @@
+{
+  "passed": true,
+  "origin": "http://127.0.0.1:5180",
+  "entry": "/assets/arcade-p_lH5uAR.js",
+  "viewport": {
+    "width": 1440,
+    "height": 844
+  },
+  "rows": [
+    {
+      "kind": "start",
+      "side": "white",
+      "savedSide": "white",
+      "board": "Chess board. White at bottom"
+    },
+    {
+      "kind": "illegal mouse drop",
+      "historyUnchanged": true,
+      "feedback": "That move is not legal. The board stays ready for another try."
+    },
+    {
+      "kind": "outside board drop",
+      "historyUnchanged": true,
+      "feedback": "Move cancelled. Your board has not changed."
+    },
+    {
+      "kind": "cancelled touch drag",
+      "historyUnchanged": true,
+      "feedback": "Move cancelled. Your board has not changed."
+    },
+    {
+      "kind": "mouse drag",
+      "human": {
+        "from": "e2",
+        "to": "e4"
+      },
+      "computer": {
+        "from": "a7",
+        "to": "a5"
+      },
+      "history": 2
+    },
+    {
+      "kind": "tap selection",
+      "human": {
+        "from": "g1",
+        "to": "f3"
+      },
+      "computer": {
+        "from": "a8",
+        "to": "a7"
+      },
+      "history": 4
+    },
+    {
+      "kind": "keyboard move",
+      "human": {
+        "from": "b1",
+        "to": "c3"
+      },
+      "computer": {
+        "from": "a5",
+        "to": "a4"
+      },
+      "history": 6
+    },
+    {
+      "kind": "reload-resume",
+      "retained": true,
+      "plies": 6
+    },
+    {
+      "kind": "start",
+      "side": "black",
+      "savedSide": "black",
+      "board": "Chess board. Black at bottom"
+    },
+    {
+      "kind": "reversed board drag",
+      "human": {
+        "from": "g8",
+        "to": "f6"
+      },
+      "computer": {
+        "from": "a2",
+        "to": "a3"
+      },
+      "history": 3
+    },
+    {
+      "kind": "cancelled black touch drag",
+      "historyUnchanged": true,
+      "feedback": "Move cancelled. Your board has not changed."
+    },
+    {
+      "kind": "touch drag",
+      "human": {
+        "from": "b8",
+        "to": "c6"
+      },
+      "computer": {
+        "from": "b2",
+        "to": "b3"
+      },
+      "history": 5
+    }
+  ],
+  "errors": [],
+  "providers": [],
+  "failedResources": [],
+  "consoleErrors": [],
+  "unfinishedRewardsUnchanged": true,
+  "scope": "Natural synthetic saved games; pointer/tap/keyboard and CDP touch input regression. Existing full engine/mate/reward evidence retained. No physical-device claim.",
+  "runtimeSource": "6447d273486c35cb20e4bf9d2565714a88175e26",
+  "sourceHead": "6447d273486c35cb20e4bf9d2565714a88175e26",
+  "stage": "native",
+  "driverSHA256": "6ee400e29ae49ca686741ea07caa7ecf52465a1441586c0f11a272e41234a7bb"
+}

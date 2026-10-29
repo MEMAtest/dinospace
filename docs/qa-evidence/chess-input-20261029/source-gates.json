@@ -1,0 +1,27 @@
+{
+  "at": "2026-10-29T15:02:20.931136+00:00",
+  "runtime": "6447d273486c35cb20e4bf9d2565714a88175e26",
+  "entry": "/assets/arcade-p_lH5uAR.js",
+  "worker": 49,
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "tests": {
+    "passed": 674,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lint": "Scoped ChessGame ESLint passed",
+  "hashes": {
+    "src/components/games/ChessGame.jsx": "fd6f289e2daa5a1371854cc709e5743371f2e92504b5e9e7f8a8cc017c7f3ab1",
+    "src/components/games/chessGame.css": "4a00f0faf8d5b2d8b18c7387ab4c4fbc370f509739c7e40abb66d4e93e4c79c9",
+    "src/data/chessGameRules.js": "7f33f621ccd75a2e3f3f3455e8d1a24f6bd4af7c2e312e520394e12686ad255d",
+    "src/data/chessGameProgress.js": "df816a4ee7847603c73b3a8d7c3ae4bf56ef01b6cfbe92b0edcef6d43f2f8c6b",
+    "public/sw.js": "fec55cdfe4f1215517a6c8ac2c3a824a099ab62b13b91b27f1fd87b1b0fc6bce"
+  },
+  "scope": "Pointer input regression; prior full chess rules/mate/persistence/reward acceptance retained.",
+  "precache": {
+    "requests": 167,
+    "bytes": 29753721,
+    "requestCeiling": 167,
+    "byteCeiling": 41943040
+  }
+}

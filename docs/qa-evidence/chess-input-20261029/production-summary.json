@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "at": "2026-10-29T15:07:33.392207+00:00",
+  "runtime": "6447d273486c35cb20e4bf9d2565714a88175e26",
+  "entry": "/assets/arcade-p_lH5uAR.js",
+  "worker": "amari-discovery-v49",
+  "publicUrl": "https://dinospace.netlify.app",
+  "cases": [
+    {
+      "stage": "native",
+      "width": 390,
+      "report": "native-390-1793286099863810000.json",
+      "sha256": "92961f9707d7e83a6712f1853702896c6357044cb3b7459e1f6c7a6bd34105e2",
+      "steps": 12
+    },
+    {
+      "stage": "native",
+      "width": 1440,
+      "report": "native-1440-1793286106156279000.json",
+      "sha256": "3723775d91797458d59c3caaca68784b7c0d3e7dbfdfeac16bf77a770c624d0a",
+      "steps": 12
+    },
+    {
+      "stage": "production",
+      "width": 390,
+      "report": "production-390-1793286381173932000.json",
+      "sha256": "57cf1a82f6b5b48b75cd978abc154edcc99b64aae0da7197ca43e606dd310158",
+      "steps": 12
+    },
+    {
+      "stage": "production",
+      "width": 1440,
+      "report": "production-1440-1793286387780395000.json",
+      "sha256": "dc3d87785299c0da3577092c0992e9ac15ebde45c92d531712a4bf50bed8de2b",
+      "steps": 12
+    }
+  ],
+  "references": {
+    "source-gates.json": "ad3098e19843f568355d5737f8e968351042f8e223162356d21bac92564b549d",
+    "production-core.json": "87ac8c74c398c3bc7a6a574e52dd18a7bdecf2868f04175094775fa1f0dedab4",
+    "published-identity.json": "6207690bbd3545a13a9c9a429283e30321d08ec8755d92ddb0bc16098d75eafa",
+    "cutover-retention.json": "55a0e0c3276e7729cabe05b9dcac97df68b0196c3342d41902252fba65388368"
+  },
+  "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims.",
+  "paidCalls": 0
+}

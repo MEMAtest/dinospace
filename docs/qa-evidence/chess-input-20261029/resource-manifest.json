@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-29T15:02:20.932801+00:00",
+  "newCheckouts": 0,
+  "newProfiles": 0,
+  "newDependencyInstalls": 0,
+  "pair13WipPreservedInGitStash": "5fc7655933c2902cc77205d37811fcede0406d97",
+  "retirement": "Restore Pair13 work after urgent Chess is accepted and its evidence pushed; keep stash snapshot until reconciled.",
+  "oneExistingPreviewRestored": "127.0.0.1:5180, no competing listener, canonical existing dependencies reused",
+  "evidenceBudgetBytes": 8388608,
+  "paidGenerationCalls": 0,
+  "checkedAt": "2026-10-29T15:08:18.360875+00:00",
+  "retainedEvidenceBytes": 1073917,
+  "profileKiB": 1000332,
+  "cleanup": [
+    {
+      "path": "tmp/chess-input-build.log",
+      "bytes": 14592,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    },
+    {
+      "path": "tmp/chess-input-tests.log",
+      "bytes": 66249,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    },
+    {
+      "path": "tmp/chess-input-build-r2.log",
+      "bytes": 14592,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    },
+    {
+      "path": "tmp/chess-input-tests-r2.log",
+      "bytes": 66310,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    },
+    {
+      "path": "tmp/chess-input-vercel.log",
+      "bytes": 17658,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    },
+    {
+      "path": "tmp/chess-input-netlify-draft.json",
+      "bytes": 538,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    },
+    {
+      "path": "tmp/chess-input-cutover-before.cjs",
+      "bytes": 5143,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    },
+    {
+      "path": "tmp/chess-input-cutover-after.cjs",
+      "bytes": 5142,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    },
+    {
+      "path": "tmp/chess-input-old-shell-before.cjs",
+      "bytes": 5149,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    },
+    {
+      "path": "/tmp/amari-chess-input-patch.py",
+      "bytes": 6133,
+      "reason": "Own successful intermediate logs/generated callback; final canonical evidence retained"
+    }
+  ],
+  "removedLogicalBytes": 201506
+}
