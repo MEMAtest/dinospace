@@ -17,10 +17,10 @@ const validateStrictProgress = (value, game) => {
   if (!isObject(value) || value.version !== VERSION || !['addition', 'subtraction'].includes(game)) return null;
   const chapters = chaptersFor(game);
   const chapterIds = new Set(chapters.map(({ id }) => id));
-  const completed = value.completedChapterIds ?? [];
-  const bestStars = value.bestStars ?? {};
-  const recent = value.recentQuestionIds ?? {};
-  const receipts = value.rewardReceipts ?? {};
+  const completed = value.completedChapterIds === undefined ? [] : value.completedChapterIds;
+  const bestStars = value.bestStars === undefined ? {} : value.bestStars;
+  const recent = value.recentQuestionIds === undefined ? {} : value.recentQuestionIds;
+  const receipts = value.rewardReceipts === undefined ? {} : value.rewardReceipts;
   if (!Array.isArray(completed) || completed.some((id) => !chapterIds.has(id)) || new Set(completed).size !== completed.length
     || !isObject(bestStars) || Object.entries(bestStars).some(([id, stars]) => !chapterIds.has(id) || !completed.includes(id) || !Number.isInteger(stars) || stars < 0 || stars > 3)
     || !isObject(recent) || Object.entries(recent).some(([rawIndex, ids]) => {

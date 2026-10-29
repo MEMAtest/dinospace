@@ -48,6 +48,20 @@ test('strict records preserve unknown metadata and isolate child and effective l
   assert.equal(storage.getItem(arithmeticProgressKey('addition', 'askia')), null);
 });
 
+test('explicit null in any known field is malformed and cannot be overwritten by strict writes', () => {
+  const run = createAdditionRun({ chapter: 0, seed: 230 });
+  for (const field of ['completedChapterIds', 'bestStars', 'recentQuestionIds', 'rewardReceipts']) {
+    const storage = memoryStorage();
+    const key = arithmeticProgressKey('addition', 'amari');
+    const corrupted = JSON.stringify({ version: 1, [field]: null, familyNote: 'preserve' });
+    storage.setItem(key, corrupted);
+    assert.equal(readArithmeticProgressStrict('addition', 'amari', storage).status, 'invalid', `${field} null should not mean empty`);
+    assert.equal(rememberStartedArithmeticRunStrict('addition', 'amari', 0, run, storage).ok, false);
+    assert.equal(recordArithmeticRunCompletionStrict('addition', 'amari', 0, run, 2, storage).ok, false);
+    assert.equal(storage.getItem(key), corrupted);
+  }
+});
+
 test('locked and malformed starts are rejected before any write', () => {
   const storage = memoryStorage();
   const run = createAdditionRun({ chapter: 1, seed: 23 });

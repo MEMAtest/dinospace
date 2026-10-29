@@ -372,7 +372,7 @@ const AmariCountTheStars = ({ onBack, playSfx = () => {}, speak = () => {}, canc
           <div className="flex flex-wrap items-center justify-between gap-2">
             <div><p className="text-xs font-black uppercase tracking-widest text-white/70">{episode.name} · {episode.band}</p><h2 className="text-2xl font-black sm:text-3xl">{round.scene.title}</h2></div>
           </div>
-          <p className="mt-1 rounded-xl bg-black/20 px-3 py-1.5 text-xs font-bold text-white/90 sm:mt-2 sm:py-2 sm:text-sm">{strategy}</p>
+          {phase === 'count' && <p className="mt-1 rounded-xl bg-black/20 px-3 py-1.5 text-xs font-bold text-white/90 sm:mt-2 sm:py-2 sm:text-sm">{strategy}</p>}
           <div className={`relative mx-auto mt-2 aspect-square w-full rounded-3xl border border-white/25 bg-black/15 sm:mt-4 ${phase === 'count' ? 'max-w-[288px] sm:max-w-[440px]' : phase === 'answer' ? 'max-w-[220px] sm:max-w-[320px]' : 'max-w-[160px] sm:max-w-[220px]'}`} data-layout-variant={round.layoutVariant} data-count-episode={episode.id} data-count-question={round.id} data-run-seed={run.seed} data-round-index={roundIndex + 1} role="group" aria-label={`Counting board for ${round.scene.title}; ${layoutDescription}`}>
             {round.objects.map((object) => {
               const countedIndex = tappedIds.indexOf(object.id);

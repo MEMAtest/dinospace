@@ -247,13 +247,18 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
     setCompletionError('');
     if (draft.newlyCompleted === undefined) {
       const before = readArithmeticProgressStrict('addition', playerId);
-      if (before.ok) {
-        const chapterId = ARITHMETIC_CHAPTERS[draft.chapterIndex]?.id;
-        const wasAlreadyEarned = before.progress.completedChapterIds.includes(chapterId)
-          || (before.progress.bestStars[chapterId] || 0) > 0
-          || before.progress.completedChapterIds.length > draft.chapterIndex;
-        draft.newlyCompleted = !wasAlreadyEarned;
+      if (!before.ok) {
+        setProgressState(before);
+        setCompletionError(before.error || 'Saved chapter progress could not be checked. Retry before saving this result.');
+        setCompletionPending(false);
+        completionBusyRef.current = false;
+        return false;
       }
+      const chapterId = ARITHMETIC_CHAPTERS[draft.chapterIndex]?.id;
+      const wasAlreadyEarned = before.progress.completedChapterIds.includes(chapterId)
+        || (before.progress.bestStars[chapterId] || 0) > 0
+        || before.progress.completedChapterIds.length > draft.chapterIndex;
+      draft.newlyCompleted = !wasAlreadyEarned;
     }
     const result = recordArithmeticRunCompletionStrict('addition', playerId, draft.chapterIndex, draft.rounds, draft.stars);
     if (!result.ok) {
