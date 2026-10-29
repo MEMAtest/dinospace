@@ -19,8 +19,10 @@ export const rewardClaimToken = (gameId, receiptId) => (
     : gameId === 'dinojigsaw' ? `dino:jigsaw:${receiptId}` : `${gameId}:${receiptId}`
 );
 const normalizeClaimToken = (key) => {
-  if (key.startsWith('chess:')) return rewardClaimToken('chess', key.slice('chess:'.length));
-  if (key.startsWith('dinojigsaw:')) return rewardClaimToken('dinojigsaw', key.slice('dinojigsaw:'.length));
+  const alias = key.match(/^(chess|dinojigsaw):/i);
+  if (alias) return rewardClaimToken(alias[1].toLowerCase(), key.slice(alias[0].length));
+  const reserved = key.match(/^dino:(chess|jigsaw):/i);
+  if (reserved) return `dino:${reserved[1].toLowerCase()}:${key.slice(reserved[0].length)}`;
   return key;
 };
 const claimGame = (key) => key.startsWith('dino:chess:') ? 'chess'

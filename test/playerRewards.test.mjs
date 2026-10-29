@@ -277,6 +277,9 @@ test('new game claims survive the previous public decoder and an older open-tab 
   assert.equal(claim('amari', retryChess, 8, 'dinojigsaw', storage, jigsawToken).awardedPoints, 0);
   assert.equal(claim('amari', retryChess, 1, 'dino', storage, chessToken).persisted, false);
   assert.equal(claim('amari', retryChess, 8, 'chess', storage, jigsawToken).persisted, false);
+  assert.equal(claim('amari', retryChess, 1, 'dino', storage, 'dino:CHESS:compat-game').persisted, false);
+  assert.equal(claim('amari', retryChess, 8, 'dino', storage, 'dino:JIGSAW:little:compat-puzzle').persisted, false);
+  assert.equal(claim('amari', retryChess, 1, 'chess', storage, 'DINO:CHESS:compat-game').awardedPoints, 0);
 });
 
 test('unpublished native claim aliases normalize without paying or counting a second completion', () => {
