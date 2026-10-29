@@ -1,241 +1,523 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Volume2 } from 'lucide-react';
 import { getPraise } from '../../utils.js';
 import { PracticeProgress, SoundToggle } from '../shared/index.jsx';
-import { makeLearningEvent } from '../../data/literacy.js';
+import { makeLearningEvent, getTaughtGraphemes } from '../../data/literacy.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
-import { buildLetterLaunchRound, letterLaunchClueCaption, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchRandomFor } from '../../data/letterLaunch.js';
+import {
+  buildLetterLaunchRound, letterLaunchClueCaption, letterLaunchExplanation,
+  letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchRandomFor,
+  letterLaunchTargetForPlayer,
+} from '../../data/letterLaunch.js';
+import {
+  commitLetterLaunchChapter, markLetterLaunchRewardClaimed,
+  pendingLetterLaunchRewards, readLetterLaunchProgress,
+} from '../../data/letterLaunchProgress.js';
+import {
+  inspectChapterBadges, saveChapterBadgeStrict, LETTER_LAUNCH_CHAPTER_BADGES,
+} from '../../data/chapterBadges.js';
+import { rewardClaimToken } from '../../data/playerRewards.js';
+import { playerStorageKey } from '../../data/players.js';
+import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
 import launchWorld from '../../assets/little/bg-fuelup.webp';
 import './letterLaunch.css';
 
-const historyKey = (playerId, level) => `${playerId || 'amari'}_letter_launch_recent_v1_${level}`;
+const CHAPTERS = Object.freeze([
+  { id: 'letters-sound-scout', title: 'Word sound finder', subtitle: 'Hear a word and find the letter at its start.', badge: 'Sound Scout' },
+  { id: 'letters-first-sound-finder', title: 'New word explorer', subtitle: 'Find the first sound in a taught, decodable word.', badge: 'First Sound Finder' },
+  { id: 'letters-letter-match-maker', title: 'Big and little letters', subtitle: 'Match a little letter to its capital shape.', badge: 'Letter Match Maker' },
+  { id: 'letters-cvc-blender', title: 'Build and read a word', subtitle: 'Blend taught sounds, then try longer decodable words when ready.', badge: 'CVC Word Builder' },
+]);
+const PHASE_LABELS = ['Word sound finder', 'New word explorer', 'Big and little letters', 'Build and read a word'];
+const WORLD_BACKGROUND_STYLE = {
+  backgroundImage: `linear-gradient(180deg, rgba(6,14,70,.66), rgba(6,14,70,.16) 55%, rgba(6,14,70,.36)), url(${launchWorld})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+};
+const historyKey = (playerId, level) => playerStorageKey(playerId, `letter_launch_recent_v1_${level}`);
 const loadRecentKeys = (playerId, level) => {
   try {
-    const value = JSON.parse(window.localStorage.getItem(historyKey(playerId, level)) || '[]');
+    const value = JSON.parse(globalThis.localStorage?.getItem(historyKey(playerId, level)) || '[]');
     return Array.isArray(value) ? value.filter((item) => typeof item === 'string').slice(-8) : [];
   } catch { return []; }
 };
 const saveRecentKeys = (playerId, level, values) => {
-  try { window.localStorage.setItem(historyKey(playerId, level), JSON.stringify(values.slice(-8))); } catch { /* progress storage is optional */ }
+  try { globalThis.localStorage?.setItem(historyKey(playerId, level), JSON.stringify(values.slice(-8))); } catch { /* optional variety history */ }
 };
+const newAttemptId = () => {
+  try { return globalThis.crypto?.randomUUID?.() || `letter-${Date.now()}-${Math.random().toString(36).slice(2)}`; }
+  catch { return `letter-${Date.now()}-${Math.random().toString(36).slice(2)}`; }
+};
+const newRunSeed = () => {
+  try {
+    const values = new Uint32Array(1);
+    globalThis.crypto?.getRandomValues?.(values);
+    if (values[0]) return values[0];
+  } catch { /* use the local fallback below */ }
+  return (Math.floor(Math.random() * 0x100000000) >>> 0) || 1;
+};
+const earnedIdsFromState = (state) => new Set(state?.progress?.completedChapterIds || []);
 
-const LetterLaunch = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, onReviewComplete, playerId, sessionLevel = 0 }) => {
+const LetterLaunch = ({
+  onBack, playSfx, soundOn, onToggleSound, speak, cancelNarration, onCelebrate,
+  onGameEvent, onPhaseChange, playerId = 'amari', littleMode = false,
+}) => {
   const difficulty = useGameDifficulty('letters');
-  const [runSeed] = useState(() => Math.floor(Math.random() * 4294967296));
-  const [recentKeys, setRecentKeys] = useState(() => loadRecentKeys(playerId, sessionLevel));
-  const [round, setRound] = useState(() => buildLetterLaunchRound(sessionLevel, loadRecentKeys(playerId, sessionLevel), letterLaunchRandomFor(runSeed)));
-  const [launching, setLaunching] = useState(false);
-  const [feedback, setFeedback] = useState('');
+  const [progressState, setProgressState] = useState(() => readLetterLaunchProgress(playerId));
+  const [phase, setPhase] = useState('menu');
+  const [chapterIndex, setChapterIndex] = useState(0);
+  const [round, setRound] = useState(null);
+  const [runSeed, setRunSeed] = useState(0);
   const [roundCount, setRoundCount] = useState(0);
-  const [selectedLetters, setSelectedLetters] = useState([]);
-  const [skillRun, setSkillRun] = useState(0);
-  const [hadMistake, setHadMistake] = useState(false);
-  const [pendingAdvance, setPendingAdvance] = useState(false);
+  const [selectedTiles, setSelectedTiles] = useState([]);
+  const [feedback, setFeedback] = useState('');
+  const [mistake, setMistake] = useState(false);
+  const [held, setHeld] = useState(false);
+  const [chapterSaved, setChapterSaved] = useState(false);
+  const [saveError, setSaveError] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [hintUsed, setHintUsed] = useState(false);
+  const [claimError, setClaimError] = useState('');
+  const [claimRetryBusy, setClaimRetryBusy] = useState(false);
+  const roundState = useRef(null);
+  const attemptRef = useRef(null);
   const answeredRef = useRef(false);
-  const loggedRoundRef = useRef(null);
-  const levelTarget = letterLaunchSessionTarget(sessionLevel);
-  const promptText = round.kind === 'unavailable' ? '' : letterLaunchPromptFor(round);
-  const optionCount = round.kind === 'build-word' ? round.tiles.length : round.options.length;
-  const optionColumns = optionCount <= 2 ? 'grid-cols-2' : optionCount <= 3 ? 'grid-cols-3' : 'grid-cols-4';
+  const nextButtonRef = useRef(null);
+  const retryButtonRef = useRef(null);
+  const finishHeadingRef = useRef(null);
+  const lastEventRoundRef = useRef(null);
+  const reconciledPlayerRef = useRef(null);
+  const [earnedBadgeIds, setEarnedBadgeIds] = useState(() => {
+    const inspected = inspectChapterBadges(playerId, 'letters');
+    return inspected.status === 'record' || inspected.status === 'empty' ? inspected.earnedChapterIds : [];
+  });
 
-  const sayPrompt = useCallback(() => {
-    speak(promptText);
-  }, [promptText, speak]);
+  const chapter = CHAPTERS[chapterIndex];
+  const targetCount = letterLaunchTargetForPlayer(chapterIndex, littleMode);
+  const completedIds = earnedIdsFromState(progressState);
+  const unlockedIndex = progressState?.ok ? progressState.progress.unlockedChapterIndex : -1;
+  const selectedSoundSet = useMemo(() => getTaughtGraphemes(), []);
+  const promptText = round ? letterLaunchPromptFor(round) : '';
+  const canReplayPrompt = Boolean(promptText && speak && getOfflineVoiceClip(promptText, 'en-US'));
+  const nextSoundText = round?.kind === 'build-word' ? letterLaunchNextSoundPrompt(round.target.graphemes[selectedTiles.length]) : '';
+  const canHearNextSound = Boolean(nextSoundText && speak && getOfflineVoiceClip(nextSoundText, 'en-US'));
+  const targetWordText = round?.kind === 'build-word' ? round.target.word.toLowerCase() : '';
+  const canHearTargetWord = Boolean(targetWordText && speak && getOfflineVoiceClip(targetWordText, 'en-US'));
+  const options = round?.kind === 'build-word' ? round.tiles : round?.options || [];
+  const columns = options.length <= 2 ? 'grid-cols-2' : options.length <= 3 ? 'grid-cols-3' : options.length <= 4 ? 'grid-cols-4' : 'grid-cols-3 sm:grid-cols-6';
 
-  const replayClue = () => {
-    onGameEvent?.('letters', 'hint', { level: sessionLevel, round: roundCount, seed: runSeed, hintType: 'replay_clue' });
-    sayPrompt();
-  };
+  const setSessionPhase = useCallback((nextPhase) => { setPhase(nextPhase); }, []);
 
-  const hearNextSound = () => {
-    const grapheme = round.target.graphemes[selectedLetters.length];
-    if (!grapheme) return;
-    onGameEvent?.('letters', 'hint', { level: sessionLevel, round: roundCount, seed: runSeed, hintType: 'audio_help' });
-    speak(letterLaunchNextSoundPrompt(grapheme));
+  const refreshProgress = useCallback(() => {
+    const next = readLetterLaunchProgress(playerId);
+    setProgressState(next);
+    const inspected = inspectChapterBadges(playerId, 'letters');
+    if (inspected.status === 'record' || inspected.status === 'empty') setEarnedBadgeIds(inspected.earnedChapterIds);
+    return next;
+  }, [playerId]);
+
+  const sayExact = useCallback((text) => {
+    if (!soundOn || !speak || !text || !getOfflineVoiceClip(text, 'en-US')) return false;
+    cancelNarration?.();
+    speak(text, { premium: false, segments: [text] });
+    return true;
+  }, [cancelNarration, soundOn, speak]);
+
+  const retryPendingClaims = useCallback(() => {
+    if (claimRetryBusy) return false;
+    const current = readLetterLaunchProgress(playerId);
+    if (!current.ok) {
+      setClaimError(current.error || 'Saved chapter claims could not be checked.');
+      return false;
+    }
+    setClaimRetryBusy(true);
+    setClaimError('');
+    const pending = pendingLetterLaunchRewards(current.storedProgress);
+    for (const receipt of pending) {
+      const index = CHAPTERS.findIndex(({ id }) => id === receipt.chapterId);
+      const badge = saveChapterBadgeStrict(playerId, 'letters', index);
+      if (badge.status !== 'saved') {
+        setClaimError('The saved chapter badge could not be confirmed. Retry to finish saving this result.');
+        setClaimRetryBusy(false);
+        return false;
+      }
+      setEarnedBadgeIds(badge.earnedChapterIds);
+      let parent;
+      try {
+        parent = onCelebrate?.('Chapter complete!', receipt.rewardDelta * 4, 0, 'letters', {
+          quiet: true,
+          rewardToken: rewardClaimToken('letters', receipt.transactionId),
+        });
+      } catch { parent = null; }
+      if (parent?.persisted !== true) {
+        setClaimError('The chapter is saved, but its reward could not be confirmed. Retry the same save.');
+        setClaimRetryBusy(false);
+        return false;
+      }
+      const marked = markLetterLaunchRewardClaimed(playerId, receipt.transactionId);
+      if (!marked.ok) {
+        setClaimError(marked.error || 'The saved reward could not be confirmed. Retry this same save.');
+        setClaimRetryBusy(false);
+        return false;
+      }
+    }
+    setClaimRetryBusy(false);
+    setClaimError('');
+    refreshProgress();
+    return true;
+  }, [claimRetryBusy, onCelebrate, playerId, refreshProgress]);
+
+  useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
+
+  useEffect(() => {
+    if (!soundOn) cancelNarration?.();
+  }, [cancelNarration, soundOn]);
+
+  useEffect(() => {
+    const identity = String(playerId || 'amari');
+    if (reconciledPlayerRef.current === identity) return;
+    reconciledPlayerRef.current = identity;
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      const loaded = readLetterLaunchProgress(playerId);
+      if (loaded.ok && pendingLetterLaunchRewards(loaded.storedProgress).length > 0) retryPendingClaims();
+    });
+    return () => { active = false; };
+  }, [playerId, retryPendingClaims]);
+
+  useEffect(() => {
+    if (phase !== 'play' || !round || round.kind === 'unavailable') return;
+    if (!soundOn) return;
+    sayExact(promptText);
+  }, [phase, round, promptText, sayExact, soundOn]);
+
+  useEffect(() => {
+    if (phase !== 'play' || !round || lastEventRoundRef.current === round) return;
+    lastEventRoundRef.current = round;
+    onGameEvent?.('letters', roundCount === 0 ? 'start' : 'question', {
+      chapter: chapter.id,
+      round: roundCount,
+      seed: runSeed,
+      targetCount,
+    });
+  }, [chapter?.id, onGameEvent, phase, round, roundCount, runSeed, targetCount]);
+
+  useEffect(() => {
+    if (phase === 'play' && held && (chapterIndex >= 0) && (chapterSaved || saveError)) {
+      (chapterSaved ? finishHeadingRef : retryButtonRef).current?.focus?.({ preventScroll: true });
+    }
+  }, [chapterIndex, chapterSaved, held, phase, saveError]);
+
+  const exitToMenu = () => {
+    cancelNarration?.();
+    setSessionPhase('menu');
+    setRound(null);
+    setHeld(false);
+    setFeedback('');
+    setChapterSaved(false);
+    setSaveError('');
+    attemptRef.current = null;
   };
 
   const leaveGame = () => {
-    onGameEvent?.('letters', 'leave', { level: sessionLevel, round: roundCount, seed: runSeed });
+    cancelNarration?.();
+    onGameEvent?.('letters', 'leave', { chapter: chapter?.id || 'menu', round: roundCount, seed: runSeed });
     onBack?.();
   };
 
-  useEffect(() => {
-    sayPrompt();
-  }, [sayPrompt]);
+  const beginChapter = (index) => {
+    if (!progressState?.ok || index > progressState.progress.unlockedChapterIndex || pendingLetterLaunchRewards(progressState.storedProgress).length > 0 || claimError) return;
+    const recent = loadRecentKeys(playerId, index);
+    const seed = newRunSeed();
+    const target = buildLetterLaunchRound(index, recent, letterLaunchRandomFor(seed, 0), 0, selectedSoundSet);
+    setChapterIndex(index);
+    setRunSeed(seed);
+    setRoundCount(0);
+    setSelectedTiles([]);
+    setFeedback('');
+    setMistake(false);
+    setHeld(false);
+    setChapterSaved(false);
+    setSaveError('');
+    setHintUsed(false);
+    setSaving(false);
+    attemptRef.current = newAttemptId();
+    roundState.current = { taught: new Set(selectedSoundSet), history: recent, seed };
+    answeredRef.current = false;
+    lastEventRoundRef.current = null;
+    setRound(target);
+    setSessionPhase('play');
+    playSfx?.('launch');
+  };
 
-  useEffect(() => {
-    if (loggedRoundRef.current === round) return;
-    loggedRoundRef.current = round;
-    if (roundCount === 0) onGameEvent?.('letters', 'start', { level: sessionLevel, round: 0, seed: runSeed });
-    onGameEvent?.('letters', 'question', { level: sessionLevel, round: roundCount, seed: runSeed });
-  }, [round, roundCount, onGameEvent, sessionLevel, runSeed]);
+  const completeChapter = useCallback((index) => {
+    if (saving) return false;
+    const attemptId = attemptRef.current || newAttemptId();
+    attemptRef.current = attemptId;
+    setSaving(true);
+    setSaveError('');
+    const local = commitLetterLaunchChapter(playerId, index, attemptId);
+    if (!local.ok) {
+      setSaveError(local.error || 'Chapter progress could not be saved. Retry this same result.');
+      setSaving(false);
+      return false;
+    }
+    setProgressState(readLetterLaunchProgress(playerId));
+
+    const badge = saveChapterBadgeStrict(playerId, 'letters', index);
+    if (badge.status !== 'saved') {
+      setSaveError('Your chapter is saved, but its badge could not be confirmed. Retry this same result.');
+      setSaving(false);
+      return false;
+    }
+    setEarnedBadgeIds(badge.earnedChapterIds);
+
+    if (local.receipt) {
+      let parent;
+      try {
+        parent = onCelebrate?.('Chapter complete!', local.receipt.rewardDelta * 4, 0, 'letters', {
+          quiet: true,
+          rewardToken: rewardClaimToken('letters', local.receipt.transactionId),
+        });
+      } catch { parent = null; }
+      if (parent?.persisted !== true) {
+        setSaveError('Your chapter is saved, but its reward could not be confirmed. Retry this same result.');
+        setSaving(false);
+        return false;
+      }
+      const marked = markLetterLaunchRewardClaimed(playerId, local.receipt.transactionId);
+      if (!marked.ok) {
+        setSaveError(marked.error || 'The saved reward could not be confirmed. Retry this same result.');
+        setSaving(false);
+        return false;
+      }
+      setProgressState(readLetterLaunchProgress(playerId));
+    }
+    setChapterSaved(true);
+    setSaveError('');
+    setSaving(false);
+    playSfx?.('complete');
+    onGameEvent?.('letters', 'chapter_complete', { chapter: CHAPTERS[index].id, seed: runSeed, rounds: targetCount });
+    return true;
+  }, [onCelebrate, onGameEvent, playerId, playSfx, runSeed, saving, targetCount]);
 
   const acceptAnswer = (response) => {
-    if (answeredRef.current) return;
+    if (answeredRef.current || held || !round) return;
     answeredRef.current = true;
-    const praise = getPraise();
     const nextCount = roundCount + 1;
-    const finalRound = nextCount >= levelTarget;
-    const expected = round.kind === 'build-word' ? round.target.word : round.target.letter.toLowerCase();
+    const finalRound = nextCount >= targetCount;
     const skill = round.kind === 'build-word' ? 'cvc-blending'
-      : round.kind === 'case-match' ? 'letter-cases'
-        : sessionLevel === 0 ? 'letter-sounds' : 'initial-sounds';
-    setLaunching(true);
-    setFeedback(`${praise} ${letterLaunchExplanation(round)}`);
-    setPendingAdvance(true);
+      : round.kind === 'case-match' ? 'letter-cases' : chapterIndex === 0 ? 'letter-sounds' : 'initial-sounds';
+    const explanation = letterLaunchExplanation(round);
+    setFeedback(`${getPraise()} ${explanation}`);
+    setHeld(true);
     setRoundCount(nextCount);
-    setSkillRun(nextCount);
-    playSfx('launch');
-    playSfx('success');
-    onCelebrate(praise, 4, 250);
+    if (roundState.current) {
+      roundState.current.history = [...roundState.current.history, round.key].slice(-8);
+      saveRecentKeys(playerId, chapterIndex, roundState.current.history);
+    }
     onGameEvent?.('letters', 'answer_correct', {
       skill,
       item: round.key,
       response,
-      expected,
       correct: true,
-      firstAttempt: !hadMistake,
-      independent: !hadMistake,
+      firstAttempt: !mistake,
+      independent: !mistake && !hintUsed,
       difficulty,
-      level: sessionLevel,
+      chapter: chapter.id,
       round: roundCount,
       seed: runSeed,
-      deferFinish: finalRound,
     });
-    onGameEvent?.('letters', 'learning_attempt', makeLearningEvent({ skill, item: round.key, response, correct: true, firstTry: !hadMistake, difficulty }));
+    onGameEvent?.('letters', 'learning_attempt', makeLearningEvent({ skill, item: round.key, response, correct: true, firstTry: !mistake && !hintUsed, difficulty }));
+    playSfx?.('success');
+    if (finalRound) completeChapter(chapterIndex);
   };
 
   const handlePick = (option) => {
-    if (answeredRef.current || pendingAdvance) return;
+    if (!round || held || answeredRef.current) return;
+    cancelNarration?.();
     if (round.kind === 'build-word') {
-      const expected = round.target.graphemes[selectedLetters.length];
+      const expected = round.target.graphemes[selectedTiles.length];
       if (option.grapheme !== expected) {
-        onGameEvent?.('letters', 'answer_attempt', { level: sessionLevel, round: roundCount, seed: runSeed, firstAttempt: !hadMistake });
-        setHadMistake(true);
-        setFeedback(`Listen for /${expected}/, the next sound in ${round.target.word.toLowerCase()}. Try again.`);
-        playSfx('oops');
+        onGameEvent?.('letters', 'answer_attempt', { chapter: chapter.id, round: roundCount, seed: runSeed, firstAttempt: !mistake });
+        setMistake(true);
+        setFeedback(`Look at the next sound in ${round.target.word.toLowerCase()}. Try that sound again.`);
+        playSfx?.('oops');
         return;
       }
-      const nextLetters = [...selectedLetters, option.grapheme];
-      setSelectedLetters(nextLetters);
-      if (nextLetters.length === round.target.graphemes.length) acceptAnswer(nextLetters.join(''));
+      const nextTiles = [...selectedTiles, option.grapheme];
+      setSelectedTiles(nextTiles);
+      if (nextTiles.length === round.target.graphemes.length) acceptAnswer(nextTiles.join(''));
       else {
         setFeedback('Good. Now choose the next sound.');
-        playSfx('tap');
+        playSfx?.('tap');
       }
       return;
     }
-    if (option.letter.toLowerCase() === round.target.letter.toLowerCase()) {
-      acceptAnswer(option.letter.toLowerCase());
-    } else {
-      onGameEvent?.('letters', 'answer_attempt', { level: sessionLevel, round: roundCount, seed: runSeed, firstAttempt: !hadMistake });
-      setHadMistake(true);
+    const optionKey = (option.grapheme || option.letter).toLowerCase();
+    const expectedKey = (round.target.grapheme || round.target.letter).toLowerCase();
+    if (optionKey === expectedKey) acceptAnswer(optionKey);
+    else {
+      onGameEvent?.('letters', 'answer_attempt', { chapter: chapter.id, round: roundCount, seed: runSeed, firstAttempt: !mistake });
+      setMistake(true);
       setFeedback(round.kind === 'case-match'
         ? `Look at little ${round.target.letter.toLowerCase()} again. Which capital letter matches its shape?`
         : `Not quite. Listen for the first sound in ${round.target.word} again.`);
-      playSfx('oops');
+      playSfx?.('oops');
     }
   };
 
-  const advance = () => {
-    if (!pendingAdvance) return;
-    // Store every completed target, including the last one in a level. The
-    // history must survive the GameSession remount that follows review.
-    const nextRecentKeys = [...recentKeys, round.key].slice(-8);
-    setRecentKeys(nextRecentKeys);
-    saveRecentKeys(playerId, sessionLevel, nextRecentKeys);
-    if (roundCount >= levelTarget) {
-      onReviewComplete?.();
+  const replayClue = () => {
+    setHintUsed(true);
+    onGameEvent?.('letters', 'hint', { chapter: chapter.id, round: roundCount, seed: runSeed, hintType: 'replay_clue' });
+    sayExact(promptText);
+  };
+
+  const hearNextSound = () => {
+    if (!canHearNextSound) return;
+    setHintUsed(true);
+    onGameEvent?.('letters', 'hint', { chapter: chapter.id, round: roundCount, seed: runSeed, hintType: 'audio_help' });
+    sayExact(nextSoundText);
+  };
+
+  const hearTargetWord = () => {
+    if (!canHearTargetWord) return;
+    setHintUsed(true);
+    onGameEvent?.('letters', 'hint', { chapter: chapter.id, round: roundCount, seed: runSeed, hintType: 'whole_word_replay' });
+    sayExact(targetWordText);
+  };
+
+  const nextMission = () => {
+    if (!held || !round) return;
+    if (chapterSaved) {
+      setSessionPhase('review');
+      setRound(null);
       return;
     }
-    setRound(buildLetterLaunchRound(sessionLevel, nextRecentKeys, letterLaunchRandomFor(runSeed, roundCount)));
-    answeredRef.current = false;
-    setLaunching(false);
+    if (saveError) return;
+    const state = roundState.current;
+    const nextRecent = state?.history || loadRecentKeys(playerId, chapterIndex);
+    setRound(buildLetterLaunchRound(chapterIndex, nextRecent, letterLaunchRandomFor(runSeed, roundCount), roundCount, state?.taught));
     setFeedback('');
-    setHadMistake(false);
-    setPendingAdvance(false);
-    setSelectedLetters([]);
+    setHeld(false);
+    setChapterSaved(false);
+    setMistake(false);
+    setHintUsed(false);
+    setSelectedTiles([]);
+    answeredRef.current = false;
+    lastEventRoundRef.current = null;
   };
 
-  if (round.kind === 'unavailable') return (
-    <div className="letter-launch min-h-screen flex flex-col items-center justify-center gap-5 bg-gradient-to-b from-[#060e46] via-[#153e9c] to-[#8ddcff] px-5 text-center text-white">
-      <h1 className="text-3xl font-black">This letter level needs a taught single letter sound.</h1>
-      <p className="max-w-lg text-lg font-semibold">Choose at least one taught sound in the Phonics learning profile, then come back to Letter Launch.</p>
-      <button type="button" onClick={leaveGame} className="min-h-14 rounded-full bg-amber-400 px-8 font-black text-slate-950">Back to learning world</button>
-    </div>
-  );
+  const retrySave = () => {
+    if (saving || !held || !round || roundCount < targetCount) return;
+    completeChapter(chapterIndex);
+  };
 
-  return (
-    <div className="letter-launch min-h-screen flex flex-col relative overflow-hidden text-white" style={{ backgroundImage: `linear-gradient(180deg, rgba(6,14,70,.6), rgba(6,14,70,.12) 55%, rgba(6,14,70,.35)), url(${launchWorld})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 left-10 w-44 h-24 bg-cyan-200/10 rounded-full blur-2xl animate-drift-left" />
-        <div className="absolute top-24 right-6 w-52 h-28 bg-purple-200/10 rounded-full blur-2xl animate-drift-right" />
-        <div className="absolute bottom-20 left-6 w-64 h-32 bg-amber-200/10 rounded-full blur-3xl" />
-      </div>
+  const available = progressState?.ok === true;
+  const pendingClaims = progressState?.ok ? pendingLetterLaunchRewards(progressState.storedProgress) : [];
+  const completedBadgeIds = earnedBadgeIds;
 
-      <div className="flex items-center justify-between px-4 pt-4 z-20">
-        <button
-          onClick={leaveGame}
-          className="game-icon-button"
-          aria-label="Back to learning world"
-        >
-          <ArrowLeft />
-        </button>
-        <div className="text-center">
-          <h2 className="text-2xl font-black text-white sm:text-3xl">Letter Launch</h2>
-          <p className="font-semibold text-cyan-100">Level {sessionLevel + 1} · {Math.min(roundCount + 1, levelTarget)} of {levelTarget}</p>
-        </div>
+  if (phase === 'menu' || phase === 'review') {
+    return <main className="letter-launch letter-launch-menu min-h-screen text-white" style={WORLD_BACKGROUND_STYLE} data-letter-phase={phase}>
+      <header className="letter-launch-header">
+        <button type="button" onClick={leaveGame} aria-label="Back to learning world" className="letter-launch-back"><ArrowLeft /></button>
+        <div className="text-center"><h1>Letter Launch</h1><p>Four letter missions · sound first, then build and read.</p></div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
-      </div>
-
-      <div className="flex-1 flex flex-col items-center justify-center px-4 pb-8 relative z-10">
-        <PracticeProgress skill={['Hear the letter', 'Find the first sound', 'Match big and little letters', 'Blend the sounds'][sessionLevel] || 'Letter mission'} completed={skillRun} target={levelTarget} accent="sky" />
-        <div className="letter-launch-panel mb-5 w-full max-w-2xl rounded-[2.5rem] border-4 border-cyan-200 bg-white/95 p-5 text-center text-slate-900 shadow-xl sm:p-7">
-          <p className="mb-2 font-black uppercase tracking-wider text-blue-600">{round.kind === 'build-word' ? 'Blend a word' : round.kind === 'case-match' ? 'Big and little letters' : sessionLevel === 0 ? 'Listen and launch' : 'First sound mission'}</p>
-          <div className="letter-launch-clue" aria-label={round.kind === 'case-match' ? `Little letter ${round.target.letter.toLowerCase()}` : round.kind === 'letter-sound' ? 'Listen for the sound' : `Picture clue for ${round.target.word}`}>
-            {round.kind === 'case-match' ? round.target.letter.toLowerCase() : round.kind === 'letter-sound' ? '👂' : round.target.emoji}
-          </div>
-          {letterLaunchClueCaption(round) && <p className="-mt-2 mb-2 text-base font-black text-indigo-800" aria-label="Picture clue caption">{letterLaunchClueCaption(round)}</p>}
-          <p className="mb-1 text-lg font-bold text-slate-700">{round.kind === 'build-word' ? 'Choose the sounds in order to build the word' : round.kind === 'case-match' ? 'Choose its capital letter' : sessionLevel === 0 ? 'Listen to the word and find its first letter' : 'Listen for the first sound, then choose its letter'}</p>
-          <button onClick={replayClue} className="mt-2 inline-flex min-h-12 items-center gap-2 rounded-full bg-blue-600 px-5 font-black text-white shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300">
-            <Volume2 size={22} /> Hear the clue again
-          </button>
-          <div className={`letter-launch-stage pointer-events-none relative mx-auto mt-3 h-[88px] w-full max-w-xl overflow-hidden rounded-2xl ${launching ? 'is-launching' : ''}`} aria-hidden="true">
-            <div className="absolute bottom-0 w-full h-5 bg-sky-300/70 rounded-full" />
-            <img
-              src={rocketArt}
-              alt=""
-              className="letter-launch-rocket absolute bottom-2 left-3 h-16 w-16 object-contain sm:h-20 sm:w-20"
-            />
-            <div className="letter-launch-flame absolute bottom-1 left-7 text-xl" aria-hidden="true">🔥</div>
-            <div className="letter-launch-sparks absolute bottom-3 left-24 text-2xl" aria-hidden="true">✨ ✨</div>
-          </div>
-        </div>
-
-        {round.kind === 'build-word' && <div className="mb-4 flex flex-wrap items-center justify-center gap-2" aria-label={`${selectedLetters.length} of ${round.target.graphemes.length} sounds placed`}>
-          {round.target.graphemes.map((_, index) => <span key={`${round.key}-slot-${index}`} className="grid h-14 w-14 place-items-center rounded-2xl border-2 border-dashed border-blue-400 bg-sky-50 text-3xl font-black text-blue-800">{selectedLetters[index]?.toUpperCase() || '·'}</span>)}
-          <button type="button" onClick={hearNextSound} disabled={selectedLetters.length >= round.target.graphemes.length} className="ml-2 inline-flex min-h-12 items-center gap-2 rounded-full bg-blue-600 px-4 font-black text-white disabled:opacity-50"><Volume2 size={20} /> Hear next sound</button>
+      </header>
+      <section className="letter-launch-menu-content">
+        {phase === 'review' && <div className="letter-launch-review" role="status">
+          <h2 ref={finishHeadingRef} tabIndex={-1}>Chapter saved: {CHAPTERS[chapterIndex].badge}</h2>
+          <p>{LETTER_LAUNCH_CHAPTER_BADGES[chapterIndex]?.description}</p>
+          <button type="button" onClick={() => { setSessionPhase('menu'); refreshProgress(); }} className="letter-launch-primary">Choose another chapter</button>
         </div>}
-        <div className={`grid w-full max-w-2xl gap-4 ${optionColumns}`}>
-          {(round.kind === 'build-word' ? round.tiles : round.options).map((option) => {
-            const label = round.kind === 'build-word' ? option.grapheme.toUpperCase() : option.letter;
-            const chosen = round.kind === 'build-word' && selectedLetters.includes(option.grapheme);
-            return <button
-              key={round.kind === 'build-word' ? option.id : option.letter}
-              onClick={() => handlePick(option)}
-              disabled={pendingAdvance || chosen}
-              className="letter-launch-choice rounded-3xl border-4 border-cyan-200 bg-white py-6 text-4xl font-black text-blue-800 shadow-lg transition hover:-translate-y-1 disabled:cursor-not-allowed disabled:opacity-45 focus-visible:outline focus-visible:outline-4 focus-visible:outline-yellow-300"
-            >{label}</button>;
+        {!available && <div className="letter-launch-alert" role="alert"><p>{progressState?.error || 'Saved Letter Launch progress could not be checked.'}</p><button type="button" onClick={refreshProgress}>Retry progress check</button></div>}
+        {available && claimError && <div className="letter-launch-alert" role="alert"><p>{claimError}</p><button type="button" disabled={claimRetryBusy} onClick={retryPendingClaims}>{claimRetryBusy ? 'Retrying…' : 'Retry saved reward'}</button></div>}
+        {available && pendingClaims.length > 0 && !claimError && <div className="letter-launch-alert" role="status"><p>A saved chapter reward needs confirmation.</p><button type="button" disabled={claimRetryBusy} onClick={retryPendingClaims}>{claimRetryBusy ? 'Retrying…' : 'Confirm saved reward'}</button></div>}
+        <div className="letter-launch-chapters" aria-label="Letter Launch chapters">
+          {CHAPTERS.map((item, index) => {
+            const complete = completedIds.has(item.id);
+            const unlocked = available && index <= unlockedIndex;
+            const badgeEarned = completedBadgeIds.includes(item.id);
+            const legacyNoReward = available && index <= (progressState.legacy?.rewardCeiling ?? -1) && !complete;
+            return <article key={item.id} className={`letter-launch-chapter ${unlocked ? '' : 'is-locked'}`}>
+              <div className="letter-launch-chapter-number">{index + 1}</div>
+              <div className="letter-launch-chapter-copy"><p>Chapter {index + 1}{complete ? ' · Complete' : ''}</p><h2>{item.title}</h2><p>{item.subtitle}</p></div>
+              {badgeEarned && <span className="letter-launch-badge" aria-label={`${item.badge} badge earned`}>★ {item.badge}</span>}
+              <button type="button" disabled={!unlocked || !available || pendingClaims.length > 0 || Boolean(claimError)} onClick={() => beginChapter(index)} className="letter-launch-primary">
+                {complete ? 'Replay · no reward' : legacyNoReward ? 'Play · no reward' : unlocked ? 'Start chapter' : 'Finish earlier chapter'}
+              </button>
+            </article>;
           })}
         </div>
+        <p className="letter-launch-menu-note">Your chapter progress and badge save when you finish. Each chapter rewards once; replays are for practice.</p>
+      </section>
+    </main>;
+  }
 
-        {feedback && <div className="mt-4 w-full max-w-2xl rounded-2xl border-2 border-cyan-200 bg-white/95 p-4 text-center text-lg font-bold text-indigo-700 shadow-md" aria-live="polite">{feedback}</div>}
-        {pendingAdvance && <button type="button" onClick={advance} className="mt-3 min-h-14 rounded-full bg-amber-400 px-8 font-black text-slate-950 shadow-lg focus-visible:outline focus-visible:outline-4 focus-visible:outline-blue-700">{roundCount >= levelTarget ? 'Finish level' : 'Next mission'}</button>}
+  if (!round || round.kind === 'unavailable') return <div className="letter-launch letter-launch-unavailable" data-letter-chapter={chapter.id}>
+    <h1>This chapter needs a taught letter sound.</h1><p>Ask a grown-up to select taught sounds in the Phonics learning profile, then retry this progress check.</p>
+    <button type="button" onClick={exitToMenu} className="letter-launch-primary">Choose another chapter</button>
+  </div>;
 
+  const isFinal = roundCount >= targetCount;
+  return <main className="letter-launch letter-launch-play" style={WORLD_BACKGROUND_STYLE} data-letter-chapter={chapter.id} data-letter-phase="play" data-run-seed={runSeed}>
+    <header className="letter-launch-header">
+      <button type="button" onClick={exitToMenu} aria-label="Choose a chapter" className="letter-launch-back"><ArrowLeft /></button>
+      <div className="text-center"><h1>Letter Launch</h1><p>{chapter.title} · {Math.min(roundCount + 1, targetCount)} of {targetCount}</p></div>
+      <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
+    </header>
+    <section className="letter-launch-task">
+      <PracticeProgress skill={PHASE_LABELS[chapterIndex]} completed={Math.min(roundCount, targetCount)} target={targetCount} accent="sky" />
+      <div className="letter-launch-panel">
+        <p className="letter-launch-kicker">{round.kind === 'build-word' ? 'Blend the sounds' : round.kind === 'case-match' ? 'Big and little letters' : chapterIndex === 0 ? 'Name and sound' : 'Find the first sound'}</p>
+        <div className="letter-launch-clue" aria-label={round.kind === 'case-match' ? `Little letter ${round.target.letter.toLowerCase()}` : round.kind === 'build-word' || round.kind === 'first-sound' ? `Picture clue for ${round.target.word}` : 'Listen to the word'}>
+          {round.kind === 'case-match' ? <span>{round.target.letter.toLowerCase()}</span> : round.kind === 'letter-sound' ? '👂' : round.target.emoji}
+        </div>
+        {letterLaunchClueCaption(round) && <p className="letter-launch-caption">{letterLaunchClueCaption(round)}</p>}
+        <p className="letter-launch-instruction">{round.kind === 'build-word'
+          ? 'Choose one sound tile at a time to build the word.'
+          : round.kind === 'case-match'
+            ? 'This is the little letter. Choose its matching capital.'
+            : chapterIndex === 0
+              ? 'A letter has a name and can spell a sound. Listen to the word; find the starting letter.'
+              : 'Say the word slowly. Choose the letter or letter team that spells its first sound.'}</p>
+        {round.kind === 'letter-sound' && <p className="letter-launch-name-note">A letter has a name. In a word, it can spell a sound. Listen, then choose the letter for the first sound.</p>}
+        <div className="letter-launch-audio-row">
+          <button type="button" disabled={!canReplayPrompt || !soundOn} onClick={replayClue} aria-label={canReplayPrompt ? 'Hear the clue again' : 'Recorded clue unavailable'} className="letter-launch-audio"><Volume2 size={20} /> Hear the clue again</button>
+          {canHearTargetWord && <button type="button" disabled={!soundOn} onClick={hearTargetWord} aria-label="Hear the whole word" className="letter-launch-audio"><Volume2 size={20} /> Hear the whole word</button>}
+          {!canReplayPrompt && <span className="letter-launch-audio-note">Read the clue and choose the matching sound.</span>}
+        </div>
+        <div className={`letter-launch-stage ${held ? 'is-launching' : ''}`} aria-hidden="true">
+          <div className="letter-launch-runway" /><img src={rocketArt} alt="" className="letter-launch-rocket" />
+          <span className="letter-launch-flame">🔥</span><span className="letter-launch-sparks">✨ ✨</span>
+        </div>
       </div>
-    </div>
-  );
+
+      {round.kind === 'build-word' && <div className="letter-launch-slots" aria-label={`${selectedTiles.length} of ${round.target.graphemes.length} sounds placed`}>
+        {round.target.graphemes.map((_, index) => <span key={`${round.key}-slot-${index}`} className="letter-launch-slot">{selectedTiles[index]?.toUpperCase() || '·'}</span>)}
+        {canHearNextSound && <button type="button" disabled={held || selectedTiles.length >= round.target.graphemes.length || !soundOn} onClick={hearNextSound} className="letter-launch-audio"><Volume2 size={18} /> Hear next sound</button>}
+      </div>}
+      <div className={`letter-launch-options ${columns}`}>
+        {options.map((option) => {
+          const buildWord = round.kind === 'build-word';
+          const key = buildWord ? option.grapheme : option.letter;
+          const chosen = buildWord && selectedTiles.includes(option.grapheme);
+          return <button key={buildWord ? option.id : key} type="button" onClick={() => handlePick(option)} disabled={held || chosen} className="letter-launch-choice">{buildWord ? option.grapheme.toUpperCase() : key}</button>;
+        })}
+      </div>
+      {feedback && <div className="letter-launch-feedback" role="status" aria-live="polite">{feedback}</div>}
+      {saveError && <div className="letter-launch-alert" role="alert"><p>{saveError}</p><button ref={retryButtonRef} type="button" disabled={saving} onClick={retrySave}>{saving ? 'Saving…' : 'Retry save'}</button></div>}
+      {held && !saveError && !chapterSaved && <button ref={nextButtonRef} type="button" onClick={nextMission} className="letter-launch-primary">Next mission</button>}
+      {chapterSaved && <section className="letter-launch-review" aria-labelledby="letter-launch-finish-title">
+        <h2 ref={finishHeadingRef} id="letter-launch-finish-title" tabIndex={-1}>{CHAPTERS[chapterIndex].badge} saved!</h2>
+        <p>{LETTER_LAUNCH_CHAPTER_BADGES[chapterIndex]?.description}</p>
+        <button type="button" onClick={() => { setSessionPhase('review'); setRound(null); }} className="letter-launch-primary">Finish chapter</button>
+      </section>}
+      {isFinal && saving && <p role="status" className="letter-launch-save-status">Saving your chapter and badge…</p>}
+    </section>
+  </main>;
 };
 
 export default LetterLaunch;

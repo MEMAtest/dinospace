@@ -44,6 +44,7 @@ import { ArtIcon, GameIcon } from './components/shared/GameIcons.jsx';
 
 const CodeCadetsGame = lazy(() => import('./rehearsal/DigitalSkillGame.jsx').then(m=>({default:m.CodeCadetsGame})));
 const WritingDeskGame = lazy(() => import('./rehearsal/DigitalSkillGame.jsx').then(m=>({default:m.WritingDeskGame})));
+const FactFinder = lazy(() => import('./components/games/FactFinder.jsx'));
 const SolarSystem = lazy(() => import('./components/games/SolarSystem.jsx'));
 
 const icon = (Icon, tone, label, kind = 'default') => <GameIcon Icon={Icon} tone={tone} label={label} kind={kind} image={kind === 'letters' ? letterRocketArt : undefined} />;
@@ -68,6 +69,7 @@ const GAME_MENU_DEFINITIONS = [
   { id: 'addition', icon: icon(Plus, 'text-teal-700', 'Addition plus', 'addition'), title: 'Addition Adventure', desc: 'Add it up!', color: 'bg-gradient-to-br from-teal-500 to-emerald-600', category: 'Maths' , component: AdditionAdventure },
   { id: 'subtraction', icon: icon(Minus, 'text-violet-700', 'Subtraction minus', 'subtraction'), title: 'Subtraction Station', desc: 'Take it away!', color: 'bg-gradient-to-br from-violet-500 to-purple-700', category: 'Maths' , component: SubtractionStation },
   { id: 'astronaut', icon: icon(Gamepad2, 'text-purple-700', 'Astronaut mission', 'astronaut'), title: 'Astronaut Academy', desc: 'Explore space heroes', color: 'bg-gradient-to-br from-purple-600 to-indigo-800', category: 'Discover' , component: AstronautAcademy },
+  { id: 'factfinder', icon: icon(BookOpen, 'text-teal-700', 'Fact Finder encyclopedia'), title: 'Fact Finder', desc: 'Search animals, dinosaurs, space and nature', color: 'bg-gradient-to-br from-teal-500 to-cyan-700', category: 'Discover', badge: 'NEW', component: FactFinder },
   { id: 'worldmap', icon: icon(Globe2, 'text-sky-700', 'Curriculum Quest world map', 'worldmap'), title: 'Curriculum Quest', desc: 'Geography, history and science', color: 'bg-gradient-to-br from-sky-500 to-indigo-600', category: 'Discover', badge: 'NEW' , component: CurriculumQuest },
   { id: 'counting', icon: icon(Hash, 'text-indigo-700', 'Count the stars', 'counting'), title: 'Count the Stars', desc: 'Tap and count!', color: 'bg-gradient-to-br from-indigo-600 to-blue-800', category: 'Maths' , component: CountTheStars },
   { id: 'words', icon: icon(Type, 'text-pink-700', 'Spelling letters', 'words'), title: 'Spelling Studio', desc: 'Learn sounds and spell!', color: 'bg-gradient-to-br from-pink-500 to-rose-600', category: 'Words' , component: WordBuilder },

@@ -1,0 +1,72 @@
+.fact-finder{--ff-ink:#17314f;--ff-teal:#0b7a75;min-height:100vh;padding:clamp(12px,2.8vw,32px);color:var(--ff-ink);background:radial-gradient(circle at 12% 8%,#fff7d5 0,transparent 30%),linear-gradient(150deg,#e8f8ff,#f4f5ff 62%,#e9fff0)}
+.fact-finder button,.fact-finder input{font:inherit}
+.fact-finder-header{position:relative;display:flex;align-items:center;gap:16px;max-width:1280px;margin:0 auto 20px;padding:8px 4px}
+.fact-finder-header>div{flex:1;min-width:0}
+.fact-finder-header h1{margin:0;color:#153257;font-size:clamp(2rem,4.5vw,3.35rem);line-height:1;font-weight:950;letter-spacing:-.04em}
+.fact-finder-intro{margin:9px 0 0;color:#35516e;font-size:clamp(.95rem,1.4vw,1.1rem);font-weight:650}
+.fact-finder-kicker{display:flex;align-items:center;gap:6px;margin:0 0 7px;color:#087e77;font-size:.73rem;font-weight:900;letter-spacing:.14em}
+.fact-finder-back{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:48px;min-height:48px;padding:0 14px;border:2px solid #b7d9ed;border-radius:16px;background:#fff;color:#234665;font-weight:850;cursor:pointer}
+.fact-finder-browser,.fact-finder-detail,.fact-finder-prompt{max-width:1280px;margin:0 auto 18px;border:1px solid #c9ddec;border-radius:24px;background:rgba(255,255,255,.94);box-shadow:0 12px 35px rgba(22,57,92,.1)}
+.fact-finder-browser{padding:16px}
+.fact-finder-search{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 15px;border:2px solid #bdd6e7;border-radius:16px;background:#f7fbff;color:#53708c}
+.fact-finder-search:focus-within{border-color:#0c8a82;box-shadow:0 0 0 3px rgba(12,138,130,.15)}
+.fact-finder-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#163857;font-size:1rem;font-weight:700}
+.fact-finder-search input::placeholder{color:#66819a;opacity:1}
+.fact-finder-categories{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.fact-finder-categories button{min-height:48px;padding:0 16px;border:2px solid #c8dceb;border-radius:999px;background:#f6fbff;color:#31516e;font-weight:850;cursor:pointer}
+.fact-finder-categories button[aria-pressed="true"]{border-color:#0b8178;background:#daf6ef;color:#075c58}
+.fact-finder-count{margin:12px 2px 8px;color:#59728b;font-size:.84rem;font-weight:800}
+.fact-finder-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:8px;max-height:228px;overflow:auto;margin:0;padding:0 4px 4px 0;list-style:none;overscroll-behavior:contain}
+.fact-finder-results button{display:grid;grid-template-columns:54px minmax(0,1fr) 18px;align-items:center;gap:9px;width:100%;min-height:64px;padding:6px 10px;border:2px solid #d7e5ee;border-radius:17px;background:#fff;text-align:left;color:#254461;font-weight:850;cursor:pointer}
+.fact-finder-results button:hover,.fact-finder-results button[aria-pressed="true"]{border-color:#48a99e;background:#ecfbf7}
+.fact-finder-results img,.fact-finder-mini-dino{display:grid;width:52px;height:48px;place-items:center;object-fit:contain;border-radius:12px;background:#f0f7fb}
+.fact-finder-mini-dino svg{width:48px;height:42px}
+.fact-finder-empty{margin:8px 0 0;padding:16px;border-radius:16px;background:#fff6dd;color:#70510b;font-weight:750}
+.fact-finder-detail{display:grid;grid-template-columns:minmax(250px,.85fr) minmax(0,1.15fr);gap:clamp(18px,4vw,44px);padding:clamp(16px,3vw,34px)}
+.fact-finder-art{display:flex;flex-direction:column;justify-content:center;align-items:center;min-width:0;padding:18px;border-radius:22px;background:linear-gradient(145deg,#e7f8ff,#effbea)}
+.fact-finder-art-image{display:block;width:min(100%,380px);height:260px;object-fit:contain;filter:drop-shadow(0 8px 8px rgba(20,55,80,.13))}
+.fact-finder-dino-art{display:grid;width:100%;min-height:250px;place-items:center}
+.fact-finder-dino-svg{width:min(100%,340px);height:auto;max-height:280px}
+.fact-finder-art>p{max-width:38ch;margin:12px 0 0;color:#526b82;text-align:center;font-size:.82rem;font-weight:650}
+.fact-finder-story{min-width:0;align-self:center}
+.fact-finder-category-label{margin:0 0 4px;color:#087a72;font-size:.76rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.fact-finder-story h2{margin:0;color:#17385a;font-size:clamp(1.65rem,3.6vw,2.55rem);font-weight:950;line-height:1.08}
+.fact-finder-facts{display:grid;gap:12px;margin:18px 0;padding:0;list-style:none}
+.fact-finder-facts li{display:flex;align-items:flex-start;gap:12px;padding:14px;border-left:5px solid #f6b83d;border-radius:12px;background:#fff8e8}
+.fact-finder-facts li p{flex:1;margin:0;color:#253f5b;font-size:clamp(1rem,1.55vw,1.15rem);font-weight:680;line-height:1.5}
+.fact-finder-audio{display:inline-flex;flex:0 0 auto;align-items:center;justify-content:center;gap:7px;min-width:48px;min-height:48px;padding:0 13px;border:2px solid #b8d7e9;border-radius:14px;background:#fff;color:#285479;font-size:.9rem;font-weight:850;cursor:pointer}
+.fact-finder-audio:disabled{cursor:not-allowed;opacity:.55}
+.fact-finder-source{margin:14px 0;color:#465f78}
+.fact-finder-source summary{min-height:44px;padding:11px 4px;color:#3b5874;font-size:.9rem;font-weight:850;cursor:pointer}
+.fact-finder-source p{margin:3px 4px 8px;font-size:.86rem}
+.fact-finder-source a{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:6px 4px;color:#075e7d;font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.fact-finder-explore{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;min-height:54px;margin-top:10px;padding:0 18px;border:0;border-radius:16px;background:linear-gradient(120deg,#0b8278,#126aa1);color:#fff;font-weight:900;box-shadow:0 5px 0 #07554f;cursor:pointer}
+.fact-finder-prompt{display:flex;align-items:center;gap:14px;padding:20px;color:#375571;font-size:1.05rem;font-weight:800}
+.fact-finder-prompt span{font-size:2rem}
+.fact-finder :focus-visible{outline:3px solid #f0a91e;outline-offset:3px}
+@media(max-width:680px){
+  .fact-finder{padding:10px 10px 24px}
+  .fact-finder-header{gap:8px;margin-bottom:12px}
+  .fact-finder-back{padding:0 10px}
+  .fact-finder-browser{padding:12px;border-radius:20px}
+  .fact-finder-categories{gap:6px}
+  .fact-finder-categories button{min-height:48px;padding:0 12px;font-size:.88rem}
+  .fact-finder-results{grid-template-columns:repeat(2,minmax(0,1fr));max-height:210px;gap:6px}
+  .fact-finder-results button{grid-template-columns:42px minmax(0,1fr);min-height:60px;gap:6px;padding:5px 7px;font-size:.84rem}
+  .fact-finder-results button>svg{display:none}
+  .fact-finder-results img,.fact-finder-mini-dino{width:40px;height:42px}
+  .fact-finder-mini-dino svg{width:40px;height:38px}
+  .fact-finder-detail{grid-template-columns:1fr;gap:14px;padding:12px;border-radius:20px}
+  .fact-finder-art{min-height:170px;padding:10px}
+  .fact-finder-art-image{height:170px}
+  .fact-finder-dino-art{min-height:160px}
+  .fact-finder-dino-svg{max-height:180px}
+  .fact-finder-story{padding:2px 3px 6px}
+  .fact-finder-story h2{font-size:1.8rem}
+  .fact-finder-facts{gap:8px;margin:12px 0}
+  .fact-finder-facts li{padding:10px;gap:8px}
+  .fact-finder-facts li p{font-size:1rem;line-height:1.42}
+  .fact-finder-audio{padding:0 10px;font-size:.82rem}
+  .fact-finder-source{margin:8px 0}
+}
+@media(prefers-reduced-motion:reduce){.fact-finder *{scroll-behavior:auto!important;transition:none!important}}

@@ -18,7 +18,7 @@ export const parseRoute = (hash = '') => {
   if (!head) return { name: 'welcome' };
   if (PAGES.has(head)) return { name: head };
   if (head === 'world' && arg) return { name: 'world', id: arg };
-  if (head === 'play' && arg) return { name: 'game', id: arg, ...(arg === 'worldmap' && module === 'time-detectives' ? { module } : {}) };
+  if (head === 'play' && arg) return { name: 'game', id: arg, ...(arg === 'worldmap' && ['continents', 'time-detectives', 'nature-lab'].includes(module) ? { module } : {}) };
   return { name: 'home' };
 };
 
@@ -26,7 +26,7 @@ export const routeHash = (route) => {
   switch (route?.name) {
     case 'welcome': return '#/';
     case 'world': return `#/world/${encodeURIComponent(route.id)}`;
-    case 'game': return `#/play/${encodeURIComponent(route.id)}${route.id === 'worldmap' && route.module === 'time-detectives' ? '/time-detectives' : ''}`;
+    case 'game': return `#/play/${encodeURIComponent(route.id)}${route.id === 'worldmap' && ['continents', 'time-detectives', 'nature-lab'].includes(route.module) ? `/${route.module}` : ''}`;
     case 'stickers':
     case 'grownups':
     case 'home':

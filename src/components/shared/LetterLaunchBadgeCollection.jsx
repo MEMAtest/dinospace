@@ -1,4 +1,5 @@
-import { LETTER_LAUNCH_CHAPTER_BADGES } from '../../data/chapterBadges.js';
+import { useState } from 'react';
+import { LETTER_LAUNCH_CHAPTER_BADGES, inspectChapterBadges } from '../../data/chapterBadges.js';
 import rocketArt from '../../assets/little/fuel-rocket.webp';
 
 const BadgeMedallion = ({ badge, earned }) => (
@@ -14,7 +15,7 @@ const BadgeMedallion = ({ badge, earned }) => (
   </span>
 );
 
-const LetterLaunchBadgeCollection = ({ earnedBadgeIds = [], rewardBadgeId = null, rewardIsNew = false }) => {
+const LetterLaunchBadgeCollectionView = ({ earnedBadgeIds = [], rewardBadgeId = null, rewardIsNew = false }) => {
   const earned = new Set(earnedBadgeIds);
   const rewardBadge = LETTER_LAUNCH_CHAPTER_BADGES.find((badge) => badge.id === rewardBadgeId);
   const earnedCount = LETTER_LAUNCH_CHAPTER_BADGES.filter((badge) => earned.has(badge.id)).length;
@@ -54,5 +55,19 @@ const LetterLaunchBadgeCollection = ({ earnedBadgeIds = [], rewardBadgeId = null
     </section>
   );
 };
+
+const StoredLetterLaunchBadges = ({ playerId }) => {
+  const [saved, setSaved] = useState(() => inspectChapterBadges(playerId, 'letters'));
+  if (!['empty', 'record'].includes(saved.status)) return <section aria-label="Letter Launch chapter badge collection" className="w-full max-w-md rounded-3xl border-4 border-cyan-200 bg-white p-4 text-slate-900">
+    <h2 className="font-black">Rocket badge collection</h2>
+    <p role="status">Your saved rocket badges could not be checked. Retry to show your collection.</p>
+    <button type="button" className="mt-3 min-h-12 rounded-xl bg-blue-700 px-4 py-2 font-black text-white" onClick={() => setSaved(inspectChapterBadges(playerId, 'letters'))}>Retry rocket badges</button>
+  </section>;
+  return <LetterLaunchBadgeCollectionView earnedBadgeIds={saved.earnedChapterIds} />;
+};
+
+const LetterLaunchBadgeCollection = (props) => props.playerId && !Array.isArray(props.earnedBadgeIds)
+  ? <StoredLetterLaunchBadges key={props.playerId} playerId={props.playerId} />
+  : <LetterLaunchBadgeCollectionView {...props} />;
 
 export default LetterLaunchBadgeCollection;

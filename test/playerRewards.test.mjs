@@ -218,7 +218,7 @@ test('retained historical claims do not strand a new saved result at an arbitrar
 
 
 test('opted-in game claims retry committed writes without replay or sibling loss', () => {
-  for (const [game, amount] of [['chess', 1], ['dinojigsaw', 8], ['german', 1], ['worldmap', 1]]) {
+  for (const [game, amount] of [['chess', 1], ['dinojigsaw', 8], ['german', 1], ['worldmap', 1], ['letters', 1]]) {
     const backing = store();
     const prior = claim('amari', {}, 6, 'words', backing, 'words:previous-proof');
     backing.setItem('askia_rewards_v2', JSON.stringify({ version:2, points:19, gamesPlayed:{shadowmatch:2}, earnedStickerIds:['rocket'], familyTag:'untouched' }));
@@ -325,4 +325,26 @@ test('German and Curriculum claims survive old-tab decoding and reject other gam
   assert.equal(claim('amari',reopened,1,'german',storage,'german:raw-new-claim').persisted,false);
   assert.equal(claim('amari',reopened,1,'worldmap',storage,'worldmap:raw-new-claim').persisted,false);
   assert.equal(storage.getItem(rewardKey('amari')),original);
+});
+
+test('Letter Launch claims survive the retained decoder, recover once and stay scoped', () => {
+  const storage = store();
+  const token = rewardClaimToken('letters', 'chapter-0-proof');
+  assert.equal(token, 'dino:letters:chapter-0-proof');
+  const first = claim('amari', {}, 1, 'letters', storage, token);
+  assert.equal(first.persisted, true);
+  assert.equal(first.points, 1);
+  const oldDecoder = /^(dino|hangman|words|storybooks):[a-z0-9:_-]{1,160}$/i;
+  const oldWrite = { ...JSON.parse(storage.getItem(rewardKey('amari'))), points: 3,
+    rewardClaims: Object.fromEntries(Object.entries(first.rewardClaims).filter(([key]) => oldDecoder.test(key))) };
+  storage.setItem(rewardKey('amari'), JSON.stringify(oldWrite));
+  const recovered = claim('amari', {}, 1, 'letters', storage, 'DINO:LETTERS:chapter-0-proof');
+  assert.equal(recovered.persisted, true);
+  assert.equal(recovered.awardedPoints, 0);
+  assert.equal(recovered.points, 3);
+  assert.equal(recovered.gamesPlayed.letters, 1);
+  const before = storage.getItem(rewardKey('amari'));
+  for (const game of ['dino', 'german', 'worldmap']) assert.equal(claim('amari', {}, 1, game, storage, token).persisted, false);
+  assert.equal(claim('amari', {}, 1, 'letters', storage, 'letters:raw-unshipped-token').persisted, false);
+  assert.equal(storage.getItem(rewardKey('amari')), before);
 });

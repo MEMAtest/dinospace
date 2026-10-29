@@ -20,11 +20,7 @@ test('Amari chapter games bypass the answer-count wrapper while Askia counting k
   assert.equal(ownsGameProgression('dino', true), true);
 });
 
-test('unmodified sessions retain their wrapper and existing board games keep their owner', () => {
-  for (const game of ['letters']) {
-    assert.equal(ownsGameProgression(game), false, game);
-    assert.ok(GAME_SESSIONS[game]);
-  }
+test('existing board and chapter games keep their progression owner', () => {
   for (const game of ['addition', 'subtraction', 'timeteller', 'numberline']) {
     assert.equal(ownsGameProgression(game), true, game);
   }
@@ -50,7 +46,7 @@ test('Classification and pattern chapters avoid premature wrapper completion', (
 test('Hangman owns its held four-mission save and replay flow', () => {
   assert.equal(ownsGameProgression('hangman', false), true);
   assert.equal(ownsGameProgression('hangman', true), true);
-  assert.equal(ownsGameProgression('letters', false), false);
+  assert.equal(ownsGameProgression('letters', false), true);
   assert.equal(ownsGameProgression('german', false), true);
 });
 
@@ -59,5 +55,11 @@ test('German owns its saved finite chapter flow instead of the old answer-count 
   assert.equal(ownsGameProgression('german', false),true);
   assert.equal(ownsGameProgression('german', true),true);
   assert.ok(GAME_SESSIONS.german);
-  assert.equal(ownsGameProgression('letters',false),false);
+  assert.equal(ownsGameProgression('letters',false),true);
+});
+
+test('Letter Launch owns its saved four-chapter flow for both profiles', () => {
+  assert.equal(ownsGameProgression('letters', false), true);
+  assert.equal(ownsGameProgression('letters', true), true);
+  assert.ok(GAME_SESSIONS.letters);
 });

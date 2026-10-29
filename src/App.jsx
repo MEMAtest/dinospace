@@ -7,7 +7,6 @@ import ReasoningCollections from './components/shared/ReasoningCollections.jsx';
 import SpaceStrategyCollections from './components/shared/SpaceStrategyCollections.jsx';
 import CreativeProjectCollections from './components/shared/CreativeProjectCollections.jsx';
 import MemoryBadgeCollection from './components/shared/MemoryBadgeCollection.jsx';
-import { getEarnedChapterBadgeIds } from './data/chapterBadges.js';
 import { CurriculumBadgeCollection } from './components/shared/CurriculumBadges.jsx';
 import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { Capacitor } from '@capacitor/core';
@@ -45,7 +44,7 @@ const SOUND_PREFERENCE_KEY = 'amari-sound-on';
 // Leaving a game straight after opening it (a mis-tap) needs no confirmation;
 // after this long, a "leave the game?" check protects the child's progress.
 const CONFIRM_LEAVE_AFTER_MS = 10000;
-const NO_CHALLENGE_TRACKER = new Set(['memory', 'words', 'jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino', 'addition', 'subtraction', 'timeteller', 'numberline', 'codecadets', 'writingdesk', 'astronaut', 'chess', 'colormix', 'oddoneout', 'pattern', 'phonics', 'hangman']);
+const NO_CHALLENGE_TRACKER = new Set(['factfinder', 'memory', 'words', 'jet', 'letters', 'math', 'puzzle', 'spot', 'solar', 'storybooks', 'worldmap', 'counting', 'trace', 'tictactoe', 'dino', 'addition', 'subtraction', 'timeteller', 'numberline', 'codecadets', 'writingdesk', 'astronaut', 'chess', 'colormix', 'oddoneout', 'pattern', 'phonics', 'hangman']);
 const AmariCountTheStars = lazy(() => import('./components/games/AmariCountTheStars.jsx'));
 const AmariLetterTrace = lazy(() => import('./components/games/AmariLetterTrace.jsx'));
 
@@ -191,13 +190,14 @@ const PlayerSession = ({
     }
   }, [little, todaysChallenge]);
 
-  const launchGame = useCallback((gameId, sfx = 'click', { replace = false } = {}) => {
+  const launchGame = useCallback((gameId, sfx = 'click', { replace = false, module } = {}) => {
     playSfx(sfx);
     // Reset before the next game mounts; games with a start screen report
     // their own phase as they appear.
     gamePhaseRef.current = null;
-    setRecentGames((current) => [gameId, ...current.filter((id) => id !== gameId)].slice(0, MAX_RECENT_GAMES));
-    navigate({ name: 'game', id: gameId }, { replace });
+    if (gameId !== 'factfinder') setRecentGames((current) => [gameId, ...current.filter((id) => id !== gameId)].slice(0, MAX_RECENT_GAMES));
+    const curriculumModule = gameId === 'worldmap' && ['continents', 'time-detectives', 'nature-lab'].includes(module) ? module : undefined;
+    navigate({ name: 'game', id: gameId, ...(curriculumModule ? { module: curriculumModule } : {}) }, { replace });
   }, [navigate, playSfx]);
 
   const toggleFavourite = useCallback((gameId) => {
@@ -213,7 +213,7 @@ const PlayerSession = ({
       rewardsRef.current = next;
       setRewards(next);
       // These lessons hold their own receipt and Retry action beside the result.
-      const lessonOwnsRetry = Boolean(rewardToken && ['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap'].includes(gameIdAtCall));
+      const lessonOwnsRetry = Boolean(rewardToken && ['dino', 'hangman', 'words', 'storybooks', 'chess', 'dinojigsaw', 'german', 'worldmap', 'letters'].includes(gameIdAtCall));
       setRewardSaveFailed(!next.persisted && !lessonOwnsRetry);
       const total = next.points;
       if (quiet || (rewardToken && (!next.persisted || next.awardedPoints === 0))) return next;
@@ -267,12 +267,7 @@ const PlayerSession = ({
     const gameProps = {
       registerDirty: registerDraftDirty,
       onBack: () => back({ toParent: !little }),
-      onLaunchGame: (gameId) => {
-        if (currentGame.id === 'worldmap' && gameId === 'timeteller') {
-          navigate({ name: 'game', id: 'worldmap', module: 'time-detectives' }, { replace: true });
-        }
-        launchGame(gameId);
-      },
+      onLaunchGame: (gameId, options = {}) => launchGame(gameId, 'click', options),
       initialModule: route.id === 'worldmap' ? route.module : undefined,
       playSfx,
       speak,
@@ -339,7 +334,7 @@ const PlayerSession = ({
       <div className={`flex min-h-[100dvh] w-full flex-col items-center gap-2 bg-gradient-to-b p-3 sm:p-6 ${little ? 'from-amber-200 to-sky-200' : 'from-amber-100 via-white to-sky-100'}`}>
         <PageHeader title={`${player.name}’s stickers`} subtitle={`⭐ ${points} stars`} onBack={() => back()} backLabel="Back to home" {...soundProps} />
         <p className="max-w-2xl rounded-2xl bg-white px-4 py-3 text-center text-sm font-bold text-slate-700">Stars and collected badges are kept in this browser on this device. Finish a chapter to earn its badge. Other browsers and devices have separate collections.</p>
-        <LetterLaunchBadgeCollection earnedBadgeIds={getEarnedChapterBadgeIds(player.id, 'letters')} />
+        <LetterLaunchBadgeCollection playerId={player.id} />
         <CurriculumBadgeCollection playerId={player.id} />
         <Batch3BadgeCollections playerId={player.id} />
         <Batch4BadgeCollections playerId={player.id} />

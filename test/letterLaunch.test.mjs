@@ -1,11 +1,14 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildLetterLaunchRound, letterLaunchClueCaption, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchRandomFor, LETTER_LAUNCH_PROMPT_CORPUS } from '../src/data/letterLaunch.js';
-import { getTaughtGraphemes, LITERACY_PROFILE_KEY } from '../src/data/literacy.js';
+import { buildLetterLaunchRound, CASE_CONFUSABLES, letterLaunchClueCaption, letterLaunchExplanation, letterLaunchNextSoundPrompt, letterLaunchPromptFor, letterLaunchSessionTarget, letterLaunchTargetForPlayer, letterLaunchRandomFor, LETTER_LAUNCH_PROMPT_CORPUS } from '../src/data/letterLaunch.js';
+import { getTaughtGraphemes, LITERACY_PROFILE_KEY, PHASE_WORDS } from '../src/data/literacy.js';
 import { SESSION_LEVELS } from '../src/data/sessionLevels.js';
+import { getOfflineVoiceClip } from '../src/data/offlineVoice.js';
 
 test('Letter Launch has four distinct bands with age-appropriate round targets', () => {
   assert.deepEqual([0, 1, 2, 3].map(letterLaunchSessionTarget), [6, 6, 7, 8]);
+  assert.deepEqual([0, 1, 2, 3].map((level) => letterLaunchTargetForPlayer(level, true)), [4, 4, 5, 5]);
+  assert.deepEqual([0, 1, 2, 3].map((level) => letterLaunchTargetForPlayer(level, false)), [6, 6, 7, 8]);
   assert.deepEqual(SESSION_LEVELS.letters.map(({ target }) => target), [0, 1, 2, 3].map(letterLaunchSessionTarget));
   assert.deepEqual([0, 1, 2, 3].map((level) => buildLetterLaunchRound(level).kind), ['letter-sound', 'first-sound', 'case-match', 'build-word']);
 });
@@ -37,12 +40,13 @@ test('seeded Letter Launch runs reproduce questions and choices without recent r
   }
 });
 
-test('Letter Launch uses taught sounds and assembles fully decodable CVC words', () => {
+test('Letter Launch uses taught graphemes and assembles fully decodable short words', () => {
   const taught = getTaughtGraphemes();
   for (let seed = 0; seed < 20; seed += 1) {
     const round = buildLetterLaunchRound(3, [], () => (seed * 0.137) % 1);
     assert.equal(round.kind, 'build-word');
     assert.equal(round.target.graphemes.length, 3);
+    assert.ok([3, 4].includes(round.target.word.length));
     assert.ok(round.target.graphemes.every((sound) => taught.has(sound.toLowerCase())));
     assert.ok(round.tiles.length >= 3);
     assert.ok(round.tiles.every((tile) => taught.has(tile.grapheme.toLowerCase())));
@@ -88,23 +92,63 @@ test('CVC generator only emits targets and tiles made from the selected taught g
         getItem: (key) => key === LITERACY_PROFILE_KEY ? JSON.stringify({ selectedSounds }) : null,
       };
       const taught = new Set(selectedSounds);
-      let sawCvc = false;
+      let sawDecodable = false;
       for (let seed = 1; seed <= 80; seed += 1) {
         const round = buildLetterLaunchRound(3, [], letterLaunchRandomFor(seed, 0));
         if (round.kind !== 'build-word') continue;
-        sawCvc = true;
+        sawDecodable = true;
         assert.equal(round.target.graphemes.length, 3);
+        assert.ok([3, 4].includes(round.target.word.length));
         assert.ok(round.target.graphemes.every((sound) => taught.has(sound.toLowerCase())), `${round.target.word} uses only taught sounds`);
         assert.ok(round.tiles.every((tile) => taught.has(tile.grapheme.toLowerCase())), `tiles for ${round.target.word} use only taught sounds`);
       }
       if (selectedSounds.includes('c') && selectedSounds.includes('a') && selectedSounds.includes('t')) {
-        assert.equal(sawCvc, true, 'a profile with taught C-A-T sounds should produce CVC rounds');
+        assert.equal(sawDecodable, true, 'a profile with taught C-A-T sounds should produce decodable rounds');
       }
     }
   } finally {
     if (previousStorage === undefined) delete globalThis.localStorage;
     else globalThis.localStorage = previousStorage;
   }
+});
+
+test('the final transfer introduces four-letter decodable words after CVC practice when graphemes are taught', () => {
+  const previousStorage = globalThis.localStorage;
+  const selectedSounds = ['s', 'a', 't', 'p', 'i', 'n', 'm', 'd', 'g', 'o', 'c', 'k', 'e', 'u', 'r', 'h', 'b', 'f', 'l', 'ch', 'sh', 'th', 'ng', 'ai', 'ee', 'oa', 'oo'];
+  globalThis.localStorage = { getItem: (key) => key === LITERACY_PROFILE_KEY ? JSON.stringify({ selectedSounds }) : null };
+  try {
+    const taught = new Set(selectedSounds);
+    const early = buildLetterLaunchRound(3, [], letterLaunchRandomFor(88, 0), 0, taught);
+    const transfer = buildLetterLaunchRound(3, [], letterLaunchRandomFor(88, 3), 3, taught);
+    assert.equal(early.kind, 'build-word');
+    assert.equal(early.target.word.length, 3);
+    assert.equal(transfer.kind, 'build-word');
+    assert.equal(transfer.target.word.length, 4);
+    assert.ok(transfer.target.graphemes.every((grapheme) => taught.has(grapheme)));
+    assert.ok(getOfflineVoiceClip(transfer.target.word.toLowerCase()), `missing whole-word recording for ${transfer.target.word}`);
+  } finally {
+    if (previousStorage === undefined) delete globalThis.localStorage;
+    else globalThis.localStorage = previousStorage;
+  }
+});
+
+test('every authored four-letter transfer has an exact packaged whole-word recording', () => {
+  const transferWords = PHASE_WORDS.filter(({ word }) => word.length === 4);
+  assert.deepEqual(transferWords.map(({ word }) => word), ['FISH', 'CHIP', 'SHIP', 'RAIN', 'FEET', 'BOAT', 'MOON']);
+  for (const { word } of transferWords) assert.ok(getOfflineVoiceClip(word.toLowerCase()), `missing whole-word audio for ${word}`);
+});
+
+test('case matching supplies a taught shape-confusable distractor where one is available', () => {
+  const taught = new Set(getTaughtGraphemes());
+  let covered = false;
+  for (let seed = 1; seed <= 100; seed += 1) {
+    const round = buildLetterLaunchRound(2, [], letterLaunchRandomFor(seed), 0, taught);
+    if (round.target.letter !== 'B') continue;
+    covered = true;
+    assert.ok(round.options.some(({ letter }) => CASE_CONFUSABLES.B.includes(letter)));
+    break;
+  }
+  assert.equal(covered, true, 'seeded coverage should include a B/distractor comparison');
 });
 
 test('SAT picture clue explains the action instead of presenting only a chair', () => {
@@ -149,7 +193,10 @@ test('offline voice corpus contains every reachable round prompt and next CVC so
       if (round.kind === 'unavailable' || seen.includes(round.key)) break;
       assert.ok(prompts.has(letterLaunchPromptFor(round)), `level ${level}: ${letterLaunchPromptFor(round)}`);
       if (round.kind === 'build-word') {
-        round.target.graphemes.forEach((sound) => assert.ok(prompts.has(letterLaunchNextSoundPrompt(sound)), `missing next-sound cue for ${sound}`));
+        round.target.graphemes.forEach((sound) => {
+          const nextPrompt = letterLaunchNextSoundPrompt(sound);
+          if (nextPrompt) assert.ok(prompts.has(nextPrompt), `missing next-sound cue for ${sound}`);
+        });
       }
       seen.push(round.key);
     }

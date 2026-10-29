@@ -52,3 +52,12 @@ test('hash router binds related-clock history state to navigate, popstate restor
   assert.match(hook, /routeStateRef\.current = window\.history\.state/);
   assert.match(hook, /gameReturnRoute\(from, routeStateRef\.current\)/);
 });
+
+ test('Fact Finder nature routes round-trip and retain their ordinary Explore parent', () => {
+  for (const module of ['continents', 'nature-lab']) {
+    const route = { name: 'game', id: 'worldmap', module };
+    assert.deepEqual(parseRoute(routeHash(route)), route);
+    assert.deepEqual(startupNavigation(routeHash(route), { depth: 2 }, 'reload'), { hash: routeHash(route), state: { depth: 2 } });
+  }
+  assert.equal(routeHash({ name: 'game', id: 'factfinder', module: 'nature-lab' }), '#/play/factfinder');
+});
