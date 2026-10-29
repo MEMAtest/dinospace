@@ -499,7 +499,7 @@ const MonsterMath = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak
             onStep={() => setGuidedSteps((steps) => monsterNumberLineStep(question.model, steps).completed + 1)}
             onResetSteps={() => setGuidedSteps(0)}
           />
-          <section className="flex flex-col justify-center rounded-2xl border-2 border-white/80 bg-white/90 p-2.5 shadow-md sm:rounded-3xl sm:border-4 sm:p-5">
+          <section className={`${locked ? 'hidden sm:flex' : 'flex'} flex-col justify-center rounded-2xl border-2 border-white/80 bg-white/90 p-2.5 shadow-md sm:rounded-3xl sm:border-4 sm:p-5`}>
             <p className="mb-2 text-center text-xs font-black uppercase tracking-widest text-orange-700 sm:mb-3 sm:text-sm">Choose the answer</p>
             <div role="group" aria-label="Choose the answer" className="grid grid-cols-2 gap-2 sm:gap-3">
               {question?.options.map((option) => <button key={option} type="button" disabled={locked} onClick={() => checkAnswer(option)} className="min-h-14 rounded-xl border-2 border-white bg-sky-600 text-2xl font-black text-white shadow-[0_4px_0_#075985] transition hover:bg-sky-700 active:translate-y-1 active:shadow-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2 focus-visible:outline-yellow-300 disabled:opacity-55 sm:min-h-16 sm:rounded-2xl sm:border-4 sm:text-3xl sm:shadow-[0_5px_0_#075985]">{option}</button>)}
