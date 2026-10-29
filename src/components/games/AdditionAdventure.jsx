@@ -389,7 +389,7 @@ export default function AdditionAdventure({ onBack, playSfx = () => {}, soundOn,
             <span>Part: {locked ? question.b : '?'}</span><div className="mt-2 flex max-w-24 flex-wrap justify-center gap-1" aria-hidden="true">{locked && Array.from({length:question.b},(_,i)=><span key={i} className="h-3 w-3 rounded-full border border-emerald-800 bg-emerald-500" />)}</div>
           </div>
         </div>
-        <p className="text-sm font-semibold">Both parts make the whole.</p>
+        {!locked && <p className="text-sm font-semibold">Both parts make the whole.</p>}
       </div>
     );
   }, [question, locked, modelJoined]);
