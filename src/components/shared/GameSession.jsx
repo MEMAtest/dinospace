@@ -9,6 +9,7 @@ import { RewardSticker } from './StickerArt.jsx';
 import { recordGameDiagnostic } from '../../data/gameDiagnostics.js';
 import { awardChapterBadge, getEarnedChapterBadgeIds } from '../../data/chapterBadges.js';
 import LetterLaunchBadgeCollection from './LetterLaunchBadgeCollection.jsx';
+import { commitWordsSessionReward, positiveWordsRewardTransactions, readWordsSessionProgress } from '../../data/wordsSessionProgress.js';
 
 const RoundButton = ({ onClick, label, tone, size = 'h-24 w-24', children }) => (
   <div className="flex flex-col items-center gap-1">
@@ -21,6 +22,10 @@ const RoundButton = ({ onClick, label, tone, size = 'h-24 w-24', children }) => 
 
 const SessionSlot = ({ render, ...props }) => render(props);
 const hasSeededRunTelemetry = (gameId) => gameId === 'letters' || gameId === 'german';
+const newSessionAttemptId = () => {
+  try { return globalThis.crypto?.randomUUID?.() || `run-${Date.now()}-${Math.random().toString(36).slice(2)}`; }
+  catch { return `run-${Date.now()}-${Math.random().toString(36).slice(2)}`; }
+};
 
 // Each older game plays one named level at a time. Its saved level changes the
 // actual question pool or play mechanic through the difficulty context.
@@ -28,7 +33,11 @@ const GameSession = ({
   game, rule, little, playerId, playerName, points = 0, onGameEvent, onCelebrate, onBack, onNextGame, onPhaseChange, playSfx, children,
 }) => {
   const levels = levelsForSession(game.id, little);
-  const [levelState, setLevelState] = useState(() => getGameLevel(playerId, game.id, levels.length));
+  const wordsSession = game.id === 'words';
+  const [wordsProgressState, setWordsProgressState] = useState(() => wordsSession ? readWordsSessionProgress(playerId) : null);
+  const [levelState, setLevelState] = useState(() => wordsSession
+    ? { current: wordsProgressState?.progress.currentLevel || 0, unlocked: wordsProgressState?.progress.unlockedLevel || 0 }
+    : getGameLevel(playerId, game.id, levels.length));
   const [levelIndex, setLevelIndex] = useState(levelState.current);
   const level = levels[levelIndex];
   const target = level?.target || sessionTarget(rule, little);
@@ -42,17 +51,76 @@ const GameSession = ({
   const [earnedChapterBadgeIds, setEarnedChapterBadgeIds] = useState(() => getEarnedChapterBadgeIds(playerId, game.id));
   const [completionChapterBadgeId, setCompletionChapterBadgeId] = useState(null);
   const [completionBadgeIsNew, setCompletionBadgeIsNew] = useState(false);
+  const [sessionSaveError, setSessionSaveError] = useState(() => wordsSession && !wordsProgressState?.ok ? wordsProgressState?.error || 'Saved spelling stage progress could not be checked.' : '');
+  const [sessionSaving, setSessionSaving] = useState(false);
+  const [pendingRewardReceipts, setPendingRewardReceipts] = useState([]);
   const progressRef = useRef({ done: 0, firstTries: 0 });
   const finishTimer = useRef(null);
   const pendingFinishRef = useRef(null);
   const seedMetadataRef = useRef(null);
   const pendingReplayRef = useRef(null);
   const lastStartedLevelRef = useRef(null);
+  const wordsAttemptIdRef = useRef(null);
+  const wordsFinishInFlightRef = useRef(false);
+  const wordsRewardRetryInFlightRef = useRef(false);
+  const wordsReconciledPlayerRef = useRef(null);
 
   useEffect(() => () => clearTimeout(finishTimer.current), []);
   useEffect(() => { onPhaseChange?.(phase); }, [onPhaseChange, phase]);
 
+  const retryPendingWordRewards = useCallback(() => {
+    if (!wordsSession || wordsRewardRetryInFlightRef.current || pendingRewardReceipts.length === 0) return;
+    wordsRewardRetryInFlightRef.current = true;
+    setSessionSaving(true);
+    const stillPending = [];
+    for (const receipt of pendingRewardReceipts) {
+      let reward;
+      try {
+        reward = onCelebrate?.('Level complete!', receipt.rewardDelta, 0, 'words', {
+          quiet: true,
+          rewardToken: `words:${receipt.transactionId}`,
+        });
+      } catch { reward = null; }
+      if (!reward?.persisted) stillPending.push(receipt);
+    }
+    setPendingRewardReceipts(stillPending);
+    setSessionSaveError(stillPending.length ? 'A saved stage reward still needs to be confirmed. Retry before starting another stage.' : '');
+    setSessionSaving(false);
+    wordsRewardRetryInFlightRef.current = false;
+  }, [onCelebrate, pendingRewardReceipts, wordsSession]);
+
+  useEffect(() => {
+    if (!wordsSession) return;
+    const identity = `${playerId}:words`;
+    if (wordsReconciledPlayerRef.current === identity) return;
+    wordsReconciledPlayerRef.current = identity;
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      const loaded = readWordsSessionProgress(playerId);
+      if (!loaded.ok) return;
+      const pending = [];
+      for (const receipt of positiveWordsRewardTransactions(loaded.progress)) {
+        let reward;
+        try {
+          reward = onCelebrate?.('Level complete!', receipt.rewardDelta, 0, 'words', {
+            quiet: true,
+            rewardToken: `words:${receipt.transactionId}`,
+          });
+        } catch { reward = null; }
+        if (!reward?.persisted) pending.push(receipt);
+      }
+      setPendingRewardReceipts(pending);
+      if (pending.length) setSessionSaveError('A saved stage reward still needs to be confirmed. Retry before starting another stage.');
+    });
+    return () => {
+      active = false;
+      if (wordsReconciledPlayerRef.current === identity) wordsReconciledPlayerRef.current = null;
+    };
+  }, [onCelebrate, playerId, wordsSession]);
+
   const start = (nextLevel = levelIndex) => {
+    if (wordsSession && (nextLevel > levelState.unlocked || pendingRewardReceipts.length > 0 || sessionSaving)) return;
     const tracksSeededRun = hasSeededRunTelemetry(game.id);
     const explicitReplay = tracksSeededRun && run > 0 && nextLevel === lastStartedLevelRef.current;
     if (tracksSeededRun) {
@@ -74,12 +142,67 @@ const GameSession = ({
     setLevelIndex(nextLevel);
     setCompletionChapterBadgeId(null);
     setCompletionBadgeIsNew(false);
-    saveGameLevel(playerId, game.id, nextLevel, levelState.unlocked);
+    if (wordsSession) wordsAttemptIdRef.current = newSessionAttemptId();
+    else saveGameLevel(playerId, game.id, nextLevel, levelState.unlocked);
     setRun((value) => value + 1);
     setPhase('play');
   };
 
-  const finishLevel = useCallback(({ next, completedLevel, unlockedBefore }) => {
+  const finishWordsLevel = useCallback((completion) => {
+    if (wordsFinishInFlightRef.current) return;
+    wordsFinishInFlightRef.current = true;
+    setSessionSaving(true);
+    setSessionSaveError('');
+    const { next, completedLevel } = completion;
+    const pointsEarned = sessionStars(next.firstTries, next.done) * 2;
+    const attemptId = completion.attemptId || wordsAttemptIdRef.current;
+    if (!attemptId) {
+      pendingFinishRef.current = completion;
+      setSessionSaveError('This stage attempt could not be identified. Retry the same stage result.');
+      setSessionSaving(false);
+      wordsFinishInFlightRef.current = false;
+      return;
+    }
+
+    let saved;
+    try { saved = commitWordsSessionReward(playerId, completedLevel, pointsEarned, attemptId, onCelebrate); }
+    catch { saved = null; }
+    if (!saved?.ok) {
+      if (saved?.stage === 'reward' && saved.progress) {
+        setWordsProgressState({ ok: true, status: saved.status, progress: saved.progress, error: null });
+        setLevelState({ current: saved.progress.currentLevel, unlocked: saved.progress.unlockedLevel });
+      }
+      pendingFinishRef.current = { ...completion, attemptId };
+      setSessionSaveError(saved?.error || 'Spelling stage progress could not be saved. Retry this same result.');
+      setSessionSaving(false);
+      wordsFinishInFlightRef.current = false;
+      return;
+    }
+
+    setWordsProgressState({ ok: true, status: saved.status, progress: saved.progress, error: null });
+    setLevelState({ current: saved.progress.currentLevel, unlocked: saved.progress.unlockedLevel });
+
+    pendingFinishRef.current = null;
+    const runMetadata = hasSeededRunTelemetry(game.id) ? seedMetadataRef.current : null;
+    recordGameDiagnostic(game.id, 'level_complete', {
+      level: completedLevel,
+      ...(Number.isSafeInteger(runMetadata?.round) ? { round: runMetadata.round } : {}),
+      ...(Number.isSafeInteger(runMetadata?.seed) ? { seed: runMetadata.seed } : {}),
+    });
+    setStars(sessionStars(next.firstTries, next.done));
+    playSfx?.('complete');
+    setSessionSaving(false);
+    setSessionSaveError('');
+    wordsFinishInFlightRef.current = false;
+    setPhase('done');
+  }, [game.id, onCelebrate, playerId, playSfx]);
+
+  const finishLevel = useCallback((completion) => {
+    if (wordsSession) {
+      finishWordsLevel(completion);
+      return;
+    }
+    const { next, completedLevel, unlockedBefore } = completion;
     const runMetadata = hasSeededRunTelemetry(game.id) ? seedMetadataRef.current : null;
     recordGameDiagnostic(game.id, 'level_complete', {
       level: completedLevel,
@@ -103,14 +226,18 @@ const GameSession = ({
     playSfx?.('complete');
     onCelebrate?.('Level complete!', earned * 2, 0, game.id);
     setPhase('done');
-  }, [game.id, levels.length, onCelebrate, playSfx, playerId]);
+  }, [finishWordsLevel, game.id, levels.length, onCelebrate, playSfx, playerId, wordsSession]);
 
   const acknowledgeFinalAnswer = useCallback(() => {
     const pending = pendingFinishRef.current;
     if (!pending) return;
+    if (wordsSession) {
+      finishLevel(pending);
+      return;
+    }
     pendingFinishRef.current = null;
     finishTimer.current = setTimeout(() => finishLevel(pending), 300);
-  }, [finishLevel]);
+  }, [finishLevel, wordsSession]);
 
   const handleEvent = useCallback((gameId, event, payload) => {
     if (hasSeededRunTelemetry(gameId) && payload && typeof payload === 'object') {
@@ -138,7 +265,12 @@ const GameSession = ({
     progressRef.current = next;
     setProgress(next);
     if (next.done >= target) {
-      const completion = { next, completedLevel: levelIndex, unlockedBefore: levelState.unlocked };
+      const completion = {
+        next,
+        completedLevel: levelIndex,
+        unlockedBefore: levelState.unlocked,
+        ...(wordsSession ? { attemptId: wordsAttemptIdRef.current } : {}),
+      };
       if (payload?.deferFinish === true) {
         // Some games show an explanation after the last answer. Keep that
         // explanation available until the child confirms they are ready.
@@ -148,7 +280,7 @@ const GameSession = ({
       // Let the game's own celebration play before the results screen.
       finishTimer.current = setTimeout(() => finishLevel(completion), rule.event === 'level_completed' ? 2600 : 1500);
     }
-  }, [finishLevel, levelIndex, levelState.unlocked, onGameEvent, rule.event, target]);
+  }, [finishLevel, levelIndex, levelState.unlocked, onGameEvent, rule.event, target, wordsSession]);
 
   const handleSessionBack = () => {
     const metadata = seedMetadataRef.current;
@@ -169,7 +301,16 @@ const GameSession = ({
           <div className="h-full rounded-r-full bg-gradient-to-r from-amber-300 to-orange-500 transition-all duration-500" style={{ width: `${(progress.done / target) * 100}%` }} />
         </div>
         <ForcedDifficultyContext.Provider value={levelBand}>
-          <SessionSlot render={children} run={run} onGameEvent={handleEvent} onReviewComplete={acknowledgeFinalAnswer} sessionLevel={levelIndex} sessionTarget={target} />
+          <SessionSlot
+            render={children}
+            run={run}
+            onGameEvent={handleEvent}
+            onReviewComplete={acknowledgeFinalAnswer}
+            sessionLevel={levelIndex}
+            sessionTarget={target}
+            sessionSaveError={wordsSession ? sessionSaveError : ''}
+            sessionSaving={wordsSession && sessionSaving}
+          />
         </ForcedDifficultyContext.Provider>
       </>
     );
@@ -179,7 +320,7 @@ const GameSession = ({
   const newStickers = phase === 'done' ? STICKERS.filter((sticker) => sticker.points > startPoints && sticker.points <= points).slice(-1) : [];
 
   return (
-    <div className={`discovery-session-menu relative flex min-h-[100dvh] w-full flex-col items-center justify-center gap-5 p-4 text-center ${game.color}`}>
+    <div data-compact-session={wordsSession ? 'true' : undefined} className={`discovery-session-menu relative flex min-h-[100dvh] w-full flex-col items-center justify-center gap-5 p-4 text-center ${game.color}`}>
       <div className="absolute left-4 top-4">
         <button type="button" onClick={handleSessionBack} aria-label={little ? 'Back to home' : 'Back to learning world'} className="grid h-14 w-14 place-items-center rounded-full border-4 border-white/80 bg-white text-slate-800 shadow-lg">
           {little ? <Home size={28} /> : <ArrowLeft size={28} />}
@@ -192,11 +333,17 @@ const GameSession = ({
             <h1 className="text-3xl font-black text-slate-900">{game.title}</h1>
             <p className="rounded-full bg-sky-100 px-4 py-1 font-black text-sky-900">Level {levelIndex + 1} of {levels.length}: {level?.name}</p>
             <p className="font-bold text-slate-600">Your goal: {level?.description || rule.how}</p>
+            {wordsSession && sessionSaveError && <p role="alert" className="rounded-xl bg-rose-50 p-3 text-sm font-black text-rose-800">{sessionSaveError}</p>}
+            {wordsSession && pendingRewardReceipts.length > 0 && (
+              <button type="button" onClick={retryPendingWordRewards} disabled={sessionSaving} className="min-h-12 rounded-xl bg-amber-500 px-5 font-black text-white disabled:opacity-60">
+                {sessionSaving ? 'Retrying saved reward…' : 'Retry saved reward'}
+              </button>
+            )}
             {game.id === 'letters' && <LetterLaunchBadgeCollection earnedBadgeIds={earnedChapterBadgeIds} />}
             {levelState.unlocked > 0 && (
               <div className="flex flex-wrap justify-center gap-2" aria-label="Unlocked levels">
                 {levels.map((entry, index) => (
-                  <button key={entry.name} type="button" disabled={index > levelState.unlocked} onClick={() => { setLevelIndex(index); saveGameLevel(playerId, game.id, index, levelState.unlocked); }}
+                  <button key={entry.name} type="button" disabled={index > levelState.unlocked} onClick={() => { setLevelIndex(index); if (!wordsSession) saveGameLevel(playerId, game.id, index, levelState.unlocked); }}
                     aria-label={`Level ${index + 1}: ${entry.name}${index > levelState.unlocked ? ', locked' : ''}`}
                     className={`grid h-12 w-12 place-items-center rounded-full border-2 font-black ${index === levelIndex ? 'border-blue-700 bg-blue-500 text-white' : index > levelState.unlocked ? 'border-slate-200 bg-slate-100 text-slate-400' : 'border-amber-300 bg-amber-100 text-amber-900'}`}>{index + 1}</button>
                 ))}
@@ -205,7 +352,7 @@ const GameSession = ({
             <div className="flex items-center gap-1.5" aria-label={`${target} to finish`}>
               {Array.from({ length: target }, (_, index) => <span key={index} className="h-3 w-3 rounded-full bg-amber-300" />)}
             </div>
-            <button type="button" onClick={() => start()} aria-label={`Play ${game.title} level ${levelIndex + 1}`} className="mt-2 flex h-28 w-28 flex-col items-center justify-center gap-0.5 rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_8px_0_#166534] transition-transform hover:scale-105 active:translate-y-2 active:shadow-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-indigo-700">
+            <button type="button" onClick={() => start()} disabled={wordsSession && (pendingRewardReceipts.length > 0 || sessionSaving)} aria-label={`Play ${game.title} level ${levelIndex + 1}`} className="mt-2 flex h-28 w-28 flex-col items-center justify-center gap-0.5 rounded-full border-[6px] border-white bg-gradient-to-b from-lime-400 to-green-600 text-white shadow-[0_8px_0_#166534] transition-transform hover:scale-105 active:translate-y-2 active:shadow-none focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-indigo-700 disabled:opacity-60">
               <Play size={48} fill="currentColor" className="ml-1" aria-hidden="true" />
               <span className="text-base font-black leading-none">Start</span>
             </button>

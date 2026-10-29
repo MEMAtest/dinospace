@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { DEFAULT_TAUGHT_GRAPHEMES } from '../src/data/literacy.js';
-import { appendSpellingRecent, makeSpellingQueue, qualifiesForIndependentSpelling, SPELLING_PREANSWER_CUES, SPELLING_TRICKY_WORDS, SPELLING_WORDS, spellingTrickyWordsForPhase, spellingWordsForPhase } from '../src/data/spellingStudio.js';
+import { appendSpellingRecent, makeSpellingQueue, qualifiesForIndependentSpelling, spellingAttemptAttribution, spellingAttemptMasteryEligible, spellingCaptionSegments, SPELLING_PREANSWER_CUES, SPELLING_TRICKY_WORDS, SPELLING_WORDS, spellingSessionMode, spellingTrickyWordsForPhase, spellingWordsForPhase } from '../src/data/spellingStudio.js';
 
 test('spelling pool has at least 20 individually decodable words in each phase band', () => {
   const phase2 = spellingWordsForPhase(2, new Set(DEFAULT_TAUGHT_GRAPHEMES));
@@ -87,4 +87,69 @@ test('session progression reaches the longer pools without repeating within a le
   assert.equal(SESSION_LEVELS.hangman.length, 4);
   for (let level = 3; level < 6; level++) assert.ok(spellingLevelWords(level, taught).length >= SESSION_LEVELS.words[level].target);
   for (let level = 1; level < 4; level++) assert.ok(spellingLevelWords(level + 2, taught).length >= SESSION_LEVELS.hangman[level].target);
+});
+
+test('six session stages use their authored interaction mode and eligible pool size', async () => {
+  const { SESSION_LEVELS } = await import('../src/data/sessionLevels.js');
+  const { spellingLevelWords } = await import('../src/data/spellingStudio.js');
+  const taught = new Set(DEFAULT_TAUGHT_GRAPHEMES);
+  assert.deepEqual(SESSION_LEVELS.words.map((_, index) => spellingSessionMode(index)), [
+    'copy', 'missing', 'spell', 'spell', 'spell', 'spell',
+  ]);
+  for (const [index, level] of SESSION_LEVELS.words.entries()) {
+    const pool = spellingLevelWords(index, taught);
+    assert.ok(pool.length >= level.target, `${level.name} needs ${level.target}; found ${pool.length}`);
+    const queue = makeSpellingQueue(pool, { seed: index + 1 });
+    assert.equal(new Set(queue.map(({ word }) => word)).size, queue.length, `${level.name} repeats before cycling`);
+    if (index === 3) assert.ok(pool.every(({ word }) => word.length === 4));
+    if (index === 4) assert.ok(pool.every(({ word }) => word.length === 5));
+    if (index === 5) assert.ok(pool.every(({ word }) => word.length >= 6 && word.length <= 7));
+  }
+});
+
+test('independent spelling and phonics mastery remain separate for tricky and longer clusters', () => {
+  const simple = SPELLING_WORDS.find(({ word }) => word === 'SAT');
+  const phaseThree = SPELLING_WORDS.find(({ word }) => word === 'FISH');
+  const longerCluster = { word: 'ROCK', graphemes: ['r', 'o', 'ck'], phase: 2, family: 'longer words' };
+  const tricky = { word: 'THE', phase: 2, family: 'tricky' };
+  assert.equal(qualifiesForIndependentSpelling({ mode: 'spell' }), true);
+  assert.equal(spellingAttemptMasteryEligible({ mode: 'spell', word: simple }), true);
+  assert.equal(spellingAttemptMasteryEligible({ mode: 'spell', word: phaseThree }), true);
+  assert.equal(qualifiesForIndependentSpelling({ mode: 'spell', hadMistake: true }), false);
+  assert.equal(qualifiesForIndependentSpelling({ mode: 'spell', usedTeachingHint: true }), false);
+  assert.equal(spellingAttemptMasteryEligible({ mode: 'spell', word: longerCluster }), false);
+  assert.equal(spellingAttemptMasteryEligible({ mode: 'tricky', word: tricky }), false);
+  assert.deepEqual(spellingAttemptAttribution({ mode: 'copy', word: simple }), {
+    firstAttempt: true, independent: false, masteryEligible: true,
+  });
+  assert.deepEqual(spellingAttemptAttribution({ mode: 'spell', word: longerCluster }), {
+    firstAttempt: true, independent: true, masteryEligible: false,
+  });
+  assert.deepEqual(spellingAttemptAttribution({ mode: 'spell', word: simple, usedTeachingHint: true }), {
+    firstAttempt: false, independent: false, masteryEligible: true,
+  });
+});
+
+test('caption voice requires exact packaged segments and does not invent a prompt recording', async () => {
+  const { DECODABLE_CAPTIONS } = await import('../src/data/literacy.js');
+  const { getOfflineVoiceClip } = await import('../src/data/offlineVoice.js');
+  const recorded = DECODABLE_CAPTIONS.find(({ text }) => spellingCaptionSegments(text, (part) => Boolean(getOfflineVoiceClip(part, 'en-US'))));
+  const unrecorded = DECODABLE_CAPTIONS.find(({ text }) => !spellingCaptionSegments(text, (part) => Boolean(getOfflineVoiceClip(part, 'en-US'))));
+  assert.ok(recorded);
+  assert.deepEqual(spellingCaptionSegments(recorded.text, (part) => Boolean(getOfflineVoiceClip(part, 'en-US'))), recorded.text.split(' ').map((part) => part.replace(/[.,!?;]+$/u, '')));
+  assert.ok(unrecorded);
+  assert.equal(spellingCaptionSegments(unrecorded.text, (part) => Boolean(getOfflineVoiceClip(part, 'en-US'))), null);
+  assert.equal(spellingCaptionSegments('Read and copy: A CAT SAT.', (part) => Boolean(getOfflineVoiceClip(part, 'en-US'))), null);
+});
+
+test('all authored spelling word prompts have exact packaged clips and files', async () => {
+  const { LONGER_SPELLING_WORDS } = await import('../src/data/spellingStudio.js');
+  const { getOfflineVoiceClip } = await import('../src/data/offlineVoice.js');
+  const { existsSync } = await import('node:fs');
+  for (const item of [...SPELLING_WORDS, ...SPELLING_TRICKY_WORDS, ...LONGER_SPELLING_WORDS]) {
+    const clip = getOfflineVoiceClip(item.word, 'en-US');
+    assert.ok(clip, `${item.word} has no exact packaged clip`);
+    assert.ok(existsSync(new URL(`../public${clip}`, import.meta.url)), `${item.word} clip file is missing`);
+  }
+  assert.ok(getOfflineVoiceClip('Super!', 'en-US'));
 });

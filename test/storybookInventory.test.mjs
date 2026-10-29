@@ -14,11 +14,20 @@ const database = (books, failRead = false) => ({
       transaction(name, mode) {
         assert.equal(name, 'books');
         assert.equal(mode, 'readonly');
-        return { objectStore() { return { getAll() {
-          const read = { result: books, error: failRead ? new Error('Read denied') : null };
-          queueMicrotask(() => failRead ? read.onerror() : read.onsuccess());
-          return read;
-        } }; } };
+        const tx = {
+          error: null,
+          abort() { this.onabort?.(); },
+          objectStore() { return { getAll() {
+            const read = { result: books, error: failRead ? new Error('Read denied') : null };
+            queueMicrotask(() => {
+              if (failRead) { read.onerror(); return; }
+              read.onsuccess();
+              setImmediate(() => tx.oncomplete?.());
+            });
+            return read;
+          } }; },
+        };
+        return tx;
       },
     } };
     queueMicrotask(() => request.onsuccess());

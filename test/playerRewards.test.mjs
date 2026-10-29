@@ -77,6 +77,66 @@ test('Pair7 reward claims pay once across remounts, stale tabs and later ordinar
   assert.equal(readPlayerRewards('askia', storage).points, 0);
 });
 
+test('words stage claims recover quietly once and preserve Dino, Hangman and ordinary game rewards', () => {
+  const storage = store();
+  const stale = readPlayerRewards('amari', storage);
+  const first = claim('amari', stale, 4, 'words', storage, 'words:stage-2-run');
+  assert.equal(first.persisted, true);
+  assert.equal(first.awardedPoints, 4);
+  assert.equal(first.gamesPlayed.words, 1);
+  const repeated = claim('amari', stale, 4, 'words', storage, 'words:stage-2-run');
+  assert.equal(repeated.persisted, true);
+  assert.equal(repeated.recovered, true);
+  assert.equal(repeated.awardedPoints, 0);
+  assert.equal(repeated.gamesPlayed.words, 1);
+  const dino = claim('amari', repeated, 3, 'dino', storage, 'dino:already-earned');
+  const hangman = claim('amari', dino, 2, 'hangman', storage, 'hangman:already-earned');
+  const ordinary = commitPlayerReward('amari', stale, 1, 'addition', storage);
+  assert.equal(ordinary.points, 10);
+  assert.deepEqual(ordinary.gamesPlayed, { words: 1, dino: 1, hangman: 1, addition: 1 });
+  assert.equal(ordinary.rewardClaims['words:stage-2-run'], 4);
+  assert.equal(ordinary.rewardClaims['dino:already-earned'], 3);
+  assert.equal(ordinary.rewardClaims['hangman:already-earned'], 2);
+  assert.equal(readPlayerRewards('askia', storage).points, 0);
+  assert.equal(hangman.points, 9);
+});
+
+test('storybook completion claims accept only storybooks tokens and stay idempotent alongside existing claims', () => {
+  const storage = store();
+  const dino = claim('amari', readPlayerRewards('amari', storage), 3, 'dino', storage, 'dino:world-1');
+  const story = claim('amari', dino, 1, 'storybooks', storage, 'storybooks:storybook-child-1-moon-map');
+  assert.equal(story.persisted, true);
+  assert.equal(story.points, 4);
+  assert.equal(story.gamesPlayed.storybooks, 1);
+  const replay = claim('amari', story, 1, 'storybooks', storage, 'storybooks:storybook-child-1-moon-map');
+  assert.equal(replay.persisted, true);
+  assert.equal(replay.recovered, true);
+  assert.equal(replay.awardedPoints, 0);
+  assert.equal(replay.gamesPlayed.storybooks, 1);
+  assert.equal(replay.rewardClaims['dino:world-1'], 3);
+  assert.equal(replay.rewardClaims['storybooks:storybook-child-1-moon-map'], 1);
+  assert.equal(claim('amari', replay, 1, 'storybooks', storage, 'words:wrong-scope').persisted, false);
+  assert.equal(readPlayerRewards('askia', storage).points, 0);
+});
+
+test('a committed words claim with failed readback quietly recovers without a second play', () => {
+  const backing = store();
+  let throwNextRead = false;
+  const storage = {
+    getItem(key) { if (key === rewardKey('amari') && throwNextRead) { throwNextRead = false; throw Error('temporary readback failure'); } return backing.getItem(key); },
+    setItem(key, value) { backing.setItem(key, value); if (key === rewardKey('amari')) throwNextRead = true; },
+  };
+  const failed = claim('amari', {}, 6, 'words', storage, 'words:stage-6-run');
+  assert.equal(failed.persisted, false);
+  assert.equal(failed.awardedPoints, 0);
+  const recovered = claim('amari', readPlayerRewards('amari', backing), 6, 'words', backing, 'words:stage-6-run');
+  assert.equal(recovered.persisted, true);
+  assert.equal(recovered.recovered, true);
+  assert.equal(recovered.awardedPoints, 0);
+  assert.equal(recovered.gamesPlayed.words, 1);
+  assert.equal(recovered.points, 6);
+});
+
 test('a committed reward with failed readback recovers after a fresh read without duplicate points or plays', () => {
   const backing = store();
   let throwNextRead = false;
@@ -132,6 +192,8 @@ test('claim scope and amount mismatches are rejected, while valid unknown metada
   storage.setItem(rewardKey('askia'), '{"untouched":true}');
   const before = storage.getItem(rewardKey('amari'));
   assert.equal(claim('amari', {}, 3, 'addition', storage, 'dino:wrong-game').persisted, false);
+  assert.equal(claim('amari', {}, 3, 'words', storage, 'dino:wrong-game').persisted, false);
+  assert.equal(claim('amari', {}, 3, 'words', storage, 'hangman:wrong-prefix').persisted, false);
   assert.equal(storage.getItem(rewardKey('amari')), before);
   const first = claim('amari', {}, 3, 'dino', storage, 'dino:valid-run');
   assert.equal(first.points, 11);

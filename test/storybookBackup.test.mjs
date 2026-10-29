@@ -4,8 +4,9 @@ import { createStorybookBackup, readStorybookBackup } from '../src/data/storyboo
 
 const makeBook = () => ({
   id: 'custom-test-book', slug: 'custom-test-book', custom: true, title: 'The Little Comet', ageBand: '5-6',
+  childMetadata: { schoolGroup: 'blue', language: 'en-GB' },
   coverAssetKey: 'custom-test-book:cover', coverAudioAssetKey: 'custom-test-book:cover-audio',
-  pages: [{ number: 1, title: 'A new friend', text: 'The comet waved hello.', imageAssetKey: 'custom-test-book:page-1:image', audioAssetKey: 'custom-test-book:page-1:audio' }],
+  pages: [{ number: 1, title: 'A new friend', text: 'The comet waved hello.', imageAssetKey: 'custom-test-book:page-1:image', audioAssetKey: 'custom-test-book:page-1:audio', seriesMetadata: { characterName: 'Milo' } }],
 });
 
 test('story backup round-trips book text, picture/narration blobs and page progress', async () => {
@@ -18,15 +19,24 @@ test('story backup round-trips book text, picture/narration blobs and page progr
       { key: book.pages[0].imageAssetKey, blob: new Blob(['page'], { type: 'image/webp' }) },
       { key: book.pages[0].audioAssetKey, blob: new Blob(['page voice'], { type: 'audio/mpeg' }) },
     ],
-    progress: { amari: { [book.slug]: { pageIndex: 4, favourite: true, completed: false } } },
+    progress: { amari: {
+      [book.slug]: { pageIndex: 4, favourite: true, completed: false, privateReadingNote: 'Read with Dad', readingMetadata: { voice: 'soft', pace: 2 } },
+      childSettings: { fontScale: 1.25, contrast: 'warm' },
+    }, askia: { profileMetadata: { favouriteCharacter: 'Comet' } } },
   });
   const restored = readStorybookBackup(serialized);
   assert.equal(restored.books[0].title, 'The Little Comet');
+  assert.deepEqual(restored.books[0].childMetadata, { schoolGroup: 'blue', language: 'en-GB' });
+  assert.deepEqual(restored.books[0].pages[0].seriesMetadata, { characterName: 'Milo' });
   assert.equal(restored.assets.length, 4);
   assert.equal(restored.assets[0].blob.type, 'image/webp');
   assert.equal(await restored.assets[0].blob.text(), 'cover');
   assert.equal(restored.progress.amari[book.slug].pageIndex, 4);
   assert.equal(restored.progress.amari[book.slug].favourite, true);
+  assert.equal(restored.progress.amari[book.slug].privateReadingNote, 'Read with Dad');
+  assert.deepEqual(restored.progress.amari[book.slug].readingMetadata, { voice: 'soft', pace: 2 });
+  assert.deepEqual(restored.progress.amari.childSettings, { fontScale: 1.25, contrast: 'warm' });
+  assert.deepEqual(restored.progress.askia.profileMetadata, { favouriteCharacter: 'Comet' });
 });
 
 test('story restore rejects unrelated files, non-custom books and mismatched assets', () => {

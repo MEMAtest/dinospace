@@ -14,3 +14,79 @@
 .discovery-logo-planet{width:48px;height:48px;object-fit:contain;filter:drop-shadow(0 2px 6px #51d4ff80)}@media(max-width:800px){.discovery-logo-planet{width:34px;height:34px}}
 
 .discovery-game-content>.discovery-session-menu{background-image:linear-gradient(135deg,#e9f9fff5,#fafffff5)!important;background-color:#edf9ff!important}
+
+/* Reading and spelling keep the current task and next action together. */
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) { --literacy-chrome: 72px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header { min-height: 56px; padding: 4px 10px; gap: 6px; flex-wrap: nowrap; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-brand { min-height: 44px; font-size: 16px; gap: 4px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-brand small { display: none; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-logo-planet { width: 28px; height: 28px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header nav { width: auto; order: 0; gap: 4px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header nav button { width: 44px; min-height: 44px; padding: 5px; border-radius: 12px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header nav button span { display: none; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-profile { padding: 4px 8px; font-size: 12px; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-profile img,
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-header .discovery-profile > span { display: none; }
+.discovery-game-surface:is([data-discovery-game="words"],[data-discovery-game="storybooks"]) > .discovery-game-content { padding: 8px 8px 12px; }
+.discovery-game-content > [data-compact-session="true"] { min-height: calc(100dvh - var(--literacy-chrome)); gap: 8px; padding: 12px; }
+[data-compact-session="true"] > .grid { gap: 10px; padding: 16px; }
+[data-compact-session="true"] .catalogue-welcome-art { height: 100px; }
+[data-compact-session="true"] .catalogue-welcome-art .kid-pop-icon { height: 90px; }
+[data-compact-session="true"] h1 { font-size: 24px; }
+[data-compact-session="true"] > .grid > .mt-2 { margin-top: 0; }
+.spelling-studio { min-height: calc(100dvh - var(--literacy-chrome)); }
+@media (max-height: 900px) {
+ .spelling-studio .amari-scene-header { padding: 6px 8px; }
+ .spelling-studio main { padding-bottom: 12px; }
+ .spelling-studio [aria-label="Spelling practice modes"] { margin-top: 4px; padding: 4px; display: flex; overflow: visible; }
+ .spelling-studio [aria-label="Spelling practice modes"] > button { flex: 1; min-width: 0; min-height: 44px; padding: 4px; }
+ .spelling-studio [aria-label="Spelling practice modes"] > button > span:last-child { display: none; }
+ .spelling-studio main > p[aria-live] { margin-top: 6px; padding: 4px 12px; }
+ .spelling-studio .amari-scene-card { margin-top: 6px; padding: 10px; }
+ .spelling-word-cue { display: grid; grid-template-columns: 80px minmax(0,1fr); gap: 8px; align-items: center; }
+ .spelling-word-art { height: 80px; width: 80px; font-size: 48px; }
+ .spelling-word-teaching > :is(p,div) { margin-top: 4px; min-height: 0; }
+ .spelling-word-teaching p { font-size: 14px; line-height: 1.3; }
+ .spelling-word-teaching [aria-label^="Word to copy"] > p:last-child { font-size: 24px; }
+ .spelling-word-teaching button { min-height: 44px; margin-top: 4px; padding-inline: 10px; font-size: 14px; }
+ .spelling-word-spaces { margin-top: 8px; }
+ .spelling-word-spaces > div { width: 36px; height: 44px; font-size: 20px; }
+ .spelling-studio :is([aria-label="Letter tiles"],[aria-label="Choose the missing sound"]) { margin-top: 8px; gap: 6px; }
+ .spelling-studio :is([aria-label="Letter tiles"],[aria-label="Choose the missing sound"]) > button { width: 44px; height: 44px; font-size: 24px; border-radius: 12px; }
+ .spelling-word-feedback { margin-top: 6px; min-height: 34px; }
+ .spelling-word-feedback p { font-size: 14px; line-height: 1.35; }
+ .spelling-studio main > p:not([aria-live]), .spelling-studio main > details { margin-top: 6px; }
+}
+
+.discovery-game-surface[data-discovery-game="storybooks"] .storybook-reader { height: calc(100dvh - var(--literacy-chrome)); min-height: 0; padding: 8px; }
+.storybook-reader-frame { height: 100%; min-height: 0; }
+.storybook-reader-frame > header { flex-shrink: 0; }
+.storybook-reader-frame > header h1 { white-space: normal; font-size: 18px; line-height: 1.2; }
+.storybook-reader-frame > header p { display: none; }
+.storybook-reader-frame > [aria-label^="Page "] { margin-top: 8px; flex-shrink: 0; }
+.storybook-reading-layout { min-height: 0; margin-top: 8px; gap: 8px; }
+.storybook-reading-layout > :first-child { min-height: 0; height: 100%; padding: 4px; }
+.storybook-reading-layout > :first-child img { height: 100%; max-height: 100%; object-fit: contain; }
+.storybook-reading-layout > :first-child > div { min-height: 0; }
+.storybook-reading-panel { min-height: 0; max-height: 100%; overflow-y: auto; overscroll-behavior: contain; padding: 12px; scrollbar-width: thin; }
+.storybook-reading-panel > p { margin-top: 8px; }
+.storybook-reading-panel > p.text-xl { font-size: 18px; line-height: 1.5; }
+.storybook-reading-panel > div { margin-top: 8px; }
+.storybook-reading-panel > details { margin-top: 8px; padding: 8px; }
+.storybook-reading-panel .storybook-start-reading { margin-top: 8px; padding: 8px 12px; min-height: 48px; flex-shrink: 0; }
+.storybook-reader-frame > footer { margin-top: 8px; flex-shrink: 0; }
+.storybook-reader-frame > footer button { min-height: 48px; }
+@media (max-width: 1023px) {
+ .storybook-reading-layout { grid-template-rows: minmax(100px, 30%) minmax(0,1fr); }
+ .storybook-reading-panel .storybook-cover-title { display: none; }
+ .storybook-reading-panel > p { font-size: 14px; line-height: 1.45; }
+ .storybook-reading-panel > .mt-3 { margin-top: 6px; }
+ .storybook-reading-panel > button { flex-shrink: 0; margin-top: 6px; padding: 6px 10px; }
+ .storybook-reading-layout > :first-child > span { bottom: 8px; font-size: 10px; padding: 4px 10px; }
+}
+.discovery-game-surface[data-discovery-game="storybooks"] .storybook-quiz { height: auto; min-height: calc(100dvh - var(--literacy-chrome)); }
+.storybook-quiz > div { min-height: calc(100dvh - var(--literacy-chrome) - 16px); padding: 12px; }
+.storybook-quiz h1 { font-size: 24px; }
+.storybook-quiz .mt-6 { margin-top: 12px; }
+.storybook-quiz [role="status"] { margin-top: 12px; padding: 10px; }
+.storybook-quiz button { padding-block: 10px; }

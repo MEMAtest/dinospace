@@ -1,15 +1,29 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Check, RotateCcw, Volume2 } from 'lucide-react';
-import { getPraise, loadSaved, saveSafe, shuffle } from '../../utils.js';
-import { DECODABLE_CAPTIONS, getTaughtGraphemes, LITERACY_PROFILE_KEY, makeLearningEvent, WRITING_SAMPLES_KEY } from '../../data/literacy.js';
-import { appendSpellingRecent, decodableSpellingWords, spellingLevelWords, makeSpellingQueue, qualifiesForIndependentSpelling, SPELLING_PREANSWER_CUES, SPELLING_RECENT_KEY, SPELLING_WORD_ART, spellingTrickyWordsForPhase } from '../../data/spellingStudio.js';
+import { getPraise, saveSafe, shuffle } from '../../utils.js';
+import { getOfflineVoiceClip } from '../../data/offlineVoice.js';
+import { DECODABLE_CAPTIONS, getTaughtGraphemes, LITERACY_PROFILE_KEY, makeLearningEvent } from '../../data/literacy.js';
+import { appendSpellingRecent, decodableSpellingWords, spellingLevelWords, makeSpellingQueue, qualifiesForIndependentSpelling, spellingAttemptAttribution, spellingCaptionSegments, spellingSessionMode, SPELLING_PREANSWER_CUES, SPELLING_RECENT_KEY, SPELLING_WORD_ART, spellingTrickyWordsForPhase } from '../../data/spellingStudio.js';
+import { commitSpellingAttempt, commitSpellingWritingSample, readSpellingProgress } from '../../data/spellingProgress.js';
 import { useGameDifficulty } from '../../hooks/useGameDifficulty.js';
 import { SoundToggle } from '../shared/index.jsx';
 import classroomScene from '../../assets/game-scenes/spelling-studio.webp';
 import './amariScenes.css';
 
-const PROGRESS_KEY = 'amari_spelling_progress_v1';
 const LETTER_BANK = ['s', 'a', 't', 'p', 'i', 'n', 'm', 'd', 'g', 'o', 'c', 'k', 'e', 'u', 'r', 'h', 'b', 'f', 'l', 'sh', 'ch', 'th', 'ai', 'ee', 'oa', 'oo'];
+
+const speakPackaged = (speak, text, segments = [text]) => {
+  if (typeof speak !== 'function' || !text || !Array.isArray(segments) || segments.length === 0
+    || segments.some((segment) => !getOfflineVoiceClip(segment, 'en-US'))
+    || segments.join(' ') !== text) return false;
+  speak(text, { premium: false, segments });
+  return true;
+};
+
+const newSpellingAttemptId = () => {
+  try { return globalThis.crypto?.randomUUID?.() || `spelling-${Date.now()}-${Math.random().toString(36).slice(2)}`; }
+  catch { return `spelling-${Date.now()}-${Math.random().toString(36).slice(2)}`; }
+};
 
 const MODES = [
   { id: 'copy', label: 'Learn it', short: 'See and build', icon: '👀' },
@@ -30,13 +44,12 @@ const makeMissingOptions = (graphemes, missingIndex, taught = getTaughtGraphemes
   return shuffle([answer, ...decoys]);
 };
 
-const STAGE_MODES = ['copy', 'missing', 'spell'];
 const STAGE_NAMES = ['Copy the word', 'Find the missing sound', 'Build the whole word', 'Four-letter explorer', 'Five-letter builder', 'Long-word challenge'];
-const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, sessionTarget = 0, sessionLevel = 0, onReviewComplete, initialPracticeMode, hideOptionalPractice = false }) => {
+const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebrate, onGameEvent, sessionTarget = 0, sessionLevel = 0, onReviewComplete, sessionSaveError = '', sessionSaving = false, initialPracticeMode, hideOptionalPractice = false, suppressPracticeRewards = false }) => {
   const difficulty = useGameDifficulty('words');
   const [runDifficulty] = useState(difficulty);
   const [selectedMode, setSelectedMode] = useState(() => initialPracticeMode || (runDifficulty === 'challenge' ? 'spell' : runDifficulty === 'growing' ? 'missing' : 'copy'));
-  const mode = sessionTarget > 0 ? STAGE_MODES[Math.min(sessionLevel, STAGE_MODES.length - 1)] : selectedMode;
+  const mode = sessionTarget > 0 ? spellingSessionMode(sessionLevel) : selectedMode;
   const [run] = useState(() => {
     const taught = getTaughtGraphemes();
     const seed = Math.floor(Math.random() * 0xFFFFFFFF);
@@ -62,7 +75,14 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
   const [locked, setLocked] = useState(false);
   const [hadMistake, setHadMistake] = useState(false);
   const [usedTeachingHint, setUsedTeachingHint] = useState(false);
-  const [progress, setProgress] = useState(() => loadSaved(PROGRESS_KEY, {}));
+  const [savedProgress, setSavedProgress] = useState(() => readSpellingProgress());
+  const progress = savedProgress.progress;
+  const [pendingSave, setPendingSave] = useState(null);
+  const pendingSaveRef = useRef(null);
+  const finalizedAttemptRef = useRef(null);
+  const [pendingCaptionSave, setPendingCaptionSave] = useState(null);
+  const pendingCaptionSaveRef = useRef(null);
+  const finalizedCaptionRef = useRef(null);
   const stageCount = stageProgress.level === sessionLevel ? stageProgress.count : 0;
 
   const regularWords = queue;
@@ -83,6 +103,10 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     return eligible;
   }, [taught]);
   const caption = captions.length ? captions[wordIndex % captions.length] : null;
+  const captionSegments = useMemo(
+    () => caption ? spellingCaptionSegments(caption.text, (segment) => Boolean(getOfflineVoiceClip(segment, 'en-US'))) : null,
+    [caption],
+  );
   const missingOptions = useMemo(
     () => makeMissingOptions(word.graphemes, missingIndex, taught),
     [word.graphemes, missingIndex, taught],
@@ -111,9 +135,9 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   useEffect(() => {
     if (!words.length) return;
-    if (mode === 'caption' && caption) speak(`Read and copy: ${caption.text}`);
-    else speak(word.word);
-  }, [caption, mode, word.word, word.hint, speak, words.length]);
+    if (mode === 'caption' && caption && captionSegments) speakPackaged(speak, captionSegments.join(' '), captionSegments);
+    else if (mode !== 'caption') speakPackaged(speak, word.word);
+  }, [caption, captionSegments, mode, word.word, speak, words.length]);
 
   const resetRound = (nextIndex = wordIndex, nextMode = mode) => {
     const selectedWords = nextMode === 'tricky' ? trickyWords : regularWords;
@@ -146,49 +170,79 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   useEffect(() => { if (words.length && mode !== 'caption' && mode !== 'tricky') rememberWord(word); }, [mode, word, words.length]);
 
-  const recordSuccess = () => {
+  const finishCommittedSuccess = (attempt, committedProgress) => {
+    if (!attempt || finalizedAttemptRef.current === attempt.transactionId) return;
+    finalizedAttemptRef.current = attempt.transactionId;
+    pendingSaveRef.current = null;
+    setPendingSave(null);
+    setSavedProgress({ ok: true, progress: committedProgress, reason: null });
     const praise = getPraise();
-    const firstAttempt = !hadMistake && !usedTeachingHint;
-    const independent = qualifiesForIndependentSpelling({ mode, hadMistake, usedTeachingHint });
-    const previous = progress[word.word] || { attempts: 0, independentFirstTry: 0, independentDays: [], needsPractice: 0 };
-    const today = new Date().toISOString().slice(0, 10);
-    const independentDays = independent && !previous.independentDays?.includes(today)
-      ? [...(previous.independentDays || []), today]
-      : (previous.independentDays || []);
-    const nextProgress = {
-      ...progress,
-      [word.word]: {
-        attempts: previous.attempts + 1,
-        independentFirstTry: previous.independentFirstTry + (independent ? 1 : 0),
-        independentDays,
-        needsPractice: previous.needsPractice + (hadMistake ? 1 : 0),
-        lastMode: mode,
-        lastSeen: today,
-      },
-    };
-    setProgress(nextProgress);
-    saveSafe(PROGRESS_KEY, nextProgress);
-    const teaching = mode === 'missing'
-      ? `The missing sound is ${word.graphemes[missingIndex]}. ${word.hint}`
-      : `You built ${word.word.toLowerCase()} from ${word.graphemes.join(' · ')}. ${word.hint}`;
-    setFeedback(independent ? `${praise} First try! ${teaching}` : `${praise} ${teaching}`);
+    const teaching = attempt.mode === 'missing'
+      ? `The missing sound is ${attempt.missingSound}. ${attempt.word.hint}`
+      : `You built ${attempt.word.word.toLowerCase()} from ${attempt.word.graphemes.join(' · ')}. ${attempt.word.hint}`;
+    setFeedback(attempt.independent ? `${praise} First try! ${teaching}` : `${praise} ${teaching}`);
     setScore((current) => current + 1);
     setStageProgress((current) => ({ level: sessionLevel, count: (current.level === sessionLevel ? current.count : 0) + 1 }));
     setLocked(true);
     playSfx('success');
-    speak('Super!');
-    onCelebrate(praise, independent ? 5 : 4, 300);
-    onGameEvent?.('words', 'answer_attempt', { level: sessionTarget > 0 ? sessionLevel : 0, round: stageCount + 1, seed: runSeed, difficulty: mode, correct: true, firstAttempt });
-    onGameEvent?.('words', 'answer_correct', { level: sessionTarget > 0 ? sessionLevel : 0, round: stageCount + 1, seed: runSeed, difficulty: mode, correct: true, firstAttempt, deferFinish: sessionTarget > 0 && stageCount + 1 >= sessionTarget });
-    onGameEvent?.('words', 'learning_attempt', makeLearningEvent({
-      skill: mode === 'missing' ? 'phoneme-gap' : mode === 'copy' ? 'supported-spelling' : mode === 'tricky' ? 'tricky-word-spelling' : 'independent-spelling',
-      item: word.word,
-      response: word.word,
+    speakPackaged(speak, 'Super!');
+    if (sessionTarget === 0 && !suppressPracticeRewards) onCelebrate?.(praise, attempt.independent ? 5 : 4, 300);
+    onGameEvent?.('words', 'answer_attempt', { level: sessionTarget > 0 ? sessionLevel : 0, round: stageCount + 1, seed: runSeed, difficulty: attempt.mode, correct: true, firstAttempt: attempt.firstAttempt });
+    onGameEvent?.('words', 'answer_correct', { level: sessionTarget > 0 ? sessionLevel : 0, round: stageCount + 1, seed: runSeed, difficulty: attempt.mode, correct: true, firstAttempt: attempt.firstAttempt, deferFinish: sessionTarget > 0 && stageCount + 1 >= sessionTarget });
+    const learningAttempt = makeLearningEvent({
+      skill: attempt.mode === 'missing' ? 'phoneme-gap' : attempt.mode === 'copy' ? 'supported-spelling' : attempt.mode === 'tricky' ? 'tricky-word-spelling' : 'independent-spelling',
+      item: attempt.word.word,
+      response: attempt.word.word,
       correct: true,
-      firstTry: firstAttempt,
-      difficulty: mode === 'copy' ? 'starter' : mode === 'missing' ? 'growing' : 'challenge',
-      extra: { family: word.family, phase: word.phase },
-    }));
+      firstTry: attempt.firstAttempt,
+      hints: attempt.usedTeachingHint ? 1 : 0,
+      difficulty: attempt.mode === 'copy' ? 'starter' : attempt.mode === 'missing' ? 'growing' : 'challenge',
+      extra: {
+        family: attempt.word.family,
+        phase: attempt.word.phase,
+        wordLength: attempt.word.word.length,
+        masteryEligible: spellingAttemptAttribution(attempt).masteryEligible,
+      },
+    });
+    learningAttempt.independent = attempt.independent;
+    onGameEvent?.('words', 'learning_attempt', learningAttempt);
+  };
+
+  const retrySpellingSave = () => {
+    const attempt = pendingSaveRef.current;
+    if (!attempt) return;
+    const result = commitSpellingAttempt(undefined, { ...attempt, word: attempt.word.word });
+    if (!result.ok) {
+      setFeedback('Your answer is right, but the progress save still needs help. Keep this screen open and try again.');
+      return;
+    }
+    finishCommittedSuccess(attempt, result.progress);
+  };
+
+  const recordSuccess = () => {
+    if (pendingSaveRef.current) return;
+    const firstAttempt = !hadMistake && !usedTeachingHint;
+    const independent = qualifiesForIndependentSpelling({ mode, hadMistake, usedTeachingHint });
+    const attempt = {
+      word,
+      mode,
+      missingSound: word.graphemes[missingIndex],
+      transactionId: newSpellingAttemptId(),
+      independent,
+      hadMistake,
+      usedTeachingHint,
+      firstAttempt,
+      today: new Date().toISOString().slice(0, 10),
+    };
+    pendingSaveRef.current = attempt;
+    setPendingSave(attempt);
+    setLocked(true);
+    const result = commitSpellingAttempt(undefined, { ...attempt, word: attempt.word.word });
+    if (!result.ok) {
+      setFeedback('Your answer is right, but the progress save could not be confirmed. Retry to keep this word and stage progress.');
+      return;
+    }
+    finishCommittedSuccess(attempt, result.progress);
   };
 
   const showTeachingHint = () => {
@@ -206,7 +260,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       setHadMistake(true);
       setFeedback(mode === 'copy' ? `The next letter is ${expected}` : 'Say the word slowly and listen for the next sound.');
       playSfx('wrong');
-      speak(mode === 'copy' ? expected : word.word);
+      speakPackaged(speak, mode === 'copy' ? expected : word.word);
       return;
     }
 
@@ -225,7 +279,7 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
       setHadMistake(true);
       setFeedback('Say the word slowly and listen again.');
       playSfx('wrong');
-      speak(word.word);
+      speakPackaged(speak, word.word);
       return;
     }
     playSfx('tap');
@@ -247,24 +301,49 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
     resetRound(nextIndex);
   };
 
+  const finishCaptionSave = (sample) => {
+    if (!sample || finalizedCaptionRef.current === sample.id) return;
+    finalizedCaptionRef.current = sample.id;
+    pendingCaptionSaveRef.current = null;
+    setPendingCaptionSave(null);
+    setCaptionSaved(true);
+    setFeedback('Saved for your grown-up to see! This writing sample is not graded.');
+    playSfx('success');
+    if (sessionTarget === 0 && !suppressPracticeRewards) onCelebrate?.('Writing saved!', 3, 200);
+    onGameEvent?.('words', 'learning_attempt', makeLearningEvent({
+      skill: 'caption-writing', item: sample.prompt, response: sample.response, correct: null, firstTry: true,
+      difficulty: caption?.phase === 2 ? 'growing' : 'challenge', extra: { savedForReview: true, masteryEligible: false },
+    }));
+  };
+
+  const retryCaptionSave = () => {
+    const sample = pendingCaptionSaveRef.current;
+    if (!sample) return;
+    const result = commitSpellingWritingSample(undefined, sample);
+    if (!result.ok) {
+      setFeedback('This writing sample is not saved yet. Keep it here and try again.');
+      return;
+    }
+    finishCaptionSave(sample);
+  };
+
   const saveWritingSample = () => {
     if (!caption) return;
+    if (pendingCaptionSaveRef.current) return;
     const response = captionText.trim();
     if (!response) {
       setFeedback('Write something first. It does not need to be perfect.');
       return;
     }
-    const samples = loadSaved(WRITING_SAMPLES_KEY, []);
-    const sample = { prompt: caption.text, response, savedAt: new Date().toISOString(), reviewed: false };
-    saveSafe(WRITING_SAMPLES_KEY, [...samples.slice(-19), sample]);
-    setCaptionSaved(true);
-    setFeedback('Saved for your grown-up to see!');
-    playSfx('success');
-    onCelebrate('Writing saved!', 3, 200);
-    onGameEvent?.('words', 'learning_attempt', makeLearningEvent({
-      skill: 'caption-writing', item: caption.text, response, correct: null, firstTry: true,
-      difficulty: caption.phase === 2 ? 'growing' : 'challenge', extra: { savedForReview: true },
-    }));
+    const sample = { id: newSpellingAttemptId(), prompt: caption.text, response, savedAt: new Date().toISOString(), reviewed: false };
+    pendingCaptionSaveRef.current = sample;
+    setPendingCaptionSave(sample);
+    const result = commitSpellingWritingSample(undefined, sample);
+    if (!result.ok) {
+      setFeedback('This writing sample could not be confirmed as saved. Retry to keep this draft for your grown-up.');
+      return;
+    }
+    finishCaptionSave(sample);
   };
 
   const leave = () => {
@@ -274,28 +353,29 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
 
   const replayWord = () => {
     onGameEvent?.('words', 'hint', { level: sessionTarget > 0 ? sessionLevel : 0, round: stageCount + 1, seed: runSeed, difficulty: mode, hintType: 'replay_word' });
-    speak(word.word);
+    speakPackaged(speak, word.word);
   };
 
   const replayCaption = () => {
     onGameEvent?.('words', 'hint', { level: sessionTarget > 0 ? sessionLevel : 0, round: stageCount + 1, seed: runSeed, difficulty: mode, hintType: 'replay_caption' });
-    speak(`Read and copy: ${caption.text}`);
+    if (captionSegments) speakPackaged(speak, captionSegments.join(' '), captionSegments);
   };
 
   if (optionalMode) {
     return <WordBuilder
       onBack={() => setOptionalMode(null)} playSfx={playSfx} soundOn={soundOn} onToggleSound={onToggleSound}
       speak={speak} onCelebrate={onCelebrate} initialPracticeMode={optionalMode} hideOptionalPractice
+      suppressPracticeRewards={suppressPracticeRewards || sessionTarget > 0}
     />;
   }
 
   return (
-    <div className="amari-scene text-slate-800" style={{ '--scene-image': `url("${classroomScene}")` }}>
+    <div className="amari-scene spelling-studio text-slate-800" style={{ '--scene-image': `url("${classroomScene}")` }}>
       <header className="amari-scene-header relative z-20">
         <button onClick={leave} className="game-icon-button" aria-label="Back to home"><ArrowLeft /></button>
         <div className="amari-scene-title">
           <h2 className="text-lg sm:text-2xl">✏️ Spelling Studio</h2>
-          <p className="text-xs text-sky-100">{masteredWords} words secure{sessionTarget > 0 ? '' : ` · ${score} today`}</p>
+          <p className="text-xs text-sky-100">{savedProgress.ok ? `${masteredWords} words secure` : 'Saved word progress unavailable'}{sessionTarget > 0 ? '' : savedProgress.ok ? ` · ${score} today` : ''}</p>
         </div>
         <SoundToggle soundOn={soundOn} onToggle={onToggleSound} />
       </header>
@@ -333,18 +413,22 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             <>
               <p className="text-xs font-black uppercase tracking-widest text-cyan-700">Read it, say it, write it</p>
               <p className="mt-3 rounded-2xl bg-cyan-50 p-4 text-2xl font-black text-cyan-900">{caption.text}</p>
-              <button onClick={replayCaption} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full bg-cyan-100 px-4 font-black text-cyan-800"><Volume2 size={19} /> Hear the caption</button>
-              <textarea value={captionText} onChange={(event) => { setCaptionText(event.target.value); setCaptionSaved(false); }} rows={3} placeholder="Type or copy the caption here" className="mt-5 w-full rounded-2xl border-4 border-cyan-200 bg-white p-4 text-xl font-black uppercase text-slate-800 outline-none focus:border-cyan-500" aria-label="Writing sample" />
+              <button onClick={replayCaption} disabled={!captionSegments} aria-label={captionSegments ? 'Hear the caption' : 'No packaged caption recording available'} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full bg-cyan-100 px-4 font-black text-cyan-800 disabled:opacity-50"><Volume2 size={19} /> {captionSegments ? 'Hear the caption' : 'Read the caption on screen'}</button>
+              <textarea value={captionText} onChange={(event) => { setCaptionText(event.target.value); setCaptionSaved(false); }} disabled={Boolean(pendingCaptionSave)} rows={3} placeholder="Type or copy the caption here" className="mt-5 w-full rounded-2xl border-4 border-cyan-200 bg-white p-4 text-xl font-black uppercase text-slate-800 outline-none focus:border-cyan-500 disabled:opacity-70" aria-label="Writing sample" />
               <p className="mt-2 text-xs font-bold text-slate-500">This is saved as a writing sample for a grown-up to review. The app does not pretend to grade handwriting.</p>
-              <button onClick={saveWritingSample} disabled={captionSaved} className="mt-4 min-h-12 rounded-xl bg-emerald-500 px-6 font-black text-white shadow-lg disabled:opacity-60">{captionSaved ? 'Saved!' : 'Save my writing'}</button>
+              {pendingCaptionSave
+                ? <button type="button" onClick={retryCaptionSave} className="mt-4 min-h-12 rounded-xl bg-amber-500 px-6 font-black text-white shadow-lg"><RotateCcw size={18} className="mr-2 inline" />Retry saving writing</button>
+                : <button onClick={saveWritingSample} disabled={captionSaved} className="mt-4 min-h-12 rounded-xl bg-emerald-500 px-6 font-black text-white shadow-lg disabled:opacity-60">{captionSaved ? 'Saved!' : 'Save my writing'}</button>}
             </>
           ) : <>
-          <div className="mx-auto grid h-28 w-36 place-items-center rounded-3xl bg-cyan-50 text-6xl shadow-inner sm:h-32 sm:w-40">
+          <div className="spelling-word-cue">
+          <div className="spelling-word-art mx-auto grid h-28 w-36 place-items-center rounded-3xl bg-cyan-50 text-6xl shadow-inner sm:h-32 sm:w-40">
             {SPELLING_WORD_ART[word.word]
               ? <img src={SPELLING_WORD_ART[word.word].src} alt={artworkDescription} className="h-full w-full object-contain p-1" />
               : word.word === 'TAN' ? <span role="img" aria-label={artworkDescription} className="block h-20 w-20 rounded-2xl border-2 border-white" style={{ backgroundColor: '#d2b48c' }} />
                 : <span role="img" aria-label={artworkDescription}>{word.emoji}</span>}
           </div>
+          <div className="spelling-word-teaching">
           {mode === 'copy'
             ? <p className="mt-3 text-lg font-bold text-slate-700">{word.hint}</p>
             : <div className="mt-3 min-h-12">
@@ -364,7 +448,9 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             </div>
           )}
 
-          <div className="mt-5 flex flex-wrap justify-center gap-1 sm:gap-3" aria-label="Word spaces">
+          </div>
+          </div>
+          <div className="spelling-word-spaces mt-5 flex flex-wrap justify-center gap-1 sm:gap-3" aria-label="Word spaces">
             {word.graphemes.map((letter, index) => {
               const shown = mode === 'missing' ? (index === missingIndex ? (locked ? letter : '') : letter) : typed[index]?.letter;
               return (
@@ -393,8 +479,9 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
             </div>
           )}
 
-          <div className="mt-4 min-h-12" aria-live="polite">
+          <div className="spelling-word-feedback mt-4 min-h-12" aria-live="polite">
             {feedback && <p className={`text-lg font-black ${locked ? 'text-emerald-600' : 'text-amber-700'}`}>{feedback}</p>}
+            {sessionSaveError && <p role="alert" className="mt-2 text-sm font-black text-rose-700">{sessionSaveError}</p>}
           </div>
 
           <div className="flex flex-wrap justify-center gap-3">
@@ -402,7 +489,9 @@ const WordBuilder = ({ onBack, playSfx, soundOn, onToggleSound, speak, onCelebra
               <button onClick={handleUndo} className="inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-4 font-black text-cyan-700 shadow"><RotateCcw size={18} /> Undo</button>
             )}
             {locked && (
-              <button onClick={nextWord} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-500 px-6 font-black text-white shadow-lg transition hover:bg-emerald-600"><Check size={20} /> {sessionTarget > 0 && stageCount >= sessionTarget ? 'Finish stage' : 'Next word'}</button>
+              pendingSave
+                ? <button type="button" onClick={retrySpellingSave} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-amber-500 px-6 font-black text-white shadow-lg"><RotateCcw size={18} /> Retry saving word</button>
+                : <button onClick={nextWord} disabled={sessionTarget > 0 && stageCount >= sessionTarget && sessionSaving} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-emerald-500 px-6 font-black text-white shadow-lg transition hover:bg-emerald-600 disabled:opacity-60"><Check size={20} /> {sessionTarget > 0 && stageCount >= sessionTarget ? (sessionSaveError ? 'Retry saving level' : 'Finish stage') : 'Next word'}</button>
             )}
           </div>
           </>}

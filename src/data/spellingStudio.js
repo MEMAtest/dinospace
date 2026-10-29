@@ -163,6 +163,35 @@ export const qualifiesForIndependentSpelling = ({ mode, hadMistake = false, used
   ['spell', 'tricky'].includes(mode) && !hadMistake && !usedTeachingHint
 );
 
+const SPELLING_SESSION_MODES = Object.freeze(['copy', 'missing', 'spell']);
+export const spellingSessionMode = (level) => SPELLING_SESSION_MODES[Math.min(Math.max(Number(level) || 0, 0), SPELLING_SESSION_MODES.length - 1)];
+
+// Longer-word and tricky-word practice can be independent spelling without
+// being evidence of a simple phase phoneme mastery item.
+export const spellingAttemptMasteryEligible = ({ mode, word } = {}) => (
+  mode !== 'tricky'
+  && word?.family !== 'tricky'
+  && word?.family !== 'longer words'
+  && (word?.phase === 2 || word?.phase === 3)
+);
+
+export const spellingAttemptAttribution = ({ mode, word, hadMistake = false, usedTeachingHint = false } = {}) => ({
+  firstAttempt: !hadMistake && !usedTeachingHint,
+  independent: qualifiesForIndependentSpelling({ mode, hadMistake, usedTeachingHint }),
+  masteryEligible: spellingAttemptMasteryEligible({ mode, word }),
+});
+
+// The speech hook accepts exact packaged segments. Keep punctuation on each
+// displayed word so the spoken sequence corresponds to the caption as printed.
+export const spellingCaptionSegments = (text, hasPackagedClip) => {
+  if (typeof text !== 'string' || !text || typeof hasPackagedClip !== 'function') return null;
+  const tokens = text.split(' ');
+  if (tokens.join(' ') !== text) return null;
+  const segments = tokens.map((token) => token.replace(/[.,!?;]+$/u, ''));
+  if (segments.some((segment) => !segment || !hasPackagedClip(segment))) return null;
+  return segments;
+};
+
 export const decodableSpellingWords = (taught) => SPELLING_WORDS.filter((item) => item.graphemes.every((grapheme) => taught.has(grapheme)));
 
 export const spellingWordsForPhase = (phase, taught) => SPELLING_WORDS.filter((item) => item.phase === phase && item.graphemes.every((grapheme) => taught.has(grapheme)));

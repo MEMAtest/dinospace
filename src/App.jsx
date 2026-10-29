@@ -213,7 +213,7 @@ const PlayerSession = ({
       rewardsRef.current = next;
       setRewards(next);
       // These lessons hold their own receipt and Retry action beside the result.
-      const lessonOwnsRetry = Boolean(rewardToken && ['dino', 'hangman'].includes(gameIdAtCall));
+      const lessonOwnsRetry = Boolean(rewardToken && ['dino', 'hangman', 'words', 'storybooks'].includes(gameIdAtCall));
       setRewardSaveFailed(!next.persisted && !lessonOwnsRetry);
       const total = next.points;
       if (quiet || (rewardToken && (!next.persisted || next.awardedPoints === 0))) return next;
@@ -309,7 +309,7 @@ const PlayerSession = ({
               onPhaseChange={handlePhaseChange}
               playSfx={playSfx}
             >
-              {({ run, onGameEvent, onReviewComplete, sessionLevel, sessionTarget }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} sessionLevel={sessionLevel} sessionTarget={sessionTarget} onGameEvent={onGameEvent} onReviewComplete={onReviewComplete} />}
+              {({ run, onGameEvent, onReviewComplete, sessionLevel, sessionTarget, sessionSaveError, sessionSaving }) => <GameComponent key={`${currentGame.id}-${run}`} {...gameProps} sessionLevel={sessionLevel} sessionTarget={sessionTarget} onGameEvent={onGameEvent} onReviewComplete={onReviewComplete} {...(currentGame.id === 'words' ? { sessionSaveError, sessionSaving } : {})} />}
             </GameSession>
           ) : (
             <GameComponent key={currentGame.id} {...gameProps} />

@@ -8,7 +8,7 @@ const record = (value) => value && typeof value === 'object' && !Array.isArray(v
 const count = (value) => Number.isFinite(value) && value >= 0 ? value : 0;
 const defaultStorage = () => { try { return globalThis.localStorage || null; } catch { return null; } };
 const plainRecord = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
-const validClaim = (key, amount) => typeof key === 'string' && /^(dino|hangman):[a-z0-9:_-]{1,160}$/i.test(key)
+const validClaim = (key, amount) => typeof key === 'string' && /^(dino|hangman|words|storybooks):[a-z0-9:_-]{1,160}$/i.test(key)
   && Number.isInteger(amount) && amount > 0 && amount <= 12;
 const read = (storage, key, fallback) => {
   try { return JSON.parse(storage?.getItem(key) ?? 'null') ?? fallback; } catch { return fallback; }
@@ -48,13 +48,13 @@ const writeMirrors = (playerId, next, storage) => {
   }
 };
 
-// Only Pair7 opts into claims. A claim is stored in the same authoritative
+// Only opted-in lessons use claims. A claim is stored in the same authoritative
 // record as its points, so a committed-but-unconfirmed award can be recovered
 // after Back/reload without paying twice. Other callers keep their old API.
 const commitClaimedReward = (playerId, current, amount, gameId, storage, rewardToken) => {
   const before = mergeRewards(readPlayerRewards(playerId, storage), current);
   const failed = (error) => ({ ...before, persisted: false, awardedPoints: 0, recovered: false, error });
-  if (!['dino', 'hangman'].includes(gameId) || !String(rewardToken).startsWith(`${gameId}:`) || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
+  if (!['dino', 'hangman', 'words', 'storybooks'].includes(gameId) || !String(rewardToken).startsWith(`${gameId}:`) || !validClaim(rewardToken, amount)) return failed('Reward claim is invalid.');
   if (!storage || typeof storage.getItem !== 'function' || typeof storage.setItem !== 'function') return failed('Reward storage is unavailable.');
   let canonical, canonicalRaw;
   try {

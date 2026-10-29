@@ -10,6 +10,20 @@ const assetRefsFor = (book) => [
   [book.coverAudioAssetKey, 'audio'],
   ...book.pages.flatMap((page) => [[page.imageAssetKey, 'image'], [page.audioAssetKey, 'audio']]),
 ];
+const safeJsonValue = (value, depth = 0) => {
+  if (depth > 24) return undefined;
+  if (value === null || typeof value === 'string' || typeof value === 'boolean') return value;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : undefined;
+  if (Array.isArray(value)) return value.map((item) => safeJsonValue(item, depth + 1) ?? null);
+  if (!value || typeof value !== 'object') return undefined;
+  const cleaned = {};
+  for (const [key, item] of Object.entries(value)) {
+    if (UNSAFE_KEYS.has(key)) continue;
+    const safeValue = safeJsonValue(item, depth + 1);
+    if (safeValue !== undefined) cleaned[key] = safeValue;
+  }
+  return cleaned;
+};
 const blobToBase64 = async (blob) => {
   const bytes = new Uint8Array(await blob.arrayBuffer());
   let binary = '';
@@ -50,29 +64,60 @@ const validBook = (book) => book && typeof book === 'object' && !Array.isArray(b
 
 const safeProgress = (progress) => {
   if (!progress || typeof progress !== 'object' || Array.isArray(progress)) return {};
-  const cleaned = Object.create(null);
-  for (const [childId, childItems] of Object.entries(progress)) {
+  const source = safeJsonValue(progress) || {};
+  const cleaned = {};
+  for (const [childId, childItems] of Object.entries(source)) {
     if (UNSAFE_KEYS.has(childId) || !childId || childId.length > 120 || !childItems || typeof childItems !== 'object' || Array.isArray(childItems)) continue;
-    const childProgress = Object.create(null);
+    const childProgress = {};
     for (const [slug, value] of Object.entries(childItems)) {
-      if (UNSAFE_KEYS.has(slug) || slug.length > 160 || !value || typeof value !== 'object' || Array.isArray(value)) continue;
+      if (UNSAFE_KEYS.has(slug) || slug.length > 160) continue;
+      if (!value || typeof value !== 'object' || Array.isArray(value)) { childProgress[slug] = value; continue; }
+      if (!['pageIndex', 'completed', 'favourite', 'lastReadAt'].some((key) => Object.hasOwn(value, key))) {
+        childProgress[slug] = value;
+        continue;
+      }
       const pageIndex = Number.isInteger(value.pageIndex) ? Math.max(-1, Math.min(10, value.pageIndex)) : -1;
-      childProgress[slug] = {
+      const normalised = {
+        ...value,
         pageIndex,
         completed: value.completed === true,
         favourite: value.favourite === true,
-        ...(typeof value.lastReadAt === 'string' ? { lastReadAt: value.lastReadAt.slice(0, 40) } : {}),
       };
+      if (typeof value.lastReadAt === 'string') normalised.lastReadAt = value.lastReadAt.slice(0, 40);
+      else delete normalised.lastReadAt;
+      childProgress[slug] = normalised;
     }
     cleaned[childId] = childProgress;
   }
   return cleaned;
 };
 
+export const assertValidStorybookRecords = ({ books, assets }) => {
+  if (!Array.isArray(books) || !books.length || books.length > MAX_BOOKS || !Array.isArray(assets) || assets.length > MAX_ASSETS
+    || !books.every(validBook) || new Set(books.map((book) => book.id)).size !== books.length) {
+    throw new Error('This story backup contains an invalid saved story.');
+  }
+  const expected = new Map(books.flatMap((book) => assetRefsFor(book)));
+  const seen = new Set();
+  for (const asset of assets) {
+    const type = asset?.blob?.type || '';
+    if (!asset || typeof asset.key !== 'string' || !expected.has(asset.key) || seen.has(asset.key)
+      || !(asset.blob instanceof Blob) || !asset.blob.size
+      || typeof type !== 'string' || !type.startsWith(`${expected.get(asset.key)}/`)
+      || (asset.blob.type && asset.type && asset.blob.type !== asset.type)) {
+      throw new Error('This story backup contains a mismatched picture or narration file.');
+    }
+    seen.add(asset.key);
+  }
+  if (seen.size !== expected.size) throw new Error('This story backup is missing a picture or narration file.');
+  return true;
+};
+
 export const createStorybookBackup = async ({ books = [], assets = [], progress = {} }) => {
+  if (!Array.isArray(books) || !Array.isArray(assets)) throw new Error('A saved story is incomplete and cannot be backed up.');
   const customBooks = books.filter((book) => book?.custom === true);
   if (!customBooks.length) throw new Error('There are no saved custom stories to back up yet.');
-  if (customBooks.length > MAX_BOOKS || !customBooks.every(validBook)) throw new Error('A saved story is incomplete and cannot be backed up.');
+  if (customBooks.length > MAX_BOOKS || !customBooks.every(validBook) || new Set(customBooks.map((book) => book.id)).size !== customBooks.length) throw new Error('A saved story is incomplete and cannot be backed up.');
   const needed = new Map(customBooks.flatMap((book) => assetRefsFor(book)));
   const assetMap = new Map(assets.map(({ key, blob }) => [key, blob]));
   if (assetMap.size !== assets.length) throw new Error('Saved stories contain duplicate picture or narration files.');
@@ -115,5 +160,6 @@ export const readStorybookBackup = (serialized) => {
     return { key: asset.key, blob: base64ToBlob(asset.base64, asset.type) };
   });
   if (seen.size !== expected.size) throw new Error('This story backup is missing a picture or narration file.');
+  assertValidStorybookRecords({ books: payload.books, assets });
   return { books: payload.books, assets, progress: safeProgress(payload.progress) };
 };
