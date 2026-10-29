@@ -307,3 +307,12 @@
   .puzzle-tray-heading .puzzle-hint-button { display: none; }
   .puzzle-tray-swipe-cue { margin: 0; line-height: 1.1; }
 }
+
+.puzzle-completed-picture-row { display: grid; grid-template-columns: 120px minmax(0,1fr); align-items: center; gap: .75rem; }
+.puzzle-completed-picture { width: 120px; height: 120px; border-radius: 1rem; object-fit: cover; border: 2px solid #a7f3d0; }
+@media(max-width:639px) {
+ .puzzle-completed-picture-row { grid-template-columns: 96px minmax(0,1fr); gap: .5rem; }
+ .puzzle-completed-picture { width: 96px; height: 96px; }
+ .puzzle-completed-picture-row h2 { font-size: 1rem; line-height: 1.15; }
+ .puzzle-completed-picture-row .puzzle-completion-fact { margin-top: .3rem; padding: .35rem; font-size: .8rem; line-height: 1.25; }
+}

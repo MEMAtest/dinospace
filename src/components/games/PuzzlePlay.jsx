@@ -473,9 +473,11 @@ const PuzzlePlay = ({ onBack, playSfx = () => {}, soundOn, onToggleSound, speak 
                   </>
                 ) : (
                   <section className="puzzle-completion-panel rounded-3xl border-4 border-emerald-200 bg-white p-4 text-center shadow-xl sm:p-6" aria-live="polite">
-                    <p className="text-4xl" aria-hidden="true">{phase === 'chapter-complete' ? '🏆' : '🎉'}</p>
-                    <h2 className="mt-2 text-xl font-black text-emerald-900">{pendingSceneSave ? `${scene.title} is ready to save` : phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} complete!`}</h2>
-                    <p className="puzzle-completion-fact mt-2 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed text-emerald-950"><strong>Picture fact:</strong> {scene.fact}</p>
+                    <div className="puzzle-completed-picture-row">
+                      <img src={scene.image} alt={`Completed puzzle: ${scene.alt}`} className="puzzle-completed-picture" />
+                      <div><h2 className="text-xl font-black text-emerald-900">{pendingSceneSave ? `${scene.title} is ready to save` : phase === 'chapter-complete' ? `${chapter.name} complete!` : `${scene.title} complete!`}</h2>
+                      <p className="puzzle-completion-fact mt-2 rounded-2xl bg-emerald-50 p-4 text-left font-bold leading-relaxed text-emerald-950"><strong>Picture fact:</strong> {scene.fact}</p></div>
+                    </div>
                     {pendingSceneSave && <div className="puzzle-save-notice" role="status" aria-live="polite">
                       <p>The picture is complete, but its progress has not been saved yet.</p>
                       <button type="button" onClick={confirmSceneSave}>Retry saving this picture</button>
