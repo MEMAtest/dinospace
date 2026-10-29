@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-29",
+  "previousRequestBudget": 167,
+  "reviewedRequestBudget": 168,
+  "reason": "One dedicated PuzzlePlay.css chunk; shared header and existing components are replaced. No new art, narration or corpora prefetch.",
+  "independentByteCeiling": 41943040,
+  "actualBuildAudit": {
+    "at": "2026-10-29T15:51:46.625100+00:00",
+    "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+    "entry": "/assets/arcade-Cqz6yf-q.js",
+    "requests": 167,
+    "bytes": 29777775,
+    "testsPassed": 685,
+    "failed": 0,
+    "skipped": 0
+  }
+}

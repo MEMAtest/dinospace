@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "kind": "Recover held QA Moon Camp after stopped run through visible Retry",
+  "before": "{\"version\":1,\"children\":{\"amari\":{\"unlockedChapter\":0,\"completedSceneIds\":[],\"lastSceneQueue\":[\"moon-camp\",\"dino-park\",\"robin-tree\",\"river-valley\"]}}}",
+  "after": "{\"version\":1,\"children\":{\"amari\":{\"unlockedChapter\":0,\"completedSceneIds\":[\"moon-camp\"],\"lastSceneQueue\":[\"moon-camp\",\"dino-park\",\"robin-tree\",\"river-valley\"],\"lastCompletedSceneId\":\"moon-camp\"}}}",
+  "scene": "Moon Camp complete!"
+}

@@ -1,0 +1,147 @@
+{
+  "at": "2026-10-29T15:17:08.171746+00:00",
+  "newCheckouts": 0,
+  "newProfiles": 0,
+  "newDependencyInstalls": 0,
+  "evidenceBudgetBytes": 8388608,
+  "profileBeforeKiB": 1000332,
+  "profileGrowthBudgetBytes": 67108864,
+  "newAssets": "One CSS chunk; no new raster/narration/paid generation",
+  "movedRepresentative": {
+    "from": "/tmp/amari-pair13-start.jpg",
+    "to": "docs/qa-evidence/puzzle-spot-fit-20261029/candidate-native-intro-recovery.jpg",
+    "sha256": "50a9f32cb270a496279fde2d50ca0fb75060320cd917a2534593eab9f428bc91",
+    "scope": "Earlier candidate phone intro recovery; final exact geometry is in accepted reports"
+  },
+  "checkedAt": "2026-10-29T15:59:53.449068+00:00",
+  "profileAfterKiB": 1041684,
+  "profileGrowthKiB": 41352,
+  "sameNamedSessionRestores": 1,
+  "cleanup": [
+    {
+      "path": "tmp/pair13-build-r5.log",
+      "bytes": 14592,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-build-frozen.log",
+      "bytes": 14591,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-build-r4.log",
+      "bytes": 14591,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-build-r6.log",
+      "bytes": 14591,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-build-r7.log",
+      "bytes": 14592,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-build-r3.log",
+      "bytes": 14591,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-build-r2.log",
+      "bytes": 14592,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-build-r1.log",
+      "bytes": 14592,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-tests-frozen.log",
+      "bytes": 67749,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-tests-r6.log",
+      "bytes": 67770,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-tests-r7.log",
+      "bytes": 67757,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-tests-r5.log",
+      "bytes": 67753,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-tests-r4.log",
+      "bytes": 67760,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-tests-r1.log",
+      "bytes": 67711,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-tests-r3.log",
+      "bytes": 67687,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-tests-r2.log",
+      "bytes": 67721,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-cutover-after.cjs",
+      "bytes": 5137,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-cutover-before.cjs",
+      "bytes": 5138,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-netlify-prod.json",
+      "bytes": 502,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-netlify-draft.json",
+      "bytes": 538,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-vercel.log",
+      "bytes": 17665,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-manual-recovery.log",
+      "bytes": 1269,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/pair13-controlled-abort.cjs",
+      "bytes": 919,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    },
+    {
+      "path": "tmp/stalled-spot-visible-state.log",
+      "bytes": 81,
+      "reason": "Own intermediate build/test logs or generated callbacks; accepted source checks, structured reports and unique failures retained"
+    }
+  ],
+  "removedLogicalBytes": 689889,
+  "retainedStash": "5fc7655933c2902cc77205d37811fcede0406d97",
+  "stashPurpose": "Small scoped recovery snapshot, fully restored source now committed; retain until final catalogue handoff",
+  "newPaidCalls": 0,
+  "evidenceBytes": 1706436
+}

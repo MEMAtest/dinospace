@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "at": "2026-10-29T15:37:04.227914+00:00",
+  "currentRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+  "previousRuntime": "6447d273486c35cb20e4bf9d2565714a88175e26",
+  "unchangedPaths": [
+    "public/art",
+    "public/audio",
+    "public/storybooks"
+  ],
+  "verification": "Git source equality; retained exact served media hashes reused. Actual gameplay separately verifies decoded images and packaged playback. No new corpus download.",
+  "references": [
+    {
+      "path": "docs/qa-evidence/letters-factfinder-20261029/production-critical-art.json",
+      "sha256": "e31008fafd21942ad38fd8d734cd246aa830ff80b740f0e5e63f2798a7007b67"
+    },
+    {
+      "path": "docs/qa-evidence/letters-factfinder-20261029/production-pair-assets.json",
+      "sha256": "1b35996a3d86dafd2e7f3837c8d5758233cd59b0bacbd87931d3de54fe76d3e6"
+    },
+    {
+      "path": "docs/qa-evidence/shadow-progression-20261023/art-provenance.json",
+      "sha256": "4646cc4d161800afae425d18d6efbc03362c09dc97f4c38c54520593d0243833"
+    }
+  ]
+}

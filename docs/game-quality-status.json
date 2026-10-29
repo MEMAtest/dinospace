@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-10-29T15:07:33.392207+00:00",
+  "updatedAt": "2026-10-29T15:59:02.117262+00:00",
   "objective": "All 26 Amari games independently accepted at 4.5/5 or higher",
   "counts": {
     "verified 4.5": 4,
     "in progress": 22,
     "not started": 0
   },
-  "canonicalRelease": "6447d273486c35cb20e4bf9d2565714a88175e26",
+  "canonicalRelease": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
   "currentBatch": 2,
   "scope": "Recorded editorial acceptance and work status; not a fresh all-game canonical production recertification. Null scores are unaccepted, not zero.",
   "games": [
@@ -1076,15 +1076,15 @@
   "publicUrl": "https://dinospace.netlify.app",
   "singlePublicSiteRelease": {
     "publicUrl": "https://dinospace.netlify.app",
-    "runtimeCommit": "6447d273486c35cb20e4bf9d2565714a88175e26",
-    "runtimeDeployment": "dpl_CaooxMSfEMtDkJNKnPCxXniwQCbo",
-    "runtimeUrl": "https://dinospace-eik91fgxl-memas-projects-23a0001d.vercel.app",
-    "netlifyDeploy": "6ae360214fafa0a96af0bddd",
-    "cache": "v49",
-    "evidence": "docs/qa-evidence/chess-input-20261029/README.md",
+    "runtimeCommit": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+    "runtimeDeployment": "dpl_G3ih5CUxPUxRuqwH7MRByJAhNxbH",
+    "runtimeUrl": "https://dinospace-jt59t8k44-memas-projects-23a0001d.vercel.app",
+    "netlifyDeploy": "6ae36c37632598ff25b513b0",
+    "cache": "v50",
+    "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
     "oldPublicAlias": "Redirect-only root/index app entry; legacy API/static routes retained for installed clients",
-    "nativeCheck": "Four native/canonical Chess input journeys at390/1440; cached-shell update retention passed",
-    "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
+    "nativeCheck": "Complete native/canonical Puzzle+Spot390x740/1440x844; actual public local/parent fault retry + cached update retention passed",
+    "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
   },
   "personalStoryRecovery": {
     "userConfirmedExpectedPersonalStories": [
@@ -1187,7 +1187,7 @@
     "functionalAcceptance": true
   },
   "deliveryQueue": "docs/game-delivery-20261027/queue.json",
-  "activeDeliveryPair": "final_integration",
+  "activeDeliveryPair": 14,
   "latestCodeWritingUplift": {
     "runtime": "09dbce3e1f822f92cdfd90bb01453ea319bfecdb",
     "publicUrl": "https://dinospace.netlify.app",
@@ -1245,27 +1245,27 @@
     "functionalAcceptance": true
   },
   "activeDeliveryRelease": {
-    "kind": "chess_input_hotfix",
-    "runtime": "6447d273486c35cb20e4bf9d2565714a88175e26",
-    "entry": "/assets/arcade-p_lH5uAR.js",
+    "pair": 13,
+    "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+    "entry": "/assets/arcade-Cqz6yf-q.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-eik91fgxl-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_CaooxMSfEMtDkJNKnPCxXniwQCbo",
-    "netlifyGatewayDeploy": "6ae360214fafa0a96af0bddd",
-    "serviceWorkerCache": "amari-discovery-v49",
+    "backendUrl": "https://dinospace-jt59t8k44-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_G3ih5CUxPUxRuqwH7MRByJAhNxbH",
+    "netlifyGatewayDeploy": "6ae36c37632598ff25b513b0",
+    "serviceWorkerCache": "amari-discovery-v50",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/chess-input-20261029/README.md",
-    "production": "docs/qa-evidence/chess-input-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/chess-input-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+    "production": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/puzzle-spot-fit-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 674,
+      "passed": 685,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T15:07:33.392207+00:00",
+    "verifiedAt": "2026-10-29T15:59:02.117262+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
+    "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
   },
   "latestDinoHangmanUplift": {
     "pair": 7,
@@ -1294,33 +1294,38 @@
     }
   },
   "activeDeliveryCandidate": {
-    "status": "retained_integration_pending",
-    "baseRuntime": "6447d273486c35cb20e4bf9d2565714a88175e26",
-    "evidence": "docs/game-delivery-20261027/final-integration-protocol.md",
+    "status": "in_progress",
+    "pair": 14,
+    "games": [
+      "jet",
+      "math"
+    ],
+    "evidence": "docs/qa-evidence/sky-monster-save-20261029/protocol.md",
+    "publicRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
     "paidCalls": 0
   },
   "lastVerifiedDeliveryRelease": {
-    "kind": "chess_input_hotfix",
-    "runtime": "6447d273486c35cb20e4bf9d2565714a88175e26",
-    "entry": "/assets/arcade-p_lH5uAR.js",
+    "pair": 13,
+    "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+    "entry": "/assets/arcade-Cqz6yf-q.js",
     "publicUrl": "https://dinospace.netlify.app",
-    "backendUrl": "https://dinospace-eik91fgxl-memas-projects-23a0001d.vercel.app",
-    "deploymentId": "dpl_CaooxMSfEMtDkJNKnPCxXniwQCbo",
-    "netlifyGatewayDeploy": "6ae360214fafa0a96af0bddd",
-    "serviceWorkerCache": "amari-discovery-v49",
+    "backendUrl": "https://dinospace-jt59t8k44-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_G3ih5CUxPUxRuqwH7MRByJAhNxbH",
+    "netlifyGatewayDeploy": "6ae36c37632598ff25b513b0",
+    "serviceWorkerCache": "amari-discovery-v50",
     "status": "live_verified",
-    "evidence": "docs/qa-evidence/chess-input-20261029/README.md",
-    "production": "docs/qa-evidence/chess-input-20261029/production-summary.json",
-    "sourceGates": "docs/qa-evidence/chess-input-20261029/source-gates.json",
+    "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+    "production": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/puzzle-spot-fit-20261029/source-gates.json",
     "sourceTests": {
-      "passed": 674,
+      "passed": 685,
       "failed": 0,
       "skipped": 0
     },
-    "verifiedAt": "2026-10-29T15:07:33.392207+00:00",
+    "verifiedAt": "2026-10-29T15:59:02.117262+00:00",
     "paidCalls": 0,
     "editorialScoresChanged": false,
-    "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
+    "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
   },
   "deliveryReleaseHistory": [
     {
@@ -1499,6 +1504,29 @@
       "paidCalls": 0,
       "editorialScoresChanged": false,
       "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
+    },
+    {
+      "pair": 13,
+      "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+      "entry": "/assets/arcade-Cqz6yf-q.js",
+      "publicUrl": "https://dinospace.netlify.app",
+      "backendUrl": "https://dinospace-jt59t8k44-memas-projects-23a0001d.vercel.app",
+      "deploymentId": "dpl_G3ih5CUxPUxRuqwH7MRByJAhNxbH",
+      "netlifyGatewayDeploy": "6ae36c37632598ff25b513b0",
+      "serviceWorkerCache": "amari-discovery-v50",
+      "status": "live_verified",
+      "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+      "production": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
+      "sourceGates": "docs/qa-evidence/puzzle-spot-fit-20261029/source-gates.json",
+      "sourceTests": {
+        "passed": 685,
+        "failed": 0,
+        "skipped": 0
+      },
+      "verifiedAt": "2026-10-29T15:59:02.117262+00:00",
+      "paidCalls": 0,
+      "editorialScoresChanged": false,
+      "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
     }
   ],
   "latestChessJigsawUplift": {
@@ -1626,5 +1654,28 @@
     "paidCalls": 0,
     "editorialScoresChanged": false,
     "scope": "Pointer-input regression preserving prior full Chess rules/mate/reward acceptance. Natural synthetic boards; no data reset or new whole-catalogue/editorial/physical-device claims."
+  },
+  "latestPuzzleSpotLayoutSaveRepair": {
+    "pair": 13,
+    "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+    "entry": "/assets/arcade-Cqz6yf-q.js",
+    "publicUrl": "https://dinospace.netlify.app",
+    "backendUrl": "https://dinospace-jt59t8k44-memas-projects-23a0001d.vercel.app",
+    "deploymentId": "dpl_G3ih5CUxPUxRuqwH7MRByJAhNxbH",
+    "netlifyGatewayDeploy": "6ae36c37632598ff25b513b0",
+    "serviceWorkerCache": "amari-discovery-v50",
+    "status": "live_verified",
+    "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+    "production": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
+    "sourceGates": "docs/qa-evidence/puzzle-spot-fit-20261029/source-gates.json",
+    "sourceTests": {
+      "passed": 685,
+      "failed": 0,
+      "skipped": 0
+    },
+    "verifiedAt": "2026-10-29T15:59:02.117262+00:00",
+    "paidCalls": 0,
+    "editorialScoresChanged": false,
+    "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery."
   }
 }

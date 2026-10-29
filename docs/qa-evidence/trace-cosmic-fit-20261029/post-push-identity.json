@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "at": "2026-10-29T13:56:47.078960+00:00",
+  "evidenceCommit": "2ee9a980ee6fb8db77b75e642c48a6251a65e17e",
+  "runtime": "bbfffd40be1ae23b7c0760152219bd0fe53138e3",
+  "checks": {
+    "index.html": {
+      "status": 200,
+      "sha256": "8241307b228755954ad424ff9cb0537fd476b831a62bf4f02daf300d432d21eb",
+      "bytes": 1441
+    },
+    "sw.js": {
+      "status": 200,
+      "sha256": "e52b2479e3e52afacf619881e56234bd77229970e6e37c452f8ed1cbc4106aa9",
+      "bytes": 16413
+    }
+  }
+}

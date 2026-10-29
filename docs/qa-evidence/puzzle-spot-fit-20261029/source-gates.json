@@ -1,0 +1,26 @@
+{
+  "at": "2026-10-29T15:51:46.624164+00:00",
+  "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+  "entry": "/assets/arcade-Cqz6yf-q.js",
+  "worker": 50,
+  "tests": {
+    "passed": 685,
+    "failed": 0,
+    "skipped": 0
+  },
+  "lint": "Scoped changed source ESLint passed",
+  "build": "VITE_ELEVENLABS_ENABLED=true npm run build",
+  "hashes": {
+    "src/App.jsx": "b4d29c0b245a9670d164f370b81d5fb018b07e0087634ac1a2d2d6da8c7b20d2",
+    "src/components/games/PuzzlePlay.jsx": "2e176183528802944f80d565b806f3123c748316cfda54a6342a2a70e7143011",
+    "src/components/games/PuzzlePlay.css": "00fe0b4df32f11facb47b37c426fddc9cdd47876efe891331d22d7b25dacdffe",
+    "src/components/games/SpotDifference.jsx": "fa2d4d4f222d03b44be036bbd4b64ec2daddb0e2e41e061771d133ab8db62d18",
+    "src/data/playerRewards.js": "b44d2e056d310a6be6ebcf7ea33037fbf63ebeb5eced5df2e1393c7ae73a08bb",
+    "src/data/puzzlePopBatch2.js": "5ec2e97c3f615786bc507e5d5235a1a5eed21baca9cf473194c880845220ed98",
+    "src/data/spotDifferenceBatch2.js": "cbd1e2c2a865901688ab3f73eac012a4778724fb4ee673fa642ddc5238d225bf",
+    "src/discoveryPremium.css": "b20e39813d174bcec5e1e502042158ea66d1e729869781883665fe671941a6e3",
+    "public/sw.js": "834ed9d6379acf0f829de1d6ecc3393a0f1a0328a1eff208d47e9f2b9484ea03"
+  },
+  "native": "passed; native-summary.json",
+  "production": "passed; production-summary.json"
+}

@@ -1,0 +1,39 @@
+{
+  "passed": false,
+  "failure": {
+    "message": "Playwright callback returned no structured result",
+    "outputTail": "### Error\nError: page.evaluate: Target page, context or browser has been closed\n"
+  },
+  "stage": "native",
+  "runtimeSource": "5b83f175b675b96f4b1f82155e40238ff75c2895",
+  "entry": "/assets/arcade-BFz_vXSJ.js",
+  "sourceHead": "5b83f175b675b96f4b1f82155e40238ff75c2895",
+  "sourceHashes": {
+    "src/App.jsx": "b4d29c0b245a9670d164f370b81d5fb018b07e0087634ac1a2d2d6da8c7b20d2",
+    "src/gameCatalog.jsx": "49a6f4a52f8f22690f4a0567d9dee2e783c631563a83b86cecf14b4545f772af",
+    "src/data/learningWorlds.js": "aae54dfe9c8b4783c6f1527ec93f2bfd11395dd43b70ca7b22e44c654e4d9aa9",
+    "src/data/puzzlePopBatch2.js": "5ec2e97c3f615786bc507e5d5235a1a5eed21baca9cf473194c880845220ed98",
+    "src/data/spotDifferenceBatch2.js": "cbd1e2c2a865901688ab3f73eac012a4778724fb4ee673fa642ddc5238d225bf",
+    "src/data/batch2Narration.js": "979c76771ee751a5a44bb480d910257b05d7148c84eb4f108879efd3df04cc14",
+    "src/components/games/PuzzlePlay.jsx": "2e176183528802944f80d565b806f3123c748316cfda54a6342a2a70e7143011",
+    "src/components/games/PuzzlePlay.css": "00fe0b4df32f11facb47b37c426fddc9cdd47876efe891331d22d7b25dacdffe",
+    "src/components/games/SpotDifference.jsx": "309c30ba1d684f9982aaf8b1d5d149b8ce7cca31d5f65cce976f88530f6f5a31",
+    "src/components/shared/index.jsx": "7361a92a4bcc9bd0fcb60a46e41f4842aef657f865e204dcb7d21d7893de46e1",
+    "src/discoveryPremium.css": "b20e39813d174bcec5e1e502042158ea66d1e729869781883665fe671941a6e3",
+    "docs/game-delivery-20261027/integration-native.cjs": "604e20a20fcd2db9578aef148aee16549f38aee2a11630d3bcda889c5039d98e",
+    "docs/qa-evidence/puzzle-spot-fit-20261029/puzzle-spot-fit-native.cjs": "b67d10440e6c36ae6a5309658cd83d36a01056d44dc6614ac3a6468a97301f65"
+  },
+  "driverSHA256": "b67d10440e6c36ae6a5309658cd83d36a01056d44dc6614ac3a6468a97301f65",
+  "cliReturnCode": 1,
+  "scope": "Full visible-control layout matrix for 12 Puzzle Pop scenes and 12 Spot pairs. Prior batch2 functional acceptance remains historical evidence; this run measures the current compiled release at 390x740 or 1440x844. No reset, state injection, or hidden-answer inspection.",
+  "faultMode": true,
+  "httpEntryPreflight": {
+    "documentStatus": 200,
+    "entryStatus": 200,
+    "entryContentType": "text/javascript",
+    "entryBytes": 1387136,
+    "entrySha256": "e92dccdda6552b593981eb54fa374b2f69195e2d8997808a63a5ffc8c4cbcf9b",
+    "cacheControl": "no-cache request"
+  },
+  "runnerSHA256": "5b07fd41366ad0a9245551ff7db9b635fade9bcd2c2be791c7a02d5136fb0764"
+}

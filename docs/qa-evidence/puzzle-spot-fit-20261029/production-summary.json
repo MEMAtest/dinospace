@@ -1,0 +1,362 @@
+{
+  "passed": true,
+  "stage": "production",
+  "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+  "entry": "/assets/arcade-Cqz6yf-q.js",
+  "worker": "amari-discovery-v50",
+  "at": "2026-10-29T15:59:02.117262+00:00",
+  "cases": [
+    {
+      "report": "production-puzzle-spot-1440x844-arcade-Cqz6yf-q-20261029T155600-425877000.json",
+      "sha256": "f4d85962f449835c5cf93f6bf43e653d126fe59dd575cc8d5564c0194e6cdaf6",
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "lanes": [
+        {
+          "id": "puzzle",
+          "rows": 12,
+          "actions": 200,
+          "faultChecks": {
+            "enabled": false,
+            "localProgress": {
+              "exercised": false,
+              "reason": "The local 9-piece first scene was not reached."
+            },
+            "parentRewardEligibility": {
+              "index": null,
+              "reason": "Fault mode disabled."
+            },
+            "parentReward": {
+              "exercised": false,
+              "reason": "Fault mode disabled."
+            }
+          }
+        },
+        {
+          "id": "spot",
+          "rows": 12,
+          "actions": 60,
+          "faultChecks": {
+            "enabled": false,
+            "localProgress": {
+              "exercised": false,
+              "reason": "The first 3-difference pair was not reached."
+            },
+            "parentRewardEligibility": {
+              "index": null,
+              "reason": "Fault mode disabled."
+            },
+            "parentReward": {
+              "exercised": false,
+              "reason": "Fault mode disabled."
+            }
+          }
+        }
+      ],
+      "rewardDeltas": {
+        "puzzle": {
+          "points": 0,
+          "gamesPlayed": 0,
+          "claimCount": 0
+        },
+        "spot": {
+          "points": 0,
+          "gamesPlayed": 0,
+          "claimCount": 0
+        }
+      },
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      }
+    },
+    {
+      "report": "production-puzzle-spot-390x740-arcade-Cqz6yf-q-20261029T155525-900467000.json",
+      "sha256": "a4b0727da8bf9ef46ddf12e2729c7af3cfb720063e781c81f872e9937b31a333",
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "lanes": [
+        {
+          "id": "puzzle",
+          "rows": 12,
+          "actions": 200,
+          "faultChecks": {
+            "enabled": true,
+            "localProgress": {
+              "exercised": true,
+              "writeFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": false,
+                "mode": "write",
+                "key": "amari_puzzle_pop_batch2_v1"
+              },
+              "heldWrite": {
+                "retryGeometry": {
+                  "text": "Retry saving this picture",
+                  "rect": {
+                    "x": 86.578125,
+                    "y": 447.359375,
+                    "width": 216.828125,
+                    "height": 48,
+                    "right": 303.40625,
+                    "bottom": 495.359375
+                  },
+                  "viewport": {
+                    "width": 390,
+                    "height": 740
+                  },
+                  "centerHit": true,
+                  "pointerEvents": "auto"
+                },
+                "completedImage": {
+                  "alt": "Completed puzzle: Friendly dinosaurs enjoying a sunny park",
+                  "src": "https://dinospace.netlify.app/assets/dino-park-CfXqz-J3.jpg",
+                  "complete": true,
+                  "naturalWidth": 1448,
+                  "naturalHeight": 1086,
+                  "rect": {
+                    "x": 39,
+                    "y": 289.015625,
+                    "width": 96,
+                    "height": 96
+                  }
+                },
+                "imageMatchesActiveScene": true,
+                "heldTitle": true,
+                "heldFact": true,
+                "noLoosePieces": true,
+                "storageUnchanged": true,
+                "nextDisabled": true
+              },
+              "readbackFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": true,
+                "mode": "readback",
+                "key": "amari_puzzle_pop_batch2_v1"
+              },
+              "heldReadback": {
+                "retryGeometry": {
+                  "text": "Retry saving this picture",
+                  "rect": {
+                    "x": 86.578125,
+                    "y": 447.359375,
+                    "width": 216.828125,
+                    "height": 48,
+                    "right": 303.40625,
+                    "bottom": 495.359375
+                  },
+                  "viewport": {
+                    "width": 390,
+                    "height": 740
+                  },
+                  "centerHit": true,
+                  "pointerEvents": "auto"
+                },
+                "completedImage": {
+                  "alt": "Completed puzzle: Friendly dinosaurs enjoying a sunny park",
+                  "src": "https://dinospace.netlify.app/assets/dino-park-CfXqz-J3.jpg",
+                  "complete": true,
+                  "naturalWidth": 1448,
+                  "naturalHeight": 1086,
+                  "rect": {
+                    "x": 39,
+                    "y": 289.015625,
+                    "width": 96,
+                    "height": 96
+                  }
+                },
+                "imageMatchesActiveScene": true,
+                "heldTitle": true,
+                "heldFact": true,
+                "noLoosePieces": true,
+                "storageUnchanged": true,
+                "nextDisabled": true
+              },
+              "finalRetryConfirmed": true,
+              "finalRecordStable": true
+            },
+            "parentRewardEligibility": {
+              "index": 0,
+              "chapterId": "starter"
+            },
+            "parentReward": {
+              "exercised": true,
+              "chapter": "Picture Pioneers",
+              "receiptId": "starter:complete",
+              "rewardToken": "dino:puzzle:starter:complete",
+              "writeFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": false,
+                "mode": "write",
+                "key": "amari_rewards_v2"
+              },
+              "readbackFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": true,
+                "mode": "readback",
+                "key": "amari_rewards_v2"
+              },
+              "parentWriteUnchanged": true,
+              "committedButUnconfirmed": true,
+              "localReceiptClaimed": true,
+              "pointsBefore": 390,
+              "pointsAfter": 392,
+              "pointsDelta": 2,
+              "parentClaimCountBefore": 50,
+              "parentClaimCountAfter": 51
+            }
+          }
+        },
+        {
+          "id": "spot",
+          "rows": 12,
+          "actions": 60,
+          "faultChecks": {
+            "enabled": true,
+            "localProgress": {
+              "exercised": true,
+              "writeFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": false,
+                "mode": "write",
+                "key": "amari_spot_difference_batch2_v1"
+              },
+              "heldWrite": {
+                "storageUnchanged": true,
+                "heldFactRetained": true,
+                "nextAbsent": true,
+                "retryGeometry": {
+                  "text": "Retry save",
+                  "rect": {
+                    "x": 134.140625,
+                    "y": 501.5,
+                    "width": 121.71875,
+                    "height": 48,
+                    "right": 255.859375,
+                    "bottom": 549.5
+                  },
+                  "viewport": {
+                    "width": 390,
+                    "height": 740
+                  },
+                  "centerHit": true,
+                  "pointerEvents": "auto"
+                }
+              },
+              "readbackFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": true,
+                "mode": "readback",
+                "key": "amari_spot_difference_batch2_v1"
+              },
+              "heldReadback": {
+                "storageUnchanged": true,
+                "heldFactRetained": true,
+                "nextAbsent": true,
+                "retryGeometry": {
+                  "text": "Retry save",
+                  "rect": {
+                    "x": 134.140625,
+                    "y": 501.5,
+                    "width": 121.71875,
+                    "height": 48,
+                    "right": 255.859375,
+                    "bottom": 549.5
+                  },
+                  "viewport": {
+                    "width": 390,
+                    "height": 740
+                  },
+                  "centerHit": true,
+                  "pointerEvents": "auto"
+                }
+              },
+              "finalRetryConfirmed": true,
+              "finalRecordStable": true
+            },
+            "parentRewardEligibility": {
+              "index": 0,
+              "chapterId": "starter"
+            },
+            "parentReward": {
+              "exercised": true,
+              "chapter": "Bright-Eyed Beginners",
+              "receiptId": "starter:complete",
+              "rewardToken": "dino:spot:starter:complete",
+              "writeFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": false,
+                "mode": "write",
+                "key": "amari_rewards_v2"
+              },
+              "readbackFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": true,
+                "mode": "readback",
+                "key": "amari_rewards_v2"
+              },
+              "localReceiptClaimed": true,
+              "pointsBefore": 396,
+              "pointsAfter": 398,
+              "pointsDelta": 2,
+              "parentClaimCountBefore": 53,
+              "parentClaimCountAfter": 54
+            }
+          }
+        }
+      ],
+      "rewardDeltas": {
+        "puzzle": {
+          "points": 6,
+          "gamesPlayed": 3,
+          "claimCount": 3
+        },
+        "spot": {
+          "points": 6,
+          "gamesPlayed": 3,
+          "claimCount": 3
+        }
+      },
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      }
+    }
+  ],
+  "publicUrl": "https://dinospace.netlify.app",
+  "backendDeployment": "dpl_G3ih5CUxPUxRuqwH7MRByJAhNxbH",
+  "netlifyGatewayDeploy": "6ae36c37632598ff25b513b0",
+  "tests": {
+    "passed": 685,
+    "failed": 0,
+    "skipped": 0
+  },
+  "scope": "Full12 Puzzle scenes/200 placements and12 Spot pairs/60 differences at each native/canonical390x740 and1440x844. Actual public local/parent write/readback faults both games; saved retries and replay0. No editorial score, physical-device certification or historical personal-story recovery.",
+  "newPaidCalls": 0,
+  "personalBooksRecovered": 0,
+  "evidence": {
+    "native-summary.json": "ae15d99c1bb754fc54b8c6568ddff9809289e71163a3058b4092e437aeb922ea",
+    "production-core.json": "b8d2fd586d7edb23c83f1c359f2801af7c91b8a89479588b5540ad4dafeda637",
+    "published-identity.json": "df5b23933ccfc69e8669d9d80759e47b3a2160e07b209952821a3d599bdb7f94",
+    "cutover-retention.json": "4abd50fc3290590f82058a1c3fcb5d4159be65b28ee539a7ecb295a1e66a3d62",
+    "retained-art-lineage.json": "0a6a23fa4c5ac489a7ed9213deab7a697a29c0fe8be27048b23ab906d1159289",
+    "worker-budget-review.json": "6c6d5fade8228dbbb1ddfcfd731144dd67f0d73e7a003cb5a6111185ebf71e05",
+    "known-failure.json": "2f36e253164fdf9bdc038149a855881dc6ebbe237f73ce326df247e3b4237f35"
+  }
+}

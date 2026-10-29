@@ -1,0 +1,71 @@
+{
+  "title": "Pair 13 retained failure and repair ledger",
+  "status": "Historical evidence only; this file is not a release acceptance result.",
+  "driverCorrections": [
+    {
+      "issue": "Spot header locator matched both the Discovery header and game header.",
+      "classification": "driver defect; corrected",
+      "evidence": "native-puzzle-spot-390x740-arcade-Dwf4KTeX-20261029T153150-807331000.json",
+      "correction": "Scope reads to the header containing the exact Spot the Difference heading."
+    },
+    {
+      "issue": "Normal navigation changed qa_rewards_20261024_amari_recent_games and it was absent from the lane allowlist.",
+      "classification": "driver allowlist defect; corrected",
+      "evidence": "native-puzzle-spot-390x740-arcade-Dwf4KTeX-20261029T153547-790348000.json",
+      "correction": "Allow only amari_recent_games in the Puzzle and Spot lane diffs; App launchGame updates this key through its recentGames effect."
+    },
+    {
+      "issue": "Spot final-pair helper and run loop both owned the Next chapter action.",
+      "classification": "driver transition defect; corrected by source inspection",
+      "evidence": null,
+      "correction": "spotPair leaves the fourth held pair in place; runSpot performs the single Next chapter click. No separate pass is attributed to the earlier driver."
+    },
+    {
+      "issue": "Puzzle and Spot loops could continue indefinitely when a visible action failed to advance progress.",
+      "classification": "driver guard gap; corrected",
+      "evidence": "native-puzzle-spot-390x740-arcade-BFz_vXSJ-20261029T154034-924393000.json",
+      "correction": "Both loops now have authored-count bounds and require exactly one visible progress increment within two seconds; Spot failures preserve completed pair rows and fault-plan details."
+    }
+  ],
+  "productCorrections": [
+    {
+      "issue": "Phone A/B square images extended three pixels below the 740px viewport (y=407, height=336, bottom=743).",
+      "classification": "product layout defect; corrected in later candidate",
+      "evidence": "native-puzzle-spot-390x740-arcade-Dwf4KTeX-20261029T153715-276965000.json",
+      "correction": "Product reduced the phone content height by tightening the repeated instruction/header layout; the geometry gate remains unchanged."
+    },
+    {
+      "issue": "A completed historical Spot pair could present chapter completion during replay before the current run's final pair.",
+      "classification": "product progression defect; corrected in later candidate",
+      "evidence": "Root source/control review; no standalone retained failure report.",
+      "correction": "Chapter-finish presentation now requires pending.isLastScene and saved.chapterComplete; receipt reconciliation remains independent and legacy completed chapters receive no new receipt."
+    },
+    {
+      "issue": "Desktop Spot images rendered at 580x580 with y=355 and bottom=935, outside the 844px viewport.",
+      "classification": "product layout defect; corrected in later candidate",
+      "evidence": "native-puzzle-spot-1440x844-arcade-BFz_vXSJ-20261029T154952-030210000.json",
+      "correction": "Product constrained the desktop comparison grid to a narrower centered width; the viewport geometry gate remains unchanged."
+    }
+  ],
+  "abortedRun": {
+    "evidence": "native-puzzle-spot-390x740-arcade-BFz_vXSJ-20261029T154034-924393000.json",
+    "status": "Aborted by closing only the named QA browser session and restoring the same retained synthetic profile. The callback returned no structured result, so it is not a pass.",
+    "dataHandling": "No storage reset, raw seeding, or progress clearing occurred.",
+    "followup": "Bounded visible-count waits were added to stop stalled loops with a diagnostic error."
+  },
+  "priorMechanicCoverage": [
+    {
+      "game": "Puzzle Pop",
+      "evidence": "native-puzzle-spot-390x740-arcade-Dwf4KTeX-20261029T153150-807331000.json",
+      "source": "373c35ebf81e7ef3b2ee4ed765281f8ad0b4ad69",
+      "result": "All 12 scenes and 200 placements completed before the Spot header failure. Local progress write and committed-readback faults both fired and retried. The starter chapter parent write/readback faults retried token dino:puzzle:starter:complete for exactly +2 points. Three puzzle receipt claims were present after the full Puzzle lane (+6 total points); this run did not complete Spot."
+    },
+    {
+      "game": "Spot the Difference",
+      "evidence": "native-puzzle-spot-390x740-arcade-BFz_vXSJ-20261029T154912-339091000.json",
+      "source": "5b83f175b675b96f4b1f82155e40238ff75c2895",
+      "result": "The native 390x740 matrix passed all 12 Puzzle scenes and 12 Spot pairs. Spot local write/readback faults and naturally eligible challenge-receipt parent write/readback faults fired and retried token dino:spot:challenge:complete for exactly +2 points. Puzzle local write/readback fault passed; no Puzzle parent receipt was naturally eligible in this run."
+    }
+  ],
+  "eligibilityCaveat": "The same retained profile now contains prior progress and receipts. Later CSS-only source changes do not recreate fresh receipt eligibility. Report a parent fault as unavailable when all natural eligible receipts have already been claimed; do not reset or seed progress to reproduce it."
+}

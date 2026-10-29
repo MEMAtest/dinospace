@@ -5,7 +5,7 @@
   "monitoring": "deleted; do not recreate",
   "baselineRuntime": "5e69c2c3f8d56e17424ffe6dc1049b476d3aaec4",
   "batchSize": 2,
-  "activePair": "final_integration",
+  "activePair": 14,
   "pairs": [
     {
       "number": 1,
@@ -269,6 +269,46 @@
       "evidence": "docs/qa-evidence/trace-cosmic-fit-20261029/README.md",
       "sourceGates": "docs/qa-evidence/trace-cosmic-fit-20261029/source-gates.json",
       "verifiedAt": "2026-10-29T13:56:04.265390+00:00"
+    },
+    {
+      "number": 13,
+      "games": [
+        {
+          "id": "puzzle",
+          "name": "Puzzle Pop"
+        },
+        {
+          "id": "spot",
+          "name": "Spot the Difference"
+        }
+      ],
+      "status": "live_verified",
+      "role": "Final integration layout and strict-save repair",
+      "evidence": "docs/qa-evidence/puzzle-spot-fit-20261029/README.md",
+      "openGates": [],
+      "production": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
+      "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+      "verifiedAt": "2026-10-29T15:59:02.117262+00:00"
+    },
+    {
+      "number": 14,
+      "games": [
+        {
+          "id": "jet",
+          "name": "Sky Shapes"
+        },
+        {
+          "id": "math",
+          "name": "Monster Math"
+        }
+      ],
+      "status": "in_progress",
+      "role": "Strict durable save/reward repair and current viewport integration",
+      "evidence": "docs/qa-evidence/sky-monster-save-20261029/protocol.md",
+      "openGates": [
+        "Strict save/readback and parent-receipt recovery",
+        "Full native+canonical affected mechanics both viewports"
+      ]
     }
   ],
   "retainedReleasedScopes": [
@@ -289,12 +329,16 @@
     {
       "id": "puzzle",
       "name": "Puzzle Pop",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full current-layout native/canonical integration and strict-save faults passed at both viewports",
+      "integrationEvidence": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
+      "integrationRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4"
     },
     {
       "id": "spot",
       "name": "Spot the Difference",
-      "status": "existing source-bound functional release retained; final integration regression required"
+      "status": "Full current-layout native/canonical integration and strict-save faults passed at both viewports",
+      "integrationEvidence": "docs/qa-evidence/puzzle-spot-fit-20261029/production-summary.json",
+      "integrationRuntime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4"
     },
     {
       "id": "jet",

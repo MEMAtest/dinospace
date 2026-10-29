@@ -1,0 +1,296 @@
+{
+  "passed": true,
+  "runtime": "e3adcf7f3a2d18c0bf46ed39861602286e846ff4",
+  "entry": "/assets/arcade-Cqz6yf-q.js",
+  "at": "2026-10-29T15:53:14.090595+00:00",
+  "cases": [
+    {
+      "report": "native-puzzle-spot-1440x844-arcade-Cqz6yf-q-20261029T155204-656716000.json",
+      "sha256": "97dba7ba1e934dc5874ddf071206eb026d89844223e5905d38ec3a8e9f6254d5",
+      "viewport": {
+        "width": 1440,
+        "height": 844
+      },
+      "lanes": [
+        {
+          "id": "puzzle",
+          "rows": 12,
+          "actions": 200,
+          "faultChecks": {
+            "enabled": false,
+            "localProgress": {
+              "exercised": false,
+              "reason": "The local 9-piece first scene was not reached."
+            },
+            "parentRewardEligibility": {
+              "index": null,
+              "reason": "Fault mode disabled."
+            },
+            "parentReward": {
+              "exercised": false,
+              "reason": "Fault mode disabled."
+            }
+          }
+        },
+        {
+          "id": "spot",
+          "rows": 12,
+          "actions": 60,
+          "faultChecks": {
+            "enabled": false,
+            "localProgress": {
+              "exercised": false,
+              "reason": "The first 3-difference pair was not reached."
+            },
+            "parentRewardEligibility": {
+              "index": null,
+              "reason": "Fault mode disabled."
+            },
+            "parentReward": {
+              "exercised": false,
+              "reason": "Fault mode disabled."
+            }
+          }
+        }
+      ],
+      "rewardDeltas": {
+        "puzzle": {
+          "points": 0,
+          "gamesPlayed": 0,
+          "claimCount": 0
+        },
+        "spot": {
+          "points": 0,
+          "gamesPlayed": 0,
+          "claimCount": 0
+        }
+      },
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      }
+    },
+    {
+      "report": "native-puzzle-spot-390x740-arcade-Cqz6yf-q-20261029T155133-073199000.json",
+      "sha256": "718763a536a499f5f5866d4b23c111376835e9f0e3685f3b667c5c22b417d7a1",
+      "viewport": {
+        "width": 390,
+        "height": 740
+      },
+      "lanes": [
+        {
+          "id": "puzzle",
+          "rows": 12,
+          "actions": 200,
+          "faultChecks": {
+            "enabled": true,
+            "localProgress": {
+              "exercised": true,
+              "writeFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": false,
+                "mode": "write",
+                "key": "amari_puzzle_pop_batch2_v1"
+              },
+              "heldWrite": {
+                "retryGeometry": {
+                  "text": "Retry saving this picture",
+                  "rect": {
+                    "x": 86.578125,
+                    "y": 447.359375,
+                    "width": 216.828125,
+                    "height": 48,
+                    "right": 303.40625,
+                    "bottom": 495.359375
+                  },
+                  "viewport": {
+                    "width": 390,
+                    "height": 740
+                  },
+                  "centerHit": true,
+                  "pointerEvents": "auto"
+                },
+                "completedImage": {
+                  "alt": "Completed puzzle: Friendly dinosaurs enjoying a sunny park",
+                  "src": "http://127.0.0.1:5180/assets/dino-park-CfXqz-J3.jpg",
+                  "complete": true,
+                  "naturalWidth": 1448,
+                  "naturalHeight": 1086,
+                  "rect": {
+                    "x": 39,
+                    "y": 289.015625,
+                    "width": 96,
+                    "height": 96
+                  }
+                },
+                "imageMatchesActiveScene": true,
+                "heldTitle": true,
+                "heldFact": true,
+                "noLoosePieces": true,
+                "storageUnchanged": true,
+                "nextDisabled": true
+              },
+              "readbackFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": true,
+                "mode": "readback",
+                "key": "amari_puzzle_pop_batch2_v1"
+              },
+              "heldReadback": {
+                "retryGeometry": {
+                  "text": "Retry saving this picture",
+                  "rect": {
+                    "x": 86.578125,
+                    "y": 447.359375,
+                    "width": 216.828125,
+                    "height": 48,
+                    "right": 303.40625,
+                    "bottom": 495.359375
+                  },
+                  "viewport": {
+                    "width": 390,
+                    "height": 740
+                  },
+                  "centerHit": true,
+                  "pointerEvents": "auto"
+                },
+                "completedImage": {
+                  "alt": "Completed puzzle: Friendly dinosaurs enjoying a sunny park",
+                  "src": "http://127.0.0.1:5180/assets/dino-park-CfXqz-J3.jpg",
+                  "complete": true,
+                  "naturalWidth": 1448,
+                  "naturalHeight": 1086,
+                  "rect": {
+                    "x": 39,
+                    "y": 289.015625,
+                    "width": 96,
+                    "height": 96
+                  }
+                },
+                "imageMatchesActiveScene": true,
+                "heldTitle": true,
+                "heldFact": true,
+                "noLoosePieces": true,
+                "storageUnchanged": true,
+                "nextDisabled": true
+              },
+              "finalRetryConfirmed": true,
+              "finalRecordStable": true
+            },
+            "parentRewardEligibility": {
+              "index": null,
+              "reason": "No naturally incomplete chapter without an existing receipt; no reward eligibility was created."
+            },
+            "parentReward": {
+              "exercised": false,
+              "reason": "No naturally incomplete chapter without an existing receipt; no reward eligibility was created."
+            }
+          }
+        },
+        {
+          "id": "spot",
+          "rows": 12,
+          "actions": 60,
+          "faultChecks": {
+            "enabled": true,
+            "localProgress": {
+              "exercised": true,
+              "writeFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": false,
+                "mode": "write",
+                "key": "amari_spot_difference_batch2_v1"
+              },
+              "heldWrite": {
+                "storageUnchanged": true,
+                "heldFactRetained": true,
+                "nextAbsent": true,
+                "retryGeometry": {
+                  "text": "Retry save",
+                  "rect": {
+                    "x": 134.140625,
+                    "y": 501.5,
+                    "width": 121.71875,
+                    "height": 48,
+                    "right": 255.859375,
+                    "bottom": 549.5
+                  },
+                  "viewport": {
+                    "width": 390,
+                    "height": 740
+                  },
+                  "centerHit": true,
+                  "pointerEvents": "auto"
+                }
+              },
+              "readbackFault": {
+                "restored": true,
+                "fired": true,
+                "didSet": true,
+                "mode": "readback",
+                "key": "amari_spot_difference_batch2_v1"
+              },
+              "heldReadback": {
+                "storageUnchanged": true,
+                "heldFactRetained": true,
+                "nextAbsent": true,
+                "retryGeometry": {
+                  "text": "Retry save",
+                  "rect": {
+                    "x": 134.140625,
+                    "y": 501.5,
+                    "width": 121.71875,
+                    "height": 48,
+                    "right": 255.859375,
+                    "bottom": 549.5
+                  },
+                  "viewport": {
+                    "width": 390,
+                    "height": 740
+                  },
+                  "centerHit": true,
+                  "pointerEvents": "auto"
+                }
+              },
+              "finalRetryConfirmed": true,
+              "finalRecordStable": true
+            },
+            "parentRewardEligibility": {
+              "index": null,
+              "reason": "No naturally incomplete Spot chapter without an existing receipt; no reward eligibility was created."
+            },
+            "parentReward": {
+              "exercised": false,
+              "reason": "No naturally incomplete Spot chapter without an existing receipt; no reward eligibility was created."
+            }
+          }
+        }
+      ],
+      "rewardDeltas": {
+        "puzzle": {
+          "points": 0,
+          "gamesPlayed": 0,
+          "claimCount": 0
+        },
+        "spot": {
+          "points": 0,
+          "gamesPlayed": 0,
+          "claimCount": 0
+        }
+      },
+      "errors": {
+        "pageErrors": [],
+        "consoleErrors": [],
+        "requestErrors": [],
+        "responseErrors": []
+      }
+    }
+  ],
+  "retainedParentFaultEvidence": "known-failure.json; no synthetic eligibility reset",
+  "scope": "Full12+12 visible-control current layout at both viewports;685 source tests. No editorial score or historical family-data recovery."
+}
