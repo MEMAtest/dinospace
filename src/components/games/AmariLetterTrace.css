@@ -333,3 +333,10 @@
     line-height: 1.22;
   }
 }
+
+@media (min-width: 641px) {
+  main.trace-round-main .trace-canvas-wrap {
+    height: clamp(17.5rem, 34dvh, 20rem);
+    min-height: 17.5rem;
+  }
+}
